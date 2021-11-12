@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{57824F74-5960-4566-BFC2-F46BD9EA95A7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DataAccess</RootNamespace>
+    <AssemblyName>DataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UglyToad.PdfPig, Version=0.1.4.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfPig.0.1.4\lib\net47\UglyToad.PdfPig.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Core, Version=0.1.4.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfPig.0.1.4\lib\net47\UglyToad.PdfPig.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.DocumentLayoutAnalysis, Version=0.1.4.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfPig.0.1.4\lib\net47\UglyToad.PdfPig.DocumentLayoutAnalysis.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Fonts, Version=0.1.4.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfPig.0.1.4\lib\net47\UglyToad.PdfPig.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Package, Version=0.1.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfPig.0.1.4\lib\net47\UglyToad.PdfPig.Package.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Tokenization, Version=0.1.4.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfPig.0.1.4\lib\net47\UglyToad.PdfPig.Tokenization.dll</HintPath>
+    </Reference>
+    <Reference Include="UglyToad.PdfPig.Tokens, Version=0.1.4.0, Culture=neutral, PublicKeyToken=605d367334e74123, processorArchitecture=MSIL">
+      <HintPath>..\packages\PdfPig.0.1.4\lib\net47\UglyToad.PdfPig.Tokens.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Abstract\IRepository.cs" />
+    <Compile Include="Abstract\SqlServices.cs" />
+    <Compile Include="ComboDal.cs" />
+    <Compile Include="Concreate\Depo\AmbarDal.cs" />
+    <Compile Include="Concreate\Depo\CayOcagiDal.cs" />
+    <Compile Include="Concreate\Depo\DestekDepoMalzemeKayitDal.cs" />
+    <Compile Include="Concreate\Depo\ElAletleriDal.cs" />
+    <Compile Include="Concreate\Depo\IsGiysiDal.cs" />
+    <Compile Include="Concreate\Depo\KimyasalUrunlerDal.cs" />
+    <Compile Include="Concreate\Depo\KirtasiyeDal.cs" />
+    <Compile Include="Concreate\Depo\KKDDal.cs" />
+    <Compile Include="Concreate\Depo\TemizlikUrunleriDal.cs" />
+    <Compile Include="Concreate\DokumanYonetim\DokumanDal.cs" />
+    <Compile Include="Concreate\DokumanYonetim\FormDocumentDal.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitDal.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisDal.cs" />
+    <Compile Include="Concreate\Helper.cs" />
+    <Compile Include="Concreate\IdariIsler\AracBakimDal.cs" />
+    <Compile Include="Concreate\IdariIsler\AracDal.cs" />
+    <Compile Include="Concreate\IdariIsler\AracZimmetDal.cs" />
+    <Compile Include="Concreate\IdariIsler\AracZimmetiLogDal.cs" />
+    <Compile Include="Concreate\IdariIsler\DVKayitDal.cs" />
+    <Compile Include="Concreate\IdariIsler\EvrakKayitDal.cs" />
+    <Compile Include="Concreate\IdariIsler\IdariIslerLogDal.cs" />
+    <Compile Include="Concreate\IdariIsler\IstenAyrilisDal.cs" />
+    <Compile Include="Concreate\IdariIsler\IzinDal.cs" />
+    <Compile Include="Concreate\IdariIsler\KonaklamaDal.cs" />
+    <Compile Include="Concreate\IdariIsler\KonaklamaGecmisDal.cs" />
+    <Compile Include="Concreate\IdariIsler\KonaklamaKirilimDal.cs" />
+    <Compile Include="Concreate\IdariIsler\OtelDal.cs" />
+    <Compile Include="Concreate\IdariIsler\PersKaytLojistikDal.cs" />
+    <Compile Include="Concreate\IdariIsler\PersoneKayitBODal.cs" />
+    <Compile Include="Concreate\IdariIsler\PersonelKayitDal.cs" />
+    <Compile Include="Concreate\IdariIsler\PersonelKayitIdariDal.cs" />
+    <Compile Include="Concreate\IdariIsler\PersonelKayitLojistikDal.cs" />
+    <Compile Include="Concreate\IdariIsler\SehiriciGorevDal.cs" />
+    <Compile Include="Concreate\IdariIsler\SicilNoDal.cs" />
+    <Compile Include="Concreate\IdariIsler\SiparislerDal.cs" />
+    <Compile Include="Concreate\IdariIsler\SiparisPersonelDal.cs" />
+    <Compile Include="Concreate\IdariIsler\StokDal.cs" />
+    <Compile Include="Concreate\IdariIsler\UcakOtobusDal.cs" />
+    <Compile Include="Concreate\IdariIsler\YakitDal.cs" />
+    <Compile Include="Concreate\IdariIsler\YurtDisiGorevDal.cs" />
+    <Compile Include="Concreate\IdariIsler\YurtIciGorevDal.cs" />
+    <Compile Include="Concreate\IdariIsler\ZimmetAktarimDal.cs" />
+    <Compile Include="Concreate\IdariIsler\ZimmetVeriGecmisDal.cs" />
+    <Compile Include="Concreate\STS\AltYukleniciDal.cs" />
+    <Compile Include="Concreate\STS\ButceKoduDal.cs" />
+    <Compile Include="Concreate\STS\DevamEdenIzlemeDal.cs" />
+    <Compile Include="Concreate\STS\FiyatTeklifiAlDal.cs" />
+    <Compile Include="Concreate\STS\MasrafYeriNoDal.cs" />
+    <Compile Include="Concreate\STS\PersonelDal.cs" />
+    <Compile Include="Concreate\STS\ReddedilenIzlemeDal.cs" />
+    <Compile Include="Concreate\STS\ReddedilenlerDal.cs" />
+    <Compile Include="Concreate\STS\ReddedilenlerDalMasterMenuItem.cs" />
+    <Compile Include="Concreate\STS\ReddedilenMalzemeDal.cs" />
+    <Compile Include="Concreate\STS\SatDataGridview1Dal.cs" />
+    <Compile Include="Concreate\STS\SatIslemAdimlariDal.cs" />
+    <Compile Include="Concreate\STS\SatMalListDal.cs" />
+    <Compile Include="Concreate\STS\SatNoDal.cs" />
+    <Compile Include="Concreate\STS\SatOnayTarihiDal.cs" />
+    <Compile Include="Concreate\STS\SatOtomatikCekDal.cs" />
+    <Compile Include="Concreate\STS\SatRenkliTabloDal.cs" />
+    <Compile Include="Concreate\STS\SatTalebiDoldurDal.cs" />
+    <Compile Include="Concreate\STS\StokNoTanimDal.cs" />
+    <Compile Include="Concreate\STS\TamamlananDal.cs" />
+    <Compile Include="Concreate\STS\TamamlananMalzemeDal.cs" />
+    <Compile Include="Concreate\STS\TedarikciFirmaDal.cs" />
+    <Compile Include="Concreate\STS\TekilflerOnaylananDal.cs" />
+    <Compile Include="Concreate\STS\TeklifAlinanDal.cs" />
+    <Compile Include="Concreate\STS\TeklifFirmalarDal.cs" />
+    <Compile Include="Concreate\STS\TeklifiAlinanReddedilenDal.cs" />
+    <Compile Include="Concreate\STS\TekliflerDal.cs" />
+    <Compile Include="Concreate\STS\TeklifsizSatDal.cs" />
+    <Compile Include="Concreate\STS\UstAmirMailDal.cs" />
+    <Compile Include="Database\SqlDatabase.cs" />
+    <Compile Include="DosyaIslemleri\PdfOku.cs" />
+    <Compile Include="Concreate\IdariIsler\DvNoDal.cs" />
+    <Compile Include="IsAkisNoDal.cs" />
+    <Compile Include="PersonelIslemleriDal.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Concreate\STS\SatinAlinacakMalDal.cs" />
+    <Compile Include="VersionDal.cs" />
+    <Compile Include="YetkilerDal.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{1a6c04c8-a3a0-4e00-88c3-d297f515e0e1}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
