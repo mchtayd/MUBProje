@@ -81,6 +81,50 @@ namespace Business.Concreate
                 return ex.Message;
             }
         }
+        public string SatFirmaGuncelle(string siparisNo, string proje, string firma)
+        {
+            try
+            {
+                return satDataGridview1Dal.SatFirmaGuncelle(siparisNo, proje, firma);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SatMilDurumGuncelle(string siparisNo, string proje, string mailSiniri, string mailDurumu)
+        {
+            try
+            {
+                return satDataGridview1Dal.SatMilDurumGuncelle(siparisNo, proje, mailSiniri, mailDurumu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MailDurumuGuncelle(string siparisNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.MailDurumuGuncelle(siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MailDurumuKaydedildi(string siparisNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.MailDurumuKaydedildi(siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public SatDataGridview1 Get(string isakisno)
         {
@@ -213,6 +257,10 @@ namespace Business.Concreate
             if (string.IsNullOrEmpty(satDataGridview1.Donem))
             {
                 return "Lütfen DÖNEM Kısmını doldurunuz.";
+            }
+            if (string.IsNullOrEmpty(satDataGridview1.SatinAlinanFirma))
+            {
+                return "Lütfen SATIN ALINAN FİRMA Kısmını doldurunuz.";
             }
             return "";
         }
@@ -384,6 +432,17 @@ namespace Business.Concreate
             try
             {
                 return satDataGridview1Dal.SatTamamlamaListele();
+            }
+            catch
+            {
+                return new List<SatDataGridview1>();
+            }
+        }
+        public List<SatDataGridview1> MailList(string mailDurumu)
+        {
+            try
+            {
+                return satDataGridview1Dal.MailList(mailDurumu);
             }
             catch
             {

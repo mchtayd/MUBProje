@@ -30,13 +30,17 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
@@ -161,6 +165,7 @@ namespace UserInterface.STS
             this.label63 = new System.Windows.Forms.Label();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.DtgForHtml = new System.Windows.Forms.DataGridView();
             this.DtgSatList = new ADGV.AdvancedDataGridView();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
@@ -338,13 +343,39 @@ namespace UserInterface.STS
             this.label24 = new System.Windows.Forms.Label();
             this.TxtTeklİfSatSayisi = new System.Windows.Forms.Label();
             this.label70 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.TxtMalzemeSayisi = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.DtgMailList = new ADGV.AdvancedDataGridView();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.DtgMalzemeFirma = new ADGV.AdvancedDataGridView();
+            this.TxtMailListCount = new System.Windows.Forms.Label();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.BtnMailOlustur = new System.Windows.Forms.Button();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.BtnMailKaydet = new System.Windows.Forms.Button();
+            this.TxtMal = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.BtnDosyaMailEkle = new System.Windows.Forms.Button();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.DtgMalzemelerMail = new ADGV.AdvancedDataGridView();
+            this.TxtGelenMail = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.DtgGelenMail = new ADGV.AdvancedDataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.binderSetRequest = new System.Windows.Forms.BindingSource(this.components);
             this.binderGetRequest = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.binderSatWaiting = new System.Windows.Forms.BindingSource(this.components);
-            this.DtgForHtml = new System.Windows.Forms.DataGridView();
+            this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinder3 = new System.Windows.Forms.BindingSource(this.components);
+            this.webBrowser4 = new System.Windows.Forms.WebBrowser();
             this.tabControl1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -363,6 +394,7 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.DtgTeklifMalzemeList)).BeginInit();
             this.tabPage8.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgForHtml)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatList)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
@@ -371,12 +403,26 @@ namespace UserInterface.STS
             this.groupBox2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage6.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMailList)).BeginInit();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeFirma)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemelerMail)).BeginInit();
+            this.groupBox9.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGelenMail)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.binderSetRequest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.binderGetRequest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.binderSatWaiting)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgForHtml)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder3)).BeginInit();
             this.SuspendLayout();
             // 
             // openFileDialog1
@@ -397,6 +443,7 @@ namespace UserInterface.STS
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Location = new System.Drawing.Point(0, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -467,18 +514,18 @@ namespace UserInterface.STS
             // 
             this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
             this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle34;
             this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
             this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1449,8 +1496,8 @@ namespace UserInterface.STS
             // 
             this.DtgTeklifAl.AllowUserToAddRows = false;
             this.DtgTeklifAl.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTeklifAl.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTeklifAl.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle36;
             this.DtgTeklifAl.AutoGenerateContextFilters = true;
             this.DtgTeklifAl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTeklifAl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1624,8 +1671,8 @@ namespace UserInterface.STS
             // 
             this.DtgTeklifMalzemeList.AllowUserToAddRows = false;
             this.DtgTeklifMalzemeList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTeklifMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTeklifMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle37;
             this.DtgTeklifMalzemeList.AutoGenerateContextFilters = true;
             this.DtgTeklifMalzemeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgTeklifMalzemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1687,12 +1734,21 @@ namespace UserInterface.STS
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "SAT LİSTESİ";
             // 
+            // DtgForHtml
+            // 
+            this.DtgForHtml.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgForHtml.Location = new System.Drawing.Point(1393, 234);
+            this.DtgForHtml.Name = "DtgForHtml";
+            this.DtgForHtml.Size = new System.Drawing.Size(65, 49);
+            this.DtgForHtml.TabIndex = 319;
+            this.DtgForHtml.Visible = false;
+            // 
             // DtgSatList
             // 
             this.DtgSatList.AllowUserToAddRows = false;
             this.DtgSatList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle38;
             this.DtgSatList.AutoGenerateContextFilters = true;
             this.DtgSatList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgSatList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1746,18 +1802,18 @@ namespace UserInterface.STS
             // 
             this.dataGridView1.AllowUserToAddRows = false;
             this.dataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.dataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle39;
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -3569,6 +3625,308 @@ namespace UserInterface.STS
             this.label70.TabIndex = 314;
             this.label70.Text = "Toplam Kayıt:";
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.tabControl3);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Size = new System.Drawing.Size(1549, 853);
+            this.tabPage5.TabIndex = 3;
+            this.tabPage5.Text = "MAİL İŞLEMLERİ";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Controls.Add(this.tabPage7);
+            this.tabControl3.Location = new System.Drawing.Point(3, 7);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(1538, 843);
+            this.tabControl3.TabIndex = 664;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.TxtMalzemeSayisi);
+            this.tabPage6.Controls.Add(this.groupBox4);
+            this.tabPage6.Controls.Add(this.panel4);
+            this.tabPage6.Controls.Add(this.TxtMailListCount);
+            this.tabPage6.Controls.Add(this.label84);
+            this.tabPage6.Controls.Add(this.label3);
+            this.tabPage6.Controls.Add(this.BtnMailOlustur);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1530, 817);
+            this.tabPage6.TabIndex = 0;
+            this.tabPage6.Text = "MAİL GÖNDER";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // TxtMalzemeSayisi
+            // 
+            this.TxtMalzemeSayisi.AutoSize = true;
+            this.TxtMalzemeSayisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtMalzemeSayisi.Location = new System.Drawing.Point(179, 727);
+            this.TxtMalzemeSayisi.Name = "TxtMalzemeSayisi";
+            this.TxtMalzemeSayisi.Size = new System.Drawing.Size(21, 15);
+            this.TxtMalzemeSayisi.TabIndex = 663;
+            this.TxtMalzemeSayisi.Text = "00";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.DtgMailList);
+            this.groupBox4.Location = new System.Drawing.Point(9, 16);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1518, 396);
+            this.groupBox4.TabIndex = 319;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "500 TL VE ÜZERİ SATLAR";
+            // 
+            // DtgMailList
+            // 
+            this.DtgMailList.AllowUserToAddRows = false;
+            this.DtgMailList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMailList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle41;
+            this.DtgMailList.AutoGenerateContextFilters = true;
+            this.DtgMailList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMailList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMailList.DateWithTime = false;
+            this.DtgMailList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMailList.Location = new System.Drawing.Point(3, 16);
+            this.DtgMailList.MultiSelect = false;
+            this.DtgMailList.Name = "DtgMailList";
+            this.DtgMailList.ReadOnly = true;
+            this.DtgMailList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMailList.Size = new System.Drawing.Size(1512, 377);
+            this.DtgMailList.TabIndex = 1;
+            this.DtgMailList.TimeFilter = false;
+            this.DtgMailList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgMailList_CellMouseClick);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.DtgMalzemeFirma);
+            this.panel4.Location = new System.Drawing.Point(12, 453);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1512, 259);
+            this.panel4.TabIndex = 661;
+            // 
+            // DtgMalzemeFirma
+            // 
+            this.DtgMalzemeFirma.AllowUserToAddRows = false;
+            this.DtgMalzemeFirma.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeFirma.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle42;
+            this.DtgMalzemeFirma.AutoGenerateContextFilters = true;
+            this.DtgMalzemeFirma.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMalzemeFirma.BackgroundColor = System.Drawing.Color.White;
+            this.DtgMalzemeFirma.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzemeFirma.DateWithTime = false;
+            this.DtgMalzemeFirma.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzemeFirma.Location = new System.Drawing.Point(0, 0);
+            this.DtgMalzemeFirma.MultiSelect = false;
+            this.DtgMalzemeFirma.Name = "DtgMalzemeFirma";
+            this.DtgMalzemeFirma.ReadOnly = true;
+            this.DtgMalzemeFirma.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMalzemeFirma.Size = new System.Drawing.Size(1512, 259);
+            this.DtgMalzemeFirma.TabIndex = 3;
+            this.DtgMalzemeFirma.TimeFilter = false;
+            // 
+            // TxtMailListCount
+            // 
+            this.TxtMailListCount.AutoSize = true;
+            this.TxtMailListCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtMailListCount.Location = new System.Drawing.Point(109, 424);
+            this.TxtMailListCount.Name = "TxtMailListCount";
+            this.TxtMailListCount.Size = new System.Drawing.Size(21, 15);
+            this.TxtMailListCount.TabIndex = 322;
+            this.TxtMailListCount.Text = "00";
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label84.Location = new System.Drawing.Point(9, 727);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(164, 15);
+            this.label84.TabIndex = 662;
+            this.label84.Text = "Toplam Malzeme Sayısı:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(9, 424);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 15);
+            this.label3.TabIndex = 321;
+            this.label3.Text = "Toplam Kayıt:";
+            // 
+            // BtnMailOlustur
+            // 
+            this.BtnMailOlustur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMailOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnMailOlustur.Location = new System.Drawing.Point(9, 755);
+            this.BtnMailOlustur.Name = "BtnMailOlustur";
+            this.BtnMailOlustur.Size = new System.Drawing.Size(171, 56);
+            this.BtnMailOlustur.TabIndex = 661;
+            this.BtnMailOlustur.Text = "MAİL OLUŞTUR";
+            this.BtnMailOlustur.UseVisualStyleBackColor = true;
+            this.BtnMailOlustur.Click += new System.EventHandler(this.BtnMailOlustur_Click);
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Controls.Add(this.BtnMailKaydet);
+            this.tabPage7.Controls.Add(this.TxtMal);
+            this.tabPage7.Controls.Add(this.label17);
+            this.tabPage7.Controls.Add(this.BtnDosyaMailEkle);
+            this.tabPage7.Controls.Add(this.groupBox10);
+            this.tabPage7.Controls.Add(this.panel3);
+            this.tabPage7.Controls.Add(this.TxtGelenMail);
+            this.tabPage7.Controls.Add(this.label13);
+            this.tabPage7.Controls.Add(this.groupBox9);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1530, 817);
+            this.tabPage7.TabIndex = 1;
+            this.tabPage7.Text = "GELEN MAİL KAYIT";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // BtnMailKaydet
+            // 
+            this.BtnMailKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMailKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnMailKaydet.Location = new System.Drawing.Point(9, 743);
+            this.BtnMailKaydet.Name = "BtnMailKaydet";
+            this.BtnMailKaydet.Size = new System.Drawing.Size(171, 56);
+            this.BtnMailKaydet.TabIndex = 667;
+            this.BtnMailKaydet.Text = "TÜMÜNÜ KAYDET";
+            this.BtnMailKaydet.UseVisualStyleBackColor = true;
+            this.BtnMailKaydet.Click += new System.EventHandler(this.BtnMailKaydet_Click);
+            // 
+            // TxtMal
+            // 
+            this.TxtMal.AutoSize = true;
+            this.TxtMal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtMal.Location = new System.Drawing.Point(176, 716);
+            this.TxtMal.Name = "TxtMal";
+            this.TxtMal.Size = new System.Drawing.Size(21, 15);
+            this.TxtMal.TabIndex = 666;
+            this.TxtMal.Text = "00";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(6, 716);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(164, 15);
+            this.label17.TabIndex = 665;
+            this.label17.Text = "Toplam Malzeme Sayısı:";
+            // 
+            // BtnDosyaMailEkle
+            // 
+            this.BtnDosyaMailEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDosyaMailEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnDosyaMailEkle.Location = new System.Drawing.Point(186, 743);
+            this.BtnDosyaMailEkle.Name = "BtnDosyaMailEkle";
+            this.BtnDosyaMailEkle.Size = new System.Drawing.Size(171, 56);
+            this.BtnDosyaMailEkle.TabIndex = 664;
+            this.BtnDosyaMailEkle.Text = "DOSYA EKLE";
+            this.BtnDosyaMailEkle.UseVisualStyleBackColor = true;
+            this.BtnDosyaMailEkle.Click += new System.EventHandler(this.BtnDosyaMailEkle_Click);
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.webBrowser4);
+            this.groupBox10.Location = new System.Drawing.Point(911, 446);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(607, 259);
+            this.groupBox10.TabIndex = 663;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Ekler:";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.DtgMalzemelerMail);
+            this.panel3.Location = new System.Drawing.Point(6, 446);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(890, 259);
+            this.panel3.TabIndex = 662;
+            // 
+            // DtgMalzemelerMail
+            // 
+            this.DtgMalzemelerMail.AllowUserToAddRows = false;
+            this.DtgMalzemelerMail.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemelerMail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle43;
+            this.DtgMalzemelerMail.AutoGenerateContextFilters = true;
+            this.DtgMalzemelerMail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMalzemelerMail.BackgroundColor = System.Drawing.Color.White;
+            this.DtgMalzemelerMail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzemelerMail.DateWithTime = false;
+            this.DtgMalzemelerMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzemelerMail.Location = new System.Drawing.Point(0, 0);
+            this.DtgMalzemelerMail.MultiSelect = false;
+            this.DtgMalzemelerMail.Name = "DtgMalzemelerMail";
+            this.DtgMalzemelerMail.ReadOnly = true;
+            this.DtgMalzemelerMail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMalzemelerMail.Size = new System.Drawing.Size(890, 259);
+            this.DtgMalzemelerMail.TabIndex = 3;
+            this.DtgMalzemelerMail.TimeFilter = false;
+            // 
+            // TxtGelenMail
+            // 
+            this.TxtGelenMail.AutoSize = true;
+            this.TxtGelenMail.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtGelenMail.Location = new System.Drawing.Point(106, 419);
+            this.TxtGelenMail.Name = "TxtGelenMail";
+            this.TxtGelenMail.Size = new System.Drawing.Size(21, 15);
+            this.TxtGelenMail.TabIndex = 324;
+            this.TxtGelenMail.Text = "00";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.Location = new System.Drawing.Point(6, 419);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(94, 15);
+            this.label13.TabIndex = 323;
+            this.label13.Text = "Toplam Kayıt:";
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.DtgGelenMail);
+            this.groupBox9.Location = new System.Drawing.Point(3, 17);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(1518, 396);
+            this.groupBox9.TabIndex = 320;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "500 TL VE ÜZERİ SATLAR";
+            // 
+            // DtgGelenMail
+            // 
+            this.DtgGelenMail.AllowUserToAddRows = false;
+            this.DtgGelenMail.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgGelenMail.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle44;
+            this.DtgGelenMail.AutoGenerateContextFilters = true;
+            this.DtgGelenMail.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgGelenMail.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgGelenMail.DateWithTime = false;
+            this.DtgGelenMail.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgGelenMail.Location = new System.Drawing.Point(3, 16);
+            this.DtgGelenMail.MultiSelect = false;
+            this.DtgGelenMail.Name = "DtgGelenMail";
+            this.DtgGelenMail.ReadOnly = true;
+            this.DtgGelenMail.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgGelenMail.Size = new System.Drawing.Size(1512, 377);
+            this.DtgGelenMail.TabIndex = 1;
+            this.DtgGelenMail.TimeFilter = false;
+            this.DtgGelenMail.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgGelenMail_CellMouseClick);
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
@@ -3593,14 +3951,14 @@ namespace UserInterface.STS
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.button1_Click);
             // 
-            // DtgForHtml
+            // webBrowser4
             // 
-            this.DtgForHtml.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgForHtml.Location = new System.Drawing.Point(1393, 234);
-            this.DtgForHtml.Name = "DtgForHtml";
-            this.DtgForHtml.Size = new System.Drawing.Size(65, 49);
-            this.DtgForHtml.TabIndex = 319;
-            this.DtgForHtml.Visible = false;
+            this.webBrowser4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser4.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser4.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser4.Name = "webBrowser4";
+            this.webBrowser4.Size = new System.Drawing.Size(601, 240);
+            this.webBrowser4.TabIndex = 0;
             // 
             // FrmTeklifAlinacakSat
             // 
@@ -3636,6 +3994,7 @@ namespace UserInterface.STS
             this.tabPage8.ResumeLayout(false);
             this.tabPage8.PerformLayout();
             this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgForHtml)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatList)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
@@ -3645,12 +4004,28 @@ namespace UserInterface.STS
             this.tabPage4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMailList)).EndInit();
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeFirma)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage7.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemelerMail)).EndInit();
+            this.groupBox9.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGelenMail)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.binderSetRequest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.binderGetRequest)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.binderSatWaiting)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgForHtml)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder3)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3964,5 +4339,32 @@ namespace UserInterface.STS
         private System.Windows.Forms.Button BtnTeklifKaydet;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView DtgForHtml;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private ADGV.AdvancedDataGridView DtgMailList;
+        private System.Windows.Forms.Label TxtMailListCount;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.BindingSource dataBinder2;
+        private System.Windows.Forms.Panel panel4;
+        private ADGV.AdvancedDataGridView DtgMalzemeFirma;
+        private System.Windows.Forms.Button BtnMailOlustur;
+        private System.Windows.Forms.Label TxtMalzemeSayisi;
+        private System.Windows.Forms.Label label84;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.Button BtnMailKaydet;
+        private System.Windows.Forms.Label TxtMal;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Button BtnDosyaMailEkle;
+        private System.Windows.Forms.GroupBox groupBox10;
+        private System.Windows.Forms.Panel panel3;
+        private ADGV.AdvancedDataGridView DtgMalzemelerMail;
+        private System.Windows.Forms.Label TxtGelenMail;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private ADGV.AdvancedDataGridView DtgGelenMail;
+        private System.Windows.Forms.BindingSource dataBinder3;
+        private System.Windows.Forms.WebBrowser webBrowser4;
     }
 }

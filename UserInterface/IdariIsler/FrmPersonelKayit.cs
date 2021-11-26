@@ -57,7 +57,7 @@ namespace UserInterface.IdariIşler
 
         public DateTime dogumtarihi;string askerlikbas, askerlikbit, tecilbit;
         bool control = false;
-        public int id, ids;
+        public int id=0, ids=0;
         bool start = true;
         PersonelKayit personelKayit;
         IstenAyrilis istenAyrilis;
@@ -259,12 +259,24 @@ namespace UserInterface.IdariIşler
             CmbBolum2G.DisplayMember = "Bolum2";
             CmbBolum2G.SelectedValue = 0;
         }
+
+        private void contextMenuStrip1_Opening(object sender, CancelEventArgs e)
+        {
+            MevcutKadro();
+        }
+
         void Bolum3Doldur()
         {
             CmbBolum3.ValueMember = "Id";
             CmbBolum3.DisplayMember = "Bolum3";
             CmbBolum3.SelectedValue = 0;
         }
+
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         void Bolum3GDoldur()
         {
             CmbBolum3G.ValueMember = "Id";
@@ -718,7 +730,10 @@ namespace UserInterface.IdariIşler
 
                 //personelKayitManager.Update(personelKayit);
                 MessageBox.Show(personelKayitManager.Update(personelKayit));
-                personelKayitManager.MevcutKadroEksilt(eksilecekSiparis);
+                if (eksilecekSiparis!= CmbSiparisG.Text)
+                {
+                    personelKayitManager.MevcutKadroEksilt(eksilecekSiparis);
+                }
                 personelKayitManager.MevcutKadroArttir(CmbSiparisG.Text);
                 islem1 = CmbAdSoyad.Text + " Personel Güncellendi";
                 islemyapan1 = infos[1].ToString();
@@ -735,6 +750,7 @@ namespace UserInterface.IdariIşler
                 Task.Factory.StartNew(() => MailSendMetotG());
                 MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 GuncelleTemizle();
+                MevcutKadro();
             }
         }
         private void GuncellenecekWebBrowser()
@@ -1029,7 +1045,9 @@ namespace UserInterface.IdariIşler
             {
                 Siparisler item = siparislers[0];
                 ids = item.Id;
-                CmbProje.Text = item.Proje;
+                string proje = "";
+                proje = item.Proje;
+                CmbProje.Text = proje;
                 TxtSatt.Text = item.Sat;
                 TxtDonemYil.Text = item.Donemyil;
                 CmbSatKategori.Text = item.Satkategori;
@@ -1045,10 +1063,11 @@ namespace UserInterface.IdariIşler
         }
         private void DtgMevcutKadro_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            FillTols();
+            
             string benzersizlistele = DtgMevcutKadro.CurrentRow.Cells["Benzersiz"].Value.ToString();
-
             siparislers = siparislerManager.GetList(benzersizlistele);
+            KadroControl();
+            FillTols();
 
         }
         private void Txtadsoyad_TextChanged(object sender, EventArgs e)
@@ -1319,7 +1338,7 @@ namespace UserInterface.IdariIşler
         {
             DtgMevcutKadro.DataSource = siparislerManager.GetList();
             DataDisplay();
-            
+            KadroControl();
         }
         void DataDisplay()
         {
@@ -1340,6 +1359,16 @@ namespace UserInterface.IdariIşler
             DtgMevcutKadro.Columns["Donemyil"].HeaderText = "DÖNEM YIL";
             DtgMevcutKadro.Columns["Satkategori"].HeaderText = "SAT KATEGORİ";
             DtgMevcutKadro.Columns["MevcutPersonel"].DisplayIndex = 13;
+            Toplamlar();
+        }
+        void Toplamlar()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgMevcutKadro.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgMevcutKadro.Rows[i].Cells[15].Value);
+            }
+            TxtMevcutPersonel.Text = toplam.ToString();
         }
         void GuncelleTemizle()
         {
@@ -1356,18 +1385,23 @@ namespace UserInterface.IdariIşler
         void Temizle()
         {
             TxtDonemYil.Clear(); TxtYoneticiArac.Clear(); TxtAraziArac.Clear(); TxtPersonelYonetici.Clear(); TxtPersonel.Clear(); TxtPersonelDepo.Clear();
-            CmbProje.Text = ""; TxtSatt.Text = ""; CmbSatKategori.Text = "";
+            CmbProje.Text = ""; TxtSatt.Text = ""; CmbSatKategori.Text = ""; CmbProje.SelectedValue = ""; TxtSatt.SelectedValue = ""; CmbSatKategori.SelectedValue = "";
 
         }
         private void button3_Click(object sender, EventArgs e)
         {
+            if (ids==0)
+            {
+                MessageBox.Show("Lütfen Öncelikle Bir Sipariş Kaydı Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             DialogResult dr = MessageBox.Show("Sipariş Numarasını Silmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 siparislerManager.Delete(ids);
                 //MevcutKadro();
                 Temizle();
-                //MevcutKadro();
+                MevcutKadro();
             }
         }
         private void BtnSiparisGuncelle_Click(object sender, EventArgs e)

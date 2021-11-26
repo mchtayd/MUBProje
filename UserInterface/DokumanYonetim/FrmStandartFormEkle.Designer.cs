@@ -55,6 +55,7 @@ namespace UserInterface.DokumanYonetim
             this.CmbDokumanTur = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BtnFormSil = new System.Windows.Forms.Button();
             this.CmbK = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
             this.DtgYayin = new System.Windows.Forms.DateTimePicker();
@@ -85,7 +86,6 @@ namespace UserInterface.DokumanYonetim
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.BtnFormSil = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -161,11 +161,11 @@ namespace UserInterface.DokumanYonetim
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(69, 56);
+            this.label17.Location = new System.Drawing.Point(92, 56);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(84, 13);
+            this.label17.Size = new System.Drawing.Size(61, 13);
             this.label17.TabIndex = 52;
-            this.label17.Text = "Doküman Kodu:";
+            this.label17.Text = "Form Kodu:";
             // 
             // button3
             // 
@@ -376,6 +376,18 @@ namespace UserInterface.DokumanYonetim
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "FORM GÜNCELLE";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // BtnFormSil
+            // 
+            this.BtnFormSil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFormSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnFormSil.Location = new System.Drawing.Point(147, 777);
+            this.BtnFormSil.Name = "BtnFormSil";
+            this.BtnFormSil.Size = new System.Drawing.Size(143, 51);
+            this.BtnFormSil.TabIndex = 77;
+            this.BtnFormSil.Text = "FORM SİL";
+            this.BtnFormSil.UseVisualStyleBackColor = true;
+            this.BtnFormSil.Click += new System.EventHandler(this.BtnFormSil_Click);
             // 
             // CmbK
             // 
@@ -669,18 +681,6 @@ namespace UserInterface.DokumanYonetim
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
-            // 
-            // BtnFormSil
-            // 
-            this.BtnFormSil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFormSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnFormSil.Location = new System.Drawing.Point(147, 777);
-            this.BtnFormSil.Name = "BtnFormSil";
-            this.BtnFormSil.Size = new System.Drawing.Size(143, 51);
-            this.BtnFormSil.TabIndex = 77;
-            this.BtnFormSil.Text = "FORM SİL";
-            this.BtnFormSil.UseVisualStyleBackColor = true;
-            this.BtnFormSil.Click += new System.EventHandler(this.BtnFormSil_Click);
             // 
             // FrmStandartFormEkle
             // 

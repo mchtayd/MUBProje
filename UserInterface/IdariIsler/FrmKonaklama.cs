@@ -325,7 +325,7 @@ namespace UserInterface.IdariIsler
             Harcama();
 
             SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, isakisno.ConInt(), infos[4].ToString(),infos[1].ToString(), 
-                infos[2].ToString(),"","",DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya,infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN","");
+                infos[2].ToString(),"","",DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya,infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, TxtOtelinAdi.Text);
 
             string mesaj = satDataGridview1Manager.Add(satDataGridview1);
             if (mesaj != "OK")
@@ -376,7 +376,7 @@ namespace UserInterface.IdariIsler
             teklifsizSatManager.Add(satinAlinacakMalzeme);
             
         }
-        string personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, butceKodu;
+        string personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, butceKodu, proje="";
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -398,7 +398,11 @@ namespace UserInterface.IdariIsler
             satNo= DtgList.CurrentRow.Cells["SatNo"].Value.ConInt();
             miktar = DtgList.CurrentRow.Cells["Konaklamasuresi"].Value.ConDouble();
             toplam = DtgList.CurrentRow.Cells["Toplamucret"].Value.ConDouble();
+
+            SiparisPersonel siparis = siparisPersonelManager.Get("", personelAd);
+            proje = siparis.Projekodu;
         }
+        
         void CreateLog()
         {
             string sayfa = "KONAKLAMA";
@@ -414,7 +418,7 @@ namespace UserInterface.IdariIsler
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\Formlar\\DTS_Otel Rezervasyon Talep Formu.docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_KONAKLAMA - Copy.docx";
+            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otel Rezervasyon Talep Formu2.docx";
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 
@@ -652,7 +656,7 @@ namespace UserInterface.IdariIsler
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\Formlar\\DTS_Otel Rezervasyon Talep Formu.docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_KONAKLAMA - Copy.docx";
+            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otel Rezervasyon Talep Formu2.docx";
 
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();

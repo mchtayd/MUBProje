@@ -96,9 +96,11 @@
     <Compile Include="Concreate\STS\SatDataGridview1Manager.cs" />
     <Compile Include="Concreate\STS\SatinAlinacakMalManager.cs" />
     <Compile Include="Concreate\STS\SatIslemAdimlariManager.cs" />
+    <Compile Include="Concreate\STS\SatMailManager.cs" />
     <Compile Include="Concreate\STS\SatNoManager.cs" />
     <Compile Include="Concreate\STS\SatNumarasiManagerMasterMenuItem.cs" />
     <Compile Include="Concreate\STS\SatOnayTarihiManager.cs" />
+    <Compile Include="Concreate\STS\SatRaporManager.cs" />
     <Compile Include="Concreate\STS\SatRenkliiTabloManager.cs" />
     <Compile Include="Concreate\STS\SatTalebiDoldurManager.cs" />
     <Compile Include="Concreate\STS\SiparisPersonelManager.cs" />

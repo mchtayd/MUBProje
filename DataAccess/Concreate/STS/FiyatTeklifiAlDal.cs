@@ -92,6 +92,7 @@ namespace DataAccess.Concreate.STS
                 return new List<FiyatTeklifiAl>();
             }
         }
+        
         public string UpdateTekifDurum(string siparisno)
         {
             try

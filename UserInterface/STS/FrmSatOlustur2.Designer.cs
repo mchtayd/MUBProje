@@ -116,6 +116,8 @@ namespace UserInterface.STS
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.TxtProje = new System.Windows.Forms.TextBox();
+            this.label65 = new System.Windows.Forms.Label();
             this.CmbDonem = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
             this.istenenTarih = new System.Windows.Forms.DateTimePicker();
@@ -127,12 +129,12 @@ namespace UserInterface.STS
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.TalepEden = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.LblIsAkisNo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.MasYeriNo = new System.Windows.Forms.Label();
             this.Bolum = new System.Windows.Forms.Label();
-            this.LblIsAkisNo = new System.Windows.Forms.Label();
-            this.label36 = new System.Windows.Forms.Label();
             this.Gerekce = new System.Windows.Forms.RichTextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -221,6 +223,8 @@ namespace UserInterface.STS
             this.label49 = new System.Windows.Forms.Label();
             this.label50 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.TxtSatinAlinanFirma = new System.Windows.Forms.TextBox();
+            this.label66 = new System.Windows.Forms.Label();
             this.DtBelgeTarihi = new System.Windows.Forms.DateTimePicker();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -278,8 +282,8 @@ namespace UserInterface.STS
             this.BtnCancel = new System.Windows.Forms.Button();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.label65 = new System.Windows.Forms.Label();
-            this.TxtProje = new System.Windows.Forms.TextBox();
+            this.TxtProjeKodu = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1181,6 +1185,23 @@ namespace UserInterface.STS
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "TALEP EDİLEN YER";
             // 
+            // TxtProje
+            // 
+            this.TxtProje.Location = new System.Drawing.Point(116, 81);
+            this.TxtProje.Name = "TxtProje";
+            this.TxtProje.Size = new System.Drawing.Size(236, 20);
+            this.TxtProje.TabIndex = 335;
+            this.TxtProje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtProje_KeyPress);
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(65, 84);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(45, 13);
+            this.label65.TabIndex = 109;
+            this.label65.Text = "PROJE:";
+            // 
             // CmbDonem
             // 
             this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1300,6 +1321,15 @@ namespace UserInterface.STS
             this.label7.TabIndex = 93;
             this.label7.Text = "BÖLÜM:";
             // 
+            // LblIsAkisNo
+            // 
+            this.LblIsAkisNo.AutoSize = true;
+            this.LblIsAkisNo.Location = new System.Drawing.Point(115, 28);
+            this.LblIsAkisNo.Name = "LblIsAkisNo";
+            this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNo.TabIndex = 116;
+            this.LblIsAkisNo.Text = "00";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -1308,6 +1338,15 @@ namespace UserInterface.STS
             this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 92;
             this.label5.Text = "ADI SOYADI:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(42, 28);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(66, 13);
+            this.label36.TabIndex = 115;
+            this.label36.Text = "İŞ AKIŞ NO:";
             // 
             // label4
             // 
@@ -1335,24 +1374,6 @@ namespace UserInterface.STS
             this.Bolum.Size = new System.Drawing.Size(19, 13);
             this.Bolum.TabIndex = 104;
             this.Bolum.Text = "00";
-            // 
-            // LblIsAkisNo
-            // 
-            this.LblIsAkisNo.AutoSize = true;
-            this.LblIsAkisNo.Location = new System.Drawing.Point(115, 28);
-            this.LblIsAkisNo.Name = "LblIsAkisNo";
-            this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
-            this.LblIsAkisNo.TabIndex = 116;
-            this.LblIsAkisNo.Text = "00";
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(42, 28);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(66, 13);
-            this.label36.TabIndex = 115;
-            this.label36.Text = "İŞ AKIŞ NO:";
             // 
             // Gerekce
             // 
@@ -2300,6 +2321,8 @@ namespace UserInterface.STS
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.TxtSatinAlinanFirma);
+            this.tabPage4.Controls.Add(this.label66);
             this.tabPage4.Controls.Add(this.DtBelgeTarihi);
             this.tabPage4.Controls.Add(this.label34);
             this.tabPage4.Controls.Add(this.label33);
@@ -2332,6 +2355,22 @@ namespace UserInterface.STS
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "HARCAMASI YAPILAN SAT";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // TxtSatinAlinanFirma
+            // 
+            this.TxtSatinAlinanFirma.Location = new System.Drawing.Point(173, 128);
+            this.TxtSatinAlinanFirma.Name = "TxtSatinAlinanFirma";
+            this.TxtSatinAlinanFirma.Size = new System.Drawing.Size(278, 20);
+            this.TxtSatinAlinanFirma.TabIndex = 496;
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Location = new System.Drawing.Point(47, 132);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(120, 13);
+            this.label66.TabIndex = 495;
+            this.label66.Text = "SATIN ALINAN FİRMA:";
             // 
             // DtBelgeTarihi
             // 
@@ -2373,7 +2412,7 @@ namespace UserInterface.STS
             // 
             this.BtnKaydetT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydetT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydetT.Location = new System.Drawing.Point(36, 367);
+            this.BtnKaydetT.Location = new System.Drawing.Point(38, 399);
             this.BtnKaydetT.Name = "BtnKaydetT";
             this.BtnKaydetT.Size = new System.Drawing.Size(129, 54);
             this.BtnKaydetT.TabIndex = 339;
@@ -2385,7 +2424,7 @@ namespace UserInterface.STS
             // 
             this.BtnDosyaEkleT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDosyaEkleT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkleT.Location = new System.Drawing.Point(36, 307);
+            this.BtnDosyaEkleT.Location = new System.Drawing.Point(38, 339);
             this.BtnDosyaEkleT.Name = "BtnDosyaEkleT";
             this.BtnDosyaEkleT.Size = new System.Drawing.Size(129, 54);
             this.BtnDosyaEkleT.TabIndex = 338;
@@ -2396,7 +2435,7 @@ namespace UserInterface.STS
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.webBrowser3);
-            this.groupBox10.Location = new System.Drawing.Point(173, 302);
+            this.groupBox10.Location = new System.Drawing.Point(175, 334);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(618, 119);
             this.groupBox10.TabIndex = 338;
@@ -2415,7 +2454,7 @@ namespace UserInterface.STS
             // label64
             // 
             this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(66, 266);
+            this.label64.Location = new System.Drawing.Point(66, 292);
             this.label64.Name = "label64";
             this.label64.Size = new System.Drawing.Size(101, 13);
             this.label64.TabIndex = 336;
@@ -2426,7 +2465,7 @@ namespace UserInterface.STS
             this.BtnOpenFile.BackColor = System.Drawing.Color.White;
             this.BtnOpenFile.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnOpenFile.Image = ((System.Drawing.Image)(resources.GetObject("BtnOpenFile.Image")));
-            this.BtnOpenFile.Location = new System.Drawing.Point(457, 155);
+            this.BtnOpenFile.Location = new System.Drawing.Point(457, 154);
             this.BtnOpenFile.Name = "BtnOpenFile";
             this.BtnOpenFile.Size = new System.Drawing.Size(24, 21);
             this.BtnOpenFile.TabIndex = 7;
@@ -2443,7 +2482,7 @@ namespace UserInterface.STS
             "UĞUR DURAN",
             "GÜLİZ MARAŞ",
             "RESUL GÜNEŞ"});
-            this.CmbIlgiliKisi.Location = new System.Drawing.Point(173, 236);
+            this.CmbIlgiliKisi.Location = new System.Drawing.Point(173, 262);
             this.CmbIlgiliKisi.Name = "CmbIlgiliKisi";
             this.CmbIlgiliKisi.Size = new System.Drawing.Size(278, 21);
             this.CmbIlgiliKisi.TabIndex = 11;
@@ -2481,7 +2520,7 @@ namespace UserInterface.STS
             // 
             this.CmbButceKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbButceKodu.FormattingEnabled = true;
-            this.CmbButceKodu.Location = new System.Drawing.Point(173, 128);
+            this.CmbButceKodu.Location = new System.Drawing.Point(173, 154);
             this.CmbButceKodu.Name = "CmbButceKodu";
             this.CmbButceKodu.Size = new System.Drawing.Size(278, 21);
             this.CmbButceKodu.TabIndex = 0;
@@ -2505,7 +2544,7 @@ namespace UserInterface.STS
             "2017008-1",
             "2017008-2",
             "2017000-1"});
-            this.CmbMasYeri.Location = new System.Drawing.Point(173, 263);
+            this.CmbMasYeri.Location = new System.Drawing.Point(173, 289);
             this.CmbMasYeri.Name = "CmbMasYeri";
             this.CmbMasYeri.Size = new System.Drawing.Size(278, 21);
             this.CmbMasYeri.TabIndex = 12;
@@ -2522,7 +2561,7 @@ namespace UserInterface.STS
             // label60
             // 
             this.label60.AutoSize = true;
-            this.label60.Location = new System.Drawing.Point(43, 132);
+            this.label60.Location = new System.Drawing.Point(43, 158);
             this.label60.Name = "label60";
             this.label60.Size = new System.Drawing.Size(124, 13);
             this.label60.TabIndex = 1;
@@ -2545,7 +2584,7 @@ namespace UserInterface.STS
             "",
             "NAKİT",
             "HAVALE/EFT"});
-            this.CmbHarcamaTuru.Location = new System.Drawing.Point(173, 182);
+            this.CmbHarcamaTuru.Location = new System.Drawing.Point(173, 208);
             this.CmbHarcamaTuru.Name = "CmbHarcamaTuru";
             this.CmbHarcamaTuru.Size = new System.Drawing.Size(278, 21);
             this.CmbHarcamaTuru.TabIndex = 9;
@@ -2553,7 +2592,7 @@ namespace UserInterface.STS
             // label57
             // 
             this.label57.AutoSize = true;
-            this.label57.Location = new System.Drawing.Point(8, 158);
+            this.label57.Location = new System.Drawing.Point(8, 184);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(159, 13);
             this.label57.TabIndex = 2;
@@ -2562,7 +2601,7 @@ namespace UserInterface.STS
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(23, 212);
+            this.label54.Location = new System.Drawing.Point(23, 238);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(144, 13);
             this.label54.TabIndex = 4;
@@ -2571,7 +2610,7 @@ namespace UserInterface.STS
             // label53
             // 
             this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(105, 239);
+            this.label53.Location = new System.Drawing.Point(105, 265);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(62, 13);
             this.label53.TabIndex = 5;
@@ -2580,7 +2619,7 @@ namespace UserInterface.STS
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(46, 185);
+            this.label55.Location = new System.Drawing.Point(46, 211);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(121, 13);
             this.label55.TabIndex = 3;
@@ -2596,7 +2635,7 @@ namespace UserInterface.STS
             "ASELSAN AŞ. UGES İÇ GÜV.PROG.DİR.",
             "ASELSAN AŞ. UGES İÇ GÜV.PROG.MDL.",
             "BAŞARAN İLERİ TEKNOLOJİ"});
-            this.CmbFaturaFirma.Location = new System.Drawing.Point(173, 209);
+            this.CmbFaturaFirma.Location = new System.Drawing.Point(173, 235);
             this.CmbFaturaFirma.Name = "CmbFaturaFirma";
             this.CmbFaturaFirma.Size = new System.Drawing.Size(278, 21);
             this.CmbFaturaFirma.TabIndex = 10;
@@ -2610,7 +2649,7 @@ namespace UserInterface.STS
             "",
             "BSRN GN.MDL.SATIN ALMA",
             "PRJ.DİR.SATIN ALMA"});
-            this.CmbSatBirim.Location = new System.Drawing.Point(173, 155);
+            this.CmbSatBirim.Location = new System.Drawing.Point(173, 181);
             this.CmbSatBirim.Name = "CmbSatBirim";
             this.CmbSatBirim.Size = new System.Drawing.Size(278, 21);
             this.CmbSatBirim.TabIndex = 8;
@@ -2619,8 +2658,6 @@ namespace UserInterface.STS
             // 
             this.groupBox7.Controls.Add(this.groupBox8);
             this.groupBox7.Controls.Add(this.groupBox9);
-            this.groupBox7.Controls.Add(this.LblIsAkisNo2);
-            this.groupBox7.Controls.Add(this.label37);
             this.groupBox7.Controls.Add(this.TxtGerekceBasaran);
             this.groupBox7.Controls.Add(this.label38);
             this.groupBox7.Location = new System.Drawing.Point(6, 6);
@@ -2632,6 +2669,8 @@ namespace UserInterface.STS
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.TxtProjeKodu);
+            this.groupBox8.Controls.Add(this.label67);
             this.groupBox8.Controls.Add(this.CmbSiparisNo);
             this.groupBox8.Controls.Add(this.TxtGorevi);
             this.groupBox8.Controls.Add(this.label41);
@@ -2642,9 +2681,9 @@ namespace UserInterface.STS
             this.groupBox8.Controls.Add(this.TxtMasrafYeri);
             this.groupBox8.Controls.Add(this.label58);
             this.groupBox8.Controls.Add(this.label59);
-            this.groupBox8.Location = new System.Drawing.Point(387, 52);
+            this.groupBox8.Location = new System.Drawing.Point(387, 23);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(412, 160);
+            this.groupBox8.Size = new System.Drawing.Size(412, 189);
             this.groupBox8.TabIndex = 329;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "TALEP EDEN";
@@ -2735,7 +2774,9 @@ namespace UserInterface.STS
             // 
             this.groupBox9.Controls.Add(this.CmbDonemBasaran);
             this.groupBox9.Controls.Add(this.label35);
+            this.groupBox9.Controls.Add(this.LblIsAkisNo2);
             this.groupBox9.Controls.Add(this.DtgIstenenTarihBasaran);
+            this.groupBox9.Controls.Add(this.label37);
             this.groupBox9.Controls.Add(this.label14);
             this.groupBox9.Controls.Add(this.LblAdSoyad);
             this.groupBox9.Controls.Add(this.label30);
@@ -2743,9 +2784,9 @@ namespace UserInterface.STS
             this.groupBox9.Controls.Add(this.label32);
             this.groupBox9.Controls.Add(this.LblMasrafYeriNo);
             this.groupBox9.Controls.Add(this.LblMasrafYeri);
-            this.groupBox9.Location = new System.Drawing.Point(17, 52);
+            this.groupBox9.Location = new System.Drawing.Point(17, 23);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(364, 160);
+            this.groupBox9.Size = new System.Drawing.Size(364, 189);
             this.groupBox9.TabIndex = 328;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "TALEBİ OLUŞTURAN";
@@ -2767,7 +2808,7 @@ namespace UserInterface.STS
             "EKİM",
             "KASIM",
             "ARALIK"});
-            this.CmbDonemBasaran.Location = new System.Drawing.Point(130, 125);
+            this.CmbDonemBasaran.Location = new System.Drawing.Point(128, 151);
             this.CmbDonemBasaran.Name = "CmbDonemBasaran";
             this.CmbDonemBasaran.Size = new System.Drawing.Size(105, 21);
             this.CmbDonemBasaran.TabIndex = 29;
@@ -2775,7 +2816,7 @@ namespace UserInterface.STS
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(71, 129);
+            this.label35.Location = new System.Drawing.Point(69, 155);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(50, 13);
             this.label35.TabIndex = 28;
@@ -2784,7 +2825,7 @@ namespace UserInterface.STS
             // DtgIstenenTarihBasaran
             // 
             this.DtgIstenenTarihBasaran.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtgIstenenTarihBasaran.Location = new System.Drawing.Point(130, 99);
+            this.DtgIstenenTarihBasaran.Location = new System.Drawing.Point(128, 125);
             this.DtgIstenenTarihBasaran.Name = "DtgIstenenTarihBasaran";
             this.DtgIstenenTarihBasaran.Size = new System.Drawing.Size(105, 20);
             this.DtgIstenenTarihBasaran.TabIndex = 106;
@@ -2792,7 +2833,7 @@ namespace UserInterface.STS
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(28, 103);
+            this.label14.Location = new System.Drawing.Point(26, 129);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(93, 13);
             this.label14.TabIndex = 105;
@@ -2801,7 +2842,7 @@ namespace UserInterface.STS
             // LblAdSoyad
             // 
             this.LblAdSoyad.AutoSize = true;
-            this.LblAdSoyad.Location = new System.Drawing.Point(127, 77);
+            this.LblAdSoyad.Location = new System.Drawing.Point(125, 103);
             this.LblAdSoyad.Name = "LblAdSoyad";
             this.LblAdSoyad.Size = new System.Drawing.Size(19, 13);
             this.LblAdSoyad.TabIndex = 103;
@@ -2810,7 +2851,7 @@ namespace UserInterface.STS
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(73, 50);
+            this.label30.Location = new System.Drawing.Point(71, 77);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(48, 13);
             this.label30.TabIndex = 93;
@@ -2819,7 +2860,7 @@ namespace UserInterface.STS
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(50, 77);
+            this.label31.Location = new System.Drawing.Point(48, 103);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(71, 13);
             this.label31.TabIndex = 92;
@@ -2828,7 +2869,7 @@ namespace UserInterface.STS
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(20, 23);
+            this.label32.Location = new System.Drawing.Point(18, 50);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(101, 13);
             this.label32.TabIndex = 91;
@@ -2837,7 +2878,7 @@ namespace UserInterface.STS
             // LblMasrafYeriNo
             // 
             this.LblMasrafYeriNo.AutoSize = true;
-            this.LblMasrafYeriNo.Location = new System.Drawing.Point(127, 23);
+            this.LblMasrafYeriNo.Location = new System.Drawing.Point(125, 50);
             this.LblMasrafYeriNo.Name = "LblMasrafYeriNo";
             this.LblMasrafYeriNo.Size = new System.Drawing.Size(19, 13);
             this.LblMasrafYeriNo.TabIndex = 102;
@@ -2846,7 +2887,7 @@ namespace UserInterface.STS
             // LblMasrafYeri
             // 
             this.LblMasrafYeri.AutoSize = true;
-            this.LblMasrafYeri.Location = new System.Drawing.Point(127, 50);
+            this.LblMasrafYeri.Location = new System.Drawing.Point(125, 77);
             this.LblMasrafYeri.Name = "LblMasrafYeri";
             this.LblMasrafYeri.Size = new System.Drawing.Size(19, 13);
             this.LblMasrafYeri.TabIndex = 104;
@@ -2855,7 +2896,7 @@ namespace UserInterface.STS
             // LblIsAkisNo2
             // 
             this.LblIsAkisNo2.AutoSize = true;
-            this.LblIsAkisNo2.Location = new System.Drawing.Point(144, 26);
+            this.LblIsAkisNo2.Location = new System.Drawing.Point(125, 23);
             this.LblIsAkisNo2.Name = "LblIsAkisNo2";
             this.LblIsAkisNo2.Size = new System.Drawing.Size(19, 13);
             this.LblIsAkisNo2.TabIndex = 116;
@@ -2864,7 +2905,7 @@ namespace UserInterface.STS
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(72, 26);
+            this.label37.Location = new System.Drawing.Point(53, 23);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(66, 13);
             this.label37.TabIndex = 115;
@@ -2916,22 +2957,21 @@ namespace UserInterface.STS
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label65
+            // TxtProjeKodu
             // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(65, 84);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(45, 13);
-            this.label65.TabIndex = 109;
-            this.label65.Text = "PROJE:";
+            this.TxtProjeKodu.Location = new System.Drawing.Point(137, 151);
+            this.TxtProjeKodu.Name = "TxtProjeKodu";
+            this.TxtProjeKodu.Size = new System.Drawing.Size(258, 20);
+            this.TxtProjeKodu.TabIndex = 29;
             // 
-            // TxtProje
+            // label67
             // 
-            this.TxtProje.Location = new System.Drawing.Point(116, 81);
-            this.TxtProje.Name = "TxtProje";
-            this.TxtProje.Size = new System.Drawing.Size(236, 20);
-            this.TxtProje.TabIndex = 335;
-            this.TxtProje.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtProje_KeyPress);
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(87, 155);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(45, 13);
+            this.label67.TabIndex = 28;
+            this.label67.Text = "PROJE:";
             // 
             // FrmSatOlustur2
             // 
@@ -3226,5 +3266,9 @@ namespace UserInterface.STS
         private System.Windows.Forms.DateTimePicker DtBelgeTarihi;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.TextBox TxtProje;
+        private System.Windows.Forms.TextBox TxtSatinAlinanFirma;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.TextBox TxtProjeKodu;
+        private System.Windows.Forms.Label label67;
     }
 }

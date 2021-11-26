@@ -61,12 +61,20 @@ namespace UserInterface.IdariIsler
         {
             IsAkisNo();
             ComboFirma();
+            ProjeKodu();
             gec = true;
             TxtGorevi.Clear();
             if (infos[1].ToString() != "RESUL GÜNEŞ")
             {
                 BtnFirmaEkle.Visible = false;
             }
+        }
+        void ProjeKodu()
+        {
+            CmbProjeKodu.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
+            CmbProjeKodu.ValueMember = "Id";
+            CmbProjeKodu.DisplayMember = "Baslik";
+            CmbProjeKodu.SelectedValue = 0;
         }
         public void ComboFirma()
         {
@@ -558,7 +566,7 @@ namespace UserInterface.IdariIsler
             unvani = siparis.Gorevi;
             masrafYeri = siparis.Masrafyeri;
             SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, TxtIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(), infos[2].ToString(), "YOK", "YOK", DateTime.Now, aciklama, siparisNo, TxtPersonelKapat.Text, personelSiparis, unvani, masrafyerino, masrafYeri,
-                  string.IsNullOrEmpty(dosya) ? "" : dosya, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN","");
+                  string.IsNullOrEmpty(dosya) ? "" : dosya, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", CmbProjeKodu.Text, TxtBakOnarimFirma.Text);
             string mesaj = satDataGridview1Manager.Add(satDataGridview1);
             if (mesaj != "OK")
             {
@@ -619,6 +627,7 @@ namespace UserInterface.IdariIsler
         void TemizleKapat()
         {
             TxtIsAkisNo.Clear(); TxtPlakaKapat.Clear(); TxtSiparisNoKapat.Clear(); TxtKullanildigiBolumKapat.Clear(); TxtPersonelKapat.Clear(); TxtAracKmKapat.Clear(); TxtBakNedeniKapat.Clear(); TxtArizaAciklamasi.Clear(); TxtBakOnarimFirma.SelectedValue=-1; TxtSonucAciklama.Clear(); TxtTutar.Clear(); webBrowser1.Navigate("");
+            CmbProjeKodu.SelectedValue = "";
         }
         string masrafyerino;
         private void BtnKayitBul_Click(object sender, EventArgs e)

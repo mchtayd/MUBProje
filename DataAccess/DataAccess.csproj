@@ -125,10 +125,12 @@
     <Compile Include="Concreate\STS\ReddedilenMalzemeDal.cs" />
     <Compile Include="Concreate\STS\SatDataGridview1Dal.cs" />
     <Compile Include="Concreate\STS\SatIslemAdimlariDal.cs" />
+    <Compile Include="Concreate\STS\SatMailDal.cs" />
     <Compile Include="Concreate\STS\SatMalListDal.cs" />
     <Compile Include="Concreate\STS\SatNoDal.cs" />
     <Compile Include="Concreate\STS\SatOnayTarihiDal.cs" />
     <Compile Include="Concreate\STS\SatOtomatikCekDal.cs" />
+    <Compile Include="Concreate\STS\SatRaporDal.cs" />
     <Compile Include="Concreate\STS\SatRenkliTabloDal.cs" />
     <Compile Include="Concreate\STS\SatTalebiDoldurDal.cs" />
     <Compile Include="Concreate\STS\StokNoTanimDal.cs" />

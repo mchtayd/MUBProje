@@ -31,7 +31,7 @@ namespace UserInterface.IdariIsler
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKonaklama));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.LblIsAkisNo = new System.Windows.Forms.Label();
@@ -481,7 +481,7 @@ namespace UserInterface.IdariIsler
             // 
             // CmbSiparisNo
             // 
-            this.CmbSiparisNo.Location = new System.Drawing.Point(187, 47);
+            this.CmbSiparisNo.Location = new System.Drawing.Point(187, 48);
             this.CmbSiparisNo.Name = "CmbSiparisNo";
             this.CmbSiparisNo.Size = new System.Drawing.Size(258, 20);
             this.CmbSiparisNo.TabIndex = 46;
@@ -587,7 +587,7 @@ namespace UserInterface.IdariIsler
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(51, 133);
+            this.label8.Location = new System.Drawing.Point(51, 130);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(133, 13);
             this.label8.TabIndex = 15;
@@ -603,7 +603,7 @@ namespace UserInterface.IdariIsler
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(83, 107);
+            this.label9.Location = new System.Drawing.Point(83, 104);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(101, 13);
             this.label9.TabIndex = 13;
@@ -611,7 +611,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtGorevi
             // 
-            this.TxtGorevi.Location = new System.Drawing.Point(187, 74);
+            this.TxtGorevi.Location = new System.Drawing.Point(187, 73);
             this.TxtGorevi.Name = "TxtGorevi";
             this.TxtGorevi.Size = new System.Drawing.Size(258, 20);
             this.TxtGorevi.TabIndex = 12;
@@ -1172,8 +1172,8 @@ namespace UserInterface.IdariIsler
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.BackgroundColor = System.Drawing.SystemColors.Control;

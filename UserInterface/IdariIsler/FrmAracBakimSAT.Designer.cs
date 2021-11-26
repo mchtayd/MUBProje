@@ -150,7 +150,7 @@ namespace UserInterface.IdariIsler
             "ARALIK"});
             this.CmbDonem.Location = new System.Drawing.Point(140, 241);
             this.CmbDonem.Name = "CmbDonem";
-            this.CmbDonem.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonem.Size = new System.Drawing.Size(195, 21);
             this.CmbDonem.TabIndex = 420;
             // 
             // label55
@@ -183,7 +183,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(140, 280);
+            this.BtnKaydet.Location = new System.Drawing.Point(140, 279);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(145, 50);
             this.BtnKaydet.TabIndex = 423;
@@ -195,7 +195,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(291, 280);
+            this.BtnTemizle.Location = new System.Drawing.Point(291, 279);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(145, 50);
             this.BtnTemizle.TabIndex = 424;
@@ -214,7 +214,7 @@ namespace UserInterface.IdariIsler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(817, 352);
+            this.ClientSize = new System.Drawing.Size(817, 351);
             this.Controls.Add(this.TxtBirim);
             this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnKaydet);

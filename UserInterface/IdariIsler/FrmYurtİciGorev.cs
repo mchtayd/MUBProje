@@ -248,6 +248,7 @@ namespace UserInterface.IdariIsler
             CmbAdSoyadGun.SelectedValue = 0;
         }
         int guncelid;
+        string proje = "";
         private void CmbAdSoyadGun_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start3 == false)
@@ -260,6 +261,7 @@ namespace UserInterface.IdariIsler
             guncelid = siparis.Id;
             TxtMasrafyeriNoGun.Text = siparis.Masrafyerino;
             TxtMasrafYeriGun.Text = siparis.Masrafyeri;
+            proje = siparis.Projekodu;
             start4 = false;
         }
 
@@ -569,7 +571,7 @@ namespace UserInterface.IdariIsler
                 siparisNo = Guid.NewGuid().ToString();
                 HarcamaControl();
                 SatDataGridview1 satDataGridview1 = new SatDataGridview1(0,TxtIsAkisNoTamamla.Text.ConInt(), masrafyerino, talepeden, bolum, "YOK", "YOK", DateTime.Now, gerekce, siparisNo, CmbAdSoyadGun.Text, CmbSiparsGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text,
-                  string.IsNullOrEmpty(dosyaGun) ? "" : dosyaGun, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN","");
+                  string.IsNullOrEmpty(dosyaGun) ? "" : dosyaGun, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, TxtFirmalar.Text);
                 string mesaj = satDataGridview1Manager.Add(satDataGridview1);
                 if (mesaj != "OK")
                 {
@@ -1041,7 +1043,10 @@ namespace UserInterface.IdariIsler
                 TemizleGuncelle();
             }
         }
-
+        void SatGuncelle()
+        {
+            
+        }
         private void textBTxtSeyahatAvansToplamGun_TextChanged(object sender, EventArgs e)
         {
             TxtGenelToplamGun.Text = GenelToplamGun();

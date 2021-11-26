@@ -1,4 +1,5 @@
-﻿using Business.Concreate.STS;
+﻿using Business;
+using Business.Concreate.STS;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
 using Entity.STS;
@@ -22,6 +23,7 @@ namespace UserInterface.STS
         List<TamamlananMalzeme> tamamlananMalzemes;
         TamamlananMalzemeManager tamamlananMalzemeManager;
         SatIslemAdimlariManager satIslemAdimlarimanager;
+        ComboManager comboManager;
         string siparisNo, dosyayolu, butceKodu;
         int ucteklif;
         double geneltoplam, harcananTutar;
@@ -32,11 +34,13 @@ namespace UserInterface.STS
             tamamlananManager = TamamlananManager.GetInstance();
             tamamlananMalzemeManager = TamamlananMalzemeManager.GetInstance();
             satIslemAdimlarimanager = SatIslemAdimlariManager.GetInstance();
+            comboManager = ComboManager.GetInstance();
         }
 
         private void FrmTamamlananSat_Load(object sender, EventArgs e)
         {
             TamamlananSatlar();
+            ProjeKodu();
             TxtTop.Text = DtgTamamlananSatlar.RowCount.ToString();
             start = false;
         }
@@ -105,7 +109,15 @@ namespace UserInterface.STS
             {
                 return;
             }
-            webBrowser1.Navigate(dosyayolu);
+            try
+            {
+                webBrowser1.Navigate(dosyayolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
         void DataDisplay()
         {
@@ -283,6 +295,8 @@ namespace UserInterface.STS
                             -1,
                             "TAMAMLANAN SATLAR",
                             item.Cell("C").Value.ToString(),
+                            "",
+                            "",
                             "",
                             "");
                         list.Add(tamamlanan);
@@ -650,6 +664,29 @@ namespace UserInterface.STS
             e.Handled = true;
         }
 
+        private void BtnSatiGuncelle_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string mesaj = tamamlananManager.SatFirmaGuncelle(siparisNo, CmbProjeKodu.Text, TxtFirma.Text);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CmbProjeKodu.SelectedValue = ""; TxtFirma.Clear();
+                DataDisplay();
+            }
+        }
+        void ProjeKodu()
+        {
+            CmbProjeKodu.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
+            CmbProjeKodu.ValueMember = "Id";
+            CmbProjeKodu.DisplayMember = "Baslik";
+            CmbProjeKodu.SelectedValue = 0;
+        }
         private void BT10_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

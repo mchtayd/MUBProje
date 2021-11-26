@@ -113,6 +113,10 @@ namespace UserInterface.IdariIsler
             this.TxtIsAkisNoTamamla = new System.Windows.Forms.MaskedTextBox();
             this.BtnBulT = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label79 = new System.Windows.Forms.Label();
+            this.TxtFirmalar = new System.Windows.Forms.TextBox();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label76 = new System.Windows.Forms.Label();
             this.BtnCokluKonaklama = new System.Windows.Forms.Button();
             this.TxtOtobusMiktar = new System.Windows.Forms.TextBox();
             this.TxtUcakMiktar = new System.Windows.Forms.TextBox();
@@ -196,7 +200,6 @@ namespace UserInterface.IdariIsler
             this.label42 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.label76 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -1004,7 +1007,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnKaydetGun.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydetGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydetGun.Location = new System.Drawing.Point(17, 665);
+            this.BtnKaydetGun.Location = new System.Drawing.Point(20, 734);
             this.BtnKaydetGun.Name = "BtnKaydetGun";
             this.BtnKaydetGun.Size = new System.Drawing.Size(178, 50);
             this.BtnKaydetGun.TabIndex = 21;
@@ -1038,7 +1041,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(17, 665);
+            this.BtnGuncelle.Location = new System.Drawing.Point(20, 734);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(178, 50);
             this.BtnGuncelle.TabIndex = 89;
@@ -1051,7 +1054,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGorevSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGorevSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevSil.Location = new System.Drawing.Point(201, 665);
+            this.BtnGorevSil.Location = new System.Drawing.Point(204, 734);
             this.BtnGorevSil.Name = "BtnGorevSil";
             this.BtnGorevSil.Size = new System.Drawing.Size(178, 50);
             this.BtnGorevSil.TabIndex = 88;
@@ -1082,6 +1085,9 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label79);
+            this.groupBox3.Controls.Add(this.TxtFirmalar);
+            this.groupBox3.Controls.Add(this.label78);
             this.groupBox3.Controls.Add(this.label76);
             this.groupBox3.Controls.Add(this.BtnCokluKonaklama);
             this.groupBox3.Controls.Add(this.TxtOtobusMiktar);
@@ -1125,12 +1131,47 @@ namespace UserInterface.IdariIsler
             this.groupBox3.Controls.Add(this.TxtSeyahatAvansGunTlGun);
             this.groupBox3.Controls.Add(this.label28);
             this.groupBox3.Controls.Add(this.label29);
-            this.groupBox3.Location = new System.Drawing.Point(20, 363);
+            this.groupBox3.Location = new System.Drawing.Point(20, 374);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1523, 296);
+            this.groupBox3.Size = new System.Drawing.Size(1523, 354);
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "C-Görev Maliyeti:";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(202, 323);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(394, 13);
+            this.label79.TabIndex = 76;
+            this.label79.Text = "NOT: Lütfen Birden Fazla Firma Belirtirken Firmalar Arasında \"/\" İşaretini Kullan" +
+    "ınız!";
+            // 
+            // TxtFirmalar
+            // 
+            this.TxtFirmalar.Location = new System.Drawing.Point(205, 300);
+            this.TxtFirmalar.Name = "TxtFirmalar";
+            this.TxtFirmalar.Size = new System.Drawing.Size(955, 20);
+            this.TxtFirmalar.TabIndex = 75;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(24, 304);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(175, 13);
+            this.label78.TabIndex = 74;
+            this.label78.Text = "SATIN ALIM YAPILAN FİRMALAR:";
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(402, 169);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(64, 13);
+            this.label76.TabIndex = 73;
+            this.label76.Text = "Miktar(Adet)";
             // 
             // BtnCokluKonaklama
             // 
@@ -1612,7 +1653,7 @@ namespace UserInterface.IdariIsler
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(20, 194);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1523, 163);
+            this.groupBox1.Size = new System.Drawing.Size(1523, 174);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "B-Göreve Katılan Personel:";
@@ -1906,15 +1947,6 @@ namespace UserInterface.IdariIsler
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(402, 169);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(64, 13);
-            this.label76.TabIndex = 73;
-            this.label76.Text = "Miktar(Adet)";
-            // 
             // FrmYurtİciGorev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2121,5 +2153,8 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.ComboBox CmbIslemTuru;
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label label79;
+        private System.Windows.Forms.TextBox TxtFirmalar;
+        private System.Windows.Forms.Label label78;
     }
 }

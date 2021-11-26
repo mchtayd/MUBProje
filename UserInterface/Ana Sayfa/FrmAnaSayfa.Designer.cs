@@ -90,7 +90,7 @@ namespace UserInterface.STS
             System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Stok Görüntüle");
             System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Depo Hareketleri");
             System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Stokta Bulunmayan Malzemeler ");
-            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Yedek Parça Kataloğu");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Kayıtlı Malzemeler");
             System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
             treeNode30,
             treeNode31,
@@ -933,9 +933,9 @@ namespace UserInterface.STS
             treeNode32.Name = "Stokta Bulunmayan Malzeme";
             treeNode32.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             treeNode32.Text = "Stokta Bulunmayan Malzemeler ";
-            treeNode33.Name = "Düğüm1";
+            treeNode33.Name = "KayitliMalzemeler";
             treeNode33.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode33.Text = "Yedek Parça Kataloğu";
+            treeNode33.Text = "Kayıtlı Malzemeler";
             treeNode34.BackColor = System.Drawing.Color.CornflowerBlue;
             treeNode34.ForeColor = System.Drawing.Color.White;
             treeNode34.Name = "GKA VERI IZLEME";

@@ -8,7 +8,7 @@ namespace Entity.STS
 {
     public class Tamamlanan
     {
-        int id, formno; string satno, masrafyeri, talepeden, bolum, usbolgesi, abfform; DateTime istenentarih, tamamlanantarih;string gerekce, butcekodukalemi, satbirim, harcamaturu, faturaedilecekfirma, ilgilikisi, masrafyerino; double harcanantutar; string belgeturu, belgenumarasi;DateTime belgetarihi;string dosyayolu, siparisno; int ucteklif; string islemAdimi, donem, satOlusturmaTuru, proje;
+        int id, formno; string satno, masrafyeri, talepeden, bolum, usbolgesi, abfform; DateTime istenentarih, tamamlanantarih;string gerekce, butcekodukalemi, satbirim, harcamaturu, faturaedilecekfirma, ilgilikisi, masrafyerino; double harcanantutar; string belgeturu, belgenumarasi;DateTime belgetarihi;string dosyayolu, siparisno; int ucteklif; string islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan;
 
         public int     Id        { get => id; set => id = value; }
         public int Formno { get => formno; set => formno = value; }
@@ -38,8 +38,10 @@ namespace Entity.STS
         public string Donem { get => donem; set => donem = value; }
         public string SatOlusturmaTuru { get => satOlusturmaTuru; set => satOlusturmaTuru = value; }
         public string Proje { get => proje; set => proje = value; }
+        public string SatinAlinanFirma { get => satinAlinanFirma; set => satinAlinanFirma = value; }
+        public string HarcamaYapan { get => harcamaYapan; set => harcamaYapan = value; }
 
-        public Tamamlanan(int id, int formno, string satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfform, DateTime istenentarih, DateTime tamamlanantarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, double harcanantutar, string belgeturu, string belgenumarasi, DateTime belgetarihi, string dosyayolu, string siparisno, int ucteklif, string islemAdimi, string donem,string satOlusturmaTuru,string proje)
+        public Tamamlanan(int id, int formno, string satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfform, DateTime istenentarih, DateTime tamamlanantarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, double harcanantutar, string belgeturu, string belgenumarasi, DateTime belgetarihi, string dosyayolu, string siparisno, int ucteklif, string islemAdimi, string donem,string satOlusturmaTuru,string proje,string satinAlinanFirma, string harcamaYapan)
         {
             this.id = id;
             this.formno = formno;
@@ -69,9 +71,11 @@ namespace Entity.STS
             this.donem = donem;
             this.satOlusturmaTuru = satOlusturmaTuru;
             this.proje = proje;
+            this.satinAlinanFirma = satinAlinanFirma;
+            this.harcamaYapan = harcamaYapan;
         }
 
-        public Tamamlanan(string satno, int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfform, DateTime istenentarih, DateTime tamamlanantarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string belgeturu, string belgenumarasi, DateTime belgetarihi, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, double harcanantutar, string dosyayolu, string siparisno, int ucteklif,string islemAdimi,string donem, string satOlusturmaTuru,string proje)
+        public Tamamlanan(string satno, int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfform, DateTime istenentarih, DateTime tamamlanantarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string belgeturu, string belgenumarasi, DateTime belgetarihi, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, double harcanantutar, string dosyayolu, string siparisno, int ucteklif,string islemAdimi,string donem, string satOlusturmaTuru,string proje, string satinAlinanFirma,string harcamaYapan)
         {
             this.Satno = satno;
             this.formno = formno;
@@ -100,6 +104,8 @@ namespace Entity.STS
             this.Donem = donem;
             this.satOlusturmaTuru = satOlusturmaTuru;
             this.proje = proje;
+            this.satinAlinanFirma = satinAlinanFirma;
+            this.harcamaYapan = harcamaYapan;
         }
     }
 }

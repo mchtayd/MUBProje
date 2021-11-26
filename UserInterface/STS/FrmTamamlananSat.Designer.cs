@@ -30,9 +30,9 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -145,6 +145,13 @@ namespace UserInterface.STS
             this.DtgSatIslemAdimlari = new System.Windows.Forms.DataGridView();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
+            this.BtnSatiGuncelle = new System.Windows.Forms.Button();
+            this.label150 = new System.Windows.Forms.Label();
+            this.TxtFirma = new System.Windows.Forms.TextBox();
+            this.label151 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
@@ -158,6 +165,8 @@ namespace UserInterface.STS
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).BeginInit();
+            this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -198,8 +207,8 @@ namespace UserInterface.STS
             // 
             this.DtgTamamlananSatlar.AllowUserToAddRows = false;
             this.DtgTamamlananSatlar.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DtgTamamlananSatlar.AutoGenerateContextFilters = true;
             this.DtgTamamlananSatlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTamamlananSatlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1220,6 +1229,7 @@ namespace UserInterface.STS
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(1080, 542);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1261,18 +1271,18 @@ namespace UserInterface.STS
             // 
             this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
             this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1303,6 +1313,76 @@ namespace UserInterface.STS
             this.LblGenelTop.Size = new System.Drawing.Size(34, 15);
             this.LblGenelTop.TabIndex = 353;
             this.LblGenelTop.Text = "00  ₺";
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(464, 344);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "FİRMA VE PROJE GÜNCELLE";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.CmbProjeKodu);
+            this.groupBox3.Controls.Add(this.BtnSatiGuncelle);
+            this.groupBox3.Controls.Add(this.label150);
+            this.groupBox3.Controls.Add(this.TxtFirma);
+            this.groupBox3.Controls.Add(this.label151);
+            this.groupBox3.Location = new System.Drawing.Point(12, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(440, 134);
+            this.groupBox3.TabIndex = 579;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";
+            // 
+            // CmbProjeKodu
+            // 
+            this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbProjeKodu.FormattingEnabled = true;
+            this.CmbProjeKodu.Location = new System.Drawing.Point(143, 33);
+            this.CmbProjeKodu.Name = "CmbProjeKodu";
+            this.CmbProjeKodu.Size = new System.Drawing.Size(174, 21);
+            this.CmbProjeKodu.TabIndex = 574;
+            // 
+            // BtnSatiGuncelle
+            // 
+            this.BtnSatiGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSatiGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSatiGuncelle.Location = new System.Drawing.Point(143, 86);
+            this.BtnSatiGuncelle.Name = "BtnSatiGuncelle";
+            this.BtnSatiGuncelle.Size = new System.Drawing.Size(111, 25);
+            this.BtnSatiGuncelle.TabIndex = 577;
+            this.BtnSatiGuncelle.Text = "GÜNCELLE";
+            this.BtnSatiGuncelle.UseVisualStyleBackColor = true;
+            this.BtnSatiGuncelle.Click += new System.EventHandler(this.BtnSatiGuncelle_Click);
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Location = new System.Drawing.Point(18, 37);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(119, 13);
+            this.label150.TabIndex = 573;
+            this.label150.Text = "PROJE KODU/PROJE:";
+            // 
+            // TxtFirma
+            // 
+            this.TxtFirma.Location = new System.Drawing.Point(143, 60);
+            this.TxtFirma.Name = "TxtFirma";
+            this.TxtFirma.Size = new System.Drawing.Size(281, 20);
+            this.TxtFirma.TabIndex = 576;
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Location = new System.Drawing.Point(94, 64);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(43, 13);
+            this.label151.TabIndex = 575;
+            this.label151.Text = "FİRMA:";
             // 
             // FrmTamamlananSat
             // 
@@ -1340,6 +1420,9 @@ namespace UserInterface.STS
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1459,5 +1542,12 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblGenelTop;
         private System.Windows.Forms.Panel PnlTemsili;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox CmbProjeKodu;
+        private System.Windows.Forms.Button BtnSatiGuncelle;
+        private System.Windows.Forms.Label label150;
+        private System.Windows.Forms.TextBox TxtFirma;
+        private System.Windows.Forms.Label label151;
     }
 }

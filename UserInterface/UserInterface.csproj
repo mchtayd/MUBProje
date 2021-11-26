@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>177</ApplicationRevision>
+    <ApplicationRevision>195</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -121,6 +121,12 @@
     <Compile Include="Ana Sayfa\FrmHelper.Designer.cs">
       <DependentUpon>FrmHelper.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmMail.Designer.cs">
+      <DependentUpon>FrmMail.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmNotification.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -180,6 +186,12 @@
     </Compile>
     <Compile Include="Depo\FrmMalzemeKayitDestekDepo.Designer.cs">
       <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayitIzleme.Designer.cs">
+      <DependentUpon>FrmMalzemeKayitIzleme.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmStokGirisCikis.cs">
       <SubType>Form</SubType>
@@ -600,6 +612,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmHelper.resx">
       <DependentUpon>FrmHelper.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmMail.resx">
+      <DependentUpon>FrmMail.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmNotification.resx">
       <DependentUpon>FrmNotification.cs</DependentUpon>
     </EmbeddedResource>
@@ -629,6 +644,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Depo\FrmMalzemeKayitDestekDepo.resx">
       <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeKayitIzleme.resx">
+      <DependentUpon>FrmMalzemeKayitIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmStokGirisCikis.resx">
       <DependentUpon>FrmStokGirisCikis.cs</DependentUpon>

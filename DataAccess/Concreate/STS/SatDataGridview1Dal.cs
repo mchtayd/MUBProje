@@ -44,7 +44,8 @@ namespace DataAccess.Concreate
                     new SqlParameter("@islemAdimi",entity.IslemAdimi),
                     new SqlParameter("@donem",entity.Donem),
                     new SqlParameter("@satOlusturmaTuru",entity.SatOlusturmaTuru),
-                    new SqlParameter("@proje",entity.Proje));
+                    new SqlParameter("@proje",entity.Proje),
+                    new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma));
 
                 dataReader.Close();
                 return "OK";
@@ -92,6 +93,41 @@ namespace DataAccess.Concreate
                 dataReader = sqlServices.StoreReader("SatDataGridSil", new SqlParameter("@id", id));
                 dataReader.Close();
                 return "Masraf Yeri Numarası Başarıyla Silindi.";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SatFirmaGuncelle(string siparisNo,string proje,string firma)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatFirmaBilgisiGuncelle", 
+                    new SqlParameter("@siparisNo", siparisNo),
+                    new SqlParameter("@proje", proje),
+                    new SqlParameter("@satFirma", firma));
+                dataReader.Close();
+                return "OK";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SatMilDurumGuncelle(string siparisNo, string proje, string mailSiniri, string mailDurumu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatMailDurumlariGuncelle",
+                    new SqlParameter("@siparisNo", siparisNo),
+                    new SqlParameter("@proje", proje),
+                    new SqlParameter("@mailSiniri", mailSiniri),
+                    new SqlParameter("@mailDurumu", mailDurumu));
+                dataReader.Close();
+                return "OK";
             }
 
             catch (Exception ex)
@@ -167,7 +203,8 @@ namespace DataAccess.Concreate
                         dataReader["Durum"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
                         dataReader["UC_TEKLIF"].ConInt(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -212,7 +249,8 @@ namespace DataAccess.Concreate
                         dataReader["Durum"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
                         dataReader["UC_TEKLIF"].ConInt(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -274,7 +312,8 @@ namespace DataAccess.Concreate
                     new SqlParameter("@teklifDurum", entity.TeklifDurumu),
                     new SqlParameter("@ucTeklif",entity.Uctekilf),
                     new SqlParameter("@personelId",entity.PersonelId),
-                    new SqlParameter("@donem",entity.Donem));
+                    new SqlParameter("@donem",entity.Donem),
+                    new SqlParameter("@firma",entity.SatinAlinanFirma));
 
                 dataReader.Close();
                 return "OK";
@@ -362,6 +401,32 @@ namespace DataAccess.Concreate
             {
                 dataReader = sqlServices.StoreReader("SatDurumTamamlama", new SqlParameter("@siparisno", siparisno));
                 dataReader.Close();
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public string MailDurumuGuncelle(string siparisno)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatMailDurumuGuncelle", new SqlParameter("@siparisno", siparisno));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception)
+            {
+                throw;
+            }
+        }
+        public string MailDurumuKaydedildi(string siparisno)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatMailDurumuKaydedildi", new SqlParameter("@siparisno", siparisno));
+                dataReader.Close();
+                return "OK";
             }
             catch (Exception)
             {
@@ -473,7 +538,10 @@ namespace DataAccess.Concreate
                         dataReader["RED_NEDENI"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -526,8 +594,67 @@ namespace DataAccess.Concreate
                         dataReader["RED_NEDENI"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
 
+                }
+                dataReader.Close();
+                return satDatas;
+            }
+            catch (Exception ex)
+            {
+                return new List<SatDataGridview1>();
+            }
+        }
+        public List<SatDataGridview1> MailList(string mailDurumu)
+        {
+            try
+            {
+                List<SatDataGridview1> satDatas = new List<SatDataGridview1>();
+                dataReader = sqlServices.StoreReader("SatMailGonderilecekler",new SqlParameter("@mailDurumu",mailDurumu));
+                while (dataReader.Read())
+                {
+                    satDatas.Add(new SatDataGridview1(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SAT_FORM_NO"].ConInt(),
+                        dataReader["SAT_NO"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["TALEP_EDEN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["US_BOLGESI"].ToString(),
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        dataReader["ISTENEN_TARIH"].ConTime(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["DosyaYolu"].ToString(),
+                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        dataReader["SAT_BIRIM"].ToString(),
+                        dataReader["HARCAMA_TURU"].ToString(),
+                        dataReader["FATURA_EDILECEK_FIRMA"].ToString(),
+                        dataReader["ILGILI_KISI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["UC_TEKLIF"].ConInt(),
+                        dataReader["FIRMA_BILGISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["PERSONEL_SIPARIS"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["PERSONEL_MAS_YER_NO"].ToString(),
+                        dataReader["PERSONEL_MAS_YERI"].ToString(),
+                        dataReader["BELGE_TURU"].ToString(),
+                        dataReader["BELGE_NUMARASI"].ToString(),
+                        dataReader["BELGE_TARIHI"].ConTime(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["SAT_OLUSTURMA_TURU"].ToString(),
+                        dataReader["RED_NEDENI"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["TEKLIF_DURUM"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -580,7 +707,10 @@ namespace DataAccess.Concreate
                         dataReader["RED_NEDENI"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -634,7 +764,10 @@ namespace DataAccess.Concreate
                         dataReader["RED_NEDENI"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -688,7 +821,10 @@ namespace DataAccess.Concreate
                         dataReader["RED_NEDENI"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -742,7 +878,10 @@ namespace DataAccess.Concreate
                         dataReader["RED_NEDENI"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -796,7 +935,10 @@ namespace DataAccess.Concreate
                         dataReader["RED_NEDENI"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -850,7 +992,10 @@ namespace DataAccess.Concreate
                         dataReader["RED_NEDENI"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["TEKLIF_DURUM"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
 
                 }
                 dataReader.Close();

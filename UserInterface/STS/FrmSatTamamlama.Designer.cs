@@ -140,6 +140,7 @@ namespace UserInterface.STS
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DtBelgeTarihi = new System.Windows.Forms.DateTimePicker();
             this.TxtBelgeNumarasi = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -147,7 +148,14 @@ namespace UserInterface.STS
             this.CmbBelgeTuru = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.DtBelgeTarihi = new System.Windows.Forms.DateTimePicker();
+            this.label150 = new System.Windows.Forms.Label();
+            this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
+            this.TxtFirma = new System.Windows.Forms.TextBox();
+            this.label151 = new System.Windows.Forms.Label();
+            this.BtnSatiGuncelle = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.CmbHarcamaYapan = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatTamamlama)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -159,6 +167,7 @@ namespace UserInterface.STS
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -1274,6 +1283,9 @@ namespace UserInterface.STS
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.CmbHarcamaYapan);
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.DtBelgeTarihi);
             this.tabPage2.Controls.Add(this.TxtBelgeNumarasi);
             this.tabPage2.Controls.Add(this.label7);
@@ -1288,17 +1300,25 @@ namespace UserInterface.STS
             this.tabPage2.Text = "FATURA BİLGİLERİ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // DtBelgeTarihi
+            // 
+            this.DtBelgeTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtBelgeTarihi.Location = new System.Drawing.Point(149, 78);
+            this.DtBelgeTarihi.Name = "DtBelgeTarihi";
+            this.DtBelgeTarihi.Size = new System.Drawing.Size(98, 20);
+            this.DtBelgeTarihi.TabIndex = 342;
+            // 
             // TxtBelgeNumarasi
             // 
-            this.TxtBelgeNumarasi.Location = new System.Drawing.Point(149, 65);
+            this.TxtBelgeNumarasi.Location = new System.Drawing.Point(149, 52);
             this.TxtBelgeNumarasi.Name = "TxtBelgeNumarasi";
-            this.TxtBelgeNumarasi.Size = new System.Drawing.Size(237, 20);
+            this.TxtBelgeNumarasi.Size = new System.Drawing.Size(281, 20);
             this.TxtBelgeNumarasi.TabIndex = 5;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 69);
+            this.label7.Location = new System.Drawing.Point(38, 56);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(105, 13);
             this.label7.TabIndex = 4;
@@ -1307,7 +1327,7 @@ namespace UserInterface.STS
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(43, 108);
+            this.label4.Location = new System.Drawing.Point(59, 82);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(84, 13);
             this.label4.TabIndex = 3;
@@ -1316,7 +1336,7 @@ namespace UserInterface.STS
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 29);
+            this.label3.Location = new System.Drawing.Point(64, 30);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 13);
             this.label3.TabIndex = 1;
@@ -1341,7 +1361,7 @@ namespace UserInterface.STS
             "TUTANAK"});
             this.CmbBelgeTuru.Location = new System.Drawing.Point(149, 25);
             this.CmbBelgeTuru.Name = "CmbBelgeTuru";
-            this.CmbBelgeTuru.Size = new System.Drawing.Size(237, 21);
+            this.CmbBelgeTuru.Size = new System.Drawing.Size(281, 21);
             this.CmbBelgeTuru.TabIndex = 0;
             // 
             // tabPage1
@@ -1364,13 +1384,86 @@ namespace UserInterface.STS
             this.webBrowser1.Size = new System.Drawing.Size(446, 401);
             this.webBrowser1.TabIndex = 310;
             // 
-            // DtBelgeTarihi
+            // label150
             // 
-            this.DtBelgeTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtBelgeTarihi.Location = new System.Drawing.Point(149, 102);
-            this.DtBelgeTarihi.Name = "DtBelgeTarihi";
-            this.DtBelgeTarihi.Size = new System.Drawing.Size(98, 20);
-            this.DtBelgeTarihi.TabIndex = 342;
+            this.label150.AutoSize = true;
+            this.label150.Location = new System.Drawing.Point(18, 37);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(119, 13);
+            this.label150.TabIndex = 573;
+            this.label150.Text = "PROJE KODU/PROJE:";
+            // 
+            // CmbProjeKodu
+            // 
+            this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbProjeKodu.FormattingEnabled = true;
+            this.CmbProjeKodu.Location = new System.Drawing.Point(143, 33);
+            this.CmbProjeKodu.Name = "CmbProjeKodu";
+            this.CmbProjeKodu.Size = new System.Drawing.Size(174, 21);
+            this.CmbProjeKodu.TabIndex = 574;
+            // 
+            // TxtFirma
+            // 
+            this.TxtFirma.Location = new System.Drawing.Point(143, 60);
+            this.TxtFirma.Name = "TxtFirma";
+            this.TxtFirma.Size = new System.Drawing.Size(281, 20);
+            this.TxtFirma.TabIndex = 576;
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Location = new System.Drawing.Point(94, 64);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(43, 13);
+            this.label151.TabIndex = 575;
+            this.label151.Text = "FİRMA:";
+            // 
+            // BtnSatiGuncelle
+            // 
+            this.BtnSatiGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSatiGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSatiGuncelle.Location = new System.Drawing.Point(143, 86);
+            this.BtnSatiGuncelle.Name = "BtnSatiGuncelle";
+            this.BtnSatiGuncelle.Size = new System.Drawing.Size(111, 25);
+            this.BtnSatiGuncelle.TabIndex = 577;
+            this.BtnSatiGuncelle.Text = "GÜNCELLE";
+            this.BtnSatiGuncelle.UseVisualStyleBackColor = true;
+            this.BtnSatiGuncelle.Click += new System.EventHandler(this.BtnSatiGuncelle_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.CmbProjeKodu);
+            this.groupBox3.Controls.Add(this.BtnSatiGuncelle);
+            this.groupBox3.Controls.Add(this.label150);
+            this.groupBox3.Controls.Add(this.TxtFirma);
+            this.groupBox3.Controls.Add(this.label151);
+            this.groupBox3.Location = new System.Drawing.Point(6, 155);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(440, 134);
+            this.groupBox3.TabIndex = 578;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(41, 109);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(102, 13);
+            this.label9.TabIndex = 580;
+            this.label9.Text = "HARCAMA YAPAN:";
+            // 
+            // CmbHarcamaYapan
+            // 
+            this.CmbHarcamaYapan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbHarcamaYapan.FormattingEnabled = true;
+            this.CmbHarcamaYapan.Items.AddRange(new object[] {
+            "GÜLŞAH OTACI",
+            "TURGUT AYDIN"});
+            this.CmbHarcamaYapan.Location = new System.Drawing.Point(149, 104);
+            this.CmbHarcamaYapan.Name = "CmbHarcamaYapan";
+            this.CmbHarcamaYapan.Size = new System.Drawing.Size(281, 21);
+            this.CmbHarcamaYapan.TabIndex = 579;
             // 
             // FrmSatTamamlama
             // 
@@ -1403,6 +1496,8 @@ namespace UserInterface.STS
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1526,5 +1621,13 @@ namespace UserInterface.STS
         private System.Windows.Forms.ComboBox CmbBelgeTuru;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker DtBelgeTarihi;
+        private System.Windows.Forms.Label label150;
+        private System.Windows.Forms.ComboBox CmbProjeKodu;
+        private System.Windows.Forms.TextBox TxtFirma;
+        private System.Windows.Forms.Label label151;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.Button BtnSatiGuncelle;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox CmbHarcamaYapan;
     }
 }

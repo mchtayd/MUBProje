@@ -102,10 +102,12 @@
     <Compile Include="STS\SatDataGridview1.cs" />
     <Compile Include="STS\SatinAlinacakMalzemeler.cs" />
     <Compile Include="STS\SatIslemAdimlari.cs" />
+    <Compile Include="STS\SatMail.cs" />
     <Compile Include="STS\SatMalList.cs" />
     <Compile Include="STS\SatNo.cs" />
     <Compile Include="STS\SatOnayTarihi.cs" />
     <Compile Include="STS\SatOtomatikCek.cs" />
+    <Compile Include="STS\SatRapor.cs" />
     <Compile Include="STS\SatRenkliTablo.cs" />
     <Compile Include="STS\SatTalebiDoldur.cs" />
     <Compile Include="STS\StokNoTanim.cs" />

@@ -73,6 +73,27 @@ namespace DataAccess.Concreate.STS
                 return new List<TeklifFirmalar>();
             }
         }
+        public List<TeklifFirmalar> MailList()
+        {
+            try
+            {
+                List<TeklifFirmalar> teklifFirmalars = new List<TeklifFirmalar>();
+                dataReader = sqlServices.StoreReader("SatMailGonderilecekler");
+                while (dataReader.Read())
+                {
+                    teklifFirmalars.Add(new TeklifFirmalar(dataReader["ID"].ConInt(), dataReader["T1"].ConInt(), dataReader["T2"].ConInt(),
+                         dataReader["T3"].ConInt(), dataReader["FA1"].ToString(), dataReader["FA2"].ToString(), dataReader["FA3"].ToString(),
+                         dataReader["FI1"].ToString(), dataReader["FI2"].ToString(), dataReader["FI3"].ToString(), dataReader["FN1"].ToString(),
+                         dataReader["FN2"].ToString(), dataReader["FN3"].ToString(), dataReader["SiparisNo"].ToString()));
+                }
+                dataReader.Close();
+                return teklifFirmalars;
+            }
+            catch
+            {
+                return new List<TeklifFirmalar>();
+            }
+        }
 
         public string Update(TeklifFirmalar entity)
         {

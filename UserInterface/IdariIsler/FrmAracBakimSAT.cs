@@ -1,4 +1,5 @@
-﻿using Business.Concreate.IdarıIsler;
+﻿using Business;
+using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using Entity.IdariIsler;
 using System;
@@ -9,20 +10,21 @@ namespace UserInterface.IdariIsler
     public partial class FrmAracBakimSAT : Form
     {
         StokManager stokManager;
+        ComboManager comboManager;
         string gerekce = "", butcekodu = "", tanim = "", stokno = "", birim = "", donem = "";
         int miktar;
         public FrmAracBakimSAT()
         {
             InitializeComponent();
             stokManager = StokManager.GetInstance();
+            comboManager = ComboManager.GetInstance();
         }
 
         private void FrmAracBakimSAT_Load(object sender, EventArgs e)
         {
-            
+
         }
-        
-        
+
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
             if (CmbButceKoduGun.Text == "")

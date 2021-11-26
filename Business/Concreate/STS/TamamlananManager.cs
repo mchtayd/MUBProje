@@ -51,6 +51,17 @@ namespace Business.Concreate.STS
                 return new List<Tamamlanan>();
             }
         }
+        public string SatFirmaGuncelle(string siparisNo, string proje, string firma)
+        {
+            try
+            {
+                return tamamlananDal.SatFirmaGuncelle(siparisNo, proje, firma);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Update(Tamamlanan entity)
         {

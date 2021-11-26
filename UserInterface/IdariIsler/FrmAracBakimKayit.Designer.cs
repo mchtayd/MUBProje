@@ -126,44 +126,46 @@ namespace UserInterface.IdariIsler
             this.label27 = new System.Windows.Forms.Label();
             this.TxtSonucAciklamaGun = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.TxtKullanildigiBolumKapat = new System.Windows.Forms.TextBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.TxtPersonelKapat = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
-            this.BtnKayitBul = new System.Windows.Forms.Button();
-            this.label30 = new System.Windows.Forms.Label();
-            this.TxtSonucAciklama = new System.Windows.Forms.RichTextBox();
-            this.TxtPlakaKapat = new System.Windows.Forms.TextBox();
-            this.BtnDosyaEkle = new System.Windows.Forms.Button();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label28 = new System.Windows.Forms.Label();
-            this.TxtAracKmKapat = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.TxtSiparisNoKapat = new System.Windows.Forms.TextBox();
-            this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.DtTamamlanmaTarihi = new System.Windows.Forms.DateTimePicker();
-            this.label20 = new System.Windows.Forms.Label();
-            this.TxtTutar = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.BtnFirmaEkle = new System.Windows.Forms.Button();
+            this.TxtBakOnarimFirma = new System.Windows.Forms.ComboBox();
+            this.TxtArizaAciklamasi = new System.Windows.Forms.RichTextBox();
+            this.label50 = new System.Windows.Forms.Label();
+            this.DtTalepSaatiKapat = new System.Windows.Forms.DateTimePicker();
+            this.DtTlalepTarihiKapat = new System.Windows.Forms.DateTimePicker();
+            this.TxtBakNedeniKapat = new System.Windows.Forms.TextBox();
+            this.DtTamamlanmaSaati = new System.Windows.Forms.DateTimePicker();
+            this.BtnKapat = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.BtnKapat = new System.Windows.Forms.Button();
-            this.DtTamamlanmaSaati = new System.Windows.Forms.DateTimePicker();
-            this.TxtBakNedeniKapat = new System.Windows.Forms.TextBox();
-            this.DtTlalepTarihiKapat = new System.Windows.Forms.DateTimePicker();
-            this.DtTalepSaatiKapat = new System.Windows.Forms.DateTimePicker();
-            this.label50 = new System.Windows.Forms.Label();
-            this.TxtArizaAciklamasi = new System.Windows.Forms.RichTextBox();
-            this.TxtBakOnarimFirma = new System.Windows.Forms.ComboBox();
-            this.BtnFirmaEkle = new System.Windows.Forms.Button();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.TxtTutar = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.DtTamamlanmaTarihi = new System.Windows.Forms.DateTimePicker();
+            this.label17 = new System.Windows.Forms.Label();
+            this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
+            this.TxtSiparisNoKapat = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.TxtAracKmKapat = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.BtnDosyaEkle = new System.Windows.Forms.Button();
+            this.TxtPlakaKapat = new System.Windows.Forms.TextBox();
+            this.TxtSonucAciklama = new System.Windows.Forms.RichTextBox();
+            this.label30 = new System.Windows.Forms.Label();
+            this.BtnKayitBul = new System.Windows.Forms.Button();
+            this.label31 = new System.Windows.Forms.Label();
+            this.TxtPersonelKapat = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.TxtKullanildigiBolumKapat = new System.Windows.Forms.TextBox();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.label125 = new System.Windows.Forms.Label();
+            this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -171,8 +173,8 @@ namespace UserInterface.IdariIsler
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1126,332 +1128,10 @@ namespace UserInterface.IdariIsler
             this.label33.TabIndex = 398;
             this.label33.Text = "BAKIM ONARIM SONUÇ/AÇIKLAMA:";
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // openFileDialog2
-            // 
-            this.openFileDialog2.FileName = "openFileDialog2";
-            // 
-            // TxtKullanildigiBolumKapat
-            // 
-            this.TxtKullanildigiBolumKapat.Location = new System.Drawing.Point(216, 101);
-            this.TxtKullanildigiBolumKapat.Name = "TxtKullanildigiBolumKapat";
-            this.TxtKullanildigiBolumKapat.Size = new System.Drawing.Size(201, 20);
-            this.TxtKullanildigiBolumKapat.TabIndex = 373;
-            this.TxtKullanildigiBolumKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKullanildigiBolumKapat_KeyPress);
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(86, 105);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(124, 13);
-            this.label32.TabIndex = 365;
-            this.label32.Text = "KULLANILDIĞI BÖLÜM:";
-            // 
-            // TxtPersonelKapat
-            // 
-            this.TxtPersonelKapat.Location = new System.Drawing.Point(216, 127);
-            this.TxtPersonelKapat.Name = "TxtPersonelKapat";
-            this.TxtPersonelKapat.Size = new System.Drawing.Size(201, 20);
-            this.TxtPersonelKapat.TabIndex = 374;
-            this.TxtPersonelKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPersonelKapat_KeyPress);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(88, 131);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(122, 13);
-            this.label31.TabIndex = 356;
-            this.label31.Text = "ZİMMETLİ PERSONEL:";
-            // 
-            // BtnKayitBul
-            // 
-            this.BtnKayitBul.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKayitBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKayitBul.Location = new System.Drawing.Point(423, 22);
-            this.BtnKayitBul.Name = "BtnKayitBul";
-            this.BtnKayitBul.Size = new System.Drawing.Size(75, 22);
-            this.BtnKayitBul.TabIndex = 375;
-            this.BtnKayitBul.Text = "Bul";
-            this.BtnKayitBul.UseVisualStyleBackColor = true;
-            this.BtnKayitBul.Click += new System.EventHandler(this.BtnKayitBul_Click);
-            // 
-            // label30
-            // 
-            this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(22, 389);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(188, 13);
-            this.label30.TabIndex = 355;
-            this.label30.Text = "BAKIM ONARIM SONUÇ/AÇIKLAMA:";
-            // 
-            // TxtSonucAciklama
-            // 
-            this.TxtSonucAciklama.Location = new System.Drawing.Point(216, 386);
-            this.TxtSonucAciklama.Name = "TxtSonucAciklama";
-            this.TxtSonucAciklama.Size = new System.Drawing.Size(667, 96);
-            this.TxtSonucAciklama.TabIndex = 376;
-            this.TxtSonucAciklama.Text = "";
-            // 
-            // TxtPlakaKapat
-            // 
-            this.TxtPlakaKapat.Location = new System.Drawing.Point(216, 49);
-            this.TxtPlakaKapat.Name = "TxtPlakaKapat";
-            this.TxtPlakaKapat.Size = new System.Drawing.Size(201, 20);
-            this.TxtPlakaKapat.TabIndex = 364;
-            this.TxtPlakaKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPlakaKapat_KeyPress);
-            // 
-            // BtnDosyaEkle
-            // 
-            this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(63, 537);
-            this.BtnDosyaEkle.Name = "BtnDosyaEkle";
-            this.BtnDosyaEkle.Size = new System.Drawing.Size(145, 50);
-            this.BtnDosyaEkle.TabIndex = 377;
-            this.BtnDosyaEkle.Text = "DOSYA EKLE";
-            this.BtnDosyaEkle.UseVisualStyleBackColor = true;
-            this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(134, 53);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(76, 13);
-            this.label29.TabIndex = 354;
-            this.label29.Text = "ARAÇ PLAKA:";
-            // 
-            // label28
-            // 
-            this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(96, 157);
-            this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(114, 13);
-            this.label28.TabIndex = 378;
-            this.label28.Text = "ARAÇ KİLOMETRESİ:";
-            // 
-            // TxtAracKmKapat
-            // 
-            this.TxtAracKmKapat.Location = new System.Drawing.Point(216, 153);
-            this.TxtAracKmKapat.Name = "TxtAracKmKapat";
-            this.TxtAracKmKapat.Size = new System.Drawing.Size(201, 20);
-            this.TxtAracKmKapat.TabIndex = 379;
-            this.TxtAracKmKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAracKmKapat_KeyPress);
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(123, 183);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(87, 13);
-            this.label25.TabIndex = 380;
-            this.label25.Text = "BAKIM NEDENİ:";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(68, 212);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(142, 13);
-            this.label22.TabIndex = 382;
-            this.label22.Text = "B/O TALEP TARİHİ/SAATİ:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(144, 27);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(66, 13);
-            this.label19.TabIndex = 384;
-            this.label19.Text = "İŞ AKIŞ NO:";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(98, 79);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(112, 13);
-            this.label18.TabIndex = 362;
-            this.label18.Text = "SİPARİŞ NUMARASI:";
-            // 
-            // TxtSiparisNoKapat
-            // 
-            this.TxtSiparisNoKapat.Location = new System.Drawing.Point(216, 75);
-            this.TxtSiparisNoKapat.Name = "TxtSiparisNoKapat";
-            this.TxtSiparisNoKapat.Size = new System.Drawing.Size(201, 20);
-            this.TxtSiparisNoKapat.TabIndex = 371;
-            this.TxtSiparisNoKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSiparisNoKapat_KeyPress);
-            // 
-            // TxtIsAkisNo
-            // 
-            this.TxtIsAkisNo.Location = new System.Drawing.Point(216, 23);
-            this.TxtIsAkisNo.Name = "TxtIsAkisNo";
-            this.TxtIsAkisNo.Size = new System.Drawing.Size(201, 20);
-            this.TxtIsAkisNo.TabIndex = 386;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(26, 340);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(184, 13);
-            this.label17.TabIndex = 387;
-            this.label17.Text = "B/O TAMAMLANMA TARİHİ/SAATİ:";
-            // 
-            // DtTamamlanmaTarihi
-            // 
-            this.DtTamamlanmaTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtTamamlanmaTarihi.Location = new System.Drawing.Point(216, 334);
-            this.DtTamamlanmaTarihi.Name = "DtTamamlanmaTarihi";
-            this.DtTamamlanmaTarihi.Size = new System.Drawing.Size(119, 20);
-            this.DtTamamlanmaTarihi.TabIndex = 388;
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(45, 364);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(164, 13);
-            this.label20.TabIndex = 392;
-            this.label20.Text = "BAKIM ONARIM YAPAN FİRMA:";
-            // 
-            // TxtTutar
-            // 
-            this.TxtTutar.Location = new System.Drawing.Point(215, 491);
-            this.TxtTutar.Name = "TxtTutar";
-            this.TxtTutar.Size = new System.Drawing.Size(145, 20);
-            this.TxtTutar.TabIndex = 395;
-            this.TxtTutar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTutar_KeyPress);
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(30, 495);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(179, 13);
-            this.label21.TabIndex = 394;
-            this.label21.Text = "BAKIM ONARIM TOPLAM TUTARI:";
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label23.Location = new System.Drawing.Point(366, 495);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(14, 15);
-            this.label23.TabIndex = 396;
-            this.label23.Text = "₺";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.webBrowser1);
-            this.groupBox3.Location = new System.Drawing.Point(215, 521);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(668, 142);
-            this.groupBox3.TabIndex = 397;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "EKLER:";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(662, 123);
-            this.webBrowser1.TabIndex = 0;
-            // 
-            // BtnKapat
-            // 
-            this.BtnKapat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKapat.Location = new System.Drawing.Point(64, 593);
-            this.BtnKapat.Name = "BtnKapat";
-            this.BtnKapat.Size = new System.Drawing.Size(145, 50);
-            this.BtnKapat.TabIndex = 398;
-            this.BtnKapat.Text = "KAYIT KAPAT";
-            this.BtnKapat.UseVisualStyleBackColor = true;
-            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
-            // 
-            // DtTamamlanmaSaati
-            // 
-            this.DtTamamlanmaSaati.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtTamamlanmaSaati.Location = new System.Drawing.Point(342, 333);
-            this.DtTamamlanmaSaati.Name = "DtTamamlanmaSaati";
-            this.DtTamamlanmaSaati.Size = new System.Drawing.Size(75, 20);
-            this.DtTamamlanmaSaati.TabIndex = 399;
-            // 
-            // TxtBakNedeniKapat
-            // 
-            this.TxtBakNedeniKapat.Location = new System.Drawing.Point(216, 179);
-            this.TxtBakNedeniKapat.Name = "TxtBakNedeniKapat";
-            this.TxtBakNedeniKapat.Size = new System.Drawing.Size(201, 20);
-            this.TxtBakNedeniKapat.TabIndex = 400;
-            this.TxtBakNedeniKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBakNedeniKapat_KeyPress);
-            // 
-            // DtTlalepTarihiKapat
-            // 
-            this.DtTlalepTarihiKapat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtTlalepTarihiKapat.Location = new System.Drawing.Point(216, 206);
-            this.DtTlalepTarihiKapat.Name = "DtTlalepTarihiKapat";
-            this.DtTlalepTarihiKapat.Size = new System.Drawing.Size(119, 20);
-            this.DtTlalepTarihiKapat.TabIndex = 401;
-            this.DtTlalepTarihiKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DtTlalepTarihiKapat_KeyPress);
-            // 
-            // DtTalepSaatiKapat
-            // 
-            this.DtTalepSaatiKapat.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtTalepSaatiKapat.Location = new System.Drawing.Point(342, 206);
-            this.DtTalepSaatiKapat.Name = "DtTalepSaatiKapat";
-            this.DtTalepSaatiKapat.Size = new System.Drawing.Size(75, 20);
-            this.DtTalepSaatiKapat.TabIndex = 402;
-            this.DtTalepSaatiKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DtTalepSaatiKapat_KeyPress);
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(68, 235);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(140, 13);
-            this.label50.TabIndex = 405;
-            this.label50.Text = "ARAÇ ARIZA AÇIKLAMASI:";
-            // 
-            // TxtArizaAciklamasi
-            // 
-            this.TxtArizaAciklamasi.Location = new System.Drawing.Point(216, 232);
-            this.TxtArizaAciklamasi.Name = "TxtArizaAciklamasi";
-            this.TxtArizaAciklamasi.Size = new System.Drawing.Size(667, 96);
-            this.TxtArizaAciklamasi.TabIndex = 406;
-            this.TxtArizaAciklamasi.Text = "";
-            this.TxtArizaAciklamasi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtArizaAciklamasi_KeyPress);
-            // 
-            // TxtBakOnarimFirma
-            // 
-            this.TxtBakOnarimFirma.FormattingEnabled = true;
-            this.TxtBakOnarimFirma.Location = new System.Drawing.Point(216, 359);
-            this.TxtBakOnarimFirma.Name = "TxtBakOnarimFirma";
-            this.TxtBakOnarimFirma.Size = new System.Drawing.Size(201, 21);
-            this.TxtBakOnarimFirma.TabIndex = 407;
-            // 
-            // BtnFirmaEkle
-            // 
-            this.BtnFirmaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFirmaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnFirmaEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnFirmaEkle.Image")));
-            this.BtnFirmaEkle.Location = new System.Drawing.Point(423, 359);
-            this.BtnFirmaEkle.Name = "BtnFirmaEkle";
-            this.BtnFirmaEkle.Size = new System.Drawing.Size(34, 21);
-            this.BtnFirmaEkle.TabIndex = 408;
-            this.BtnFirmaEkle.UseVisualStyleBackColor = true;
-            this.BtnFirmaEkle.Click += new System.EventHandler(this.BtnFirmaEkle_Click);
-            // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.label125);
+            this.tabPage3.Controls.Add(this.CmbProjeKodu);
             this.tabPage3.Controls.Add(this.BtnFirmaEkle);
             this.tabPage3.Controls.Add(this.TxtBakOnarimFirma);
             this.tabPage3.Controls.Add(this.TxtArizaAciklamasi);
@@ -1494,6 +1174,348 @@ namespace UserInterface.IdariIsler
             this.tabPage3.Text = "KAYIT KAPAT";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // BtnFirmaEkle
+            // 
+            this.BtnFirmaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFirmaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnFirmaEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnFirmaEkle.Image")));
+            this.BtnFirmaEkle.Location = new System.Drawing.Point(423, 359);
+            this.BtnFirmaEkle.Name = "BtnFirmaEkle";
+            this.BtnFirmaEkle.Size = new System.Drawing.Size(34, 21);
+            this.BtnFirmaEkle.TabIndex = 408;
+            this.BtnFirmaEkle.UseVisualStyleBackColor = true;
+            this.BtnFirmaEkle.Click += new System.EventHandler(this.BtnFirmaEkle_Click);
+            // 
+            // TxtBakOnarimFirma
+            // 
+            this.TxtBakOnarimFirma.FormattingEnabled = true;
+            this.TxtBakOnarimFirma.Location = new System.Drawing.Point(216, 359);
+            this.TxtBakOnarimFirma.Name = "TxtBakOnarimFirma";
+            this.TxtBakOnarimFirma.Size = new System.Drawing.Size(201, 21);
+            this.TxtBakOnarimFirma.TabIndex = 407;
+            // 
+            // TxtArizaAciklamasi
+            // 
+            this.TxtArizaAciklamasi.Location = new System.Drawing.Point(216, 232);
+            this.TxtArizaAciklamasi.Name = "TxtArizaAciklamasi";
+            this.TxtArizaAciklamasi.Size = new System.Drawing.Size(667, 96);
+            this.TxtArizaAciklamasi.TabIndex = 406;
+            this.TxtArizaAciklamasi.Text = "";
+            this.TxtArizaAciklamasi.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtArizaAciklamasi_KeyPress);
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(68, 235);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(140, 13);
+            this.label50.TabIndex = 405;
+            this.label50.Text = "ARAÇ ARIZA AÇIKLAMASI:";
+            // 
+            // DtTalepSaatiKapat
+            // 
+            this.DtTalepSaatiKapat.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.DtTalepSaatiKapat.Location = new System.Drawing.Point(342, 206);
+            this.DtTalepSaatiKapat.Name = "DtTalepSaatiKapat";
+            this.DtTalepSaatiKapat.Size = new System.Drawing.Size(75, 20);
+            this.DtTalepSaatiKapat.TabIndex = 402;
+            this.DtTalepSaatiKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DtTalepSaatiKapat_KeyPress);
+            // 
+            // DtTlalepTarihiKapat
+            // 
+            this.DtTlalepTarihiKapat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtTlalepTarihiKapat.Location = new System.Drawing.Point(216, 206);
+            this.DtTlalepTarihiKapat.Name = "DtTlalepTarihiKapat";
+            this.DtTlalepTarihiKapat.Size = new System.Drawing.Size(119, 20);
+            this.DtTlalepTarihiKapat.TabIndex = 401;
+            this.DtTlalepTarihiKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DtTlalepTarihiKapat_KeyPress);
+            // 
+            // TxtBakNedeniKapat
+            // 
+            this.TxtBakNedeniKapat.Location = new System.Drawing.Point(216, 179);
+            this.TxtBakNedeniKapat.Name = "TxtBakNedeniKapat";
+            this.TxtBakNedeniKapat.Size = new System.Drawing.Size(201, 20);
+            this.TxtBakNedeniKapat.TabIndex = 400;
+            this.TxtBakNedeniKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBakNedeniKapat_KeyPress);
+            // 
+            // DtTamamlanmaSaati
+            // 
+            this.DtTamamlanmaSaati.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.DtTamamlanmaSaati.Location = new System.Drawing.Point(342, 333);
+            this.DtTamamlanmaSaati.Name = "DtTamamlanmaSaati";
+            this.DtTamamlanmaSaati.Size = new System.Drawing.Size(75, 20);
+            this.DtTamamlanmaSaati.TabIndex = 399;
+            // 
+            // BtnKapat
+            // 
+            this.BtnKapat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKapat.Location = new System.Drawing.Point(64, 627);
+            this.BtnKapat.Name = "BtnKapat";
+            this.BtnKapat.Size = new System.Drawing.Size(145, 50);
+            this.BtnKapat.TabIndex = 398;
+            this.BtnKapat.Text = "KAYIT KAPAT";
+            this.BtnKapat.UseVisualStyleBackColor = true;
+            this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.webBrowser1);
+            this.groupBox3.Location = new System.Drawing.Point(215, 555);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(668, 142);
+            this.groupBox3.TabIndex = 397;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "EKLER:";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(662, 123);
+            this.webBrowser1.TabIndex = 0;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label23.Location = new System.Drawing.Point(366, 495);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(14, 15);
+            this.label23.TabIndex = 396;
+            this.label23.Text = "₺";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(30, 495);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(179, 13);
+            this.label21.TabIndex = 394;
+            this.label21.Text = "BAKIM ONARIM TOPLAM TUTARI:";
+            // 
+            // TxtTutar
+            // 
+            this.TxtTutar.Location = new System.Drawing.Point(215, 491);
+            this.TxtTutar.Name = "TxtTutar";
+            this.TxtTutar.Size = new System.Drawing.Size(145, 20);
+            this.TxtTutar.TabIndex = 395;
+            this.TxtTutar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtTutar_KeyPress);
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(45, 364);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(164, 13);
+            this.label20.TabIndex = 392;
+            this.label20.Text = "BAKIM ONARIM YAPAN FİRMA:";
+            // 
+            // DtTamamlanmaTarihi
+            // 
+            this.DtTamamlanmaTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtTamamlanmaTarihi.Location = new System.Drawing.Point(216, 334);
+            this.DtTamamlanmaTarihi.Name = "DtTamamlanmaTarihi";
+            this.DtTamamlanmaTarihi.Size = new System.Drawing.Size(119, 20);
+            this.DtTamamlanmaTarihi.TabIndex = 388;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(26, 340);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(184, 13);
+            this.label17.TabIndex = 387;
+            this.label17.Text = "B/O TAMAMLANMA TARİHİ/SAATİ:";
+            // 
+            // TxtIsAkisNo
+            // 
+            this.TxtIsAkisNo.Location = new System.Drawing.Point(216, 23);
+            this.TxtIsAkisNo.Name = "TxtIsAkisNo";
+            this.TxtIsAkisNo.Size = new System.Drawing.Size(201, 20);
+            this.TxtIsAkisNo.TabIndex = 386;
+            // 
+            // TxtSiparisNoKapat
+            // 
+            this.TxtSiparisNoKapat.Location = new System.Drawing.Point(216, 75);
+            this.TxtSiparisNoKapat.Name = "TxtSiparisNoKapat";
+            this.TxtSiparisNoKapat.Size = new System.Drawing.Size(201, 20);
+            this.TxtSiparisNoKapat.TabIndex = 371;
+            this.TxtSiparisNoKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSiparisNoKapat_KeyPress);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(98, 79);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(112, 13);
+            this.label18.TabIndex = 362;
+            this.label18.Text = "SİPARİŞ NUMARASI:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(144, 27);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(66, 13);
+            this.label19.TabIndex = 384;
+            this.label19.Text = "İŞ AKIŞ NO:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(68, 212);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(142, 13);
+            this.label22.TabIndex = 382;
+            this.label22.Text = "B/O TALEP TARİHİ/SAATİ:";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(123, 183);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(87, 13);
+            this.label25.TabIndex = 380;
+            this.label25.Text = "BAKIM NEDENİ:";
+            // 
+            // TxtAracKmKapat
+            // 
+            this.TxtAracKmKapat.Location = new System.Drawing.Point(216, 153);
+            this.TxtAracKmKapat.Name = "TxtAracKmKapat";
+            this.TxtAracKmKapat.Size = new System.Drawing.Size(201, 20);
+            this.TxtAracKmKapat.TabIndex = 379;
+            this.TxtAracKmKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAracKmKapat_KeyPress);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(96, 157);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(114, 13);
+            this.label28.TabIndex = 378;
+            this.label28.Text = "ARAÇ KİLOMETRESİ:";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(134, 53);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(76, 13);
+            this.label29.TabIndex = 354;
+            this.label29.Text = "ARAÇ PLAKA:";
+            // 
+            // BtnDosyaEkle
+            // 
+            this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(63, 571);
+            this.BtnDosyaEkle.Name = "BtnDosyaEkle";
+            this.BtnDosyaEkle.Size = new System.Drawing.Size(145, 50);
+            this.BtnDosyaEkle.TabIndex = 377;
+            this.BtnDosyaEkle.Text = "DOSYA EKLE";
+            this.BtnDosyaEkle.UseVisualStyleBackColor = true;
+            this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
+            // 
+            // TxtPlakaKapat
+            // 
+            this.TxtPlakaKapat.Location = new System.Drawing.Point(216, 49);
+            this.TxtPlakaKapat.Name = "TxtPlakaKapat";
+            this.TxtPlakaKapat.Size = new System.Drawing.Size(201, 20);
+            this.TxtPlakaKapat.TabIndex = 364;
+            this.TxtPlakaKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPlakaKapat_KeyPress);
+            // 
+            // TxtSonucAciklama
+            // 
+            this.TxtSonucAciklama.Location = new System.Drawing.Point(216, 386);
+            this.TxtSonucAciklama.Name = "TxtSonucAciklama";
+            this.TxtSonucAciklama.Size = new System.Drawing.Size(667, 96);
+            this.TxtSonucAciklama.TabIndex = 376;
+            this.TxtSonucAciklama.Text = "";
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(22, 389);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(188, 13);
+            this.label30.TabIndex = 355;
+            this.label30.Text = "BAKIM ONARIM SONUÇ/AÇIKLAMA:";
+            // 
+            // BtnKayitBul
+            // 
+            this.BtnKayitBul.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKayitBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKayitBul.Location = new System.Drawing.Point(423, 22);
+            this.BtnKayitBul.Name = "BtnKayitBul";
+            this.BtnKayitBul.Size = new System.Drawing.Size(75, 22);
+            this.BtnKayitBul.TabIndex = 375;
+            this.BtnKayitBul.Text = "Bul";
+            this.BtnKayitBul.UseVisualStyleBackColor = true;
+            this.BtnKayitBul.Click += new System.EventHandler(this.BtnKayitBul_Click);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(88, 131);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(122, 13);
+            this.label31.TabIndex = 356;
+            this.label31.Text = "ZİMMETLİ PERSONEL:";
+            // 
+            // TxtPersonelKapat
+            // 
+            this.TxtPersonelKapat.Location = new System.Drawing.Point(216, 127);
+            this.TxtPersonelKapat.Name = "TxtPersonelKapat";
+            this.TxtPersonelKapat.Size = new System.Drawing.Size(201, 20);
+            this.TxtPersonelKapat.TabIndex = 374;
+            this.TxtPersonelKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPersonelKapat_KeyPress);
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(86, 105);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(124, 13);
+            this.label32.TabIndex = 365;
+            this.label32.Text = "KULLANILDIĞI BÖLÜM:";
+            // 
+            // TxtKullanildigiBolumKapat
+            // 
+            this.TxtKullanildigiBolumKapat.Location = new System.Drawing.Point(216, 101);
+            this.TxtKullanildigiBolumKapat.Name = "TxtKullanildigiBolumKapat";
+            this.TxtKullanildigiBolumKapat.Size = new System.Drawing.Size(201, 20);
+            this.TxtKullanildigiBolumKapat.TabIndex = 373;
+            this.TxtKullanildigiBolumKapat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtKullanildigiBolumKapat_KeyPress);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Location = new System.Drawing.Point(86, 523);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(119, 13);
+            this.label125.TabIndex = 409;
+            this.label125.Text = "PROJE KODU/PROJE:";
+            // 
+            // CmbProjeKodu
+            // 
+            this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbProjeKodu.FormattingEnabled = true;
+            this.CmbProjeKodu.Location = new System.Drawing.Point(216, 519);
+            this.CmbProjeKodu.Name = "CmbProjeKodu";
+            this.CmbProjeKodu.Size = new System.Drawing.Size(164, 21);
+            this.CmbProjeKodu.TabIndex = 410;
+            // 
             // FrmAracBakimKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1515,9 +1537,9 @@ namespace UserInterface.IdariIsler
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1658,5 +1680,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtPersonelKapat;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox TxtKullanildigiBolumKapat;
+        private System.Windows.Forms.Label label125;
+        private System.Windows.Forms.ComboBox CmbProjeKodu;
     }
 }

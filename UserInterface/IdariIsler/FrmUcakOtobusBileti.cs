@@ -44,7 +44,7 @@ namespace UserInterface.IdariIsler
         List<UcakOtobus> ucakotobus;
         public object[] infos;
         bool start = true, start2 = true, start3 = true, start4 = true;
-        string siparis, usamirbolum, usamirisim, siparisotobus, yapilanislem, dosya, islemadimigun, dosyayolugun, islemadimiOtobus, dosyayoluOtobus, onaydurum, formno, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, butceKodu, biletTuru;
+        string siparis, usamirbolum, usamirisim, siparisotobus, yapilanislem, dosya, islemadimigun, dosyayolugun, islemadimiOtobus, dosyayoluOtobus, onaydurum, formno, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, butceKodu, biletTuru, satinAlinanFirma;
         int id, idgun, onayid, isakisno, idUcak;
         double a, b, toplam;
         public FrmUcakOtobusBileti()
@@ -382,7 +382,7 @@ namespace UserInterface.IdariIsler
             }
 
             SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, isakisno, infos[4].ToString(), infos[1].ToString(),
-                infos[2].ToString(), "", "", DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN","");
+                infos[2].ToString(), "", "", DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, satinAlinanFirma);
 
             string mesaj = satDataGridview1Manager.Add(satDataGridview1);
             if (mesaj != "OK")
@@ -410,6 +410,7 @@ namespace UserInterface.IdariIsler
             SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
             satIslemAdimlariManager.Add(satIslemAdimlari);
         }
+        string proje = "";
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -435,6 +436,10 @@ namespace UserInterface.IdariIsler
             miktar = DtgList.CurrentRow.Cells["BiletSayisi"].Value.ConDouble();
             toplam = DtgList.CurrentRow.Cells["ToplamMaliyet"].Value.ConDouble();
             biletTuru = DtgList.CurrentRow.Cells["Biletturu"].Value.ToString();
+            satinAlinanFirma= DtgList.CurrentRow.Cells["Gidisfirma"].Value.ToString() + "/" +DtgList.CurrentRow.Cells["Donusfirma"].Value.ToString();
+
+            SiparisPersonel siparis = siparisPersonelManager.Get("", personelAd);
+            proje = siparis.Projekodu;
         }
         void HarcamaUcak()
         {
@@ -570,7 +575,7 @@ namespace UserInterface.IdariIsler
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\WordTaslak\\DTS_Uçak Bileti Talep Formu.docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Uçak Bileti Talep Formu.docx";
+            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Uçak Bileti Talep Formu1.docx";
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 
@@ -610,8 +615,8 @@ namespace UserInterface.IdariIsler
         {
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
-            //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\WordTaslak\\DTS_Uçak Bileti Talep Formu.docx"; // taslak yolu
-            object filePath = dosyayolugun + TxtIsAkisNoUcak.Text + ".docx";
+            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Uçak Bileti Talep Formu1.docx"; // taslak yolu
+            //object filePath = dosyayolugun + TxtIsAkisNoUcak.Text + ".docx";
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 
@@ -641,6 +646,7 @@ namespace UserInterface.IdariIsler
             wBookmarks["DonusSaati"].Range.Text = DtUcakDonusSaat.Value.ToString("HH/mm");
             wBookmarks["DonusNereden"].Range.Text = CmbUcakDonusNereden.Text;
             wBookmarks["DonusNereye"].Range.Text = CmbUcakNereyeNereye.Text;
+
 
             wDoc.SaveAs2(dosyayolugun + TxtIsAkisNoUcak.Text + ".docx");
             wDoc.Close();
@@ -817,7 +823,7 @@ namespace UserInterface.IdariIsler
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\WordTaslak\\DTS_Otobüs bileti talep Formu.docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otobüs Bileti Talep Formu";
+            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otobüs Bileti Talep Formu.docx";
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 

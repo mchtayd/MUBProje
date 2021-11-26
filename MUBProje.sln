@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Business", "Business\Busine
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserInterface", "UserInterface\UserInterface.csproj", "{53E995DA-7704-4760-8ACD-919DB99CCABA}"
 EndProject
-Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "DTS", "DTS\DTS.vdproj", "{156829E4-036A-47EA-A443-DA71DA933E7D}"
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SetupDTS", "SetupDTS\SetupDTS.vdproj", "{E1BC1C38-474E-489F-AEA8-3B5861C2D049}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -35,8 +35,8 @@ Global
 		{53E995DA-7704-4760-8ACD-919DB99CCABA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{53E995DA-7704-4760-8ACD-919DB99CCABA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{53E995DA-7704-4760-8ACD-919DB99CCABA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{156829E4-036A-47EA-A443-DA71DA933E7D}.Debug|Any CPU.ActiveCfg = Debug
-		{156829E4-036A-47EA-A443-DA71DA933E7D}.Release|Any CPU.ActiveCfg = Release
+		{E1BC1C38-474E-489F-AEA8-3B5861C2D049}.Debug|Any CPU.ActiveCfg = Debug
+		{E1BC1C38-474E-489F-AEA8-3B5861C2D049}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

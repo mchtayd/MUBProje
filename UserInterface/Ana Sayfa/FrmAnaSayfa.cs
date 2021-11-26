@@ -260,497 +260,501 @@ namespace UserInterface.STS
                     {
                         treeView2.Nodes["GECICI KABUL AMBAR"].Nodes["GKA VERI IZLEME"].Nodes["Stokta Bulunmayan Malzeme"].Remove();
                     }
+                    if (!array.Contains("35"))
+                    {
+                        treeView2.Nodes["GECICI KABUL AMBAR"].Nodes["GKA VERI IZLEME"].Nodes["KayitliMalzemeler"].Remove();
+                    }
                 }
-                if (!array.Contains("35"))
+                if (!array.Contains("36"))
                 {
                     treeView2.Nodes["GECICI KABUL AMBAR"].Nodes["GKA VERI GIRIS"].Remove();
                     atla = 4;
                 }
                 if (atla != 4)
                 {
-                    if (!array.Contains("36"))
+                    if (!array.Contains("37"))
                     {
                         treeView2.Nodes["GECICI KABUL AMBAR"].Nodes["GKA VERI GIRIS"].Nodes["Stok Giris Cikis"].Remove();
                     }
-                    if (!array.Contains("37"))
+                    if (!array.Contains("38"))
                     {
                         treeView2.Nodes["GECICI KABUL AMBAR"].Nodes["GKA VERI GIRIS"].Nodes["Malzeme Kayit Ambar"].Remove();
                     }
-                    if (!array.Contains("38"))
+                    if (!array.Contains("39"))
                     {
                         treeView2.Nodes["GECICI KABUL AMBAR"].Nodes["GKA VERI GIRIS"].Nodes["Malzeme Hazirlama"].Remove();
                     }
                 }
             }
 
-            if (!array.Contains("39"))
+            if (!array.Contains("40"))
             {
                 treeView2.Nodes["SATIN ALMA"].Remove();
                 control = 3;
             }
             if (control != 3)
             {
-                if (!array.Contains("40"))
+                if (!array.Contains("41"))
                 {
                     treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Remove();
                     atla = 4;
                 }
                 if (atla != 4)
                 {
-                    if (!array.Contains("41"))
+                    if (!array.Contains("42"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["devamedensat"].Remove();
                     }
-                    if (!array.Contains("42"))
+                    if (!array.Contains("43"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["Tamamlanan Sat"].Remove();
                     }
-                    if (!array.Contains("43"))
+                    if (!array.Contains("44"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["RedEdilenSat"].Remove();
                     }
-                    if (!array.Contains("44"))
+                    if (!array.Contains("45"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["Sat Yedek Parca Katalogu"].Remove();
                     }
                 }
-                if (!array.Contains("45"))
+                if (!array.Contains("46"))
                 {
                     treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Remove();
                     atla = 5;
                 }
                 if (atla != 5)
                 {
-                    if (!array.Contains("46"))
+                    if (!array.Contains("47"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["satolustur"].Remove();
                     }
-                    if (!array.Contains("47"))
+                    if (!array.Contains("48"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["SatOnOnay"].Remove();
                     }
-                    if (!array.Contains("48"))
+                    if (!array.Contains("49"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["Sat Baslatma Onayi"].Remove();
                     }
-                    if (!array.Contains("49"))
+                    if (!array.Contains("50"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["TeklifAlınacakSat"].Remove();
                     }
-                    if (!array.Contains("50"))
+                    if (!array.Contains("51"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["Satın Alınacak Malzemeler"].Remove();
                     }
-                    if (!array.Contains("51"))
+                    if (!array.Contains("52"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["SatOnay"].Remove();
                     }
-                    if (!array.Contains("52"))
+                    if (!array.Contains("53"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["Sat Tamamlama"].Remove();
                     }
-                    if (!array.Contains("53"))
+                    if (!array.Contains("54"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["Sat Guncelle"].Remove();
                     }
-                    if (!array.Contains("54"))
+                    if (!array.Contains("55"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["Tedarikci Firma"].Remove();
                     }
-                    if (!array.Contains("55"))
+                    if (!array.Contains("56"))
                     {
                         treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI GIRIS"].Nodes["Alt Yuklenici Firma"].Remove();
                     }
                 }
             }
-            if (!array.Contains("56"))
+            if (!array.Contains("57"))
             {
                 treeView2.Nodes["DOKUMAN YONETIM"].Remove();
                 control = 4;
             }
             if (control != 4)
             {
-                if (!array.Contains("57"))
+                if (!array.Contains("58"))
                 {
                     treeView2.Nodes["DOKUMAN YONETIM"].Nodes["DY VERI IZLEME"].Remove();
                     atla = 6;
                 }
                 if (atla != 6)
                 {
-                    if (!array.Contains("58"))
+                    if (!array.Contains("59"))
                     {
                         treeView2.Nodes["DOKUMAN YONETIM"].Nodes["DY VERI IZLEME"].Nodes["Dokuman Sorgula"].Remove();
                     }
-                    if (!array.Contains("59"))
+                    if (!array.Contains("60"))
                     {
                         treeView2.Nodes["DOKUMAN YONETIM"].Nodes["DY VERI IZLEME"].Nodes["Standart Form Sorgula"].Remove();
                     }
                 }
-                if (!array.Contains("60"))
+                if (!array.Contains("61"))
                 {
                     treeView2.Nodes["DOKUMAN YONETIM"].Nodes["DY VERI GIRIS"].Remove();
                     atla = 7;
                 }
                 if (atla != 7)
                 {
-                    if (!array.Contains("61"))
+                    if (!array.Contains("62"))
                     {
                         treeView2.Nodes["DOKUMAN YONETIM"].Nodes["DY VERI GIRIS"].Nodes["Dokuman Ekle"].Remove();
                     }
-                    if (!array.Contains("62"))
+                    if (!array.Contains("63"))
                     {
                         treeView2.Nodes["DOKUMAN YONETIM"].Nodes["DY VERI GIRIS"].Nodes["Standart Form Ekle"].Remove();
                     }
                 }
             }
-            if (!array.Contains("63"))
+            if (!array.Contains("64"))
             {
                 treeView2.Nodes["IDARI ISLER"].Remove();
                 control = 5;
             }
             if (control != 5)
             {
-                if (!array.Contains("64"))
+                if (!array.Contains("65"))
                 {
                     treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Remove();
                     atla = 8;
                 }
                 if (atla != 8)
                 {
-                    if (!array.Contains("65"))
+                    if (!array.Contains("66"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Duran Varlık"].Remove();
                         atladal = 1;
                     }
                     if (atladal != 1)
                     {
-                        if (!array.Contains("66"))
+                        if (!array.Contains("67"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Duran Varlık"].Nodes["DuranVarlikKayit"].Remove();
                         }
-                        if (!array.Contains("67"))
+                        if (!array.Contains("68"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Duran Varlık"].Nodes["DuranVarlikAkarma"].Remove();
                         }
-                        if (!array.Contains("68"))
+                        if (!array.Contains("69"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Duran Varlık"].Nodes["Duran Varlik Ariza Kayit"].Remove();
                         }
-                        if (!array.Contains("69"))
+                        if (!array.Contains("70"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Duran Varlık"].Nodes["DV Kalibrasyon Kayit"].Remove();
                         }
                     }
-                    if (!array.Contains("70"))
+                    if (!array.Contains("71"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Personel"].Remove();
                         atladal = 2;
                     }
                     if (atladal != 2)
                     {
-                        if (!array.Contains("71"))
+                        if (!array.Contains("72"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Personel"].Nodes["PersonelKayit"].Remove();
                         }
-                        if (!array.Contains("72"))
+                        if (!array.Contains("73"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Personel"].Nodes["PersonelPuantaj"].Remove();
                         }
                     }
-                    if (!array.Contains("73"))
+                    if (!array.Contains("74"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Is Akislari"].Remove();
                         atladal = 3;
                     }
                     if (atladal != 3)
                     {
-                        if (!array.Contains("74"))
+                        if (!array.Contains("75"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Is Akislari"].Nodes["Yurt Icı Gorev"].Remove();
                         }
-                        if (!array.Contains("75"))
+                        if (!array.Contains("76"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Is Akislari"].Nodes["Sehir Icı Gorev"].Remove();
                         }
-                        if (!array.Contains("76"))
+                        if (!array.Contains("77"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Is Akislari"].Nodes["Izın"].Remove();
                         }
-                        if (!array.Contains("77"))
+                        if (!array.Contains("78"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Is Akislari"].Nodes["Konaklama"].Remove();
                         }
-                        if (!array.Contains("78"))
+                        if (!array.Contains("79"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Is Akislari"].Nodes["Ucak Otobus Bileti"].Remove();
                         }
-                        if (!array.Contains("79"))
+                        if (!array.Contains("80"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Is Akislari"].Nodes["Harcama Beyannamesi"].Remove();
                         }
                     }
-                    if (!array.Contains("80"))
+                    if (!array.Contains("81"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Resmi Yazilar"].Remove();
                         atladal = 4;
                     }
                     if (atladal != 4)
                     {
-                        if (!array.Contains("81"))
+                        if (!array.Contains("82"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Resmi Yazilar"].Nodes["Evrak Kayit"].Remove();
                         }
                     }
-                    if (!array.Contains("82"))
+                    if (!array.Contains("83"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Arsiv"].Remove();
                     }
-                    if (!array.Contains("83"))
+                    if (!array.Contains("84"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Ulastırma"].Remove();
                         atladal = 5;
                     }
                     if (atladal != 5)
                     {
-                        if (!array.Contains("84"))
+                        if (!array.Contains("85"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Ulastırma"].Nodes["Arac Tesis Kayit"].Remove();
                         }
-                        if (!array.Contains("85"))
+                        if (!array.Contains("86"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Ulastırma"].Nodes["Arac Yakit Beyani"].Remove();
                         }
-                        if (!array.Contains("86"))
+                        if (!array.Contains("87"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Ulastırma"].Nodes["Arac Periyodik Bakım"].Remove();
                         }
-                        if (!array.Contains("87"))
+                        if (!array.Contains("88"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Nodes["Ulastırma"].Nodes["Arac Bakim Onarim"].Remove();
                         }
                     }
                 }
-                if (!array.Contains("88"))
+                if (!array.Contains("89"))
                 {
                     treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Remove();
                     atla = 9;
                 }
                 if (atla != 9)
                 {
-                    if (!array.Contains("89"))
+                    if (!array.Contains("90"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Duran Varlik Izleme"].Remove();
                         atladal = 6;
                     }
                     if (atladal != 6)
                     {
-                        if (!array.Contains("90"))
+                        if (!array.Contains("91"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Duran Varlik Izleme"].Nodes["DuranVarlikTakip"].Remove();
                         }
-                        if (!array.Contains("91"))
+                        if (!array.Contains("92"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Duran Varlik Izleme"].Nodes["DV Zimmet Takibi"].Remove();
                         }
-                        if (!array.Contains("92"))
+                        if (!array.Contains("93"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Duran Varlik Izleme"].Nodes["DV Ariza Takibi"].Remove();
                         }
-                        if (!array.Contains("93"))
+                        if (!array.Contains("94"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Duran Varlik Izleme"].Nodes["DV Kalibrasyon Takibi"].Remove();
                         }
                     }
-                    if (!array.Contains("94"))
+                    if (!array.Contains("95"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Personel Izleme"].Remove();
                         atladal = 7;
                     }
                     if (atladal != 7)
                     {
-                        if (!array.Contains("95"))
+                        if (!array.Contains("96"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Personel Izleme"].Nodes["PersonelListesi"].Remove();
                         }
-                        if (!array.Contains("96"))
+                        if (!array.Contains("97"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Personel Izleme"].Nodes["PersonelListesiAyrilan"].Remove();
                         }
-                        if (!array.Contains("97"))
+                        if (!array.Contains("98"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Personel Izleme"].Nodes["Personel Puantaj"].Remove();
                         }
                     }
-                    if (!array.Contains("98"))
+                    if (!array.Contains("99"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Is Akislari Izleme"].Remove();
                         atladal = 8;
                     }
                     if (atladal != 8)
                     {
-                        if (!array.Contains("99"))
+                        if (!array.Contains("100"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Is Akislari Izleme"].Nodes["Yurt Icı GorevIzleme"].Remove();
                         }
-                        if (!array.Contains("100"))
+                        if (!array.Contains("101"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Is Akislari Izleme"].Nodes["Sehir Ici Gorev"].Remove();
                         }
-                        if (!array.Contains("101"))
+                        if (!array.Contains("102"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Is Akislari Izleme"].Nodes["Izin Izleme"].Remove();
                         }
-                        if (!array.Contains("102"))
+                        if (!array.Contains("103"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Is Akislari Izleme"].Nodes["Konaklama Izleme"].Remove();
                         }
-                        if (!array.Contains("103"))
+                        if (!array.Contains("104"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Is Akislari Izleme"].Nodes["Ucak Otobus Izleme"].Remove();
                         }
-                        if (!array.Contains("104"))
+                        if (!array.Contains("105"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Is Akislari Izleme"].Nodes["Harcama Beyan Izleme"].Remove();
                         }
                     }
-                    if (!array.Contains("105"))
+                    if (!array.Contains("106"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Gelen Giden Yazi Izleme"].Remove();
                     }
-                    if (!array.Contains("106"))
+                    if (!array.Contains("107"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["Arsiv Izleme"].Remove();
                     }
-                    if (!array.Contains("107"))
+                    if (!array.Contains("108"))
                     {
                         treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["UlastırmaIzleme"].Remove();
                         atladal = 9;
                     }
                     if (atladal != 9)
                     {
-                        if (!array.Contains("108"))
+                        if (!array.Contains("109"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["UlastırmaIzleme"].Nodes["Arac Tahsis Izleme"].Remove();
                         }
-                        if (!array.Contains("109"))
+                        if (!array.Contains("110"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["UlastırmaIzleme"].Nodes["Arac Yakıt Izleme"].Remove();
                         }
-                        if (!array.Contains("110"))
+                        if (!array.Contains("111"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["UlastırmaIzleme"].Nodes["Arac Periyodik Izleme"].Remove();
                         }
-                        if (!array.Contains("111"))
+                        if (!array.Contains("112"))
                         {
                             treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Nodes["UlastırmaIzleme"].Nodes["Arac Bakim Onarim Izleme"].Remove();
                         }
                     }
                 }
             }
-            if (!array.Contains("112"))
+            if (!array.Contains("113"))
             {
                 treeView2.Nodes["EGITIM"].Remove();
                 control = 6;
             }
             if (control != 6)
             {
-                if (!array.Contains("113"))
+                if (!array.Contains("114"))
                 {
                     treeView2.Nodes["EGITIM"].Nodes["E VERI GIRIS"].Remove();
                     atla = 10;
                 }
                 if (atla != 10)
                 {
-                    if (!array.Contains("114"))
+                    if (!array.Contains("115"))
                     {
                         treeView2.Nodes["EGITIM"].Nodes["E VERI GIRIS"].Nodes["Egitim Veri Giris"].Remove();
                     }
-                    if (!array.Contains("115"))
+                    if (!array.Contains("116"))
                     {
                         treeView2.Nodes["EGITIM"].Nodes["E VERI GIRIS"].Nodes["Egitim Planı Olustur"].Remove();
                     }
-                    if (!array.Contains("116"))
+                    if (!array.Contains("117"))
                     {
                         treeView2.Nodes["EGITIM"].Nodes["E VERI GIRIS"].Nodes["Egitim Planı Guncelle"].Remove();
                     }
                 }
-                if (!array.Contains("117"))
+                if (!array.Contains("118"))
                 {
                     treeView2.Nodes["EGITIM"].Nodes["E VERI IZLEME"].Remove();
                     atla = 11;
                 }
                 if (atla != 11)
                 {
-                    if (!array.Contains("118"))
+                    if (!array.Contains("119"))
                     {
                         treeView2.Nodes["EGITIM"].Nodes["E VERI IZLEME"].Nodes["Egitim Izleme"].Remove();
                     }
-                    if (!array.Contains("119"))
+                    if (!array.Contains("120"))
                     {
                         treeView2.Nodes["EGITIM"].Nodes["E VERI IZLEME"].Nodes["Egitim Planı Izleme"].Remove();
                     }
                 }
             }
-            if (!array.Contains("120"))
+            if (!array.Contains("121"))
             {
                 treeView2.Nodes["DESTEK DEPO"].Remove();
                 control = 7;
             }
             if (control != 7)
             {
-                if (!array.Contains("121"))
+                if (!array.Contains("122"))
                 {
                     treeView2.Nodes["DESTEK DEPO"].Nodes["DD VERI IZLEME"].Remove();
                     atla = 12;
                 }
                 if (atla != 12)
                 {
-                    if (!array.Contains("122"))
+                    if (!array.Contains("123"))
                     {
                         treeView2.Nodes["DESTEK DEPO"].Nodes["DD VERI IZLEME"].Nodes["Stok Goruntule Depo"].Remove();
                     }
-                    if (!array.Contains("123"))
+                    if (!array.Contains("124"))
                     {
                         treeView2.Nodes["DESTEK DEPO"].Nodes["DD VERI IZLEME"].Nodes["Depo Hareketleri Depo"].Remove();
                     }
-                    if (!array.Contains("124"))
+                    if (!array.Contains("125"))
                     {
                         treeView2.Nodes["DESTEK DEPO"].Nodes["DD VERI IZLEME"].Nodes["Stokta Bulunmayan Malz"].Remove();
                     }
                 }
-                if (!array.Contains("125"))
+                if (!array.Contains("126"))
                 {
                     treeView2.Nodes["DESTEK DEPO"].Nodes["DD VERI GIRIS"].Remove();
                     atla = 13;
                 }
                 if (atla != 13)
                 {
-                    if (!array.Contains("126"))
+                    if (!array.Contains("127"))
                     {
                         treeView2.Nodes["DESTEK DEPO"].Nodes["DD VERI GIRIS"].Nodes["Stok Giris"].Remove();
                     }
-                    if (!array.Contains("127"))
+                    if (!array.Contains("128"))
                     {
                         treeView2.Nodes["DESTEK DEPO"].Nodes["DD VERI GIRIS"].Nodes["Malzeme Kayit"].Remove();
                     }
-                    if (!array.Contains("128"))
+                    if (!array.Contains("129"))
                     {
                         treeView2.Nodes["DESTEK DEPO"].Nodes["DD VERI GIRIS"].Nodes["Malzeme Hazirlama"].Remove();
                     }
                 }
             }
-            if (!array.Contains("129"))
+            if (!array.Contains("130"))
             {
                 treeView2.Nodes["RAPORLAMALAR"].Remove();
                 control = 8;
             }
             if (control != 8)
             {
-                if (!array.Contains("130"))
+                if (!array.Contains("131"))
                 {
                     treeView2.Nodes["RAPORLAMALAR"].Nodes["R VERI IZLEME"].Remove();
                 }
-                if (!array.Contains("131"))
+                if (!array.Contains("132"))
                 {
                     treeView2.Nodes["RAPORLAMALAR"].Nodes["R VERI GIRIS"].Remove();
                 }
@@ -1897,6 +1901,16 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageStokGoruntule", "STOK GÖRÜNTÜLE", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+            if (e.Node.Name == "KayitliMalzemeler")
+            {
+                FrmMalzemeKayitIzleme Go = new FrmMalzemeKayitIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageKayitliMalzemeler", "KAYITLI MALZEMELERİ GÖRÜNTÜLE", Go);
                 //Go.infos = infos;
                 Go.Show();
             }

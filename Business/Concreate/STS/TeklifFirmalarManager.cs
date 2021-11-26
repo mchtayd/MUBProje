@@ -57,6 +57,17 @@ namespace Business.Concreate.STS
                 return new List<TeklifFirmalar>();
             }
         }
+        public List<TeklifFirmalar> MailList()
+        {
+            try
+            {
+                return teklifFirmalarDal.MailList();
+            }
+            catch
+            {
+                return new List<TeklifFirmalar>();
+            }
+        }
         public List<TeklifFirmalar> TedarikciFirmalar(bool isExistAll)
         {
             try

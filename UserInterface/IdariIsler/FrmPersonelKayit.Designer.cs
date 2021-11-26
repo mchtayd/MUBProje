@@ -31,8 +31,8 @@ namespace UserInterface.IdariIşler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonelKayit));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
@@ -343,6 +343,8 @@ namespace UserInterface.IdariIşler
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.TxtMevcutPersonel = new System.Windows.Forms.Label();
+            this.label129 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -415,6 +417,8 @@ namespace UserInterface.IdariIşler
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.TxtMevcutPersonel);
+            this.tabPage4.Controls.Add(this.label129);
             this.tabPage4.Controls.Add(this.TOPA);
             this.tabPage4.Controls.Add(this.label91);
             this.tabPage4.Controls.Add(this.TOPP);
@@ -452,7 +456,7 @@ namespace UserInterface.IdariIşler
             // TOPP
             // 
             this.TOPP.AutoSize = true;
-            this.TOPP.Location = new System.Drawing.Point(988, 654);
+            this.TOPP.Location = new System.Drawing.Point(765, 654);
             this.TOPP.Name = "TOPP";
             this.TOPP.Size = new System.Drawing.Size(19, 13);
             this.TOPP.TabIndex = 33;
@@ -462,11 +466,11 @@ namespace UserInterface.IdariIşler
             // 
             this.label87.AutoSize = true;
             this.label87.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label87.Location = new System.Drawing.Point(851, 654);
+            this.label87.Location = new System.Drawing.Point(628, 654);
             this.label87.Name = "label87";
             this.label87.Size = new System.Drawing.Size(131, 13);
             this.label87.TabIndex = 32;
-            this.label87.Text = "TOPLAM PERSONEL:";
+            this.label87.Text = "PERSONEL TOPLAM:";
             // 
             // button3
             // 
@@ -494,18 +498,18 @@ namespace UserInterface.IdariIşler
             // 
             this.DtgMevcutKadro.AllowUserToAddRows = false;
             this.DtgMevcutKadro.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgMevcutKadro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMevcutKadro.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgMevcutKadro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgMevcutKadro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DtgMevcutKadro.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -660,7 +664,7 @@ namespace UserInterface.IdariIşler
             // 
             this.BtnSiparisGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSiparisGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSiparisGuncelle.Location = new System.Drawing.Point(752, 144);
+            this.BtnSiparisGuncelle.Location = new System.Drawing.Point(739, 144);
             this.BtnSiparisGuncelle.Name = "BtnSiparisGuncelle";
             this.BtnSiparisGuncelle.Size = new System.Drawing.Size(111, 65);
             this.BtnSiparisGuncelle.TabIndex = 28;
@@ -3599,6 +3603,7 @@ namespace UserInterface.IdariIşler
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1554, 887);
             this.tabControl1.TabIndex = 52;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // panel1
             // 
@@ -3630,6 +3635,7 @@ namespace UserInterface.IdariIşler
             this.yenileToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(106, 26);
+            this.contextMenuStrip1.Opening += new System.ComponentModel.CancelEventHandler(this.contextMenuStrip1_Opening);
             // 
             // yenileToolStripMenuItem
             // 
@@ -3637,6 +3643,25 @@ namespace UserInterface.IdariIşler
             this.yenileToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
+            // 
+            // TxtMevcutPersonel
+            // 
+            this.TxtMevcutPersonel.AutoSize = true;
+            this.TxtMevcutPersonel.Location = new System.Drawing.Point(970, 654);
+            this.TxtMevcutPersonel.Name = "TxtMevcutPersonel";
+            this.TxtMevcutPersonel.Size = new System.Drawing.Size(19, 13);
+            this.TxtMevcutPersonel.TabIndex = 37;
+            this.TxtMevcutPersonel.Text = "00";
+            // 
+            // label129
+            // 
+            this.label129.AutoSize = true;
+            this.label129.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label129.Location = new System.Drawing.Point(833, 654);
+            this.label129.Name = "label129";
+            this.label129.Size = new System.Drawing.Size(132, 13);
+            this.label129.TabIndex = 36;
+            this.label129.Text = "MEVCUT PERSONEL:";
             // 
             // FrmPersonelKayit
             // 
@@ -4013,5 +4038,7 @@ namespace UserInterface.IdariIşler
         private System.Windows.Forms.ComboBox CmbProjeKoduGun;
         private System.Windows.Forms.Label label125;
         private System.Windows.Forms.ComboBox CmbProjeKodu;
+        private System.Windows.Forms.Label TxtMevcutPersonel;
+        private System.Windows.Forms.Label label129;
     }
 }

@@ -235,7 +235,15 @@ namespace UserInterface.STS
         }
         private void WebBrowser()
         {
-            webBrowser1.Navigate(dosyayolu);
+            try
+            {
+                webBrowser1.Navigate(dosyayolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
 
         private void button5_Click(object sender, EventArgs e)

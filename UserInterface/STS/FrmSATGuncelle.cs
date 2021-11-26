@@ -1,4 +1,5 @@
-﻿using Business.Concreate;
+﻿using Business;
+using Business.Concreate;
 using Business.Concreate.Depo;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
@@ -43,7 +44,7 @@ namespace UserInterface.STS
         ReddedilenlerManager reddedilenlerManager;
         PersonelKayitManager kayitManager;
         ReddedilenMalzemeManager reddedilenMalzemeManager;
-
+        ComboManager comboManager;
         AmbarManager ambarManager;
         CayOcagiManager cayOcagiManager;
         DestekDepoMalzemeKayitManager depoMalzemeKayitManager;
@@ -104,6 +105,7 @@ namespace UserInterface.STS
             reddedilenlerManager = ReddedilenlerManager.GetInstance();
             kayitManager = PersonelKayitManager.GetInstance();
             reddedilenMalzemeManager = ReddedilenMalzemeManager.GetInstance();
+            comboManager = ComboManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -128,6 +130,7 @@ namespace UserInterface.STS
             Personeller();
             UsBolgeleriGuncelle();
             ButceKoduKalemiGuncelle();
+            ProjeKodu();
             //Siparisler();
             gec = true;
             //ProductsLoadProcess();
@@ -150,6 +153,13 @@ namespace UserInterface.STS
             TxtTop5.Text = DtgSat.RowCount.ToString();
 
             start = true;
+        }
+        void ProjeKodu()
+        {
+            CmbProjeKodu.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
+            CmbProjeKodu.ValueMember = "Id";
+            CmbProjeKodu.DisplayMember = "Baslik";
+            CmbProjeKodu.SelectedValue = 0;
         }
         void UsBolgeleri()
         {
@@ -2181,6 +2191,14 @@ namespace UserInterface.STS
             satno4 = DtgSatList.CurrentRow.Cells["Satno"].Value.ToString();
             teklifdurumu = DtgSatList.CurrentRow.Cells["Uctekilf"].Value.ConInt();
             belgeTuru = DtgSatList.CurrentRow.Cells["BelgeTuru"].Value.ToString();
+
+            string usBolgesi= DtgSatList.CurrentRow.Cells["Usbolgesi"].Value.ToString();
+            SatTalebiDoldur satTalebiDoldur = satTalebiDoldurManager.Get(usBolgesi);
+            if (satTalebiDoldur==null)
+            {
+                return;
+            }
+            TxtProjeG.Text = satTalebiDoldur.Proje;
             //FillToolsTeklifsiz();
 
             fiyatTeklifiAls = fiyatTeklifiAlManager.GetList("Gönderildi", benzersiz4);
@@ -3164,6 +3182,35 @@ namespace UserInterface.STS
 
         }
 
+        private void BtnSatiGuncelle_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                string mesaj = satDataGridview1Manager.SatFirmaGuncelle(benzersiz5, CmbProjeKodu.Text, TxtFirma.Text);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                CmbProjeKodu.SelectedValue = ""; TxtFirma.Clear();
+                DtgSatListDisplay();
+            }
+        }
+
+        private void BtnMailGuncelle_Click(object sender, EventArgs e)
+        {
+
+            string mesaj = satDataGridview1Manager.SatMilDurumGuncelle(benzersiz4, TxtProjeG.Text, CmbTeklifSiniri.Text, CmbMailDurumu.Text);
+            if (mesaj!="OK")
+            {
+                MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            MessageBox.Show("Başarıyla Güncellendi.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+        }
+
         private void UBF3_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
@@ -3764,8 +3811,15 @@ namespace UserInterface.STS
             panel2.Visible = false;
             panel3.Visible = true;
 
-
-            webBrowser3.Navigate(dosya5);
+            try
+            {
+                webBrowser3.Navigate(dosya5);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
 
         }
         void FillTools5()
@@ -3784,7 +3838,15 @@ namespace UserInterface.STS
             {
                 TeklifsizSat item = teklifsizSats[0];
                 LblToplam.Text = item.Tutar.ToString();
-                webBrowser8.Navigate(dosya5);
+                try
+                {
+                    webBrowser8.Navigate(dosya5);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
+                
                 return;
             }
             if (teklifsizSats.Count > 0)
@@ -4215,7 +4277,7 @@ namespace UserInterface.STS
             }
         }
         string dosyaYoluGuncelle = "", siparisNoGuncelle = "", islemAdimi = "", satOlusturmaTuru = "", durum = "", redNedeni = "", teklifDurumu = "",
-            firmaBilgisi = "", islemAdimiGuncelle = "", satOlusturmaTuruGuncelle = "",belgeTuruGuncelle="",belgeNumarasi="", redDurum =""; int satnoGuncelle, personelIdGuncelle, personelId, ucTeklif;
+            firmaBilgisi = "", islemAdimiGuncelle = "", satOlusturmaTuruGuncelle = "",belgeTuruGuncelle="",belgeNumarasi="", redDurum ="", mailDurumu="", mailSiniri=""; int satnoGuncelle, personelIdGuncelle, personelId, ucTeklif;
         DateTime belgeTarihi;
         private void DtgReddedilenSat_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -4252,6 +4314,8 @@ namespace UserInterface.STS
             belgeNumarasi = DtgReddedilenSat.CurrentRow.Cells["BelgeNumarasi"].Value.ToString();
             belgeTarihi = DtgReddedilenSat.CurrentRow.Cells["BelgeTarihi"].Value.ConTime();
             islemAdimiGuncelle = DtgReddedilenSat.CurrentRow.Cells["IslemAdimi"].Value.ToString();
+            mailDurumu= DtgReddedilenSat.CurrentRow.Cells["MailDurumu"].Value.ToString();
+            mailSiniri= DtgReddedilenSat.CurrentRow.Cells["MailSiniri"].Value.ToString();
             webBrowser6.Navigate(dosyaYoluGuncelle);
         }
         void Personeller()
@@ -4352,7 +4416,7 @@ namespace UserInterface.STS
             if (dr == DialogResult.Yes)
             {
 
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(idRed, LblIsAkisNo2.Text.ConInt(), satnoGuncelle, LblMasrafYeriNo.Text,LblAdSoyad.Text, LblMasrafYeri.Text, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, siparisNoGuncelle, dosyaYoluGuncelle, CmbButceKoduRed.Text, CmbSatBirimRed.Text, CmbHarcamaTuruRed.Text, CmbFaturaFirmaRed.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, ucTeklif, firmaBilgisi, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, belgeTuruGuncelle,belgeNumarasi,belgeTarihi,islemAdimi, CmbDonem.Text, satOlusturmaTuruGuncelle, redNedeni,durum,teklifDurumu, TxtProje.Text);
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(idRed, LblIsAkisNo2.Text.ConInt(), satnoGuncelle, LblMasrafYeriNo.Text,LblAdSoyad.Text, LblMasrafYeri.Text, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, siparisNoGuncelle, dosyaYoluGuncelle, CmbButceKoduRed.Text, CmbSatBirimRed.Text, CmbHarcamaTuruRed.Text, CmbFaturaFirmaRed.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, ucTeklif, firmaBilgisi, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, belgeTuruGuncelle,belgeNumarasi,belgeTarihi,islemAdimi, CmbDonem.Text, satOlusturmaTuruGuncelle, redNedeni,durum,teklifDurumu, TxtProje.Text, TxtFirmaGuncelle.Text, mailSiniri, mailDurumu);
 
                 string messege = satDataGridview1Manager.RedUpdate(satDataGridview1);
                 if (messege!="OK")

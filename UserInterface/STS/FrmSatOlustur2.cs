@@ -126,10 +126,12 @@ namespace UserInterface.STS
             Personeller();
             ButceKoduKalemi();
             start = true;
+            projeBekle = true;
         }
         public void YenilenecekVeri()
         {
             start = false;
+            projeBekle = false;
             SatDoldur();
             SatDoldur2();
             IsAkisNo();
@@ -138,6 +140,7 @@ namespace UserInterface.STS
             YedekParca();
             ButceKoduKalemi();
             start = true;
+            projeBekle = true;
         }
         void ButceKoduKalemi()
         {
@@ -639,7 +642,7 @@ namespace UserInterface.STS
         {
             stn10.Text = ""; t10.Text = ""; m10.Text = ""; b10.Text = "";
         }
-
+        bool projeBekle = false;
         private void Usbolgesi_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start == false)
@@ -648,6 +651,10 @@ namespace UserInterface.STS
             }
             BildirimFromNo.Text = "";
             AbfFormNoList();
+            if (projeBekle==false)
+            {
+                return;
+            }
             SatTalebiDoldur satTalebiDoldur = satTalebiDoldurManager.Get(Usbolgesi.Text);
             TxtProje.Text = satTalebiDoldur.Proje;
         }
@@ -727,7 +734,7 @@ namespace UserInterface.STS
 
                 isleAdimi = "SAT BAŞLATMA ONAYI";
                 SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, LblIsAkisNo.Text.ConInt(), MasYeriNo.Text, TalepEden.Text, Bolum.Text, Usbolgesi.Text, BildirimFromNo.Text, istenenTarih.Value, Gerekce.Text, siparisNo, "", "", "", "", "",
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, CmbDonem.Text, "ASELSAN", TxtProje.Text);
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, CmbDonem.Text, "ASELSAN", TxtProje.Text,"-");
 
                 string mesaj = satDataGridview1Manager.Add(satDataGridview1);
 
@@ -823,9 +830,11 @@ namespace UserInterface.STS
                 satIslemAdimlariManager.Add(satIslem);
                 SatBaslamaTarihiKayit();
                 MessageBox.Show(isAkisNo + " Numaralı SAT Kaydınız Başarıyla Oluşturulmuştur.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                projeBekle = false;
                 Temizle();
                 IsAkisNo();
                 IsAkisNo2();
+                projeBekle = true;
             }
             else
             {
@@ -927,7 +936,7 @@ namespace UserInterface.STS
             m10.Text = "";
             b1.Text = ""; b2.Text = ""; b3.Text = ""; b4.Text = ""; b5.Text = ""; b6.Text = ""; b7.Text = ""; b8.Text = ""; b9.Text = "";
             b10.Text = "";
-            TxtStokArama.Clear(); TxtTanimArama.Clear(); CmbDonem.SelectedValue = "";
+            TxtStokArama.Clear(); TxtTanimArama.Clear(); CmbDonem.SelectedValue = "";TxtProje.Clear();
         }
 
         private void CmbAdSoyad_SelectedIndexChanged(object sender, EventArgs e)
@@ -941,6 +950,7 @@ namespace UserInterface.STS
             TxtMasrafYeri.Text = siparis.Masrafyeri;
             TxtGorevi.Text = siparis.Gorevi;
             CmbSiparisNo.Text = siparis.Siparis;
+            TxtProjeKodu.Text = siparis.Projekodu;
         }
 
         private void CmbMalzemeTuru_SelectedIndexChanged(object sender, EventArgs e)
@@ -1890,7 +1900,7 @@ namespace UserInterface.STS
                 siparisNo = Guid.NewGuid().ToString();
                 isleAdimi = "SAT BAŞLATMA ONAYI";
                 SatDataGridview1 sat = new SatDataGridview1(0,LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "", "", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYoluGun) ? "" : dosyaYoluGun, infos[0].ConInt(), isleAdimi, CmbDonemBasaran.Text, "BAŞARAN","");
+                  string.IsNullOrEmpty(dosyaYoluGun) ? "" : dosyaYoluGun, infos[0].ConInt(), isleAdimi, CmbDonemBasaran.Text, "BAŞARAN", TxtProjeKodu.Text, "-");
 
                 string mesaj = satDataGridview1Manager.Add(sat);
                 if (mesaj!="OK")
@@ -2082,6 +2092,7 @@ namespace UserInterface.STS
             stnBasaran9.Clear(); tBasaran9.Clear(); mBasaran9.Clear(); bBasaran9.Text = "";
             stnBasaran10.Clear(); tBasaran10.Clear(); mBasaran10.Clear(); bBasaran10.Text = ""; 
             DtgStokList.DataSource = null; webBrowser2.Navigate(""); CmbDonemBasaran.SelectedValue = "";
+            TxtProjeKodu.Clear();
         }
         private void BtnDosyaEkleT_Click(object sender, EventArgs e)
         {
@@ -2154,7 +2165,7 @@ namespace UserInterface.STS
                 siparisNo = Guid.NewGuid().ToString();
                 isleAdimi = "SAT ONAY";
                 SatDataGridview1 sat = new SatDataGridview1(0,LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "", "", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, CmbDonemBasaran.Text,"HARCAMASI YAPILAN","");
+                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, CmbDonemBasaran.Text,"HARCAMASI YAPILAN", TxtProjeKodu.Text, TxtSatinAlinanFirma.Text);
                 string mesaj = satDataGridview1Manager.Add(sat);
                 if (mesaj != "OK")
                 {
@@ -2198,7 +2209,7 @@ namespace UserInterface.STS
         {
             CmbAdSoyad.Text = ""; CmbSiparisNo.Clear(); TxtGorevi.Clear(); TxtMasrafyeriNo.Clear(); TxtMasrafYeri.Clear(); TxtStok.Clear(); TxtTanim.Clear(); CmbMalzemeTuru.Text = ""; TxtGerekceBasaran.Clear();
             CmbBelgeTuru.Text = ""; TxtBelgeNumarasi.Clear(); CmbButceKodu.SelectedValue = -1; 
-            CmbSatBirim.Text = ""; CmbHarcamaTuru.Text = ""; CmbFaturaFirma.Text = ""; webBrowser3.Navigate(""); TxtTutar.Clear(); CmbDonemBasaran.SelectedValue = "";
+            CmbSatBirim.Text = ""; CmbHarcamaTuru.Text = ""; CmbFaturaFirma.Text = ""; webBrowser3.Navigate(""); TxtTutar.Clear(); CmbDonemBasaran.SelectedValue = ""; TxtProjeKodu.Clear();
         }
         private void TxtTutar_KeyPress(object sender, KeyPressEventArgs e)
         {

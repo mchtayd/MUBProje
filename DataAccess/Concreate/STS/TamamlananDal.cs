@@ -51,7 +51,9 @@ namespace DataAccess.Concreate.STS
                     new SqlParameter("@islemAdimi", entity.IslemAdimi),
                     new SqlParameter("@donem", entity.Donem),
                     new SqlParameter("@satOlusturaTuru",entity.SatOlusturmaTuru),
-                    new SqlParameter("@proje",entity.Proje));
+                    new SqlParameter("@proje",entity.Proje),
+                    new SqlParameter("@satinAlinanFirma",entity.SatinAlinanFirma),
+                    new SqlParameter("@harcamaYapan",entity.HarcamaYapan));
 
 
                 dataReader.Close();
@@ -111,7 +113,9 @@ namespace DataAccess.Concreate.STS
                         dataReader["ISLEM_ADIMI"].ToString(),
                         dataReader["DONEM"].ToString(),
                         dataReader["SAT_OLUSTURMA_TURU"].ToString(),
-                        dataReader["PROJE"].ToString()));
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["HARCAMA_YAPAN"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
@@ -120,6 +124,23 @@ namespace DataAccess.Concreate.STS
             catch (Exception ex)
             {
                 return new List<Tamamlanan>();
+            }
+        }
+        public string SatFirmaGuncelle(string siparisNo, string proje, string firma)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatFirmaBilgisiGuncelleTamamlanan",
+                    new SqlParameter("@siparisNo", siparisNo),
+                    new SqlParameter("@proje", proje),
+                    new SqlParameter("@satFirma", firma));
+                dataReader.Close();
+                return "OK";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using Business.Concreate;
+﻿using Business;
+using Business.Concreate;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
@@ -36,11 +37,12 @@ namespace UserInterface.STS
         SatIslemAdimlariManager satIslemAdimlarimanager;
         PersonelKayitManager personelKayitManager;
         SatOnayTarihiManager satOnayTarihiManager;
+        ComboManager comboManager;
         public object[] infos;
         string siparisNo, dosyayolu;
         int onaylananteklif, ucteklif,id, formno, satno=-1;
         double toplam, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10 = 0, outValue = 0;
-        string masrafyeri, talepeden, bolum, usbolgesi, abfformno, gerekce, butcekodukalemi, satbirim, harcamaturu, faturafirma, ilgilikisi, masrafyerino, firma, kaynakdosyaismi, alinandosya, tamyol, belgeTuru;
+        string masrafyeri, talepeden, bolum, usbolgesi, abfformno, gerekce, butcekodukalemi, satbirim, harcamaturu, faturafirma, ilgilikisi, masrafyerino, firma, kaynakdosyaismi, alinandosya, tamyol, belgeTuru, satinAlinanFirma;
 
         private void stn3_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -405,6 +407,30 @@ namespace UserInterface.STS
 
         DateTime istenentarih, tamamlanantarih;
 
+        private void BtnSatiGuncelle_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string mesaj = satDataGridview1Manager.SatFirmaGuncelle(siparisNo, CmbProjeKodu.Text, TxtFirma.Text);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CmbProjeKodu.SelectedValue = ""; TxtFirma.Clear();
+                DataDisplay();
+            }
+        }
+        void ProjeKodu()
+        {
+            CmbProjeKodu.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
+            CmbProjeKodu.ValueMember = "Id";
+            CmbProjeKodu.DisplayMember = "Baslik";
+            CmbProjeKodu.SelectedValue = 0;
+        }
+
         public FrmSatTamamlama()
         {
             InitializeComponent();
@@ -417,11 +443,13 @@ namespace UserInterface.STS
             satIslemAdimlarimanager = SatIslemAdimlariManager.GetInstance();
             personelKayitManager = PersonelKayitManager.GetInstance();
             satOnayTarihiManager = SatOnayTarihiManager.GetInstance();
+            comboManager = ComboManager.GetInstance();
         }
 
         private void FrmSatTamamlama_Load(object sender, EventArgs e)
         {
             DataDisplay();
+            ProjeKodu();
             TxtTop.Text = DtgSatTamamlama.RowCount.ToString();
         }
         public void YenilecekVeri()
@@ -509,6 +537,7 @@ namespace UserInterface.STS
             donem = DtgSatTamamlama.CurrentRow.Cells["Donem"].Value.ToString();
             satOlusturmaTuru = DtgSatTamamlama.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             proje = DtgSatTamamlama.CurrentRow.Cells["Proje"].Value.ToString();
+            satinAlinanFirma = DtgSatTamamlama.CurrentRow.Cells["SatinAlinanFirma"].Value.ToString();
             WebBrowser();
 
             if (ucteklif == 1)
@@ -983,7 +1012,15 @@ namespace UserInterface.STS
             {
                 return;
             }
-            webBrowser1.Navigate(dosyayolu);
+            try
+            {
+                webBrowser1.Navigate(dosyayolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -1033,7 +1070,7 @@ namespace UserInterface.STS
                 }
                 tamamlanantarih = DateTime.Now;
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(),formno,masrafyeri,talepeden,bolum,usbolgesi,abfformno,istenentarih, tamamlanantarih,gerekce,butcekodukalemi,satbirim,harcamaturu,CmbBelgeTuru.Text,TxtBelgeNumarasi.Text,DtBelgeTarihi.Value,
-                    faturafirma,ilgilikisi,masrafyerino,toplam,dosyayolu,siparisNo,ucteklif, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje);
+                    faturafirma,ilgilikisi,masrafyerino,toplam,dosyayolu,siparisNo,ucteklif, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, CmbHarcamaYapan.Text);
                 string control = tamamlananManager.Add(tamamlanan);
                 if (control == "OK")
                 {

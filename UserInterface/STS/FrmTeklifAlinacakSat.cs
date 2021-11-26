@@ -32,9 +32,14 @@ namespace UserInterface.STS
         TeklifiAlinanManager teklifiAlinanManager;
         List<SatDataGridview1> satDatas;
         List<SatDataGridview1> satListWaiting;
+        List<SatDataGridview1> mailGonderilecekler;
+        List<SatDataGridview1> mailGonderilenler;
         List<FiyatTeklifiAl> teklifiAls;
         List<FiyatTeklifiAl> teklifler;
+        List<FiyatTeklifiAl> tekliflerMail;
+        List<FiyatTeklifiAl> tekliflerMailGonderilenler;
         List<TedarikciFirma> suppliers;
+        List<string> fileNames = new List<string>();
         public object[] infos;
         public object[] infos1;
         public object[] infos2;
@@ -73,6 +78,8 @@ namespace UserInterface.STS
             TeklifAlMalzemeList();
             DataDisplay();
             SatListLoad();
+            MailGonderilecekler();
+            MailGonderilenler();
             TxtTop.Text = DtgTeklifAl.RowCount.ToString();
             TxtFiyatTeklifi.Text = DtgTeklifMalzemeList.RowCount.ToString();
             TxtTeklİfSatSayisi.Text = DtgSatList.RowCount.ToString();
@@ -111,11 +118,103 @@ namespace UserInterface.STS
             TeklifAlMalzemeList();
             DataDisplay();
             SatListLoad();
+            MailGonderilecekler();
+            MailGonderilenler();
             TxtTop.Text = DtgTeklifAl.RowCount.ToString();
             TxtFiyatTeklifi.Text = DtgTeklifMalzemeList.RowCount.ToString();
             TxtTeklİfSatSayisi.Text = DtgSatList.RowCount.ToString();
             start = true;
             refreshTeklifAlMalzemeList = true;
+        }
+        void MailGonderilecekler()
+        {
+            mailGonderilecekler = satDataGridview1Manager.MailList("Gönderilmedi");
+            dataBinder2.DataSource = mailGonderilecekler.ToDataTable();
+            DtgMailList.DataSource = dataBinder2;
+
+            DtgMailList.Columns["Id"].Visible = false;
+            DtgMailList.Columns["Satno"].HeaderText = "SAT NO";
+            DtgMailList.Columns["Formno"].HeaderText = "İŞ AKIŞ NO";
+            DtgMailList.Columns["Masrafyeri"].HeaderText = "MASRAF YERİ NO";
+            DtgMailList.Columns["Talepeden"].HeaderText = "İSTEKTE BULUNAN";
+            DtgMailList.Columns["Bolum"].HeaderText = "BÖLÜM";
+            DtgMailList.Columns["Usbolgesi"].HeaderText = "ÜS BÖLGESİ";
+            DtgMailList.Columns["Abfformno"].HeaderText = "ABF FORM NO";
+            DtgMailList.Columns["Tarih"].HeaderText = "İSTENEN TARİH";
+            DtgMailList.Columns["Gerekce"].HeaderText = "GEREKÇE";
+            DtgMailList.Columns["Burcekodu"].HeaderText = "BÜTÇE KODU";
+            DtgMailList.Columns["Satbirim"].HeaderText = "SATIN ALMA YAPCAK BİRİM";
+            DtgMailList.Columns["Harcamaturu"].HeaderText = "HARCAMA TÜRÜ";
+            DtgMailList.Columns["Faturafirma"].HeaderText = "FATURA EDİLECEK FİRMA";
+            DtgMailList.Columns["Ilgilikisi"].HeaderText = "İLGİLİ KİŞİ";
+            DtgMailList.Columns["Masyerino"].HeaderText = "İ.K MASRAF YERİ NO";
+            DtgMailList.Columns["Uctekilf"].Visible = false;
+            DtgMailList.Columns["SiparisNo"].Visible = false;
+            DtgMailList.Columns["DosyaYolu"].Visible = false;
+            DtgMailList.Columns["PersonelId"].Visible = false;
+            DtgMailList.Columns["FirmaBilgisi"].Visible = false;
+            DtgMailList.Columns["TalepEdenPersonel"].HeaderText = "TALEP EDEN PERSONEL";
+            DtgMailList.Columns["PersonelSiparis"].HeaderText = "PERSONEL SİPARİŞ NO";
+            DtgMailList.Columns["Unvani"].HeaderText = "ÜNVANI";
+            DtgMailList.Columns["PersonelMasYerNo"].HeaderText = "PERSONEL MASRAF YERİ NO";
+            DtgMailList.Columns["PersonelMasYeri"].HeaderText = "PERSONEL MASRAF YERİ";
+            DtgMailList.Columns["BelgeTuru"].Visible = false;
+            DtgMailList.Columns["BelgeNumarasi"].Visible = false;
+            DtgMailList.Columns["BelgeTarihi"].Visible = false;
+            DtgMailList.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
+            DtgMailList.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgMailList.Columns["SatOlusturmaTuru"].Visible = false;
+            DtgMailList.Columns["RedNedeni"].Visible = false;
+            DtgMailList.Columns["TeklifDurumu"].Visible = false;
+            DtgMailList.Columns["Proje"].Visible = false;
+            DtgMailList.Columns["Durum"].Visible = false;
+
+            TxtMailListCount.Text = DtgMailList.RowCount.ToString();
+        }
+        void MailGonderilenler()
+        {
+            mailGonderilenler = satDataGridview1Manager.MailList("Gönderildi");
+            dataBinder3.DataSource = mailGonderilenler.ToDataTable();
+            DtgGelenMail.DataSource = dataBinder3;
+
+            DtgGelenMail.Columns["Id"].Visible = false;
+            DtgGelenMail.Columns["Satno"].HeaderText = "SAT NO";
+            DtgGelenMail.Columns["Formno"].HeaderText = "İŞ AKIŞ NO";
+            DtgGelenMail.Columns["Masrafyeri"].HeaderText = "MASRAF YERİ NO";
+            DtgGelenMail.Columns["Talepeden"].HeaderText = "İSTEKTE BULUNAN";
+            DtgGelenMail.Columns["Bolum"].HeaderText = "BÖLÜM";
+            DtgGelenMail.Columns["Usbolgesi"].HeaderText = "ÜS BÖLGESİ";
+            DtgGelenMail.Columns["Abfformno"].HeaderText = "ABF FORM NO";
+            DtgGelenMail.Columns["Tarih"].HeaderText = "İSTENEN TARİH";
+            DtgGelenMail.Columns["Gerekce"].HeaderText = "GEREKÇE";
+            DtgGelenMail.Columns["Burcekodu"].HeaderText = "BÜTÇE KODU";
+            DtgGelenMail.Columns["Satbirim"].HeaderText = "SATIN ALMA YAPCAK BİRİM";
+            DtgGelenMail.Columns["Harcamaturu"].HeaderText = "HARCAMA TÜRÜ";
+            DtgGelenMail.Columns["Faturafirma"].HeaderText = "FATURA EDİLECEK FİRMA";
+            DtgGelenMail.Columns["Ilgilikisi"].HeaderText = "İLGİLİ KİŞİ";
+            DtgGelenMail.Columns["Masyerino"].HeaderText = "İ.K MASRAF YERİ NO";
+            DtgGelenMail.Columns["Uctekilf"].Visible = false;
+            DtgGelenMail.Columns["SiparisNo"].Visible = false;
+            DtgGelenMail.Columns["DosyaYolu"].Visible = false;
+            DtgGelenMail.Columns["PersonelId"].Visible = false;
+            DtgGelenMail.Columns["FirmaBilgisi"].Visible = false;
+            DtgGelenMail.Columns["TalepEdenPersonel"].HeaderText = "TALEP EDEN PERSONEL";
+            DtgGelenMail.Columns["PersonelSiparis"].HeaderText = "PERSONEL SİPARİŞ NO";
+            DtgGelenMail.Columns["Unvani"].HeaderText = "ÜNVANI";
+            DtgGelenMail.Columns["PersonelMasYerNo"].HeaderText = "PERSONEL MASRAF YERİ NO";
+            DtgGelenMail.Columns["PersonelMasYeri"].HeaderText = "PERSONEL MASRAF YERİ";
+            DtgGelenMail.Columns["BelgeTuru"].Visible = false;
+            DtgGelenMail.Columns["BelgeNumarasi"].Visible = false;
+            DtgGelenMail.Columns["BelgeTarihi"].Visible = false;
+            DtgGelenMail.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
+            DtgGelenMail.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgGelenMail.Columns["SatOlusturmaTuru"].Visible = false;
+            DtgGelenMail.Columns["RedNedeni"].Visible = false;
+            DtgGelenMail.Columns["TeklifDurumu"].Visible = false;
+            DtgGelenMail.Columns["Proje"].Visible = false;
+            DtgGelenMail.Columns["Durum"].Visible = false;
+
+            TxtGelenMail.Text = DtgGelenMail.RowCount.ToString();
         }
         private string FirmaControl()
         {
@@ -373,10 +472,10 @@ namespace UserInterface.STS
         string oku = "OK";
         void CreateOnayMail(List<TeklifAlinan> list)
         {
-            
+
             MailSendHtml(formNo + " Nolu SAT Onayı",
                 ControlMalzemeler(list),
-                new List<string>() { "gulsahotaci@mubvan.net","mehmetsenol@mubvan.net" });
+                new List<string>() { "gulsahotaci@mubvan.net", "mehmetsenol@mubvan.net" });
         }
         string ControlMalzemeler(List<TeklifAlinan> teklifler)
         {
@@ -472,6 +571,7 @@ namespace UserInterface.STS
             strB.AppendLine("</body></html>");
             return strB.ToString();
         }
+        List<TeklifAlinan> teklifAlinanListe;
         private void BtnTeklifKaydet_Click(object sender, EventArgs e)
         {
             if (satOlusturmaTuru == "")
@@ -495,75 +595,75 @@ namespace UserInterface.STS
                     BtnDosyaEkle2.BackColor = Color.Transparent;
                     BtnDosyaEkle3.BackColor = Color.Transparent;
 
-                    List<TeklifAlinan> list = new List<TeklifAlinan>();
+                    teklifAlinanListe = new List<TeklifAlinan>();
 
                     if (stn1.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn1.Text, t1.Text, m1.Text.ConInt(), b1.Text, F1_1.Text, BBF1.Text.ConDouble(),
                             BT1.Text.ConDouble(), F2_1.Text, IBF1.Text.ConDouble(), IT1.Text.ConDouble(), F3_1.Text, UBF1.Text.ConDouble(), UT1.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn2.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn2.Text, t2.Text, m2.Text.ConInt(), b2.Text, F1_2.Text, BBF2.Text.ConDouble(),
                             BT2.Text.ConDouble(), F2_2.Text, IBF2.Text.ConDouble(), IT2.Text.ConDouble(), F3_2.Text, UBF2.Text.ConDouble(), UT2.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn3.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn3.Text, t3.Text, m3.Text.ConInt(), b3.Text, F1_3.Text, BBF3.Text.ConDouble(),
                             BT3.Text.ConDouble(), F2_3.Text, IBF3.Text.ConDouble(), IT3.Text.ConDouble(), F3_3.Text, UBF3.Text.ConDouble(), UT3.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn4.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn4.Text, t4.Text, m4.Text.ConInt(), b4.Text, F1_4.Text, BBF4.Text.ConDouble(),
                             BT4.Text.ConDouble(), F2_4.Text, IBF4.Text.ConDouble(), IT4.Text.ConDouble(), F3_4.Text, UBF4.Text.ConDouble(), UT4.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn5.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn5.Text, t5.Text, m5.Text.ConInt(), b5.Text, F1_5.Text, BBF5.Text.ConDouble(),
                             BT5.Text.ConDouble(), F2_5.Text, IBF5.Text.ConDouble(), IT5.Text.ConDouble(), F3_5.Text, UBF5.Text.ConDouble(), UT5.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn6.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn6.Text, t6.Text, m6.Text.ConInt(), b6.Text, F1_6.Text, BBF6.Text.ConDouble(),
                             BT6.Text.ConDouble(), F2_6.Text, IBF6.Text.ConDouble(), IT6.Text.ConDouble(), F3_6.Text, UBF6.Text.ConDouble(), UT6.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn7.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn7.Text, t7.Text, m7.Text.ConInt(), b7.Text, F1_7.Text, BBF7.Text.ConDouble(),
                             BT7.Text.ConDouble(), F2_7.Text, IBF7.Text.ConDouble(), IT7.Text.ConDouble(), F3_7.Text, UBF7.Text.ConDouble(), UT7.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn8.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn8.Text, t8.Text, m8.Text.ConInt(), b8.Text, F1_8.Text, BBF8.Text.ConDouble(),
                             BT8.Text.ConDouble(), F2_8.Text, IBF8.Text.ConDouble(), IT8.Text.ConDouble(), F3_8.Text, UBF8.Text.ConDouble(), UT8.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn9.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn9.Text, t9.Text, m9.Text.ConInt(), b9.Text, F1_9.Text, BBF9.Text.ConDouble(),
                             BT9.Text.ConDouble(), F2_9.Text, IBF9.Text.ConDouble(), IT9.Text.ConDouble(), F3_9.Text, UBF9.Text.ConDouble(), UT9.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
                     if (stn10.Text != "")
                     {
                         TeklifAlinan teklifAlinan = new TeklifAlinan(stn10.Text, t10.Text, m10.Text.ConInt(), b10.Text, F1_10.Text, BBF10.Text.ConDouble(), BT10.Text.ConDouble(), F2_10.Text, IBF10.Text.ConDouble(), IT10.Text.ConDouble(), F3_10.Text, UBF10.Text.ConDouble(), UT10.Text.ConDouble(), siparisNo);
-                        list.Add(teklifAlinan);
+                        teklifAlinanListe.Add(teklifAlinan);
                     }
 
-                    if (list.Count == 0)
+                    if (teklifAlinanListe.Count == 0)
                     {
                         MessageBox.Show("Eleman Bulunamadı");
                         return;
                     }
                     // TO DO
-                    Task.Factory.StartNew(() => CreateOnayMail(list));
+                    Task.Factory.StartNew(() => CreateOnayMail(teklifAlinanListe));
                     //CreateOnayMail(list);
                     //return;
                     //
@@ -574,7 +674,7 @@ namespace UserInterface.STS
                         return;
                     }
 
-                    foreach (TeklifAlinan item in list)
+                    foreach (TeklifAlinan item in teklifAlinanListe)
                     {
                         teklifiAlinanManager.Add(item);
                     }
@@ -2649,7 +2749,15 @@ namespace UserInterface.STS
         }
         void WebBrowser2(string yol)
         {
-            webBrowser1.Navigate(yol);
+            try
+            {
+                webBrowser1.Navigate(yol);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
 
         private void DtgSatList_FilterStringChanged(object sender, EventArgs e)
@@ -2994,6 +3102,147 @@ namespace UserInterface.STS
         private void bb9_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void DtgMailList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgMailList.CurrentRow == null)
+            {
+                return;
+            }
+            siparisNo = DtgMailList.CurrentRow.Cells["SiparisNo"].Value.ToString();
+            tekliflerMail = fiyatTeklifiAlManager.GetList("Gönderildi", siparisNo);
+            DtgMalzemeFirma.DataSource = tekliflerMail;
+            MalzemeTablosuDuzenle();
+
+            //SatMalzemeListLoadMail(siparisNo);
+        }
+        void MalzemeTablosuDuzenle()
+        {
+            DtgMalzemeFirma.Columns["Id"].Visible = false;
+            DtgMalzemeFirma.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgMalzemeFirma.Columns["Tanim"].HeaderText = "TANIM";
+            DtgMalzemeFirma.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgMalzemeFirma.Columns["Birim"].HeaderText = "BİRİM";
+            DtgMalzemeFirma.Columns["Firma1"].HeaderText = "1. FİRMA";
+            DtgMalzemeFirma.Columns["Firma2"].HeaderText = "2. FİRMA";
+            DtgMalzemeFirma.Columns["Firma3"].HeaderText = "3. FİRMA";
+            DtgMalzemeFirma.Columns["Siparisno"].Visible = false;
+            DtgMalzemeFirma.Columns["Teklifdurumu"].Visible = false;
+            DtgMalzemeFirma.Columns["Bbf"].HeaderText = "1. FİRMA BİRİM FİYATI";
+            DtgMalzemeFirma.Columns["Btf"].HeaderText = "1. FİRMA TOPLAM FİYAT";
+            DtgMalzemeFirma.Columns["Ibf"].HeaderText = "2. FİRMA BİRİM FİYATI";
+            DtgMalzemeFirma.Columns["Itf"].HeaderText = "2. FİRMA TOPLAM FİYAT";
+            DtgMalzemeFirma.Columns["Ubf"].HeaderText = "3. FİRMA BİRİM FİYATI";
+            DtgMalzemeFirma.Columns["Utf"].HeaderText = "3. FİRMA TOPLAM FİYAT";
+            DtgMalzemeFirma.Columns["Onaylananteklif"].Visible = false;
+            TxtMalzemeSayisi.Text = DtgMalzemeFirma.RowCount.ToString();
+        }
+        void MalzemeTablosuDuzenleMail()
+        {
+            DtgMalzemelerMail.Columns["Id"].Visible = false;
+            DtgMalzemelerMail.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgMalzemelerMail.Columns["Tanim"].HeaderText = "TANIM";
+            DtgMalzemelerMail.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgMalzemelerMail.Columns["Birim"].HeaderText = "BİRİM";
+            DtgMalzemelerMail.Columns["Firma1"].HeaderText = "1. FİRMA";
+            DtgMalzemelerMail.Columns["Firma2"].HeaderText = "2. FİRMA";
+            DtgMalzemelerMail.Columns["Firma3"].HeaderText = "3. FİRMA";
+            DtgMalzemelerMail.Columns["Siparisno"].Visible = false;
+            DtgMalzemelerMail.Columns["Teklifdurumu"].Visible = false;
+            DtgMalzemelerMail.Columns["Bbf"].HeaderText = "1. FİRMA BİRİM FİYATI";
+            DtgMalzemelerMail.Columns["Btf"].HeaderText = "1. FİRMA TOPLAM FİYAT";
+            DtgMalzemelerMail.Columns["Ibf"].HeaderText = "2. FİRMA BİRİM FİYATI";
+            DtgMalzemelerMail.Columns["Itf"].HeaderText = "2. FİRMA TOPLAM FİYAT";
+            DtgMalzemelerMail.Columns["Ubf"].HeaderText = "3. FİRMA BİRİM FİYATI";
+            DtgMalzemelerMail.Columns["Utf"].HeaderText = "3. FİRMA TOPLAM FİYAT";
+            DtgMalzemelerMail.Columns["Onaylananteklif"].Visible = false;
+            TxtMal.Text = DtgMalzemelerMail.RowCount.ToString();
+        }
+
+        private void BtnMailOlustur_Click(object sender, EventArgs e)
+        {
+            FrmMail frmMail = new FrmMail();           
+            frmMail.ShowDialog();
+        }
+
+        private void DtgGelenMail_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgGelenMail.CurrentRow == null)
+            {
+                return;
+            }
+            siparisNo = DtgGelenMail.CurrentRow.Cells["SiparisNo"].Value.ToString();
+            yol = DtgGelenMail.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            try
+            {
+                webBrowser4.Navigate(yol);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+            tekliflerMailGonderilenler = fiyatTeklifiAlManager.GetList("Gönderildi", siparisNo);
+            DtgMalzemelerMail.DataSource = tekliflerMailGonderilenler;
+            MalzemeTablosuDuzenleMail();
+        }
+        string kaynakdosyaismi, alinandosya;
+
+        private void BtnMailKaydet_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Onay Maillerini Tüm SAT Dosyalarının İçerisine Eklediğinizden Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                foreach (DataGridViewRow item in DtgGelenMail.Rows)
+                {
+                    string siparisNo = item.Cells["SiparisNo"].Value.ToString();
+                    string mesaj = satDataGridview1Manager.MailDurumuKaydedildi(siparisNo);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    string yapilanIslem = "SAT KAYDINA ONAY MAİLİ EKLENDİ.";
+                    SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanIslem, infos[1].ToString(), DateTime.Now);
+                    satIslemAdimlarimanager.Add(satIslemAdimlari);
+                }
+                MessageBox.Show("Bilgiler Başarıyla Kaydedildi.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                webBrowser4.Navigate("");
+                DtgMalzemelerMail.DataSource = null;
+                MailGonderilecekler();
+                MailGonderilenler();
+            }
+        }
+
+        private void BtnDosyaMailEkle_Click(object sender, EventArgs e)
+        {
+            if (yol == null)
+            {
+                MessageBox.Show("SAT Dosyası Bulunamadı", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                kaynakdosyaismi = openFileDialog1.SafeFileName.ToString();
+                alinandosya = openFileDialog1.FileName.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Dosya Seçmediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (File.Exists(yol + "\\" + kaynakdosyaismi))
+            {
+                MessageBox.Show("Belirtilen Klasörde " + kaynakdosyaismi + " Adıyla Zaten Bir Dosya Mevcut!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                File.Copy(alinandosya, yol + "\\" + kaynakdosyaismi);
+                fileNames.Add(alinandosya);
+            }
+
+
         }
 
         private void bb10_KeyPress(object sender, KeyPressEventArgs e)
