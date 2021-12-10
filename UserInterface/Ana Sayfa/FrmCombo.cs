@@ -186,6 +186,22 @@ namespace UserInterface.Ana_Sayfa
                     form.ComboFirma();
                 }
             }
+            if (comboAd == "DOSYA_TURU")
+            {
+                var form = (FrmArsiv)Application.OpenForms["FrmArsiv"];
+                if (form != null)
+                {
+                    form.DosyaTuru();
+                }
+            }
+            if (comboAd == "SİSTEM CİHAZ")
+            {
+                var form = (FrmArsiv)Application.OpenForms["FrmArsiv"];
+                if (form != null)
+                {
+                    form.SistemCihaz();
+                }
+            }
         }
     }
 }

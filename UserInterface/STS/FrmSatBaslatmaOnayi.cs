@@ -415,6 +415,8 @@ namespace UserInterface.STS
                 DataDisplay();
                 Temizle();
                 webBrowser1.Navigate("");
+                FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                frmAnaSayfa.ToplamSayilar();
 
                 #region ReddedilenlerEskiKod
                 /*Reddedilenler reddedilenler = new Reddedilenler(formNo, satno, masrafYeri, talepeden, bolum, usbolgesi, abfno, istenentarih, gerekce, siparisNo, dosya, rednedeni, "Basla", "Alınmadı", donem, personelId, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, ucTeklif, "BELIRLENMEDI", talepEdenPersonel, personelSiparis, unvani, personelMasTeriNo, islemAdimiGuncelle, satOlusuturmaTuru);

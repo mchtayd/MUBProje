@@ -33,7 +33,7 @@ namespace UserInterface.RAPORLAMALAR
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.CmbFaturaFirma = new System.Windows.Forms.ComboBox();
+            this.CmbRaporTuru = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgRaporList = new ADGV.AdvancedDataGridView();
@@ -45,7 +45,9 @@ namespace UserInterface.RAPORLAMALAR
             this.ToplamTutar = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.LbFaturaEdilecekFirma = new System.Windows.Forms.Label();
+            this.CmbFaturaEdilecekFirma = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgRaporList)).BeginInit();
@@ -76,31 +78,32 @@ namespace UserInterface.RAPORLAMALAR
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // CmbFaturaFirma
+            // CmbRaporTuru
             // 
-            this.CmbFaturaFirma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbFaturaFirma.FormattingEnabled = true;
-            this.CmbFaturaFirma.Items.AddRange(new object[] {
-            "ASELSAN",
-            "BAŞARAN"});
-            this.CmbFaturaFirma.Location = new System.Drawing.Point(128, 43);
-            this.CmbFaturaFirma.Name = "CmbFaturaFirma";
-            this.CmbFaturaFirma.Size = new System.Drawing.Size(126, 21);
-            this.CmbFaturaFirma.TabIndex = 328;
+            this.CmbRaporTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbRaporTuru.FormattingEnabled = true;
+            this.CmbRaporTuru.Items.AddRange(new object[] {
+            "BEYANNAME",
+            "RAPOR"});
+            this.CmbRaporTuru.Location = new System.Drawing.Point(128, 43);
+            this.CmbRaporTuru.Name = "CmbRaporTuru";
+            this.CmbRaporTuru.Size = new System.Drawing.Size(126, 21);
+            this.CmbRaporTuru.TabIndex = 328;
+            this.CmbRaporTuru.SelectedIndexChanged += new System.EventHandler(this.CmbRaporTuru_SelectedIndexChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(39, 47);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(83, 13);
+            this.label6.Size = new System.Drawing.Size(82, 13);
             this.label6.TabIndex = 327;
-            this.label6.Text = "FİRMA BİLGİSİ:";
+            this.label6.Text = "RAPOR TÜRÜ:";
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgRaporList);
-            this.groupBox1.Location = new System.Drawing.Point(0, 139);
+            this.groupBox1.Location = new System.Drawing.Point(0, 147);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1623, 683);
             this.groupBox1.TabIndex = 329;
@@ -127,6 +130,8 @@ namespace UserInterface.RAPORLAMALAR
             this.DtgRaporList.Size = new System.Drawing.Size(1617, 664);
             this.DtgRaporList.TabIndex = 2;
             this.DtgRaporList.TimeFilter = false;
+            this.DtgRaporList.SortStringChanged += new System.EventHandler(this.DtgRaporList_SortStringChanged);
+            this.DtgRaporList.FilterStringChanged += new System.EventHandler(this.DtgRaporList_FilterStringChanged);
             // 
             // TxtTop
             // 
@@ -211,23 +216,49 @@ namespace UserInterface.RAPORLAMALAR
             this.label2.TabIndex = 335;
             this.label2.Text = "Toplam Tutar:";
             // 
-            // button1
+            // BtnKaydet
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(13, 862);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 45);
-            this.button1.TabIndex = 337;
-            this.button1.Text = "KAYDET";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Location = new System.Drawing.Point(13, 862);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(157, 45);
+            this.BtnKaydet.TabIndex = 337;
+            this.BtnKaydet.Text = "KAYDET";
+            this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
+            // 
+            // LbFaturaEdilecekFirma
+            // 
+            this.LbFaturaEdilecekFirma.AutoSize = true;
+            this.LbFaturaEdilecekFirma.Location = new System.Drawing.Point(506, 47);
+            this.LbFaturaEdilecekFirma.Name = "LbFaturaEdilecekFirma";
+            this.LbFaturaEdilecekFirma.Size = new System.Drawing.Size(144, 13);
+            this.LbFaturaEdilecekFirma.TabIndex = 338;
+            this.LbFaturaEdilecekFirma.Text = "FATURA EDİLECEK FİRMA:";
+            // 
+            // CmbFaturaEdilecekFirma
+            // 
+            this.CmbFaturaEdilecekFirma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFaturaEdilecekFirma.FormattingEnabled = true;
+            this.CmbFaturaEdilecekFirma.Items.AddRange(new object[] {
+            "ASELSAN AŞ. UGES ÜRÜN DES.MDL.",
+            "ASELSAN AŞ. UGES İÇ GÜV.PROG.DİR.",
+            "ASELSAN AŞ. UGES İÇ GÜV.PROG.MDL.",
+            "BAŞARAN İLERİ TEKNOLOJİ"});
+            this.CmbFaturaEdilecekFirma.Location = new System.Drawing.Point(656, 44);
+            this.CmbFaturaEdilecekFirma.Name = "CmbFaturaEdilecekFirma";
+            this.CmbFaturaEdilecekFirma.Size = new System.Drawing.Size(278, 21);
+            this.CmbFaturaEdilecekFirma.TabIndex = 339;
             // 
             // FrmSatRaporu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1635, 924);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.CmbFaturaEdilecekFirma);
+            this.Controls.Add(this.LbFaturaEdilecekFirma);
+            this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.ToplamTutar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.CmbDonem);
@@ -236,7 +267,7 @@ namespace UserInterface.RAPORLAMALAR
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.CmbFaturaFirma);
+            this.Controls.Add(this.CmbRaporTuru);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Name = "FrmSatRaporu";
@@ -255,7 +286,7 @@ namespace UserInterface.RAPORLAMALAR
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.ComboBox CmbFaturaFirma;
+        private System.Windows.Forms.ComboBox CmbRaporTuru;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.GroupBox groupBox1;
         private ADGV.AdvancedDataGridView DtgRaporList;
@@ -267,6 +298,8 @@ namespace UserInterface.RAPORLAMALAR
         private System.Windows.Forms.Label ToplamTutar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource dataBinder;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.Label LbFaturaEdilecekFirma;
+        private System.Windows.Forms.ComboBox CmbFaturaEdilecekFirma;
     }
 }

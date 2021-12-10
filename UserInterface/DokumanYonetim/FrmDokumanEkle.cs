@@ -349,7 +349,7 @@ namespace UserInterface.DokumanYonetim
             string messege = dokumanManager.Add(dokuman);
             MessageBox.Show(messege);
             WebBrowserLogin();
-            //Task.Factory.StartNew(() => MailSendMetot());
+            Task.Factory.StartNew(() => MailSendMetot());
             Temizle();
         }
 

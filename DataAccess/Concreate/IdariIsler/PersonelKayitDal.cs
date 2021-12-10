@@ -33,7 +33,7 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@askerlikdurumu", entity.Askerlikdurumu), new SqlParameter("@askerliksinifi", entity.Askerliksinifi), new SqlParameter("@rutbesi", entity.Rubesi), new SqlParameter("@gorevi", entity.Gorevi),
                     new SqlParameter("@askerlikbastarihi", entity.Askerlikbastarihi), new SqlParameter("@askerlikbittarihi", entity.Askerlikbittarihi), new SqlParameter("@gorevyeri", entity.Gorevyeri),
                     new SqlParameter("@tecilbittarihi", entity.Tecilbittarihi), new SqlParameter("@tecilsebebi", entity.Tecilsebebi), new SqlParameter("@muafnedeni", entity.Muafnedeni),
-                    new SqlParameter("@siparisno", entity.SiparisNo), new SqlParameter("@dosyayolu",entity.Dosyayolu),new SqlParameter("@fotoyolu",entity.Fotoyolu),new SqlParameter("@projeKodu",entity.ProjeKodu));
+                    new SqlParameter("@siparisno", entity.SiparisNo), new SqlParameter("@dosyayolu",entity.Dosyayolu),new SqlParameter("@fotoyolu",entity.Fotoyolu),new SqlParameter("@projeKodu",entity.ProjeKodu),new SqlParameter("@kgbNo",entity.KgbNo),new SqlParameter("@kgbTarihi",entity.KgbTarih));
 
                 dataReader.Close();
                 return "Kayıt Başarılı Bir Şekilde Gerçekleşti.";
@@ -67,7 +67,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ISE_GIRIS_TARIHI"].ConTime(), dataReader["ASKERLIK_DURUMU"].ToString(), dataReader["ASKERLIK_SINIF"].ToString(), dataReader["RUTBESI"].ToString(), dataReader["GOREVI"].ToString(),
                         dataReader["ASKERLIK_BAS_TARIHI"].ToString(), dataReader["ASKERLIK_BIT_TARIHI"].ToString(), dataReader["GOREV_YERI"].ToString(), dataReader["TECIL_BITIS_TARIHI"].ToString(), dataReader["TECIL_SEBEBI"].ToString(),
                         dataReader["MUAF_NEDENI"].ToString(),dataReader["SiparisNo"].ToString(),dataReader["DosyaYolu"].ToString(),
-                        dataReader["FotoYolu"].ToString(),dataReader["PROJE_KODU"].ToString());
+                        dataReader["FotoYolu"].ToString(),dataReader["PROJE_KODU"].ToString(),
+                        dataReader["KGB_NO"].ToString(),
+                        dataReader["KGB_TARIH"].ConTime());
                 }
                 dataReader.Close();
                 return item;
@@ -96,7 +98,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ISE_GIRIS_TARIHI"].ConTime(), dataReader["ASKERLIK_DURUMU"].ToString(), dataReader["ASKERLIK_SINIF"].ToString(), dataReader["RUTBESI"].ToString(), dataReader["GOREVI"].ToString(),
                         dataReader["ASKERLIK_BAS_TARIHI"].ToString(), dataReader["ASKERLIK_BIT_TARIHI"].ToString(), dataReader["GOREV_YERI"].ToString(), dataReader["TECIL_BITIS_TARIHI"].ToString(), dataReader["TECIL_SEBEBI"].ToString(),
                         dataReader["MUAF_NEDENI"].ToString(), dataReader["SiparisNo"].ToString(),dataReader["DosyaYolu"].ToString(),
-                        dataReader["FotoYolu"].ToString(), dataReader["PROJE_KODU"].ToString()));
+                        dataReader["FotoYolu"].ToString(), dataReader["PROJE_KODU"].ToString(), dataReader["KGB_NO"].ToString(),
+                        dataReader["KGB_TARIH"].ConTime()));
                 }
                 dataReader.Close();
                 return sicilNos;
@@ -143,7 +146,7 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@sirketkisakod", entity.Sirketkisakod), new SqlParameter("@dahilino", entity.Dahilino), new SqlParameter("@isunvani", entity.Isunvani), new SqlParameter("@isegiristarihi", entity.Isegiristarihi),
                     new SqlParameter("@askerlikdurumu", entity.Askerlikdurumu), new SqlParameter("@askerliksinifi", entity.Askerliksinifi), new SqlParameter("@rutbesi", entity.Rubesi), new SqlParameter("@gorevi", entity.Gorevi),
                     new SqlParameter("@askerlikbastarihi", entity.Askerlikbastarihi), new SqlParameter("@askerlikbittarihi", entity.Askerlikbittarihi), new SqlParameter("@gorevyeri", entity.Gorevyeri),
-                    new SqlParameter("@tecilbittarihi", entity.Tecilbittarihi), new SqlParameter("@tecilsebebi", entity.Tecilsebebi), new SqlParameter("@muafnedeni", entity.Muafnedeni),new SqlParameter("@projeKodu",entity.ProjeKodu));
+                    new SqlParameter("@tecilbittarihi", entity.Tecilbittarihi), new SqlParameter("@tecilsebebi", entity.Tecilsebebi), new SqlParameter("@muafnedeni", entity.Muafnedeni),new SqlParameter("@projeKodu",entity.ProjeKodu), new SqlParameter("@kgbNo", entity.KgbNo), new SqlParameter("@kgbTarihi", entity.KgbTarih));
                 
                 return entity.Adsoyad + " Adlı Personel Başarıyla Güncellendi.";
 

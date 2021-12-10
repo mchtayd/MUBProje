@@ -904,6 +904,8 @@ namespace UserInterface.STS
                 Temizle();
                 TxtTop.Text = DtgOnay.RowCount.ToString();
                 rednedeni = "";
+                FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                frmAnaSayfa.ToplamSayilar();
                 #region RedEskiKodlar
                 /*
                 //teklifsizSatManager.Delete(siparisNo);
@@ -965,7 +967,8 @@ namespace UserInterface.STS
                 TekilfleriTemizle();
                 TxtTop.Text = DtgOnay.RowCount.ToString();
                 rednedeni = "";
-
+                FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                frmAnaSayfa.ToplamSayilar();
 
                 #region RedEskiKodlar
                 /*
@@ -1477,7 +1480,7 @@ namespace UserInterface.STS
             }
             catch
             {
-
+                return;
             }
 
         }
@@ -1563,7 +1566,7 @@ namespace UserInterface.STS
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\MP-FR-006 SATIN ALMA FORMU REV (00).docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\SATIN ALMA\\Folder\\MP-FR-006 SATIN ALMA FORMU REV (00).docx";
+            object filePath = "Z:\\DTS\\SATIN ALMA\\Folder\\MP-FR-006 SATIN ALMA FORMU REV (00)4.docx";
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 
@@ -2312,7 +2315,8 @@ namespace UserInterface.STS
                 SatDataGrid1();
                 LblToplam.Text = "0.00 ₺";
                 TxtTop.Text = DtgOnay.RowCount.ToString();
-
+                FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                frmAnaSayfa.ToplamSayilar();
 
                 #region RedEskiKodlar
                 /*

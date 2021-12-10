@@ -33,22 +33,22 @@ namespace Business.Concreate.STS
             throw new NotImplementedException();
         }
 
-        public List<SatRapor> GetList(string firma,string donem)
+        public List<SatRapor> Rapor(string raporTuru,string donem)
         {
             try
             {
-                return satRaporDal.GetList(firma, donem);
+                return satRaporDal.Rapor(raporTuru, donem);
             }
             catch (Exception)
             {
                 return new List<SatRapor>();
             }
         }
-        public List<SatRapor> GetListBasaran(string firma, string donem)
+        public List<SatRapor> Beyanname(string raporTuru, string donem, string faturaFirma)
         {
             try
             {
-                return satRaporDal.GetListBasaran(firma, donem);
+                return satRaporDal.Beyanname(raporTuru, donem, faturaFirma);
             }
             catch (Exception)
             {

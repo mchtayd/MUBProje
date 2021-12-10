@@ -161,8 +161,6 @@ namespace UserInterface.STS
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.BtnOnayla);
-            this.groupBox2.Controls.Add(this.BtnSatDuzenle);
             this.groupBox2.Controls.Add(this.b10);
             this.groupBox2.Controls.Add(this.b9);
             this.groupBox2.Controls.Add(this.b8);
@@ -218,9 +216,9 @@ namespace UserInterface.STS
             this.groupBox2.Controls.Add(this.stn9);
             this.groupBox2.Controls.Add(this.stn7);
             this.groupBox2.Controls.Add(this.stn8);
-            this.groupBox2.Location = new System.Drawing.Point(12, 461);
+            this.groupBox2.Location = new System.Drawing.Point(12, 436);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(855, 376);
+            this.groupBox2.Size = new System.Drawing.Size(855, 313);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SATIN ALINACAK MALZEME LİSTESİ";
@@ -229,26 +227,24 @@ namespace UserInterface.STS
             // 
             this.BtnOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnOnayla.Location = new System.Drawing.Point(72, 317);
+            this.BtnOnayla.Location = new System.Drawing.Point(15, 755);
             this.BtnOnayla.Name = "BtnOnayla";
             this.BtnOnayla.Size = new System.Drawing.Size(131, 42);
             this.BtnOnayla.TabIndex = 352;
             this.BtnOnayla.Text = "ONAYLA";
             this.BtnOnayla.UseVisualStyleBackColor = true;
-            this.BtnOnayla.Visible = false;
             this.BtnOnayla.Click += new System.EventHandler(this.BtnOnayla_Click);
             // 
             // BtnSatDuzenle
             // 
             this.BtnSatDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSatDuzenle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSatDuzenle.Location = new System.Drawing.Point(209, 317);
+            this.BtnSatDuzenle.Location = new System.Drawing.Point(152, 755);
             this.BtnSatDuzenle.Name = "BtnSatDuzenle";
             this.BtnSatDuzenle.Size = new System.Drawing.Size(131, 42);
             this.BtnSatDuzenle.TabIndex = 570;
             this.BtnSatDuzenle.Text = "SAT DÜZENLE";
             this.BtnSatDuzenle.UseVisualStyleBackColor = true;
-            this.BtnSatDuzenle.Visible = false;
             this.BtnSatDuzenle.Click += new System.EventHandler(this.BtnSatDuzenle_Click);
             // 
             // b10
@@ -860,7 +856,7 @@ namespace UserInterface.STS
             this.panel2.Controls.Add(this.LblToplam);
             this.panel2.Controls.Add(this.t);
             this.panel2.Controls.Add(this.label77);
-            this.panel2.Location = new System.Drawing.Point(12, 436);
+            this.panel2.Location = new System.Drawing.Point(9, 436);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(305, 65);
             this.panel2.TabIndex = 568;
@@ -961,6 +957,8 @@ namespace UserInterface.STS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.BtnOnayla);
+            this.Controls.Add(this.BtnSatDuzenle);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);

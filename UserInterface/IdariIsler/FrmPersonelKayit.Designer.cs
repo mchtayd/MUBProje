@@ -31,8 +31,8 @@ namespace UserInterface.IdariIşler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonelKayit));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
@@ -40,6 +40,8 @@ namespace UserInterface.IdariIşler
             this.panel2 = new System.Windows.Forms.Panel();
             this.label88 = new System.Windows.Forms.Label();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.TxtMevcutPersonel = new System.Windows.Forms.Label();
+            this.label129 = new System.Windows.Forms.Label();
             this.TOPA = new System.Windows.Forms.Label();
             this.label91 = new System.Windows.Forms.Label();
             this.TOPP = new System.Windows.Forms.Label();
@@ -131,6 +133,8 @@ namespace UserInterface.IdariIşler
             this.CmbAdSoyad = new System.Windows.Forms.ComboBox();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.TxtKgbNoGun = new System.Windows.Forms.TextBox();
+            this.label130 = new System.Windows.Forms.Label();
             this.label126 = new System.Windows.Forms.Label();
             this.CmbProjeKoduGun = new System.Windows.Forms.ComboBox();
             this.CmbMasrafYeriSorumlusuGun = new System.Windows.Forms.ComboBox();
@@ -237,6 +241,8 @@ namespace UserInterface.IdariIşler
             this.webBrowser4 = new System.Windows.Forms.WebBrowser();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.TxtKgbNo = new System.Windows.Forms.TextBox();
+            this.label127 = new System.Windows.Forms.Label();
             this.label125 = new System.Windows.Forms.Label();
             this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
             this.CmbMasrafYeriSorumlusu = new System.Windows.Forms.ComboBox();
@@ -343,8 +349,10 @@ namespace UserInterface.IdariIşler
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.TxtMevcutPersonel = new System.Windows.Forms.Label();
-            this.label129 = new System.Windows.Forms.Label();
+            this.label131 = new System.Windows.Forms.Label();
+            this.DtKgb = new System.Windows.Forms.DateTimePicker();
+            this.DtKgbGuncelle = new System.Windows.Forms.DateTimePicker();
+            this.label132 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -434,6 +442,25 @@ namespace UserInterface.IdariIşler
             this.tabPage4.Text = "SİPARİŞLER";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // TxtMevcutPersonel
+            // 
+            this.TxtMevcutPersonel.AutoSize = true;
+            this.TxtMevcutPersonel.Location = new System.Drawing.Point(970, 654);
+            this.TxtMevcutPersonel.Name = "TxtMevcutPersonel";
+            this.TxtMevcutPersonel.Size = new System.Drawing.Size(19, 13);
+            this.TxtMevcutPersonel.TabIndex = 37;
+            this.TxtMevcutPersonel.Text = "00";
+            // 
+            // label129
+            // 
+            this.label129.AutoSize = true;
+            this.label129.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label129.Location = new System.Drawing.Point(833, 654);
+            this.label129.Name = "label129";
+            this.label129.Size = new System.Drawing.Size(132, 13);
+            this.label129.TabIndex = 36;
+            this.label129.Text = "MEVCUT PERSONEL:";
+            // 
             // TOPA
             // 
             this.TOPA.AutoSize = true;
@@ -498,18 +525,18 @@ namespace UserInterface.IdariIşler
             // 
             this.DtgMevcutKadro.AllowUserToAddRows = false;
             this.DtgMevcutKadro.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgMevcutKadro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMevcutKadro.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgMevcutKadro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgMevcutKadro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DtgMevcutKadro.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1356,6 +1383,10 @@ namespace UserInterface.IdariIşler
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.DtKgbGuncelle);
+            this.groupBox6.Controls.Add(this.label132);
+            this.groupBox6.Controls.Add(this.TxtKgbNoGun);
+            this.groupBox6.Controls.Add(this.label130);
             this.groupBox6.Controls.Add(this.label126);
             this.groupBox6.Controls.Add(this.CmbProjeKoduGun);
             this.groupBox6.Controls.Add(this.CmbMasrafYeriSorumlusuGun);
@@ -1405,6 +1436,22 @@ namespace UserInterface.IdariIşler
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ŞİRKET BİLGİLER";
             // 
+            // TxtKgbNoGun
+            // 
+            this.TxtKgbNoGun.Location = new System.Drawing.Point(944, 172);
+            this.TxtKgbNoGun.Name = "TxtKgbNoGun";
+            this.TxtKgbNoGun.Size = new System.Drawing.Size(236, 20);
+            this.TxtKgbNoGun.TabIndex = 142;
+            // 
+            // label130
+            // 
+            this.label130.AutoSize = true;
+            this.label130.Location = new System.Drawing.Point(883, 176);
+            this.label130.Name = "label130";
+            this.label130.Size = new System.Drawing.Size(51, 13);
+            this.label130.TabIndex = 141;
+            this.label130.Text = "KGB NO:";
+            // 
             // label126
             // 
             this.label126.AutoSize = true;
@@ -1418,7 +1465,7 @@ namespace UserInterface.IdariIşler
             // 
             this.CmbProjeKoduGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbProjeKoduGun.FormattingEnabled = true;
-            this.CmbProjeKoduGun.Location = new System.Drawing.Point(943, 145);
+            this.CmbProjeKoduGun.Location = new System.Drawing.Point(945, 145);
             this.CmbProjeKoduGun.Name = "CmbProjeKoduGun";
             this.CmbProjeKoduGun.Size = new System.Drawing.Size(174, 21);
             this.CmbProjeKoduGun.TabIndex = 140;
@@ -1621,7 +1668,7 @@ namespace UserInterface.IdariIşler
             "KAT HİZMETLİSİ",
             "DEPO SORUMLUSU",
             "GÜVENLİK GÖREVLİSİ"});
-            this.CmbIsUnvaniG.Location = new System.Drawing.Point(944, 93);
+            this.CmbIsUnvaniG.Location = new System.Drawing.Point(945, 93);
             this.CmbIsUnvaniG.Name = "CmbIsUnvaniG";
             this.CmbIsUnvaniG.Size = new System.Drawing.Size(173, 21);
             this.CmbIsUnvaniG.TabIndex = 37;
@@ -1705,7 +1752,7 @@ namespace UserInterface.IdariIşler
             // 
             // TxtSirketKısaKodG
             // 
-            this.TxtSirketKısaKodG.Location = new System.Drawing.Point(944, 41);
+            this.TxtSirketKısaKodG.Location = new System.Drawing.Point(945, 41);
             this.TxtSirketKısaKodG.Name = "TxtSirketKısaKodG";
             this.TxtSirketKısaKodG.Size = new System.Drawing.Size(235, 20);
             this.TxtSirketKısaKodG.TabIndex = 57;
@@ -1776,7 +1823,7 @@ namespace UserInterface.IdariIşler
             // DtIseGirisG
             // 
             this.DtIseGirisG.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtIseGirisG.Location = new System.Drawing.Point(943, 119);
+            this.DtIseGirisG.Location = new System.Drawing.Point(945, 119);
             this.DtIseGirisG.Name = "DtIseGirisG";
             this.DtIseGirisG.Size = new System.Drawing.Size(174, 20);
             this.DtIseGirisG.TabIndex = 64;
@@ -2476,9 +2523,9 @@ namespace UserInterface.IdariIşler
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.webBrowser4);
-            this.groupBox5.Location = new System.Drawing.Point(16, 604);
+            this.groupBox5.Location = new System.Drawing.Point(16, 636);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(775, 172);
+            this.groupBox5.Size = new System.Drawing.Size(775, 149);
             this.groupBox5.TabIndex = 133;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Personel Dosyası";
@@ -2489,7 +2536,7 @@ namespace UserInterface.IdariIşler
             this.webBrowser4.Location = new System.Drawing.Point(3, 16);
             this.webBrowser4.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser4.Name = "webBrowser4";
-            this.webBrowser4.Size = new System.Drawing.Size(769, 153);
+            this.webBrowser4.Size = new System.Drawing.Size(769, 130);
             this.webBrowser4.TabIndex = 0;
             // 
             // BtnKaydet
@@ -2506,6 +2553,10 @@ namespace UserInterface.IdariIşler
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.DtKgb);
+            this.groupBox4.Controls.Add(this.label131);
+            this.groupBox4.Controls.Add(this.TxtKgbNo);
+            this.groupBox4.Controls.Add(this.label127);
             this.groupBox4.Controls.Add(this.label125);
             this.groupBox4.Controls.Add(this.CmbProjeKodu);
             this.groupBox4.Controls.Add(this.CmbMasrafYeriSorumlusu);
@@ -2548,10 +2599,26 @@ namespace UserInterface.IdariIşler
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Location = new System.Drawing.Point(16, 270);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1305, 211);
+            this.groupBox4.Size = new System.Drawing.Size(1305, 243);
             this.groupBox4.TabIndex = 111;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ŞİRKET BİLGİLER";
+            // 
+            // TxtKgbNo
+            // 
+            this.TxtKgbNo.Location = new System.Drawing.Point(944, 175);
+            this.TxtKgbNo.Name = "TxtKgbNo";
+            this.TxtKgbNo.Size = new System.Drawing.Size(236, 20);
+            this.TxtKgbNo.TabIndex = 133;
+            // 
+            // label127
+            // 
+            this.label127.AutoSize = true;
+            this.label127.Location = new System.Drawing.Point(883, 179);
+            this.label127.Name = "label127";
+            this.label127.Size = new System.Drawing.Size(51, 13);
+            this.label127.TabIndex = 132;
+            this.label127.Text = "KGB NO:";
             // 
             // label125
             // 
@@ -3381,7 +3448,7 @@ namespace UserInterface.IdariIşler
             this.groupBox1.Controls.Add(this.TxtRutbesi);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.TxtSinif);
-            this.groupBox1.Location = new System.Drawing.Point(16, 487);
+            this.groupBox1.Location = new System.Drawing.Point(16, 519);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1305, 111);
             this.groupBox1.TabIndex = 108;
@@ -3644,24 +3711,39 @@ namespace UserInterface.IdariIşler
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
-            // TxtMevcutPersonel
+            // label131
             // 
-            this.TxtMevcutPersonel.AutoSize = true;
-            this.TxtMevcutPersonel.Location = new System.Drawing.Point(970, 654);
-            this.TxtMevcutPersonel.Name = "TxtMevcutPersonel";
-            this.TxtMevcutPersonel.Size = new System.Drawing.Size(19, 13);
-            this.TxtMevcutPersonel.TabIndex = 37;
-            this.TxtMevcutPersonel.Text = "00";
+            this.label131.AutoSize = true;
+            this.label131.Location = new System.Drawing.Point(798, 205);
+            this.label131.Name = "label131";
+            this.label131.Size = new System.Drawing.Size(136, 13);
+            this.label131.TabIndex = 134;
+            this.label131.Text = "KGB GEÇERLİLİK TARİHİ:";
             // 
-            // label129
+            // DtKgb
             // 
-            this.label129.AutoSize = true;
-            this.label129.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label129.Location = new System.Drawing.Point(833, 654);
-            this.label129.Name = "label129";
-            this.label129.Size = new System.Drawing.Size(132, 13);
-            this.label129.TabIndex = 36;
-            this.label129.Text = "MEVCUT PERSONEL:";
+            this.DtKgb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtKgb.Location = new System.Drawing.Point(945, 201);
+            this.DtKgb.Name = "DtKgb";
+            this.DtKgb.Size = new System.Drawing.Size(174, 20);
+            this.DtKgb.TabIndex = 135;
+            // 
+            // DtKgbGuncelle
+            // 
+            this.DtKgbGuncelle.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtKgbGuncelle.Location = new System.Drawing.Point(945, 198);
+            this.DtKgbGuncelle.Name = "DtKgbGuncelle";
+            this.DtKgbGuncelle.Size = new System.Drawing.Size(174, 20);
+            this.DtKgbGuncelle.TabIndex = 143;
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Location = new System.Drawing.Point(798, 202);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(136, 13);
+            this.label132.TabIndex = 142;
+            this.label132.Text = "KGB GEÇERLİLİK TARİHİ:";
             // 
             // FrmPersonelKayit
             // 
@@ -4040,5 +4122,13 @@ namespace UserInterface.IdariIşler
         private System.Windows.Forms.ComboBox CmbProjeKodu;
         private System.Windows.Forms.Label TxtMevcutPersonel;
         private System.Windows.Forms.Label label129;
+        private System.Windows.Forms.TextBox TxtKgbNoGun;
+        private System.Windows.Forms.Label label130;
+        private System.Windows.Forms.TextBox TxtKgbNo;
+        private System.Windows.Forms.Label label127;
+        private System.Windows.Forms.DateTimePicker DtKgbGuncelle;
+        private System.Windows.Forms.Label label132;
+        private System.Windows.Forms.DateTimePicker DtKgb;
+        private System.Windows.Forms.Label label131;
     }
 }

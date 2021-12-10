@@ -34,24 +34,27 @@ namespace DataAccess.Concreate.STS
             throw new NotImplementedException();
         }
 
-        public List<SatRapor> GetList(string firma, string donem)
+        public List<SatRapor> Rapor(string raporTuru, string donem) // RAPOR
         {
             try
             {
                 List<SatRapor> tamamlanans = new List<SatRapor>();
-                dataReader = sqlServices.StoreReader("SatRaporuCek", new SqlParameter("@firma", firma), new SqlParameter("@donem", donem));
+                dataReader = sqlServices.StoreReader("SatRapor", new SqlParameter("@raporTuru", raporTuru), new SqlParameter("@donem", donem)
+                    );
                 while (dataReader.Read())
                 {
+                    string[] array = dataReader["BUTCE_KODU_KALEMI"].ToString().Split('/');
+
                     tamamlanans.Add(new SatRapor(
                         dataReader["KATEGORI"].ToString(),
-                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
-                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        array[0],
+                        array[1],
                         dataReader["BELGE_TARIHI"].ConTime(),
-                        dataReader["FIRMA"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
                         dataReader["HARCANAN_TUTAR"].ConDouble(),
                         dataReader["PROJE"].ToString(),
                         dataReader["US_BOLGESI"].ToString(),
-                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["ABF_FORM_NO"].ToString(),
                         dataReader["GEREKCE"].ToString()));
                 }
                 dataReader.Close();
@@ -60,15 +63,17 @@ namespace DataAccess.Concreate.STS
             }
             catch (Exception ex)
             {
+                dataReader.Close();
                 return new List<SatRapor>();
             }
         }
-        public List<SatRapor> GetListBasaran(string firma, string donem)
+        public List<SatRapor> Beyanname(string raporTuru, string donem, string faturaFirma) // BEYANNAME
         {
             try
             {
                 List<SatRapor> tamamlanans = new List<SatRapor>();
-                dataReader = sqlServices.StoreReader("SatRaporuCek", new SqlParameter("@firma", firma), new SqlParameter("@donem", donem));
+                dataReader = sqlServices.StoreReader("SatRapor", new SqlParameter("@raporTuru", raporTuru), new SqlParameter("@donem", donem),
+                    new SqlParameter("@faturaFirma", faturaFirma));
                 while (dataReader.Read())
                 {
                     string[] array = dataReader["BUTCE_KODU_KALEMI"].ToString().Split('/');
@@ -79,7 +84,7 @@ namespace DataAccess.Concreate.STS
                         dataReader["BELGE_TARIHI"].ConTime(),
                         dataReader["BELGE_NUMARASI"].ToString(),
                         dataReader["BELGE_TURU"].ToString(),
-                        dataReader["FIRMA"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
                         dataReader["HARCANAN_TUTAR"].ConDouble(),
                         dataReader["HARCAMA_YAPAN"].ToString()));
                 }

@@ -51,7 +51,7 @@ namespace UserInterface.STS
         //string dosyayolu = @"Z:\MUB OTOMASYON\SATIN ALMA\";
         string formNo;
         string yapilanislem, islemyapan, islem;
-        string siparisNo, kaynakdosyaismi1, kaynakdosyaismi2, kaynakdosyaismi3, alinandosya1, alinandosya2, alinandosya3, masrafyerino, control, firmaAdi, idler, messege, yeniyol1, yeniyol2, yeniyol3, dosya, directoryPath = null;
+        string siparisNo="", kaynakdosyaismi1, kaynakdosyaismi2, kaynakdosyaismi3, alinandosya1, alinandosya2, alinandosya3, masrafyerino, control, firmaAdi, idler, messege, yeniyol1, yeniyol2, yeniyol3, dosya, directoryPath = null;
         bool start = false, refreshTeklifAlMalzemeList = false;
         string companyName, topfiyat;
         double outValue = 0, sonuc = 0, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10 = 0;
@@ -1483,6 +1483,11 @@ namespace UserInterface.STS
             TeklifAlMalzemeList();
             DataDisplay();
             SatListLoad();
+            MailGonderilecekler();
+            MailGonderilenler();
+            DtgMalzemeFirma.DataSource = null;
+            DtgMalzemelerMail.DataSource = null;
+            webBrowser4.Navigate("");
             TxtTop.Text = DtgTeklifAl.RowCount.ToString();
             TxtFiyatTeklifi.Text = DtgTeklifMalzemeList.RowCount.ToString();
             TxtTeklİfSatSayisi.Text = DtgSatList.RowCount.ToString();
@@ -3191,8 +3196,32 @@ namespace UserInterface.STS
 
         private void BtnMailKaydet_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Onay Maillerini Tüm SAT Dosyalarının İçerisine Eklediğinizden Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            if (siparisNo=="")
+            {
+                MessageBox.Show("Lütfen Öncelikle Geçerli Bir Kayıt Seçiniz","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Onay Mailini Eke Eklediğinizden ve İşlemi Tamamlamak İstediğinizden Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string mesaj = satDataGridview1Manager.MailDurumuKaydedildi(siparisNo);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string yapilanIslem = "SAT KAYDINA ONAY MAİLİ EKLENDİ.";
+                SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanIslem, infos[1].ToString(), DateTime.Now);
+                satIslemAdimlarimanager.Add(satIslemAdimlari);
+                MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                webBrowser4.Navigate("");
+                DtgMalzemelerMail.DataSource = null;
+                MailGonderilecekler();
+                MailGonderilenler();
+            }
+
+            /*DialogResult dr = MessageBox.Show("Onay Maillerini Tüm SAT Dosyalarının İçerisine Eklediğinizden Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
                 foreach (DataGridViewRow item in DtgGelenMail.Rows)
                 {
@@ -3207,12 +3236,17 @@ namespace UserInterface.STS
                     SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanIslem, infos[1].ToString(), DateTime.Now);
                     satIslemAdimlarimanager.Add(satIslemAdimlari);
                 }
-                MessageBox.Show("Bilgiler Başarıyla Kaydedildi.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 webBrowser4.Navigate("");
                 DtgMalzemelerMail.DataSource = null;
                 MailGonderilecekler();
                 MailGonderilenler();
-            }
+            }*/
+        }
+
+        private void webBrowser4_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+
         }
 
         private void BtnDosyaMailEkle_Click(object sender, EventArgs e)

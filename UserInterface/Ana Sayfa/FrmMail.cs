@@ -51,9 +51,9 @@ namespace UserInterface.Ana_Sayfa
             List<string> alicilar = txtTo.Text.Split(',').ToList();
             List<string> bilgi = txtCc.Text.Split(',').ToList();
 
-            Task.Factory.StartNew(() => MailSendHtml(txtSubject.Text, webContent.DocumentText,
+            MailSendHtml(txtSubject.Text, webContent.DocumentText,
                 alicilar, // Alıcı
-                bilgi)); // Bilgi
+                bilgi); // Bilgi
 
             foreach (DataGridViewRow item in DtgForHtml.Rows)
             {

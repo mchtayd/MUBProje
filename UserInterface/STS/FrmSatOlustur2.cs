@@ -678,7 +678,7 @@ namespace UserInterface.STS
             dosyaYolu = subdir + isAkisNo;
             Directory.CreateDirectory(subdir + isAkisNo);
 
-            Directory.CreateDirectory(subdir + isAkisNo);
+            //Directory.CreateDirectory(subdir + isAkisNo);
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 kaynakdosyaismi = openFileDialog1.SafeFileName.ToString();
@@ -835,6 +835,8 @@ namespace UserInterface.STS
                 IsAkisNo();
                 IsAkisNo2();
                 projeBekle = true;
+                FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                frmAnaSayfa.ToplamSayilar();
             }
             else
             {

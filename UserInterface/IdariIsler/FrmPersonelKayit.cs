@@ -155,14 +155,19 @@ namespace UserInterface.IdariIşler
             GuncelleTemizle();
             TOPP.Text = siparislerManager.ToplamPers().ToString();
             TOPA.Text = siparislerManager.ToplamArac().ToString();
-
-            if (infos[1].ToString() != "RESUL GÜNEŞ")
-            {
-                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage4"]);
-            }
-
             start = false;
             KadroControl();
+
+            if (infos[1].ToString() == "RESUL GÜNEŞ")
+            {
+                return;
+            }
+            if (infos[1].ToString() == "MÜCAHİT AYDEMİR")
+            {
+                return;
+            }
+            tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage4"]);
+
         }
 
         public FrmPersonelKayit()
@@ -725,16 +730,22 @@ namespace UserInterface.IdariIşler
                     TxtEsAdG.Text, TxtEsTelefonG.Text, DtDogumTarihiG.Value, CmbMedeniG.Text, CmbEsIsDurumuG.Text, CmbCocukSayisiG.Text, TxtDogumYeriG.Text, TxtOkulG.Text, TxtBolumG.Text, TxtDipG.Text,
                     CmbSiparisG.Text, CmbSatG.Text, CmbButcekoduG.Text, CmbButceKalemiG.Text, TxtSicilG.Text, CmbMasrafYeriNoG.Text, CmbMastafYeriG.Text, CmbMasrafYeriSorumlusuGun.Text, BOLUM, TxtSirketMailG.Text,
                     TxtOficeMailG.Text, TxtSirketCepG.Text, TxtSirketKısaKodG.Text, TxtOficeDahiliNoG.Text, CmbIsUnvaniG.Text, DtIseGirisG.Value, askerlikdurumuG, TxtSinifG.Text, TxtRubesiG.Text,
-                    TxtGoreviG.Text, DtBasTarihiG.Text.ToString(), DtBitTarihiG.Text.ToString(), TxtGorevYeriG.Text, DtTecilBitTarihiG.Text.ToString(), TxtTecilSebebiG.Text, TxtMuafNedeniG.Text,CmbProjeKoduGun.Text); 
+                    TxtGoreviG.Text, DtBasTarihiG.Text.ToString(), DtBitTarihiG.Text.ToString(), TxtGorevYeriG.Text, DtTecilBitTarihiG.Text.ToString(), TxtTecilSebebiG.Text, TxtMuafNedeniG.Text,CmbProjeKoduGun.Text, TxtKgbNoGun.Text, DtKgbGuncelle.Value);
                 CmbMastafYeriG.Text = ""; CmbBolumG.Text = "";
 
                 //personelKayitManager.Update(personelKayit);
+                bool gec = false;
                 MessageBox.Show(personelKayitManager.Update(personelKayit));
                 if (eksilecekSiparis!= CmbSiparisG.Text)
                 {
                     personelKayitManager.MevcutKadroEksilt(eksilecekSiparis);
+                    gec = true;
                 }
-                personelKayitManager.MevcutKadroArttir(CmbSiparisG.Text);
+                if (gec==false)
+                {
+                    personelKayitManager.MevcutKadroArttir(CmbSiparisG.Text);
+                }
+
                 islem1 = CmbAdSoyad.Text + " Personel Güncellendi";
                 islemyapan1 = infos[1].ToString();
                 islemtarihi1 = DateTime.Now.ToString();
@@ -1099,13 +1110,18 @@ namespace UserInterface.IdariIşler
             ProjeKoduGun();
             TOPP.Text = siparislerManager.ToplamPers().ToString();
             TOPA.Text = siparislerManager.ToplamArac().ToString();
-
-            if (infos[1].ToString() != "RESUL GÜNEŞ")
-            {
-                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage4"]);
-            }
             start = false;
             KadroControl();
+            if (infos[1].ToString() == "RESUL GÜNEŞ")
+            {
+                return;
+            }
+            if (infos[1].ToString() == "MÜCAHİT AYDEMİR")
+            {
+                return;
+            }
+            tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage4"]);
+
         }
         void ProjeKodu()
         {
@@ -1231,7 +1247,7 @@ namespace UserInterface.IdariIşler
                 DtDogumTarihi.Value, CmbMedeniDurum.Text, CmbEsIsDurumu.Text, CmbCocukSayisi.Text, TxtDogumYeri.Text, TxtOkul.Text, TxtBolum.Text, TxtDipNotu.Text, CmbSiparis.Text, CmbSat.Text,
                 CmbButceKodu.Text, CmbButceKalemi.Text, TxtSicil.Text, CmbMasYeriNo.Text, TxtMasrafYeri.Text, CmbMasrafYeriSorumlusu.Text, BOLUM, TxtSirketMail.Text, TxtOfficeMail.Text, MsdSırketCepNo.Text, MsdKisaKod.Text, MsdDahiliNo.Text,
                 CmbIsUnvani.Text, DtIseGirisTarihi.Value, askerlikdurumu, TxtSinif.Text, TxtRutbesi.Text, TxtGorevi.Text, DtAsBasTarihi.Text.ToString(), DtAsBitTarihi.Text.ToString(), TxtGorevYeri.Text, DtTecilBitTarihi.Text.ToString(), TxtTecilSebebi.Text, TxtMuafNedeni.Text,
-                siparisNo, dosyaYolu, dosyaYolu, CmbProjeKodu.Text);
+                siparisNo, dosyaYolu, dosyaYolu, CmbProjeKodu.Text, TxtKgbNo.Text, DtKgb.Value);
 
                 string message = personelKayitManager.Add(personelKayit);
                 MessageBox.Show(message);
@@ -1271,7 +1287,7 @@ namespace UserInterface.IdariIşler
             TxtSicil.Clear(); CmbMasYeriNo.Text = ""; TxtMasrafYeri.Text = ""; CmbDepartman.Text = ""; CmbBolum.Text = ""; CmbBolum2.SelectedValue = "";
             CmbBolum3.SelectedValue = ""; TxtSirketMail.Text = ""; TxtOfficeMail.Text = ""; MsdSırketCepNo.Clear(); MsdKisaKod.Clear(); MsdDahiliNo.Clear();
             CmbIsUnvani.Text = ""; TxtSinif.Clear(); TxtRutbesi.Clear(); TxtGorevi.Clear(); TxtGorevYeri.Clear(); TxtTecilSebebi.Clear();
-            TxtMuafNedeni.Clear(); webBrowser4.Navigate(""); PctBox.ImageLocation = ""; CmbProjeKodu.SelectedValue = -1;
+            TxtMuafNedeni.Clear(); webBrowser4.Navigate(""); PctBox.ImageLocation = ""; CmbProjeKodu.SelectedValue = -1; TxtKgbNo.Clear();
         }
         private void TxtPersonelYonetici_TextChanged(object sender, EventArgs e)
         {
@@ -1379,7 +1395,7 @@ namespace UserInterface.IdariIşler
             TxtSirketMailG.Clear(); TxtOficeMailG.Clear(); TxtSirketCepG.Clear(); TxtSirketKısaKodG.Clear(); TxtOficeDahiliNoG.Clear(); CmbIsUnvaniG.Text = "";
             TxtSinifG.Text = ""; TxtRubesiG.Clear(); TxtGoreviG.Clear(); TxtGorevYeriG.Clear(); TxtTecilSebebiG.Clear(); TxtMuafNedeniG.Clear();
             PcFoto.ImageLocation = ""; webBrowserG.Navigate(""); TxtBulunduguBolum.Clear(); RdbTecilliG.Checked = false; RdbMuafG.Checked = false;
-            RdbYaptiG.Checked = false; CmbProjeKoduGun.SelectedValue = -1;
+            RdbYaptiG.Checked = false; CmbProjeKoduGun.SelectedValue = -1; TxtKgbNoGun.Clear();
         }
 
         void Temizle()

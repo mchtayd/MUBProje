@@ -8,7 +8,7 @@ namespace Entity.STS
 {
     public class SatRapor
     {
-        string kategori, butceKodu, butceKalemi; DateTime faturaTarihi; string belgeNo,belgeTuru,faturaAlindigiYer; double tutar; string proje, bolge; int bildirimNo; string aciklamalar, harcamaYapan;
+        string kategori, butceKodu, butceKalemi; DateTime faturaTarihi; string belgeNo,belgeTuru,faturaAlindigiYer; double tutar; string proje, bolge, bildirimNo; string aciklamalar, harcamaYapan;
 
         public string Kategori { get => kategori; set => kategori = value; }
         public string ButceKodu { get => butceKodu; set => butceKodu = value; }
@@ -18,13 +18,13 @@ namespace Entity.STS
         public double Tutar { get => tutar; set => tutar = value; }
         public string Proje { get => proje; set => proje = value; }
         public string Bolge { get => bolge; set => bolge = value; }
-        public int BildirimNo { get => bildirimNo; set => bildirimNo = value; }
+        public string BildirimNo { get => bildirimNo; set => bildirimNo = value; }
         public string Aciklamalar { get => aciklamalar; set => aciklamalar = value; }
         public string BelgeNo { get => belgeNo; set => belgeNo = value; }
         public string BelgeTuru { get => belgeTuru; set => belgeTuru = value; }
         public string HarcamaYapan { get => harcamaYapan; set => harcamaYapan = value; }
 
-        public SatRapor(string kategori, string butceKodu, string butceKalemi, DateTime faturaTarihi, string faturaAlindigiYer, double tutar, string proje, string bolge, int bildirimNo, string aciklamalar)
+        public SatRapor(string kategori, string butceKodu, string butceKalemi, DateTime faturaTarihi, string faturaAlindigiYer, double tutar, string proje, string bolge, string bildirimNo, string aciklamalar)
         {
             this.kategori = kategori;
             this.butceKodu = butceKodu;

@@ -4463,6 +4463,8 @@ namespace UserInterface.STS
                 MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir. SAT İşleminizi Reddedildiği İşlem Adımına İletilmiştir. ", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataDisplayReddedilenler();
                 TemizleReddilenler();
+                FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                frmAnaSayfa.ToplamSayilar();
 
                 #region ReddedinlerEskiKod
                 /*

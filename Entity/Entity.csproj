@@ -41,6 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BakimOnarim\BakimOnarimLog.cs" />
+    <Compile Include="BakimOnarim\Bolge.cs" />
+    <Compile Include="BakimOnarim\IscilikDestekIscilik.cs" />
+    <Compile Include="BakimOnarim\IscilikDestekTablo.cs" />
+    <Compile Include="BakimOnarim\IscilikDestekTabloArac.cs" />
+    <Compile Include="BakimOnarim\IscilikIscilik.cs" />
     <Compile Include="Combo.cs" />
     <Compile Include="Depo\DesteDepoMalzemeKayit.cs" />
     <Compile Include="Depo\DestekDepoAmbar.cs" />
@@ -59,6 +65,7 @@
     <Compile Include="IdariIsler\AracBakim.cs" />
     <Compile Include="IdariIsler\AracZimmeti.cs" />
     <Compile Include="IdariIsler\AracZimmetiLog.cs" />
+    <Compile Include="IdariIsler\ArsivTutanak.cs" />
     <Compile Include="IdariIsler\DuranVarlikKayit.cs" />
     <Compile Include="IdariIsler\DuranVarlikSonuc.cs" />
     <Compile Include="IdariIsler\DvNo.cs" />
@@ -86,7 +93,9 @@
     <Compile Include="IdariIsler\YurtIciGorev.cs" />
     <Compile Include="IdariIsler\ZimmetAktarim.cs" />
     <Compile Include="IdariIsler\ZimmetVeriGecmis.cs" />
+    <Compile Include="IdariIsler\ZiyaretciKayit.cs" />
     <Compile Include="IsAkisNo.cs" />
+    <Compile Include="BakimOnarim\IscilikPerformans.cs" />
     <Compile Include="PersonelIslemleri.cs" />
     <Compile Include="STS\AltYuklenici.cs" />
     <Compile Include="STS\ButceKodu.cs" />
@@ -108,6 +117,7 @@
     <Compile Include="STS\SatOnayTarihi.cs" />
     <Compile Include="STS\SatOtomatikCek.cs" />
     <Compile Include="STS\SatRapor.cs" />
+    <Compile Include="STS\SatRaporLog.cs" />
     <Compile Include="STS\SatRenkliTablo.cs" />
     <Compile Include="STS\SatTalebiDoldur.cs" />
     <Compile Include="STS\StokNoTanim.cs" />

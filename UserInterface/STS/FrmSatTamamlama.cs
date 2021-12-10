@@ -38,6 +38,7 @@ namespace UserInterface.STS
         PersonelKayitManager personelKayitManager;
         SatOnayTarihiManager satOnayTarihiManager;
         ComboManager comboManager;
+        SatTalebiDoldurManager satTalebiDoldurManager;
         public object[] infos;
         string siparisNo, dosyayolu;
         int onaylananteklif, ucteklif,id, formno, satno=-1;
@@ -412,14 +413,19 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                string mesaj = satDataGridview1Manager.SatFirmaGuncelle(siparisNo, CmbProjeKodu.Text, TxtFirma.Text);
+                if (projeBilgisi=="")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Proje Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string mesaj = satDataGridview1Manager.SatFirmaGuncelle(siparisNo, projeBilgisi, TxtFirma.Text);
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                CmbProjeKodu.SelectedValue = ""; TxtFirma.Clear();
+                TxtFirma.Clear();
                 DataDisplay();
             }
         }
@@ -444,6 +450,7 @@ namespace UserInterface.STS
             personelKayitManager = PersonelKayitManager.GetInstance();
             satOnayTarihiManager = SatOnayTarihiManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
         }
 
         private void FrmSatTamamlama_Load(object sender, EventArgs e)
@@ -554,7 +561,29 @@ namespace UserInterface.STS
                 TeklifsizMalzemeList();
                 TeklifsizFillTools();
             }
+            if (satbirim== "PRJ.DİR.SATIN ALMA")
+            {
+                CmbHarcamaYapan.SelectedIndex = 0;
+            }
+            if (satbirim == "BSRN GN.MDL.SATIN ALMA")
+            {
+                CmbHarcamaYapan.SelectedIndex = 1;
+            }
+            SatTalebiDoldur satTalebiDoldur = satTalebiDoldurManager.Get(usbolgesi);
+
+            if (satTalebiDoldur == null)
+            {
+                CmbProjeKodu.Visible = true;
+                TxtProje.Visible = false;
+                projeBilgisi = CmbProjeKodu.Text;
+                return;
+            }
+            CmbProjeKodu.Visible = false;
+            TxtProje.Visible = true;
+            projeBilgisi = satTalebiDoldur.Proje;
+            TxtProje.Text = projeBilgisi;
         }
+        string projeBilgisi = "";
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
         {
             if (!Directory.Exists(dosyayolu))
@@ -1091,6 +1120,8 @@ namespace UserInterface.STS
                     BtnDosyaEkle.BackColor = Color.Transparent;
                     TxtTop.Text = DtgSatTamamlama.RowCount.ToString();
                     webBrowser1.Navigate("");
+                    FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                    frmAnaSayfa.ToplamSayilar();
                 }
                 else
                 {
@@ -1118,7 +1149,7 @@ namespace UserInterface.STS
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\MP-FR-006 SATIN ALMA FORMU REV (00).docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\SATIN ALMA\\Folder\\MP-FR-006 SATIN ALMA FORMU REV (00).docx";
+            object filePath = "Z:\\DTS\\SATIN ALMA\\Folder\\MP-FR-006 SATIN ALMA FORMU REV (00)4.docx";
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 

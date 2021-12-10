@@ -1,6 +1,7 @@
 ﻿using Business.Concreate;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using DataAccess.Concreate.STS;
 using Entity;
 using Entity.STS;
 using System;
@@ -23,10 +24,12 @@ namespace UserInterface.STS
         SatNoManager satNoManager;
         SatinAlinacakMalManager satinAlinacakMalManager;
         ReddedilenMalzemeManager reddedilenMalzemeManager;
+        TeklifsizSatManager teklifsizSatManager;
         List<SatDataGridview1> reddedilenler;
         public object[] infos;
         //List<ReddedilenMalzeme> reddedilenMalzemes;
         List<SatinAlinacakMalzemeler> satinAlinacakMalzemelers;
+        List<TeklifsizSat> teklifsizSats;
         List<SatNo> satNos;
         string dosyayolutam, siparisNo;
 
@@ -42,6 +45,7 @@ namespace UserInterface.STS
             satNoManager = SatNoManager.GetInstance();
             satinAlinacakMalManager = SatinAlinacakMalManager.GetInstance();
             reddedilenMalzemeManager = ReddedilenMalzemeManager.GetInstance();
+            teklifsizSatManager = TeklifsizSatManager.GetInstance();
         }
 
         private void FrmReddedilenSatlar_Load(object sender, EventArgs e)
@@ -59,7 +63,6 @@ namespace UserInterface.STS
             DataDisplay();
             TxtTop.Text = DtgReddedilenSat.RowCount.ToString();
         }
-
 
         private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -136,9 +139,14 @@ namespace UserInterface.STS
                     groupBox2.Visible = false;
                     panel2.Visible = true;
                     LblToplam.Text = item.T1; // tutar bilgisi tanıma atıldı (SAT ONAYDAN GELİYOR)
+                    BtnOnayla.Location = new Point(7, 507);
+                    BtnSatDuzenle.Location = new Point(144, 507);
                     webBrowser1.Navigate(dosyayolutam);
                     return;
                 }
+                BtnOnayla.Location = new Point(15, 755);
+                BtnSatDuzenle.Location = new Point(152, 755);
+
                 groupBox2.Visible = true;
                 panel2.Visible = false;
                 stn1.Text = item.Stn1;
@@ -262,11 +270,33 @@ namespace UserInterface.STS
             donem = DtgReddedilenSat.CurrentRow.Cells["Donem"].Value.ToString();
             islemadimi = DtgReddedilenSat.CurrentRow.Cells["Islemadimi"].Value.ToString();
 
+            teklifsizSats = teklifsizSatManager.GetList(siparisNo);
             satinAlinacakMalzemelers = satinAlinacakMalManager.GetList(siparisNo);
-            satNos = satNoManager.GetList(siparisNo);
-            FillTools();
+
             TxtRedNedeni.Text = DtgReddedilenSat.CurrentRow.Cells["Rednedeni"].Value.ToString();
             IslemAdimlari();
+
+            satNos = satNoManager.GetList(siparisNo);
+            if (teklifsizSats.Count!=0)
+            {
+                FillTools2();
+                return;
+            }
+            FillTools();
+        }
+        void FillTools2()
+        {
+            if (satinAlinacakMalzemelers == null)
+            {
+                return;
+            }
+            TeklifsizSat item = teklifsizSats[0];
+            groupBox2.Visible = false;
+            panel2.Visible = true;
+            BtnOnayla.Location = new Point(7, 507);
+            BtnSatDuzenle.Location = new Point(144, 507);
+            LblToplam.Text = item.Tutar.ToString(); // tutar bilgisi tanıma atıldı (SAT ONAYDAN GELİYOR)
+            webBrowser1.Navigate(dosyayolutam);
         }
         void IslemAdimlari()
         {

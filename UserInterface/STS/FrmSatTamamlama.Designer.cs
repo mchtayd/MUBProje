@@ -30,7 +30,7 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgSatTamamlama = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -140,6 +140,13 @@ namespace UserInterface.STS
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.CmbHarcamaYapan = new System.Windows.Forms.ComboBox();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.BtnSatiGuncelle = new System.Windows.Forms.Button();
+            this.label150 = new System.Windows.Forms.Label();
+            this.TxtFirma = new System.Windows.Forms.TextBox();
+            this.label151 = new System.Windows.Forms.Label();
             this.DtBelgeTarihi = new System.Windows.Forms.DateTimePicker();
             this.TxtBelgeNumarasi = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -148,14 +155,8 @@ namespace UserInterface.STS
             this.CmbBelgeTuru = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.label150 = new System.Windows.Forms.Label();
+            this.TxtProje = new System.Windows.Forms.TextBox();
             this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
-            this.TxtFirma = new System.Windows.Forms.TextBox();
-            this.label151 = new System.Windows.Forms.Label();
-            this.BtnSatiGuncelle = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.CmbHarcamaYapan = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatTamamlama)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -166,8 +167,8 @@ namespace UserInterface.STS
             this.contextMenuStrip1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -187,8 +188,8 @@ namespace UserInterface.STS
             // 
             this.DtgSatTamamlama.AllowUserToAddRows = false;
             this.DtgSatTamamlama.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatTamamlama.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatTamamlama.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgSatTamamlama.AutoGenerateContextFilters = true;
             this.DtgSatTamamlama.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgSatTamamlama.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1300,6 +1301,79 @@ namespace UserInterface.STS
             this.tabPage2.Text = "FATURA BİLGİLERİ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(41, 109);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(102, 13);
+            this.label9.TabIndex = 580;
+            this.label9.Text = "HARCAMA YAPAN:";
+            // 
+            // CmbHarcamaYapan
+            // 
+            this.CmbHarcamaYapan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbHarcamaYapan.FormattingEnabled = true;
+            this.CmbHarcamaYapan.Items.AddRange(new object[] {
+            "GÜLŞAH OTACI",
+            "TURGUT AYDIN"});
+            this.CmbHarcamaYapan.Location = new System.Drawing.Point(149, 104);
+            this.CmbHarcamaYapan.Name = "CmbHarcamaYapan";
+            this.CmbHarcamaYapan.Size = new System.Drawing.Size(281, 21);
+            this.CmbHarcamaYapan.TabIndex = 579;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.CmbProjeKodu);
+            this.groupBox3.Controls.Add(this.TxtProje);
+            this.groupBox3.Controls.Add(this.BtnSatiGuncelle);
+            this.groupBox3.Controls.Add(this.label150);
+            this.groupBox3.Controls.Add(this.TxtFirma);
+            this.groupBox3.Controls.Add(this.label151);
+            this.groupBox3.Location = new System.Drawing.Point(6, 155);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(440, 202);
+            this.groupBox3.TabIndex = 578;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";
+            // 
+            // BtnSatiGuncelle
+            // 
+            this.BtnSatiGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSatiGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSatiGuncelle.Location = new System.Drawing.Point(143, 112);
+            this.BtnSatiGuncelle.Name = "BtnSatiGuncelle";
+            this.BtnSatiGuncelle.Size = new System.Drawing.Size(111, 25);
+            this.BtnSatiGuncelle.TabIndex = 577;
+            this.BtnSatiGuncelle.Text = "GÜNCELLE";
+            this.BtnSatiGuncelle.UseVisualStyleBackColor = true;
+            this.BtnSatiGuncelle.Click += new System.EventHandler(this.BtnSatiGuncelle_Click);
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Location = new System.Drawing.Point(18, 63);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(119, 13);
+            this.label150.TabIndex = 573;
+            this.label150.Text = "PROJE KODU/PROJE:";
+            // 
+            // TxtFirma
+            // 
+            this.TxtFirma.Location = new System.Drawing.Point(143, 86);
+            this.TxtFirma.Name = "TxtFirma";
+            this.TxtFirma.Size = new System.Drawing.Size(281, 20);
+            this.TxtFirma.TabIndex = 576;
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Location = new System.Drawing.Point(94, 90);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(43, 13);
+            this.label151.TabIndex = 575;
+            this.label151.Text = "FİRMA:";
+            // 
             // DtBelgeTarihi
             // 
             this.DtBelgeTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -1384,86 +1458,22 @@ namespace UserInterface.STS
             this.webBrowser1.Size = new System.Drawing.Size(446, 401);
             this.webBrowser1.TabIndex = 310;
             // 
-            // label150
+            // TxtProje
             // 
-            this.label150.AutoSize = true;
-            this.label150.Location = new System.Drawing.Point(18, 37);
-            this.label150.Name = "label150";
-            this.label150.Size = new System.Drawing.Size(119, 13);
-            this.label150.TabIndex = 573;
-            this.label150.Text = "PROJE KODU/PROJE:";
+            this.TxtProje.Location = new System.Drawing.Point(143, 60);
+            this.TxtProje.Name = "TxtProje";
+            this.TxtProje.Size = new System.Drawing.Size(281, 20);
+            this.TxtProje.TabIndex = 578;
             // 
             // CmbProjeKodu
             // 
             this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbProjeKodu.FormattingEnabled = true;
-            this.CmbProjeKodu.Location = new System.Drawing.Point(143, 33);
+            this.CmbProjeKodu.Location = new System.Drawing.Point(143, 60);
             this.CmbProjeKodu.Name = "CmbProjeKodu";
             this.CmbProjeKodu.Size = new System.Drawing.Size(174, 21);
-            this.CmbProjeKodu.TabIndex = 574;
-            // 
-            // TxtFirma
-            // 
-            this.TxtFirma.Location = new System.Drawing.Point(143, 60);
-            this.TxtFirma.Name = "TxtFirma";
-            this.TxtFirma.Size = new System.Drawing.Size(281, 20);
-            this.TxtFirma.TabIndex = 576;
-            // 
-            // label151
-            // 
-            this.label151.AutoSize = true;
-            this.label151.Location = new System.Drawing.Point(94, 64);
-            this.label151.Name = "label151";
-            this.label151.Size = new System.Drawing.Size(43, 13);
-            this.label151.TabIndex = 575;
-            this.label151.Text = "FİRMA:";
-            // 
-            // BtnSatiGuncelle
-            // 
-            this.BtnSatiGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSatiGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSatiGuncelle.Location = new System.Drawing.Point(143, 86);
-            this.BtnSatiGuncelle.Name = "BtnSatiGuncelle";
-            this.BtnSatiGuncelle.Size = new System.Drawing.Size(111, 25);
-            this.BtnSatiGuncelle.TabIndex = 577;
-            this.BtnSatiGuncelle.Text = "GÜNCELLE";
-            this.BtnSatiGuncelle.UseVisualStyleBackColor = true;
-            this.BtnSatiGuncelle.Click += new System.EventHandler(this.BtnSatiGuncelle_Click);
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.CmbProjeKodu);
-            this.groupBox3.Controls.Add(this.BtnSatiGuncelle);
-            this.groupBox3.Controls.Add(this.label150);
-            this.groupBox3.Controls.Add(this.TxtFirma);
-            this.groupBox3.Controls.Add(this.label151);
-            this.groupBox3.Location = new System.Drawing.Point(6, 155);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(440, 134);
-            this.groupBox3.TabIndex = 578;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(41, 109);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(102, 13);
-            this.label9.TabIndex = 580;
-            this.label9.Text = "HARCAMA YAPAN:";
-            // 
-            // CmbHarcamaYapan
-            // 
-            this.CmbHarcamaYapan.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbHarcamaYapan.FormattingEnabled = true;
-            this.CmbHarcamaYapan.Items.AddRange(new object[] {
-            "GÜLŞAH OTACI",
-            "TURGUT AYDIN"});
-            this.CmbHarcamaYapan.Location = new System.Drawing.Point(149, 104);
-            this.CmbHarcamaYapan.Name = "CmbHarcamaYapan";
-            this.CmbHarcamaYapan.Size = new System.Drawing.Size(281, 21);
-            this.CmbHarcamaYapan.TabIndex = 579;
+            this.CmbProjeKodu.TabIndex = 580;
+            this.CmbProjeKodu.Visible = false;
             // 
             // FrmSatTamamlama
             // 
@@ -1495,9 +1505,9 @@ namespace UserInterface.STS
             this.tabControl1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.tabPage1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1622,12 +1632,13 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker DtBelgeTarihi;
         private System.Windows.Forms.Label label150;
-        private System.Windows.Forms.ComboBox CmbProjeKodu;
         private System.Windows.Forms.TextBox TxtFirma;
         private System.Windows.Forms.Label label151;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Button BtnSatiGuncelle;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ComboBox CmbHarcamaYapan;
+        private System.Windows.Forms.TextBox TxtProje;
+        private System.Windows.Forms.ComboBox CmbProjeKodu;
     }
 }

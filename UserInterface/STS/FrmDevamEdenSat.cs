@@ -47,7 +47,6 @@ namespace UserInterface.STS
             DataDisplay();
             TxtTop.Text = DtgDevamEden.RowCount.ToString();
         }
-
         void IslemAdimlari()
         {
             DtgSatIslemAdimlari.DataSource = satIslemAdimlariManager.GetList(siparisNo);
@@ -98,6 +97,8 @@ namespace UserInterface.STS
             DtgDevamEden.Columns["BelgeTuru"].Visible = false;
             DtgDevamEden.Columns["BelgeNumarasi"].Visible = false;
             DtgDevamEden.Columns["BelgeTarihi"].Visible = false;
+            DtgDevamEden.Columns["MailSiniri"].Visible = false;
+            DtgDevamEden.Columns["MailDurumu"].Visible = false;
             DtgDevamEden.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
             DtgDevamEden.Columns["Donem"].HeaderText = "DÖNEM";
             DtgDevamEden.Columns["Donem"].DisplayIndex = 3;

@@ -42,6 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComboManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\BakimOnarimLogManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\BolgeManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikDesteIscilikManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloAracManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikIscilikManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikPerformansManager.cs" />
     <Compile Include="Concreate\Depo\AmbarManager.cs" />
     <Compile Include="Concreate\Depo\CayOcagiManager.cs" />
     <Compile Include="Concreate\Depo\DestekDepoMalzemeKayitManager.cs" />
@@ -59,6 +66,7 @@
     <Compile Include="Concreate\IdarıIsler\AracManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracZimmetiLogManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracZimmetiManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\ArsivTutanakManager.cs" />
     <Compile Include="Concreate\IdarıIsler\DVKayitManager.cs" />
     <Compile Include="Concreate\IdarıIsler\DvNoManager.cs" />
     <Compile Include="Concreate\IdarıIsler\EvrakKayitManager.cs" />
@@ -84,6 +92,7 @@
     <Compile Include="Concreate\IdarıIsler\YurtIciGorevManager.cs" />
     <Compile Include="Concreate\IdarıIsler\ZimmetAktarimManager.cs" />
     <Compile Include="Concreate\IdarıIsler\ZimmetVeriGecmisManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\ZiyaretciKayitManager.cs" />
     <Compile Include="Concreate\STS\AltYukleniciManager.cs" />
     <Compile Include="Concreate\STS\ButceKoduManager.cs" />
     <Compile Include="Concreate\STS\DevamEdenIzlemeManager.cs" />
@@ -100,6 +109,7 @@
     <Compile Include="Concreate\STS\SatNoManager.cs" />
     <Compile Include="Concreate\STS\SatNumarasiManagerMasterMenuItem.cs" />
     <Compile Include="Concreate\STS\SatOnayTarihiManager.cs" />
+    <Compile Include="Concreate\STS\SatRaporLogManager.cs" />
     <Compile Include="Concreate\STS\SatRaporManager.cs" />
     <Compile Include="Concreate\STS\SatRenkliiTabloManager.cs" />
     <Compile Include="Concreate\STS\SatTalebiDoldurManager.cs" />

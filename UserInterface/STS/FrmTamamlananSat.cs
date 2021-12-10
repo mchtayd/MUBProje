@@ -175,6 +175,11 @@ namespace UserInterface.STS
             {
                 return;
             }
+            if (DtgTamamlananSatlar.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
 
             siparisNo = DtgTamamlananSatlar.CurrentRow.Cells["SiparisNo"].Value.ToString();
             dosyayolu = DtgTamamlananSatlar.CurrentRow.Cells["DosyaYolu"].Value.ToString();
@@ -258,12 +263,12 @@ namespace UserInterface.STS
             int satir=0;
             IXLWorkbook workbook = new XLWorkbook(@"C:\Users\MAYıldırım\Desktop\SAT VERİ GİRİŞ DOSYASI_2021.xlsx");
             IXLWorksheet worksheet = workbook.Worksheet("Sayfa1");
-
-            var rows = worksheet.Rows(2, 2254);
+            //IXLWorksheet worksheet2 = workbook.Worksheet("AĞUSTOS");
+            var rows = worksheet.Rows(2, 2271);
             List<Tamamlanan> list = new List<Tamamlanan>();
             foreach (IXLRow item in rows)
             {
-                if (item.Cell("C").Value.ToString().Trim() != "")
+                if (item.Cell("C").Value.ToString().Trim() != "" && item.Cell("C").Value.ToString().Trim() == "KASIM")
                 {
                     try
                     {
@@ -295,10 +300,10 @@ namespace UserInterface.STS
                             -1,
                             "TAMAMLANAN SATLAR",
                             item.Cell("C").Value.ToString(),
-                            "",
-                            "",
-                            "",
-                            "");
+                            item.Cell("T").Value.ToString(),
+                            item.Cell("K").Value.ToString(),
+                            item.Cell("U").Value.ToString(),
+                            item.Cell("AA").Value.ToString());
                         list.Add(tamamlanan);
 
                         if (outDate.ToString()== "1.01.0001 00:00:00")

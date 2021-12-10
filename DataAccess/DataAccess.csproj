@@ -70,6 +70,13 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\SqlServices.cs" />
     <Compile Include="ComboDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\BakimOnarimLogDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\BolgeDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikDestekIsciliklDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloAracDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikIscilikDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\IscilikPerformansDal.cs" />
     <Compile Include="Concreate\Depo\AmbarDal.cs" />
     <Compile Include="Concreate\Depo\CayOcagiDal.cs" />
     <Compile Include="Concreate\Depo\DestekDepoMalzemeKayitDal.cs" />
@@ -88,6 +95,7 @@
     <Compile Include="Concreate\IdariIsler\AracDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracZimmetDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracZimmetiLogDal.cs" />
+    <Compile Include="Concreate\IdariIsler\ArsivTutanakDal.cs" />
     <Compile Include="Concreate\IdariIsler\DVKayitDal.cs" />
     <Compile Include="Concreate\IdariIsler\EvrakKayitDal.cs" />
     <Compile Include="Concreate\IdariIsler\IdariIslerLogDal.cs" />
@@ -113,6 +121,7 @@
     <Compile Include="Concreate\IdariIsler\YurtIciGorevDal.cs" />
     <Compile Include="Concreate\IdariIsler\ZimmetAktarimDal.cs" />
     <Compile Include="Concreate\IdariIsler\ZimmetVeriGecmisDal.cs" />
+    <Compile Include="Concreate\IdariIsler\ZiyaretciKayitDal.cs" />
     <Compile Include="Concreate\STS\AltYukleniciDal.cs" />
     <Compile Include="Concreate\STS\ButceKoduDal.cs" />
     <Compile Include="Concreate\STS\DevamEdenIzlemeDal.cs" />
@@ -131,6 +140,7 @@
     <Compile Include="Concreate\STS\SatOnayTarihiDal.cs" />
     <Compile Include="Concreate\STS\SatOtomatikCekDal.cs" />
     <Compile Include="Concreate\STS\SatRaporDal.cs" />
+    <Compile Include="Concreate\STS\SatRaporLogDal.cs" />
     <Compile Include="Concreate\STS\SatRenkliTabloDal.cs" />
     <Compile Include="Concreate\STS\SatTalebiDoldurDal.cs" />
     <Compile Include="Concreate\STS\StokNoTanimDal.cs" />

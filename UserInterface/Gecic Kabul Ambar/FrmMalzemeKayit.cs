@@ -22,6 +22,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         string dosyayolu, fotoyolu, kaynakdosyaismi1, alinandosya1, yeniad, deneme, foto;
         bool start = true;
         List<string> fileNames = new List<string>();
+        public bool buton = false;
         public FrmMalzemeKayit()
         {
             InitializeComponent();
@@ -63,6 +64,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             CmbStokNo();
             start = false;
+            if (buton==true)
+            {
+                BtnCancel.Visible = false;
+                return;
+            }
+            BtnCancel.Visible =true;
         }
 
         void CmbStokNo()
