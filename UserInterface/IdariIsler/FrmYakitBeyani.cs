@@ -24,11 +24,13 @@ namespace UserInterface.IdariIsler
         PersonelKayitManager kayitManager;
         YakitManager yakitManager;
         IdariIslerLogManager logManager;
+        AracZimmetiManager aracZimmetiManager;
         string dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun;
         bool dosyaControl = false;
         public object[] infos;
         int id;
         List<string> fileNames = new List<string>();
+        List<AracZimmeti> aracZimmetis;
         public FrmYakitBeyani()
         {
             InitializeComponent();
@@ -36,6 +38,7 @@ namespace UserInterface.IdariIsler
             kayitManager = PersonelKayitManager.GetInstance();
             yakitManager = YakitManager.GetInstance();
             logManager = IdariIslerLogManager.GetInstance();
+            aracZimmetiManager = AracZimmetiManager.GetInstance();
         }
 
         private void FrmYakitBeyani_Load(object sender, EventArgs e)
@@ -43,6 +46,15 @@ namespace UserInterface.IdariIsler
             IsAkisNo();
             Personeller();
             PersonellerGun();
+            Plakalar();
+        }
+        void Plakalar()
+        {
+            aracZimmetis = aracZimmetiManager.GetList();
+            TxtPlaka.DataSource = aracZimmetis;
+            TxtPlaka.ValueMember = "Id";
+            TxtPlaka.DisplayMember = "Plaka";
+            TxtPlaka.SelectedValue = -1;
         }
         public void YenilenecekVeri()
         {
@@ -159,16 +171,12 @@ namespace UserInterface.IdariIsler
                     item.Cell("L").Value.ToString(), // BELGE NUMARASI
                     ""); // DOSYA YOLU
                 yakitManager.Add(yakits);*/
-            if (dosyaControl == false)
-            {
-                MessageBox.Show("Lütfen Öncelikle Yazıyı Ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 IsAkisNo();
-                Yakit yakit = new Yakit(LblIsAkisNo.Text.ConInt(), TxtPlaka.Text, TxtAlinanDonem.Text, TxtTarih.Value, TxtKm.Text.ConInt(), TxtLitre.Text.ConDouble(), CmbYakitTuru.Text, TxtLitreFiyati.Text.ConDouble(), TxtToplamFiyat.Text.ConDouble(), TxtAlimTuru.Text, CmbPersonel.Text, TxtAlinanFirma.Text, CmbBelgeTuru.Text, TxtBelgeNo.Text, dosyaYolu, TxtAciklama.Text);
+                Yakit yakit = new Yakit(LblIsAkisNo.Text.ConInt(), TxtPlaka.Text, TxtAlinanDonem.Text, TxtTarih.Value, TxtKm.Text.ConInt(), TxtLitre.Text.ConDouble(), CmbYakitTuru.Text, TxtLitreFiyati.Text.ConDouble(), TxtToplamFiyat.Text.ConDouble(), TxtAlimTuru.Text, CmbPersonel.Text, TxtAlinanFirma.Text, CmbBelgeTuru.Text, TxtBelgeNo.Text, "", TxtAciklama.Text);
                 string mesaj = yakitManager.Add(yakit);
                 if (mesaj != "OK")
                 {
@@ -204,7 +212,7 @@ namespace UserInterface.IdariIsler
         }
         void Temizle()
         {
-            TxtPlaka.Clear(); TxtAlinanDonem.SelectedValue = ""; TxtKm.Clear(); TxtLitre.Clear(); CmbYakitTuru.Text = ""; TxtLitreFiyati.Clear(); TxtToplamFiyat.Clear(); TxtAlimTuru.Clear(); CmbPersonel.SelectedValue = 0; TxtAlinanFirma.Clear(); CmbBelgeTuru.Text = ""; TxtBelgeNo.Clear();
+            TxtPlaka.SelectedValue=""; TxtAlinanDonem.SelectedValue = ""; TxtKm.Clear(); TxtLitre.Clear(); CmbYakitTuru.Text = ""; TxtLitreFiyati.Clear(); TxtToplamFiyat.Clear(); TxtAlimTuru.SelectedIndex=-1; CmbPersonel.SelectedValue = 0; TxtAlinanFirma.Clear(); CmbBelgeTuru.Text = ""; TxtBelgeNo.Clear();
             webBrowser1.Navigate("");
         }
 
@@ -295,7 +303,7 @@ namespace UserInterface.IdariIsler
         void TemizleGun()
         {
             TxtIsAkisNo.Clear(); TxtPlakaGun.Clear(); TxtAlinanDonemGun.SelectedValue = ""; TxtKmGun.Clear(); TxtLitreGun.Clear(); CmbYakitTuruGun.Text = "";
-            TxtLitreFiyatiGun.Clear(); TxtToplamFiyatGun.Clear(); TxtAlimTuruGun.Clear(); CmbPersonelGun.Text = ""; TxtAlinanFirmaGun.Clear(); CmbBelgeTuruGun.Text = ""; TxtBelgeNoGun.Clear(); webBrowser2.Navigate("");
+            TxtLitreFiyatiGun.Clear(); TxtToplamFiyatGun.Clear(); TxtAlimTuruGun.SelectedIndex=-1; CmbPersonelGun.Text = ""; TxtAlinanFirmaGun.Clear(); CmbBelgeTuruGun.Text = ""; TxtBelgeNoGun.Clear(); webBrowser2.Navigate("");
         }
 
         private void TxtLitreFiyati_TextChanged(object sender, EventArgs e)
@@ -305,12 +313,12 @@ namespace UserInterface.IdariIsler
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
         {
-            string root = @"Z:\DTS";
+            /*string root = @"Z:\DTS";
             string subdir = @"Z:\DTS\İDARİ İŞLER\";
             string anadosya = @"Z:\DTS\İDARİ İŞLER\YAKIT BEYANI\";
-            /*string root = @"D:\DTS";
+            string root = @"D:\DTS";
             string subdir = @"D:\DTS\İDARİ İŞLER\";
-            string anadosya = @"D:\DTS\İDARİ İŞLER\YAKIT BEYANI\";*/
+            string anadosya = @"D:\DTS\İDARİ İŞLER\YAKIT BEYANI\";
             if (!Directory.Exists(root))
             {
                 Directory.CreateDirectory(root);
@@ -349,7 +357,7 @@ namespace UserInterface.IdariIsler
                 fileNames.Add(alinandosya);
                 webBrowser1.Navigate(dosyaYolu);
                 dosyaControl = true;
-            }
+            }*/
         }
     }
 }

@@ -91,12 +91,13 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public List<IscilikDestekIscilik> GetList()
+        public List<IscilikDestekIscilik> GetList(string adSoyad,string plaka)
         {
             try
             {
                 List<IscilikDestekIscilik> ıscilikDestekIsciliks = new List<IscilikDestekIscilik>();
-                dataReader = sqlServices.StoreReader("IscilikDestekIscilikList");
+                dataReader = sqlServices.StoreReader("IscilikDestekIscilikList",new SqlParameter("@adSoyad",adSoyad),
+                    new SqlParameter("@plaka",plaka));
                 while (dataReader.Read())
                 {
                     ıscilikDestekIsciliks.Add(new IscilikDestekIscilik(
@@ -119,6 +120,51 @@ namespace DataAccess.Concreate.BakimOnarim
             catch (Exception)
             {
                 return new List<IscilikDestekIscilik>();
+            }
+        }
+        public List<IscilikDestekTablo> GetListCellClickPersonel(string siparisNo)
+        {
+            try
+            {
+                List<IscilikDestekTablo> ıscilikDestekIsciliks = new List<IscilikDestekTablo>();
+                dataReader = sqlServices.StoreReader("IscilikDestekIscilikListPersonel", new SqlParameter("@siparisNo", siparisNo));
+                while (dataReader.Read())
+                {
+                    ıscilikDestekIsciliks.Add(new IscilikDestekTablo(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ADI_SOYADI"].ToString(),
+                        dataReader["GOREVI"].ToString(),
+                        dataReader["PERSONEL_BOLUM"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString()));
+                }
+                dataReader.Close();
+                return ıscilikDestekIsciliks;
+            }
+            catch (Exception ex)
+            {
+                return new List<IscilikDestekTablo>();
+            }
+        }
+        public List<IscilikDestekTabloArac> GetListCellClickArac(string siparisNo)
+        {
+            try
+            {
+                List<IscilikDestekTabloArac> ıscilikDestekIsciliks = new List<IscilikDestekTabloArac>();
+                dataReader = sqlServices.StoreReader("IscilikDestekIscilikListArac", new SqlParameter("@siparisNo", siparisNo));
+                while (dataReader.Read())
+                {
+                    ıscilikDestekIsciliks.Add(new IscilikDestekTabloArac(
+                        dataReader["ID"].ConInt(),
+                        dataReader["PLAKA"].ToString(),
+                        dataReader["KULLANIDIGI_BOLUM"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString()));
+                }
+                dataReader.Close();
+                return ıscilikDestekIsciliks;
+            }
+            catch (Exception ex)
+            {
+                return new List<IscilikDestekTabloArac>();
             }
         }
 

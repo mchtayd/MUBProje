@@ -46,6 +46,9 @@ namespace UserInterface.STS
 
         public FrmAnaSayfa()
         {
+
+
+
             InitializeComponent();
             satinAlinacakMalManager = SatinAlinacakMalManager.GetInstance();
             versionManager = VersionManager.GetInstance();
@@ -1400,6 +1403,14 @@ namespace UserInterface.STS
                         form.DtgIzinList();
                     }
                 }
+                if (baslik == "YAKIT FİRMA DÖKÜMLERİ İZLEME")
+                {
+                    var form = (FrmYakitDokumIzleme)Application.OpenForms["FrmYakitDokumIzleme"];
+                    if (form != null)
+                    {
+                        form.YenilenecekVeri();
+                    }
+                }
             }
         }
 
@@ -1740,6 +1751,16 @@ namespace UserInterface.STS
                 OpenTabPage("PageSatMalzemeler", "TEKLİFSİZ SAT", Go);
                 Go.Show();
             }
+            if (e.Node.Name == "AylikButceKapatmaYakit")
+            {
+                FrmAylikButceKapatmaYakit Go = new FrmAylikButceKapatmaYakit();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageAylikButceKapatmaYakit", "AYLIK BÜTÇE KAPATMA (YAKIT)", Go);
+                Go.Show();
+            }
 
             /////////////////////////////////////////////////İDARİ İŞLER////////////////////////////////////////////////////////////////////
 
@@ -2067,7 +2088,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageArsiv", "ARŞİV", Go);
                 Go.Show();
             }
-            if (e.Node.Name == "TutanakIzleme")
+            if (e.Node.Name == "TutanakIzleme") 
             {
                 FrmArsivIzleme Go = new FrmArsivIzleme();
                 Go.FormBorderStyle = FormBorderStyle.None;
@@ -2075,6 +2096,26 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageArsivIzleme", "ARŞİV İZLEME", Go);
+                Go.Show(); 
+            }
+            if (e.Node.Name == "YakitDokumleri")
+            {
+                FrmYakitDokum Go = new FrmYakitDokum();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageYakitDokumleri", "YAKIT FİRMA DÖKÜMLERİ", Go);
+                Go.Show();
+            }
+            if (e.Node.Name == "YakitDokumleriIzleme")
+            {
+                FrmYakitDokumIzleme Go = new FrmYakitDokumIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageYakitDokumIzleme", "YAKIT FİRMA DÖKÜMLERİ İZLEME", Go);
                 Go.Show();
             }
 
@@ -2210,6 +2251,12 @@ namespace UserInterface.STS
         {
             FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
             frmGorevlerim.ShowDialog();
+        }
+
+        private void iŞAKIŞSÜRELERİPERFORMANSİZLEMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIsAkisiPersonel frmIsAkisiPersonel = new FrmIsAkisiPersonel();
+            frmIsAkisiPersonel.ShowDialog();
         }
 
         private void FrmAnaSayfa_SizeChanged(object sender, EventArgs e)

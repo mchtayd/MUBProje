@@ -14,6 +14,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 
 namespace UserInterface.STS
 {
@@ -32,6 +33,7 @@ namespace UserInterface.STS
         ReddedilenMalzemeManager reddedilenMalzemeManager;
         SatOnayTarihiManager satOnayTarihiManager;
         public object[] infos;
+        public bool gorevAtama = false;
         string islemyapan, masrafYeri, talepeden, bolum, usbolgesi, abfno, gerekce, siparisNo, dosya, islem, mesaj, hedefdosya, kaynakdosya, rednedeni, onaydurum, yapilanislem, islemAdimi, donem, durum, butceKodu;
 
 
@@ -294,7 +296,7 @@ namespace UserInterface.STS
             personelId = DtgSatOlusturan.CurrentRow.Cells["PersonelId"].Value.ConInt();
             ucTeklif = DtgSatOlusturan.CurrentRow.Cells["Uctekilf"].Value.ConInt();
             firmaBilgisi = DtgSatOlusturan.CurrentRow.Cells["FirmaBilgisi"].Value.ToString();
-            satOlusuturmaTuru= DtgSatOlusturan.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
+            satOlusuturmaTuru = DtgSatOlusturan.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             try
             {
                 webBrowser1.Navigate(dosya);
@@ -408,7 +410,7 @@ namespace UserInterface.STS
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, islemyapan, tarih.ConTime());
                 satIslemAdimlariManager.Add(satIslemAdimlari);
 
-                yapilanislem = "SAT RED GEREKÇESİ:"+ rednedeni;
+                yapilanislem = "SAT RED GEREKÇESİ:" + rednedeni;
                 SatIslemAdimlari satIslemAdimlari2 = new SatIslemAdimlari(siparisNo, yapilanislem, islemyapan, tarih.ConTime());
                 satIslemAdimlariManager.Add(satIslemAdimlari2);
 
@@ -449,7 +451,16 @@ namespace UserInterface.STS
                 #endregion
             }
         }
+        void GorevAta()
+        {
+            islemAdimi = "TEKLİF";
 
+            FrmGorevAta frmGorevAta = new FrmGorevAta();
+            frmGorevAta.gorevinTanimi = "SAT Tekliflerinin Alınması VE DTS Sistemine Kaydedilmesi.";
+            frmGorevAta.islemAdimi = islemAdimi;
+            frmGorevAta.sayfa = "SAT BAŞLATMA ONAYI";
+            frmGorevAta.ShowDialog();
+        }
         private void btnOnayla_Click(object sender, EventArgs e)
         {
             if (DtgSatOlusturan.CurrentRow == null)
@@ -460,33 +471,37 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(formNo + " Nolu SAT İçin Başlatma Onayı Vermek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                string satbirim = CmbSatBirim.Text;
-                if (satbirim != "BSRN GN.MDL.SATIN ALMA")
+                GorevAta();
+
+                if (gorevAtama==false)
                 {
-                    DialogResult dialog = MessageBox.Show("Ön Onay Yetkilisi:\n\nÖn Onaya gelmiş olan bu satın alma işlemi için malzemenin teknik dökümanlarına " +
-                    "uygunluğunu onaylamış, malzeme ihtiyacını teyit ve kabul etmiş olacaksınız.\n\nBu satın alma işlemi için piyasa fiyat araştırmasının " +
-                    "yapılarak uygun malzeme ve uygun fiyatın araştırılması üzere en az 3 firmadan fiyat teklifinin yazılı olarak istenmesi gerekmektedir.\n\n" +
-                    "Bu işlem için en az 3 firmadan fiyat teklifi alınmasını onaylıyor musunuz?", "BİLGİLENDİRME", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
-
-                    if (dialog == DialogResult.No)
-                    {
-                        uctekilf = 0;
-                        islem = "SAT BAŞLATMA ONAYI VERİLDİ.(TEKLİFSİZ SAT)"; // TEKLİFSİZ
-
-                        SatIslemAdimlari satIslem2 = new SatIslemAdimlari(siparisNo, islem, islemyapan, DateTime.Now);
-                        satIslemAdimlariManager.Add(satIslem2);
-                    }
+                    MessageBox.Show("Lütfen Öncelikle Görev Atama İşlemini Gerçekleştiriniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
                 }
-                if (satbirim == "BSRN GN.MDL.SATIN ALMA")
+
+                DialogResult dialog = MessageBox.Show("Ön Onay Yetkilisi:\n\nÖn Onaya gelmiş olan bu satın alma işlemi için malzemenin teknik dökümanlarına " +
+                "uygunluğunu onaylamış, malzeme ihtiyacını teyit ve kabul etmiş olacaksınız.\n\nBu satın alma işlemi için piyasa fiyat araştırmasının " +
+                "yapılarak uygun malzeme ve uygun fiyatın araştırılması üzere en az 3 firmadan fiyat teklifinin yazılı olarak istenmesi gerekmektedir.\n\n" +
+                "Bu işlem için en az 3 firmadan fiyat teklifi alınmasını onaylıyor musunuz?", "BİLGİLENDİRME", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+
+                if (dialog == DialogResult.No)
+                {
+                    uctekilf = 0;
+                    islem = "SAT BAŞLATMA ONAYI VERİLDİ.(TEKLİFSİZ SAT)"; // TEKLİFSİZ
+
+                    SatIslemAdimlari satIslem2 = new SatIslemAdimlari(siparisNo, islem, islemyapan, DateTime.Now);
+                    satIslemAdimlariManager.Add(satIslem2);
+                }
+                /*if (satbirim == "BSRN GN.MDL.SATIN ALMA")
                 {
                     satDataGridview1Manager.SatFirmaBilgisiGuncelle(siparisNo);
                     satDataGridview1Manager.SatDurumGnlMdr(siparisNo);
-                }
-                
+                }*/
+
                 DosyaAdiDegistir();
                 satDataGridview1Manager.DurumGuncelleOnay(siparisNo);
 
-                if (uctekilf!=0)
+                if (uctekilf != 0)
                 {
                     islem = "SAT BAŞLATMA ONAYI VERİLDİ.(TEKLİF ALINACAK SAT)"; // TEKLİFLİ SAT
 
@@ -502,7 +517,7 @@ namespace UserInterface.STS
                     satIslemAdimlariManager.Add(satIslem);
                 }*/
                 dataGridview1 = null;
-                islemAdimi = "TEKLİF";
+                
                 dataGridview1 = new SatDataGridview1(satNo, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo, uctekilf, hedefdosya, islemAdimi);
                 mesaj = satDataGridview1Manager.Update(dataGridview1);
 
@@ -561,7 +576,7 @@ namespace UserInterface.STS
             }
 
             satNo = satNoManager.Add(new SatNo(siparisNo));
-            int outValue = 0;
+            //int outValue = 0;
             /*if (!int.TryParse(satNo, out outValue))
             {
                 MessageBox.Show("Klasör No Bulunamadı");

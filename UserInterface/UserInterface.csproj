@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>223</ApplicationRevision>
+    <ApplicationRevision>231</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -118,6 +118,12 @@
     <Compile Include="Ana Sayfa\FrmDevam.Designer.cs">
       <DependentUpon>FrmDevam.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevAta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevAta.Designer.cs">
+      <DependentUpon>FrmGorevAta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmGorevlerim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,6 +135,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmHelper.Designer.cs">
       <DependentUpon>FrmHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIsAkisiPersonel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIsAkisiPersonel.Designer.cs">
+      <DependentUpon>FrmIsAkisiPersonel.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmMail.cs">
       <SubType>Form</SubType>
@@ -388,6 +400,12 @@
     <Compile Include="IdariIsler\FrmArsivKontrolFormuIzleme.Designer.cs">
       <DependentUpon>FrmArsivKontrolFormuIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmAylikButcekKapatmaYakit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAylikButcekKapatmaYakit.Designer.cs">
+      <DependentUpon>FrmAylikButcekKapatmaYakit.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmBakimKayitIzleme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -574,6 +592,18 @@
     <Compile Include="IdariIsler\FrmYakitBeyaniIzleme.Designer.cs">
       <DependentUpon>FrmYakitBeyaniIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmYakitDokum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitDokum.Designer.cs">
+      <DependentUpon>FrmYakitDokum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitDokumIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitDokumIzleme.Designer.cs">
+      <DependentUpon>FrmYakitDokumIzleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmYurtIciGorevSAT.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -629,6 +659,12 @@
     </Compile>
     <Compile Include="STS\FrmAltYukleniciFirma.Designer.cs">
       <DependentUpon>FrmAltYukleniciFirma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmAylikButceKapatmaYakit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmAylikButceKapatmaYakit.Designer.cs">
+      <DependentUpon>FrmAylikButceKapatmaYakit.cs</DependentUpon>
     </Compile>
     <Compile Include="STS\FrmButceKoduKalemi.cs">
       <SubType>Form</SubType>
@@ -738,11 +774,17 @@
     <EmbeddedResource Include="Ana Sayfa\FrmDevam.resx">
       <DependentUpon>FrmDevam.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmGorevAta.resx">
+      <DependentUpon>FrmGorevAta.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmGorevlerim.resx">
       <DependentUpon>FrmGorevlerim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmHelper.resx">
       <DependentUpon>FrmHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIsAkisiPersonel.resx">
+      <DependentUpon>FrmIsAkisiPersonel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmMail.resx">
       <DependentUpon>FrmMail.cs</DependentUpon>
@@ -873,6 +915,9 @@
     <EmbeddedResource Include="IdariIsler\FrmArsivKontrolFormuIzleme.resx">
       <DependentUpon>FrmArsivKontrolFormuIzleme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAylikButcekKapatmaYakit.resx">
+      <DependentUpon>FrmAylikButcekKapatmaYakit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmBakimKayitIzleme.resx">
       <DependentUpon>FrmBakimKayitIzleme.cs</DependentUpon>
     </EmbeddedResource>
@@ -966,6 +1011,12 @@
     <EmbeddedResource Include="IdariIsler\FrmYakitBeyaniIzleme.resx">
       <DependentUpon>FrmYakitBeyaniIzleme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYakitDokum.resx">
+      <DependentUpon>FrmYakitDokum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYakitDokumIzleme.resx">
+      <DependentUpon>FrmYakitDokumIzleme.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmYurtIciGorevSAT.resx">
       <DependentUpon>FrmYurtIciGorevSAT.cs</DependentUpon>
     </EmbeddedResource>
@@ -1002,6 +1053,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmAltYukleniciFirma.resx">
       <DependentUpon>FrmAltYukleniciFirma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmAylikButceKapatmaYakit.resx">
+      <DependentUpon>FrmAylikButceKapatmaYakit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmButceKoduKalemi.resx">
       <DependentUpon>FrmButceKoduKalemi.cs</DependentUpon>

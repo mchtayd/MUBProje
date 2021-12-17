@@ -44,7 +44,7 @@ namespace DataAccess
                 dataReader.Close();
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }

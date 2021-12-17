@@ -117,29 +117,16 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAGZJREFUKFONzn8KQEAQhuE5gh+FC7izcgfhDpscAJeg3ID301D+4qundmd2d9b+
-        JkaFFZuvVbuSYkaDDDlaTEhgHQ6oOaJE4TX1rPeNbg4IeB3QiAV6Vg1R4xmhaFFjx/3JCF8xOwGHFhaz
-        KS5a1gAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="button2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAGZJREFUKFONzn8KQEAQhuE5gh+FC7izcgfhDpscAJeg3ID301D+4qundmd2d9b+
-        JkaFFZuvVbuSYkaDDDlaTEhgHQ6oOaJE4TX1rPeNbg4IeB3QiAV6Vg1R4xmhaFFjx/3JCF8xOwGHFhaz
-        KS5a1gAAAABJRU5ErkJggg==
-</value>
-  </data>
-  <data name="button3.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        iVBORw0KGgoAAAANSUhEUgAAAAgAAAAICAYAAADED76LAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EwAACxMBAJqcGAAAAGZJREFUKFONzn8KQEAQhuE5gh+FC7izcgfhDpscAJeg3ID301D+4qundmd2d9b+
-        JkaFFZuvVbuSYkaDDDlaTEhgHQ6oOaJE4TX1rPeNbg4IeB3QiAV6Vg1R4xmhaFFjx/3JCF8xOwGHFhaz
-        KS5a1gAAAABJRU5ErkJggg==
-</value>
-  </data>
+  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Column3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn6.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
 </root>

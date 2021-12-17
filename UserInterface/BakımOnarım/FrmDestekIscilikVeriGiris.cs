@@ -1,4 +1,5 @@
 ﻿using Business;
+using Business.Concreate;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
@@ -37,7 +38,7 @@ namespace UserInterface.BakımOnarım
         IscilikIscilikManager iscilikManager;
         BakimOnarimLogManager bakimOnarimLogManager;
         IscilikPerformansManager performansManager;
-
+        SatTalebiDoldurManager satTalebiDoldurManager;
         public FrmDestekIscilikVeriGiris()
         {
             InitializeComponent();
@@ -52,6 +53,7 @@ namespace UserInterface.BakımOnarım
             bakimOnarimLogManager = BakimOnarimLogManager.GetInstance();
             iscilikManager = IscilikIscilikManager.GetInstance();
             performansManager = IscilikPerformansManager.GetInstance();
+            satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -77,6 +79,10 @@ namespace UserInterface.BakımOnarım
             Araclar();
             DestekIscilik1();
             DestekIscilik2();
+            UsBolgeleri();
+            UsBolgeleri2();
+            UsBolgeleri3();
+            UsBolgeleri4();
             start = true;
         }
         void Personeller()
@@ -85,6 +91,34 @@ namespace UserInterface.BakımOnarım
             CmbPersoneller.ValueMember = "Id";
             CmbPersoneller.DisplayMember = "Adsoyad";
             CmbPersoneller.SelectedValue = -1;
+        }
+        void UsBolgeleri()
+        {
+            CmbMevcutDuragi.DataSource = satTalebiDoldurManager.GetList();
+            CmbMevcutDuragi.ValueMember = "Id";
+            CmbMevcutDuragi.DisplayMember = "Usbolgesi";
+            CmbMevcutDuragi.SelectedValue = "";
+        }
+        void UsBolgeleri2()
+        {
+            CmbCikisDuragi.DataSource = satTalebiDoldurManager.GetList();
+            CmbCikisDuragi.ValueMember = "Id";
+            CmbCikisDuragi.DisplayMember = "Usbolgesi";
+            CmbCikisDuragi.SelectedValue = "";
+        }
+        void UsBolgeleri3()
+        {
+            CmbIstikametDuragi.DataSource = satTalebiDoldurManager.GetList();
+            CmbIstikametDuragi.ValueMember = "Id";
+            CmbIstikametDuragi.DisplayMember = "Usbolgesi";
+            CmbIstikametDuragi.SelectedValue = "";
+        }
+        void UsBolgeleri4()
+        {
+            CmbVarisDuragi.DataSource = satTalebiDoldurManager.GetList();
+            CmbVarisDuragi.ValueMember = "Id";
+            CmbVarisDuragi.DisplayMember = "Usbolgesi";
+            CmbVarisDuragi.SelectedValue = "";
         }
         void PersonellerPerformans()
         {

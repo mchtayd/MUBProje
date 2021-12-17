@@ -1,6 +1,7 @@
 ﻿using Business.Concreate.STS;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
+using DataAccess.Concreate.STS;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
@@ -26,7 +27,7 @@ namespace UserInterface.Ana_Sayfa
         {
             // chart.Series["Series1"].Points.AddY(15);
             // chart.Series["Series1"].Points.Add(5);           
-            
+
         }
 
         public static void ExportTable(DataGridView dg, string fileName = "", string filePath = "", int columnNumber = 0)
@@ -212,5 +213,96 @@ namespace UserInterface.Ana_Sayfa
             return filtered.Split('\'')[1];
         }
 
+        public static string Html_Table_Export(DataGridView dg)
+        {
+            StringBuilder strB = new StringBuilder();
+            //create html & table
+            strB.AppendLine("<html><head><meta charset=utf-8><style>table{padding:10px;} th,td{padding:8px;}</style></head><body><center><table border='1' cellpadding='0' cellspacing='0'>");
+            //Gerekçe ...
+            strB.AppendLine("<tr>");
+            //create table header
+            for (int i = 0; i < dg.Columns.Count; i++)
+            {
+                if (dg.Columns[i].Visible == true)
+                {
+                    strB.AppendLine("<th align='center' valign='middle'>" + dg.Columns[i].HeaderText + "</th>");
+                }
+            }
+            //create table body
+            strB.AppendLine("</tr>");
+            for (int i = 0; i < dg.Rows.Count; i++)
+            {
+                if (dg.Rows[i].Visible)
+                {
+                    strB.AppendLine("<tr>");
+                    foreach (DataGridViewCell dgvc in dg.Rows[i].Cells)
+                    {
+                        if (dgvc.OwningColumn.Visible == true) { strB.AppendLine("<td align='center' valign='middle'>" + dgvc.Value.ToString() + "</td>"); }
+                    }
+                    strB.AppendLine("</tr>");
+                }
+            }
+            //table footer & end of html file
+            strB.AppendLine("</table></center>");
+            strB.AppendLine("</body></html>");
+            return strB.ToString();
+        }
+
+        public static string Html_Log_Content(DataGridView dg, DataGridView dgForTable)
+        {
+            StringBuilder strB = new StringBuilder();
+            //create html & table
+            strB.AppendLine("<html><head><meta charset=utf-8><style>table{padding:10px;} th,td{padding:8px;}</style></head><body>");
+            int index = 0;
+            for (int i = 0; i < dg.Rows.Count; i++)
+            {
+                if (dg.Rows[i].Visible)
+                {
+                    foreach (DataGridViewCell dgvc in dg.Rows[i].Cells)
+                    {
+                        if (dgvc.OwningColumn.Visible == true)
+                        {
+                            int margin = index == 0 ? 25 : index == 1 ? 16 : 75;
+                            strB.AppendLine($"<p> " +
+                                $"<span style='font-weight: bold; font-family: Arial'>{dgvc.OwningColumn.HeaderText}</span>" +
+                                $" <span style='color: blue; font-weight:bold; margin-left: {margin}'>: {dgvc.Value}</span>" +
+                                $"</p><br>");
+                            index++;
+                        }
+                    }
+                }
+                index = 0;
+            }
+
+
+            strB.AppendLine("<center><table border='1' cellpadding='0' cellspacing='0'>");
+            strB.AppendLine("<tr>");
+
+            for (int i = 0; i < dgForTable.Columns.Count; i++)
+            {
+                if (dgForTable.Columns[i].Visible == true)
+                {
+                    strB.AppendLine("<th align='center' valign='middle'>" + dgForTable.Columns[i].HeaderText + "</th>");
+                }
+            }
+            //create table body
+            strB.AppendLine("</tr>");
+            for (int i = 0; i < dgForTable.Rows.Count; i++)
+            {
+                if (dgForTable.Rows[i].Visible)
+                {
+                    strB.AppendLine("<tr>");
+                    foreach (DataGridViewCell dgForTablevc in dgForTable.Rows[i].Cells)
+                    {
+                        if (dgForTablevc.OwningColumn.Visible == true) { strB.AppendLine("<td align='center' valign='middle'>" + dgForTablevc.Value.ToString() + "</td>"); }
+                    }
+                    strB.AppendLine("</tr>");
+                }
+            }
+            //table footer & end of html file
+            strB.AppendLine("</table></center>");
+            strB.AppendLine("</body></html>");
+            return strB.ToString();
+        }
     }
 }

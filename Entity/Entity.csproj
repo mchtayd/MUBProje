@@ -89,6 +89,7 @@
     <Compile Include="IdariIsler\Stok.cs" />
     <Compile Include="IdariIsler\UcakOtobus.cs" />
     <Compile Include="IdariIsler\Yakit.cs" />
+    <Compile Include="IdariIsler\YakitDokum.cs" />
     <Compile Include="IdariIsler\YurtDisiGorev.cs" />
     <Compile Include="IdariIsler\YurtIciGorev.cs" />
     <Compile Include="IdariIsler\ZimmetAktarim.cs" />

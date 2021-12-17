@@ -117,6 +117,7 @@
     <Compile Include="Concreate\IdariIsler\StokDal.cs" />
     <Compile Include="Concreate\IdariIsler\UcakOtobusDal.cs" />
     <Compile Include="Concreate\IdariIsler\YakitDal.cs" />
+    <Compile Include="Concreate\IdariIsler\YakitDokumDal.cs" />
     <Compile Include="Concreate\IdariIsler\YurtDisiGorevDal.cs" />
     <Compile Include="Concreate\IdariIsler\YurtIciGorevDal.cs" />
     <Compile Include="Concreate\IdariIsler\ZimmetAktarimDal.cs" />

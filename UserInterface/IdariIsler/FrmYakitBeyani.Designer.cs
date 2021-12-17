@@ -29,7 +29,6 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            this.TxtPlaka = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@ namespace UserInterface.IdariIsler
             this.label9 = new System.Windows.Forms.Label();
             this.TxtToplamFiyat = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.TxtAlimTuru = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.TxtAlinanFirma = new System.Windows.Forms.TextBox();
@@ -53,6 +51,8 @@ namespace UserInterface.IdariIsler
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TxtPlaka = new System.Windows.Forms.ComboBox();
+            this.TxtAlinanDonem = new System.Windows.Forms.ComboBox();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -69,6 +69,7 @@ namespace UserInterface.IdariIsler
             this.CmbYakitTuru = new System.Windows.Forms.ComboBox();
             this.TxtTarih = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TxtAlinanDonemGun = new System.Windows.Forms.ComboBox();
             this.TxtAciklamaGun = new System.Windows.Forms.RichTextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -89,7 +90,6 @@ namespace UserInterface.IdariIsler
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label23 = new System.Windows.Forms.Label();
-            this.TxtAlimTuruGun = new System.Windows.Forms.TextBox();
             this.TxtKmGun = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -107,8 +107,8 @@ namespace UserInterface.IdariIsler
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.TxtAlinanDonem = new System.Windows.Forms.ComboBox();
-            this.TxtAlinanDonemGun = new System.Windows.Forms.ComboBox();
+            this.TxtAlimTuru = new System.Windows.Forms.ComboBox();
+            this.TxtAlimTuruGun = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -116,14 +116,6 @@ namespace UserInterface.IdariIsler
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // TxtPlaka
-            // 
-            this.TxtPlaka.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtPlaka.Location = new System.Drawing.Point(169, 45);
-            this.TxtPlaka.Name = "TxtPlaka";
-            this.TxtPlaka.Size = new System.Drawing.Size(226, 20);
-            this.TxtPlaka.TabIndex = 0;
             // 
             // label1
             // 
@@ -263,14 +255,6 @@ namespace UserInterface.IdariIsler
             this.label10.TabIndex = 19;
             this.label10.Text = "ALINAN FİRMA:";
             // 
-            // TxtAlimTuru
-            // 
-            this.TxtAlimTuru.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtAlimTuru.Location = new System.Drawing.Point(169, 286);
-            this.TxtAlimTuru.Name = "TxtAlimTuru";
-            this.TxtAlimTuru.Size = new System.Drawing.Size(226, 20);
-            this.TxtAlimTuru.TabIndex = 18;
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -345,6 +329,8 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.TxtAlimTuru);
+            this.tabPage1.Controls.Add(this.TxtPlaka);
             this.tabPage1.Controls.Add(this.TxtAlinanDonem);
             this.tabPage1.Controls.Add(this.TxtAciklama);
             this.tabPage1.Controls.Add(this.label33);
@@ -361,7 +347,6 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Controls.Add(this.CmbYakitTuru);
             this.tabPage1.Controls.Add(this.TxtTarih);
             this.tabPage1.Controls.Add(this.TxtToplamFiyat);
-            this.tabPage1.Controls.Add(this.TxtPlaka);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label12);
@@ -371,7 +356,6 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.TxtAlimTuru);
             this.tabPage1.Controls.Add(this.TxtKm);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label5);
@@ -387,6 +371,37 @@ namespace UserInterface.IdariIsler
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "KAYDET";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // TxtPlaka
+            // 
+            this.TxtPlaka.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtPlaka.FormattingEnabled = true;
+            this.TxtPlaka.Location = new System.Drawing.Point(168, 46);
+            this.TxtPlaka.Name = "TxtPlaka";
+            this.TxtPlaka.Size = new System.Drawing.Size(227, 21);
+            this.TxtPlaka.TabIndex = 351;
+            // 
+            // TxtAlinanDonem
+            // 
+            this.TxtAlinanDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtAlinanDonem.FormattingEnabled = true;
+            this.TxtAlinanDonem.Items.AddRange(new object[] {
+            "OCAK 2021",
+            "ŞUBAT 2021",
+            "MART 2021",
+            "NİSAN 2021",
+            "MAYIS 2021",
+            "HAZİRAN 2021",
+            "TEMMUZ 2021",
+            "AĞUSTOS 2021",
+            "EYLÜL 2021",
+            "EKİM 2021",
+            "KASIM 2021",
+            "ARALIK 2021"});
+            this.TxtAlinanDonem.Location = new System.Drawing.Point(168, 76);
+            this.TxtAlinanDonem.Name = "TxtAlinanDonem";
+            this.TxtAlinanDonem.Size = new System.Drawing.Size(227, 21);
+            this.TxtAlinanDonem.TabIndex = 350;
             // 
             // TxtAciklama
             // 
@@ -478,12 +493,13 @@ namespace UserInterface.IdariIsler
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webBrowser1);
-            this.groupBox3.Location = new System.Drawing.Point(168, 535);
+            this.groupBox3.Location = new System.Drawing.Point(1029, 658);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(686, 170);
+            this.groupBox3.Size = new System.Drawing.Size(74, 44);
             this.groupBox3.TabIndex = 341;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EKLER:";
+            this.groupBox3.Visible = false;
             // 
             // webBrowser1
             // 
@@ -491,26 +507,27 @@ namespace UserInterface.IdariIsler
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(680, 151);
+            this.webBrowser1.Size = new System.Drawing.Size(68, 25);
             this.webBrowser1.TabIndex = 0;
             // 
             // BtnDosyaEkle
             // 
             this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(168, 711);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(860, 652);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(163, 50);
             this.BtnDosyaEkle.TabIndex = 49;
             this.BtnDosyaEkle.Text = "DOSYA EKLE";
             this.BtnDosyaEkle.UseVisualStyleBackColor = true;
+            this.BtnDosyaEkle.Visible = false;
             this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
             // 
             // BtnKaydet
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(337, 711);
+            this.BtnKaydet.Location = new System.Drawing.Point(168, 535);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(163, 50);
             this.BtnKaydet.TabIndex = 48;
@@ -548,6 +565,7 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.TxtAlimTuruGun);
             this.tabPage2.Controls.Add(this.TxtAlinanDonemGun);
             this.tabPage2.Controls.Add(this.TxtAciklamaGun);
             this.tabPage2.Controls.Add(this.label34);
@@ -569,7 +587,6 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.label23);
-            this.tabPage2.Controls.Add(this.TxtAlimTuruGun);
             this.tabPage2.Controls.Add(this.TxtKmGun);
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.label25);
@@ -591,6 +608,28 @@ namespace UserInterface.IdariIsler
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "GÜNCELLE";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // TxtAlinanDonemGun
+            // 
+            this.TxtAlinanDonemGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtAlinanDonemGun.FormattingEnabled = true;
+            this.TxtAlinanDonemGun.Items.AddRange(new object[] {
+            "OCAK 2021",
+            "ŞUBAT 2021",
+            "MART 2021",
+            "NİSAN 2021",
+            "MAYIS 2021",
+            "HAZİRAN 2021",
+            "TEMMUZ 2021",
+            "AĞUSTOS 2021",
+            "EYLÜL 2021",
+            "EKİM 2021",
+            "KASIM 2021",
+            "ARALIK 2021"});
+            this.TxtAlinanDonemGun.Location = new System.Drawing.Point(192, 89);
+            this.TxtAlinanDonemGun.Name = "TxtAlinanDonemGun";
+            this.TxtAlinanDonemGun.Size = new System.Drawing.Size(227, 21);
+            this.TxtAlinanDonemGun.TabIndex = 431;
             // 
             // TxtAciklamaGun
             // 
@@ -793,14 +832,6 @@ namespace UserInterface.IdariIsler
             this.label23.TabIndex = 406;
             this.label23.Text = "YAKIT ALINAN KİLOMETRE:";
             // 
-            // TxtAlimTuruGun
-            // 
-            this.TxtAlimTuruGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtAlimTuruGun.Location = new System.Drawing.Point(192, 300);
-            this.TxtAlimTuruGun.Name = "TxtAlimTuruGun";
-            this.TxtAlimTuruGun.Size = new System.Drawing.Size(226, 20);
-            this.TxtAlimTuruGun.TabIndex = 416;
-            // 
             // TxtKmGun
             // 
             this.TxtKmGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -955,49 +986,29 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // TxtAlinanDonem
+            // TxtAlimTuru
             // 
-            this.TxtAlinanDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtAlinanDonem.FormattingEnabled = true;
-            this.TxtAlinanDonem.Items.AddRange(new object[] {
-            "OCAK 2021",
-            "ŞUBAT 2021",
-            "MART 2021",
-            "NİSAN 2021",
-            "MAYIS 2021",
-            "HAZİRAN 2021",
-            "TEMMUZ 2021",
-            "AĞUSTOS 2021",
-            "EYLÜL 2021",
-            "EKİM 2021",
-            "KASIM 2021",
-            "ARALIK 2021"});
-            this.TxtAlinanDonem.Location = new System.Drawing.Point(168, 76);
-            this.TxtAlinanDonem.Name = "TxtAlinanDonem";
-            this.TxtAlinanDonem.Size = new System.Drawing.Size(227, 21);
-            this.TxtAlinanDonem.TabIndex = 350;
+            this.TxtAlimTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtAlimTuru.FormattingEnabled = true;
+            this.TxtAlimTuru.Items.AddRange(new object[] {
+            "ANLAŞMALI PETROL",
+            "TAŞIT TANIMA"});
+            this.TxtAlimTuru.Location = new System.Drawing.Point(168, 287);
+            this.TxtAlimTuru.Name = "TxtAlimTuru";
+            this.TxtAlimTuru.Size = new System.Drawing.Size(227, 21);
+            this.TxtAlimTuru.TabIndex = 352;
             // 
-            // TxtAlinanDonemGun
+            // TxtAlimTuruGun
             // 
-            this.TxtAlinanDonemGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtAlinanDonemGun.FormattingEnabled = true;
-            this.TxtAlinanDonemGun.Items.AddRange(new object[] {
-            "OCAK 2021",
-            "ŞUBAT 2021",
-            "MART 2021",
-            "NİSAN 2021",
-            "MAYIS 2021",
-            "HAZİRAN 2021",
-            "TEMMUZ 2021",
-            "AĞUSTOS 2021",
-            "EYLÜL 2021",
-            "EKİM 2021",
-            "KASIM 2021",
-            "ARALIK 2021"});
-            this.TxtAlinanDonemGun.Location = new System.Drawing.Point(192, 89);
-            this.TxtAlinanDonemGun.Name = "TxtAlinanDonemGun";
-            this.TxtAlinanDonemGun.Size = new System.Drawing.Size(227, 21);
-            this.TxtAlinanDonemGun.TabIndex = 431;
+            this.TxtAlimTuruGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtAlimTuruGun.FormattingEnabled = true;
+            this.TxtAlimTuruGun.Items.AddRange(new object[] {
+            "ANLAŞMALI PETROL",
+            "TAŞIT TANIMA"});
+            this.TxtAlimTuruGun.Location = new System.Drawing.Point(191, 301);
+            this.TxtAlimTuruGun.Name = "TxtAlimTuruGun";
+            this.TxtAlimTuruGun.Size = new System.Drawing.Size(227, 21);
+            this.TxtAlimTuruGun.TabIndex = 432;
             // 
             // FrmYakitBeyani
             // 
@@ -1022,8 +1033,6 @@ namespace UserInterface.IdariIsler
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox TxtPlaka;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -1038,7 +1047,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TxtToplamFiyat;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox TxtAlimTuru;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox TxtAlinanFirma;
@@ -1087,7 +1095,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox TxtAlimTuruGun;
         private System.Windows.Forms.TextBox TxtKmGun;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
@@ -1103,5 +1110,8 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.ComboBox TxtAlinanDonem;
         private System.Windows.Forms.ComboBox TxtAlinanDonemGun;
+        private System.Windows.Forms.ComboBox TxtPlaka;
+        private System.Windows.Forms.ComboBox TxtAlimTuru;
+        private System.Windows.Forms.ComboBox TxtAlimTuruGun;
     }
 }

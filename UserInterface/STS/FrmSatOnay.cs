@@ -1566,7 +1566,7 @@ namespace UserInterface.STS
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\MP-FR-006 SATIN ALMA FORMU REV (00).docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\SATIN ALMA\\Folder\\MP-FR-006 SATIN ALMA FORMU REV (00)4.docx";
+            object filePath = "Z:\\DTS\\SATIN ALMA\\Folder\\MP-FR-006 SATIN ALMA FORMU REV (00)5.docx";
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 

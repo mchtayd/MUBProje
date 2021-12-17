@@ -205,6 +205,7 @@ namespace UserInterface.Ana_Sayfa
             this.Controls.Add(this.label4);
             this.Controls.Add(this.LblAdsoyad);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmSifremiDegistir";

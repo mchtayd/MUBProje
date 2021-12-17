@@ -349,6 +349,7 @@ namespace UserInterface.IdariIsler
         void IslemAdimlariDisplay()
         {
             DtgIslemAdimlari.DataSource = logManager.GetList(sayfa, id);
+
             DtgIslemAdimlari.Columns["Id"].Visible = false;
             DtgIslemAdimlari.Columns["Sayfa"].Visible = false;
             DtgIslemAdimlari.Columns["Benzersizid"].Visible = false;

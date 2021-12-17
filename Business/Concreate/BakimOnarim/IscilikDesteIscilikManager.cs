@@ -60,15 +60,37 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public List<IscilikDestekIscilik> GetList()
+        public List<IscilikDestekIscilik> GetList(string adSoyad="",string plaka="")
         {
             try
             {
-                return iscilikDal.GetList();
+                return iscilikDal.GetList(adSoyad, plaka);
             }
             catch (Exception)
             {
                 return new List<IscilikDestekIscilik>();
+            }
+        }
+        public List<IscilikDestekTablo> GetListCellClickPersonel(string siparisNo)
+        {
+            try
+            {
+                return iscilikDal.GetListCellClickPersonel(siparisNo);
+            }
+            catch (Exception)
+            {
+                return new List<IscilikDestekTablo>();
+            }
+        }
+        public List<IscilikDestekTabloArac> GetListCellClickArac(string siparisNo)
+        {
+            try
+            {
+                return iscilikDal.GetListCellClickArac(siparisNo);
+            }
+            catch (Exception)
+            {
+                return new List<IscilikDestekTabloArac>();
             }
         }
 

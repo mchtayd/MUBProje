@@ -47,6 +47,7 @@ namespace UserInterface.STS
         SatIslemAdimlariManager satIslemAdimlariManager;
         SatOnayTarihiManager satOnayTarihiManager;
         KimyasalUrunlerManager kimyasalUrunlerManager;
+        AracZimmetiManager aracZimmetiManager;
 
         List<MalzemeKayit> malzemeKayits;
         List<MalzemeKayit> malzemesFiltered;
@@ -67,6 +68,7 @@ namespace UserInterface.STS
         List<DestekDepoTemizlikUrunleri> temizlikUrunleriFitired;
         List<DestekDepoKimyasalUrunler> kimyasalUrunlersFitired;
         List<DestekDepoAmbar> ambarFiltired;
+        List<AracZimmeti> aracZimmetis;
         public object[] infos;
         string bilgi, isAkisNo, dosyaYolu, kaynakdosyaismi, alinandosya, siparisNo, message, malzeme, isAkisNoBasaran, dosyaYoluGun, dosyaYoluTemsili, islem, islemyapan, isleAdimi;
         int atla = 1, index;
@@ -94,6 +96,7 @@ namespace UserInterface.STS
             satIslemAdimlariManager = SatIslemAdimlariManager.GetInstance();
             satOnayTarihiManager = SatOnayTarihiManager.GetInstance();
             kimyasalUrunlerManager = KimyasalUrunlerManager.GetInstance();
+            aracZimmetiManager = AracZimmetiManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -125,6 +128,7 @@ namespace UserInterface.STS
             YedekParca();
             Personeller();
             ButceKoduKalemi();
+            Plakalar();
             start = true;
             projeBekle = true;
         }
@@ -1709,6 +1713,28 @@ namespace UserInterface.STS
             e.Handled = true;
         }
 
+        private void CmbButceKodu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==false)
+            {
+                return;
+            }
+            if (CmbButceKodu.Text== "BM32/AKARYAKIT, NAKİT")
+            {
+                LblPlaka.Visible = true; CmbPlaka.Visible = true;
+                return;
+            }
+            LblPlaka.Visible = false; CmbPlaka.Visible = false;
+        }
+        void Plakalar()
+        {
+            aracZimmetis = aracZimmetiManager.GetList();
+            CmbPlaka.DataSource = aracZimmetis;
+            CmbPlaka.ValueMember = "Id";
+            CmbPlaka.DisplayMember = "Plaka";
+            CmbPlaka.SelectedValue = -1;
+        }
+
         private void SilBasaran5_Click(object sender, EventArgs e)
         {
             stnBasaran5.Text = ""; tBasaran5.Text = ""; mBasaran5.Text = ""; bBasaran5.Text = "";
@@ -2161,6 +2187,12 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen Öncelikle Tutar Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
+            {
+                MessageBox.Show("Lütfen Öncelikle PLAKA Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {

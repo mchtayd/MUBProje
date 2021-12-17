@@ -325,7 +325,7 @@ namespace UserInterface.IdariIsler
             Harcama();
 
             SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, isakisno.ConInt(), infos[4].ToString(),infos[1].ToString(), 
-                infos[2].ToString(),"","",DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya,infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, TxtOtelinAdi.Text);
+                infos[2].ToString(),"","",DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya,infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, firmaBilgisi);
 
             string mesaj = satDataGridview1Manager.Add(satDataGridview1);
             if (mesaj != "OK")
@@ -376,7 +376,7 @@ namespace UserInterface.IdariIsler
             teklifsizSatManager.Add(satinAlinacakMalzeme);
             
         }
-        string personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, butceKodu, proje="";
+        string personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, butceKodu, proje = "", firmaBilgisi = "";
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -398,6 +398,7 @@ namespace UserInterface.IdariIsler
             satNo= DtgList.CurrentRow.Cells["SatNo"].Value.ConInt();
             miktar = DtgList.CurrentRow.Cells["Konaklamasuresi"].Value.ConDouble();
             toplam = DtgList.CurrentRow.Cells["Toplamucret"].Value.ConDouble();
+            firmaBilgisi = DtgList.CurrentRow.Cells["Otelad"].Value.ToString();
 
             SiparisPersonel siparis = siparisPersonelManager.Get("", personelAd);
             proje = siparis.Projekodu;

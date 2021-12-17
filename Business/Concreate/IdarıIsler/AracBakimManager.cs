@@ -152,7 +152,6 @@ namespace Business.Concreate.IdarıIsler
             {
                 return "Lütfen ARIZA AÇIKLAMASI Bilgisini Giriniz.";
             }
-            
             return "";
         }
         public static AracBakimManager GetInstance()

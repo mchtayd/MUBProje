@@ -202,6 +202,24 @@ namespace UserInterface.Ana_Sayfa
                     form.SistemCihaz();
                 }
             }
+            if (comboAd == "FİRMA")
+            {
+                var form = (FrmYakitDokum)Application.OpenForms["FrmYakitDokum"];
+                if (form != null)
+                {
+                    form.Firma();
+                    form.FirmaTasit();
+                }
+            }
+            if (comboAd == "FİRMA TAŞIT TANIMA")
+            {
+                var form = (FrmYakitDokum)Application.OpenForms["FrmYakitDokum"];
+                if (form != null)
+                {
+                    form.Firma();
+                    form.FirmaTasit();
+                }
+            }
         }
     }
 }

@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 
 namespace UserInterface.STS
 {
@@ -56,6 +57,12 @@ namespace UserInterface.STS
             DtgSatIslemAdimlari.Columns["Islem"].HeaderText = "İŞLEM ADIMI";
             DtgSatIslemAdimlari.Columns["Islemyapan"].HeaderText = "İŞLEM YAPAN";
             DtgSatIslemAdimlari.Columns["Tarih"].HeaderText = "TARİH";
+
+            /*dtgTemp.DataSource = teklifsizSats;
+
+            string htmlContent = FrmHelper.Html_Log_Content(DtgSatIslemAdimlari, dtgTemp);
+
+            BrowserLog.DocumentText = htmlContent;*/
         }
         public void YenilecekVeri()
         {
@@ -126,7 +133,7 @@ namespace UserInterface.STS
             {
                 return;
             }
-            
+
             /*if (satOlusturmaTuru == "HARCAMASI YAPILAN")
             {
                 TeklifsizSat item = teklifsizSats[0];
@@ -231,7 +238,7 @@ namespace UserInterface.STS
                 m10.Text = item.Miktar.ToString();
                 b10.Text = item.Birim;
             }
-            
+
             //WebBrowser();
         }
         private void WebBrowser()
@@ -244,7 +251,7 @@ namespace UserInterface.STS
             {
                 return;
             }
-            
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -293,12 +300,12 @@ namespace UserInterface.STS
 
         private void stn4_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void stn5_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void stn6_KeyPress(object sender, KeyPressEventArgs e)
@@ -313,7 +320,7 @@ namespace UserInterface.STS
 
         private void stn8_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void stn9_KeyPress(object sender, KeyPressEventArgs e)
@@ -358,7 +365,7 @@ namespace UserInterface.STS
 
         private void t7_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void t8_KeyPress(object sender, KeyPressEventArgs e)
@@ -378,7 +385,7 @@ namespace UserInterface.STS
 
         private void m1_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void m2_KeyPress(object sender, KeyPressEventArgs e)
@@ -398,17 +405,17 @@ namespace UserInterface.STS
 
         private void m5_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void m6_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void m7_KeyPress(object sender, KeyPressEventArgs e)
         {
-          //  e.Handled = true;
+            //  e.Handled = true;
         }
 
         private void m8_KeyPress(object sender, KeyPressEventArgs e)
@@ -418,12 +425,12 @@ namespace UserInterface.STS
 
         private void m9_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void m10_KeyPress(object sender, KeyPressEventArgs e)
         {
-           // e.Handled = true;
+            // e.Handled = true;
         }
 
         private void b1_KeyPress(object sender, KeyPressEventArgs e)
@@ -486,7 +493,7 @@ namespace UserInterface.STS
         private void DtgDevamEden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
-            if(DtgDevamEden.CurrentRow == null)
+            if (DtgDevamEden.CurrentRow == null)
             {
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
@@ -503,15 +510,15 @@ namespace UserInterface.STS
             fiyatTeklifiAls = fiyatTeklifiAlManager.GetList("Gönderildi", siparisNo);
 
             WebBrowser();
-            if (teklifsizSats.Count==0)
+            if (teklifsizSats.Count == 0)
             {
                 FillTools2();
             }
-            if (fiyatTeklifiAls.Count==0)
+            if (fiyatTeklifiAls.Count == 0)
             {
                 FillTools();
             }
-            
+
             IslemAdimlari();
 
             if (teklifdurumu == 0)
@@ -536,7 +543,7 @@ namespace UserInterface.STS
                 panel2.Visible = true;
                 panel3.Visible = false;
             }
-            
+
         }
         void FillTools2()
         {
@@ -630,7 +637,7 @@ namespace UserInterface.STS
                 m10.Text = item.Miktar.ToString();
                 b10.Text = item.Birim;
             }
-            
+
         }
     }
 }

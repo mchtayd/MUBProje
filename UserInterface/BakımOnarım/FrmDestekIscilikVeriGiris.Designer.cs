@@ -30,8 +30,8 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDestekIscilikVeriGiris));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -188,7 +188,7 @@ namespace UserInterface.BakımOnarım
             this.GrbIscilik.Controls.Add(this.label4);
             this.GrbIscilik.Controls.Add(this.TxtAbfNo);
             this.GrbIscilik.Controls.Add(this.label3);
-            this.GrbIscilik.Location = new System.Drawing.Point(1177, 603);
+            this.GrbIscilik.Location = new System.Drawing.Point(24, 93);
             this.GrbIscilik.Name = "GrbIscilik";
             this.GrbIscilik.Size = new System.Drawing.Size(440, 174);
             this.GrbIscilik.TabIndex = 319;
@@ -404,11 +404,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Kaldir
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.Kaldir.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Red;
+            this.Kaldir.DefaultCellStyle = dataGridViewCellStyle7;
             this.Kaldir.HeaderText = "KALDIR";
             this.Kaldir.MinimumWidth = 22;
             this.Kaldir.Name = "Kaldir";
@@ -672,11 +672,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle8;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -773,7 +773,7 @@ namespace UserInterface.BakımOnarım
             this.GrbPerformans.Controls.Add(this.label25);
             this.GrbPerformans.Controls.Add(this.label29);
             this.GrbPerformans.Controls.Add(this.label24);
-            this.GrbPerformans.Location = new System.Drawing.Point(513, 603);
+            this.GrbPerformans.Location = new System.Drawing.Point(28, 98);
             this.GrbPerformans.Name = "GrbPerformans";
             this.GrbPerformans.Size = new System.Drawing.Size(620, 413);
             this.GrbPerformans.TabIndex = 326;
@@ -859,9 +859,6 @@ namespace UserInterface.BakımOnarım
             // CmbIstikametDuragi
             // 
             this.CmbIstikametDuragi.FormattingEnabled = true;
-            this.CmbIstikametDuragi.Items.AddRange(new object[] {
-            "DESTEK İŞÇİLİK",
-            "İŞÇİLİK"});
             this.CmbIstikametDuragi.Location = new System.Drawing.Point(143, 116);
             this.CmbIstikametDuragi.Name = "CmbIstikametDuragi";
             this.CmbIstikametDuragi.Size = new System.Drawing.Size(243, 21);
@@ -949,9 +946,6 @@ namespace UserInterface.BakımOnarım
             // CmbMevcutDuragi
             // 
             this.CmbMevcutDuragi.FormattingEnabled = true;
-            this.CmbMevcutDuragi.Items.AddRange(new object[] {
-            "DESTEK İŞÇİLİK",
-            "İŞÇİLİK"});
             this.CmbMevcutDuragi.Location = new System.Drawing.Point(143, 59);
             this.CmbMevcutDuragi.Name = "CmbMevcutDuragi";
             this.CmbMevcutDuragi.Size = new System.Drawing.Size(243, 21);

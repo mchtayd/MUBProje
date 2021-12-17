@@ -87,6 +87,7 @@
     <Compile Include="Concreate\IdarıIsler\SiparislerManager.cs" />
     <Compile Include="Concreate\IdarıIsler\StokManager.cs" />
     <Compile Include="Concreate\IdarıIsler\UcakOtobusManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\YakitDokumManager.cs" />
     <Compile Include="Concreate\IdarıIsler\YakitManager.cs" />
     <Compile Include="Concreate\IdarıIsler\YurtDisiGorevManager.cs" />
     <Compile Include="Concreate\IdarıIsler\YurtIciGorevManager.cs" />

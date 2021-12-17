@@ -36,7 +36,7 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@varisTarihiSaati",entity.VarisTarihiSaat),
                     new SqlParameter("@sonuc",entity.Sonuc));
                 
-                dataReader.Read();
+                dataReader.Close();
                 return "OK";
             }
             catch (Exception ex)

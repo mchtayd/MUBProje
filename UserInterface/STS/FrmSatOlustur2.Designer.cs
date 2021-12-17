@@ -253,6 +253,8 @@ namespace UserInterface.STS
             this.CmbSatBirim = new System.Windows.Forms.ComboBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.TxtProjeKodu = new System.Windows.Forms.TextBox();
+            this.label67 = new System.Windows.Forms.Label();
             this.CmbSiparisNo = new System.Windows.Forms.TextBox();
             this.TxtGorevi = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
@@ -266,7 +268,9 @@ namespace UserInterface.STS
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.CmbDonemBasaran = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
+            this.LblIsAkisNo2 = new System.Windows.Forms.Label();
             this.DtgIstenenTarihBasaran = new System.Windows.Forms.DateTimePicker();
+            this.label37 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.LblAdSoyad = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -274,16 +278,14 @@ namespace UserInterface.STS
             this.label32 = new System.Windows.Forms.Label();
             this.LblMasrafYeriNo = new System.Windows.Forms.Label();
             this.LblMasrafYeri = new System.Windows.Forms.Label();
-            this.LblIsAkisNo2 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
             this.TxtGerekceBasaran = new System.Windows.Forms.RichTextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.TxtProjeKodu = new System.Windows.Forms.TextBox();
-            this.label67 = new System.Windows.Forms.Label();
+            this.LblPlaka = new System.Windows.Forms.Label();
+            this.CmbPlaka = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -2321,6 +2323,8 @@ namespace UserInterface.STS
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.CmbPlaka);
+            this.tabPage4.Controls.Add(this.LblPlaka);
             this.tabPage4.Controls.Add(this.TxtSatinAlinanFirma);
             this.tabPage4.Controls.Add(this.label66);
             this.tabPage4.Controls.Add(this.DtBelgeTarihi);
@@ -2402,7 +2406,7 @@ namespace UserInterface.STS
             // TxtTutar
             // 
             this.TxtTutar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTutar.Location = new System.Drawing.Point(173, 22);
+            this.TxtTutar.Location = new System.Drawing.Point(173, 23);
             this.TxtTutar.Name = "TxtTutar";
             this.TxtTutar.Size = new System.Drawing.Size(73, 21);
             this.TxtTutar.TabIndex = 491;
@@ -2524,6 +2528,7 @@ namespace UserInterface.STS
             this.CmbButceKodu.Name = "CmbButceKodu";
             this.CmbButceKodu.Size = new System.Drawing.Size(278, 21);
             this.CmbButceKodu.TabIndex = 0;
+            this.CmbButceKodu.SelectedIndexChanged += new System.EventHandler(this.CmbButceKodu_SelectedIndexChanged);
             // 
             // label62
             // 
@@ -2688,6 +2693,22 @@ namespace UserInterface.STS
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "TALEP EDEN";
             // 
+            // TxtProjeKodu
+            // 
+            this.TxtProjeKodu.Location = new System.Drawing.Point(137, 151);
+            this.TxtProjeKodu.Name = "TxtProjeKodu";
+            this.TxtProjeKodu.Size = new System.Drawing.Size(258, 20);
+            this.TxtProjeKodu.TabIndex = 29;
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(87, 155);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(45, 13);
+            this.label67.TabIndex = 28;
+            this.label67.Text = "PROJE:";
+            // 
             // CmbSiparisNo
             // 
             this.CmbSiparisNo.Location = new System.Drawing.Point(137, 46);
@@ -2822,6 +2843,15 @@ namespace UserInterface.STS
             this.label35.TabIndex = 28;
             this.label35.Text = "DÖNEM:";
             // 
+            // LblIsAkisNo2
+            // 
+            this.LblIsAkisNo2.AutoSize = true;
+            this.LblIsAkisNo2.Location = new System.Drawing.Point(125, 23);
+            this.LblIsAkisNo2.Name = "LblIsAkisNo2";
+            this.LblIsAkisNo2.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNo2.TabIndex = 116;
+            this.LblIsAkisNo2.Text = "00";
+            // 
             // DtgIstenenTarihBasaran
             // 
             this.DtgIstenenTarihBasaran.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -2829,6 +2859,15 @@ namespace UserInterface.STS
             this.DtgIstenenTarihBasaran.Name = "DtgIstenenTarihBasaran";
             this.DtgIstenenTarihBasaran.Size = new System.Drawing.Size(105, 20);
             this.DtgIstenenTarihBasaran.TabIndex = 106;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(53, 23);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(66, 13);
+            this.label37.TabIndex = 115;
+            this.label37.Text = "İŞ AKIŞ NO:";
             // 
             // label14
             // 
@@ -2893,24 +2932,6 @@ namespace UserInterface.STS
             this.LblMasrafYeri.TabIndex = 104;
             this.LblMasrafYeri.Text = "00";
             // 
-            // LblIsAkisNo2
-            // 
-            this.LblIsAkisNo2.AutoSize = true;
-            this.LblIsAkisNo2.Location = new System.Drawing.Point(125, 23);
-            this.LblIsAkisNo2.Name = "LblIsAkisNo2";
-            this.LblIsAkisNo2.Size = new System.Drawing.Size(19, 13);
-            this.LblIsAkisNo2.TabIndex = 116;
-            this.LblIsAkisNo2.Text = "00";
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(53, 23);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(66, 13);
-            this.label37.TabIndex = 115;
-            this.label37.Text = "İŞ AKIŞ NO:";
-            // 
             // TxtGerekceBasaran
             // 
             this.TxtGerekceBasaran.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -2957,21 +2978,25 @@ namespace UserInterface.STS
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // TxtProjeKodu
+            // LblPlaka
             // 
-            this.TxtProjeKodu.Location = new System.Drawing.Point(137, 151);
-            this.TxtProjeKodu.Name = "TxtProjeKodu";
-            this.TxtProjeKodu.Size = new System.Drawing.Size(258, 20);
-            this.TxtProjeKodu.TabIndex = 29;
+            this.LblPlaka.AutoSize = true;
+            this.LblPlaka.Location = new System.Drawing.Point(506, 27);
+            this.LblPlaka.Name = "LblPlaka";
+            this.LblPlaka.Size = new System.Drawing.Size(44, 13);
+            this.LblPlaka.TabIndex = 497;
+            this.LblPlaka.Text = "PLAKA:";
+            this.LblPlaka.Visible = false;
             // 
-            // label67
+            // CmbPlaka
             // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(87, 155);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(45, 13);
-            this.label67.TabIndex = 28;
-            this.label67.Text = "PROJE:";
+            this.CmbPlaka.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbPlaka.FormattingEnabled = true;
+            this.CmbPlaka.Location = new System.Drawing.Point(556, 23);
+            this.CmbPlaka.Name = "CmbPlaka";
+            this.CmbPlaka.Size = new System.Drawing.Size(152, 21);
+            this.CmbPlaka.TabIndex = 498;
+            this.CmbPlaka.Visible = false;
             // 
             // FrmSatOlustur2
             // 
@@ -3270,5 +3295,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.TextBox TxtProjeKodu;
         private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.ComboBox CmbPlaka;
+        private System.Windows.Forms.Label LblPlaka;
     }
 }
