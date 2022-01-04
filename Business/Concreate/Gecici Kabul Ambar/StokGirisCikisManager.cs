@@ -55,11 +55,11 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public StokGirisCıkıs Get(int id)
+        public StokGirisCıkıs Get(string stokNo)
         {
             try
             {
-                return stokGirisCikisDal.Get(id);
+                return stokGirisCikisDal.Get(stokNo);
             }
             catch (Exception)
             {
@@ -68,11 +68,11 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public List<StokGirisCıkıs> GetList(int id=0)
+        public List<StokGirisCıkıs> GetList(string stokNo="")
         {
             try
             {
-                return stokGirisCikisDal.GetList(id);
+                return stokGirisCikisDal.GetList(stokNo);
             }
             catch (Exception)
             {

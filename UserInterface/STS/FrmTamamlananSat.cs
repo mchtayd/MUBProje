@@ -24,7 +24,7 @@ namespace UserInterface.STS
         TamamlananMalzemeManager tamamlananMalzemeManager;
         SatIslemAdimlariManager satIslemAdimlarimanager;
         ComboManager comboManager;
-        string siparisNo, dosyayolu, butceKodu;
+        string siparisNo="", dosyayolu, butceKodu;
         int ucteklif;
         double geneltoplam, harcananTutar;
         bool start = true;
@@ -122,8 +122,8 @@ namespace UserInterface.STS
         void DataDisplay()
         {
             DtgTamamlananSatlar.Columns["Id"].Visible = false;
-            DtgTamamlananSatlar.Columns["Satno"].HeaderText = "İŞ AKIŞ NO";
-            DtgTamamlananSatlar.Columns["Formno"].HeaderText = "SAT NO";
+            DtgTamamlananSatlar.Columns["Satno"].HeaderText = "SAT_NO";
+            DtgTamamlananSatlar.Columns["Formno"].HeaderText = "İŞ AKIŞ NO";
             DtgTamamlananSatlar.Columns["Masrafyeri"].HeaderText = "MASRAF YERİ NO";
             DtgTamamlananSatlar.Columns["Talepeden"].HeaderText = "TALEP EDEN";
             DtgTamamlananSatlar.Columns["Bolum"].HeaderText = "BÖLÜM";
@@ -213,6 +213,7 @@ namespace UserInterface.STS
             TxtGenelTop.Text = geneltoplam.ToString("0.00") + " ₺";
             FillTools();
         }
+        
         void IslemAdimlari()
         {
             DtgSatIslemAdimlari.DataSource = satIslemAdimlarimanager.GetList(siparisNo);
@@ -268,7 +269,7 @@ namespace UserInterface.STS
             List<Tamamlanan> list = new List<Tamamlanan>();
             foreach (IXLRow item in rows)
             {
-                if (item.Cell("C").Value.ToString().Trim() != "" && item.Cell("C").Value.ToString().Trim() == "KASIM")
+                if (item.Cell("C").Value.ToString().Trim() != "" && item.Cell("C").Value.ToString().Trim() == "EYLÜL")
                 {
                     try
                     {
@@ -576,97 +577,97 @@ namespace UserInterface.STS
 
         private void BBF1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF4_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF5_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF6_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF7_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF8_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF9_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BBF10_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT2_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT3_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT4_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT5_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT6_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT7_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT8_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BT9_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void BtnSatiGuncelle_Click(object sender, EventArgs e)
@@ -692,14 +693,295 @@ namespace UserInterface.STS
             CmbProjeKodu.DisplayMember = "Baslik";
             CmbProjeKodu.SelectedValue = 0;
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri Guncellemek İstiyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                if (siparisNo=="")
+                {
+                    MessageBox.Show("Lütfen Geçerli Bir Sat Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+                string mesaj = tamamlananManager.UpdateTutar(TxtGenelTop.Text.ConDouble(), siparisNo);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show( mesaj,"Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MalzemeGuncelle();
+
+                MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TamamlananSatlar();
+                Temizle();
+            }
+        }
+        void MalzemeGuncelle()
+        {
+            List<TamamlananMalzeme> tamamlanan = new List<TamamlananMalzeme>();
+
+            if (stn1.Text!="")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn1.Text, BBF1.Text.ConDouble(), BT1.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn2.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn2.Text, BBF2.Text.ConDouble(), BT2.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn3.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn3.Text, BBF3.Text.ConDouble(), BT3.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn4.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn4.Text, BBF4.Text.ConDouble(), BT4.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn5.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn5.Text, BBF5.Text.ConDouble(), BT5.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn6.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn6.Text, BBF6.Text.ConDouble(), BT6.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn7.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn7.Text, BBF7.Text.ConDouble(), BT7.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn8.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn8.Text, BBF8.Text.ConDouble(), BT8.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn9.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn9.Text, BBF9.Text.ConDouble(), BT9.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            if (stn10.Text != "")
+            {
+                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn10.Text, BBF10.Text.ConDouble(), BT10.Text.ConDouble(), siparisNo);
+                tamamlanan.Add(tamamlananMalzeme);
+            }
+            foreach (TamamlananMalzeme item in tamamlanan)
+            {
+                tamamlananMalzemeManager.UpdateFiyat(item);
+            }
+
+        }
+        string topfiyat;
+        double outValue = 0;
+        double sonuc;
+        string TopFiyatHesapla(string a, string b)
+        {
+            double x, y = 0;
+
+            if (a == "" || b == "")
+            {
+                sonuc = 0;
+                topfiyat = sonuc.ToString("0.00");
+                return topfiyat;
+            }
+            x = double.TryParse(a, out outValue) ? Convert.ToDouble(a) : 0;
+            y = double.TryParse(b, out outValue) ? Convert.ToDouble(b) : 0;
+            sonuc = x * y;
+            topfiyat = sonuc.ToString("0.00");
+            return topfiyat;
+        }
+        double x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, geneltop;
+        void GenelToplam1()
+        {
+            geneltop = x1 + x2 + x3 + x4 + x5 + x6 + x7 + x8 + x9 + x10;
+
+            TxtGenelTop.Text = geneltop.ToString("0.00") + " ₺";
+        }
+
+        private void BT1_TextChanged(object sender, EventArgs e)
+        {
+            if (BT1.Text == "")
+            {
+                x1 = 0;
+                GenelToplam1();
+                return;
+            }
+            x1 = BT1.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT2_TextChanged(object sender, EventArgs e)
+        {
+            if (BT2.Text == "")
+            {
+                x2 = 0;
+                GenelToplam1();
+                return;
+            }
+            x2 = BT2.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT3_TextChanged(object sender, EventArgs e)
+        {
+            if (BT3.Text == "")
+            {
+                x3 = 0;
+                GenelToplam1();
+                return;
+            }
+            x3 = BT3.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT4_TextChanged(object sender, EventArgs e)
+        {
+            if (BT4.Text == "")
+            {
+                x4 = 0;
+                GenelToplam1();
+                return;
+            }
+            x4 = BT4.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT5_TextChanged(object sender, EventArgs e)
+        {
+            if (BT5.Text == "")
+            {
+                x5 = 0;
+                GenelToplam1();
+                return;
+            }
+            x5 = BT5.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT6_TextChanged(object sender, EventArgs e)
+        {
+            if (BT6.Text == "")
+            {
+                x6 = 0;
+                GenelToplam1();
+                return;
+            }
+            x6 = BT6.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT7_TextChanged(object sender, EventArgs e)
+        {
+            if (BT7.Text == "")
+            {
+                x7 = 0;
+                GenelToplam1();
+                return;
+            }
+            x7 = BT7.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT8_TextChanged(object sender, EventArgs e)
+        {
+            if (BT8.Text == "")
+            {
+                x8 = 0;
+                GenelToplam1();
+                return;
+            }
+            x8 = BT8.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT9_TextChanged(object sender, EventArgs e)
+        {
+            if (BT9.Text == "")
+            {
+                x9 = 0;
+                GenelToplam1();
+                return;
+            }
+            x9 = BT9.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BT10_TextChanged(object sender, EventArgs e)
+        {
+            if (BT10.Text == "")
+            {
+                x10 = 0;
+                GenelToplam1();
+                return;
+            }
+            x10 = BT10.Text.ConDouble();
+            GenelToplam1();
+        }
+
+        private void BBF1_TextChanged(object sender, EventArgs e)
+        {
+            BT1.Text = TopFiyatHesapla(BBF1.Text, m1.Text);
+        }
+
+        private void BBF2_TextChanged(object sender, EventArgs e)
+        {
+            BT2.Text = TopFiyatHesapla(BBF2.Text, m2.Text);
+        }
+
+        private void BBF3_TextChanged(object sender, EventArgs e)
+        {
+            BT3.Text = TopFiyatHesapla(BBF3.Text, m3.Text);
+        }
+
+        private void BBF4_TextChanged(object sender, EventArgs e)
+        {
+            BT4.Text = TopFiyatHesapla(BBF4.Text, m4.Text);
+        }
+
+        private void BBF5_TextChanged(object sender, EventArgs e)
+        {
+            BT5.Text = TopFiyatHesapla(BBF5.Text, m5.Text);
+        }
+
+        private void BBF6_TextChanged(object sender, EventArgs e)
+        {
+            BT6.Text = TopFiyatHesapla(BBF6.Text, m6.Text);
+        }
+
+        private void BBF7_TextChanged(object sender, EventArgs e)
+        {
+            BT7.Text = TopFiyatHesapla(BBF7.Text, m7.Text);
+        }
+
+        private void BBF8_TextChanged(object sender, EventArgs e)
+        {
+            BT8.Text = TopFiyatHesapla(BBF8.Text, m8.Text);
+        }
+
+        private void BBF9_TextChanged(object sender, EventArgs e)
+        {
+            BT9.Text = TopFiyatHesapla(BBF9.Text, m9.Text);
+        }
+
+        private void BBF10_TextChanged(object sender, EventArgs e)
+        {
+            BT10.Text = TopFiyatHesapla(BBF10.Text, m10.Text);
+        }
+
         private void BT10_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void TxtGenelTop_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
         private void FillTools()

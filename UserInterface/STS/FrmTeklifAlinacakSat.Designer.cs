@@ -2075,7 +2075,6 @@ namespace UserInterface.STS
             this.F3_10.Name = "F3_10";
             this.F3_10.Size = new System.Drawing.Size(158, 21);
             this.F3_10.TabIndex = 490;
-            this.F3_10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_10_KeyPress);
             // 
             // F3_9
             // 
@@ -2084,7 +2083,6 @@ namespace UserInterface.STS
             this.F3_9.Name = "F3_9";
             this.F3_9.Size = new System.Drawing.Size(158, 21);
             this.F3_9.TabIndex = 489;
-            this.F3_9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_9_KeyPress);
             // 
             // F3_8
             // 
@@ -2093,7 +2091,6 @@ namespace UserInterface.STS
             this.F3_8.Name = "F3_8";
             this.F3_8.Size = new System.Drawing.Size(158, 21);
             this.F3_8.TabIndex = 488;
-            this.F3_8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_8_KeyPress);
             // 
             // F3_7
             // 
@@ -2102,7 +2099,6 @@ namespace UserInterface.STS
             this.F3_7.Name = "F3_7";
             this.F3_7.Size = new System.Drawing.Size(158, 21);
             this.F3_7.TabIndex = 487;
-            this.F3_7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_7_KeyPress);
             // 
             // F3_6
             // 
@@ -2111,7 +2107,6 @@ namespace UserInterface.STS
             this.F3_6.Name = "F3_6";
             this.F3_6.Size = new System.Drawing.Size(158, 21);
             this.F3_6.TabIndex = 486;
-            this.F3_6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_6_KeyPress);
             // 
             // F3_5
             // 
@@ -2120,7 +2115,6 @@ namespace UserInterface.STS
             this.F3_5.Name = "F3_5";
             this.F3_5.Size = new System.Drawing.Size(158, 21);
             this.F3_5.TabIndex = 485;
-            this.F3_5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_5_KeyPress);
             // 
             // F3_4
             // 
@@ -2129,7 +2123,6 @@ namespace UserInterface.STS
             this.F3_4.Name = "F3_4";
             this.F3_4.Size = new System.Drawing.Size(158, 21);
             this.F3_4.TabIndex = 484;
-            this.F3_4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_4_KeyPress);
             // 
             // F3_3
             // 
@@ -2138,7 +2131,6 @@ namespace UserInterface.STS
             this.F3_3.Name = "F3_3";
             this.F3_3.Size = new System.Drawing.Size(158, 21);
             this.F3_3.TabIndex = 483;
-            this.F3_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_3_KeyPress);
             // 
             // F3_2
             // 
@@ -2147,7 +2139,6 @@ namespace UserInterface.STS
             this.F3_2.Name = "F3_2";
             this.F3_2.Size = new System.Drawing.Size(158, 21);
             this.F3_2.TabIndex = 482;
-            this.F3_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_2_KeyPress);
             // 
             // F3_1
             // 
@@ -2156,7 +2147,6 @@ namespace UserInterface.STS
             this.F3_1.Name = "F3_1";
             this.F3_1.Size = new System.Drawing.Size(158, 21);
             this.F3_1.TabIndex = 481;
-            this.F3_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F3_1_KeyPress);
             // 
             // label9
             // 
@@ -2175,7 +2165,6 @@ namespace UserInterface.STS
             this.F2_10.Name = "F2_10";
             this.F2_10.Size = new System.Drawing.Size(158, 21);
             this.F2_10.TabIndex = 479;
-            this.F2_10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_10_KeyPress);
             // 
             // F2_9
             // 
@@ -2184,7 +2173,6 @@ namespace UserInterface.STS
             this.F2_9.Name = "F2_9";
             this.F2_9.Size = new System.Drawing.Size(158, 21);
             this.F2_9.TabIndex = 478;
-            this.F2_9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_9_KeyPress);
             // 
             // F2_8
             // 
@@ -2193,7 +2181,6 @@ namespace UserInterface.STS
             this.F2_8.Name = "F2_8";
             this.F2_8.Size = new System.Drawing.Size(158, 21);
             this.F2_8.TabIndex = 477;
-            this.F2_8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_8_KeyPress);
             // 
             // F2_7
             // 
@@ -2202,7 +2189,6 @@ namespace UserInterface.STS
             this.F2_7.Name = "F2_7";
             this.F2_7.Size = new System.Drawing.Size(158, 21);
             this.F2_7.TabIndex = 476;
-            this.F2_7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_7_KeyPress);
             // 
             // F2_6
             // 
@@ -2211,7 +2197,6 @@ namespace UserInterface.STS
             this.F2_6.Name = "F2_6";
             this.F2_6.Size = new System.Drawing.Size(158, 21);
             this.F2_6.TabIndex = 475;
-            this.F2_6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_6_KeyPress);
             // 
             // F2_5
             // 
@@ -2220,7 +2205,6 @@ namespace UserInterface.STS
             this.F2_5.Name = "F2_5";
             this.F2_5.Size = new System.Drawing.Size(158, 21);
             this.F2_5.TabIndex = 474;
-            this.F2_5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_5_KeyPress);
             // 
             // F2_4
             // 
@@ -2229,7 +2213,6 @@ namespace UserInterface.STS
             this.F2_4.Name = "F2_4";
             this.F2_4.Size = new System.Drawing.Size(158, 21);
             this.F2_4.TabIndex = 473;
-            this.F2_4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_4_KeyPress);
             // 
             // F2_3
             // 
@@ -2238,7 +2221,6 @@ namespace UserInterface.STS
             this.F2_3.Name = "F2_3";
             this.F2_3.Size = new System.Drawing.Size(158, 21);
             this.F2_3.TabIndex = 472;
-            this.F2_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_3_KeyPress);
             // 
             // F2_2
             // 
@@ -2247,7 +2229,6 @@ namespace UserInterface.STS
             this.F2_2.Name = "F2_2";
             this.F2_2.Size = new System.Drawing.Size(158, 21);
             this.F2_2.TabIndex = 471;
-            this.F2_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_2_KeyPress);
             // 
             // F2_1
             // 
@@ -2256,7 +2237,6 @@ namespace UserInterface.STS
             this.F2_1.Name = "F2_1";
             this.F2_1.Size = new System.Drawing.Size(158, 21);
             this.F2_1.TabIndex = 470;
-            this.F2_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F2_1_KeyPress);
             // 
             // label7
             // 
@@ -3701,6 +3681,8 @@ namespace UserInterface.STS
             this.DtgMailList.Size = new System.Drawing.Size(1512, 377);
             this.DtgMailList.TabIndex = 1;
             this.DtgMailList.TimeFilter = false;
+            this.DtgMailList.SortStringChanged += new System.EventHandler(this.DtgMailList_SortStringChanged);
+            this.DtgMailList.FilterStringChanged += new System.EventHandler(this.DtgMailList_FilterStringChanged);
             this.DtgMailList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgMailList_CellMouseClick);
             // 
             // panel4
@@ -3935,6 +3917,8 @@ namespace UserInterface.STS
             this.DtgGelenMail.Size = new System.Drawing.Size(1512, 377);
             this.DtgGelenMail.TabIndex = 1;
             this.DtgGelenMail.TimeFilter = false;
+            this.DtgGelenMail.SortStringChanged += new System.EventHandler(this.DtgGelenMail_SortStringChanged);
+            this.DtgGelenMail.FilterStringChanged += new System.EventHandler(this.DtgGelenMail_FilterStringChanged);
             this.DtgGelenMail.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgGelenMail_CellMouseClick);
             // 
             // panel1

@@ -144,9 +144,21 @@ namespace DataAccess.Concreate.STS
             }
         }
 
-        public string Update(Tamamlanan entity)
+        public string UpdateTutar(double tutar, string siparisNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("TamamlananSatFiyatGuncelle",
+                    new SqlParameter("@tutar",tutar),
+                    new SqlParameter("@siparisNo",siparisNo));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static TamamlananDal GetInstance()
         {

@@ -68,7 +68,7 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["BelgeTuru"].HeaderText = "BELGE TÜRÜ";
             DtgList.Columns["BelgeNumarasi"].HeaderText = "BELGE NUMARASI";
             DtgList.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
-            DtgList.Columns["DosyaYolu"].Visible = false;
+            //DtgList.Columns["DosyaYolu"].Visible = false;
             DtgList.Columns["Sayfa"].Visible = false;
             Toplamlar();
         }
@@ -125,7 +125,7 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
-            dosyayolu = DtgList.CurrentRow.Cells["Dosyayolu"].Value.ToString();
+            //dosyayolu = DtgList.CurrentRow.Cells["Dosyayolu"].Value.ToString();
             sayfa = DtgList.CurrentRow.Cells["Sayfa"].Value.ToString();
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
             try

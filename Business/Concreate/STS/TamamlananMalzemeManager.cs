@@ -51,9 +51,16 @@ namespace Business.Concreate.STS
             }
         }
 
-        public string Update(TamamlananMalzeme entity)
+        public string UpdateFiyat(TamamlananMalzeme entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return tamamlananMalzemeDal.UpdateFiyat(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static TamamlananMalzemeManager GetInstance()
         {

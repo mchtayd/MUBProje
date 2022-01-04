@@ -38,10 +38,10 @@ namespace UserInterface.Ana_Sayfa
                 MessageBox.Show("Listede SAT Verisi Bulunmadığı için Mail İçeriği Oluşturulamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            lblFrom.Text = "mehmetsenol@mubvan.net";
+            lblFrom.Text = "gulsahotaci@mubvan.net";
             txtSubject.Text = "SAT ONAYLARI";
-            txtTo.Text = "mehmetsenol@mubvan.net";
-            txtCc.Text = "mehmetsenol@mubvan.net";
+            txtTo.Text = "gulsahotaci@mubvan.net";
+            txtCc.Text = "gulsahotaci@mubvan.net";
             SetDatagrid(satMailList);
             webContent.DocumentText = Html_Content(DtgForHtml, satMailList);
         }
@@ -50,6 +50,8 @@ namespace UserInterface.Ana_Sayfa
         {
             List<string> alicilar = txtTo.Text.Split(',').ToList();
             List<string> bilgi = txtCc.Text.Split(',').ToList();
+
+            //Task.Factory.StartNew(() => CreateOnayMail(teklifAlinanListe));
 
             MailSendHtml(txtSubject.Text, webContent.DocumentText,
                 alicilar, // Alıcı

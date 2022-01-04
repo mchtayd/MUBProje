@@ -70,6 +70,8 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\SqlServices.cs" />
     <Compile Include="ComboDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\AbfFormNoDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\ArizaKayitDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDestekIsciliklDal.cs" />
@@ -77,8 +79,11 @@
     <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikIscilikDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikPerformansDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\PypDal.cs" />
     <Compile Include="Concreate\Depo\AmbarDal.cs" />
     <Compile Include="Concreate\Depo\CayOcagiDal.cs" />
+    <Compile Include="Concreate\Depo\DepoKayitDal.cs" />
+    <Compile Include="Concreate\Depo\DepoKayitLokasyonDal.cs" />
     <Compile Include="Concreate\Depo\DestekDepoMalzemeKayitDal.cs" />
     <Compile Include="Concreate\Depo\ElAletleriDal.cs" />
     <Compile Include="Concreate\Depo\IsGiysiDal.cs" />
@@ -158,6 +163,7 @@
     <Compile Include="Database\SqlDatabase.cs" />
     <Compile Include="DosyaIslemleri\PdfOku.cs" />
     <Compile Include="Concreate\IdariIsler\DvNoDal.cs" />
+    <Compile Include="GorevAtamaDal.cs" />
     <Compile Include="IsAkisNoDal.cs" />
     <Compile Include="PersonelIslemleriDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

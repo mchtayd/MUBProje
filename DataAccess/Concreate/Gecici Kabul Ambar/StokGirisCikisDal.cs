@@ -62,11 +62,11 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public StokGirisCıkıs Get(int id)
+        public StokGirisCıkıs Get(string stokNo)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("StokGirisCikisList",new SqlParameter("@id",id));
+                dataReader = sqlServices.StoreReader("StokGirisCikisList", new SqlParameter("@stokNo", stokNo));
                 StokGirisCıkıs item = null;
                 while (dataReader.Read())
                 {
@@ -92,15 +92,16 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public List<StokGirisCıkıs> GetList(int id)
+        public List<StokGirisCıkıs> GetList(string stokNo)
         {
             try
             {
                 List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
-                dataReader = sqlServices.StoreReader("StokGirisCikisList",new SqlParameter("@id",id));
+                dataReader = sqlServices.StoreReader("StokGirisCikisList",new SqlParameter("@stokNo", stokNo));
                 while (dataReader.Read())
                 {
-                    stokGirisCıkıs.Add(new StokGirisCıkıs(dataReader["ID"].ConInt(),
+                    stokGirisCıkıs.Add(new StokGirisCıkıs(
+                        dataReader["ID"].ConInt(),
                         dataReader["ISLEM_TURU"].ToString(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
@@ -110,7 +111,10 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["DEPO_NO"].ToString(),
                         dataReader["DEPO_ADRESI"].ToString(),
                         dataReader["MALZEME_YERI"].ToString(),
-                        dataReader["ACIKLAMA"].ToString()));
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString()));
                 }
                 dataReader.Close();
                 return stokGirisCıkıs;

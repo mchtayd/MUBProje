@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.BakımOnarım;
 using UserInterface.IdariIşler;
 using UserInterface.IdariIsler;
 
@@ -218,6 +219,14 @@ namespace UserInterface.Ana_Sayfa
                 {
                     form.Firma();
                     form.FirmaTasit();
+                }
+            }
+            if (comboAd == "PROJE")
+            {
+                var form = (FrmBolgeler)Application.OpenForms["FrmBolgeler"];
+                if (form != null)
+                {
+                    form.ComboProje();
                 }
             }
         }

@@ -29,9 +29,9 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYakitDokum));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -40,7 +40,6 @@ namespace UserInterface.IdariIsler
             this.ToplamLitre = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
-            this.TxtAlinanDonem = new System.Windows.Forms.ComboBox();
             this.LbToplam = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -77,7 +76,6 @@ namespace UserInterface.IdariIsler
             this.TxtDefterNo = new System.Windows.Forms.TextBox();
             this.DtTarih = new System.Windows.Forms.DateTimePicker();
             this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -91,6 +89,8 @@ namespace UserInterface.IdariIsler
             this.CmbFirma = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.LblGenelToplamTasit = new System.Windows.Forms.Label();
+            this.LblGenelTopTasit = new System.Windows.Forms.Label();
             this.TxtAlinanDonemTasit = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.AdvListTasit = new ADGV.AdvancedDataGridView();
@@ -105,7 +105,6 @@ namespace UserInterface.IdariIsler
             this.BtnKaydetTasit = new System.Windows.Forms.Button();
             this.label15 = new System.Windows.Forms.Label();
             this.LblToplamKayit = new System.Windows.Forms.Label();
-            this.LblIsAkisNoTasit = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.BtnDosyaEkleTasit = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -123,9 +122,22 @@ namespace UserInterface.IdariIsler
             this.BtnFirmaEkleTasit = new System.Windows.Forms.Button();
             this.CmbFirmaTasit = new System.Windows.Forms.ComboBox();
             this.label30 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.webBrowser3 = new System.Windows.Forms.WebBrowser();
+            this.LblIsAkisNoTasit = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.LblTopmaSayi = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.LblTTasitTanima = new System.Windows.Forms.Label();
+            this.BtnKaydetTT = new System.Windows.Forms.Button();
+            this.label21 = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.DtgTTList = new ADGV.AdvancedDataGridView();
+            this.BtnDosyaSec = new System.Windows.Forms.Button();
+            this.TxtDosyaYolu = new System.Windows.Forms.TextBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.LblGenelToplamTasit = new System.Windows.Forms.Label();
-            this.LblGenelTopTasit = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -136,6 +148,10 @@ namespace UserInterface.IdariIsler
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdvListTasit)).BeginInit();
             this.groupBox4.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgTTList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -166,6 +182,7 @@ namespace UserInterface.IdariIsler
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(12, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -178,7 +195,6 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Controls.Add(this.ToplamLitre);
             this.tabPage1.Controls.Add(this.label14);
             this.tabPage1.Controls.Add(this.LblGenelTop);
-            this.tabPage1.Controls.Add(this.TxtAlinanDonem);
             this.tabPage1.Controls.Add(this.LbToplam);
             this.tabPage1.Controls.Add(this.label31);
             this.tabPage1.Controls.Add(this.TxtTop);
@@ -199,7 +215,6 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Controls.Add(this.TxtDefterNo);
             this.tabPage1.Controls.Add(this.DtTarih);
             this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label10);
             this.tabPage1.Controls.Add(this.label9);
             this.tabPage1.Controls.Add(this.label8);
@@ -260,32 +275,10 @@ namespace UserInterface.IdariIsler
             this.LblGenelTop.TabIndex = 468;
             this.LblGenelTop.Text = "0";
             // 
-            // TxtAlinanDonem
-            // 
-            this.TxtAlinanDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtAlinanDonem.FormattingEnabled = true;
-            this.TxtAlinanDonem.Items.AddRange(new object[] {
-            "OCAK 2021",
-            "ŞUBAT 2021",
-            "MART 2021",
-            "NİSAN 2021",
-            "MAYIS 2021",
-            "HAZİRAN 2021",
-            "TEMMUZ 2021",
-            "AĞUSTOS 2021",
-            "EYLÜL 2021",
-            "EKİM 2021",
-            "KASIM 2021",
-            "ARALIK 2021"});
-            this.TxtAlinanDonem.Location = new System.Drawing.Point(141, 69);
-            this.TxtAlinanDonem.Name = "TxtAlinanDonem";
-            this.TxtAlinanDonem.Size = new System.Drawing.Size(160, 21);
-            this.TxtAlinanDonem.TabIndex = 466;
-            // 
             // LbToplam
             // 
             this.LbToplam.AutoSize = true;
-            this.LbToplam.Location = new System.Drawing.Point(138, 335);
+            this.LbToplam.Location = new System.Drawing.Point(138, 308);
             this.LbToplam.Name = "LbToplam";
             this.LbToplam.Size = new System.Drawing.Size(13, 13);
             this.LbToplam.TabIndex = 465;
@@ -326,9 +319,9 @@ namespace UserInterface.IdariIsler
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.AdvList);
-            this.groupBox2.Location = new System.Drawing.Point(18, 409);
+            this.groupBox2.Location = new System.Drawing.Point(18, 378);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1421, 338);
+            this.groupBox2.Size = new System.Drawing.Size(1421, 369);
             this.groupBox2.TabIndex = 459;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "LİSTE";
@@ -359,7 +352,7 @@ namespace UserInterface.IdariIsler
             this.AdvList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdvList.Location = new System.Drawing.Point(3, 16);
             this.AdvList.Name = "AdvList";
-            this.AdvList.Size = new System.Drawing.Size(1415, 319);
+            this.AdvList.Size = new System.Drawing.Size(1415, 350);
             this.AdvList.TabIndex = 334;
             this.AdvList.TimeFilter = false;
             this.AdvList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdvList_CellContentClick);
@@ -470,11 +463,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle3;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -537,7 +530,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnListeyeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnListeyeEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListeyeEkle.Location = new System.Drawing.Point(141, 364);
+            this.BtnListeyeEkle.Location = new System.Drawing.Point(141, 333);
             this.BtnListeyeEkle.Name = "BtnListeyeEkle";
             this.BtnListeyeEkle.Size = new System.Drawing.Size(136, 39);
             this.BtnListeyeEkle.TabIndex = 454;
@@ -547,7 +540,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtAlinanLitre
             // 
-            this.TxtAlinanLitre.Location = new System.Drawing.Point(141, 305);
+            this.TxtAlinanLitre.Location = new System.Drawing.Point(141, 278);
             this.TxtAlinanLitre.Name = "TxtAlinanLitre";
             this.TxtAlinanLitre.Size = new System.Drawing.Size(160, 20);
             this.TxtAlinanLitre.TabIndex = 452;
@@ -556,7 +549,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtLitreFiyati
             // 
-            this.TxtLitreFiyati.Location = new System.Drawing.Point(141, 279);
+            this.TxtLitreFiyati.Location = new System.Drawing.Point(141, 252);
             this.TxtLitreFiyati.Name = "TxtLitreFiyati";
             this.TxtLitreFiyati.Size = new System.Drawing.Size(160, 20);
             this.TxtLitreFiyati.TabIndex = 451;
@@ -565,7 +558,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtAracSiparisNo
             // 
-            this.TxtAracSiparisNo.Location = new System.Drawing.Point(141, 253);
+            this.TxtAracSiparisNo.Location = new System.Drawing.Point(141, 226);
             this.TxtAracSiparisNo.Name = "TxtAracSiparisNo";
             this.TxtAracSiparisNo.Size = new System.Drawing.Size(160, 20);
             this.TxtAracSiparisNo.TabIndex = 450;
@@ -577,7 +570,7 @@ namespace UserInterface.IdariIsler
             "ALKANLAR PETROL (ÇUKURCA)",
             "GÜLYAZI PETROL (ŞIRNAK)",
             "KOÇYİĞİT PETROL (DERECİK)"});
-            this.CmbPlaka.Location = new System.Drawing.Point(141, 226);
+            this.CmbPlaka.Location = new System.Drawing.Point(141, 199);
             this.CmbPlaka.Name = "CmbPlaka";
             this.CmbPlaka.Size = new System.Drawing.Size(160, 21);
             this.CmbPlaka.TabIndex = 449;
@@ -586,28 +579,28 @@ namespace UserInterface.IdariIsler
             // CmbPersoneller
             // 
             this.CmbPersoneller.FormattingEnabled = true;
-            this.CmbPersoneller.Location = new System.Drawing.Point(141, 199);
+            this.CmbPersoneller.Location = new System.Drawing.Point(141, 172);
             this.CmbPersoneller.Name = "CmbPersoneller";
             this.CmbPersoneller.Size = new System.Drawing.Size(246, 21);
             this.CmbPersoneller.TabIndex = 448;
             // 
             // TxtFisNo
             // 
-            this.TxtFisNo.Location = new System.Drawing.Point(141, 173);
+            this.TxtFisNo.Location = new System.Drawing.Point(141, 146);
             this.TxtFisNo.Name = "TxtFisNo";
             this.TxtFisNo.Size = new System.Drawing.Size(160, 20);
             this.TxtFisNo.TabIndex = 447;
             // 
             // TxtSiraNo
             // 
-            this.TxtSiraNo.Location = new System.Drawing.Point(141, 147);
+            this.TxtSiraNo.Location = new System.Drawing.Point(141, 120);
             this.TxtSiraNo.Name = "TxtSiraNo";
             this.TxtSiraNo.Size = new System.Drawing.Size(160, 20);
             this.TxtSiraNo.TabIndex = 446;
             // 
             // TxtDefterNo
             // 
-            this.TxtDefterNo.Location = new System.Drawing.Point(141, 121);
+            this.TxtDefterNo.Location = new System.Drawing.Point(141, 94);
             this.TxtDefterNo.Name = "TxtDefterNo";
             this.TxtDefterNo.Size = new System.Drawing.Size(160, 20);
             this.TxtDefterNo.TabIndex = 445;
@@ -615,7 +608,7 @@ namespace UserInterface.IdariIsler
             // DtTarih
             // 
             this.DtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtTarih.Location = new System.Drawing.Point(141, 95);
+            this.DtTarih.Location = new System.Drawing.Point(141, 68);
             this.DtTarih.Name = "DtTarih";
             this.DtTarih.Size = new System.Drawing.Size(160, 20);
             this.DtTarih.TabIndex = 444;
@@ -623,25 +616,16 @@ namespace UserInterface.IdariIsler
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(38, 151);
+            this.label12.Location = new System.Drawing.Point(38, 124);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(94, 13);
             this.label12.TabIndex = 442;
             this.label12.Text = "Yakıt Alım Sıra No:";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(88, 72);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(44, 13);
-            this.label11.TabIndex = 441;
-            this.label11.Text = "Dönem:";
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(27, 125);
+            this.label10.Location = new System.Drawing.Point(27, 98);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(105, 13);
             this.label10.TabIndex = 440;
@@ -650,7 +634,7 @@ namespace UserInterface.IdariIsler
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(59, 335);
+            this.label9.Location = new System.Drawing.Point(59, 308);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(73, 13);
             this.label9.TabIndex = 439;
@@ -659,7 +643,7 @@ namespace UserInterface.IdariIsler
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(70, 309);
+            this.label8.Location = new System.Drawing.Point(70, 282);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(62, 13);
             this.label8.TabIndex = 438;
@@ -668,7 +652,7 @@ namespace UserInterface.IdariIsler
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(75, 283);
+            this.label7.Location = new System.Drawing.Point(75, 256);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(57, 13);
             this.label7.TabIndex = 437;
@@ -677,7 +661,7 @@ namespace UserInterface.IdariIsler
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(49, 257);
+            this.label6.Location = new System.Drawing.Point(49, 230);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(83, 13);
             this.label6.TabIndex = 436;
@@ -686,7 +670,7 @@ namespace UserInterface.IdariIsler
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(63, 230);
+            this.label5.Location = new System.Drawing.Point(63, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 13);
             this.label5.TabIndex = 435;
@@ -695,7 +679,7 @@ namespace UserInterface.IdariIsler
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(30, 203);
+            this.label4.Location = new System.Drawing.Point(30, 176);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 434;
@@ -704,7 +688,7 @@ namespace UserInterface.IdariIsler
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(92, 177);
+            this.label3.Location = new System.Drawing.Point(92, 150);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
             this.label3.TabIndex = 433;
@@ -713,7 +697,7 @@ namespace UserInterface.IdariIsler
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(98, 99);
+            this.label2.Location = new System.Drawing.Point(98, 72);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
             this.label2.TabIndex = 432;
@@ -762,7 +746,6 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Controls.Add(this.BtnKaydetTasit);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.LblToplamKayit);
-            this.tabPage2.Controls.Add(this.LblIsAkisNoTasit);
             this.tabPage2.Controls.Add(this.label18);
             this.tabPage2.Controls.Add(this.BtnDosyaEkleTasit);
             this.tabPage2.Controls.Add(this.groupBox4);
@@ -786,6 +769,26 @@ namespace UserInterface.IdariIsler
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "AKARYAKIT TAŞIT TANIMA";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // LblGenelToplamTasit
+            // 
+            this.LblGenelToplamTasit.AutoSize = true;
+            this.LblGenelToplamTasit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGenelToplamTasit.Location = new System.Drawing.Point(296, 754);
+            this.LblGenelToplamTasit.Name = "LblGenelToplamTasit";
+            this.LblGenelToplamTasit.Size = new System.Drawing.Size(101, 15);
+            this.LblGenelToplamTasit.TabIndex = 500;
+            this.LblGenelToplamTasit.Text = "Genel Toplam:";
+            // 
+            // LblGenelTopTasit
+            // 
+            this.LblGenelTopTasit.AutoSize = true;
+            this.LblGenelTopTasit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGenelTopTasit.Location = new System.Drawing.Point(403, 754);
+            this.LblGenelTopTasit.Name = "LblGenelTopTasit";
+            this.LblGenelTopTasit.Size = new System.Drawing.Size(21, 15);
+            this.LblGenelTopTasit.TabIndex = 501;
+            this.LblGenelTopTasit.Text = "00";
             // 
             // TxtAlinanDonemTasit
             // 
@@ -901,11 +904,11 @@ namespace UserInterface.IdariIsler
             // 
             // RemoveList
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Red;
-            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Red;
+            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle4;
             this.RemoveList.HeaderText = "KALDIR";
             this.RemoveList.MinimumWidth = 22;
             this.RemoveList.Name = "RemoveList";
@@ -946,15 +949,6 @@ namespace UserInterface.IdariIsler
             this.LblToplamKayit.Size = new System.Drawing.Size(21, 15);
             this.LblToplamKayit.TabIndex = 496;
             this.LblToplamKayit.Text = "00";
-            // 
-            // LblIsAkisNoTasit
-            // 
-            this.LblIsAkisNoTasit.AutoSize = true;
-            this.LblIsAkisNoTasit.Location = new System.Drawing.Point(126, 22);
-            this.LblIsAkisNoTasit.Name = "LblIsAkisNoTasit";
-            this.LblIsAkisNoTasit.Size = new System.Drawing.Size(19, 13);
-            this.LblIsAkisNoTasit.TabIndex = 492;
-            this.LblIsAkisNoTasit.Text = "00";
             // 
             // label18
             // 
@@ -1118,29 +1112,173 @@ namespace UserInterface.IdariIsler
             this.label30.TabIndex = 463;
             this.label30.Text = "Firma:";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox6);
+            this.tabPage3.Controls.Add(this.LblIsAkisNoTasit);
+            this.tabPage3.Controls.Add(this.label27);
+            this.tabPage3.Controls.Add(this.LblTopmaSayi);
+            this.tabPage3.Controls.Add(this.label32);
+            this.tabPage3.Controls.Add(this.LblTTasitTanima);
+            this.tabPage3.Controls.Add(this.BtnKaydetTT);
+            this.tabPage3.Controls.Add(this.label21);
+            this.tabPage3.Controls.Add(this.groupBox5);
+            this.tabPage3.Controls.Add(this.BtnDosyaSec);
+            this.tabPage3.Controls.Add(this.TxtDosyaYolu);
+            this.tabPage3.Controls.Add(this.label16);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1457, 842);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "AKARYAKIT TAŞIT TANIMA";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.webBrowser3);
+            this.groupBox6.Location = new System.Drawing.Point(127, 87);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(522, 81);
+            this.groupBox6.TabIndex = 514;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "Ekler:";
+            // 
+            // webBrowser3
+            // 
+            this.webBrowser3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser3.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser3.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser3.Name = "webBrowser3";
+            this.webBrowser3.Size = new System.Drawing.Size(516, 62);
+            this.webBrowser3.TabIndex = 0;
+            // 
+            // LblIsAkisNoTasit
+            // 
+            this.LblIsAkisNoTasit.AutoSize = true;
+            this.LblIsAkisNoTasit.Location = new System.Drawing.Point(127, 17);
+            this.LblIsAkisNoTasit.Name = "LblIsAkisNoTasit";
+            this.LblIsAkisNoTasit.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNoTasit.TabIndex = 513;
+            this.LblIsAkisNoTasit.Text = "00";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label27.Location = new System.Drawing.Point(286, 755);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(101, 15);
+            this.label27.TabIndex = 511;
+            this.label27.Text = "Genel Toplam:";
+            // 
+            // LblTopmaSayi
+            // 
+            this.LblTopmaSayi.AutoSize = true;
+            this.LblTopmaSayi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTopmaSayi.Location = new System.Drawing.Point(393, 755);
+            this.LblTopmaSayi.Name = "LblTopmaSayi";
+            this.LblTopmaSayi.Size = new System.Drawing.Size(21, 15);
+            this.LblTopmaSayi.TabIndex = 512;
+            this.LblTopmaSayi.Text = "00";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label32.Location = new System.Drawing.Point(15, 755);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(94, 15);
+            this.label32.TabIndex = 509;
+            this.label32.Text = "Toplam Kayıt:";
+            // 
+            // LblTTasitTanima
+            // 
+            this.LblTTasitTanima.AutoSize = true;
+            this.LblTTasitTanima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTTasitTanima.Location = new System.Drawing.Point(115, 755);
+            this.LblTTasitTanima.Name = "LblTTasitTanima";
+            this.LblTTasitTanima.Size = new System.Drawing.Size(21, 15);
+            this.LblTTasitTanima.TabIndex = 510;
+            this.LblTTasitTanima.Text = "00";
+            // 
+            // BtnKaydetTT
+            // 
+            this.BtnKaydetTT.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydetTT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydetTT.Location = new System.Drawing.Point(12, 781);
+            this.BtnKaydetTT.Name = "BtnKaydetTT";
+            this.BtnKaydetTT.Size = new System.Drawing.Size(160, 41);
+            this.BtnKaydetTT.TabIndex = 508;
+            this.BtnKaydetTT.Text = "KAYDET";
+            this.BtnKaydetTT.UseVisualStyleBackColor = true;
+            this.BtnKaydetTT.Click += new System.EventHandler(this.BtnKaydetTT_Click);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(63, 17);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(58, 13);
+            this.label21.TabIndex = 500;
+            this.label21.Text = "İş Akış No:";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.DtgTTList);
+            this.groupBox5.Location = new System.Drawing.Point(9, 200);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1421, 542);
+            this.groupBox5.TabIndex = 499;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "LİSTE";
+            // 
+            // DtgTTList
+            // 
+            this.DtgTTList.AllowUserToAddRows = false;
+            this.DtgTTList.AllowUserToDeleteRows = false;
+            this.DtgTTList.AutoGenerateContextFilters = true;
+            this.DtgTTList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgTTList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgTTList.DateWithTime = false;
+            this.DtgTTList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgTTList.Location = new System.Drawing.Point(3, 16);
+            this.DtgTTList.Name = "DtgTTList";
+            this.DtgTTList.Size = new System.Drawing.Size(1415, 523);
+            this.DtgTTList.TabIndex = 334;
+            this.DtgTTList.TimeFilter = false;
+            // 
+            // BtnDosyaSec
+            // 
+            this.BtnDosyaSec.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDosyaSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnDosyaSec.Location = new System.Drawing.Point(127, 40);
+            this.BtnDosyaSec.Name = "BtnDosyaSec";
+            this.BtnDosyaSec.Size = new System.Drawing.Size(160, 41);
+            this.BtnDosyaSec.TabIndex = 487;
+            this.BtnDosyaSec.Text = "DOSYA SEÇ";
+            this.BtnDosyaSec.UseVisualStyleBackColor = true;
+            this.BtnDosyaSec.Click += new System.EventHandler(this.BtnDosyaSec_Click);
+            // 
+            // TxtDosyaYolu
+            // 
+            this.TxtDosyaYolu.Location = new System.Drawing.Point(127, 174);
+            this.TxtDosyaYolu.Name = "TxtDosyaYolu";
+            this.TxtDosyaYolu.Size = new System.Drawing.Size(688, 20);
+            this.TxtDosyaYolu.TabIndex = 486;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(57, 177);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(64, 13);
+            this.label16.TabIndex = 485;
+            this.label16.Text = "Dosya Yolu:";
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // LblGenelToplamTasit
-            // 
-            this.LblGenelToplamTasit.AutoSize = true;
-            this.LblGenelToplamTasit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGenelToplamTasit.Location = new System.Drawing.Point(296, 754);
-            this.LblGenelToplamTasit.Name = "LblGenelToplamTasit";
-            this.LblGenelToplamTasit.Size = new System.Drawing.Size(101, 15);
-            this.LblGenelToplamTasit.TabIndex = 500;
-            this.LblGenelToplamTasit.Text = "Genel Toplam:";
-            // 
-            // LblGenelTopTasit
-            // 
-            this.LblGenelTopTasit.AutoSize = true;
-            this.LblGenelTopTasit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGenelTopTasit.Location = new System.Drawing.Point(403, 754);
-            this.LblGenelTopTasit.Name = "LblGenelTopTasit";
-            this.LblGenelTopTasit.Size = new System.Drawing.Size(21, 15);
-            this.LblGenelTopTasit.TabIndex = 501;
-            this.LblGenelTopTasit.Text = "00";
             // 
             // FrmYakitDokum
             // 
@@ -1164,6 +1302,11 @@ namespace UserInterface.IdariIsler
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AdvListTasit)).EndInit();
             this.groupBox4.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
+            this.groupBox6.ResumeLayout(false);
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgTTList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1194,7 +1337,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtDefterNo;
         private System.Windows.Forms.DateTimePicker DtTarih;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
@@ -1210,7 +1352,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label LblToplamKayit;
-        private System.Windows.Forms.Label LblIsAkisNoTasit;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Button BtnDosyaEkleTasit;
         private System.Windows.Forms.GroupBox groupBox4;
@@ -1229,7 +1370,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.ComboBox CmbFirmaTasit;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Label LbToplam;
-        private System.Windows.Forms.ComboBox TxtAlinanDonem;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private ADGV.AdvancedDataGridView AdvList;
         private System.Windows.Forms.Label label14;
@@ -1264,5 +1404,20 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.DataGridViewButtonColumn RemoveList;
         private System.Windows.Forms.Label LblGenelToplamTasit;
         private System.Windows.Forms.Label LblGenelTopTasit;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TextBox TxtDosyaYolu;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Button BtnDosyaSec;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private ADGV.AdvancedDataGridView DtgTTList;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label LblTopmaSayi;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label LblTTasitTanima;
+        private System.Windows.Forms.Button BtnKaydetTT;
+        private System.Windows.Forms.Label LblIsAkisNoTasit;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.WebBrowser webBrowser3;
     }
 }

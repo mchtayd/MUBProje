@@ -48,6 +48,10 @@ namespace UserInterface.RAPORLAMALAR
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.LbFaturaEdilecekFirma = new System.Windows.Forms.Label();
             this.CmbFaturaEdilecekFirma = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgRaporList)).BeginInit();
@@ -123,7 +127,6 @@ namespace UserInterface.RAPORLAMALAR
             this.DtgRaporList.DateWithTime = false;
             this.DtgRaporList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgRaporList.Location = new System.Drawing.Point(3, 16);
-            this.DtgRaporList.MultiSelect = false;
             this.DtgRaporList.Name = "DtgRaporList";
             this.DtgRaporList.ReadOnly = true;
             this.DtgRaporList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -251,11 +254,63 @@ namespace UserInterface.RAPORLAMALAR
             this.CmbFaturaEdilecekFirma.Size = new System.Drawing.Size(278, 21);
             this.CmbFaturaEdilecekFirma.TabIndex = 339;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "ASELSAN AŞ. FATURA",
+            "DİREKTÖRLÜK BEYANNAME",
+            "DİREKTÖRLÜK BÜTÇE RAPORU"});
+            this.comboBox1.Location = new System.Drawing.Point(230, 82);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(126, 21);
+            this.comboBox1.TabIndex = 340;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "ASELSAN AŞ. UGES ÜRÜN DES.MDL.",
+            "ASELSAN AŞ. UGES İÇ GÜV.PROG.DİR.",
+            "ASELSAN AŞ. UGES İÇ GÜV.PROG.MDL."});
+            this.comboBox2.Location = new System.Drawing.Point(656, 82);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(278, 21);
+            this.comboBox2.TabIndex = 341;
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "ASELSAN AŞ. FATURA",
+            "DİREKTÖRLÜK BEYANNAME",
+            "DİREKTÖRLÜK BÜTÇE RAPORU"});
+            this.comboBox3.Location = new System.Drawing.Point(472, 82);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(126, 21);
+            this.comboBox3.TabIndex = 342;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(387, 85);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(79, 13);
+            this.label1.TabIndex = 343;
+            this.label1.Text = "PROJE KODU:";
+            // 
             // FrmSatRaporu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1635, 924);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.comboBox3);
+            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.CmbFaturaEdilecekFirma);
             this.Controls.Add(this.LbFaturaEdilecekFirma);
             this.Controls.Add(this.BtnKaydet);
@@ -301,5 +356,9 @@ namespace UserInterface.RAPORLAMALAR
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Label LbFaturaEdilecekFirma;
         private System.Windows.Forms.ComboBox CmbFaturaEdilecekFirma;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label1;
     }
 }

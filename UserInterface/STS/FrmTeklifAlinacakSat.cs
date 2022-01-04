@@ -663,7 +663,11 @@ namespace UserInterface.STS
                         return;
                     }
                     // TO DO
-                    Task.Factory.StartNew(() => CreateOnayMail(teklifAlinanListe));
+
+
+                    //Task.Factory.StartNew(() => CreateOnayMail(teklifAlinanListe));
+
+
                     //CreateOnayMail(list);
                     //return;
                     //
@@ -3247,6 +3251,28 @@ namespace UserInterface.STS
         private void webBrowser4_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
 
+        }
+
+        private void DtgMailList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder2.Filter = DtgMailList.FilterString;
+            TxtMailListCount.Text = DtgMailList.RowCount.ToString();
+        }
+
+        private void DtgMailList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder2.Sort = DtgMailList.SortString;
+        }
+
+        private void DtgGelenMail_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder3.Sort = DtgGelenMail.SortString;
+        }
+
+        private void DtgGelenMail_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder3.Filter = DtgMailList.FilterString;
+            TxtGelenMail.Text = DtgMailList.RowCount.ToString();
         }
 
         private void BtnDosyaMailEkle_Click(object sender, EventArgs e)

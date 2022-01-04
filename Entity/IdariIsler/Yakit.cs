@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class Yakit
     {
-        int id, isakisno; string plaka, yakitAlinanDonem; DateTime tarih; int km; double alinanLitre; string yakitTuru; double litreFiyati, toplamFiyat; string alimTuru, personel, alinanFirma, belgeTuru, belgeNumarasi, dosyaYolu, sayfa, aciklama;
+        int id, isakisno; string plaka, yakitAlinanDonem; DateTime tarih; int km; double alinanLitre; string yakitTuru; double litreFiyati, toplamFiyat; string alimTuru, personel, alinanFirma, belgeTuru, belgeNumarasi, sayfa, aciklama;
 
         public int Id { get => id; set => id = value; }
         public int Isakisno { get => isakisno; set => isakisno = value; }
@@ -25,11 +25,10 @@ namespace Entity.IdariIsler
         public string AlinanFirma { get => alinanFirma; set => alinanFirma = value; }
         public string BelgeTuru { get => belgeTuru; set => belgeTuru = value; }
         public string BelgeNumarasi { get => belgeNumarasi; set => belgeNumarasi = value; }
-        public string DosyaYolu { get => dosyaYolu; set => dosyaYolu = value; }
         public string Sayfa { get => sayfa; set => sayfa = value; }
         public string Aciklama { get => aciklama; set => aciklama = value; }
 
-        public Yakit(int id, int isakisno, string plaka, string yakitAlinanDonem, DateTime tarih, int km, double alinanLitre, string yakitTuru, double litreFiyati, double toplamFiyat, string alimTuru, string personel, string alinanFirma, string belgeTuru, string belgeNumarasi,string dosyaYolu,string sayfa,string aciklama)
+        public Yakit(int id, int isakisno, string plaka, string yakitAlinanDonem, DateTime tarih, int km, double alinanLitre, string yakitTuru, double litreFiyati, double toplamFiyat, string alimTuru, string personel, string alinanFirma, string belgeTuru, string belgeNumarasi,string sayfa,string aciklama)
         {
             this.id = id;
             this.isakisno = isakisno;
@@ -46,12 +45,11 @@ namespace Entity.IdariIsler
             this.alinanFirma = alinanFirma;
             this.belgeTuru = belgeTuru;
             this.belgeNumarasi = belgeNumarasi;
-            this.dosyaYolu = dosyaYolu;
             this.sayfa = sayfa;
             this.aciklama = aciklama;
         }
 
-        public Yakit(int isakisno, string plaka, string yakitAlinanDonem, DateTime tarih, int km, double alinanLitre, string yakitTuru, double litreFiyati, double toplamFiyat, string alimTuru, string personel, string alinanFirma, string belgeTuru, string belgeNumarasi, string dosyaYolu,string aciklama)
+        public Yakit(int isakisno, string plaka, string yakitAlinanDonem, DateTime tarih, int km, double alinanLitre, string yakitTuru, double litreFiyati, double toplamFiyat, string alimTuru, string personel, string alinanFirma, string belgeTuru, string belgeNumarasi,string aciklama)
         {
             this.isakisno = isakisno;
             this.plaka = plaka;
@@ -67,7 +65,6 @@ namespace Entity.IdariIsler
             this.alinanFirma = alinanFirma;
             this.belgeTuru = belgeTuru;
             this.belgeNumarasi = belgeNumarasi;
-            this.dosyaYolu = dosyaYolu;
             this.aciklama = aciklama;
         }
     }

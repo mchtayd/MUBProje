@@ -84,7 +84,24 @@ namespace DataAccess.Concreate
                 return ex.Message;
             }
         }
-        
+        public string DosyaYoluDuzelt(string dosyaYolu,string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatDosyaYoluDuzelt",
+                    new SqlParameter("@dosyaYolu", dosyaYolu),
+                    new SqlParameter("@siparisNo", siparisNo));
+
+                dataReader.Close();
+                return "OK";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
 
         public string Delete(int id)
         {
@@ -108,6 +125,41 @@ namespace DataAccess.Concreate
                     new SqlParameter("@siparisNo", siparisNo),
                     new SqlParameter("@proje", proje),
                     new SqlParameter("@satFirma", firma));
+                dataReader.Close();
+                return "OK";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        
+        public string SatButceKoduGider(string siparis, string personelSayisi, string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatButceKoduSiparisEkle",
+                    new SqlParameter("@siparis", siparis),
+                    new SqlParameter("@personelSayisi", personelSayisi),
+                    new SqlParameter("@siparisNo", siparisNo));
+                dataReader.Close();
+                return "OK";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SatButceKoduPlaka(string siparis, string plaka, string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatButceKoduPlakaEkle",
+                    new SqlParameter("@siparis",siparis),
+                    new SqlParameter("@plaka", plaka),
+                    new SqlParameter("@siparisNo", siparisNo));
                 dataReader.Close();
                 return "OK";
             }

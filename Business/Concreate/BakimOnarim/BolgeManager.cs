@@ -48,11 +48,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public Bolge Get(int id)
+        public Bolge Get(string bolgeAdi)
         {
             try
             {
-                return bolgeDal.Get(id);
+                return bolgeDal.Get(bolgeAdi);
             }
             catch (Exception)
             {

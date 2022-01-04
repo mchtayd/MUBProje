@@ -48,6 +48,7 @@ namespace UserInterface.STS
         SatOnayTarihiManager satOnayTarihiManager;
         KimyasalUrunlerManager kimyasalUrunlerManager;
         AracZimmetiManager aracZimmetiManager;
+        SiparislerManager siparislerManager;
 
         List<MalzemeKayit> malzemeKayits;
         List<MalzemeKayit> malzemesFiltered;
@@ -97,6 +98,7 @@ namespace UserInterface.STS
             satOnayTarihiManager = SatOnayTarihiManager.GetInstance();
             kimyasalUrunlerManager = KimyasalUrunlerManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
+            siparislerManager = SiparislerManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -129,6 +131,7 @@ namespace UserInterface.STS
             Personeller();
             ButceKoduKalemi();
             Plakalar();
+            Siparisler();
             start = true;
             projeBekle = true;
         }
@@ -143,8 +146,16 @@ namespace UserInterface.STS
             UsBolgeleri();
             YedekParca();
             ButceKoduKalemi();
+            Siparisler();
             start = true;
             projeBekle = true;
+        }
+        void Siparisler()
+        {
+            CmbSiparisNoMaas.DataSource = siparislerManager.GetList();
+            CmbSiparisNoMaas.ValueMember = "Id";
+            CmbSiparisNoMaas.DisplayMember = "Siparisno";
+            CmbSiparisNoMaas.SelectedValue = 0;
         }
         void ButceKoduKalemi()
         {
@@ -1719,11 +1730,27 @@ namespace UserInterface.STS
             {
                 return;
             }
+            if (CmbButceKodu.Text == "BM25/PERS. MAAŞ GİDERLERİ" || CmbButceKodu.Text == "BM22/KİRA YARDIMI" || 
+                CmbButceKodu.Text == "BM21/İAŞE, İLETİŞİM GİDERLERİ" || CmbButceKodu.Text == "BM01/İŞ GİYSİSİ" || CmbButceKodu.Text == "BM23/ÖZEL SİGRT. GİDERLERİ" || CmbButceKodu.Text == "BM38/PERSONEL GİDERLERİ")
+            {
+                LblSiparisNo.Visible = true; CmbSiparisNoMaas.Visible = true;
+                LblPersonelSayisi.Visible = true; TxtPersonelSayisi.Visible = true;
+                LblPlaka.Visible = false; CmbPlaka.Visible = false;
+                return;
+            }
+            LblSiparisNo.Visible = false; CmbSiparisNoMaas.Visible = false;
+            LblPersonelSayisi.Visible = false; TxtPersonelSayisi.Visible = false;
+            LblPlaka.Visible = false; CmbPlaka.Visible = false;
+
             if (CmbButceKodu.Text== "BM32/AKARYAKIT, NAKİT")
             {
+                LblSiparisNo.Visible = true; CmbSiparisNoMaas.Visible = true;
+                LblPersonelSayisi.Visible = false; TxtPersonelSayisi.Visible = false;
                 LblPlaka.Visible = true; CmbPlaka.Visible = true;
                 return;
             }
+            LblSiparisNo.Visible = false; CmbSiparisNoMaas.Visible = false;
+            LblPersonelSayisi.Visible = false; TxtPersonelSayisi.Visible = false;
             LblPlaka.Visible = false; CmbPlaka.Visible = false;
         }
         void Plakalar()
@@ -2189,8 +2216,25 @@ namespace UserInterface.STS
             }
             if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
             {
-                MessageBox.Show("Lütfen Öncelikle PLAKA Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (CmbPlaka.Text=="")
+                {
+                    MessageBox.Show("Lütfen Öncelikle PLAKA Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (CmbButceKodu.Text == "BM25/PERS. MAAŞ GİDERLERİ" || CmbButceKodu.Text == "BM22/KİRA YARDIMI" ||
+                CmbButceKodu.Text == "BM21/İAŞE, İLETİŞİM GİDERLERİ" ||  CmbButceKodu.Text == "BM01/İŞ GİYSİSİ" || CmbButceKodu.Text == "BM23/ÖZEL SİGRT. GİDERLERİ" || CmbButceKodu.Text == "BM38/PERSONEL GİDERLERİ")
+            {
+                if (CmbSiparisNoMaas.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle SİPARİŞ NO Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (TxtPersonelSayisi.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle PERSONEL SAYISI Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -2232,6 +2276,16 @@ namespace UserInterface.STS
                 islemyapan = infos[1].ToString();
                 SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, islem, islemyapan, DateTime.Now);
                 satIslemAdimlariManager.Add(satIslem);
+
+                if (CmbButceKodu.Text == "BM32 / AKARYAKIT, NAKİT")
+                {
+                    satDataGridview1Manager.SatButceKoduPlaka(CmbSiparisNoMaas.Text, CmbPlaka.Text, siparisNo);
+                }
+                if (CmbButceKodu.Text == "BM25/PERS. MAAŞ GİDERLERİ" || CmbButceKodu.Text == "BM22/KİRA YARDIMI" ||
+                CmbButceKodu.Text == "BM21/İAŞE, İLETİŞİM GİDERLERİ" || CmbButceKodu.Text == "BM01/İŞ GİYSİSİ" || CmbButceKodu.Text == "BM23/ÖZEL SİGRT. GİDERLERİ" || CmbButceKodu.Text == "BM38/PERSONEL GİDERLERİ")
+                {
+                    satDataGridview1Manager.SatButceKoduGider(CmbSiparisNoMaas.Text, TxtPersonelSayisi.Text, siparisNo);
+                }
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 TemizleTemsili();

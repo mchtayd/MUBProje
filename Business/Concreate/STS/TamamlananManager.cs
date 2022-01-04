@@ -63,9 +63,16 @@ namespace Business.Concreate.STS
             }
         }
 
-        public string Update(Tamamlanan entity)
+        public string UpdateTutar(double tutar, string siparisNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return tamamlananDal.UpdateTutar(tutar, siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static TamamlananManager GetInstance()
         {

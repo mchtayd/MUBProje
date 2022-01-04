@@ -46,6 +46,17 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
+        public string AddTasitTanima(YakitDokum entity)
+        {
+            try
+            {
+                return yakitDokumDal.AddTasitTanima(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string AnaAddTasit(YakitDokum entity)
         {
             try
@@ -109,6 +120,17 @@ namespace Business.Concreate.IdarıIsler
             try
             {
                 return yakitDokumDal.GetListAna(alimTuru);
+            }
+            catch (Exception)
+            {
+                return new List<YakitDokum>();
+            }
+        }
+        public List<YakitDokum> GetListTT()
+        {
+            try
+            {
+                return yakitDokumDal.GetListTT();
             }
             catch (Exception)
             {

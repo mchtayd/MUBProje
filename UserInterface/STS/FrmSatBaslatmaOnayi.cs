@@ -453,7 +453,7 @@ namespace UserInterface.STS
         }
         void GorevAta()
         {
-            islemAdimi = "TEKLİF";
+            
 
             FrmGorevAta frmGorevAta = new FrmGorevAta();
             frmGorevAta.gorevinTanimi = "SAT Tekliflerinin Alınması VE DTS Sistemine Kaydedilmesi.";
@@ -471,14 +471,15 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(formNo + " Nolu SAT İçin Başlatma Onayı Vermek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                GorevAta();
+                /*GorevAta();
 
                 if (gorevAtama==false)
                 {
                     MessageBox.Show("Lütfen Öncelikle Görev Atama İşlemini Gerçekleştiriniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     return;
-                }
+                }*/
 
+                
                 DialogResult dialog = MessageBox.Show("Ön Onay Yetkilisi:\n\nÖn Onaya gelmiş olan bu satın alma işlemi için malzemenin teknik dökümanlarına " +
                 "uygunluğunu onaylamış, malzeme ihtiyacını teyit ve kabul etmiş olacaksınız.\n\nBu satın alma işlemi için piyasa fiyat araştırmasının " +
                 "yapılarak uygun malzeme ve uygun fiyatın araştırılması üzere en az 3 firmadan fiyat teklifinin yazılı olarak istenmesi gerekmektedir.\n\n" +
@@ -516,6 +517,8 @@ namespace UserInterface.STS
                     SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, islem, islemyapan, DateTime.Now);
                     satIslemAdimlariManager.Add(satIslem);
                 }*/
+
+                islemAdimi = "TEKLİF";
                 dataGridview1 = null;
                 
                 dataGridview1 = new SatDataGridview1(satNo, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo, uctekilf, hedefdosya, islemAdimi);

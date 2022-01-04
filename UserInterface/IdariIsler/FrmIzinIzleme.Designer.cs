@@ -48,6 +48,8 @@ namespace UserInterface.IdariIsler
             this.DtgIslemAdimlari = new ADGV.AdvancedDataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -226,12 +228,34 @@ namespace UserInterface.IdariIsler
             this.webBrowser1.Size = new System.Drawing.Size(680, 151);
             this.webBrowser1.TabIndex = 0;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(435, 710);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(21, 15);
+            this.label3.TabIndex = 343;
+            this.label3.Text = "00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(236, 710);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(193, 15);
+            this.label4.TabIndex = 342;
+            this.label4.Text = "Toplam Kullanılan İzin Sürei:";
+            // 
             // FrmIzinIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.label1);
@@ -277,5 +301,7 @@ namespace UserInterface.IdariIsler
         private ADGV.AdvancedDataGridView DtgIslemAdimlari;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }

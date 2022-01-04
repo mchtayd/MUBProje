@@ -133,6 +133,8 @@ namespace UserInterface.IdariIşler
             this.CmbAdSoyad = new System.Windows.Forms.ComboBox();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.DtKgbGuncelle = new System.Windows.Forms.DateTimePicker();
+            this.label132 = new System.Windows.Forms.Label();
             this.TxtKgbNoGun = new System.Windows.Forms.TextBox();
             this.label130 = new System.Windows.Forms.Label();
             this.label126 = new System.Windows.Forms.Label();
@@ -241,6 +243,8 @@ namespace UserInterface.IdariIşler
             this.webBrowser4 = new System.Windows.Forms.WebBrowser();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.DtKgb = new System.Windows.Forms.DateTimePicker();
+            this.label131 = new System.Windows.Forms.Label();
             this.TxtKgbNo = new System.Windows.Forms.TextBox();
             this.label127 = new System.Windows.Forms.Label();
             this.label125 = new System.Windows.Forms.Label();
@@ -349,10 +353,6 @@ namespace UserInterface.IdariIşler
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.label131 = new System.Windows.Forms.Label();
-            this.DtKgb = new System.Windows.Forms.DateTimePicker();
-            this.DtKgbGuncelle = new System.Windows.Forms.DateTimePicker();
-            this.label132 = new System.Windows.Forms.Label();
             this.tabPage5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -1435,6 +1435,23 @@ namespace UserInterface.IdariIşler
             this.groupBox6.TabIndex = 115;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ŞİRKET BİLGİLER";
+            // 
+            // DtKgbGuncelle
+            // 
+            this.DtKgbGuncelle.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtKgbGuncelle.Location = new System.Drawing.Point(945, 198);
+            this.DtKgbGuncelle.Name = "DtKgbGuncelle";
+            this.DtKgbGuncelle.Size = new System.Drawing.Size(174, 20);
+            this.DtKgbGuncelle.TabIndex = 143;
+            // 
+            // label132
+            // 
+            this.label132.AutoSize = true;
+            this.label132.Location = new System.Drawing.Point(798, 202);
+            this.label132.Name = "label132";
+            this.label132.Size = new System.Drawing.Size(136, 13);
+            this.label132.TabIndex = 142;
+            this.label132.Text = "KGB GEÇERLİLİK TARİHİ:";
             // 
             // TxtKgbNoGun
             // 
@@ -2604,6 +2621,23 @@ namespace UserInterface.IdariIşler
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ŞİRKET BİLGİLER";
             // 
+            // DtKgb
+            // 
+            this.DtKgb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtKgb.Location = new System.Drawing.Point(945, 201);
+            this.DtKgb.Name = "DtKgb";
+            this.DtKgb.Size = new System.Drawing.Size(174, 20);
+            this.DtKgb.TabIndex = 135;
+            // 
+            // label131
+            // 
+            this.label131.AutoSize = true;
+            this.label131.Location = new System.Drawing.Point(798, 205);
+            this.label131.Name = "label131";
+            this.label131.Size = new System.Drawing.Size(136, 13);
+            this.label131.TabIndex = 134;
+            this.label131.Text = "KGB GEÇERLİLİK TARİHİ:";
+            // 
             // TxtKgbNo
             // 
             this.TxtKgbNo.Location = new System.Drawing.Point(944, 175);
@@ -3710,40 +3744,6 @@ namespace UserInterface.IdariIşler
             this.yenileToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
-            // 
-            // label131
-            // 
-            this.label131.AutoSize = true;
-            this.label131.Location = new System.Drawing.Point(798, 205);
-            this.label131.Name = "label131";
-            this.label131.Size = new System.Drawing.Size(136, 13);
-            this.label131.TabIndex = 134;
-            this.label131.Text = "KGB GEÇERLİLİK TARİHİ:";
-            // 
-            // DtKgb
-            // 
-            this.DtKgb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtKgb.Location = new System.Drawing.Point(945, 201);
-            this.DtKgb.Name = "DtKgb";
-            this.DtKgb.Size = new System.Drawing.Size(174, 20);
-            this.DtKgb.TabIndex = 135;
-            // 
-            // DtKgbGuncelle
-            // 
-            this.DtKgbGuncelle.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtKgbGuncelle.Location = new System.Drawing.Point(945, 198);
-            this.DtKgbGuncelle.Name = "DtKgbGuncelle";
-            this.DtKgbGuncelle.Size = new System.Drawing.Size(174, 20);
-            this.DtKgbGuncelle.TabIndex = 143;
-            // 
-            // label132
-            // 
-            this.label132.AutoSize = true;
-            this.label132.Location = new System.Drawing.Point(798, 202);
-            this.label132.Name = "label132";
-            this.label132.Size = new System.Drawing.Size(136, 13);
-            this.label132.TabIndex = 142;
-            this.label132.Text = "KGB GEÇERLİLİK TARİHİ:";
             // 
             // FrmPersonelKayit
             // 

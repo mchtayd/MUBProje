@@ -15,6 +15,7 @@ namespace DataAccess.Concreate.IdariIsler
         static ArsivTutanakDal arsivTutanakDal;
         SqlServices sqlServices;
         SqlDataReader dataReader;
+        
 
         private ArsivTutanakDal()
         {

@@ -30,6 +30,7 @@ namespace UserInterface.Depo
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStokGirisCikis));
             this.label1 = new System.Windows.Forms.Label();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -40,7 +41,6 @@ namespace UserInterface.Depo
             this.DtTarih = new System.Windows.Forms.DateTimePicker();
             this.TxtTanim = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.CmbBirim = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtMiktar = new System.Windows.Forms.TextBox();
@@ -50,13 +50,9 @@ namespace UserInterface.Depo
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
-            this.CmbAdres = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.TxtMalzemeYeri = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.CmbDepo = new System.Windows.Forms.ComboBox();
+            this.CmbDepoNo = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
@@ -84,6 +80,10 @@ namespace UserInterface.Depo
             this.Revizyon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
+            this.BtnDepoEkle = new System.Windows.Forms.Button();
+            this.BtnDepo = new System.Windows.Forms.Button();
+            this.TxtMalzemeYeri = new System.Windows.Forms.TextBox();
+            this.CmbAdres = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -142,12 +142,12 @@ namespace UserInterface.Depo
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.BtnDepo);
             this.groupBox1.Controls.Add(this.BtnPreview);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.DtTarih);
             this.groupBox1.Controls.Add(this.TxtTanim);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.button1);
             this.groupBox1.Controls.Add(this.CmbBirim);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.TxtMiktar);
@@ -156,7 +156,7 @@ namespace UserInterface.Depo
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(24, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1525, 183);
+            this.groupBox1.Size = new System.Drawing.Size(1525, 170);
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "İŞLEM YAPILACAK MALZEME BİLGİSİ";
@@ -164,12 +164,13 @@ namespace UserInterface.Depo
             // BtnPreview
             // 
             this.BtnPreview.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnPreview.Location = new System.Drawing.Point(415, 125);
+            this.BtnPreview.Location = new System.Drawing.Point(425, 107);
             this.BtnPreview.Name = "BtnPreview";
             this.BtnPreview.Size = new System.Drawing.Size(123, 52);
             this.BtnPreview.TabIndex = 58;
             this.BtnPreview.Text = "ÖNİZLEME";
             this.BtnPreview.UseVisualStyleBackColor = true;
+            this.BtnPreview.Visible = false;
             this.BtnPreview.Click += new System.EventHandler(this.BtnPreview_Click);
             // 
             // label10
@@ -205,14 +206,6 @@ namespace UserInterface.Depo
             this.label9.TabIndex = 53;
             this.label9.Text = "TANIM:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(350, 27);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(43, 28);
-            this.button1.TabIndex = 47;
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // CmbBirim
             // 
             this.CmbBirim.FormattingEnabled = true;
@@ -241,6 +234,7 @@ namespace UserInterface.Depo
             this.TxtMiktar.Name = "TxtMiktar";
             this.TxtMiktar.Size = new System.Drawing.Size(113, 20);
             this.TxtMiktar.TabIndex = 50;
+            this.TxtMiktar.TextChanged += new System.EventHandler(this.TxtMiktar_TextChanged);
             // 
             // label3
             // 
@@ -271,17 +265,16 @@ namespace UserInterface.Depo
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.TxtAciklama);
-            this.groupBox2.Controls.Add(this.label5);
-            this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.Controls.Add(this.CmbAdres);
+            this.groupBox2.Controls.Add(this.TxtAciklama);
+            this.groupBox2.Controls.Add(this.BtnDepoEkle);
+            this.groupBox2.Controls.Add(this.label5);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.TxtMalzemeYeri);
             this.groupBox2.Controls.Add(this.label6);
-            this.groupBox2.Controls.Add(this.CmbDepo);
+            this.groupBox2.Controls.Add(this.CmbDepoNo);
             this.groupBox2.Controls.Add(this.label7);
-            this.groupBox2.Location = new System.Drawing.Point(24, 293);
+            this.groupBox2.Location = new System.Drawing.Point(24, 267);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1525, 146);
             this.groupBox2.TabIndex = 53;
@@ -305,22 +298,6 @@ namespace UserInterface.Depo
             this.label5.TabIndex = 56;
             this.label5.Text = "AÇIKLAMA:";
             // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(350, 64);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(43, 28);
-            this.button3.TabIndex = 53;
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // CmbAdres
-            // 
-            this.CmbAdres.FormattingEnabled = true;
-            this.CmbAdres.Location = new System.Drawing.Point(120, 68);
-            this.CmbAdres.Name = "CmbAdres";
-            this.CmbAdres.Size = new System.Drawing.Size(224, 21);
-            this.CmbAdres.TabIndex = 55;
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -329,21 +306,6 @@ namespace UserInterface.Depo
             this.label8.Size = new System.Drawing.Size(83, 13);
             this.label8.TabIndex = 54;
             this.label8.Text = "DEPO ADRESİ:";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(350, 26);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(43, 28);
-            this.button2.TabIndex = 47;
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // TxtMalzemeYeri
-            // 
-            this.TxtMalzemeYeri.Location = new System.Drawing.Point(120, 105);
-            this.TxtMalzemeYeri.Name = "TxtMalzemeYeri";
-            this.TxtMalzemeYeri.Size = new System.Drawing.Size(224, 20);
-            this.TxtMalzemeYeri.TabIndex = 50;
             // 
             // label6
             // 
@@ -354,13 +316,14 @@ namespace UserInterface.Depo
             this.label6.TabIndex = 49;
             this.label6.Text = "MALZEME YERİ:";
             // 
-            // CmbDepo
+            // CmbDepoNo
             // 
-            this.CmbDepo.FormattingEnabled = true;
-            this.CmbDepo.Location = new System.Drawing.Point(120, 31);
-            this.CmbDepo.Name = "CmbDepo";
-            this.CmbDepo.Size = new System.Drawing.Size(224, 21);
-            this.CmbDepo.TabIndex = 48;
+            this.CmbDepoNo.FormattingEnabled = true;
+            this.CmbDepoNo.Location = new System.Drawing.Point(120, 31);
+            this.CmbDepoNo.Name = "CmbDepoNo";
+            this.CmbDepoNo.Size = new System.Drawing.Size(224, 21);
+            this.CmbDepoNo.TabIndex = 48;
+            this.CmbDepoNo.SelectedIndexChanged += new System.EventHandler(this.CmbDepoNo_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -374,7 +337,7 @@ namespace UserInterface.Depo
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.DtgList);
-            this.groupBox3.Location = new System.Drawing.Point(21, 617);
+            this.groupBox3.Location = new System.Drawing.Point(13, 549);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1451, 237);
             this.groupBox3.TabIndex = 55;
@@ -527,7 +490,7 @@ namespace UserInterface.Depo
             // BtnListEkle
             // 
             this.BtnListEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListEkle.Location = new System.Drawing.Point(508, 575);
+            this.BtnListEkle.Location = new System.Drawing.Point(512, 507);
             this.BtnListEkle.Name = "BtnListEkle";
             this.BtnListEkle.Size = new System.Drawing.Size(566, 36);
             this.BtnListEkle.TabIndex = 56;
@@ -537,8 +500,9 @@ namespace UserInterface.Depo
             // 
             // BtnKaydet
             // 
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(27, 860);
+            this.BtnKaydet.Location = new System.Drawing.Point(16, 792);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(123, 52);
             this.BtnKaydet.TabIndex = 57;
@@ -548,8 +512,9 @@ namespace UserInterface.Depo
             // 
             // BtnTemizle
             // 
+            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(167, 860);
+            this.BtnTemizle.Location = new System.Drawing.Point(145, 792);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(123, 52);
             this.BtnTemizle.TabIndex = 58;
@@ -561,7 +526,7 @@ namespace UserInterface.Depo
             // 
             this.groupBox4.Controls.Add(this.AdvMalzemeOnizleme);
             this.groupBox4.Controls.Add(this.advancedDataGridView1);
-            this.groupBox4.Location = new System.Drawing.Point(27, 446);
+            this.groupBox4.Location = new System.Drawing.Point(27, 419);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(450, 124);
             this.groupBox4.TabIndex = 56;
@@ -641,11 +606,56 @@ namespace UserInterface.Depo
             this.advancedDataGridView1.TabIndex = 0;
             this.advancedDataGridView1.TimeFilter = false;
             // 
+            // BtnDepoEkle
+            // 
+            this.BtnDepoEkle.AccessibleDescription = "";
+            this.BtnDepoEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnDepoEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDepoEkle.BackgroundImage")));
+            this.BtnDepoEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDepoEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDepoEkle.Location = new System.Drawing.Point(347, 26);
+            this.BtnDepoEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDepoEkle.Name = "BtnDepoEkle";
+            this.BtnDepoEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnDepoEkle.TabIndex = 136;
+            this.BtnDepoEkle.Tag = "admin";
+            this.BtnDepoEkle.UseVisualStyleBackColor = false;
+            this.BtnDepoEkle.Click += new System.EventHandler(this.BtnDepoEkle_Click);
+            // 
+            // BtnDepo
+            // 
+            this.BtnDepo.AccessibleDescription = "";
+            this.BtnDepo.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnDepo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDepo.BackgroundImage")));
+            this.BtnDepo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDepo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDepo.Location = new System.Drawing.Point(347, 27);
+            this.BtnDepo.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDepo.Name = "BtnDepo";
+            this.BtnDepo.Size = new System.Drawing.Size(34, 29);
+            this.BtnDepo.TabIndex = 137;
+            this.BtnDepo.Tag = "admin";
+            this.BtnDepo.UseVisualStyleBackColor = false;
+            // 
+            // TxtMalzemeYeri
+            // 
+            this.TxtMalzemeYeri.Location = new System.Drawing.Point(120, 105);
+            this.TxtMalzemeYeri.Name = "TxtMalzemeYeri";
+            this.TxtMalzemeYeri.Size = new System.Drawing.Size(224, 20);
+            this.TxtMalzemeYeri.TabIndex = 50;
+            // 
+            // CmbAdres
+            // 
+            this.CmbAdres.Location = new System.Drawing.Point(120, 69);
+            this.CmbAdres.Name = "CmbAdres";
+            this.CmbAdres.Size = new System.Drawing.Size(224, 20);
+            this.CmbAdres.TabIndex = 138;
+            // 
             // FrmStokGirisCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.ClientSize = new System.Drawing.Size(1557, 860);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnKaydet);
@@ -681,7 +691,6 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ComboBox CmbBirim;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtMiktar;
@@ -689,13 +698,9 @@ namespace UserInterface.Depo
         private System.Windows.Forms.ComboBox CmbStokNo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.ComboBox CmbAdres;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.TextBox TxtMalzemeYeri;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox CmbDepo;
+        private System.Windows.Forms.ComboBox CmbDepoNo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.DateTimePicker DtTarih;
@@ -730,5 +735,9 @@ namespace UserInterface.Depo
         private System.Windows.Forms.DataGridViewTextBoxColumn SeriLotNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Revizyon;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.Button BtnDepoEkle;
+        private System.Windows.Forms.Button BtnDepo;
+        private System.Windows.Forms.TextBox CmbAdres;
+        private System.Windows.Forms.TextBox TxtMalzemeYeri;
     }
 }

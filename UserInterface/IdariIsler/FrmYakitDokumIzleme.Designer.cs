@@ -382,9 +382,9 @@ namespace UserInterface.IdariIsler
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.DtgListTasit);
-            this.groupBox4.Location = new System.Drawing.Point(7, 7);
+            this.groupBox4.Location = new System.Drawing.Point(7, 6);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1468, 362);
+            this.groupBox4.Size = new System.Drawing.Size(1468, 675);
             this.groupBox4.TabIndex = 483;
             this.groupBox4.TabStop = false;
             // 
@@ -405,7 +405,7 @@ namespace UserInterface.IdariIsler
             this.DtgListTasit.Name = "DtgListTasit";
             this.DtgListTasit.ReadOnly = true;
             this.DtgListTasit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgListTasit.Size = new System.Drawing.Size(1462, 343);
+            this.DtgListTasit.Size = new System.Drawing.Size(1462, 656);
             this.DtgListTasit.TabIndex = 321;
             this.DtgListTasit.TimeFilter = false;
             this.DtgListTasit.SortStringChanged += new System.EventHandler(this.DtgListTasit_SortStringChanged);
@@ -415,9 +415,9 @@ namespace UserInterface.IdariIsler
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.webBrowser2);
-            this.groupBox5.Location = new System.Drawing.Point(10, 739);
+            this.groupBox5.Location = new System.Drawing.Point(10, 731);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(562, 98);
+            this.groupBox5.Size = new System.Drawing.Size(562, 106);
             this.groupBox5.TabIndex = 485;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Ekler";
@@ -428,24 +428,25 @@ namespace UserInterface.IdariIsler
             this.webBrowser2.Location = new System.Drawing.Point(3, 16);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(556, 79);
+            this.webBrowser2.Size = new System.Drawing.Size(556, 87);
             this.webBrowser2.TabIndex = 0;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(211, 713);
+            this.label2.Location = new System.Drawing.Point(787, 809);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 15);
             this.label2.TabIndex = 496;
             this.label2.Text = "Toplam Tutar:";
+            this.label2.Visible = false;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(211, 381);
+            this.label8.Location = new System.Drawing.Point(204, 698);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(96, 15);
             this.label8.TabIndex = 490;
@@ -455,27 +456,29 @@ namespace UserInterface.IdariIsler
             // 
             this.LblGenelTopTasimaKalemler.AutoSize = true;
             this.LblGenelTopTasimaKalemler.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGenelTopTasimaKalemler.Location = new System.Drawing.Point(313, 713);
+            this.LblGenelTopTasimaKalemler.Location = new System.Drawing.Point(889, 809);
             this.LblGenelTopTasimaKalemler.Name = "LblGenelTopTasimaKalemler";
             this.LblGenelTopTasimaKalemler.Size = new System.Drawing.Size(14, 15);
             this.LblGenelTopTasimaKalemler.TabIndex = 495;
             this.LblGenelTopTasimaKalemler.Text = "0";
+            this.LblGenelTopTasimaKalemler.Visible = false;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(18, 713);
+            this.label11.Location = new System.Drawing.Point(594, 809);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 15);
             this.label11.TabIndex = 492;
             this.label11.Text = "Toplam Kayıt:";
+            this.label11.Visible = false;
             // 
             // LblGenelTopTasima
             // 
             this.LblGenelTopTasima.AutoSize = true;
             this.LblGenelTopTasima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGenelTopTasima.Location = new System.Drawing.Point(313, 381);
+            this.LblGenelTopTasima.Location = new System.Drawing.Point(306, 698);
             this.LblGenelTopTasima.Name = "LblGenelTopTasima";
             this.LblGenelTopTasima.Size = new System.Drawing.Size(14, 15);
             this.LblGenelTopTasima.TabIndex = 489;
@@ -485,17 +488,18 @@ namespace UserInterface.IdariIsler
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(118, 713);
+            this.label13.Location = new System.Drawing.Point(694, 809);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(21, 15);
             this.label13.TabIndex = 493;
             this.label13.Text = "00";
+            this.label13.Visible = false;
             // 
             // TxtTopTasit
             // 
             this.TxtTopTasit.AutoSize = true;
             this.TxtTopTasit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTopTasit.Location = new System.Drawing.Point(117, 381);
+            this.TxtTopTasit.Location = new System.Drawing.Point(110, 698);
             this.TxtTopTasit.Name = "TxtTopTasit";
             this.TxtTopTasit.Size = new System.Drawing.Size(21, 15);
             this.TxtTopTasit.TabIndex = 487;
@@ -505,7 +509,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(17, 381);
+            this.label16.Location = new System.Drawing.Point(10, 698);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(94, 15);
             this.label16.TabIndex = 486;
@@ -514,11 +518,12 @@ namespace UserInterface.IdariIsler
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.DtgKalemlerTasit);
-            this.groupBox6.Location = new System.Drawing.Point(7, 409);
+            this.groupBox6.Location = new System.Drawing.Point(597, 776);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1463, 301);
+            this.groupBox6.Size = new System.Drawing.Size(42, 30);
             this.groupBox6.TabIndex = 484;
             this.groupBox6.TabStop = false;
+            this.groupBox6.Visible = false;
             // 
             // DtgKalemlerTasit
             // 
@@ -537,7 +542,7 @@ namespace UserInterface.IdariIsler
             this.DtgKalemlerTasit.Name = "DtgKalemlerTasit";
             this.DtgKalemlerTasit.ReadOnly = true;
             this.DtgKalemlerTasit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgKalemlerTasit.Size = new System.Drawing.Size(1457, 282);
+            this.DtgKalemlerTasit.Size = new System.Drawing.Size(36, 11);
             this.DtgKalemlerTasit.TabIndex = 321;
             this.DtgKalemlerTasit.TimeFilter = false;
             // 

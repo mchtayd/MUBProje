@@ -325,7 +325,7 @@ namespace UserInterface.IdariIsler
             Harcama();
 
             SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, isakisno.ConInt(), infos[4].ToString(),infos[1].ToString(), 
-                infos[2].ToString(),"","",DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya,infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, firmaBilgisi);
+                infos[2].ToString(),"YOK","YOK",DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya,infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, firmaBilgisi);
 
             string mesaj = satDataGridview1Manager.Add(satDataGridview1);
             if (mesaj != "OK")
@@ -419,7 +419,7 @@ namespace UserInterface.IdariIsler
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\Formlar\\DTS_Otel Rezervasyon Talep Formu.docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otel Rezervasyon Talep Formu2.docx";
+            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otel Rezervasyon Talep Formu3.docx";
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 
@@ -657,7 +657,7 @@ namespace UserInterface.IdariIsler
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\Formlar\\DTS_Otel Rezervasyon Talep Formu.docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otel Rezervasyon Talep Formu2.docx";
+            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otel Rezervasyon Talep Formu3.docx";
 
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();

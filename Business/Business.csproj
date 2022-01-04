@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ComboManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\AbfFormNoManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\ArizaKayitManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDesteIscilikManager.cs" />
@@ -49,8 +51,11 @@
     <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikIscilikManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikPerformansManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\PypManager.cs" />
     <Compile Include="Concreate\Depo\AmbarManager.cs" />
     <Compile Include="Concreate\Depo\CayOcagiManager.cs" />
+    <Compile Include="Concreate\Depo\DepoKayitLokasyonManager.cs" />
+    <Compile Include="Concreate\Depo\DepoKayitManagercs.cs" />
     <Compile Include="Concreate\Depo\DestekDepoMalzemeKayitManager.cs" />
     <Compile Include="Concreate\Depo\ElAletleriManager.cs" />
     <Compile Include="Concreate\Depo\IsGiysiManager.cs" />

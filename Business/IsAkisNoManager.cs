@@ -56,6 +56,17 @@ namespace Business
                 return ex.Message;
             }
         }
+        public string UpdateKontrolsuz()
+        {
+            try
+            {
+                return isAkisNoDal.UpdateKontrolsuz();
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static IsAkisNoManager GetInstance()
         {
             if (isAkisNoManager == null)

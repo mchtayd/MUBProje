@@ -1536,7 +1536,7 @@ namespace UserInterface.STS
                 SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanislem, islmeyapan, DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslem);
                 SatOnayTarihiKayit();
-                CreateWord();
+                //CreateWord();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 onaydurum = "Onaylanmıştır";
                 //Task.Factory.StartNew(() => MailSendMetot());
@@ -2229,6 +2229,94 @@ namespace UserInterface.STS
             e.Handled = true;
         }
 
+        private void DtgOnay_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (DtgOnay.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+            IslemAdimlari();
+            id = DtgOnay.CurrentRow.Cells["Id"].Value.ConInt();
+            siparisNo = DtgOnay.CurrentRow.Cells["SiparisNo"].Value.ToString();
+            dosyayolu = DtgOnay.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            satno = DtgOnay.CurrentRow.Cells["SatNo"].Value.ConInt();
+            formno = DtgOnay.CurrentRow.Cells["Formno"].Value.ConInt();
+            masrafyeri = DtgOnay.CurrentRow.Cells["Masrafyeri"].Value.ToString();
+            talepeden = DtgOnay.CurrentRow.Cells["Talepeden"].Value.ToString();
+            bolum = DtgOnay.CurrentRow.Cells["Bolum"].Value.ToString();
+            usbolgesi = DtgOnay.CurrentRow.Cells["Usbolgesi"].Value.ToString();
+            abfno = DtgOnay.CurrentRow.Cells["Abfformno"].Value.ToString();
+            istenentarih = DtgOnay.CurrentRow.Cells["Tarih"].Value.ConTime();
+            gerekce = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+            belgeTuru = DtgOnay.CurrentRow.Cells["BelgeTuru"].Value.ToString();
+            masrafyerino = DtgOnay.CurrentRow.Cells["Masyerino"].Value.ToString();
+            abfformno = DtgOnay.CurrentRow.Cells["Abfformno"].Value.ToString();
+            butcekodukalemi = DtgOnay.CurrentRow.Cells["Burcekodu"].Value.ToString();
+            satbirim = DtgOnay.CurrentRow.Cells["Satbirim"].Value.ToString();
+            harcamaturu = DtgOnay.CurrentRow.Cells["Harcamaturu"].Value.ToString();
+            belgeNumarasi = DtgOnay.CurrentRow.Cells["BelgeNumarasi"].Value.ToString();
+            faturafirma = DtgOnay.CurrentRow.Cells["Faturafirma"].Value.ToString();
+            ilgilikisi = DtgOnay.CurrentRow.Cells["Ilgilikisi"].Value.ToString();
+            belgeTarihi = DtgOnay.CurrentRow.Cells["BelgeTarihi"].Value.ConTime();
+            ucteklif = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
+            donem = DtgOnay.CurrentRow.Cells["Donem"].Value.ToString();
+            satOlusturmaTuru = DtgOnay.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
+            personelId = DtgOnay.CurrentRow.Cells["PersonelId"].Value.ConInt();
+            firmaBilgisi = DtgOnay.CurrentRow.Cells["FirmaBilgisi"].Value.ToString();
+            talepEdenPersonel = DtgOnay.CurrentRow.Cells["TalepEdenPersonel"].Value.ToString();
+            personelSiparis = DtgOnay.CurrentRow.Cells["PersonelSiparis"].Value.ToString();
+            unvani = DtgOnay.CurrentRow.Cells["Unvani"].Value.ToString();
+            personelMasrafYerNo = DtgOnay.CurrentRow.Cells["PersonelMasYerNo"].Value.ToString();
+            islemAdimi = DtgOnay.CurrentRow.Cells["IslemAdimi"].Value.ToString();
+            satinAlinanFirma = DtgOnay.CurrentRow.Cells["SatinAlinanFirma"].Value.ToString();
+            dosyayolu = DtgOnay.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            proje = DtgOnay.CurrentRow.Cells["Proje"].Value.ToString();
+            teklifdurumu = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
+            satinAlinacakMalzemelers = satinAlinacakMalManager.GetList(siparisNo);
+            satNos = satNoManager.GetList(siparisNo);
+            MalzemeList();
+            MalzemeList2();
+            DtgSatIslemAdimlari.DataSource = satIslemAdimlarimanager.GetList(siparisNo);
+            WebBrowser();
+
+            FillTools();
+            FillTools2();
+
+            if (teklifdurumu == 0)
+            {
+                if (belgeTuru != "")
+                {
+                    panel2.Visible = true;
+                    panel4.Visible = false;
+                    panel5.Visible = false;
+                    return;
+                }
+                if (talepeden == "MURAT DEMİRTAŞ      ")
+                {
+                    if (satOlusturmaTuru == "BAŞARAN")
+                    {
+                        panel4.Visible = true;
+                        panel2.Visible = false;
+                        panel5.Visible = false;
+                        return;
+                    }
+                    panel2.Visible = true;
+                    panel4.Visible = false;
+                    panel5.Visible = false;
+                    return;
+                }
+                panel4.Visible = true;
+                panel2.Visible = false;
+                panel5.Visible = false;
+            }
+            if (teklifdurumu == 1)
+            {
+                panel5.Visible = true;
+                panel4.Visible = false;
+                panel2.Visible = false;
+            }
+        }
 
         private void bb3_KeyPress(object sender, KeyPressEventArgs e)
         {

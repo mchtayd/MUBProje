@@ -153,7 +153,8 @@ namespace UserInterface.IdariIşler
             TemizleIstenAyrilis();
             TemizlePersonelKayit();
             GuncelleTemizle();
-            TOPP.Text = siparislerManager.ToplamPers().ToString();
+            //TOPP.Text = siparislerManager.ToplamPers().ToString();
+            Toplamlar2();
             TOPA.Text = siparislerManager.ToplamArac().ToString();
             start = false;
             KadroControl();
@@ -1108,7 +1109,8 @@ namespace UserInterface.IdariIşler
             ComboSatKategori();
             ProjeKodu();
             ProjeKoduGun();
-            TOPP.Text = siparislerManager.ToplamPers().ToString();
+            //TOPP.Text = siparislerManager.ToplamPers().ToString();
+            Toplamlar2();
             TOPA.Text = siparislerManager.ToplamArac().ToString();
             start = false;
             KadroControl();
@@ -1382,9 +1384,24 @@ namespace UserInterface.IdariIşler
             double toplam = 0;
             for (int i = 0; i < DtgMevcutKadro.Rows.Count; ++i)
             {
-                toplam += Convert.ToDouble(DtgMevcutKadro.Rows[i].Cells[15].Value);
+                if (DtgMevcutKadro.Rows[i].Cells[2].Value.ToString() != "N/A2021N/A10P0A")
+                {
+                    toplam += Convert.ToDouble(DtgMevcutKadro.Rows[i].Cells[15].Value);
+                }
             }
             TxtMevcutPersonel.Text = toplam.ToString();
+        }
+        void Toplamlar2()
+        {
+            double toplamPersonel = 0;
+            for (int i = 0; i < DtgMevcutKadro.Rows.Count; ++i)
+            {
+                if (DtgMevcutKadro.Rows[i].Cells[2].Value.ToString() != "N/A2021N/A10P0A")
+                {
+                    toplamPersonel += Convert.ToDouble(DtgMevcutKadro.Rows[i].Cells[12].Value);
+                }
+            }
+            TOPP.Text = toplamPersonel.ToString();
         }
         void GuncelleTemizle()
         {
@@ -1461,7 +1478,8 @@ namespace UserInterface.IdariIşler
                 MevcutKadro();
                 Temizle();
                 SiparisDoldur();
-                TOPP.Text = siparislerManager.ToplamPers().ToString();
+                //TOPP.Text = siparislerManager.ToplamPers().ToString();
+                Toplamlar2();
                 TOPA.Text = siparislerManager.ToplamArac().ToString();
             }
         }

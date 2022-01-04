@@ -59,7 +59,21 @@ namespace DataAccess
         {
             try
             {
+                //dataReader = sqlServices.StoreReader("IsAkisNoUpdate",new SqlParameter("@isAkisNo", isAkisNo));
                 dataReader = sqlServices.StoreReader("IsAkisNo");
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message; 
+            }
+        }
+        public string UpdateKontrolsuz()
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("IsAkisNoGuncelle");
                 dataReader.Close();
                 return "OK";
             }

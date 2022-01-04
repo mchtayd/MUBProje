@@ -65,11 +65,11 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public Bolge Get(int id)
+        public Bolge Get(string bolgeAdi)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("BolgeListele", new SqlParameter("@id", id));
+                dataReader = sqlServices.StoreReader("BolgeListele", new SqlParameter("@bolgeAdi", bolgeAdi));
                 Bolge item = null;
                 while (dataReader.Read())
                 {

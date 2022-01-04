@@ -296,7 +296,16 @@ namespace UserInterface.STS
             BtnOnayla.Location = new Point(7, 507);
             BtnSatDuzenle.Location = new Point(144, 507);
             LblToplam.Text = item.Tutar.ToString(); // tutar bilgisi tanıma atıldı (SAT ONAYDAN GELİYOR)
-            webBrowser1.Navigate(dosyayolutam);
+            try
+            {
+                webBrowser1.Navigate(dosyayolutam);
+            }
+            catch (Exception)
+            {
+
+                return;
+            }
+            
         }
         void IslemAdimlari()
         {

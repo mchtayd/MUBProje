@@ -82,9 +82,19 @@ namespace DataAccess.Concreate.STS
 
         }
 
-        public string Update(TamamlananMalzeme entity)
+        public string UpdateFiyat(TamamlananMalzeme entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("TamamlananSatMalzemeFiyatGuncelle",new SqlParameter("@birimFiyati",entity.Birimfiyat),
+                    new SqlParameter("@tutar",entity.Toplamfiyat),new SqlParameter("@siparisNo",entity.Siparisno),new SqlParameter("@stokNo",entity.Stokno));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static TamamlananMalzemeDal GetInstance()
         {

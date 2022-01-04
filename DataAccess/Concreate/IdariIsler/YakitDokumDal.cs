@@ -49,6 +49,29 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+        public string AddTasitTanima(YakitDokum entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("YakitTasiTanimaEkle",
+                    new SqlParameter("@isAkisNo", entity.IsAkisNo),
+                    new SqlParameter("@firma", entity.Firma),
+                    new SqlParameter("@plaka", entity.Plaka),
+                    new SqlParameter("@donem", entity.Donem),
+                    new SqlParameter("@tarih", entity.Tarih),
+                    new SqlParameter("@aracSiparisNo", entity.AracSiparisNo),
+                    new SqlParameter("@tuketimLT", entity.VerilenLitre),
+                    new SqlParameter("@tutar", entity.ToplamTutar),
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string AddTasit(YakitDokum entity)
         {
             try
@@ -218,6 +241,34 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SiparisNo"].ToString(),
                         dataReader["ALIM_TURU"].ToString()));
+                }
+                dataReader.Close();
+                return yakitDokums;
+            }
+            catch (Exception ex)
+            {
+                return new List<YakitDokum>();
+            }
+        }
+        public List<YakitDokum> GetListTT()
+        {
+            try
+            {
+                List<YakitDokum> yakitDokums = new List<YakitDokum>();
+                dataReader = sqlServices.StoreReader("YakitTasiTanimaListe");
+                while (dataReader.Read())
+                {
+                    yakitDokums.Add(new YakitDokum(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["FIRMA"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["TARIH_SAAT"].ConTime(),
+                        dataReader["PLAKA"].ToString(),
+                        dataReader["ARAC_SIPARIS_NO"].ToString(),
+                        dataReader["TUKETIM_LT"].ConDouble(),
+                        dataReader["TUTAR"].ConDouble(),
+                        dataReader["DOSYA_YOLU"].ToString()));
                 }
                 dataReader.Close();
                 return yakitDokums;

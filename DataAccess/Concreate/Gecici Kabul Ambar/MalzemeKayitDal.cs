@@ -99,12 +99,12 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public List<MalzemeKayit> GetList(int id)
+        public List<MalzemeKayit> GetList(string stokNo)
         {
             try
             {
                 List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
-                dataReader = sqlServices.StoreReader("MalzemelerList", new SqlParameter("@id",id));
+                dataReader = sqlServices.StoreReader("MalzemelerList", new SqlParameter("@stokno", stokNo));
                 while (dataReader.Read())
                 {
                     malzemeKayits.Add(new MalzemeKayit(

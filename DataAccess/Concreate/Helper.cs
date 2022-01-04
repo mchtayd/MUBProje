@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,8 @@ namespace DataAccess.Concreate
 {
     public static class Helper
     {
+        
+
         static double outValue = 0;
         static int outValue2 = 0;
         static DateTime outValue3 = new DateTime(2000,01,01);
@@ -99,5 +102,6 @@ namespace DataAccess.Concreate
                 .Replace(">", "")
                 .Replace("|", "");
         }
+
     }
 }

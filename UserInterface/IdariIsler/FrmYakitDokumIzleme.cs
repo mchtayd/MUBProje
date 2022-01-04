@@ -82,29 +82,29 @@ namespace UserInterface.IdariIsler
         }
         void DataDisplayTasima()
         {
-            yakitDokumsTasit = yakitDokumManager.GetListAna("TAŞIT TANIMA");
+            yakitDokumsTasit = yakitDokumManager.GetListTT();
             dataBinder3.DataSource = yakitDokumsTasit.ToDataTable();
             DtgListTasit.DataSource = dataBinder3;
             TxtTopTasit.Text = DtgListTasit.RowCount.ToString();
             ToplamlarTasit();
 
             DtgListTasit.Columns["Id"].Visible = false;
-            DtgListTasit.Columns["IsAkisNo"].Visible = false;
+            DtgListTasit.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
             DtgListTasit.Columns["Firma"].HeaderText = "FİRMA";
             DtgListTasit.Columns["Donem"].HeaderText = "DÖNEM";
-            DtgListTasit.Columns["Tarih"].Visible = false;
+            DtgListTasit.Columns["Tarih"].HeaderText = "TARİH";
             DtgListTasit.Columns["DefterNo"].Visible = false;
             DtgListTasit.Columns["SiraNo"].Visible = false;
             DtgListTasit.Columns["FisNo"].Visible = false;
             DtgListTasit.Columns["Personel"].Visible = false;
-            DtgListTasit.Columns["Plaka"].Visible = false;
-            DtgListTasit.Columns["AracSiparisNo"].Visible = false;
+            DtgListTasit.Columns["Plaka"].HeaderText = "PLAKA";
+            DtgListTasit.Columns["AracSiparisNo"].HeaderText = "ARAÇ SİPARİŞ NO";
             DtgListTasit.Columns["LitreFiyati"].Visible = false;
-            DtgListTasit.Columns["VerilenLitre"].Visible = false;
+            DtgListTasit.Columns["VerilenLitre"].HeaderText = "VERİLEN LİTRE";
             DtgListTasit.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
             DtgListTasit.Columns["DosyaYolu"].Visible = false;
             DtgListTasit.Columns["SiparisNo"].Visible = false;
-            DtgListTasit.Columns["AlimTuru"].HeaderText = "ALIM TÜRÜ";
+            DtgListTasit.Columns["AlimTuru"].Visible = false;
         }
 
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -120,7 +120,16 @@ namespace UserInterface.IdariIsler
             dataBinder2.DataSource = yakitDokumsMalzemeler;
             DtgKalemler.DataSource = dataBinder2;
             Display2();
-            webBrowser1.Navigate(dosyaYolu);
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+            
         }
         void Display2()
         {
@@ -184,7 +193,7 @@ namespace UserInterface.IdariIsler
             {
                 toplam += Convert.ToDouble(DtgListTasit.Rows[i].Cells[13].Value);
             }
-            LblGenelTopTasima.Text = toplam.ToString();
+            LblGenelTopTasima.Text = toplam.ToString("C2");
         }
         void ToplamlarTasitKalemler()
         {
@@ -262,7 +271,15 @@ namespace UserInterface.IdariIsler
             dataBinder4.DataSource = yakitDokumsMalzemeler;
             DtgKalemlerTasit.DataSource = dataBinder4;
             Display2Tasit();
-            webBrowser2.Navigate(dosyaYolu);
+            try
+            {
+                webBrowser2.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
 
         private void DtgListTasit_FilterStringChanged(object sender, EventArgs e)
@@ -293,7 +310,7 @@ namespace UserInterface.IdariIsler
             {
                 toplam += Convert.ToDouble(DtgKalemlerTasit.Rows[i].Cells[12].Value);
             }
-            LblGenelTopTasimaKalemler.Text = toplam.ToString();
+            LblGenelTopTasimaKalemler.Text = toplam.ToString("C2");
         }
     }
 }

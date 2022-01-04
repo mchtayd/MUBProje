@@ -965,6 +965,15 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show("Görevi Silmek İstediğinize Emin Misiniz? Bu İşlem Geri Alınamaz!", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                string mesaj = yurtIciGorevManager.Delete(TxtIsAkisNoTamamla.Text.ConInt());
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                Directory.Delete(dosyaGun, true);
+                CreateLogSil();
+
                 SatDataGridview1 gorev = satDataGridview1Manager.Get(TxtIsAkisNoTamamla.Text);
                 siparisSat = gorev.SiparisNo;
                 if (siparisSat != "")
@@ -975,16 +984,9 @@ namespace UserInterface.IdariIsler
                         MessageBox.Show(messege, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+
                 }
 
-                string mesaj = yurtIciGorevManager.Delete(TxtIsAkisNoTamamla.Text.ConInt());
-                if (mesaj != "OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                Directory.Delete(dosyaGun, true);
-                CreateLogSil();
                 MessageBox.Show(TxtIsAkisNoTamamla.Text + " İş Akış Nolu YURT İÇİ GÖREV Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleGuncelle();
             }

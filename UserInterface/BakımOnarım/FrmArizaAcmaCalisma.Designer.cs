@@ -30,36 +30,40 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaAcmaCalisma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.LblIslemAdimi = new System.Windows.Forms.Label();
+            this.LblArizaBildirimiAlan = new System.Windows.Forms.Label();
+            this.CmbGorevAtanacakPersonel = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.TxtArizaAciklama = new System.Windows.Forms.RichTextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.CmbBildirimKanali = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.comboBox25 = new System.Windows.Forms.ComboBox();
+            this.LblIsAkisNo = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.TxtABTelefon = new System.Windows.Forms.MaskedTextBox();
+            this.label98 = new System.Windows.Forms.Label();
+            this.CmbProje = new System.Windows.Forms.ComboBox();
             this.label97 = new System.Windows.Forms.Label();
             this.BtnBolgeEkle = new System.Windows.Forms.Button();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.TxtBildirilenAriza = new System.Windows.Forms.RichTextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
+            this.LblIlce = new System.Windows.Forms.Label();
+            this.LblIl = new System.Windows.Forms.Label();
+            this.LblBirlilkAdresi = new System.Windows.Forms.Label();
+            this.LblTelefon = new System.Windows.Forms.Label();
+            this.LblBolukKomutanı = new System.Windows.Forms.Label();
             this.label69 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -67,22 +71,22 @@ namespace UserInterface.BakımOnarım
             this.label5 = new System.Windows.Forms.Label();
             this.CmbBolgeAdi = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
+            this.TxtBirlikPerGorevi = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.TxtBirlikPerRutbesi = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.TxtBirlikPersoneli = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.button4 = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
-            this.label11 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
             this.label76 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
@@ -210,11 +214,11 @@ namespace UserInterface.BakımOnarım
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.CmbArizaAcmaOnayiVeren = new System.Windows.Forms.ComboBox();
             this.label78 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.DtgVarisSaati = new System.Windows.Forms.DateTimePicker();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.DtgMailGeldigiTarih = new System.Windows.Forms.DateTimePicker();
+            this.DtgMudehaleSaati = new System.Windows.Forms.DateTimePicker();
+            this.TxtIscilikSuresi = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.AdvPersonel = new ADGV.AdvancedDataGridView();
@@ -226,36 +230,36 @@ namespace UserInterface.BakımOnarım
             this.CmbPersoneller = new System.Windows.Forms.ComboBox();
             this.label75 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.TxtTespitEdilenAriza = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
-            this.dateTimePicker5 = new System.Windows.Forms.DateTimePicker();
+            this.DtgMudehaleTarihi = new System.Windows.Forms.DateTimePicker();
             this.label41 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.LblBolgeAdi = new System.Windows.Forms.Label();
+            this.TxtBildirilenArizaSiparis = new System.Windows.Forms.RichTextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.DtLojistikSaat = new System.Windows.Forms.DateTimePicker();
             this.DtLojistikTarih = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker10 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.TxtArizaBildirenSaat = new System.Windows.Forms.DateTimePicker();
+            this.TxtArizaBildirenTarih = new System.Windows.Forms.DateTimePicker();
             this.label65 = new System.Windows.Forms.Label();
             this.label66 = new System.Windows.Forms.Label();
             this.LblLojistik = new System.Windows.Forms.Label();
             this.TxtLojistikSorGorevi = new System.Windows.Forms.TextBox();
             this.TxtLojistikSorRutbesi = new System.Windows.Forms.TextBox();
-            this.TxtLojistikSorumlusuAdi = new System.Windows.Forms.TextBox();
+            this.TxtLojistikSorumlusu = new System.Windows.Forms.TextBox();
             this.label67 = new System.Windows.Forms.Label();
             this.CmbGarantiDurumu = new System.Windows.Forms.ComboBox();
             this.label77 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtArizaBildirenGorevi = new System.Windows.Forms.TextBox();
             this.label80 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.TxtArizaBildirenRutbesi = new System.Windows.Forms.TextBox();
             this.label81 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.TxtArizaBildirenSiparis = new System.Windows.Forms.TextBox();
             this.label82 = new System.Windows.Forms.Label();
             this.label83 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtAbfFormNo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label60 = new System.Windows.Forms.Label();
@@ -394,8 +398,8 @@ namespace UserInterface.BakımOnarım
             this.label93 = new System.Windows.Forms.Label();
             this.dateTimePicker8 = new System.Windows.Forms.DateTimePicker();
             this.label94 = new System.Windows.Forms.Label();
-            this.textBox41 = new System.Windows.Forms.TextBox();
-            this.label98 = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.BtnBul = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -464,17 +468,17 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.comboBox5);
+            this.tabPage1.Controls.Add(this.LblIslemAdimi);
+            this.tabPage1.Controls.Add(this.LblArizaBildirimiAlan);
+            this.tabPage1.Controls.Add(this.CmbGorevAtanacakPersonel);
             this.tabPage1.Controls.Add(this.label10);
-            this.tabPage1.Controls.Add(this.comboBox3);
             this.tabPage1.Controls.Add(this.label7);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.BtnKaydet);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.BtnDosyaEkle);
-            this.tabPage1.Controls.Add(this.richTextBox2);
+            this.tabPage1.Controls.Add(this.TxtArizaAciklama);
             this.tabPage1.Controls.Add(this.label4);
-            this.tabPage1.Controls.Add(this.comboBox1);
-            this.tabPage1.Controls.Add(this.comboBox2);
+            this.tabPage1.Controls.Add(this.CmbBildirimKanali);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.groupBox1);
@@ -486,63 +490,74 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.Text = "ARIZA KAYIT OLUŞTUR";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // comboBox5
+            // LblIslemAdimi
             // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Location = new System.Drawing.Point(169, 634);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(241, 23);
-            this.comboBox5.TabIndex = 424;
+            this.LblIslemAdimi.AutoSize = true;
+            this.LblIslemAdimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblIslemAdimi.Location = new System.Drawing.Point(166, 697);
+            this.LblIslemAdimi.Name = "LblIslemAdimi";
+            this.LblIslemAdimi.Size = new System.Drawing.Size(237, 15);
+            this.LblIslemAdimi.TabIndex = 425;
+            this.LblIslemAdimi.Text = "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)";
+            // 
+            // LblArizaBildirimiAlan
+            // 
+            this.LblArizaBildirimiAlan.AutoSize = true;
+            this.LblArizaBildirimiAlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblArizaBildirimiAlan.Location = new System.Drawing.Point(172, 413);
+            this.LblArizaBildirimiAlan.Name = "LblArizaBildirimiAlan";
+            this.LblArizaBildirimiAlan.Size = new System.Drawing.Size(21, 15);
+            this.LblArizaBildirimiAlan.TabIndex = 401;
+            this.LblArizaBildirimiAlan.Text = "00";
+            // 
+            // CmbGorevAtanacakPersonel
+            // 
+            this.CmbGorevAtanacakPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGorevAtanacakPersonel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbGorevAtanacakPersonel.FormattingEnabled = true;
+            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(169, 664);
+            this.CmbGorevAtanacakPersonel.Name = "CmbGorevAtanacakPersonel";
+            this.CmbGorevAtanacakPersonel.Size = new System.Drawing.Size(241, 23);
+            this.CmbGorevAtanacakPersonel.TabIndex = 424;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(14, 637);
+            this.label10.Location = new System.Drawing.Point(14, 667);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(147, 15);
             this.label10.TabIndex = 423;
             this.label10.Text = "Görev Atanacak Personel:";
             // 
-            // comboBox3
-            // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(169, 663);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(241, 23);
-            this.comboBox3.TabIndex = 422;
-            // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(86, 667);
+            this.label7.Location = new System.Drawing.Point(86, 697);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(74, 15);
             this.label7.TabIndex = 421;
             this.label7.Text = "İşlem Adımı:";
             // 
-            // button1
+            // BtnKaydet
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(169, 721);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(145, 50);
-            this.button1.TabIndex = 420;
-            this.button1.Text = "KAYDET";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Location = new System.Drawing.Point(169, 732);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(145, 50);
+            this.BtnKaydet.TabIndex = 420;
+            this.BtnKaydet.Text = "KAYDET";
+            this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webBrowser1);
-            this.groupBox3.Location = new System.Drawing.Point(169, 537);
+            this.groupBox3.Location = new System.Drawing.Point(169, 538);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(639, 85);
+            this.groupBox3.Size = new System.Drawing.Size(596, 120);
             this.groupBox3.TabIndex = 419;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EKLER:";
@@ -553,66 +568,57 @@ namespace UserInterface.BakımOnarım
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(633, 66);
+            this.webBrowser1.Size = new System.Drawing.Size(590, 101);
             this.webBrowser1.TabIndex = 0;
             // 
             // BtnDosyaEkle
             // 
             this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(41, 553);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(38, 554);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(125, 41);
             this.BtnDosyaEkle.TabIndex = 418;
             this.BtnDosyaEkle.Text = "DOSYA EKLE";
             this.BtnDosyaEkle.UseVisualStyleBackColor = true;
+            this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
             // 
-            // richTextBox2
+            // TxtArizaAciklama
             // 
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox2.Location = new System.Drawing.Point(172, 470);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(636, 50);
-            this.richTextBox2.TabIndex = 414;
-            this.richTextBox2.Text = "";
+            this.TxtArizaAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtArizaAciklama.Location = new System.Drawing.Point(169, 482);
+            this.TxtArizaAciklama.Name = "TxtArizaAciklama";
+            this.TxtArizaAciklama.Size = new System.Drawing.Size(593, 50);
+            this.TxtArizaAciklama.TabIndex = 414;
+            this.TxtArizaAciklama.Text = "";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(32, 473);
+            this.label4.Location = new System.Drawing.Point(32, 485);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 15);
             this.label4.TabIndex = 412;
             this.label4.Text = "Arıza İle İlgili Açıklama:";
             // 
-            // comboBox1
+            // CmbBildirimKanali
             // 
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.CmbBildirimKanali.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbBildirimKanali.FormattingEnabled = true;
+            this.CmbBildirimKanali.Items.AddRange(new object[] {
             "GSM MESAJ",
             "GSM TELEFON GÖRÜŞMESİ"});
-            this.comboBox1.Location = new System.Drawing.Point(172, 431);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(241, 23);
-            this.comboBox1.TabIndex = 417;
-            // 
-            // comboBox2
-            // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(172, 397);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(241, 23);
-            this.comboBox2.TabIndex = 416;
+            this.CmbBildirimKanali.Location = new System.Drawing.Point(169, 443);
+            this.CmbBildirimKanali.Name = "CmbBildirimKanali";
+            this.CmbBildirimKanali.Size = new System.Drawing.Size(241, 23);
+            this.CmbBildirimKanali.TabIndex = 417;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(43, 434);
+            this.label2.Location = new System.Drawing.Point(43, 446);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 15);
             this.label2.TabIndex = 413;
@@ -622,7 +628,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(65, 393);
+            this.label3.Location = new System.Drawing.Point(65, 405);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 30);
             this.label3.TabIndex = 415;
@@ -630,18 +636,20 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox41);
+            this.groupBox1.Controls.Add(this.LblIsAkisNo);
+            this.groupBox1.Controls.Add(this.label71);
+            this.groupBox1.Controls.Add(this.TxtABTelefon);
             this.groupBox1.Controls.Add(this.label98);
-            this.groupBox1.Controls.Add(this.comboBox25);
+            this.groupBox1.Controls.Add(this.CmbProje);
             this.groupBox1.Controls.Add(this.label97);
             this.groupBox1.Controls.Add(this.BtnBolgeEkle);
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.TxtBildirilenAriza);
             this.groupBox1.Controls.Add(this.label20);
-            this.groupBox1.Controls.Add(this.label74);
-            this.groupBox1.Controls.Add(this.label73);
-            this.groupBox1.Controls.Add(this.label72);
-            this.groupBox1.Controls.Add(this.label71);
-            this.groupBox1.Controls.Add(this.label70);
+            this.groupBox1.Controls.Add(this.LblIlce);
+            this.groupBox1.Controls.Add(this.LblIl);
+            this.groupBox1.Controls.Add(this.LblBirlilkAdresi);
+            this.groupBox1.Controls.Add(this.LblTelefon);
+            this.groupBox1.Controls.Add(this.LblBolukKomutanı);
             this.groupBox1.Controls.Add(this.label69);
             this.groupBox1.Controls.Add(this.label68);
             this.groupBox1.Controls.Add(this.label8);
@@ -649,35 +657,74 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.CmbBolgeAdi);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.textBox8);
+            this.groupBox1.Controls.Add(this.TxtBirlikPerGorevi);
             this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.textBox6);
+            this.groupBox1.Controls.Add(this.TxtBirlikPerRutbesi);
             this.groupBox1.Controls.Add(this.label23);
-            this.groupBox1.Controls.Add(this.textBox7);
+            this.groupBox1.Controls.Add(this.TxtBirlikPersoneli);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(17, 15);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1800, 362);
+            this.groupBox1.Size = new System.Drawing.Size(1800, 387);
             this.groupBox1.TabIndex = 411;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ÜS BÖLGESİ VE BİLDİRİLEN ARIZA BİLGİLERİ";
             // 
-            // comboBox25
+            // LblIsAkisNo
             // 
-            this.comboBox25.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox25.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox25.FormattingEnabled = true;
-            this.comboBox25.Location = new System.Drawing.Point(155, 32);
-            this.comboBox25.Name = "comboBox25";
-            this.comboBox25.Size = new System.Drawing.Size(116, 23);
-            this.comboBox25.TabIndex = 398;
+            this.LblIsAkisNo.AutoSize = true;
+            this.LblIsAkisNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblIsAkisNo.Location = new System.Drawing.Point(155, 26);
+            this.LblIsAkisNo.Name = "LblIsAkisNo";
+            this.LblIsAkisNo.Size = new System.Drawing.Size(21, 15);
+            this.LblIsAkisNo.TabIndex = 402;
+            this.LblIsAkisNo.Text = "00";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label71.Location = new System.Drawing.Point(83, 26);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(63, 15);
+            this.label71.TabIndex = 401;
+            this.label71.Text = "İş Akış No:";
+            // 
+            // TxtABTelefon
+            // 
+            this.TxtABTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtABTelefon.Location = new System.Drawing.Point(507, 297);
+            this.TxtABTelefon.Mask = "(999) 000-0000";
+            this.TxtABTelefon.Name = "TxtABTelefon";
+            this.TxtABTelefon.Size = new System.Drawing.Size(241, 21);
+            this.TxtABTelefon.TabIndex = 400;
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label98.Location = new System.Drawing.Point(450, 300);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(51, 15);
+            this.label98.TabIndex = 399;
+            this.label98.Text = "Telefon:";
+            // 
+            // CmbProje
+            // 
+            this.CmbProje.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbProje.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbProje.FormattingEnabled = true;
+            this.CmbProje.Location = new System.Drawing.Point(155, 56);
+            this.CmbProje.Name = "CmbProje";
+            this.CmbProje.Size = new System.Drawing.Size(116, 23);
+            this.CmbProje.TabIndex = 398;
             // 
             // label97
             // 
             this.label97.AutoSize = true;
             this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label97.Location = new System.Drawing.Point(110, 36);
+            this.label97.Location = new System.Drawing.Point(107, 60);
             this.label97.Name = "label97";
             this.label97.Size = new System.Drawing.Size(39, 15);
             this.label97.TabIndex = 397;
@@ -690,88 +737,89 @@ namespace UserInterface.BakımOnarım
             this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
             this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolgeEkle.Location = new System.Drawing.Point(399, 58);
+            this.BtnBolgeEkle.Location = new System.Drawing.Point(399, 82);
             this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBolgeEkle.Name = "BtnBolgeEkle";
             this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);
             this.BtnBolgeEkle.TabIndex = 396;
             this.BtnBolgeEkle.Tag = "admin";
             this.BtnBolgeEkle.UseVisualStyleBackColor = false;
+            this.BtnBolgeEkle.Click += new System.EventHandler(this.BtnBolgeEkle_Click);
             // 
-            // richTextBox1
+            // TxtBildirilenAriza
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox1.Location = new System.Drawing.Point(158, 206);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(636, 50);
-            this.richTextBox1.TabIndex = 395;
-            this.richTextBox1.Text = "";
+            this.TxtBildirilenAriza.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBildirilenAriza.Location = new System.Drawing.Point(155, 234);
+            this.TxtBildirilenAriza.Name = "TxtBildirilenAriza";
+            this.TxtBildirilenAriza.Size = new System.Drawing.Size(590, 50);
+            this.TxtBildirilenAriza.TabIndex = 395;
+            this.TxtBildirilenAriza.Text = "";
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label20.Location = new System.Drawing.Point(61, 209);
+            this.label20.Location = new System.Drawing.Point(58, 237);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(88, 15);
             this.label20.TabIndex = 394;
             this.label20.Text = "Bildirilen Arıza:";
             // 
-            // label74
+            // LblIlce
             // 
-            this.label74.AutoSize = true;
-            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label74.Location = new System.Drawing.Point(155, 185);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(21, 15);
-            this.label74.TabIndex = 393;
-            this.label74.Text = "00";
+            this.LblIlce.AutoSize = true;
+            this.LblIlce.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblIlce.Location = new System.Drawing.Point(155, 209);
+            this.LblIlce.Name = "LblIlce";
+            this.LblIlce.Size = new System.Drawing.Size(11, 15);
+            this.LblIlce.TabIndex = 393;
+            this.LblIlce.Text = "-";
             // 
-            // label73
+            // LblIl
             // 
-            this.label73.AutoSize = true;
-            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label73.Location = new System.Drawing.Point(155, 161);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(21, 15);
-            this.label73.TabIndex = 392;
-            this.label73.Text = "00";
+            this.LblIl.AutoSize = true;
+            this.LblIl.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblIl.Location = new System.Drawing.Point(155, 185);
+            this.LblIl.Name = "LblIl";
+            this.LblIl.Size = new System.Drawing.Size(11, 15);
+            this.LblIl.TabIndex = 392;
+            this.LblIl.Text = "-";
             // 
-            // label72
+            // LblBirlilkAdresi
             // 
-            this.label72.AutoSize = true;
-            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label72.Location = new System.Drawing.Point(155, 137);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(21, 15);
-            this.label72.TabIndex = 391;
-            this.label72.Text = "00";
+            this.LblBirlilkAdresi.AutoSize = true;
+            this.LblBirlilkAdresi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBirlilkAdresi.Location = new System.Drawing.Point(155, 161);
+            this.LblBirlilkAdresi.Name = "LblBirlilkAdresi";
+            this.LblBirlilkAdresi.Size = new System.Drawing.Size(11, 15);
+            this.LblBirlilkAdresi.TabIndex = 391;
+            this.LblBirlilkAdresi.Text = "-";
             // 
-            // label71
+            // LblTelefon
             // 
-            this.label71.AutoSize = true;
-            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label71.Location = new System.Drawing.Point(155, 113);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(21, 15);
-            this.label71.TabIndex = 390;
-            this.label71.Text = "00";
+            this.LblTelefon.AutoSize = true;
+            this.LblTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTelefon.Location = new System.Drawing.Point(155, 137);
+            this.LblTelefon.Name = "LblTelefon";
+            this.LblTelefon.Size = new System.Drawing.Size(11, 15);
+            this.LblTelefon.TabIndex = 390;
+            this.LblTelefon.Text = "-";
             // 
-            // label70
+            // LblBolukKomutanı
             // 
-            this.label70.AutoSize = true;
-            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label70.Location = new System.Drawing.Point(155, 90);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(21, 15);
-            this.label70.TabIndex = 389;
-            this.label70.Text = "00";
+            this.LblBolukKomutanı.AutoSize = true;
+            this.LblBolukKomutanı.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBolukKomutanı.Location = new System.Drawing.Point(155, 114);
+            this.LblBolukKomutanı.Name = "LblBolukKomutanı";
+            this.LblBolukKomutanı.Size = new System.Drawing.Size(11, 15);
+            this.LblBolukKomutanı.TabIndex = 389;
+            this.LblBolukKomutanı.Text = "-";
             // 
             // label69
             // 
             this.label69.AutoSize = true;
             this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label69.Location = new System.Drawing.Point(120, 185);
+            this.label69.Location = new System.Drawing.Point(117, 209);
             this.label69.Name = "label69";
             this.label69.Size = new System.Drawing.Size(29, 15);
             this.label69.TabIndex = 388;
@@ -781,7 +829,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label68.AutoSize = true;
             this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label68.Location = new System.Drawing.Point(133, 161);
+            this.label68.Location = new System.Drawing.Point(130, 185);
             this.label68.Name = "label68";
             this.label68.Size = new System.Drawing.Size(16, 15);
             this.label68.TabIndex = 387;
@@ -791,7 +839,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(75, 137);
+            this.label8.Location = new System.Drawing.Point(72, 161);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 15);
             this.label8.TabIndex = 386;
@@ -801,7 +849,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(79, 113);
+            this.label6.Location = new System.Drawing.Point(76, 137);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 15);
             this.label6.TabIndex = 385;
@@ -811,7 +859,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(52, 89);
+            this.label5.Location = new System.Drawing.Point(49, 113);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(97, 15);
             this.label5.TabIndex = 384;
@@ -822,70 +870,71 @@ namespace UserInterface.BakımOnarım
             this.CmbBolgeAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBolgeAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbBolgeAdi.FormattingEnabled = true;
-            this.CmbBolgeAdi.Location = new System.Drawing.Point(155, 61);
+            this.CmbBolgeAdi.Location = new System.Drawing.Point(155, 85);
             this.CmbBolgeAdi.Name = "CmbBolgeAdi";
             this.CmbBolgeAdi.Size = new System.Drawing.Size(241, 23);
             this.CmbBolgeAdi.TabIndex = 383;
+            this.CmbBolgeAdi.SelectedIndexChanged += new System.EventHandler(this.CmbBolgeAdi_SelectedIndexChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(87, 65);
+            this.label1.Location = new System.Drawing.Point(84, 89);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(62, 15);
             this.label1.TabIndex = 382;
             this.label1.Text = "Bölge Adı:";
             // 
-            // textBox8
+            // TxtBirlikPerGorevi
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox8.Location = new System.Drawing.Point(158, 327);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(241, 21);
-            this.textBox8.TabIndex = 45;
+            this.TxtBirlikPerGorevi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBirlikPerGorevi.Location = new System.Drawing.Point(155, 351);
+            this.TxtBirlikPerGorevi.Name = "TxtBirlikPerGorevi";
+            this.TxtBirlikPerGorevi.Size = new System.Drawing.Size(241, 21);
+            this.TxtBirlikPerGorevi.TabIndex = 45;
             // 
             // label22
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label22.Location = new System.Drawing.Point(107, 330);
+            this.label22.Location = new System.Drawing.Point(101, 354);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(45, 15);
             this.label22.TabIndex = 44;
             this.label22.Text = "Görevi:";
             // 
-            // textBox6
+            // TxtBirlikPerRutbesi
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox6.Location = new System.Drawing.Point(158, 300);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(241, 21);
-            this.textBox6.TabIndex = 43;
+            this.TxtBirlikPerRutbesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBirlikPerRutbesi.Location = new System.Drawing.Point(155, 324);
+            this.TxtBirlikPerRutbesi.Name = "TxtBirlikPerRutbesi";
+            this.TxtBirlikPerRutbesi.Size = new System.Drawing.Size(241, 21);
+            this.TxtBirlikPerRutbesi.TabIndex = 43;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label23.Location = new System.Drawing.Point(100, 303);
+            this.label23.Location = new System.Drawing.Point(94, 327);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(52, 15);
             this.label23.TabIndex = 42;
             this.label23.Text = "Rütbesi:";
             // 
-            // textBox7
+            // TxtBirlikPersoneli
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox7.Location = new System.Drawing.Point(158, 273);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(241, 21);
-            this.textBox7.TabIndex = 41;
+            this.TxtBirlikPersoneli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBirlikPersoneli.Location = new System.Drawing.Point(155, 297);
+            this.TxtBirlikPersoneli.Name = "TxtBirlikPersoneli";
+            this.TxtBirlikPersoneli.Size = new System.Drawing.Size(241, 21);
+            this.TxtBirlikPersoneli.TabIndex = 41;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label24.Location = new System.Drawing.Point(9, 268);
+            this.label24.Location = new System.Drawing.Point(5, 292);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(141, 30);
             this.label24.TabIndex = 40;
@@ -893,11 +942,12 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BtnBul);
             this.tabPage2.Controls.Add(this.button4);
             this.tabPage2.Controls.Add(this.tabControl2);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.groupBox6);
-            this.tabPage2.Controls.Add(this.textBox1);
+            this.tabPage2.Controls.Add(this.TxtAbfFormNo);
             this.tabPage2.Controls.Add(this.label9);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -932,10 +982,10 @@ namespace UserInterface.BakımOnarım
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Controls.Add(this.label11);
             this.tabPage4.Controls.Add(this.panel2);
             this.tabPage4.Controls.Add(this.radioButton3);
             this.tabPage4.Controls.Add(this.radioButton4);
-            this.tabPage4.Controls.Add(this.label11);
             this.tabPage4.Controls.Add(this.label79);
             this.tabPage4.Controls.Add(this.label76);
             this.tabPage4.Controls.Add(this.label25);
@@ -967,13 +1017,22 @@ namespace UserInterface.BakımOnarım
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "SİSTEM / CİHAZ BİLGİLERİ";
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(15, 277);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(99, 30);
+            this.label11.TabIndex = 385;
+            this.label11.Text = "Sistem Cihaz\r\nFiziksel Durumu:";
+            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.radioButton1);
             this.panel2.Controls.Add(this.radioButton2);
-            this.panel2.Location = new System.Drawing.Point(124, 273);
+            this.panel2.Location = new System.Drawing.Point(120, 273);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(233, 34);
+            this.panel2.Size = new System.Drawing.Size(245, 34);
             this.panel2.TabIndex = 388;
             // 
             // radioButton1
@@ -1001,7 +1060,7 @@ namespace UserInterface.BakımOnarım
             // radioButton3
             // 
             this.radioButton3.AutoSize = true;
-            this.radioButton3.Location = new System.Drawing.Point(230, 232);
+            this.radioButton3.Location = new System.Drawing.Point(233, 232);
             this.radioButton3.Name = "radioButton3";
             this.radioButton3.Size = new System.Drawing.Size(80, 19);
             this.radioButton3.TabIndex = 387;
@@ -1012,22 +1071,13 @@ namespace UserInterface.BakımOnarım
             // radioButton4
             // 
             this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(124, 232);
+            this.radioButton4.Location = new System.Drawing.Point(127, 232);
             this.radioButton4.Name = "radioButton4";
             this.radioButton4.Size = new System.Drawing.Size(100, 19);
             this.radioButton4.TabIndex = 386;
             this.radioButton4.TabStop = true;
             this.radioButton4.Text = "Kısmi Çalışan";
             this.radioButton4.UseVisualStyleBackColor = true;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(15, 277);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(99, 30);
-            this.label11.TabIndex = 385;
-            this.label11.Text = "Sistem Cihaz\r\nFiziksel Durumu:";
             // 
             // label79
             // 
@@ -1485,7 +1535,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage5.Location = new System.Drawing.Point(4, 24);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1498, 342);
+            this.tabPage5.Size = new System.Drawing.Size(1473, 342);
             this.tabPage5.TabIndex = 1;
             this.tabPage5.Text = "MALZEME BİLGİLERİ";
             // 
@@ -2268,21 +2318,21 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox9);
+            this.groupBox2.Controls.Add(this.CmbArizaAcmaOnayiVeren);
             this.groupBox2.Controls.Add(this.label78);
-            this.groupBox2.Controls.Add(this.dateTimePicker1);
-            this.groupBox2.Controls.Add(this.DtgVarisSaati);
-            this.groupBox2.Controls.Add(this.textBox4);
+            this.groupBox2.Controls.Add(this.DtgMailGeldigiTarih);
+            this.groupBox2.Controls.Add(this.DtgMudehaleSaati);
+            this.groupBox2.Controls.Add(this.TxtIscilikSuresi);
             this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.groupBox4);
             this.groupBox2.Controls.Add(this.BtnPersonelEkle);
             this.groupBox2.Controls.Add(this.CmbPersoneller);
             this.groupBox2.Controls.Add(this.label75);
             this.groupBox2.Controls.Add(this.label35);
-            this.groupBox2.Controls.Add(this.richTextBox3);
+            this.groupBox2.Controls.Add(this.TxtTespitEdilenAriza);
             this.groupBox2.Controls.Add(this.label33);
             this.groupBox2.Controls.Add(this.label34);
-            this.groupBox2.Controls.Add(this.dateTimePicker5);
+            this.groupBox2.Controls.Add(this.DtgMudehaleTarihi);
             this.groupBox2.Controls.Add(this.label41);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox2.Location = new System.Drawing.Point(801, 54);
@@ -2292,14 +2342,14 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "TEKNİK PERSONEL MÜDEHALE BİLGİLERİ";
             // 
-            // comboBox9
+            // CmbArizaAcmaOnayiVeren
             // 
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Location = new System.Drawing.Point(396, 313);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(243, 23);
-            this.comboBox9.TabIndex = 383;
+            this.CmbArizaAcmaOnayiVeren.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbArizaAcmaOnayiVeren.FormattingEnabled = true;
+            this.CmbArizaAcmaOnayiVeren.Location = new System.Drawing.Point(396, 313);
+            this.CmbArizaAcmaOnayiVeren.Name = "CmbArizaAcmaOnayiVeren";
+            this.CmbArizaAcmaOnayiVeren.Size = new System.Drawing.Size(243, 23);
+            this.CmbArizaAcmaOnayiVeren.TabIndex = 383;
             // 
             // label78
             // 
@@ -2311,34 +2361,34 @@ namespace UserInterface.BakımOnarım
             this.label78.TabIndex = 382;
             this.label78.Text = "Arıza Açma Onayı\r\nVeren Sorumlıu:";
             // 
-            // dateTimePicker1
+            // DtgMailGeldigiTarih
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(145, 315);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(101, 21);
-            this.dateTimePicker1.TabIndex = 381;
+            this.DtgMailGeldigiTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtgMailGeldigiTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgMailGeldigiTarih.Location = new System.Drawing.Point(145, 315);
+            this.DtgMailGeldigiTarih.Name = "DtgMailGeldigiTarih";
+            this.DtgMailGeldigiTarih.Size = new System.Drawing.Size(101, 21);
+            this.DtgMailGeldigiTarih.TabIndex = 381;
             // 
-            // DtgVarisSaati
+            // DtgMudehaleSaati
             // 
-            this.DtgVarisSaati.CustomFormat = "HH:mm";
-            this.DtgVarisSaati.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.DtgVarisSaati.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtgVarisSaati.Location = new System.Drawing.Point(396, 280);
-            this.DtgVarisSaati.Name = "DtgVarisSaati";
-            this.DtgVarisSaati.ShowUpDown = true;
-            this.DtgVarisSaati.Size = new System.Drawing.Size(101, 21);
-            this.DtgVarisSaati.TabIndex = 380;
-            this.DtgVarisSaati.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
+            this.DtgMudehaleSaati.CustomFormat = "HH:mm";
+            this.DtgMudehaleSaati.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtgMudehaleSaati.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtgMudehaleSaati.Location = new System.Drawing.Point(396, 280);
+            this.DtgMudehaleSaati.Name = "DtgMudehaleSaati";
+            this.DtgMudehaleSaati.ShowUpDown = true;
+            this.DtgMudehaleSaati.Size = new System.Drawing.Size(101, 21);
+            this.DtgMudehaleSaati.TabIndex = 380;
+            this.DtgMudehaleSaati.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
             // 
-            // textBox4
+            // TxtIscilikSuresi
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox4.Location = new System.Drawing.Point(146, 115);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(139, 21);
-            this.textBox4.TabIndex = 379;
+            this.TxtIscilikSuresi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtIscilikSuresi.Location = new System.Drawing.Point(146, 115);
+            this.TxtIscilikSuresi.Name = "TxtIscilikSuresi";
+            this.TxtIscilikSuresi.Size = new System.Drawing.Size(139, 21);
+            this.TxtIscilikSuresi.TabIndex = 379;
             // 
             // label21
             // 
@@ -2408,11 +2458,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle5;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -2437,10 +2487,12 @@ namespace UserInterface.BakımOnarım
             this.BtnPersonelEkle.Tag = "admin";
             this.BtnPersonelEkle.Text = "EKLE";
             this.BtnPersonelEkle.UseVisualStyleBackColor = false;
+            this.BtnPersonelEkle.Click += new System.EventHandler(this.BtnPersonelEkle_Click);
             // 
             // CmbPersoneller
             // 
             this.CmbPersoneller.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbPersoneller.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbPersoneller.FormattingEnabled = true;
             this.CmbPersoneller.Location = new System.Drawing.Point(146, 84);
             this.CmbPersoneller.Name = "CmbPersoneller";
@@ -2467,14 +2519,14 @@ namespace UserInterface.BakımOnarım
             this.label35.TabIndex = 52;
             this.label35.Text = "Arıza Mailinin \r\nGeldiği Tarih:";
             // 
-            // richTextBox3
+            // TxtTespitEdilenAriza
             // 
-            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox3.Location = new System.Drawing.Point(145, 29);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(535, 50);
-            this.richTextBox3.TabIndex = 26;
-            this.richTextBox3.Text = "";
+            this.TxtTespitEdilenAriza.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtTespitEdilenAriza.Location = new System.Drawing.Point(145, 29);
+            this.TxtTespitEdilenAriza.Name = "TxtTespitEdilenAriza";
+            this.TxtTespitEdilenAriza.Size = new System.Drawing.Size(535, 50);
+            this.TxtTespitEdilenAriza.TabIndex = 26;
+            this.TxtTespitEdilenAriza.Text = "";
             // 
             // label33
             // 
@@ -2496,14 +2548,14 @@ namespace UserInterface.BakımOnarım
             this.label34.TabIndex = 34;
             this.label34.Text = "Müdahale Saati:";
             // 
-            // dateTimePicker5
+            // DtgMudehaleTarihi
             // 
-            this.dateTimePicker5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker5.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker5.Location = new System.Drawing.Point(145, 280);
-            this.dateTimePicker5.Name = "dateTimePicker5";
-            this.dateTimePicker5.Size = new System.Drawing.Size(101, 21);
-            this.dateTimePicker5.TabIndex = 35;
+            this.DtgMudehaleTarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtgMudehaleTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgMudehaleTarihi.Location = new System.Drawing.Point(145, 280);
+            this.DtgMudehaleTarihi.Name = "DtgMudehaleTarihi";
+            this.DtgMudehaleTarihi.Size = new System.Drawing.Size(101, 21);
+            this.DtgMudehaleTarihi.TabIndex = 35;
             // 
             // label41
             // 
@@ -2517,27 +2569,27 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.label84);
-            this.groupBox6.Controls.Add(this.richTextBox4);
+            this.groupBox6.Controls.Add(this.LblBolgeAdi);
+            this.groupBox6.Controls.Add(this.TxtBildirilenArizaSiparis);
             this.groupBox6.Controls.Add(this.label42);
             this.groupBox6.Controls.Add(this.DtLojistikSaat);
             this.groupBox6.Controls.Add(this.DtLojistikTarih);
-            this.groupBox6.Controls.Add(this.dateTimePicker10);
-            this.groupBox6.Controls.Add(this.dateTimePicker2);
+            this.groupBox6.Controls.Add(this.TxtArizaBildirenSaat);
+            this.groupBox6.Controls.Add(this.TxtArizaBildirenTarih);
             this.groupBox6.Controls.Add(this.label65);
             this.groupBox6.Controls.Add(this.label66);
             this.groupBox6.Controls.Add(this.LblLojistik);
             this.groupBox6.Controls.Add(this.TxtLojistikSorGorevi);
             this.groupBox6.Controls.Add(this.TxtLojistikSorRutbesi);
-            this.groupBox6.Controls.Add(this.TxtLojistikSorumlusuAdi);
+            this.groupBox6.Controls.Add(this.TxtLojistikSorumlusu);
             this.groupBox6.Controls.Add(this.label67);
             this.groupBox6.Controls.Add(this.CmbGarantiDurumu);
             this.groupBox6.Controls.Add(this.label77);
-            this.groupBox6.Controls.Add(this.textBox3);
+            this.groupBox6.Controls.Add(this.TxtArizaBildirenGorevi);
             this.groupBox6.Controls.Add(this.label80);
-            this.groupBox6.Controls.Add(this.textBox5);
+            this.groupBox6.Controls.Add(this.TxtArizaBildirenRutbesi);
             this.groupBox6.Controls.Add(this.label81);
-            this.groupBox6.Controls.Add(this.textBox9);
+            this.groupBox6.Controls.Add(this.TxtArizaBildirenSiparis);
             this.groupBox6.Controls.Add(this.label82);
             this.groupBox6.Controls.Add(this.label83);
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -2548,24 +2600,24 @@ namespace UserInterface.BakımOnarım
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ÜS BÖLGESİ VE BİLDİRİLEN ARIZA BİLGİLERİ";
             // 
-            // label84
+            // LblBolgeAdi
             // 
-            this.label84.AutoSize = true;
-            this.label84.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label84.Location = new System.Drawing.Point(125, 28);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(21, 15);
-            this.label84.TabIndex = 382;
-            this.label84.Text = "00";
+            this.LblBolgeAdi.AutoSize = true;
+            this.LblBolgeAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBolgeAdi.Location = new System.Drawing.Point(125, 28);
+            this.LblBolgeAdi.Name = "LblBolgeAdi";
+            this.LblBolgeAdi.Size = new System.Drawing.Size(11, 15);
+            this.LblBolgeAdi.TabIndex = 382;
+            this.LblBolgeAdi.Text = "-";
             // 
-            // richTextBox4
+            // TxtBildirilenArizaSiparis
             // 
-            this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox4.Location = new System.Drawing.Point(128, 52);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(636, 50);
-            this.richTextBox4.TabIndex = 381;
-            this.richTextBox4.Text = "";
+            this.TxtBildirilenArizaSiparis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBildirilenArizaSiparis.Location = new System.Drawing.Point(128, 52);
+            this.TxtBildirilenArizaSiparis.Name = "TxtBildirilenArizaSiparis";
+            this.TxtBildirilenArizaSiparis.Size = new System.Drawing.Size(636, 50);
+            this.TxtBildirilenArizaSiparis.TabIndex = 381;
+            this.TxtBildirilenArizaSiparis.Text = "";
             // 
             // label42
             // 
@@ -2600,26 +2652,26 @@ namespace UserInterface.BakımOnarım
             this.DtLojistikTarih.TabIndex = 367;
             this.DtLojistikTarih.Visible = false;
             // 
-            // dateTimePicker10
+            // TxtArizaBildirenSaat
             // 
-            this.dateTimePicker10.CustomFormat = "HH:mm";
-            this.dateTimePicker10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker10.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker10.Location = new System.Drawing.Point(658, 162);
-            this.dateTimePicker10.Name = "dateTimePicker10";
-            this.dateTimePicker10.ShowUpDown = true;
-            this.dateTimePicker10.Size = new System.Drawing.Size(101, 21);
-            this.dateTimePicker10.TabIndex = 366;
-            this.dateTimePicker10.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
+            this.TxtArizaBildirenSaat.CustomFormat = "HH:mm";
+            this.TxtArizaBildirenSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtArizaBildirenSaat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.TxtArizaBildirenSaat.Location = new System.Drawing.Point(658, 162);
+            this.TxtArizaBildirenSaat.Name = "TxtArizaBildirenSaat";
+            this.TxtArizaBildirenSaat.ShowUpDown = true;
+            this.TxtArizaBildirenSaat.Size = new System.Drawing.Size(101, 21);
+            this.TxtArizaBildirenSaat.TabIndex = 366;
+            this.TxtArizaBildirenSaat.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
             // 
-            // dateTimePicker2
+            // TxtArizaBildirenTarih
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(551, 162);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(101, 21);
-            this.dateTimePicker2.TabIndex = 365;
+            this.TxtArizaBildirenTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtArizaBildirenTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.TxtArizaBildirenTarih.Location = new System.Drawing.Point(551, 162);
+            this.TxtArizaBildirenTarih.Name = "TxtArizaBildirenTarih";
+            this.TxtArizaBildirenTarih.Size = new System.Drawing.Size(101, 21);
+            this.TxtArizaBildirenTarih.TabIndex = 365;
             // 
             // label65
             // 
@@ -2670,14 +2722,14 @@ namespace UserInterface.BakımOnarım
             this.TxtLojistikSorRutbesi.TabIndex = 358;
             this.TxtLojistikSorRutbesi.Visible = false;
             // 
-            // TxtLojistikSorumlusuAdi
+            // TxtLojistikSorumlusu
             // 
-            this.TxtLojistikSorumlusuAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtLojistikSorumlusuAdi.Location = new System.Drawing.Point(128, 189);
-            this.TxtLojistikSorumlusuAdi.Name = "TxtLojistikSorumlusuAdi";
-            this.TxtLojistikSorumlusuAdi.Size = new System.Drawing.Size(135, 21);
-            this.TxtLojistikSorumlusuAdi.TabIndex = 356;
-            this.TxtLojistikSorumlusuAdi.Visible = false;
+            this.TxtLojistikSorumlusu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtLojistikSorumlusu.Location = new System.Drawing.Point(128, 189);
+            this.TxtLojistikSorumlusu.Name = "TxtLojistikSorumlusu";
+            this.TxtLojistikSorumlusu.Size = new System.Drawing.Size(135, 21);
+            this.TxtLojistikSorumlusu.TabIndex = 356;
+            this.TxtLojistikSorumlusu.Visible = false;
             // 
             // label67
             // 
@@ -2701,6 +2753,7 @@ namespace UserInterface.BakımOnarım
             this.CmbGarantiDurumu.Name = "CmbGarantiDurumu";
             this.CmbGarantiDurumu.Size = new System.Drawing.Size(62, 23);
             this.CmbGarantiDurumu.TabIndex = 353;
+            this.CmbGarantiDurumu.SelectedIndexChanged += new System.EventHandler(this.CmbGarantiDurumu_SelectedIndexChanged);
             // 
             // label77
             // 
@@ -2712,13 +2765,13 @@ namespace UserInterface.BakımOnarım
             this.label77.TabIndex = 352;
             this.label77.Text = "Arızayı Bildiren:";
             // 
-            // textBox3
+            // TxtArizaBildirenGorevi
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox3.Location = new System.Drawing.Point(410, 162);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(135, 21);
-            this.textBox3.TabIndex = 39;
+            this.TxtArizaBildirenGorevi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtArizaBildirenGorevi.Location = new System.Drawing.Point(410, 162);
+            this.TxtArizaBildirenGorevi.Name = "TxtArizaBildirenGorevi";
+            this.TxtArizaBildirenGorevi.Size = new System.Drawing.Size(135, 21);
+            this.TxtArizaBildirenGorevi.TabIndex = 39;
             // 
             // label80
             // 
@@ -2730,13 +2783,13 @@ namespace UserInterface.BakımOnarım
             this.label80.TabIndex = 38;
             this.label80.Text = "Görevi:";
             // 
-            // textBox5
+            // TxtArizaBildirenRutbesi
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox5.Location = new System.Drawing.Point(269, 162);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(135, 21);
-            this.textBox5.TabIndex = 37;
+            this.TxtArizaBildirenRutbesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtArizaBildirenRutbesi.Location = new System.Drawing.Point(269, 162);
+            this.TxtArizaBildirenRutbesi.Name = "TxtArizaBildirenRutbesi";
+            this.TxtArizaBildirenRutbesi.Size = new System.Drawing.Size(135, 21);
+            this.TxtArizaBildirenRutbesi.TabIndex = 37;
             // 
             // label81
             // 
@@ -2748,13 +2801,13 @@ namespace UserInterface.BakımOnarım
             this.label81.TabIndex = 36;
             this.label81.Text = "Rütbesi:";
             // 
-            // textBox9
+            // TxtArizaBildirenSiparis
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox9.Location = new System.Drawing.Point(128, 162);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(135, 21);
-            this.textBox9.TabIndex = 35;
+            this.TxtArizaBildirenSiparis.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtArizaBildirenSiparis.Location = new System.Drawing.Point(128, 162);
+            this.TxtArizaBildirenSiparis.Name = "TxtArizaBildirenSiparis";
+            this.TxtArizaBildirenSiparis.Size = new System.Drawing.Size(135, 21);
+            this.TxtArizaBildirenSiparis.TabIndex = 35;
             // 
             // label82
             // 
@@ -2776,12 +2829,12 @@ namespace UserInterface.BakımOnarım
             this.label83.TabIndex = 0;
             this.label83.Text = "Bölge Adı:";
             // 
-            // textBox1
+            // TxtAbfFormNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(106, 17);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(127, 20);
-            this.textBox1.TabIndex = 320;
+            this.TxtAbfFormNo.Location = new System.Drawing.Point(106, 17);
+            this.TxtAbfFormNo.Name = "TxtAbfFormNo";
+            this.TxtAbfFormNo.Size = new System.Drawing.Size(127, 20);
+            this.TxtAbfFormNo.TabIndex = 320;
             // 
             // label9
             // 
@@ -4174,23 +4227,21 @@ namespace UserInterface.BakımOnarım
             this.label94.TabIndex = 182;
             this.label94.Text = "Onarım Tamamlanma Tarihi:";
             // 
-            // textBox41
+            // openFileDialog1
             // 
-            this.textBox41.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox41.Location = new System.Drawing.Point(516, 273);
-            this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(241, 21);
-            this.textBox41.TabIndex = 400;
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // label98
+            // BtnBul
             // 
-            this.label98.AutoSize = true;
-            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label98.Location = new System.Drawing.Point(459, 276);
-            this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(51, 15);
-            this.label98.TabIndex = 399;
-            this.label98.Text = "Telefon:";
+            this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnBul.Location = new System.Drawing.Point(239, 15);
+            this.BtnBul.Name = "BtnBul";
+            this.BtnBul.Size = new System.Drawing.Size(63, 23);
+            this.BtnBul.TabIndex = 422;
+            this.BtnBul.Text = "Bul";
+            this.BtnBul.UseVisualStyleBackColor = true;
+            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
             // FrmArizaAcmaCalisma
             // 
@@ -4257,29 +4308,27 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox CmbGorevAtanacakPersonel;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button BtnDosyaEkle;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox TxtArizaAciklama;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox CmbBildirimKanali;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Button BtnBolgeEkle;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox TxtBildirilenAriza;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.Label label73;
-        private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label LblIlce;
+        private System.Windows.Forms.Label LblIl;
+        private System.Windows.Forms.Label LblBirlilkAdresi;
+        private System.Windows.Forms.Label LblTelefon;
+        private System.Windows.Forms.Label LblBolukKomutanı;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.Label label8;
@@ -4287,14 +4336,14 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox CmbBolgeAdi;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox8;
+        private System.Windows.Forms.TextBox TxtBirlikPerGorevi;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox TxtBirlikPerRutbesi;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox TxtBirlikPersoneli;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtAbfFormNo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TabControl tabControl2;
         private System.Windows.Forms.TabPage tabPage4;
@@ -4431,11 +4480,11 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.ComboBox CmbArizaAcmaOnayiVeren;
         private System.Windows.Forms.Label label78;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker DtgVarisSaati;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.DateTimePicker DtgMailGeldigiTarih;
+        private System.Windows.Forms.DateTimePicker DtgMudehaleSaati;
+        private System.Windows.Forms.TextBox TxtIscilikSuresi;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.GroupBox groupBox4;
         private ADGV.AdvancedDataGridView AdvPersonel;
@@ -4447,33 +4496,33 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ComboBox CmbPersoneller;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox TxtTespitEdilenAriza;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.DateTimePicker dateTimePicker5;
+        private System.Windows.Forms.DateTimePicker DtgMudehaleTarihi;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.Label LblBolgeAdi;
+        private System.Windows.Forms.RichTextBox TxtBildirilenArizaSiparis;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.DateTimePicker DtLojistikSaat;
         private System.Windows.Forms.DateTimePicker DtLojistikTarih;
-        private System.Windows.Forms.DateTimePicker dateTimePicker10;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker TxtArizaBildirenSaat;
+        private System.Windows.Forms.DateTimePicker TxtArizaBildirenTarih;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label label66;
         private System.Windows.Forms.Label LblLojistik;
         private System.Windows.Forms.TextBox TxtLojistikSorGorevi;
         private System.Windows.Forms.TextBox TxtLojistikSorRutbesi;
-        private System.Windows.Forms.TextBox TxtLojistikSorumlusuAdi;
+        private System.Windows.Forms.TextBox TxtLojistikSorumlusu;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.ComboBox CmbGarantiDurumu;
         private System.Windows.Forms.Label label77;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtArizaBildirenGorevi;
         private System.Windows.Forms.Label label80;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox TxtArizaBildirenRutbesi;
         private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox TxtArizaBildirenSiparis;
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.Label label83;
         private System.Windows.Forms.Button button4;
@@ -4614,9 +4663,15 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label128;
         private System.Windows.Forms.Label label129;
         private System.Windows.Forms.Label label130;
-        private System.Windows.Forms.ComboBox comboBox25;
+        private System.Windows.Forms.ComboBox CmbProje;
         private System.Windows.Forms.Label label97;
-        private System.Windows.Forms.TextBox textBox41;
         private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.Label LblArizaBildirimiAlan;
+        private System.Windows.Forms.Label LblIslemAdimi;
+        private System.Windows.Forms.MaskedTextBox TxtABTelefon;
+        private System.Windows.Forms.Label LblIsAkisNo;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button BtnBul;
     }
 }

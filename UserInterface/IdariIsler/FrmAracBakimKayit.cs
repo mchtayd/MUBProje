@@ -536,6 +536,16 @@ namespace UserInterface.IdariIsler
                     return;
                 }
                 CreateLogKapat();
+                if (TxtTutar.Text=="" || TxtTutar.Text=="0")
+                {
+                    MessageBox.Show("Harcanan Tutar Bilgisi Girilmediği İçin Sat Oluşturulmayacaktır!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MalzemeKayit();
+                    MessageBox.Show("SAT Kaydı Oluşturularak Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    dosyaControl = false;
+                    TemizleKapat();
+                    return;
+                }
+                
                 SatOlustur();
                 MalzemeKayit();
                 MessageBox.Show("SAT Kaydı Oluşturularak Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

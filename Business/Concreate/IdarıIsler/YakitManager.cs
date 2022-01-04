@@ -13,7 +13,6 @@ namespace Business.Concreate.IdarıIsler
     {
         static YakitManager yakitManager;
         YakitDal yakitDal;
-        string controlText;
 
         private YakitManager()
         {

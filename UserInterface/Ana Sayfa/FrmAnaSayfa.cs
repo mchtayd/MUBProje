@@ -59,6 +59,9 @@ namespace UserInterface.STS
 
         private void AnaSayfa_Load(object sender, EventArgs e)
         {
+            treeView1.Nodes[0].EnsureVisible();
+            treeView1.ImageList = ımageList1;
+
             tabAnasayfa.Visible = false;
             FillInfos();
             //LblTarih.Text = DateTime.Now;
@@ -1474,7 +1477,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Veri Kayit Arıza Acma")
             {
                 FrmArizaAcmaCalisma Go = new FrmArizaAcmaCalisma();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2254,6 +2257,18 @@ namespace UserInterface.STS
         }
 
         private void iŞAKIŞSÜRELERİPERFORMANSİZLEMEToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIsAkisiPersonel frmIsAkisiPersonel = new FrmIsAkisiPersonel();
+            frmIsAkisiPersonel.ShowDialog();
+        }
+
+        private void BtnDosyaDuzelt_Click(object sender, EventArgs e)
+        {
+            FrmSatDosyaYoluDuzelt frmSatDosyaYoluDuzelt = new FrmSatDosyaYoluDuzelt();
+            frmSatDosyaYoluDuzelt.ShowDialog();
+        }
+
+        private void iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmIsAkisiPersonel frmIsAkisiPersonel = new FrmIsAkisiPersonel();
             frmIsAkisiPersonel.ShowDialog();

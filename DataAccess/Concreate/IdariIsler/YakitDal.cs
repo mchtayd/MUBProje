@@ -39,7 +39,6 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@alinanfirma",entity.AlinanFirma),
                     new SqlParameter("@belgeturu",entity.BelgeTuru),
                     new SqlParameter("@belgenumarasi",entity.BelgeNumarasi),
-                    new SqlParameter("@dosyayolu",entity.DosyaYolu),
                     new SqlParameter("@aciklama",entity.Aciklama));
                 dataReader.Close();
                 return "OK";
@@ -88,7 +87,6 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ALINAN_FIRMA"].ToString(),
                         dataReader["BELGE_TURU"].ToString(),
                         dataReader["BELGE_NUMARASI"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SAYFA"].ToString(),
                         dataReader["ACIKLAMA"].ToString());
                 }
@@ -124,7 +122,6 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ALINAN_FIRMA"].ToString(),
                         dataReader["BELGE_TURU"].ToString(),
                         dataReader["BELGE_NUMARASI"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SAYFA"].ToString(),
                         dataReader["ACIKLAMA"].ToString()));
                 }

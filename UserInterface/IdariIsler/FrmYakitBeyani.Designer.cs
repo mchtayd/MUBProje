@@ -30,7 +30,6 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -51,8 +50,8 @@ namespace UserInterface.IdariIsler
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.TxtAlimTuru = new System.Windows.Forms.ComboBox();
             this.TxtPlaka = new System.Windows.Forms.ComboBox();
-            this.TxtAlinanDonem = new System.Windows.Forms.ComboBox();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -69,7 +68,7 @@ namespace UserInterface.IdariIsler
             this.CmbYakitTuru = new System.Windows.Forms.ComboBox();
             this.TxtTarih = new System.Windows.Forms.DateTimePicker();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.TxtAlinanDonemGun = new System.Windows.Forms.ComboBox();
+            this.TxtAlimTuruGun = new System.Windows.Forms.ComboBox();
             this.TxtAciklamaGun = new System.Windows.Forms.RichTextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -84,7 +83,6 @@ namespace UserInterface.IdariIsler
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.TxtAlinanFirmaGun = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
@@ -101,20 +99,14 @@ namespace UserInterface.IdariIsler
             this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.BtnBul = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.webBrowser2 = new System.Windows.Forms.WebBrowser();
-            this.BtnDosyaEkleGun = new System.Windows.Forms.Button();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.TxtAlimTuru = new System.Windows.Forms.ComboBox();
-            this.TxtAlimTuruGun = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -127,21 +119,11 @@ namespace UserInterface.IdariIsler
             this.label1.TabIndex = 1;
             this.label1.Text = "ARAÇ PLAKASI:";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(36, 79);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(126, 13);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "YAKIT ALINAN DÖNEM:";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(43, 109);
+            this.label3.Location = new System.Drawing.Point(42, 77);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 13);
             this.label3.TabIndex = 5;
@@ -151,7 +133,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(14, 139);
+            this.label4.Location = new System.Drawing.Point(13, 107);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 13);
             this.label4.TabIndex = 7;
@@ -161,7 +143,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(79, 169);
+            this.label5.Location = new System.Drawing.Point(78, 137);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 9;
@@ -170,7 +152,7 @@ namespace UserInterface.IdariIsler
             // TxtKm
             // 
             this.TxtKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtKm.Location = new System.Drawing.Point(169, 135);
+            this.TxtKm.Location = new System.Drawing.Point(168, 103);
             this.TxtKm.Name = "TxtKm";
             this.TxtKm.Size = new System.Drawing.Size(127, 20);
             this.TxtKm.TabIndex = 8;
@@ -180,7 +162,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(87, 199);
+            this.label6.Location = new System.Drawing.Point(86, 167);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(75, 13);
             this.label6.TabIndex = 11;
@@ -189,7 +171,7 @@ namespace UserInterface.IdariIsler
             // TxtLitre
             // 
             this.TxtLitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtLitre.Location = new System.Drawing.Point(169, 165);
+            this.TxtLitre.Location = new System.Drawing.Point(168, 133);
             this.TxtLitre.Name = "TxtLitre";
             this.TxtLitre.Size = new System.Drawing.Size(127, 20);
             this.TxtLitre.TabIndex = 10;
@@ -200,7 +182,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(85, 230);
+            this.label7.Location = new System.Drawing.Point(84, 198);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 13;
@@ -210,7 +192,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(75, 260);
+            this.label8.Location = new System.Drawing.Point(74, 228);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(87, 13);
             this.label8.TabIndex = 15;
@@ -219,7 +201,7 @@ namespace UserInterface.IdariIsler
             // TxtLitreFiyati
             // 
             this.TxtLitreFiyati.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtLitreFiyati.Location = new System.Drawing.Point(169, 226);
+            this.TxtLitreFiyati.Location = new System.Drawing.Point(168, 194);
             this.TxtLitreFiyati.Name = "TxtLitreFiyati";
             this.TxtLitreFiyati.Size = new System.Drawing.Size(127, 20);
             this.TxtLitreFiyati.TabIndex = 14;
@@ -230,7 +212,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(93, 290);
+            this.label9.Location = new System.Drawing.Point(92, 258);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 13);
             this.label9.TabIndex = 17;
@@ -239,7 +221,7 @@ namespace UserInterface.IdariIsler
             // TxtToplamFiyat
             // 
             this.TxtToplamFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtToplamFiyat.Location = new System.Drawing.Point(169, 256);
+            this.TxtToplamFiyat.Location = new System.Drawing.Point(168, 224);
             this.TxtToplamFiyat.Name = "TxtToplamFiyat";
             this.TxtToplamFiyat.Size = new System.Drawing.Size(127, 20);
             this.TxtToplamFiyat.TabIndex = 16;
@@ -249,7 +231,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(77, 350);
+            this.label10.Location = new System.Drawing.Point(76, 318);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(85, 13);
             this.label10.TabIndex = 19;
@@ -259,7 +241,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(83, 380);
+            this.label11.Location = new System.Drawing.Point(82, 348);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(79, 13);
             this.label11.TabIndex = 21;
@@ -269,7 +251,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(57, 410);
+            this.label12.Location = new System.Drawing.Point(56, 378);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(105, 13);
             this.label12.TabIndex = 23;
@@ -278,7 +260,7 @@ namespace UserInterface.IdariIsler
             // TxtAlinanFirma
             // 
             this.TxtAlinanFirma.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtAlinanFirma.Location = new System.Drawing.Point(169, 346);
+            this.TxtAlinanFirma.Location = new System.Drawing.Point(168, 314);
             this.TxtAlinanFirma.Name = "TxtAlinanFirma";
             this.TxtAlinanFirma.Size = new System.Drawing.Size(226, 20);
             this.TxtAlinanFirma.TabIndex = 22;
@@ -287,7 +269,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(29, 320);
+            this.label13.Location = new System.Drawing.Point(28, 288);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(133, 13);
             this.label13.TabIndex = 25;
@@ -331,7 +313,6 @@ namespace UserInterface.IdariIsler
             // 
             this.tabPage1.Controls.Add(this.TxtAlimTuru);
             this.tabPage1.Controls.Add(this.TxtPlaka);
-            this.tabPage1.Controls.Add(this.TxtAlinanDonem);
             this.tabPage1.Controls.Add(this.TxtAciklama);
             this.tabPage1.Controls.Add(this.label33);
             this.tabPage1.Controls.Add(this.label30);
@@ -350,7 +331,6 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label12);
-            this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.TxtAlinanFirma);
             this.tabPage1.Controls.Add(this.label11);
             this.tabPage1.Controls.Add(this.label3);
@@ -372,6 +352,18 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Text = "KAYDET";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // TxtAlimTuru
+            // 
+            this.TxtAlimTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtAlimTuru.FormattingEnabled = true;
+            this.TxtAlimTuru.Items.AddRange(new object[] {
+            "ANLAŞMALI PETROL",
+            "TAŞIT TANIMA"});
+            this.TxtAlimTuru.Location = new System.Drawing.Point(167, 255);
+            this.TxtAlimTuru.Name = "TxtAlimTuru";
+            this.TxtAlimTuru.Size = new System.Drawing.Size(227, 21);
+            this.TxtAlimTuru.TabIndex = 352;
+            // 
             // TxtPlaka
             // 
             this.TxtPlaka.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -381,31 +373,9 @@ namespace UserInterface.IdariIsler
             this.TxtPlaka.Size = new System.Drawing.Size(227, 21);
             this.TxtPlaka.TabIndex = 351;
             // 
-            // TxtAlinanDonem
-            // 
-            this.TxtAlinanDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtAlinanDonem.FormattingEnabled = true;
-            this.TxtAlinanDonem.Items.AddRange(new object[] {
-            "OCAK 2021",
-            "ŞUBAT 2021",
-            "MART 2021",
-            "NİSAN 2021",
-            "MAYIS 2021",
-            "HAZİRAN 2021",
-            "TEMMUZ 2021",
-            "AĞUSTOS 2021",
-            "EYLÜL 2021",
-            "EKİM 2021",
-            "KASIM 2021",
-            "ARALIK 2021"});
-            this.TxtAlinanDonem.Location = new System.Drawing.Point(168, 76);
-            this.TxtAlinanDonem.Name = "TxtAlinanDonem";
-            this.TxtAlinanDonem.Size = new System.Drawing.Size(227, 21);
-            this.TxtAlinanDonem.TabIndex = 350;
-            // 
             // TxtAciklama
             // 
-            this.TxtAciklama.Location = new System.Drawing.Point(168, 441);
+            this.TxtAciklama.Location = new System.Drawing.Point(167, 409);
             this.TxtAciklama.Name = "TxtAciklama";
             this.TxtAciklama.Size = new System.Drawing.Size(687, 88);
             this.TxtAciklama.TabIndex = 349;
@@ -415,7 +385,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label33.Location = new System.Drawing.Point(99, 444);
+            this.label33.Location = new System.Drawing.Point(98, 412);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(63, 13);
             this.label33.TabIndex = 348;
@@ -425,7 +395,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label30.Location = new System.Drawing.Point(302, 228);
+            this.label30.Location = new System.Drawing.Point(301, 196);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(15, 15);
             this.label30.TabIndex = 347;
@@ -435,7 +405,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label29.Location = new System.Drawing.Point(302, 259);
+            this.label29.Location = new System.Drawing.Point(301, 227);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(15, 15);
             this.label29.TabIndex = 346;
@@ -476,7 +446,7 @@ namespace UserInterface.IdariIsler
             "SERVİS FORMU",
             "SÖZLEŞME",
             "TUTANAK"});
-            this.CmbBelgeTuru.Location = new System.Drawing.Point(169, 377);
+            this.CmbBelgeTuru.Location = new System.Drawing.Point(168, 345);
             this.CmbBelgeTuru.Name = "CmbBelgeTuru";
             this.CmbBelgeTuru.Size = new System.Drawing.Size(226, 21);
             this.CmbBelgeTuru.TabIndex = 343;
@@ -485,7 +455,7 @@ namespace UserInterface.IdariIsler
             // 
             this.CmbPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbPersonel.FormattingEnabled = true;
-            this.CmbPersonel.Location = new System.Drawing.Point(168, 317);
+            this.CmbPersonel.Location = new System.Drawing.Point(167, 285);
             this.CmbPersonel.Name = "CmbPersonel";
             this.CmbPersonel.Size = new System.Drawing.Size(227, 21);
             this.CmbPersonel.TabIndex = 342;
@@ -527,7 +497,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(168, 535);
+            this.BtnKaydet.Location = new System.Drawing.Point(167, 503);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(163, 50);
             this.BtnKaydet.TabIndex = 48;
@@ -538,7 +508,7 @@ namespace UserInterface.IdariIsler
             // TxtBelgeNo
             // 
             this.TxtBelgeNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBelgeNo.Location = new System.Drawing.Point(169, 406);
+            this.TxtBelgeNo.Location = new System.Drawing.Point(168, 374);
             this.TxtBelgeNo.Name = "TxtBelgeNo";
             this.TxtBelgeNo.Size = new System.Drawing.Size(226, 20);
             this.TxtBelgeNo.TabIndex = 28;
@@ -550,7 +520,7 @@ namespace UserInterface.IdariIsler
             "ADBLUE",
             "BENZİN",
             "MOTORİN"});
-            this.CmbYakitTuru.Location = new System.Drawing.Point(169, 195);
+            this.CmbYakitTuru.Location = new System.Drawing.Point(168, 163);
             this.CmbYakitTuru.Name = "CmbYakitTuru";
             this.CmbYakitTuru.Size = new System.Drawing.Size(226, 21);
             this.CmbYakitTuru.TabIndex = 27;
@@ -558,7 +528,7 @@ namespace UserInterface.IdariIsler
             // TxtTarih
             // 
             this.TxtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TxtTarih.Location = new System.Drawing.Point(169, 105);
+            this.TxtTarih.Location = new System.Drawing.Point(168, 73);
             this.TxtTarih.Name = "TxtTarih";
             this.TxtTarih.Size = new System.Drawing.Size(127, 20);
             this.TxtTarih.TabIndex = 26;
@@ -566,7 +536,6 @@ namespace UserInterface.IdariIsler
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.TxtAlimTuruGun);
-            this.tabPage2.Controls.Add(this.TxtAlinanDonemGun);
             this.tabPage2.Controls.Add(this.TxtAciklamaGun);
             this.tabPage2.Controls.Add(this.label34);
             this.tabPage2.Controls.Add(this.label14);
@@ -581,7 +550,6 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Controls.Add(this.label16);
             this.tabPage2.Controls.Add(this.label17);
             this.tabPage2.Controls.Add(this.label18);
-            this.tabPage2.Controls.Add(this.label19);
             this.tabPage2.Controls.Add(this.TxtAlinanFirmaGun);
             this.tabPage2.Controls.Add(this.label20);
             this.tabPage2.Controls.Add(this.label21);
@@ -598,8 +566,6 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Controls.Add(this.TxtIsAkisNo);
             this.tabPage2.Controls.Add(this.label28);
             this.tabPage2.Controls.Add(this.BtnBul);
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.BtnDosyaEkleGun);
             this.tabPage2.Controls.Add(this.BtnGuncelle);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
@@ -609,31 +575,21 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Text = "GÜNCELLE";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // TxtAlinanDonemGun
+            // TxtAlimTuruGun
             // 
-            this.TxtAlinanDonemGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtAlinanDonemGun.FormattingEnabled = true;
-            this.TxtAlinanDonemGun.Items.AddRange(new object[] {
-            "OCAK 2021",
-            "ŞUBAT 2021",
-            "MART 2021",
-            "NİSAN 2021",
-            "MAYIS 2021",
-            "HAZİRAN 2021",
-            "TEMMUZ 2021",
-            "AĞUSTOS 2021",
-            "EYLÜL 2021",
-            "EKİM 2021",
-            "KASIM 2021",
-            "ARALIK 2021"});
-            this.TxtAlinanDonemGun.Location = new System.Drawing.Point(192, 89);
-            this.TxtAlinanDonemGun.Name = "TxtAlinanDonemGun";
-            this.TxtAlinanDonemGun.Size = new System.Drawing.Size(227, 21);
-            this.TxtAlinanDonemGun.TabIndex = 431;
+            this.TxtAlimTuruGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtAlimTuruGun.FormattingEnabled = true;
+            this.TxtAlimTuruGun.Items.AddRange(new object[] {
+            "ANLAŞMALI PETROL",
+            "TAŞIT TANIMA"});
+            this.TxtAlimTuruGun.Location = new System.Drawing.Point(191, 267);
+            this.TxtAlimTuruGun.Name = "TxtAlimTuruGun";
+            this.TxtAlimTuruGun.Size = new System.Drawing.Size(227, 21);
+            this.TxtAlimTuruGun.TabIndex = 432;
             // 
             // TxtAciklamaGun
             // 
-            this.TxtAciklamaGun.Location = new System.Drawing.Point(191, 446);
+            this.TxtAciklamaGun.Location = new System.Drawing.Point(191, 412);
             this.TxtAciklamaGun.Name = "TxtAciklamaGun";
             this.TxtAciklamaGun.Size = new System.Drawing.Size(687, 88);
             this.TxtAciklamaGun.TabIndex = 430;
@@ -643,7 +599,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label34.Location = new System.Drawing.Point(122, 449);
+            this.label34.Location = new System.Drawing.Point(122, 415);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(63, 13);
             this.label34.TabIndex = 429;
@@ -686,7 +642,7 @@ namespace UserInterface.IdariIsler
             "SERVİS FORMU",
             "SÖZLEŞME",
             "TUTANAK"});
-            this.CmbBelgeTuruGun.Location = new System.Drawing.Point(192, 391);
+            this.CmbBelgeTuruGun.Location = new System.Drawing.Point(192, 357);
             this.CmbBelgeTuruGun.Name = "CmbBelgeTuruGun";
             this.CmbBelgeTuruGun.Size = new System.Drawing.Size(226, 21);
             this.CmbBelgeTuruGun.TabIndex = 426;
@@ -695,7 +651,7 @@ namespace UserInterface.IdariIsler
             // 
             this.CmbPersonelGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbPersonelGun.FormattingEnabled = true;
-            this.CmbPersonelGun.Location = new System.Drawing.Point(191, 331);
+            this.CmbPersonelGun.Location = new System.Drawing.Point(191, 297);
             this.CmbPersonelGun.Name = "CmbPersonelGun";
             this.CmbPersonelGun.Size = new System.Drawing.Size(227, 21);
             this.CmbPersonelGun.TabIndex = 425;
@@ -703,7 +659,7 @@ namespace UserInterface.IdariIsler
             // TxtBelgeNoGun
             // 
             this.TxtBelgeNoGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBelgeNoGun.Location = new System.Drawing.Point(192, 420);
+            this.TxtBelgeNoGun.Location = new System.Drawing.Point(192, 386);
             this.TxtBelgeNoGun.Name = "TxtBelgeNoGun";
             this.TxtBelgeNoGun.Size = new System.Drawing.Size(226, 20);
             this.TxtBelgeNoGun.TabIndex = 424;
@@ -715,7 +671,7 @@ namespace UserInterface.IdariIsler
             "ADBLUE",
             "BENZİN",
             "MOTORİN"});
-            this.CmbYakitTuruGun.Location = new System.Drawing.Point(192, 209);
+            this.CmbYakitTuruGun.Location = new System.Drawing.Point(192, 175);
             this.CmbYakitTuruGun.Name = "CmbYakitTuruGun";
             this.CmbYakitTuruGun.Size = new System.Drawing.Size(226, 21);
             this.CmbYakitTuruGun.TabIndex = 423;
@@ -723,7 +679,7 @@ namespace UserInterface.IdariIsler
             // TxtTarihGun
             // 
             this.TxtTarihGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.TxtTarihGun.Location = new System.Drawing.Point(192, 119);
+            this.TxtTarihGun.Location = new System.Drawing.Point(192, 85);
             this.TxtTarihGun.Name = "TxtTarihGun";
             this.TxtTarihGun.Size = new System.Drawing.Size(127, 20);
             this.TxtTarihGun.TabIndex = 422;
@@ -731,7 +687,7 @@ namespace UserInterface.IdariIsler
             // TxtToplamFiyatGun
             // 
             this.TxtToplamFiyatGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtToplamFiyatGun.Location = new System.Drawing.Point(192, 270);
+            this.TxtToplamFiyatGun.Location = new System.Drawing.Point(192, 236);
             this.TxtToplamFiyatGun.Name = "TxtToplamFiyatGun";
             this.TxtToplamFiyatGun.Size = new System.Drawing.Size(127, 20);
             this.TxtToplamFiyatGun.TabIndex = 414;
@@ -748,7 +704,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(52, 334);
+            this.label16.Location = new System.Drawing.Point(52, 300);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(133, 13);
             this.label16.TabIndex = 421;
@@ -768,26 +724,16 @@ namespace UserInterface.IdariIsler
             // 
             this.label18.AutoSize = true;
             this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label18.Location = new System.Drawing.Point(80, 424);
+            this.label18.Location = new System.Drawing.Point(80, 390);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(105, 13);
             this.label18.TabIndex = 420;
             this.label18.Text = "BELGE NUMARASI:";
             // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label19.Location = new System.Drawing.Point(59, 93);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(126, 13);
-            this.label19.TabIndex = 404;
-            this.label19.Text = "YAKIT ALINAN DÖNEM:";
-            // 
             // TxtAlinanFirmaGun
             // 
             this.TxtAlinanFirmaGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtAlinanFirmaGun.Location = new System.Drawing.Point(192, 360);
+            this.TxtAlinanFirmaGun.Location = new System.Drawing.Point(192, 326);
             this.TxtAlinanFirmaGun.Name = "TxtAlinanFirmaGun";
             this.TxtAlinanFirmaGun.Size = new System.Drawing.Size(226, 20);
             this.TxtAlinanFirmaGun.TabIndex = 419;
@@ -796,7 +742,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label20.Location = new System.Drawing.Point(106, 394);
+            this.label20.Location = new System.Drawing.Point(106, 360);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(79, 13);
             this.label20.TabIndex = 418;
@@ -806,7 +752,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label21.Location = new System.Drawing.Point(66, 123);
+            this.label21.Location = new System.Drawing.Point(66, 89);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(119, 13);
             this.label21.TabIndex = 405;
@@ -816,7 +762,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label22.Location = new System.Drawing.Point(100, 364);
+            this.label22.Location = new System.Drawing.Point(100, 330);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(85, 13);
             this.label22.TabIndex = 417;
@@ -826,7 +772,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label23.Location = new System.Drawing.Point(37, 153);
+            this.label23.Location = new System.Drawing.Point(37, 119);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(148, 13);
             this.label23.TabIndex = 406;
@@ -835,7 +781,7 @@ namespace UserInterface.IdariIsler
             // TxtKmGun
             // 
             this.TxtKmGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtKmGun.Location = new System.Drawing.Point(192, 149);
+            this.TxtKmGun.Location = new System.Drawing.Point(192, 115);
             this.TxtKmGun.Name = "TxtKmGun";
             this.TxtKmGun.Size = new System.Drawing.Size(127, 20);
             this.TxtKmGun.TabIndex = 407;
@@ -844,7 +790,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label24.Location = new System.Drawing.Point(116, 304);
+            this.label24.Location = new System.Drawing.Point(116, 270);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(69, 13);
             this.label24.TabIndex = 415;
@@ -854,7 +800,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label25.Location = new System.Drawing.Point(102, 183);
+            this.label25.Location = new System.Drawing.Point(102, 149);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(83, 13);
             this.label25.TabIndex = 408;
@@ -863,7 +809,7 @@ namespace UserInterface.IdariIsler
             // TxtLitreGun
             // 
             this.TxtLitreGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtLitreGun.Location = new System.Drawing.Point(192, 179);
+            this.TxtLitreGun.Location = new System.Drawing.Point(192, 145);
             this.TxtLitreGun.Name = "TxtLitreGun";
             this.TxtLitreGun.Size = new System.Drawing.Size(127, 20);
             this.TxtLitreGun.TabIndex = 409;
@@ -872,7 +818,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label26.Location = new System.Drawing.Point(98, 274);
+            this.label26.Location = new System.Drawing.Point(98, 240);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(87, 13);
             this.label26.TabIndex = 413;
@@ -882,7 +828,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(110, 213);
+            this.label31.Location = new System.Drawing.Point(110, 179);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(75, 13);
             this.label31.TabIndex = 410;
@@ -891,7 +837,7 @@ namespace UserInterface.IdariIsler
             // TxtLitreFiyatiGun
             // 
             this.TxtLitreFiyatiGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtLitreFiyatiGun.Location = new System.Drawing.Point(192, 240);
+            this.TxtLitreFiyatiGun.Location = new System.Drawing.Point(192, 206);
             this.TxtLitreFiyatiGun.Name = "TxtLitreFiyatiGun";
             this.TxtLitreFiyatiGun.Size = new System.Drawing.Size(127, 20);
             this.TxtLitreFiyatiGun.TabIndex = 412;
@@ -900,7 +846,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label32.AutoSize = true;
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label32.Location = new System.Drawing.Point(108, 244);
+            this.label32.Location = new System.Drawing.Point(108, 210);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(77, 13);
             this.label32.TabIndex = 411;
@@ -935,42 +881,11 @@ namespace UserInterface.IdariIsler
             this.BtnBul.UseVisualStyleBackColor = true;
             this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.webBrowser2);
-            this.groupBox1.Location = new System.Drawing.Point(192, 540);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(686, 170);
-            this.groupBox1.TabIndex = 395;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "İZİN DOSYASI";
-            // 
-            // webBrowser2
-            // 
-            this.webBrowser2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser2.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(680, 151);
-            this.webBrowser2.TabIndex = 0;
-            // 
-            // BtnDosyaEkleGun
-            // 
-            this.BtnDosyaEkleGun.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDosyaEkleGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkleGun.Location = new System.Drawing.Point(195, 713);
-            this.BtnDosyaEkleGun.Name = "BtnDosyaEkleGun";
-            this.BtnDosyaEkleGun.Size = new System.Drawing.Size(163, 50);
-            this.BtnDosyaEkleGun.TabIndex = 394;
-            this.BtnDosyaEkleGun.Text = "DOSYA EKLE";
-            this.BtnDosyaEkleGun.UseVisualStyleBackColor = true;
-            this.BtnDosyaEkleGun.Click += new System.EventHandler(this.BtnDosyaEkleGun_Click);
-            // 
             // BtnGuncelle
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(364, 713);
+            this.BtnGuncelle.Location = new System.Drawing.Point(191, 506);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(163, 50);
             this.BtnGuncelle.TabIndex = 393;
@@ -985,30 +900,6 @@ namespace UserInterface.IdariIsler
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
-            // 
-            // TxtAlimTuru
-            // 
-            this.TxtAlimTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtAlimTuru.FormattingEnabled = true;
-            this.TxtAlimTuru.Items.AddRange(new object[] {
-            "ANLAŞMALI PETROL",
-            "TAŞIT TANIMA"});
-            this.TxtAlimTuru.Location = new System.Drawing.Point(168, 287);
-            this.TxtAlimTuru.Name = "TxtAlimTuru";
-            this.TxtAlimTuru.Size = new System.Drawing.Size(227, 21);
-            this.TxtAlimTuru.TabIndex = 352;
-            // 
-            // TxtAlimTuruGun
-            // 
-            this.TxtAlimTuruGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtAlimTuruGun.FormattingEnabled = true;
-            this.TxtAlimTuruGun.Items.AddRange(new object[] {
-            "ANLAŞMALI PETROL",
-            "TAŞIT TANIMA"});
-            this.TxtAlimTuruGun.Location = new System.Drawing.Point(191, 301);
-            this.TxtAlimTuruGun.Name = "TxtAlimTuruGun";
-            this.TxtAlimTuruGun.Size = new System.Drawing.Size(227, 21);
-            this.TxtAlimTuruGun.TabIndex = 432;
             // 
             // FrmYakitBeyani
             // 
@@ -1027,14 +918,12 @@ namespace UserInterface.IdariIsler
             this.groupBox3.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
@@ -1065,9 +954,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ComboBox CmbPersonel;
         private System.Windows.Forms.ComboBox CmbBelgeTuru;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.WebBrowser webBrowser2;
-        private System.Windows.Forms.Button BtnDosyaEkleGun;
         private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Button BtnBul;
         private System.Windows.Forms.Label LblIsAkisNo;
@@ -1089,7 +975,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox TxtAlinanFirmaGun;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
@@ -1108,8 +993,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.RichTextBox TxtAciklamaGun;
         private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.ComboBox TxtAlinanDonem;
-        private System.Windows.Forms.ComboBox TxtAlinanDonemGun;
         private System.Windows.Forms.ComboBox TxtPlaka;
         private System.Windows.Forms.ComboBox TxtAlimTuru;
         private System.Windows.Forms.ComboBox TxtAlimTuruGun;

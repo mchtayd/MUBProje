@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.IdariIsler
@@ -176,7 +177,8 @@ namespace UserInterface.IdariIsler
             if (dr == DialogResult.Yes)
             {
                 IsAkisNo();
-                Yakit yakit = new Yakit(LblIsAkisNo.Text.ConInt(), TxtPlaka.Text, TxtAlinanDonem.Text, TxtTarih.Value, TxtKm.Text.ConInt(), TxtLitre.Text.ConDouble(), CmbYakitTuru.Text, TxtLitreFiyati.Text.ConDouble(), TxtToplamFiyat.Text.ConDouble(), TxtAlimTuru.Text, CmbPersonel.Text, TxtAlinanFirma.Text, CmbBelgeTuru.Text, TxtBelgeNo.Text, "", TxtAciklama.Text);
+                string donem = FrmHelper.DonemControl(TxtTarih.Value);
+                Yakit yakit = new Yakit(LblIsAkisNo.Text.ConInt(), TxtPlaka.Text, donem, TxtTarih.Value, TxtKm.Text.ConInt(), TxtLitre.Text.ConDouble(), CmbYakitTuru.Text, TxtLitreFiyati.Text.ConDouble(), TxtToplamFiyat.Text.ConDouble(), TxtAlimTuru.Text, CmbPersonel.Text, TxtAlinanFirma.Text, CmbBelgeTuru.Text, TxtBelgeNo.Text, TxtAciklama.Text);
                 string mesaj = yakitManager.Add(yakit);
                 if (mesaj != "OK")
                 {
@@ -190,6 +192,10 @@ namespace UserInterface.IdariIsler
                 Temizle();
             }
         }
+
+
+
+
         void CreateLog()
         {
             string sayfa = "YAKIT";
@@ -212,7 +218,7 @@ namespace UserInterface.IdariIsler
         }
         void Temizle()
         {
-            TxtPlaka.SelectedValue=""; TxtAlinanDonem.SelectedValue = ""; TxtKm.Clear(); TxtLitre.Clear(); CmbYakitTuru.Text = ""; TxtLitreFiyati.Clear(); TxtToplamFiyat.Clear(); TxtAlimTuru.SelectedIndex=-1; CmbPersonel.SelectedValue = 0; TxtAlinanFirma.Clear(); CmbBelgeTuru.Text = ""; TxtBelgeNo.Clear();
+            TxtPlaka.SelectedValue=""; TxtKm.Clear(); TxtLitre.Clear(); CmbYakitTuru.Text = ""; TxtLitreFiyati.Clear(); TxtToplamFiyat.Clear(); TxtAlimTuru.SelectedIndex=-1; CmbPersonel.SelectedValue = 0; TxtAlinanFirma.Clear(); CmbBelgeTuru.Text = ""; TxtBelgeNo.Clear();
             webBrowser1.Navigate("");
         }
 
@@ -232,7 +238,6 @@ namespace UserInterface.IdariIsler
             }
             id = yakit.Id;
             TxtPlakaGun.Text = yakit.Plaka;
-            TxtAlinanDonemGun.Text = yakit.YakitAlinanDonem;
             TxtTarihGun.Value = yakit.Tarih;
             TxtKmGun.Text = yakit.Km.ToString();
             TxtLitreGun.Text = yakit.AlinanLitre.ToString();
@@ -244,37 +249,7 @@ namespace UserInterface.IdariIsler
             TxtAlinanFirmaGun.Text = yakit.AlinanFirma;
             CmbBelgeTuruGun.Text = yakit.BelgeTuru;
             TxtBelgeNoGun.Text = yakit.BelgeNumarasi;
-            dosyaYoluGun = yakit.DosyaYolu;
             TxtAciklamaGun.Text = yakit.Aciklama;
-            webBrowser2.Navigate(dosyaYoluGun);
-        }
-
-        private void BtnDosyaEkleGun_Click(object sender, EventArgs e)
-        {
-            if (openFileDialog2.ShowDialog() == DialogResult.OK)
-            {
-                kaynakdosyaismi = openFileDialog2.SafeFileName.ToString();
-                alinandosya = openFileDialog2.FileName.ToString();
-            }
-            else
-            {
-                MessageBox.Show("Dosya Seçmediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!Directory.Exists(dosyaYoluGun))
-            {
-                Directory.CreateDirectory(dosyaYoluGun);
-            }
-            if (File.Exists(dosyaYoluGun + "\\" + kaynakdosyaismi))
-            {
-                MessageBox.Show("Belirtilen Klasörde " + kaynakdosyaismi + " Adıyla Zaten Bir Dosya Mevcut!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            else
-            {
-                File.Copy(alinandosya, dosyaYoluGun + "\\" + kaynakdosyaismi);
-                fileNames.Add(alinandosya);
-                webBrowser2.Navigate(dosyaYoluGun);
-            }
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -287,8 +262,9 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                Yakit yakit = new Yakit(TxtIsAkisNo.Text.ConInt(), TxtPlakaGun.Text, TxtAlinanDonemGun.Text, TxtTarihGun.Value, TxtKmGun.Text.ConInt(), TxtLitreGun.Text.ConDouble(), CmbYakitTuruGun.Text, TxtLitreFiyatiGun.Text.ConDouble(),
-                    TxtToplamFiyatGun.Text.ConDouble(), TxtAlimTuruGun.Text, CmbPersonelGun.Text, TxtAlinanFirmaGun.Text, CmbBelgeTuruGun.Text, TxtBelgeNoGun.Text, dosyaYoluGun, TxtAciklamaGun.Text);
+                string donem = FrmHelper.DonemControl(TxtTarihGun.Value);
+                Yakit yakit = new Yakit(TxtIsAkisNo.Text.ConInt(), TxtPlakaGun.Text, donem, TxtTarihGun.Value, TxtKmGun.Text.ConInt(), TxtLitreGun.Text.ConDouble(), CmbYakitTuruGun.Text, TxtLitreFiyatiGun.Text.ConDouble(),
+                    TxtToplamFiyatGun.Text.ConDouble(), TxtAlimTuruGun.Text, CmbPersonelGun.Text, TxtAlinanFirmaGun.Text, CmbBelgeTuruGun.Text, TxtBelgeNoGun.Text, TxtAciklamaGun.Text);
                 string mesaj = yakitManager.Update(yakit, id);
                 if (mesaj != "OK")
                 {
@@ -302,8 +278,8 @@ namespace UserInterface.IdariIsler
         }
         void TemizleGun()
         {
-            TxtIsAkisNo.Clear(); TxtPlakaGun.Clear(); TxtAlinanDonemGun.SelectedValue = ""; TxtKmGun.Clear(); TxtLitreGun.Clear(); CmbYakitTuruGun.Text = "";
-            TxtLitreFiyatiGun.Clear(); TxtToplamFiyatGun.Clear(); TxtAlimTuruGun.SelectedIndex=-1; CmbPersonelGun.Text = ""; TxtAlinanFirmaGun.Clear(); CmbBelgeTuruGun.Text = ""; TxtBelgeNoGun.Clear(); webBrowser2.Navigate("");
+            TxtIsAkisNo.Clear(); TxtPlakaGun.Clear(); TxtKmGun.Clear(); TxtLitreGun.Clear(); CmbYakitTuruGun.Text = "";
+            TxtLitreFiyatiGun.Clear(); TxtToplamFiyatGun.Clear(); TxtAlimTuruGun.SelectedIndex=-1; CmbPersonelGun.Text = ""; TxtAlinanFirmaGun.Clear(); CmbBelgeTuruGun.Text = ""; TxtBelgeNoGun.Clear();
         }
 
         private void TxtLitreFiyati_TextChanged(object sender, EventArgs e)

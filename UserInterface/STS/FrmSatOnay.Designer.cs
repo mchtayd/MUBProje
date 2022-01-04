@@ -30,9 +30,9 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgOnay = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -46,8 +46,6 @@ namespace UserInterface.STS
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.LblToplam = new System.Windows.Forms.TextBox();
-            this.t = new System.Windows.Forms.Label();
             this.BtnRedT = new System.Windows.Forms.Button();
             this.label77 = new System.Windows.Forms.Label();
             this.BtnOnaylaT = new System.Windows.Forms.Button();
@@ -460,6 +458,8 @@ namespace UserInterface.STS
             this.label34 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.t = new System.Windows.Forms.Label();
+            this.LblToplam = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgOnay)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -491,8 +491,8 @@ namespace UserInterface.STS
             // 
             this.DtgOnay.AllowUserToAddRows = false;
             this.DtgOnay.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgOnay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgOnay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgOnay.AutoGenerateContextFilters = true;
             this.DtgOnay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgOnay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -510,6 +510,7 @@ namespace UserInterface.STS
             this.DtgOnay.SortStringChanged += new System.EventHandler(this.DtgOnay_SortStringChanged);
             this.DtgOnay.FilterStringChanged += new System.EventHandler(this.DtgOnay_FilterStringChanged);
             this.DtgOnay.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgOnay_CellMouseClick);
+            this.DtgOnay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DtgOnay_KeyDown);
             // 
             // TxtTop
             // 
@@ -567,18 +568,18 @@ namespace UserInterface.STS
             // 
             this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
             this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -644,24 +645,6 @@ namespace UserInterface.STS
             this.panel2.Size = new System.Drawing.Size(305, 197);
             this.panel2.TabIndex = 567;
             this.panel2.Visible = false;
-            // 
-            // LblToplam
-            // 
-            this.LblToplam.Location = new System.Drawing.Point(143, 15);
-            this.LblToplam.Name = "LblToplam";
-            this.LblToplam.Size = new System.Drawing.Size(103, 20);
-            this.LblToplam.TabIndex = 515;
-            this.LblToplam.Text = "0.00 ₺";
-            // 
-            // t
-            // 
-            this.t.AutoSize = true;
-            this.t.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.t.Location = new System.Drawing.Point(252, 16);
-            this.t.Name = "t";
-            this.t.Size = new System.Drawing.Size(15, 15);
-            this.t.TabIndex = 572;
-            this.t.Text = "₺";
             // 
             // BtnRedT
             // 
@@ -4554,6 +4537,24 @@ namespace UserInterface.STS
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
+            // t
+            // 
+            this.t.AutoSize = true;
+            this.t.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.t.Location = new System.Drawing.Point(252, 16);
+            this.t.Name = "t";
+            this.t.Size = new System.Drawing.Size(15, 15);
+            this.t.TabIndex = 572;
+            this.t.Text = "₺";
+            // 
+            // LblToplam
+            // 
+            this.LblToplam.Location = new System.Drawing.Point(143, 15);
+            this.LblToplam.Name = "LblToplam";
+            this.LblToplam.Size = new System.Drawing.Size(103, 20);
+            this.LblToplam.TabIndex = 515;
+            this.LblToplam.Text = "0.00 ₺";
+            // 
             // FrmSatOnay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -5016,11 +5017,11 @@ namespace UserInterface.STS
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label t;
         private System.Windows.Forms.Button BtnRedT;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Button BtnOnaylaT;
-        private System.Windows.Forms.TextBox LblToplam;
         private System.Windows.Forms.WebBrowser webBrowser2;
+        private System.Windows.Forms.TextBox LblToplam;
+        private System.Windows.Forms.Label t;
     }
 }

@@ -30,7 +30,7 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.TxtBiletSayisi = new System.Windows.Forms.TextBox();
@@ -262,7 +262,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(11, 794);
+            this.BtnGuncelle.Location = new System.Drawing.Point(13, 738);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(178, 50);
             this.BtnGuncelle.TabIndex = 88;
@@ -892,7 +892,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGuncelleOtobus.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelleOtobus.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelleOtobus.Location = new System.Drawing.Point(381, 799);
+            this.BtnGuncelleOtobus.Location = new System.Drawing.Point(13, 799);
             this.BtnGuncelleOtobus.Name = "BtnGuncelleOtobus";
             this.BtnGuncelleOtobus.Size = new System.Drawing.Size(178, 50);
             this.BtnGuncelleOtobus.TabIndex = 92;
@@ -1588,8 +1588,8 @@ namespace UserInterface.IdariIsler
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

@@ -39,7 +39,6 @@ namespace UserInterface.STS
             this.DtgTamamlananSatlar = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PnlKaydir = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -152,10 +151,11 @@ namespace UserInterface.STS
             this.label151 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.PnlKaydir.SuspendLayout();
             this.PnlGizle.SuspendLayout();
@@ -167,6 +167,7 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -348,6 +349,7 @@ namespace UserInterface.STS
             this.BT8.Name = "BT8";
             this.BT8.Size = new System.Drawing.Size(103, 21);
             this.BT8.TabIndex = 511;
+            this.BT8.TextChanged += new System.EventHandler(this.BT8_TextChanged);
             this.BT8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT8_KeyPress);
             // 
             // BT1
@@ -357,6 +359,7 @@ namespace UserInterface.STS
             this.BT1.Name = "BT1";
             this.BT1.Size = new System.Drawing.Size(103, 21);
             this.BT1.TabIndex = 504;
+            this.BT1.TextChanged += new System.EventHandler(this.BT1_TextChanged);
             this.BT1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT1_KeyPress);
             // 
             // BT7
@@ -366,6 +369,7 @@ namespace UserInterface.STS
             this.BT7.Name = "BT7";
             this.BT7.Size = new System.Drawing.Size(103, 21);
             this.BT7.TabIndex = 510;
+            this.BT7.TextChanged += new System.EventHandler(this.BT7_TextChanged);
             this.BT7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT7_KeyPress);
             // 
             // BT9
@@ -375,6 +379,7 @@ namespace UserInterface.STS
             this.BT9.Name = "BT9";
             this.BT9.Size = new System.Drawing.Size(103, 21);
             this.BT9.TabIndex = 512;
+            this.BT9.TextChanged += new System.EventHandler(this.BT9_TextChanged);
             this.BT9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT9_KeyPress);
             // 
             // BT6
@@ -384,6 +389,7 @@ namespace UserInterface.STS
             this.BT6.Name = "BT6";
             this.BT6.Size = new System.Drawing.Size(103, 21);
             this.BT6.TabIndex = 509;
+            this.BT6.TextChanged += new System.EventHandler(this.BT6_TextChanged);
             this.BT6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT6_KeyPress);
             // 
             // BT10
@@ -393,6 +399,7 @@ namespace UserInterface.STS
             this.BT10.Name = "BT10";
             this.BT10.Size = new System.Drawing.Size(103, 21);
             this.BT10.TabIndex = 513;
+            this.BT10.TextChanged += new System.EventHandler(this.BT10_TextChanged);
             this.BT10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT10_KeyPress);
             // 
             // BT5
@@ -402,6 +409,7 @@ namespace UserInterface.STS
             this.BT5.Name = "BT5";
             this.BT5.Size = new System.Drawing.Size(103, 21);
             this.BT5.TabIndex = 508;
+            this.BT5.TextChanged += new System.EventHandler(this.BT5_TextChanged);
             this.BT5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT5_KeyPress);
             // 
             // BT4
@@ -411,6 +419,7 @@ namespace UserInterface.STS
             this.BT4.Name = "BT4";
             this.BT4.Size = new System.Drawing.Size(103, 21);
             this.BT4.TabIndex = 507;
+            this.BT4.TextChanged += new System.EventHandler(this.BT4_TextChanged);
             this.BT4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT4_KeyPress);
             // 
             // BT3
@@ -420,6 +429,7 @@ namespace UserInterface.STS
             this.BT3.Name = "BT3";
             this.BT3.Size = new System.Drawing.Size(103, 21);
             this.BT3.TabIndex = 506;
+            this.BT3.TextChanged += new System.EventHandler(this.BT3_TextChanged);
             this.BT3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT3_KeyPress);
             // 
             // BT2
@@ -429,6 +439,7 @@ namespace UserInterface.STS
             this.BT2.Name = "BT2";
             this.BT2.Size = new System.Drawing.Size(103, 21);
             this.BT2.TabIndex = 505;
+            this.BT2.TextChanged += new System.EventHandler(this.BT2_TextChanged);
             this.BT2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT2_KeyPress);
             // 
             // PnlGizle
@@ -486,6 +497,7 @@ namespace UserInterface.STS
             this.BBF1.Name = "BBF1";
             this.BBF1.Size = new System.Drawing.Size(71, 21);
             this.BBF1.TabIndex = 493;
+            this.BBF1.TextChanged += new System.EventHandler(this.BBF1_TextChanged);
             this.BBF1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF1_KeyPress);
             // 
             // BBF2
@@ -495,6 +507,7 @@ namespace UserInterface.STS
             this.BBF2.Name = "BBF2";
             this.BBF2.Size = new System.Drawing.Size(71, 21);
             this.BBF2.TabIndex = 494;
+            this.BBF2.TextChanged += new System.EventHandler(this.BBF2_TextChanged);
             this.BBF2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF2_KeyPress);
             // 
             // BBF3
@@ -504,6 +517,7 @@ namespace UserInterface.STS
             this.BBF3.Name = "BBF3";
             this.BBF3.Size = new System.Drawing.Size(71, 21);
             this.BBF3.TabIndex = 495;
+            this.BBF3.TextChanged += new System.EventHandler(this.BBF3_TextChanged);
             this.BBF3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF3_KeyPress);
             // 
             // F1_10
@@ -522,6 +536,7 @@ namespace UserInterface.STS
             this.BBF4.Name = "BBF4";
             this.BBF4.Size = new System.Drawing.Size(71, 21);
             this.BBF4.TabIndex = 496;
+            this.BBF4.TextChanged += new System.EventHandler(this.BBF4_TextChanged);
             this.BBF4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF4_KeyPress);
             // 
             // F1_9
@@ -540,6 +555,7 @@ namespace UserInterface.STS
             this.BBF5.Name = "BBF5";
             this.BBF5.Size = new System.Drawing.Size(71, 21);
             this.BBF5.TabIndex = 497;
+            this.BBF5.TextChanged += new System.EventHandler(this.BBF5_TextChanged);
             this.BBF5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF5_KeyPress);
             // 
             // F1_8
@@ -558,6 +574,7 @@ namespace UserInterface.STS
             this.BBF6.Name = "BBF6";
             this.BBF6.Size = new System.Drawing.Size(71, 21);
             this.BBF6.TabIndex = 498;
+            this.BBF6.TextChanged += new System.EventHandler(this.BBF6_TextChanged);
             this.BBF6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF6_KeyPress);
             // 
             // F1_7
@@ -576,6 +593,7 @@ namespace UserInterface.STS
             this.BBF7.Name = "BBF7";
             this.BBF7.Size = new System.Drawing.Size(71, 21);
             this.BBF7.TabIndex = 499;
+            this.BBF7.TextChanged += new System.EventHandler(this.BBF7_TextChanged);
             this.BBF7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF7_KeyPress);
             // 
             // F1_6
@@ -594,6 +612,7 @@ namespace UserInterface.STS
             this.BBF8.Name = "BBF8";
             this.BBF8.Size = new System.Drawing.Size(71, 21);
             this.BBF8.TabIndex = 500;
+            this.BBF8.TextChanged += new System.EventHandler(this.BBF8_TextChanged);
             this.BBF8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF8_KeyPress);
             // 
             // F1_5
@@ -612,6 +631,7 @@ namespace UserInterface.STS
             this.BBF9.Name = "BBF9";
             this.BBF9.Size = new System.Drawing.Size(71, 21);
             this.BBF9.TabIndex = 501;
+            this.BBF9.TextChanged += new System.EventHandler(this.BBF9_TextChanged);
             this.BBF9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF9_KeyPress);
             // 
             // F1_4
@@ -630,6 +650,7 @@ namespace UserInterface.STS
             this.BBF10.Name = "BBF10";
             this.BBF10.Size = new System.Drawing.Size(71, 21);
             this.BBF10.TabIndex = 502;
+            this.BBF10.TextChanged += new System.EventHandler(this.BBF10_TextChanged);
             this.BBF10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF10_KeyPress);
             // 
             // F1_3
@@ -1218,6 +1239,7 @@ namespace UserInterface.STS
             this.button1.TabIndex = 317;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // openFileDialog1
@@ -1383,12 +1405,26 @@ namespace UserInterface.STS
             this.LblGenelTop.TabIndex = 353;
             this.LblGenelTop.Text = "00  ₺";
             // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Location = new System.Drawing.Point(10, 871);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(123, 41);
+            this.BtnGuncelle.TabIndex = 531;
+            this.BtnGuncelle.Text = "GÜNCELLE";
+            this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Visible = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmTamamlananSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.PnlTemsili);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.LblGenelTop);
@@ -1405,7 +1441,6 @@ namespace UserInterface.STS
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.PnlKaydir.ResumeLayout(false);
@@ -1422,6 +1457,7 @@ namespace UserInterface.STS
             this.tabPage3.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1548,5 +1584,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label150;
         private System.Windows.Forms.TextBox TxtFirma;
         private System.Windows.Forms.Label label151;
+        private System.Windows.Forms.Button BtnGuncelle;
     }
 }

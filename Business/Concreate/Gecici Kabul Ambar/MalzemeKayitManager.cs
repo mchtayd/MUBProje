@@ -66,11 +66,11 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public List<MalzemeKayit> GetList(int id=0)
+        public List<MalzemeKayit> GetList(string stokNo="")
         {
             try
             {
-                return malzemeKayitDal.GetList(id);
+                return malzemeKayitDal.GetList(stokNo);
             }
             catch (Exception)
             {

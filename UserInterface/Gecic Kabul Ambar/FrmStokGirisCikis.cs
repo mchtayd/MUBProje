@@ -1,5 +1,7 @@
-﻿using Business.Concreate.Gecici_Kabul_Ambar;
+﻿using Business.Concreate.Depo;
+using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
+using Entity.Depo;
 using Entity.Gecic_Kabul_Ambar;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.BakımOnarım;
 using UserInterface.STS;
 
 namespace UserInterface.Depo
@@ -18,6 +21,7 @@ namespace UserInterface.Depo
     {
         StokGirisCikisManager stokGirisCikisManager;
         MalzemeKayitManager malzemeKayitManager;
+        DepoKayitManagercs depoKayitManagercs;
         List<MalzemeKayit> malzemeKayits;
         bool start = true;
         int id;
@@ -28,12 +32,21 @@ namespace UserInterface.Depo
             InitializeComponent();
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            depoKayitManagercs = DepoKayitManagercs.GetInstance();
         }
         private void FrmStokGirisCikis_Load(object sender, EventArgs e)
         {
             StokBilgileri();
+            CmbDepo();
             start = false;
 
+        }
+        public void CmbDepo()
+        {
+            CmbDepoNo.DataSource = depoKayitManagercs.GetList();
+            CmbDepoNo.ValueMember = "Id";
+            CmbDepoNo.DisplayMember = "Depo";
+            CmbDepoNo.SelectedValue = 0;
         }
         void StokBilgileri()
         {
@@ -138,7 +151,7 @@ namespace UserInterface.Depo
             {
                 int sirano = item.Cells["SiraNo"].Value.ConInt();
                 StokGirisCıkıs entity = new StokGirisCıkıs(CmbIslemTuru.Text, CmbStokNo.Text, TxtTanim.Text, TxtMiktar.
-                    Text.ConInt(), CmbBirim.Text, DtTarih.Value, CmbDepo.Text, CmbAdres.Text, TxtMalzemeYeri.Text, TxtAciklama.Text);
+                    Text.ConInt(), CmbBirim.Text, DtTarih.Value, CmbDepoNo.Text, CmbAdres.Text, TxtMalzemeYeri.Text, TxtAciklama.Text);
 
                 DtgList.Rows.Add();
                 int sonSatir = DtgList.RowCount - 1;
@@ -150,7 +163,7 @@ namespace UserInterface.Depo
                 DtgList.Rows[sonSatir].Cells["Column4"].Value = TxtMiktar.Text;
                 DtgList.Rows[sonSatir].Cells["Column5"].Value = CmbBirim.Text;
                 DtgList.Rows[sonSatir].Cells["Column6"].Value = DtTarih.Value;
-                DtgList.Rows[sonSatir].Cells["Column7"].Value = CmbDepo.Text;
+                DtgList.Rows[sonSatir].Cells["Column7"].Value = CmbDepoNo.Text;
                 DtgList.Rows[sonSatir].Cells["Column8"].Value = CmbAdres.Text;
                 DtgList.Rows[sonSatir].Cells["Column9"].Value = TxtMalzemeYeri.Text;
                 DtgList.Rows[sonSatir].Cells["Column14"].Value = TxtAciklama.Text;
@@ -185,11 +198,12 @@ namespace UserInterface.Depo
             {
                 foreach (DataGridViewRow item in DtgList.Rows)
                 {
-                    StokGirisCıkıs stokGiris = new StokGirisCıkıs(CmbIslemTuru.Text, CmbStokNo.Text, TxtTanim.Text, TxtMiktar.Text.ConInt(), CmbBirim.Text, DtTarih.Value, CmbDepo.Text, CmbAdres.Text, TxtMalzemeYeri.Text, TxtAciklama.Text, item.Cells["Column10"].Value.ToString(), item.Cells["Column12"].Value.ToString(), item.Cells["Column11"].Value.ToString());
+                    StokGirisCıkıs stokGiris = new StokGirisCıkıs(CmbIslemTuru.Text, CmbStokNo.Text, TxtTanim.Text, TxtMiktar.Text.ConInt(), CmbBirim.Text, DtTarih.Value, CmbDepoNo.Text, CmbAdres.Text, TxtMalzemeYeri.Text, TxtAciklama.Text, item.Cells["Column10"].Value.ToString(), item.Cells["Column12"].Value.ToString(), item.Cells["Column11"].Value.ToString());
 
                     stokGirisCikisManager.Add(stokGiris);
                 }
                 MessageBox.Show("Bilgileri Başarıyla Kaydedişmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                Temizle();
             }
         }
 
@@ -199,10 +213,66 @@ namespace UserInterface.Depo
         }
         void Temizle()
         {
-            CmbIslemTuru.Text = ""; CmbStokNo.Text = ""; TxtTanim.Clear(); TxtMiktar.Clear(); CmbBirim.Text = ""; CmbDepo.Text = ""; CmbAdres.Text = "";
-            TxtMalzemeYeri.Text = ""; TxtAciklama.Text = "";
+            CmbIslemTuru.SelectedValue = ""; CmbStokNo.Text = ""; TxtTanim.Clear(); TxtMiktar.Clear(); CmbBirim.Text = ""; CmbDepoNo.Text = ""; CmbAdres.Text = "";
+            TxtMalzemeYeri.Text = ""; TxtAciklama.Text = ""; 
             AdvMalzemeOnizleme.Rows.Clear(); DtgList.Rows.Clear();
         }
 
+        private void BtnDepoEkle_Click(object sender, EventArgs e)
+        {
+            FrmDepoLokasyonKayit frmDepoLokasyonKayit = new FrmDepoLokasyonKayit();
+            frmDepoLokasyonKayit.ShowDialog();
+        }
+
+        private void CmbDepoNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==true)
+            {
+                return;
+            }
+            id = CmbDepoNo.SelectedValue.ConInt();
+            DepoKayit depoKayit = depoKayitManagercs.Get(id);
+            CmbAdres.Text = depoKayit.Aciklama;
+        }
+
+        private void TxtMiktar_TextChanged(object sender, EventArgs e)
+        {
+            if (CmbStokNo.Text == "")
+            {
+                MessageBox.Show("Öncelikle Bir Stok Numarası Giriniz.");
+                return;
+            }
+            if (TxtMiktar.Text == "")
+            {
+                //MessageBox.Show("Lütfen Miktar Belirtiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //AdvMalzemeOnizleme.DataSource = "";
+                AdvMalzemeOnizleme.Rows.Clear();
+                return;
+            }
+            if (takipdurumu == "LOT NO")
+            {
+                AdvMalzemeOnizleme.Columns["SeriLotNo"].HeaderText = "LOT NO";
+                AdvMalzemeOnizleme.Columns["Remove"].Visible = false;
+            }
+            else
+            {
+                AdvMalzemeOnizleme.Columns["SeriLotNo"].HeaderText = "SERİ NO";
+                AdvMalzemeOnizleme.Columns["Remove"].Visible = true;
+            }
+
+            AdvMalzemeOnizleme.Rows.Clear();
+            for (int i = 0; i < TxtMiktar.Text.ConInt(); i++)
+            {
+                AdvMalzemeOnizleme.Rows.Add();
+                int sonSatir = AdvMalzemeOnizleme.RowCount - 1;
+                AdvMalzemeOnizleme.Rows[sonSatir].Cells["SiraNo"].Value = i + 1;
+                AdvMalzemeOnizleme.Rows[sonSatir].Cells["SeriLotNo"].Value = "";
+                AdvMalzemeOnizleme.Rows[sonSatir].Cells["Revizyon"].Value = "";
+            }
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)AdvMalzemeOnizleme.Columns["Remove"];
+            c.FlatStyle = FlatStyle.Popup;
+            c.DefaultCellStyle.ForeColor = Color.Red;
+            c.DefaultCellStyle.BackColor = Color.Gainsboro;
+        }
     }
 }

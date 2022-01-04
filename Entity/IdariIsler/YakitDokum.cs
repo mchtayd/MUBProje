@@ -114,5 +114,31 @@ namespace Entity.IdariIsler
             this.siparisNo = siparisNo;
             this.alimTuru = alimTuru;
         }
+
+        public YakitDokum(int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu)
+        {
+            this.isAkisNo = isAkisNo;
+            this.firma = firma;
+            this.donem = donem;
+            this.tarih = tarih;
+            this.plaka = plaka;
+            this.aracSiparisNo = aracSiparisNo;
+            this.verilenLitre = verilenLitre;
+            this.toplamTutar = toplamTutar;
+            this.dosyaYolu = dosyaYolu;
+        }
+        public YakitDokum(int id,int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu)
+        {
+            this.id = id;
+            this.isAkisNo = isAkisNo;
+            this.firma = firma;
+            this.donem = donem;
+            this.tarih = tarih;
+            this.plaka = plaka;
+            this.aracSiparisNo = aracSiparisNo;
+            this.verilenLitre = verilenLitre;
+            this.toplamTutar = toplamTutar;
+            this.dosyaYolu = dosyaYolu;
+        }
     }
 }

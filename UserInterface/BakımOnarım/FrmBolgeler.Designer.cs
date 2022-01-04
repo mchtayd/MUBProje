@@ -30,15 +30,17 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBolgeler));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgBolgeler = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.CmbDepo = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.TxtTelefon = new System.Windows.Forms.TextBox();
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.BtnSil = new System.Windows.Forms.Button();
@@ -84,9 +86,8 @@ namespace UserInterface.BakımOnarım
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
-            this.CmbDepo = new System.Windows.Forms.ComboBox();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnDepoEkle = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -113,8 +114,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgBolgeler.AllowUserToAddRows = false;
             this.DtgBolgeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgBolgeler.AutoGenerateContextFilters = true;
             this.DtgBolgeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgBolgeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -129,7 +130,7 @@ namespace UserInterface.BakımOnarım
             this.DtgBolgeler.Size = new System.Drawing.Size(1446, 427);
             this.DtgBolgeler.TabIndex = 2;
             this.DtgBolgeler.TimeFilter = false;
-            this.DtgBolgeler.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgBolgeler_CellMouseClick);
+            this.DtgBolgeler.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgBolgeler_CellMouseDoubleClick);
             // 
             // TxtTop
             // 
@@ -164,6 +165,7 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnDepoEkle);
             this.tabPage1.Controls.Add(this.CmbDepo);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.TxtTelefon);
@@ -204,6 +206,23 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "DÜZENLE";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // CmbDepo
+            // 
+            this.CmbDepo.FormattingEnabled = true;
+            this.CmbDepo.Location = new System.Drawing.Point(121, 239);
+            this.CmbDepo.Name = "CmbDepo";
+            this.CmbDepo.Size = new System.Drawing.Size(178, 21);
+            this.CmbDepo.TabIndex = 134;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(28, 239);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(87, 26);
+            this.label19.TabIndex = 133;
+            this.label19.Text = "BAĞLI OLDUĞU\r\nARA DEPO:";
             // 
             // TxtTelefon
             // 
@@ -290,6 +309,7 @@ namespace UserInterface.BakımOnarım
             this.buton_proje.TabIndex = 126;
             this.buton_proje.Tag = "admin";
             this.buton_proje.UseVisualStyleBackColor = false;
+            this.buton_proje.Click += new System.EventHandler(this.buton_proje_Click);
             // 
             // TxtBolgeSorumlusuAd
             // 
@@ -307,7 +327,6 @@ namespace UserInterface.BakımOnarım
             // 
             // CmbPypNo
             // 
-            this.CmbPypNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbPypNo.FormattingEnabled = true;
             this.CmbPypNo.Location = new System.Drawing.Point(619, 109);
             this.CmbPypNo.Name = "CmbPypNo";
@@ -316,7 +335,6 @@ namespace UserInterface.BakımOnarım
             // 
             // CmbProje
             // 
-            this.CmbProje.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbProje.FormattingEnabled = true;
             this.CmbProje.Location = new System.Drawing.Point(619, 82);
             this.CmbProje.Name = "CmbProje";
@@ -328,7 +346,7 @@ namespace UserInterface.BakımOnarım
             this.DtGarantİBitTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtGarantİBitTarihi.Location = new System.Drawing.Point(619, 56);
             this.DtGarantİBitTarihi.Name = "DtGarantİBitTarihi";
-            this.DtGarantİBitTarihi.Size = new System.Drawing.Size(178, 20);
+            this.DtGarantİBitTarihi.Size = new System.Drawing.Size(139, 20);
             this.DtGarantİBitTarihi.TabIndex = 121;
             // 
             // DtGarantİBasTarihi
@@ -336,12 +354,11 @@ namespace UserInterface.BakımOnarım
             this.DtGarantİBasTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtGarantİBasTarihi.Location = new System.Drawing.Point(619, 30);
             this.DtGarantİBasTarihi.Name = "DtGarantİBasTarihi";
-            this.DtGarantİBasTarihi.Size = new System.Drawing.Size(178, 20);
+            this.DtGarantİBasTarihi.Size = new System.Drawing.Size(139, 20);
             this.DtGarantİBasTarihi.TabIndex = 120;
             // 
             // CmbIlce
             // 
-            this.CmbIlce.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbIlce.FormattingEnabled = true;
             this.CmbIlce.Location = new System.Drawing.Point(121, 135);
             this.CmbIlce.Name = "CmbIlce";
@@ -350,7 +367,6 @@ namespace UserInterface.BakımOnarım
             // 
             // CmbIl
             // 
-            this.CmbIl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbIl.FormattingEnabled = true;
             this.CmbIl.Location = new System.Drawing.Point(121, 108);
             this.CmbIl.Name = "CmbIl";
@@ -586,8 +602,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeler.AllowUserToAddRows = false;
             this.DtgMalzemeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgMalzemeler.AutoGenerateContextFilters = true;
             this.DtgMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -646,23 +662,21 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click_1);
             // 
-            // label19
+            // BtnDepoEkle
             // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(28, 239);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(87, 26);
-            this.label19.TabIndex = 133;
-            this.label19.Text = "BAĞLI OLDUĞU\r\nARA DEPO:";
-            // 
-            // CmbDepo
-            // 
-            this.CmbDepo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDepo.FormattingEnabled = true;
-            this.CmbDepo.Location = new System.Drawing.Point(121, 239);
-            this.CmbDepo.Name = "CmbDepo";
-            this.CmbDepo.Size = new System.Drawing.Size(178, 21);
-            this.CmbDepo.TabIndex = 134;
+            this.BtnDepoEkle.AccessibleDescription = "";
+            this.BtnDepoEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnDepoEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDepoEkle.BackgroundImage")));
+            this.BtnDepoEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDepoEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDepoEkle.Location = new System.Drawing.Point(302, 234);
+            this.BtnDepoEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDepoEkle.Name = "BtnDepoEkle";
+            this.BtnDepoEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnDepoEkle.TabIndex = 135;
+            this.BtnDepoEkle.Tag = "admin";
+            this.BtnDepoEkle.UseVisualStyleBackColor = false;
+            this.BtnDepoEkle.Click += new System.EventHandler(this.BtnDepoEkle_Click);
             // 
             // FrmBolgeler
             // 
@@ -754,5 +768,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.ComboBox CmbDepo;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button BtnDepoEkle;
     }
 }

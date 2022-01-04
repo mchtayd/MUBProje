@@ -75,6 +75,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.CmbMalKulUst = new System.Windows.Forms.TextBox();
             this.TxtAlternatifMalzeme = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -548,12 +550,30 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label18.TabIndex = 314;
             this.label18.Text = "ALTERNATİF MALZEME:";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(585, 418);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(205, 20);
+            this.textBox1.TabIndex = 316;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(422, 415);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(154, 26);
+            this.label17.TabIndex = 315;
+            this.label17.Text = "MALZEMENİN KULLANILDIĞI\r\nÜST TAKIM TANIM:";
+            // 
             // FrmMalzemeKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1475, 780);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.label17);
             this.Controls.Add(this.TxtAlternatifMalzeme);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.CmbMalKulUst);
@@ -656,5 +676,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.TextBox CmbMalKulUst;
         private System.Windows.Forms.TextBox TxtAlternatifMalzeme;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label17;
     }
 }

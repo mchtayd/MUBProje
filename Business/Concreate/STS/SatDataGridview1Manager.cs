@@ -53,7 +53,18 @@ namespace Business.Concreate
                 return ex.Message;
             }
         }
-        
+        public string DosyaYoluDuzelt(string dosyaYolu,string siparisNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.DosyaYoluDuzelt(dosyaYolu, siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
 
         public string Delete(int id)
         {
@@ -86,6 +97,28 @@ namespace Business.Concreate
             try
             {
                 return satDataGridview1Dal.SatFirmaGuncelle(siparisNo, proje, firma);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SatButceKoduGider(string siparis, string personelSayisi, string siparisNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.SatButceKoduGider(siparis, personelSayisi, siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SatButceKoduPlaka(string siparis, string plaka, string siparisNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.SatButceKoduPlaka(siparis, plaka, siparisNo);
             }
             catch (Exception ex)
             {

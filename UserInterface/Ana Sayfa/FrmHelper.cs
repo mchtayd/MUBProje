@@ -1,7 +1,9 @@
-﻿using Business.Concreate.STS;
+﻿using Business;
+using Business.Concreate.STS;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
+using Entity;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
@@ -14,14 +16,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
-
+ 
 namespace UserInterface.Ana_Sayfa
 {
     public partial class FrmHelper : Form
     {
+        IsAkisNoManager isAkisNoManager;
         public FrmHelper()
         {
             InitializeComponent();
+            isAkisNoManager = IsAkisNoManager.GetInstance();
         }
         private void FrmHelper_Load(object sender, EventArgs e)
         {
@@ -303,6 +307,126 @@ namespace UserInterface.Ana_Sayfa
             strB.AppendLine("</table></center>");
             strB.AppendLine("</body></html>");
             return strB.ToString();
+        }
+
+        public static DataTable GetDataTableFromExcel(string path, string sheetName)
+        {
+            //Save the uploaded Excel file.
+
+
+            DataTable dt = new DataTable();
+            //Open the Excel file using ClosedXML.
+            using (XLWorkbook workBook = new XLWorkbook(path))
+            {
+                //Read the first Sheet from Excel file.
+                IXLWorksheet workSheet = workBook.Worksheet(sheetName);
+
+                //Create a new DataTable.
+
+                //Loop through the Worksheet rows.
+                bool firstRow = true;
+
+                foreach (IXLRow row in workSheet.Rows())
+                {
+                    if (string.IsNullOrEmpty(row.Cell("C").Value.ToString()))
+                    {
+                        continue;
+                    }
+                    //Use the first row to add columns to DataTable.
+                  
+                    if (firstRow)
+                    {
+                        foreach (IXLCell cell in row.Cells())
+                        {                           
+                            if (!string.IsNullOrEmpty(cell.Value.ToString()))
+                            {
+                                dt.Columns.Add(cell.Value.ToString());
+                            }
+                            else
+                            {
+                                break;
+                            }
+                        }
+                        firstRow = false;
+                    }
+                    else
+                    {
+                        int i = 0;
+                        DataRow toInsert = dt.NewRow();
+                        foreach (IXLCell cell in row.Cells())
+                        {                           
+                            try
+                            {
+                                toInsert[i] = cell.Value.ToString();
+                            }
+                            catch (Exception ex)
+                            {
+
+                            }
+                            i++;
+                        }
+                        dt.Rows.Add(toInsert);
+                    }
+                }
+                return dt;
+            }
+        }
+        public static string DonemControl(DateTime dateTime)
+        {
+            string donem = "";
+            string ay;
+            string yil;
+            ay = dateTime.ToString("MM");
+            yil = dateTime.ToString("yyyy");
+            if (ay == "01")
+            {
+                donem = "OCAK " + yil;
+            }
+            if (ay == "02")
+            {
+                donem = "ŞUBAT " + yil;
+            }
+            if (ay == "03")
+            {
+                donem = "MART " + yil;
+            }
+            if (ay == "04")
+            {
+                donem = "NİSAN " + yil;
+            }
+            if (ay == "05")
+            {
+                donem = "MAYIS " + yil;
+            }
+            if (ay == "06")
+            {
+                donem = "HAZİRAN " + yil;
+            }
+            if (ay == "07")
+            {
+                donem = "TEMMUZ " + yil;
+            }
+            if (ay == "08")
+            {
+                donem = "AĞUSTOS " + yil;
+            }
+            if (ay == "09")
+            {
+                donem = "EYLÜL " + yil;
+            }
+            if (ay == "10")
+            {
+                donem = "EKİM " + yil;
+            }
+            if (ay == "11")
+            {
+                donem = "KASIM " + yil;
+            }
+            if (ay == "12")
+            {
+                donem = "ARALIK " + yil;
+            }
+            return donem;
         }
     }
 }
