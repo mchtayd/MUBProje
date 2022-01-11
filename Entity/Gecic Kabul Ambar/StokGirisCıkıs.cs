@@ -8,61 +8,77 @@ namespace Entity.Gecic_Kabul_Ambar
 {
     public class StokGirisCıkıs
     {
-        int id; string islemturu, stokno, tanim; int miktar; string birim; DateTime istenentarih; string depono, depoadresi, malzemeyeri, aciklama,serino,lotno,revizyon;
+        int id; string islemturu, stokno, tanim; string birim; DateTime islemTarihi; string cekilenDepoNo, cekilenDepoAdresi, cekilenMalzemeYeri, dusulenDepoNo, dusulenDepoAdresi, dusulenMalzemeYeri; int dusulenMiktar; string talepEdenPersonel, aciklama, serino, lotno, revizyon;
 
         public int Id { get => id; set => id = value; }
         public string Islemturu { get => islemturu; set => islemturu = value; }
         public string Stokno { get => stokno; set => stokno = value; }
         public string Tanim { get => tanim; set => tanim = value; }
-        public int Miktar { get => miktar; set => miktar = value; }
         public string Birim { get => birim; set => birim = value; }
-        public DateTime Istenentarih { get => istenentarih; set => istenentarih = value; }
-        public string Depono { get => depono; set => depono = value; }
-        public string Depoadresi { get => depoadresi; set => depoadresi = value; }
-        public string Malzemeyeri { get => malzemeyeri; set => malzemeyeri = value; }
+        public DateTime IslemTarihi { get => islemTarihi; set => islemTarihi = value; }
+        public string CekilenDepoNo { get => cekilenDepoNo; set => cekilenDepoNo = value; }
+        public string CekilenDepoAdresi { get => cekilenDepoAdresi; set => cekilenDepoAdresi = value; }
+        public string CekilenMalzemeYeri { get => cekilenMalzemeYeri; set => cekilenMalzemeYeri = value; }
+        public string DusulenDepoNo { get => dusulenDepoNo; set => dusulenDepoNo = value; }
+        public string DusulenDepoAdresi { get => dusulenDepoAdresi; set => dusulenDepoAdresi = value; }
+        public string DusulenMalzemeYeri { get => dusulenMalzemeYeri; set => dusulenMalzemeYeri = value; }
+        public int DusulenMiktar { get => dusulenMiktar; set => dusulenMiktar = value; }
         public string Aciklama { get => aciklama; set => aciklama = value; }
         public string Serino { get => serino; set => serino = value; }
         public string Lotno { get => lotno; set => lotno = value; }
         public string Revizyon { get => revizyon; set => revizyon = value; }
+        public string TalepEdenPersonel { get => talepEdenPersonel; set => talepEdenPersonel = value; }
 
-        public StokGirisCıkıs(int id, string islemturu, string stokno, string tanim, int miktar, string birim, DateTime istenentarih, string depono, string depoadresi, string malzemeyeri, string aciklama)
+        public StokGirisCıkıs(int id, string islemturu, string stokno, string tanim, string birim, DateTime islemTarihi, string cekilenDepoNo, string cekilenDepoAdresi, string cekilenMalzemeYeri, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string talepEdenPersonel, string aciklama, string serino, string lotno, string revizyon)
         {
             this.id = id;
             this.islemturu = islemturu;
             this.stokno = stokno;
             this.tanim = tanim;
-            this.miktar = miktar;
+            //this.mevcutMiktar = mevcutMiktar;
             this.birim = birim;
-            this.istenentarih = istenentarih;
-            this.depono = depono;
-            this.depoadresi = depoadresi;
-            this.malzemeyeri = malzemeyeri;
+            this.islemTarihi = islemTarihi;
+            this.cekilenDepoNo = cekilenDepoNo;
+            this.cekilenDepoAdresi = cekilenDepoAdresi;
+            this.cekilenMalzemeYeri = cekilenMalzemeYeri;
+            this.dusulenDepoNo = dusulenDepoNo;
+            this.dusulenMalzemeYeri = dusulenMalzemeYeri;
+            this.dusulenDepoAdresi = dusulenDepoAdresi;
+            this.dusulenMiktar = dusulenMiktar;
             this.aciklama = aciklama;
+            this.serino = serino;
+            this.lotno = lotno;
+            this.talepEdenPersonel = talepEdenPersonel;
+            this.revizyon = revizyon;
         }
 
-        public StokGirisCıkıs(string islemturu, string stokno, string tanim, int miktar, string birim, DateTime istenentarih, string depono, string depoadresi, string malzemeyeri, string aciklama)
+        public StokGirisCıkıs(string islemturu, string stokno, string tanim, string birim, DateTime islemTarihi, string cekilenDepoNo, string cekilenDepoAdresi, string cekilenMalzemeYeri, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string talepEdenPersonel, string aciklama, string serino, string lotno, string revizyon)
         {
             this.islemturu = islemturu;
             this.stokno = stokno;
             this.tanim = tanim;
-            this.miktar = miktar;
+            //this.mevcutMiktar = mevcutMiktar;
             this.birim = birim;
-            this.istenentarih = istenentarih;
-            this.depono = depono;
-            this.depoadresi = depoadresi;
-            this.malzemeyeri = malzemeyeri;
+            this.islemTarihi = islemTarihi;
+            this.cekilenDepoNo = cekilenDepoNo;
+            this.cekilenDepoAdresi = cekilenDepoAdresi;
+            this.cekilenMalzemeYeri = cekilenMalzemeYeri;
+            this.dusulenDepoNo = dusulenDepoNo;
+            this.dusulenDepoAdresi = dusulenDepoAdresi;
+            this.dusulenMalzemeYeri = dusulenMalzemeYeri;
+            this.dusulenMiktar = dusulenMiktar;
             this.aciklama = aciklama;
-        }
-
-        public StokGirisCıkıs(string islemturu, string stokno, string tanim, int miktar, string birim, DateTime istenentarih, string depono, string depoadresi, string malzemeyeri, string aciklama, string serino, string lotno, string revizyon) : this(islemturu, stokno, tanim, miktar, birim, istenentarih, depono, depoadresi, malzemeyeri, aciklama)
-        {
             this.serino = serino;
             this.lotno = lotno;
             this.revizyon = revizyon;
+            this.talepEdenPersonel = talepEdenPersonel;
+
         }
 
-        public StokGirisCıkıs(int id, string islemturu, string stokno, string tanim, int miktar, string birim, DateTime istenentarih, string depono, string depoadresi, string malzemeyeri, string aciklama, string serino, string lotno, string revizyon) : this(id, islemturu, stokno, tanim, miktar, birim, istenentarih, depono, depoadresi, malzemeyeri, aciklama)
+        public StokGirisCıkıs(string stokno, string dusulenDepoNo, string serino, string lotno, string revizyon)
         {
+            this.stokno = stokno;
+            this.dusulenDepoNo = dusulenDepoNo;
             this.serino = serino;
             this.lotno = lotno;
             this.revizyon = revizyon;

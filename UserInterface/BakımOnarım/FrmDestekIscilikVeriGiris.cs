@@ -374,11 +374,44 @@ namespace UserInterface.BakımOnarım
             }
         }
 
+        string PerformansKontrol()
+        {
+            string sonVarisDuragi;
+            IscilikPerformans performans = performansManager.Get(CmbPersonelPerformans.Text);
+            sonVarisDuragi = performans.VarisDurag;
+
+            if (CmbMevcutDuragi.Text != sonVarisDuragi)
+            {
+                return "Hata1";
+            }
+            if (CmbMevcutDuragi.Text == CmbCikisDuragi.Text)
+            {
+                return "Hata2";
+            }
+            return "OK";
+        }
+
         private void BtnKaydetPerformans_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                string control = PerformansKontrol();
+                if (control!="OK")
+                {
+                    if (control== "Hata1")
+                    {
+                        DialogResult dialog = MessageBox.Show("Personelin Girmek İstediğiniz Mevcut Durağı İle Son Varış Durağı Uyuşmamaktadır!\nBu Durumu Bildirmek İstiyor Musunuz?","Hata",MessageBoxButtons.YesNo,MessageBoxIcon.Error);
+                        if (dialog == DialogResult.Yes)
+                        {
+
+                        }
+
+                    }
+                    MessageBox.Show(control,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+
                 DateTime cikisTarihiSaati = new DateTime(DtgCikisTarihi.Value.Year, DtgCikisTarihi.Value.Month, DtgCikisTarihi.Value.Day, DtgCikisSaati.Value.Hour, DtgCikisSaati.Value.Minute, DtgCikisSaati.Value.Second);
 
                 DateTime varisTarihiSaati = new DateTime(DtgVarisTarihi.Value.Year, DtgVarisTarihi.Value.Month, DtgVarisTarihi.Value.Day, DtgVarisSaati.Value.Hour, DtgVarisSaati.Value.Minute, DtgVarisSaati.Value.Second);
@@ -394,6 +427,8 @@ namespace UserInterface.BakımOnarım
                 }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
+
+
             }
         }
         //int destekNedeniIndex;

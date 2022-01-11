@@ -30,7 +30,7 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaAcmaCalisma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -78,6 +78,7 @@ namespace UserInterface.BakımOnarım
             this.TxtBirlikPersoneli = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BtnBul = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
@@ -399,7 +400,6 @@ namespace UserInterface.BakımOnarım
             this.dateTimePicker8 = new System.Windows.Forms.DateTimePicker();
             this.label94 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.BtnBul = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -956,6 +956,18 @@ namespace UserInterface.BakımOnarım
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SİPARİŞ OLUŞTUR";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // BtnBul
+            // 
+            this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnBul.Location = new System.Drawing.Point(239, 15);
+            this.BtnBul.Name = "BtnBul";
+            this.BtnBul.Size = new System.Drawing.Size(63, 23);
+            this.BtnBul.TabIndex = 422;
+            this.BtnBul.Text = "Bul";
+            this.BtnBul.UseVisualStyleBackColor = true;
+            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
             // button4
             // 
@@ -1718,11 +1730,11 @@ namespace UserInterface.BakımOnarım
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(1265, 8);
+            this.label54.Location = new System.Drawing.Point(1231, 8);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(112, 15);
+            this.label54.Size = new System.Drawing.Size(189, 15);
             this.label54.TabIndex = 247;
-            this.label54.Text = "YAPILACAK İŞLEM:";
+            this.label54.Text = "MALZEMEYE YAPILACAK İŞLEM:";
             // 
             // textBox43
             // 
@@ -2458,11 +2470,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -4230,18 +4242,6 @@ namespace UserInterface.BakımOnarım
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // BtnBul
-            // 
-            this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBul.Location = new System.Drawing.Point(239, 15);
-            this.BtnBul.Name = "BtnBul";
-            this.BtnBul.Size = new System.Drawing.Size(63, 23);
-            this.BtnBul.TabIndex = 422;
-            this.BtnBul.Text = "Bul";
-            this.BtnBul.UseVisualStyleBackColor = true;
-            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
             // FrmArizaAcmaCalisma
             // 

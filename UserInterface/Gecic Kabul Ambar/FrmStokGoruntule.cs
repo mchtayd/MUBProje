@@ -18,13 +18,16 @@ namespace UserInterface.Depo
     {
         StokGirisCikisManager stokGirisCikisManager;
         MalzemeKayitManager malzemeKayitManager;
-        List<StokGirisCıkıs> stokGirisCıkıs;
-        string stokNo="",seriLotBilgisi;
+        DepoMiktarManager depoMiktarManager;
+        
+        List<DepoMiktar> depoMiktars;
+        string stokNo="";
         public FrmStokGoruntule()
         {
             InitializeComponent();
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            depoMiktarManager = DepoMiktarManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -50,25 +53,33 @@ namespace UserInterface.Depo
         void Display()
         {
             /*stokGirisCıkıs = stokGirisCikisManager.GetList();
-            stokFiltired = stokGirisCıkıs;
+            //stokFiltired = stokGirisCıkıs;
             dataBinder.DataSource = stokGirisCıkıs.ToDataTable();
-            DtgDepoBilgileri.DataSource = dataBinder;
-            TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();*/
+            DtgDepoBilgileri.DataSource = dataBinder;*/
+            
+
+            foreach (DataGridViewRow item in DtgDepoBilgileri.Rows)
+            {
+                if (item.Cells["Miktar"].Value.ConInt()==0)
+                {
+                    int selectedIndex = item.Index;
+                    DtgDepoBilgileri.Rows.RemoveAt(selectedIndex);
+                }
+            }
 
             DtgDepoBilgileri.Columns["Id"].Visible = false;
-            DtgDepoBilgileri.Columns["Islemturu"].HeaderText = "İŞLEM TÜRÜ";
-            DtgDepoBilgileri.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgDepoBilgileri.Columns["StokNo"].HeaderText = "STOK NO";
             DtgDepoBilgileri.Columns["Tanim"].HeaderText = "TANIM";
+            DtgDepoBilgileri.Columns["SonIslemTarihi"].HeaderText = "SON İŞLEM TARİHİ";
+            DtgDepoBilgileri.Columns["SonIslemYapan"].HeaderText = "SON İŞLEM YAPAN";
             DtgDepoBilgileri.Columns["Miktar"].HeaderText = "MİKTAR";
-            DtgDepoBilgileri.Columns["Birim"].HeaderText = "BİRİM";
-            DtgDepoBilgileri.Columns["Istenentarih"].HeaderText = "İŞLEM TARİHİ";
-            DtgDepoBilgileri.Columns["Depono"].HeaderText = "DEPO NO";
-            DtgDepoBilgileri.Columns["Depoadresi"].HeaderText = "DEPO ADRESİ";
-            DtgDepoBilgileri.Columns["Malzemeyeri"].HeaderText = "MALZEME YERİ";
-            DtgDepoBilgileri.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
-            DtgDepoBilgileri.Columns["Serino"].HeaderText = "SERİ NO";
-            DtgDepoBilgileri.Columns["Lotno"].HeaderText = "LOT NO";
+            DtgDepoBilgileri.Columns["DepoNo"].HeaderText = "DEPO NO";
+            DtgDepoBilgileri.Columns["DepoAdresi"].HeaderText = "DEPO ADRESİ";
+            DtgDepoBilgileri.Columns["SeriNo"].HeaderText = "SERİ NO";
+            DtgDepoBilgileri.Columns["LotNo"].HeaderText = "LOT NO";
             DtgDepoBilgileri.Columns["Revizyon"].HeaderText = "REVİZYON";
+            DtgDepoBilgileri.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
+            TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
         }
 
         private void BtnSearch_Click(object sender, EventArgs e)
@@ -106,12 +117,26 @@ namespace UserInterface.Depo
             }
 
             stokNo = DtgMalzemeBilgisi.CurrentRow.Cells["Stokno"].Value.ToString();
-            stokGirisCıkıs = stokGirisCikisManager.GetList(stokNo);
+            depoMiktars = depoMiktarManager.GetList(stokNo,"TÜM");
 
-            dataBinder.DataSource = stokGirisCıkıs.ToDataTable();
+            dataBinder.DataSource = depoMiktars.ToDataTable();
             DtgDepoBilgileri.DataSource = dataBinder;
-            TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
+            //TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
             Display();
+            Toplamlar();
+        }
+        void Toplamlar()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgDepoBilgileri.Rows.Count; ++i)
+            {
+                /*if (DtgDepoBilgileri.Rows[i].Cells[4].Value.ConInt()==0)
+                {
+                    toplam += Convert.ToDouble(DtgDepoBilgileri.Rows[i].Cells[13].Value);
+                }*/
+                toplam += Convert.ToDouble(DtgDepoBilgileri.Rows[i].Cells[5].Value);
+            }
+            LblToplamMiktar.Text = toplam.ToString();
         }
     }
 }

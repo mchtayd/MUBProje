@@ -65,6 +65,7 @@
     <Compile Include="Concreate\Depo\TemizlikUrunleriManager.cs" />
     <Compile Include="Concreate\DokumanYonetim\DokumanManager.cs" />
     <Compile Include="Concreate\DokumanYonetim\FormDocumentManager.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\DepoMiktarManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracBakimManager.cs" />

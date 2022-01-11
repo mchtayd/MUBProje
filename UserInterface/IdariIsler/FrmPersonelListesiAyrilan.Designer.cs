@@ -101,8 +101,6 @@ namespace UserInterface.IdariIsler
             this.label34 = new System.Windows.Forms.Label();
             this.tabPage7 = new System.Windows.Forms.TabPage();
             this.tabPage8 = new System.Windows.Forms.TabPage();
-            this.MsdAyrilisTarihi = new System.Windows.Forms.MaskedTextBox();
-            this.MsdIseGiris = new System.Windows.Forms.MaskedTextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.TxtAyrilisNedeni = new System.Windows.Forms.TextBox();
@@ -144,6 +142,8 @@ namespace UserInterface.IdariIsler
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.MsdIseGiris = new System.Windows.Forms.DateTimePicker();
+            this.MsdAyrilisTarihi = new System.Windows.Forms.DateTimePicker();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgPersoneller)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -874,24 +874,6 @@ namespace UserInterface.IdariIsler
             this.tabPage8.Text = "ŞİRKET BİLGİLERİ";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
-            // MsdAyrilisTarihi
-            // 
-            this.MsdAyrilisTarihi.Location = new System.Drawing.Point(554, 134);
-            this.MsdAyrilisTarihi.Mask = "00/00/0000";
-            this.MsdAyrilisTarihi.Name = "MsdAyrilisTarihi";
-            this.MsdAyrilisTarihi.Size = new System.Drawing.Size(236, 20);
-            this.MsdAyrilisTarihi.TabIndex = 170;
-            this.MsdAyrilisTarihi.ValidatingType = typeof(System.DateTime);
-            // 
-            // MsdIseGiris
-            // 
-            this.MsdIseGiris.Location = new System.Drawing.Point(554, 109);
-            this.MsdIseGiris.Mask = "00/00/0000";
-            this.MsdIseGiris.Name = "MsdIseGiris";
-            this.MsdIseGiris.Size = new System.Drawing.Size(236, 20);
-            this.MsdIseGiris.TabIndex = 169;
-            this.MsdIseGiris.ValidatingType = typeof(System.DateTime);
-            // 
             // textBox2
             // 
             this.textBox2.Location = new System.Drawing.Point(554, 33);
@@ -1228,6 +1210,22 @@ namespace UserInterface.IdariIsler
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
+            // MsdIseGiris
+            // 
+            this.MsdIseGiris.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.MsdIseGiris.Location = new System.Drawing.Point(554, 109);
+            this.MsdIseGiris.Name = "MsdIseGiris";
+            this.MsdIseGiris.Size = new System.Drawing.Size(194, 20);
+            this.MsdIseGiris.TabIndex = 171;
+            // 
+            // MsdAyrilisTarihi
+            // 
+            this.MsdAyrilisTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.MsdAyrilisTarihi.Location = new System.Drawing.Point(554, 135);
+            this.MsdAyrilisTarihi.Name = "MsdAyrilisTarihi";
+            this.MsdAyrilisTarihi.Size = new System.Drawing.Size(194, 20);
+            this.MsdAyrilisTarihi.TabIndex = 172;
+            // 
             // FrmPersonelListesiAyrilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1369,8 +1367,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.MaskedTextBox MsdAyrilisTarihi;
-        private System.Windows.Forms.MaskedTextBox MsdIseGiris;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -1381,5 +1377,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
+        private System.Windows.Forms.DateTimePicker MsdAyrilisTarihi;
+        private System.Windows.Forms.DateTimePicker MsdIseGiris;
     }
 }

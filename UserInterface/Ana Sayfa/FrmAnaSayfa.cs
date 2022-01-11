@@ -2173,7 +2173,6 @@ namespace UserInterface.STS
             if (e.Node.Name == "Malzeme Kayit Ambar")
             {
                 FrmMalzemeKayit Go = new FrmMalzemeKayit();
-
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2188,7 +2187,7 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageStokGirisCikis", "STOK GİRİŞ/ÇIKIŞ", Go);
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.Show();
             }
             if (e.Node.Name == "Stok Goruntule")
@@ -2208,6 +2207,27 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageKayitliMalzemeler", "KAYITLI MALZEMELERİ GÖRÜNTÜLE", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Name == "Depo Hareketleri")
+            {
+                FrmDepoHareketleri Go = new FrmDepoHareketleri();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageDepoHaraketleri", "DEPO HARKETLERİ", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+            if (e.Node.Name == "Malzeme Hazirlama")
+            {
+                FrmMalzemeHazirlama Go = new FrmMalzemeHazirlama();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageMalzemeHazirmala", "MALZEME HAZIRLAMA", Go);
                 //Go.infos = infos;
                 Go.Show();
             }

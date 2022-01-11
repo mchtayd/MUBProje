@@ -8,13 +8,21 @@ namespace Entity.BakimOnarim
 {
     public class AbfFormNo
     {
-        int formNo;
+        int formNo; string personelSicil, personelAd;
 
         public int FormNo { get => formNo; set => formNo = value; }
+        public string PersonelSicil { get => personelSicil; set => personelSicil = value; }
+        public string PersonelAd { get => personelAd; set => personelAd = value; }
 
         public AbfFormNo(int formNo)
         {
             this.formNo = formNo;
+        }
+
+        public AbfFormNo(string personelSicil, string personelAd)
+        {
+            this.personelSicil = personelSicil;
+            this.personelAd = personelAd;
         }
     }
 }

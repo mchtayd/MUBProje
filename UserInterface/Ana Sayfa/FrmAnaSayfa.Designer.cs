@@ -63,8 +63,8 @@ namespace UserInterface.STS
             System.Windows.Forms.TreeNode treeNode22 = new System.Windows.Forms.TreeNode("Teslimat Eksikleri İzleme");
             System.Windows.Forms.TreeNode treeNode23 = new System.Windows.Forms.TreeNode("Firma Servis Formu İzleme");
             System.Windows.Forms.TreeNode treeNode24 = new System.Windows.Forms.TreeNode("Destek İşçilik İzleme");
-            System.Windows.Forms.TreeNode treeNode182 = new System.Windows.Forms.TreeNode("Bölge Ve Ekipman Bilgileri");
-            System.Windows.Forms.TreeNode treeNode183 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            System.Windows.Forms.TreeNode treeNode25 = new System.Windows.Forms.TreeNode("Bölge Ve Ekipman Bilgileri");
+            System.Windows.Forms.TreeNode treeNode26 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
             treeNode13,
             treeNode14,
             treeNode15,
@@ -77,285 +77,285 @@ namespace UserInterface.STS
             treeNode22,
             treeNode23,
             treeNode24,
-            treeNode182});
-            System.Windows.Forms.TreeNode treeNode184 = new System.Windows.Forms.TreeNode("Veri Kayıt (Arıza Açma)");
-            System.Windows.Forms.TreeNode treeNode185 = new System.Windows.Forms.TreeNode("Durum Güncelleme");
-            System.Windows.Forms.TreeNode treeNode186 = new System.Windows.Forms.TreeNode("Bildirim Onayı");
-            System.Windows.Forms.TreeNode treeNode187 = new System.Windows.Forms.TreeNode("Müşteri Bilgileri");
-            System.Windows.Forms.TreeNode treeNode188 = new System.Windows.Forms.TreeNode("Bölge Yol Durumu");
-            System.Windows.Forms.TreeNode treeNode189 = new System.Windows.Forms.TreeNode("Yerleşim Kayıtları");
-            System.Windows.Forms.TreeNode treeNode190 = new System.Windows.Forms.TreeNode("Malzeme Temini");
-            System.Windows.Forms.TreeNode treeNode191 = new System.Windows.Forms.TreeNode("Doğrudan Temini");
-            System.Windows.Forms.TreeNode treeNode192 = new System.Windows.Forms.TreeNode("Servis Talepleri");
-            System.Windows.Forms.TreeNode treeNode193 = new System.Windows.Forms.TreeNode("OKF Oluşturma");
-            System.Windows.Forms.TreeNode treeNode194 = new System.Windows.Forms.TreeNode("Teslimat Eksikleri");
-            System.Windows.Forms.TreeNode treeNode195 = new System.Windows.Forms.TreeNode("Firma Servis Formu Kayıt");
-            System.Windows.Forms.TreeNode treeNode196 = new System.Windows.Forms.TreeNode("Destek Ve İşçilik Veri Girişi");
-            System.Windows.Forms.TreeNode treeNode197 = new System.Windows.Forms.TreeNode("Bölge ve Ekipman Kayıt");
-            System.Windows.Forms.TreeNode treeNode198 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranı", new System.Windows.Forms.TreeNode[] {
-            treeNode184,
-            treeNode185,
-            treeNode186,
-            treeNode187,
-            treeNode188,
-            treeNode189,
-            treeNode190,
-            treeNode191,
-            treeNode192,
-            treeNode193,
-            treeNode194,
-            treeNode195,
-            treeNode196,
-            treeNode197});
-            System.Windows.Forms.TreeNode treeNode199 = new System.Windows.Forms.TreeNode("BO01-Bakım Onarım (Saha)", new System.Windows.Forms.TreeNode[] {
-            treeNode183,
-            treeNode198});
-            System.Windows.Forms.TreeNode treeNode200 = new System.Windows.Forms.TreeNode("Devam Eden Arıza İzleme");
-            System.Windows.Forms.TreeNode treeNode201 = new System.Windows.Forms.TreeNode("Tamamlanan Arıza İzleme");
-            System.Windows.Forms.TreeNode treeNode202 = new System.Windows.Forms.TreeNode("İşçilik İzleme");
-            System.Windows.Forms.TreeNode treeNode203 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode200,
-            treeNode201,
-            treeNode202});
-            System.Windows.Forms.TreeNode treeNode204 = new System.Windows.Forms.TreeNode("Veri Kayıt (Arıza Açma)");
-            System.Windows.Forms.TreeNode treeNode205 = new System.Windows.Forms.TreeNode("Veri Kayıt (Arıza Güncelleme)");
-            System.Windows.Forms.TreeNode treeNode206 = new System.Windows.Forms.TreeNode("Veri Kayıt (Arıza Kapatma)");
-            System.Windows.Forms.TreeNode treeNode207 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode204,
-            treeNode205,
-            treeNode206});
-            System.Windows.Forms.TreeNode treeNode208 = new System.Windows.Forms.TreeNode("BO02-Bakım Onarım (Atölye)", new System.Windows.Forms.TreeNode[] {
-            treeNode203,
-            treeNode207});
-            System.Windows.Forms.TreeNode treeNode209 = new System.Windows.Forms.TreeNode("Stok Görüntüle");
-            System.Windows.Forms.TreeNode treeNode210 = new System.Windows.Forms.TreeNode("Depo Hareketleri");
-            System.Windows.Forms.TreeNode treeNode211 = new System.Windows.Forms.TreeNode("Stokta Bulunmayan Malzemeler ");
-            System.Windows.Forms.TreeNode treeNode212 = new System.Windows.Forms.TreeNode("Kayıtlı Malzemeler");
-            System.Windows.Forms.TreeNode treeNode213 = new System.Windows.Forms.TreeNode("Bölgeden İade Gelecek Malzemeler");
-            System.Windows.Forms.TreeNode treeNode214 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode209,
-            treeNode210,
-            treeNode211,
-            treeNode212,
-            treeNode213});
-            System.Windows.Forms.TreeNode treeNode215 = new System.Windows.Forms.TreeNode("Stok Giriş/Çıkış");
-            System.Windows.Forms.TreeNode treeNode216 = new System.Windows.Forms.TreeNode("Malzeme Kayıt");
-            System.Windows.Forms.TreeNode treeNode217 = new System.Windows.Forms.TreeNode("Malzeme Hazırlama");
-            System.Windows.Forms.TreeNode treeNode218 = new System.Windows.Forms.TreeNode("Bölgeden İade Gelen Malzeme");
-            System.Windows.Forms.TreeNode treeNode219 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode215,
-            treeNode216,
-            treeNode217,
-            treeNode218});
-            System.Windows.Forms.TreeNode treeNode220 = new System.Windows.Forms.TreeNode("DP01-Geçici Kabul ve Ambar                                     ", new System.Windows.Forms.TreeNode[] {
-            treeNode214,
-            treeNode219});
-            System.Windows.Forms.TreeNode treeNode221 = new System.Windows.Forms.TreeNode("Devam Eden SAT");
-            System.Windows.Forms.TreeNode treeNode222 = new System.Windows.Forms.TreeNode("Tamamlanan SAT");
-            System.Windows.Forms.TreeNode treeNode223 = new System.Windows.Forms.TreeNode("Ret Edilen SAT");
-            System.Windows.Forms.TreeNode treeNode224 = new System.Windows.Forms.TreeNode("Yedek Parça Kataloğu");
-            System.Windows.Forms.TreeNode treeNode225 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode221,
-            treeNode222,
-            treeNode223,
-            treeNode224});
-            System.Windows.Forms.TreeNode treeNode226 = new System.Windows.Forms.TreeNode("SAT Oluştur");
-            System.Windows.Forms.TreeNode treeNode227 = new System.Windows.Forms.TreeNode("SAT Ön Onay");
-            System.Windows.Forms.TreeNode treeNode228 = new System.Windows.Forms.TreeNode("SAT Başlatma Onayı");
-            System.Windows.Forms.TreeNode treeNode229 = new System.Windows.Forms.TreeNode("Teklif Alınacak SAT");
-            System.Windows.Forms.TreeNode treeNode230 = new System.Windows.Forms.TreeNode("Teklifsiz SAT");
-            System.Windows.Forms.TreeNode treeNode231 = new System.Windows.Forms.TreeNode("SAT Onay");
-            System.Windows.Forms.TreeNode treeNode232 = new System.Windows.Forms.TreeNode("SAT Tamamlama");
-            System.Windows.Forms.TreeNode treeNode233 = new System.Windows.Forms.TreeNode("SAT Güncelle");
-            System.Windows.Forms.TreeNode treeNode234 = new System.Windows.Forms.TreeNode("Tedarikçi Firma Bilgileri");
-            System.Windows.Forms.TreeNode treeNode235 = new System.Windows.Forms.TreeNode("Alt Yüklenici Firma Bilgileri");
-            System.Windows.Forms.TreeNode treeNode236 = new System.Windows.Forms.TreeNode("Aylık Bütçe Kapatma (Yakıt)");
-            System.Windows.Forms.TreeNode treeNode237 = new System.Windows.Forms.TreeNode("Yıllık Bütçe Kapatma");
-            System.Windows.Forms.TreeNode treeNode238 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode226,
-            treeNode227,
-            treeNode228,
-            treeNode229,
-            treeNode230,
-            treeNode231,
-            treeNode232,
-            treeNode233,
-            treeNode234,
-            treeNode235,
-            treeNode236,
-            treeNode237});
-            System.Windows.Forms.TreeNode treeNode239 = new System.Windows.Forms.TreeNode("ST01-Satın Alma                                                      ", new System.Windows.Forms.TreeNode[] {
-            treeNode225,
-            treeNode238});
-            System.Windows.Forms.TreeNode treeNode240 = new System.Windows.Forms.TreeNode("Doküman Sorgula");
-            System.Windows.Forms.TreeNode treeNode241 = new System.Windows.Forms.TreeNode("Standart Form Sorgula");
-            System.Windows.Forms.TreeNode treeNode242 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode240,
-            treeNode241});
-            System.Windows.Forms.TreeNode treeNode243 = new System.Windows.Forms.TreeNode("Doküman Ekle");
-            System.Windows.Forms.TreeNode treeNode244 = new System.Windows.Forms.TreeNode("Standart Form Ekle");
-            System.Windows.Forms.TreeNode treeNode245 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode243,
-            treeNode244});
-            System.Windows.Forms.TreeNode treeNode246 = new System.Windows.Forms.TreeNode("DS01-Doküman Yönetim Sistemi                                 ", new System.Windows.Forms.TreeNode[] {
-            treeNode242,
-            treeNode245});
-            System.Windows.Forms.TreeNode treeNode247 = new System.Windows.Forms.TreeNode("Duran Varlık Kayıt");
-            System.Windows.Forms.TreeNode treeNode248 = new System.Windows.Forms.TreeNode("Duran Varlık Aktarım");
-            System.Windows.Forms.TreeNode treeNode249 = new System.Windows.Forms.TreeNode("Duran Varlık Arıza Kayıt");
-            System.Windows.Forms.TreeNode treeNode250 = new System.Windows.Forms.TreeNode("DV Kalibrasyon Kayıt");
-            System.Windows.Forms.TreeNode treeNode251 = new System.Windows.Forms.TreeNode("Duran Varlık", new System.Windows.Forms.TreeNode[] {
-            treeNode247,
-            treeNode248,
-            treeNode249,
-            treeNode250});
-            System.Windows.Forms.TreeNode treeNode252 = new System.Windows.Forms.TreeNode("Personel Giriş-Çıkış");
-            System.Windows.Forms.TreeNode treeNode253 = new System.Windows.Forms.TreeNode("Personel Puantaj");
-            System.Windows.Forms.TreeNode treeNode254 = new System.Windows.Forms.TreeNode("Personel", new System.Windows.Forms.TreeNode[] {
-            treeNode252,
-            treeNode253});
-            System.Windows.Forms.TreeNode treeNode255 = new System.Windows.Forms.TreeNode("Yurt İçi Görev");
-            System.Windows.Forms.TreeNode treeNode256 = new System.Windows.Forms.TreeNode("Şehir İçi Görev");
-            System.Windows.Forms.TreeNode treeNode257 = new System.Windows.Forms.TreeNode("İzin");
-            System.Windows.Forms.TreeNode treeNode258 = new System.Windows.Forms.TreeNode("Konaklama");
-            System.Windows.Forms.TreeNode treeNode259 = new System.Windows.Forms.TreeNode("Uçak ve Otobüs Bileti");
-            System.Windows.Forms.TreeNode treeNode260 = new System.Windows.Forms.TreeNode("Harcama Beyannamesi");
-            System.Windows.Forms.TreeNode treeNode261 = new System.Windows.Forms.TreeNode("İş Akışları", new System.Windows.Forms.TreeNode[] {
-            treeNode255,
-            treeNode256,
-            treeNode257,
-            treeNode258,
-            treeNode259,
-            treeNode260});
-            System.Windows.Forms.TreeNode treeNode262 = new System.Windows.Forms.TreeNode("Evrak Kayıt");
-            System.Windows.Forms.TreeNode treeNode263 = new System.Windows.Forms.TreeNode("Resmi Yazılar", new System.Windows.Forms.TreeNode[] {
-            treeNode262});
-            System.Windows.Forms.TreeNode treeNode264 = new System.Windows.Forms.TreeNode("Tutanak");
-            System.Windows.Forms.TreeNode treeNode265 = new System.Windows.Forms.TreeNode("Haftalık Kontrol Formu");
-            System.Windows.Forms.TreeNode treeNode266 = new System.Windows.Forms.TreeNode("Arşiv", new System.Windows.Forms.TreeNode[] {
-            treeNode264,
-            treeNode265});
-            System.Windows.Forms.TreeNode treeNode267 = new System.Windows.Forms.TreeNode("Araç Tahsis Kayıt");
-            System.Windows.Forms.TreeNode treeNode268 = new System.Windows.Forms.TreeNode("Araç Bakım Kayıt");
-            System.Windows.Forms.TreeNode treeNode269 = new System.Windows.Forms.TreeNode("Araç Yakıt Beyanı");
-            System.Windows.Forms.TreeNode treeNode270 = new System.Windows.Forms.TreeNode("Araç Periyodik Bakım");
-            System.Windows.Forms.TreeNode treeNode271 = new System.Windows.Forms.TreeNode("Yakıt Firma Dökümleri");
-            System.Windows.Forms.TreeNode treeNode272 = new System.Windows.Forms.TreeNode("Ulaştırma", new System.Windows.Forms.TreeNode[] {
-            treeNode267,
-            treeNode268,
-            treeNode269,
-            treeNode270,
-            treeNode271});
-            System.Windows.Forms.TreeNode treeNode273 = new System.Windows.Forms.TreeNode("Ziyaretçi Kayıt");
-            System.Windows.Forms.TreeNode treeNode274 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode251,
-            treeNode254,
-            treeNode261,
-            treeNode263,
-            treeNode266,
-            treeNode272,
-            treeNode273});
-            System.Windows.Forms.TreeNode treeNode275 = new System.Windows.Forms.TreeNode("Duran Varlık Takip");
-            System.Windows.Forms.TreeNode treeNode276 = new System.Windows.Forms.TreeNode("DV Zimmet Takip");
-            System.Windows.Forms.TreeNode treeNode277 = new System.Windows.Forms.TreeNode("DV Arıza Takip");
-            System.Windows.Forms.TreeNode treeNode278 = new System.Windows.Forms.TreeNode("DV Kalibrasyon Takip");
-            System.Windows.Forms.TreeNode treeNode279 = new System.Windows.Forms.TreeNode("Duran Varlık İzleme", new System.Windows.Forms.TreeNode[] {
-            treeNode275,
-            treeNode276,
-            treeNode277,
-            treeNode278});
-            System.Windows.Forms.TreeNode treeNode280 = new System.Windows.Forms.TreeNode("Personel Listesi (Çalışan)");
-            System.Windows.Forms.TreeNode treeNode281 = new System.Windows.Forms.TreeNode("Personel Listesi (İşten Ayrılan)");
-            System.Windows.Forms.TreeNode treeNode282 = new System.Windows.Forms.TreeNode("Personel Puantaj");
-            System.Windows.Forms.TreeNode treeNode283 = new System.Windows.Forms.TreeNode("Personel İzleme", new System.Windows.Forms.TreeNode[] {
-            treeNode280,
-            treeNode281,
-            treeNode282});
-            System.Windows.Forms.TreeNode treeNode284 = new System.Windows.Forms.TreeNode("Yurt İçi Görev");
-            System.Windows.Forms.TreeNode treeNode285 = new System.Windows.Forms.TreeNode("Şehir İçi Görev");
-            System.Windows.Forms.TreeNode treeNode286 = new System.Windows.Forms.TreeNode("İzin");
-            System.Windows.Forms.TreeNode treeNode287 = new System.Windows.Forms.TreeNode("Konaklama");
-            System.Windows.Forms.TreeNode treeNode288 = new System.Windows.Forms.TreeNode("Uçak ve Otobüs Bileti");
-            System.Windows.Forms.TreeNode treeNode289 = new System.Windows.Forms.TreeNode("Harcama Beyannamesi İzleme");
-            System.Windows.Forms.TreeNode treeNode290 = new System.Windows.Forms.TreeNode("İş Akışları İzleme", new System.Windows.Forms.TreeNode[] {
-            treeNode284,
-            treeNode285,
-            treeNode286,
-            treeNode287,
-            treeNode288,
-            treeNode289});
-            System.Windows.Forms.TreeNode treeNode291 = new System.Windows.Forms.TreeNode("Gelen Giden Resmi Yazı İzleme");
-            System.Windows.Forms.TreeNode treeNode292 = new System.Windows.Forms.TreeNode("Tutanaklar");
-            System.Windows.Forms.TreeNode treeNode293 = new System.Windows.Forms.TreeNode("Haftalık Kontrol Formları");
-            System.Windows.Forms.TreeNode treeNode294 = new System.Windows.Forms.TreeNode("Arşiv İzleme", new System.Windows.Forms.TreeNode[] {
-            treeNode292,
-            treeNode293});
-            System.Windows.Forms.TreeNode treeNode295 = new System.Windows.Forms.TreeNode("Araç Tahsis Bilgileri");
-            System.Windows.Forms.TreeNode treeNode296 = new System.Windows.Forms.TreeNode("Araç Yakıt Beyan İzleme");
-            System.Windows.Forms.TreeNode treeNode297 = new System.Windows.Forms.TreeNode("Araç Periyodik Bakım İzleme");
-            System.Windows.Forms.TreeNode treeNode298 = new System.Windows.Forms.TreeNode("Araç Bakım Onarım İzleme");
-            System.Windows.Forms.TreeNode treeNode299 = new System.Windows.Forms.TreeNode("Yakıt Alım Dökümleri");
-            System.Windows.Forms.TreeNode treeNode300 = new System.Windows.Forms.TreeNode("Ulaştırma İzleme", new System.Windows.Forms.TreeNode[] {
-            treeNode295,
-            treeNode296,
-            treeNode297,
-            treeNode298,
-            treeNode299});
-            System.Windows.Forms.TreeNode treeNode301 = new System.Windows.Forms.TreeNode("Ziyaretçi Kayıt");
-            System.Windows.Forms.TreeNode treeNode302 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode279,
-            treeNode283,
-            treeNode290,
-            treeNode291,
-            treeNode294,
-            treeNode300,
-            treeNode301});
-            System.Windows.Forms.TreeNode treeNode303 = new System.Windows.Forms.TreeNode("ID01-İdari İşler                                                   ", new System.Windows.Forms.TreeNode[] {
-            treeNode274,
-            treeNode302});
-            System.Windows.Forms.TreeNode treeNode304 = new System.Windows.Forms.TreeNode("Eğitim Veri Girişi");
-            System.Windows.Forms.TreeNode treeNode305 = new System.Windows.Forms.TreeNode("Eğitim Planı Oluştur");
-            System.Windows.Forms.TreeNode treeNode306 = new System.Windows.Forms.TreeNode("Eğitim Planı Güncelle");
-            System.Windows.Forms.TreeNode treeNode307 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode304,
-            treeNode305,
-            treeNode306});
-            System.Windows.Forms.TreeNode treeNode308 = new System.Windows.Forms.TreeNode("Eğitim İzleme");
-            System.Windows.Forms.TreeNode treeNode309 = new System.Windows.Forms.TreeNode("Eğitim Planı İzleme");
-            System.Windows.Forms.TreeNode treeNode310 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode308,
-            treeNode309});
-            System.Windows.Forms.TreeNode treeNode311 = new System.Windows.Forms.TreeNode("EG01-Eğitim                                                                   ", new System.Windows.Forms.TreeNode[] {
-            treeNode307,
-            treeNode310});
-            System.Windows.Forms.TreeNode treeNode312 = new System.Windows.Forms.TreeNode("Stok Görüntüle");
-            System.Windows.Forms.TreeNode treeNode313 = new System.Windows.Forms.TreeNode("Depo Hareketleri");
-            System.Windows.Forms.TreeNode treeNode314 = new System.Windows.Forms.TreeNode("Stokta Bulunmayan Malzemeler ");
-            System.Windows.Forms.TreeNode treeNode315 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode312,
-            treeNode313,
-            treeNode314});
-            System.Windows.Forms.TreeNode treeNode316 = new System.Windows.Forms.TreeNode("Stok Giriş/Çıkış");
-            System.Windows.Forms.TreeNode treeNode317 = new System.Windows.Forms.TreeNode("Malzeme Kayıt");
-            System.Windows.Forms.TreeNode treeNode318 = new System.Windows.Forms.TreeNode("Malzeme Hazırlama");
-            System.Windows.Forms.TreeNode treeNode319 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode316,
-            treeNode317,
-            treeNode318});
-            System.Windows.Forms.TreeNode treeNode320 = new System.Windows.Forms.TreeNode("DP02-Destek Depo                                                              ", new System.Windows.Forms.TreeNode[] {
-            treeNode315,
-            treeNode319});
-            System.Windows.Forms.TreeNode treeNode321 = new System.Windows.Forms.TreeNode("SAT Raporu");
-            System.Windows.Forms.TreeNode treeNode322 = new System.Windows.Forms.TreeNode("Adım İşlem Süreleri");
-            System.Windows.Forms.TreeNode treeNode323 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode321,
-            treeNode322});
-            System.Windows.Forms.TreeNode treeNode324 = new System.Windows.Forms.TreeNode("SAT Raporlama");
-            System.Windows.Forms.TreeNode treeNode325 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
-            treeNode324});
-            System.Windows.Forms.TreeNode treeNode326 = new System.Windows.Forms.TreeNode("RP01-Raporlamalar                                                 ", new System.Windows.Forms.TreeNode[] {
-            treeNode323,
-            treeNode325});
+            treeNode25});
+            System.Windows.Forms.TreeNode treeNode27 = new System.Windows.Forms.TreeNode("Veri Kayıt (Arıza Açma)");
+            System.Windows.Forms.TreeNode treeNode28 = new System.Windows.Forms.TreeNode("Durum Güncelleme");
+            System.Windows.Forms.TreeNode treeNode29 = new System.Windows.Forms.TreeNode("Bildirim Onayı");
+            System.Windows.Forms.TreeNode treeNode30 = new System.Windows.Forms.TreeNode("Müşteri Bilgileri");
+            System.Windows.Forms.TreeNode treeNode31 = new System.Windows.Forms.TreeNode("Bölge Yol Durumu");
+            System.Windows.Forms.TreeNode treeNode32 = new System.Windows.Forms.TreeNode("Yerleşim Kayıtları");
+            System.Windows.Forms.TreeNode treeNode33 = new System.Windows.Forms.TreeNode("Malzeme Temini");
+            System.Windows.Forms.TreeNode treeNode34 = new System.Windows.Forms.TreeNode("Doğrudan Temini");
+            System.Windows.Forms.TreeNode treeNode35 = new System.Windows.Forms.TreeNode("Servis Talepleri");
+            System.Windows.Forms.TreeNode treeNode36 = new System.Windows.Forms.TreeNode("OKF Oluşturma");
+            System.Windows.Forms.TreeNode treeNode37 = new System.Windows.Forms.TreeNode("Teslimat Eksikleri");
+            System.Windows.Forms.TreeNode treeNode38 = new System.Windows.Forms.TreeNode("Firma Servis Formu Kayıt");
+            System.Windows.Forms.TreeNode treeNode39 = new System.Windows.Forms.TreeNode("Destek Ve İşçilik Veri Girişi");
+            System.Windows.Forms.TreeNode treeNode40 = new System.Windows.Forms.TreeNode("Bölge ve Ekipman Kayıt");
+            System.Windows.Forms.TreeNode treeNode41 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranı", new System.Windows.Forms.TreeNode[] {
+            treeNode27,
+            treeNode28,
+            treeNode29,
+            treeNode30,
+            treeNode31,
+            treeNode32,
+            treeNode33,
+            treeNode34,
+            treeNode35,
+            treeNode36,
+            treeNode37,
+            treeNode38,
+            treeNode39,
+            treeNode40});
+            System.Windows.Forms.TreeNode treeNode42 = new System.Windows.Forms.TreeNode("BO01-Bakım Onarım (Saha)", new System.Windows.Forms.TreeNode[] {
+            treeNode26,
+            treeNode41});
+            System.Windows.Forms.TreeNode treeNode43 = new System.Windows.Forms.TreeNode("Devam Eden Arıza İzleme");
+            System.Windows.Forms.TreeNode treeNode44 = new System.Windows.Forms.TreeNode("Tamamlanan Arıza İzleme");
+            System.Windows.Forms.TreeNode treeNode45 = new System.Windows.Forms.TreeNode("İşçilik İzleme");
+            System.Windows.Forms.TreeNode treeNode46 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode43,
+            treeNode44,
+            treeNode45});
+            System.Windows.Forms.TreeNode treeNode47 = new System.Windows.Forms.TreeNode("Veri Kayıt (Arıza Açma)");
+            System.Windows.Forms.TreeNode treeNode48 = new System.Windows.Forms.TreeNode("Veri Kayıt (Arıza Güncelleme)");
+            System.Windows.Forms.TreeNode treeNode49 = new System.Windows.Forms.TreeNode("Veri Kayıt (Arıza Kapatma)");
+            System.Windows.Forms.TreeNode treeNode50 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode47,
+            treeNode48,
+            treeNode49});
+            System.Windows.Forms.TreeNode treeNode51 = new System.Windows.Forms.TreeNode("BO02-Bakım Onarım (Atölye)", new System.Windows.Forms.TreeNode[] {
+            treeNode46,
+            treeNode50});
+            System.Windows.Forms.TreeNode treeNode52 = new System.Windows.Forms.TreeNode("Stok Görüntüle");
+            System.Windows.Forms.TreeNode treeNode53 = new System.Windows.Forms.TreeNode("Depo Hareketleri");
+            System.Windows.Forms.TreeNode treeNode54 = new System.Windows.Forms.TreeNode("Stokta Bulunmayan Malzemeler ");
+            System.Windows.Forms.TreeNode treeNode55 = new System.Windows.Forms.TreeNode("Kayıtlı Malzemeler");
+            System.Windows.Forms.TreeNode treeNode56 = new System.Windows.Forms.TreeNode("Bölgeden İade Gelecek Malzemeler");
+            System.Windows.Forms.TreeNode treeNode57 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode52,
+            treeNode53,
+            treeNode54,
+            treeNode55,
+            treeNode56});
+            System.Windows.Forms.TreeNode treeNode58 = new System.Windows.Forms.TreeNode("Stok Giriş/Çıkış");
+            System.Windows.Forms.TreeNode treeNode59 = new System.Windows.Forms.TreeNode("Malzeme Kayıt");
+            System.Windows.Forms.TreeNode treeNode60 = new System.Windows.Forms.TreeNode("Malzeme Hazırlama");
+            System.Windows.Forms.TreeNode treeNode61 = new System.Windows.Forms.TreeNode("Bölgeden İade Gelen Malzeme");
+            System.Windows.Forms.TreeNode treeNode62 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode58,
+            treeNode59,
+            treeNode60,
+            treeNode61});
+            System.Windows.Forms.TreeNode treeNode63 = new System.Windows.Forms.TreeNode("DP01-Geçici Kabul ve Ambar                                     ", new System.Windows.Forms.TreeNode[] {
+            treeNode57,
+            treeNode62});
+            System.Windows.Forms.TreeNode treeNode64 = new System.Windows.Forms.TreeNode("Devam Eden SAT");
+            System.Windows.Forms.TreeNode treeNode65 = new System.Windows.Forms.TreeNode("Tamamlanan SAT");
+            System.Windows.Forms.TreeNode treeNode66 = new System.Windows.Forms.TreeNode("Ret Edilen SAT");
+            System.Windows.Forms.TreeNode treeNode67 = new System.Windows.Forms.TreeNode("Yedek Parça Kataloğu");
+            System.Windows.Forms.TreeNode treeNode68 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode64,
+            treeNode65,
+            treeNode66,
+            treeNode67});
+            System.Windows.Forms.TreeNode treeNode69 = new System.Windows.Forms.TreeNode("SAT Oluştur");
+            System.Windows.Forms.TreeNode treeNode70 = new System.Windows.Forms.TreeNode("SAT Ön Onay");
+            System.Windows.Forms.TreeNode treeNode71 = new System.Windows.Forms.TreeNode("SAT Başlatma Onayı");
+            System.Windows.Forms.TreeNode treeNode72 = new System.Windows.Forms.TreeNode("Teklif Alınacak SAT");
+            System.Windows.Forms.TreeNode treeNode73 = new System.Windows.Forms.TreeNode("Teklifsiz SAT");
+            System.Windows.Forms.TreeNode treeNode74 = new System.Windows.Forms.TreeNode("SAT Onay");
+            System.Windows.Forms.TreeNode treeNode75 = new System.Windows.Forms.TreeNode("SAT Tamamlama");
+            System.Windows.Forms.TreeNode treeNode76 = new System.Windows.Forms.TreeNode("SAT Güncelle");
+            System.Windows.Forms.TreeNode treeNode77 = new System.Windows.Forms.TreeNode("Tedarikçi Firma Bilgileri");
+            System.Windows.Forms.TreeNode treeNode78 = new System.Windows.Forms.TreeNode("Alt Yüklenici Firma Bilgileri");
+            System.Windows.Forms.TreeNode treeNode79 = new System.Windows.Forms.TreeNode("Aylık Bütçe Kapatma (Yakıt)");
+            System.Windows.Forms.TreeNode treeNode80 = new System.Windows.Forms.TreeNode("Yıllık Bütçe Kapatma");
+            System.Windows.Forms.TreeNode treeNode81 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode69,
+            treeNode70,
+            treeNode71,
+            treeNode72,
+            treeNode73,
+            treeNode74,
+            treeNode75,
+            treeNode76,
+            treeNode77,
+            treeNode78,
+            treeNode79,
+            treeNode80});
+            System.Windows.Forms.TreeNode treeNode82 = new System.Windows.Forms.TreeNode("ST01-Satın Alma                                                      ", new System.Windows.Forms.TreeNode[] {
+            treeNode68,
+            treeNode81});
+            System.Windows.Forms.TreeNode treeNode83 = new System.Windows.Forms.TreeNode("Doküman Sorgula");
+            System.Windows.Forms.TreeNode treeNode84 = new System.Windows.Forms.TreeNode("Standart Form Sorgula");
+            System.Windows.Forms.TreeNode treeNode85 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode83,
+            treeNode84});
+            System.Windows.Forms.TreeNode treeNode86 = new System.Windows.Forms.TreeNode("Doküman Ekle");
+            System.Windows.Forms.TreeNode treeNode87 = new System.Windows.Forms.TreeNode("Standart Form Ekle");
+            System.Windows.Forms.TreeNode treeNode88 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode86,
+            treeNode87});
+            System.Windows.Forms.TreeNode treeNode89 = new System.Windows.Forms.TreeNode("DS01-Doküman Yönetim Sistemi                                 ", new System.Windows.Forms.TreeNode[] {
+            treeNode85,
+            treeNode88});
+            System.Windows.Forms.TreeNode treeNode90 = new System.Windows.Forms.TreeNode("Duran Varlık Kayıt");
+            System.Windows.Forms.TreeNode treeNode91 = new System.Windows.Forms.TreeNode("Duran Varlık Aktarım");
+            System.Windows.Forms.TreeNode treeNode92 = new System.Windows.Forms.TreeNode("Duran Varlık Arıza Kayıt");
+            System.Windows.Forms.TreeNode treeNode93 = new System.Windows.Forms.TreeNode("DV Kalibrasyon Kayıt");
+            System.Windows.Forms.TreeNode treeNode94 = new System.Windows.Forms.TreeNode("Duran Varlık", new System.Windows.Forms.TreeNode[] {
+            treeNode90,
+            treeNode91,
+            treeNode92,
+            treeNode93});
+            System.Windows.Forms.TreeNode treeNode95 = new System.Windows.Forms.TreeNode("Personel Giriş-Çıkış");
+            System.Windows.Forms.TreeNode treeNode96 = new System.Windows.Forms.TreeNode("Personel Puantaj");
+            System.Windows.Forms.TreeNode treeNode97 = new System.Windows.Forms.TreeNode("Personel", new System.Windows.Forms.TreeNode[] {
+            treeNode95,
+            treeNode96});
+            System.Windows.Forms.TreeNode treeNode98 = new System.Windows.Forms.TreeNode("Yurt İçi Görev");
+            System.Windows.Forms.TreeNode treeNode99 = new System.Windows.Forms.TreeNode("Şehir İçi Görev");
+            System.Windows.Forms.TreeNode treeNode100 = new System.Windows.Forms.TreeNode("İzin");
+            System.Windows.Forms.TreeNode treeNode101 = new System.Windows.Forms.TreeNode("Konaklama");
+            System.Windows.Forms.TreeNode treeNode102 = new System.Windows.Forms.TreeNode("Uçak ve Otobüs Bileti");
+            System.Windows.Forms.TreeNode treeNode103 = new System.Windows.Forms.TreeNode("Harcama Beyannamesi");
+            System.Windows.Forms.TreeNode treeNode104 = new System.Windows.Forms.TreeNode("İş Akışları", new System.Windows.Forms.TreeNode[] {
+            treeNode98,
+            treeNode99,
+            treeNode100,
+            treeNode101,
+            treeNode102,
+            treeNode103});
+            System.Windows.Forms.TreeNode treeNode105 = new System.Windows.Forms.TreeNode("Evrak Kayıt");
+            System.Windows.Forms.TreeNode treeNode106 = new System.Windows.Forms.TreeNode("Resmi Yazılar", new System.Windows.Forms.TreeNode[] {
+            treeNode105});
+            System.Windows.Forms.TreeNode treeNode107 = new System.Windows.Forms.TreeNode("Tutanak");
+            System.Windows.Forms.TreeNode treeNode108 = new System.Windows.Forms.TreeNode("Haftalık Kontrol Formu");
+            System.Windows.Forms.TreeNode treeNode109 = new System.Windows.Forms.TreeNode("Arşiv", new System.Windows.Forms.TreeNode[] {
+            treeNode107,
+            treeNode108});
+            System.Windows.Forms.TreeNode treeNode110 = new System.Windows.Forms.TreeNode("Araç Tahsis Kayıt");
+            System.Windows.Forms.TreeNode treeNode111 = new System.Windows.Forms.TreeNode("Araç Bakım Kayıt");
+            System.Windows.Forms.TreeNode treeNode112 = new System.Windows.Forms.TreeNode("Araç Yakıt Beyanı");
+            System.Windows.Forms.TreeNode treeNode113 = new System.Windows.Forms.TreeNode("Araç Periyodik Bakım");
+            System.Windows.Forms.TreeNode treeNode114 = new System.Windows.Forms.TreeNode("Yakıt Firma Dökümleri");
+            System.Windows.Forms.TreeNode treeNode115 = new System.Windows.Forms.TreeNode("Ulaştırma", new System.Windows.Forms.TreeNode[] {
+            treeNode110,
+            treeNode111,
+            treeNode112,
+            treeNode113,
+            treeNode114});
+            System.Windows.Forms.TreeNode treeNode116 = new System.Windows.Forms.TreeNode("Ziyaretçi Kayıt");
+            System.Windows.Forms.TreeNode treeNode117 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode94,
+            treeNode97,
+            treeNode104,
+            treeNode106,
+            treeNode109,
+            treeNode115,
+            treeNode116});
+            System.Windows.Forms.TreeNode treeNode118 = new System.Windows.Forms.TreeNode("Duran Varlık Takip");
+            System.Windows.Forms.TreeNode treeNode119 = new System.Windows.Forms.TreeNode("DV Zimmet Takip");
+            System.Windows.Forms.TreeNode treeNode120 = new System.Windows.Forms.TreeNode("DV Arıza Takip");
+            System.Windows.Forms.TreeNode treeNode121 = new System.Windows.Forms.TreeNode("DV Kalibrasyon Takip");
+            System.Windows.Forms.TreeNode treeNode122 = new System.Windows.Forms.TreeNode("Duran Varlık İzleme", new System.Windows.Forms.TreeNode[] {
+            treeNode118,
+            treeNode119,
+            treeNode120,
+            treeNode121});
+            System.Windows.Forms.TreeNode treeNode123 = new System.Windows.Forms.TreeNode("Personel Listesi (Çalışan)");
+            System.Windows.Forms.TreeNode treeNode124 = new System.Windows.Forms.TreeNode("Personel Listesi (İşten Ayrılan)");
+            System.Windows.Forms.TreeNode treeNode125 = new System.Windows.Forms.TreeNode("Personel Puantaj");
+            System.Windows.Forms.TreeNode treeNode126 = new System.Windows.Forms.TreeNode("Personel İzleme", new System.Windows.Forms.TreeNode[] {
+            treeNode123,
+            treeNode124,
+            treeNode125});
+            System.Windows.Forms.TreeNode treeNode127 = new System.Windows.Forms.TreeNode("Yurt İçi Görev");
+            System.Windows.Forms.TreeNode treeNode128 = new System.Windows.Forms.TreeNode("Şehir İçi Görev");
+            System.Windows.Forms.TreeNode treeNode129 = new System.Windows.Forms.TreeNode("İzin");
+            System.Windows.Forms.TreeNode treeNode130 = new System.Windows.Forms.TreeNode("Konaklama");
+            System.Windows.Forms.TreeNode treeNode131 = new System.Windows.Forms.TreeNode("Uçak ve Otobüs Bileti");
+            System.Windows.Forms.TreeNode treeNode132 = new System.Windows.Forms.TreeNode("Harcama Beyannamesi İzleme");
+            System.Windows.Forms.TreeNode treeNode133 = new System.Windows.Forms.TreeNode("İş Akışları İzleme", new System.Windows.Forms.TreeNode[] {
+            treeNode127,
+            treeNode128,
+            treeNode129,
+            treeNode130,
+            treeNode131,
+            treeNode132});
+            System.Windows.Forms.TreeNode treeNode134 = new System.Windows.Forms.TreeNode("Gelen Giden Resmi Yazı İzleme");
+            System.Windows.Forms.TreeNode treeNode135 = new System.Windows.Forms.TreeNode("Tutanaklar");
+            System.Windows.Forms.TreeNode treeNode136 = new System.Windows.Forms.TreeNode("Haftalık Kontrol Formları");
+            System.Windows.Forms.TreeNode treeNode137 = new System.Windows.Forms.TreeNode("Arşiv İzleme", new System.Windows.Forms.TreeNode[] {
+            treeNode135,
+            treeNode136});
+            System.Windows.Forms.TreeNode treeNode138 = new System.Windows.Forms.TreeNode("Araç Tahsis Bilgileri");
+            System.Windows.Forms.TreeNode treeNode139 = new System.Windows.Forms.TreeNode("Araç Yakıt Beyan İzleme");
+            System.Windows.Forms.TreeNode treeNode140 = new System.Windows.Forms.TreeNode("Araç Periyodik Bakım İzleme");
+            System.Windows.Forms.TreeNode treeNode141 = new System.Windows.Forms.TreeNode("Araç Bakım Onarım İzleme");
+            System.Windows.Forms.TreeNode treeNode142 = new System.Windows.Forms.TreeNode("Yakıt Alım Dökümleri");
+            System.Windows.Forms.TreeNode treeNode143 = new System.Windows.Forms.TreeNode("Ulaştırma İzleme", new System.Windows.Forms.TreeNode[] {
+            treeNode138,
+            treeNode139,
+            treeNode140,
+            treeNode141,
+            treeNode142});
+            System.Windows.Forms.TreeNode treeNode144 = new System.Windows.Forms.TreeNode("Ziyaretçi Kayıt");
+            System.Windows.Forms.TreeNode treeNode145 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode122,
+            treeNode126,
+            treeNode133,
+            treeNode134,
+            treeNode137,
+            treeNode143,
+            treeNode144});
+            System.Windows.Forms.TreeNode treeNode146 = new System.Windows.Forms.TreeNode("ID01-İdari İşler                                                   ", new System.Windows.Forms.TreeNode[] {
+            treeNode117,
+            treeNode145});
+            System.Windows.Forms.TreeNode treeNode147 = new System.Windows.Forms.TreeNode("Eğitim Veri Girişi");
+            System.Windows.Forms.TreeNode treeNode148 = new System.Windows.Forms.TreeNode("Eğitim Planı Oluştur");
+            System.Windows.Forms.TreeNode treeNode149 = new System.Windows.Forms.TreeNode("Eğitim Planı Güncelle");
+            System.Windows.Forms.TreeNode treeNode150 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode147,
+            treeNode148,
+            treeNode149});
+            System.Windows.Forms.TreeNode treeNode151 = new System.Windows.Forms.TreeNode("Eğitim İzleme");
+            System.Windows.Forms.TreeNode treeNode152 = new System.Windows.Forms.TreeNode("Eğitim Planı İzleme");
+            System.Windows.Forms.TreeNode treeNode153 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode151,
+            treeNode152});
+            System.Windows.Forms.TreeNode treeNode154 = new System.Windows.Forms.TreeNode("EG01-Eğitim                                                                   ", new System.Windows.Forms.TreeNode[] {
+            treeNode150,
+            treeNode153});
+            System.Windows.Forms.TreeNode treeNode155 = new System.Windows.Forms.TreeNode("Stok Görüntüle");
+            System.Windows.Forms.TreeNode treeNode156 = new System.Windows.Forms.TreeNode("Depo Hareketleri");
+            System.Windows.Forms.TreeNode treeNode157 = new System.Windows.Forms.TreeNode("Stokta Bulunmayan Malzemeler ");
+            System.Windows.Forms.TreeNode treeNode158 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode155,
+            treeNode156,
+            treeNode157});
+            System.Windows.Forms.TreeNode treeNode159 = new System.Windows.Forms.TreeNode("Stok Giriş/Çıkış");
+            System.Windows.Forms.TreeNode treeNode160 = new System.Windows.Forms.TreeNode("Malzeme Kayıt");
+            System.Windows.Forms.TreeNode treeNode161 = new System.Windows.Forms.TreeNode("Malzeme Hazırlama");
+            System.Windows.Forms.TreeNode treeNode162 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode159,
+            treeNode160,
+            treeNode161});
+            System.Windows.Forms.TreeNode treeNode163 = new System.Windows.Forms.TreeNode("DP02-Destek Depo                                                              ", new System.Windows.Forms.TreeNode[] {
+            treeNode158,
+            treeNode162});
+            System.Windows.Forms.TreeNode treeNode164 = new System.Windows.Forms.TreeNode("SAT Raporu");
+            System.Windows.Forms.TreeNode treeNode165 = new System.Windows.Forms.TreeNode("Adım İşlem Süreleri");
+            System.Windows.Forms.TreeNode treeNode166 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode164,
+            treeNode165});
+            System.Windows.Forms.TreeNode treeNode167 = new System.Windows.Forms.TreeNode("SAT Raporlama");
+            System.Windows.Forms.TreeNode treeNode168 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode167});
+            System.Windows.Forms.TreeNode treeNode169 = new System.Windows.Forms.TreeNode("RP01-Raporlamalar                                                 ", new System.Windows.Forms.TreeNode[] {
+            treeNode166,
+            treeNode168});
             this.LblTarih = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtnDosyaDuzelt = new System.Windows.Forms.Button();
@@ -390,7 +390,18 @@ namespace UserInterface.STS
             this.mAİLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.yONETIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aNALİZToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aKARYAKITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bÜTÇEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kASAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bAKIMONARIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aMBARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kALİTETESTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tEKNİKSERVİSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oRGANİZSAYONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gENELMÜDÜRLÜKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dİREKTÖRLÜKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bÖLÜMLERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gÖREVVESORUMLULUKLARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hAKKIMIZDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.vİZYONVEMİSYONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -423,17 +434,6 @@ namespace UserInterface.STS
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.TimerSaat = new System.Windows.Forms.Timer(this.components);
-            this.aKARYAKITToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bÜTÇEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kASAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bAKIMONARIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aMBARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.kALİTETESTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tEKNİKSERVİSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.gENELMÜDÜRLÜKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dİREKTÖRLÜKToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.bÖLÜMLERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -778,6 +778,55 @@ namespace UserInterface.STS
             this.aNALİZToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.aNALİZToolStripMenuItem.Text = "ANALİZ";
             // 
+            // aKARYAKITToolStripMenuItem
+            // 
+            this.aKARYAKITToolStripMenuItem.Name = "aKARYAKITToolStripMenuItem";
+            this.aKARYAKITToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.aKARYAKITToolStripMenuItem.Text = "AKARYAKIT";
+            // 
+            // bÜTÇEToolStripMenuItem
+            // 
+            this.bÜTÇEToolStripMenuItem.Name = "bÜTÇEToolStripMenuItem";
+            this.bÜTÇEToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.bÜTÇEToolStripMenuItem.Text = "BÜTÇE";
+            // 
+            // kASAToolStripMenuItem
+            // 
+            this.kASAToolStripMenuItem.Name = "kASAToolStripMenuItem";
+            this.kASAToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.kASAToolStripMenuItem.Text = "KASA";
+            // 
+            // bAKIMONARIMToolStripMenuItem
+            // 
+            this.bAKIMONARIMToolStripMenuItem.Name = "bAKIMONARIMToolStripMenuItem";
+            this.bAKIMONARIMToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.bAKIMONARIMToolStripMenuItem.Text = "BAKIM ONARIM";
+            // 
+            // aMBARToolStripMenuItem
+            // 
+            this.aMBARToolStripMenuItem.Name = "aMBARToolStripMenuItem";
+            this.aMBARToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.aMBARToolStripMenuItem.Text = "AMBAR";
+            // 
+            // kALİTETESTToolStripMenuItem
+            // 
+            this.kALİTETESTToolStripMenuItem.Name = "kALİTETESTToolStripMenuItem";
+            this.kALİTETESTToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.kALİTETESTToolStripMenuItem.Text = "KALİTE TEST";
+            // 
+            // tEKNİKSERVİSToolStripMenuItem
+            // 
+            this.tEKNİKSERVİSToolStripMenuItem.Name = "tEKNİKSERVİSToolStripMenuItem";
+            this.tEKNİKSERVİSToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.tEKNİKSERVİSToolStripMenuItem.Text = "TEKNİK SERVİS";
+            // 
+            // iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem
+            // 
+            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem.Name = "iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem";
+            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
+            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem.Text = "İŞ AKIŞ SÜRELERİ PERFORMANS İZLE";
+            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem.Click += new System.EventHandler(this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem_Click);
+            // 
             // oRGANİZSAYONToolStripMenuItem
             // 
             this.oRGANİZSAYONToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -788,6 +837,24 @@ namespace UserInterface.STS
             this.oRGANİZSAYONToolStripMenuItem.Size = new System.Drawing.Size(227, 22);
             this.oRGANİZSAYONToolStripMenuItem.Text = "ORGANİZSAYON";
             this.oRGANİZSAYONToolStripMenuItem.Click += new System.EventHandler(this.oRGANİZSAYONToolStripMenuItem_Click);
+            // 
+            // gENELMÜDÜRLÜKToolStripMenuItem
+            // 
+            this.gENELMÜDÜRLÜKToolStripMenuItem.Name = "gENELMÜDÜRLÜKToolStripMenuItem";
+            this.gENELMÜDÜRLÜKToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.gENELMÜDÜRLÜKToolStripMenuItem.Text = "GENEL MÜDÜRLÜK";
+            // 
+            // dİREKTÖRLÜKToolStripMenuItem
+            // 
+            this.dİREKTÖRLÜKToolStripMenuItem.Name = "dİREKTÖRLÜKToolStripMenuItem";
+            this.dİREKTÖRLÜKToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.dİREKTÖRLÜKToolStripMenuItem.Text = "DİREKTÖRLÜK";
+            // 
+            // bÖLÜMLERToolStripMenuItem
+            // 
+            this.bÖLÜMLERToolStripMenuItem.Name = "bÖLÜMLERToolStripMenuItem";
+            this.bÖLÜMLERToolStripMenuItem.Size = new System.Drawing.Size(175, 22);
+            this.bÖLÜMLERToolStripMenuItem.Text = "BÖLÜMLER";
             // 
             // gÖREVVESORUMLULUKLARToolStripMenuItem
             // 
@@ -846,19 +913,19 @@ namespace UserInterface.STS
             // zİMMETLERİMToolStripMenuItem
             // 
             this.zİMMETLERİMToolStripMenuItem.Name = "zİMMETLERİMToolStripMenuItem";
-            this.zİMMETLERİMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.zİMMETLERİMToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.zİMMETLERİMToolStripMenuItem.Text = "ZİMMETLERİM";
             // 
             // iZİNLERİMToolStripMenuItem
             // 
             this.iZİNLERİMToolStripMenuItem.Name = "iZİNLERİMToolStripMenuItem";
-            this.iZİNLERİMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.iZİNLERİMToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.iZİNLERİMToolStripMenuItem.Text = "İZİNLERİM";
             // 
             // gÖREVLERİMToolStripMenuItem
             // 
             this.gÖREVLERİMToolStripMenuItem.Name = "gÖREVLERİMToolStripMenuItem";
-            this.gÖREVLERİMToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.gÖREVLERİMToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
             this.gÖREVLERİMToolStripMenuItem.Text = "GÖREVLERİM";
             this.gÖREVLERİMToolStripMenuItem.Click += new System.EventHandler(this.gÖREVLERİMToolStripMenuItem_Click);
             // 
@@ -907,7 +974,7 @@ namespace UserInterface.STS
             this.treeView1.ImageList = this.ımageList1;
             this.treeView1.Indent = 10;
             this.treeView1.ItemHeight = 25;
-            this.treeView1.Location = new System.Drawing.Point(40, 445);
+            this.treeView1.Location = new System.Drawing.Point(59, 456);
             this.treeView1.Name = "treeView1";
             treeNode1.BackColor = System.Drawing.Color.LightSteelBlue;
             treeNode1.Name = "Düğüm4";
@@ -1031,505 +1098,505 @@ namespace UserInterface.STS
             treeNode24.Name = "Destek Iscilik Izleme";
             treeNode24.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             treeNode24.Text = "Destek İşçilik İzleme";
-            treeNode182.Name = "BolgeKayitIzleme";
-            treeNode182.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode182.Text = "Bölge Ve Ekipman Bilgileri";
-            treeNode183.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode183.ForeColor = System.Drawing.Color.White;
-            treeNode183.Name = "BO VERI IZLEME";
-            treeNode183.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            treeNode183.Tag = "Header";
-            treeNode183.Text = "Veri İzleme Ekranları";
-            treeNode184.Name = "Veri Kayit Arıza Acma";
-            treeNode184.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode184.Text = "Veri Kayıt (Arıza Açma)";
-            treeNode185.Name = "Veri Guncelleme";
-            treeNode185.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode185.Text = "Durum Güncelleme";
-            treeNode186.Name = "Bildirim Onayi";
-            treeNode186.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode186.Text = "Bildirim Onayı";
-            treeNode187.Name = "Musteri Bilgileri";
-            treeNode187.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode187.Text = "Müşteri Bilgileri";
-            treeNode188.Name = "Bolge Yol Durumu";
-            treeNode188.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode188.Text = "Bölge Yol Durumu";
-            treeNode189.Name = "Yerlesim Kayitlari";
-            treeNode189.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode189.Text = "Yerleşim Kayıtları";
-            treeNode190.Name = "Malzeme Temini";
-            treeNode190.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode190.Text = "Malzeme Temini";
-            treeNode191.Name = "Dogrudan Temini";
-            treeNode191.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode191.Text = "Doğrudan Temini";
-            treeNode192.Name = "Servis Talepleri";
-            treeNode192.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode192.Text = "Servis Talepleri";
-            treeNode193.Name = "OKF Olusturma";
-            treeNode193.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode193.Text = "OKF Oluşturma";
-            treeNode194.Name = "Teslimat Eksikleri";
-            treeNode194.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode194.Text = "Teslimat Eksikleri";
-            treeNode195.Name = "Firma Servis Formu Kayit";
-            treeNode195.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode195.Text = "Firma Servis Formu Kayıt";
-            treeNode196.Name = "Destek Iscilik";
-            treeNode196.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode196.Text = "Destek Ve İşçilik Veri Girişi";
-            treeNode197.Name = "BolgeKayit";
-            treeNode197.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode197.Text = "Bölge ve Ekipman Kayıt";
-            treeNode198.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode198.ForeColor = System.Drawing.Color.White;
-            treeNode198.Name = "BO VERI GIRIS";
-            treeNode198.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode198.Text = "Veri Giriş Ekranı";
-            treeNode199.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode199.ForeColor = System.Drawing.Color.White;
-            treeNode199.Name = "BAKIM ONARIM";
-            treeNode199.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            treeNode199.Tag = "Header";
-            treeNode199.Text = "BO01-Bakım Onarım (Saha)";
-            treeNode200.Name = "Düğüm3";
-            treeNode200.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode200.Text = "Devam Eden Arıza İzleme";
-            treeNode201.Name = "Düğüm4";
-            treeNode201.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode201.Text = "Tamamlanan Arıza İzleme";
-            treeNode202.Name = "Düğüm5";
-            treeNode202.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode202.Text = "İşçilik İzleme";
-            treeNode203.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode203.ForeColor = System.Drawing.Color.White;
-            treeNode203.Name = "Düğüm1";
-            treeNode203.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode203.Text = "Veri İzleme Ekranları";
-            treeNode204.Name = "Veri Kayit Atolye";
-            treeNode204.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode204.Text = "Veri Kayıt (Arıza Açma)";
-            treeNode205.Name = "Veri Kayit Atolye Izleme";
-            treeNode205.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode205.Text = "Veri Kayıt (Arıza Güncelleme)";
-            treeNode206.Name = "Düğüm8";
-            treeNode206.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode206.Text = "Veri Kayıt (Arıza Kapatma)";
-            treeNode207.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode207.ForeColor = System.Drawing.Color.White;
-            treeNode207.Name = "Düğüm2";
-            treeNode207.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode207.Text = "Veri Giriş Ekranları";
-            treeNode208.Name = "Düğüm0";
-            treeNode208.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            treeNode208.Text = "BO02-Bakım Onarım (Atölye)";
-            treeNode209.Name = "Stok Goruntule";
-            treeNode209.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode209.Text = "Stok Görüntüle";
-            treeNode210.Name = "Depo Hareketleri";
-            treeNode210.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode210.Text = "Depo Hareketleri";
-            treeNode211.Name = "Stokta Bulunmayan Malzeme";
-            treeNode211.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode211.Text = "Stokta Bulunmayan Malzemeler ";
-            treeNode212.Name = "KayitliMalzemeler";
-            treeNode212.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode212.Text = "Kayıtlı Malzemeler";
-            treeNode213.Name = "Düğüm1";
-            treeNode213.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode213.Text = "Bölgeden İade Gelecek Malzemeler";
-            treeNode214.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode214.ForeColor = System.Drawing.Color.White;
-            treeNode214.Name = "GKA VERI IZLEME";
-            treeNode214.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode214.Text = "Veri İzleme Ekranları";
-            treeNode215.Name = "Stok Giris Cikis";
-            treeNode215.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode215.Text = "Stok Giriş/Çıkış";
-            treeNode216.Name = "Malzeme Kayit Ambar";
-            treeNode216.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode216.Text = "Malzeme Kayıt";
-            treeNode217.Name = "Malzeme Hazirlama";
-            treeNode217.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode217.Text = "Malzeme Hazırlama";
-            treeNode218.Name = "Düğüm0";
-            treeNode218.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode218.Text = "Bölgeden İade Gelen Malzeme";
-            treeNode219.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode219.ForeColor = System.Drawing.Color.White;
-            treeNode219.Name = "GKA VERI GIRIS";
-            treeNode219.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode219.Text = "Veri Giriş Ekranları";
-            treeNode220.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode220.ForeColor = System.Drawing.Color.White;
-            treeNode220.Name = "GECICI KABUL AMBAR";
-            treeNode220.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            treeNode220.Text = "DP01-Geçici Kabul ve Ambar                                     ";
-            treeNode221.Name = "devamedensat";
-            treeNode221.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode221.Text = "Devam Eden SAT";
-            treeNode222.Name = "Tamamlanan Sat";
-            treeNode222.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode222.Text = "Tamamlanan SAT";
-            treeNode223.Name = "RedEdilenSat";
-            treeNode223.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode223.Text = "Ret Edilen SAT";
-            treeNode224.Name = "Sat Yedek Parca Katalogu";
-            treeNode224.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode224.Text = "Yedek Parça Kataloğu";
-            treeNode225.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode225.ForeColor = System.Drawing.Color.White;
-            treeNode225.Name = "SA VERI IZLEME";
-            treeNode225.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode225.Text = "Veri İzleme Ekranları";
-            treeNode226.Name = "satolustur";
-            treeNode226.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode226.Text = "SAT Oluştur";
-            treeNode227.Name = "SatOnOnay";
-            treeNode227.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode227.Text = "SAT Ön Onay";
-            treeNode228.Name = "Sat Baslatma Onayi";
-            treeNode228.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode228.Text = "SAT Başlatma Onayı";
-            treeNode229.Name = "TeklifAlınacakSat";
-            treeNode229.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode229.Text = "Teklif Alınacak SAT";
-            treeNode230.Name = "Satın Alınacak Malzemeler";
-            treeNode230.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode230.Text = "Teklifsiz SAT";
-            treeNode231.Name = "SatOnay";
-            treeNode231.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode231.Text = "SAT Onay";
-            treeNode232.Name = "Sat Tamamlama";
-            treeNode232.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode232.Text = "SAT Tamamlama";
-            treeNode233.Name = "Sat Guncelle";
-            treeNode233.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode233.Text = "SAT Güncelle";
-            treeNode234.Name = "Tedarikci Firma";
-            treeNode234.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode234.Text = "Tedarikçi Firma Bilgileri";
-            treeNode235.Name = "Alt Yuklenici Firma";
-            treeNode235.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode235.Text = "Alt Yüklenici Firma Bilgileri";
-            treeNode236.Name = "AylikButceKapatmaYakit";
-            treeNode236.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode236.Text = "Aylık Bütçe Kapatma (Yakıt)";
-            treeNode237.Name = "Düğüm3";
-            treeNode237.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode237.Text = "Yıllık Bütçe Kapatma";
-            treeNode238.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode238.ForeColor = System.Drawing.Color.White;
-            treeNode238.Name = "SA VERI GIRIS";
-            treeNode238.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode238.Text = "Veri Giriş Ekranları";
-            treeNode239.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode239.ForeColor = System.Drawing.Color.White;
-            treeNode239.Name = "SATIN ALMA";
-            treeNode239.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            treeNode239.Text = "ST01-Satın Alma                                                      ";
-            treeNode240.Name = "Dokuman Sorgula";
-            treeNode240.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode240.Text = "Doküman Sorgula";
-            treeNode241.Name = "Standart Form Sorgula";
-            treeNode241.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode241.Text = "Standart Form Sorgula";
-            treeNode242.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode242.ForeColor = System.Drawing.Color.White;
-            treeNode242.Name = "DY VERI IZLEME";
-            treeNode242.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode242.Text = "Veri İzleme Ekranları";
-            treeNode243.Name = "Dokuman Ekle";
-            treeNode243.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode243.Text = "Doküman Ekle";
-            treeNode244.Name = "Standart Form Ekle";
-            treeNode244.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode244.Text = "Standart Form Ekle";
-            treeNode245.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode245.ForeColor = System.Drawing.Color.White;
-            treeNode245.Name = "DY VERI GIRIS";
-            treeNode245.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode245.Text = "Veri Giriş Ekranları";
-            treeNode246.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode246.ForeColor = System.Drawing.Color.White;
-            treeNode246.Name = "DOKUMAN YONETIM";
-            treeNode246.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            treeNode246.Text = "DS01-Doküman Yönetim Sistemi                                 ";
-            treeNode247.Name = "DuranVarlikKayit";
-            treeNode247.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode247.Text = "Duran Varlık Kayıt";
-            treeNode248.Name = "DuranVarlikAkarma";
-            treeNode248.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode248.Text = "Duran Varlık Aktarım";
-            treeNode249.Name = "Duran Varlik Ariza Kayit";
-            treeNode249.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode249.Text = "Duran Varlık Arıza Kayıt";
-            treeNode250.Name = "DV Kalibrasyon Kayit";
-            treeNode250.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode250.Text = "DV Kalibrasyon Kayıt";
-            treeNode251.Name = "Duran Varlık";
-            treeNode251.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode251.Text = "Duran Varlık";
-            treeNode252.Name = "PersonelKayit";
-            treeNode252.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode252.Text = "Personel Giriş-Çıkış";
-            treeNode253.Name = "PersonelPuantaj";
-            treeNode253.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode253.Text = "Personel Puantaj";
-            treeNode254.Name = "Personel";
-            treeNode254.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode254.Text = "Personel";
-            treeNode255.Name = "Yurt Icı Gorev";
-            treeNode255.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode255.Text = "Yurt İçi Görev";
-            treeNode256.Name = "Sehir Icı Gorev";
-            treeNode256.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode256.Text = "Şehir İçi Görev";
-            treeNode257.Name = "Izın";
-            treeNode257.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode257.Text = "İzin";
-            treeNode258.Name = "Konaklama";
-            treeNode258.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode258.Text = "Konaklama";
-            treeNode259.Name = "Ucak Otobus Bileti";
-            treeNode259.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode259.Text = "Uçak ve Otobüs Bileti";
-            treeNode260.Name = "Harcama Beyannamesi";
-            treeNode260.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode260.Text = "Harcama Beyannamesi";
-            treeNode261.Name = "Is Akislari";
-            treeNode261.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode261.Text = "İş Akışları";
-            treeNode262.Name = "Evrak Kayit";
-            treeNode262.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode262.Text = "Evrak Kayıt";
-            treeNode263.Name = "Resmi Yazilar";
-            treeNode263.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode263.Text = "Resmi Yazılar";
-            treeNode264.Name = "Tutanak";
-            treeNode264.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode264.Text = "Tutanak";
-            treeNode265.Name = "HaftalikKontrol";
-            treeNode265.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode265.Text = "Haftalık Kontrol Formu";
-            treeNode266.Name = "Arsiv";
-            treeNode266.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode266.Text = "Arşiv";
-            treeNode267.Name = "Arac Tesis Kayit";
-            treeNode267.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode267.Text = "Araç Tahsis Kayıt";
-            treeNode268.Name = "Araç Bakım Kayıt";
-            treeNode268.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode268.Text = "Araç Bakım Kayıt";
-            treeNode269.Name = "Arac Yakit Beyani";
-            treeNode269.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode269.Text = "Araç Yakıt Beyanı";
-            treeNode270.Name = "Arac Periyodik Bakım";
-            treeNode270.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode270.Text = "Araç Periyodik Bakım";
-            treeNode271.Name = "YakitDokumleri";
-            treeNode271.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode271.Text = "Yakıt Firma Dökümleri";
-            treeNode272.Name = "Ulastırma";
-            treeNode272.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode272.Text = "Ulaştırma";
-            treeNode273.Name = "Ziyaretci Kayit";
-            treeNode273.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode273.Text = "Ziyaretçi Kayıt";
-            treeNode274.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode274.ForeColor = System.Drawing.Color.White;
-            treeNode274.Name = "II VERI GIRIS";
-            treeNode274.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode274.Text = "Veri Giriş Ekranları";
-            treeNode275.Name = "DuranVarlikTakip";
-            treeNode275.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode275.Text = "Duran Varlık Takip";
-            treeNode276.Name = "DV Zimmet Takibi";
-            treeNode276.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode276.Text = "DV Zimmet Takip";
-            treeNode277.Name = "DV Ariza Takibi";
-            treeNode277.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode277.Text = "DV Arıza Takip";
-            treeNode278.Name = "DV Kalibrasyon Takibi";
-            treeNode278.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode278.Text = "DV Kalibrasyon Takip";
-            treeNode279.Name = "Duran Varlik Izleme";
-            treeNode279.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode279.Text = "Duran Varlık İzleme";
-            treeNode280.Name = "PersonelListesi";
-            treeNode280.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode280.Text = "Personel Listesi (Çalışan)";
-            treeNode281.Name = "PersonelListesiAyrilan";
-            treeNode281.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode281.Text = "Personel Listesi (İşten Ayrılan)";
-            treeNode282.Name = "Personel Puantaj";
-            treeNode282.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode282.Text = "Personel Puantaj";
-            treeNode283.Name = "Personel Izleme";
-            treeNode283.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode283.Text = "Personel İzleme";
-            treeNode284.Name = "Yurt Icı GorevIzleme";
-            treeNode284.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode284.Text = "Yurt İçi Görev";
-            treeNode285.Name = "Sehir Ici Gorev";
-            treeNode285.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode285.Text = "Şehir İçi Görev";
-            treeNode286.Name = "Izin Izleme";
-            treeNode286.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode286.Text = "İzin";
-            treeNode287.Name = "Konaklama Izleme";
-            treeNode287.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode287.Text = "Konaklama";
-            treeNode288.Name = "Ucak Otobus Izleme";
-            treeNode288.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode288.Text = "Uçak ve Otobüs Bileti";
-            treeNode289.Name = "Harcama Beyan Izleme";
-            treeNode289.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode289.Text = "Harcama Beyannamesi İzleme";
-            treeNode290.Name = "Is Akislari Izleme";
-            treeNode290.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode290.Text = "İş Akışları İzleme";
-            treeNode291.Name = "Gelen Giden Yazi Izleme";
-            treeNode291.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode291.Text = "Gelen Giden Resmi Yazı İzleme";
-            treeNode292.Name = "TutanakIzleme";
-            treeNode292.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode292.Text = "Tutanaklar";
-            treeNode293.Name = "HaftalikKontrolIzleme";
-            treeNode293.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode293.Text = "Haftalık Kontrol Formları";
-            treeNode294.Name = "Arsiv Izleme";
-            treeNode294.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode294.Text = "Arşiv İzleme";
-            treeNode295.Name = "Arac Tahsis Izleme";
-            treeNode295.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode295.Text = "Araç Tahsis Bilgileri";
-            treeNode296.Name = "Arac Yakıt Izleme";
-            treeNode296.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode296.Text = "Araç Yakıt Beyan İzleme";
-            treeNode297.Name = "Arac Periyodik Izleme";
-            treeNode297.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode297.Text = "Araç Periyodik Bakım İzleme";
-            treeNode298.Name = "Arac Bakim Onarim Izleme";
-            treeNode298.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode298.Text = "Araç Bakım Onarım İzleme";
-            treeNode299.Name = "YakitDokumleriIzleme";
-            treeNode299.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode299.Text = "Yakıt Alım Dökümleri";
-            treeNode300.Name = "UlastırmaIzleme";
-            treeNode300.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode300.Text = "Ulaştırma İzleme";
-            treeNode301.Name = "Ziyaretci Kayit Izleme";
-            treeNode301.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode301.Text = "Ziyaretçi Kayıt";
-            treeNode302.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode302.ForeColor = System.Drawing.Color.White;
-            treeNode302.Name = "II VERI IZLEME";
-            treeNode302.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode302.Text = "Veri İzleme Ekranları";
-            treeNode303.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode303.ForeColor = System.Drawing.Color.White;
-            treeNode303.Name = "IDARI ISLER";
-            treeNode303.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            treeNode303.Text = "ID01-İdari İşler                                                   ";
-            treeNode304.Name = "Egitim Veri Giris";
-            treeNode304.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode304.Text = "Eğitim Veri Girişi";
-            treeNode305.Name = "Egitim Planı Olustur";
-            treeNode305.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode305.Text = "Eğitim Planı Oluştur";
-            treeNode306.Name = "Egitim Planı Guncelle";
-            treeNode306.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode306.Text = "Eğitim Planı Güncelle";
-            treeNode307.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode307.ForeColor = System.Drawing.Color.White;
-            treeNode307.Name = "E VERI GIRIS";
-            treeNode307.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode307.Text = "Veri Giriş Ekranları";
-            treeNode308.Name = "Egitim Izleme";
-            treeNode308.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode308.Text = "Eğitim İzleme";
-            treeNode309.Name = "Egitim Planı Izleme";
-            treeNode309.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode309.Text = "Eğitim Planı İzleme";
-            treeNode310.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode310.ForeColor = System.Drawing.Color.White;
-            treeNode310.Name = "E VERI IZLEME";
-            treeNode310.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode310.Text = "Veri İzleme Ekranları";
-            treeNode311.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode311.ForeColor = System.Drawing.Color.White;
-            treeNode311.Name = "EGITIM";
-            treeNode311.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            treeNode311.Text = "EG01-Eğitim                                                                   ";
-            treeNode312.Name = "Stok Goruntule Depo";
-            treeNode312.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode312.Text = "Stok Görüntüle";
-            treeNode313.Name = "Depo Hareketleri Depo";
-            treeNode313.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode313.Text = "Depo Hareketleri";
-            treeNode314.Name = "Stokta Bulunmayan Malz";
-            treeNode314.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode314.Text = "Stokta Bulunmayan Malzemeler ";
-            treeNode315.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode315.ForeColor = System.Drawing.Color.White;
-            treeNode315.Name = "DD VERI IZLEME";
-            treeNode315.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode315.Text = "Veri İzleme Ekranları";
-            treeNode316.Name = "Stok Giris";
-            treeNode316.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode316.Text = "Stok Giriş/Çıkış";
-            treeNode317.Name = "Malzeme Kayit";
-            treeNode317.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode317.Text = "Malzeme Kayıt";
-            treeNode318.Name = "Malzeme Hazirlama";
-            treeNode318.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            treeNode318.Text = "Malzeme Hazırlama";
-            treeNode319.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode319.ForeColor = System.Drawing.Color.White;
-            treeNode319.Name = "DD VERI GIRIS";
-            treeNode319.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode319.Text = "Veri Giriş Ekranları";
-            treeNode320.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode320.ForeColor = System.Drawing.Color.White;
-            treeNode320.Name = "DESTEK DEPO";
-            treeNode320.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            treeNode320.Text = "DP02-Destek Depo                                                              ";
-            treeNode321.Name = "SatRaporlamaIzleme";
-            treeNode321.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode321.Text = "SAT Raporu";
-            treeNode322.Name = "Düğüm0";
-            treeNode322.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode322.Text = "Adım İşlem Süreleri";
-            treeNode323.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode323.ForeColor = System.Drawing.Color.White;
-            treeNode323.Name = "R VERI IZLEME";
-            treeNode323.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode323.Text = "Veri İzleme Ekranları";
-            treeNode324.Name = "SatRaporlama";
-            treeNode324.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            treeNode324.Text = "SAT Raporlama";
-            treeNode325.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode325.ForeColor = System.Drawing.Color.White;
-            treeNode325.Name = "R VERI GIRIS";
-            treeNode325.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            treeNode325.Text = "Veri Giriş Ekranları";
-            treeNode326.BackColor = System.Drawing.Color.CornflowerBlue;
-            treeNode326.ForeColor = System.Drawing.Color.White;
-            treeNode326.Name = "RAPORLAMALAR";
-            treeNode326.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
-            treeNode326.Text = "RP01-Raporlamalar                                                 ";
+            treeNode25.Name = "BolgeKayitIzleme";
+            treeNode25.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode25.Text = "Bölge Ve Ekipman Bilgileri";
+            treeNode26.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode26.ForeColor = System.Drawing.Color.White;
+            treeNode26.Name = "BO VERI IZLEME";
+            treeNode26.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            treeNode26.Tag = "Header";
+            treeNode26.Text = "Veri İzleme Ekranları";
+            treeNode27.Name = "Veri Kayit Arıza Acma";
+            treeNode27.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode27.Text = "Veri Kayıt (Arıza Açma)";
+            treeNode28.Name = "Veri Guncelleme";
+            treeNode28.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode28.Text = "Durum Güncelleme";
+            treeNode29.Name = "Bildirim Onayi";
+            treeNode29.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode29.Text = "Bildirim Onayı";
+            treeNode30.Name = "Musteri Bilgileri";
+            treeNode30.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode30.Text = "Müşteri Bilgileri";
+            treeNode31.Name = "Bolge Yol Durumu";
+            treeNode31.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode31.Text = "Bölge Yol Durumu";
+            treeNode32.Name = "Yerlesim Kayitlari";
+            treeNode32.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode32.Text = "Yerleşim Kayıtları";
+            treeNode33.Name = "Malzeme Temini";
+            treeNode33.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode33.Text = "Malzeme Temini";
+            treeNode34.Name = "Dogrudan Temini";
+            treeNode34.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode34.Text = "Doğrudan Temini";
+            treeNode35.Name = "Servis Talepleri";
+            treeNode35.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode35.Text = "Servis Talepleri";
+            treeNode36.Name = "OKF Olusturma";
+            treeNode36.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode36.Text = "OKF Oluşturma";
+            treeNode37.Name = "Teslimat Eksikleri";
+            treeNode37.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode37.Text = "Teslimat Eksikleri";
+            treeNode38.Name = "Firma Servis Formu Kayit";
+            treeNode38.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode38.Text = "Firma Servis Formu Kayıt";
+            treeNode39.Name = "Destek Iscilik";
+            treeNode39.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode39.Text = "Destek Ve İşçilik Veri Girişi";
+            treeNode40.Name = "BolgeKayit";
+            treeNode40.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode40.Text = "Bölge ve Ekipman Kayıt";
+            treeNode41.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode41.ForeColor = System.Drawing.Color.White;
+            treeNode41.Name = "BO VERI GIRIS";
+            treeNode41.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode41.Text = "Veri Giriş Ekranı";
+            treeNode42.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode42.ForeColor = System.Drawing.Color.White;
+            treeNode42.Name = "BAKIM ONARIM";
+            treeNode42.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            treeNode42.Tag = "Header";
+            treeNode42.Text = "BO01-Bakım Onarım (Saha)";
+            treeNode43.Name = "Düğüm3";
+            treeNode43.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode43.Text = "Devam Eden Arıza İzleme";
+            treeNode44.Name = "Düğüm4";
+            treeNode44.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode44.Text = "Tamamlanan Arıza İzleme";
+            treeNode45.Name = "Düğüm5";
+            treeNode45.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode45.Text = "İşçilik İzleme";
+            treeNode46.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode46.ForeColor = System.Drawing.Color.White;
+            treeNode46.Name = "Düğüm1";
+            treeNode46.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode46.Text = "Veri İzleme Ekranları";
+            treeNode47.Name = "Veri Kayit Atolye";
+            treeNode47.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode47.Text = "Veri Kayıt (Arıza Açma)";
+            treeNode48.Name = "Veri Kayit Atolye Izleme";
+            treeNode48.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode48.Text = "Veri Kayıt (Arıza Güncelleme)";
+            treeNode49.Name = "Düğüm8";
+            treeNode49.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode49.Text = "Veri Kayıt (Arıza Kapatma)";
+            treeNode50.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode50.ForeColor = System.Drawing.Color.White;
+            treeNode50.Name = "Düğüm2";
+            treeNode50.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode50.Text = "Veri Giriş Ekranları";
+            treeNode51.Name = "Düğüm0";
+            treeNode51.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode51.Text = "BO02-Bakım Onarım (Atölye)";
+            treeNode52.Name = "Stok Goruntule";
+            treeNode52.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode52.Text = "Stok Görüntüle";
+            treeNode53.Name = "Depo Hareketleri";
+            treeNode53.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode53.Text = "Depo Hareketleri";
+            treeNode54.Name = "Stokta Bulunmayan Malzeme";
+            treeNode54.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode54.Text = "Stokta Bulunmayan Malzemeler ";
+            treeNode55.Name = "KayitliMalzemeler";
+            treeNode55.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode55.Text = "Kayıtlı Malzemeler";
+            treeNode56.Name = "Düğüm1";
+            treeNode56.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode56.Text = "Bölgeden İade Gelecek Malzemeler";
+            treeNode57.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode57.ForeColor = System.Drawing.Color.White;
+            treeNode57.Name = "GKA VERI IZLEME";
+            treeNode57.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode57.Text = "Veri İzleme Ekranları";
+            treeNode58.Name = "Stok Giris Cikis";
+            treeNode58.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode58.Text = "Stok Giriş/Çıkış";
+            treeNode59.Name = "Malzeme Kayit Ambar";
+            treeNode59.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode59.Text = "Malzeme Kayıt";
+            treeNode60.Name = "Malzeme Hazirlama";
+            treeNode60.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode60.Text = "Malzeme Hazırlama";
+            treeNode61.Name = "Düğüm0";
+            treeNode61.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode61.Text = "Bölgeden İade Gelen Malzeme";
+            treeNode62.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode62.ForeColor = System.Drawing.Color.White;
+            treeNode62.Name = "GKA VERI GIRIS";
+            treeNode62.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode62.Text = "Veri Giriş Ekranları";
+            treeNode63.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode63.ForeColor = System.Drawing.Color.White;
+            treeNode63.Name = "GECICI KABUL AMBAR";
+            treeNode63.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode63.Text = "DP01-Geçici Kabul ve Ambar                                     ";
+            treeNode64.Name = "devamedensat";
+            treeNode64.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode64.Text = "Devam Eden SAT";
+            treeNode65.Name = "Tamamlanan Sat";
+            treeNode65.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode65.Text = "Tamamlanan SAT";
+            treeNode66.Name = "RedEdilenSat";
+            treeNode66.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode66.Text = "Ret Edilen SAT";
+            treeNode67.Name = "Sat Yedek Parca Katalogu";
+            treeNode67.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode67.Text = "Yedek Parça Kataloğu";
+            treeNode68.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode68.ForeColor = System.Drawing.Color.White;
+            treeNode68.Name = "SA VERI IZLEME";
+            treeNode68.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode68.Text = "Veri İzleme Ekranları";
+            treeNode69.Name = "satolustur";
+            treeNode69.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode69.Text = "SAT Oluştur";
+            treeNode70.Name = "SatOnOnay";
+            treeNode70.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode70.Text = "SAT Ön Onay";
+            treeNode71.Name = "Sat Baslatma Onayi";
+            treeNode71.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode71.Text = "SAT Başlatma Onayı";
+            treeNode72.Name = "TeklifAlınacakSat";
+            treeNode72.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode72.Text = "Teklif Alınacak SAT";
+            treeNode73.Name = "Satın Alınacak Malzemeler";
+            treeNode73.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode73.Text = "Teklifsiz SAT";
+            treeNode74.Name = "SatOnay";
+            treeNode74.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode74.Text = "SAT Onay";
+            treeNode75.Name = "Sat Tamamlama";
+            treeNode75.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode75.Text = "SAT Tamamlama";
+            treeNode76.Name = "Sat Guncelle";
+            treeNode76.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode76.Text = "SAT Güncelle";
+            treeNode77.Name = "Tedarikci Firma";
+            treeNode77.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode77.Text = "Tedarikçi Firma Bilgileri";
+            treeNode78.Name = "Alt Yuklenici Firma";
+            treeNode78.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode78.Text = "Alt Yüklenici Firma Bilgileri";
+            treeNode79.Name = "AylikButceKapatmaYakit";
+            treeNode79.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode79.Text = "Aylık Bütçe Kapatma (Yakıt)";
+            treeNode80.Name = "Düğüm3";
+            treeNode80.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode80.Text = "Yıllık Bütçe Kapatma";
+            treeNode81.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode81.ForeColor = System.Drawing.Color.White;
+            treeNode81.Name = "SA VERI GIRIS";
+            treeNode81.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode81.Text = "Veri Giriş Ekranları";
+            treeNode82.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode82.ForeColor = System.Drawing.Color.White;
+            treeNode82.Name = "SATIN ALMA";
+            treeNode82.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode82.Text = "ST01-Satın Alma                                                      ";
+            treeNode83.Name = "Dokuman Sorgula";
+            treeNode83.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode83.Text = "Doküman Sorgula";
+            treeNode84.Name = "Standart Form Sorgula";
+            treeNode84.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode84.Text = "Standart Form Sorgula";
+            treeNode85.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode85.ForeColor = System.Drawing.Color.White;
+            treeNode85.Name = "DY VERI IZLEME";
+            treeNode85.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode85.Text = "Veri İzleme Ekranları";
+            treeNode86.Name = "Dokuman Ekle";
+            treeNode86.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode86.Text = "Doküman Ekle";
+            treeNode87.Name = "Standart Form Ekle";
+            treeNode87.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode87.Text = "Standart Form Ekle";
+            treeNode88.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode88.ForeColor = System.Drawing.Color.White;
+            treeNode88.Name = "DY VERI GIRIS";
+            treeNode88.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode88.Text = "Veri Giriş Ekranları";
+            treeNode89.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode89.ForeColor = System.Drawing.Color.White;
+            treeNode89.Name = "DOKUMAN YONETIM";
+            treeNode89.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode89.Text = "DS01-Doküman Yönetim Sistemi                                 ";
+            treeNode90.Name = "DuranVarlikKayit";
+            treeNode90.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode90.Text = "Duran Varlık Kayıt";
+            treeNode91.Name = "DuranVarlikAkarma";
+            treeNode91.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode91.Text = "Duran Varlık Aktarım";
+            treeNode92.Name = "Duran Varlik Ariza Kayit";
+            treeNode92.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode92.Text = "Duran Varlık Arıza Kayıt";
+            treeNode93.Name = "DV Kalibrasyon Kayit";
+            treeNode93.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode93.Text = "DV Kalibrasyon Kayıt";
+            treeNode94.Name = "Duran Varlık";
+            treeNode94.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode94.Text = "Duran Varlık";
+            treeNode95.Name = "PersonelKayit";
+            treeNode95.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode95.Text = "Personel Giriş-Çıkış";
+            treeNode96.Name = "PersonelPuantaj";
+            treeNode96.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode96.Text = "Personel Puantaj";
+            treeNode97.Name = "Personel";
+            treeNode97.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode97.Text = "Personel";
+            treeNode98.Name = "Yurt Icı Gorev";
+            treeNode98.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode98.Text = "Yurt İçi Görev";
+            treeNode99.Name = "Sehir Icı Gorev";
+            treeNode99.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode99.Text = "Şehir İçi Görev";
+            treeNode100.Name = "Izın";
+            treeNode100.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode100.Text = "İzin";
+            treeNode101.Name = "Konaklama";
+            treeNode101.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode101.Text = "Konaklama";
+            treeNode102.Name = "Ucak Otobus Bileti";
+            treeNode102.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode102.Text = "Uçak ve Otobüs Bileti";
+            treeNode103.Name = "Harcama Beyannamesi";
+            treeNode103.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode103.Text = "Harcama Beyannamesi";
+            treeNode104.Name = "Is Akislari";
+            treeNode104.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode104.Text = "İş Akışları";
+            treeNode105.Name = "Evrak Kayit";
+            treeNode105.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode105.Text = "Evrak Kayıt";
+            treeNode106.Name = "Resmi Yazilar";
+            treeNode106.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode106.Text = "Resmi Yazılar";
+            treeNode107.Name = "Tutanak";
+            treeNode107.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode107.Text = "Tutanak";
+            treeNode108.Name = "HaftalikKontrol";
+            treeNode108.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode108.Text = "Haftalık Kontrol Formu";
+            treeNode109.Name = "Arsiv";
+            treeNode109.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode109.Text = "Arşiv";
+            treeNode110.Name = "Arac Tesis Kayit";
+            treeNode110.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode110.Text = "Araç Tahsis Kayıt";
+            treeNode111.Name = "Araç Bakım Kayıt";
+            treeNode111.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode111.Text = "Araç Bakım Kayıt";
+            treeNode112.Name = "Arac Yakit Beyani";
+            treeNode112.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode112.Text = "Araç Yakıt Beyanı";
+            treeNode113.Name = "Arac Periyodik Bakım";
+            treeNode113.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode113.Text = "Araç Periyodik Bakım";
+            treeNode114.Name = "YakitDokumleri";
+            treeNode114.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode114.Text = "Yakıt Firma Dökümleri";
+            treeNode115.Name = "Ulastırma";
+            treeNode115.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode115.Text = "Ulaştırma";
+            treeNode116.Name = "Ziyaretci Kayit";
+            treeNode116.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode116.Text = "Ziyaretçi Kayıt";
+            treeNode117.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode117.ForeColor = System.Drawing.Color.White;
+            treeNode117.Name = "II VERI GIRIS";
+            treeNode117.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode117.Text = "Veri Giriş Ekranları";
+            treeNode118.Name = "DuranVarlikTakip";
+            treeNode118.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode118.Text = "Duran Varlık Takip";
+            treeNode119.Name = "DV Zimmet Takibi";
+            treeNode119.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode119.Text = "DV Zimmet Takip";
+            treeNode120.Name = "DV Ariza Takibi";
+            treeNode120.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode120.Text = "DV Arıza Takip";
+            treeNode121.Name = "DV Kalibrasyon Takibi";
+            treeNode121.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode121.Text = "DV Kalibrasyon Takip";
+            treeNode122.Name = "Duran Varlik Izleme";
+            treeNode122.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode122.Text = "Duran Varlık İzleme";
+            treeNode123.Name = "PersonelListesi";
+            treeNode123.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode123.Text = "Personel Listesi (Çalışan)";
+            treeNode124.Name = "PersonelListesiAyrilan";
+            treeNode124.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode124.Text = "Personel Listesi (İşten Ayrılan)";
+            treeNode125.Name = "Personel Puantaj";
+            treeNode125.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode125.Text = "Personel Puantaj";
+            treeNode126.Name = "Personel Izleme";
+            treeNode126.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode126.Text = "Personel İzleme";
+            treeNode127.Name = "Yurt Icı GorevIzleme";
+            treeNode127.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode127.Text = "Yurt İçi Görev";
+            treeNode128.Name = "Sehir Ici Gorev";
+            treeNode128.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode128.Text = "Şehir İçi Görev";
+            treeNode129.Name = "Izin Izleme";
+            treeNode129.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode129.Text = "İzin";
+            treeNode130.Name = "Konaklama Izleme";
+            treeNode130.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode130.Text = "Konaklama";
+            treeNode131.Name = "Ucak Otobus Izleme";
+            treeNode131.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode131.Text = "Uçak ve Otobüs Bileti";
+            treeNode132.Name = "Harcama Beyan Izleme";
+            treeNode132.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode132.Text = "Harcama Beyannamesi İzleme";
+            treeNode133.Name = "Is Akislari Izleme";
+            treeNode133.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode133.Text = "İş Akışları İzleme";
+            treeNode134.Name = "Gelen Giden Yazi Izleme";
+            treeNode134.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode134.Text = "Gelen Giden Resmi Yazı İzleme";
+            treeNode135.Name = "TutanakIzleme";
+            treeNode135.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode135.Text = "Tutanaklar";
+            treeNode136.Name = "HaftalikKontrolIzleme";
+            treeNode136.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode136.Text = "Haftalık Kontrol Formları";
+            treeNode137.Name = "Arsiv Izleme";
+            treeNode137.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode137.Text = "Arşiv İzleme";
+            treeNode138.Name = "Arac Tahsis Izleme";
+            treeNode138.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode138.Text = "Araç Tahsis Bilgileri";
+            treeNode139.Name = "Arac Yakıt Izleme";
+            treeNode139.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode139.Text = "Araç Yakıt Beyan İzleme";
+            treeNode140.Name = "Arac Periyodik Izleme";
+            treeNode140.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode140.Text = "Araç Periyodik Bakım İzleme";
+            treeNode141.Name = "Arac Bakim Onarim Izleme";
+            treeNode141.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode141.Text = "Araç Bakım Onarım İzleme";
+            treeNode142.Name = "YakitDokumleriIzleme";
+            treeNode142.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode142.Text = "Yakıt Alım Dökümleri";
+            treeNode143.Name = "UlastırmaIzleme";
+            treeNode143.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode143.Text = "Ulaştırma İzleme";
+            treeNode144.Name = "Ziyaretci Kayit Izleme";
+            treeNode144.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode144.Text = "Ziyaretçi Kayıt";
+            treeNode145.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode145.ForeColor = System.Drawing.Color.White;
+            treeNode145.Name = "II VERI IZLEME";
+            treeNode145.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode145.Text = "Veri İzleme Ekranları";
+            treeNode146.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode146.ForeColor = System.Drawing.Color.White;
+            treeNode146.Name = "IDARI ISLER";
+            treeNode146.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode146.Text = "ID01-İdari İşler                                                   ";
+            treeNode147.Name = "Egitim Veri Giris";
+            treeNode147.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode147.Text = "Eğitim Veri Girişi";
+            treeNode148.Name = "Egitim Planı Olustur";
+            treeNode148.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode148.Text = "Eğitim Planı Oluştur";
+            treeNode149.Name = "Egitim Planı Guncelle";
+            treeNode149.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode149.Text = "Eğitim Planı Güncelle";
+            treeNode150.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode150.ForeColor = System.Drawing.Color.White;
+            treeNode150.Name = "E VERI GIRIS";
+            treeNode150.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode150.Text = "Veri Giriş Ekranları";
+            treeNode151.Name = "Egitim Izleme";
+            treeNode151.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode151.Text = "Eğitim İzleme";
+            treeNode152.Name = "Egitim Planı Izleme";
+            treeNode152.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode152.Text = "Eğitim Planı İzleme";
+            treeNode153.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode153.ForeColor = System.Drawing.Color.White;
+            treeNode153.Name = "E VERI IZLEME";
+            treeNode153.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode153.Text = "Veri İzleme Ekranları";
+            treeNode154.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode154.ForeColor = System.Drawing.Color.White;
+            treeNode154.Name = "EGITIM";
+            treeNode154.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode154.Text = "EG01-Eğitim                                                                   ";
+            treeNode155.Name = "Stok Goruntule Depo";
+            treeNode155.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode155.Text = "Stok Görüntüle";
+            treeNode156.Name = "Depo Hareketleri Depo";
+            treeNode156.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode156.Text = "Depo Hareketleri";
+            treeNode157.Name = "Stokta Bulunmayan Malz";
+            treeNode157.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode157.Text = "Stokta Bulunmayan Malzemeler ";
+            treeNode158.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode158.ForeColor = System.Drawing.Color.White;
+            treeNode158.Name = "DD VERI IZLEME";
+            treeNode158.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode158.Text = "Veri İzleme Ekranları";
+            treeNode159.Name = "Stok Giris";
+            treeNode159.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode159.Text = "Stok Giriş/Çıkış";
+            treeNode160.Name = "Malzeme Kayit";
+            treeNode160.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode160.Text = "Malzeme Kayıt";
+            treeNode161.Name = "Malzeme Hazirlama";
+            treeNode161.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            treeNode161.Text = "Malzeme Hazırlama";
+            treeNode162.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode162.ForeColor = System.Drawing.Color.White;
+            treeNode162.Name = "DD VERI GIRIS";
+            treeNode162.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode162.Text = "Veri Giriş Ekranları";
+            treeNode163.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode163.ForeColor = System.Drawing.Color.White;
+            treeNode163.Name = "DESTEK DEPO";
+            treeNode163.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode163.Text = "DP02-Destek Depo                                                              ";
+            treeNode164.Name = "SatRaporlamaIzleme";
+            treeNode164.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode164.Text = "SAT Raporu";
+            treeNode165.Name = "Düğüm0";
+            treeNode165.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode165.Text = "Adım İşlem Süreleri";
+            treeNode166.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode166.ForeColor = System.Drawing.Color.White;
+            treeNode166.Name = "R VERI IZLEME";
+            treeNode166.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode166.Text = "Veri İzleme Ekranları";
+            treeNode167.Name = "SatRaporlama";
+            treeNode167.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode167.Text = "SAT Raporlama";
+            treeNode168.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode168.ForeColor = System.Drawing.Color.White;
+            treeNode168.Name = "R VERI GIRIS";
+            treeNode168.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode168.Text = "Veri Giriş Ekranları";
+            treeNode169.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode169.ForeColor = System.Drawing.Color.White;
+            treeNode169.Name = "RAPORLAMALAR";
+            treeNode169.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode169.Text = "RP01-Raporlamalar                                                 ";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
-            treeNode199,
-            treeNode208,
-            treeNode220,
-            treeNode239,
-            treeNode246,
-            treeNode303,
-            treeNode311,
-            treeNode320,
-            treeNode326});
+            treeNode42,
+            treeNode51,
+            treeNode63,
+            treeNode82,
+            treeNode89,
+            treeNode146,
+            treeNode154,
+            treeNode163,
+            treeNode169});
             this.treeView2.Size = new System.Drawing.Size(340, 587);
             this.treeView2.TabIndex = 87;
             this.treeView2.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView2_NodeMouseClick);
@@ -1620,73 +1687,6 @@ namespace UserInterface.STS
             // 
             this.TimerSaat.Interval = 1000;
             this.TimerSaat.Tick += new System.EventHandler(this.TimerSaat_Tick);
-            // 
-            // aKARYAKITToolStripMenuItem
-            // 
-            this.aKARYAKITToolStripMenuItem.Name = "aKARYAKITToolStripMenuItem";
-            this.aKARYAKITToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.aKARYAKITToolStripMenuItem.Text = "AKARYAKIT";
-            // 
-            // bÜTÇEToolStripMenuItem
-            // 
-            this.bÜTÇEToolStripMenuItem.Name = "bÜTÇEToolStripMenuItem";
-            this.bÜTÇEToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.bÜTÇEToolStripMenuItem.Text = "BÜTÇE";
-            // 
-            // kASAToolStripMenuItem
-            // 
-            this.kASAToolStripMenuItem.Name = "kASAToolStripMenuItem";
-            this.kASAToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.kASAToolStripMenuItem.Text = "KASA";
-            // 
-            // bAKIMONARIMToolStripMenuItem
-            // 
-            this.bAKIMONARIMToolStripMenuItem.Name = "bAKIMONARIMToolStripMenuItem";
-            this.bAKIMONARIMToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.bAKIMONARIMToolStripMenuItem.Text = "BAKIM ONARIM";
-            // 
-            // aMBARToolStripMenuItem
-            // 
-            this.aMBARToolStripMenuItem.Name = "aMBARToolStripMenuItem";
-            this.aMBARToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.aMBARToolStripMenuItem.Text = "AMBAR";
-            // 
-            // kALİTETESTToolStripMenuItem
-            // 
-            this.kALİTETESTToolStripMenuItem.Name = "kALİTETESTToolStripMenuItem";
-            this.kALİTETESTToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.kALİTETESTToolStripMenuItem.Text = "KALİTE TEST";
-            // 
-            // tEKNİKSERVİSToolStripMenuItem
-            // 
-            this.tEKNİKSERVİSToolStripMenuItem.Name = "tEKNİKSERVİSToolStripMenuItem";
-            this.tEKNİKSERVİSToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.tEKNİKSERVİSToolStripMenuItem.Text = "TEKNİK SERVİS";
-            // 
-            // iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem
-            // 
-            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem.Name = "iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem";
-            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem.Size = new System.Drawing.Size(266, 22);
-            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem.Text = "İŞ AKIŞ SÜRELERİ PERFORMANS İZLE";
-            this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem.Click += new System.EventHandler(this.iŞAKIŞSÜRELERİPERFORMANSİZLEToolStripMenuItem_Click);
-            // 
-            // gENELMÜDÜRLÜKToolStripMenuItem
-            // 
-            this.gENELMÜDÜRLÜKToolStripMenuItem.Name = "gENELMÜDÜRLÜKToolStripMenuItem";
-            this.gENELMÜDÜRLÜKToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.gENELMÜDÜRLÜKToolStripMenuItem.Text = "GENEL MÜDÜRLÜK";
-            // 
-            // dİREKTÖRLÜKToolStripMenuItem
-            // 
-            this.dİREKTÖRLÜKToolStripMenuItem.Name = "dİREKTÖRLÜKToolStripMenuItem";
-            this.dİREKTÖRLÜKToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.dİREKTÖRLÜKToolStripMenuItem.Text = "DİREKTÖRLÜK";
-            // 
-            // bÖLÜMLERToolStripMenuItem
-            // 
-            this.bÖLÜMLERToolStripMenuItem.Name = "bÖLÜMLERToolStripMenuItem";
-            this.bÖLÜMLERToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.bÖLÜMLERToolStripMenuItem.Text = "BÖLÜMLER";
             // 
             // FrmAnaSayfa
             // 

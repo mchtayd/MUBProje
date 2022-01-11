@@ -55,17 +55,17 @@ namespace Business.Concreate.BakimOnarim
             {
                 return performansDal.Get(personelAd);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
         }
 
-        public List<IscilikPerformans> GetList()
+        public List<IscilikPerformans> GetList(string personelAd)
         {
             try
             {
-                return performansDal.GetList();
+                return performansDal.GetList(personelAd);
             }
             catch (Exception)
             {

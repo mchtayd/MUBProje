@@ -39,6 +39,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public AbfFormNo PersonelSicil(string abfNo)
+        {
+            try
+            {
+                return abfFormNoDal.PersonelSicil(abfNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<AbfFormNo> GetList()
         {

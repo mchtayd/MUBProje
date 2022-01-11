@@ -50,6 +50,25 @@ namespace DataAccess.Concreate.BakimOnarim
                 return null;
             }
         }
+        public AbfFormNo PersonelSicil(string abfNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AbfPersonelBul",new SqlParameter("@abfFormNo",abfNo));
+                AbfFormNo item = null;
+                while (dataReader.Read())
+                {
+                    item = new AbfFormNo(dataReader["DATA_SICIL"].ToString(),dataReader["DATA_ADSOYAD"].ToString());
+                }
+                dataReader.Close();
+                return item;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         public List<AbfFormNo> GetList()
         {

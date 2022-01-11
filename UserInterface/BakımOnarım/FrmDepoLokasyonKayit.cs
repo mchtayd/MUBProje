@@ -84,10 +84,18 @@ namespace UserInterface.BakımOnarım
         }
         void Yenile()
         {
+
             FrmBolgeler frmBolgeler = new FrmBolgeler();
             frmBolgeler.ComboDepo();
+
             FrmStokGirisCikis frmStokGiris = new FrmStokGirisCikis();
             frmStokGiris.CmbDepo();
+            frmStokGiris.CmbDepoCekilen();
+            frmStokGiris.CmbDepoDusulen();
+            frmStokGiris.CmbDepodanBildirime();
+            frmStokGiris.CmbBildirimdenDepoya();
+
+
         }
         void Temizle()
         {

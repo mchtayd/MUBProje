@@ -1,6 +1,7 @@
 ﻿using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
+using Entity;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using System;
@@ -21,10 +22,12 @@ namespace UserInterface.BakımOnarım
         PersonelKayitManager personelKayitManager;
         IscilikDesteIscilikManager ıscilikDesteIscilikManager;
         AracZimmetiManager aracZimmetiManager;
+        IscilikPerformansManager performansManager;
 
         List<IscilikDestekTablo> destekTablosPersonel;
         List<IscilikDestekTabloArac> destekTablosArac;
         List<IscilikDestekIscilik> destekIsciliks;
+        List<IscilikPerformans> ıscilikPerformans;
         List<AracZimmeti> aracZimmetis;
         string siparisNo = "";
         bool start = false;
@@ -35,6 +38,7 @@ namespace UserInterface.BakımOnarım
             personelKayitManager = PersonelKayitManager.GetInstance();
             ıscilikDesteIscilikManager = IscilikDesteIscilikManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
+            performansManager = IscilikPerformansManager.GetInstance();
         }
 
         private void FrmIscilikIzleme_Load(object sender, EventArgs e)
@@ -207,6 +211,48 @@ namespace UserInterface.BakımOnarım
             DtgDestekIscilikPersonel.DataSource = "";
             DtgDestekIscilikArac.DataSource = "";
             DataDisplayDestekIscilik();
+        }
+
+        private void CmbPersoneller2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==false)
+            {
+                return;
+            }
+
+            ıscilikPerformans = performansManager.GetList(CmbPersoneller2.Text);
+            if (ıscilikPerformans==null)
+            {
+                return;
+            }
+
+            dataBinderPerformans.DataSource = ıscilikPerformans.ToDataTable();
+            DtgPerformans.DataSource = dataBinderPerformans;
+
+            DtgPerformans.Columns["Id"].Visible = false;
+            DtgPerformans.Columns["IscilikTuru"].HeaderText = "İŞÇİLİK TÜRÜ";
+            DtgPerformans.Columns["Personel"].HeaderText = "PERSONEL";
+            DtgPerformans.Columns["MevcutDuragi"].HeaderText = "MEVCUT DURAĞI";
+            DtgPerformans.Columns["IstikametDuragi"].HeaderText = "İSTİKAMET DURAĞI";
+            DtgPerformans.Columns["CikisTarihiSaati"].HeaderText = "ÇIKIŞ TARİHİ SAATİ";
+            DtgPerformans.Columns["CikisDuragi"].HeaderText = "ÇIKIŞ DURAĞI";
+            DtgPerformans.Columns["CikisSebebi"].HeaderText = "ÇIKIŞ SEBEBİ";
+            DtgPerformans.Columns["VarisDurag"].HeaderText = "VARIŞ DURAĞI";
+            DtgPerformans.Columns["VarisTarihiSaat"].HeaderText = "VARIŞ TARİHİ SAATİ";
+            DtgPerformans.Columns["Sonuc"].HeaderText = "SONUÇ";
+
+            LblTop.Text = DtgPerformans.RowCount.ToString();
+        }
+
+        private void DtgPerformans_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderPerformans.Sort = DtgPerformans.SortString;
+        }
+
+        private void DtgPerformans_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderPerformans.Filter = DtgPerformans.FilterString;
+            LblTop.Text = DtgPerformans.RowCount.ToString();
         }
     }
 }

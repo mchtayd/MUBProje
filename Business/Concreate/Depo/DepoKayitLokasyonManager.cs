@@ -48,9 +48,16 @@ namespace Business.Concreate.Depo
             }
         }
 
-        public DepoKayitLokasyon Get(int id)
+        public List<DepoKayitLokasyon> GetListLokasyon(int depoId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return depoKayitLokasyonDal.GetListLokasyon(depoId);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<DepoKayitLokasyon> GetList()

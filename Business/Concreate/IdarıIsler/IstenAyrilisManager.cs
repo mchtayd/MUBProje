@@ -58,11 +58,11 @@ namespace Business.Concreate.IdarıIsler
             throw new NotImplementedException();
         }
 
-        public List<IstenAyrilis> GetList(string tc = "")
+        public List<IstenAyrilis> GetList(int id=0)
         {
             try
             {
-                return istenAyrilisDal.GetList(tc);
+                return istenAyrilisDal.GetList(id);
             }
             catch
             {

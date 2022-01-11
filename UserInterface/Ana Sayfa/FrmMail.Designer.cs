@@ -59,7 +59,7 @@ namespace UserInterface.Ana_Sayfa
             this.txtTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtTo.Location = new System.Drawing.Point(80, 40);
             this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(978, 23);
+            this.txtTo.Size = new System.Drawing.Size(569, 23);
             this.txtTo.TabIndex = 1;
             // 
             // txtCc
@@ -67,7 +67,7 @@ namespace UserInterface.Ana_Sayfa
             this.txtCc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtCc.Location = new System.Drawing.Point(80, 66);
             this.txtCc.Name = "txtCc";
-            this.txtCc.Size = new System.Drawing.Size(978, 23);
+            this.txtCc.Size = new System.Drawing.Size(569, 23);
             this.txtCc.TabIndex = 3;
             // 
             // label2
@@ -85,7 +85,7 @@ namespace UserInterface.Ana_Sayfa
             this.txtSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.txtSubject.Location = new System.Drawing.Point(80, 92);
             this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(978, 23);
+            this.txtSubject.Size = new System.Drawing.Size(569, 23);
             this.txtSubject.TabIndex = 5;
             // 
             // label3
@@ -112,7 +112,7 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.BtnMailGonder.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnMailGonder.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnMailGonder.Location = new System.Drawing.Point(68, 710);
+            this.BtnMailGonder.Location = new System.Drawing.Point(79, 710);
             this.BtnMailGonder.Name = "BtnMailGonder";
             this.BtnMailGonder.Size = new System.Drawing.Size(146, 56);
             this.BtnMailGonder.TabIndex = 662;
@@ -151,17 +151,17 @@ namespace UserInterface.Ana_Sayfa
             // 
             // webContent
             // 
-            this.webContent.Location = new System.Drawing.Point(79, 118);
+            this.webContent.Location = new System.Drawing.Point(85, 121);
             this.webContent.MinimumSize = new System.Drawing.Size(20, 20);
             this.webContent.Name = "webContent";
-            this.webContent.Size = new System.Drawing.Size(979, 568);
+            this.webContent.Size = new System.Drawing.Size(1185, 568);
             this.webContent.TabIndex = 666;
             // 
             // FrmMail
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1119, 780);
+            this.ClientSize = new System.Drawing.Size(1282, 780);
             this.Controls.Add(this.webContent);
             this.Controls.Add(this.DtgForHtml);
             this.Controls.Add(this.lblFrom);

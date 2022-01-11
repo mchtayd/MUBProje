@@ -144,7 +144,9 @@ namespace UserInterface.Ana_Sayfa
             DtgForHtml.Columns["UsBolgesi"].Visible = false;
             DtgForHtml.Columns["Gerekce"].Visible = false;
 
-            if (satMails[0].Firma2.Length == 0)
+            
+
+            /*if (satMails[0].Firma2.Length == 0)
             {
                 DtgForHtml.Columns["Ibf"].Visible = false;
                 DtgForHtml.Columns["Itf"].Visible = false;
@@ -155,7 +157,7 @@ namespace UserInterface.Ana_Sayfa
                 DtgForHtml.Columns["Ubf"].Visible = false;
                 DtgForHtml.Columns["Utf"].Visible = false;
                 DtgForHtml.Columns["Firma3"].Visible = false;
-            }
+            }*/
             DtgForHtml.Columns["Siparisno"].Visible = false;
             DtgForHtml.Columns["Bbf"].HeaderText = "1-B.Fiyat";
             DtgForHtml.Columns["Btf"].HeaderText = "1-T.Fiyat";

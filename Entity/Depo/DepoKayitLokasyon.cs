@@ -29,5 +29,10 @@ namespace Entity.Depo
             this.lokasyon = lokasyon;
             this.aciklama = aciklama;
         }
+
+        public DepoKayitLokasyon(string lokasyon)
+        {
+            this.lokasyon = lokasyon;
+        }
     }
 }

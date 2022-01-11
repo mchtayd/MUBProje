@@ -40,8 +40,10 @@ namespace UserInterface.Depo
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.TxtStokNo = new System.Windows.Forms.TextBox();
             this.DtgMalzemeBilgisi = new System.Windows.Forms.DataGridView();
+            this.TxtStokNo = new System.Windows.Forms.TextBox();
+            this.LblToplamMiktar = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoBilgileri)).BeginInit();
@@ -78,7 +80,7 @@ namespace UserInterface.Depo
             this.groupBox1.Controls.Add(this.DtgDepoBilgileri);
             this.groupBox1.Location = new System.Drawing.Point(18, 175);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1533, 351);
+            this.groupBox1.Size = new System.Drawing.Size(1533, 642);
             this.groupBox1.TabIndex = 312;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DEPO BİLGİLERİ";
@@ -88,13 +90,14 @@ namespace UserInterface.Depo
             this.DtgDepoBilgileri.AllowUserToAddRows = false;
             this.DtgDepoBilgileri.AllowUserToDeleteRows = false;
             this.DtgDepoBilgileri.AutoGenerateContextFilters = true;
+            this.DtgDepoBilgileri.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDepoBilgileri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgDepoBilgileri.DateWithTime = false;
             this.DtgDepoBilgileri.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgDepoBilgileri.Location = new System.Drawing.Point(3, 16);
             this.DtgDepoBilgileri.Name = "DtgDepoBilgileri";
             this.DtgDepoBilgileri.ReadOnly = true;
-            this.DtgDepoBilgileri.Size = new System.Drawing.Size(1527, 332);
+            this.DtgDepoBilgileri.Size = new System.Drawing.Size(1527, 623);
             this.DtgDepoBilgileri.TabIndex = 0;
             this.DtgDepoBilgileri.TimeFilter = false;
             // 
@@ -102,7 +105,7 @@ namespace UserInterface.Depo
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(195, 542);
+            this.TxtTop.Location = new System.Drawing.Point(144, 832);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(27, 20);
             this.TxtTop.TabIndex = 314;
@@ -112,11 +115,11 @@ namespace UserInterface.Depo
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(17, 542);
+            this.label1.Location = new System.Drawing.Point(22, 832);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(172, 20);
+            this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 313;
-            this.label1.Text = "Toplam Depo Sayısı:";
+            this.label1.Text = "Toplam Kayıt:";
             // 
             // BtnSearch
             // 
@@ -150,15 +153,9 @@ namespace UserInterface.Depo
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "MALZEME BİLGİLERİ";
             // 
-            // TxtStokNo
-            // 
-            this.TxtStokNo.Location = new System.Drawing.Point(124, 47);
-            this.TxtStokNo.Name = "TxtStokNo";
-            this.TxtStokNo.Size = new System.Drawing.Size(182, 20);
-            this.TxtStokNo.TabIndex = 320;
-            // 
             // DtgMalzemeBilgisi
             // 
+            this.DtgMalzemeBilgisi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeBilgisi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgMalzemeBilgisi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgMalzemeBilgisi.Location = new System.Drawing.Point(3, 16);
@@ -167,11 +164,40 @@ namespace UserInterface.Depo
             this.DtgMalzemeBilgisi.TabIndex = 321;
             this.DtgMalzemeBilgisi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgMalzemeBilgisi_CellMouseClick);
             // 
+            // TxtStokNo
+            // 
+            this.TxtStokNo.Location = new System.Drawing.Point(124, 47);
+            this.TxtStokNo.Name = "TxtStokNo";
+            this.TxtStokNo.Size = new System.Drawing.Size(182, 20);
+            this.TxtStokNo.TabIndex = 320;
+            // 
+            // LblToplamMiktar
+            // 
+            this.LblToplamMiktar.AutoSize = true;
+            this.LblToplamMiktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblToplamMiktar.Location = new System.Drawing.Point(402, 832);
+            this.LblToplamMiktar.Name = "LblToplamMiktar";
+            this.LblToplamMiktar.Size = new System.Drawing.Size(27, 20);
+            this.LblToplamMiktar.TabIndex = 322;
+            this.LblToplamMiktar.Text = "00";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(270, 832);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(126, 20);
+            this.label3.TabIndex = 321;
+            this.label3.Text = "Toplam Miktar:";
+            // 
             // FrmStokGoruntule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.ClientSize = new System.Drawing.Size(1557, 867);
+            this.Controls.Add(this.LblToplamMiktar);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtStokNo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
@@ -208,5 +234,7 @@ namespace UserInterface.Depo
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TextBox TxtStokNo;
         private System.Windows.Forms.DataGridView DtgMalzemeBilgisi;
+        private System.Windows.Forms.Label LblToplamMiktar;
+        private System.Windows.Forms.Label label3;
     }
 }

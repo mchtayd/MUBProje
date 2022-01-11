@@ -55,17 +55,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.advancedDataGridView2 = new ADGV.AdvancedDataGridView();
-            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.Column46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -82,9 +71,6 @@ namespace UserInterface.BakımOnarım
             this.Column58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.label31 = new System.Windows.Forms.Label();
-            this.TxtTop = new System.Windows.Forms.Label();
             this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -105,6 +91,20 @@ namespace UserInterface.BakımOnarım
             this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label31 = new System.Windows.Forms.Label();
+            this.TxtTop = new System.Windows.Forms.Label();
+            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
@@ -381,105 +381,6 @@ namespace UserInterface.BakımOnarım
             this.advancedDataGridView2.TabIndex = 3;
             this.advancedDataGridView2.TimeFilter = false;
             // 
-            // Column35
-            // 
-            this.Column35.HeaderText = "ID";
-            this.Column35.MinimumWidth = 22;
-            this.Column35.Name = "Column35";
-            this.Column35.ReadOnly = true;
-            this.Column35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column35.Width = 43;
-            // 
-            // Column36
-            // 
-            this.Column36.HeaderText = "STOK NO";
-            this.Column36.MinimumWidth = 22;
-            this.Column36.Name = "Column36";
-            this.Column36.ReadOnly = true;
-            this.Column36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column36.Width = 74;
-            // 
-            // Column37
-            // 
-            this.Column37.HeaderText = "TANIM";
-            this.Column37.MinimumWidth = 22;
-            this.Column37.Name = "Column37";
-            this.Column37.ReadOnly = true;
-            this.Column37.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column37.Width = 66;
-            // 
-            // Column38
-            // 
-            this.Column38.HeaderText = "SERİ NO (ÇIKAN)";
-            this.Column38.MinimumWidth = 22;
-            this.Column38.Name = "Column38";
-            this.Column38.ReadOnly = true;
-            this.Column38.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column38.Width = 107;
-            // 
-            // Column39
-            // 
-            this.Column39.HeaderText = "SERİ NO (GİREN)";
-            this.Column39.MinimumWidth = 22;
-            this.Column39.Name = "Column39";
-            this.Column39.ReadOnly = true;
-            this.Column39.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column39.Width = 109;
-            // 
-            // Column40
-            // 
-            this.Column40.HeaderText = "REVİZYON";
-            this.Column40.MinimumWidth = 22;
-            this.Column40.Name = "Column40";
-            this.Column40.ReadOnly = true;
-            this.Column40.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column40.Width = 87;
-            // 
-            // Column41
-            // 
-            this.Column41.HeaderText = "MİKTAR";
-            this.Column41.MinimumWidth = 22;
-            this.Column41.Name = "Column41";
-            this.Column41.ReadOnly = true;
-            this.Column41.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column41.Width = 73;
-            // 
-            // Column42
-            // 
-            this.Column42.HeaderText = "SİSTEM CİHAZ ÇALIŞMA DURUMU";
-            this.Column42.MinimumWidth = 22;
-            this.Column42.Name = "Column42";
-            this.Column42.ReadOnly = true;
-            this.Column42.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column42.Width = 145;
-            // 
-            // Column44
-            // 
-            this.Column44.HeaderText = "SİSTEM CİHAZ FİZİKSEL DURUMU";
-            this.Column44.MinimumWidth = 22;
-            this.Column44.Name = "Column44";
-            this.Column44.ReadOnly = true;
-            this.Column44.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column44.Width = 145;
-            // 
-            // Column43
-            // 
-            this.Column43.HeaderText = "MALZEMEYE YAPILACAK İŞLEM";
-            this.Column43.MinimumWidth = 22;
-            this.Column43.Name = "Column43";
-            this.Column43.ReadOnly = true;
-            this.Column43.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column43.Width = 148;
-            // 
-            // Column45
-            // 
-            this.Column45.HeaderText = "MEVCUT MALZEME DURUMU";
-            this.Column45.MinimumWidth = 22;
-            this.Column45.Name = "Column45";
-            this.Column45.ReadOnly = true;
-            this.Column45.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column45.Width = 168;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.dataGridView1);
@@ -634,36 +535,6 @@ namespace UserInterface.BakımOnarım
             this.advancedDataGridView1.Size = new System.Drawing.Size(1551, 145);
             this.advancedDataGridView1.TabIndex = 4;
             this.advancedDataGridView1.TimeFilter = false;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1565, 341);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "ALT TAKIM ONARIM DURUMU";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(12, 503);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(94, 15);
-            this.label31.TabIndex = 342;
-            this.label31.Text = "Toplam Kayıt:";
-            // 
-            // TxtTop
-            // 
-            this.TxtTop.AutoSize = true;
-            this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 503);
-            this.TxtTop.Name = "TxtTop";
-            this.TxtTop.Size = new System.Drawing.Size(21, 15);
-            this.TxtTop.TabIndex = 343;
-            this.TxtTop.Text = "00";
             // 
             // Column15
             // 
@@ -845,6 +716,135 @@ namespace UserInterface.BakımOnarım
             this.Column34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.Column34.Width = 181;
             // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1565, 341);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "ALT TAKIM ONARIM DURUMU";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label31.Location = new System.Drawing.Point(12, 503);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(94, 15);
+            this.label31.TabIndex = 342;
+            this.label31.Text = "Toplam Kayıt:";
+            // 
+            // TxtTop
+            // 
+            this.TxtTop.AutoSize = true;
+            this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtTop.Location = new System.Drawing.Point(112, 503);
+            this.TxtTop.Name = "TxtTop";
+            this.TxtTop.Size = new System.Drawing.Size(21, 15);
+            this.TxtTop.TabIndex = 343;
+            this.TxtTop.Text = "00";
+            // 
+            // Column35
+            // 
+            this.Column35.HeaderText = "ID";
+            this.Column35.MinimumWidth = 22;
+            this.Column35.Name = "Column35";
+            this.Column35.ReadOnly = true;
+            this.Column35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column35.Width = 43;
+            // 
+            // Column36
+            // 
+            this.Column36.HeaderText = "STOK NO";
+            this.Column36.MinimumWidth = 22;
+            this.Column36.Name = "Column36";
+            this.Column36.ReadOnly = true;
+            this.Column36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column36.Width = 80;
+            // 
+            // Column37
+            // 
+            this.Column37.HeaderText = "TANIM";
+            this.Column37.MinimumWidth = 22;
+            this.Column37.Name = "Column37";
+            this.Column37.ReadOnly = true;
+            this.Column37.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column37.Width = 66;
+            // 
+            // Column38
+            // 
+            this.Column38.HeaderText = "SERİ NO (ÇIKAN)";
+            this.Column38.MinimumWidth = 22;
+            this.Column38.Name = "Column38";
+            this.Column38.ReadOnly = true;
+            this.Column38.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column38.Width = 107;
+            // 
+            // Column39
+            // 
+            this.Column39.HeaderText = "SERİ NO (GİREN)";
+            this.Column39.MinimumWidth = 22;
+            this.Column39.Name = "Column39";
+            this.Column39.ReadOnly = true;
+            this.Column39.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column39.Width = 109;
+            // 
+            // Column40
+            // 
+            this.Column40.HeaderText = "REVİZYON";
+            this.Column40.MinimumWidth = 22;
+            this.Column40.Name = "Column40";
+            this.Column40.ReadOnly = true;
+            this.Column40.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column40.Width = 87;
+            // 
+            // Column41
+            // 
+            this.Column41.HeaderText = "MİKTAR";
+            this.Column41.MinimumWidth = 22;
+            this.Column41.Name = "Column41";
+            this.Column41.ReadOnly = true;
+            this.Column41.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column41.Width = 73;
+            // 
+            // Column42
+            // 
+            this.Column42.HeaderText = "SİSTEM CİHAZ ÇALIŞMA DURUMU";
+            this.Column42.MinimumWidth = 22;
+            this.Column42.Name = "Column42";
+            this.Column42.ReadOnly = true;
+            this.Column42.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column42.Width = 145;
+            // 
+            // Column44
+            // 
+            this.Column44.HeaderText = "SİSTEM CİHAZ FİZİKSEL DURUMU";
+            this.Column44.MinimumWidth = 22;
+            this.Column44.Name = "Column44";
+            this.Column44.ReadOnly = true;
+            this.Column44.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column44.Width = 145;
+            // 
+            // Column43
+            // 
+            this.Column43.HeaderText = "MALZEMEYE YAPILACAK İŞLEM";
+            this.Column43.MinimumWidth = 22;
+            this.Column43.Name = "Column43";
+            this.Column43.ReadOnly = true;
+            this.Column43.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column43.Width = 148;
+            // 
+            // Column45
+            // 
+            this.Column45.HeaderText = "DEPO İŞLEM DURUMU";
+            this.Column45.MinimumWidth = 22;
+            this.Column45.Name = "Column45";
+            this.Column45.ReadOnly = true;
+            this.Column45.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column45.Width = 136;
+            // 
             // FrmArizaDevamEden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -902,17 +902,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label TxtTop;
         private ADGV.AdvancedDataGridView advancedDataGridView1;
         private ADGV.AdvancedDataGridView advancedDataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column38;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column39;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column40;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column41;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column42;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column44;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column43;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column45;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column46;
@@ -947,5 +936,16 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column33;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column34;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column36;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column37;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column38;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column39;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column40;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column41;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column42;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column44;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column43;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column45;
     }
 }

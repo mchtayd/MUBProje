@@ -89,12 +89,12 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public List<IscilikPerformans> GetList()
+        public List<IscilikPerformans> GetList(string personelAd)
         {
             try
             {
                 List<IscilikPerformans> performans = new List<IscilikPerformans>();
-                dataReader = sqlServices.StoreReader("IscilikPerformansList");
+                dataReader = sqlServices.StoreReader("IscilikPerformansList",new SqlParameter("@personelAd",personelAd));
                 while (dataReader.Read())
                 {
                     performans.Add(new IscilikPerformans(

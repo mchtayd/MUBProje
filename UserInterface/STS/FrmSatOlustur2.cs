@@ -228,7 +228,7 @@ namespace UserInterface.STS
             DtgYedekParca.Columns["Malzemeturu"].Visible = false;
             DtgYedekParca.Columns["Malzemetakipdurumu"].Visible = false;
             DtgYedekParca.Columns["Malzemerevizyon"].Visible = false;
-            DtgYedekParca.Columns["Malzemelot"].Visible = false;
+            //DtgYedekParca.Columns["Malzemelot"].Visible = false;
             DtgYedekParca.Columns["Malzemekul"].Visible = false;
             DtgYedekParca.Columns["Aciklama"].Visible = false;
             DtgYedekParca.Columns["Dosyayolu"].Visible = false;

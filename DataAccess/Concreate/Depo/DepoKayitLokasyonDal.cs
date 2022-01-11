@@ -50,9 +50,24 @@ namespace DataAccess.Concreate.Depo
             }
         }
 
-        public DepoKayitLokasyon Get(int id)
+        public List<DepoKayitLokasyon> GetListLokasyon(int depoId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<DepoKayitLokasyon> depoKayitLokasyons = new List<DepoKayitLokasyon>();
+                dataReader = sqlServices.StoreReader("DepoLokasyonBilgileri",new SqlParameter("@depoId", depoId));
+                
+                while (dataReader.Read())
+                {
+                    depoKayitLokasyons.Add(new DepoKayitLokasyon(dataReader["LOKASYON"].ToString()));
+                }
+                dataReader.Close();
+                return depoKayitLokasyons;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<DepoKayitLokasyon> GetList()

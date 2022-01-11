@@ -65,12 +65,12 @@ namespace DataAccess.Concreate.IdariIsler
             throw new NotImplementedException();
         }
 
-        public List<IstenAyrilis> GetList(string tc)
+        public List<IstenAyrilis> GetList(int id)
         {
             try
             {
                 List<IstenAyrilis> istenAyrilis = new List<IstenAyrilis>();
-                dataReader = sqlServices.StoreReader("IstenAyrilisListele",new SqlParameter("@tc",tc));
+                dataReader = sqlServices.StoreReader("IstenAyrilisListele",new SqlParameter("@id", id));
                 while (dataReader.Read())
                 {
                     istenAyrilis.Add(new IstenAyrilis(dataReader["ID"].ConInt(),dataReader["AD_SOYAD"].ToString(), dataReader["SIPARIS"].ToString(), dataReader["SAT"].ToString(), dataReader["BUTCE_KODU"].ToString(),

@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>250</ApplicationRevision>
+    <ApplicationRevision>253</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -309,6 +309,12 @@
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleri.Designer.cs">
       <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.Designer.cs">
+      <DependentUpon>FrmMalzemeHazirlama.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayitIzleme.cs">
       <SubType>Form</SubType>
@@ -899,6 +905,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoHareketleri.resx">
       <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.resx">
+      <DependentUpon>FrmMalzemeHazirlama.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeKayitIzleme.resx">
       <DependentUpon>FrmMalzemeKayitIzleme.cs</DependentUpon>

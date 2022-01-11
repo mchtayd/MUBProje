@@ -8,7 +8,7 @@ namespace Entity.Gecic_Kabul_Ambar
 {
     public class MalzemeKayit
     {
-        int id; string stokno, tanim, birim, tedarikcifirma, malzemeonarimdurumu, malzemeonarımyeri, malzemeturu, malzemetakipdurumu, malzemerevizyon, malzemelot, malzemekul, aciklama, dosyayolu, alternatifMalzeme;
+        int id; string stokno, tanim, birim, tedarikcifirma, malzemeonarimdurumu, malzemeonarımyeri, malzemeturu, malzemetakipdurumu, malzemerevizyon, malzemekul, aciklama, dosyayolu, alternatifMalzeme;
 
         public int Id { get => id; set => id = value; }
         public string Stokno { get => stokno; set => stokno = value; }
@@ -20,13 +20,12 @@ namespace Entity.Gecic_Kabul_Ambar
         public string Malzemeturu { get => malzemeturu; set => malzemeturu = value; }
         public string Malzemetakipdurumu { get => malzemetakipdurumu; set => malzemetakipdurumu = value; }
         public string Malzemerevizyon { get => malzemerevizyon; set => malzemerevizyon = value; }
-        public string Malzemelot { get => malzemelot; set => malzemelot = value; }
         public string Malzemekul { get => malzemekul; set => malzemekul = value; }
         public string Aciklama { get => aciklama; set => aciklama = value; }
         public string Dosyayolu { get => dosyayolu; set => dosyayolu = value; }
         public string AlternatifMalzeme { get => alternatifMalzeme; set => alternatifMalzeme = value; }
 
-        public MalzemeKayit(int id, string stokno, string tanim, string birim, string tedarikcifirma, string malzemeonarimdurumu, string malzemeonarımyeri, string malzemeturu, string malzemetakipdurumu, string malzemerevizyon, string malzemelot, string malzemekul, string aciklama, string dosyayolu,string alternatifMalzeme)
+        public MalzemeKayit(int id, string stokno, string tanim, string birim, string tedarikcifirma, string malzemeonarimdurumu, string malzemeonarımyeri, string malzemeturu, string malzemetakipdurumu, string malzemerevizyon, string malzemekul, string aciklama, string dosyayolu,string alternatifMalzeme)
         {
             this.Id = id;
             this.stokno = stokno;
@@ -38,14 +37,13 @@ namespace Entity.Gecic_Kabul_Ambar
             this.Malzemeturu = malzemeturu;
             this.Malzemetakipdurumu = malzemetakipdurumu;
             this.Malzemerevizyon = malzemerevizyon;
-            this.Malzemelot = malzemelot;
             this.Malzemekul = malzemekul;
             this.Aciklama = aciklama;
             this.Dosyayolu = dosyayolu;
             this.alternatifMalzeme = alternatifMalzeme;
         }
 
-        public MalzemeKayit(string stokno, string tanim, string birim, string tedarikcifirma, string malzemeonarimdurumu, string malzemeonarımyeri, string malzemeturu, string malzemetakipdurumu, string malzemerevizyon, string malzemelot, string malzemekul, string aciklama, string dosyayolu, string alternatifMalzeme)
+        public MalzemeKayit(string stokno, string tanim, string birim, string tedarikcifirma, string malzemeonarimdurumu, string malzemeonarımyeri, string malzemeturu, string malzemetakipdurumu, string malzemerevizyon, string malzemekul, string aciklama, string dosyayolu, string alternatifMalzeme)
         {
             this.stokno = stokno;
             this.Tanim = tanim;
@@ -56,7 +54,6 @@ namespace Entity.Gecic_Kabul_Ambar
             this.Malzemeturu = malzemeturu;
             this.Malzemetakipdurumu = malzemetakipdurumu;
             this.Malzemerevizyon = malzemerevizyon;
-            this.Malzemelot = malzemelot;
             this.Malzemekul = malzemekul;
             this.Aciklama = aciklama;
             this.Dosyayolu = dosyayolu;

@@ -63,7 +63,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["Malzemeturu"].HeaderText = "MALZEME TÜRÜ";
             DtgList.Columns["Malzemetakipdurumu"].HeaderText = "MALZEME TAKİP DURUMU";
             DtgList.Columns["Malzemerevizyon"].HeaderText = "MALZEME REVİZYON";
-            DtgList.Columns["Malzemelot"].HeaderText = "MALZEME LOT NO";
+            //DtgList.Columns["Malzemelot"].HeaderText = "MALZEME LOT NO";
             DtgList.Columns["Malzemekul"].HeaderText = "MALZEMENİN KULLANILDIĞI ÜST TAKIM STOK NO";
             DtgList.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
             DtgList.Columns["Dosyayolu"].Visible = false;

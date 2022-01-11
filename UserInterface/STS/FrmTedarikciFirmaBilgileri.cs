@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Gecic_Kabul_Ambar;
 
 namespace UserInterface.STS
 {
@@ -93,8 +94,8 @@ namespace UserInterface.STS
         }
         void CmbIlYükle()
         {
-            CmbIl.DataSource = tedarikciFirmaManager.Iller();           
-            CmbIl.SelectedIndex = -1;            
+            CmbIl.DataSource = tedarikciFirmaManager.Iller();
+            CmbIl.SelectedIndex = -1;
 
             il = CmbIl.Text;
         }
@@ -109,7 +110,7 @@ namespace UserInterface.STS
             {
                 return;
             }
-            CmbIlce.DataSource = tedarikciFirmaManager.Ilceler(il);          
+            CmbIlce.DataSource = tedarikciFirmaManager.Ilceler(il);
         }
 
         void Temizle()
@@ -198,15 +199,24 @@ namespace UserInterface.STS
             dataBinder.Sort = DtgTeklifAl.SortString;
         }
 
+        private void FrmTedarikciFirmaBilgileri_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var form = (FrmMalzemeKayit)Application.OpenForms["FrmMalzemeKayit"];
+            if (form != null)
+            {
+                form.CmbFirmalarLoad();
+            }
+        }
+
         private void BtnSil_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Firmayı Silmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
             {
-                if (id==1)
+                if (id == 1)
                 {
-                    MessageBox.Show("Bu İşlem Gerçekleşemez.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                    MessageBox.Show("Bu İşlem Gerçekleşemez.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
                 }
                 control = tedarikciFirmaManager.Delete(id);
@@ -224,5 +234,6 @@ namespace UserInterface.STS
         {
             Temizle();
         }
+
     }
 }

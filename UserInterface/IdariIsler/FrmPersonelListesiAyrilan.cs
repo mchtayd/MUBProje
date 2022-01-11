@@ -105,7 +105,7 @@ namespace UserInterface.IdariIsler
         private void Temizle()
         {
             TxtOkul.Clear(); TxtBolum.Clear(); TxtDipNotu.Clear(); TxtDurum.Clear(); TxtSinif.Clear(); TxtRutbesi.Clear(); TxtGorevi.Clear();
-            TxtGorevYeri.Clear(); TxtTecilSebebi.Clear(); TxtMuafNedeni.Clear(); MsdAyrilisTarihi.Clear(); TxtAyrilisNedeni.Clear(); TxtAyrilisAciklama.Clear();
+            TxtGorevYeri.Clear(); TxtTecilSebebi.Clear(); TxtMuafNedeni.Clear(); TxtAyrilisNedeni.Clear(); TxtAyrilisAciklama.Clear();
             Txtadsoyad.Clear(); MsdTc.Clear(); TxtHes.Clear(); TxtSicilno.Clear(); TxtKan.Clear(); TxtEsad.Clear(); MsdEsTelefon.Clear();
             TxtIkametgah.Clear(); TxtMedeniDurum.Clear(); TxtEsIsDurumu.Clear(); TxtCocukSayisi.Clear(); TxtDogumYeri.Clear(); TxtSiparis.Clear(); TxtSat.Clear();
             TxtButceKodu.Clear(); TxtButceKalemi.Clear(); TxtSicil.Clear(); TxtMasrafYeriNo.Clear(); TxtMasrafYeri.Clear(); MsdSırketCepNo.Clear(); MsdKisaKod.Clear();
@@ -178,10 +178,10 @@ namespace UserInterface.IdariIsler
                 MsdKisaKod.Text = item.Sirketkisakod;
                 MsdDahiliNo.Text = item.Dahilino;
                 TxtIsUnvani.Text = item.Isunvani;
-                MsdIseGiris.Text = item.Isegiristarihi.ToString();
+                MsdIseGiris.Value = item.Isegiristarihi;
                 TxtSirketMail.Text = item.Sirketmail;
                 TxtOfficeMail.Text = item.Oficemail;
-                MsdAyrilisTarihi.Text = item.Istenayrilistarihi.ToString();
+                MsdAyrilisTarihi.Value = item.Istenayrilistarihi;
                 TxtAyrilisNedeni.Text = item.Ayrilisnedeni;
                 TxtAyrilisAciklama.Text = item.Istenayrilisaciklama;
             }
@@ -210,8 +210,8 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
-            string tc = DtgPersoneller.CurrentRow.Cells["Tc"].Value.ToString();
-            istenAyrilis = istenAyrilisManager.GetList(tc);
+            int id = DtgPersoneller.CurrentRow.Cells["Id"].Value.ConInt();
+            istenAyrilis = istenAyrilisManager.GetList(id);
 
             string siparisNo = DtgPersoneller.CurrentRow.Cells["SiparisNo"].Value.ToString();
             DtgIslemAdimlari.DataSource = devamEdenIzlemeManager.GetList(siparisNo);
@@ -279,8 +279,8 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
-            string tc = DtgPersoneller.CurrentRow.Cells["Tc"].Value.ToString();
-            istenAyrilis = istenAyrilisManager.GetList(tc);
+            int id = DtgPersoneller.CurrentRow.Cells["Id"].Value.ConInt();
+            istenAyrilis = istenAyrilisManager.GetList(id);
 
             string siparisNo = DtgPersoneller.CurrentRow.Cells["SiparisNo"].Value.ToString();
             DtgIslemAdimlari.DataSource = devamEdenIzlemeManager.GetList(siparisNo);

@@ -55,11 +55,48 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public StokGirisCıkıs Get(string stokNo)
+        public StokGirisCıkıs DepoRafBul(string stokNo,string depoNo)
         {
             try
             {
-                return stokGirisCikisDal.Get(stokNo);
+                return stokGirisCikisDal.DepoRafBul(stokNo, depoNo);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        public StokGirisCıkıs BildirimdenDepoya(string stokNo, string seriNo,string lotNo,string revizyon,string dusulenDepoAbf)
+        {
+            try
+            {
+                return stokGirisCikisDal.BildirimdenDepoya(stokNo, seriNo, lotNo, revizyon, dusulenDepoAbf);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        public StokGirisCıkıs Get(string stokNo, string depoNo, string seriNo, string lotNo, string revizyon)
+        {
+            try
+            {
+                return stokGirisCikisDal.Get(stokNo,depoNo,seriNo,lotNo,revizyon);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        
+        public StokGirisCıkıs StokGor(string stokNo)
+        {
+            try
+            {
+                return stokGirisCikisDal.StokGor(stokNo);
             }
             catch (Exception)
             {
@@ -68,11 +105,11 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public List<StokGirisCıkıs> GetList(string stokNo="")
+        public List<StokGirisCıkıs> GetList(string stokNo="",string seriNo="")
         {
             try
             {
-                return stokGirisCikisDal.GetList(stokNo);
+                return stokGirisCikisDal.GetList(stokNo, seriNo);
             }
             catch (Exception)
             {
@@ -106,7 +143,7 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
         }
         string Complete(StokGirisCıkıs stokGirisCıkıs)
         {
-            if (string.IsNullOrEmpty(stokGirisCıkıs.Islemturu))
+            /*if (string.IsNullOrEmpty(stokGirisCıkıs.Islemturu))
             {
                 return "Lütfen İŞLEM TÜRÜ Bilgisini doldurunuz.";
             }
@@ -145,7 +182,7 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             if (string.IsNullOrEmpty(stokGirisCıkıs.Aciklama))
             {
                 return "Lütfen AÇIKLAMA Bilgisini doldurunuz.";
-            }
+            }*/
             return "";
         }
     }

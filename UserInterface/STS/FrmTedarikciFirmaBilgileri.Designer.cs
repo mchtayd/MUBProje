@@ -30,7 +30,7 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgTeklifAl = new ADGV.AdvancedDataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -84,8 +84,8 @@ namespace UserInterface.STS
             // 
             this.DtgTeklifAl.AllowUserToAddRows = false;
             this.DtgTeklifAl.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTeklifAl.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTeklifAl.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgTeklifAl.AutoGenerateContextFilters = true;
             this.DtgTeklifAl.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgTeklifAl.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -411,6 +411,7 @@ namespace UserInterface.STS
             this.Name = "FrmTedarikciFirmaBilgileri";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Tedarikçi Firma Bilgileri";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmTedarikciFirmaBilgileri_FormClosing);
             this.Load += new System.EventHandler(this.FrmTedarikciFirmaBilgileri_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgTeklifAl)).EndInit();
