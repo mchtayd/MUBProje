@@ -185,7 +185,7 @@ namespace UserInterface.STS
             DtgStokList.Columns["Malzemeturu"].Visible = false;
             DtgStokList.Columns["Malzemetakipdurumu"].Visible = false;
             DtgStokList.Columns["Malzemerevizyon"].Visible = false;
-            DtgStokList.Columns["Malzemelot"].Visible = false;
+            //DtgStokList.Columns["Malzemelot"].Visible = false;
             DtgStokList.Columns["Malzemekul"].Visible = false;
             DtgStokList.Columns["Aciklama"].Visible = false;
             DtgStokList.Columns["Dosyayolu"].Visible = false;

@@ -28,6 +28,7 @@ namespace UserInterface.BakımOnarım
         List<IscilikDestekTabloArac> destekTablosArac;
         List<IscilikDestekIscilik> destekIsciliks;
         List<IscilikPerformans> ıscilikPerformans;
+        List<IscilikPerformans> performansHatalilar;
         List<AracZimmeti> aracZimmetis;
         string siparisNo = "";
         bool start = false;
@@ -48,9 +49,20 @@ namespace UserInterface.BakımOnarım
             Personeller3();
             Plakalar();
             DataDisplayDestekIscilik();
+            DataDisplayPerformansHatali();
             start = true;
         }
-
+        public void Yenileneckler()
+        {
+            start = false;
+            //Personeller();
+            //Personeller2();
+            //Personeller3();
+            //Plakalar();
+            DataDisplayDestekIscilik();
+            DataDisplayPerformansHatali();
+            start = true;
+        }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)System.Windows.Forms.Application.OpenForms["FrmAnasayfa"];
@@ -102,8 +114,15 @@ namespace UserInterface.BakımOnarım
             DtgDestekIscilik.DataSource = dataBinderDestek;
             TxtTopDestek.Text = DtgDestekIscilik.RowCount.ToString();
             DestekIscilikDisplay();
+        }
 
-
+        void DataDisplayPerformansHatali()
+        {
+            performansHatalilar = performansManager.PerformansHatalilar();
+            dataBinderPerformansHatali.DataSource = performansHatalilar.ToDataTable();
+            DtgHataliBildirilenler.DataSource = dataBinderPerformansHatali;
+            LblTopHatalilar.Text = DtgHataliBildirilenler.RowCount.ToString();
+            PerformansDisplay();
         }
         void DestekIscilikDisplay()
         {
@@ -119,6 +138,21 @@ namespace UserInterface.BakımOnarım
             DtgDestekIscilik.Columns["BitisTarihiArac"].HeaderText = "BİTİŞ TARİHİ (ARAÇ)";
             DtgDestekIscilik.Columns["ToplamSureArac"].HeaderText = "TOPLAM SÜRE (ARAÇ)";
             DtgDestekIscilik.Columns["SiparisNo"].Visible = false;
+        }
+        void PerformansDisplay()
+        {
+            DtgHataliBildirilenler.Columns["Id"].Visible = false;
+            DtgHataliBildirilenler.Columns["IscilikTuru"].HeaderText = "İŞÇİLİK TÜRÜ";
+            DtgHataliBildirilenler.Columns["Personel"].HeaderText = "PERSONEL";
+            DtgHataliBildirilenler.Columns["MevcutDuragi"].HeaderText = "MEVCUT DURAĞI";
+            DtgHataliBildirilenler.Columns["IstikametDuragi"].HeaderText = "İSTİKAMET DURAĞI";
+            DtgHataliBildirilenler.Columns["CikisTarihiSaati"].HeaderText = "ÇIKIŞ TARİHİ SAATİ";
+            DtgHataliBildirilenler.Columns["CikisDuragi"].HeaderText = "ÇIKIŞ DURAĞI";
+            DtgHataliBildirilenler.Columns["CikisSebebi"].HeaderText = "ÇIKIŞ SEBEBİ";
+            DtgHataliBildirilenler.Columns["VarisDurag"].HeaderText = "VARIŞ DURAĞI";
+            DtgHataliBildirilenler.Columns["VarisTarihiSaat"].HeaderText = "VARIŞ TARİHİ SAATİ";
+            DtgHataliBildirilenler.Columns["Sonuc"].HeaderText = "SONUÇ";
+            DtgHataliBildirilenler.Columns["Hata"].HeaderText = "HATA";
         }
 
         private void DtgDestekIscilik_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -240,6 +274,7 @@ namespace UserInterface.BakımOnarım
             DtgPerformans.Columns["VarisDurag"].HeaderText = "VARIŞ DURAĞI";
             DtgPerformans.Columns["VarisTarihiSaat"].HeaderText = "VARIŞ TARİHİ SAATİ";
             DtgPerformans.Columns["Sonuc"].HeaderText = "SONUÇ";
+            DtgPerformans.Columns["Hata"].HeaderText = "HATA";
 
             LblTop.Text = DtgPerformans.RowCount.ToString();
         }

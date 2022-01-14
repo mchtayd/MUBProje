@@ -14,6 +14,7 @@ using UserInterface.BakımOnarım;
 using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.IdariIşler;
 using UserInterface.IdariIsler;
+using UserInterface.Yerleskeler;
 
 namespace UserInterface.Ana_Sayfa
 {
@@ -252,6 +253,14 @@ namespace UserInterface.Ana_Sayfa
                 if (form != null)
                 {
                     form.MalzemeTuru();
+                }
+            }
+            if (comboAd == "ABONE_TURU")
+            {
+                var form = (FrmYerleskeKayit)Application.OpenForms["FrmYerleskeKayit"];
+                if (form != null)
+                {
+                    form.AbonelikTuru();
                 }
             }
         }

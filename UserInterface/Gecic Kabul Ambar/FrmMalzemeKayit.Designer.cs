@@ -75,29 +75,28 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnOnarimYeriEkle = new System.Windows.Forms.Button();
             this.BtnMalzemeTuruEkle = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.TxtAciklama = new System.Windows.Forms.RichTextBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.label13 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.advancedDataGridView2 = new ADGV.AdvancedDataGridView();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnBolgeEkle = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
             this.CmbDepoAdresleri = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TxtAciklama = new System.Windows.Forms.RichTextBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -548,15 +547,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "KULLANILDIĞI SİSTEM BİLGİLERİ";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(30, 96);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(111, 15);
-            this.label11.TabIndex = 317;
-            this.label11.Text = "Sistem Sorumlusu:";
-            // 
             // comboBox1
             // 
             this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -565,6 +555,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(238, 23);
             this.comboBox1.TabIndex = 323;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(30, 96);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(111, 15);
+            this.label11.TabIndex = 317;
+            this.label11.Text = "Sistem Sorumlusu:";
             // 
             // tabControl1
             // 
@@ -587,6 +586,23 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "SİSTEM";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(28, 27);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 15);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Stok No:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox2.Location = new System.Drawing.Point(87, 24);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(154, 21);
+            this.textBox2.TabIndex = 4;
             // 
             // tabPage2
             // 
@@ -638,23 +654,112 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage2.Text = "PARÇA";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // TxtAciklama
+            // groupBox3
             // 
-            this.TxtAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtAciklama.Location = new System.Drawing.Point(152, 527);
-            this.TxtAciklama.Name = "TxtAciklama";
-            this.TxtAciklama.Size = new System.Drawing.Size(826, 66);
-            this.TxtAciklama.TabIndex = 322;
-            this.TxtAciklama.Text = "";
+            this.groupBox3.Controls.Add(this.button2);
+            this.groupBox3.Controls.Add(this.groupBox4);
+            this.groupBox3.Controls.Add(this.BtnBolgeEkle);
+            this.groupBox3.Controls.Add(this.label12);
+            this.groupBox3.Controls.Add(this.CmbDepoAdresleri);
+            this.groupBox3.Location = new System.Drawing.Point(152, 304);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(407, 204);
+            this.groupBox3.TabIndex = 340;
+            this.groupBox3.TabStop = false;
             // 
-            // label7
+            // button2
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(78, 530);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 15);
-            this.label7.TabIndex = 323;
-            this.label7.Text = "AÇIKLAMA:";
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.Location = new System.Drawing.Point(307, 19);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(83, 29);
+            this.button2.TabIndex = 340;
+            this.button2.Text = "EKLE";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.advancedDataGridView2);
+            this.groupBox4.Location = new System.Drawing.Point(35, 50);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(355, 144);
+            this.groupBox4.TabIndex = 50;
+            this.groupBox4.TabStop = false;
+            // 
+            // advancedDataGridView2
+            // 
+            this.advancedDataGridView2.AllowUserToAddRows = false;
+            this.advancedDataGridView2.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.advancedDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.advancedDataGridView2.AutoGenerateContextFilters = true;
+            this.advancedDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.advancedDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advancedDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2});
+            this.advancedDataGridView2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.advancedDataGridView2.DateWithTime = false;
+            this.advancedDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.advancedDataGridView2.Location = new System.Drawing.Point(3, 17);
+            this.advancedDataGridView2.MultiSelect = false;
+            this.advancedDataGridView2.Name = "advancedDataGridView2";
+            this.advancedDataGridView2.ReadOnly = true;
+            this.advancedDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.advancedDataGridView2.Size = new System.Drawing.Size(349, 124);
+            this.advancedDataGridView2.TabIndex = 2;
+            this.advancedDataGridView2.TimeFilter = false;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "STOK NO";
+            this.Column1.MinimumWidth = 22;
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column1.Width = 85;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "TANIM";
+            this.Column2.MinimumWidth = 22;
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Column2.Width = 69;
+            // 
+            // BtnBolgeEkle
+            // 
+            this.BtnBolgeEkle.AccessibleDescription = "";
+            this.BtnBolgeEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
+            this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBolgeEkle.Location = new System.Drawing.Point(270, 18);
+            this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBolgeEkle.Name = "BtnBolgeEkle";
+            this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnBolgeEkle.TabIndex = 397;
+            this.BtnBolgeEkle.Tag = "admin";
+            this.BtnBolgeEkle.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(12, 26);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(111, 15);
+            this.label12.TabIndex = 340;
+            this.label12.Text = "Üst Takım Stok No:";
+            // 
+            // CmbDepoAdresleri
+            // 
+            this.CmbDepoAdresleri.FormattingEnabled = true;
+            this.CmbDepoAdresleri.Location = new System.Drawing.Point(129, 23);
+            this.CmbDepoAdresleri.Name = "CmbDepoAdresleri";
+            this.CmbDepoAdresleri.Size = new System.Drawing.Size(138, 23);
+            this.CmbDepoAdresleri.TabIndex = 0;
             // 
             // label15
             // 
@@ -692,140 +797,23 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label13.Text = "Mazleme ile ilgili teknik bilgiler marka model vb. bilgiler ile gerekli duyulan a" +
     "çıklamalar girilir.";
             // 
-            // groupBox3
+            // TxtAciklama
             // 
-            this.groupBox3.Controls.Add(this.button2);
-            this.groupBox3.Controls.Add(this.groupBox4);
-            this.groupBox3.Controls.Add(this.BtnBolgeEkle);
-            this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.CmbDepoAdresleri);
-            this.groupBox3.Location = new System.Drawing.Point(152, 304);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(407, 204);
-            this.groupBox3.TabIndex = 340;
-            this.groupBox3.TabStop = false;
+            this.TxtAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtAciklama.Location = new System.Drawing.Point(152, 527);
+            this.TxtAciklama.Name = "TxtAciklama";
+            this.TxtAciklama.Size = new System.Drawing.Size(826, 66);
+            this.TxtAciklama.TabIndex = 322;
+            this.TxtAciklama.Text = "";
             // 
-            // button2
+            // label7
             // 
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(294, 16);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(83, 29);
-            this.button2.TabIndex = 340;
-            this.button2.Text = "EKLE";
-            this.button2.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.advancedDataGridView2);
-            this.groupBox4.Location = new System.Drawing.Point(22, 47);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(355, 144);
-            this.groupBox4.TabIndex = 50;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "KONTROL EDİLECEK DEPO LİSTESİ";
-            // 
-            // advancedDataGridView2
-            // 
-            this.advancedDataGridView2.AllowUserToAddRows = false;
-            this.advancedDataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.advancedDataGridView2.AutoGenerateContextFilters = true;
-            this.advancedDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.advancedDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column17,
-            this.Column18,
-            this.Column19});
-            this.advancedDataGridView2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.advancedDataGridView2.DateWithTime = false;
-            this.advancedDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.advancedDataGridView2.Location = new System.Drawing.Point(3, 17);
-            this.advancedDataGridView2.MultiSelect = false;
-            this.advancedDataGridView2.Name = "advancedDataGridView2";
-            this.advancedDataGridView2.ReadOnly = true;
-            this.advancedDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.advancedDataGridView2.Size = new System.Drawing.Size(349, 124);
-            this.advancedDataGridView2.TabIndex = 2;
-            this.advancedDataGridView2.TimeFilter = false;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "DEPO ADRESİ";
-            this.Column17.MinimumWidth = 22;
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column17.Width = 113;
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "DEPO ADI";
-            this.Column18.MinimumWidth = 22;
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            this.Column18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column18.Width = 88;
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "KALDIR";
-            this.Column19.MinimumWidth = 22;
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            this.Column19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column19.Width = 75;
-            // 
-            // BtnBolgeEkle
-            // 
-            this.BtnBolgeEkle.AccessibleDescription = "";
-            this.BtnBolgeEkle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
-            this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolgeEkle.Location = new System.Drawing.Point(257, 15);
-            this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnBolgeEkle.Name = "BtnBolgeEkle";
-            this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);
-            this.BtnBolgeEkle.TabIndex = 397;
-            this.BtnBolgeEkle.Tag = "admin";
-            this.BtnBolgeEkle.UseVisualStyleBackColor = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(19, 21);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 15);
-            this.label12.TabIndex = 340;
-            this.label12.Text = "Depo Adresleri:";
-            // 
-            // CmbDepoAdresleri
-            // 
-            this.CmbDepoAdresleri.FormattingEnabled = true;
-            this.CmbDepoAdresleri.Location = new System.Drawing.Point(116, 20);
-            this.CmbDepoAdresleri.Name = "CmbDepoAdresleri";
-            this.CmbDepoAdresleri.Size = new System.Drawing.Size(138, 23);
-            this.CmbDepoAdresleri.TabIndex = 0;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(28, 27);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 15);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "Stok No:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(87, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 21);
-            this.textBox2.TabIndex = 4;
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(78, 530);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(68, 15);
+            this.label7.TabIndex = 323;
+            this.label7.Text = "AÇIKLAMA:";
             // 
             // FrmMalzemeKayit
             // 
@@ -921,13 +909,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox4;
         private ADGV.AdvancedDataGridView advancedDataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewButtonColumn Column19;
         private System.Windows.Forms.Button BtnBolgeEkle;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.ComboBox CmbDepoAdresleri;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
     }
 }

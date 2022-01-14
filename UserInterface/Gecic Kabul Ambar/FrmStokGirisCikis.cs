@@ -154,16 +154,6 @@ namespace UserInterface.Depo
             c.DefaultCellStyle.BackColor = Color.Gainsboro;
         }
 
-        private void AdvMalzemeOnizleme_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            var senderGrid = (DataGridView)sender;
-
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
-            {
-                AdvMalzemeOnizleme.Rows.RemoveAt(e.RowIndex);
-            }
-        }
-
         private void CmbStokNo_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start)

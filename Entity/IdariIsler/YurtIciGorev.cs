@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class YurtIciGorev
     {
-        int id, isakisno; string gorevemrino, gorevinkonusu, proje, gidilecekyer; DateTime baslamatarihi, bitistarihi; string toplamsure, butcekodu, siparisno, adsoyad, unvani, masrafyerino, masrafyeri, ulasimgidis, ulasimgorevyeri, ulasimdonus; int konaklamagun; double konaklamaguntl, konaklamatoplam; int kiralamagun; double kiralamaguntl, kiralamayakit, kiralamatoplam; int seyahatavansgun; double seyahatguntl, seyahattoplam, ucakbileti, otobusbileti; string plaka; double cikiskm, donuskm, toplamkm; double geneltoplam; string islemadimi, dosyayolu, sayfa, kalanSure,konaklamaTuru;
+        int id, isakisno; string gorevemrino, gorevinkonusu, proje, gidilecekyer; DateTime baslamatarihi, bitistarihi; string toplamsure, butcekodu, siparisno, adsoyad, unvani, masrafyerino, masrafyeri, ulasimgidis, ulasimgorevyeri, ulasimdonus; int konaklamagun; double konaklamaguntl, konaklamatoplam; int kiralamagun; double kiralamaguntl, kiralamayakit, kiralamatoplam; int seyahatavansgun; double seyahatguntl, seyahattoplam; int harcirahGun; double harcirahGunTl, harcirahToplam; int iaseGun; double iaseGunTl, iaseToplam, ucakbileti, otobusbileti; string plaka; double cikiskm, donuskm, toplamkm; double geneltoplam; string islemadimi, dosyayolu, sayfa, kalanSure, konaklamaTuru;
 
         public int Id { get => id; set => id = value; }
         public int Isakisno { get => isakisno; set => isakisno = value; }
@@ -50,10 +50,16 @@ namespace Entity.IdariIsler
         public string Unvani { get => unvani; set => unvani = value; }
         public string KalanSure { get => kalanSure; set => kalanSure = value; }
         public string KonaklamaTuru { get => konaklamaTuru; set => konaklamaTuru = value; }
+        public int HarcirahGun { get => harcirahGun; set => harcirahGun = value; }
+        public double HarcirahGunTl { get => harcirahGunTl; set => harcirahGunTl = value; }
+        public double HarcirahToplam { get => harcirahToplam; set => harcirahToplam = value; }
+        public int IaseGun { get => iaseGun; set => iaseGun = value; }
+        public double IaseGunTl { get => iaseGunTl; set => iaseGunTl = value; }
+        public double IaseToplam { get => iaseToplam; set => iaseToplam = value; }
 
 
         //kaydet
-        public YurtIciGorev(int isakisno, string gorevemrino, string gorevinkonusu, string proje, string gidilecekyer, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string butcekodu, string siparisno, string adsoyad, string unvani, string masrafyerino, string masrafyeri, string ulasimgidis, string ulasimgorevyeri, string ulasimdonus, int konaklamagun, double konaklamaguntl, double konaklamatoplam, int kiralamagun, double kiralamaguntl, double kiralamatoplam, int seyahatavansgun, double seyahatguntl, double seyahattoplam, double ucakbileti, double otobusbileti, double geneltoplam, string plaka, double cikiskm, string islemadimi, string dosyayolu,string konaklamaTuru)
+        public YurtIciGorev(int isakisno, string gorevemrino, string gorevinkonusu, string proje, string gidilecekyer, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string butcekodu, string siparisno, string adsoyad, string unvani, string masrafyerino, string masrafyeri, string ulasimgidis, string ulasimgorevyeri, string ulasimdonus, int konaklamagun, double konaklamaguntl, double konaklamatoplam, int kiralamagun, double kiralamaguntl, double kiralamatoplam, int seyahatavansgun, double seyahatguntl, double seyahattoplam, int harcirahGun, double harcirahGunTl, double harcirahGunToplam, int iaseGun, double iaseGunTl,double iaseGunTop,   double ucakbileti, double otobusbileti, double geneltoplam, string plaka, double cikiskm, string islemadimi, string dosyayolu,string konaklamaTuru)
         {
             this.isakisno = isakisno;
             this.gorevemrino = gorevemrino;
@@ -89,9 +95,15 @@ namespace Entity.IdariIsler
             this.dosyayolu = dosyayolu;
             this.unvani = unvani;
             this.konaklamaTuru = konaklamaTuru;
+            this.harcirahGun = harcirahGun;
+            this.harcirahGunTl = harcirahGunTl;
+            this.harcirahToplam = harcirahGunToplam;
+            this.iaseGun = iaseGun;
+            this.iaseGunTl = iaseGunTl;
+            this.iaseToplam = iaseGunTop;
         }
         //güncelleme
-        public YurtIciGorev(int isakisno, string gorevemrino, string gorevinkonusu, string proje, string gidilecekyer, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string butcekodu, string siparisno, string adsoyad, string unvani, string masrafyerino, string masrafyeri, string ulasimgidis, string ulasimgorevyeri, string ulasimdonus, int konaklamagun, double konaklamaguntl, double konaklamatoplam, int kiralamagun, double kiralamaguntl, double kiralamayakit, double kiralamatoplam, int seyahatavansgun, double seyahatguntl, double seyahattoplam, double ucakbileti, double otobusbileti, string plaka, double cikiskm, double donuskm, double toplamkm, double geneltoplam, string islemadimi, string dosyayolu,string konaklamaTuru)
+        public YurtIciGorev(int isakisno, string gorevemrino, string gorevinkonusu, string proje, string gidilecekyer, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string butcekodu, string siparisno, string adsoyad, string unvani, string masrafyerino, string masrafyeri, string ulasimgidis, string ulasimgorevyeri, string ulasimdonus, int konaklamagun, double konaklamaguntl, double konaklamatoplam, int kiralamagun, double kiralamaguntl, double kiralamayakit, double kiralamatoplam, int seyahatavansgun, double seyahatguntl, double seyahattoplam, int harcirahGun, double harcirahGunTl, double harcirahGunToplam, int iaseGun, double iaseGunTl, double iaseGunTop, double ucakbileti, double otobusbileti, string plaka, double cikiskm, double donuskm, double toplamkm, double geneltoplam, string islemadimi, string dosyayolu,string konaklamaTuru)
         {
             this.isakisno = isakisno;
             this.gorevemrino = gorevemrino;
@@ -130,9 +142,15 @@ namespace Entity.IdariIsler
             this.dosyayolu = dosyayolu;
             this.unvani = unvani;
             this.konaklamaTuru = konaklamaTuru;
+            this.harcirahGun = harcirahGun;
+            this.harcirahGunTl = harcirahGunTl;
+            this.harcirahToplam = harcirahGunToplam;
+            this.iaseGun = iaseGun;
+            this.iaseGunTl = iaseGunTl;
+            this.iaseToplam = iaseGunTop;
         }
         //List
-        public YurtIciGorev(int id, int isakisno, string gorevemrino, string gorevinkonusu, string proje, string gidilecekyer, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string butcekodu, string siparisno, string adsoyad, string unvani, string masrafyerino, string masrafyeri, string ulasimgidis, string ulasimgorevyeri, string ulasimdonus, int konaklamagun, double konaklamaguntl, double konaklamatoplam, int kiralamagun, double kiralamaguntl, double kiralamayakit, double kiralamatoplam, int seyahatavansgun, double seyahatguntl, double seyahattoplam, double ucakbileti, double otobusbileti, string plaka, double cikiskm, double donuskm, double toplamkm, double geneltoplam, string islemadimi, string dosyayolu, string sayfa,string konaklamaTuru)
+        public YurtIciGorev(int id, int isakisno, string gorevemrino, string gorevinkonusu, string proje, string gidilecekyer, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string butcekodu, string siparisno, string adsoyad, string unvani, string masrafyerino, string masrafyeri, string ulasimgidis, string ulasimgorevyeri, string ulasimdonus, int konaklamagun, double konaklamaguntl, double konaklamatoplam, int kiralamagun, double kiralamaguntl, double kiralamayakit, double kiralamatoplam, int seyahatavansgun, double seyahatguntl, double seyahattoplam, int harcirahGun, double harcirahGunTl, double harcirahGunToplam, int iaseGun, double iaseGunTl, double iaseGunTop, double ucakbileti, double otobusbileti, string plaka, double cikiskm, double donuskm, double toplamkm, double geneltoplam, string islemadimi, string dosyayolu, string sayfa,string konaklamaTuru)
         {
             this.id = id;
             this.isakisno = isakisno;
@@ -173,6 +191,12 @@ namespace Entity.IdariIsler
             this.sayfa = sayfa;
             this.unvani = unvani;
             this.konaklamaTuru = konaklamaTuru;
+            this.harcirahGun = harcirahGun;
+            this.harcirahGunTl = harcirahGunTl;
+            this.harcirahToplam = harcirahGunToplam;
+            this.iaseGun = iaseGun;
+            this.iaseGunTl = iaseGunTl;
+            this.iaseToplam = iaseGunTop;
         }
 
         public YurtIciGorev(string adsoyad, string unvani, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string kalanSure)
@@ -185,7 +209,7 @@ namespace Entity.IdariIsler
             this.kalanSure = kalanSure;
         }
 
-        public YurtIciGorev(int isakisno, string gorevemrino, string gorevinkonusu, string proje, string gidilecekyer, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string butcekodu, string siparisno, string adsoyad, string unvani, string masrafyerino, string masrafyeri, string ulasimgidis, string ulasimgorevyeri, string ulasimdonus, int konaklamagun, double konaklamaguntl, double konaklamatoplam, int kiralamagun, double kiralamaguntl, double kiralamayakit, double kiralamatoplam, int seyahatavansgun, double seyahatguntl, double seyahattoplam, double ucakbileti, double otobusbileti, string plaka, double cikiskm, double donuskm, double toplamkm, double geneltoplam)
+        public YurtIciGorev(int isakisno, string gorevemrino, string gorevinkonusu, string proje, string gidilecekyer, DateTime baslamatarihi, DateTime bitistarihi, string toplamsure, string butcekodu, string siparisno, string adsoyad, string unvani, string masrafyerino, string masrafyeri, string ulasimgidis, string ulasimgorevyeri, string ulasimdonus, int konaklamagun, double konaklamaguntl, double konaklamatoplam, int kiralamagun, double kiralamaguntl, double kiralamayakit, double kiralamatoplam, int seyahatavansgun, double seyahatguntl, double seyahattoplam, int harcirahGun, double harcirahGunTl, double harcirahGunToplam, int iaseGun, double iaseGunTl, double iaseGunTop, double ucakbileti, double otobusbileti, string plaka, double cikiskm, double donuskm, double toplamkm, double geneltoplam)
         {
             this.isakisno = isakisno;
             this.gorevemrino = gorevemrino;
@@ -221,6 +245,12 @@ namespace Entity.IdariIsler
             this.donuskm = donuskm;
             this.toplamkm = toplamkm;
             this.geneltoplam = geneltoplam;
+            this.harcirahGun = harcirahGun;
+            this.harcirahGunTl = harcirahGunTl;
+            this.harcirahToplam = harcirahGunToplam;
+            this.iaseGun = iaseGun;
+            this.iaseGunTl = iaseGunTl;
+            this.iaseToplam = iaseGunTop;
         }
     }
 }

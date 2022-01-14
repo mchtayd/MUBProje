@@ -281,7 +281,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return personels;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<PersonelKayit>();
             }

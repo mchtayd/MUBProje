@@ -117,8 +117,9 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return ıscilikDestekIsciliks;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                dataReader.Close();
                 return new List<IscilikDestekIscilik>();
             }
         }

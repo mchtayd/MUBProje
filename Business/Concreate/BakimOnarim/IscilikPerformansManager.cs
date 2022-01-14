@@ -61,6 +61,17 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
+        public List<IscilikPerformans> PerformansHatalilar()
+        {
+            try
+            {
+                return performansDal.PerformansHatalilar();
+            }
+            catch (Exception)
+            {
+                return new List<IscilikPerformans>();
+            }
+        }
         public List<IscilikPerformans> GetList(string personelAd)
         {
             try
@@ -83,6 +94,17 @@ namespace Business.Concreate.BakimOnarim
                     return controlText;
                 }
                 return performansDal.Update(entity, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string HataBildir(int id,string hata)
+        {
+            try
+            {
+                return performansDal.HataBildir(id,hata);
             }
             catch (Exception ex)
             {

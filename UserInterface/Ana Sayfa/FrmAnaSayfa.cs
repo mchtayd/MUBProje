@@ -27,6 +27,7 @@ using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.IdariIşler;
 using UserInterface.IdariIsler;
 using UserInterface.RAPORLAMALAR;
+using UserInterface.Yerleskeler;
 
 namespace UserInterface.STS
 {
@@ -1414,6 +1415,14 @@ namespace UserInterface.STS
                         form.YenilenecekVeri();
                     }
                 }
+                if (baslik == "İŞÇİLİK İZLEME")
+                {
+                    var form = (FrmIscilikIzleme)Application.OpenForms["FrmIscilikIzleme"];
+                    if (form != null)
+                    {
+                        form.Yenileneckler();
+                    }
+                }
             }
         }
 
@@ -1622,12 +1631,12 @@ namespace UserInterface.STS
             /////////////////////////////////////////////////SATIN ALMA////////////////////////////////////////////////////////////////////////
             if (e.Node.Name == "satolustur")
             {
-                FrmSatOlustur2 Go = new FrmSatOlustur2();
-                Go.infos = infos;
+                FrmSAAAT Go = new FrmSAAAT();
+                //Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageSatOlustur2", "SAT OLUŞTUR", Go);
+                OpenTabPage("PageSAAT", "SAT OLUŞTUR", Go);
                 Go.Show();
             }
             if (e.Node.Name == "TeklifAlınacakSat")
@@ -2266,6 +2275,51 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
+            ///////////////////////////////////////////YERLEŞKELER/////////////////////////////////////////////////////////
+
+            if (e.Node.Name == "YerleskeKayit")
+            {
+                FrmYerleskeKayit Go = new FrmYerleskeKayit();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageYerleskeler", "YERLEŞKE KAYIT", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Name == "YerleskeIzleme")
+            {
+                FrmYerleskeIzleme Go = new FrmYerleskeIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageYerleskeIzleme", "YERLEŞKE İZLEME", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Name == "YerleskeGideriKayit")
+            {
+                FrmYerleskeGideriKayit Go = new FrmYerleskeGideriKayit();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageYerleskeGideriKayit", "YERLEŞKE GİDERİ KAYIT", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Name == "GiderKayitIzleme")
+            {
+                FrmYerleskeGiderKayitIzleme Go = new FrmYerleskeGiderKayitIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageGiderKayitIzleme", "YERLEŞKE GİDER KAYIT İZLEME", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
 
             #endregion
         }

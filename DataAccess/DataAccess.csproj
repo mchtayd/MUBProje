@@ -161,6 +161,8 @@
     <Compile Include="Concreate\STS\TekliflerDal.cs" />
     <Compile Include="Concreate\STS\TeklifsizSatDal.cs" />
     <Compile Include="Concreate\STS\UstAmirMailDal.cs" />
+    <Compile Include="Concreate\Yerleskeler\KiraDal.cs" />
+    <Compile Include="Concreate\Yerleskeler\YerlekseDal.cs" />
     <Compile Include="Database\SqlDatabase.cs" />
     <Compile Include="DosyaIslemleri\PdfOku.cs" />
     <Compile Include="Concreate\IdariIsler\DvNoDal.cs" />

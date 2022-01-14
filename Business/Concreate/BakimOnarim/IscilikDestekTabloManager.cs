@@ -71,6 +71,7 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+
         public static IscilikDestekTabloManager GetInstance()
         {
             if (destekTabloManager == null)

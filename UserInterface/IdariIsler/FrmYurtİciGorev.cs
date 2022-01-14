@@ -37,7 +37,7 @@ namespace UserInterface.IdariIsler
         PersonelKayitManager kayitManager;
         ComboManager comboManager;
         string satno, siparis, usamirbolum, usamirisim, islemadimi, dosya, dosyaGun, siparisNo, masrafyerino, talepeden, bolum, projekodu, gerekce, harcamaturu, faturafirma, ilgilikisi, masrafyeri, donem, yeniad;
-        int sayi, id, yurticiid,satNo;
+        int sayi, id, yurticiid, satNo;
         bool start = false, start2 = true, start3 = false, start4 = true;
         double toplam, miktar;
         public object[] infos;
@@ -318,8 +318,8 @@ namespace UserInterface.IdariIsler
         {
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
-            //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\Formlar\\DTS_Yurt İçi Görev Formu.docx";
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Yurt İçi Görev Formu.docx";// taslak yolu
+            object filePath = "C:\\Users\\MAYıldırım\\Desktop\\MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01).docx";
+            //object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Yurt İçi Görev Formu.docx";// taslak yolu
 
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
@@ -349,6 +349,9 @@ namespace UserInterface.IdariIsler
             wBookmarks["AvansGun"].Range.Text = TxtSeyahatAvansGun.Text;
             wBookmarks["AvansGunTl"].Range.Text = TxtSeyahatAvansGunTl.Text;
             wBookmarks["AvansToplam"].Range.Text = TxtSeyahatAvansToplam.Text;
+            wBookmarks["GorevHarcirahiGun"].Range.Text = TxtHarcirahGun.Text;
+            wBookmarks["TxtHarcirahGunTl"].Range.Text = TxtHarcirahGunTl.Text;
+            wBookmarks["TxtHarcirahToplam"].Range.Text = TxtGorevHarcirahGunTop.Text;
             wBookmarks["Ucak"].Range.Text = TxtUcak.Text;
             wBookmarks["Otobus"].Range.Text = TxtOtobus.Text;
             wBookmarks["GenelToplam"].Range.Text = TxtGenelToplam.Text;
@@ -376,7 +379,7 @@ namespace UserInterface.IdariIsler
         }
         void CreateWord2()
         {
-            
+
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\Formlar\\DTS_Yurt İçi Görev Formuu.docx"; // taslak yolu
@@ -533,7 +536,7 @@ namespace UserInterface.IdariIsler
             if (dr == DialogResult.Yes)
             {
                 IsAkisNo();
-                int konaklamagun = 0, seyahatavansgun = 0, kiralamaGun = 0;
+                int konaklamagun = 0, seyahatavansgun = 0, kiralamaGun = 0, harcirahGun = 0, iaseGun = 0;
                 if (TxtKonaklamaGun.Text != "")
                 {
                     konaklamagun = TxtKonaklamaGun.Text.ConInt();
@@ -546,9 +549,17 @@ namespace UserInterface.IdariIsler
                 {
                     seyahatavansgun = TxtSeyahatAvansGun.Text.ConInt();
                 }
+                if (TxtHarcirahGun.Text != "")
+                {
+                    harcirahGun = TxtHarcirahGun.Text.ConInt();
+                }
+                if (TxtIaseGun.Text != "")
+                {
+                    iaseGun = TxtIaseGun.Text.ConInt();
+                }
                 CreateDirectory();
                 islemadimi = "1.ADIM:GÖREV OLUŞTURULDU";
-                YurtIciGorev yurtIciGorev = new YurtIciGorev(LblIsAkisNo.Text.ConInt(), TxtGorevEmriNo.Text, TxtGorevinKonusu.Text, CmbProje.Text, TxtGidilecekYer.Text, DtBaslamaTarihi.Value, DtBitisTarihi.Value, TxtToplamSure.Text, CmbButceKodu.Text, CmbSiparisNo.Text, CmbAdSoyad.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, CmbUlasimGidis.Text, CmbUlasimGorevYeri.Text, CmbUlasimDonus.Text, konaklamagun, TxtKonaklamGunTl.Text.ConDouble(), TxtKonaklamaToplam.Text.ConDouble(), kiralamaGun, TxtKiralamaGunTl.Text.ConDouble(), TxtKiralamaToplam.Text.ConDouble(), seyahatavansgun, TxtSeyahatAvansGunTl.Text.ConDouble(), TxtSeyahatAvansToplam.Text.ConDouble(), TxtUcak.Text.ConDouble(), TxtOtobus.Text.ConDouble(), TxtGenelToplam.Text.ConDouble(), TxtPlaka.Text, TxtCikisKm.Text.ConDouble(), islemadimi, dosya, konaklamaTuru);
+                YurtIciGorev yurtIciGorev = new YurtIciGorev(LblIsAkisNo.Text.ConInt(), TxtGorevEmriNo.Text, TxtGorevinKonusu.Text, CmbProje.Text, TxtGidilecekYer.Text, DtBaslamaTarihi.Value, DtBitisTarihi.Value, TxtToplamSure.Text, CmbButceKodu.Text, CmbSiparisNo.Text, CmbAdSoyad.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, CmbUlasimGidis.Text, CmbUlasimGorevYeri.Text, CmbUlasimDonus.Text, konaklamagun, TxtKonaklamGunTl.Text.ConDouble(), TxtKonaklamaToplam.Text.ConDouble(), kiralamaGun, TxtKiralamaGunTl.Text.ConDouble(), TxtKiralamaToplam.Text.ConDouble(), seyahatavansgun, TxtSeyahatAvansGunTl.Text.ConDouble(), TxtSeyahatAvansToplam.Text.ConDouble(), harcirahGun, TxtHarcirahGunTl.Text.ConDouble(), TxtGorevHarcirahGunTop.Text.ConDouble(), iaseGun, TxtIaseGunTl.Text.ConDouble(), TxtIaseToplam.Text.ConDouble(), TxtUcak.Text.ConDouble(), TxtOtobus.Text.ConDouble(), TxtGenelToplam.Text.ConDouble(), TxtPlaka.Text, TxtCikisKm.Text.ConDouble(), islemadimi, dosya, konaklamaTuru);
                 string mesaj = yurtIciGorevManager.Add(yurtIciGorev);
                 if (mesaj != "OK")
                 {
@@ -570,7 +581,7 @@ namespace UserInterface.IdariIsler
             {
                 siparisNo = Guid.NewGuid().ToString();
                 HarcamaControl();
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(0,TxtIsAkisNoTamamla.Text.ConInt(), masrafyerino, talepeden, bolum, "YOK", "YOK", DateTime.Now, gerekce, siparisNo, CmbAdSoyadGun.Text, CmbSiparsGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text,
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, TxtIsAkisNoTamamla.Text.ConInt(), masrafyerino, talepeden, bolum, "YOK", "YOK", DateTime.Now, gerekce, siparisNo, CmbAdSoyadGun.Text, CmbSiparsGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text,
                   string.IsNullOrEmpty(dosyaGun) ? "" : dosyaGun, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, TxtFirmalar.Text);
                 string mesaj = satDataGridview1Manager.Add(satDataGridview1);
                 if (mesaj != "OK")
@@ -766,7 +777,7 @@ namespace UserInterface.IdariIsler
         }
         string GenelToplamGun()
         {
-            double geneltoplam = 0, konaklamatoplam = 0, arackiralamatoplam = 0, seyahatistoplam = 0, ucaktoplam = 0, otobustoplam = 0;
+            double geneltoplam = 0, konaklamatoplam = 0, arackiralamatoplam = 0, seyahatistoplam = 0, ucaktoplam = 0, otobustoplam = 0, gorevHarcirahi = 0, iase = 0;
             if (TxtKonaklamaToplamGun.Text != "")
             {
                 konaklamatoplam = TxtKonaklamaToplamGun.Text.ConDouble();
@@ -787,7 +798,15 @@ namespace UserInterface.IdariIsler
             {
                 otobustoplam = TxtOtobusGun.Text.ConDouble();
             }
-            geneltoplam = konaklamatoplam + arackiralamatoplam + seyahatistoplam + ucaktoplam + otobustoplam;
+            if (TxtGorevHarcirahGunTopGun.Text != "")
+            {
+                gorevHarcirahi = TxtGorevHarcirahGunTopGun.Text.ConDouble();
+            }
+            if (TxtIaseToplamGun.Text != "")
+            {
+                iase = TxtIaseToplamGun.Text.ConDouble();
+            }
+            geneltoplam = konaklamatoplam + arackiralamatoplam + seyahatistoplam + ucaktoplam + otobustoplam + gorevHarcirahi + iase;
             if (geneltoplam == 0)
             {
                 return "";
@@ -1029,8 +1048,8 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                string proje = CmbProjeGun.Text;
-                YurtIciGorev yurtIci = new YurtIciGorev(TxtIsAkisNoTamamla.Text.ConInt(), TxtGorevEmriNoGun.Text, TxtGorevinKonusuGun.Text,  proje, TxtGidilecekYerGun.Text, DtBaslamaTarihiGun.Value, DtBitisTarihiGun.Value, TxtToplamSureGun.Text, CmbButceKoduGun.Text, CmbSiparsGun.Text, CmbAdSoyadGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text, CmbUlasimGidisGun.Text, CmbUlasimGorevYeriGun.Text, CmbUlasimDonusGun.Text, TxtKonaklamaGunGun.Text.ConInt(), TxtKonaklamGunTlGun.Text.ConDouble(), TxtKonaklamaToplamGun.Text.ConDouble(), TxtKiralamaGunGun.Text.ConInt(), TxtKiralamaGunTlGun.Text.ConDouble(), TxtKiralamaYakitGun.Text.ConDouble(), TxtKiralamaToplamGun.Text.ConDouble(), TxtSeyahatAvansGunGun.Text.ConInt(), TxtSeyahatAvansGunTlGun.Text.ConDouble(), textBTxtSeyahatAavansToplamGun.Text.ConDouble(), TxtUcakGun.Text.ConDouble(), TxtOtobusGun.Text.ConDouble(), TxtAracPlakasiGun.Text, TxtCikisKmGun.Text.ConDouble(), TxtDonusKmGun.Text.ConDouble(), toplamkm, TxtGenelToplamGun.Text.ConDouble());
+                /*string proje = CmbProjeGun.Text;
+                YurtIciGorev yurtIci = new YurtIciGorev(TxtIsAkisNoTamamla.Text.ConInt(), TxtGorevEmriNoGun.Text, TxtGorevinKonusuGun.Text, proje, TxtGidilecekYerGun.Text, DtBaslamaTarihiGun.Value, DtBitisTarihiGun.Value, TxtToplamSureGun.Text, CmbButceKoduGun.Text, CmbSiparsGun.Text, CmbAdSoyadGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text, CmbUlasimGidisGun.Text, CmbUlasimGorevYeriGun.Text, CmbUlasimDonusGun.Text, TxtKonaklamaGunGun.Text.ConInt(), TxtKonaklamGunTlGun.Text.ConDouble(), TxtKonaklamaToplamGun.Text.ConDouble(), TxtKiralamaGunGun.Text.ConInt(), TxtKiralamaGunTlGun.Text.ConDouble(), TxtKiralamaYakitGun.Text.ConDouble(), TxtKiralamaToplamGun.Text.ConDouble(), TxtSeyahatAvansGunGun.Text.ConInt(), TxtSeyahatAvansGunTlGun.Text.ConDouble(), textBTxtSeyahatAavansToplamGun.Text.ConDouble(), TxtHarcirahGunGun.Text.ConInt(), TxtHarcirahGunTlGun.Text.ConDouble(), TxtGorevHarcirahGunTopGun.Text.ConDouble(), TxtIaseGunGun.Text.ConInt(), TxtUcakGun.Text.ConDouble(), TxtOtobusGun.Text.ConDouble(), TxtAracPlakasiGun.Text, TxtCikisKmGun.Text.ConDouble(), TxtDonusKmGun.Text.ConDouble(), toplamkm, TxtGenelToplamGun.Text.ConDouble());
 
                 string mesaj = yurtIciGorevManager.YurtIciGun(yurtIci, TxtIsAkisNoTamamla.Text.ConInt());
 
@@ -1042,13 +1061,155 @@ namespace UserInterface.IdariIsler
                 CreateWord2();
                 CreateLogGun();
                 MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TemizleGuncelle();
+                TemizleGuncelle();*/
             }
         }
-        void SatGuncelle()
+
+        private void TxtGorevHarcirahGunTop_KeyPress(object sender, KeyPressEventArgs e)
         {
-            
+            e.Handled = true;
         }
+
+        private void TxtHarcirahGunTl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void TxtHarcirahGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void TxtHarcirahGun_TextChanged(object sender, EventArgs e)
+        {
+            TxtGorevHarcirahGunTop.Text = ToplamHesapla(TxtHarcirahGun.Text, TxtHarcirahGunTl.Text);
+        }
+
+        private void TxtHarcirahGunTl_TextChanged(object sender, EventArgs e)
+        {
+            TxtGorevHarcirahGunTop.Text = ToplamHesapla(TxtHarcirahGun.Text, TxtSeyahatAvansGunTl.Text);
+        }
+
+        private void TxtGorevHarcirahGunTop_TextChanged(object sender, EventArgs e)
+        {
+            TxtGenelToplam.Text = GenelToplam();
+        }
+
+        private void TxtHarcirahGunGun_TextChanged(object sender, EventArgs e)
+        {
+            TxtGorevHarcirahGunTopGun.Text = ToplamHesapla(TxtHarcirahGunGun.Text, TxtHarcirahGunTlGun.Text);
+        }
+
+        private void TxtGorevHarcirahGunTopGun_TextChanged(object sender, EventArgs e)
+        {
+            TxtGenelToplamGun.Text = GenelToplamGun();
+        }
+
+        private void TxtHarcirahGunTlGun_TextChanged(object sender, EventArgs e)
+        {
+            TxtGorevHarcirahGunTopGun.Text = ToplamHesapla(TxtHarcirahGunGun.Text, TxtHarcirahGunTlGun.Text);
+        }
+
+        private void TxtIaseGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TxtIaseGunTl_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void TxtIaseToplam_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtIaseGun_TextChanged(object sender, EventArgs e)
+        {
+            TxtIaseToplam.Text = ToplamHesapla(TxtIaseGun.Text, TxtIaseGunTl.Text);
+        }
+
+        private void TxtIaseToplam_TextChanged(object sender, EventArgs e)
+        {
+            TxtGenelToplam.Text = GenelToplam();
+        }
+
+        private void TxtKonaklamaGunGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TxtKiralamaGunGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TxtSeyahatAvansGunGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TxtHarcirahGunGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TxtIaseGunGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TxtHarcirahGunTlGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void TxtIaseGunTlGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void TxtKonaklamaToplamGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtKiralamaToplamGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void textBTxtSeyahatAavansToplamGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtGorevHarcirahGunTopGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtIaseToplamGun_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtIaseGunGun_TextChanged(object sender, EventArgs e)
+        {
+            TxtIaseToplamGun.Text = ToplamHesapla(TxtIaseGunGun.Text, TxtIaseGunTlGun.Text);
+        }
+
+        private void TxtIaseToplamGun_TextChanged(object sender, EventArgs e)
+        {
+            TxtGenelToplamGun.Text = GenelToplamGun();
+        }
+
+        private void TxtIaseGunTlGun_TextChanged(object sender, EventArgs e)
+        {
+            TxtIaseToplamGun.Text = ToplamHesapla(TxtIaseGunGun.Text, TxtIaseGunTlGun.Text);
+        }
+
         private void textBTxtSeyahatAvansToplamGun_TextChanged(object sender, EventArgs e)
         {
             TxtGenelToplamGun.Text = GenelToplamGun();
@@ -1069,9 +1230,10 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                islemadimi = "2.ADIM:GÖREV TAMAMLANMIŞTIR";
+                /*islemadimi = "2.ADIM:GÖREV TAMAMLANMIŞTIR";
 
-                YurtIciGorev yurtIciGorev = new YurtIciGorev(TxtIsAkisNoTamamla.Text.ConInt(), TxtGorevEmriNoGun.Text, TxtGorevinKonusuGun.Text, CmbProjeGun.Text, TxtGidilecekYerGun.Text, DtBaslamaTarihiGun.Value, DtBitisTarihiGun.Value, TxtToplamSureGun.Text, CmbButceKoduGun.Text, CmbSiparsGun.Text, CmbAdSoyadGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text, CmbUlasimGidisGun.Text, CmbUlasimGorevYeriGun.Text, CmbUlasimDonusGun.Text, TxtKonaklamaGunGun.Text.ConInt(), TxtKonaklamGunTlGun.Text.ConDouble(), TxtKonaklamaToplamGun.Text.ConDouble(), TxtKiralamaGunGun.Text.ConInt(), TxtKiralamaGunTlGun.Text.ConDouble(), TxtKiralamaYakitGun.Text.ConDouble(), TxtKiralamaToplamGun.Text.ConDouble(), TxtSeyahatAvansGunGun.Text.ConInt(), TxtSeyahatAvansGunTlGun.Text.ConDouble(), textBTxtSeyahatAavansToplamGun.Text.ConDouble(), TxtUcakGun.Text.ConDouble(), TxtOtobusGun.Text.ConDouble(), TxtAracPlakasiGun.Text, TxtCikisKmGun.Text.ConDouble(), TxtDonusKmGun.Text.ConDouble(), toplamkm, TxtGenelToplamGun.Text.ConDouble(), islemadimi, dosyaGun, konaklamaTuru);
+                YurtIciGorev yurtIciGorev = new YurtIciGorev(TxtIsAkisNoTamamla.Text.ConInt(), TxtGorevEmriNoGun.Text, TxtGorevinKonusuGun.Text, CmbProjeGun.Text, TxtGidilecekYerGun.Text, DtBaslamaTarihiGun.Value, DtBitisTarihiGun.Value, TxtToplamSureGun.Text, CmbButceKoduGun.Text, CmbSiparsGun.Text, CmbAdSoyadGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text, CmbUlasimGidisGun.Text, CmbUlasimGorevYeriGun.Text, CmbUlasimDonusGun.Text, TxtKonaklamaGunGun.Text.ConInt(), TxtKonaklamGunTlGun.Text.ConDouble(), TxtKonaklamaToplamGun.Text.ConDouble(), TxtKiralamaGunGun.Text.ConInt(), TxtKiralamaGunTlGun.Text.ConDouble(), TxtKiralamaYakitGun.Text.ConDouble(), TxtKiralamaToplamGun.Text.ConDouble(), TxtSeyahatAvansGunGun.Text.ConInt(), TxtSeyahatAvansGunTlGun.Text.ConDouble(), textBTxtSeyahatAavansToplamGun.Text.ConDouble(),
+                  TxtHarcirahGunGun.Text.ConInt(), TxtHarcirahGunTlGun.Text.ConDouble(), TxtGorevHarcirahGunTopGun.Text.ConDouble(), TxtUcakGun.Text.ConDouble(), TxtOtobusGun.Text.ConDouble(), TxtAracPlakasiGun.Text, TxtCikisKmGun.Text.ConDouble(), TxtDonusKmGun.Text.ConDouble(), toplamkm, TxtGenelToplamGun.Text.ConDouble(), islemadimi, dosyaGun, konaklamaTuru);
 
                 string mesaj = yurtIciGorevManager.Update(yurtIciGorev, TxtIsAkisNoTamamla.Text.ConInt());
                 if (mesaj != "OK")
@@ -1097,7 +1259,7 @@ namespace UserInterface.IdariIsler
                 TxtKonaklamaToplamGun.Enabled = true;
                 konaklamaTuru = "TEKLİ KONAKLAMA";
                 System.Threading.Tasks.Task.Factory.StartNew(() => MailSendMetotBitir());
-                TemizleGuncelle();
+                TemizleGuncelle();*/
             }
         }
         void CreateLogSil()
@@ -1277,7 +1439,8 @@ namespace UserInterface.IdariIsler
             TxtKiralamaToplamGun.Clear(); TxtSeyahatAvansGunGun.Clear(); TxtSeyahatAvansGunTlGun.Clear();
             textBTxtSeyahatAavansToplamGun.Clear(); TxtUcakGun.Clear(); TxtOtobusGun.Clear(); TxtGenelToplamGun.Clear();
             TxtAracPlakasiGun.Clear(); TxtCikisKmGun.Clear(); TxtDonusKmGun.Clear(); TxtToplamKmGun.Clear();
-            TxtYakitLitre.Clear(); TxtUcakMiktar.Clear(); TxtOtobusMiktar.Clear();
+            TxtYakitLitre.Clear(); TxtUcakMiktar.Clear(); TxtOtobusMiktar.Clear(); TxtHarcirahGunGun.Clear(); TxtHarcirahGunTlGun.Clear();
+            TxtGorevHarcirahGunTopGun.Clear();
         }
         string isakisnogun;
         private void BtnBulT_Click(object sender, EventArgs e)
@@ -1328,6 +1491,9 @@ namespace UserInterface.IdariIsler
                 yurticiid = yurtIciGorev.Id;
                 TxtGoreviGun.Text = yurtIciGorev.Unvani;
                 dosyaGun = yurtIciGorev.Dosyayolu;
+                TxtHarcirahGunGun.Text = yurtIciGorev.HarcirahGun.ToString();
+                TxtHarcirahGunTlGun.Text = yurtIciGorev.HarcirahGunTl.ToString();
+                TxtGorevHarcirahGunTopGun.Text = yurtIciGorev.HarcirahToplam.ToString();
                 isakisnogun = yurtIciGorev.Isakisno.ToString();
                 ustAmirMails = ustAmirManager.GetList(guncelid);
                 if (ustAmirMails.Count > 0)
@@ -1348,6 +1514,7 @@ namespace UserInterface.IdariIsler
             CmbUlasimDonus.Text = ""; TxtKonaklamaGun.Clear(); TxtKonaklamGunTl.Clear(); TxtKonaklamaToplam.Clear(); TxtKiralamaGun.Clear(); TxtKiralamaGunTl.Clear();
             TxtKiralamaToplam.Clear(); TxtSeyahatAvansGun.Clear(); TxtSeyahatAvansGunTl.Clear(); TxtSeyahatAvansToplam.Clear(); TxtUcak.Clear();
             TxtOtobus.Clear(); TxtGenelToplam.Clear(); CmbButceKodu.Text = ""; TxtPlaka.Clear(); TxtCikisKm.Clear(); TxtGorevi.Clear();
+            TxtHarcirahGun.Clear(); TxtHarcirahGunTl.Clear(); TxtGorevHarcirahGunTop.Clear();
         }
 
         void SiparisIsimlerDoldur()

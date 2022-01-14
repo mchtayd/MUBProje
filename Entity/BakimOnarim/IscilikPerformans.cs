@@ -8,7 +8,7 @@ namespace Entity
 {
     public class IscilikPerformans
     {
-        int id; string iscilikTuru, personel, mevcutDuragi, cikisDuragi, istikametDuragi; DateTime cikisTarihiSaati; string cikisSebebi, varisDurag; DateTime varisTarihiSaat; string sonuc;
+        int id; string iscilikTuru, personel, mevcutDuragi, cikisDuragi, istikametDuragi; DateTime cikisTarihiSaati; string cikisSebebi, varisDurag; DateTime varisTarihiSaat; string sonuc, hata;
 
         public int Id { get => id; set => id = value; }
         public string IscilikTuru { get => iscilikTuru; set => iscilikTuru = value; }
@@ -21,8 +21,9 @@ namespace Entity
         public string VarisDurag { get => varisDurag; set => varisDurag = value; }
         public DateTime VarisTarihiSaat { get => varisTarihiSaat; set => varisTarihiSaat = value; }
         public string Sonuc { get => sonuc; set => sonuc = value; }
+        public string Hata { get => hata; set => hata = value; }
 
-        public IscilikPerformans(int id, string iscilikTuru, string personel, string mevcutDuragi, string cikisDuragi, string istikametDuragi, DateTime cikisTarihiSaati, string cikisSebebi, string varisDurag, DateTime varisTarihiSaat, string sonuc)
+        public IscilikPerformans(int id, string iscilikTuru, string personel, string mevcutDuragi, string cikisDuragi, string istikametDuragi, DateTime cikisTarihiSaati, string cikisSebebi, string varisDurag, DateTime varisTarihiSaat, string sonuc,string hata)
         {
             this.id = id;
             this.iscilikTuru = iscilikTuru;
@@ -35,6 +36,7 @@ namespace Entity
             this.varisDurag = varisDurag;
             this.varisTarihiSaat = varisTarihiSaat;
             this.sonuc = sonuc;
+            this.hata = hata;
         }
 
         public IscilikPerformans(string iscilikTuru, string personel, string mevcutDuragi, string cikisDuragi, string istikametDuragi, DateTime cikisTarihiSaati, string cikisSebebi, string varisDurag, DateTime varisTarihiSaat, string sonuc)

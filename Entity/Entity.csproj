@@ -140,6 +140,8 @@
     <Compile Include="STS\TeklifsizSat.cs" />
     <Compile Include="STS\UstAmirMail.cs" />
     <Compile Include="Version.cs" />
+    <Compile Include="Yerleskeler\Kira.cs" />
+    <Compile Include="Yerleskeler\Yerleske.cs" />
     <Compile Include="Yetki.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

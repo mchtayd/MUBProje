@@ -708,6 +708,12 @@
     <Compile Include="STS\FrmReddedilenSatlar.Designer.cs">
       <DependentUpon>FrmReddedilenSatlar.cs</DependentUpon>
     </Compile>
+    <Compile Include="STS\FrmSAAAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSAAAT.Designer.cs">
+      <DependentUpon>FrmSAAAT.cs</DependentUpon>
+    </Compile>
     <Compile Include="STS\FrmSatBaslatmaOnayi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -737,6 +743,12 @@
     </Compile>
     <Compile Include="STS\FrmSatOlustur2.Designer.cs">
       <DependentUpon>FrmSatOlustur2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatOlusturAbf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatOlusturAbf.Designer.cs">
+      <DependentUpon>FrmSatOlusturAbf.cs</DependentUpon>
     </Compile>
     <Compile Include="STS\FrmTamamlananSat.cs">
       <SubType>Form</SubType>
@@ -803,6 +815,30 @@
     </Compile>
     <Compile Include="STS\FrmTeklifAlinacakSat.Designer.cs">
       <DependentUpon>FrmTeklifAlinacakSat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeGideriKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeGideriKayit.Designer.cs">
+      <DependentUpon>FrmYerleskeGideriKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeGiderKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeGiderKayitIzleme.Designer.cs">
+      <DependentUpon>FrmYerleskeGiderKayitIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeIzleme.Designer.cs">
+      <DependentUpon>FrmYerleskeIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeKayit.Designer.cs">
+      <DependentUpon>FrmYerleskeKayit.cs</DependentUpon>
     </Compile>
     <EmbeddedResource Include="Ana Sayfa\FrmButceler.resx">
       <DependentUpon>FrmButceler.cs</DependentUpon>
@@ -1114,6 +1150,9 @@
     <EmbeddedResource Include="STS\FrmReddedilenSatlar.resx">
       <DependentUpon>FrmReddedilenSatlar.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSAAAT.resx">
+      <DependentUpon>FrmSAAAT.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmSatBaslatmaOnayi.resx">
       <DependentUpon>FrmSatBaslatmaOnayi.cs</DependentUpon>
     </EmbeddedResource>
@@ -1128,6 +1167,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmSatOlustur2.resx">
       <DependentUpon>FrmSatOlustur2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatOlusturAbf.resx">
+      <DependentUpon>FrmSatOlusturAbf.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmTamamlananSat.resx">
       <DependentUpon>FrmTamamlananSat.cs</DependentUpon>
@@ -1161,6 +1203,18 @@
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmTeklifAlinacakSat.resx">
       <DependentUpon>FrmTeklifAlinacakSat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yerleskeler\FrmYerleskeGideriKayit.resx">
+      <DependentUpon>FrmYerleskeGideriKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yerleskeler\FrmYerleskeGiderKayitIzleme.resx">
+      <DependentUpon>FrmYerleskeGiderKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yerleskeler\FrmYerleskeIzleme.resx">
+      <DependentUpon>FrmYerleskeIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yerleskeler\FrmYerleskeKayit.resx">
+      <DependentUpon>FrmYerleskeKayit.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
     <None Include="packages.config" />

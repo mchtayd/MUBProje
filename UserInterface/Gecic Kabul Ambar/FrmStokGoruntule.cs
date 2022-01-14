@@ -101,7 +101,7 @@ namespace UserInterface.Depo
             DtgMalzemeBilgisi.Columns["Malzemeturu"].HeaderText = "MALZEME TÜRÜ";
             DtgMalzemeBilgisi.Columns["Malzemetakipdurumu"].HeaderText = "TAKİP DURUMU";
             DtgMalzemeBilgisi.Columns["Malzemerevizyon"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Malzemelot"].Visible = false;
+            //DtgMalzemeBilgisi.Columns["Malzemelot"].Visible = false;
             DtgMalzemeBilgisi.Columns["Malzemekul"].HeaderText = "MALZEMENİN KULLANILDIĞI YER";
             DtgMalzemeBilgisi.Columns["Aciklama"].Visible = false;
             DtgMalzemeBilgisi.Columns["Dosyayolu"].Visible = false;

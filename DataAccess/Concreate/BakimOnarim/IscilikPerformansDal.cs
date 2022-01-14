@@ -78,7 +78,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["CIKIS_SEBEBI"].ToString(),
                         dataReader["VARIS_DURAGI"].ToString(),
                         dataReader["VARIS_TARIHI_SAATI"].ConTime(),
-                        dataReader["SONUC"].ToString());
+                        dataReader["SONUC"].ToString(),
+                        dataReader["HATA"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -108,7 +109,38 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["CIKIS_SEBEBI"].ToString(),
                         dataReader["VARIS_DURAGI"].ToString(),
                         dataReader["VARIS_TARIHI_SAATI"].ConTime(),
-                        dataReader["SONUC"].ToString()));
+                        dataReader["SONUC"].ToString(),
+                        dataReader["HATA"].ToString()));
+                }
+                dataReader.Close();
+                return performans;
+            }
+            catch (Exception ex)
+            {
+                return new List<IscilikPerformans>();
+            }
+        }
+        public List<IscilikPerformans> PerformansHatalilar()
+        {
+            try
+            {
+                List<IscilikPerformans> performans = new List<IscilikPerformans>();
+                dataReader = sqlServices.StoreReader("PerformansHataliBildirilenler");
+                while (dataReader.Read())
+                {
+                    performans.Add(new IscilikPerformans(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ISCILIK_TURU"].ToString(),
+                        dataReader["PERSONEL"].ToString(),
+                        dataReader["MEVCUT_DURAGI"].ToString(),
+                        dataReader["CIKIS_DURAGI"].ToString(),
+                        dataReader["ISTIKAMET_DURAGI"].ToString(),
+                        dataReader["CIKIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["CIKIS_SEBEBI"].ToString(),
+                        dataReader["VARIS_DURAGI"].ToString(),
+                        dataReader["VARIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["SONUC"].ToString(),
+                        dataReader["HATA"].ToString()));
                 }
                 dataReader.Close();
                 return performans;
@@ -144,6 +176,23 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string HataBildir(int id, string hata)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("PerformansHataGuncelle",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@hata", hata));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public static IscilikPerformansDal GetInstance()
         {
             if (iscilikPerformans == null)

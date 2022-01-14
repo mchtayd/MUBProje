@@ -131,6 +131,8 @@
     <Compile Include="Concreate\STS\TekliflerOnaylananManager.cs" />
     <Compile Include="Concreate\STS\TeklifsizSatManager.cs" />
     <Compile Include="Concreate\STS\UstAmirManager.cs" />
+    <Compile Include="Concreate\Yerleskeler\KiraManager.cs" />
+    <Compile Include="Concreate\Yerleskeler\YerleskeManager.cs" />
     <Compile Include="IsAkisNoManager.cs" />
     <Compile Include="PersonelIslemleriManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

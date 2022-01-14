@@ -188,7 +188,7 @@ namespace UserInterface.BakımOnarım
             this.GrbIscilik.Controls.Add(this.label4);
             this.GrbIscilik.Controls.Add(this.TxtAbfNo);
             this.GrbIscilik.Controls.Add(this.label3);
-            this.GrbIscilik.Location = new System.Drawing.Point(430, 620);
+            this.GrbIscilik.Location = new System.Drawing.Point(28, 93);
             this.GrbIscilik.Name = "GrbIscilik";
             this.GrbIscilik.Size = new System.Drawing.Size(440, 174);
             this.GrbIscilik.TabIndex = 319;

@@ -356,6 +356,19 @@ namespace UserInterface.STS
             System.Windows.Forms.TreeNode treeNode169 = new System.Windows.Forms.TreeNode("RP01-Raporlamalar                                                 ", new System.Windows.Forms.TreeNode[] {
             treeNode166,
             treeNode168});
+            System.Windows.Forms.TreeNode treeNode170 = new System.Windows.Forms.TreeNode("Yerleşkeler");
+            System.Windows.Forms.TreeNode treeNode171 = new System.Windows.Forms.TreeNode("Yerleşke Giderleri");
+            System.Windows.Forms.TreeNode treeNode172 = new System.Windows.Forms.TreeNode("Veri İzleme Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode170,
+            treeNode171});
+            System.Windows.Forms.TreeNode treeNode173 = new System.Windows.Forms.TreeNode("Yerleşke Kayıt");
+            System.Windows.Forms.TreeNode treeNode174 = new System.Windows.Forms.TreeNode("Yerleşke Gider Kayıt");
+            System.Windows.Forms.TreeNode treeNode175 = new System.Windows.Forms.TreeNode("Veri Giriş Ekranları", new System.Windows.Forms.TreeNode[] {
+            treeNode173,
+            treeNode174});
+            System.Windows.Forms.TreeNode treeNode176 = new System.Windows.Forms.TreeNode("YK01-Yerleşkeler", new System.Windows.Forms.TreeNode[] {
+            treeNode172,
+            treeNode175});
             this.LblTarih = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.BtnDosyaDuzelt = new System.Windows.Forms.Button();
@@ -1587,6 +1600,31 @@ namespace UserInterface.STS
             treeNode169.Name = "RAPORLAMALAR";
             treeNode169.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
             treeNode169.Text = "RP01-Raporlamalar                                                 ";
+            treeNode170.Name = "YerleskeIzleme";
+            treeNode170.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode170.Text = "Yerleşkeler";
+            treeNode171.Name = "GiderKayitIzleme";
+            treeNode171.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode171.Text = "Yerleşke Giderleri";
+            treeNode172.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode172.ForeColor = System.Drawing.Color.White;
+            treeNode172.Name = "Düğüm1";
+            treeNode172.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode172.Text = "Veri İzleme Ekranları";
+            treeNode173.Name = "YerleskeKayit";
+            treeNode173.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode173.Text = "Yerleşke Kayıt";
+            treeNode174.Name = "YerleskeGideriKayit";
+            treeNode174.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            treeNode174.Text = "Yerleşke Gider Kayıt";
+            treeNode175.BackColor = System.Drawing.Color.CornflowerBlue;
+            treeNode175.ForeColor = System.Drawing.Color.White;
+            treeNode175.Name = "Düğüm2";
+            treeNode175.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            treeNode175.Text = "Veri Giriş Ekranları";
+            treeNode176.Name = "Düğüm0";
+            treeNode176.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold);
+            treeNode176.Text = "YK01-Yerleşkeler";
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode42,
             treeNode51,
@@ -1596,7 +1634,8 @@ namespace UserInterface.STS
             treeNode146,
             treeNode154,
             treeNode163,
-            treeNode169});
+            treeNode169,
+            treeNode176});
             this.treeView2.Size = new System.Drawing.Size(340, 587);
             this.treeView2.TabIndex = 87;
             this.treeView2.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView2_NodeMouseClick);

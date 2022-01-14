@@ -23,7 +23,7 @@ namespace UserInterface.BakımOnarım
 {
     public partial class FrmDestekIscilikVeriGiris : Form
     {
-        int index, index2;
+        int index, index2, id;
         string comboAd = "", siparisNo = "";
         public object[] infos;
         bool start = false;
@@ -39,6 +39,7 @@ namespace UserInterface.BakımOnarım
         BakimOnarimLogManager bakimOnarimLogManager;
         IscilikPerformansManager performansManager;
         SatTalebiDoldurManager satTalebiDoldurManager;
+
         public FrmDestekIscilikVeriGiris()
         {
             InitializeComponent();
@@ -377,16 +378,25 @@ namespace UserInterface.BakımOnarım
         string PerformansKontrol()
         {
             string sonVarisDuragi;
+
+            if (CmbMevcutDuragi.Text != CmbCikisDuragi.Text)
+            {
+                return "Hata2";
+            }
             IscilikPerformans performans = performansManager.Get(CmbPersonelPerformans.Text);
+            if (performans == null)
+            {
+                return "OK";
+            }
             sonVarisDuragi = performans.VarisDurag;
 
             if (CmbMevcutDuragi.Text != sonVarisDuragi)
             {
                 return "Hata1";
             }
-            if (CmbMevcutDuragi.Text == CmbCikisDuragi.Text)
+            if (CmbIstikametDuragi.Text != CmbVarisDuragi.Text)
             {
-                return "Hata2";
+                return "Hata3";
             }
             return "OK";
         }
@@ -397,20 +407,6 @@ namespace UserInterface.BakımOnarım
             if (dr == DialogResult.Yes)
             {
                 string control = PerformansKontrol();
-                if (control!="OK")
-                {
-                    if (control== "Hata1")
-                    {
-                        DialogResult dialog = MessageBox.Show("Personelin Girmek İstediğiniz Mevcut Durağı İle Son Varış Durağı Uyuşmamaktadır!\nBu Durumu Bildirmek İstiyor Musunuz?","Hata",MessageBoxButtons.YesNo,MessageBoxIcon.Error);
-                        if (dialog == DialogResult.Yes)
-                        {
-
-                        }
-
-                    }
-                    MessageBox.Show(control,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return;
-                }
 
                 DateTime cikisTarihiSaati = new DateTime(DtgCikisTarihi.Value.Year, DtgCikisTarihi.Value.Month, DtgCikisTarihi.Value.Day, DtgCikisSaati.Value.Hour, DtgCikisSaati.Value.Minute, DtgCikisSaati.Value.Second);
 
@@ -420,11 +416,34 @@ namespace UserInterface.BakımOnarım
 
                 string mesaj = performansManager.Add(ıscilikPerformans);
 
-                if (mesaj!="OK")
+                if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                IscilikPerformans performans = performansManager.Get(CmbPersonelPerformans.Text);
+                id = performans.Id;
+
+                if (control!="OK")
+                {
+                    if (control== "Hata1")
+                    {
+                        performansManager.HataBildir(id, "SON VARIŞ DURAĞI İLE ÇIKIŞ DURAĞI UYUŞMAMAKTADIR!");
+                        MessageBox.Show("Personelin Girmek İstediğiniz Mevcut Durağı İle Son Varış Durağı Uyuşmamaktadır!\nBu Durum Bildirilmiştir.", "Hata", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    }
+
+                    if (control == "Hata2")
+                    {
+                        performansManager.HataBildir(id, "SON MEVCUT DURAĞI İLE ÇIKIŞ DURAĞI UYUŞMAMAKTADIR!");
+                        MessageBox.Show("Personelin Mevcut Durağı İle Çıkış Durağı Uyuşmamaktadır!\nBu Durum Bildirilmiştir.", "Hata", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    }
+                    if (control == "Hata3")
+                    {
+                        performansManager.HataBildir(id, "İSTİKAMET DURAĞI İLE VARIŞ DURAĞI UYUŞMAMAKTADIR!");
+                        MessageBox.Show("Personelin İstikamet Durağı İle Varış Durağı Uyuşmamaktadır!\nBu Durum Bildirilmiştir.", "Hata", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                    }
+                }
+                
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
 

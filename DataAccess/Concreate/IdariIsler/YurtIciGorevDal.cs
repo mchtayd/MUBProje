@@ -58,7 +58,13 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@geneltoplam", entity.Geneltoplam),
                     new SqlParameter("@islemadimi", entity.Islemadimi),
                     new SqlParameter("@dosyayolu", entity.Dosyayolu),
-                    new SqlParameter("@konaklamaTuru",entity.KonaklamaTuru));
+                    new SqlParameter("@konaklamaTuru",entity.KonaklamaTuru),
+                    new SqlParameter("@harcirahGun",entity.HarcirahGun),
+                    new SqlParameter("@harcirahGunTl",entity.HarcirahGunTl),
+                    new SqlParameter("@harcirahGunToplam",entity.HarcirahToplam),
+                    new SqlParameter("@iaseGun",entity.IaseGun),
+                    new SqlParameter("@iaseGunTl",entity.IaseGunTl),
+                    new SqlParameter("@iaseToplam",entity.IaseToplam));
 
                 dataReader.Close();
                 return "OK";
@@ -121,6 +127,12 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["SEYAHAT_AVANS_GUN"].ConInt(),
                         dataReader["SEYAHAT_GUN_TL"].ConDouble(),
                         dataReader["SEYAHAT_TOPLAM"].ConDouble(),
+                        dataReader["HARCIRAH_GUN"].ConInt(),
+                        dataReader["HARCIRAH_GUN_TL"].ConDouble(),
+                        dataReader["HARCIRAH_TOPLAM"].ConDouble(),
+                        dataReader["IASE_GUN"].ConInt(),
+                        dataReader["IASE_GUN_TL"].ConDouble(),
+                        dataReader["IASE_TOPLAM"].ConDouble(),
                         dataReader["UCAK_BILETI"].ConDouble(),
                         dataReader["OTOBUS_BILETI"].ConDouble(),
                         dataReader["ARAC_PLAKASI"].ToString(),
@@ -179,6 +191,12 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["SEYAHAT_AVANS_GUN"].ConInt(),
                         dataReader["SEYAHAT_GUN_TL"].ConDouble(),
                         dataReader["SEYAHAT_TOPLAM"].ConDouble(),
+                        dataReader["HARCIRAH_GUN"].ConInt(),
+                        dataReader["HARCIRAH_GUN_TL"].ConDouble(),
+                        dataReader["HARCIRAH_TOPLAM"].ConDouble(),
+                        dataReader["IASE_GUN"].ConInt(),
+                        dataReader["IASE_GUN_TL"].ConDouble(),
+                        dataReader["IASE_TOPLAM"].ConDouble(),
                         dataReader["UCAK_BILETI"].ConDouble(),
                         dataReader["OTOBUS_BILETI"].ConDouble(),
                         dataReader["ARAC_PLAKASI"].ToString(),
@@ -240,7 +258,13 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@geneltoplam", entity.Geneltoplam),
                     new SqlParameter("@islemadimi", entity.Islemadimi),
                     new SqlParameter("@dosyayolu", entity.Dosyayolu),
-                    new SqlParameter("@konaklamaTuru", entity.KonaklamaTuru));
+                    new SqlParameter("@konaklamaTuru", entity.KonaklamaTuru),
+                    new SqlParameter("@harcirahGun", entity.HarcirahGun),
+                    new SqlParameter("@harcirahGunTl",entity.HarcirahGunTl),
+                    new SqlParameter("@harcirahGunToplam",entity.HarcirahToplam),
+                    new SqlParameter("@iaseGun",entity.IaseGun),
+                    new SqlParameter("@iaseGunTl",entity.IaseGunTl),
+                    new SqlParameter("@iaseToplam",entity.IaseToplam));
 
                 dataReader.Close();
                 return "OK";
@@ -288,7 +312,13 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@cikiskm", entity.Cikiskm),
                     new SqlParameter("@donuskm", entity.Donuskm),
                     new SqlParameter("@toplamkm", entity.Toplamkm),
-                    new SqlParameter("@geneltoplam", entity.Geneltoplam));
+                    new SqlParameter("@geneltoplam", entity.Geneltoplam),
+                    new SqlParameter("@harcirahGun", entity.HarcirahGun),
+                    new SqlParameter("@harcirahGunTl", entity.HarcirahGunTl),
+                    new SqlParameter("@harcirahGunToplam", entity.HarcirahToplam),
+                    new SqlParameter("@iaseGun", entity.IaseGun),
+                    new SqlParameter("@iaseGunTl", entity.IaseGunTl),
+                    new SqlParameter("@iaseToplam", entity.IaseToplam));
 
                 dataReader.Close();
                 return "OK";
