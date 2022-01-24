@@ -28,7 +28,11 @@ namespace Entity.IdariIsler
         public string SiparisNo { get => siparisNo; set => siparisNo = value; }
         public string AlimTuru { get => alimTuru; set => alimTuru = value; }
 
-        public YakitDokum(int id, int isAkisNo, string firma, string donem, DateTime tarih, string defterNo, string siraNo, string fisNo, string personel, string plaka, string aracSiparisNo, double litreFiyati, double verilenLitre, double toplamTutar, string dosyaYolu,string siparisNo)
+        public YakitDokum()
+        {
+
+        }
+        public YakitDokum(int id, int isAkisNo, string firma, string donem, DateTime tarih, string defterNo, string siraNo, string fisNo, string personel, string plaka, string aracSiparisNo, double litreFiyati, double verilenLitre, double toplamTutar, string dosyaYolu, string siparisNo)
         {
             this.id = id;
             this.isAkisNo = isAkisNo;
@@ -48,7 +52,7 @@ namespace Entity.IdariIsler
             this.siparisNo = siparisNo;
         }
 
-        public YakitDokum(int isAkisNo, string firma, string donem, DateTime tarih, string defterNo, string siraNo, string fisNo, string personel, string plaka, string aracSiparisNo, double litreFiyati, double verilenLitre, double toplamTutar, string dosyaYolu,string siparisNo)
+        public YakitDokum(int isAkisNo, string firma, string donem, DateTime tarih, string defterNo, string siraNo, string fisNo, string personel, string plaka, string aracSiparisNo, double litreFiyati, double verilenLitre, double toplamTutar, string dosyaYolu, string siparisNo)
         {
             this.isAkisNo = isAkisNo;
             this.firma = firma;
@@ -127,7 +131,7 @@ namespace Entity.IdariIsler
             this.toplamTutar = toplamTutar;
             this.dosyaYolu = dosyaYolu;
         }
-        public YakitDokum(int id,int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu)
+        public YakitDokum(int id, int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu)
         {
             this.id = id;
             this.isAkisNo = isAkisNo;

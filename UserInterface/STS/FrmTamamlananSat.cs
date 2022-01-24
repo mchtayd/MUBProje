@@ -696,7 +696,7 @@ namespace UserInterface.STS
 
         private void button2_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Bilgileri Guncellemek İstiyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            /*DialogResult dr = MessageBox.Show("Bilgileri Guncellemek İstiyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
                 if (siparisNo=="")
@@ -715,11 +715,11 @@ namespace UserInterface.STS
                 MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TamamlananSatlar();
                 Temizle();
-            }
+            }*/
         }
         void MalzemeGuncelle()
         {
-            List<TamamlananMalzeme> tamamlanan = new List<TamamlananMalzeme>();
+            /*List<TamamlananMalzeme> tamamlanan = new List<TamamlananMalzeme>();
 
             if (stn1.Text!="")
             {
@@ -775,7 +775,7 @@ namespace UserInterface.STS
             {
                 tamamlananMalzemeManager.UpdateFiyat(item);
             }
-
+            */
         }
         string topfiyat;
         double outValue = 0;
@@ -922,6 +922,51 @@ namespace UserInterface.STS
             }
             x10 = BT10.Text.ConDouble();
             GenelToplam1();
+        }
+
+        private void DtgTamamlananSatlar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (start)
+            {
+                return;
+            }
+            if (DtgTamamlananSatlar.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+
+            siparisNo = DtgTamamlananSatlar.CurrentRow.Cells["SiparisNo"].Value.ToString();
+            dosyayolu = DtgTamamlananSatlar.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            ucteklif = DtgTamamlananSatlar.CurrentRow.Cells["Ucteklif"].Value.ConInt();
+            butceKodu = DtgTamamlananSatlar.CurrentRow.Cells["Butcekodukalemi"].Value.ToString();
+            harcananTutar = DtgTamamlananSatlar.CurrentRow.Cells["Harcanantutar"].Value.ConDouble();
+            satOlusturmaTuru = DtgTamamlananSatlar.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
+            tamamlananMalzemes = tamamlananMalzemeManager.GetList(siparisNo);
+            //geneltoplam = DtgTamamlananSatlar.CurrentRow.Cells["Harcanantutar"].Value.ConDouble();
+            geneltoplam = tamamlanans.FirstOrDefault(x => x.Siparisno == siparisNo).Harcanantutar;
+            WebBrowser();
+            IslemAdimlari();
+
+            if (ucteklif == 1)
+            {
+                PanelGenislet();
+                PnlGizle.Visible = true;
+            }
+            if (ucteklif == 0)
+            {
+                if (satOlusturmaTuru == "HARCAMASI YAPILAN")
+                {
+                    TxtGenelTop.Text = harcananTutar.ToString("0.00") + " ₺";
+                    PanelDaraltTemsili();
+                    return;
+                }
+                PanelDaralt();
+                PnlGizle.Visible = false;
+            }
+
+            TxtGenelTop.Text = geneltoplam.ToString("0.00") + " ₺";
+            FillTools();
         }
 
         private void BBF1_TextChanged(object sender, EventArgs e)

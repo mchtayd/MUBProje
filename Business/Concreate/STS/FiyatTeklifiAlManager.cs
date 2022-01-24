@@ -70,16 +70,11 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
-        public string Update(FiyatTeklifiAl entity)
+        public string Update(FiyatTeklifiAl entity,int onayliTeklif)
         {
             try
             {
-                controlText = IsFiyatTeklifiComplete(entity);
-                if (controlText != "")
-                {
-                    return controlText;
-                }
-                return fiyatTeklifiAlDal.Update(entity);
+                return fiyatTeklifiAlDal.Update(entity, onayliTeklif);
             }
             catch (Exception ex)
             {

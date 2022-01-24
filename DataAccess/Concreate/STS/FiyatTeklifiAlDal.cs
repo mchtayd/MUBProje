@@ -105,7 +105,7 @@ namespace DataAccess.Concreate.STS
                 return ex.Message;
             }
         }
-        public string Update(FiyatTeklifiAl entity)
+        public string Update(FiyatTeklifiAl entity,int onayliTeklif)
         {
             try
             {
@@ -115,10 +115,10 @@ namespace DataAccess.Concreate.STS
                     new SqlParameter("@tanım", entity.Tanim),
                     new SqlParameter("@miktar", entity.Miktar),
                     new SqlParameter("@birim", entity.Birim),
-                    new SqlParameter("@firma1", entity.Firma1),
-                    new SqlParameter("@firma2", entity.Firma2),
-                    new SqlParameter("@firma3", entity.Firma3),
-                    new SqlParameter("@teklifdurumu", entity.Teklifdurumu));
+                    new SqlParameter("@firma", entity.Firma1),
+                    new SqlParameter("@bf", entity.Bbf),
+                    new SqlParameter("@tf", entity.Btf),
+                    new SqlParameter("@onayliTeklif", onayliTeklif));
 
                 dataReader.Close();
                 return "OK";

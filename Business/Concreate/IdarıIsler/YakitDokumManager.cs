@@ -90,6 +90,7 @@ namespace Business.Concreate.IdarıIsler
             {
                 return ex.Message;
             }
+            
         }
 
         public YakitDokum Get(string siparisNo)
@@ -101,6 +102,28 @@ namespace Business.Concreate.IdarıIsler
             catch (Exception)
             {
                 return null;
+            }
+        }
+        public List<YakitDokum> YakitKontrolTT(string donem)
+        {
+            try
+            {
+                return yakitDokumDal.YakitKontrolTT(donem);
+            }
+            catch (Exception)
+            {
+                return new List<YakitDokum>();
+            }
+        }
+        public List<YakitDokum> YakitKontrolAnlasmali(string donem)
+        {
+            try
+            {
+                return yakitDokumDal.YakitKontrolAnlasmali(donem);
+            }
+            catch (Exception)
+            {
+                return new List<YakitDokum>();
             }
         }
 
@@ -115,6 +138,7 @@ namespace Business.Concreate.IdarıIsler
                 return new List<YakitDokum>();
             }
         }
+        
         public List<YakitDokum> GetListAna(string alimTuru)
         {
             try

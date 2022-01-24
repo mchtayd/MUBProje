@@ -142,10 +142,11 @@ namespace UserInterface.IdariIsler
         }
         void Personeller1()
         {
-            CmbAdSoyad.DataSource = personelKayitManager.PersonelAdSoyad();
-            CmbAdSoyad.ValueMember = "Id";
-            CmbAdSoyad.DisplayMember = "Adsoyad";
-            CmbAdSoyad.SelectedValue = -1;
+            LblAdSoyad.Text = infos[1].ToString();
+            LblSiparisNo.Text = infos[9].ToString();
+            LblUnvani.Text = infos[10].ToString();
+            LblMasrafYeriNo.Text = infos[4].ToString();
+            LblMasrafYeri.Text = infos[2].ToString();
         }
         void Personeller2()
         {
@@ -254,15 +255,12 @@ namespace UserInterface.IdariIsler
             TxtMasrafYeriGun.Clear();
             start3 = true;
         }
-
-        private void CmbAdSoyad_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (start == true)
+        /*if (start == true)
             {
                 return;
             }
             SiparisPersonel siparis = siparisPersonelManager.Get("", CmbAdSoyad.Text);
-            CmbSiparisNo.Text = siparis.Siparis;
+        CmbSiparisNo.Text = siparis.Siparis;
             TxtMasrafyeriNo.Text = siparis.Masrafyerino;
             TxtMasrafYeri.Text = siparis.Masrafyeri;
             id = siparis.Id;
@@ -273,8 +271,8 @@ namespace UserInterface.IdariIsler
                 usamirbolum = ustAmirMails[0].Bolum;
                 usamirisim = ustAmirMails[0].Adsoyad;
             }
-        }
-
+        */
+    
         private void CmbAdSoyadGun_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start3 == true)
@@ -353,7 +351,7 @@ namespace UserInterface.IdariIsler
                 IsAkisNo();
                 string islemadimi = "1.ADIM: GÖREV OLUŞTURULDU.";
                 SehiriciGorev sehiriciGorev = new SehiriciGorev(LblIsAkisNo.Text.ConInt(), CmbProje.Text, TxtGidilecekYer.Text, TxtGorevKonusu.Text,
-                    basTarihi, CmbSiparisNo.Text, CmbAdSoyad.Text, TxtGoreviGun.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, islemadimi, id);
+                    basTarihi, LblSiparisNo.Text, LblAdSoyad.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text, islemadimi, id);
                 string mesaj = sehiriciGorevManager.Add(sehiriciGorev);
                 if (mesaj != "OK")
                 {
@@ -373,7 +371,7 @@ namespace UserInterface.IdariIsler
         }
         void PersonelMail()
         {
-            PersonelKayit personelKayit = personelKayitManager.PersonelMail(CmbAdSoyad.Text);
+            PersonelKayit personelKayit = personelKayitManager.PersonelMail(LblAdSoyad.Text);
             mail = personelKayit.Oficemail;
         }
         void CreateLog()
@@ -388,8 +386,8 @@ namespace UserInterface.IdariIsler
         }
         void Temizle()
         {
-            IsAkisNo(); CmbProje.SelectedValue = -1; TxtGidilecekYer.Clear(); TxtGorevKonusu.Clear(); CmbSiparisNo.Text = ""; TxtMasrafYeri.Clear(); CmbAdSoyad.Text = ""; TxtMasrafyeriNo.Clear();
-            DtBasTarihi.Value = DateTime.Now; TxtGoreviGun.Clear();
+            IsAkisNo(); CmbProje.SelectedValue = -1; TxtGidilecekYer.Clear(); TxtGorevKonusu.Clear();
+            DtBasTarihi.Value = DateTime.Now;
         }
         void MailSendMetotPersonel()
         {
@@ -831,30 +829,8 @@ namespace UserInterface.IdariIsler
             int topsaat = (gun * 24) + saat;
             TxtTopSureGun.Text = topsaat.ToString() + " Saat";
         }
-        private void CmbSiparisNo_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (start)
-            {
-                if (start2 == true)
-                {
-                    return;
-                }
-            }
-            siparis = CmbSiparisNo.Text;
-            SiparisIsimlerDoldur();
-            start = true;
-            TxtMasrafyeriNo.Clear();
-            TxtMasrafYeri.Clear();
-            TxtGoreviGun.Clear();
-            start = true;
-        }
-        void SiparisIsimlerDoldur()
-        {
-            CmbAdSoyad.DataSource = siparisPersonelManager.GetList(siparis);
-            CmbAdSoyad.ValueMember = "Id";
-            CmbAdSoyad.DisplayMember = "Personel";
-            CmbAdSoyad.SelectedValue = 0;
-        }
+        
+        
         public void MailSend(string subject, string body, List<string> receivers, List<string> attachments = null)
         {
             try

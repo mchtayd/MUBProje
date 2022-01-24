@@ -45,12 +45,12 @@ namespace Entity.STS
             this.siparisno = siparisno;
         }
 
-        public TamamlananMalzeme(string stokno, double birimfiyat, double toplamfiyat, string siparisno)
+        /*public TamamlananMalzeme(string stokno, double birimfiyat, double toplamfiyat, string siparisno)
         {
             this.stokno = stokno;
             this.birimfiyat = birimfiyat;
             this.toplamfiyat = toplamfiyat;
             this.siparisno = siparisno;
-        }
+        }*/
     }
 }

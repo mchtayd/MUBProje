@@ -64,6 +64,28 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
+        public Siparisler AracMevcutKadroKontrol(string siparisNo)
+        {
+            try
+            {
+                return siparislerDal.AracMevcutKadroKontrol(siparisNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Siparisler YillikSiparisCek(string yil)
+        {
+            try
+            {
+                return siparislerDal.YiilkSiparisCek(yil);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<Siparisler> GetList(string benzersiz="")
         {
@@ -87,6 +109,28 @@ namespace Business.Concreate.IdarıIsler
                     return controlText;
                 }
                 return siparislerDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string AracSiparisArttir(string siparisNo)
+        {
+            try
+            {
+                return siparislerDal.AracSiparisArttir(siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string AracSiparisAzalt(string siparisNo)
+        {
+            try
+            {
+                return siparislerDal.AracSiparisAzalt(siparisNo);
             }
             catch (Exception ex)
             {

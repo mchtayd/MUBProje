@@ -113,9 +113,11 @@ namespace UserInterface.IdariIsler
             //AddHeaderCheckBox();
             gec = true;
         }
+        List<AracZimmeti> aracZimmetis = new List<AracZimmeti>();
         void ZimmetliAraclar()
         {
-            dataBinder3.DataSource = aracZimmetiManager.GetList();
+            aracZimmetis = aracZimmetiManager.GetList();
+            dataBinder3.DataSource = aracZimmetis.ToDataTable();
             DtgZimmetLsitesi.DataSource = dataBinder3;
             TxtTop.Text = DtgZimmetLsitesi.RowCount.ToString();
 

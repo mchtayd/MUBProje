@@ -12,9 +12,9 @@ using System.Windows.Forms;
 
 namespace DataAccess.Concreate
 {
+    
     public static class Helper
     {
-        
 
         static double outValue = 0;
         static int outValue2 = 0;
@@ -102,6 +102,5 @@ namespace DataAccess.Concreate
                 .Replace(">", "")
                 .Replace("|", "");
         }
-
     }
 }

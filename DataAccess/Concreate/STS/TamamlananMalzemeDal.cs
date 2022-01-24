@@ -86,8 +86,11 @@ namespace DataAccess.Concreate.STS
         {
             try
             {
-                dataReader = sqlServices.StoreReader("TamamlananSatMalzemeFiyatGuncelle",new SqlParameter("@birimFiyati",entity.Birimfiyat),
-                    new SqlParameter("@tutar",entity.Toplamfiyat),new SqlParameter("@siparisNo",entity.Siparisno),new SqlParameter("@stokNo",entity.Stokno));
+                dataReader = sqlServices.StoreReader("TamamlananSatMalzemeFiyatGuncelle",
+                    new SqlParameter("@birimFiyati",entity.Birimfiyat),
+                    new SqlParameter("@tutar",entity.Toplamfiyat),
+                    new SqlParameter("@siparisNo",entity.Siparisno),
+                    new SqlParameter("@stokNo",entity.Stokno));
                 dataReader.Close();
                 return "OK";
             }

@@ -79,6 +79,35 @@ namespace DataAccess.Concreate.Yerleskeler
                 return null;
             }
         }
+        public Yerleske YerleskeBiigiCek(string yerleskeAdi, string aboneTuru)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("YerleskeBilgiCek", new SqlParameter("@yerleskeAdi", yerleskeAdi), new SqlParameter("@aboneTuru", aboneTuru));
+                Yerleske item = null;
+                while (dataReader.Read())
+                {
+                    item = new Yerleske(
+                         dataReader["ID"].ConInt(),
+                        dataReader["YERLESKE_ADI"].ToString(),
+                        dataReader["MULKIYET_BILGILERI"].ToString(),
+                        dataReader["YERLESKE_ADRESI"].ToString(),
+                        dataReader["ABONE_TURU"].ToString(),
+                        dataReader["HIZMET_ALINAN_KURUM"].ToString(),
+                        dataReader["ABONE_TESISAT_NO"].ToString(),
+                        dataReader["ABONA_TARIHI"].ConTime(),
+                        dataReader["ABONELIK_DURUMU"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         public List<Yerleske> GetList(string siparisNo)
         {

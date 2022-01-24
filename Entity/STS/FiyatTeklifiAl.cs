@@ -77,6 +77,17 @@ namespace Entity.STS
             this.firma2 = firma2;
             this.firma3 = firma3;
         }
-        
+
+        public FiyatTeklifiAl(int id, string stokno, string tanim, int miktar, string birim, string firma1, double bbf, double btf)
+        {
+            this.id = id;
+            this.stokno = stokno;
+            this.tanim = tanim;
+            this.miktar = miktar;
+            this.birim = birim;
+            this.firma1 = firma1;
+            this.bbf = bbf;
+            this.btf = btf;
+        }
     }
 }

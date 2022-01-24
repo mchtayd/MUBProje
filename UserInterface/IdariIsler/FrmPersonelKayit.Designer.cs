@@ -31,8 +31,8 @@ namespace UserInterface.IdariIşler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonelKayit));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
@@ -525,18 +525,18 @@ namespace UserInterface.IdariIşler
             // 
             this.DtgMevcutKadro.AllowUserToAddRows = false;
             this.DtgMevcutKadro.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgMevcutKadro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMevcutKadro.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgMevcutKadro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgMevcutKadro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DtgMevcutKadro.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1494,6 +1494,7 @@ namespace UserInterface.IdariIşler
             this.CmbMasrafYeriSorumlusuGun.Name = "CmbMasrafYeriSorumlusuGun";
             this.CmbMasrafYeriSorumlusuGun.Size = new System.Drawing.Size(265, 21);
             this.CmbMasrafYeriSorumlusuGun.TabIndex = 138;
+            this.CmbMasrafYeriSorumlusuGun.SelectedIndexChanged += new System.EventHandler(this.CmbMasrafYeriSorumlusuGun_SelectedIndexChanged);
             // 
             // label123
             // 
@@ -2679,6 +2680,7 @@ namespace UserInterface.IdariIşler
             this.CmbMasrafYeriSorumlusu.Name = "CmbMasrafYeriSorumlusu";
             this.CmbMasrafYeriSorumlusu.Size = new System.Drawing.Size(235, 21);
             this.CmbMasrafYeriSorumlusu.TabIndex = 129;
+            this.CmbMasrafYeriSorumlusu.SelectedIndexChanged += new System.EventHandler(this.CmbMasrafYeriSorumlusu_SelectedIndexChanged);
             // 
             // label122
             // 

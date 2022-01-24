@@ -55,6 +55,7 @@ namespace UserInterface.DokumanYonetim
             this.CmbDokumanTur = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BtnDokumanSil = new System.Windows.Forms.Button();
             this.label18 = new System.Windows.Forms.Label();
             this.CmbK = new System.Windows.Forms.ComboBox();
             this.DtgYayin = new System.Windows.Forms.DateTimePicker();
@@ -85,7 +86,6 @@ namespace UserInterface.DokumanYonetim
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.BtnDokumanSil = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -193,7 +193,7 @@ namespace UserInterface.DokumanYonetim
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1092, 358);
+            this.label13.Location = new System.Drawing.Point(276, 768);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(414, 65);
             this.label13.TabIndex = 47;
@@ -223,7 +223,7 @@ namespace UserInterface.DokumanYonetim
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(24, 782);
+            this.BtnKaydet.Location = new System.Drawing.Point(23, 768);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(118, 51);
             this.BtnKaydet.TabIndex = 32;
@@ -235,7 +235,7 @@ namespace UserInterface.DokumanYonetim
             // 
             this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(1095, 294);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(147, 770);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(123, 49);
             this.BtnDosyaEkle.TabIndex = 31;
@@ -400,6 +400,18 @@ namespace UserInterface.DokumanYonetim
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "DOKÜMAN GÜNCELLE";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // BtnDokumanSil
+            // 
+            this.BtnDokumanSil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDokumanSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnDokumanSil.Location = new System.Drawing.Point(172, 777);
+            this.BtnDokumanSil.Name = "BtnDokumanSil";
+            this.BtnDokumanSil.Size = new System.Drawing.Size(143, 51);
+            this.BtnDokumanSil.TabIndex = 76;
+            this.BtnDokumanSil.Text = "DOKÜMAN SİL";
+            this.BtnDokumanSil.UseVisualStyleBackColor = true;
+            this.BtnDokumanSil.Click += new System.EventHandler(this.BtnDokumanSil_Click);
             // 
             // label18
             // 
@@ -717,18 +729,6 @@ namespace UserInterface.DokumanYonetim
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
-            // 
-            // BtnDokumanSil
-            // 
-            this.BtnDokumanSil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDokumanSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDokumanSil.Location = new System.Drawing.Point(172, 777);
-            this.BtnDokumanSil.Name = "BtnDokumanSil";
-            this.BtnDokumanSil.Size = new System.Drawing.Size(143, 51);
-            this.BtnDokumanSil.TabIndex = 76;
-            this.BtnDokumanSil.Text = "DOKÜMAN SİL";
-            this.BtnDokumanSil.UseVisualStyleBackColor = true;
-            this.BtnDokumanSil.Click += new System.EventHandler(this.BtnDokumanSil_Click);
             // 
             // FrmDokumanEkle
             // 

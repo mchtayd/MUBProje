@@ -60,6 +60,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public IscilikPerformans PerformansBul(int isAkisNo)
+        {
+            try
+            {
+                return performansDal.PerformansBul(isAkisNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<IscilikPerformans> PerformansHatalilar()
         {
@@ -84,7 +95,7 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public string Update(IscilikPerformans entity,int id)
+        public string Update(IscilikPerformans entity,int isAkisNo,string hata)
         {
             try
             {
@@ -93,7 +104,7 @@ namespace Business.Concreate.BakimOnarim
                 {
                     return controlText;
                 }
-                return performansDal.Update(entity, id);
+                return performansDal.Update(entity, isAkisNo,hata);
             }
             catch (Exception ex)
             {
@@ -141,17 +152,9 @@ namespace Business.Concreate.BakimOnarim
             {
                 return "Lütfen ÇIKIŞ DURAĞI Bilgisini doldurunuz.";
             }
-            if (string.IsNullOrEmpty(performans.CikisSebebi))
-            {
-                return "Lütfen ÇIKIŞ SEBEBİ Bilgisini doldurunuz.";
-            }
             if (string.IsNullOrEmpty(performans.VarisDurag))
             {
                 return "Lütfen VARIŞ DURAĞI Bilgisini doldurunuz.";
-            }
-            if (string.IsNullOrEmpty(performans.Sonuc))
-            {
-                return "Lütfen SONUÇ Bilgisini doldurunuz.";
             }
             return "";
         }

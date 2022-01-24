@@ -529,7 +529,6 @@ namespace UserInterface.DokumanYonetim
                 "\nDökümanı bu sistem üzerinden izleyebilirsiniz." + "\n\nİyi Çalışmalar.", new List<string>() { 
                     "resulgunes@mubvan.net", 
                     "emelayhan@mubvan.net",
-                    "kadirkoc@mubvan.net",
                     "ahmetfatihdemirol@mubvan.net",
                     "burakayargil@mubvan.net",
                     "cetinmurat@mubvan.net",
@@ -537,11 +536,6 @@ namespace UserInterface.DokumanYonetim
                     "gulsahotaci@mubvan.net",
                     "mehmetyildirim@mubvan.net",
                     "mucahitaydemir@mubvan.net",
-                    "muhammetpolat@mubvan.net",
-                    "muratdemirtas@mubvan.net",
-                    "mustafauzun@mubvan.net",
-                    "muzaffermutlu@mubvan.net",
-                    "ridvankoc@mubvan.net",
                     "sametatacan@mubvan.net",
                     "serifenurgunes@mubvan.net",
                     "mehmetsenol@mubvan.net" });

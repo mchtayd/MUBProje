@@ -187,9 +187,9 @@ namespace UserInterface.Yerleskeler
                
             }
 
-            kiras = kiraManager.YerleskeKontrol(TxtYerleskeAdi.Text, TxtYerleskeAdresi.Text, CmbMulkiyetBilgileri.Text, siparisNo);
+            //kiras = kiraManager.YerleskeKontrol(TxtYerleskeAdi.Text, TxtYerleskeAdresi.Text, CmbMulkiyetBilgileri.Text, siparisNo);
 
-            if (kiras.Count==0)
+            if (CmbYerleskeAdi.Text!="")
             {
                 if (CmbMulkiyetBilgileri.SelectedIndex == 0)
                 {

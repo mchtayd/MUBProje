@@ -64,12 +64,53 @@ namespace DataAccess.Concreate.IdariIsler
                 {
                     item=new Siparisler(dataReader["ID"].ConInt(), dataReader["PROJE"].ToString(), dataReader["SIPARIS_NO"].ToString(), dataReader["PERSONEL_YONETICI"].ConInt(), dataReader["PERSONEL"].ConInt(),
                         dataReader["PERSONEL_DEPO"].ConInt(), dataReader["TOPLAM_PERSONEL"].ConInt(), dataReader["YONETICI_ARAC"].ConInt(), dataReader["ARAZI_ARAC"].ConInt(), dataReader["TOPLAM_ARAC"].ConInt(),
-                        dataReader["SAT"].ToString(), dataReader["DONEM_YIL"].ToString(), dataReader["SAT_KATEGORİ"].ToString(),dataReader["Benzersiz"].ToString(),dataReader["MEVCUT_PERSONEL"].ConInt());
+                        dataReader["SAT"].ToString(), dataReader["DONEM_YIL"].ToString(), dataReader["SAT_KATEGORİ"].ToString(),dataReader["Benzersiz"].ToString(),dataReader["MEVCUT_PERSONEL"].ConInt(), dataReader["MEVCUT_ARAC"].ConInt());
                 }
                 dataReader.Close();
                 return item;
             }
             catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Siparisler AracMevcutKadroKontrol(string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MevcutAracBilgisi", new SqlParameter("@siparis", siparisNo));
+                Siparisler item = null;
+                while (dataReader.Read())
+                {
+                    item = new Siparisler(dataReader["ID"].ConInt(), dataReader["PROJE"].ToString(), dataReader["SIPARIS_NO"].ToString(), dataReader["PERSONEL_YONETICI"].ConInt(), dataReader["PERSONEL"].ConInt(),
+                        dataReader["PERSONEL_DEPO"].ConInt(), dataReader["TOPLAM_PERSONEL"].ConInt(), dataReader["YONETICI_ARAC"].ConInt(), dataReader["ARAZI_ARAC"].ConInt(), dataReader["TOPLAM_ARAC"].ConInt(),
+                        dataReader["SAT"].ToString(), dataReader["DONEM_YIL"].ToString(), dataReader["SAT_KATEGORİ"].ToString(), dataReader["Benzersiz"].ToString(), dataReader["MEVCUT_PERSONEL"].ConInt(), dataReader["MEVCUT_ARAC"].ConInt());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public Siparisler YiilkSiparisCek(string yil)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SiparislerYillikCek", new SqlParameter("@yil", yil));
+                Siparisler item = null;
+                while (dataReader.Read())
+                {
+                    item = new Siparisler(dataReader["ID"].ConInt(), dataReader["PROJE"].ToString(), dataReader["SIPARIS_NO"].ToString(), dataReader["PERSONEL_YONETICI"].ConInt(), dataReader["PERSONEL"].ConInt(),
+                        dataReader["PERSONEL_DEPO"].ConInt(), dataReader["TOPLAM_PERSONEL"].ConInt(), dataReader["YONETICI_ARAC"].ConInt(), dataReader["ARAZI_ARAC"].ConInt(), dataReader["TOPLAM_ARAC"].ConInt(),
+                        dataReader["SAT"].ToString(), dataReader["DONEM_YIL"].ToString(), dataReader["SAT_KATEGORİ"].ToString(), dataReader["Benzersiz"].ToString(), dataReader["MEVCUT_PERSONEL"].ConInt(), dataReader["MEVCUT_ARAC"].ConInt());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
             {
                 return null;
             }
@@ -98,7 +139,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["DONEM_YIL"].ToString(), 
                         dataReader["SAT_KATEGORİ"].ToString(), 
                         dataReader["Benzersiz"].ToString(),
-                        dataReader["MEVCUT_PERSONEL"].ConInt()));
+                        dataReader["MEVCUT_PERSONEL"].ConInt(),
+                        dataReader["MEVCUT_ARAC"].ConInt()));
                 }
                 dataReader.Close();
                 return siparislers;
@@ -120,6 +162,32 @@ namespace DataAccess.Concreate.IdariIsler
 
                 dataReader.Close();
                 return entity.Siparisno + "Siparis Numarası Başarıyla Güncellendi";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string AracSiparisArttir(string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AracMevcutKadroArttir", new SqlParameter("@siparisNo", siparisNo));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string AracSiparisAzalt(string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AracMevcutKadroAzalt", new SqlParameter("@siparisNo", siparisNo));
+                dataReader.Close();
+                return "OK";
             }
             catch (Exception ex)
             {

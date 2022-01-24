@@ -40,11 +40,11 @@ namespace Business.Concreate.IdarıIsler
             throw new NotImplementedException();
         }
 
-        public PersonelKayit Get(int id)
+        public PersonelKayit Get(int id=0, string personeAd="")
         {
             try
             {
-                return personelKayitDal.Get(id);
+                return personelKayitDal.Get(id, personeAd);
             }
             catch (Exception)
             {
@@ -58,6 +58,28 @@ namespace Business.Concreate.IdarıIsler
             try
             {
                 return personelKayitDal.GetList(siparisNo);
+            }
+            catch
+            {
+                return new List<PersonelKayit>();
+            }
+        }
+        public string YetkiliEkle(int personelId, int yetkiliId)
+        {
+            try
+            {
+                return personelKayitDal.YetkiliEkle(personelId, yetkiliId);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public List<PersonelKayit> PersonelSiparis(string siparis)
+        {
+            try
+            {
+                return personelKayitDal.PersonelSiparis(siparis);
             }
             catch
             {
@@ -158,6 +180,19 @@ namespace Business.Concreate.IdarıIsler
             catch (Exception)
             {
                 return new List<PersonelKayit>();
+            }
+        }
+
+        public string PersonelSorumluDegistir(int personelId,int yetkiliId)
+        {
+            try
+            {
+                
+                return personelKayitDal.PersonelSorumluDegistir(personelId, yetkiliId);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
         string IsPersonelKayitComplete(PersonelKayit personelKayit)

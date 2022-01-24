@@ -390,6 +390,18 @@ namespace Business.Concreate
                 throw;
             }
         }
+        public void TamamlamaDonemGuncelle(string siparisno,string donem)
+        {
+            try
+            {
+                satDataGridview1Dal.TamamlamaDonemGuncelle(siparisno,donem);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
 
         public void DurumGuncelleTamamlama(string siparisno)
         {

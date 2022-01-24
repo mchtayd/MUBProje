@@ -30,21 +30,16 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.CmbSiparisNo = new System.Windows.Forms.TextBox();
-            this.TxtGoreviGun = new System.Windows.Forms.TextBox();
             this.label52 = new System.Windows.Forms.Label();
-            this.CmbAdSoyad = new System.Windows.Forms.ComboBox();
-            this.TxtMasrafyeriNo = new System.Windows.Forms.TextBox();
             this.label63 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.TxtMasrafYeri = new System.Windows.Forms.TextBox();
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -151,6 +146,11 @@ namespace UserInterface.IdariIsler
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.LblAdSoyad = new System.Windows.Forms.Label();
+            this.LblSiparisNo = new System.Windows.Forms.Label();
+            this.LblUnvani = new System.Windows.Forms.Label();
+            this.LblMasrafYeriNo = new System.Windows.Forms.Label();
+            this.LblMasrafYeri = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -226,14 +226,14 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.CmbSiparisNo);
-            this.groupBox8.Controls.Add(this.TxtGoreviGun);
+            this.groupBox8.Controls.Add(this.LblMasrafYeri);
+            this.groupBox8.Controls.Add(this.LblMasrafYeriNo);
+            this.groupBox8.Controls.Add(this.LblUnvani);
+            this.groupBox8.Controls.Add(this.LblSiparisNo);
+            this.groupBox8.Controls.Add(this.LblAdSoyad);
             this.groupBox8.Controls.Add(this.label52);
-            this.groupBox8.Controls.Add(this.CmbAdSoyad);
-            this.groupBox8.Controls.Add(this.TxtMasrafyeriNo);
             this.groupBox8.Controls.Add(this.label63);
             this.groupBox8.Controls.Add(this.label56);
-            this.groupBox8.Controls.Add(this.TxtMasrafYeri);
             this.groupBox8.Controls.Add(this.label58);
             this.groupBox8.Controls.Add(this.label59);
             this.groupBox8.Location = new System.Drawing.Point(15, 177);
@@ -243,20 +243,6 @@ namespace UserInterface.IdariIsler
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "B-Göreve Katılan Personel:";
             // 
-            // CmbSiparisNo
-            // 
-            this.CmbSiparisNo.Location = new System.Drawing.Point(147, 47);
-            this.CmbSiparisNo.Name = "CmbSiparisNo";
-            this.CmbSiparisNo.Size = new System.Drawing.Size(243, 20);
-            this.CmbSiparisNo.TabIndex = 21;
-            // 
-            // TxtGoreviGun
-            // 
-            this.TxtGoreviGun.Location = new System.Drawing.Point(147, 74);
-            this.TxtGoreviGun.Name = "TxtGoreviGun";
-            this.TxtGoreviGun.Size = new System.Drawing.Size(243, 20);
-            this.TxtGoreviGun.TabIndex = 20;
-            // 
             // label52
             // 
             this.label52.AutoSize = true;
@@ -265,22 +251,6 @@ namespace UserInterface.IdariIsler
             this.label52.Size = new System.Drawing.Size(51, 13);
             this.label52.TabIndex = 19;
             this.label52.Text = "ÜNVANI:";
-            // 
-            // CmbAdSoyad
-            // 
-            this.CmbAdSoyad.FormattingEnabled = true;
-            this.CmbAdSoyad.Location = new System.Drawing.Point(147, 20);
-            this.CmbAdSoyad.Name = "CmbAdSoyad";
-            this.CmbAdSoyad.Size = new System.Drawing.Size(243, 21);
-            this.CmbAdSoyad.TabIndex = 7;
-            this.CmbAdSoyad.SelectedIndexChanged += new System.EventHandler(this.CmbAdSoyad_SelectedIndexChanged);
-            // 
-            // TxtMasrafyeriNo
-            // 
-            this.TxtMasrafyeriNo.Location = new System.Drawing.Point(147, 100);
-            this.TxtMasrafyeriNo.Name = "TxtMasrafyeriNo";
-            this.TxtMasrafyeriNo.Size = new System.Drawing.Size(243, 20);
-            this.TxtMasrafyeriNo.TabIndex = 8;
             // 
             // label63
             // 
@@ -300,17 +270,10 @@ namespace UserInterface.IdariIsler
             this.label56.TabIndex = 9;
             this.label56.Text = "AD SOYAD:";
             // 
-            // TxtMasrafYeri
-            // 
-            this.TxtMasrafYeri.Location = new System.Drawing.Point(147, 126);
-            this.TxtMasrafYeri.Name = "TxtMasrafYeri";
-            this.TxtMasrafYeri.Size = new System.Drawing.Size(243, 20);
-            this.TxtMasrafYeri.TabIndex = 9;
-            // 
             // label58
             // 
             this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(16, 132);
+            this.label58.Location = new System.Drawing.Point(16, 131);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(125, 13);
             this.label58.TabIndex = 5;
@@ -319,7 +282,7 @@ namespace UserInterface.IdariIsler
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(40, 106);
+            this.label59.Location = new System.Drawing.Point(40, 104);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(101, 13);
             this.label59.TabIndex = 1;
@@ -1210,8 +1173,8 @@ namespace UserInterface.IdariIsler
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -1293,8 +1256,8 @@ namespace UserInterface.IdariIsler
             // 
             this.DtgListAmir.AllowUserToAddRows = false;
             this.DtgListAmir.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgListAmir.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgListAmir.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgListAmir.AutoGenerateContextFilters = true;
             this.DtgListAmir.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgListAmir.BackgroundColor = System.Drawing.SystemColors.Control;
@@ -1350,6 +1313,51 @@ namespace UserInterface.IdariIsler
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
+            // LblAdSoyad
+            // 
+            this.LblAdSoyad.AutoSize = true;
+            this.LblAdSoyad.Location = new System.Drawing.Point(147, 23);
+            this.LblAdSoyad.Name = "LblAdSoyad";
+            this.LblAdSoyad.Size = new System.Drawing.Size(19, 13);
+            this.LblAdSoyad.TabIndex = 16;
+            this.LblAdSoyad.Text = "00";
+            // 
+            // LblSiparisNo
+            // 
+            this.LblSiparisNo.AutoSize = true;
+            this.LblSiparisNo.Location = new System.Drawing.Point(147, 50);
+            this.LblSiparisNo.Name = "LblSiparisNo";
+            this.LblSiparisNo.Size = new System.Drawing.Size(19, 13);
+            this.LblSiparisNo.TabIndex = 21;
+            this.LblSiparisNo.Text = "00";
+            // 
+            // LblUnvani
+            // 
+            this.LblUnvani.AutoSize = true;
+            this.LblUnvani.Location = new System.Drawing.Point(147, 77);
+            this.LblUnvani.Name = "LblUnvani";
+            this.LblUnvani.Size = new System.Drawing.Size(19, 13);
+            this.LblUnvani.TabIndex = 22;
+            this.LblUnvani.Text = "00";
+            // 
+            // LblMasrafYeriNo
+            // 
+            this.LblMasrafYeriNo.AutoSize = true;
+            this.LblMasrafYeriNo.Location = new System.Drawing.Point(147, 104);
+            this.LblMasrafYeriNo.Name = "LblMasrafYeriNo";
+            this.LblMasrafYeriNo.Size = new System.Drawing.Size(19, 13);
+            this.LblMasrafYeriNo.TabIndex = 23;
+            this.LblMasrafYeriNo.Text = "00";
+            // 
+            // LblMasrafYeri
+            // 
+            this.LblMasrafYeri.AutoSize = true;
+            this.LblMasrafYeri.Location = new System.Drawing.Point(147, 131);
+            this.LblMasrafYeri.Name = "LblMasrafYeri";
+            this.LblMasrafYeri.Size = new System.Drawing.Size(19, 13);
+            this.LblMasrafYeri.TabIndex = 24;
+            this.LblMasrafYeri.Text = "00";
+            // 
             // FrmSehirIcıGorev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1404,7 +1412,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.TextBox TxtMasrafYeri;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.GroupBox groupBox5;
@@ -1443,10 +1450,8 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox TxtGorevKonusuGun;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox TxtMasrafyeriNo;
         private System.Windows.Forms.TextBox TxtMasrafYeriNoGun;
         private System.Windows.Forms.Label LblIsAkisNo;
-        private System.Windows.Forms.ComboBox CmbAdSoyad;
         private System.Windows.Forms.ComboBox CmbAdSoyadGun;
         private System.Windows.Forms.Button BtnBul;
         private System.Windows.Forms.MaskedTextBox TxtIsAkisNo;
@@ -1509,13 +1514,16 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.BindingSource dataBinder2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
-        private System.Windows.Forms.TextBox TxtGoreviGun;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.TextBox TxtGoreviGunGun;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.TextBox TxtUnvani;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox CmbSiparisNo;
         private System.Windows.Forms.TextBox CmbSiparsGun;
+        private System.Windows.Forms.Label LblAdSoyad;
+        private System.Windows.Forms.Label LblMasrafYeri;
+        private System.Windows.Forms.Label LblMasrafYeriNo;
+        private System.Windows.Forms.Label LblUnvani;
+        private System.Windows.Forms.Label LblSiparisNo;
     }
 }

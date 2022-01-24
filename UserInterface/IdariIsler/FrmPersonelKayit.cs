@@ -58,7 +58,7 @@ namespace UserInterface.IdariIşler
         public DateTime dogumtarihi;string askerlikbas, askerlikbit, tecilbit;
         bool control = false;
         public int id=0, ids=0;
-        bool start = true;
+        bool start = true, personelKadroKontrol = false;
         PersonelKayit personelKayit;
         IstenAyrilis istenAyrilis;
         Siparisler siparisler;
@@ -88,7 +88,22 @@ namespace UserInterface.IdariIşler
         }
         private void CmbSiparisG_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            /*if (control == false)
+            {
+                return;
+            }
+            kontenjan = siparislerManager.KontejanKontrol(CmbSiparisG.Text);
+            mevcut = siparislerManager.KontejanKontrolMevcut(CmbSiparisG.Text);
+            if (kontenjan == -1)
+            {
+                return;
+            }
+            if (kontenjan <= mevcut)
+            {
+                MessageBox.Show("Seçmiş Olduğunuz Personel Sipariş Numarasının Kontenjanı Doludur.Lütfen Farklı Bir Sipariş Numarası Seçiniz Veya Yöneticinizle Görüşünüz.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                CmbSiparisG.SelectedValue = "";
+            }
+            personelKadroKontrol = true;*/
         }
 
         private void CmbSiparis_SelectedIndexChanged(object sender, EventArgs e)
@@ -108,6 +123,8 @@ namespace UserInterface.IdariIşler
                 MessageBox.Show("Seçmiş Olduğunuz Personel Sipariş Numarasının Kontenjanı Doludur.Lütfen Farklı Bir Sipariş Numarası Seçiniz Veya Yöneticinizle Görüşünüz.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CmbSiparis.SelectedValue = "";
             }
+            personelKadroKontrol = true;
+
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -289,6 +306,17 @@ namespace UserInterface.IdariIşler
             CmbBolum3G.DisplayMember = "Bolum3";
             CmbBolum3G.SelectedValue = 0;
         }
+        int yetkiliId;
+        private void CmbMasrafYeriSorumlusuGun_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==true)
+            {
+                return;
+            }
+
+            yetkiliId = CmbMasrafYeriSorumlusuGun.SelectedValue.ConInt();
+        }
+
         void Bolum2GDegistir()
         {
             if (bolumidG == 0)
@@ -311,6 +339,17 @@ namespace UserInterface.IdariIşler
                 Bolum2GDoldur();
             }
         }
+
+        private void CmbMasrafYeriSorumlusu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+
+            yetkiliId = CmbMasrafYeriSorumlusu.SelectedValue.ConInt();
+        }
+
         void Bolum2Degistir()
         {
             if (bolumid == 0)
@@ -717,10 +756,10 @@ namespace UserInterface.IdariIşler
                 BolumOlusturG();
                 if (CmbSiparisG.Text!= testEdilecekSiparis)
                 {
-                    string mesaj = KontenjanControlGuncelle();
-                    if (mesaj != "OK")
+                    string mesaj2 = KontenjanControlGuncelle();
+                    if (mesaj2 != "OK")
                     {
-                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show(mesaj2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -736,16 +775,31 @@ namespace UserInterface.IdariIşler
 
                 //personelKayitManager.Update(personelKayit);
                 bool gec = false;
-                MessageBox.Show(personelKayitManager.Update(personelKayit));
-                if (eksilecekSiparis!= CmbSiparisG.Text)
+                string mesaj = personelKayitManager.Update(personelKayit);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+                
+                if (eksilecekSiparis != CmbSiparisG.Text)
                 {
                     personelKayitManager.MevcutKadroEksilt(eksilecekSiparis);
                     gec = true;
                 }
-                if (gec==false)
+
+                if (gec == true)
                 {
                     personelKayitManager.MevcutKadroArttir(CmbSiparisG.Text);
                 }
+
+                string control = personelKayitManager.PersonelSorumluDegistir(personelId, yetkiliId);
+                if (control != "OK")
+                {
+                    MessageBox.Show(control,"Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
 
                 islem1 = CmbAdSoyad.Text + " Personel Güncellendi";
                 islemyapan1 = infos[1].ToString();
@@ -948,13 +1002,19 @@ namespace UserInterface.IdariIşler
             }
         }
         //bool keepTextChanged = false;
+        int personelId;
         private void CmbAdSoyad_TextChanged(object sender, EventArgs e)
         {
+            if (start == false)
+            {
+                personelId = CmbAdSoyad.SelectedValue.ConInt();
+            }
             if (control == false)
             {
                 return;
             }
             control = true;
+            
             /*string documentNo = CmbAdSoyad.Text;
 
             if (string.IsNullOrEmpty(documentNo))
@@ -1088,10 +1148,13 @@ namespace UserInterface.IdariIşler
             BtnDosyaEkle.Enabled = true;
             control = true;
         }
-
+        public string sayfa = "";
         private void FrmPersonelKayit_Load(object sender, EventArgs e)
         {
             //dokumens = personelKayits.GetList();
+
+            
+
             BtnDosyaEkle.Enabled = false;
             BtnFotoEkle.Enabled = false;
             BtnKaydet.Enabled = false;
@@ -1114,15 +1177,19 @@ namespace UserInterface.IdariIşler
             TOPA.Text = siparislerManager.ToplamArac().ToString();
             start = false;
             KadroControl();
-            if (infos[1].ToString() == "RESUL GÜNEŞ")
+
+            /*if (sayfa == "PERSONEL KAYIT")
             {
-                return;
+                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage4"]);
             }
-            if (infos[1].ToString() == "MÜCAHİT AYDEMİR")
+            if (sayfa == "SİPARİŞLER")
             {
-                return;
-            }
-            tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage4"]);
+                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
+                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
+                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage3"]);
+                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage5"]);
+            }*/
+
 
         }
         void ProjeKodu()
@@ -1252,7 +1319,11 @@ namespace UserInterface.IdariIşler
                 siparisNo, dosyaYolu, dosyaYolu, CmbProjeKodu.Text, TxtKgbNo.Text, DtKgb.Value);
 
                 string message = personelKayitManager.Add(personelKayit);
-                MessageBox.Show(message);
+                if (message!="OK")
+                {
+                    MessageBox.Show(message,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
 
                 adsoyad = Txtadsoyad.Text;
                 siparis = CmbSiparis.Text;
@@ -1265,18 +1336,35 @@ namespace UserInterface.IdariIşler
                 islemyapan = infos[1].ToString();
                 islemtarihi = DateTime.Now.ToString();
 
-                if (message == "Kayıt Başarılı Bir Şekilde Gerçekleşti.")
+                if (message == "OK")
                 {
                     DevamEdenIzleme devamEdenIzleme = new DevamEdenIzleme(siparisNo, islem, islemyapan, islemtarihi.ConTime());
                     devamEdenIzlemeManager.Add(devamEdenIzleme);
                     Task.Factory.StartNew(() => MailSendMetot());
                     control = false;
-                    mevcut++;
-                    string mevcutpersonel = siparislerManager.KontejanMevcutGuncelle(CmbSiparis.Text, mevcut);
-                    if (mevcutpersonel != "OK")
+                    if (personelKadroKontrol==true)
                     {
-                        MessageBox.Show(mevcutpersonel);
+                        mevcut++;
+                        string mevcutpersonel = siparislerManager.KontejanMevcutGuncelle(CmbSiparis.Text, mevcut);
+
+                        if (mevcutpersonel != "OK")
+                        {
+                            MessageBox.Show(mevcutpersonel);
+                        }
+                        personelKadroKontrol = false;
                     }
+                    PersonelKayit personelKayit = personelKayitManager.Get(0,Txtadsoyad.Text);
+
+                    personelId = personelKayit.Id.ConInt();
+
+                    string mesage2 = personelKayitManager.YetkiliEkle(personelId, yetkiliId);
+
+                    if (mesage2!="OK")
+                    {
+                        MessageBox.Show(mesage2, "Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                        return;
+                    }
+
                     TemizlePersonelKayit();
                 }
             }
@@ -1412,7 +1500,7 @@ namespace UserInterface.IdariIşler
             TxtSirketMailG.Clear(); TxtOficeMailG.Clear(); TxtSirketCepG.Clear(); TxtSirketKısaKodG.Clear(); TxtOficeDahiliNoG.Clear(); CmbIsUnvaniG.Text = "";
             TxtSinifG.Text = ""; TxtRubesiG.Clear(); TxtGoreviG.Clear(); TxtGorevYeriG.Clear(); TxtTecilSebebiG.Clear(); TxtMuafNedeniG.Clear();
             PcFoto.ImageLocation = ""; webBrowserG.Navigate(""); TxtBulunduguBolum.Clear(); RdbTecilliG.Checked = false; RdbMuafG.Checked = false;
-            RdbYaptiG.Checked = false; CmbProjeKoduGun.SelectedValue = -1; TxtKgbNoGun.Clear();
+            RdbYaptiG.Checked = false; CmbProjeKoduGun.SelectedValue = -1; TxtKgbNoGun.Clear(); CmbMasrafYeriSorumlusuGun.Text = "";
         }
 
         void Temizle()
@@ -1458,7 +1546,7 @@ namespace UserInterface.IdariIşler
 
         void SiparisNoOlustur()
         {
-            SİPARİSNO = TxtSatt.Text + TxtDonemYil.Text + CmbSatKategori.Text + TOPLAMPERSONEL + "P" + TOPLAMARAC + "A";
+            SİPARİSNO = TxtSatt.Text +"-"+ TxtDonemYil.Text + "-" + CmbSatKategori.Text + "-" + TOPLAMPERSONEL + "P" + TOPLAMARAC + "A";
         }
 
         private void BtnSiparisOlustur_Click(object sender, EventArgs e)

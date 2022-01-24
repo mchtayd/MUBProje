@@ -70,6 +70,9 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\SqlServices.cs" />
     <Compile Include="ComboDal.cs" />
+    <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeDal.cs" />
+    <Compile Include="Concreate\BakimOnarimAtolye\AtolyeDal.cs" />
+    <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeDal.cs" />
     <Compile Include="Concreate\BakimOnarim\AbfFormNoDal.cs" />
     <Compile Include="Concreate\BakimOnarim\ArizaKayitDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogDal.cs" />
@@ -79,7 +82,9 @@
     <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikIscilikDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikPerformansDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\IslemAdimlariDal.cs" />
     <Compile Include="Concreate\BakimOnarim\PypDal.cs" />
+    <Compile Include="Concreate\Butce\SiparislerPersonelDal.cs" />
     <Compile Include="Concreate\Depo\AmbarDal.cs" />
     <Compile Include="Concreate\Depo\CayOcagiDal.cs" />
     <Compile Include="Concreate\Depo\DepoKayitDal.cs" />
@@ -96,9 +101,11 @@
     <Compile Include="Concreate\Gecici Kabul Ambar\DepoMiktarDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisDal.cs" />
+    <Compile Include="Concreate\GorevAtamaPersonelDal.cs" />
     <Compile Include="Concreate\Helper.cs" />
     <Compile Include="Concreate\IdariIsler\AracBakimDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracDal.cs" />
+    <Compile Include="Concreate\IdariIsler\AracTalepDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracZimmetDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracZimmetiLogDal.cs" />
     <Compile Include="Concreate\IdariIsler\ArsivTutanakDal.cs" />

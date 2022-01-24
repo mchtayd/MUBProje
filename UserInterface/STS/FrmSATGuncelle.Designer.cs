@@ -40,6 +40,7 @@ namespace UserInterface.STS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -316,6 +317,13 @@ namespace UserInterface.STS
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.DtgTeklifAl = new ADGV.AdvancedDataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.CmbMailDurumu = new System.Windows.Forms.TextBox();
+            this.BtnMailGuncelle = new System.Windows.Forms.Button();
+            this.label155 = new System.Windows.Forms.Label();
+            this.CmbTeklifSiniri = new System.Windows.Forms.ComboBox();
+            this.label154 = new System.Windows.Forms.Label();
+            this.TxtProjeG = new System.Windows.Forms.TextBox();
+            this.label153 = new System.Windows.Forms.Label();
             this.TxtTop4 = new System.Windows.Forms.Label();
             this.label111 = new System.Windows.Forms.Label();
             this.PnlTeklifli = new System.Windows.Forms.Panel();
@@ -729,13 +737,9 @@ namespace UserInterface.STS
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder6 = new System.Windows.Forms.BindingSource(this.components);
-            this.label153 = new System.Windows.Forms.Label();
-            this.TxtProjeG = new System.Windows.Forms.TextBox();
-            this.label154 = new System.Windows.Forms.Label();
-            this.CmbTeklifSiniri = new System.Windows.Forms.ComboBox();
-            this.label155 = new System.Windows.Forms.Label();
-            this.BtnMailGuncelle = new System.Windows.Forms.Button();
-            this.CmbMailDurumu = new System.Windows.Forms.TextBox();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -796,6 +800,9 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder6)).BeginInit();
+            this.tabPage13.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -828,6 +835,7 @@ namespace UserInterface.STS
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage12);
+            this.tabControl1.Controls.Add(this.tabPage13);
             this.tabControl1.Location = new System.Drawing.Point(0, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -3700,6 +3708,72 @@ namespace UserInterface.STS
             this.tabPage11.TabIndex = 1;
             this.tabPage11.Text = "FİYAT TEKLİFLERİ GÜNCELLE";
             this.tabPage11.UseVisualStyleBackColor = true;
+            // 
+            // CmbMailDurumu
+            // 
+            this.CmbMailDurumu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbMailDurumu.Location = new System.Drawing.Point(976, 324);
+            this.CmbMailDurumu.Name = "CmbMailDurumu";
+            this.CmbMailDurumu.Size = new System.Drawing.Size(199, 21);
+            this.CmbMailDurumu.TabIndex = 520;
+            this.CmbMailDurumu.Text = "Gönderilmedi";
+            // 
+            // BtnMailGuncelle
+            // 
+            this.BtnMailGuncelle.Location = new System.Drawing.Point(1192, 323);
+            this.BtnMailGuncelle.Name = "BtnMailGuncelle";
+            this.BtnMailGuncelle.Size = new System.Drawing.Size(90, 23);
+            this.BtnMailGuncelle.TabIndex = 519;
+            this.BtnMailGuncelle.Text = "GÜNCELLE";
+            this.BtnMailGuncelle.UseVisualStyleBackColor = true;
+            this.BtnMailGuncelle.Click += new System.EventHandler(this.BtnMailGuncelle_Click);
+            // 
+            // label155
+            // 
+            this.label155.AutoSize = true;
+            this.label155.Location = new System.Drawing.Point(883, 328);
+            this.label155.Name = "label155";
+            this.label155.Size = new System.Drawing.Size(87, 13);
+            this.label155.TabIndex = 517;
+            this.label155.Text = "MAİL DURUMU:";
+            // 
+            // CmbTeklifSiniri
+            // 
+            this.CmbTeklifSiniri.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTeklifSiniri.FormattingEnabled = true;
+            this.CmbTeklifSiniri.Items.AddRange(new object[] {
+            "500 TL VE ÜZERİ",
+            "500 TL ALTINDA"});
+            this.CmbTeklifSiniri.Location = new System.Drawing.Point(610, 324);
+            this.CmbTeklifSiniri.Name = "CmbTeklifSiniri";
+            this.CmbTeklifSiniri.Size = new System.Drawing.Size(192, 21);
+            this.CmbTeklifSiniri.TabIndex = 516;
+            // 
+            // label154
+            // 
+            this.label154.AutoSize = true;
+            this.label154.Location = new System.Drawing.Point(506, 328);
+            this.label154.Name = "label154";
+            this.label154.Size = new System.Drawing.Size(98, 13);
+            this.label154.TabIndex = 515;
+            this.label154.Text = "TEKLİF DURUMU:";
+            // 
+            // TxtProjeG
+            // 
+            this.TxtProjeG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtProjeG.Location = new System.Drawing.Point(286, 324);
+            this.TxtProjeG.Name = "TxtProjeG";
+            this.TxtProjeG.Size = new System.Drawing.Size(199, 21);
+            this.TxtProjeG.TabIndex = 513;
+            // 
+            // label153
+            // 
+            this.label153.AutoSize = true;
+            this.label153.Location = new System.Drawing.Point(235, 328);
+            this.label153.Name = "label153";
+            this.label153.Size = new System.Drawing.Size(45, 13);
+            this.label153.TabIndex = 513;
+            this.label153.Text = "PROJE:";
             // 
             // TxtTop4
             // 
@@ -7755,71 +7829,45 @@ namespace UserInterface.STS
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // label153
+            // tabPage13
             // 
-            this.label153.AutoSize = true;
-            this.label153.Location = new System.Drawing.Point(235, 328);
-            this.label153.Name = "label153";
-            this.label153.Size = new System.Drawing.Size(45, 13);
-            this.label153.TabIndex = 513;
-            this.label153.Text = "PROJE:";
+            this.tabPage13.Controls.Add(this.groupBox23);
+            this.tabPage13.Location = new System.Drawing.Point(4, 22);
+            this.tabPage13.Name = "tabPage13";
+            this.tabPage13.Size = new System.Drawing.Size(1549, 866);
+            this.tabPage13.TabIndex = 4;
+            this.tabPage13.Text = "TAMAMLANAN SAT GÜNCELLE";
+            this.tabPage13.UseVisualStyleBackColor = true;
             // 
-            // TxtProjeG
+            // groupBox23
             // 
-            this.TxtProjeG.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtProjeG.Location = new System.Drawing.Point(286, 324);
-            this.TxtProjeG.Name = "TxtProjeG";
-            this.TxtProjeG.Size = new System.Drawing.Size(199, 21);
-            this.TxtProjeG.TabIndex = 513;
+            this.groupBox23.Controls.Add(this.advancedDataGridView1);
+            this.groupBox23.Location = new System.Drawing.Point(3, 13);
+            this.groupBox23.Name = "groupBox23";
+            this.groupBox23.Size = new System.Drawing.Size(1533, 274);
+            this.groupBox23.TabIndex = 2;
+            this.groupBox23.TabStop = false;
+            this.groupBox23.Text = "SAT TAMAMLAMA";
             // 
-            // label154
+            // advancedDataGridView1
             // 
-            this.label154.AutoSize = true;
-            this.label154.Location = new System.Drawing.Point(506, 328);
-            this.label154.Name = "label154";
-            this.label154.Size = new System.Drawing.Size(98, 13);
-            this.label154.TabIndex = 515;
-            this.label154.Text = "TEKLİF DURUMU:";
-            // 
-            // CmbTeklifSiniri
-            // 
-            this.CmbTeklifSiniri.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTeklifSiniri.FormattingEnabled = true;
-            this.CmbTeklifSiniri.Items.AddRange(new object[] {
-            "500 TL VE ÜZERİ",
-            "500 TL ALTINDA"});
-            this.CmbTeklifSiniri.Location = new System.Drawing.Point(610, 324);
-            this.CmbTeklifSiniri.Name = "CmbTeklifSiniri";
-            this.CmbTeklifSiniri.Size = new System.Drawing.Size(192, 21);
-            this.CmbTeklifSiniri.TabIndex = 516;
-            // 
-            // label155
-            // 
-            this.label155.AutoSize = true;
-            this.label155.Location = new System.Drawing.Point(883, 328);
-            this.label155.Name = "label155";
-            this.label155.Size = new System.Drawing.Size(87, 13);
-            this.label155.TabIndex = 517;
-            this.label155.Text = "MAİL DURUMU:";
-            // 
-            // BtnMailGuncelle
-            // 
-            this.BtnMailGuncelle.Location = new System.Drawing.Point(1192, 323);
-            this.BtnMailGuncelle.Name = "BtnMailGuncelle";
-            this.BtnMailGuncelle.Size = new System.Drawing.Size(90, 23);
-            this.BtnMailGuncelle.TabIndex = 519;
-            this.BtnMailGuncelle.Text = "GÜNCELLE";
-            this.BtnMailGuncelle.UseVisualStyleBackColor = true;
-            this.BtnMailGuncelle.Click += new System.EventHandler(this.BtnMailGuncelle_Click);
-            // 
-            // CmbMailDurumu
-            // 
-            this.CmbMailDurumu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CmbMailDurumu.Location = new System.Drawing.Point(976, 324);
-            this.CmbMailDurumu.Name = "CmbMailDurumu";
-            this.CmbMailDurumu.Size = new System.Drawing.Size(199, 21);
-            this.CmbMailDurumu.TabIndex = 520;
-            this.CmbMailDurumu.Text = "Gönderilmedi";
+            this.advancedDataGridView1.AllowUserToAddRows = false;
+            this.advancedDataGridView1.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.advancedDataGridView1.AutoGenerateContextFilters = true;
+            this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advancedDataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.advancedDataGridView1.DateWithTime = false;
+            this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.advancedDataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.advancedDataGridView1.Name = "advancedDataGridView1";
+            this.advancedDataGridView1.ReadOnly = true;
+            this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.advancedDataGridView1.Size = new System.Drawing.Size(1527, 255);
+            this.advancedDataGridView1.TabIndex = 2;
+            this.advancedDataGridView1.TimeFilter = false;
             // 
             // FrmSATGuncelle
             // 
@@ -7913,6 +7961,9 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder6)).EndInit();
+            this.tabPage13.ResumeLayout(false);
+            this.groupBox23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -8614,5 +8665,8 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label155;
         private System.Windows.Forms.Button BtnMailGuncelle;
         private System.Windows.Forms.TextBox CmbMailDurumu;
+        private System.Windows.Forms.TabPage tabPage13;
+        private System.Windows.Forms.GroupBox groupBox23;
+        private ADGV.AdvancedDataGridView advancedDataGridView1;
     }
 }

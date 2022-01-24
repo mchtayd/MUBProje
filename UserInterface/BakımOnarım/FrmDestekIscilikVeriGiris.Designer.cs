@@ -30,8 +30,8 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDestekIscilikVeriGiris));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -111,6 +111,13 @@ namespace UserInterface.BakımOnarım
             this.label25 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
+            this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.LblIsAkisNo = new System.Windows.Forms.Label();
+            this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
+            this.BtnBul = new System.Windows.Forms.Button();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.GrbIscilik.SuspendLayout();
             this.GrbArac.SuspendLayout();
@@ -188,7 +195,7 @@ namespace UserInterface.BakımOnarım
             this.GrbIscilik.Controls.Add(this.label4);
             this.GrbIscilik.Controls.Add(this.TxtAbfNo);
             this.GrbIscilik.Controls.Add(this.label3);
-            this.GrbIscilik.Location = new System.Drawing.Point(28, 93);
+            this.GrbIscilik.Location = new System.Drawing.Point(776, 659);
             this.GrbIscilik.Name = "GrbIscilik";
             this.GrbIscilik.Size = new System.Drawing.Size(440, 174);
             this.GrbIscilik.TabIndex = 319;
@@ -404,11 +411,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Kaldir
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
-            this.Kaldir.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Red;
+            this.Kaldir.DefaultCellStyle = dataGridViewCellStyle17;
             this.Kaldir.HeaderText = "KALDIR";
             this.Kaldir.MinimumWidth = 22;
             this.Kaldir.Name = "Kaldir";
@@ -672,11 +679,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle18;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -750,6 +757,13 @@ namespace UserInterface.BakımOnarım
             // 
             // GrbPerformans
             // 
+            this.GrbPerformans.Controls.Add(this.BtnGuncelle);
+            this.GrbPerformans.Controls.Add(this.BtnBul);
+            this.GrbPerformans.Controls.Add(this.TxtIsAkisNo);
+            this.GrbPerformans.Controls.Add(this.LblIsAkisNo);
+            this.GrbPerformans.Controls.Add(this.label11);
+            this.GrbPerformans.Controls.Add(this.CmbIslemTuru);
+            this.GrbPerformans.Controls.Add(this.label10);
             this.GrbPerformans.Controls.Add(this.CmbPersonelPerformans);
             this.GrbPerformans.Controls.Add(this.BtnKaydetPerformans);
             this.GrbPerformans.Controls.Add(this.TxtSonuc);
@@ -775,7 +789,7 @@ namespace UserInterface.BakımOnarım
             this.GrbPerformans.Controls.Add(this.label24);
             this.GrbPerformans.Location = new System.Drawing.Point(28, 98);
             this.GrbPerformans.Name = "GrbPerformans";
-            this.GrbPerformans.Size = new System.Drawing.Size(620, 413);
+            this.GrbPerformans.Size = new System.Drawing.Size(794, 433);
             this.GrbPerformans.TabIndex = 326;
             this.GrbPerformans.TabStop = false;
             this.GrbPerformans.Text = "PERFORMANS";
@@ -785,7 +799,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.CmbPersonelPerformans.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbPersonelPerformans.FormattingEnabled = true;
-            this.CmbPersonelPerformans.Location = new System.Drawing.Point(143, 29);
+            this.CmbPersonelPerformans.Location = new System.Drawing.Point(145, 52);
             this.CmbPersonelPerformans.Name = "CmbPersonelPerformans";
             this.CmbPersonelPerformans.Size = new System.Drawing.Size(243, 21);
             this.CmbPersonelPerformans.TabIndex = 354;
@@ -794,7 +808,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnKaydetPerformans.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydetPerformans.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydetPerformans.Location = new System.Drawing.Point(143, 354);
+            this.BtnKaydetPerformans.Location = new System.Drawing.Point(145, 377);
             this.BtnKaydetPerformans.Name = "BtnKaydetPerformans";
             this.BtnKaydetPerformans.Size = new System.Drawing.Size(127, 42);
             this.BtnKaydetPerformans.TabIndex = 353;
@@ -804,7 +818,7 @@ namespace UserInterface.BakımOnarım
             // 
             // TxtSonuc
             // 
-            this.TxtSonuc.Location = new System.Drawing.Point(143, 286);
+            this.TxtSonuc.Location = new System.Drawing.Point(145, 309);
             this.TxtSonuc.Name = "TxtSonuc";
             this.TxtSonuc.Size = new System.Drawing.Size(366, 59);
             this.TxtSonuc.TabIndex = 352;
@@ -813,7 +827,7 @@ namespace UserInterface.BakımOnarım
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(89, 289);
+            this.label34.Location = new System.Drawing.Point(91, 312);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(48, 13);
             this.label34.TabIndex = 351;
@@ -823,7 +837,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgVarisSaati.CustomFormat = "HH:mm";
             this.DtgVarisSaati.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtgVarisSaati.Location = new System.Drawing.Point(376, 260);
+            this.DtgVarisSaati.Location = new System.Drawing.Point(378, 283);
             this.DtgVarisSaati.Name = "DtgVarisSaati";
             this.DtgVarisSaati.ShowUpDown = true;
             this.DtgVarisSaati.Size = new System.Drawing.Size(132, 20);
@@ -833,7 +847,7 @@ namespace UserInterface.BakımOnarım
             // DtgVarisTarihi
             // 
             this.DtgVarisTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtgVarisTarihi.Location = new System.Drawing.Point(143, 260);
+            this.DtgVarisTarihi.Location = new System.Drawing.Point(145, 283);
             this.DtgVarisTarihi.Name = "DtgVarisTarihi";
             this.DtgVarisTarihi.Size = new System.Drawing.Size(132, 20);
             this.DtgVarisTarihi.TabIndex = 349;
@@ -841,7 +855,7 @@ namespace UserInterface.BakımOnarım
             // label32
             // 
             this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(294, 264);
+            this.label32.Location = new System.Drawing.Point(296, 287);
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(76, 13);
             this.label32.TabIndex = 348;
@@ -850,7 +864,7 @@ namespace UserInterface.BakımOnarım
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(61, 264);
+            this.label33.Location = new System.Drawing.Point(63, 287);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(81, 13);
             this.label33.TabIndex = 347;
@@ -859,7 +873,7 @@ namespace UserInterface.BakımOnarım
             // CmbIstikametDuragi
             // 
             this.CmbIstikametDuragi.FormattingEnabled = true;
-            this.CmbIstikametDuragi.Location = new System.Drawing.Point(143, 116);
+            this.CmbIstikametDuragi.Location = new System.Drawing.Point(145, 139);
             this.CmbIstikametDuragi.Name = "CmbIstikametDuragi";
             this.CmbIstikametDuragi.Size = new System.Drawing.Size(243, 21);
             this.CmbIstikametDuragi.TabIndex = 346;
@@ -868,7 +882,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgCikisSaati.CustomFormat = "HH:mm";
             this.DtgCikisSaati.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtgCikisSaati.Location = new System.Drawing.Point(368, 144);
+            this.DtgCikisSaati.Location = new System.Drawing.Point(370, 167);
             this.DtgCikisSaati.Name = "DtgCikisSaati";
             this.DtgCikisSaati.ShowUpDown = true;
             this.DtgCikisSaati.Size = new System.Drawing.Size(132, 20);
@@ -878,7 +892,7 @@ namespace UserInterface.BakımOnarım
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(25, 119);
+            this.label31.Location = new System.Drawing.Point(27, 142);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(112, 13);
             this.label31.TabIndex = 345;
@@ -886,7 +900,7 @@ namespace UserInterface.BakımOnarım
             // 
             // TxtCikisSebebi
             // 
-            this.TxtCikisSebebi.Location = new System.Drawing.Point(143, 169);
+            this.TxtCikisSebebi.Location = new System.Drawing.Point(145, 192);
             this.TxtCikisSebebi.Name = "TxtCikisSebebi";
             this.TxtCikisSebebi.Size = new System.Drawing.Size(366, 59);
             this.TxtCikisSebebi.TabIndex = 343;
@@ -895,7 +909,7 @@ namespace UserInterface.BakımOnarım
             // CmbVarisDuragi
             // 
             this.CmbVarisDuragi.FormattingEnabled = true;
-            this.CmbVarisDuragi.Location = new System.Drawing.Point(143, 234);
+            this.CmbVarisDuragi.Location = new System.Drawing.Point(145, 257);
             this.CmbVarisDuragi.Name = "CmbVarisDuragi";
             this.CmbVarisDuragi.Size = new System.Drawing.Size(243, 21);
             this.CmbVarisDuragi.TabIndex = 344;
@@ -903,7 +917,7 @@ namespace UserInterface.BakımOnarım
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(59, 172);
+            this.label30.Location = new System.Drawing.Point(61, 195);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(78, 13);
             this.label30.TabIndex = 342;
@@ -912,7 +926,7 @@ namespace UserInterface.BakımOnarım
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(50, 238);
+            this.label27.Location = new System.Drawing.Point(52, 261);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(87, 13);
             this.label27.TabIndex = 337;
@@ -921,7 +935,7 @@ namespace UserInterface.BakımOnarım
             // CmbCikisDuragi
             // 
             this.CmbCikisDuragi.FormattingEnabled = true;
-            this.CmbCikisDuragi.Location = new System.Drawing.Point(143, 89);
+            this.CmbCikisDuragi.Location = new System.Drawing.Point(145, 112);
             this.CmbCikisDuragi.Name = "CmbCikisDuragi";
             this.CmbCikisDuragi.Size = new System.Drawing.Size(243, 21);
             this.CmbCikisDuragi.TabIndex = 336;
@@ -929,7 +943,7 @@ namespace UserInterface.BakımOnarım
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(55, 92);
+            this.label26.Location = new System.Drawing.Point(57, 115);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(82, 13);
             this.label26.TabIndex = 335;
@@ -938,7 +952,7 @@ namespace UserInterface.BakımOnarım
             // DtgCikisTarihi
             // 
             this.DtgCikisTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtgCikisTarihi.Location = new System.Drawing.Point(143, 143);
+            this.DtgCikisTarihi.Location = new System.Drawing.Point(145, 166);
             this.DtgCikisTarihi.Name = "DtgCikisTarihi";
             this.DtgCikisTarihi.Size = new System.Drawing.Size(132, 20);
             this.DtgCikisTarihi.TabIndex = 340;
@@ -946,7 +960,7 @@ namespace UserInterface.BakımOnarım
             // CmbMevcutDuragi
             // 
             this.CmbMevcutDuragi.FormattingEnabled = true;
-            this.CmbMevcutDuragi.Location = new System.Drawing.Point(143, 59);
+            this.CmbMevcutDuragi.Location = new System.Drawing.Point(145, 82);
             this.CmbMevcutDuragi.Name = "CmbMevcutDuragi";
             this.CmbMevcutDuragi.Size = new System.Drawing.Size(243, 21);
             this.CmbMevcutDuragi.TabIndex = 334;
@@ -954,7 +968,7 @@ namespace UserInterface.BakımOnarım
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(294, 147);
+            this.label28.Location = new System.Drawing.Point(296, 170);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(68, 13);
             this.label28.TabIndex = 339;
@@ -963,7 +977,7 @@ namespace UserInterface.BakımOnarım
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(37, 62);
+            this.label25.Location = new System.Drawing.Point(39, 85);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(100, 13);
             this.label25.TabIndex = 333;
@@ -972,7 +986,7 @@ namespace UserInterface.BakımOnarım
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(61, 147);
+            this.label29.Location = new System.Drawing.Point(63, 170);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(76, 13);
             this.label29.TabIndex = 338;
@@ -981,11 +995,85 @@ namespace UserInterface.BakımOnarım
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(69, 32);
+            this.label24.Location = new System.Drawing.Point(71, 55);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(68, 13);
             this.label24.TabIndex = 331;
             this.label24.Text = "PERSONEL:";
+            // 
+            // CmbIslemTuru
+            // 
+            this.CmbIslemTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbIslemTuru.FormattingEnabled = true;
+            this.CmbIslemTuru.Items.AddRange(new object[] {
+            "MEVCUT KAYIT",
+            "MEVCUT KAYIT GÜNCELLE"});
+            this.CmbIslemTuru.Location = new System.Drawing.Point(498, 49);
+            this.CmbIslemTuru.Name = "CmbIslemTuru";
+            this.CmbIslemTuru.Size = new System.Drawing.Size(179, 21);
+            this.CmbIslemTuru.TabIndex = 356;
+            this.CmbIslemTuru.SelectedIndexChanged += new System.EventHandler(this.CmbIslemTuru_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(416, 52);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(76, 13);
+            this.label10.TabIndex = 355;
+            this.label10.Text = "İŞLEM TÜRÜ:";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(73, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 13);
+            this.label11.TabIndex = 357;
+            this.label11.Text = "İŞ AKIŞ NO:";
+            // 
+            // LblIsAkisNo
+            // 
+            this.LblIsAkisNo.AutoSize = true;
+            this.LblIsAkisNo.Location = new System.Drawing.Point(145, 25);
+            this.LblIsAkisNo.Name = "LblIsAkisNo";
+            this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNo.TabIndex = 358;
+            this.LblIsAkisNo.Text = "00";
+            // 
+            // TxtIsAkisNo
+            // 
+            this.TxtIsAkisNo.Location = new System.Drawing.Point(145, 22);
+            this.TxtIsAkisNo.Name = "TxtIsAkisNo";
+            this.TxtIsAkisNo.Size = new System.Drawing.Size(137, 20);
+            this.TxtIsAkisNo.TabIndex = 359;
+            this.TxtIsAkisNo.Visible = false;
+            // 
+            // BtnBul
+            // 
+            this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnBul.Location = new System.Drawing.Point(288, 19);
+            this.BtnBul.Name = "BtnBul";
+            this.BtnBul.Size = new System.Drawing.Size(70, 27);
+            this.BtnBul.TabIndex = 360;
+            this.BtnBul.Text = "Bul";
+            this.BtnBul.UseVisualStyleBackColor = true;
+            this.BtnBul.Visible = false;
+            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
+            // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Location = new System.Drawing.Point(145, 377);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(127, 42);
+            this.BtnGuncelle.TabIndex = 361;
+            this.BtnGuncelle.Text = "GÜNCELLE";
+            this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Visible = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // FrmDestekIscilikVeriGiris
             // 
@@ -1102,5 +1190,12 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ComboBox CmbPersonelPerformans;
         private System.Windows.Forms.Button BtnHesapla;
         private System.Windows.Forms.Button BtnHesaplaArac;
+        private System.Windows.Forms.Label LblIsAkisNo;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox CmbIslemTuru;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox TxtIsAkisNo;
+        private System.Windows.Forms.Button BtnBul;
+        private System.Windows.Forms.Button BtnGuncelle;
     }
 }

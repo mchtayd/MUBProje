@@ -70,6 +70,17 @@ namespace Business.Concreate.IdarıIsler
                 return new List<Yakit>();
             }
         }
+        public List<Yakit> YakitKontrolBeyan(string donem)
+        {
+            try
+            {
+                return yakitDal.YakitKontrolBeyan(donem);
+            }
+            catch (Exception)
+            {
+                return new List<Yakit>();
+            }
+        }
 
         public string Update(Yakit entity,int id)
         {

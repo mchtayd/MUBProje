@@ -278,7 +278,7 @@ namespace UserInterface.IdariIsler
             this.groupBox2.Controls.Add(this.webBrowser1);
             this.groupBox2.Location = new System.Drawing.Point(211, 442);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(686, 147);
+            this.groupBox2.Size = new System.Drawing.Size(853, 147);
             this.groupBox2.TabIndex = 344;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ARAÇ DOSYASI:";
@@ -289,7 +289,7 @@ namespace UserInterface.IdariIsler
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(680, 128);
+            this.webBrowser1.Size = new System.Drawing.Size(847, 128);
             this.webBrowser1.TabIndex = 0;
             // 
             // BtnDosyaEkle
@@ -428,6 +428,7 @@ namespace UserInterface.IdariIsler
             this.CmbSiparisNo.Name = "CmbSiparisNo";
             this.CmbSiparisNo.Size = new System.Drawing.Size(243, 23);
             this.CmbSiparisNo.TabIndex = 364;
+            this.CmbSiparisNo.SelectedIndexChanged += new System.EventHandler(this.CmbSiparisNo_SelectedIndexChanged);
             // 
             // DtProjeTahsisTarihi
             // 
@@ -1836,6 +1837,7 @@ namespace UserInterface.IdariIsler
             this.CmbSiparisNoGun.Name = "CmbSiparisNoGun";
             this.CmbSiparisNoGun.Size = new System.Drawing.Size(243, 23);
             this.CmbSiparisNoGun.TabIndex = 351;
+            this.CmbSiparisNoGun.SelectedIndexChanged += new System.EventHandler(this.CmbSiparisNoGun_SelectedIndexChanged);
             // 
             // CmbProjeGun
             // 

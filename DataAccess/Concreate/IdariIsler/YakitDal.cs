@@ -133,6 +133,41 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<Yakit>();
             }
         }
+        public List<Yakit> YakitKontrolBeyan(string donem)
+        {
+            try
+            {
+                List<Yakit> yakits = new List<Yakit>();
+                dataReader = sqlServices.StoreReader("YakitKontrolBeyan",new SqlParameter("@donem",donem));
+                while (dataReader.Read())
+                {
+                    yakits.Add(
+                        new Yakit(dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["PLAKA"].ToString(),
+                        dataReader["YAKIT_ALINAN_DONEM"].ToString(),
+                        dataReader["TARIH"].ConTime(),
+                        dataReader["KM"].ConInt(),
+                        dataReader["ALINAN_LITRE"].ConDouble(),
+                        dataReader["YAKIT_TURU"].ToString(),
+                        dataReader["LITRE_FIYATI"].ConDouble(),
+                        dataReader["TOPLAM_FIYAT"].ConDouble(),
+                        dataReader["ALIM_TURU"].ToString(),
+                        dataReader["YAKIT_ALAN_PERSONEL"].ToString(),
+                        dataReader["ALINAN_FIRMA"].ToString(),
+                        dataReader["BELGE_TURU"].ToString(),
+                        dataReader["BELGE_NUMARASI"].ToString(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["ACIKLAMA"].ToString()));
+                }
+                dataReader.Close();
+                return yakits;
+            }
+            catch (Exception)
+            {
+                return new List<Yakit>();
+            }
+        }
 
         public string Update(Yakit entity,int id)
         {

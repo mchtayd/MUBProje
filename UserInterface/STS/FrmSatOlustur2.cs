@@ -729,6 +729,11 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                if (CmbDonem.Text=="" || CmbDonemYil.Text=="")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Bilgisini Eksiksiz Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (Usbolgesi.Text == "")
                 {
                     MessageBox.Show("Lütfen Öncelikle Üs Blgesi Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -747,9 +752,11 @@ namespace UserInterface.STS
                 }
                 siparisNo = Guid.NewGuid().ToString();
 
+                string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
+
                 isleAdimi = "SAT BAŞLATMA ONAYI";
                 SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, LblIsAkisNo.Text.ConInt(), MasYeriNo.Text, TalepEden.Text, Bolum.Text, Usbolgesi.Text, BildirimFromNo.Text, istenenTarih.Value, Gerekce.Text, siparisNo, "", "", "", "", "",
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, CmbDonem.Text, "ASELSAN", TxtProje.Text,"-");
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "ASELSAN", TxtProje.Text,"-");
 
                 string mesaj = satDataGridview1Manager.Add(satDataGridview1);
 
@@ -1762,6 +1769,11 @@ namespace UserInterface.STS
             CmbPlaka.SelectedValue = -1;
         }
 
+        private void groupBox12_Enter(object sender, EventArgs e)
+        {
+
+        }
+
         private void SilBasaran5_Click(object sender, EventArgs e)
         {
             stnBasaran5.Text = ""; tBasaran5.Text = ""; mBasaran5.Text = ""; bBasaran5.Text = "";
@@ -1933,6 +1945,11 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen Öncekle Dosya Ekleme İşlemini Gerçekleştiriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (CmbDonemBasaran.Text == "" || CmbDonemBasaranYil.Text == "")
+            {
+                MessageBox.Show("Lütfen Öncelikle Dönem Bilgisini Eksiksiz Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (CmbAdSoyad.Text=="")
             {
                 MessageBox.Show("Lütfen Öncelikle Talep Eden Personel Bilgisini Giriniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -1954,6 +1971,7 @@ namespace UserInterface.STS
                 }
                 siparisNo = Guid.NewGuid().ToString();
                 isleAdimi = "SAT BAŞLATMA ONAYI";
+                string donem = CmbDonemBasaran.Text + " " + CmbDonemBasaranYil.Text;
                 SatDataGridview1 sat = new SatDataGridview1(0,LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "", "", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
                   string.IsNullOrEmpty(dosyaYoluGun) ? "" : dosyaYoluGun, infos[0].ConInt(), isleAdimi, CmbDonemBasaran.Text, "BAŞARAN", TxtProjeKodu.Text, "-");
 
@@ -2147,7 +2165,7 @@ namespace UserInterface.STS
             stnBasaran9.Clear(); tBasaran9.Clear(); mBasaran9.Clear(); bBasaran9.Text = "";
             stnBasaran10.Clear(); tBasaran10.Clear(); mBasaran10.Clear(); bBasaran10.Text = ""; 
             DtgStokList.DataSource = null; webBrowser2.Navigate(""); CmbDonemBasaran.SelectedValue = "";
-            TxtProjeKodu.Clear();
+            TxtProjeKodu.Clear(); CmbDonemBasaranYil.SelectedValue = "";
         }
         private void BtnDosyaEkleT_Click(object sender, EventArgs e)
         {
@@ -2242,7 +2260,7 @@ namespace UserInterface.STS
             {
                 siparisNo = Guid.NewGuid().ToString();
                 isleAdimi = "SAT ONAY";
-                SatDataGridview1 sat = new SatDataGridview1(0,LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "", "", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
+                SatDataGridview1 sat = new SatDataGridview1(0,LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "YOK", "YOK", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
                   string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, CmbDonemBasaran.Text,"HARCAMASI YAPILAN", TxtProjeKodu.Text, TxtSatinAlinanFirma.Text);
                 string mesaj = satDataGridview1Manager.Add(sat);
                 if (mesaj != "OK")

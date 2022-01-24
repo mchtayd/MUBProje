@@ -96,6 +96,38 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public MalzemeKayit MalzemeBul(string stokNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemelerList", new SqlParameter("@stokno", stokNo));
+                MalzemeKayit item = null;
+                while (dataReader.Read())
+                {
+                    item = new MalzemeKayit(dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TEDARIKCI_FIRMA"].ToString(),
+                        dataReader["MALZEME_ONARIM_DURUMU"].ToString(),
+                        dataReader["MALZEME_ONARIM_YERI"].ToString(),
+                        dataReader["MALZEME_TURU"].ToString(),
+                        dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
+                        dataReader["MALZEME_REVIZYON"].ToString(),
+                        dataReader["MALZEMENIN_KUL_UST"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ALTERNATIF_MALZEME"].ToString());
+
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<MalzemeKayit> GetList(string stokNo)
         {

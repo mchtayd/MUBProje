@@ -490,6 +490,7 @@ namespace UserInterface.STS
         #endregion
         int teklifdurumu;
         string talepeden, satOlusturmaTuru;
+
         private void DtgDevamEden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 

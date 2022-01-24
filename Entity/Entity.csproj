@@ -41,6 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BakimOnarimAtolye\Atolye.cs" />
+    <Compile Include="BakimOnarimAtolye\AtolyeAltMalzeme.cs" />
+    <Compile Include="BakimOnarimAtolye\AtolyeMalzeme.cs" />
     <Compile Include="BakimOnarim\AbfFormNo.cs" />
     <Compile Include="BakimOnarim\ArizaKayit.cs" />
     <Compile Include="BakimOnarim\BakimOnarimLog.cs" />
@@ -49,7 +52,10 @@
     <Compile Include="BakimOnarim\IscilikDestekTablo.cs" />
     <Compile Include="BakimOnarim\IscilikDestekTabloArac.cs" />
     <Compile Include="BakimOnarim\IscilikIscilik.cs" />
+    <Compile Include="BakimOnarim\IslemAdimlari.cs" />
     <Compile Include="BakimOnarim\Pyp.cs" />
+    <Compile Include="Butce\SiparislerArac.cs" />
+    <Compile Include="Butce\SiparislerPersonel.cs" />
     <Compile Include="Combo.cs" />
     <Compile Include="Depo\DepoKayit.cs" />
     <Compile Include="Depo\DepoKayitLokasyon.cs" />
@@ -68,8 +74,10 @@
     <Compile Include="Gecic Kabul Ambar\MalzemeKayit.cs" />
     <Compile Include="Gecic Kabul Ambar\StokGirisCıkıs.cs" />
     <Compile Include="GorevAtama.cs" />
+    <Compile Include="GorevAtamaPersonel.cs" />
     <Compile Include="IdariIsler\Arac.cs" />
     <Compile Include="IdariIsler\AracBakim.cs" />
+    <Compile Include="IdariIsler\AracTalep.cs" />
     <Compile Include="IdariIsler\AracZimmeti.cs" />
     <Compile Include="IdariIsler\AracZimmetiLog.cs" />
     <Compile Include="IdariIsler\ArsivTutanak.cs" />

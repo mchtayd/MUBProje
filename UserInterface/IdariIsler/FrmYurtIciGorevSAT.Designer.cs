@@ -45,8 +45,9 @@ namespace UserInterface.IdariIsler
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.CmbDonem = new System.Windows.Forms.ComboBox();
-            this.label52 = new System.Windows.Forms.Label();
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.CmbDonemAy = new System.Windows.Forms.ComboBox();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -221,11 +222,43 @@ namespace UserInterface.IdariIsler
             this.webBrowser1.Size = new System.Drawing.Size(680, 151);
             this.webBrowser1.TabIndex = 0;
             // 
-            // CmbDonem
+            // CmbDonemYil
             // 
-            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDonem.FormattingEnabled = true;
-            this.CmbDonem.Items.AddRange(new object[] {
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(269, 159);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemYil.TabIndex = 431;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(62, 163);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(87, 13);
+            this.label35.TabIndex = 430;
+            this.label35.Text = "DÖNEM (Ay/Yıl):";
+            // 
+            // CmbDonemAy
+            // 
+            this.CmbDonemAy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemAy.FormattingEnabled = true;
+            this.CmbDonemAy.Items.AddRange(new object[] {
             "OCAK",
             "ŞUBAT",
             "MART",
@@ -238,27 +271,19 @@ namespace UserInterface.IdariIsler
             "EKİM",
             "KASIM",
             "ARALIK"});
-            this.CmbDonem.Location = new System.Drawing.Point(159, 160);
-            this.CmbDonem.Name = "CmbDonem";
-            this.CmbDonem.Size = new System.Drawing.Size(105, 21);
-            this.CmbDonem.TabIndex = 110;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(99, 164);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(50, 13);
-            this.label52.TabIndex = 109;
-            this.label52.Text = "DÖNEM:";
+            this.CmbDonemAy.Location = new System.Drawing.Point(158, 159);
+            this.CmbDonemAy.Name = "CmbDonemAy";
+            this.CmbDonemAy.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemAy.TabIndex = 429;
             // 
             // FrmYurtIciGorevSAT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(898, 531);
-            this.Controls.Add(this.CmbDonem);
-            this.Controls.Add(this.label52);
+            this.Controls.Add(this.CmbDonemYil);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.CmbDonemAy);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.BtnDosyaEkle);
             this.Controls.Add(this.BtnTemizle);
@@ -303,7 +328,8 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.ComboBox CmbDonem;
-        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.ComboBox CmbDonemYil;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.ComboBox CmbDonemAy;
     }
 }

@@ -62,7 +62,7 @@ namespace UserInterface.IdariIsler
 
             DtgList.Columns["Id"].Visible = false;
             DtgList.Columns["Plaka"].HeaderText = "ARAÇ PLAKASI";
-            DtgList.Columns["IlkTescilTarihi"].HeaderText = "ARAÇ PLAKASI";
+            DtgList.Columns["IlkTescilTarihi"].HeaderText = "İLK TECİL TARİHİ";
             DtgList.Columns["TescilTarihi"].HeaderText = "TECİL TARİHİ";
             DtgList.Columns["Markasi"].HeaderText = "MARKASI";
             DtgList.Columns["Tipi"].HeaderText = "TİPİ";
@@ -145,8 +145,15 @@ namespace UserInterface.IdariIsler
             dosyayolu = DtgList.CurrentRow.Cells["Dosyayolu"].Value.ToString();
             sayfa = DtgList.CurrentRow.Cells["Sayfa"].Value.ToString();
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
-            webBrowser1.Navigate(dosyayolu);
             IslemAdimlariDisplay();
+            try
+            {
+                webBrowser1.Navigate(dosyayolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         private void TxtPlaka_TextChanged(object sender, EventArgs e)

@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>253</ApplicationRevision>
+    <ApplicationRevision>271</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -232,6 +232,12 @@
     <Compile Include="BakımOnarım\FrmBOAtolye.Designer.cs">
       <DependentUpon>FrmBOAtolye.cs</DependentUpon>
     </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeDevamEdenler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeDevamEdenler.Designer.cs">
+      <DependentUpon>FrmBOAtolyeDevamEdenler.cs</DependentUpon>
+    </Compile>
     <Compile Include="BakımOnarım\FrmBOAtolyeGuncelleme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,24 @@
     </Compile>
     <Compile Include="BakımOnarım\FrmServisTalepleri.Designer.cs">
       <DependentUpon>FrmServisTalepleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmButceKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmButceKayit.Designer.cs">
+      <DependentUpon>FrmButceKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmSiparisler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmSiparisler.Designer.cs">
+      <DependentUpon>FrmSiparisler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmSiparislerIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmSiparislerIzleme.Designer.cs">
+      <DependentUpon>FrmSiparislerIzleme.cs</DependentUpon>
     </Compile>
     <Compile Include="Depo\FrmMalzemeKayitDestekDepo.cs">
       <SubType>Form</SubType>
@@ -388,11 +412,23 @@
     <Compile Include="IdariIsler\FrmAracKaydet.Designer.cs">
       <DependentUpon>FrmAracKaydet.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmAracKm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKm.Designer.cs">
+      <DependentUpon>FrmAracKm.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmAracTahsisBilgileri.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IdariIsler\FrmAracTahsisBilgileri.Designer.cs">
       <DependentUpon>FrmAracTahsisBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTalep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTalep.Designer.cs">
+      <DependentUpon>FrmAracTalep.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmAracZimmetiLogKayitlari.cs">
       <SubType>Form</SubType>
@@ -816,6 +852,12 @@
     <Compile Include="STS\FrmTeklifAlinacakSat.Designer.cs">
       <DependentUpon>FrmTeklifAlinacakSat.cs</DependentUpon>
     </Compile>
+    <Compile Include="STS\FrmYakitButceKapatma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmYakitButceKapatma.Designer.cs">
+      <DependentUpon>FrmYakitButceKapatma.cs</DependentUpon>
+    </Compile>
     <Compile Include="Yerleskeler\FrmYerleskeGideriKayit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -903,6 +945,9 @@
     <EmbeddedResource Include="BakımOnarım\FrmBOAtolye.resx">
       <DependentUpon>FrmBOAtolye.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeDevamEdenler.resx">
+      <DependentUpon>FrmBOAtolyeDevamEdenler.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeGuncelleme.resx">
       <DependentUpon>FrmBOAtolyeGuncelleme.cs</DependentUpon>
     </EmbeddedResource>
@@ -935,6 +980,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmServisTalepleri.resx">
       <DependentUpon>FrmServisTalepleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmButceKayit.resx">
+      <DependentUpon>FrmButceKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmSiparisler.resx">
+      <DependentUpon>FrmSiparisler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmSiparislerIzleme.resx">
+      <DependentUpon>FrmSiparislerIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Depo\FrmMalzemeKayitDestekDepo.resx">
       <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
@@ -981,8 +1035,14 @@
     <EmbeddedResource Include="IdariIsler\FrmAracKaydet.resx">
       <DependentUpon>FrmAracKaydet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracKm.resx">
+      <DependentUpon>FrmAracKm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracTahsisBilgileri.resx">
       <DependentUpon>FrmAracTahsisBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracTalep.resx">
+      <DependentUpon>FrmAracTalep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracZimmetiLogKayitlari.resx">
       <DependentUpon>FrmAracZimmetiLogKayitlari.cs</DependentUpon>
@@ -1204,6 +1264,9 @@
     <EmbeddedResource Include="STS\FrmTeklifAlinacakSat.resx">
       <DependentUpon>FrmTeklifAlinacakSat.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmYakitButceKapatma.resx">
+      <DependentUpon>FrmYakitButceKapatma.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Yerleskeler\FrmYerleskeGideriKayit.resx">
       <DependentUpon>FrmYerleskeGideriKayit.cs</DependentUpon>
     </EmbeddedResource>
@@ -1306,6 +1369,8 @@
     </Content>
     <Content Include="Icon.ico" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Siparisler\" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

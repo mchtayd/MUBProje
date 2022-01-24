@@ -38,5 +38,6 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
+
     }
 }

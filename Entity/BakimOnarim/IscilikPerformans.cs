@@ -8,7 +8,7 @@ namespace Entity
 {
     public class IscilikPerformans
     {
-        int id; string iscilikTuru, personel, mevcutDuragi, cikisDuragi, istikametDuragi; DateTime cikisTarihiSaati; string cikisSebebi, varisDurag; DateTime varisTarihiSaat; string sonuc, hata;
+        int id, isAkisNo; string iscilikTuru, personel, mevcutDuragi, cikisDuragi, istikametDuragi; DateTime cikisTarihiSaati; string cikisSebebi, varisDurag; DateTime varisTarihiSaat; string sonuc, hata;
 
         public int Id { get => id; set => id = value; }
         public string IscilikTuru { get => iscilikTuru; set => iscilikTuru = value; }
@@ -22,10 +22,12 @@ namespace Entity
         public DateTime VarisTarihiSaat { get => varisTarihiSaat; set => varisTarihiSaat = value; }
         public string Sonuc { get => sonuc; set => sonuc = value; }
         public string Hata { get => hata; set => hata = value; }
+        public int IsAkisNo { get => isAkisNo; set => isAkisNo = value; }
 
-        public IscilikPerformans(int id, string iscilikTuru, string personel, string mevcutDuragi, string cikisDuragi, string istikametDuragi, DateTime cikisTarihiSaati, string cikisSebebi, string varisDurag, DateTime varisTarihiSaat, string sonuc,string hata)
+        public IscilikPerformans(int id, int isAkisNo, string iscilikTuru, string personel, string mevcutDuragi, string cikisDuragi, string istikametDuragi, DateTime cikisTarihiSaati, string cikisSebebi, string varisDurag, DateTime varisTarihiSaat, string sonuc,string hata)
         {
             this.id = id;
+            this.isAkisNo = isAkisNo;
             this.iscilikTuru = iscilikTuru;
             this.personel = personel;
             this.mevcutDuragi = mevcutDuragi;
@@ -39,8 +41,9 @@ namespace Entity
             this.hata = hata;
         }
 
-        public IscilikPerformans(string iscilikTuru, string personel, string mevcutDuragi, string cikisDuragi, string istikametDuragi, DateTime cikisTarihiSaati, string cikisSebebi, string varisDurag, DateTime varisTarihiSaat, string sonuc)
+        public IscilikPerformans(int isAkisNo, string iscilikTuru, string personel, string mevcutDuragi, string cikisDuragi, string istikametDuragi, DateTime cikisTarihiSaati, string cikisSebebi, string varisDurag, DateTime varisTarihiSaat, string sonuc)
         {
+            this.isAkisNo = isAkisNo;
             this.iscilikTuru = iscilikTuru;
             this.personel = personel;
             this.mevcutDuragi = mevcutDuragi;

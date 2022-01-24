@@ -69,6 +69,8 @@ namespace UserInterface.STS
             satRenkliTabloManager = SatRenkliiTabloManager.GetInstance();
             tedarikciManager = TedarikciFirmaManager.GetInstance();
             teklifiAlinanManager = TeklifiAlinanManager.GetInstance();
+
+            
         }
         private void FrmTeklifAlinacakSat_Load(object sender, EventArgs e)
         {

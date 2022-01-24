@@ -31,62 +31,74 @@ namespace UserInterface.BakımOnarım
         {
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtAbfFormNo = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnBul = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtStokNoUst = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.TxtTanimUst = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.TxtSeriNoUst = new System.Windows.Forms.TextBox();
+            this.TxtGarantiDurumuUst = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.TxtBildirimNo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.TxtProje = new System.Windows.Forms.TextBox();
+            this.TxtScrmNo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.TxtBolgeAdi = new System.Windows.Forms.TextBox();
+            this.TxtKategori = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.TxtDurum = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.textBox17 = new System.Windows.Forms.TextBox();
+            this.TxtStokNo = new System.Windows.Forms.TextBox();
+            this.TxtMiktar = new System.Windows.Forms.TextBox();
+            this.TxtTanim = new System.Windows.Forms.TextBox();
+            this.TxtRevizyon = new System.Windows.Forms.TextBox();
+            this.TxtSeriNo = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.TxtBildirilenAriza = new System.Windows.Forms.RichTextBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CmbIslemAdimi = new System.Windows.Forms.ComboBox();
+            this.TxtNotlar = new System.Windows.Forms.RichTextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.label19 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
-            this.BtnKaydet = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.CmbGorevAtanacakPersonel = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label23 = new System.Windows.Forms.Label();
+            this.DtgSiparisTarihi = new System.Windows.Forms.DateTimePicker();
+            this.label20 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.TxtModifikasyonlar = new System.Windows.Forms.RichTextBox();
+            this.label19 = new System.Windows.Forms.Label();
+            this.DtgCekilmeTarihi = new System.Windows.Forms.DateTimePicker();
+            this.LblIcSiparisNo = new System.Windows.Forms.Label();
+            this.label25 = new System.Windows.Forms.Label();
+            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.BtnTemizle = new System.Windows.Forms.Button();
+            this.DtgTalepTarihi = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.DtgMalzemeler = new System.Windows.Forms.DataGridView();
+            this.label26 = new System.Windows.Forms.Label();
+            this.LblToplam = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -96,7 +108,7 @@ namespace UserInterface.BakımOnarım
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1828, 31);
+            this.panel1.Size = new System.Drawing.Size(1515, 36);
             this.panel1.TabIndex = 45;
             // 
             // BtnCancel
@@ -105,496 +117,610 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnCancel.ForeColor = System.Drawing.Color.DarkRed;
-            this.BtnCancel.Location = new System.Drawing.Point(14, 3);
+            this.BtnCancel.Location = new System.Drawing.Point(16, 3);
             this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(41, 27);
+            this.BtnCancel.Size = new System.Drawing.Size(48, 31);
             this.BtnCancel.TabIndex = 1;
             this.BtnCancel.Text = "X";
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // textBox1
+            // TxtAbfFormNo
             // 
-            this.textBox1.Location = new System.Drawing.Point(119, 52);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 46;
+            this.TxtAbfFormNo.Location = new System.Drawing.Point(139, 60);
+            this.TxtAbfFormNo.Name = "TxtAbfFormNo";
+            this.TxtAbfFormNo.Size = new System.Drawing.Size(116, 21);
+            this.TxtAbfFormNo.TabIndex = 46;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(30, 56);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(80, 63);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(83, 13);
+            this.label1.Size = new System.Drawing.Size(53, 15);
             this.label1.TabIndex = 47;
-            this.label1.Text = "ABF FORM NO:";
+            this.label1.Text = "Abf No:";
             // 
             // BtnBul
             // 
             this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBul.Location = new System.Drawing.Point(225, 52);
+            this.BtnBul.Location = new System.Drawing.Point(262, 60);
             this.BtnBul.Name = "BtnBul";
-            this.BtnBul.Size = new System.Drawing.Size(57, 20);
+            this.BtnBul.Size = new System.Drawing.Size(73, 23);
             this.BtnBul.TabIndex = 48;
             this.BtnBul.Text = "BUL";
             this.BtnBul.UseVisualStyleBackColor = true;
+            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(61, 37);
+            this.label2.Location = new System.Drawing.Point(60, 42);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(58, 13);
+            this.label2.Size = new System.Drawing.Size(53, 15);
             this.label2.TabIndex = 50;
-            this.label2.Text = "STOK NO:";
+            this.label2.Text = "Stok No:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 63);
+            this.label3.Location = new System.Drawing.Point(68, 69);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(44, 13);
+            this.label3.Size = new System.Drawing.Size(45, 15);
             this.label3.TabIndex = 52;
-            this.label3.Text = "TANIM:";
+            this.label3.Text = "Tanım:";
             // 
-            // textBox3
+            // TxtStokNoUst
             // 
-            this.textBox3.Location = new System.Drawing.Point(125, 33);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(192, 20);
-            this.textBox3.TabIndex = 51;
+            this.TxtStokNoUst.Location = new System.Drawing.Point(119, 39);
+            this.TxtStokNoUst.Name = "TxtStokNoUst";
+            this.TxtStokNoUst.Size = new System.Drawing.Size(223, 21);
+            this.TxtStokNoUst.TabIndex = 51;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(65, 89);
+            this.label4.Location = new System.Drawing.Point(62, 96);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(54, 13);
+            this.label4.Size = new System.Drawing.Size(51, 15);
             this.label4.TabIndex = 54;
-            this.label4.Text = "SERİ NO:";
+            this.label4.Text = "Seri No:";
             // 
-            // textBox4
+            // TxtTanimUst
             // 
-            this.textBox4.Location = new System.Drawing.Point(125, 59);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(192, 20);
-            this.textBox4.TabIndex = 53;
+            this.TxtTanimUst.Location = new System.Drawing.Point(119, 66);
+            this.TxtTanimUst.Name = "TxtTanimUst";
+            this.TxtTanimUst.Size = new System.Drawing.Size(223, 21);
+            this.TxtTanimUst.TabIndex = 53;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(9, 115);
+            this.label5.Location = new System.Drawing.Point(15, 123);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(110, 13);
+            this.label5.Size = new System.Drawing.Size(98, 15);
             this.label5.TabIndex = 56;
-            this.label5.Text = "GARANTİ DURUMU:";
+            this.label5.Text = "Garanti Durumu:";
             // 
-            // textBox5
+            // TxtSeriNoUst
             // 
-            this.textBox5.Location = new System.Drawing.Point(125, 85);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(192, 20);
-            this.textBox5.TabIndex = 55;
+            this.TxtSeriNoUst.Location = new System.Drawing.Point(119, 93);
+            this.TxtSeriNoUst.Name = "TxtSeriNoUst";
+            this.TxtSeriNoUst.Size = new System.Drawing.Size(223, 21);
+            this.TxtSeriNoUst.TabIndex = 55;
             // 
-            // textBox6
+            // TxtGarantiDurumuUst
             // 
-            this.textBox6.Location = new System.Drawing.Point(125, 111);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(192, 20);
-            this.textBox6.TabIndex = 57;
+            this.TxtGarantiDurumuUst.Location = new System.Drawing.Point(119, 120);
+            this.TxtGarantiDurumuUst.Name = "TxtGarantiDurumuUst";
+            this.TxtGarantiDurumuUst.Size = new System.Drawing.Size(223, 21);
+            this.TxtGarantiDurumuUst.TabIndex = 57;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.textBox6);
-            this.groupBox1.Controls.Add(this.textBox3);
+            this.groupBox1.Controls.Add(this.TxtGarantiDurumuUst);
+            this.groupBox1.Controls.Add(this.TxtStokNoUst);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Controls.Add(this.textBox4);
+            this.groupBox1.Controls.Add(this.TxtSeriNoUst);
+            this.groupBox1.Controls.Add(this.TxtTanimUst);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Location = new System.Drawing.Point(12, 90);
+            this.groupBox1.Location = new System.Drawing.Point(69, 99);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(335, 173);
+            this.groupBox1.Size = new System.Drawing.Size(391, 200);
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MALZEMENİN KULLANILDIĞI ÜST TAKIM BİLGİLERİ";
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.textBox7);
+            this.groupBox2.Controls.Add(this.TxtBildirimNo);
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
-            this.groupBox2.Controls.Add(this.textBox8);
-            this.groupBox2.Controls.Add(this.textBox9);
+            this.groupBox2.Controls.Add(this.TxtProje);
+            this.groupBox2.Controls.Add(this.TxtScrmNo);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
-            this.groupBox2.Controls.Add(this.textBox10);
-            this.groupBox2.Controls.Add(this.textBox11);
+            this.groupBox2.Controls.Add(this.TxtBolgeAdi);
+            this.groupBox2.Controls.Add(this.TxtKategori);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Location = new System.Drawing.Point(353, 90);
+            this.groupBox2.Location = new System.Drawing.Point(466, 99);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(335, 173);
+            this.groupBox2.Size = new System.Drawing.Size(336, 200);
             this.groupBox2.TabIndex = 60;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "REFERANS ARIZA BİLGİLERİ";
             // 
-            // textBox7
+            // TxtBildirimNo
             // 
-            this.textBox7.Location = new System.Drawing.Point(104, 33);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(192, 20);
-            this.textBox7.TabIndex = 49;
+            this.TxtBildirimNo.Location = new System.Drawing.Point(89, 39);
+            this.TxtBildirimNo.Name = "TxtBildirimNo";
+            this.TxtBildirimNo.Size = new System.Drawing.Size(223, 21);
+            this.TxtBildirimNo.TabIndex = 49;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(53, 141);
+            this.label7.Location = new System.Drawing.Point(44, 150);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(45, 13);
+            this.label7.Size = new System.Drawing.Size(39, 15);
             this.label7.TabIndex = 58;
-            this.label7.Text = "PROJE:";
+            this.label7.Text = "Proje:";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 37);
+            this.label8.Location = new System.Drawing.Point(12, 42);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 13);
+            this.label8.Size = new System.Drawing.Size(71, 15);
             this.label8.TabIndex = 50;
-            this.label8.Text = "BİLDİRİM NO:";
+            this.label8.Text = "Bildirim No:";
             // 
-            // textBox8
+            // TxtProje
             // 
-            this.textBox8.Location = new System.Drawing.Point(104, 137);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(192, 20);
-            this.textBox8.TabIndex = 57;
+            this.TxtProje.Location = new System.Drawing.Point(89, 147);
+            this.TxtProje.Name = "TxtProje";
+            this.TxtProje.Size = new System.Drawing.Size(223, 21);
+            this.TxtProje.TabIndex = 57;
             // 
-            // textBox9
+            // TxtScrmNo
             // 
-            this.textBox9.Location = new System.Drawing.Point(104, 59);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(192, 20);
-            this.textBox9.TabIndex = 51;
+            this.TxtScrmNo.Location = new System.Drawing.Point(89, 66);
+            this.TxtScrmNo.Name = "TxtScrmNo";
+            this.TxtScrmNo.Size = new System.Drawing.Size(223, 21);
+            this.TxtScrmNo.TabIndex = 51;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(31, 115);
+            this.label9.Location = new System.Drawing.Point(21, 123);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(67, 13);
+            this.label9.Size = new System.Drawing.Size(62, 15);
             this.label9.TabIndex = 56;
-            this.label9.Text = "BÖLGE ADI:";
+            this.label9.Text = "Bölge Adı:";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(45, 63);
+            this.label10.Location = new System.Drawing.Point(31, 69);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(53, 13);
+            this.label10.Size = new System.Drawing.Size(52, 15);
             this.label10.TabIndex = 52;
-            this.label10.Text = "CRM NO:";
+            this.label10.Text = "Crm No:";
             // 
-            // textBox10
+            // TxtBolgeAdi
             // 
-            this.textBox10.Location = new System.Drawing.Point(104, 111);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(192, 20);
-            this.textBox10.TabIndex = 55;
+            this.TxtBolgeAdi.Location = new System.Drawing.Point(89, 120);
+            this.TxtBolgeAdi.Name = "TxtBolgeAdi";
+            this.TxtBolgeAdi.Size = new System.Drawing.Size(223, 21);
+            this.TxtBolgeAdi.TabIndex = 55;
             // 
-            // textBox11
+            // TxtKategori
             // 
-            this.textBox11.Location = new System.Drawing.Point(104, 85);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(192, 20);
-            this.textBox11.TabIndex = 53;
+            this.TxtKategori.Location = new System.Drawing.Point(89, 93);
+            this.TxtKategori.Name = "TxtKategori";
+            this.TxtKategori.Size = new System.Drawing.Size(223, 21);
+            this.TxtKategori.TabIndex = 53;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(33, 89);
+            this.label11.Location = new System.Drawing.Point(27, 96);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(65, 13);
+            this.label11.Size = new System.Drawing.Size(56, 15);
             this.label11.TabIndex = 54;
-            this.label11.Text = "KATEGORİ:";
+            this.label11.Text = "Kategori:";
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.DtgTalepTarihi);
             this.groupBox3.Controls.Add(this.label17);
-            this.groupBox3.Controls.Add(this.textBox17);
             this.groupBox3.Controls.Add(this.label16);
-            this.groupBox3.Controls.Add(this.textBox16);
+            this.groupBox3.Controls.Add(this.TxtDurum);
             this.groupBox3.Controls.Add(this.label15);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label12);
             this.groupBox3.Controls.Add(this.label13);
             this.groupBox3.Controls.Add(this.label14);
-            this.groupBox3.Controls.Add(this.textBox2);
-            this.groupBox3.Controls.Add(this.textBox12);
-            this.groupBox3.Controls.Add(this.textBox13);
-            this.groupBox3.Controls.Add(this.textBox14);
-            this.groupBox3.Controls.Add(this.textBox15);
-            this.groupBox3.Location = new System.Drawing.Point(694, 89);
+            this.groupBox3.Controls.Add(this.TxtStokNo);
+            this.groupBox3.Controls.Add(this.TxtMiktar);
+            this.groupBox3.Controls.Add(this.TxtTanim);
+            this.groupBox3.Controls.Add(this.TxtRevizyon);
+            this.groupBox3.Controls.Add(this.TxtSeriNo);
+            this.groupBox3.Location = new System.Drawing.Point(1080, 633);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(419, 234);
+            this.groupBox3.Size = new System.Drawing.Size(105, 48);
             this.groupBox3.TabIndex = 61;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ONARIMI TALEP EDİLEN MALZEME BİLGİLERİ";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(104, 33);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(192, 20);
-            this.textBox2.TabIndex = 49;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(104, 137);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(192, 20);
-            this.textBox12.TabIndex = 57;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Location = new System.Drawing.Point(104, 59);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(192, 20);
-            this.textBox13.TabIndex = 51;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Location = new System.Drawing.Point(104, 111);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(192, 20);
-            this.textBox14.TabIndex = 55;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(104, 85);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(192, 20);
-            this.textBox15.TabIndex = 53;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(40, 37);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(58, 13);
-            this.label6.TabIndex = 58;
-            this.label6.Text = "STOK NO:";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(33, 115);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(65, 13);
-            this.label12.TabIndex = 61;
-            this.label12.Text = "REVİZYON:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(54, 63);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(44, 13);
-            this.label13.TabIndex = 59;
-            this.label13.Text = "TANIM:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(44, 89);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(54, 13);
-            this.label14.TabIndex = 60;
-            this.label14.Text = "SERİ NO:";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(47, 141);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(51, 13);
-            this.label15.TabIndex = 62;
-            this.label15.Text = "MİKTAR:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(47, 170);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(51, 13);
-            this.label16.TabIndex = 64;
-            this.label16.Text = "DURUM:";
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(104, 163);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(192, 20);
-            this.textBox16.TabIndex = 63;
+            this.groupBox3.Visible = false;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(15, 192);
+            this.label17.Location = new System.Drawing.Point(12, 209);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(83, 13);
+            this.label17.Size = new System.Drawing.Size(75, 15);
             this.label17.TabIndex = 66;
-            this.label17.Text = "TALEP TARİHİ:";
+            this.label17.Text = "Talep Tarihi:";
             // 
-            // textBox17
+            // label16
             // 
-            this.textBox17.Location = new System.Drawing.Point(104, 189);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(192, 20);
-            this.textBox17.TabIndex = 65;
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(39, 180);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(48, 15);
+            this.label16.TabIndex = 64;
+            this.label16.Text = "Durum:";
+            // 
+            // TxtDurum
+            // 
+            this.TxtDurum.Location = new System.Drawing.Point(93, 177);
+            this.TxtDurum.Name = "TxtDurum";
+            this.TxtDurum.Size = new System.Drawing.Size(262, 21);
+            this.TxtDurum.TabIndex = 63;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(43, 153);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(44, 15);
+            this.label15.TabIndex = 62;
+            this.label15.Text = "Miktar:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(34, 45);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 15);
+            this.label6.TabIndex = 58;
+            this.label6.Text = "Stok No:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(28, 126);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(59, 15);
+            this.label12.TabIndex = 61;
+            this.label12.Text = "Revizyon:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(42, 72);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(45, 15);
+            this.label13.TabIndex = 59;
+            this.label13.Text = "Tanım:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(36, 99);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 15);
+            this.label14.TabIndex = 60;
+            this.label14.Text = "Seri No:";
+            // 
+            // TxtStokNo
+            // 
+            this.TxtStokNo.Location = new System.Drawing.Point(93, 42);
+            this.TxtStokNo.Name = "TxtStokNo";
+            this.TxtStokNo.Size = new System.Drawing.Size(262, 21);
+            this.TxtStokNo.TabIndex = 49;
+            // 
+            // TxtMiktar
+            // 
+            this.TxtMiktar.Location = new System.Drawing.Point(93, 150);
+            this.TxtMiktar.Name = "TxtMiktar";
+            this.TxtMiktar.Size = new System.Drawing.Size(149, 21);
+            this.TxtMiktar.TabIndex = 57;
+            // 
+            // TxtTanim
+            // 
+            this.TxtTanim.Location = new System.Drawing.Point(93, 69);
+            this.TxtTanim.Name = "TxtTanim";
+            this.TxtTanim.Size = new System.Drawing.Size(262, 21);
+            this.TxtTanim.TabIndex = 51;
+            // 
+            // TxtRevizyon
+            // 
+            this.TxtRevizyon.Location = new System.Drawing.Point(93, 123);
+            this.TxtRevizyon.Name = "TxtRevizyon";
+            this.TxtRevizyon.Size = new System.Drawing.Size(262, 21);
+            this.TxtRevizyon.TabIndex = 55;
+            // 
+            // TxtSeriNo
+            // 
+            this.TxtSeriNo.Location = new System.Drawing.Point(93, 96);
+            this.TxtSeriNo.Name = "TxtSeriNo";
+            this.TxtSeriNo.Size = new System.Drawing.Size(262, 21);
+            this.TxtSeriNo.TabIndex = 53;
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(27, 272);
+            this.label18.Location = new System.Drawing.Point(94, 313);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(104, 13);
+            this.label18.Size = new System.Drawing.Size(88, 15);
             this.label18.TabIndex = 62;
-            this.label18.Text = "BİLDİRİLEN ARIZA:";
+            this.label18.Text = "Bildirilen Arıza:";
             // 
-            // richTextBox1
+            // TxtBildirilenAriza
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(137, 269);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(551, 54);
-            this.richTextBox1.TabIndex = 63;
-            this.richTextBox1.Text = "";
+            this.TxtBildirilenAriza.Location = new System.Drawing.Point(188, 310);
+            this.TxtBildirilenAriza.Name = "TxtBildirilenAriza";
+            this.TxtBildirilenAriza.Size = new System.Drawing.Size(614, 62);
+            this.TxtBildirilenAriza.TabIndex = 63;
+            this.TxtBildirilenAriza.Text = "";
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label22);
-            this.groupBox4.Controls.Add(this.richTextBox2);
-            this.groupBox4.Controls.Add(this.label19);
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
-            this.groupBox4.Controls.Add(this.label26);
+            this.groupBox4.Controls.Add(this.CmbIslemAdimi);
+            this.groupBox4.Controls.Add(this.TxtNotlar);
             this.groupBox4.Controls.Add(this.label24);
+            this.groupBox4.Controls.Add(this.CmbGorevAtanacakPersonel);
+            this.groupBox4.Controls.Add(this.label21);
+            this.groupBox4.Controls.Add(this.label23);
+            this.groupBox4.Controls.Add(this.DtgSiparisTarihi);
+            this.groupBox4.Controls.Add(this.label20);
+            this.groupBox4.Controls.Add(this.label22);
+            this.groupBox4.Controls.Add(this.TxtModifikasyonlar);
+            this.groupBox4.Controls.Add(this.label19);
+            this.groupBox4.Controls.Add(this.DtgCekilmeTarihi);
+            this.groupBox4.Controls.Add(this.LblIcSiparisNo);
             this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Controls.Add(this.textBox22);
-            this.groupBox4.Location = new System.Drawing.Point(14, 329);
+            this.groupBox4.Location = new System.Drawing.Point(16, 375);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(674, 220);
+            this.groupBox4.Size = new System.Drawing.Size(786, 330);
             this.groupBox4.TabIndex = 67;
             this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "ONARIMI TALEP EDİLEN MALZEME BİLGİLERİ";
+            this.groupBox4.Text = "SİPAŞ BİLGİLERİ";
+            // 
+            // CmbIslemAdimi
+            // 
+            this.CmbIslemAdimi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbIslemAdimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbIslemAdimi.FormattingEnabled = true;
+            this.CmbIslemAdimi.Location = new System.Drawing.Point(172, 288);
+            this.CmbIslemAdimi.Name = "CmbIslemAdimi";
+            this.CmbIslemAdimi.Size = new System.Drawing.Size(280, 23);
+            this.CmbIslemAdimi.TabIndex = 432;
+            // 
+            // TxtNotlar
+            // 
+            this.TxtNotlar.Location = new System.Drawing.Point(172, 190);
+            this.TxtNotlar.Name = "TxtNotlar";
+            this.TxtNotlar.Size = new System.Drawing.Size(532, 63);
+            this.TxtNotlar.TabIndex = 431;
+            this.TxtNotlar.Text = "";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(63, 63);
+            this.label24.Location = new System.Drawing.Point(123, 193);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(143, 13);
-            this.label24.TabIndex = 59;
-            this.label24.Text = "TESLİM EDEN PERSONEL:";
+            this.label24.Size = new System.Drawing.Size(43, 15);
+            this.label24.TabIndex = 430;
+            this.label24.Text = "Notlar:";
             // 
-            // label25
+            // CmbGorevAtanacakPersonel
             // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(7, 92);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(199, 13);
-            this.label25.TabIndex = 60;
-            this.label25.Text = "MALZEMENİN GELDİĞİ/KAYIT TARİH:";
+            this.CmbGorevAtanacakPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGorevAtanacakPersonel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbGorevAtanacakPersonel.FormattingEnabled = true;
+            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(172, 259);
+            this.CmbGorevAtanacakPersonel.Name = "CmbGorevAtanacakPersonel";
+            this.CmbGorevAtanacakPersonel.Size = new System.Drawing.Size(280, 23);
+            this.CmbGorevAtanacakPersonel.TabIndex = 428;
             // 
-            // textBox22
+            // label21
             // 
-            this.textBox22.Location = new System.Drawing.Point(212, 59);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(192, 20);
-            this.textBox22.TabIndex = 51;
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label21.Location = new System.Drawing.Point(19, 262);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(147, 15);
+            this.label21.TabIndex = 427;
+            this.label21.Text = "Görev Atanacak Personel:";
             // 
-            // label26
+            // label23
             // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(212, 30);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(81, 13);
-            this.label26.TabIndex = 67;
-            this.label26.Text = "ayYilBOFormNo";
+            this.label23.AutoSize = true;
+            this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label23.Location = new System.Drawing.Point(92, 291);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(74, 15);
+            this.label23.TabIndex = 426;
+            this.label23.Text = "İşlem Adımı:";
             // 
-            // dateTimePicker1
+            // DtgSiparisTarihi
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(212, 88);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(199, 20);
-            this.dateTimePicker1.TabIndex = 68;
+            this.DtgSiparisTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgSiparisTarihi.Location = new System.Drawing.Point(172, 94);
+            this.DtgSiparisTarihi.Name = "DtgSiparisTarihi";
+            this.DtgSiparisTarihi.Size = new System.Drawing.Size(224, 21);
+            this.DtgSiparisTarihi.TabIndex = 73;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(50, 99);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(116, 15);
+            this.label20.TabIndex = 72;
+            this.label20.Text = "Sipariş Açma Tarihi:";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Location = new System.Drawing.Point(87, 32);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(79, 15);
+            this.label22.TabIndex = 71;
+            this.label22.Text = "İç Sipariş No:";
+            // 
+            // TxtModifikasyonlar
+            // 
+            this.TxtModifikasyonlar.Location = new System.Drawing.Point(172, 121);
+            this.TxtModifikasyonlar.Name = "TxtModifikasyonlar";
+            this.TxtModifikasyonlar.Size = new System.Drawing.Size(532, 63);
+            this.TxtModifikasyonlar.TabIndex = 70;
+            this.TxtModifikasyonlar.Text = "";
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(143, 120);
+            this.label19.Location = new System.Drawing.Point(34, 126);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(63, 13);
+            this.label19.Size = new System.Drawing.Size(132, 30);
             this.label19.TabIndex = 69;
-            this.label19.Text = "AÇIKLAMA:";
+            this.label19.Text = "Uygulanması Gereken \r\n          Modifikasyonlar:";
             // 
-            // richTextBox2
+            // DtgCekilmeTarihi
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(211, 117);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(457, 97);
-            this.richTextBox2.TabIndex = 70;
-            this.richTextBox2.Text = "";
+            this.DtgCekilmeTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgCekilmeTarihi.Location = new System.Drawing.Point(172, 67);
+            this.DtgCekilmeTarihi.Name = "DtgCekilmeTarihi";
+            this.DtgCekilmeTarihi.Size = new System.Drawing.Size(224, 21);
+            this.DtgCekilmeTarihi.TabIndex = 68;
+            // 
+            // LblIcSiparisNo
+            // 
+            this.LblIcSiparisNo.AutoSize = true;
+            this.LblIcSiparisNo.Location = new System.Drawing.Point(169, 32);
+            this.LblIcSiparisNo.Name = "LblIcSiparisNo";
+            this.LblIcSiparisNo.Size = new System.Drawing.Size(82, 15);
+            this.LblIcSiparisNo.TabIndex = 67;
+            this.LblIcSiparisNo.Text = "YilBOFormNo";
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(6, 72);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(160, 15);
+            this.label25.TabIndex = 60;
+            this.label25.Text = "Malzemenin Çekildiği Tarih:";
             // 
             // BtnKaydet
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 555);
+            this.BtnKaydet.Location = new System.Drawing.Point(16, 711);
             this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(154, 55);
+            this.BtnKaydet.Size = new System.Drawing.Size(136, 38);
             this.BtnKaydet.TabIndex = 68;
             this.BtnKaydet.Text = "KAYDET";
             this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // button2
+            // BtnTemizle
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(172, 555);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 55);
-            this.button2.TabIndex = 69;
-            this.button2.Text = "TEMİZLE";
-            this.button2.UseVisualStyleBackColor = true;
+            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizle.Location = new System.Drawing.Point(158, 711);
+            this.BtnTemizle.Name = "BtnTemizle";
+            this.BtnTemizle.Size = new System.Drawing.Size(136, 38);
+            this.BtnTemizle.TabIndex = 69;
+            this.BtnTemizle.Text = "TEMİZLE";
+            this.BtnTemizle.UseVisualStyleBackColor = true;
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
-            // label22
+            // DtgTalepTarihi
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(122, 30);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(84, 13);
-            this.label22.TabIndex = 71;
-            this.label22.Text = "İÇ SİPARİŞ NO:";
+            this.DtgTalepTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgTalepTarihi.Location = new System.Drawing.Point(93, 204);
+            this.DtgTalepTarihi.Name = "DtgTalepTarihi";
+            this.DtgTalepTarihi.Size = new System.Drawing.Size(149, 21);
+            this.DtgTalepTarihi.TabIndex = 67;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.DtgMalzemeler);
+            this.panel2.Location = new System.Drawing.Point(808, 106);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(702, 266);
+            this.panel2.TabIndex = 70;
+            // 
+            // DtgMalzemeler
+            // 
+            this.DtgMalzemeler.AllowUserToAddRows = false;
+            this.DtgMalzemeler.AllowUserToDeleteRows = false;
+            this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzemeler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzemeler.Location = new System.Drawing.Point(0, 0);
+            this.DtgMalzemeler.Name = "DtgMalzemeler";
+            this.DtgMalzemeler.ReadOnly = true;
+            this.DtgMalzemeler.Size = new System.Drawing.Size(702, 266);
+            this.DtgMalzemeler.TabIndex = 0;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label26.Location = new System.Drawing.Point(808, 384);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(112, 15);
+            this.label26.TabIndex = 71;
+            this.label26.Text = "Malzeme Sayisi:";
+            // 
+            // LblToplam
+            // 
+            this.LblToplam.AutoSize = true;
+            this.LblToplam.Location = new System.Drawing.Point(926, 384);
+            this.LblToplam.Name = "LblToplam";
+            this.LblToplam.Size = new System.Drawing.Size(21, 15);
+            this.LblToplam.TabIndex = 58;
+            this.LblToplam.Text = "00";
             // 
             // FrmBOAtolye
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1828, 926);
-            this.Controls.Add(this.button2);
+            this.ClientSize = new System.Drawing.Size(1515, 764);
+            this.Controls.Add(this.LblToplam);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.TxtBildirilenAriza);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnBul);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtAbfFormNo);
             this.Controls.Add(this.panel1);
+            this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Name = "FrmBOAtolye";
             this.Text = "FrmBOAtolye";
             this.Load += new System.EventHandler(this.FrmBOAtolye_Load);
@@ -607,6 +733,8 @@ namespace UserInterface.BakımOnarım
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -616,56 +744,66 @@ namespace UserInterface.BakımOnarım
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtAbfFormNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnBul;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtStokNoUst;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox TxtTanimUst;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox TxtSeriNoUst;
+        private System.Windows.Forms.TextBox TxtGarantiDurumuUst;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox TxtBildirimNo;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox TxtProje;
+        private System.Windows.Forms.TextBox TxtScrmNo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox TxtBolgeAdi;
+        private System.Windows.Forms.TextBox TxtKategori;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox textBox17;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBox16;
+        private System.Windows.Forms.TextBox TxtDurum;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox TxtStokNo;
+        private System.Windows.Forms.TextBox TxtMiktar;
+        private System.Windows.Forms.TextBox TxtTanim;
+        private System.Windows.Forms.TextBox TxtRevizyon;
+        private System.Windows.Forms.TextBox TxtSeriNo;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox TxtBildirilenAriza;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox TxtModifikasyonlar;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DateTimePicker DtgCekilmeTarihi;
+        private System.Windows.Forms.Label LblIcSiparisNo;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox22;
         private System.Windows.Forms.Button BtnKaydet;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnTemizle;
         private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.DateTimePicker DtgSiparisTarihi;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ComboBox CmbGorevAtanacakPersonel;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox CmbIslemAdimi;
+        private System.Windows.Forms.RichTextBox TxtNotlar;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.DateTimePicker DtgTalepTarihi;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.DataGridView DtgMalzemeler;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Label LblToplam;
     }
 }

@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMalzemeKayit));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtStn = new System.Windows.Forms.ComboBox();
@@ -175,11 +175,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(76, 192);
+            this.label6.Location = new System.Drawing.Point(74, 192);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(70, 15);
+            this.label6.Size = new System.Drawing.Size(72, 15);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Parça Türü:";
+            this.label6.Text = "Parça Sınıfı:";
             // 
             // label8
             // 
@@ -690,8 +690,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.advancedDataGridView2.AllowUserToAddRows = false;
             this.advancedDataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.advancedDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.advancedDataGridView2.AutoGenerateContextFilters = true;
             this.advancedDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.advancedDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

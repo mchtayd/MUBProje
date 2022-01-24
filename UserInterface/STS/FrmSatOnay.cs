@@ -705,6 +705,7 @@ namespace UserInterface.STS
             dosyayolu = DtgOnay.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             proje = DtgOnay.CurrentRow.Cells["Proje"].Value.ToString();
             teklifdurumu = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
+
             satinAlinacakMalzemelers = satinAlinacakMalManager.GetList(siparisNo);
             satNos = satNoManager.GetList(siparisNo);
             MalzemeList();
@@ -722,6 +723,8 @@ namespace UserInterface.STS
                     panel2.Visible = true;
                     panel4.Visible = false;
                     panel5.Visible = false;
+                    TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                    webBrowser5.Navigate(dosyayolu);
                     return;
                 }
                 if (talepeden == "MURAT DEMİRTAŞ      ")
@@ -731,22 +734,32 @@ namespace UserInterface.STS
                         panel4.Visible = true;
                         panel2.Visible = false;
                         panel5.Visible = false;
+                        TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                        webBrowser4.Navigate(dosyayolu);
                         return;
                     }
                     panel2.Visible = true;
                     panel4.Visible = false;
                     panel5.Visible = false;
+                    TxtGerekceHarcamasiYapilan.Text= DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                    webBrowser5.Navigate(dosyayolu);
                     return;
                 }
                 panel4.Visible = true;
                 panel2.Visible = false;
                 panel5.Visible = false;
+
+                TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                webBrowser4.Navigate(dosyayolu);
             }
             if (teklifdurumu == 1)
             {
                 panel5.Visible = true;
                 panel4.Visible = false;
                 panel2.Visible = false;
+
+                TxtGerekce.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                webBrowser3.Navigate(dosyayolu);
             }
 
 
@@ -803,6 +816,7 @@ namespace UserInterface.STS
                 onaydurum = "Onaylandı.";
                 yapilanislem = "1. TEKLİF ONAYLANDI.";
                 islmeyapan = infos[1].ToString();
+
                 SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanislem, islmeyapan, DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslem);
 
@@ -1454,8 +1468,9 @@ namespace UserInterface.STS
 
             Tutar1.Clear(); Tutar2.Clear(); Tutar3.Clear(); Tutar4.Clear(); Tutar5.Clear(); Tutar6.Clear(); Tutar7.Clear(); Tutar8.Clear(); Tutar9.Clear(); Tutar10.Clear(); webBrowser1.Navigate("");
             Tutar4.Clear();
-
-
+            TxtGerekceHarcamasiYapilan.Clear();
+            TxtGerekceTeklifsiz.Clear();
+            TxtGerekce.Clear();
 
         }
         private void TekilfleriTemizle()
@@ -2273,6 +2288,7 @@ namespace UserInterface.STS
             dosyayolu = DtgOnay.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             proje = DtgOnay.CurrentRow.Cells["Proje"].Value.ToString();
             teklifdurumu = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
+
             satinAlinacakMalzemelers = satinAlinacakMalManager.GetList(siparisNo);
             satNos = satNoManager.GetList(siparisNo);
             MalzemeList();
@@ -2290,6 +2306,8 @@ namespace UserInterface.STS
                     panel2.Visible = true;
                     panel4.Visible = false;
                     panel5.Visible = false;
+                    TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                    webBrowser5.Navigate(dosyayolu);
                     return;
                 }
                 if (talepeden == "MURAT DEMİRTAŞ      ")
@@ -2299,23 +2317,38 @@ namespace UserInterface.STS
                         panel4.Visible = true;
                         panel2.Visible = false;
                         panel5.Visible = false;
+                        TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                        webBrowser4.Navigate(dosyayolu);
                         return;
                     }
                     panel2.Visible = true;
                     panel4.Visible = false;
                     panel5.Visible = false;
+                    TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                    webBrowser5.Navigate(dosyayolu);
                     return;
                 }
                 panel4.Visible = true;
                 panel2.Visible = false;
                 panel5.Visible = false;
+
+                TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                webBrowser4.Navigate(dosyayolu);
             }
             if (teklifdurumu == 1)
             {
                 panel5.Visible = true;
                 panel4.Visible = false;
                 panel2.Visible = false;
+
+                TxtGerekce.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                webBrowser3.Navigate(dosyayolu);
             }
+        }
+
+        private void DtgOnay_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void bb3_KeyPress(object sender, KeyPressEventArgs e)

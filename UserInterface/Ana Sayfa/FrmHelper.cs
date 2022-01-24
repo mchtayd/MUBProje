@@ -1,4 +1,5 @@
 ﻿using Business;
+using Business.Concreate;
 using Business.Concreate.STS;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
@@ -22,6 +23,7 @@ namespace UserInterface.Ana_Sayfa
     public partial class FrmHelper : Form
     {
         IsAkisNoManager isAkisNoManager;
+        
         public FrmHelper()
         {
             InitializeComponent();
@@ -428,5 +430,6 @@ namespace UserInterface.Ana_Sayfa
             }
             return donem;
         }
+        
     }
 }

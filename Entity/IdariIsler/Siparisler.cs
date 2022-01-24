@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class Siparisler
     {
-        int id; string proje, siparisno; int personelyonetici, personel, personeldepo, personeltoplam, yoneticiarac, araziarac, toplamarac, personelsayisi,mevcutPersonel;
+        int id; string proje, siparisno; int personelyonetici, personel, personeldepo, personeltoplam, yoneticiarac, araziarac, toplamarac, mevcutArac, personelsayisi,mevcutPersonel;
         string sat, donemyil, satkategori,benzersiz;
 
         public int Id { get => id; set => id = value; }
@@ -29,9 +29,10 @@ namespace Entity.IdariIsler
         public int Toplamarac { get => toplamarac; set => toplamarac = value; }
         public string Benzersiz { get => benzersiz; set => benzersiz = value; }
         public int MevcutPersonel { get => mevcutPersonel; set => mevcutPersonel = value; }
+        public int MevcutArac { get => mevcutArac; set => mevcutArac = value; }
 
         public Siparisler(int id, string proje, string siparisno, int personelyonetici, int personel, int personeldepo, int personeltoplam , int yoneticiarac, int araziarac, int topalmarac,
-            string sat, string donemyil, string satkategori,string benzerisz,int mevcutPersonel)
+            string sat, string donemyil, string satkategori,string benzerisz,int mevcutPersonel,int mevcutArac)
         {
             this.id = id;
             this.yoneticiarac = yoneticiarac;
@@ -48,6 +49,7 @@ namespace Entity.IdariIsler
             this.toplamarac = topalmarac;
             this.benzersiz = benzerisz;
             this.mevcutPersonel = mevcutPersonel;
+            this.mevcutArac = mevcutArac;
         }
 
         public Siparisler(string proje, string siparisno, int personelyonetici, int personel, int personeldepo, int personeltoplam, int yoneticiarac, int araziarac, int topalmarac, int personelsayisi,

@@ -39,6 +39,7 @@ namespace UserInterface.BakımOnarım
         BakimOnarimLogManager bakimOnarimLogManager;
         IscilikPerformansManager performansManager;
         SatTalebiDoldurManager satTalebiDoldurManager;
+        IsAkisNoManager isAkisNoManager;
 
         public FrmDestekIscilikVeriGiris()
         {
@@ -55,6 +56,7 @@ namespace UserInterface.BakımOnarım
             iscilikManager = IscilikIscilikManager.GetInstance();
             performansManager = IscilikPerformansManager.GetInstance();
             satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
+            isAkisNoManager = IsAkisNoManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -75,6 +77,7 @@ namespace UserInterface.BakımOnarım
 
         private void FrmDestekIscilikVeriGiris_Load(object sender, EventArgs e)
         {
+            IsAkisNo();
             Personeller();
             PersonellerPerformans();
             Araclar();
@@ -92,6 +95,12 @@ namespace UserInterface.BakımOnarım
             CmbPersoneller.ValueMember = "Id";
             CmbPersoneller.DisplayMember = "Adsoyad";
             CmbPersoneller.SelectedValue = -1;
+        }
+        void IsAkisNo()
+        {
+            isAkisNoManager.Update();
+            IsAkisNo isAkis = isAkisNoManager.Get();
+            LblIsAkisNo.Text = isAkis.Id.ToString();
         }
         void UsBolgeleri()
         {
@@ -324,7 +333,7 @@ namespace UserInterface.BakımOnarım
             AdvArac.Rows.Clear();
             //AdvPersonel.DataSource = ""; AdvArac.DataSource = "";
             CmbDestekIscilik1.SelectedValue = ""; CmbDestekIscilik2.SelectedValue = ""; TxtToplamSurePersonel.Clear(); TxtToplamSureArac.Clear();
-            TxtAbfNo.Clear(); TxtAbfNo.Clear(); DtIscilikSaati.Text = "00:00"; CmbPersonelPerformans.SelectedValue = ""; CmbMevcutDuragi.Text = ""; CmbCikisDuragi.Text = ""; CmbIstikametDuragi.Text = ""; DtgCikisSaati.Text = "00:00"; TxtCikisSebebi.Clear(); CmbVarisDuragi.Text = ""; TxtSonuc.Clear();
+            TxtAbfNo.Clear(); TxtAbfNo.Clear(); DtIscilikSaati.Text = "00:00"; CmbPersonelPerformans.SelectedValue = ""; CmbMevcutDuragi.Text = ""; CmbCikisDuragi.Text = ""; CmbIstikametDuragi.Text = ""; DtgCikisSaati.Text = "00:00"; TxtCikisSebebi.Clear(); CmbVarisDuragi.Text = ""; TxtSonuc.Clear();TxtIsAkisNo.Clear();
             
         }
         void CreateLogDestekIscilik()
@@ -412,7 +421,7 @@ namespace UserInterface.BakımOnarım
 
                 DateTime varisTarihiSaati = new DateTime(DtgVarisTarihi.Value.Year, DtgVarisTarihi.Value.Month, DtgVarisTarihi.Value.Day, DtgVarisSaati.Value.Hour, DtgVarisSaati.Value.Minute, DtgVarisSaati.Value.Second);
 
-                IscilikPerformans ıscilikPerformans = new IscilikPerformans(CmbIscilikTuru.Text, CmbPersonelPerformans.Text, CmbMevcutDuragi.Text, CmbCikisDuragi.Text, CmbIstikametDuragi.Text, cikisTarihiSaati, TxtCikisSebebi.Text, CmbVarisDuragi.Text, varisTarihiSaati, TxtSonuc.Text);
+                IscilikPerformans ıscilikPerformans = new IscilikPerformans(LblIsAkisNo.Text.ConInt(), CmbIscilikTuru.Text, CmbPersonelPerformans.Text, CmbMevcutDuragi.Text, CmbCikisDuragi.Text, CmbIstikametDuragi.Text, cikisTarihiSaati, TxtCikisSebebi.Text, CmbVarisDuragi.Text, varisTarihiSaati, TxtSonuc.Text);
 
                 string mesaj = performansManager.Add(ıscilikPerformans);
 
@@ -445,6 +454,7 @@ namespace UserInterface.BakımOnarım
                 }
                 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                IsAkisNo();
                 Temizle();
 
 
@@ -474,6 +484,79 @@ namespace UserInterface.BakımOnarım
         private void TxtToplamSurePersonel_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void CmbIslemTuru_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbIslemTuru.SelectedIndex==0)
+            {
+                TxtIsAkisNo.Visible = false;
+                BtnBul.Visible = false;
+                BtnGuncelle.Visible = false;
+            }
+            if (CmbIslemTuru.SelectedIndex == 1)
+            {
+                TxtIsAkisNo.Visible = true;
+                BtnBul.Visible = true;
+                BtnGuncelle.Visible = true;
+            }
+        }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            if (TxtIsAkisNo.Text=="")
+            {
+                MessageBox.Show("Lütfen Öncelikle İş Akış No Bilgisini Giriniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstiyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                DateTime cikisTarihiSaati = new DateTime(DtgCikisTarihi.Value.Year, DtgCikisTarihi.Value.Month, DtgCikisTarihi.Value.Day, DtgCikisSaati.Value.Hour, DtgCikisSaati.Value.Minute, DtgCikisSaati.Value.Second);
+
+                DateTime varisTarihiSaati = new DateTime(DtgVarisTarihi.Value.Year, DtgVarisTarihi.Value.Month, DtgVarisTarihi.Value.Day, DtgVarisSaati.Value.Hour, DtgVarisSaati.Value.Minute, DtgVarisSaati.Value.Second);
+
+
+                IscilikPerformans performans = new IscilikPerformans(TxtIsAkisNo.Text.ConInt(), CmbIscilikTuru.Text, CmbPersonelPerformans.Text, CmbMevcutDuragi.Text, CmbCikisDuragi.Text, CmbIstikametDuragi.Text, cikisTarihiSaati, TxtCikisSebebi.Text, CmbVarisDuragi.Text, varisTarihiSaati, TxtSonuc.Text);
+
+                string mesaj = performansManager.Update(performans, TxtIsAkisNo.Text.ConInt(), hata);
+
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
+                Temizle();
+                IsAkisNo();
+            }
+        }
+        string hata = "";
+        private void BtnBul_Click(object sender, EventArgs e)
+        {
+            if (TxtIsAkisNo.Text == "")
+            {
+                MessageBox.Show("Lütfen Öncelikle İş Akış No Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            IscilikPerformans performans = performansManager.PerformansBul(TxtIsAkisNo.Text.ConInt());
+            if (performans == null)
+            {
+                MessageBox.Show("Girmiş Oluduğunuz İş Akış Numarasına Ait Bir Kayıt Bulunamadı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+                return;
+            }
+            CmbPersonelPerformans.Text = performans.Personel;
+            CmbMevcutDuragi.Text = performans.MevcutDuragi;
+            CmbCikisDuragi.Text = performans.CikisDuragi;
+            CmbIstikametDuragi.Text = performans.IstikametDuragi;
+            DtgCikisTarihi.Value = performans.CikisTarihiSaati;
+            DtgCikisSaati.Value = performans.CikisTarihiSaati;
+            TxtCikisSebebi.Text = performans.CikisSebebi;
+            CmbVarisDuragi.Text = performans.VarisDurag;
+            DtgVarisTarihi.Value = performans.VarisTarihiSaat;
+            DtgVarisSaati.Value = performans.VarisTarihiSaat;
+            TxtSonuc.Text = performans.Sonuc;
+            hata = performans.Hata;
         }
 
         private void TxtToplamSureArac_KeyPress(object sender, KeyPressEventArgs e)

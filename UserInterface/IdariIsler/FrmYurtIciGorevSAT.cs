@@ -103,7 +103,7 @@ namespace UserInterface.IdariIsler
 
         private void BtnTemizle_Click(object sender, EventArgs e)
         {
-            CmbHarcamaTuru.SelectedValue = 0; CmbFaturaFirma.SelectedValue = 0; Gerekce.Clear(); CmbIlgiliKisi.Text = ""; CmbMasYeri.Text = ""; CmbDonem.SelectedValue = "";
+            CmbHarcamaTuru.SelectedValue = 0; CmbFaturaFirma.SelectedValue = 0; Gerekce.Clear(); CmbIlgiliKisi.Text = ""; CmbMasYeri.Text = ""; CmbDonemAy.SelectedValue = ""; CmbDonemYil.SelectedValue = "";
         }
 
         private void BtnTamamla_Click(object sender, EventArgs e)
@@ -118,9 +118,9 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Lütfen Fatura Edilecek Fİrma Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (CmbDonem.Text=="")
+            if (CmbDonemAy.Text == "" || CmbDonemYil.Text == "")
             {
-                MessageBox.Show("Lütfen Dönem Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Öncelikle Dönem Bilgisini Eksiksiz Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (Gerekce.Text == "")
@@ -138,7 +138,7 @@ namespace UserInterface.IdariIsler
             harcamaturu = CmbHarcamaTuru.Text;
             ilgilikisi = CmbIlgiliKisi.Text;
             masrafyeri = CmbMasYeri.Text;
-            donem = CmbDonem.Text;
+            donem = CmbDonemAy.Text+ " "+ CmbDonemYil.Text;
 
             Properties.Settings.Default.Gerekce = gerekce;
             Properties.Settings.Default.FaturaFirma = faturafirma;

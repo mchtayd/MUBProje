@@ -42,9 +42,9 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Lütfen TANIM Bilgisini Girerek Tüm Bilgileri Eksiksiz Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (CmbDonem.Text == "")
+            if (CmbDonemAy.Text == "" || CmbDonemYil.Text == "")
             {
-                MessageBox.Show("Lütfen DÖNEM Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Öncelikle Dönem Bilgisini Eksiksiz Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (TxtSatAciklama.Text == "")
@@ -52,13 +52,14 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Lütfen AÇIKLAMA Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             gerekce = TxtSatAciklama.Text;
             butcekodu = CmbButceKoduGun.Text;
             tanim = CmbTanim.Text;
             stokno = TxtStokNo.Text;
             miktar = TxtMiktar.Text.ConInt();
             birim = TxtBirim.Text;
-            donem = CmbDonem.Text;
+            donem = CmbDonemAy.Text + " "+ CmbDonemYil.Text;
 
             Properties.Settings.Default.Gerekce = gerekce;
             Properties.Settings.Default.AracBakimSatButceKodu = butcekodu;
@@ -86,7 +87,7 @@ namespace UserInterface.IdariIsler
 
         private void BtnTemizle_Click(object sender, EventArgs e)
         {
-            CmbButceKoduGun.SelectedValue = ""; CmbTanim.SelectedValue = ""; TxtStokNo.Clear(); TxtMiktar.Clear(); TxtBirim.Clear(); TxtSatAciklama.Clear(); CmbDonem.SelectedValue = "";
+            CmbButceKoduGun.SelectedValue = ""; CmbTanim.SelectedValue = ""; TxtStokNo.Clear(); TxtMiktar.Clear(); TxtBirim.Clear(); TxtSatAciklama.Clear(); CmbDonemAy.SelectedValue = ""; CmbDonemYil.SelectedValue = "";
         }
     }
 }

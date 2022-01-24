@@ -53,6 +53,17 @@ namespace Business.Concreate.Yerleskeler
                 return null;
             }
         }
+        public Yerleske YerleskeBiigiCek(string yerleskeAdi, string aboneTuru)
+        {
+            try
+            {
+                return yerlekseDal.YerleskeBiigiCek(yerleskeAdi, aboneTuru);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<Yerleske> GetList(string siparisNo)
         {

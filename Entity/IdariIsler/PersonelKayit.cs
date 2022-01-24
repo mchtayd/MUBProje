@@ -254,5 +254,10 @@ namespace Entity.IdariIsler
             this.id = id;
             this.adsoyad = adsoyad;
         }
+
+        public PersonelKayit()
+        {
+
+        }
     }
 }

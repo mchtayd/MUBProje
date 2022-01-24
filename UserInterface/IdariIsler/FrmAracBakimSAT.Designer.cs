@@ -38,13 +38,14 @@ namespace UserInterface.IdariIsler
             this.label58 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
-            this.CmbDonem = new System.Windows.Forms.ComboBox();
-            this.label55 = new System.Windows.Forms.Label();
             this.TxtSatAciklama = new System.Windows.Forms.RichTextBox();
             this.label54 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.TxtBirim = new System.Windows.Forms.TextBox();
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.CmbDonemAy = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // CmbButceKoduGun
@@ -131,37 +132,6 @@ namespace UserInterface.IdariIsler
             this.label56.TabIndex = 421;
             this.label56.Text = "BÜTÇE KODU/TANIMI:";
             // 
-            // CmbDonem
-            // 
-            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDonem.FormattingEnabled = true;
-            this.CmbDonem.Items.AddRange(new object[] {
-            "OCAK",
-            "ŞUBAT",
-            "MART",
-            "NİSAN",
-            "MAYIS",
-            "HAZİRAN",
-            "TEMMUZ",
-            "AĞUSTOS",
-            "EYLÜL",
-            "EKİM",
-            "KASIM",
-            "ARALIK"});
-            this.CmbDonem.Location = new System.Drawing.Point(140, 241);
-            this.CmbDonem.Name = "CmbDonem";
-            this.CmbDonem.Size = new System.Drawing.Size(195, 21);
-            this.CmbDonem.TabIndex = 420;
-            // 
-            // label55
-            // 
-            this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(83, 244);
-            this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(50, 13);
-            this.label55.TabIndex = 419;
-            this.label55.Text = "DÖNEM:";
-            // 
             // TxtSatAciklama
             // 
             this.TxtSatAciklama.Location = new System.Drawing.Point(140, 162);
@@ -210,11 +180,68 @@ namespace UserInterface.IdariIsler
             this.TxtBirim.Size = new System.Drawing.Size(107, 20);
             this.TxtBirim.TabIndex = 425;
             // 
+            // CmbDonemYil
+            // 
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(251, 240);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemYil.TabIndex = 428;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(44, 244);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(87, 13);
+            this.label35.TabIndex = 427;
+            this.label35.Text = "DÖNEM (Ay/Yıl):";
+            // 
+            // CmbDonemAy
+            // 
+            this.CmbDonemAy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemAy.FormattingEnabled = true;
+            this.CmbDonemAy.Items.AddRange(new object[] {
+            "OCAK",
+            "ŞUBAT",
+            "MART",
+            "NİSAN",
+            "MAYIS",
+            "HAZİRAN",
+            "TEMMUZ",
+            "AĞUSTOS",
+            "EYLÜL",
+            "EKİM",
+            "KASIM",
+            "ARALIK"});
+            this.CmbDonemAy.Location = new System.Drawing.Point(140, 240);
+            this.CmbDonemAy.Name = "CmbDonemAy";
+            this.CmbDonemAy.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemAy.TabIndex = 426;
+            // 
             // FrmAracBakimSAT
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(817, 351);
+            this.Controls.Add(this.CmbDonemYil);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.CmbDonemAy);
             this.Controls.Add(this.TxtBirim);
             this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnKaydet);
@@ -224,9 +251,7 @@ namespace UserInterface.IdariIsler
             this.Controls.Add(this.label56);
             this.Controls.Add(this.CmbTanim);
             this.Controls.Add(this.label60);
-            this.Controls.Add(this.CmbDonem);
             this.Controls.Add(this.label59);
-            this.Controls.Add(this.label55);
             this.Controls.Add(this.label58);
             this.Controls.Add(this.TxtSatAciklama);
             this.Controls.Add(this.label57);
@@ -254,12 +279,13 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.ComboBox CmbDonem;
-        private System.Windows.Forms.Label label55;
         private System.Windows.Forms.RichTextBox TxtSatAciklama;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Button BtnTemizle;
         private System.Windows.Forms.TextBox TxtBirim;
+        private System.Windows.Forms.ComboBox CmbDonemYil;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.ComboBox CmbDonemAy;
     }
 }

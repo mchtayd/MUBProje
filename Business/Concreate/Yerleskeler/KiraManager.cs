@@ -64,6 +64,7 @@ namespace Business.Concreate.Yerleskeler
                 return new List<Kira>();
             }
         }
+        
         public List<Kira> YerleskeKontrol(string yerleskeAdi, string yerleskeAdresi, string mulkiyetBilgileri, string siparisNo)
         {
             try

@@ -212,7 +212,15 @@ namespace UserInterface.IdariIşler
         {
             //string personelismi = personelKayits[0].Adsoyad.ToString();
             //dosyayolutam = dosyayolu + personelismi;
-            webBrowser1.Navigate(dosyayolu);
+            try
+            {
+                webBrowser1.Navigate(dosyayolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
         void Islemadimlari()
         {

@@ -24,7 +24,8 @@ namespace DataAccess.Concreate.BakimOnarim
         {
             try
             {
-                dataReader = sqlServices.StoreReader("IscilikPerformansEkle", 
+                dataReader = sqlServices.StoreReader("IscilikPerformansEkle",
+                    new SqlParameter("@isAkisNo",entity.IsAkisNo),
                     new SqlParameter("@iscilikTuru",entity.IscilikTuru),
                     new SqlParameter("@performans",entity.Personel),
                     new SqlParameter("@mevcutDuragi",entity.MevcutDuragi),
@@ -69,6 +70,38 @@ namespace DataAccess.Concreate.BakimOnarim
                 {
                     item = new IscilikPerformans(
                         dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["ISCILIK_TURU"].ToString(),
+                        dataReader["PERSONEL"].ToString(),
+                        dataReader["MEVCUT_DURAGI"].ToString(),
+                        dataReader["CIKIS_DURAGI"].ToString(),
+                        dataReader["ISTIKAMET_DURAGI"].ToString(),
+                        dataReader["CIKIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["CIKIS_SEBEBI"].ToString(),
+                        dataReader["VARIS_DURAGI"].ToString(),
+                        dataReader["VARIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["SONUC"].ToString(),
+                        dataReader["HATA"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public IscilikPerformans PerformansBul(int isAkisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("IscilikPerformansBul", new SqlParameter("@isAkisNo", isAkisNo));
+                IscilikPerformans item = null;
+                while (dataReader.Read())
+                {
+                    item = new IscilikPerformans(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
                         dataReader["ISCILIK_TURU"].ToString(),
                         dataReader["PERSONEL"].ToString(),
                         dataReader["MEVCUT_DURAGI"].ToString(),
@@ -100,6 +133,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 {
                     performans.Add(new IscilikPerformans(
                         dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
                         dataReader["ISCILIK_TURU"].ToString(),
                         dataReader["PERSONEL"].ToString(),
                         dataReader["MEVCUT_DURAGI"].ToString(),
@@ -130,6 +164,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 {
                     performans.Add(new IscilikPerformans(
                         dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
                         dataReader["ISCILIK_TURU"].ToString(),
                         dataReader["PERSONEL"].ToString(),
                         dataReader["MEVCUT_DURAGI"].ToString(),
@@ -151,12 +186,12 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public string Update(IscilikPerformans entity,int id)
+        public string Update(IscilikPerformans entity,int isAkisNo,string hata)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("IscilikPerformansGuncelle",
-                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
                     new SqlParameter("@iscilikTuru", entity.IscilikTuru),
                     new SqlParameter("@performans", entity.Personel),
                     new SqlParameter("@mevcutDuragi", entity.MevcutDuragi),
@@ -166,9 +201,10 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@cikisSebebi", entity.CikisSebebi),
                     new SqlParameter("@varisDuragi", entity.VarisDurag),
                     new SqlParameter("@varisTarihiSaati", entity.VarisTarihiSaat),
-                    new SqlParameter("@sonuc", entity.Sonuc));
+                    new SqlParameter("@sonuc", entity.Sonuc),
+                    new SqlParameter("@hata",hata));
 
-                dataReader.Read();
+                dataReader.Close();
                 return "OK";
             }
             catch (Exception ex)

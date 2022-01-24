@@ -65,6 +65,11 @@ namespace UserInterface.IdariIsler
             this.label33 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.TxtGunlukToplam = new System.Windows.Forms.TextBox();
+            this.TxtIaseToplam = new System.Windows.Forms.TextBox();
+            this.TxtIaseGun = new System.Windows.Forms.TextBox();
+            this.TxtIaseGunTl = new System.Windows.Forms.TextBox();
+            this.label84 = new System.Windows.Forms.Label();
             this.label81 = new System.Windows.Forms.Label();
             this.TxtGorevHarcirahGunTop = new System.Windows.Forms.TextBox();
             this.TxtHarcirahGun = new System.Windows.Forms.TextBox();
@@ -118,6 +123,13 @@ namespace UserInterface.IdariIsler
             this.TxtIsAkisNoTamamla = new System.Windows.Forms.MaskedTextBox();
             this.BtnBulT = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TxtGunlukToplamGun = new System.Windows.Forms.TextBox();
+            this.label87 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.label86 = new System.Windows.Forms.Label();
+            this.TxtIaseToplamGun = new System.Windows.Forms.TextBox();
+            this.TxtIaseGunGun = new System.Windows.Forms.TextBox();
+            this.TxtIaseGunTlGun = new System.Windows.Forms.TextBox();
             this.label83 = new System.Windows.Forms.Label();
             this.label82 = new System.Windows.Forms.Label();
             this.TxtGorevHarcirahGunTopGun = new System.Windows.Forms.TextBox();
@@ -210,15 +222,6 @@ namespace UserInterface.IdariIsler
             this.label42 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.TxtIaseToplam = new System.Windows.Forms.TextBox();
-            this.TxtIaseGun = new System.Windows.Forms.TextBox();
-            this.TxtIaseGunTl = new System.Windows.Forms.TextBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
-            this.label86 = new System.Windows.Forms.Label();
-            this.TxtIaseToplamGun = new System.Windows.Forms.TextBox();
-            this.TxtIaseGunGun = new System.Windows.Forms.TextBox();
-            this.TxtIaseGunTlGun = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -578,6 +581,7 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.TxtGunlukToplam);
             this.groupBox7.Controls.Add(this.TxtIaseToplam);
             this.groupBox7.Controls.Add(this.TxtIaseGun);
             this.groupBox7.Controls.Add(this.TxtIaseGunTl);
@@ -628,6 +632,53 @@ namespace UserInterface.IdariIsler
             this.groupBox7.TabIndex = 16;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "C-Görev Maliyeti:";
+            // 
+            // TxtGunlukToplam
+            // 
+            this.TxtGunlukToplam.Location = new System.Drawing.Point(407, 304);
+            this.TxtGunlukToplam.Name = "TxtGunlukToplam";
+            this.TxtGunlukToplam.Size = new System.Drawing.Size(96, 20);
+            this.TxtGunlukToplam.TabIndex = 78;
+            this.TxtGunlukToplam.Visible = false;
+            // 
+            // TxtIaseToplam
+            // 
+            this.TxtIaseToplam.Enabled = false;
+            this.TxtIaseToplam.Location = new System.Drawing.Point(302, 206);
+            this.TxtIaseToplam.Name = "TxtIaseToplam";
+            this.TxtIaseToplam.Size = new System.Drawing.Size(96, 20);
+            this.TxtIaseToplam.TabIndex = 77;
+            this.TxtIaseToplam.TextChanged += new System.EventHandler(this.TxtIaseToplam_TextChanged);
+            this.TxtIaseToplam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseToplam_KeyPress);
+            // 
+            // TxtIaseGun
+            // 
+            this.TxtIaseGun.Enabled = false;
+            this.TxtIaseGun.Location = new System.Drawing.Point(147, 206);
+            this.TxtIaseGun.Name = "TxtIaseGun";
+            this.TxtIaseGun.Size = new System.Drawing.Size(44, 20);
+            this.TxtIaseGun.TabIndex = 75;
+            this.TxtIaseGun.TextChanged += new System.EventHandler(this.TxtIaseGun_TextChanged);
+            this.TxtIaseGun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseGun_KeyPress);
+            // 
+            // TxtIaseGunTl
+            // 
+            this.TxtIaseGunTl.Enabled = false;
+            this.TxtIaseGunTl.Location = new System.Drawing.Point(200, 206);
+            this.TxtIaseGunTl.Name = "TxtIaseGunTl";
+            this.TxtIaseGunTl.Size = new System.Drawing.Size(96, 20);
+            this.TxtIaseGunTl.TabIndex = 76;
+            this.TxtIaseGunTl.TextChanged += new System.EventHandler(this.TxtIaseGunTl_TextChanged);
+            this.TxtIaseGunTl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseGunTl_KeyPress);
+            // 
+            // label84
+            // 
+            this.label84.AutoSize = true;
+            this.label84.Location = new System.Drawing.Point(105, 210);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(34, 13);
+            this.label84.TabIndex = 74;
+            this.label84.Text = "İAŞE:";
             // 
             // label81
             // 
@@ -1162,6 +1213,8 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.TxtGunlukToplamGun);
+            this.groupBox3.Controls.Add(this.label87);
             this.groupBox3.Controls.Add(this.label85);
             this.groupBox3.Controls.Add(this.label86);
             this.groupBox3.Controls.Add(this.TxtIaseToplamGun);
@@ -1224,6 +1277,68 @@ namespace UserInterface.IdariIsler
             this.groupBox3.TabIndex = 20;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "C-Görev Maliyeti:";
+            // 
+            // TxtGunlukToplamGun
+            // 
+            this.TxtGunlukToplamGun.Location = new System.Drawing.Point(198, 278);
+            this.TxtGunlukToplamGun.Name = "TxtGunlukToplamGun";
+            this.TxtGunlukToplamGun.Size = new System.Drawing.Size(96, 20);
+            this.TxtGunlukToplamGun.TabIndex = 89;
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(90, 281);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(102, 13);
+            this.label87.TabIndex = 88;
+            this.label87.Text = "GÜNLÜK TOPLAM:";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label85.Location = new System.Drawing.Point(606, 188);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(14, 15);
+            this.label85.TabIndex = 87;
+            this.label85.Text = "₺";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(105, 190);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(34, 13);
+            this.label86.TabIndex = 86;
+            this.label86.Text = "İAŞE:";
+            // 
+            // TxtIaseToplamGun
+            // 
+            this.TxtIaseToplamGun.Location = new System.Drawing.Point(504, 187);
+            this.TxtIaseToplamGun.Name = "TxtIaseToplamGun";
+            this.TxtIaseToplamGun.Size = new System.Drawing.Size(96, 20);
+            this.TxtIaseToplamGun.TabIndex = 85;
+            this.TxtIaseToplamGun.TextChanged += new System.EventHandler(this.TxtIaseToplamGun_TextChanged);
+            this.TxtIaseToplamGun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseToplamGun_KeyPress);
+            // 
+            // TxtIaseGunGun
+            // 
+            this.TxtIaseGunGun.Location = new System.Drawing.Point(145, 187);
+            this.TxtIaseGunGun.Name = "TxtIaseGunGun";
+            this.TxtIaseGunGun.Size = new System.Drawing.Size(44, 20);
+            this.TxtIaseGunGun.TabIndex = 83;
+            this.TxtIaseGunGun.TextChanged += new System.EventHandler(this.TxtIaseGunGun_TextChanged);
+            this.TxtIaseGunGun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseGunGun_KeyPress);
+            // 
+            // TxtIaseGunTlGun
+            // 
+            this.TxtIaseGunTlGun.Location = new System.Drawing.Point(198, 187);
+            this.TxtIaseGunTlGun.Name = "TxtIaseGunTlGun";
+            this.TxtIaseGunTlGun.Size = new System.Drawing.Size(96, 20);
+            this.TxtIaseGunTlGun.TabIndex = 84;
+            this.TxtIaseGunTlGun.TextChanged += new System.EventHandler(this.TxtIaseGunTlGun_TextChanged);
+            this.TxtIaseGunTlGun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseGunTlGun_KeyPress);
             // 
             // label83
             // 
@@ -2086,90 +2201,6 @@ namespace UserInterface.IdariIsler
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // TxtIaseToplam
-            // 
-            this.TxtIaseToplam.Enabled = false;
-            this.TxtIaseToplam.Location = new System.Drawing.Point(302, 206);
-            this.TxtIaseToplam.Name = "TxtIaseToplam";
-            this.TxtIaseToplam.Size = new System.Drawing.Size(96, 20);
-            this.TxtIaseToplam.TabIndex = 77;
-            this.TxtIaseToplam.TextChanged += new System.EventHandler(this.TxtIaseToplam_TextChanged);
-            this.TxtIaseToplam.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseToplam_KeyPress);
-            // 
-            // TxtIaseGun
-            // 
-            this.TxtIaseGun.Enabled = false;
-            this.TxtIaseGun.Location = new System.Drawing.Point(147, 206);
-            this.TxtIaseGun.Name = "TxtIaseGun";
-            this.TxtIaseGun.Size = new System.Drawing.Size(44, 20);
-            this.TxtIaseGun.TabIndex = 75;
-            this.TxtIaseGun.TextChanged += new System.EventHandler(this.TxtIaseGun_TextChanged);
-            this.TxtIaseGun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseGun_KeyPress);
-            // 
-            // TxtIaseGunTl
-            // 
-            this.TxtIaseGunTl.Enabled = false;
-            this.TxtIaseGunTl.Location = new System.Drawing.Point(200, 206);
-            this.TxtIaseGunTl.Name = "TxtIaseGunTl";
-            this.TxtIaseGunTl.Size = new System.Drawing.Size(96, 20);
-            this.TxtIaseGunTl.TabIndex = 76;
-            this.TxtIaseGunTl.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseGunTl_KeyPress);
-            // 
-            // label84
-            // 
-            this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(105, 210);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(34, 13);
-            this.label84.TabIndex = 74;
-            this.label84.Text = "İAŞE:";
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label85.Location = new System.Drawing.Point(606, 188);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(14, 15);
-            this.label85.TabIndex = 87;
-            this.label85.Text = "₺";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(105, 190);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(34, 13);
-            this.label86.TabIndex = 86;
-            this.label86.Text = "İAŞE:";
-            // 
-            // TxtIaseToplamGun
-            // 
-            this.TxtIaseToplamGun.Location = new System.Drawing.Point(504, 187);
-            this.TxtIaseToplamGun.Name = "TxtIaseToplamGun";
-            this.TxtIaseToplamGun.Size = new System.Drawing.Size(96, 20);
-            this.TxtIaseToplamGun.TabIndex = 85;
-            this.TxtIaseToplamGun.TextChanged += new System.EventHandler(this.TxtIaseToplamGun_TextChanged);
-            this.TxtIaseToplamGun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseToplamGun_KeyPress);
-            // 
-            // TxtIaseGunGun
-            // 
-            this.TxtIaseGunGun.Location = new System.Drawing.Point(145, 187);
-            this.TxtIaseGunGun.Name = "TxtIaseGunGun";
-            this.TxtIaseGunGun.Size = new System.Drawing.Size(44, 20);
-            this.TxtIaseGunGun.TabIndex = 83;
-            this.TxtIaseGunGun.TextChanged += new System.EventHandler(this.TxtIaseGunGun_TextChanged);
-            this.TxtIaseGunGun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseGunGun_KeyPress);
-            // 
-            // TxtIaseGunTlGun
-            // 
-            this.TxtIaseGunTlGun.Location = new System.Drawing.Point(198, 187);
-            this.TxtIaseGunTlGun.Name = "TxtIaseGunTlGun";
-            this.TxtIaseGunTlGun.Size = new System.Drawing.Size(96, 20);
-            this.TxtIaseGunTlGun.TabIndex = 84;
-            this.TxtIaseGunTlGun.TextChanged += new System.EventHandler(this.TxtIaseGunTlGun_TextChanged);
-            this.TxtIaseGunTlGun.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtIaseGunTlGun_KeyPress);
-            // 
             // FrmYurtİciGorev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2398,5 +2429,8 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtIaseToplamGun;
         private System.Windows.Forms.TextBox TxtIaseGunGun;
         private System.Windows.Forms.TextBox TxtIaseGunTlGun;
+        private System.Windows.Forms.TextBox TxtGunlukToplamGun;
+        private System.Windows.Forms.Label label87;
+        private System.Windows.Forms.TextBox TxtGunlukToplam;
     }
 }

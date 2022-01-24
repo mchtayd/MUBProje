@@ -32,6 +32,7 @@ namespace UserInterface.IdariIsler
         string dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun, comboAd;
         int id, idC;
         public bool mulkiket=true;
+        bool aracKadroArttir = false;
         public FrmAracKaydet()
         {
             InitializeComponent();
@@ -93,13 +94,15 @@ namespace UserInterface.IdariIsler
         }
         public void YenilecekVeriler()
         {
+            gec = true;
+            mulkiket = true;
             Siparisler();
             SiparislerGun();
             ComboProje();
             ComboProjeGun();
-            mulkiket = true;
             ComboMulkiyetBilgileri();
             mulkiket = false;
+            gec = false;
         }
         void Siparisler()
         {
@@ -143,6 +146,12 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                if (aracKadroArttir==true)
+                {
+                    siparislerManager.AracSiparisArttir(CmbSiparisNo.Text);
+                }
+                aracKadroArttir = false;
+
                 CreateLog();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dosyaekle = false;
@@ -296,6 +305,11 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                if (aracKadroArttir == true)
+                {
+                    siparislerManager.AracSiparisArttir(CmbSiparisNoGun.Text);
+                }
+                aracKadroArttir = false;
                 CreateLogGuncelle();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleGuncelle();
@@ -411,6 +425,7 @@ namespace UserInterface.IdariIsler
             dosyaYoluC = arac.DosyaYolu;
             TxtRengiC.Text = arac.Rengi;
             DtProjeCikisTarihiC.Text = arac.ProjeCikisTarihi;
+            TxtProjeyeTahsisKmC.Text = arac.KmGiris.ToString();
             webBrowser3.Navigate(dosyaYoluC);
 
         }
@@ -433,6 +448,7 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                siparislerManager.AracSiparisAzalt(CmbSiparisNoC.Text);
                 CreateLogKapatma();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleC();
@@ -496,6 +512,52 @@ namespace UserInterface.IdariIsler
         private void TxtPersonelBolum_KeyUp(object sender, KeyEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void CmbSiparisNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (gec==true)
+            {
+                return;
+            }
+            Siparisler siparisler = siparislerManager.AracMevcutKadroKontrol(CmbSiparisNo.Text);
+            if (siparisler==null)
+            {
+                return;
+            }
+            int mevcutAracSayisi = siparisler.MevcutArac;
+            int toplamAracSayisi = siparisler.Toplamarac;
+
+            if (toplamAracSayisi <= mevcutAracSayisi)
+            {
+                MessageBox.Show(CmbSiparisNo.Text + " Nolu Sipariş İçin Araç Kadrosu Doludur, Herhangi Bir Araç Kaydedemezsiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                CmbSiparisNo.SelectedValue = "";
+                return;
+            }
+            aracKadroArttir = true;
+        }
+
+        private void CmbSiparisNoGun_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (gec == true)
+            {
+                return;
+            }
+            Siparisler siparisler = siparislerManager.AracMevcutKadroKontrol(CmbSiparisNoGun.Text);
+            if (siparisler == null)
+            {
+                return;
+            }
+            int mevcutAracSayisi = siparisler.MevcutArac;
+            int toplamAracSayisi = siparisler.Toplamarac;
+
+            if (toplamAracSayisi <= mevcutAracSayisi)
+            {
+                MessageBox.Show(CmbSiparisNoGun.Text + " Nolu Sipariş İçin Araç Kadrosu Doludur, Herhangi Bir Araç Kaydedemezsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CmbSiparisNoGun.SelectedValue = "";
+                return;
+            }
+            aracKadroArttir = true;
         }
 
         private void BtnMulkiyetEkle_Click(object sender, EventArgs e)

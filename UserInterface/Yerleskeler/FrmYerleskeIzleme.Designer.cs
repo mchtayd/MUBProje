@@ -44,6 +44,16 @@ namespace UserInterface.Yerleskeler
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgYerleskeler)).BeginInit();
@@ -52,6 +62,8 @@ namespace UserInterface.Yerleskeler
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -81,9 +93,9 @@ namespace UserInterface.Yerleskeler
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgYerleskeler);
-            this.groupBox1.Location = new System.Drawing.Point(12, 352);
+            this.groupBox1.Location = new System.Drawing.Point(3, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1435, 263);
+            this.groupBox1.Size = new System.Drawing.Size(689, 227);
             this.groupBox1.TabIndex = 307;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ABONE BİLGİLERİ";
@@ -100,7 +112,7 @@ namespace UserInterface.Yerleskeler
             this.DtgYerleskeler.Name = "DtgYerleskeler";
             this.DtgYerleskeler.ReadOnly = true;
             this.DtgYerleskeler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgYerleskeler.Size = new System.Drawing.Size(1429, 244);
+            this.DtgYerleskeler.Size = new System.Drawing.Size(683, 208);
             this.DtgYerleskeler.TabIndex = 0;
             this.DtgYerleskeler.TimeFilter = false;
             this.DtgYerleskeler.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgYerleskeler_CellMouseClick);
@@ -136,7 +148,7 @@ namespace UserInterface.Yerleskeler
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(12, 625);
+            this.label31.Location = new System.Drawing.Point(6, 236);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 342;
@@ -146,7 +158,7 @@ namespace UserInterface.Yerleskeler
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 625);
+            this.TxtTop.Location = new System.Drawing.Point(106, 236);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 343;
@@ -175,9 +187,9 @@ namespace UserInterface.Yerleskeler
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webBrowser2);
-            this.groupBox3.Location = new System.Drawing.Point(151, 631);
+            this.groupBox3.Location = new System.Drawing.Point(698, 6);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(686, 170);
+            this.groupBox3.Size = new System.Drawing.Size(720, 224);
             this.groupBox3.TabIndex = 348;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EKLER";
@@ -188,21 +200,129 @@ namespace UserInterface.Yerleskeler
             this.webBrowser2.Location = new System.Drawing.Point(3, 16);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(680, 151);
+            this.webBrowser2.Size = new System.Drawing.Size(714, 205);
             this.webBrowser2.TabIndex = 0;
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
+            this.tabControl1.Controls.Add(this.tabPage5);
+            this.tabControl1.Controls.Add(this.tabPage6);
+            this.tabControl1.Controls.Add(this.tabPage7);
+            this.tabControl1.Controls.Add(this.tabPage8);
+            this.tabControl1.Controls.Add(this.tabPage9);
+            this.tabControl1.Location = new System.Drawing.Point(15, 354);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1432, 455);
+            this.tabControl1.TabIndex = 349;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Controls.Add(this.label31);
+            this.tabPage1.Controls.Add(this.TxtTop);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1424, 429);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "ABONE BİLGİLERİ";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1424, 429);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "FATURALAR";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(455, 74);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "KİRA";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(455, 74);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "TADİLAT";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(698, 217);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "JENARATÖR YAKIT";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(698, 217);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "AİDAT";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // tabPage7
+            // 
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(698, 217);
+            this.tabPage7.TabIndex = 6;
+            this.tabPage7.Text = "KIRTASİYE";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(698, 217);
+            this.tabPage8.TabIndex = 7;
+            this.tabPage8.Text = "ÇAY OCAĞI";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.Location = new System.Drawing.Point(4, 22);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage9.Size = new System.Drawing.Size(1014, 321);
+            this.tabPage9.TabIndex = 8;
+            this.tabPage9.Text = "FAZLA ÇALIŞMA YEMEK";
+            this.tabPage9.UseVisualStyleBackColor = true;
             // 
             // FrmYerleskeIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1459, 821);
-            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtTopAbonelikler);
-            this.Controls.Add(this.label31);
-            this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmYerleskeIzleme";
             this.Text = "FrmYerleskeIzleme";
@@ -215,6 +335,9 @@ namespace UserInterface.Yerleskeler
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,5 +359,15 @@ namespace UserInterface.Yerleskeler
         private System.Windows.Forms.WebBrowser webBrowser2;
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.BindingSource dataBinder2;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.TabPage tabPage7;
+        private System.Windows.Forms.TabPage tabPage8;
+        private System.Windows.Forms.TabPage tabPage9;
     }
 }

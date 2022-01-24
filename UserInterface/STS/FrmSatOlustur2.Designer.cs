@@ -30,12 +30,12 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatOlustur2));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -116,6 +116,7 @@ namespace UserInterface.STS
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
             this.TxtProje = new System.Windows.Forms.TextBox();
             this.label65 = new System.Windows.Forms.Label();
             this.CmbDonem = new System.Windows.Forms.ComboBox();
@@ -272,8 +273,9 @@ namespace UserInterface.STS
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.CmbDonemBasaran = new System.Windows.Forms.ComboBox();
+            this.CmbDonemBasaranYil = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
+            this.CmbDonemBasaran = new System.Windows.Forms.ComboBox();
             this.LblIsAkisNo2 = new System.Windows.Forms.Label();
             this.DtgIstenenTarihBasaran = new System.Windows.Forms.DateTimePicker();
             this.label37 = new System.Windows.Forms.Label();
@@ -367,6 +369,7 @@ namespace UserInterface.STS
             this.groupBox12.TabIndex = 334;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "EKLER:";
+            this.groupBox12.Enter += new System.EventHandler(this.groupBox12_Enter);
             // 
             // webBrowser1
             // 
@@ -425,18 +428,18 @@ namespace UserInterface.STS
             this.DtgYedekParca.AllowUserToDeleteRows = false;
             this.DtgYedekParca.AllowUserToResizeColumns = false;
             this.DtgYedekParca.AllowUserToResizeRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
-            this.DtgYedekParca.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.DtgYedekParca.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgYedekParca.AutoGenerateContextFilters = true;
             this.DtgYedekParca.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgYedekParca.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgYedekParca.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgYedekParca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgYedekParca.DateWithTime = false;
             this.DtgYedekParca.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -445,8 +448,8 @@ namespace UserInterface.STS
             this.DtgYedekParca.Name = "DtgYedekParca";
             this.DtgYedekParca.ReadOnly = true;
             this.DtgYedekParca.RowHeadersVisible = false;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.DtgYedekParca.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtgYedekParca.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgYedekParca.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DtgYedekParca.RowTemplate.Height = 150;
             this.DtgYedekParca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1174,6 +1177,7 @@ namespace UserInterface.STS
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.CmbDonemYil);
             this.groupBox4.Controls.Add(this.TxtProje);
             this.groupBox4.Controls.Add(this.label65);
             this.groupBox4.Controls.Add(this.CmbDonem);
@@ -1190,6 +1194,29 @@ namespace UserInterface.STS
             this.groupBox4.TabIndex = 329;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "TALEP EDİLEN YER";
+            // 
+            // CmbDonemYil
+            // 
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(227, 138);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemYil.TabIndex = 413;
             // 
             // TxtProje
             // 
@@ -1233,11 +1260,11 @@ namespace UserInterface.STS
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(60, 141);
+            this.label52.Location = new System.Drawing.Point(23, 141);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(50, 13);
+            this.label52.Size = new System.Drawing.Size(87, 13);
             this.label52.TabIndex = 107;
-            this.label52.Text = "DÖNEM:";
+            this.label52.Text = "DÖNEM (Ay/Yıl):";
             // 
             // istenenTarih
             // 
@@ -1492,18 +1519,18 @@ namespace UserInterface.STS
             this.DtgStokList.AllowUserToDeleteRows = false;
             this.DtgStokList.AllowUserToResizeColumns = false;
             this.DtgStokList.AllowUserToResizeRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
-            this.DtgStokList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.DtgStokList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgStokList.AutoGenerateContextFilters = true;
             this.DtgStokList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgStokList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgStokList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.DtgStokList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgStokList.DateWithTime = false;
             this.DtgStokList.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1512,8 +1539,8 @@ namespace UserInterface.STS
             this.DtgStokList.Name = "DtgStokList";
             this.DtgStokList.ReadOnly = true;
             this.DtgStokList.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.DtgStokList.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtgStokList.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgStokList.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DtgStokList.RowTemplate.Height = 150;
             this.DtgStokList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2409,7 +2436,6 @@ namespace UserInterface.STS
             // 
             // CmbPlaka
             // 
-            this.CmbPlaka.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbPlaka.FormattingEnabled = true;
             this.CmbPlaka.Location = new System.Drawing.Point(576, 23);
             this.CmbPlaka.Name = "CmbPlaka";
@@ -2860,8 +2886,9 @@ namespace UserInterface.STS
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.CmbDonemBasaran);
+            this.groupBox9.Controls.Add(this.CmbDonemBasaranYil);
             this.groupBox9.Controls.Add(this.label35);
+            this.groupBox9.Controls.Add(this.CmbDonemBasaran);
             this.groupBox9.Controls.Add(this.LblIsAkisNo2);
             this.groupBox9.Controls.Add(this.DtgIstenenTarihBasaran);
             this.groupBox9.Controls.Add(this.label37);
@@ -2878,6 +2905,38 @@ namespace UserInterface.STS
             this.groupBox9.TabIndex = 328;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "TALEBİ OLUŞTURAN";
+            // 
+            // CmbDonemBasaranYil
+            // 
+            this.CmbDonemBasaranYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemBasaranYil.FormattingEnabled = true;
+            this.CmbDonemBasaranYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemBasaranYil.Location = new System.Drawing.Point(239, 151);
+            this.CmbDonemBasaranYil.Name = "CmbDonemBasaranYil";
+            this.CmbDonemBasaranYil.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemBasaranYil.TabIndex = 414;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(32, 155);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(87, 13);
+            this.label35.TabIndex = 117;
+            this.label35.Text = "DÖNEM (Ay/Yıl):";
             // 
             // CmbDonemBasaran
             // 
@@ -2900,15 +2959,6 @@ namespace UserInterface.STS
             this.CmbDonemBasaran.Name = "CmbDonemBasaran";
             this.CmbDonemBasaran.Size = new System.Drawing.Size(105, 21);
             this.CmbDonemBasaran.TabIndex = 29;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(69, 155);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(50, 13);
-            this.label35.TabIndex = 28;
-            this.label35.Text = "DÖNEM:";
             // 
             // LblIsAkisNo2
             // 
@@ -3334,7 +3384,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.ComboBox CmbDonem;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.ComboBox CmbDonemBasaran;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.DateTimePicker DtBelgeTarihi;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.TextBox TxtProje;
@@ -3348,5 +3397,8 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label LblPersonelSayisi;
         private System.Windows.Forms.Label LblSiparisNo;
         private System.Windows.Forms.ComboBox CmbSiparisNoMaas;
+        private System.Windows.Forms.ComboBox CmbDonemYil;
+        private System.Windows.Forms.ComboBox CmbDonemBasaranYil;
+        private System.Windows.Forms.Label label35;
     }
 }

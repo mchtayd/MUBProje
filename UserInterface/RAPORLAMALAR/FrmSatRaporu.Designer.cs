@@ -266,6 +266,7 @@ namespace UserInterface.RAPORLAMALAR
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(126, 21);
             this.comboBox1.TabIndex = 340;
+            this.comboBox1.Visible = false;
             // 
             // comboBox2
             // 
@@ -279,6 +280,7 @@ namespace UserInterface.RAPORLAMALAR
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(278, 21);
             this.comboBox2.TabIndex = 341;
+            this.comboBox2.Visible = false;
             // 
             // comboBox3
             // 
@@ -292,6 +294,7 @@ namespace UserInterface.RAPORLAMALAR
             this.comboBox3.Name = "comboBox3";
             this.comboBox3.Size = new System.Drawing.Size(126, 21);
             this.comboBox3.TabIndex = 342;
+            this.comboBox3.Visible = false;
             // 
             // label1
             // 
@@ -301,6 +304,7 @@ namespace UserInterface.RAPORLAMALAR
             this.label1.Size = new System.Drawing.Size(79, 13);
             this.label1.TabIndex = 343;
             this.label1.Text = "PROJE KODU:";
+            this.label1.Visible = false;
             // 
             // FrmSatRaporu
             // 

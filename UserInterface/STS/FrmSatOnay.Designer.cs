@@ -46,10 +46,20 @@ namespace UserInterface.STS
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.webBrowser5 = new System.Windows.Forms.WebBrowser();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.TxtGerekceHarcamasiYapilan = new System.Windows.Forms.RichTextBox();
+            this.LblToplam = new System.Windows.Forms.TextBox();
+            this.t = new System.Windows.Forms.Label();
             this.BtnRedT = new System.Windows.Forms.Button();
             this.label77 = new System.Windows.Forms.Label();
             this.BtnOnaylaT = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.webBrowser4 = new System.Windows.Forms.WebBrowser();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.TxtGerekceTeklifsiz = new System.Windows.Forms.RichTextBox();
             this.TxtGenelTop = new System.Windows.Forms.Label();
             this.label75 = new System.Windows.Forms.Label();
             this.Tutar1 = new System.Windows.Forms.TextBox();
@@ -120,6 +130,10 @@ namespace UserInterface.STS
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.webBrowser3 = new System.Windows.Forms.WebBrowser();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.TxtGerekce = new System.Windows.Forms.RichTextBox();
             this.BtnReddet2 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -458,8 +472,6 @@ namespace UserInterface.STS
             this.label34 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.t = new System.Windows.Forms.Label();
-            this.LblToplam = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgOnay)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -469,8 +481,14 @@ namespace UserInterface.STS
             this.groupBox2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.groupBox6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox4.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSat)).BeginInit();
@@ -482,7 +500,7 @@ namespace UserInterface.STS
             this.groupBox1.Controls.Add(this.DtgOnay);
             this.groupBox1.Location = new System.Drawing.Point(7, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1545, 408);
+            this.groupBox1.Size = new System.Drawing.Size(1545, 308);
             this.groupBox1.TabIndex = 47;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "SAT ONAY LİSTESİ";
@@ -504,11 +522,12 @@ namespace UserInterface.STS
             this.DtgOnay.Name = "DtgOnay";
             this.DtgOnay.ReadOnly = true;
             this.DtgOnay.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgOnay.Size = new System.Drawing.Size(1539, 389);
+            this.DtgOnay.Size = new System.Drawing.Size(1539, 289);
             this.DtgOnay.TabIndex = 2;
             this.DtgOnay.TimeFilter = false;
             this.DtgOnay.SortStringChanged += new System.EventHandler(this.DtgOnay_SortStringChanged);
             this.DtgOnay.FilterStringChanged += new System.EventHandler(this.DtgOnay_FilterStringChanged);
+            this.DtgOnay.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgOnay_CellContentClick);
             this.DtgOnay.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgOnay_CellMouseClick);
             this.DtgOnay.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DtgOnay_KeyDown);
             // 
@@ -516,7 +535,7 @@ namespace UserInterface.STS
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(109, 448);
+            this.TxtTop.Location = new System.Drawing.Point(111, 344);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 305;
@@ -526,7 +545,7 @@ namespace UserInterface.STS
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(9, 448);
+            this.label5.Location = new System.Drawing.Point(11, 344);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 304;
@@ -536,10 +555,10 @@ namespace UserInterface.STS
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(6, 470);
+            this.tabControl1.Location = new System.Drawing.Point(10, 371);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1545, 449);
+            this.tabControl1.Size = new System.Drawing.Size(1545, 548);
             this.tabControl1.TabIndex = 306;
             // 
             // tabPage1
@@ -549,7 +568,7 @@ namespace UserInterface.STS
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1537, 423);
+            this.tabPage1.Size = new System.Drawing.Size(1537, 522);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GENEL BİLGİLER";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -628,13 +647,15 @@ namespace UserInterface.STS
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1537, 423);
+            this.tabPage4.Size = new System.Drawing.Size(1537, 522);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "TEKLİF ONAYLA";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.groupBox9);
+            this.panel2.Controls.Add(this.groupBox8);
             this.panel2.Controls.Add(this.LblToplam);
             this.panel2.Controls.Add(this.t);
             this.panel2.Controls.Add(this.BtnRedT);
@@ -642,15 +663,71 @@ namespace UserInterface.STS
             this.panel2.Controls.Add(this.BtnOnaylaT);
             this.panel2.Location = new System.Drawing.Point(5, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(305, 197);
+            this.panel2.Size = new System.Drawing.Size(769, 282);
             this.panel2.TabIndex = 567;
             this.panel2.Visible = false;
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.webBrowser5);
+            this.groupBox9.Location = new System.Drawing.Point(24, 128);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(734, 129);
+            this.groupBox9.TabIndex = 574;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "EKLER";
+            // 
+            // webBrowser5
+            // 
+            this.webBrowser5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser5.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser5.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser5.Name = "webBrowser5";
+            this.webBrowser5.Size = new System.Drawing.Size(728, 110);
+            this.webBrowser5.TabIndex = 408;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.TxtGerekceHarcamasiYapilan);
+            this.groupBox8.Location = new System.Drawing.Point(280, 13);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(481, 101);
+            this.groupBox8.TabIndex = 573;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "GEREKÇE";
+            // 
+            // TxtGerekceHarcamasiYapilan
+            // 
+            this.TxtGerekceHarcamasiYapilan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtGerekceHarcamasiYapilan.Location = new System.Drawing.Point(3, 16);
+            this.TxtGerekceHarcamasiYapilan.Name = "TxtGerekceHarcamasiYapilan";
+            this.TxtGerekceHarcamasiYapilan.Size = new System.Drawing.Size(475, 82);
+            this.TxtGerekceHarcamasiYapilan.TabIndex = 0;
+            this.TxtGerekceHarcamasiYapilan.Text = "";
+            // 
+            // LblToplam
+            // 
+            this.LblToplam.Location = new System.Drawing.Point(143, 20);
+            this.LblToplam.Name = "LblToplam";
+            this.LblToplam.Size = new System.Drawing.Size(103, 20);
+            this.LblToplam.TabIndex = 515;
+            this.LblToplam.Text = "0.00 ₺";
+            // 
+            // t
+            // 
+            this.t.AutoSize = true;
+            this.t.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.t.Location = new System.Drawing.Point(252, 25);
+            this.t.Name = "t";
+            this.t.Size = new System.Drawing.Size(15, 15);
+            this.t.TabIndex = 572;
+            this.t.Text = "₺";
             // 
             // BtnRedT
             // 
             this.BtnRedT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRedT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnRedT.Location = new System.Drawing.Point(141, 54);
+            this.BtnRedT.Location = new System.Drawing.Point(141, 59);
             this.BtnRedT.Name = "BtnRedT";
             this.BtnRedT.Size = new System.Drawing.Size(111, 40);
             this.BtnRedT.TabIndex = 570;
@@ -662,7 +739,7 @@ namespace UserInterface.STS
             // 
             this.label77.AutoSize = true;
             this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label77.Location = new System.Drawing.Point(21, 16);
+            this.label77.Location = new System.Drawing.Point(21, 21);
             this.label77.Name = "label77";
             this.label77.Size = new System.Drawing.Size(116, 15);
             this.label77.TabIndex = 571;
@@ -672,7 +749,7 @@ namespace UserInterface.STS
             // 
             this.BtnOnaylaT.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnOnaylaT.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnOnaylaT.Location = new System.Drawing.Point(24, 54);
+            this.BtnOnaylaT.Location = new System.Drawing.Point(24, 59);
             this.BtnOnaylaT.Name = "BtnOnaylaT";
             this.BtnOnaylaT.Size = new System.Drawing.Size(111, 40);
             this.BtnOnaylaT.TabIndex = 569;
@@ -682,6 +759,8 @@ namespace UserInterface.STS
             // 
             // panel4
             // 
+            this.panel4.Controls.Add(this.groupBox7);
+            this.panel4.Controls.Add(this.groupBox6);
             this.panel4.Controls.Add(this.TxtGenelTop);
             this.panel4.Controls.Add(this.label75);
             this.panel4.Controls.Add(this.Tutar1);
@@ -753,9 +832,47 @@ namespace UserInterface.STS
             this.panel4.Controls.Add(this.label68);
             this.panel4.Location = new System.Drawing.Point(6, 8);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(876, 409);
+            this.panel4.Size = new System.Drawing.Size(1522, 347);
             this.panel4.TabIndex = 308;
             this.panel4.Visible = false;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.webBrowser4);
+            this.groupBox7.Location = new System.Drawing.Point(866, 126);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(608, 194);
+            this.groupBox7.TabIndex = 572;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "EKLER";
+            // 
+            // webBrowser4
+            // 
+            this.webBrowser4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser4.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser4.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser4.Name = "webBrowser4";
+            this.webBrowser4.Size = new System.Drawing.Size(602, 175);
+            this.webBrowser4.TabIndex = 408;
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.TxtGerekceTeklifsiz);
+            this.groupBox6.Location = new System.Drawing.Point(863, 24);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(611, 93);
+            this.groupBox6.TabIndex = 571;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "GEREKÇE";
+            // 
+            // TxtGerekceTeklifsiz
+            // 
+            this.TxtGerekceTeklifsiz.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtGerekceTeklifsiz.Location = new System.Drawing.Point(3, 16);
+            this.TxtGerekceTeklifsiz.Name = "TxtGerekceTeklifsiz";
+            this.TxtGerekceTeklifsiz.Size = new System.Drawing.Size(605, 74);
+            this.TxtGerekceTeklifsiz.TabIndex = 0;
+            this.TxtGerekceTeklifsiz.Text = "";
             // 
             // TxtGenelTop
             // 
@@ -1413,6 +1530,8 @@ namespace UserInterface.STS
             // 
             // panel5
             // 
+            this.panel5.Controls.Add(this.groupBox5);
+            this.panel5.Controls.Add(this.groupBox4);
             this.panel5.Controls.Add(this.BtnReddet2);
             this.panel5.Controls.Add(this.label3);
             this.panel5.Controls.Add(this.label8);
@@ -1581,9 +1700,47 @@ namespace UserInterface.STS
             this.panel5.Controls.Add(this.label74);
             this.panel5.Location = new System.Drawing.Point(3, 16);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1531, 417);
+            this.panel5.Size = new System.Drawing.Size(1531, 500);
             this.panel5.TabIndex = 309;
             this.panel5.Visible = false;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.webBrowser3);
+            this.groupBox5.Location = new System.Drawing.Point(888, 405);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(625, 85);
+            this.groupBox5.TabIndex = 661;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "EKLER";
+            // 
+            // webBrowser3
+            // 
+            this.webBrowser3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser3.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser3.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser3.Name = "webBrowser3";
+            this.webBrowser3.Size = new System.Drawing.Size(619, 66);
+            this.webBrowser3.TabIndex = 408;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.TxtGerekce);
+            this.groupBox4.Location = new System.Drawing.Point(10, 405);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(872, 85);
+            this.groupBox4.TabIndex = 660;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "GEREKÇE";
+            // 
+            // TxtGerekce
+            // 
+            this.TxtGerekce.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtGerekce.Location = new System.Drawing.Point(3, 16);
+            this.TxtGerekce.Name = "TxtGerekce";
+            this.TxtGerekce.Size = new System.Drawing.Size(866, 66);
+            this.TxtGerekce.TabIndex = 0;
+            this.TxtGerekce.Text = "";
             // 
             // BtnReddet2
             // 
@@ -4537,24 +4694,6 @@ namespace UserInterface.STS
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
-            // t
-            // 
-            this.t.AutoSize = true;
-            this.t.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.t.Location = new System.Drawing.Point(252, 16);
-            this.t.Name = "t";
-            this.t.Size = new System.Drawing.Size(15, 15);
-            this.t.TabIndex = 572;
-            this.t.Text = "₺";
-            // 
-            // LblToplam
-            // 
-            this.LblToplam.Location = new System.Drawing.Point(143, 15);
-            this.LblToplam.Name = "LblToplam";
-            this.LblToplam.Size = new System.Drawing.Size(103, 20);
-            this.LblToplam.TabIndex = 515;
-            this.LblToplam.Text = "0.00 ₺";
-            // 
             // FrmSatOnay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4581,10 +4720,16 @@ namespace UserInterface.STS
             this.tabPage4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox4.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSat)).EndInit();
@@ -5023,5 +5168,17 @@ namespace UserInterface.STS
         private System.Windows.Forms.WebBrowser webBrowser2;
         private System.Windows.Forms.TextBox LblToplam;
         private System.Windows.Forms.Label t;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.WebBrowser webBrowser5;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.RichTextBox TxtGerekceHarcamasiYapilan;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.WebBrowser webBrowser4;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.RichTextBox TxtGerekceTeklifsiz;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.WebBrowser webBrowser3;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.RichTextBox TxtGerekce;
     }
 }

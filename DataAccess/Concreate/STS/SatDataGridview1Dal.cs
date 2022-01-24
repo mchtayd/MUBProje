@@ -447,6 +447,19 @@ namespace DataAccess.Concreate
                 throw;
             }
         }
+        public void TamamlamaDonemGuncelle(string siparisno,string donem)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatTamamlamaDurumGuncelle", new SqlParameter("@siparis", siparisno),new SqlParameter("@donem",donem));
+                dataReader.Close();
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public void DurumGuncelleTamamlama(string siparisno)
         {
             try

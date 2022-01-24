@@ -30,9 +30,9 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -208,8 +208,8 @@ namespace UserInterface.STS
             // 
             this.DtgTamamlananSatlar.AllowUserToAddRows = false;
             this.DtgTamamlananSatlar.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgTamamlananSatlar.AutoGenerateContextFilters = true;
             this.DtgTamamlananSatlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTamamlananSatlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -226,6 +226,7 @@ namespace UserInterface.STS
             this.DtgTamamlananSatlar.SortStringChanged += new System.EventHandler(this.DtgTamamlananSatlar_SortStringChanged);
             this.DtgTamamlananSatlar.FilterStringChanged += new System.EventHandler(this.DtgTamamlananSatlar_FilterStringChanged);
             this.DtgTamamlananSatlar.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgTamamlananSatlar_CellMouseClick);
+            this.DtgTamamlananSatlar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DtgTamamlananSatlar_KeyDown);
             // 
             // TxtTop
             // 
@@ -1292,18 +1293,18 @@ namespace UserInterface.STS
             // 
             this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
             this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1322,7 +1323,7 @@ namespace UserInterface.STS
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(464, 344);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "FİRMA VE PROJE GÜNCELLE";
+            this.tabPage3.Text = "FİRMA DÜZENLE";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
@@ -1332,9 +1333,9 @@ namespace UserInterface.STS
             this.groupBox3.Controls.Add(this.label150);
             this.groupBox3.Controls.Add(this.TxtFirma);
             this.groupBox3.Controls.Add(this.label151);
-            this.groupBox3.Location = new System.Drawing.Point(12, 13);
+            this.groupBox3.Location = new System.Drawing.Point(8, 13);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(440, 134);
+            this.groupBox3.Size = new System.Drawing.Size(440, 158);
             this.groupBox3.TabIndex = 579;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";

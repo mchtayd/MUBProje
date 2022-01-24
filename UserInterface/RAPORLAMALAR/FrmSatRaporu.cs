@@ -64,6 +64,7 @@ namespace UserInterface.RAPORLAMALAR
                 MessageBox.Show("Lütfen Öncelikle DÖNEM Kısmını Doldurunuz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             ToplamlarAselsan();
             ToplamlarBasaran();
             donem = CmbDonem.Text;

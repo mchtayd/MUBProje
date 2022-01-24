@@ -40,12 +40,17 @@ namespace UserInterface.STS
         SatOnayTarihiManager satOnayTarihiManager;
         ComboManager comboManager;
         SatTalebiDoldurManager satTalebiDoldurManager;
+        TedarikciFirmaManager tedarikciFirmaManager;
+        TeklifFirmalarManager teklifFirmalarManager;
+
+        List<string> supplierNames;
         public object[] infos;
         string siparisNo, dosyayolu;
-        int onaylananteklif, ucteklif,id, formno, satno=-1;
+        int onaylananteklif, ucteklif,id, formno, satno=-1,malzemesayisi;
         double toplam, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10 = 0, outValue = 0;
         string masrafyeri, talepeden, bolum, usbolgesi, abfformno, gerekce, butcekodukalemi, satbirim, harcamaturu, faturafirma, ilgilikisi, masrafyerino, firma, kaynakdosyaismi, alinandosya, tamyol, belgeTuru, satinAlinanFirma, yapilanislem, islemyapan;
 
+        #region Keypress
         private void stn3_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
@@ -400,7 +405,7 @@ namespace UserInterface.STS
         {
             e.Handled = true;
         }
-
+        #endregion
         private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataDisplay();
@@ -452,6 +457,8 @@ namespace UserInterface.STS
             satOnayTarihiManager = SatOnayTarihiManager.GetInstance();
             comboManager = ComboManager.GetInstance();
             satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
+            tedarikciFirmaManager = TedarikciFirmaManager.GetInstance();
+            teklifFirmalarManager = TeklifFirmalarManager.GetInstance();
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -464,12 +471,24 @@ namespace UserInterface.STS
                     MessageBox.Show("Lütfen Geçerli Bir Sat Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string mesaj = tamamlananManager.UpdateTutar(TxtGenelTop.Text.ConDouble(), siparisNo);
+                
+                if (CmbDonem.Text!="" || CmbDonemYil.Text!="")
+                {
+                    string yeniDonem = CmbDonem.Text + " " + CmbDonemYil.Text;
+                    if (donem!= yeniDonem)
+                    {
+                        satDataGridview1Manager.TamamlamaDonemGuncelle(siparisNo, yeniDonem);
+
+                    }
+                }
+                /*string mesaj = satDataGridview1Manager.SatFirmaGuncelle(siparisNo, projeBilgisi, TxtFirma.Text);
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
-                }
+                }*/
+               
+
                 MalzemeGuncelle();
 
                 yapilanislem = "SAT FİYAT TEKLİFLERİ GÜNCELLENDİ.";
@@ -479,7 +498,7 @@ namespace UserInterface.STS
 
                 MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                TamamlananSatlar();
+                DataDisplay();
                 Temizle();
             }
         }
@@ -501,67 +520,124 @@ namespace UserInterface.STS
             }
             TxtGenelTop.Text = toplam.ToString();
         }
-        void MalzemeGuncelle()
+        void CmbDuzenle(params ComboBox[] cmbArray)
         {
-            List<TamamlananMalzeme> tamamlanan = new List<TamamlananMalzeme>();
+            foreach (ComboBox item in cmbArray)
+            {
+                item.DataSource = supplierNames.Select(x => x).ToList();
+                //item.SelectedIndex = -1;
+            }
+        }
+        void CmbClearDataSource(params ComboBox[] cmbArray)
+        {
+            foreach (ComboBox item in cmbArray)
+            {
+                item.DataSource = null;
+            }
+        }
+        void TedarikciFirmaName()
+        {
+            List<TeklifFirmalar> supplierList = teklifFirmalarManager.TedarikciFirmalar(false);
+            supplierNames = supplierList.Select(x => x.Firmaname).ToList();
 
-            if (stn1.Text != "")
+            //CmbClearDataSource(F1_1, F1_2, F1_3, F1_4, F1_5, F1_6, F1_7, F1_8, F1_9, F1_10);
+
+            if (malzemesayisi > 0)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn1.Text, BBF1.Text.ConDouble(), BT1.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_1);
             }
-            if (stn2.Text != "")
+            if (malzemesayisi > 1)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn2.Text, BBF2.Text.ConDouble(), BT2.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_2);
             }
-            if (stn3.Text != "")
+            if (malzemesayisi > 2)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn3.Text, BBF3.Text.ConDouble(), BT3.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_3);
             }
-            if (stn4.Text != "")
+            if (malzemesayisi > 3)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn4.Text, BBF4.Text.ConDouble(), BT4.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_4);
             }
-            if (stn5.Text != "")
+            if (malzemesayisi > 4)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn5.Text, BBF5.Text.ConDouble(), BT5.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_5);
             }
-            if (stn6.Text != "")
+            if (malzemesayisi > 5)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn6.Text, BBF6.Text.ConDouble(), BT6.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_6);
             }
-            if (stn7.Text != "")
+            if (malzemesayisi > 6)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn7.Text, BBF7.Text.ConDouble(), BT7.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_7);
             }
-            if (stn8.Text != "")
+            if (malzemesayisi > 7)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn8.Text, BBF8.Text.ConDouble(), BT8.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_8);
             }
-            if (stn9.Text != "")
+            if (malzemesayisi > 8)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn9.Text, BBF9.Text.ConDouble(), BT9.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
+                CmbDuzenle(F1_9);
             }
-            if (stn10.Text != "")
+            if (malzemesayisi > 9)
             {
-                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(stn10.Text, BBF10.Text.ConDouble(), BT10.Text.ConDouble(), siparisNo);
-                tamamlanan.Add(tamamlananMalzeme);
-            }
-            foreach (TamamlananMalzeme item in tamamlanan)
-            {
-                tamamlananMalzemeManager.UpdateFiyat(item);
+                CmbDuzenle(F1_10);
             }
         }
 
-        
+        void MalzemeGuncelle()
+        {
+
+            if (stn1.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id1,stn1.Text, t1.Text, m1.Text.ConInt(), b1.Text, F1_1.Text, BBF1.Text.ConDouble(), BT1.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme,onaylananteklif);
+            }
+            if (stn2.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id2, stn2.Text, t2.Text, m2.Text.ConInt(), b2.Text, F1_2.Text, BBF2.Text.ConDouble(), BT2.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+            if (stn3.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id3, stn3.Text, t3.Text, m3.Text.ConInt(), b3.Text, F1_3.Text, BBF3.Text.ConDouble(), BT3.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+            if (stn4.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id4, stn4.Text, t4.Text, m4.Text.ConInt(), b4.Text, F1_4.Text, BBF4.Text.ConDouble(), BT4.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+            if (stn5.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id5, stn5.Text, t5.Text, m5.Text.ConInt(), b5.Text, F1_5.Text, BBF5.Text.ConDouble(), BT5.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+            if (stn6.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id6, stn6.Text, t6.Text, m6.Text.ConInt(), b6.Text, F1_6.Text, BBF6.Text.ConDouble(), BT6.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+            if (stn7.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id7, stn7.Text, t7.Text, m7.Text.ConInt(), b7.Text, F1_7.Text, BBF7.Text.ConDouble(), BT7.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+            if (stn8.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id8, stn8.Text, t8.Text, m8.Text.ConInt(), b8.Text, F1_8.Text, BBF8.Text.ConDouble(), BT8.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+            if (stn9.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id9, stn9.Text, t9.Text, m9.Text.ConInt(), b9.Text, F1_9.Text, BBF9.Text.ConDouble(), BT9.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+            if (stn10.Text != "")
+            {
+                FiyatTeklifiAl tamamlananMalzeme = new FiyatTeklifiAl(id10, stn10.Text, t10.Text, m10.Text.ConInt(), b10.Text, F1_10.Text, BBF10.Text.ConDouble(), BT10.Text.ConDouble());
+                fiyatTeklifiAlManager.Update(tamamlananMalzeme, onaylananteklif);
+            }
+        }
 
         private void FrmSatTamamlama_Load(object sender, EventArgs e)
         {
@@ -733,7 +809,7 @@ namespace UserInterface.STS
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
-
+            
             id = DtgSatTamamlama.CurrentRow.Cells["Id"].Value.ConInt();
             siparisNo = DtgSatTamamlama.CurrentRow.Cells["SiparisNo"].Value.ToString();
             dosyayolu = DtgSatTamamlama.CurrentRow.Cells["DosyaYolu"].Value.ToString();
@@ -758,6 +834,8 @@ namespace UserInterface.STS
             satOlusturmaTuru = DtgSatTamamlama.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             proje = DtgSatTamamlama.CurrentRow.Cells["Proje"].Value.ToString();
             satinAlinanFirma = DtgSatTamamlama.CurrentRow.Cells["SatinAlinanFirma"].Value.ToString();
+
+            TedarikciFirmaName();
             WebBrowser();
 
             if (ucteklif == 1)
@@ -782,6 +860,7 @@ namespace UserInterface.STS
             {
                 CmbHarcamaYapan.SelectedIndex = 1;
             }
+            
             SatTalebiDoldur satTalebiDoldur = satTalebiDoldurManager.Get(usbolgesi);
 
             if (satTalebiDoldur == null)
@@ -829,11 +908,13 @@ namespace UserInterface.STS
         void MalzemeList()
         {
             fiyatTeklifiAls = fiyatTeklifiAlManager.GetList("Gönderildi", siparisNo);
+            malzemesayisi = fiyatTeklifiAls.Count;
         }
         void TeklifsizMalzemeList()
         {
             teklifsizs = telifsizSatManager.GetList(siparisNo);
         }
+        int id1, id2, id3, id4, id5, id6, id7, id8, id9, id10;
         void TeklifsizFillTools()
         {
             Temizle();
@@ -855,6 +936,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 0)
             {
                 TeklifsizSat item = teklifsizs[0];
+                id1 = item.Id;
                 stn1.Text = item.Stokno;
                 t1.Text = item.Tanim;
                 m1.Text = item.Miktar.ToString();
@@ -864,6 +946,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 1)
             {
                 TeklifsizSat item = teklifsizs[1];
+                id2 = item.Id;
                 stn2.Text = item.Stokno;
                 t2.Text = item.Tanim;
                 m2.Text = item.Miktar.ToString();
@@ -873,6 +956,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 2)
             {
                 TeklifsizSat item = teklifsizs[2];
+                id3 = item.Id;
                 stn3.Text = item.Stokno;
                 t3.Text = item.Tanim;
                 m3.Text = item.Miktar.ToString();
@@ -882,6 +966,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 3)
             {
                 TeklifsizSat item = teklifsizs[3];
+                id4 = item.Id;
                 stn4.Text = item.Stokno;
                 t4.Text = item.Tanim;
                 m4.Text = item.Miktar.ToString();
@@ -891,6 +976,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 4)
             {
                 TeklifsizSat item = teklifsizs[4];
+                id5 = item.Id;
                 stn5.Text = item.Stokno;
                 t5.Text = item.Tanim;
                 m5.Text = item.Miktar.ToString();
@@ -900,6 +986,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 5)
             {
                 TeklifsizSat item = teklifsizs[5];
+                id6 = item.Id;
                 stn6.Text = item.Stokno;
                 t6.Text = item.Tanim;
                 m6.Text = item.Miktar.ToString();
@@ -909,6 +996,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 6)
             {
                 TeklifsizSat item = teklifsizs[6];
+                id7 = item.Id;
                 stn7.Text = item.Stokno;
                 t7.Text = item.Tanim;
                 m7.Text = item.Miktar.ToString();
@@ -918,6 +1006,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 7)
             {
                 TeklifsizSat item = teklifsizs[7];
+                id8 = item.Id;
                 stn8.Text = item.Stokno;
                 t8.Text = item.Tanim;
                 m8.Text = item.Miktar.ToString();
@@ -927,6 +1016,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 8)
             {
                 TeklifsizSat item = teklifsizs[8];
+                id9 = item.Id;
                 stn9.Text = item.Stokno;
                 t9.Text = item.Tanim;
                 m9.Text = item.Miktar.ToString();
@@ -936,6 +1026,7 @@ namespace UserInterface.STS
             if (teklifsizs.Count > 9)
             {
                 TeklifsizSat item = teklifsizs[9];
+                id10 = item.Id;
                 stn10.Text = item.Stokno;
                 t10.Text = item.Tanim;
                 m10.Text = item.Miktar.ToString();
@@ -959,6 +1050,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[0];
                 onaylananteklif = item.Onaylananteklif;
+                id1 = item.Id;
                 stn1.Text = item.Stokno;
                 t1.Text = item.Tanim;
                 m1.Text = item.Miktar.ToString();
@@ -988,6 +1080,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[1];
                 onaylananteklif = item.Onaylananteklif;
+                id2 = item.Id;
                 stn2.Text = item.Stokno;
                 t2.Text = item.Tanim;
                 m2.Text = item.Miktar.ToString();
@@ -1015,6 +1108,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[2];
                 onaylananteklif = item.Onaylananteklif;
+                id3 = item.Id;
                 stn3.Text = item.Stokno;
                 t3.Text = item.Tanim;
                 m3.Text = item.Miktar.ToString();
@@ -1043,6 +1137,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[3];
                 onaylananteklif = item.Onaylananteklif;
+                id4 = item.Id;
                 stn4.Text = item.Stokno;
                 t4.Text = item.Tanim;
                 m4.Text = item.Miktar.ToString();
@@ -1071,6 +1166,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[4];
                 onaylananteklif = item.Onaylananteklif;
+                id5 = item.Id;
                 stn5.Text = item.Stokno;
                 t5.Text = item.Tanim;
                 m5.Text = item.Miktar.ToString();
@@ -1099,6 +1195,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[5];
                 onaylananteklif = item.Onaylananteklif;
+                id6 = item.Id;
                 stn6.Text = item.Stokno;
                 t6.Text = item.Tanim;
                 m6.Text = item.Miktar.ToString();
@@ -1127,6 +1224,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[6];
                 onaylananteklif = item.Onaylananteklif;
+                id7 = item.Id;
                 stn7.Text = item.Stokno;
                 t7.Text = item.Tanim;
                 m7.Text = item.Miktar.ToString();
@@ -1155,6 +1253,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[7];
                 onaylananteklif = item.Onaylananteklif;
+                id8 = item.Id;
                 stn8.Text = item.Stokno;
                 t8.Text = item.Tanim;
                 m8.Text = item.Miktar.ToString();
@@ -1183,6 +1282,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[8];
                 onaylananteklif = item.Onaylananteklif;
+                id9 = item.Id;
                 stn9.Text = item.Stokno;
                 t9.Text = item.Tanim;
                 m9.Text = item.Miktar.ToString();
@@ -1211,6 +1311,7 @@ namespace UserInterface.STS
             {
                 FiyatTeklifiAl item = fiyatTeklifiAls[9];
                 onaylananteklif = item.Onaylananteklif;
+                id10 = item.Id;
                 stn10.Text = item.Stokno;
                 t10.Text = item.Tanim;
                 m10.Text = item.Miktar.ToString();
@@ -1750,16 +1851,16 @@ namespace UserInterface.STS
 
         void Temizle()
         {
-            stn1.Clear(); t1.Clear(); m1.Clear(); b1.Clear(); F1_1.Clear(); BBF1.Clear(); BT1.Clear();
-            stn2.Clear(); t2.Clear(); m2.Clear(); b2.Clear(); F1_2.Clear(); BBF2.Clear(); BT2.Clear();
-            stn3.Clear(); t3.Clear(); m3.Clear(); b3.Clear(); F1_3.Clear(); BBF3.Clear(); BT3.Clear();
-            stn4.Clear(); t4.Clear(); m4.Clear(); b4.Clear(); F1_4.Clear(); BBF4.Clear(); BT4.Clear();
-            stn5.Clear(); t5.Clear(); m5.Clear(); b5.Clear(); F1_5.Clear(); BBF5.Clear(); BT5.Clear();
-            stn6.Clear(); t6.Clear(); m6.Clear(); b6.Clear(); F1_6.Clear(); BBF6.Clear(); BT6.Clear();
-            stn7.Clear(); t7.Clear(); m7.Clear(); b7.Clear(); F1_7.Clear(); BBF7.Clear(); BT7.Clear();
-            stn8.Clear(); t8.Clear(); m8.Clear(); b8.Clear(); F1_8.Clear(); BBF8.Clear(); BT8.Clear();
-            stn9.Clear(); t9.Clear(); m9.Clear(); b9.Clear(); F1_9.Clear(); BBF9.Clear(); BT9.Clear();
-            stn10.Clear(); t1.Clear(); m10.Clear(); b10.Clear(); F1_10.Clear(); BBF10.Clear(); BT10.Clear();
+            stn1.Clear(); t1.Clear(); m1.Clear(); b1.Clear(); F1_1.Text=""; BBF1.Clear(); BT1.Clear();
+            stn2.Clear(); t2.Clear(); m2.Clear(); b2.Clear(); F1_2.Text = ""; BBF2.Clear(); BT2.Clear();
+            stn3.Clear(); t3.Clear(); m3.Clear(); b3.Clear(); F1_3.Text = ""; BBF3.Clear(); BT3.Clear();
+            stn4.Clear(); t4.Clear(); m4.Clear(); b4.Clear(); F1_4.Text = ""; BBF4.Clear(); BT4.Clear();
+            stn5.Clear(); t5.Clear(); m5.Clear(); b5.Clear(); F1_5.Text = ""; BBF5.Clear(); BT5.Clear();
+            stn6.Clear(); t6.Clear(); m6.Clear(); b6.Clear(); F1_6.Text = ""; BBF6.Clear(); BT6.Clear();
+            stn7.Clear(); t7.Clear(); m7.Clear(); b7.Clear(); F1_7.Text = ""; BBF7.Clear(); BT7.Clear();
+            stn8.Clear(); t8.Clear(); m8.Clear(); b8.Clear(); F1_8.Text = ""; BBF8.Clear(); BT8.Clear();
+            stn9.Clear(); t9.Clear(); m9.Clear(); b9.Clear(); F1_9.Text = ""; BBF9.Clear(); BT9.Clear();
+            stn10.Clear(); t1.Clear(); m10.Clear(); b10.Clear(); F1_10.Text = ""; BBF10.Clear(); BT10.Clear();
             CmbBelgeTuru.Text = ""; TxtBelgeNumarasi.Clear();
         }
     }

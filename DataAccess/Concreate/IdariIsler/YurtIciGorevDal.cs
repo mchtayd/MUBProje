@@ -212,7 +212,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return yurtIcis;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<YurtIciGorev>();
             }

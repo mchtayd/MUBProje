@@ -144,6 +144,12 @@ namespace UserInterface.Ana_Sayfa
             DtgYurtIciGorev.Columns["Dosyayolu"].Visible = false;
             DtgYurtIciGorev.Columns["Sayfa"].Visible = false;
             DtgYurtIciGorev.Columns["KonaklamaTuru"].Visible = false;
+            DtgYurtIciGorev.Columns["HarcirahGun"].Visible = false;
+            DtgYurtIciGorev.Columns["HarcirahGunTl"].Visible = false;
+            DtgYurtIciGorev.Columns["HarcirahToplam"].Visible = false;
+            DtgYurtIciGorev.Columns["IaseGun"].Visible = false;
+            DtgYurtIciGorev.Columns["IaseGunTl"].Visible = false;
+            DtgYurtIciGorev.Columns["IaseToplam"].Visible = false;
         }
         void SehirIciGorevList()
         {
