@@ -35,16 +35,46 @@ namespace Business.Concreate
             throw new NotImplementedException();
         }
 
-        public GorevAtamaPersonel Get(int id)
-        {
-            throw new NotImplementedException();
-        }
-
-        public List<GorevAtamaPersonel> GetList(int benzersiz,string departman,string sure)
+        public GorevAtamaPersonel Get(int benzersiz, string departman)
         {
             try
             {
-                return gorevAtamaPersonelDal.GetList(benzersiz, departman, sure);
+                return gorevAtamaPersonelDal.Get(benzersiz, departman);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
+
+        public List<GorevAtamaPersonel> GetList(int benzersiz,string departman)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.GetList(benzersiz, departman);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> GorevAtamaPersonelGor(int benzersiz, string departman)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.GorevAtamaPersonelGor(benzersiz, departman);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> AtolyeGorevlerimiGor(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.AtolyeGorevlerimiGor(adSoyad);
             }
             catch (Exception)
             {
@@ -52,11 +82,11 @@ namespace Business.Concreate
             }
         }
 
-        public string Update(GorevAtamaPersonel entity)
+        public string Update(GorevAtamaPersonel entity,string yapilanIslmeler="")
         {
             try
             {
-                return gorevAtamaPersonelDal.Update(entity);
+                return gorevAtamaPersonelDal.Update(entity, yapilanIslmeler);
             }
             catch (Exception ex)
             {

@@ -43,6 +43,9 @@ namespace UserInterface.BakımOnarım
             this.TxtSeriNoUst = new System.Windows.Forms.TextBox();
             this.TxtGarantiDurumuUst = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LblIslemAdimiKapali = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.LblIslemAdimiAcik = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtBildirimNo = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -55,6 +58,7 @@ namespace UserInterface.BakımOnarım
             this.TxtKategori = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.DtgTalepTarihi = new System.Windows.Forms.DateTimePicker();
             this.label17 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
             this.TxtDurum = new System.Windows.Forms.TextBox();
@@ -87,11 +91,12 @@ namespace UserInterface.BakımOnarım
             this.label25 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.BtnTemizle = new System.Windows.Forms.Button();
-            this.DtgTalepTarihi = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DtgMalzemeler = new System.Windows.Forms.DataGridView();
             this.label26 = new System.Windows.Forms.Label();
             this.LblToplam = new System.Windows.Forms.Label();
+            this.LblDurumKapali = new System.Windows.Forms.Label();
+            this.LblDurumAcik = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -157,7 +162,7 @@ namespace UserInterface.BakımOnarım
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(60, 42);
+            this.label2.Location = new System.Drawing.Point(73, 42);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 15);
             this.label2.TabIndex = 50;
@@ -166,7 +171,7 @@ namespace UserInterface.BakımOnarım
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(68, 69);
+            this.label3.Location = new System.Drawing.Point(81, 69);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(45, 15);
             this.label3.TabIndex = 52;
@@ -174,7 +179,7 @@ namespace UserInterface.BakımOnarım
             // 
             // TxtStokNoUst
             // 
-            this.TxtStokNoUst.Location = new System.Drawing.Point(119, 39);
+            this.TxtStokNoUst.Location = new System.Drawing.Point(132, 39);
             this.TxtStokNoUst.Name = "TxtStokNoUst";
             this.TxtStokNoUst.Size = new System.Drawing.Size(223, 21);
             this.TxtStokNoUst.TabIndex = 51;
@@ -182,7 +187,7 @@ namespace UserInterface.BakımOnarım
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(62, 96);
+            this.label4.Location = new System.Drawing.Point(75, 96);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(51, 15);
             this.label4.TabIndex = 54;
@@ -190,7 +195,7 @@ namespace UserInterface.BakımOnarım
             // 
             // TxtTanimUst
             // 
-            this.TxtTanimUst.Location = new System.Drawing.Point(119, 66);
+            this.TxtTanimUst.Location = new System.Drawing.Point(132, 66);
             this.TxtTanimUst.Name = "TxtTanimUst";
             this.TxtTanimUst.Size = new System.Drawing.Size(223, 21);
             this.TxtTanimUst.TabIndex = 53;
@@ -198,7 +203,7 @@ namespace UserInterface.BakımOnarım
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 123);
+            this.label5.Location = new System.Drawing.Point(28, 123);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(98, 15);
             this.label5.TabIndex = 56;
@@ -206,20 +211,23 @@ namespace UserInterface.BakımOnarım
             // 
             // TxtSeriNoUst
             // 
-            this.TxtSeriNoUst.Location = new System.Drawing.Point(119, 93);
+            this.TxtSeriNoUst.Location = new System.Drawing.Point(132, 93);
             this.TxtSeriNoUst.Name = "TxtSeriNoUst";
             this.TxtSeriNoUst.Size = new System.Drawing.Size(223, 21);
             this.TxtSeriNoUst.TabIndex = 55;
             // 
             // TxtGarantiDurumuUst
             // 
-            this.TxtGarantiDurumuUst.Location = new System.Drawing.Point(119, 120);
+            this.TxtGarantiDurumuUst.Location = new System.Drawing.Point(132, 120);
             this.TxtGarantiDurumuUst.Name = "TxtGarantiDurumuUst";
             this.TxtGarantiDurumuUst.Size = new System.Drawing.Size(223, 21);
             this.TxtGarantiDurumuUst.TabIndex = 57;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.LblIslemAdimiKapali);
+            this.groupBox1.Controls.Add(this.label27);
+            this.groupBox1.Controls.Add(this.LblIslemAdimiAcik);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.TxtGarantiDurumuUst);
             this.groupBox1.Controls.Add(this.TxtStokNoUst);
@@ -234,6 +242,39 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.TabIndex = 59;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MALZEMENİN KULLANILDIĞI ÜST TAKIM BİLGİLERİ";
+            // 
+            // LblIslemAdimiKapali
+            // 
+            this.LblIslemAdimiKapali.AutoSize = true;
+            this.LblIslemAdimiKapali.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.LblIslemAdimiKapali.ForeColor = System.Drawing.Color.Black;
+            this.LblIslemAdimiKapali.Location = new System.Drawing.Point(129, 150);
+            this.LblIslemAdimiKapali.Name = "LblIslemAdimiKapali";
+            this.LblIslemAdimiKapali.Size = new System.Drawing.Size(21, 15);
+            this.LblIslemAdimiKapali.TabIndex = 75;
+            this.LblIslemAdimiKapali.Text = "00";
+            this.LblIslemAdimiKapali.Visible = false;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Location = new System.Drawing.Point(10, 150);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(116, 15);
+            this.label27.TabIndex = 58;
+            this.label27.Text = "Mevcut İşlem Adımı:";
+            // 
+            // LblIslemAdimiAcik
+            // 
+            this.LblIslemAdimiAcik.AutoSize = true;
+            this.LblIslemAdimiAcik.BackColor = System.Drawing.Color.Red;
+            this.LblIslemAdimiAcik.ForeColor = System.Drawing.Color.White;
+            this.LblIslemAdimiAcik.Location = new System.Drawing.Point(129, 150);
+            this.LblIslemAdimiAcik.Name = "LblIslemAdimiAcik";
+            this.LblIslemAdimiAcik.Size = new System.Drawing.Size(21, 15);
+            this.LblIslemAdimiAcik.TabIndex = 74;
+            this.LblIslemAdimiAcik.Text = "00";
+            this.LblIslemAdimiAcik.Visible = false;
             // 
             // groupBox2
             // 
@@ -350,13 +391,21 @@ namespace UserInterface.BakımOnarım
             this.groupBox3.Controls.Add(this.TxtTanim);
             this.groupBox3.Controls.Add(this.TxtRevizyon);
             this.groupBox3.Controls.Add(this.TxtSeriNo);
-            this.groupBox3.Location = new System.Drawing.Point(1080, 633);
+            this.groupBox3.Location = new System.Drawing.Point(343, 718);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(105, 48);
+            this.groupBox3.Size = new System.Drawing.Size(81, 31);
             this.groupBox3.TabIndex = 61;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "ONARIMI TALEP EDİLEN MALZEME BİLGİLERİ";
             this.groupBox3.Visible = false;
+            // 
+            // DtgTalepTarihi
+            // 
+            this.DtgTalepTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgTalepTarihi.Location = new System.Drawing.Point(93, 204);
+            this.DtgTalepTarihi.Name = "DtgTalepTarihi";
+            this.DtgTalepTarihi.Size = new System.Drawing.Size(149, 21);
+            this.DtgTalepTarihi.TabIndex = 67;
             // 
             // label17
             // 
@@ -510,7 +559,7 @@ namespace UserInterface.BakımOnarım
             this.CmbIslemAdimi.FormattingEnabled = true;
             this.CmbIslemAdimi.Location = new System.Drawing.Point(172, 288);
             this.CmbIslemAdimi.Name = "CmbIslemAdimi";
-            this.CmbIslemAdimi.Size = new System.Drawing.Size(280, 23);
+            this.CmbIslemAdimi.Size = new System.Drawing.Size(359, 23);
             this.CmbIslemAdimi.TabIndex = 432;
             // 
             // TxtNotlar
@@ -537,7 +586,7 @@ namespace UserInterface.BakımOnarım
             this.CmbGorevAtanacakPersonel.FormattingEnabled = true;
             this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(172, 259);
             this.CmbGorevAtanacakPersonel.Name = "CmbGorevAtanacakPersonel";
-            this.CmbGorevAtanacakPersonel.Size = new System.Drawing.Size(280, 23);
+            this.CmbGorevAtanacakPersonel.Size = new System.Drawing.Size(359, 23);
             this.CmbGorevAtanacakPersonel.TabIndex = 428;
             // 
             // label21
@@ -616,9 +665,9 @@ namespace UserInterface.BakımOnarım
             this.LblIcSiparisNo.AutoSize = true;
             this.LblIcSiparisNo.Location = new System.Drawing.Point(169, 32);
             this.LblIcSiparisNo.Name = "LblIcSiparisNo";
-            this.LblIcSiparisNo.Size = new System.Drawing.Size(82, 15);
+            this.LblIcSiparisNo.Size = new System.Drawing.Size(11, 15);
             this.LblIcSiparisNo.TabIndex = 67;
-            this.LblIcSiparisNo.Text = "YilBOFormNo";
+            this.LblIcSiparisNo.Text = "-";
             // 
             // label25
             // 
@@ -652,14 +701,6 @@ namespace UserInterface.BakımOnarım
             this.BtnTemizle.Text = "TEMİZLE";
             this.BtnTemizle.UseVisualStyleBackColor = true;
             this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
-            // 
-            // DtgTalepTarihi
-            // 
-            this.DtgTalepTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtgTalepTarihi.Location = new System.Drawing.Point(93, 204);
-            this.DtgTalepTarihi.Name = "DtgTalepTarihi";
-            this.DtgTalepTarihi.Size = new System.Drawing.Size(149, 21);
-            this.DtgTalepTarihi.TabIndex = 67;
             // 
             // panel2
             // 
@@ -700,11 +741,37 @@ namespace UserInterface.BakımOnarım
             this.LblToplam.TabIndex = 58;
             this.LblToplam.Text = "00";
             // 
+            // LblDurumKapali
+            // 
+            this.LblDurumKapali.AutoSize = true;
+            this.LblDurumKapali.BackColor = System.Drawing.Color.Red;
+            this.LblDurumKapali.ForeColor = System.Drawing.Color.White;
+            this.LblDurumKapali.Location = new System.Drawing.Point(353, 66);
+            this.LblDurumKapali.Name = "LblDurumKapali";
+            this.LblDurumKapali.Size = new System.Drawing.Size(208, 15);
+            this.LblDurumKapali.TabIndex = 72;
+            this.LblDurumKapali.Text = "ÜST TAKIM ARIZA BİLDİRİMİ KAPALI";
+            this.LblDurumKapali.Visible = false;
+            // 
+            // LblDurumAcik
+            // 
+            this.LblDurumAcik.AutoSize = true;
+            this.LblDurumAcik.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.LblDurumAcik.ForeColor = System.Drawing.Color.Black;
+            this.LblDurumAcik.Location = new System.Drawing.Point(353, 66);
+            this.LblDurumAcik.Name = "LblDurumAcik";
+            this.LblDurumAcik.Size = new System.Drawing.Size(194, 15);
+            this.LblDurumAcik.TabIndex = 73;
+            this.LblDurumAcik.Text = "ÜST TAKIM ARIZA BİLDİRİMİ AÇIK";
+            this.LblDurumAcik.Visible = false;
+            // 
             // FrmBOAtolye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1515, 764);
+            this.ClientSize = new System.Drawing.Size(1515, 778);
+            this.Controls.Add(this.LblDurumAcik);
+            this.Controls.Add(this.LblDurumKapali);
             this.Controls.Add(this.LblToplam);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.panel2);
@@ -805,5 +872,10 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridView DtgMalzemeler;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label LblToplam;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label LblDurumKapali;
+        private System.Windows.Forms.Label LblDurumAcik;
+        private System.Windows.Forms.Label LblIslemAdimiKapali;
+        private System.Windows.Forms.Label LblIslemAdimiAcik;
     }
 }

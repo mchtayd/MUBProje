@@ -1,7 +1,9 @@
 ﻿using Business;
+using Business.Concreate;
 using Business.Concreate.STS;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
+using Entity;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
@@ -23,6 +25,8 @@ namespace UserInterface.STS
         List<TamamlananMalzeme> tamamlananMalzemes;
         TamamlananMalzemeManager tamamlananMalzemeManager;
         SatIslemAdimlariManager satIslemAdimlarimanager;
+        SatTalebiDoldurManager satTalebiDoldurManager;
+
         ComboManager comboManager;
         string siparisNo="", dosyayolu, butceKodu;
         int ucteklif;
@@ -35,6 +39,7 @@ namespace UserInterface.STS
             tamamlananMalzemeManager = TamamlananMalzemeManager.GetInstance();
             satIslemAdimlarimanager = SatIslemAdimlariManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
         }
 
         private void FrmTamamlananSat_Load(object sender, EventArgs e)
@@ -68,36 +73,6 @@ namespace UserInterface.STS
         void TamamlananSatlar()
         {
             tamamlanans = tamamlananManager.GetList();
-            /* var list = tamamlanans.Select(x => new
-             {
-                 Id = x.Id,
-                 Formno = x.Formno,
-                 Satno = x.Satno,
-                 Masrafyeri = x.Masrafyeri,
-                 Talepeden = x.Talepeden,
-                 Bolum = x.Bolum,
-                 Personelsiparis = x.Personelsiparis,
-                 Personel = x.Personel,
-                 Projekodu = x.Projekodu,
-                 Usbolgesi = x.Usbolgesi,
-                 Abfform = x.Abfform,
-                 Istenentarih = x.Istenentarih,
-                 Tamamlanantarih = x.Tamamlanantarih,
-                 Gerekce = x.Gerekce,
-                 Butcekodukalemi = x.Butcekodukalemi,
-                 Satbirim = x.Satbirim,
-                 Harcamaturu = x.Harcamaturu,
-                 Faturaedilecekfirma = x.Faturaedilecekfirma,
-                 Ilgilikisi = x.Ilgilikisi,
-                 Masrafyerino = x.Masrafyerino,
-                 Harcanantutar = x.Harcanantutar + " TL",
-                 Belgeturu = x.Belgeturu,
-                 Belgenumarasi = x.Belgenumarasi,
-                 Belgetarihi = x.Belgetarihi,
-                 Dosyayolu = x.Dosyayolu,
-                 Siparisno = x.Siparisno,
-                 Ucteklif = x.Ucteklif
-             }).ToList();*/
             dataBinder.DataSource = tamamlanans.ToDataTable();
             DtgTamamlananSatlar.DataSource = dataBinder;
             DataDisplay();
@@ -967,6 +942,41 @@ namespace UserInterface.STS
 
             TxtGenelTop.Text = geneltoplam.ToString("0.00") + " ₺";
             FillTools();
+        }
+
+        private void BtnProjeDuzelt_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tüm Kayıtların Proje Bilgileri Kontrol Edilip Düzeltilecek!\nOnaylıyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            
+            if (dr==DialogResult.Yes)
+            {
+
+                foreach (DataGridViewRow item in DtgTamamlananSatlar.Rows)
+                {
+                    string usBolgesi = item.Cells["Usbolgesi"].Value.ToString();
+                    int isAkisNo = item.Cells["Formno"].Value.ConInt();
+                    if (usBolgesi!=null)
+                    {
+                        if (usBolgesi != "")
+                        {
+                            if (usBolgesi != "YOK")
+                            {
+                                if (isAkisNo != 0)
+                                {
+                                    int id = item.Cells["Id"].Value.ConInt();
+                                    SatTalebiDoldur satTalebiDoldur = satTalebiDoldurManager.Get(usBolgesi);
+                                    string proje = satTalebiDoldur.Proje;
+
+                                    tamamlananManager.ProjeDuzelt(proje, id);
+                                }
+                            }
+                            
+                        }
+                        
+                    }
+
+                }
+            }
         }
 
         private void BBF1_TextChanged(object sender, EventArgs e)

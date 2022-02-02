@@ -51,6 +51,17 @@ namespace Business.Concreate.STS
                 return new List<Tamamlanan>();
             }
         }
+        public List<Tamamlanan> GetListDirektorluk()
+        {
+            try
+            {
+                return tamamlananDal.GetListDirektorluk();
+            }
+            catch
+            {
+                return new List<Tamamlanan>();
+            }
+        }
         public string SatFirmaGuncelle(string siparisNo, string proje, string firma)
         {
             try
@@ -68,6 +79,28 @@ namespace Business.Concreate.STS
             try
             {
                 return tamamlananDal.UpdateTutar(tutar, siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DonemDuzelt(string donem, int id)
+        {
+            try
+            {
+                return tamamlananDal.DonemDuzet(donem, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string ProjeDuzelt(string proje, int id)
+        {
+            try
+            {
+                return tamamlananDal.ProjeDuzelt(proje, id);
             }
             catch (Exception ex)
             {

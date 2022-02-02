@@ -37,36 +37,30 @@ namespace UserInterface.Ana_Sayfa
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DtgBolgeler = new ADGV.AdvancedDataGridView();
-            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DtgGorevlerim = new ADGV.AdvancedDataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtTop3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.görevAtaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.göreveGitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.yönlendirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.durumGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.arızaKapatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.yönlendirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.durumGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arızaKapatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGorevlerim)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
@@ -102,7 +96,7 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(6, 720);
+            this.label31.Location = new System.Drawing.Point(6, 701);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 342;
@@ -112,7 +106,7 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(106, 720);
+            this.TxtTop.Location = new System.Drawing.Point(106, 701);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 343;
@@ -120,7 +114,7 @@ namespace UserInterface.Ana_Sayfa
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.DtgBolgeler);
+            this.groupBox1.Controls.Add(this.DtgGorevlerim);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(809, 682);
@@ -128,87 +122,26 @@ namespace UserInterface.Ana_Sayfa
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GÖREV LİSTESİ";
             // 
-            // DtgBolgeler
+            // DtgGorevlerim
             // 
-            this.DtgBolgeler.AllowUserToAddRows = false;
-            this.DtgBolgeler.AllowUserToDeleteRows = false;
+            this.DtgGorevlerim.AllowUserToAddRows = false;
+            this.DtgGorevlerim.AllowUserToDeleteRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DtgBolgeler.AutoGenerateContextFilters = true;
-            this.DtgBolgeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgBolgeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgBolgeler.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column7,
-            this.Column1,
-            this.Column2,
-            this.Column13,
-            this.Column14,
-            this.Column9});
-            this.DtgBolgeler.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgBolgeler.DateWithTime = false;
-            this.DtgBolgeler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgBolgeler.Location = new System.Drawing.Point(3, 16);
-            this.DtgBolgeler.MultiSelect = false;
-            this.DtgBolgeler.Name = "DtgBolgeler";
-            this.DtgBolgeler.ReadOnly = true;
-            this.DtgBolgeler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgBolgeler.Size = new System.Drawing.Size(803, 663);
-            this.DtgBolgeler.TabIndex = 3;
-            this.DtgBolgeler.TimeFilter = false;
-            // 
-            // Column7
-            // 
-            this.Column7.HeaderText = "ABF FORM NO";
-            this.Column7.MinimumWidth = 22;
-            this.Column7.Name = "Column7";
-            this.Column7.ReadOnly = true;
-            this.Column7.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column7.Width = 82;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "PROJE";
-            this.Column1.MinimumWidth = 22;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column1.Width = 67;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "BÖLGE ADI";
-            this.Column2.MinimumWidth = 22;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column2.Width = 82;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "BULUNDUĞU İŞLEM ADIMI";
-            this.Column13.MinimumWidth = 22;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column13.Width = 127;
-            // 
-            // Column14
-            // 
-            this.Column14.HeaderText = "İŞLEM ADIMI SORUMLUSU";
-            this.Column14.MinimumWidth = 22;
-            this.Column14.Name = "Column14";
-            this.Column14.ReadOnly = true;
-            this.Column14.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column14.Width = 154;
-            // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "İŞLEM ADIMI BEKLEME SÜRESİ";
-            this.Column9.MinimumWidth = 22;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column9.Width = 140;
+            this.DtgGorevlerim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DtgGorevlerim.AutoGenerateContextFilters = true;
+            this.DtgGorevlerim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgGorevlerim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgGorevlerim.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgGorevlerim.DateWithTime = false;
+            this.DtgGorevlerim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgGorevlerim.Location = new System.Drawing.Point(3, 16);
+            this.DtgGorevlerim.MultiSelect = false;
+            this.DtgGorevlerim.Name = "DtgGorevlerim";
+            this.DtgGorevlerim.ReadOnly = true;
+            this.DtgGorevlerim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgGorevlerim.Size = new System.Drawing.Size(803, 663);
+            this.DtgGorevlerim.TabIndex = 3;
+            this.DtgGorevlerim.TimeFilter = false;
             // 
             // tabPage2
             // 
@@ -292,6 +225,16 @@ namespace UserInterface.Ana_Sayfa
             this.advancedDataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellContentClick);
             this.advancedDataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.advancedDataGridView1_CellMouseClick);
             // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.ContextMenuStrip = this.contextMenuStrip2;
+            this.dataGridViewTextBoxColumn1.HeaderText = "İŞ AKIŞ NO";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 22;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.dataGridViewTextBoxColumn1.Width = 81;
+            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -311,43 +254,6 @@ namespace UserInterface.Ana_Sayfa
             this.göreveGitToolStripMenuItem.Name = "göreveGitToolStripMenuItem";
             this.göreveGitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
             this.göreveGitToolStripMenuItem.Text = "Göreve Git";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yönlendirToolStripMenuItem,
-            this.durumGüncelleToolStripMenuItem,
-            this.arızaKapatToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 70);
-            // 
-            // yönlendirToolStripMenuItem
-            // 
-            this.yönlendirToolStripMenuItem.Name = "yönlendirToolStripMenuItem";
-            this.yönlendirToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.yönlendirToolStripMenuItem.Text = "Sipariş Oluştur";
-            // 
-            // durumGüncelleToolStripMenuItem
-            // 
-            this.durumGüncelleToolStripMenuItem.Name = "durumGüncelleToolStripMenuItem";
-            this.durumGüncelleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.durumGüncelleToolStripMenuItem.Text = "Durum Güncelle";
-            // 
-            // arızaKapatToolStripMenuItem
-            // 
-            this.arızaKapatToolStripMenuItem.Name = "arızaKapatToolStripMenuItem";
-            this.arızaKapatToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
-            this.arızaKapatToolStripMenuItem.Text = "Arıza Kapat";
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.ContextMenuStrip = this.contextMenuStrip2;
-            this.dataGridViewTextBoxColumn1.HeaderText = "İŞ AKIŞ NO";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 22;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.dataGridViewTextBoxColumn1.Width = 88;
             // 
             // dataGridViewTextBoxColumn2
             // 
@@ -398,6 +304,33 @@ namespace UserInterface.Ana_Sayfa
             this.dataGridViewTextBoxColumn6.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.dataGridViewTextBoxColumn6.Width = 140;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yönlendirToolStripMenuItem,
+            this.durumGüncelleToolStripMenuItem,
+            this.arızaKapatToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 70);
+            // 
+            // yönlendirToolStripMenuItem
+            // 
+            this.yönlendirToolStripMenuItem.Name = "yönlendirToolStripMenuItem";
+            this.yönlendirToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.yönlendirToolStripMenuItem.Text = "Sipariş Oluştur";
+            // 
+            // durumGüncelleToolStripMenuItem
+            // 
+            this.durumGüncelleToolStripMenuItem.Name = "durumGüncelleToolStripMenuItem";
+            this.durumGüncelleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.durumGüncelleToolStripMenuItem.Text = "Durum Güncelle";
+            // 
+            // arızaKapatToolStripMenuItem
+            // 
+            this.arızaKapatToolStripMenuItem.Name = "arızaKapatToolStripMenuItem";
+            this.arızaKapatToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.arızaKapatToolStripMenuItem.Text = "Arıza Kapat";
+            // 
             // FrmGorevlerim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -415,7 +348,7 @@ namespace UserInterface.Ana_Sayfa
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGorevlerim)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
@@ -431,13 +364,7 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox1;
-        private ADGV.AdvancedDataGridView DtgBolgeler;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private ADGV.AdvancedDataGridView DtgGorevlerim;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;

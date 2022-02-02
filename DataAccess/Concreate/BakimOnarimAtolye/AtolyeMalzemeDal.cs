@@ -26,7 +26,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             {
                 dataReader = sqlServices.StoreReader("BakimOnarimMalzemeKayit",
                     new SqlParameter("@formNo", entity.FormNo),
-                    new SqlParameter("@sokulenStokNo",entity.SeriNo),
+                    new SqlParameter("@sokulenStokNo",entity.StokNo),
                     new SqlParameter("@tanim",entity.Tanim),
                     new SqlParameter("@sokulenSeriNo",entity.SeriNo),
                     new SqlParameter("@durum",entity.Durum),
@@ -76,10 +76,37 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyeMalzemes;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;
+            }
+        }
+        public List<AtolyeMalzeme> AtolyeBakimOnarimMalzeme()
+        {
+            try
+            {
+                List<AtolyeMalzeme> atolyeMalzemes = new List<AtolyeMalzeme>();
+                dataReader = sqlServices.StoreReader("AtolyeBakimMalzeme");
+                while (dataReader.Read())
+                {
+                    atolyeMalzemes.Add(new AtolyeMalzeme(
+                        dataReader["FORM_NO"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["MIKTAR"].ConDouble(),
+                        dataReader["TALEP_TARIHI"].ConTime(),
+                        dataReader["SIPARIS_NO"].ToString()));
+                }
+                dataReader.Close();
+                return atolyeMalzemes;
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 

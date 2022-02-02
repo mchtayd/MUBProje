@@ -1973,7 +1973,7 @@ namespace UserInterface.STS
                 isleAdimi = "SAT BAŞLATMA ONAYI";
                 string donem = CmbDonemBasaran.Text + " " + CmbDonemBasaranYil.Text;
                 SatDataGridview1 sat = new SatDataGridview1(0,LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "", "", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYoluGun) ? "" : dosyaYoluGun, infos[0].ConInt(), isleAdimi, CmbDonemBasaran.Text, "BAŞARAN", TxtProjeKodu.Text, "-");
+                  string.IsNullOrEmpty(dosyaYoluGun) ? "" : dosyaYoluGun, infos[0].ConInt(), isleAdimi, donem, "BAŞARAN", TxtProjeKodu.Text, "-");
 
                 string mesaj = satDataGridview1Manager.Add(sat);
                 if (mesaj!="OK")
@@ -2260,15 +2260,17 @@ namespace UserInterface.STS
             {
                 siparisNo = Guid.NewGuid().ToString();
                 isleAdimi = "SAT ONAY";
+
+                string donem = CmbDonemBasaran.Text + " " + CmbDonemBasaranYil.Text;
                 SatDataGridview1 sat = new SatDataGridview1(0,LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "YOK", "YOK", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, CmbDonemBasaran.Text,"HARCAMASI YAPILAN", TxtProjeKodu.Text, TxtSatinAlinanFirma.Text);
+                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, donem, "HARCAMASI YAPILAN", TxtProjeKodu.Text, TxtSatinAlinanFirma.Text);
                 string mesaj = satDataGridview1Manager.Add(sat);
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                SatDataGridview1 satData = new SatDataGridview1(CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo,0, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value, isleAdimi,CmbDonemBasaran.Text);
+                SatDataGridview1 satData = new SatDataGridview1(CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo,0, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value, isleAdimi, donem);
 
                 string mesaj2= satDataGridview1Manager.TemsiliAgirlama(satData);
 

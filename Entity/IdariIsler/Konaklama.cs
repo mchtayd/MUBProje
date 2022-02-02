@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class Konaklama
     {
-        int id,isakisno; string talepturu, formno, butcekodu, siparisno, adsoyad, gorevi, masrafyerino, masrafyeri,tc; string hes, email, kisakod, otelsehir, otelad; double gunukucret, toplamucret; DateTime giristarihi, cikistarihi; string konaklamasuresi, onay, dosyayolu, sayfa; int satNo;
+        int id,isakisno; string talepturu, formno, butcekodu, siparisno, adsoyad, gorevi, masrafyerino, masrafyeri,tc; string hes, email, kisakod, otelsehir, otelad; double gunukucret, toplamucret; DateTime giristarihi, cikistarihi; string konaklamasuresi, onay, dosyayolu, sayfa; int satNo; string donem, gerekce;
 
         public int Id { get => id; set => id = value; }
         public string Talepturu { get => talepturu; set => talepturu = value; }
@@ -35,8 +35,10 @@ namespace Entity.IdariIsler
         public string Sayfa { get => sayfa; set => sayfa = value; }
         public int Isakisno { get => isakisno; set => isakisno = value; }
         public int SatNo { get => satNo; set => satNo = value; }
+        public string Donem { get => donem; set => donem = value; }
+        public string Gerekce { get => gerekce; set => gerekce = value; }
 
-        public Konaklama(int id, int isakisno, string talepturu, string formno,string butcekodu, string siparisno, string adsoyad, string gorevi, string masrafyerino, string masrafyeri, string tc, string hes, string email, string kisakod, string otelsehir, string otelad, double gunlukucret, double toplamucret, DateTime giristarihi, DateTime cikistarihi, string konaklamasuresi, string onay,string dosyayolu, string sayfa,int satNo)
+        public Konaklama(int id, int isakisno, string talepturu, string formno,string butcekodu, string siparisno, string adsoyad, string gorevi, string masrafyerino, string masrafyeri, string tc, string hes, string email, string kisakod, string otelsehir, string otelad, double gunlukucret, double toplamucret, DateTime giristarihi, DateTime cikistarihi, string konaklamasuresi, string onay,string dosyayolu, string sayfa,int satNo,string donem,string gerekce)
         {
             this.Id = id;
             this.isakisno = isakisno;
@@ -63,9 +65,11 @@ namespace Entity.IdariIsler
             this.dosyayolu = dosyayolu;
             this.sayfa = sayfa;
             this.satNo = satNo;
+            this.donem = donem;
+            this.gerekce = gerekce;
         }
 
-        public Konaklama(int isakisno,string talepturu, string formno,string butcekodu, string siparisno, string adsoyad, string gorevi, string masrafyerino, string masrafyeri, string tc, string hes, string email, string kisakod, string otelsehir, string otelad, double gunlukucret, double toplamucret, DateTime giristarihi, DateTime cikistarihi, string konaklamasuresi,string dosyayolu, int satNo)
+        public Konaklama(int isakisno,string talepturu, string formno,string butcekodu, string siparisno, string adsoyad, string gorevi, string masrafyerino, string masrafyeri, string tc, string hes, string email, string kisakod, string otelsehir, string otelad, double gunlukucret, double toplamucret, DateTime giristarihi, DateTime cikistarihi, string konaklamasuresi,string dosyayolu, int satNo, string donem, string gerekce)
         {
             this.Talepturu = talepturu;
             this.Butcekodu = butcekodu;
@@ -89,6 +93,8 @@ namespace Entity.IdariIsler
             this.dosyayolu = dosyayolu;
             this.isakisno = isakisno;
             this.satNo = satNo;
+            this.donem = donem;
+            this.gerekce = gerekce;
         }
 
         public Konaklama(string onay)

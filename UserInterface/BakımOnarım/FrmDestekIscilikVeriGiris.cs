@@ -370,7 +370,7 @@ namespace UserInterface.BakımOnarım
             {
                 SiparisPersonel siparis = siparisPersonelManager.Get("", infos[1].ToString());
 
-                IscilikIscilik ıscilikIscilik = new IscilikIscilik(infos[1].ToString(), siparis.Gorevi, siparis.Bolum, CmbIscilikTuru.Text, TxtAbfNo.Text, DtgTarih.Value, DtIscilikSaati.Text);
+                IscilikIscilik ıscilikIscilik = new IscilikIscilik(0,infos[1].ToString(), siparis.Gorevi, siparis.Bolum, CmbIscilikTuru.Text, TxtAbfNo.Text, DtgTarih.Value, DtIscilikSaati.Text);
 
                 string mesaj = iscilikManager.Add(ıscilikIscilik);
 

@@ -96,7 +96,6 @@ namespace UserInterface.IdariIsler
             this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgList.DateWithTime = false;
             this.DtgList.Location = new System.Drawing.Point(3, 3);
-            this.DtgList.MultiSelect = false;
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;

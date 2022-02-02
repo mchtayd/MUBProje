@@ -42,7 +42,24 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                     new SqlParameter("@modifikasyonlar",entity.Modifikasyonlar),
                     new SqlParameter("@notlar",entity.Notlar),
                     new SqlParameter("@islemAdimi",entity.IslemAdimi),
-                    new SqlParameter("@siparisNo",entity.SiparisNo));
+                    new SqlParameter("@siparisNo",entity.SiparisNo),
+                    new SqlParameter("@dosyaYolu",entity.DosyaYolu));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string IslemGuncelle(string siparisNo,string islemAdimi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AtolyeIslemAdimiAtla",
+                    new SqlParameter("@siparisNo",siparisNo),
+                    new SqlParameter("@islemAdimi",islemAdimi));
 
                 dataReader.Close();
                 return "OK";
@@ -85,7 +102,10 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["MODIFIKASYONLAR"].ToString(),
                         dataReader["NOTLAR"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
-                        dataReader["SIPARIS_NO"].ToString());
+                        dataReader["SIPARIS_NO"].ToString(),
+                        "",
+                        dataReader["TAMAMLANMA_TARIHI"].ConTime(),
+                        dataReader["DOSYA_YOLU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -123,7 +143,10 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["MODIFIKASYONLAR"].ToString(),
                         dataReader["NOTLAR"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
-                        dataReader["SIPARIS_NO"].ToString()));
+                        dataReader["SIPARIS_NO"].ToString(),
+                        "",
+                        dataReader["TAMAMLANMA_TARIHI"].ConTime(),
+                        dataReader["DOSYA_YOLU"].ToString()));
                 }
                 dataReader.Close();
                 return atolyes;
@@ -152,7 +175,9 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["KATEGORI"].ToString(),
                         dataReader["BOLGE_ADI"].ToString(),
                         dataReader["PROJE"].ToString(),
-                        dataReader["ARIZA_BULUNAN"].ToString());
+                        dataReader["ARIZA_BULUNAN"].ToString(),
+                        dataReader["YAPILACAK_ISLEM"].ToString(),
+                        dataReader["ACIK"].ConInt());
                 }
                 dataReader.Close();
                 return item;
@@ -163,20 +188,38 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             }
         }
 
-        public List<Atolye> GetList()
+        public List<Atolye> GetList(int durum)
         {
             try
             {
-                List<Atolye> atolyes = new List<Atolye>();
-                dataReader = sqlServices.StoreReader("AtolyeListele");
+                List<Atolye> atolyes1 = new List<Atolye>();
+                dataReader = sqlServices.StoreReader("AtolyeBakimMalzeme",new SqlParameter("@durum", durum));
                 while (dataReader.Read())
                 {
-                    atolyes.Add(new Atolye(
+                    DateTime startDate = dataReader["CEKILDIGI_TARIHI"].ConTime();
+                    string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();
+                    gecenSure = gecenSure.Substring(0, gecenSure.LastIndexOf('.')); //17:44:08
+
+
+                    string[] array = gecenSure.Split('.');
+
+
+                    if (array[0].ConInt() < 24)
+                    {
+                        gecenSure = "1";
+                    }
+                    else
+                    {
+                        gecenSure = array[0].ConInt().ToString();
+                    }
+
+
+                    atolyes1.Add(new Atolye(
                         dataReader["ID"].ConInt(),
                         dataReader["ABF_FORM_NO"].ConInt(),
-                        dataReader["STOK_NO"].ToString(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
-                        dataReader["SERI_NO"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
                         dataReader["GARANTI_DURUMU"].ToString(),
                         dataReader["BILDIRIM_NO"].ToString(),
                         dataReader["CRM_NO"].ToString(),
@@ -185,25 +228,51 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["PROJE"].ToString(),
                         dataReader["BILDIRILEN_ARIZA"].ToString(),
                         dataReader["IC_SIPARIS_NO"].ToString(),
-                        dataReader["CEKILDIGI_TARIHI"].ConTime(),
+                        startDate,
                         dataReader["SIPARIS_ACMA_TARIHI"].ConTime(),
                         dataReader["MODIFIKASYONLAR"].ToString(),
                         dataReader["NOTLAR"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
-                        dataReader["SIPARIS_NO"].ToString()));
+                        dataReader["SIPARIS_NO"].ToString(),
+                        gecenSure,
+                        dataReader["TAMAMLANMA_TARIHI"].ConTime(),
+                        dataReader["DOSYA_YOLU"].ToString()));
                 }
                 dataReader.Close();
-                return atolyes;
+                return atolyes1;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<Atolye>();
             }
+            
         }
 
-        public string Update(Atolye entity)
+        public string IslemAdimiGuncelle(string islemaAdimi,int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("AtolyeIslemAdimiGuncelle",new SqlParameter("@islemaAdimi",islemaAdimi),new SqlParameter("@id",id));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string ArizaKapat(int id,int durum,DateTime tamamlanmaTarihi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AtolyeArizaKapat", new SqlParameter("@id", id), new SqlParameter("@durum", durum),new SqlParameter("@tamamlanmaTarihi",tamamlanmaTarihi));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static AtolyeDal GetInstance()
         {

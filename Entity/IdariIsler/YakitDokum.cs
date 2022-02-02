@@ -119,7 +119,7 @@ namespace Entity.IdariIsler
             this.alimTuru = alimTuru;
         }
 
-        public YakitDokum(int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu)
+        public YakitDokum(int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu,string personel)
         {
             this.isAkisNo = isAkisNo;
             this.firma = firma;
@@ -130,8 +130,9 @@ namespace Entity.IdariIsler
             this.verilenLitre = verilenLitre;
             this.toplamTutar = toplamTutar;
             this.dosyaYolu = dosyaYolu;
+            this.personel = personel;
         }
-        public YakitDokum(int id, int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu)
+        public YakitDokum(int id, int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu,string personelAd)
         {
             this.id = id;
             this.isAkisNo = isAkisNo;
@@ -143,6 +144,7 @@ namespace Entity.IdariIsler
             this.verilenLitre = verilenLitre;
             this.toplamTutar = toplamTutar;
             this.dosyaYolu = dosyaYolu;
+            this.personel = personelAd;
         }
     }
 }

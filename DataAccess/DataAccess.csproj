@@ -84,6 +84,10 @@
     <Compile Include="Concreate\BakimOnarim\IscilikPerformansDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IslemAdimlariDal.cs" />
     <Compile Include="Concreate\BakimOnarim\PypDal.cs" />
+    <Compile Include="Concreate\Butce\AvansDal.cs" />
+    <Compile Include="Concreate\Butce\IsAvansTalepDal.cs" />
+    <Compile Include="Concreate\Butce\KasaDal.cs" />
+    <Compile Include="Concreate\Butce\KasaDurumDal.cs" />
     <Compile Include="Concreate\Butce\SiparislerPersonelDal.cs" />
     <Compile Include="Concreate\Depo\AmbarDal.cs" />
     <Compile Include="Concreate\Depo\CayOcagiDal.cs" />
@@ -105,6 +109,7 @@
     <Compile Include="Concreate\Helper.cs" />
     <Compile Include="Concreate\IdariIsler\AracBakimDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracDal.cs" />
+    <Compile Include="Concreate\IdariIsler\AracKmDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracTalepDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracZimmetDal.cs" />
     <Compile Include="Concreate\IdariIsler\AracZimmetiLogDal.cs" />
@@ -190,6 +195,5 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

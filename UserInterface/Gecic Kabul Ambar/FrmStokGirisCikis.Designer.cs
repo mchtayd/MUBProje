@@ -30,7 +30,7 @@ namespace UserInterface.Depo
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStokGirisCikis));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -127,7 +127,6 @@ namespace UserInterface.Depo
             this.LblDepodanBildirimePersonel = new System.Windows.Forms.Label();
             this.TxtDepodanBildirimeAbfNo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
             this.CmbDepodanBildirimeMalzemeYeri = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
             this.TxtDepodanBildirimeDepoAdresi = new System.Windows.Forms.TextBox();
@@ -137,6 +136,7 @@ namespace UserInterface.Depo
             this.panel6 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.DtgSilControl = new ADGV.AdvancedDataGridView();
+            this.label20 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -547,7 +547,7 @@ namespace UserInterface.Depo
             this.GrbBildirimdenDepoya.Controls.Add(this.panel5);
             this.GrbBildirimdenDepoya.Controls.Add(this.panel7);
             this.GrbBildirimdenDepoya.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbBildirimdenDepoya.Location = new System.Drawing.Point(7, 275);
+            this.GrbBildirimdenDepoya.Location = new System.Drawing.Point(7, 277);
             this.GrbBildirimdenDepoya.Name = "GrbBildirimdenDepoya";
             this.GrbBildirimdenDepoya.Size = new System.Drawing.Size(801, 158);
             this.GrbBildirimdenDepoya.TabIndex = 155;
@@ -609,7 +609,7 @@ namespace UserInterface.Depo
             // LblBildirimdenDepoyaPersonel
             // 
             this.LblBildirimdenDepoyaPersonel.AutoSize = true;
-            this.LblBildirimdenDepoyaPersonel.Location = new System.Drawing.Point(163, 101);
+            this.LblBildirimdenDepoyaPersonel.Location = new System.Drawing.Point(154, 110);
             this.LblBildirimdenDepoyaPersonel.Name = "LblBildirimdenDepoyaPersonel";
             this.LblBildirimdenDepoyaPersonel.Size = new System.Drawing.Size(21, 15);
             this.LblBildirimdenDepoyaPersonel.TabIndex = 154;
@@ -617,16 +617,16 @@ namespace UserInterface.Depo
             // 
             // TxtBildirimdenDepoyaFormNo
             // 
-            this.TxtBildirimdenDepoyaFormNo.Location = new System.Drawing.Point(163, 71);
+            this.TxtBildirimdenDepoyaFormNo.Location = new System.Drawing.Point(157, 67);
             this.TxtBildirimdenDepoyaFormNo.Name = "TxtBildirimdenDepoyaFormNo";
-            this.TxtBildirimdenDepoyaFormNo.Size = new System.Drawing.Size(109, 21);
+            this.TxtBildirimdenDepoyaFormNo.Size = new System.Drawing.Size(224, 21);
             this.TxtBildirimdenDepoyaFormNo.TabIndex = 153;
             this.TxtBildirimdenDepoyaFormNo.TextChanged += new System.EventHandler(this.TxtBildirimdenDepoyaFormNo_TextChanged);
             // 
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(32, 101);
+            this.label28.Location = new System.Drawing.Point(17, 110);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(125, 15);
             this.label28.TabIndex = 152;
@@ -635,11 +635,11 @@ namespace UserInterface.Depo
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(74, 74);
+            this.label29.Location = new System.Drawing.Point(54, 62);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(83, 15);
+            this.label29.Size = new System.Drawing.Size(88, 30);
             this.label29.TabIndex = 151;
-            this.label29.Text = "ABF Form No:";
+            this.label29.Text = "Arıza Form No/\r\nİç Sipariş No:";
             // 
             // panel5
             // 
@@ -690,7 +690,7 @@ namespace UserInterface.Depo
             this.GrbIslemYapılacakDepo.Controls.Add(this.CmbDepoNo);
             this.GrbIslemYapılacakDepo.Controls.Add(this.label7);
             this.GrbIslemYapılacakDepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(7, 259);
+            this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(7, 263);
             this.GrbIslemYapılacakDepo.Name = "GrbIslemYapılacakDepo";
             this.GrbIslemYapılacakDepo.Size = new System.Drawing.Size(1431, 168);
             this.GrbIslemYapılacakDepo.TabIndex = 53;
@@ -889,11 +889,11 @@ namespace UserInterface.Depo
             // 
             // Remove
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle5;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1102,10 +1102,10 @@ namespace UserInterface.Depo
             // 
             // GrbDepodanBildirime
             // 
+            this.GrbDepodanBildirime.Controls.Add(this.label20);
             this.GrbDepodanBildirime.Controls.Add(this.LblDepodanBildirimePersonel);
             this.GrbDepodanBildirime.Controls.Add(this.TxtDepodanBildirimeAbfNo);
             this.GrbDepodanBildirime.Controls.Add(this.label22);
-            this.GrbDepodanBildirime.Controls.Add(this.label20);
             this.GrbDepodanBildirime.Controls.Add(this.panel4);
             this.GrbDepodanBildirime.Controls.Add(this.CmbDepodanBildirimeMalzemeYeri);
             this.GrbDepodanBildirime.Controls.Add(this.label21);
@@ -1126,7 +1126,7 @@ namespace UserInterface.Depo
             // LblDepodanBildirimePersonel
             // 
             this.LblDepodanBildirimePersonel.AutoSize = true;
-            this.LblDepodanBildirimePersonel.Location = new System.Drawing.Point(544, 100);
+            this.LblDepodanBildirimePersonel.Location = new System.Drawing.Point(544, 110);
             this.LblDepodanBildirimePersonel.Name = "LblDepodanBildirimePersonel";
             this.LblDepodanBildirimePersonel.Size = new System.Drawing.Size(21, 15);
             this.LblDepodanBildirimePersonel.TabIndex = 154;
@@ -1136,27 +1136,18 @@ namespace UserInterface.Depo
             // 
             this.TxtDepodanBildirimeAbfNo.Location = new System.Drawing.Point(544, 70);
             this.TxtDepodanBildirimeAbfNo.Name = "TxtDepodanBildirimeAbfNo";
-            this.TxtDepodanBildirimeAbfNo.Size = new System.Drawing.Size(109, 21);
+            this.TxtDepodanBildirimeAbfNo.Size = new System.Drawing.Size(224, 21);
             this.TxtDepodanBildirimeAbfNo.TabIndex = 153;
             this.TxtDepodanBildirimeAbfNo.TextChanged += new System.EventHandler(this.TxtDepodanBildirimeAbfNo_TextChanged);
             // 
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(413, 100);
+            this.label22.Location = new System.Drawing.Point(413, 110);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(125, 15);
             this.label22.TabIndex = 152;
             this.label22.Text = "Talep Eden Personel:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(455, 73);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(83, 15);
-            this.label20.TabIndex = 151;
-            this.label20.Text = "ABF Form No:";
             // 
             // CmbDepodanBildirimeMalzemeYeri
             // 
@@ -1239,6 +1230,15 @@ namespace UserInterface.Depo
             this.DtgSilControl.TabIndex = 141;
             this.DtgSilControl.TimeFilter = false;
             this.DtgSilControl.Visible = false;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(450, 66);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(88, 30);
+            this.label20.TabIndex = 155;
+            this.label20.Text = "Arıza Form No/\r\nİç Sipariş No:";
             // 
             // FrmStokGirisCikis
             // 
@@ -1362,7 +1362,6 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Label LblDepodanBildirimePersonel;
         private System.Windows.Forms.TextBox TxtDepodanBildirimeAbfNo;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox CmbDepodanBildirimeMalzemeYeri;
@@ -1407,5 +1406,6 @@ namespace UserInterface.Depo
         private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.Label label20;
     }
 }

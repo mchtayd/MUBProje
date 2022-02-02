@@ -126,7 +126,7 @@ namespace UserInterface.STS
                 ToplamSayilar();
                 return;
             }
-            treeView2.Nodes["BUTCE"].Remove();
+            //treeView2.Nodes["BUTCE"].Remove();
             //string izin_idleri = "59;60;61";
             string[] array = izinIdleri.Split(';');
             #region Baslıklar
@@ -504,9 +504,9 @@ namespace UserInterface.STS
                 if (!array.Contains("77"))
                 {
                     treeView2.Nodes["IDARI ISLER"].Nodes["II VERI GIRIS"].Remove();
-                    atla = 9;
+                    atla = 10;
                 }
-                if (atla != 9)
+                if (atla != 10)
                 {
                     if (!array.Contains("78"))
                     {
@@ -653,9 +653,9 @@ namespace UserInterface.STS
                 if (!array.Contains("107"))
                 {
                     treeView2.Nodes["IDARI ISLER"].Nodes["II VERI IZLEME"].Remove();
-                    atla = 10;
+                    atla = 11;
                 }
-                if (atla != 10)
+                if (atla != 11)
                 {
                     if (!array.Contains("108"))
                     {
@@ -807,9 +807,9 @@ namespace UserInterface.STS
                 if (!array.Contains("138"))
                 {
                     treeView2.Nodes["EGITIM"].Nodes["E VERI GIRIS"].Remove();
-                    atla = 11;
+                    atla = 12;
                 }
-                if (atla != 11)
+                if (atla != 12)
                 {
                     if (!array.Contains("139"))
                     {
@@ -935,9 +935,9 @@ namespace UserInterface.STS
                 if (!array.Contains("161"))
                 {
                     treeView2.Nodes["YERLESKELER"].Nodes["YK VERI IZLEME"].Remove();
-                    atla = 15;
+                    atla = 17;
                 }
-                if (atla != 15)
+                if (atla != 17)
                 {
                     if (!array.Contains("162"))
                     {
@@ -951,9 +951,9 @@ namespace UserInterface.STS
                 if (!array.Contains("164"))
                 {
                     treeView2.Nodes["YERLESKELER"].Nodes["YK VERI GIRIS"].Remove();
-                    atla = 16;
+                    atla = 18;
                 }
-                if (atla != 16)
+                if (atla != 18)
                 {
                     if (!array.Contains("165"))
                     {
@@ -965,38 +965,54 @@ namespace UserInterface.STS
                     }
                 }
             }
-            /*if (!array.Contains("159"))
+            if (!array.Contains("167"))
             {
                 treeView2.Nodes["BUTCE"].Remove();
                 control = 11;
             }
             if (control != 11)
             {
-                if (!array.Contains("160"))
+                if (!array.Contains("168"))
                 {
                     treeView2.Nodes["BUTCE"].Nodes["BT VERI IZLEME"].Remove();
-                    atla = 15;
+                    atla = 19;
                 }
-                if (atla != 15)
+                if (atla != 19)
                 {
-                    if (!array.Contains("161"))
+                    if (!array.Contains("169"))
                     {
                         treeView2.Nodes["BUTCE"].Nodes["BT VERI IZLEME"].Nodes["Butce Izleme"].Remove();
                     }
-                }
-                if (!array.Contains("162"))
-                {
-                    treeView2.Nodes["BUTCE"].Nodes["YK VERI GIRIS"].Remove();
-                    atla = 16;
-                }
-                if (atla != 16)
-                {
-                    if (!array.Contains("163"))
+                    if (!array.Contains("170"))
                     {
-                        treeView2.Nodes["BUTCE"].Nodes["YK VERI GIRIS"].Nodes["ButceKayit"].Remove();
+                        treeView2.Nodes["BUTCE"].Nodes["BT VERI IZLEME"].Nodes["SiparisIzleme"].Remove();
+                    }
+                    if (!array.Contains("171"))
+                    {
+                        treeView2.Nodes["BUTCE"].Nodes["BT VERI IZLEME"].Nodes["ProjeKasaIzleme"].Remove();
                     }
                 }
-            }*/
+                if (!array.Contains("172"))
+                {
+                    treeView2.Nodes["BUTCE"].Nodes["BT VERI GIRIS"].Remove();
+                    atla = 20;
+                }
+                if (atla != 20)
+                {
+                    if (!array.Contains("173"))
+                    {
+                        treeView2.Nodes["BUTCE"].Nodes["BT VERI GIRIS"].Nodes["ButceKayit"].Remove();
+                    }
+                    if (!array.Contains("174"))
+                    {
+                        treeView2.Nodes["BUTCE"].Nodes["BT VERI GIRIS"].Nodes["SiparisOlustur"].Remove();
+                    }
+                    if (!array.Contains("175"))
+                    {
+                        treeView2.Nodes["BUTCE"].Nodes["BT VERI GIRIS"].Nodes["ButceKasa"].Remove();
+                    }
+                }
+            }
 
             if (array.Contains("50"))
             {
@@ -1584,7 +1600,23 @@ namespace UserInterface.STS
                     var form = (FrmIscilikIzleme)Application.OpenForms["FrmIscilikIzleme"];
                     if (form != null)
                     {
-                        form.Yenileneckler();
+                        form.Yenileneckler(); 
+                    }
+                }
+                if (baslik == "DEVAM EDEN ARIZALAR (ATÖLYE)")
+                {
+                    var form = (FrmBOAtolyeDevamEdenler)Application.OpenForms["FrmBOAtolyeDevamEdenler"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
+                    }
+                }
+                if (baslik == "ARAÇ KM İZLEME")
+                {
+                    var form = (FrmAracKmIzleme)Application.OpenForms["FrmAracKmIzleme"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
                     }
                 }
             }
@@ -1753,7 +1785,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Veri Kayit Atolye")
             {
                 FrmBOAtolye Go = new FrmBOAtolye();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -1808,6 +1840,27 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageBODevamEdenler", "DEVAM EDEN ARIZALAR (ATÖLYE)", Go);
+                Go.Show();
+            }
+
+            if (e.Node.Name == "Veri Kayit Atolye Kapatma")
+            {
+                FrmBOAtolyeKapatma Go = new FrmBOAtolyeKapatma();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageAtolyeKapatma", "ARIZA KAPATMA (ATÖLYE)", Go);
+                Go.Show();
+            }
+            if (e.Node.Name == "Tamamlana Ariza Atolye")
+            {
+                FrmBOAtolyeTamamlananlar Go = new FrmBOAtolyeTamamlananlar();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageBOTamamlananlar", "TAMAMLANAN ARIZALAR (ATÖLYE)", Go);
                 Go.Show();
             }
 
@@ -2122,7 +2175,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Sehir Ici Gorev")
             {
                 FrmSehirIciGorevIzleme Go = new FrmSehirIciGorevIzleme();
-
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2332,6 +2385,16 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageAracKm", "ARAÇ KM", Go);
+                Go.Show();
+            }
+            if (e.Node.Name == "Arac Km Izleme")
+            {
+                FrmAracKmIzleme Go = new FrmAracKmIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageAracKmIzleme", "ARAÇ KM İZLEME", Go);
                 Go.Show();
             }
 
@@ -2560,12 +2623,34 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
+            if (e.Node.Name == "ButceKasa")
+            {
+                FrmKasa Go = new FrmKasa();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageKasa", "PROJE KASA", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Name == "ProjeKasaIzleme")
+            {
+                FrmKasaIzlemecs Go = new FrmKasaIzlemecs();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageKasaIzleme", "PROJE KASA İZLEME", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
             #endregion
         }
 
         private void gÖREVLERİMToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
             frmGorevlerim.ShowDialog();
         }
 
@@ -2585,6 +2670,12 @@ namespace UserInterface.STS
         {
             FrmIsAkisiPersonel frmIsAkisiPersonel = new FrmIsAkisiPersonel();
             frmIsAkisiPersonel.ShowDialog();
+        }
+
+        private void BtnDonemDuzelt_Click(object sender, EventArgs e)
+        {
+            FrmDonemDuzlet frmDonemDuzlet = new FrmDonemDuzlet();
+            frmDonemDuzlet.ShowDialog();
         }
 
         private void FrmAnaSayfa_SizeChanged(object sender, EventArgs e)

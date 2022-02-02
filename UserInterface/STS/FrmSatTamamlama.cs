@@ -1,5 +1,6 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.Butce;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
@@ -42,6 +43,7 @@ namespace UserInterface.STS
         SatTalebiDoldurManager satTalebiDoldurManager;
         TedarikciFirmaManager tedarikciFirmaManager;
         TeklifFirmalarManager teklifFirmalarManager;
+        KasaDurumManager kasaDurumManager;
 
         List<string> supplierNames;
         public object[] infos;
@@ -459,6 +461,7 @@ namespace UserInterface.STS
             satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
             tedarikciFirmaManager = TedarikciFirmaManager.GetInstance();
             teklifFirmalarManager = TeklifFirmalarManager.GetInstance();
+            kasaDurumManager = KasaDurumManager.GetInstance();
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -834,6 +837,7 @@ namespace UserInterface.STS
             satOlusturmaTuru = DtgSatTamamlama.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             proje = DtgSatTamamlama.CurrentRow.Cells["Proje"].Value.ToString();
             satinAlinanFirma = DtgSatTamamlama.CurrentRow.Cells["SatinAlinanFirma"].Value.ToString();
+
 
             TedarikciFirmaName();
             WebBrowser();
@@ -1427,6 +1431,19 @@ namespace UserInterface.STS
                     string islmeyapan = infos[1].ToString();
                     SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanislem, islmeyapan, DateTime.Now);
                     satIslemAdimlarimanager.Add(satIslem);
+
+                    if (satbirim== "PRJ.DİR.SATIN ALMA")
+                    {
+                        string mesaj2 = kasaDurumManager.UpdateGider(TxtGenelTop.Text.ConDouble());
+                        if (mesaj2 != "OK")
+                        {
+                            MessageBox.Show(mesaj2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    
+
+
                     //CreateWord();
                     MessageBox.Show(satno + " Numaralı SAT İşlemi Başarıyla Tamamlanmıştır.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                     DataDisplay();

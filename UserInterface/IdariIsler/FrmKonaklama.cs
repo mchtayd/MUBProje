@@ -244,12 +244,28 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show("Lütfen Öncelikle Görev Form No Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                if (CmbDonem.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Ay Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (CmbDonemYil.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (TxtGerekce.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Gerekçe Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 IsAkisNo();
                 CreateDirectory();
                 double gunlukucret = TxtGunlukUcret.Text.ConDouble();
                 double toplamucret = TxtGenelTop.Text.ConDouble();
                 Konaklama konaklama = new Konaklama(LblIsAkisNo.Text.ConInt(), CmbTalepTuru.Text, TxtGorevFormNo.Text, CmbButceKodu.Text, CmbSiparisNo.Text, CmbAdSoyad.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtTc.Text, TxtHes.Text, TxtMail.Text,
-                    TxtKisaKod.Text, CmbIl.Text, TxtOtelinAdi.Text, gunlukucret, toplamucret, DtGirisTarihi.Value, DtCikisTarihi.Value, TxtSure.Text, dosya,satNo);
+                    TxtKisaKod.Text, CmbIl.Text, TxtOtelinAdi.Text, gunlukucret, toplamucret, DtGirisTarihi.Value, DtCikisTarihi.Value, TxtSure.Text, dosya,satNo, donem, TxtGerekce.Text);
                 string mesaj = konaklamaManager.Add(konaklama);
                 if (mesaj != "OK")
                 {
@@ -345,6 +361,8 @@ namespace UserInterface.IdariIsler
             string yapilanislem = LblIsAkisNo.Text + " Nolu Konaklama Kaydı İçin SAT Oluşturuldu.";
             SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
             satIslemAdimlariManager.Add(satIslemAdimlari);
+
+
         }
         void Harcama()
         {
@@ -454,7 +472,7 @@ namespace UserInterface.IdariIsler
             CmbTalepTuru.Text = ""; TxtGorevFormNo.Clear(); CmbButceKodu.Text = ""; CmbSiparisNo.Text = ""; CmbAdSoyad.Text = "";
             TxtGorevi.Clear(); TxtMasrafyeriNo.Clear(); TxtMasrafYeri.Clear(); TxtTc.Clear(); TxtHes.Clear(); TxtMail.Clear();
             TxtKisaKod.Clear(); CmbIl.Text = ""; TxtOtelinAdi.Text = ""; TxtSure.Clear(); TxtGunlukUcret.Clear(); TxtGenelTop.Clear();
-            TxtGorevi.Clear();
+            TxtGorevi.Clear(); CmbDonem.SelectedIndex = -1; CmbDonemYil.SelectedIndex = -1; TxtGerekce.Clear();
         }
         void CreateDirectory()
         {
@@ -564,6 +582,8 @@ namespace UserInterface.IdariIsler
             TxtGenelTopGun.Text = konaklama.Toplamucret.ToString();
             dosyaguncelle = konaklama.Dosyayolu;
             satNo = konaklama.SatNo;
+            donem = konaklama.Donem;
+            TxtGerekceG.Text = konaklama.Gerekce;
         }
         string dosyaguncelle;
         private void TxtGunlukUcret_KeyPress(object sender, KeyPressEventArgs e)
@@ -620,7 +640,24 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                Konaklama konaklama = new Konaklama(TxtIsAkisNo.Text.ConInt(), CmbTalepTuruGun.Text, TxtFormNoGun.Text, CmbButceKoduGun.Text, CmbSiparisNoGun.Text, CmbAdSoyadGun.Text, TxtGorevıGun.Text, TxtMasrafYeriNoGun.Text, TxtMasrafYeriGun.Text, TxtTcGun.Text, TxtHesGun.Text, TxtEmailGun.Text, TxtKisaKodGun.Text, CmbOtelSehirGun.Text, TxtOtelAdGun.Text, TxtGunlukUcretGun.Text.ConDouble(), TxtGenelTopGun.Text.ConDouble(), DtGirisTarihiGun.Value, DtCikisTarihiGun.Value, TxtKonaklamaSuresiGun.Text, dosyaguncelle, satNo);
+                if (CmbDonemG.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Ay Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (CmbDonemYilG.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (TxtGerekce.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Gerekçe Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string donem = CmbDonemG.Text + " " + CmbDonemYilG.Text;
+
+                Konaklama konaklama = new Konaklama(TxtIsAkisNo.Text.ConInt(), CmbTalepTuruGun.Text, TxtFormNoGun.Text, CmbButceKoduGun.Text, CmbSiparisNoGun.Text, CmbAdSoyadGun.Text, TxtGorevıGun.Text, TxtMasrafYeriNoGun.Text, TxtMasrafYeriGun.Text, TxtTcGun.Text, TxtHesGun.Text, TxtEmailGun.Text, TxtKisaKodGun.Text, CmbOtelSehirGun.Text, TxtOtelAdGun.Text, TxtGunlukUcretGun.Text.ConDouble(), TxtGenelTopGun.Text.ConDouble(), DtGirisTarihiGun.Value, DtCikisTarihiGun.Value, TxtKonaklamaSuresiGun.Text, dosyaguncelle, satNo, donem, TxtGerekceG.Text);
                 string mesaj = konaklamaManager.Update(konaklama, guncelleid);
                 if (mesaj != "OK")
                 {
@@ -690,7 +727,7 @@ namespace UserInterface.IdariIsler
         void TemizleGuncelle()
         {
             TxtFormNoGun.Clear(); CmbTalepTuruGun.Text = ""; CmbButceKoduGun.Text = ""; CmbSiparisNoGun.Text = ""; CmbAdSoyadGun.Text = ""; TxtGorevıGun.Clear();
-            TxtMasrafYeriNoGun.Clear(); TxtMasrafYeriGun.Clear(); TxtTcGun.Clear(); TxtHesGun.Clear(); TxtEmailGun.Clear(); TxtKisaKodGun.Clear(); CmbOtelSehirGun.Text = ""; TxtOtelAdGun.Text = ""; TxtGunlukUcretGun.Clear(); TxtKonaklamaSuresiGun.Clear(); TxtGenelTopGun.Clear(); TxtGorevıGun.Clear();
+            TxtMasrafYeriNoGun.Clear(); TxtMasrafYeriGun.Clear(); TxtTcGun.Clear(); TxtHesGun.Clear(); TxtEmailGun.Clear(); TxtKisaKodGun.Clear(); CmbOtelSehirGun.Text = ""; TxtOtelAdGun.Text = ""; TxtGunlukUcretGun.Clear(); TxtKonaklamaSuresiGun.Clear(); TxtGenelTopGun.Clear(); TxtGorevıGun.Clear(); TxtGerekceG.Clear(); CmbDonemG.SelectedIndex = -1; CmbDonemYilG.SelectedIndex = -1;
         }
         private void BtnTemizleGun_Click(object sender, EventArgs e)
         {
@@ -730,6 +767,7 @@ namespace UserInterface.IdariIsler
             if (dialogResult == DialogResult.Yes)
             {
                 SatOlustur();
+                konaklamaManager.SatDurumuGuncelle(onayid);
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 return;
             }

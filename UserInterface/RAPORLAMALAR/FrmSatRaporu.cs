@@ -59,22 +59,24 @@ namespace UserInterface.RAPORLAMALAR
                 MessageBox.Show("Lütfen Öncelikle FİRMA BİLGİSİ Kısmını Doldurunuz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (CmbDonem.Text == "")
+            if (CmbDonem.Text == "" || CmbDonemYil.Text=="")
             {
                 MessageBox.Show("Lütfen Öncelikle DÖNEM Kısmını Doldurunuz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+            string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
             ToplamlarAselsan();
             ToplamlarBasaran();
-            donem = CmbDonem.Text;
+            //donem = CmbDonem.Text;
             DtgRaporList.DataSource = null;
             if (CmbRaporTuru.Text == "RAPOR")
             {
 
                 raporTuru = "RAPOR";
                 string faturaFirma = CmbFaturaEdilecekFirma.Text;
-                satRapors = satRaporManager.Rapor(raporTuru, CmbDonem.Text);
+
+                satRapors = satRaporManager.Rapor(raporTuru, donem);
                 dataBinder.DataSource = satRapors.ToDataTable();
                 DtgRaporList.DataSource = dataBinder;
                 DataDisplayAselsan();

@@ -90,7 +90,7 @@ namespace UserInterface.IdariIsler
             start3 = false;
             start4 = false;
             //UstAmirMail();
-            if (infos[0].ConInt()!=30)
+            /*if (infos[0].ConInt()!=30)
             {
                 if (infos[0].ConInt() != 84)
                 {
@@ -102,7 +102,7 @@ namespace UserInterface.IdariIsler
                     return;
                 }
                 return;
-            }
+            }*/
         }
         public void YenilenecekVeri()
         {
@@ -147,6 +147,7 @@ namespace UserInterface.IdariIsler
             LblUnvani.Text = infos[10].ToString();
             LblMasrafYeriNo.Text = infos[4].ToString();
             LblMasrafYeri.Text = infos[2].ToString();
+            id = infos[0].ConInt();
         }
         void Personeller2()
         {
@@ -184,6 +185,18 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["Gecensure"].Visible = false;
             DtgList.Columns["Sayfa"].Visible = false;
             TxtTop.Text = DtgList.RowCount.ToString();
+
+            DtgList.Columns["Isakisno"].DisplayIndex = 0;
+            DtgList.Columns["Adsoyad"].DisplayIndex = 1;
+            DtgList.Columns["Siparisno"].DisplayIndex = 2;
+            DtgList.Columns["Unvani"].DisplayIndex = 3;
+            DtgList.Columns["Masrafyerno"].DisplayIndex = 4;
+            DtgList.Columns["Masrafyeri"].DisplayIndex = 5;
+            DtgList.Columns["Proje"].DisplayIndex = 6;
+            DtgList.Columns["Baslamatarihi"].DisplayIndex = 7;
+            DtgList.Columns["Gidilecekyer"].DisplayIndex = 8;
+            DtgList.Columns["Gorevinkonusu"].DisplayIndex = 9;
+            DtgList.Columns["Islemadimi"].DisplayIndex = 10;
         }
         void DataDisplayAmir()
         {
@@ -208,6 +221,19 @@ namespace UserInterface.IdariIsler
             DtgListAmir.Columns["Sayfa"].Visible = false;
             DtgListAmir.Columns["Gecensure"].Visible = false;
             TxtTopAmir.Text = DtgListAmir.RowCount.ToString();
+
+
+            DtgListAmir.Columns["Isakisno"].DisplayIndex = 0;
+            DtgListAmir.Columns["Adsoyad"].DisplayIndex = 1;
+            DtgListAmir.Columns["Siparisno"].DisplayIndex = 2;
+            DtgListAmir.Columns["Unvani"].DisplayIndex = 3;
+            DtgListAmir.Columns["Masrafyerno"].DisplayIndex = 4;
+            DtgListAmir.Columns["Masrafyeri"].DisplayIndex = 5;
+            DtgListAmir.Columns["Proje"].DisplayIndex = 6;
+            DtgListAmir.Columns["Baslamatarihi"].DisplayIndex = 7;
+            DtgListAmir.Columns["Gidilecekyer"].DisplayIndex = 8;
+            DtgListAmir.Columns["Gorevinkonusu"].DisplayIndex = 9;
+            DtgListAmir.Columns["Islemadimi"].DisplayIndex = 10;
         }
         /*void ButceKoduKalemi()
         {
@@ -697,12 +723,19 @@ namespace UserInterface.IdariIsler
 
         private void BtnSureHesapla_Click(object sender, EventArgs e)
         {
-            DateTime bTarih = DtBasTarihiTamamlama.Value;
+
+            DateTime baslamaTarihiSaati = new DateTime(DtBasTarihiTamamlama.Value.Year, DtBasTarihiTamamlama.Value.Month, DtBasTarihiTamamlama.Value.Day, DtBasSaatiTamamlama.Value.Hour, DtBasSaatiTamamlama.Value.Minute, DtBasSaatiTamamlama.Value.Second);
+
+            DateTime bitisTarihiSaati = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
+
+
+            /*DateTime bTarih = DtBasTarihiTamamlama.Value;
             DateTime kTarih = DtBitTarihi.Value;
             DateTime bSaat = DtBasSaatiTamamlama.Value;
-            DateTime kSaat = DtBitSaati.Value;
-            TimeSpan SonucGun = kTarih - bTarih;
-            TimeSpan SonucSaat = kSaat - bSaat;
+            DateTime kSaat = DtBitSaati.Value;*/
+
+            TimeSpan SonucGun = bitisTarihiSaati - baslamaTarihiSaati;
+            TimeSpan SonucSaat = bitisTarihiSaati - baslamaTarihiSaati;
             int gun = SonucGun.TotalDays.ConInt();
             int saat = SonucSaat.TotalHours.ConInt();
 

@@ -31,8 +31,6 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                     new SqlParameter("@takilanSeriNo",entity.TakilanSeriNo),
                     new SqlParameter("@miktar",entity.Miktar),
                     new SqlParameter("@birim",entity.Birim),
-                    new SqlParameter("@sayac",entity.Sayac),
-                    new SqlParameter("@revizyon",entity.Revizyon),
                     new SqlParameter("@malzemeyeYapilanIslem",entity.MalzemeyeYapilanIslem),
                     new SqlParameter("@siparisNo",entity.SiparisNo));
 
@@ -71,8 +69,6 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["TAKILAN_SERI_NO"].ToString(),
                         dataReader["MIKTAR"].ConDouble(),
                         dataReader["BIRIM"].ToString(),
-                        dataReader["SAYAC"].ToString(),
-                        dataReader["REVIZYON"].ToString(),
                         dataReader["MALZEMEYE_YAPILAN_ISLEM"].ToString(),
                         dataReader["SIPARIS_NO"].ToString()));
                 }
@@ -80,7 +76,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 return atolyeAltMalzemes;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<AtolyeAltMalzeme>();
             }
@@ -97,8 +93,6 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                     new SqlParameter("@takilanSeriNo", entity.TakilanSeriNo),
                     new SqlParameter("@miktar", entity.Miktar),
                     new SqlParameter("@birim", entity.Birim),
-                    new SqlParameter("@sayac", entity.Sayac),
-                    new SqlParameter("@revizyon", entity.Revizyon),
                     new SqlParameter("@malzemeyeYapilanIslem", entity.MalzemeyeYapilanIslem),
                     new SqlParameter("@siparisNo", entity.SiparisNo));
 

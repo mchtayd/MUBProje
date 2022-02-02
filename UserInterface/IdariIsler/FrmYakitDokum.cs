@@ -492,6 +492,8 @@ namespace UserInterface.IdariIsler
 
             DtgTTList.DataSource = null;
             DtgTTList.DataSource = table;
+
+
            
             /*
             IXLWorkbook workbook = new XLWorkbook(TxtDosyaYolu.Text);
@@ -568,13 +570,15 @@ namespace UserInterface.IdariIsler
 
                     AracZimmeti aracZimmeti = aracZimmetiManager.Get(item.Cells[2].Value.ToString());
                     string aracSiparisNo = "";
+                    string zimetliPersonel = "";
                     if (aracZimmeti != null)
                     {
                         aracSiparisNo = aracZimmeti.SiparisNo;
+                        zimetliPersonel = aracZimmeti.PersonelAd;
                     }
 
                     YakitDokum yakitDokum = new YakitDokum(LblIsAkisNoTasit.Text.ConInt(), "PETROL OFİSİ", donem, item.Cells[7].Value.ConTime(), item.Cells[2].Value.ToString(), aracSiparisNo,
-                        item.Cells[5].Value.ConDouble(), item.Cells[6].Value.ConDouble(), dosyaYolu);
+                        item.Cells[5].Value.ConDouble(), item.Cells[6].Value.ConDouble(), dosyaYolu, zimetliPersonel);
                     
                     string mesaj = yakitDokumManager.AddTasitTanima(yakitDokum);
                     if (mesaj!="OK")

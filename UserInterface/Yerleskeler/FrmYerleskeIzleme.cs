@@ -75,9 +75,6 @@ namespace UserInterface.Yerleskeler
             DtgAbonelikler.Columns["DosyaYolu"].Visible = false;
             DtgAbonelikler.Columns["SiparisNo"].Visible = false;
 
-
-            
-
         }
         void DataDisplayAbonelikBilgi()
         {

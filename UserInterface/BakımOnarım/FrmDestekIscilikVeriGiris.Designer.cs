@@ -30,8 +30,8 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDestekIscilikVeriGiris));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -88,6 +88,13 @@ namespace UserInterface.BakımOnarım
             this.GrbDestekIscilik = new System.Windows.Forms.GroupBox();
             this.BtnKaydetDestekIscilik = new System.Windows.Forms.Button();
             this.GrbPerformans = new System.Windows.Forms.GroupBox();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.BtnBul = new System.Windows.Forms.Button();
+            this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
+            this.LblIsAkisNo = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.CmbPersonelPerformans = new System.Windows.Forms.ComboBox();
             this.BtnKaydetPerformans = new System.Windows.Forms.Button();
             this.TxtSonuc = new System.Windows.Forms.RichTextBox();
@@ -111,13 +118,6 @@ namespace UserInterface.BakımOnarım
             this.label25 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
-            this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.LblIsAkisNo = new System.Windows.Forms.Label();
-            this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
-            this.BtnBul = new System.Windows.Forms.Button();
-            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.GrbIscilik.SuspendLayout();
             this.GrbArac.SuspendLayout();
@@ -195,7 +195,7 @@ namespace UserInterface.BakımOnarım
             this.GrbIscilik.Controls.Add(this.label4);
             this.GrbIscilik.Controls.Add(this.TxtAbfNo);
             this.GrbIscilik.Controls.Add(this.label3);
-            this.GrbIscilik.Location = new System.Drawing.Point(776, 659);
+            this.GrbIscilik.Location = new System.Drawing.Point(382, 612);
             this.GrbIscilik.Name = "GrbIscilik";
             this.GrbIscilik.Size = new System.Drawing.Size(440, 174);
             this.GrbIscilik.TabIndex = 319;
@@ -411,11 +411,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Kaldir
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.Red;
-            this.Kaldir.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Kaldir.DefaultCellStyle = dataGridViewCellStyle1;
             this.Kaldir.HeaderText = "KALDIR";
             this.Kaldir.MinimumWidth = 22;
             this.Kaldir.Name = "Kaldir";
@@ -679,11 +679,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -794,6 +794,80 @@ namespace UserInterface.BakımOnarım
             this.GrbPerformans.TabStop = false;
             this.GrbPerformans.Text = "PERFORMANS";
             this.GrbPerformans.Visible = false;
+            // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Location = new System.Drawing.Point(145, 377);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(127, 42);
+            this.BtnGuncelle.TabIndex = 361;
+            this.BtnGuncelle.Text = "GÜNCELLE";
+            this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Visible = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
+            // 
+            // BtnBul
+            // 
+            this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnBul.Location = new System.Drawing.Point(288, 19);
+            this.BtnBul.Name = "BtnBul";
+            this.BtnBul.Size = new System.Drawing.Size(70, 27);
+            this.BtnBul.TabIndex = 360;
+            this.BtnBul.Text = "Bul";
+            this.BtnBul.UseVisualStyleBackColor = true;
+            this.BtnBul.Visible = false;
+            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
+            // 
+            // TxtIsAkisNo
+            // 
+            this.TxtIsAkisNo.Location = new System.Drawing.Point(145, 22);
+            this.TxtIsAkisNo.Name = "TxtIsAkisNo";
+            this.TxtIsAkisNo.Size = new System.Drawing.Size(137, 20);
+            this.TxtIsAkisNo.TabIndex = 359;
+            this.TxtIsAkisNo.Visible = false;
+            // 
+            // LblIsAkisNo
+            // 
+            this.LblIsAkisNo.AutoSize = true;
+            this.LblIsAkisNo.Location = new System.Drawing.Point(145, 25);
+            this.LblIsAkisNo.Name = "LblIsAkisNo";
+            this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNo.TabIndex = 358;
+            this.LblIsAkisNo.Text = "00";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(73, 25);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(66, 13);
+            this.label11.TabIndex = 357;
+            this.label11.Text = "İŞ AKIŞ NO:";
+            // 
+            // CmbIslemTuru
+            // 
+            this.CmbIslemTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbIslemTuru.FormattingEnabled = true;
+            this.CmbIslemTuru.Items.AddRange(new object[] {
+            "MEVCUT KAYIT",
+            "MEVCUT KAYIT GÜNCELLE"});
+            this.CmbIslemTuru.Location = new System.Drawing.Point(498, 49);
+            this.CmbIslemTuru.Name = "CmbIslemTuru";
+            this.CmbIslemTuru.Size = new System.Drawing.Size(179, 21);
+            this.CmbIslemTuru.TabIndex = 356;
+            this.CmbIslemTuru.SelectedIndexChanged += new System.EventHandler(this.CmbIslemTuru_SelectedIndexChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(416, 52);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(76, 13);
+            this.label10.TabIndex = 355;
+            this.label10.Text = "İŞLEM TÜRÜ:";
             // 
             // CmbPersonelPerformans
             // 
@@ -1000,80 +1074,6 @@ namespace UserInterface.BakımOnarım
             this.label24.Size = new System.Drawing.Size(68, 13);
             this.label24.TabIndex = 331;
             this.label24.Text = "PERSONEL:";
-            // 
-            // CmbIslemTuru
-            // 
-            this.CmbIslemTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbIslemTuru.FormattingEnabled = true;
-            this.CmbIslemTuru.Items.AddRange(new object[] {
-            "MEVCUT KAYIT",
-            "MEVCUT KAYIT GÜNCELLE"});
-            this.CmbIslemTuru.Location = new System.Drawing.Point(498, 49);
-            this.CmbIslemTuru.Name = "CmbIslemTuru";
-            this.CmbIslemTuru.Size = new System.Drawing.Size(179, 21);
-            this.CmbIslemTuru.TabIndex = 356;
-            this.CmbIslemTuru.SelectedIndexChanged += new System.EventHandler(this.CmbIslemTuru_SelectedIndexChanged);
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(416, 52);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(76, 13);
-            this.label10.TabIndex = 355;
-            this.label10.Text = "İŞLEM TÜRÜ:";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(73, 25);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(66, 13);
-            this.label11.TabIndex = 357;
-            this.label11.Text = "İŞ AKIŞ NO:";
-            // 
-            // LblIsAkisNo
-            // 
-            this.LblIsAkisNo.AutoSize = true;
-            this.LblIsAkisNo.Location = new System.Drawing.Point(145, 25);
-            this.LblIsAkisNo.Name = "LblIsAkisNo";
-            this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
-            this.LblIsAkisNo.TabIndex = 358;
-            this.LblIsAkisNo.Text = "00";
-            // 
-            // TxtIsAkisNo
-            // 
-            this.TxtIsAkisNo.Location = new System.Drawing.Point(145, 22);
-            this.TxtIsAkisNo.Name = "TxtIsAkisNo";
-            this.TxtIsAkisNo.Size = new System.Drawing.Size(137, 20);
-            this.TxtIsAkisNo.TabIndex = 359;
-            this.TxtIsAkisNo.Visible = false;
-            // 
-            // BtnBul
-            // 
-            this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBul.Location = new System.Drawing.Point(288, 19);
-            this.BtnBul.Name = "BtnBul";
-            this.BtnBul.Size = new System.Drawing.Size(70, 27);
-            this.BtnBul.TabIndex = 360;
-            this.BtnBul.Text = "Bul";
-            this.BtnBul.UseVisualStyleBackColor = true;
-            this.BtnBul.Visible = false;
-            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
-            // 
-            // BtnGuncelle
-            // 
-            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(145, 377);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(127, 42);
-            this.BtnGuncelle.TabIndex = 361;
-            this.BtnGuncelle.Text = "GÜNCELLE";
-            this.BtnGuncelle.UseVisualStyleBackColor = true;
-            this.BtnGuncelle.Visible = false;
-            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // FrmDestekIscilikVeriGiris
             // 

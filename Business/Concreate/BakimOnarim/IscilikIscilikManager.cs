@@ -67,11 +67,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public List<IscilikIscilik> GetList()
+        public List<IscilikIscilik> GetList(string adSoyad)
         {
             try
             {
-                return iscilikDal.GetList();
+                return iscilikDal.GetList(adSoyad);
             }
             catch (Exception)
             {
@@ -92,7 +92,7 @@ namespace Business.Concreate.BakimOnarim
         }
         string Complete(IscilikIscilik ıscilikIscilik)
         {
-            if (string.IsNullOrEmpty(ıscilikIscilik.AbfNo))
+            if (string.IsNullOrEmpty(ıscilikIscilik.AbfSiparis))
             {
                 return "Lütfen ABF NO Bilgisini doldurunuz.";
             }

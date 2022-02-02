@@ -48,8 +48,18 @@ namespace Business.Concreate.BakimOnarimAtolye
             }
             catch (Exception)
             {
-
-                throw;
+                return new List<AtolyeMalzeme>();
+            }
+        }
+        public List<AtolyeMalzeme> AtolyeBakimOnarimMalzeme()
+        {
+            try
+            {
+                return atolyeMalzemeDal.AtolyeBakimOnarimMalzeme();
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
 

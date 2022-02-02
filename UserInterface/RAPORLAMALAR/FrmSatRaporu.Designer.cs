@@ -30,7 +30,7 @@ namespace UserInterface.RAPORLAMALAR
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbRaporTuru = new System.Windows.Forms.ComboBox();
@@ -52,6 +52,7 @@ namespace UserInterface.RAPORLAMALAR
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgRaporList)).BeginInit();
@@ -118,8 +119,8 @@ namespace UserInterface.RAPORLAMALAR
             // 
             this.DtgRaporList.AllowUserToAddRows = false;
             this.DtgRaporList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgRaporList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgRaporList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgRaporList.AutoGenerateContextFilters = true;
             this.DtgRaporList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgRaporList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -185,7 +186,7 @@ namespace UserInterface.RAPORLAMALAR
             "EKİM",
             "KASIM",
             "ARALIK"});
-            this.CmbDonem.Location = new System.Drawing.Point(347, 43);
+            this.CmbDonem.Location = new System.Drawing.Point(381, 43);
             this.CmbDonem.Name = "CmbDonem";
             this.CmbDonem.Size = new System.Drawing.Size(126, 21);
             this.CmbDonem.TabIndex = 334;
@@ -195,9 +196,9 @@ namespace UserInterface.RAPORLAMALAR
             this.label52.AutoSize = true;
             this.label52.Location = new System.Drawing.Point(291, 47);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(50, 13);
+            this.label52.Size = new System.Drawing.Size(84, 13);
             this.label52.TabIndex = 333;
-            this.label52.Text = "DÖNEM:";
+            this.label52.Text = "DÖNEM(Ay/Yıl):";
             // 
             // ToplamTutar
             // 
@@ -234,7 +235,7 @@ namespace UserInterface.RAPORLAMALAR
             // LbFaturaEdilecekFirma
             // 
             this.LbFaturaEdilecekFirma.AutoSize = true;
-            this.LbFaturaEdilecekFirma.Location = new System.Drawing.Point(506, 47);
+            this.LbFaturaEdilecekFirma.Location = new System.Drawing.Point(664, 47);
             this.LbFaturaEdilecekFirma.Name = "LbFaturaEdilecekFirma";
             this.LbFaturaEdilecekFirma.Size = new System.Drawing.Size(144, 13);
             this.LbFaturaEdilecekFirma.TabIndex = 338;
@@ -249,7 +250,7 @@ namespace UserInterface.RAPORLAMALAR
             "ASELSAN AŞ. UGES İÇ GÜV.PROG.DİR.",
             "ASELSAN AŞ. UGES İÇ GÜV.PROG.MDL.",
             "BAŞARAN İLERİ TEKNOLOJİ"});
-            this.CmbFaturaEdilecekFirma.Location = new System.Drawing.Point(656, 44);
+            this.CmbFaturaEdilecekFirma.Location = new System.Drawing.Point(814, 44);
             this.CmbFaturaEdilecekFirma.Name = "CmbFaturaEdilecekFirma";
             this.CmbFaturaEdilecekFirma.Size = new System.Drawing.Size(278, 21);
             this.CmbFaturaEdilecekFirma.TabIndex = 339;
@@ -306,11 +307,35 @@ namespace UserInterface.RAPORLAMALAR
             this.label1.Text = "PROJE KODU:";
             this.label1.Visible = false;
             // 
+            // CmbDonemYil
+            // 
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(513, 44);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(126, 21);
+            this.CmbDonemYil.TabIndex = 414;
+            // 
             // FrmSatRaporu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1635, 924);
+            this.Controls.Add(this.CmbDonemYil);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.comboBox3);
             this.Controls.Add(this.comboBox2);
@@ -364,5 +389,6 @@ namespace UserInterface.RAPORLAMALAR
         private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.ComboBox comboBox3;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CmbDonemYil;
     }
 }

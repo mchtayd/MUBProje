@@ -37,6 +37,11 @@ namespace UserInterface.IdariIsler
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.LblMasrafYeri = new System.Windows.Forms.Label();
+            this.LblMasrafYeriNo = new System.Windows.Forms.Label();
+            this.LblUnvani = new System.Windows.Forms.Label();
+            this.LblSiparisNo = new System.Windows.Forms.Label();
+            this.LblAdSoyad = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
@@ -146,11 +151,6 @@ namespace UserInterface.IdariIsler
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.LblAdSoyad = new System.Windows.Forms.Label();
-            this.LblSiparisNo = new System.Windows.Forms.Label();
-            this.LblUnvani = new System.Windows.Forms.Label();
-            this.LblMasrafYeriNo = new System.Windows.Forms.Label();
-            this.LblMasrafYeri = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -182,7 +182,7 @@ namespace UserInterface.IdariIsler
             this.TabControl.Location = new System.Drawing.Point(0, 33);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
-            this.TabControl.Size = new System.Drawing.Size(1557, 893);
+            this.TabControl.Size = new System.Drawing.Size(1232, 657);
             this.TabControl.TabIndex = 14;
             // 
             // tabPage1
@@ -195,7 +195,7 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1549, 867);
+            this.tabPage1.Size = new System.Drawing.Size(1224, 631);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GÖREV OLUŞTUR";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -238,10 +238,55 @@ namespace UserInterface.IdariIsler
             this.groupBox8.Controls.Add(this.label59);
             this.groupBox8.Location = new System.Drawing.Point(15, 177);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(1297, 172);
+            this.groupBox8.Size = new System.Drawing.Size(742, 172);
             this.groupBox8.TabIndex = 17;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "B-Göreve Katılan Personel:";
+            // 
+            // LblMasrafYeri
+            // 
+            this.LblMasrafYeri.AutoSize = true;
+            this.LblMasrafYeri.Location = new System.Drawing.Point(147, 131);
+            this.LblMasrafYeri.Name = "LblMasrafYeri";
+            this.LblMasrafYeri.Size = new System.Drawing.Size(19, 13);
+            this.LblMasrafYeri.TabIndex = 24;
+            this.LblMasrafYeri.Text = "00";
+            // 
+            // LblMasrafYeriNo
+            // 
+            this.LblMasrafYeriNo.AutoSize = true;
+            this.LblMasrafYeriNo.Location = new System.Drawing.Point(147, 104);
+            this.LblMasrafYeriNo.Name = "LblMasrafYeriNo";
+            this.LblMasrafYeriNo.Size = new System.Drawing.Size(19, 13);
+            this.LblMasrafYeriNo.TabIndex = 23;
+            this.LblMasrafYeriNo.Text = "00";
+            // 
+            // LblUnvani
+            // 
+            this.LblUnvani.AutoSize = true;
+            this.LblUnvani.Location = new System.Drawing.Point(147, 77);
+            this.LblUnvani.Name = "LblUnvani";
+            this.LblUnvani.Size = new System.Drawing.Size(19, 13);
+            this.LblUnvani.TabIndex = 22;
+            this.LblUnvani.Text = "00";
+            // 
+            // LblSiparisNo
+            // 
+            this.LblSiparisNo.AutoSize = true;
+            this.LblSiparisNo.Location = new System.Drawing.Point(147, 50);
+            this.LblSiparisNo.Name = "LblSiparisNo";
+            this.LblSiparisNo.Size = new System.Drawing.Size(19, 13);
+            this.LblSiparisNo.TabIndex = 21;
+            this.LblSiparisNo.Text = "00";
+            // 
+            // LblAdSoyad
+            // 
+            this.LblAdSoyad.AutoSize = true;
+            this.LblAdSoyad.Location = new System.Drawing.Point(147, 23);
+            this.LblAdSoyad.Name = "LblAdSoyad";
+            this.LblAdSoyad.Size = new System.Drawing.Size(19, 13);
+            this.LblAdSoyad.TabIndex = 16;
+            this.LblAdSoyad.Text = "00";
             // 
             // label52
             // 
@@ -304,7 +349,7 @@ namespace UserInterface.IdariIsler
             this.groupBox5.Controls.Add(this.label33);
             this.groupBox5.Location = new System.Drawing.Point(15, 29);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1297, 142);
+            this.groupBox5.Size = new System.Drawing.Size(742, 142);
             this.groupBox5.TabIndex = 14;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "A-Görev Bilgileri:";
@@ -312,7 +357,7 @@ namespace UserInterface.IdariIsler
             // DtBasSaati
             // 
             this.DtBasSaati.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtBasSaati.Location = new System.Drawing.Point(885, 47);
+            this.DtBasSaati.Location = new System.Drawing.Point(512, 73);
             this.DtBasSaati.Name = "DtBasSaati";
             this.DtBasSaati.Size = new System.Drawing.Size(108, 20);
             this.DtBasSaati.TabIndex = 5;
@@ -347,7 +392,7 @@ namespace UserInterface.IdariIsler
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(785, 54);
+            this.label35.Location = new System.Drawing.Point(412, 80);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(94, 13);
             this.label35.TabIndex = 13;
@@ -363,7 +408,7 @@ namespace UserInterface.IdariIsler
             // DtBasTarihi
             // 
             this.DtBasTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtBasTarihi.Location = new System.Drawing.Point(885, 22);
+            this.DtBasTarihi.Location = new System.Drawing.Point(512, 48);
             this.DtBasTarihi.Name = "DtBasTarihi";
             this.DtBasTarihi.Size = new System.Drawing.Size(108, 20);
             this.DtBasTarihi.TabIndex = 4;
@@ -380,7 +425,7 @@ namespace UserInterface.IdariIsler
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(780, 28);
+            this.label36.Location = new System.Drawing.Point(407, 54);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(99, 13);
             this.label36.TabIndex = 11;
@@ -431,7 +476,7 @@ namespace UserInterface.IdariIsler
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1549, 867);
+            this.tabPage3.Size = new System.Drawing.Size(1224, 631);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "GÖREV TAMAMLA ";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -440,7 +485,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnDokumanOlustur.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDokumanOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDokumanOlustur.Location = new System.Drawing.Point(24, 382);
+            this.BtnDokumanOlustur.Location = new System.Drawing.Point(24, 366);
             this.BtnDokumanOlustur.Name = "BtnDokumanOlustur";
             this.BtnDokumanOlustur.Size = new System.Drawing.Size(178, 53);
             this.BtnDokumanOlustur.TabIndex = 89;
@@ -469,7 +514,7 @@ namespace UserInterface.IdariIsler
             this.groupBox9.Controls.Add(this.label31);
             this.groupBox9.Location = new System.Drawing.Point(24, 60);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(1297, 125);
+            this.groupBox9.Size = new System.Drawing.Size(1164, 125);
             this.groupBox9.TabIndex = 78;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "A-Görev Bilgileri:";
@@ -631,7 +676,7 @@ namespace UserInterface.IdariIsler
             this.groupBox7.Controls.Add(this.label23);
             this.groupBox7.Location = new System.Drawing.Point(24, 191);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(1297, 185);
+            this.groupBox7.Size = new System.Drawing.Size(1164, 169);
             this.groupBox7.TabIndex = 87;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "B-Göreve Katılan Personel:";
@@ -759,7 +804,7 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1549, 867);
+            this.tabPage2.Size = new System.Drawing.Size(1224, 631);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "GÖREV GÜNCELLE";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -768,7 +813,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSil.Location = new System.Drawing.Point(384, 411);
+            this.BtnSil.Location = new System.Drawing.Point(386, 373);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(178, 53);
             this.BtnSil.TabIndex = 84;
@@ -780,7 +825,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnTemizleGun.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizleGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizleGun.Location = new System.Drawing.Point(200, 411);
+            this.BtnTemizleGun.Location = new System.Drawing.Point(202, 373);
             this.BtnTemizleGun.Name = "BtnTemizleGun";
             this.BtnTemizleGun.Size = new System.Drawing.Size(178, 53);
             this.BtnTemizleGun.TabIndex = 83;
@@ -813,7 +858,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(16, 411);
+            this.BtnGuncelle.Location = new System.Drawing.Point(18, 373);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(178, 53);
             this.BtnGuncelle.TabIndex = 80;
@@ -835,7 +880,7 @@ namespace UserInterface.IdariIsler
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Location = new System.Drawing.Point(18, 177);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1297, 190);
+            this.groupBox1.Size = new System.Drawing.Size(1184, 190);
             this.groupBox1.TabIndex = 78;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "B-Göreve Katılan Personel:";
@@ -943,7 +988,7 @@ namespace UserInterface.IdariIsler
             this.groupBox2.Controls.Add(this.label12);
             this.groupBox2.Location = new System.Drawing.Point(18, 46);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1297, 125);
+            this.groupBox2.Size = new System.Drawing.Size(1184, 125);
             this.groupBox2.TabIndex = 77;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "A-Görev Bilgileri:";
@@ -951,7 +996,7 @@ namespace UserInterface.IdariIsler
             // DtBasSaatiGun
             // 
             this.DtBasSaatiGun.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtBasSaatiGun.Location = new System.Drawing.Point(865, 56);
+            this.DtBasSaatiGun.Location = new System.Drawing.Point(830, 58);
             this.DtBasSaatiGun.Name = "DtBasSaatiGun";
             this.DtBasSaatiGun.Size = new System.Drawing.Size(108, 20);
             this.DtBasSaatiGun.TabIndex = 29;
@@ -959,7 +1004,7 @@ namespace UserInterface.IdariIsler
             // DtBitSaatiGun
             // 
             this.DtBitSaatiGun.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.DtBitSaatiGun.Location = new System.Drawing.Point(1087, 56);
+            this.DtBitSaatiGun.Location = new System.Drawing.Point(1052, 58);
             this.DtBitSaatiGun.Name = "DtBitSaatiGun";
             this.DtBitSaatiGun.Size = new System.Drawing.Size(108, 20);
             this.DtBitSaatiGun.TabIndex = 28;
@@ -967,7 +1012,7 @@ namespace UserInterface.IdariIsler
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(1010, 61);
+            this.label43.Location = new System.Drawing.Point(975, 63);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(71, 13);
             this.label43.TabIndex = 27;
@@ -976,7 +1021,7 @@ namespace UserInterface.IdariIsler
             // label44
             // 
             this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(765, 60);
+            this.label44.Location = new System.Drawing.Point(730, 62);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(94, 13);
             this.label44.TabIndex = 26;
@@ -985,7 +1030,7 @@ namespace UserInterface.IdariIsler
             // button2
             // 
             this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(979, 80);
+            this.button2.Location = new System.Drawing.Point(944, 82);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(107, 23);
             this.button2.TabIndex = 17;
@@ -995,7 +1040,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtTopSureGun
             // 
-            this.TxtTopSureGun.Location = new System.Drawing.Point(865, 82);
+            this.TxtTopSureGun.Location = new System.Drawing.Point(830, 84);
             this.TxtTopSureGun.Name = "TxtTopSureGun";
             this.TxtTopSureGun.Size = new System.Drawing.Size(108, 20);
             this.TxtTopSureGun.TabIndex = 12;
@@ -1003,7 +1048,7 @@ namespace UserInterface.IdariIsler
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(735, 86);
+            this.label6.Location = new System.Drawing.Point(700, 88);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(124, 13);
             this.label6.TabIndex = 11;
@@ -1012,7 +1057,7 @@ namespace UserInterface.IdariIsler
             // DtBitGun
             // 
             this.DtBitGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtBitGun.Location = new System.Drawing.Point(1087, 30);
+            this.DtBitGun.Location = new System.Drawing.Point(1052, 32);
             this.DtBitGun.Name = "DtBitGun";
             this.DtBitGun.Size = new System.Drawing.Size(108, 20);
             this.DtBitGun.TabIndex = 14;
@@ -1029,7 +1074,7 @@ namespace UserInterface.IdariIsler
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(1005, 34);
+            this.label8.Location = new System.Drawing.Point(970, 36);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(76, 13);
             this.label8.TabIndex = 13;
@@ -1045,7 +1090,7 @@ namespace UserInterface.IdariIsler
             // DtBasGun
             // 
             this.DtBasGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtBasGun.Location = new System.Drawing.Point(865, 30);
+            this.DtBasGun.Location = new System.Drawing.Point(830, 32);
             this.DtBasGun.Name = "DtBasGun";
             this.DtBasGun.Size = new System.Drawing.Size(108, 20);
             this.DtBasGun.TabIndex = 12;
@@ -1062,7 +1107,7 @@ namespace UserInterface.IdariIsler
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(760, 34);
+            this.label10.Location = new System.Drawing.Point(725, 36);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(99, 13);
             this.label10.TabIndex = 11;
@@ -1112,7 +1157,7 @@ namespace UserInterface.IdariIsler
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1549, 867);
+            this.tabPage4.Size = new System.Drawing.Size(1224, 631);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "GÖREV ONAY";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -1121,7 +1166,7 @@ namespace UserInterface.IdariIsler
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(114, 525);
+            this.TxtTop.Location = new System.Drawing.Point(106, 340);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 335;
@@ -1131,7 +1176,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(14, 525);
+            this.label5.Location = new System.Drawing.Point(6, 340);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 334;
@@ -1141,7 +1186,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGorevReddet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGorevReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevReddet.Location = new System.Drawing.Point(201, 555);
+            this.BtnGorevReddet.Location = new System.Drawing.Point(193, 370);
             this.BtnGorevReddet.Name = "BtnGorevReddet";
             this.BtnGorevReddet.Size = new System.Drawing.Size(178, 53);
             this.BtnGorevReddet.TabIndex = 69;
@@ -1153,7 +1198,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGorevOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGorevOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevOnayla.Location = new System.Drawing.Point(17, 555);
+            this.BtnGorevOnayla.Location = new System.Drawing.Point(9, 370);
             this.BtnGorevOnayla.Name = "BtnGorevOnayla";
             this.BtnGorevOnayla.Size = new System.Drawing.Size(178, 53);
             this.BtnGorevOnayla.TabIndex = 68;
@@ -1166,7 +1211,7 @@ namespace UserInterface.IdariIsler
             this.panel2.Controls.Add(this.DtgList);
             this.panel2.Location = new System.Drawing.Point(8, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1533, 502);
+            this.panel2.Size = new System.Drawing.Size(1210, 323);
             this.panel2.TabIndex = 0;
             // 
             // DtgList
@@ -1186,7 +1231,7 @@ namespace UserInterface.IdariIsler
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1533, 502);
+            this.DtgList.Size = new System.Drawing.Size(1210, 323);
             this.DtgList.TabIndex = 4;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
@@ -1203,7 +1248,7 @@ namespace UserInterface.IdariIsler
             this.tabPage5.Location = new System.Drawing.Point(4, 22);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1549, 867);
+            this.tabPage5.Size = new System.Drawing.Size(1224, 631);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "AMİR GÖREV ONAYI";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -1212,7 +1257,7 @@ namespace UserInterface.IdariIsler
             // 
             this.TxtTopAmir.AutoSize = true;
             this.TxtTopAmir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTopAmir.Location = new System.Drawing.Point(116, 525);
+            this.TxtTopAmir.Location = new System.Drawing.Point(107, 342);
             this.TxtTopAmir.Name = "TxtTopAmir";
             this.TxtTopAmir.Size = new System.Drawing.Size(21, 15);
             this.TxtTopAmir.TabIndex = 337;
@@ -1222,7 +1267,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(16, 525);
+            this.label14.Location = new System.Drawing.Point(7, 342);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(94, 15);
             this.label14.TabIndex = 336;
@@ -1232,7 +1277,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGorevReddetAmir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGorevReddetAmir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevReddetAmir.Location = new System.Drawing.Point(203, 554);
+            this.BtnGorevReddetAmir.Location = new System.Drawing.Point(194, 371);
             this.BtnGorevReddetAmir.Name = "BtnGorevReddetAmir";
             this.BtnGorevReddetAmir.Size = new System.Drawing.Size(178, 53);
             this.BtnGorevReddetAmir.TabIndex = 72;
@@ -1244,7 +1289,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGorevOnaylaAmir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGorevOnaylaAmir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevOnaylaAmir.Location = new System.Drawing.Point(19, 554);
+            this.BtnGorevOnaylaAmir.Location = new System.Drawing.Point(10, 371);
             this.BtnGorevOnaylaAmir.Name = "BtnGorevOnaylaAmir";
             this.BtnGorevOnaylaAmir.Size = new System.Drawing.Size(178, 53);
             this.BtnGorevOnaylaAmir.TabIndex = 71;
@@ -1268,7 +1313,7 @@ namespace UserInterface.IdariIsler
             this.DtgListAmir.Name = "DtgListAmir";
             this.DtgListAmir.ReadOnly = true;
             this.DtgListAmir.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgListAmir.Size = new System.Drawing.Size(1533, 502);
+            this.DtgListAmir.Size = new System.Drawing.Size(1208, 318);
             this.DtgListAmir.TabIndex = 70;
             this.DtgListAmir.TimeFilter = false;
             this.DtgListAmir.SortStringChanged += new System.EventHandler(this.DtgListAmir_SortStringChanged);
@@ -1282,7 +1327,7 @@ namespace UserInterface.IdariIsler
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1557, 27);
+            this.panel1.Size = new System.Drawing.Size(1240, 27);
             this.panel1.TabIndex = 316;
             // 
             // button5
@@ -1313,56 +1358,11 @@ namespace UserInterface.IdariIsler
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
-            // LblAdSoyad
-            // 
-            this.LblAdSoyad.AutoSize = true;
-            this.LblAdSoyad.Location = new System.Drawing.Point(147, 23);
-            this.LblAdSoyad.Name = "LblAdSoyad";
-            this.LblAdSoyad.Size = new System.Drawing.Size(19, 13);
-            this.LblAdSoyad.TabIndex = 16;
-            this.LblAdSoyad.Text = "00";
-            // 
-            // LblSiparisNo
-            // 
-            this.LblSiparisNo.AutoSize = true;
-            this.LblSiparisNo.Location = new System.Drawing.Point(147, 50);
-            this.LblSiparisNo.Name = "LblSiparisNo";
-            this.LblSiparisNo.Size = new System.Drawing.Size(19, 13);
-            this.LblSiparisNo.TabIndex = 21;
-            this.LblSiparisNo.Text = "00";
-            // 
-            // LblUnvani
-            // 
-            this.LblUnvani.AutoSize = true;
-            this.LblUnvani.Location = new System.Drawing.Point(147, 77);
-            this.LblUnvani.Name = "LblUnvani";
-            this.LblUnvani.Size = new System.Drawing.Size(19, 13);
-            this.LblUnvani.TabIndex = 22;
-            this.LblUnvani.Text = "00";
-            // 
-            // LblMasrafYeriNo
-            // 
-            this.LblMasrafYeriNo.AutoSize = true;
-            this.LblMasrafYeriNo.Location = new System.Drawing.Point(147, 104);
-            this.LblMasrafYeriNo.Name = "LblMasrafYeriNo";
-            this.LblMasrafYeriNo.Size = new System.Drawing.Size(19, 13);
-            this.LblMasrafYeriNo.TabIndex = 23;
-            this.LblMasrafYeriNo.Text = "00";
-            // 
-            // LblMasrafYeri
-            // 
-            this.LblMasrafYeri.AutoSize = true;
-            this.LblMasrafYeri.Location = new System.Drawing.Point(147, 131);
-            this.LblMasrafYeri.Name = "LblMasrafYeri";
-            this.LblMasrafYeri.Size = new System.Drawing.Size(19, 13);
-            this.LblMasrafYeri.TabIndex = 24;
-            this.LblMasrafYeri.Text = "00";
-            // 
             // FrmSehirIcıGorev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.ClientSize = new System.Drawing.Size(1240, 696);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TabControl);

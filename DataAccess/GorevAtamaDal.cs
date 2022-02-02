@@ -25,7 +25,7 @@ namespace DataAccess
             try
             {
                 dataReader = sqlServices.StoreReader("GorevAtamaEkle",
-                    new SqlParameter("@isAkisNo",entity.IsAkisNo),
+                    new SqlParameter("@benzersizId", entity.BenzersizId),
                     new SqlParameter("@görevinTanimi",entity.GorevinTanimi),
                     new SqlParameter("@goreviIleten",entity.Gorevileten),
                     new SqlParameter("@tarihSaat",entity.TarihSaat),
@@ -51,16 +51,17 @@ namespace DataAccess
             throw new NotImplementedException();
         }
 
-        public List<GorevAtama> GetList()
+        public List<GorevAtama> GetList(string adSoyad, int benzersizId)
         {
             try
             {
                 List<GorevAtama> gorevAtamas = new List<GorevAtama>();
-                dataReader = sqlServices.StoreReader("GorevAtamaList");
+                dataReader = sqlServices.StoreReader("GorevAtamaList",new SqlParameter("@adSoyad",adSoyad),new SqlParameter("@benzersizId",benzersizId));
                 while (dataReader.Read())
                 {
                     gorevAtamas.Add(new GorevAtama(
                         dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
                         dataReader["GOREVIN_TANIMI"].ToString(),
                         dataReader["GOREVI_ILETEN"].ToString(),
                         dataReader["TARIH_SAAT"].ConTime(),

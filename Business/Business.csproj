@@ -56,6 +56,10 @@
     <Compile Include="Concreate\BakimOnarim\IscilikIscilikManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikPerformansManager.cs" />
     <Compile Include="Concreate\BakimOnarim\PypManager.cs" />
+    <Compile Include="Concreate\Butce\AvansManager.cs" />
+    <Compile Include="Concreate\Butce\IsAvansTalepManager.cs" />
+    <Compile Include="Concreate\Butce\KasaDurumManager.cs" />
+    <Compile Include="Concreate\Butce\KasaManager.cs" />
     <Compile Include="Concreate\Butce\SiparislerPersonelManager.cs" />
     <Compile Include="Concreate\Depo\AmbarManager.cs" />
     <Compile Include="Concreate\Depo\CayOcagiManager.cs" />
@@ -73,8 +77,10 @@
     <Compile Include="Concreate\Gecici Kabul Ambar\DepoMiktarManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisManager.cs" />
+    <Compile Include="Concreate\GorevAtamaManager.cs" />
     <Compile Include="Concreate\GorevAtamaPersonelManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracBakimManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\AracKmManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracZimmetiLogManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracZimmetiManager.cs" />

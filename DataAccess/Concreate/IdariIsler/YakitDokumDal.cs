@@ -62,7 +62,8 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@aracSiparisNo", entity.AracSiparisNo),
                     new SqlParameter("@tuketimLT", entity.VerilenLitre),
                     new SqlParameter("@tutar", entity.ToplamTutar),
-                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu),
+                    new SqlParameter("@personelAd",entity.Personel));
 
                 dataReader.Close();
                 return "OK";
@@ -206,7 +207,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ARAC_SIPARIS_NO"].ToString(),
                         dataReader["TUKETIM_LT"].ConDouble(),
                         dataReader["TUTAR"].ConDouble(),
-                        dataReader["DOSYA_YOLU"].ToString()));
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ZIMMETLI_PERSONEL"].ToString()));
                 }
                 dataReader.Close();
                 return yakitDokums;
@@ -329,7 +331,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ARAC_SIPARIS_NO"].ToString(),
                         dataReader["TUKETIM_LT"].ConDouble(),
                         dataReader["TUTAR"].ConDouble(),
-                        dataReader["DOSYA_YOLU"].ToString()));
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ZIMMETLI_PERSONEL"].ToString()));
                 }
                 dataReader.Close();
                 return yakitDokums;

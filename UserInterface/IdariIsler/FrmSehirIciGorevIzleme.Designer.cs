@@ -44,6 +44,8 @@ namespace UserInterface.IdariIsler
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgLog = new ADGV.AdvancedDataGridView();
+            this.TxtTop = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -52,17 +54,13 @@ namespace UserInterface.IdariIsler
             this.TopKayit = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.DtgTamamlanan = new ADGV.AdvancedDataGridView();
-            this.TxtTop2 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
             this.TxtAdSoyadTamamlanan = new System.Windows.Forms.TextBox();
             this.TxtIsAkisNoTamamlanan = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label31 = new System.Windows.Forms.Label();
-            this.TxtTop = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -87,7 +85,7 @@ namespace UserInterface.IdariIsler
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1557, 27);
+            this.panel1.Size = new System.Drawing.Size(1162, 27);
             this.panel1.TabIndex = 319;
             // 
             // BtnCancel
@@ -120,7 +118,7 @@ namespace UserInterface.IdariIsler
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgList.Size = new System.Drawing.Size(1547, 584);
+            this.DtgList.Size = new System.Drawing.Size(1116, 379);
             this.DtgList.TabIndex = 3;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
@@ -170,7 +168,7 @@ namespace UserInterface.IdariIsler
             this.tabControl1.Location = new System.Drawing.Point(2, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1555, 890);
+            this.tabControl1.Size = new System.Drawing.Size(1157, 687);
             this.tabControl1.TabIndex = 331;
             // 
             // tabPage1
@@ -194,9 +192,9 @@ namespace UserInterface.IdariIsler
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgLog);
-            this.groupBox1.Location = new System.Drawing.Point(6, 687);
+            this.groupBox1.Location = new System.Drawing.Point(6, 467);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1004, 170);
+            this.groupBox1.Size = new System.Drawing.Size(1116, 170);
             this.groupBox1.TabIndex = 339;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "İŞLEM ADIMLARI";
@@ -218,32 +216,49 @@ namespace UserInterface.IdariIsler
             this.DtgLog.Name = "DtgLog";
             this.DtgLog.ReadOnly = true;
             this.DtgLog.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgLog.Size = new System.Drawing.Size(998, 151);
+            this.DtgLog.Size = new System.Drawing.Size(1110, 151);
             this.DtgLog.TabIndex = 1;
             this.DtgLog.TimeFilter = false;
+            // 
+            // TxtTop
+            // 
+            this.TxtTop.AutoSize = true;
+            this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtTop.Location = new System.Drawing.Point(106, 438);
+            this.TxtTop.Name = "TxtTop";
+            this.TxtTop.Size = new System.Drawing.Size(21, 15);
+            this.TxtTop.TabIndex = 333;
+            this.TxtTop.Text = "00";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label31.Location = new System.Drawing.Point(6, 438);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(94, 15);
+            this.label31.TabIndex = 332;
+            this.label31.Text = "Toplam Kayıt:";
             // 
             // panel2
             // 
             this.panel2.Controls.Add(this.DtgList);
-            this.panel2.Location = new System.Drawing.Point(0, 56);
+            this.panel2.Location = new System.Drawing.Point(6, 56);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1547, 584);
+            this.panel2.Size = new System.Drawing.Size(1116, 379);
             this.panel2.TabIndex = 331;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.panel3);
-            this.tabPage2.Controls.Add(this.TxtTop2);
             this.tabPage2.Controls.Add(this.label4);
-            this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.TxtAdSoyadTamamlanan);
             this.tabPage2.Controls.Add(this.TxtIsAkisNoTamamlanan);
             this.tabPage2.Controls.Add(this.label6);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1547, 864);
+            this.tabPage2.Size = new System.Drawing.Size(1149, 661);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "TAMAMLANAN GÖREVLER";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -251,9 +266,9 @@ namespace UserInterface.IdariIsler
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.DtgLogTamamlanan);
-            this.groupBox2.Location = new System.Drawing.Point(6, 687);
+            this.groupBox2.Location = new System.Drawing.Point(3, 462);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1004, 170);
+            this.groupBox2.Size = new System.Drawing.Size(715, 170);
             this.groupBox2.TabIndex = 340;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İŞLEM ADIMLARI";
@@ -275,26 +290,26 @@ namespace UserInterface.IdariIsler
             this.DtgLogTamamlanan.Name = "DtgLogTamamlanan";
             this.DtgLogTamamlanan.ReadOnly = true;
             this.DtgLogTamamlanan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgLogTamamlanan.Size = new System.Drawing.Size(998, 151);
+            this.DtgLogTamamlanan.Size = new System.Drawing.Size(709, 151);
             this.DtgLogTamamlanan.TabIndex = 1;
             this.DtgLogTamamlanan.TimeFilter = false;
             // 
             // panel3
             // 
+            this.panel3.Controls.Add(this.groupBox2);
             this.panel3.Controls.Add(this.TopKayit);
             this.panel3.Controls.Add(this.label7);
             this.panel3.Controls.Add(this.DtgTamamlanan);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1541, 858);
+            this.panel3.Size = new System.Drawing.Size(1131, 642);
             this.panel3.TabIndex = 338;
             // 
             // TopKayit
             // 
             this.TopKayit.AutoSize = true;
             this.TopKayit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TopKayit.Location = new System.Drawing.Point(103, 657);
+            this.TopKayit.Location = new System.Drawing.Point(103, 444);
             this.TopKayit.Name = "TopKayit";
             this.TopKayit.Size = new System.Drawing.Size(21, 15);
             this.TopKayit.TabIndex = 335;
@@ -304,7 +319,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(3, 657);
+            this.label7.Location = new System.Drawing.Point(3, 444);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 15);
             this.label7.TabIndex = 334;
@@ -321,26 +336,16 @@ namespace UserInterface.IdariIsler
             this.DtgTamamlanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgTamamlanan.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgTamamlanan.DateWithTime = false;
-            this.DtgTamamlanan.Location = new System.Drawing.Point(0, 0);
+            this.DtgTamamlanan.Location = new System.Drawing.Point(6, 3);
             this.DtgTamamlanan.Name = "DtgTamamlanan";
             this.DtgTamamlanan.ReadOnly = true;
             this.DtgTamamlanan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgTamamlanan.Size = new System.Drawing.Size(1547, 638);
+            this.DtgTamamlanan.Size = new System.Drawing.Size(1122, 438);
             this.DtgTamamlanan.TabIndex = 3;
             this.DtgTamamlanan.TimeFilter = false;
             this.DtgTamamlanan.SortStringChanged += new System.EventHandler(this.DtgTamamlanan_SortStringChanged);
             this.DtgTamamlanan.FilterStringChanged += new System.EventHandler(this.DtgTamamlanan_FilterStringChanged);
             this.DtgTamamlanan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgTamamlanan_CellMouseClick);
-            // 
-            // TxtTop2
-            // 
-            this.TxtTop2.AutoSize = true;
-            this.TxtTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop2.Location = new System.Drawing.Point(106, 660);
-            this.TxtTop2.Name = "TxtTop2";
-            this.TxtTop2.Size = new System.Drawing.Size(21, 15);
-            this.TxtTop2.TabIndex = 333;
-            this.TxtTop2.Text = "00";
             // 
             // label4
             // 
@@ -351,16 +356,6 @@ namespace UserInterface.IdariIsler
             this.label4.Size = new System.Drawing.Size(157, 15);
             this.label4.TabIndex = 337;
             this.label4.Text = "İŞ AKIŞ NO İLE ARAMA:";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(6, 660);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 15);
-            this.label5.TabIndex = 332;
-            this.label5.Text = "Toplam Kayıt:";
             // 
             // TxtAdSoyadTamamlanan
             // 
@@ -402,31 +397,11 @@ namespace UserInterface.IdariIsler
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(6, 654);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(94, 15);
-            this.label31.TabIndex = 332;
-            this.label31.Text = "Toplam Kayıt:";
-            // 
-            // TxtTop
-            // 
-            this.TxtTop.AutoSize = true;
-            this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(106, 654);
-            this.TxtTop.Name = "TxtTop";
-            this.TxtTop.Size = new System.Drawing.Size(21, 15);
-            this.TxtTop.TabIndex = 333;
-            this.TxtTop.Text = "00";
-            // 
             // FrmSehirIciGorevIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.ClientSize = new System.Drawing.Size(1162, 740);
             this.ContextMenuStrip = this.contextMenuStrip1;
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
@@ -471,9 +446,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
         private ADGV.AdvancedDataGridView DtgTamamlanan;
-        private System.Windows.Forms.Label TxtTop2;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox TxtAdSoyadTamamlanan;
         private System.Windows.Forms.TextBox TxtIsAkisNoTamamlanan;
         private System.Windows.Forms.Label label6;

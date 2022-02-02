@@ -98,11 +98,11 @@ namespace Business.Concreate.IdarıIsler
                 return new List<SehiriciGorev>();
             }
         }
-        public List<SehiriciGorev> DevamEdenler()
+        public List<SehiriciGorev> DevamEdenler(int id=0)
         {
             try
             {
-                return sehiriciGorevDal.DevamEdenler();
+                return sehiriciGorevDal.DevamEdenler(id);
             }
             catch (Exception)
             {

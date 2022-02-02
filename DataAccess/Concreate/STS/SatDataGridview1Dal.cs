@@ -339,6 +339,22 @@ namespace DataAccess.Concreate
                 return ex.Message;
             }
         }
+        public string DonemGuncelle(string donem, string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DevamEdenlerDonemGuncelle",
+                    new SqlParameter("@donem", donem),
+                    new SqlParameter("@siparisNo", siparisNo));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string RedUpdate(SatDataGridview1 entity)
         {
             try
@@ -622,6 +638,63 @@ namespace DataAccess.Concreate
             {
                 List<SatDataGridview1> satDatas = new List<SatDataGridview1>();
                 dataReader = sqlServices.StoreReader("SatTeklifDurumListele", new SqlParameter("@tekilfdurum", teklifdurumu), new SqlParameter("@durum", durum), new SqlParameter("@ucteklif", ucteklif), new SqlParameter("@firmabilgisi", firmabilgisi));
+                while (dataReader.Read())
+                {
+                    satDatas.Add(new SatDataGridview1(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SAT_FORM_NO"].ConInt(),
+                        dataReader["SAT_NO"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["TALEP_EDEN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["US_BOLGESI"].ToString(),
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        dataReader["ISTENEN_TARIH"].ConTime(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["DosyaYolu"].ToString(),
+                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        dataReader["SAT_BIRIM"].ToString(),
+                        dataReader["HARCAMA_TURU"].ToString(),
+                        dataReader["FATURA_EDILECEK_FIRMA"].ToString(),
+                        dataReader["ILGILI_KISI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["UC_TEKLIF"].ConInt(),
+                        dataReader["FIRMA_BILGISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["PERSONEL_SIPARIS"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["PERSONEL_MAS_YER_NO"].ToString(),
+                        dataReader["PERSONEL_MAS_YERI"].ToString(),
+                        dataReader["BELGE_TURU"].ToString(),
+                        dataReader["BELGE_NUMARASI"].ToString(),
+                        dataReader["BELGE_TARIHI"].ConTime(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["SAT_OLUSTURMA_TURU"].ToString(),
+                        dataReader["RED_NEDENI"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["TEKLIF_DURUM"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString()));
+
+                }
+                dataReader.Close();
+                return satDatas;
+            }
+            catch (Exception ex)
+            {
+                return new List<SatDataGridview1>();
+            }
+        }
+        public List<SatDataGridview1> DevamEdenler()
+        {
+            try
+            {
+                List<SatDataGridview1> satDatas = new List<SatDataGridview1>();
+                dataReader = sqlServices.StoreReader("DevamEdenSatlar");
                 while (dataReader.Read())
                 {
                     satDatas.Add(new SatDataGridview1(

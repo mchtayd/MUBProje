@@ -2186,6 +2186,7 @@ namespace UserInterface.IdariIsler
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1557, 27);
             this.panel1.TabIndex = 317;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button5
             // 

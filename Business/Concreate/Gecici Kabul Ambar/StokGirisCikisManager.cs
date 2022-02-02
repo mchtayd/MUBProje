@@ -116,6 +116,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
+        public List<StokGirisCıkıs> AtolyeDepoHareketleri(string icSiparisNo)
+        {
+            try
+            {
+                return stokGirisCikisDal.AtolyeDepoHareketleri(icSiparisNo);
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
 
         public string Update(StokGirisCıkıs entity,int id)
         {

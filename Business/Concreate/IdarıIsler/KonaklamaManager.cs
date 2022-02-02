@@ -110,6 +110,17 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
+        public string SatDurumuGuncelle(int id)
+        {
+            try
+            {
+                return konaklamaDal.SatDurumuGuncelle(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static KonaklamaManager GetInstance()
         {
             if (konaklamaManager == null)

@@ -24,7 +24,9 @@ namespace UserInterface.IdariIsler
         List<SehiriciGorev> sehiriciGorevsTamamlanan;
         List<SehiriciGorev> sehiriciGorevsTamamlananFiltired;
         List<SehiriciGorev> sehiriciGorevsFiltired;
-        
+
+        public object[] infos;
+
         public FrmSehirIciGorevIzleme()
         {
             InitializeComponent();
@@ -35,6 +37,17 @@ namespace UserInterface.IdariIsler
         private void FrmSehirIciGorevIzleme_Load(object sender, EventArgs e)
         {
             DataDisplay();
+            if (infos[0].ConInt() != 84)
+            {
+                if (infos[0].ConInt() != 25)
+                {
+                    if (infos[0].ConInt() != 30)
+                    {
+                        tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
+                    }
+                }
+                
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -54,8 +67,18 @@ namespace UserInterface.IdariIsler
         }
         public void DataDisplay()
         {
-            DtgLog.DataSource = "";
-            sehiriciGorevs = sehirIciGorevManager.DevamEdenler();
+            if (infos[0].ConInt()== 84 || infos[0].ConInt() == 25)
+            {
+                DtgLog.DataSource = "";
+                sehiriciGorevs = sehirIciGorevManager.DevamEdenler();
+            }
+            else
+            {
+                DtgLog.DataSource = "";
+                sehiriciGorevs = sehirIciGorevManager.DevamEdenler(infos[0].ConInt());
+            }
+
+            
             sehiriciGorevsFiltired = sehiriciGorevs;
             dataBinder.DataSource = sehiriciGorevs.ToDataTable();
             DtgList.DataSource = dataBinder;
@@ -79,6 +102,21 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["Personelid"].Visible = false;
             DtgList.Columns["Sayfa"].Visible = false;
             TxtTop.Text = DtgList.RowCount.ToString();
+
+            DtgList.Columns["Isakisno"].DisplayIndex = 0;
+            DtgList.Columns["Adsoyad"].DisplayIndex = 1;
+            DtgList.Columns["Siparisno"].DisplayIndex = 2;
+            DtgList.Columns["Unvani"].DisplayIndex = 3;
+            DtgList.Columns["Masrafyerno"].DisplayIndex = 4;
+            DtgList.Columns["Masrafyeri"].DisplayIndex = 5;
+            DtgList.Columns["Proje"].DisplayIndex = 6;
+            DtgList.Columns["Baslamatarihi"].DisplayIndex = 7;
+            DtgList.Columns["Gidilecekyer"].DisplayIndex = 8;
+            DtgList.Columns["Gorevinkonusu"].DisplayIndex = 9;
+            DtgList.Columns["Islemadimi"].DisplayIndex = 10;
+
+
+
 
             sehiriciGorevsTamamlanan = sehirIciGorevManager.GetList();
             sehiriciGorevsTamamlananFiltired = sehiriciGorevsTamamlanan;
@@ -140,7 +178,7 @@ namespace UserInterface.IdariIsler
                 sehiriciGorevsTamamlananFiltired = sehiriciGorevsTamamlanan;
                 dataBinder2.DataSource = sehiriciGorevsTamamlanan.ToDataTable();
                 DtgTamamlanan.DataSource = dataBinder2;
-                TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
+                //TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
                 return;
             }
             if (TxtAdSoyadTamamlanan.Text.Length < 3)
@@ -150,7 +188,7 @@ namespace UserInterface.IdariIsler
             dataBinder2.DataSource = sehiriciGorevsTamamlananFiltired.Where(x => x.Adsoyad.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
             DtgTamamlanan.DataSource = dataBinder2;
             sehiriciGorevsTamamlananFiltired = sehiriciGorevsTamamlanan;
-            TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
+            //TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
         }
 
         private void TxtAkısNo_TextChanged(object sender, EventArgs e)
@@ -188,7 +226,7 @@ namespace UserInterface.IdariIsler
                 sehiriciGorevsTamamlananFiltired = sehiriciGorevsTamamlanan;
                 dataBinder2.DataSource = sehiriciGorevsTamamlanan.ToDataTable();
                 DtgTamamlanan.DataSource = dataBinder2;
-                TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
+                //TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
                 return;
             }
             if (TxtIsAkisNoTamamlanan.Text.Length < 3)
@@ -204,7 +242,7 @@ namespace UserInterface.IdariIsler
             dataBinder2.DataSource = sehiriciGorevsTamamlananFiltired.Where(x => x.Isakisno.ToString().Contains(isno.ToString())).ToList().ToDataTable();
             DtgTamamlanan.DataSource = dataBinder2;
             sehiriciGorevsTamamlananFiltired = sehiriciGorevsTamamlanan;
-            TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
+            //TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
         }
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)

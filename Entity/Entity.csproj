@@ -54,6 +54,10 @@
     <Compile Include="BakimOnarim\IscilikIscilik.cs" />
     <Compile Include="BakimOnarim\IslemAdimlari.cs" />
     <Compile Include="BakimOnarim\Pyp.cs" />
+    <Compile Include="Butce\Avans.cs" />
+    <Compile Include="Butce\IsAvansTalep.cs" />
+    <Compile Include="Butce\Kasa.cs" />
+    <Compile Include="Butce\KasaDurum.cs" />
     <Compile Include="Butce\SiparislerArac.cs" />
     <Compile Include="Butce\SiparislerPersonel.cs" />
     <Compile Include="Combo.cs" />
@@ -77,6 +81,7 @@
     <Compile Include="GorevAtamaPersonel.cs" />
     <Compile Include="IdariIsler\Arac.cs" />
     <Compile Include="IdariIsler\AracBakim.cs" />
+    <Compile Include="IdariIsler\AracKm.cs" />
     <Compile Include="IdariIsler\AracTalep.cs" />
     <Compile Include="IdariIsler\AracZimmeti.cs" />
     <Compile Include="IdariIsler\AracZimmetiLog.cs" />

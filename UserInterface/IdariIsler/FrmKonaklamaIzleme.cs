@@ -89,8 +89,11 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["Onay"].HeaderText = "ONAY DURUMU";
             DtgList.Columns["Isakisno"].HeaderText = "İŞ AKIŞ NO";
             DtgList.Columns["Isakisno"].DisplayIndex = 0;
-            DtgList.Columns["Dosyayolu"].Visible = false;
+            DtgList.Columns["Dosyayolu"].Visible = false; 
             DtgList.Columns["Sayfa"].Visible = false;
+            DtgList.Columns["SatNo"].Visible = false;
+            DtgList.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgList.Columns["Gerekce"].HeaderText = "GEREKÇE";
             TxtToplam.Text = DtgList.RowCount.ToString();
             Toplamlar();
         }

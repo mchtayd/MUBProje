@@ -45,7 +45,9 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@cikistarihi",entity.Cikistarihi),
                     new SqlParameter("@konaklamasuresi",entity.Konaklamasuresi),
                     new SqlParameter("@dosyayolu",entity.Dosyayolu),
-                    new SqlParameter("@satNo",entity.SatNo));
+                    new SqlParameter("@satNo",entity.SatNo),
+                    new SqlParameter("@donem",entity.Donem),
+                    new SqlParameter("@gerekce",entity.Gerekce));
                 
                 dataReader.Close();
                 return "OK";
@@ -103,7 +105,9 @@ namespace DataAccess.Concreate.IdariIsler
                     dataReader["ONAY"].ToString(),
                     dataReader["DOSYA_YOLU"].ToString(),
                     dataReader["SAYFA"].ToString(),
-                    dataReader["SAT_NO"].ConInt());
+                    dataReader["SAT_NO"].ConInt(),
+                    dataReader["DONEM"].ToString(),
+                    dataReader["GEREKCE"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -146,7 +150,9 @@ namespace DataAccess.Concreate.IdariIsler
                     dataReader["ONAY"].ToString(),
                     dataReader["DOSYA_YOLU"].ToString(),
                     dataReader["SAYFA"].ToString(),
-                    dataReader["SAT_NO"].ConInt()));
+                    dataReader["SAT_NO"].ConInt(),
+                    dataReader["DONEM"].ToString(),
+                    dataReader["GEREKCE"].ToString()));
                 }
                 dataReader.Close();
                 return konaklamas;
@@ -189,7 +195,9 @@ namespace DataAccess.Concreate.IdariIsler
                     dataReader["ONAY"].ToString(),
                     dataReader["DOSYA_YOLU"].ToString(),
                     dataReader["SAYFA"].ToString(),
-                    dataReader["SAT_NO"].ConInt()));
+                    dataReader["SAT_NO"].ConInt(),
+                    dataReader["DONEM"].ToString(),
+                    dataReader["GEREKCE"].ToString()));
                 }
                 dataReader.Close();
                 return konaklamas;
@@ -226,7 +234,9 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@giristarihi", entity.Giristarihi),
                     new SqlParameter("@cikistarihi", entity.Cikistarihi),
                     new SqlParameter("@konaklamasuresi", entity.Konaklamasuresi),
-                    new SqlParameter("@dosyayolu",entity.Dosyayolu));
+                    new SqlParameter("@dosyayolu",entity.Dosyayolu),
+                    new SqlParameter("@donem",entity.Donem),
+                    new SqlParameter("@gerekce",entity.Gerekce));
                 dataReader.Close();
                 return "OK";
             }
@@ -242,6 +252,20 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader = sqlServices.StoreReader("KonaklamaOnayGuncelle",
                     new SqlParameter("@id",id),
                     new SqlParameter("@onay",entity.Onay));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SatDurumuGuncelle(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("KonaklamaSatGuncelle",
+                    new SqlParameter("@id", id));
                 dataReader.Close();
                 return "OK";
             }

@@ -193,6 +193,17 @@ namespace Business.Concreate
                 return new List<SatDataGridview1>();
             }
         }
+        public List<SatDataGridview1> DevamEdenler()
+        {
+            try
+            {
+                return satDataGridview1Dal.DevamEdenler();
+            }
+            catch
+            {
+                return new List<SatDataGridview1>();
+            }
+        }
 
 
         public string Update(SatDataGridview1 entity)
@@ -205,6 +216,17 @@ namespace Business.Concreate
                     return controlText;
                 }
                 return satDataGridview1Dal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DonemGuncelle(string donem,string siparisNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.DonemGuncelle(donem,siparisNo);
             }
             catch (Exception ex)
             {

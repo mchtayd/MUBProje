@@ -262,5 +262,53 @@ namespace UserInterface.Properties {
                 this["DosyaYolu"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TalepTarihi {
+            get {
+                return ((string)(this["TalepTarihi"]));
+            }
+            set {
+                this["TalepTarihi"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TalepEdilenTutar {
+            get {
+                return ((string)(this["TalepEdilenTutar"]));
+            }
+            set {
+                this["TalepEdilenTutar"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string TalepGerekcesi {
+            get {
+                return ((string)(this["TalepGerekcesi"]));
+            }
+            set {
+                this["TalepGerekcesi"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("0")]
+        public int IsAkisNo {
+            get {
+                return ((int)(this["IsAkisNo"]));
+            }
+            set {
+                this["IsAkisNo"] = value;
+            }
+        }
     }
 }

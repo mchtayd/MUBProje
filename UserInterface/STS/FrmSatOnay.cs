@@ -1466,7 +1466,7 @@ namespace UserInterface.STS
             s7.Clear(); tt7.Clear(); mm7.Clear(); mm7.Clear(); s8.Clear(); tt8.Clear(); mm8.Clear(); bb8.Clear();
             s9.Clear(); tt9.Clear(); mm9.Clear(); mm9.Clear(); s10.Clear(); tt10.Clear(); mm10.Clear(); bb10.Clear();
 
-            Tutar1.Clear(); Tutar2.Clear(); Tutar3.Clear(); Tutar4.Clear(); Tutar5.Clear(); Tutar6.Clear(); Tutar7.Clear(); Tutar8.Clear(); Tutar9.Clear(); Tutar10.Clear(); webBrowser1.Navigate("");
+            Tutar1.Clear(); Tutar2.Clear(); Tutar3.Clear(); Tutar4.Clear(); Tutar5.Clear(); Tutar6.Clear(); Tutar7.Clear(); Tutar8.Clear(); Tutar9.Clear(); Tutar10.Clear(); webBrowser1.Navigate(""); bb7.Clear();
             Tutar4.Clear();
             TxtGerekceHarcamasiYapilan.Clear();
             TxtGerekceTeklifsiz.Clear();

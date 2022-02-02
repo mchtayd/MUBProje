@@ -1,8 +1,12 @@
-﻿using Business.Concreate.BakimOnarim;
+﻿using Business.Concreate;
+using Business.Concreate.BakimOnarim;
+using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Depo;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
+using Entity;
 using Entity.BakimOnarim;
+using Entity.BakimOnarimAtolye;
 using Entity.Depo;
 using Entity.Gecic_Kabul_Ambar;
 using System;
@@ -27,6 +31,10 @@ namespace UserInterface.Depo
         DepoKayitLokasyonManager depoKayitLokasyonManager;
         DepoMiktarManager depoMiktarManager;
         AbfFormNoManager abfFormNoManager;
+        AtolyeManager atolyeManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
+
+        List<GorevAtamaPersonel> gorevAtamaPersonels;
         List<MalzemeKayit> malzemeKayits;
         bool start = true;
         int id, mevcutMiktar, miktar, dusulenMiktar, cekilenMiktar;
@@ -42,6 +50,8 @@ namespace UserInterface.Depo
             depoKayitLokasyonManager = DepoKayitLokasyonManager.GetInstance();
             depoMiktarManager = DepoMiktarManager.GetInstance();
             abfFormNoManager = AbfFormNoManager.GetInstance();
+            atolyeManager = AtolyeManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
         private void FrmStokGirisCikis_Load(object sender, EventArgs e)
         {
@@ -467,16 +477,38 @@ namespace UserInterface.Depo
         {
 
         }
-
+        string islemAdimiSorumlusu = "";
         private void TxtBildirimdenDepoyaFormNo_TextChanged(object sender, EventArgs e)
         {
-            if (TxtBildirimdenDepoyaFormNo.Text.Length != 6)
+            if (TxtBildirimdenDepoyaFormNo.Text.Length < 6)
             {
                 return;
             }
+
             AbfFormNo abfFormNo = abfFormNoManager.PersonelSicil(TxtBildirimdenDepoyaFormNo.Text);
+
             if (abfFormNo==null)
             {
+                Atolye atolye = atolyeManager.Get(TxtBildirimdenDepoyaFormNo.Text);
+                if (atolye==null)
+                {
+                    LblBildirimdenDepoyaPersonel.Text = "00";
+                    return;
+                }
+                if (gorevAtamaPersonels != null)
+                {
+                    gorevAtamaPersonels.Clear();
+                }
+                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(atolye.Id, "BAKIM ONARIM ATOLYE");
+                foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+                {
+                    string islemAdimi = item.IslemAdimi;
+                    if (islemAdimi == "600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS)")
+                    {
+                        islemAdimiSorumlusu = item.GorevAtanacakPersonel;
+                    }
+                }
+                LblBildirimdenDepoyaPersonel.Text = islemAdimiSorumlusu;
                 return;
             }
             LblBildirimdenDepoyaPersonel.Text = abfFormNo.PersonelAd;
@@ -484,11 +516,37 @@ namespace UserInterface.Depo
 
         private void TxtDepodanBildirimeAbfNo_TextChanged(object sender, EventArgs e)
         {
-            if (TxtDepodanBildirimeAbfNo.Text.Length != 6)
+            if (TxtDepodanBildirimeAbfNo.Text.Length < 6)
             {
                 return;
             }
             AbfFormNo abfFormNo = abfFormNoManager.PersonelSicil(TxtDepodanBildirimeAbfNo.Text);
+            if (abfFormNo==null)
+            {
+                Atolye atolye = atolyeManager.Get(TxtDepodanBildirimeAbfNo.Text);
+                if (atolye == null)
+                {
+                    LblDepodanBildirimePersonel.Text = "00";
+                    return;
+                }
+                if (gorevAtamaPersonels!=null)
+                {
+                    gorevAtamaPersonels.Clear();
+                }
+                
+                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(atolye.Id, "BAKIM ONARIM ATOLYE");
+                foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+                {
+                    string islemAdimi = item.IslemAdimi;
+                    if (islemAdimi == "600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS)")
+                    {
+                        islemAdimiSorumlusu = item.GorevAtanacakPersonel;
+                    }
+                }
+                LblDepodanBildirimePersonel.Text = islemAdimiSorumlusu;
+                return;
+            }
+
             LblDepodanBildirimePersonel.Text = abfFormNo.PersonelAd;
         }
 

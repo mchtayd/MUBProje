@@ -8,7 +8,7 @@ namespace Entity.BakimOnarimAtolye
 {
     public class AtolyeAltMalzeme
     {
-        int id; string stokNo, tanim, sokulenSeriNo, takilanSeriNo; double miktar; string birim, sayac, revizyon, malzemeyeYapilanIslem, siparisNo;
+        int id; string stokNo, tanim, sokulenSeriNo, takilanSeriNo; double miktar; string birim, malzemeyeYapilanIslem, siparisNo;
 
         public int Id { get => id; set => id = value; }
         public string StokNo { get => stokNo; set => stokNo = value; }
@@ -17,12 +17,10 @@ namespace Entity.BakimOnarimAtolye
         public string TakilanSeriNo { get => takilanSeriNo; set => takilanSeriNo = value; }
         public double Miktar { get => miktar; set => miktar = value; }
         public string Birim { get => birim; set => birim = value; }
-        public string Sayac { get => sayac; set => sayac = value; }
-        public string Revizyon { get => revizyon; set => revizyon = value; }
         public string MalzemeyeYapilanIslem { get => malzemeyeYapilanIslem; set => malzemeyeYapilanIslem = value; }
         public string SiparisNo { get => siparisNo; set => siparisNo = value; }
 
-        public AtolyeAltMalzeme(int id, string stokNo, string tanim, string sokulenSeriNo, string takilanSeriNo, double miktar, string birim, string sayac, string revizyon, string malzemeyeYapilanIslem, string siparisNo)
+        public AtolyeAltMalzeme(int id, string stokNo, string tanim, string sokulenSeriNo, string takilanSeriNo, double miktar, string birim, string malzemeyeYapilanIslem, string siparisNo)
         {
             this.id = id;
             this.stokNo = stokNo;
@@ -31,13 +29,11 @@ namespace Entity.BakimOnarimAtolye
             this.takilanSeriNo = takilanSeriNo;
             this.miktar = miktar;
             this.birim = birim;
-            this.sayac = sayac;
-            this.revizyon = revizyon;
             this.malzemeyeYapilanIslem = malzemeyeYapilanIslem;
             this.siparisNo = siparisNo;
         }
 
-        public AtolyeAltMalzeme(string stokNo, string tanim, string sokulenSeriNo, string takilanSeriNo, double miktar, string birim, string sayac, string revizyon, string malzemeyeYapilanIslem, string siparisNo)
+        public AtolyeAltMalzeme(string stokNo, string tanim, string sokulenSeriNo, string takilanSeriNo, double miktar, string birim, string malzemeyeYapilanIslem, string siparisNo)
         {
             this.stokNo = stokNo;
             this.tanim = tanim;
@@ -45,8 +41,6 @@ namespace Entity.BakimOnarimAtolye
             this.takilanSeriNo = takilanSeriNo;
             this.miktar = miktar;
             this.birim = birim;
-            this.sayac = sayac;
-            this.revizyon = revizyon;
             this.malzemeyeYapilanIslem = malzemeyeYapilanIslem;
             this.siparisNo = siparisNo;
         }

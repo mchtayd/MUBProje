@@ -85,18 +85,18 @@ namespace Entity
 
         public SatDataGridview1(int satno,int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string talepEdenPersonel,string personeSiparis,string unvani,string personelMasYerNo, string personelMasYeri, string dosyaYolu, int personelId,string islemAdimi,string donem, string satOlusturmaTuru,string proje, string satinAlinanFirma)
         {
-            this.Formno = formno;
-            this.Masrafyeri = masrafyeri;
-            this.Talepeden = talepeden;
-            this.Bolum = bolum;
-            this.Usbolgesi = usbolgesi;
-            this.Abfformno = abfformno;
+            this.formno = formno;
+            this.masrafyeri = masrafyeri;
+            this.talepeden = talepeden;
+            this.bolum = bolum;
+            this.usbolgesi = usbolgesi;
+            this.abfformno = abfformno;
             this.Tarih = tarih;
-            this.Gerekce = gerekce;
-            this.SiparisNo = siparisNo;
-            this.DosyaYolu = dosyaYolu;
+            this.gerekce = gerekce;
+            this.siparisNo = siparisNo;
+            this.dosyaYolu = dosyaYolu;
             this.personelId = personelId;
-            this.TalepEdenPersonel = talepEdenPersonel;
+            this.talepEdenPersonel = talepEdenPersonel;
             this.personelSiparis = personeSiparis;
             this.unvani = unvani;
             this.personelMasYerNo = personelMasYerNo;

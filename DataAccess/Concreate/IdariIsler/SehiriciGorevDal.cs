@@ -198,12 +198,12 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<SehiriciGorev>();
             }
         }
-        public List<SehiriciGorev> DevamEdenler()
+        public List<SehiriciGorev> DevamEdenler(int id)
         {
             try
             {
                 List<SehiriciGorev> sehiriciGorevs = new List<SehiriciGorev>();
-                dataReader = sqlServices.StoreReader("SehirIciGorevDevamEdenIzleme");
+                dataReader = sqlServices.StoreReader("SehirIciGorevDevamEdenIzleme",new SqlParameter("@id", id));
                 while (dataReader.Read())
                 {
                     sehiriciGorevs.Add(new SehiriciGorev(

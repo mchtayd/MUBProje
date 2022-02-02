@@ -575,7 +575,8 @@ namespace UserInterface.IdariIsler
             personelSiparis = siparis.Siparis;
             unvani = siparis.Gorevi;
             masrafYeri = siparis.Masrafyeri;
-            SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, TxtIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(), infos[2].ToString(), "YOK", "YOK", DateTime.Now, aciklama, siparisNo, TxtPersonelKapat.Text, personelSiparis, unvani, masrafyerino, masrafYeri,
+            int isAkisNo = TxtIsAkisNo.Text.ConInt();
+            SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, isAkisNo, infos[4].ToString(), infos[1].ToString(), infos[2].ToString(), "YOK", "YOK", DateTime.Now, aciklama, siparisNo, TxtPersonelKapat.Text, personelSiparis, unvani, masrafyerino, masrafYeri,
                   string.IsNullOrEmpty(dosya) ? "" : dosya, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", CmbProjeKodu.Text, TxtBakOnarimFirma.Text);
             string mesaj = satDataGridview1Manager.Add(satDataGridview1);
             if (mesaj != "OK")

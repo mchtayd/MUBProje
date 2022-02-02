@@ -510,15 +510,21 @@ namespace UserInterface.IdariIsler
             {
                 Directory.CreateDirectory(yol);
             }
-            var dosyalar = new DirectoryInfo(kaynak).GetFiles("*.docx");
+
+            File.Copy(kaynak + "MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01)2.docx", yol + "MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01)2.docx");
+
+
+
+            /*var dosyalar = new DirectoryInfo(kaynak).GetFiles("*.docx");
+
+
 
             foreach (FileInfo item in dosyalar)
             {
                 item.CopyTo(yol + item.Name);
-            }
+            }*/
 
             taslakYolu = yol + "MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01)2.docx";
-
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
@@ -1359,6 +1365,11 @@ namespace UserInterface.IdariIsler
             TxtGunlukToplam.Text = GunlukToplam();
         }
 
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void TxtIaseGunTlGun_TextChanged(object sender, EventArgs e)
         {
             TxtIaseToplamGun.Text = ToplamHesapla(TxtIaseGunGun.Text, TxtIaseGunTlGun.Text);
@@ -1390,10 +1401,12 @@ namespace UserInterface.IdariIsler
                 YurtIciGorev yurtIciGorev = new YurtIciGorev(TxtIsAkisNoTamamla.Text.ConInt(), TxtGorevEmriNoGun.Text, TxtGorevinKonusuGun.Text, CmbProjeGun.Text, TxtGidilecekYerGun.Text, DtBaslamaTarihiGun.Value, DtBitisTarihiGun.Value, TxtToplamSureGun.Text, CmbButceKoduGun.Text, CmbSiparsGun.Text, CmbAdSoyadGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text, CmbUlasimGidisGun.Text, CmbUlasimGorevYeriGun.Text, CmbUlasimDonusGun.Text, TxtKonaklamaGunGun.Text.ConInt(), TxtKonaklamGunTlGun.Text.ConDouble(), TxtKonaklamaToplamGun.Text.ConDouble(), TxtKiralamaGunGun.Text.ConInt(), TxtKiralamaGunTlGun.Text.ConDouble(), TxtKiralamaYakitGun.Text.ConDouble(), TxtKiralamaToplamGun.Text.ConDouble(), TxtSeyahatAvansGunGun.Text.ConInt(), TxtSeyahatAvansGunTlGun.Text.ConDouble(), textBTxtSeyahatAavansToplamGun.Text.ConDouble(),
                   TxtHarcirahGunGun.Text.ConInt(), TxtHarcirahGunTlGun.Text.ConDouble(), TxtGorevHarcirahGunTopGun.Text.ConDouble(), TxtIaseGunGun.Text.ConInt(), TxtIaseGunTlGun.Text.ConDouble(), TxtIaseToplamGun.Text.ConDouble(), TxtUcakGun.Text.ConDouble(), TxtOtobusGun.Text.ConDouble(), TxtAracPlakasiGun.Text, TxtCikisKmGun.Text.ConDouble(), TxtDonusKmGun.Text.ConDouble(), toplamkm, TxtGenelToplamGun.Text.ConDouble(), islemadimi, dosyaGun, konaklamaTuru);
 
+                
                 string mesaj = yurtIciGorevManager.Update(yurtIciGorev, TxtIsAkisNoTamamla.Text.ConInt());
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Directory.Delete(yol, true);
                     return;
                 }
                 DialogResult dr2 = MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir. Word Çıktısı Oluşturmak İster Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -1596,7 +1609,7 @@ namespace UserInterface.IdariIsler
             textBTxtSeyahatAavansToplamGun.Clear(); TxtUcakGun.Clear(); TxtOtobusGun.Clear(); TxtGenelToplamGun.Clear();
             TxtAracPlakasiGun.Clear(); TxtCikisKmGun.Clear(); TxtDonusKmGun.Clear(); TxtToplamKmGun.Clear();
             TxtYakitLitre.Clear(); TxtUcakMiktar.Clear(); TxtOtobusMiktar.Clear(); TxtHarcirahGunGun.Clear(); TxtHarcirahGunTlGun.Clear();
-            TxtGorevHarcirahGunTopGun.Clear();
+            TxtGorevHarcirahGunTopGun.Clear(); TxtGoreviGun.Clear(); TxtFirmalar.Clear();
         }
         string isakisnogun;
         private void BtnBulT_Click(object sender, EventArgs e)

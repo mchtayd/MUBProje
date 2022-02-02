@@ -30,6 +30,17 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return ex.Message;
             }
         }
+        public string IslemGuncelle(string siparisNo,string islemAdimi)
+        {
+            try
+            {
+                return atolyeDal.IslemGuncelle(siparisNo,islemAdimi);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Delete(int id)
         {
@@ -59,11 +70,11 @@ namespace Business.Concreate.BakimOnarimAtolye
             }
         }
 
-        public List<Atolye> GetList()
+        public List<Atolye> GetList(int durum)
         {
             try
             {
-                return atolyeDal.GetList();
+                return atolyeDal.GetList(durum);
             }
             catch (Exception)
             {
@@ -82,9 +93,27 @@ namespace Business.Concreate.BakimOnarimAtolye
             }
         }
 
-        public string Update(Atolye entity)
+        public string IslemAdimiGuncelle(string islemAdimi,int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return atolyeDal.IslemAdimiGuncelle(islemAdimi, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string ArizaKapat(int id, int durum, DateTime tamamlanmaTarihi)
+        {
+            try
+            {
+                return atolyeDal.ArizaKapat(id, durum, tamamlanmaTarihi);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static AtolyeManager GetInstance()
         {

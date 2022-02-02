@@ -29,10 +29,9 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBOAtolyeGuncelleme));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtIcSiparisNo = new System.Windows.Forms.TextBox();
@@ -43,7 +42,9 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.label8 = new System.Windows.Forms.Label();
+            this.LblMevcutIslemAdimi = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.CmbGorevAtanacakPersonel = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.BtnBolgeEkle = new System.Windows.Forms.Button();
@@ -77,24 +78,6 @@ namespace UserInterface.BakımOnarım
             this.YapilacakIslemler2 = new System.Windows.Forms.ComboBox();
             this.YapilacakIslemler1 = new System.Windows.Forms.ComboBox();
             this.label54 = new System.Windows.Forms.Label();
-            this.Revizyon8 = new System.Windows.Forms.TextBox();
-            this.Revizyon7 = new System.Windows.Forms.TextBox();
-            this.Revizyon6 = new System.Windows.Forms.TextBox();
-            this.Revizyon5 = new System.Windows.Forms.TextBox();
-            this.Revizyon4 = new System.Windows.Forms.TextBox();
-            this.Revizyon3 = new System.Windows.Forms.TextBox();
-            this.Revizyon2 = new System.Windows.Forms.TextBox();
-            this.Revizyon1 = new System.Windows.Forms.TextBox();
-            this.label53 = new System.Windows.Forms.Label();
-            this.Sayac8 = new System.Windows.Forms.TextBox();
-            this.Sayac7 = new System.Windows.Forms.TextBox();
-            this.Sayac6 = new System.Windows.Forms.TextBox();
-            this.Sayac5 = new System.Windows.Forms.TextBox();
-            this.Sayac4 = new System.Windows.Forms.TextBox();
-            this.Sayac3 = new System.Windows.Forms.TextBox();
-            this.Sayac2 = new System.Windows.Forms.TextBox();
-            this.Sayac1 = new System.Windows.Forms.TextBox();
-            this.label52 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
             this.m8 = new System.Windows.Forms.TextBox();
             this.m7 = new System.Windows.Forms.TextBox();
@@ -143,21 +126,11 @@ namespace UserInterface.BakımOnarım
             this.label19 = new System.Windows.Forms.Label();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.DtgIslemKayitlari = new System.Windows.Forms.DataGridView();
             this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.advancedDataGridView2 = new ADGV.AdvancedDataGridView();
-            this.Column35 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column36 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column37 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column38 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column39 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column40 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column41 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column42 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column44 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column43 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column45 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DtgMalzemeler = new ADGV.AdvancedDataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.Dtg = new System.Windows.Forms.DataGridView();
             this.Column46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -171,27 +144,9 @@ namespace UserInterface.BakımOnarım
             this.Column54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
-            this.Column15 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column16 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column17 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column30 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column31 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column32 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column33 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column34 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DtgIslemAdimlari = new System.Windows.Forms.DataGridView();
+            this.DtIscilikSaati = new System.Windows.Forms.TextBox();
+            this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
@@ -199,12 +154,15 @@ namespace UserInterface.BakımOnarım
             this.tabPage6.SuspendLayout();
             this.tabPage7.SuspendLayout();
             this.tabControl3.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).BeginInit();
             this.tabPage9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).BeginInit();
             this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dtg)).BeginInit();
             this.tabPage11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIslemAdimlari)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -287,9 +245,9 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(207, 209);
+            this.BtnKaydet.Location = new System.Drawing.Point(205, 228);
             this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(89, 39);
+            this.BtnKaydet.Size = new System.Drawing.Size(103, 38);
             this.BtnKaydet.TabIndex = 81;
             this.BtnKaydet.Text = "KAYDET";
             this.BtnKaydet.UseVisualStyleBackColor = true;
@@ -307,7 +265,10 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage6
             // 
-            this.tabPage6.Controls.Add(this.label8);
+            this.tabPage6.Controls.Add(this.DtIscilikSaati);
+            this.tabPage6.Controls.Add(this.LblMevcutIslemAdimi);
+            this.tabPage6.Controls.Add(this.label5);
+            this.tabPage6.Controls.Add(this.label1);
             this.tabPage6.Controls.Add(this.CmbGorevAtanacakPersonel);
             this.tabPage6.Controls.Add(this.BtnKaydet);
             this.tabPage6.Controls.Add(this.label10);
@@ -324,21 +285,40 @@ namespace UserInterface.BakımOnarım
             this.tabPage6.Text = "GÜNCELLE";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
-            // label8
+            // LblMevcutIslemAdimi
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(302, 223);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(271, 13);
-            this.label8.TabIndex = 444;
-            this.label8.Text = "500 ADIMINDA MALZEME KONTROL ŞARTI OLACAK";
+            this.LblMevcutIslemAdimi.AutoSize = true;
+            this.LblMevcutIslemAdimi.BackColor = System.Drawing.Color.Yellow;
+            this.LblMevcutIslemAdimi.Location = new System.Drawing.Point(207, 30);
+            this.LblMevcutIslemAdimi.Name = "LblMevcutIslemAdimi";
+            this.LblMevcutIslemAdimi.Size = new System.Drawing.Size(19, 13);
+            this.LblMevcutIslemAdimi.TabIndex = 448;
+            this.LblMevcutIslemAdimi.Text = "00";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(106, 172);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(95, 13);
+            this.label5.TabIndex = 446;
+            this.label5.Text = "İşçilik Süresi/Saat:";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(100, 30);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 13);
+            this.label1.TabIndex = 445;
+            this.label1.Text = "Mevcut İşlem Adımı:";
             // 
             // CmbGorevAtanacakPersonel
             // 
             this.CmbGorevAtanacakPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGorevAtanacakPersonel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbGorevAtanacakPersonel.FormattingEnabled = true;
-            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(207, 139);
+            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(205, 194);
             this.CmbGorevAtanacakPersonel.Name = "CmbGorevAtanacakPersonel";
             this.CmbGorevAtanacakPersonel.Size = new System.Drawing.Size(303, 23);
             this.CmbGorevAtanacakPersonel.TabIndex = 443;
@@ -347,7 +327,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(52, 143);
+            this.label10.Location = new System.Drawing.Point(52, 198);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(147, 15);
             this.label10.TabIndex = 442;
@@ -360,13 +340,14 @@ namespace UserInterface.BakımOnarım
             this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
             this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolgeEkle.Location = new System.Drawing.Point(513, 13);
+            this.BtnBolgeEkle.Location = new System.Drawing.Point(511, 136);
             this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBolgeEkle.Name = "BtnBolgeEkle";
             this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);
             this.BtnBolgeEkle.TabIndex = 440;
             this.BtnBolgeEkle.Tag = "admin";
             this.BtnBolgeEkle.UseVisualStyleBackColor = false;
+            this.BtnBolgeEkle.Visible = false;
             // 
             // CmbIslemAdimi
             // 
@@ -388,9 +369,9 @@ namespace UserInterface.BakımOnarım
             "1200-SİPARİŞ KAPATMA",
             "1300-PAKETLEME",
             "1400-TESLİMAT"});
-            this.CmbIslemAdimi.Location = new System.Drawing.Point(207, 16);
+            this.CmbIslemAdimi.Location = new System.Drawing.Point(207, 139);
             this.CmbIslemAdimi.Name = "CmbIslemAdimi";
-            this.CmbIslemAdimi.Size = new System.Drawing.Size(303, 23);
+            this.CmbIslemAdimi.Size = new System.Drawing.Size(301, 23);
             this.CmbIslemAdimi.TabIndex = 439;
             // 
             // TxtYapilanIslemler
@@ -404,20 +385,20 @@ namespace UserInterface.BakımOnarım
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(11, 56);
+            this.label13.Location = new System.Drawing.Point(48, 56);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(190, 13);
+            this.label13.Size = new System.Drawing.Size(154, 13);
             this.label13.TabIndex = 438;
-            this.label13.Text = "YAPILAN İŞLEMLER/AÇIKLAMALAR:";
+            this.label13.Text = "Yapılacak İşlemler/Açıklamalar:";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(80, 21);
+            this.label7.Location = new System.Drawing.Point(80, 144);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(121, 13);
+            this.label7.Size = new System.Drawing.Size(119, 13);
             this.label7.TabIndex = 436;
-            this.label7.Text = "DURUM/İŞLEM ADIMI:";
+            this.label7.Text = "Bir Sonra ki İşlem Adımı:";
             // 
             // tabPage7
             // 
@@ -446,24 +427,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage7.Controls.Add(this.YapilacakIslemler2);
             this.tabPage7.Controls.Add(this.YapilacakIslemler1);
             this.tabPage7.Controls.Add(this.label54);
-            this.tabPage7.Controls.Add(this.Revizyon8);
-            this.tabPage7.Controls.Add(this.Revizyon7);
-            this.tabPage7.Controls.Add(this.Revizyon6);
-            this.tabPage7.Controls.Add(this.Revizyon5);
-            this.tabPage7.Controls.Add(this.Revizyon4);
-            this.tabPage7.Controls.Add(this.Revizyon3);
-            this.tabPage7.Controls.Add(this.Revizyon2);
-            this.tabPage7.Controls.Add(this.Revizyon1);
-            this.tabPage7.Controls.Add(this.label53);
-            this.tabPage7.Controls.Add(this.Sayac8);
-            this.tabPage7.Controls.Add(this.Sayac7);
-            this.tabPage7.Controls.Add(this.Sayac6);
-            this.tabPage7.Controls.Add(this.Sayac5);
-            this.tabPage7.Controls.Add(this.Sayac4);
-            this.tabPage7.Controls.Add(this.Sayac3);
-            this.tabPage7.Controls.Add(this.Sayac2);
-            this.tabPage7.Controls.Add(this.Sayac1);
-            this.tabPage7.Controls.Add(this.label52);
             this.tabPage7.Controls.Add(this.label51);
             this.tabPage7.Controls.Add(this.m8);
             this.tabPage7.Controls.Add(this.m7);
@@ -516,7 +479,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage7.Size = new System.Drawing.Size(1457, 276);
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = "MALZEME LİSTESİ";
-            this.tabPage7.UseVisualStyleBackColor = true;
             // 
             // b8
             // 
@@ -638,7 +600,7 @@ namespace UserInterface.BakımOnarım
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
             "ONARILACAK"});
-            this.YapilacakIslemler8.Location = new System.Drawing.Point(1236, 220);
+            this.YapilacakIslemler8.Location = new System.Drawing.Point(1040, 220);
             this.YapilacakIslemler8.Name = "YapilacakIslemler8";
             this.YapilacakIslemler8.Size = new System.Drawing.Size(207, 21);
             this.YapilacakIslemler8.TabIndex = 435;
@@ -651,7 +613,7 @@ namespace UserInterface.BakımOnarım
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
             "ONARILACAK"});
-            this.YapilacakIslemler7.Location = new System.Drawing.Point(1236, 193);
+            this.YapilacakIslemler7.Location = new System.Drawing.Point(1040, 193);
             this.YapilacakIslemler7.Name = "YapilacakIslemler7";
             this.YapilacakIslemler7.Size = new System.Drawing.Size(207, 21);
             this.YapilacakIslemler7.TabIndex = 434;
@@ -664,7 +626,7 @@ namespace UserInterface.BakımOnarım
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
             "ONARILACAK"});
-            this.YapilacakIslemler6.Location = new System.Drawing.Point(1236, 166);
+            this.YapilacakIslemler6.Location = new System.Drawing.Point(1040, 166);
             this.YapilacakIslemler6.Name = "YapilacakIslemler6";
             this.YapilacakIslemler6.Size = new System.Drawing.Size(207, 21);
             this.YapilacakIslemler6.TabIndex = 433;
@@ -677,7 +639,7 @@ namespace UserInterface.BakımOnarım
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
             "ONARILACAK"});
-            this.YapilacakIslemler5.Location = new System.Drawing.Point(1236, 139);
+            this.YapilacakIslemler5.Location = new System.Drawing.Point(1040, 139);
             this.YapilacakIslemler5.Name = "YapilacakIslemler5";
             this.YapilacakIslemler5.Size = new System.Drawing.Size(207, 21);
             this.YapilacakIslemler5.TabIndex = 432;
@@ -690,7 +652,7 @@ namespace UserInterface.BakımOnarım
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
             "ONARILACAK"});
-            this.YapilacakIslemler4.Location = new System.Drawing.Point(1236, 112);
+            this.YapilacakIslemler4.Location = new System.Drawing.Point(1040, 112);
             this.YapilacakIslemler4.Name = "YapilacakIslemler4";
             this.YapilacakIslemler4.Size = new System.Drawing.Size(207, 21);
             this.YapilacakIslemler4.TabIndex = 431;
@@ -703,7 +665,7 @@ namespace UserInterface.BakımOnarım
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
             "ONARILACAK"});
-            this.YapilacakIslemler3.Location = new System.Drawing.Point(1236, 85);
+            this.YapilacakIslemler3.Location = new System.Drawing.Point(1040, 85);
             this.YapilacakIslemler3.Name = "YapilacakIslemler3";
             this.YapilacakIslemler3.Size = new System.Drawing.Size(207, 21);
             this.YapilacakIslemler3.TabIndex = 430;
@@ -716,7 +678,7 @@ namespace UserInterface.BakımOnarım
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
             "ONARILACAK"});
-            this.YapilacakIslemler2.Location = new System.Drawing.Point(1236, 58);
+            this.YapilacakIslemler2.Location = new System.Drawing.Point(1040, 58);
             this.YapilacakIslemler2.Name = "YapilacakIslemler2";
             this.YapilacakIslemler2.Size = new System.Drawing.Size(207, 21);
             this.YapilacakIslemler2.TabIndex = 429;
@@ -729,7 +691,7 @@ namespace UserInterface.BakımOnarım
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
             "ONARILACAK"});
-            this.YapilacakIslemler1.Location = new System.Drawing.Point(1236, 31);
+            this.YapilacakIslemler1.Location = new System.Drawing.Point(1040, 31);
             this.YapilacakIslemler1.Name = "YapilacakIslemler1";
             this.YapilacakIslemler1.Size = new System.Drawing.Size(207, 21);
             this.YapilacakIslemler1.TabIndex = 428;
@@ -737,141 +699,11 @@ namespace UserInterface.BakımOnarım
             // label54
             // 
             this.label54.AutoSize = true;
-            this.label54.Location = new System.Drawing.Point(1257, 10);
+            this.label54.Location = new System.Drawing.Point(1061, 10);
             this.label54.Name = "label54";
             this.label54.Size = new System.Drawing.Size(172, 13);
             this.label54.TabIndex = 427;
             this.label54.Text = "MALZEMEYE YAPILACAK İŞLEM:";
-            // 
-            // Revizyon8
-            // 
-            this.Revizyon8.Location = new System.Drawing.Point(1127, 220);
-            this.Revizyon8.Name = "Revizyon8";
-            this.Revizyon8.Size = new System.Drawing.Size(98, 20);
-            this.Revizyon8.TabIndex = 426;
-            // 
-            // Revizyon7
-            // 
-            this.Revizyon7.Location = new System.Drawing.Point(1127, 193);
-            this.Revizyon7.Name = "Revizyon7";
-            this.Revizyon7.Size = new System.Drawing.Size(98, 20);
-            this.Revizyon7.TabIndex = 425;
-            // 
-            // Revizyon6
-            // 
-            this.Revizyon6.Location = new System.Drawing.Point(1127, 166);
-            this.Revizyon6.Name = "Revizyon6";
-            this.Revizyon6.Size = new System.Drawing.Size(98, 20);
-            this.Revizyon6.TabIndex = 424;
-            // 
-            // Revizyon5
-            // 
-            this.Revizyon5.Location = new System.Drawing.Point(1127, 139);
-            this.Revizyon5.Name = "Revizyon5";
-            this.Revizyon5.Size = new System.Drawing.Size(98, 20);
-            this.Revizyon5.TabIndex = 423;
-            // 
-            // Revizyon4
-            // 
-            this.Revizyon4.Location = new System.Drawing.Point(1127, 112);
-            this.Revizyon4.Name = "Revizyon4";
-            this.Revizyon4.Size = new System.Drawing.Size(98, 20);
-            this.Revizyon4.TabIndex = 422;
-            // 
-            // Revizyon3
-            // 
-            this.Revizyon3.Location = new System.Drawing.Point(1127, 85);
-            this.Revizyon3.Name = "Revizyon3";
-            this.Revizyon3.Size = new System.Drawing.Size(98, 20);
-            this.Revizyon3.TabIndex = 421;
-            // 
-            // Revizyon2
-            // 
-            this.Revizyon2.Location = new System.Drawing.Point(1127, 58);
-            this.Revizyon2.Name = "Revizyon2";
-            this.Revizyon2.Size = new System.Drawing.Size(98, 20);
-            this.Revizyon2.TabIndex = 420;
-            // 
-            // Revizyon1
-            // 
-            this.Revizyon1.Location = new System.Drawing.Point(1127, 31);
-            this.Revizyon1.Name = "Revizyon1";
-            this.Revizyon1.Size = new System.Drawing.Size(98, 20);
-            this.Revizyon1.TabIndex = 419;
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Location = new System.Drawing.Point(1142, 10);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(65, 13);
-            this.label53.TabIndex = 418;
-            this.label53.Text = "REVİZYON:";
-            // 
-            // Sayac8
-            // 
-            this.Sayac8.Location = new System.Drawing.Point(1047, 220);
-            this.Sayac8.Name = "Sayac8";
-            this.Sayac8.Size = new System.Drawing.Size(69, 20);
-            this.Sayac8.TabIndex = 417;
-            // 
-            // Sayac7
-            // 
-            this.Sayac7.Location = new System.Drawing.Point(1047, 193);
-            this.Sayac7.Name = "Sayac7";
-            this.Sayac7.Size = new System.Drawing.Size(69, 20);
-            this.Sayac7.TabIndex = 416;
-            // 
-            // Sayac6
-            // 
-            this.Sayac6.Location = new System.Drawing.Point(1047, 166);
-            this.Sayac6.Name = "Sayac6";
-            this.Sayac6.Size = new System.Drawing.Size(69, 20);
-            this.Sayac6.TabIndex = 415;
-            // 
-            // Sayac5
-            // 
-            this.Sayac5.Location = new System.Drawing.Point(1047, 139);
-            this.Sayac5.Name = "Sayac5";
-            this.Sayac5.Size = new System.Drawing.Size(69, 20);
-            this.Sayac5.TabIndex = 414;
-            // 
-            // Sayac4
-            // 
-            this.Sayac4.Location = new System.Drawing.Point(1047, 112);
-            this.Sayac4.Name = "Sayac4";
-            this.Sayac4.Size = new System.Drawing.Size(69, 20);
-            this.Sayac4.TabIndex = 413;
-            // 
-            // Sayac3
-            // 
-            this.Sayac3.Location = new System.Drawing.Point(1047, 85);
-            this.Sayac3.Name = "Sayac3";
-            this.Sayac3.Size = new System.Drawing.Size(69, 20);
-            this.Sayac3.TabIndex = 412;
-            // 
-            // Sayac2
-            // 
-            this.Sayac2.Location = new System.Drawing.Point(1047, 58);
-            this.Sayac2.Name = "Sayac2";
-            this.Sayac2.Size = new System.Drawing.Size(69, 20);
-            this.Sayac2.TabIndex = 411;
-            // 
-            // Sayac1
-            // 
-            this.Sayac1.Location = new System.Drawing.Point(1047, 31);
-            this.Sayac1.Name = "Sayac1";
-            this.Sayac1.Size = new System.Drawing.Size(69, 20);
-            this.Sayac1.TabIndex = 410;
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(1058, 10);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(45, 13);
-            this.label52.TabIndex = 409;
-            this.label52.Text = "SAYAÇ:";
             // 
             // label51
             // 
@@ -1240,179 +1072,84 @@ namespace UserInterface.BakımOnarım
             this.tabControl3.Location = new System.Drawing.Point(8, 493);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(1461, 367);
+            this.tabControl3.Size = new System.Drawing.Size(1461, 421);
             this.tabControl3.TabIndex = 437;
+            this.tabControl3.Visible = false;
             // 
             // tabPage8
             // 
+            this.tabPage8.Controls.Add(this.DtgIslemKayitlari);
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1453, 341);
+            this.tabPage8.Size = new System.Drawing.Size(1453, 395);
             this.tabPage8.TabIndex = 0;
             this.tabPage8.Text = "İŞLEM KAYITLARI";
             this.tabPage8.UseVisualStyleBackColor = true;
             // 
+            // DtgIslemKayitlari
+            // 
+            this.DtgIslemKayitlari.AllowUserToAddRows = false;
+            this.DtgIslemKayitlari.AllowUserToDeleteRows = false;
+            this.DtgIslemKayitlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgIslemKayitlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgIslemKayitlari.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgIslemKayitlari.Location = new System.Drawing.Point(3, 3);
+            this.DtgIslemKayitlari.Name = "DtgIslemKayitlari";
+            this.DtgIslemKayitlari.ReadOnly = true;
+            this.DtgIslemKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgIslemKayitlari.Size = new System.Drawing.Size(1447, 389);
+            this.DtgIslemKayitlari.TabIndex = 1;
+            // 
             // tabPage9
             // 
-            this.tabPage9.Controls.Add(this.advancedDataGridView2);
+            this.tabPage9.Controls.Add(this.DtgMalzemeler);
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1453, 341);
+            this.tabPage9.Size = new System.Drawing.Size(1453, 395);
             this.tabPage9.TabIndex = 1;
             this.tabPage9.Text = "CİHAZ MALZEME DURUMU";
             this.tabPage9.UseVisualStyleBackColor = true;
             // 
-            // advancedDataGridView2
+            // DtgMalzemeler
             // 
-            this.advancedDataGridView2.AllowUserToAddRows = false;
-            this.advancedDataGridView2.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView2.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.advancedDataGridView2.AutoGenerateContextFilters = true;
-            this.advancedDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.advancedDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column35,
-            this.Column36,
-            this.Column37,
-            this.Column38,
-            this.Column39,
-            this.Column40,
-            this.Column41,
-            this.Column42,
-            this.Column44,
-            this.Column43,
-            this.Column45});
-            this.advancedDataGridView2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.advancedDataGridView2.DateWithTime = false;
-            this.advancedDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.advancedDataGridView2.Location = new System.Drawing.Point(3, 3);
-            this.advancedDataGridView2.MultiSelect = false;
-            this.advancedDataGridView2.Name = "advancedDataGridView2";
-            this.advancedDataGridView2.ReadOnly = true;
-            this.advancedDataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.advancedDataGridView2.Size = new System.Drawing.Size(1447, 335);
-            this.advancedDataGridView2.TabIndex = 3;
-            this.advancedDataGridView2.TimeFilter = false;
-            // 
-            // Column35
-            // 
-            this.Column35.HeaderText = "ID";
-            this.Column35.MinimumWidth = 22;
-            this.Column35.Name = "Column35";
-            this.Column35.ReadOnly = true;
-            this.Column35.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column35.Width = 43;
-            // 
-            // Column36
-            // 
-            this.Column36.HeaderText = "STOK NO";
-            this.Column36.MinimumWidth = 22;
-            this.Column36.Name = "Column36";
-            this.Column36.ReadOnly = true;
-            this.Column36.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column36.Width = 74;
-            // 
-            // Column37
-            // 
-            this.Column37.HeaderText = "TANIM";
-            this.Column37.MinimumWidth = 22;
-            this.Column37.Name = "Column37";
-            this.Column37.ReadOnly = true;
-            this.Column37.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column37.Width = 66;
-            // 
-            // Column38
-            // 
-            this.Column38.HeaderText = "SERİ NO (ÇIKAN)";
-            this.Column38.MinimumWidth = 22;
-            this.Column38.Name = "Column38";
-            this.Column38.ReadOnly = true;
-            this.Column38.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column38.Width = 107;
-            // 
-            // Column39
-            // 
-            this.Column39.HeaderText = "SERİ NO (GİREN)";
-            this.Column39.MinimumWidth = 22;
-            this.Column39.Name = "Column39";
-            this.Column39.ReadOnly = true;
-            this.Column39.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column39.Width = 109;
-            // 
-            // Column40
-            // 
-            this.Column40.HeaderText = "REVİZYON";
-            this.Column40.MinimumWidth = 22;
-            this.Column40.Name = "Column40";
-            this.Column40.ReadOnly = true;
-            this.Column40.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column40.Width = 87;
-            // 
-            // Column41
-            // 
-            this.Column41.HeaderText = "MİKTAR";
-            this.Column41.MinimumWidth = 22;
-            this.Column41.Name = "Column41";
-            this.Column41.ReadOnly = true;
-            this.Column41.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column41.Width = 73;
-            // 
-            // Column42
-            // 
-            this.Column42.HeaderText = "SİSTEM CİHAZ ÇALIŞMA DURUMU";
-            this.Column42.MinimumWidth = 22;
-            this.Column42.Name = "Column42";
-            this.Column42.ReadOnly = true;
-            this.Column42.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column42.Width = 145;
-            // 
-            // Column44
-            // 
-            this.Column44.HeaderText = "SİSTEM CİHAZ FİZİKSEL DURUMU";
-            this.Column44.MinimumWidth = 22;
-            this.Column44.Name = "Column44";
-            this.Column44.ReadOnly = true;
-            this.Column44.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column44.Width = 145;
-            // 
-            // Column43
-            // 
-            this.Column43.HeaderText = "MALZEMEYE YAPILACAK İŞLEM";
-            this.Column43.MinimumWidth = 22;
-            this.Column43.Name = "Column43";
-            this.Column43.ReadOnly = true;
-            this.Column43.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column43.Width = 148;
-            // 
-            // Column45
-            // 
-            this.Column45.HeaderText = "DEPO İŞLEM DURUMU";
-            this.Column45.MinimumWidth = 22;
-            this.Column45.Name = "Column45";
-            this.Column45.ReadOnly = true;
-            this.Column45.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column45.Width = 136;
+            this.DtgMalzemeler.AllowUserToAddRows = false;
+            this.DtgMalzemeler.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DtgMalzemeler.AutoGenerateContextFilters = true;
+            this.DtgMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzemeler.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgMalzemeler.DateWithTime = false;
+            this.DtgMalzemeler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzemeler.Location = new System.Drawing.Point(3, 3);
+            this.DtgMalzemeler.MultiSelect = false;
+            this.DtgMalzemeler.Name = "DtgMalzemeler";
+            this.DtgMalzemeler.ReadOnly = true;
+            this.DtgMalzemeler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMalzemeler.Size = new System.Drawing.Size(1447, 389);
+            this.DtgMalzemeler.TabIndex = 3;
+            this.DtgMalzemeler.TimeFilter = false;
             // 
             // tabPage10
             // 
-            this.tabPage10.Controls.Add(this.dataGridView1);
+            this.tabPage10.Controls.Add(this.Dtg);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(1453, 341);
+            this.tabPage10.Size = new System.Drawing.Size(1453, 395);
             this.tabPage10.TabIndex = 2;
             this.tabPage10.Text = "DEPO HAREKETLERİ";
             this.tabPage10.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // Dtg
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Dtg.AllowUserToAddRows = false;
+            this.Dtg.AllowUserToDeleteRows = false;
+            this.Dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column46,
             this.Column48,
             this.Column49,
@@ -1425,11 +1162,11 @@ namespace UserInterface.BakımOnarım
             this.Column53,
             this.Column54,
             this.Column58});
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 3);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(1447, 335);
-            this.dataGridView1.TabIndex = 344;
+            this.Dtg.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Dtg.Location = new System.Drawing.Point(3, 3);
+            this.Dtg.Name = "Dtg";
+            this.Dtg.Size = new System.Drawing.Size(1447, 389);
+            this.Dtg.TabIndex = 344;
             // 
             // Column46
             // 
@@ -1493,243 +1230,34 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage11
             // 
-            this.tabPage11.Controls.Add(this.advancedDataGridView1);
+            this.tabPage11.Controls.Add(this.DtgIslemAdimlari);
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1453, 341);
+            this.tabPage11.Size = new System.Drawing.Size(1453, 395);
             this.tabPage11.TabIndex = 3;
             this.tabPage11.Text = "İŞLEM ADIM DURUM VE SÜRELERİ";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
-            // advancedDataGridView1
+            // DtgIslemAdimlari
             // 
-            this.advancedDataGridView1.AllowUserToAddRows = false;
-            this.advancedDataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.advancedDataGridView1.AutoGenerateContextFilters = true;
-            this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column15,
-            this.Column16,
-            this.Column17,
-            this.Column18,
-            this.Column19,
-            this.Column20,
-            this.Column21,
-            this.Column22,
-            this.Column30,
-            this.Column23,
-            this.Column24,
-            this.Column25,
-            this.Column26,
-            this.Column27,
-            this.Column28,
-            this.Column29,
-            this.Column31,
-            this.Column32,
-            this.Column33,
-            this.Column34});
-            this.advancedDataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.advancedDataGridView1.DateWithTime = false;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(17, 19);
-            this.advancedDataGridView1.MultiSelect = false;
-            this.advancedDataGridView1.Name = "advancedDataGridView1";
-            this.advancedDataGridView1.ReadOnly = true;
-            this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.advancedDataGridView1.Size = new System.Drawing.Size(1380, 145);
-            this.advancedDataGridView1.TabIndex = 4;
-            this.advancedDataGridView1.TimeFilter = false;
+            this.DtgIslemAdimlari.AllowUserToAddRows = false;
+            this.DtgIslemAdimlari.AllowUserToDeleteRows = false;
+            this.DtgIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgIslemAdimlari.Location = new System.Drawing.Point(3, 3);
+            this.DtgIslemAdimlari.Name = "DtgIslemAdimlari";
+            this.DtgIslemAdimlari.ReadOnly = true;
+            this.DtgIslemAdimlari.Size = new System.Drawing.Size(1447, 389);
+            this.DtgIslemAdimlari.TabIndex = 0;
             // 
-            // Column15
+            // DtIscilikSaati
             // 
-            this.Column15.HeaderText = "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)";
-            this.Column15.MinimumWidth = 22;
-            this.Column15.Name = "Column15";
-            this.Column15.ReadOnly = true;
-            this.Column15.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column15.Width = 162;
-            // 
-            // Column16
-            // 
-            this.Column16.HeaderText = "200_ARIZA TESPİTİ (FI/FD) (SAHA)";
-            this.Column16.MinimumWidth = 22;
-            this.Column16.Name = "Column16";
-            this.Column16.ReadOnly = true;
-            this.Column16.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column16.Width = 150;
-            // 
-            // Column17
-            // 
-            this.Column17.HeaderText = "300_SİPARİŞ OLUŞTURMA (DTS)";
-            this.Column17.MinimumWidth = 22;
-            this.Column17.Name = "Column17";
-            this.Column17.ReadOnly = true;
-            this.Column17.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column17.Width = 151;
-            // 
-            // Column18
-            // 
-            this.Column18.HeaderText = "400_ARIZA BİLDİRİMİ (ASELSAN)";
-            this.Column18.MinimumWidth = 22;
-            this.Column18.Name = "Column18";
-            this.Column18.ReadOnly = true;
-            this.Column18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column18.Width = 177;
-            // 
-            // Column19
-            // 
-            this.Column19.HeaderText = "500_BİLDİRİM ONAYI (MÜHENDİS)";
-            this.Column19.MinimumWidth = 22;
-            this.Column19.Name = "Column19";
-            this.Column19.ReadOnly = true;
-            this.Column19.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column19.Width = 128;
-            // 
-            // Column20
-            // 
-            this.Column20.HeaderText = "600_OKF HAZIRLAMA";
-            this.Column20.MinimumWidth = 22;
-            this.Column20.Name = "Column20";
-            this.Column20.ReadOnly = true;
-            this.Column20.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column20.Width = 127;
-            // 
-            // Column21
-            // 
-            this.Column21.HeaderText = "700_MÜŞTERİ ONAYI";
-            this.Column21.MinimumWidth = 22;
-            this.Column21.Name = "Column21";
-            this.Column21.ReadOnly = true;
-            this.Column21.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column21.Width = 124;
-            // 
-            // Column22
-            // 
-            this.Column22.HeaderText = "800_FABRİKA BAKIM ONARIM (ASLESAN)";
-            this.Column22.MinimumWidth = 22;
-            this.Column22.Name = "Column22";
-            this.Column22.ReadOnly = true;
-            this.Column22.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column22.Width = 167;
-            // 
-            // Column30
-            // 
-            this.Column30.HeaderText = "900_DEPO STOK KONTROL";
-            this.Column30.MinimumWidth = 22;
-            this.Column30.Name = "Column30";
-            this.Column30.ReadOnly = true;
-            this.Column30.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column30.Width = 152;
-            // 
-            // Column23
-            // 
-            this.Column23.HeaderText = "1000_MALZ. TEMİNİ(SATIN ALMA)";
-            this.Column23.MinimumWidth = 22;
-            this.Column23.Name = "Column23";
-            this.Column23.ReadOnly = true;
-            this.Column23.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column23.Width = 150;
-            // 
-            // Column24
-            // 
-            this.Column24.HeaderText = "1100_MALZEME TEMİNİ (ASELSAN)";
-            this.Column24.MinimumWidth = 22;
-            this.Column24.Name = "Column24";
-            this.Column24.ReadOnly = true;
-            this.Column24.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column24.Width = 140;
-            // 
-            // Column25
-            // 
-            this.Column25.HeaderText = "1200_MALZEME HAZIRLAMA (AMBAR)";
-            this.Column25.MinimumWidth = 22;
-            this.Column25.Name = "Column25";
-            this.Column25.ReadOnly = true;
-            this.Column25.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column25.Width = 162;
-            // 
-            // Column26
-            // 
-            this.Column26.HeaderText = "1300_BÖLGE SEVKİYATI";
-            this.Column26.MinimumWidth = 22;
-            this.Column26.Name = "Column26";
-            this.Column26.ReadOnly = true;
-            this.Column26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column26.Width = 141;
-            // 
-            // Column27
-            // 
-            this.Column27.HeaderText = "1400_BAKIM ONARIM (SAHA)";
-            this.Column27.MinimumWidth = 22;
-            this.Column27.Name = "Column27";
-            this.Column27.ReadOnly = true;
-            this.Column27.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column27.Width = 130;
-            // 
-            // Column28
-            // 
-            this.Column28.HeaderText = "1500_BAKIM ONARIM (SERVİS)";
-            this.Column28.MinimumWidth = 22;
-            this.Column28.Name = "Column28";
-            this.Column28.ReadOnly = true;
-            this.Column28.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column28.Width = 130;
-            // 
-            // Column29
-            // 
-            this.Column29.HeaderText = "1600_FONKSİYONEL TEST";
-            this.Column29.MinimumWidth = 22;
-            this.Column29.Name = "Column29";
-            this.Column29.ReadOnly = true;
-            this.Column29.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column29.Width = 148;
-            // 
-            // Column31
-            // 
-            this.Column31.HeaderText = "1700_DENETİM";
-            this.Column31.MinimumWidth = 22;
-            this.Column31.Name = "Column31";
-            this.Column31.ReadOnly = true;
-            this.Column31.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column31.Width = 108;
-            // 
-            // Column32
-            // 
-            this.Column32.HeaderText = "1800_MÜŞTERİ TESLİMATI";
-            this.Column32.MinimumWidth = 22;
-            this.Column32.Name = "Column32";
-            this.Column32.ReadOnly = true;
-            this.Column32.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column32.Width = 148;
-            // 
-            // Column33
-            // 
-            this.Column33.HeaderText = "1900_ARIZA KAPATMA (DTS)";
-            this.Column33.MinimumWidth = 22;
-            this.Column33.Name = "Column33";
-            this.Column33.ReadOnly = true;
-            this.Column33.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column33.Width = 134;
-            // 
-            // Column34
-            // 
-            this.Column34.HeaderText = "2000_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)";
-            this.Column34.MinimumWidth = 22;
-            this.Column34.Name = "Column34";
-            this.Column34.ReadOnly = true;
-            this.Column34.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column34.Width = 181;
+            this.DtIscilikSaati.Location = new System.Drawing.Point(207, 168);
+            this.DtIscilikSaati.Name = "DtIscilikSaati";
+            this.DtIscilikSaati.Size = new System.Drawing.Size(100, 20);
+            this.DtIscilikSaati.TabIndex = 449;
+            this.DtIscilikSaati.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DtIscilikSaati_KeyPress);
             // 
             // FrmBOAtolyeGuncelleme
             // 
@@ -1755,12 +1283,15 @@ namespace UserInterface.BakımOnarım
             this.tabPage7.ResumeLayout(false);
             this.tabPage7.PerformLayout();
             this.tabControl3.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).EndInit();
             this.tabPage9.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).EndInit();
             this.tabPage10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dtg)).EndInit();
             this.tabPage11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIslemAdimlari)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1792,24 +1323,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ComboBox YapilacakIslemler2;
         private System.Windows.Forms.ComboBox YapilacakIslemler1;
         private System.Windows.Forms.Label label54;
-        private System.Windows.Forms.TextBox Revizyon8;
-        private System.Windows.Forms.TextBox Revizyon7;
-        private System.Windows.Forms.TextBox Revizyon6;
-        private System.Windows.Forms.TextBox Revizyon5;
-        private System.Windows.Forms.TextBox Revizyon4;
-        private System.Windows.Forms.TextBox Revizyon3;
-        private System.Windows.Forms.TextBox Revizyon2;
-        private System.Windows.Forms.TextBox Revizyon1;
-        private System.Windows.Forms.Label label53;
-        private System.Windows.Forms.TextBox Sayac8;
-        private System.Windows.Forms.TextBox Sayac7;
-        private System.Windows.Forms.TextBox Sayac6;
-        private System.Windows.Forms.TextBox Sayac5;
-        private System.Windows.Forms.TextBox Sayac4;
-        private System.Windows.Forms.TextBox Sayac3;
-        private System.Windows.Forms.TextBox Sayac2;
-        private System.Windows.Forms.TextBox Sayac1;
-        private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.TextBox m8;
         private System.Windows.Forms.TextBox m7;
@@ -1858,13 +1371,12 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.ComboBox CmbGorevAtanacakPersonel;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage8;
         private System.Windows.Forms.TabPage tabPage9;
-        private ADGV.AdvancedDataGridView advancedDataGridView2;
+        private ADGV.AdvancedDataGridView DtgMalzemeler;
         private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView Dtg;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column46;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column48;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column49;
@@ -1878,38 +1390,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn Column54;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column58;
         private System.Windows.Forms.TabPage tabPage11;
-        private ADGV.AdvancedDataGridView advancedDataGridView1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column30;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column27;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column29;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column31;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column32;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column33;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column34;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column35;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column36;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column37;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column38;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column39;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column40;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column41;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column42;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column44;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column43;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column45;
         private System.Windows.Forms.DataGridView DtgAtolye;
         private System.Windows.Forms.TextBox Stok8;
         private System.Windows.Forms.TextBox Stok7;
@@ -1927,5 +1407,12 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TextBox b3;
         private System.Windows.Forms.TextBox b2;
         private System.Windows.Forms.TextBox b1;
+        private System.Windows.Forms.BindingSource dataBinder2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.DataGridView DtgIslemAdimlari;
+        private System.Windows.Forms.DataGridView DtgIslemKayitlari;
+        private System.Windows.Forms.Label LblMevcutIslemAdimi;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox DtIscilikSaati;
     }
 }

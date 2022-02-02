@@ -25,13 +25,14 @@ namespace DataAccess.Concreate.BakimOnarim
             try
             {
                 dataReader = sqlServices.StoreReader("IscilikIscilikEkle",
+                    new SqlParameter("@benzersizId",entity.BenzersizId),
                     new SqlParameter("@adSoyad",entity.AdSoyad),
                     new SqlParameter("@gorevi",entity.Gorevi),
                     new SqlParameter("@bolumu",entity.Bolum),
                     new SqlParameter("@iscilikTuru",entity.IscilikTuru),
-                    new SqlParameter("@abfNo",entity.AbfNo),
+                    new SqlParameter("@abfNo",entity.AbfSiparis),
                     new SqlParameter("@tarih",entity.Tarih),
-                    new SqlParameter("@iscilikSuresi",entity.IscilikSuresi));
+                    new SqlParameter("@iscilikSuresi", entity.IscilikSuresi));
 
                 dataReader.Close();
                 return "OK";
@@ -66,11 +67,12 @@ namespace DataAccess.Concreate.BakimOnarim
                 {
                     item = new IscilikIscilik(
                         dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
                         dataReader["AD_SOYAD"].ToString(),
                         dataReader["GOREVI"].ToString(),
                         dataReader["BOLUMU"].ToString(),
                         dataReader["ISCILIK_TURU"].ToString(),
-                        dataReader["ABF_NO"].ToString(),
+                        dataReader["ABF_SIPARIS"].ToString(),
                         dataReader["TARIH"].ConTime(),
                         dataReader["ISCILIK_SURESI_SAAT"].ToString());
                 }
@@ -83,16 +85,17 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public List<IscilikIscilik> GetList()
+        public List<IscilikIscilik> GetList(string adSoyad)
         {
             try
             {
                 List<IscilikIscilik> ısciliks = new List<IscilikIscilik>();
-                dataReader = sqlServices.StoreReader("IscilikIscilikList");
+                dataReader = sqlServices.StoreReader("IscilikIscilikList", new SqlParameter("@adSoyad", adSoyad));
                 while (dataReader.Read())
                 {
                     ısciliks.Add(new IscilikIscilik(
                         dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
                         dataReader["AD_SOYAD"].ToString(),
                         dataReader["GOREVI"].ToString(),
                         dataReader["BOLUMU"].ToString(),
@@ -120,7 +123,7 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@gorevi", entity.Gorevi),
                     new SqlParameter("@bolumu", entity.Bolum),
                     new SqlParameter("@iscilikTuru", entity.IscilikTuru),
-                    new SqlParameter("@abfNo", entity.AbfNo),
+                    new SqlParameter("@abfNo", entity.AbfSiparis),
                     new SqlParameter("@tarih", entity.Tarih),
                     new SqlParameter("@iscilikSuresi", entity.IscilikSuresi));
 

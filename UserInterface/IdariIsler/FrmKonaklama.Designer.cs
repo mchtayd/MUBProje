@@ -143,6 +143,16 @@ namespace UserInterface.IdariIsler
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
+            this.CmbDonem = new System.Windows.Forms.ComboBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.TxtGerekce = new System.Windows.Forms.RichTextBox();
+            this.CmbDonemYilG = new System.Windows.Forms.ComboBox();
+            this.CmbDonemG = new System.Windows.Forms.ComboBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.TxtGerekceG = new System.Windows.Forms.RichTextBox();
+            this.label46 = new System.Windows.Forms.Label();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -171,6 +181,9 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.CmbDonemYil);
+            this.tabPage1.Controls.Add(this.CmbDonem);
+            this.tabPage1.Controls.Add(this.label52);
             this.tabPage1.Controls.Add(this.LblIsAkisNo);
             this.tabPage1.Controls.Add(this.label42);
             this.tabPage1.Controls.Add(this.BtnTemizle);
@@ -213,7 +226,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(190, 540);
+            this.BtnTemizle.Location = new System.Drawing.Point(192, 557);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(178, 50);
             this.BtnTemizle.TabIndex = 57;
@@ -232,7 +245,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(6, 540);
+            this.BtnKaydet.Location = new System.Drawing.Point(8, 557);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(178, 50);
             this.BtnKaydet.TabIndex = 47;
@@ -264,6 +277,8 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.TxtGerekce);
+            this.groupBox2.Controls.Add(this.label44);
             this.groupBox2.Controls.Add(this.TxtOtelinAdi);
             this.groupBox2.Controls.Add(this.BtnOtelEkle);
             this.groupBox2.Controls.Add(this.label37);
@@ -282,7 +297,7 @@ namespace UserInterface.IdariIsler
             this.groupBox2.Controls.Add(this.label19);
             this.groupBox2.Controls.Add(this.label20);
             this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Location = new System.Drawing.Point(6, 310);
+            this.groupBox2.Location = new System.Drawing.Point(6, 327);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1518, 224);
             this.groupBox2.TabIndex = 43;
@@ -472,7 +487,7 @@ namespace UserInterface.IdariIsler
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.TxtGorevi);
             this.groupBox1.Controls.Add(this.label5);
-            this.groupBox1.Location = new System.Drawing.Point(6, 136);
+            this.groupBox1.Location = new System.Drawing.Point(6, 153);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1518, 168);
             this.groupBox1.TabIndex = 42;
@@ -656,6 +671,9 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.CmbDonemYilG);
+            this.tabPage2.Controls.Add(this.CmbDonemG);
+            this.tabPage2.Controls.Add(this.label45);
             this.tabPage2.Controls.Add(this.label43);
             this.tabPage2.Controls.Add(this.TxtIsAkisNo);
             this.tabPage2.Controls.Add(this.BtnBul);
@@ -710,7 +728,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSil.Location = new System.Drawing.Point(374, 554);
+            this.BtnSil.Location = new System.Drawing.Point(374, 584);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(178, 50);
             this.BtnSil.TabIndex = 57;
@@ -722,7 +740,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnTemizleGun.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizleGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizleGun.Location = new System.Drawing.Point(190, 554);
+            this.BtnTemizleGun.Location = new System.Drawing.Point(190, 584);
             this.BtnTemizleGun.Name = "BtnTemizleGun";
             this.BtnTemizleGun.Size = new System.Drawing.Size(178, 50);
             this.BtnTemizleGun.TabIndex = 56;
@@ -734,7 +752,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(6, 554);
+            this.BtnGuncelle.Location = new System.Drawing.Point(6, 584);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(178, 50);
             this.BtnGuncelle.TabIndex = 48;
@@ -744,6 +762,8 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.TxtGerekceG);
+            this.groupBox3.Controls.Add(this.label46);
             this.groupBox3.Controls.Add(this.TxtOtelAdGun);
             this.groupBox3.Controls.Add(this.label41);
             this.groupBox3.Controls.Add(this.label40);
@@ -761,7 +781,7 @@ namespace UserInterface.IdariIsler
             this.groupBox3.Controls.Add(this.label16);
             this.groupBox3.Controls.Add(this.label22);
             this.groupBox3.Controls.Add(this.label23);
-            this.groupBox3.Location = new System.Drawing.Point(6, 319);
+            this.groupBox3.Location = new System.Drawing.Point(6, 349);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(1523, 229);
             this.groupBox3.TabIndex = 55;
@@ -935,7 +955,7 @@ namespace UserInterface.IdariIsler
             this.groupBox4.Controls.Add(this.label31);
             this.groupBox4.Controls.Add(this.TxtGorevıGun);
             this.groupBox4.Controls.Add(this.label32);
-            this.groupBox4.Location = new System.Drawing.Point(6, 145);
+            this.groupBox4.Location = new System.Drawing.Point(6, 175);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1523, 168);
             this.groupBox4.TabIndex = 54;
@@ -1261,6 +1281,148 @@ namespace UserInterface.IdariIsler
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
+            // CmbDonemYil
+            // 
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(328, 126);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(128, 21);
+            this.CmbDonemYil.TabIndex = 419;
+            // 
+            // CmbDonem
+            // 
+            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonem.FormattingEnabled = true;
+            this.CmbDonem.Items.AddRange(new object[] {
+            "OCAK",
+            "ŞUBAT",
+            "MART",
+            "NİSAN",
+            "MAYIS",
+            "HAZİRAN",
+            "TEMMUZ",
+            "AĞUSTOS",
+            "EYLÜL",
+            "EKİM",
+            "KASIM",
+            "ARALIK"});
+            this.CmbDonem.Location = new System.Drawing.Point(198, 126);
+            this.CmbDonem.Name = "CmbDonem";
+            this.CmbDonem.Size = new System.Drawing.Size(122, 21);
+            this.CmbDonem.TabIndex = 418;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(103, 129);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(87, 13);
+            this.label52.TabIndex = 417;
+            this.label52.Text = "DÖNEM (Ay/Yıl):";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Location = new System.Drawing.Point(526, 28);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(61, 13);
+            this.label44.TabIndex = 46;
+            this.label44.Text = "GEREKÇE:";
+            // 
+            // TxtGerekce
+            // 
+            this.TxtGerekce.Location = new System.Drawing.Point(593, 25);
+            this.TxtGerekce.Name = "TxtGerekce";
+            this.TxtGerekce.Size = new System.Drawing.Size(608, 96);
+            this.TxtGerekce.TabIndex = 47;
+            this.TxtGerekce.Text = "";
+            // 
+            // CmbDonemYilG
+            // 
+            this.CmbDonemYilG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYilG.FormattingEnabled = true;
+            this.CmbDonemYilG.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYilG.Location = new System.Drawing.Point(320, 140);
+            this.CmbDonemYilG.Name = "CmbDonemYilG";
+            this.CmbDonemYilG.Size = new System.Drawing.Size(128, 21);
+            this.CmbDonemYilG.TabIndex = 422;
+            // 
+            // CmbDonemG
+            // 
+            this.CmbDonemG.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemG.FormattingEnabled = true;
+            this.CmbDonemG.Items.AddRange(new object[] {
+            "OCAK",
+            "ŞUBAT",
+            "MART",
+            "NİSAN",
+            "MAYIS",
+            "HAZİRAN",
+            "TEMMUZ",
+            "AĞUSTOS",
+            "EYLÜL",
+            "EKİM",
+            "KASIM",
+            "ARALIK"});
+            this.CmbDonemG.Location = new System.Drawing.Point(190, 140);
+            this.CmbDonemG.Name = "CmbDonemG";
+            this.CmbDonemG.Size = new System.Drawing.Size(122, 21);
+            this.CmbDonemG.TabIndex = 421;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(95, 143);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(87, 13);
+            this.label45.TabIndex = 420;
+            this.label45.Text = "DÖNEM (Ay/Yıl):";
+            // 
+            // TxtGerekceG
+            // 
+            this.TxtGerekceG.Location = new System.Drawing.Point(634, 29);
+            this.TxtGerekceG.Name = "TxtGerekceG";
+            this.TxtGerekceG.Size = new System.Drawing.Size(608, 96);
+            this.TxtGerekceG.TabIndex = 50;
+            this.TxtGerekceG.Text = "";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(567, 32);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(61, 13);
+            this.label46.TabIndex = 49;
+            this.label46.Text = "GEREKÇE:";
+            // 
             // FrmKonaklama
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1409,5 +1571,15 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox CmbSiparisNo;
         private System.Windows.Forms.TextBox CmbSiparisNoGun;
         private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.ComboBox CmbDonemYil;
+        private System.Windows.Forms.ComboBox CmbDonem;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.RichTextBox TxtGerekce;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.ComboBox CmbDonemYilG;
+        private System.Windows.Forms.ComboBox CmbDonemG;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.RichTextBox TxtGerekceG;
+        private System.Windows.Forms.Label label46;
     }
 }

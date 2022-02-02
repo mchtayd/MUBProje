@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>271</ApplicationRevision>
+    <ApplicationRevision>294</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -123,6 +123,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmDevam.Designer.cs">
       <DependentUpon>FrmDevam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDonemDuzlet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDonemDuzlet.Designer.cs">
+      <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmGorevAta.cs">
       <SubType>Form</SubType>
@@ -244,6 +250,18 @@
     <Compile Include="BakımOnarım\FrmBOAtolyeGuncelleme.Designer.cs">
       <DependentUpon>FrmBOAtolyeGuncelleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeKapatma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeKapatma.Designer.cs">
+      <DependentUpon>FrmBOAtolyeKapatma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeTamamlananlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeTamamlananlar.Designer.cs">
+      <DependentUpon>FrmBOAtolyeTamamlananlar.cs</DependentUpon>
+    </Compile>
     <Compile Include="BakımOnarım\FrmBolgeKayitIzleme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -309,6 +327,24 @@
     </Compile>
     <Compile Include="Butce\FrmButceKayit.Designer.cs">
       <DependentUpon>FrmButceKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmIsAvansTalep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmIsAvansTalep.Designer.cs">
+      <DependentUpon>FrmIsAvansTalep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmKasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmKasa.Designer.cs">
+      <DependentUpon>FrmKasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmKasaIzlemecs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmKasaIzlemecs.Designer.cs">
+      <DependentUpon>FrmKasaIzlemecs.cs</DependentUpon>
     </Compile>
     <Compile Include="Butce\FrmSiparisler.cs">
       <SubType>Form</SubType>
@@ -417,6 +453,12 @@
     </Compile>
     <Compile Include="IdariIsler\FrmAracKm.Designer.cs">
       <DependentUpon>FrmAracKm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKmIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKmIzleme.Designer.cs">
+      <DependentUpon>FrmAracKmIzleme.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmAracTahsisBilgileri.cs">
       <SubType>Form</SubType>
@@ -891,6 +933,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmDevam.resx">
       <DependentUpon>FrmDevam.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmDonemDuzlet.resx">
+      <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmGorevAta.resx">
       <DependentUpon>FrmGorevAta.cs</DependentUpon>
     </EmbeddedResource>
@@ -951,6 +996,12 @@
     <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeGuncelleme.resx">
       <DependentUpon>FrmBOAtolyeGuncelleme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeKapatma.resx">
+      <DependentUpon>FrmBOAtolyeKapatma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeTamamlananlar.resx">
+      <DependentUpon>FrmBOAtolyeTamamlananlar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmBolgeKayitIzleme.resx">
       <DependentUpon>FrmBolgeKayitIzleme.cs</DependentUpon>
     </EmbeddedResource>
@@ -983,6 +1034,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Butce\FrmButceKayit.resx">
       <DependentUpon>FrmButceKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmIsAvansTalep.resx">
+      <DependentUpon>FrmIsAvansTalep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmKasa.resx">
+      <DependentUpon>FrmKasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmKasaIzlemecs.resx">
+      <DependentUpon>FrmKasaIzlemecs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Butce\FrmSiparisler.resx">
       <DependentUpon>FrmSiparisler.cs</DependentUpon>
@@ -1037,6 +1097,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracKm.resx">
       <DependentUpon>FrmAracKm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracKmIzleme.resx">
+      <DependentUpon>FrmAracKmIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracTahsisBilgileri.resx">
       <DependentUpon>FrmAracTahsisBilgileri.cs</DependentUpon>

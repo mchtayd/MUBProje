@@ -29,9 +29,9 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYakitDokum));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -463,11 +463,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -795,18 +795,18 @@ namespace UserInterface.IdariIsler
             this.TxtAlinanDonemTasit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.TxtAlinanDonemTasit.FormattingEnabled = true;
             this.TxtAlinanDonemTasit.Items.AddRange(new object[] {
-            "OCAK 2021",
-            "ŞUBAT 2021",
-            "MART 2021",
-            "NİSAN 2021",
-            "MAYIS 2021",
-            "HAZİRAN 2021",
-            "TEMMUZ 2021",
-            "AĞUSTOS 2021",
-            "EYLÜL 2021",
-            "EKİM 2021",
-            "KASIM 2021",
-            "ARALIK 2021"});
+            "OCAK 2022",
+            "ŞUBAT 2022",
+            "MART 2022",
+            "NİSAN 2022",
+            "MAYIS 2022",
+            "HAZİRAN 2022",
+            "TEMMUZ 2022",
+            "AĞUSTOS 2022",
+            "EYLÜL 2022",
+            "EKİM 2022",
+            "KASIM 2022",
+            "ARALIK 2022"});
             this.TxtAlinanDonemTasit.Location = new System.Drawing.Point(129, 78);
             this.TxtAlinanDonemTasit.Name = "TxtAlinanDonemTasit";
             this.TxtAlinanDonemTasit.Size = new System.Drawing.Size(160, 21);
@@ -904,11 +904,11 @@ namespace UserInterface.IdariIsler
             // 
             // RemoveList
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Red;
-            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle2;
             this.RemoveList.HeaderText = "KALDIR";
             this.RemoveList.MinimumWidth = 22;
             this.RemoveList.Name = "RemoveList";
