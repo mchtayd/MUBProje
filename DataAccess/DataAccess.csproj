@@ -84,6 +84,8 @@
     <Compile Include="Concreate\BakimOnarim\IscilikPerformansDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IslemAdimlariDal.cs" />
     <Compile Include="Concreate\BakimOnarim\PypDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\ServisFormuDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\SFYedekParcaDal.cs" />
     <Compile Include="Concreate\Butce\AvansDal.cs" />
     <Compile Include="Concreate\Butce\IsAvansTalepDal.cs" />
     <Compile Include="Concreate\Butce\KasaDal.cs" />

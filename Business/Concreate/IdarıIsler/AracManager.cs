@@ -82,6 +82,7 @@ namespace Business.Concreate.IdarıIsler
                 return new List<Arac>();
             }
         }
+        
 
         public string Update(Arac entity,int id)
         {

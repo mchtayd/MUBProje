@@ -432,8 +432,14 @@ namespace UserInterface.STS
             this.zİMMETLERİMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iZİNLERİMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gÖREVLERİMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.yURTİÇİGÖREVLERİMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.şEHİRİÇİGÖREVLERİMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kONAKLAMALARIMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.gÖREVATAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sIKKULLANILANLARToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.iLETİŞİMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aRŞİVFİHRİSTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.oFİSDOSYAFİHRİSTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bİLDİRİMLERToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblCompanyName = new System.Windows.Forms.Label();
@@ -929,13 +935,18 @@ namespace UserInterface.STS
             this.tELEFONREHBERİToolStripMenuItem.Name = "tELEFONREHBERİToolStripMenuItem";
             this.tELEFONREHBERİToolStripMenuItem.Size = new System.Drawing.Size(115, 20);
             this.tELEFONREHBERİToolStripMenuItem.Text = "TELEFON REHBERİ";
+            this.tELEFONREHBERİToolStripMenuItem.Click += new System.EventHandler(this.tELEFONREHBERİToolStripMenuItem_Click);
             // 
             // bENİMSAYFAMToolStripMenuItem
             // 
             this.bENİMSAYFAMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.zİMMETLERİMToolStripMenuItem,
             this.iZİNLERİMToolStripMenuItem,
-            this.gÖREVLERİMToolStripMenuItem});
+            this.gÖREVLERİMToolStripMenuItem,
+            this.yURTİÇİGÖREVLERİMToolStripMenuItem,
+            this.şEHİRİÇİGÖREVLERİMToolStripMenuItem,
+            this.kONAKLAMALARIMToolStripMenuItem,
+            this.gÖREVATAToolStripMenuItem});
             this.bENİMSAYFAMToolStripMenuItem.Name = "bENİMSAYFAMToolStripMenuItem";
             this.bENİMSAYFAMToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
             this.bENİMSAYFAMToolStripMenuItem.Text = "BENİM SAYFAM";
@@ -943,21 +954,51 @@ namespace UserInterface.STS
             // zİMMETLERİMToolStripMenuItem
             // 
             this.zİMMETLERİMToolStripMenuItem.Name = "zİMMETLERİMToolStripMenuItem";
-            this.zİMMETLERİMToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.zİMMETLERİMToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.zİMMETLERİMToolStripMenuItem.Text = "ZİMMETLERİM";
+            this.zİMMETLERİMToolStripMenuItem.Click += new System.EventHandler(this.zİMMETLERİMToolStripMenuItem_Click);
             // 
             // iZİNLERİMToolStripMenuItem
             // 
             this.iZİNLERİMToolStripMenuItem.Name = "iZİNLERİMToolStripMenuItem";
-            this.iZİNLERİMToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
+            this.iZİNLERİMToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
             this.iZİNLERİMToolStripMenuItem.Text = "İZİNLERİM";
+            this.iZİNLERİMToolStripMenuItem.Click += new System.EventHandler(this.iZİNLERİMToolStripMenuItem_Click);
             // 
             // gÖREVLERİMToolStripMenuItem
             // 
             this.gÖREVLERİMToolStripMenuItem.Name = "gÖREVLERİMToolStripMenuItem";
-            this.gÖREVLERİMToolStripMenuItem.Size = new System.Drawing.Size(151, 22);
-            this.gÖREVLERİMToolStripMenuItem.Text = "GÖREVLERİM";
+            this.gÖREVLERİMToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.gÖREVLERİMToolStripMenuItem.Text = "SİSTEM GÖREVLERİM";
             this.gÖREVLERİMToolStripMenuItem.Click += new System.EventHandler(this.gÖREVLERİMToolStripMenuItem_Click);
+            // 
+            // yURTİÇİGÖREVLERİMToolStripMenuItem
+            // 
+            this.yURTİÇİGÖREVLERİMToolStripMenuItem.Name = "yURTİÇİGÖREVLERİMToolStripMenuItem";
+            this.yURTİÇİGÖREVLERİMToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.yURTİÇİGÖREVLERİMToolStripMenuItem.Text = "YURT İÇİ GÖREVLERİM";
+            this.yURTİÇİGÖREVLERİMToolStripMenuItem.Click += new System.EventHandler(this.yURTİÇİGÖREVLERİMToolStripMenuItem_Click);
+            // 
+            // şEHİRİÇİGÖREVLERİMToolStripMenuItem
+            // 
+            this.şEHİRİÇİGÖREVLERİMToolStripMenuItem.Name = "şEHİRİÇİGÖREVLERİMToolStripMenuItem";
+            this.şEHİRİÇİGÖREVLERİMToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.şEHİRİÇİGÖREVLERİMToolStripMenuItem.Text = "ŞEHİR İÇİ GÖREVLERİM";
+            this.şEHİRİÇİGÖREVLERİMToolStripMenuItem.Click += new System.EventHandler(this.şEHİRİÇİGÖREVLERİMToolStripMenuItem_Click);
+            // 
+            // kONAKLAMALARIMToolStripMenuItem
+            // 
+            this.kONAKLAMALARIMToolStripMenuItem.Name = "kONAKLAMALARIMToolStripMenuItem";
+            this.kONAKLAMALARIMToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.kONAKLAMALARIMToolStripMenuItem.Text = "KONAKLAMALARIM";
+            this.kONAKLAMALARIMToolStripMenuItem.Click += new System.EventHandler(this.kONAKLAMALARIMToolStripMenuItem_Click);
+            // 
+            // gÖREVATAToolStripMenuItem
+            // 
+            this.gÖREVATAToolStripMenuItem.Name = "gÖREVATAToolStripMenuItem";
+            this.gÖREVATAToolStripMenuItem.Size = new System.Drawing.Size(195, 22);
+            this.gÖREVATAToolStripMenuItem.Text = "GÖREV ATA";
+            this.gÖREVATAToolStripMenuItem.Click += new System.EventHandler(this.gÖREVATAToolStripMenuItem_Click);
             // 
             // sIKKULLANILANLARToolStripMenuItem
             // 
@@ -967,9 +1008,26 @@ namespace UserInterface.STS
             // 
             // iLETİŞİMToolStripMenuItem
             // 
+            this.iLETİŞİMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aRŞİVFİHRİSTToolStripMenuItem,
+            this.oFİSDOSYAFİHRİSTToolStripMenuItem});
             this.iLETİŞİMToolStripMenuItem.Name = "iLETİŞİMToolStripMenuItem";
-            this.iLETİŞİMToolStripMenuItem.Size = new System.Drawing.Size(63, 20);
-            this.iLETİŞİMToolStripMenuItem.Text = "İLETİŞİM";
+            this.iLETİŞİMToolStripMenuItem.Size = new System.Drawing.Size(59, 20);
+            this.iLETİŞİMToolStripMenuItem.Text = "FİHRİST";
+            // 
+            // aRŞİVFİHRİSTToolStripMenuItem
+            // 
+            this.aRŞİVFİHRİSTToolStripMenuItem.Name = "aRŞİVFİHRİSTToolStripMenuItem";
+            this.aRŞİVFİHRİSTToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.aRŞİVFİHRİSTToolStripMenuItem.Text = "ARŞİV DOSYA FİHRİST";
+            this.aRŞİVFİHRİSTToolStripMenuItem.Click += new System.EventHandler(this.aRŞİVFİHRİSTToolStripMenuItem_Click);
+            // 
+            // oFİSDOSYAFİHRİSTToolStripMenuItem
+            // 
+            this.oFİSDOSYAFİHRİSTToolStripMenuItem.Name = "oFİSDOSYAFİHRİSTToolStripMenuItem";
+            this.oFİSDOSYAFİHRİSTToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.oFİSDOSYAFİHRİSTToolStripMenuItem.Text = "OFİS DOSYA FİHRİST";
+            this.oFİSDOSYAFİHRİSTToolStripMenuItem.Click += new System.EventHandler(this.oFİSDOSYAFİHRİSTToolStripMenuItem_Click);
             // 
             // bİLDİRİMLERToolStripMenuItem
             // 
@@ -1851,5 +1909,11 @@ namespace UserInterface.STS
         private System.Windows.Forms.ToolStripMenuItem dİREKTÖRLÜKToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bÖLÜMLERToolStripMenuItem;
         private System.Windows.Forms.Button BtnDonemDuzelt;
+        private System.Windows.Forms.ToolStripMenuItem yURTİÇİGÖREVLERİMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem şEHİRİÇİGÖREVLERİMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem gÖREVATAToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem kONAKLAMALARIMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aRŞİVFİHRİSTToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem oFİSDOSYAFİHRİSTToolStripMenuItem;
     }
 }

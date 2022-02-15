@@ -30,7 +30,7 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -374,8 +374,8 @@ namespace UserInterface.STS
             // 
             this.DtgAltYuklenici.AllowUserToAddRows = false;
             this.DtgAltYuklenici.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgAltYuklenici.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgAltYuklenici.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgAltYuklenici.AutoGenerateContextFilters = true;
             this.DtgAltYuklenici.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgAltYuklenici.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -427,7 +427,6 @@ namespace UserInterface.STS
 
         #endregion
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.GroupBox groupBox3;
@@ -457,5 +456,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.GroupBox groupBox1;
         private ADGV.AdvancedDataGridView DtgAltYuklenici;
         private System.Windows.Forms.BindingSource dataBinder;
+        public System.Windows.Forms.Button button5;
     }
 }

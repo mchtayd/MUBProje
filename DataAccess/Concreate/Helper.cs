@@ -12,13 +12,13 @@ using System.Windows.Forms;
 
 namespace DataAccess.Concreate
 {
-    
+
     public static class Helper
     {
 
         static double outValue = 0;
         static int outValue2 = 0;
-        static DateTime outValue3 = new DateTime(2000,01,01);
+        static DateTime outValue3 = new DateTime(2000, 01, 01);
         public static int ConInt(this object param)
         {
             return Convert.ToInt32(param);
@@ -49,7 +49,23 @@ namespace DataAccess.Concreate
 
         public static DateTime ConTime(this object param)
         {
-            return Convert.ToDateTime(param);
+            if (DateTime.TryParse(param.ToString(), out _))
+            {
+                return Convert.ToDateTime(param);
+            }
+            return DateTime.Now;
+        }
+
+        public static DateTime ConOnlyTime(this object param)
+        {
+            if (DateTime.TryParse(param.ToString(), out _))
+            {
+                //{00:15:00}
+                DateTime now = DateTime.Now;
+                string value = param.ToString();
+                return new DateTime(now.Year, now.Month, now.Day, value.Substring(0, 2).ConInt(), value.Substring(3, 2).ConInt(), value.Substring(5, 2).ConInt());
+            }
+            return DateTime.Now;
         }
 
         public static DataTable ToDataTable<T>(this List<T> data)

@@ -56,6 +56,8 @@
     <Compile Include="Concreate\BakimOnarim\IscilikIscilikManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikPerformansManager.cs" />
     <Compile Include="Concreate\BakimOnarim\PypManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\ServisFormuManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\SFYedekParcaManager.cs" />
     <Compile Include="Concreate\Butce\AvansManager.cs" />
     <Compile Include="Concreate\Butce\IsAvansTalepManager.cs" />
     <Compile Include="Concreate\Butce\KasaDurumManager.cs" />

@@ -1719,6 +1719,16 @@ namespace UserInterface.STS
                 OpenTabPage("PageIscilikIzleme", "İŞÇİLİK İZLEME", Go);
                 Go.Show();
             }
+            if (e.Node.Name == "Iscilik Izleme")
+            {
+                FrmIscilikIzleme Go = new FrmIscilikIzleme();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageIscilikIzleme", "İŞÇİLİK İZLEME", Go);
+                Go.Show();
+            }
             if (e.Node.Name == "Destek Iscilik")
             {
                 FrmDestekIscilikVeriGiris Go = new FrmDestekIscilikVeriGiris();
@@ -1759,7 +1769,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageArizaKayitlari", "ARIZA KAYITLARI", Go);
                 Go.Show();
             }
-            if (e.Node.Name == "Bildirim Onayi")
+            if (e.Node.Name == "Bildirim Onayi") 
             {
                 FrmBildirimOnayi Go = new FrmBildirimOnayi();
                 //Go.infos = infos;
@@ -1777,6 +1787,26 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageServisTalepleri", "SERVİS TALEPLERİ", Go);
+                Go.Show();
+            }
+            if (e.Node.Name == "Firma Servis Formu")
+            {
+                FrmServisTalepleriIzleme Go = new FrmServisTalepleriIzleme();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageServisFormuİzleme", "SERVİS FORMU İZLEME", Go);
+                Go.Show();
+            }
+            if (e.Node.Name == "Bolge Yol Durumu")
+            {
+                FrmYolDurumlari Go = new FrmYolDurumlari();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageYolDurumlari", "YOL DURUMLARI", Go);
                 Go.Show();
             }
 
@@ -2397,6 +2427,26 @@ namespace UserInterface.STS
                 OpenTabPage("PageAracKmIzleme", "ARAÇ KM İZLEME", Go);
                 Go.Show();
             }
+            if (e.Node.Name == "HaftalikKontrol")
+            {
+                FrmArsivKontrolFormu Go = new FrmArsivKontrolFormu();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageArsivKontrolFormu", "ARŞİV KONTROL FORMU", Go);
+                Go.Show();
+            }
+            if (e.Node.Name == "HaftalikKontrolIzleme")
+            {
+                FrmArsivKontrolFormuIzleme Go = new FrmArsivKontrolFormuIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageArsivKontrolFormuIzleme", "ARŞİV KONTROL FORMU İZLEME", Go);
+                Go.Show();
+            }
 
 
             /////////////////////////////////////////////////DÖKÜMAN YÖNETİM SİSTEMİ/////////////////////////////////////////////////////////
@@ -2676,6 +2726,61 @@ namespace UserInterface.STS
         {
             FrmDonemDuzlet frmDonemDuzlet = new FrmDonemDuzlet();
             frmDonemDuzlet.ShowDialog();
+        }
+
+        private void tELEFONREHBERİToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmTelefonRehberi frmTelefonRehberi = new FrmTelefonRehberi();
+            frmTelefonRehberi.ShowDialog();
+        }
+
+        private void gÖREVATAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGorevAta frmGorevAta = new FrmGorevAta();
+            frmGorevAta.infos = infos;
+            frmGorevAta.ShowDialog();
+        }
+
+        private void zİMMETLERİMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Zimmetlerim zimmetlerim = new Zimmetlerim();
+            zimmetlerim.ShowDialog();
+        }
+
+        private void iZİNLERİMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIzinlerim frmIzinlerim = new FrmIzinlerim();
+            frmIzinlerim.ShowDialog();
+        }
+
+        private void yURTİÇİGÖREVLERİMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmYurtIciGorevlerim frmYurtIciGorevlerim = new FrmYurtIciGorevlerim();
+            frmYurtIciGorevlerim.ShowDialog();
+        }
+
+        private void şEHİRİÇİGÖREVLERİMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSehirIciGorevlerim frmSehirIciGorevlerim = new FrmSehirIciGorevlerim();
+            frmSehirIciGorevlerim.ShowDialog();
+        }
+
+        private void kONAKLAMALARIMToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmKonaklamalarim frmKonaklamalarim = new FrmKonaklamalarim();
+            frmKonaklamalarim.ShowDialog();
+        }
+
+        private void oFİSDOSYAFİHRİSTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmOfisDosyaFihrist frmOfisDosyaFihrist = new FrmOfisDosyaFihrist();
+            frmOfisDosyaFihrist.ShowDialog();
+        }
+
+        private void aRŞİVFİHRİSTToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ArsivDosyaFihrist arsivDosyaFihrist = new ArsivDosyaFihrist();
+            arsivDosyaFihrist.ShowDialog();
         }
 
         private void FrmAnaSayfa_SizeChanged(object sender, EventArgs e)

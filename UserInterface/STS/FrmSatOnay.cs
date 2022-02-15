@@ -659,7 +659,7 @@ namespace UserInterface.STS
         {
             fiyatTeklifiAls = fiyatTeklifiAlManager.GetList("Gönderildi", siparisNo);
         }
-        string belgeTuru, donem, satOlusturmaTuru;
+        string belgeTuru, donem, satOlusturmaTuru, retNedeni;
         int teklifdurumu;
         private void DtgOnay_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -705,6 +705,22 @@ namespace UserInterface.STS
             dosyayolu = DtgOnay.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             proje = DtgOnay.CurrentRow.Cells["Proje"].Value.ToString();
             teklifdurumu = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
+            retNedeni = DtgOnay.CurrentRow.Cells["RedNedeni"].Value.ToString();
+
+            string pageText3;
+            TxtRetNedeni.Text = retNedeni;
+            if (TxtRetNedeni.Text!="")
+            {
+                pageText3 = "RET GEREKÇESİ " + "( * )";
+
+
+                tabPage2.Text = pageText3;
+
+            }
+            else
+            {
+                tabPage2.Text = "RET GEREKÇESİ";
+            }
 
             satinAlinacakMalzemelers = satinAlinacakMalManager.GetList(siparisNo);
             satNos = satNoManager.GetList(siparisNo);
@@ -1471,6 +1487,8 @@ namespace UserInterface.STS
             TxtGerekceHarcamasiYapilan.Clear();
             TxtGerekceTeklifsiz.Clear();
             TxtGerekce.Clear();
+            TxtGerekceHarcamasiYapilan.Clear(); webBrowser5.Navigate("");
+            TxtGerekceTeklifsiz.Clear(); webBrowser4.Navigate(""); TxtGerekce.Clear(); webBrowser3.Navigate("");
 
         }
         private void TekilfleriTemizle()
@@ -2344,6 +2362,11 @@ namespace UserInterface.STS
                 TxtGerekce.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
                 webBrowser3.Navigate(dosyayolu);
             }
+        }
+
+        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
+        {
+            
         }
 
         private void DtgOnay_CellContentClick(object sender, DataGridViewCellEventArgs e)

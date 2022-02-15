@@ -64,7 +64,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 return item;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

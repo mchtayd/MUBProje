@@ -144,6 +144,28 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<AracZimmeti>();
             }
         }
+        public List<AracZimmeti> SiparisArac(string siparis)
+        {
+            try
+            {
+                List<AracZimmeti> aracZimmetis = new List<AracZimmeti>();
+                dataReader = sqlServices.StoreReader("SiparislerArac",new SqlParameter("@siparis",siparis));
+                while (dataReader.Read())
+                {
+                    aracZimmetis.Add(new AracZimmeti(
+                        dataReader["ARAC_PLAKASI"].ToString(),
+                        dataReader["MULKIYET_BILGILERI"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["DURUM"].ToString()));
+                }
+                dataReader.Close();
+                return aracZimmetis;
+            }
+            catch (Exception)
+            {
+                return new List<AracZimmeti>();
+            }
+        }
 
         public string Update(AracZimmeti entity)
         {

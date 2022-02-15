@@ -102,6 +102,7 @@ namespace UserInterface.BakımOnarım
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
             return;
         }
+        string bildirilenAriza;
         private void BtnBul_Click(object sender, EventArgs e)
         {
             if (TxtIcSiparisNo.Text == "")
@@ -119,8 +120,12 @@ namespace UserInterface.BakımOnarım
             }
 
             Atolye atolye1 = atolyeManager.Get(TxtIcSiparisNo.Text);
+            if (atolye1==null)
+            {
+                return;
+            }
             id = atolye1.Id;
-
+            bildirilenAriza = atolye1.BildirilenAriza;
             //bulunduguIslemAdimi = atolye1.IslemAdimi;
 
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
@@ -139,6 +144,7 @@ namespace UserInterface.BakımOnarım
             {
                 saat = 0;
             }
+            
             dakika = SonucDakika.TotalMinutes.ConInt() % 60;
             SureBul();
 
@@ -167,7 +173,7 @@ namespace UserInterface.BakımOnarım
             }
 
             siparisNo = DtgAtolye.CurrentRow.Cells["SiparisNo"].Value.ToString();
-
+            TxtBildirilenAriza.Text = bildirilenAriza;
             DataDisplayAltMalzeme();
             //FillTools();
         }
@@ -296,7 +302,7 @@ namespace UserInterface.BakımOnarım
         }
         string MalzemeKontrol()
         {
-            if (CmbIslemAdimi.Text == "700-MALZEME HAZIRLAMA (AMBAR)")
+            if (CmbIslemAdimi.Text == "800-MALZEME HAZIRLAMA (AMBAR)")
             {
                 if (Stok1.Text == "")
                 {
@@ -579,34 +585,53 @@ namespace UserInterface.BakımOnarım
                 }*/
             }
 
-            if (TxtYapilanIslemler.Text == "")
+            /*if (TxtYapilanIslemler.Text == "")
             {
                 return "Lütfen YAPILAN İŞLEMLER/AÇIKLAMALAR Bölümünü Doldurunuz!";
-            }
+            }*/
 
             if (CmbIslemAdimi.Text == "")
             {
                 return "Lütfen Bir Sonraki İşlem Adımını Seçiniz!";
-            }
-            if (CmbGorevAtanacakPersonel.Text == "")
-            {
-                return "Görev Atanacak Personel Bilgisini Seçiniz!";
             }
 
             return "OK";
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
+            
+
+            /*if (TxtYapilanIslemler.Text=="")
+            {
+                MessageBox.Show("Lütfen Yapılan İşlemler ve Açıklamalar Kısmını Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }*/
+            if (CmbIslemAdimi.Text=="")
+            {
+                MessageBox.Show("Lütfen İşlem Adımı Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (DtIscilikSaati.Text=="")
+            {
+                MessageBox.Show("Lütfen İşçilik Süresi Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbGorevAtanacakPersonel.Text == "")
+            {
+                MessageBox.Show("Görev Atanacak Personel Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string mesaj = MalzemeKontrol();
 
-            if (CmbIslemAdimi.Text == "700-MALZEME HAZIRLAMA (AMBAR)")
+            if (CmbIslemAdimi.Text == "800-MALZEME HAZIRLAMA (AMBAR)")
             {
                 if (LblMevcutIslemAdimi.Text!= "600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS)")
                 {
-                    MessageBox.Show("Lütfen 700-MALZEME HAZIRLAMA (AMBAR) İşlem Adımına Görev Ataması Yapmadan Önce 600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS) adımını Uygulayınız!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Lütfen 800-MALZEME HAZIRLAMA (AMBAR) İşlem Adımına Görev Ataması Yapmadan Önce 600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS) adımını Uygulayınız!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     return;
                 }
             }
+           
 
             if (mesaj == "OK")
             {
@@ -639,7 +664,6 @@ namespace UserInterface.BakımOnarım
                     MalzemeKaydet();
                     MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     TemizleGuncelle();
-
                 }
 
                 else
@@ -666,7 +690,8 @@ namespace UserInterface.BakımOnarım
             CmbGorevAtanacakPersonel.SelectedValue = "";
             DtgMalzemeler.DataSource = null;
             LblMevcutIslemAdimi.Text = "";
-            DtIscilikSaati.Clear();
+            DtIscilikSaati2.Clear();
+            TxtBildirilenAriza.Clear();
 
             Stok1.Clear(); t1.Clear(); SokulenSeri1.Clear(); TakilanSeri1.Clear(); m1.Clear(); b1.Text = ""; YapilacakIslemler1.SelectedIndex = -1;
 
@@ -753,13 +778,13 @@ namespace UserInterface.BakımOnarım
         string GorevAtama()
         {
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, DtIscilikSaati.Text);
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, DtIscilikSaati.Value);
             string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, TxtYapilanIslemler.Text);
             if (kontrol2 != "OK")
             {
                 return kontrol2;
             }
-            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", CmbGorevAtanacakPersonel.Text, CmbIslemAdimi.Text, DateTime.Now, "", "0,0");
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", CmbGorevAtanacakPersonel.Text, CmbIslemAdimi.Text, DateTime.Now, "",DateTime.Now.Date);
             string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
 
             if (kontrol != "OK")

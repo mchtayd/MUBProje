@@ -650,7 +650,7 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (TxtGerekce.Text == "")
+                if (TxtGerekceG.Text == "")
                 {
                     MessageBox.Show("Lütfen Öncelikle Gerekçe Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;

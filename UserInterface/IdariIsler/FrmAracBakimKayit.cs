@@ -33,6 +33,7 @@ namespace UserInterface.IdariIsler
         ComboManager comboManager;
         SatIslemAdimlariManager satIslemAdimlariManager;
         TeklifsizSatManager teklifsizSatManager;
+        IstenAyrilisManager ıstenAyrilisManager;
         List<string> fileNames = new List<string>();
         List<string> fileNames2 = new List<string>();
         public object[] infos;
@@ -55,6 +56,7 @@ namespace UserInterface.IdariIsler
             satNoManager = SatNoManager.GetInstance();
             satIslemAdimlariManager = SatIslemAdimlariManager.GetInstance();
             teklifsizSatManager = TeklifsizSatManager.GetInstance();
+            ıstenAyrilisManager = IstenAyrilisManager.GetInstance();
         }
 
         private void FrmAracBakimKayit_Load(object sender, EventArgs e)
@@ -571,10 +573,22 @@ namespace UserInterface.IdariIsler
             SatDosyasiOlustur();
 
             SiparisPersonel siparis = siparisPersonelManager.Get("", TxtPersonelKapat.Text);
-            masrafyerino = siparis.Masrafyerino;
-            personelSiparis = siparis.Siparis;
-            unvani = siparis.Gorevi;
-            masrafYeri = siparis.Masrafyeri;
+            if (siparis==null)
+            {
+                IstenAyrilis ıstenAyrilis = ıstenAyrilisManager.Get(TxtPersonelKapat.Text);
+                masrafyerino = ıstenAyrilis.Masyerino;
+                personelSiparis = ıstenAyrilis.Siparis;
+                unvani = ıstenAyrilis.Isunvani;
+                masrafYeri = ıstenAyrilis.Masrafyeri;
+            }
+            else
+            {
+                masrafyerino = siparis.Masrafyerino;
+                personelSiparis = siparis.Siparis;
+                unvani = siparis.Gorevi;
+                masrafYeri = siparis.Masrafyeri;
+            }
+           
             int isAkisNo = TxtIsAkisNo.Text.ConInt();
             SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, isAkisNo, infos[4].ToString(), infos[1].ToString(), infos[2].ToString(), "YOK", "YOK", DateTime.Now, aciklama, siparisNo, TxtPersonelKapat.Text, personelSiparis, unvani, masrafyerino, masrafYeri,
                   string.IsNullOrEmpty(dosya) ? "" : dosya, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", CmbProjeKodu.Text, TxtBakOnarimFirma.Text);
@@ -584,7 +598,7 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            SatDataGridview1 dataGridview1 = new SatDataGridview1(satNo, butcekodu, "BSRN GN.MDL.SATIN ALMA", "HAVALE/EFT", "BAŞARAN İLERİ TEKNOLOJİ", "RESUL GÜNEŞ", "2017000-1", siparisNo, 0, dosya, "SAT ONAY");
+            SatDataGridview1 dataGridview1 = new SatDataGridview1(satNo, butcekodu, "BSRN GN.MDL.SATIN ALMA", "HAVALE/EFT", "ASELSAN AŞ. UGES ÜRÜN DES.MDL.", "ERKAN İPEK", "2017007-1", siparisNo, 0, dosya, "SAT ONAY");
             mesaj = satDataGridview1Manager.Update(dataGridview1);
             if (mesaj !=" SAT Ön Onay İşlemi Başarıyla Tamamlandı.")
             {

@@ -71,6 +71,17 @@ namespace Business.Concreate.IdarıIsler
                 return new List<AracZimmeti>();
             }
         }
+        public List<AracZimmeti> SiparisArac(string siparis)
+        {
+            try
+            {
+                return aracZimmetDal.SiparisArac(siparis);
+            }
+            catch (Exception)
+            {
+                return new List<AracZimmeti>();
+            }
+        }
 
         public string Update(AracZimmeti entity)
         {

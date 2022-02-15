@@ -54,6 +54,8 @@
     <Compile Include="BakimOnarim\IscilikIscilik.cs" />
     <Compile Include="BakimOnarim\IslemAdimlari.cs" />
     <Compile Include="BakimOnarim\Pyp.cs" />
+    <Compile Include="BakimOnarim\ServisFormu.cs" />
+    <Compile Include="BakimOnarim\SFYedekPaca.cs" />
     <Compile Include="Butce\Avans.cs" />
     <Compile Include="Butce\IsAvansTalep.cs" />
     <Compile Include="Butce\Kasa.cs" />
@@ -156,6 +158,9 @@
     <Compile Include="Yerleskeler\Kira.cs" />
     <Compile Include="Yerleskeler\Yerleske.cs" />
     <Compile Include="Yetki.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AnaSayfa\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -39,6 +39,8 @@ namespace UserInterface.IdariIsler
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.F = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -128,11 +130,33 @@ namespace UserInterface.IdariIsler
             this.TxtTop.TabIndex = 345;
             this.TxtTop.Text = "00";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(250, 708);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 15);
+            this.label2.TabIndex = 346;
+            this.label2.Text = "Toplam Kayıt:";
+            // 
+            // F
+            // 
+            this.F.AutoSize = true;
+            this.F.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.F.Location = new System.Drawing.Point(350, 708);
+            this.F.Name = "F";
+            this.F.Size = new System.Drawing.Size(21, 15);
+            this.F.TabIndex = 347;
+            this.F.Text = "00";
+            // 
             // FrmAracKmIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1460, 732);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.F);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.DtgList);
@@ -160,5 +184,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label F;
     }
 }

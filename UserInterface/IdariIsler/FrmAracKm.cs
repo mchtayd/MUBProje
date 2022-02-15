@@ -100,6 +100,7 @@ namespace UserInterface.IdariIsler
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
+            TarihBul();
             if (TxtPlaka.Text=="")
             {
                 MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazınız!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -125,8 +126,9 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            KmFarkBul();
             string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
-            AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKm.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text);
+            AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKm.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKm.Text.ConInt(), toplamYapilanKm, sabitKm, fark);
 
             string mesaj = aracKmManager.Add(aracKm);
 
@@ -137,6 +139,25 @@ namespace UserInterface.IdariIsler
             }
             MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
             Temizle();
+
+        }
+        int bitisKm=0, toplamYapilanKm=0, sabitKm=3500, fark=0, mevcutKm=0;
+        DateTime aysonu;
+
+
+        void TarihBul()
+        {
+            aysonu = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1).AddDays(-1);
+        }
+        void KmFarkBul()
+        {
+            AracKm aracKm = aracKmManager.Get(TxtPlaka.Text);
+
+            mevcutKm = aracKm.BaslangicKm;
+
+            toplamYapilanKm = TxtKm.Text.ConInt() - mevcutKm;
+
+            fark = toplamYapilanKm - sabitKm;
 
         }
     }

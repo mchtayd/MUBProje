@@ -133,7 +133,7 @@ namespace UserInterface.Butce
             DtgTamamlananSatlar.Columns["Proje"].HeaderText = "PROJE";
             DtgTamamlananSatlar.Columns["SatOlusturmaTuru"].Visible = false;
             DtgTamamlananSatlar.Columns["SatinAlinanFirma"].Visible = false;
-            DtgTamamlananSatlar.Columns["HarcamaYapan"].Visible = false;
+            DtgTamamlananSatlar.Columns["HarcamaYapan"].HeaderText = "HARCAMA YAPAN";
 
         }
         void TamamlananSatlar()
@@ -155,6 +155,30 @@ namespace UserInterface.Butce
 
             dosyaYolu = DtgList.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             webBrowser2.Navigate(dosyaYolu);
+        }
+
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgList.FilterString;
+            TxtTop.Text = DtgList.RowCount.ToString();
+            Toplamlar();
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgList.SortString;
+        }
+
+        private void DtgTamamlananSatlar_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder2.Filter = DtgTamamlananSatlar.FilterString;
+            TxtTopKayitSat.Text = DtgTamamlananSatlar.RowCount.ToString();
+            Toplamlar2();
+        }
+
+        private void DtgTamamlananSatlar_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder2.Sort = DtgTamamlananSatlar.SortString;
         }
     }
 }

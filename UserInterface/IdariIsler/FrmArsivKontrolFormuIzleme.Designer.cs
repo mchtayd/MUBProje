@@ -29,7 +29,7 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -72,6 +72,7 @@ namespace UserInterface.IdariIsler
             this.BtnCancel.TabIndex = 1;
             this.BtnCancel.Text = "X";
             this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // TxtTop
             // 
@@ -126,8 +127,8 @@ namespace UserInterface.IdariIsler
             // 
             this.DtgReddedilenSat.AllowUserToAddRows = false;
             this.DtgReddedilenSat.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgReddedilenSat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgReddedilenSat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgReddedilenSat.AutoGenerateContextFilters = true;
             this.DtgReddedilenSat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgReddedilenSat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -156,7 +157,7 @@ namespace UserInterface.IdariIsler
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
             this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column1.Width = 88;
+            this.Column1.Width = 81;
             // 
             // Column4
             // 
@@ -165,7 +166,7 @@ namespace UserInterface.IdariIsler
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
             this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column4.Width = 89;
+            this.Column4.Width = 82;
             // 
             // Column3
             // 
@@ -215,6 +216,7 @@ namespace UserInterface.IdariIsler
             this.Controls.Add(this.panel1);
             this.Name = "FrmArsivKontrolFormuIzleme";
             this.Text = "FrmArsivKontrolFormuIzleme";
+            this.Load += new System.EventHandler(this.FrmArsivKontrolFormuIzleme_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);

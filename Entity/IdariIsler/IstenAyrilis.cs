@@ -167,5 +167,15 @@ namespace Entity.IdariIsler
             this.gorevyeri = gorevyeri;
             this.siparisno = siparisno;
         }
+
+        public IstenAyrilis(int id, string adsoyad, string siparis, string masyerino, string sirketBolum, string isunvani)
+        {
+            this.id = id;
+            this.adsoyad = adsoyad;
+            this.siparis = siparis;
+            this.masyerino = masyerino;
+            this.sirketbolum = sirketBolum;
+            this.isunvani = isunvani;
+        }
     }
 }

@@ -87,6 +87,7 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["KmCikis"].HeaderText = "PROJEDEN ÇIKIŞ KM";
             DtgList.Columns["DosyaYolu"].Visible = false;
             DtgList.Columns["Sayfa"].Visible = false;
+            DtgList.Columns["Durum"].Visible = false;
         }
         void DataDisplayProjeDisi()
         {
@@ -121,7 +122,7 @@ namespace UserInterface.IdariIsler
             DtgListDis.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
             DtgListDis.Columns["DosyaYolu"].Visible = false;
             DtgListDis.Columns["Sayfa"].Visible = false;
-
+            DtgListDis.Columns["Durum"].Visible = false;
         }
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)

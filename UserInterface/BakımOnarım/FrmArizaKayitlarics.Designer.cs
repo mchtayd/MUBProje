@@ -38,7 +38,6 @@ namespace UserInterface.BakımOnarım
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgArizaKayitlari)).BeginInit();
@@ -52,7 +51,7 @@ namespace UserInterface.BakımOnarım
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1637, 27);
+            this.panel1.Size = new System.Drawing.Size(1555, 27);
             this.panel1.TabIndex = 315;
             // 
             // BtnCancel
@@ -72,9 +71,9 @@ namespace UserInterface.BakımOnarım
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgArizaKayitlari);
-            this.groupBox1.Location = new System.Drawing.Point(12, 44);
+            this.groupBox1.Location = new System.Drawing.Point(12, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1519, 775);
+            this.groupBox1.Size = new System.Drawing.Size(1519, 722);
             this.groupBox1.TabIndex = 316;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ARIZA KAYITLARI";
@@ -88,8 +87,6 @@ namespace UserInterface.BakımOnarım
             this.DtgArizaKayitlari.AutoGenerateContextFilters = true;
             this.DtgArizaKayitlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgArizaKayitlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgArizaKayitlari.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column9});
             this.DtgArizaKayitlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgArizaKayitlari.DateWithTime = false;
             this.DtgArizaKayitlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -97,8 +94,8 @@ namespace UserInterface.BakımOnarım
             this.DtgArizaKayitlari.MultiSelect = false;
             this.DtgArizaKayitlari.Name = "DtgArizaKayitlari";
             this.DtgArizaKayitlari.ReadOnly = true;
-            this.DtgArizaKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgArizaKayitlari.Size = new System.Drawing.Size(1513, 756);
+            this.DtgArizaKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DtgArizaKayitlari.Size = new System.Drawing.Size(1513, 703);
             this.DtgArizaKayitlari.TabIndex = 2;
             this.DtgArizaKayitlari.TimeFilter = false;
             // 
@@ -106,7 +103,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(12, 831);
+            this.label31.Location = new System.Drawing.Point(12, 766);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 344;
@@ -116,26 +113,17 @@ namespace UserInterface.BakımOnarım
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 831);
+            this.TxtTop.Location = new System.Drawing.Point(112, 766);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 345;
             this.TxtTop.Text = "00";
             // 
-            // Column9
-            // 
-            this.Column9.HeaderText = "İŞLEM ADIMI BEKLEME SÜRESİ";
-            this.Column9.MinimumWidth = 22;
-            this.Column9.Name = "Column9";
-            this.Column9.ReadOnly = true;
-            this.Column9.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column9.Width = 140;
-            // 
             // FrmArizaKayitlarics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1637, 872);
+            this.ClientSize = new System.Drawing.Size(1555, 798);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.groupBox1);
@@ -161,6 +149,5 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.BindingSource dataBinder;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
     }
 }

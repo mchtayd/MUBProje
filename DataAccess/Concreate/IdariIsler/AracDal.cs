@@ -105,7 +105,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["PROJE_CIKIS_NEDENI"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SAYFA"].ToString(),
-                        dataReader["ACIKLAMA"].ToString());
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DURUM"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -151,7 +152,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["PROJE_CIKIS_NEDENI"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SAYFA"].ToString(),
-                        dataReader["ACIKLAMA"].ToString()));
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DURUM"].ToString()));
                 }
                 dataReader.Close();
                 return aracs;
@@ -196,7 +198,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["PROJE_CIKIS_NEDENI"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SAYFA"].ToString(),
-                        dataReader["ACIKLAMA"].ToString()));
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DURUM"].ToString()));
                 }
                 dataReader.Close();
                 return aracs;
@@ -206,6 +209,7 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<Arac>();
             }
         }
+        
 
         public string Update(Arac entity,int id)
         {

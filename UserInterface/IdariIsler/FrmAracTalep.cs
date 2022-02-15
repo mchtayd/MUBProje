@@ -38,5 +38,11 @@ namespace UserInterface.IdariIsler
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
+
+        private void BtnKaydet_Click(object sender, EventArgs e)
+        {
+            
+
+        }
     }
 }

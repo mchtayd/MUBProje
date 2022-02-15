@@ -64,6 +64,17 @@ namespace Business.Concreate.IdarıIsler
                 return new List<PersonelKayit>();
             }
         }
+        public List<PersonelKayit> SiparisPersonel(string siparis)
+        {
+            try
+            {
+                return personelKayitDal.SiparisPersonel(siparis);
+            }
+            catch
+            {
+                return new List<PersonelKayit>();
+            }
+        }
         public string YetkiliEkle(int personelId, int yetkiliId)
         {
             try
@@ -189,6 +200,18 @@ namespace Business.Concreate.IdarıIsler
             {
                 
                 return personelKayitDal.PersonelSorumluDegistir(personelId, yetkiliId);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SiparisGuncelle(string adSoyad, string siparis)
+        {
+            try
+            {
+
+                return personelKayitDal.SiparisGuncelle(adSoyad, siparis);
             }
             catch (Exception ex)
             {

@@ -37,6 +37,7 @@ namespace UserInterface.Butce
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DtgTamamlananSatlar = new ADGV.AdvancedDataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
@@ -56,15 +57,14 @@ namespace UserInterface.Butce
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
-            this.DtgTamamlananSatlar = new ADGV.AdvancedDataGridView();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox3
@@ -96,6 +96,8 @@ namespace UserInterface.Butce
             this.DtgList.Size = new System.Drawing.Size(1008, 181);
             this.DtgList.TabIndex = 4;
             this.DtgList.TimeFilter = false;
+            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
+            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // panel1
@@ -131,6 +133,28 @@ namespace UserInterface.Butce
             this.groupBox1.TabIndex = 337;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "KASA GİDERLER";
+            // 
+            // DtgTamamlananSatlar
+            // 
+            this.DtgTamamlananSatlar.AllowUserToAddRows = false;
+            this.DtgTamamlananSatlar.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.DtgTamamlananSatlar.AutoGenerateContextFilters = true;
+            this.DtgTamamlananSatlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgTamamlananSatlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgTamamlananSatlar.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgTamamlananSatlar.DateWithTime = false;
+            this.DtgTamamlananSatlar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgTamamlananSatlar.Location = new System.Drawing.Point(3, 16);
+            this.DtgTamamlananSatlar.Name = "DtgTamamlananSatlar";
+            this.DtgTamamlananSatlar.ReadOnly = true;
+            this.DtgTamamlananSatlar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgTamamlananSatlar.Size = new System.Drawing.Size(1003, 375);
+            this.DtgTamamlananSatlar.TabIndex = 5;
+            this.DtgTamamlananSatlar.TimeFilter = false;
+            this.DtgTamamlananSatlar.SortStringChanged += new System.EventHandler(this.DtgTamamlananSatlar_SortStringChanged);
+            this.DtgTamamlananSatlar.FilterStringChanged += new System.EventHandler(this.DtgTamamlananSatlar_FilterStringChanged);
             // 
             // label1
             // 
@@ -302,26 +326,6 @@ namespace UserInterface.Butce
             this.webBrowser2.Size = new System.Drawing.Size(620, 84);
             this.webBrowser2.TabIndex = 0;
             // 
-            // DtgTamamlananSatlar
-            // 
-            this.DtgTamamlananSatlar.AllowUserToAddRows = false;
-            this.DtgTamamlananSatlar.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DtgTamamlananSatlar.AutoGenerateContextFilters = true;
-            this.DtgTamamlananSatlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgTamamlananSatlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgTamamlananSatlar.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgTamamlananSatlar.DateWithTime = false;
-            this.DtgTamamlananSatlar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgTamamlananSatlar.Location = new System.Drawing.Point(3, 16);
-            this.DtgTamamlananSatlar.Name = "DtgTamamlananSatlar";
-            this.DtgTamamlananSatlar.ReadOnly = true;
-            this.DtgTamamlananSatlar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgTamamlananSatlar.Size = new System.Drawing.Size(1003, 375);
-            this.DtgTamamlananSatlar.TabIndex = 5;
-            this.DtgTamamlananSatlar.TimeFilter = false;
-            // 
             // FrmKasaIzlemecs
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -353,10 +357,10 @@ namespace UserInterface.Butce
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.groupBox7.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

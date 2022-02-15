@@ -202,19 +202,35 @@ namespace UserInterface.BakımOnarım
             DtgIslemKayitlari.Columns["Tarih"].HeaderText = "TARİH";
             DtgIslemKayitlari.Columns["Sure"].HeaderText = "İŞLEM ADIMI SÜRELERİ";
             DtgIslemKayitlari.Columns["YapilanIslem"].HeaderText = "YAPILAN İŞLEM";
-            DtgIslemKayitlari.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
+
+            DtgIslemKayitlari.Columns["CalismaSuresi"].HeaderText = "ÇALIŞMA SÜRESİ";
+
+            DtgIslemKayitlari.Columns["CalismaSuresi"].DefaultCellStyle.Format = @"HH:mm:ss";
+
+            foreach (DataGridViewRow row in DtgIslemKayitlari.Rows)
+            {
+                string value = row.Cells["CalismaSuresi"].Value.ToString();
+                row.Cells["CalismaSuresi"].Value = value.Substring(value.IndexOf(' ') + 1);
+            }
+
             ToplamlarIscilik();
             ToplamlarIslemAdimSureleri();
         }
         void ToplamlarIscilik()
         {
-            double toplam = 0;
+            DateTime toplam = DateTime.Now.Date;
             for (int i = 0; i < DtgIslemKayitlari.Rows.Count; ++i)
             {
-                toplam += Convert.ToDouble(DtgIslemKayitlari.Rows[i].Cells[8].Value);
+                string value = DtgIslemKayitlari.Rows[i].Cells["CalismaSuresi"].Value.ToString();
+                if (DateTime.TryParse(value, out _))
+                {
+                    toplam = toplam.AddSeconds(value.ConTime().Minute * 60);
+                    toplam = toplam.AddSeconds(value.ConTime().Hour * 3660);
+                }
+                //toplam += Convert.ToDouble(DtgIslemKayitlari.Rows[i].Cells["IscilikSuresi"].Value);
 
             }
-            LblGenelTop.Text = toplam.ToString() + " Saat";
+            LblGenelTop.Text = $"{toplam.Hour}:{toplam.Minute}:{toplam.Second}";
         }
         void ToplamlarIslemAdimSureleri()
         {

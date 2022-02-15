@@ -30,8 +30,8 @@ namespace UserInterface.Ana_Sayfa
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label31 = new System.Windows.Forms.Label();
@@ -39,6 +39,15 @@ namespace UserInterface.Ana_Sayfa
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgGorevlerim = new ADGV.AdvancedDataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtIstenenGorev = new System.Windows.Forms.RichTextBox();
+            this.TxtAciklama = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.TxtGenelTop = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.DtgYoneticiGorevlerim = new ADGV.AdvancedDataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtTop3 = new System.Windows.Forms.Label();
@@ -57,15 +66,25 @@ namespace UserInterface.Ana_Sayfa
             this.yönlendirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.durumGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arızaKapatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnDosyaEkle = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgGorevlerim)).BeginInit();
+            this.tabPage2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgYoneticiGorevlerim)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -76,8 +95,9 @@ namespace UserInterface.Ana_Sayfa
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(973, 780);
+            this.tabControl1.Size = new System.Drawing.Size(1387, 780);
             this.tabControl1.TabIndex = 314;
+            this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
             // tabPage1
             // 
@@ -87,7 +107,7 @@ namespace UserInterface.Ana_Sayfa
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(965, 754);
+            this.tabPage1.Size = new System.Drawing.Size(1379, 754);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AÇIK ARIZA GÖREVLERİM";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -117,7 +137,7 @@ namespace UserInterface.Ana_Sayfa
             this.groupBox1.Controls.Add(this.DtgGorevlerim);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(809, 682);
+            this.groupBox1.Size = new System.Drawing.Size(941, 682);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GÖREV LİSTESİ";
@@ -126,8 +146,8 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.DtgGorevlerim.AllowUserToAddRows = false;
             this.DtgGorevlerim.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgGorevlerim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgGorevlerim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
             this.DtgGorevlerim.AutoGenerateContextFilters = true;
             this.DtgGorevlerim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgGorevlerim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -139,19 +159,126 @@ namespace UserInterface.Ana_Sayfa
             this.DtgGorevlerim.Name = "DtgGorevlerim";
             this.DtgGorevlerim.ReadOnly = true;
             this.DtgGorevlerim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgGorevlerim.Size = new System.Drawing.Size(803, 663);
+            this.DtgGorevlerim.Size = new System.Drawing.Size(935, 663);
             this.DtgGorevlerim.TabIndex = 3;
             this.DtgGorevlerim.TimeFilter = false;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BtnDosyaEkle);
+            this.tabPage2.Controls.Add(this.groupBox4);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.TxtIstenenGorev);
+            this.tabPage2.Controls.Add(this.TxtAciklama);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.BtnKaydet);
+            this.tabPage2.Controls.Add(this.TxtGenelTop);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(965, 754);
+            this.tabPage2.Size = new System.Drawing.Size(1379, 754);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "YÖNETİCİ GÖREVLERİM";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(44, 516);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(85, 15);
+            this.label2.TabIndex = 447;
+            this.label2.Text = "İstenen Görev:";
+            // 
+            // TxtIstenenGorev
+            // 
+            this.TxtIstenenGorev.Location = new System.Drawing.Point(135, 515);
+            this.TxtIstenenGorev.Name = "TxtIstenenGorev";
+            this.TxtIstenenGorev.Size = new System.Drawing.Size(671, 82);
+            this.TxtIstenenGorev.TabIndex = 446;
+            this.TxtIstenenGorev.Text = "";
+            // 
+            // TxtAciklama
+            // 
+            this.TxtAciklama.Location = new System.Drawing.Point(135, 609);
+            this.TxtAciklama.Name = "TxtAciklama";
+            this.TxtAciklama.Size = new System.Drawing.Size(671, 82);
+            this.TxtAciklama.TabIndex = 445;
+            this.TxtAciklama.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(7, 610);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 15);
+            this.label4.TabIndex = 444;
+            this.label4.Text = "Yapılan İşlem/Sonuç:";
+            // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Location = new System.Drawing.Point(135, 700);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(122, 38);
+            this.BtnKaydet.TabIndex = 443;
+            this.BtnKaydet.Text = "GÖREVİ BİTİR";
+            this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
+            // 
+            // TxtGenelTop
+            // 
+            this.TxtGenelTop.AutoSize = true;
+            this.TxtGenelTop.Location = new System.Drawing.Point(108, 482);
+            this.TxtGenelTop.Name = "TxtGenelTop";
+            this.TxtGenelTop.Size = new System.Drawing.Size(19, 13);
+            this.TxtGenelTop.TabIndex = 442;
+            this.TxtGenelTop.Text = "00";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(8, 480);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(94, 15);
+            this.label17.TabIndex = 441;
+            this.label17.Text = "Toplam Kayıt:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.DtgYoneticiGorevlerim);
+            this.groupBox3.Location = new System.Drawing.Point(6, 20);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1367, 453);
+            this.groupBox3.TabIndex = 440;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "ATANAN GÖREVLER";
+            // 
+            // DtgYoneticiGorevlerim
+            // 
+            this.DtgYoneticiGorevlerim.AllowUserToAddRows = false;
+            this.DtgYoneticiGorevlerim.AllowUserToDeleteRows = false;
+            this.DtgYoneticiGorevlerim.AutoGenerateContextFilters = true;
+            this.DtgYoneticiGorevlerim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DtgYoneticiGorevlerim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgYoneticiGorevlerim.DateWithTime = false;
+            this.DtgYoneticiGorevlerim.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgYoneticiGorevlerim.Location = new System.Drawing.Point(3, 16);
+            this.DtgYoneticiGorevlerim.Name = "DtgYoneticiGorevlerim";
+            this.DtgYoneticiGorevlerim.ReadOnly = true;
+            this.DtgYoneticiGorevlerim.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgYoneticiGorevlerim.Size = new System.Drawing.Size(1361, 434);
+            this.DtgYoneticiGorevlerim.TabIndex = 0;
+            this.DtgYoneticiGorevlerim.TimeFilter = false;
+            this.DtgYoneticiGorevlerim.SortStringChanged += new System.EventHandler(this.DtgYoneticiGorevlerim_SortStringChanged);
+            this.DtgYoneticiGorevlerim.FilterStringChanged += new System.EventHandler(this.DtgYoneticiGorevlerim_FilterStringChanged);
+            this.DtgYoneticiGorevlerim.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.advancedDataGridView1_CellMouseClick);
             // 
             // tabPage3
             // 
@@ -160,7 +287,7 @@ namespace UserInterface.Ana_Sayfa
             this.tabPage3.Controls.Add(this.groupBox2);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(965, 754);
+            this.tabPage3.Size = new System.Drawing.Size(1379, 754);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "İŞ AKIŞI GÖREVLERİM";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -199,8 +326,8 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.advancedDataGridView1.AllowUserToAddRows = false;
             this.advancedDataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.advancedDataGridView1.AutoGenerateContextFilters = true;
             this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -331,11 +458,46 @@ namespace UserInterface.Ana_Sayfa
             this.arızaKapatToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.arızaKapatToolStripMenuItem.Text = "Arıza Kapat";
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(552, 164);
+            this.webBrowser1.TabIndex = 449;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.webBrowser1);
+            this.groupBox4.Location = new System.Drawing.Point(812, 508);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(558, 183);
+            this.groupBox4.TabIndex = 450;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "Ekler";
+            // 
+            // BtnDosyaEkle
+            // 
+            this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(812, 694);
+            this.BtnDosyaEkle.Name = "BtnDosyaEkle";
+            this.BtnDosyaEkle.Size = new System.Drawing.Size(122, 38);
+            this.BtnDosyaEkle.TabIndex = 451;
+            this.BtnDosyaEkle.Text = "DOSYA EKLE";
+            this.BtnDosyaEkle.UseVisualStyleBackColor = true;
+            this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FrmGorevlerim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(988, 804);
+            this.ClientSize = new System.Drawing.Size(1411, 804);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -349,12 +511,18 @@ namespace UserInterface.Ana_Sayfa
             this.tabPage1.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgGorevlerim)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgYoneticiGorevlerim)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.groupBox4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -385,5 +553,19 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.Label TxtGenelTop;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private ADGV.AdvancedDataGridView DtgYoneticiGorevlerim;
+        private System.Windows.Forms.RichTextBox TxtAciklama;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox TxtIstenenGorev;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Button BtnDosyaEkle;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

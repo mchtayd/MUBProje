@@ -38,25 +38,60 @@ namespace Business.Concreate
 
         public GorevAtama Get(int id)
         {
-            throw new NotImplementedException();
-        }
-
-        public List<GorevAtama> GetList(string adSoyad, int benzersizId)
-        {
             try
             {
-                return gorevAtamaDal.GetList(adSoyad, benzersizId);
+                return gorevAtamaDal.Get(id);
             }
             catch (Exception)
             {
+                return null;
+            }
+        }
 
-                throw;
+        public List<GorevAtama> GetList(string durum = "",string goreviAtayaPersonel = "")
+        {
+            try
+            {
+                return gorevAtamaDal.GetList(durum, goreviAtayaPersonel);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public List<GorevAtama> GetListTamamlananlar(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaDal.GetListTamamlananlar(adSoyad);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public List<GorevAtama> GetListGorevlerim(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaDal.GetListGorevlerim(adSoyad);
+            }
+            catch (Exception)
+            {
+                return null;
             }
         }
 
         public string Update(GorevAtama entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return gorevAtamaDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static GorevAtamaManager GetInstance()
         {

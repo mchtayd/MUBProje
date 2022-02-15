@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class AracZimmeti
     {
-        int id, isAkisNo; string plaka, marka, model, motorNo, saseNo, mulkiyetBilgileri, siparisNo;DateTime projeTahsisTarihi; string personelAd, sicilNo, masrafYeriNo, masrafYeri, masYerSor, bolum;DateTime aktarimTarihi; string gerekce, dosyYolu;int km;
+        int id, isAkisNo; string plaka, marka, model, motorNo, saseNo, mulkiyetBilgileri, siparisNo;DateTime projeTahsisTarihi; string personelAd, sicilNo, masrafYeriNo, masrafYeri, masYerSor, bolum;DateTime aktarimTarihi; string gerekce, dosyYolu;int km;string durum;
 
         public int Id { get => id; set => id = value; }
         public int IsAkisNo { get => isAkisNo; set => isAkisNo = value; }
@@ -30,6 +30,7 @@ namespace Entity.IdariIsler
         public string Gerekce { get => gerekce; set => gerekce = value; }
         public string DosyYolu { get => dosyYolu; set => dosyYolu = value; }
         public int Km { get => km; set => km = value; }
+        public string Durum { get => durum; set => durum = value; }
 
         public AracZimmeti(int id, int isAkisNo, string plaka, string marka, string model, string motorNo, string saseNo, string mulkiyetBilgileri, string siparisNo, DateTime projeTahsisTarihi, string personelAd, string sicilNo, string masrafYeriNo, string masrafYeri, string masYerSor, string bolum, DateTime aktarimTarihi, string gerekce, string dosyYolu,int km)
         {
@@ -76,6 +77,14 @@ namespace Entity.IdariIsler
             this.gerekce = gerekce;
             this.dosyYolu = dosyYolu;
             this.km = km;
+        }
+
+        public AracZimmeti(string plaka, string mulkiyetBilgileri, string bolum,string durum)
+        {
+            this.plaka = plaka;
+            this.mulkiyetBilgileri = mulkiyetBilgileri;
+            this.bolum = bolum;
+            this.durum = durum;
         }
     }
 }

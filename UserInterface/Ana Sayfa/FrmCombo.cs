@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.BakımOnarım;
+using UserInterface.Butce;
 using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.IdariIşler;
 using UserInterface.IdariIsler;
@@ -149,7 +150,7 @@ namespace UserInterface.Ana_Sayfa
         {
             if (comboAd== "SİPARİŞLER PROJE")
             {
-                var form = (FrmPersonelKayit)Application.OpenForms["FrmPersonelKayit"];
+                var form = (FrmSiparisler)Application.OpenForms["FrmSiparisler"];
                 if (form != null)
                 {
                     form.ComboProje();
@@ -157,7 +158,7 @@ namespace UserInterface.Ana_Sayfa
             }
             if (comboAd == "SİPARİŞLER SAT")
             {
-                var form = (FrmPersonelKayit)Application.OpenForms["FrmPersonelKayit"];
+                var form = (FrmSiparisler)Application.OpenForms["FrmSiparisler"];
                 if (form != null)
                 {
                     form.ComboSat();
@@ -165,7 +166,7 @@ namespace UserInterface.Ana_Sayfa
             }
             if (comboAd == "SİPARİŞLER SAT KATEGORİ")
             {
-                var form = (FrmPersonelKayit)Application.OpenForms["FrmPersonelKayit"];
+                var form = (FrmSiparisler)Application.OpenForms["FrmSiparisler"];
                 if (form != null)
                 {
                     form.ComboSatKategori();

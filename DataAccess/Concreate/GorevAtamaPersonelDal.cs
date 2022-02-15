@@ -26,12 +26,12 @@ namespace DataAccess.Concreate
             {
                 dataReader = sqlServices.StoreReader("GorevAtananPersonelEkle",
                     new SqlParameter("@benzersiz", entity.BenzersizId),
-                    new SqlParameter("@departman",entity.Departman),
-                    new SqlParameter("@gorevAtanacakPersonel",entity.GorevAtanacakPersonel),
-                    new SqlParameter("@islemAdimi",entity.IslemAdimi),
-                    new SqlParameter("@tarih",entity.Tarih),
-                    new SqlParameter("@yapilanIslemler",entity.YapilanIslem),
-                    new SqlParameter("@iscilikSuresi",entity.IscilikSuresi));
+                    new SqlParameter("@departman", entity.Departman),
+                    new SqlParameter("@gorevAtanacakPersonel", entity.GorevAtanacakPersonel),
+                    new SqlParameter("@islemAdimi", entity.IslemAdimi),
+                    new SqlParameter("@tarih", entity.Tarih),
+                    new SqlParameter("@yapilanIslemler", entity.YapilanIslem),
+                    new SqlParameter("@calismaSuresi", entity.CalismaSuresi));
 
                 dataReader.Close();
                 return "OK";
@@ -65,7 +65,7 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConTime(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["ISCILIK_SURESI"].ToString());
+                        dataReader["CALISMA_SURESI"].ConOnlyTime());
                 }
                 dataReader.Close();
                 return item;
@@ -83,7 +83,7 @@ namespace DataAccess.Concreate
             {
                 List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
                 dataReader = sqlServices.StoreReader("GorevAtananIslemAdimlariList",
-                    new SqlParameter("@benzersiz", benzersiz),new SqlParameter("@depoartman", departman));
+                    new SqlParameter("@benzersiz", benzersiz), new SqlParameter("@depoartman", departman));
                 while (dataReader.Read())
                 {
                     gorevAtamaPersonels.Add(new GorevAtamaPersonel(
@@ -95,7 +95,7 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConTime(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["ISCILIK_SURESI"].ToString()));
+                        dataReader["CALISMA_SURESI"].ConOnlyTime()));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
@@ -103,6 +103,7 @@ namespace DataAccess.Concreate
             }
             catch (Exception ex)
             {
+                dataReader.Close();
                 return new List<GorevAtamaPersonel>();
             }
         }
@@ -124,7 +125,7 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConTime(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["ISCILIK_SURESI"].ToString()));
+                        dataReader["CALISMA_SURESI"].ConOnlyTime()));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
@@ -153,29 +154,29 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConTime(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["ISCILIK_SURESI"].ToString()));
+                        dataReader["CALISMA_SURESI"].ConOnlyTime()));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<GorevAtamaPersonel>();
             }
         }
 
-        public string Update(GorevAtamaPersonel entity,string yapilanIslemler)
+        public string Update(GorevAtamaPersonel entity, string yapilanIslemler)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("GorevAtananPersonelSureGuncelle",
-                    new SqlParameter("@benzersiz",entity.BenzersizId),
-                    new SqlParameter("@departman",entity.Departman),
-                    new SqlParameter("@islemAdimi",entity.IslemAdimi),
-                    new SqlParameter("@sure",entity.Sure),
-                    new SqlParameter("@iscilikSure",entity.IscilikSuresi),
-                    new SqlParameter("@yapilanIslemler",yapilanIslemler));
+                    new SqlParameter("@benzersiz", entity.BenzersizId),
+                    new SqlParameter("@departman", entity.Departman),
+                    new SqlParameter("@islemAdimi", entity.IslemAdimi),
+                    new SqlParameter("@sure", entity.Sure),
+                    new SqlParameter("@calismaSuresi", entity.CalismaSuresi),
+                    new SqlParameter("@yapilanIslemler", yapilanIslemler));
 
                 dataReader.Close();
                 return "OK";

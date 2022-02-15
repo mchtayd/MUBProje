@@ -718,7 +718,6 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeler.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgMalzemeler.Location = new System.Drawing.Point(0, 0);
             this.DtgMalzemeler.Name = "DtgMalzemeler";
-            this.DtgMalzemeler.ReadOnly = true;
             this.DtgMalzemeler.Size = new System.Drawing.Size(702, 266);
             this.DtgMalzemeler.TabIndex = 0;
             // 

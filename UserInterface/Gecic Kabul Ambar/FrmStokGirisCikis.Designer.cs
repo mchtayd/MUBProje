@@ -30,7 +30,7 @@ namespace UserInterface.Depo
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStokGirisCikis));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -124,6 +124,7 @@ namespace UserInterface.Depo
             this.panel4 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.GrbDepodanBildirime = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
             this.LblDepodanBildirimePersonel = new System.Windows.Forms.Label();
             this.TxtDepodanBildirimeAbfNo = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
@@ -136,7 +137,8 @@ namespace UserInterface.Depo
             this.panel6 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.DtgSilControl = new ADGV.AdvancedDataGridView();
-            this.label20 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -160,7 +162,7 @@ namespace UserInterface.Depo
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 55);
+            this.label1.Location = new System.Drawing.Point(21, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 0;
@@ -208,6 +210,8 @@ namespace UserInterface.Depo
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.label23);
             this.groupBox1.Controls.Add(this.BtnDepo);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.DtTarih);
@@ -690,9 +694,9 @@ namespace UserInterface.Depo
             this.GrbIslemYapılacakDepo.Controls.Add(this.CmbDepoNo);
             this.GrbIslemYapılacakDepo.Controls.Add(this.label7);
             this.GrbIslemYapılacakDepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(7, 263);
+            this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(10, 271);
             this.GrbIslemYapılacakDepo.Name = "GrbIslemYapılacakDepo";
-            this.GrbIslemYapılacakDepo.Size = new System.Drawing.Size(1431, 168);
+            this.GrbIslemYapılacakDepo.Size = new System.Drawing.Size(1431, 139);
             this.GrbIslemYapılacakDepo.TabIndex = 53;
             this.GrbIslemYapılacakDepo.TabStop = false;
             this.GrbIslemYapılacakDepo.Text = "YENİ DEPO GİRİŞ";
@@ -704,7 +708,7 @@ namespace UserInterface.Depo
             this.BtnMalzemeYeri.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMalzemeYeri.BackgroundImage")));
             this.BtnMalzemeYeri.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnMalzemeYeri.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnMalzemeYeri.Location = new System.Drawing.Point(347, 103);
+            this.BtnMalzemeYeri.Location = new System.Drawing.Point(347, 98);
             this.BtnMalzemeYeri.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMalzemeYeri.Name = "BtnMalzemeYeri";
             this.BtnMalzemeYeri.Size = new System.Drawing.Size(34, 29);
@@ -716,7 +720,7 @@ namespace UserInterface.Depo
             // TxtMalzemeYeri
             // 
             this.TxtMalzemeYeri.FormattingEnabled = true;
-            this.TxtMalzemeYeri.Location = new System.Drawing.Point(120, 108);
+            this.TxtMalzemeYeri.Location = new System.Drawing.Point(120, 103);
             this.TxtMalzemeYeri.Name = "TxtMalzemeYeri";
             this.TxtMalzemeYeri.Size = new System.Drawing.Size(224, 23);
             this.TxtMalzemeYeri.TabIndex = 139;
@@ -735,7 +739,7 @@ namespace UserInterface.Depo
             this.BtnDepoEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDepoEkle.BackgroundImage")));
             this.BtnDepoEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnDepoEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDepoEkle.Location = new System.Drawing.Point(347, 26);
+            this.BtnDepoEkle.Location = new System.Drawing.Point(347, 32);
             this.BtnDepoEkle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnDepoEkle.Name = "BtnDepoEkle";
             this.BtnDepoEkle.Size = new System.Drawing.Size(34, 29);
@@ -756,7 +760,7 @@ namespace UserInterface.Depo
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 111);
+            this.label6.Location = new System.Drawing.Point(28, 106);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 15);
             this.label6.TabIndex = 49;
@@ -765,7 +769,7 @@ namespace UserInterface.Depo
             // CmbDepoNo
             // 
             this.CmbDepoNo.FormattingEnabled = true;
-            this.CmbDepoNo.Location = new System.Drawing.Point(120, 31);
+            this.CmbDepoNo.Location = new System.Drawing.Point(120, 37);
             this.CmbDepoNo.Name = "CmbDepoNo";
             this.CmbDepoNo.Size = new System.Drawing.Size(224, 23);
             this.CmbDepoNo.TabIndex = 48;
@@ -774,7 +778,7 @@ namespace UserInterface.Depo
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(55, 34);
+            this.label7.Location = new System.Drawing.Point(55, 40);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(59, 15);
             this.label7.TabIndex = 47;
@@ -889,11 +893,11 @@ namespace UserInterface.Depo
             // 
             // Remove
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1123,6 +1127,15 @@ namespace UserInterface.Depo
             this.GrbDepodanBildirime.Text = "DEPODAN BİLDİRİME İADE";
             this.GrbDepodanBildirime.Visible = false;
             // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(450, 66);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(88, 30);
+            this.label20.TabIndex = 155;
+            this.label20.Text = "Arıza Form No/\r\nİç Sipariş No:";
+            // 
             // LblDepodanBildirimePersonel
             // 
             this.LblDepodanBildirimePersonel.AutoSize = true;
@@ -1231,14 +1244,21 @@ namespace UserInterface.Depo
             this.DtgSilControl.TimeFilter = false;
             this.DtgSilControl.Visible = false;
             // 
-            // label20
+            // textBox1
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(450, 66);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(88, 30);
-            this.label20.TabIndex = 155;
-            this.label20.Text = "Arıza Form No/\r\nİç Sipariş No:";
+            this.textBox1.Location = new System.Drawing.Point(352, 112);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(88, 20);
+            this.textBox1.TabIndex = 142;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(242, 116);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(104, 13);
+            this.label23.TabIndex = 141;
+            this.label23.Text = "Malzeme Birim Fiyatı:";
             // 
             // FrmStokGirisCikis
             // 
@@ -1407,5 +1427,7 @@ namespace UserInterface.Depo
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label23;
     }
 }

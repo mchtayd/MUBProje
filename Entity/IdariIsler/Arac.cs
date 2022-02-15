@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class Arac
     {
-        int id; string plaka; DateTime ilkTescilTarihi, tescilTarihi; string markasi, tipi, ticariAdi, modelYili, aracSinifi, cinsi, rengi, motorNo, saseNo, yakitCinsi, mulkiyetBilgileri, proje, siparisno, tasitTanima, arventoid; DateTime projeTahsisTarihi; int kmGiris, kmCikis; string projeCikisTarihi, projeCikisNedeni, dosyaYolu, sayfa, aciklama;
+        int id; string plaka; DateTime ilkTescilTarihi, tescilTarihi; string markasi, tipi, ticariAdi, modelYili, aracSinifi, cinsi, rengi, motorNo, saseNo, yakitCinsi, mulkiyetBilgileri, proje, siparisno, tasitTanima, arventoid; DateTime projeTahsisTarihi; int kmGiris, kmCikis; string projeCikisTarihi, projeCikisNedeni, dosyaYolu, sayfa, aciklama, durum;
 
         public int Id { get => id; set => id = value; }
         public string Plaka { get => plaka; set => plaka = value; }
@@ -37,9 +37,10 @@ namespace Entity.IdariIsler
         public string Aciklama { get => aciklama; set => aciklama = value; }
         public int KmGiris { get => kmGiris; set => kmGiris = value; }
         public int KmCikis { get => kmCikis; set => kmCikis = value; }
+        public string Durum { get => durum; set => durum = value; }
 
         //list
-        public Arac(int id, string plaka, DateTime ilkTescilTarihi, DateTime tescilTarihi, string markasi, string tipi, string ticariAdi, string modelYili, string aracSinifi, string cinsi, string rengi, string motorNo, string saseNo, string yakitCinsi, string mulkiyetBilgileri, string proje, string siparisno, string tasitTanima, string arventoid, DateTime projeTahsisTarihi, int kmGiris, int kmCikis, string projeCikisTarihi, string projeCikisNedeni, string dosyaYolu,string sayfa,string aciklama)
+        public Arac(int id, string plaka, DateTime ilkTescilTarihi, DateTime tescilTarihi, string markasi, string tipi, string ticariAdi, string modelYili, string aracSinifi, string cinsi, string rengi, string motorNo, string saseNo, string yakitCinsi, string mulkiyetBilgileri, string proje, string siparisno, string tasitTanima, string arventoid, DateTime projeTahsisTarihi, int kmGiris, int kmCikis, string projeCikisTarihi, string projeCikisNedeni, string dosyaYolu,string sayfa,string aciklama,string durum)
         {
             this.id = id;
             this.plaka = plaka;
@@ -68,6 +69,7 @@ namespace Entity.IdariIsler
             this.aciklama = aciklama;
             this.kmGiris = kmGiris;
             this.kmCikis = kmCikis;
+            this.durum = durum;
         }
         // Kaydet
         public Arac(string plaka, DateTime ilkTescilTarihi, DateTime tescilTarihi, string markasi, string tipi, string ticariAdi, string modelYili, string aracSinifi, string cinsi, string rengi, string motorNo, string saseNo, string yakitCinsi, string mulkiyetBilgileri, string proje, string siparisno, string tasitTanima, string arventoid, DateTime projeTahsisTarihi, int kmGiris, string dosyaYolu,string aciklama)
@@ -131,5 +133,6 @@ namespace Entity.IdariIsler
             this.projeCikisNedeni = projeCikisNedeni;
             this.kmCikis = kmCikis;
         }
+
     }
 }

@@ -8,7 +8,7 @@ namespace Entity
 {
     public class GorevAtamaPersonel
     {
-        int id, benzersizId; string departman, gorevAtanacakPersonel, islemAdimi; DateTime tarih; string sure, yapilanIslem; string iscilikSuresi; 
+        int id, benzersizId; string departman, gorevAtanacakPersonel, islemAdimi; DateTime tarih; string sure, yapilanIslem;
 
         public int Id { get => id; set => id = value; }
         public int BenzersizId { get => benzersizId; set => benzersizId = value; }
@@ -18,9 +18,9 @@ namespace Entity
         public DateTime Tarih { get => tarih; set => tarih = value; }
         public string Sure { get => sure; set => sure = value; }
         public string YapilanIslem { get => yapilanIslem; set => yapilanIslem = value; }
-        public string IscilikSuresi { get => iscilikSuresi; set => iscilikSuresi = value; }
+        public DateTime CalismaSuresi { get; set; }
 
-        public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure,string yapilanIslem, string iscilikSuresi)
+        public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure, string yapilanIslem, DateTime calismaSuresi)
         {
             this.id = id;
             this.benzersizId = benzersizId;
@@ -30,10 +30,22 @@ namespace Entity
             this.tarih = tarih;
             this.sure = sure;
             this.yapilanIslem = yapilanIslem;
-            this.iscilikSuresi = iscilikSuresi;
+            this.CalismaSuresi = calismaSuresi;
         }
+        /*public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure, string yapilanIslem, DateTime calismaSuresi)
+        {
+            this.id = id;
+            this.benzersizId = benzersizId;
+            this.departman = departman;
+            this.gorevAtanacakPersonel = gorevAtanacakPersonel;
+            this.islemAdimi = islemAdimi;
+            this.tarih = tarih;
+            this.sure = sure;
+            this.yapilanIslem = yapilanIslem;
+            this.CalismaSuresi = calismaSuresi;
+        }*/
 
-        public GorevAtamaPersonel(int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih,string yapilanIslem,string iscilikSuresi)
+        public GorevAtamaPersonel(int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string yapilanIslem, DateTime calismaSuresi)
         {
             this.benzersizId = benzersizId;
             this.departman = departman;
@@ -41,16 +53,25 @@ namespace Entity
             this.islemAdimi = islemAdimi;
             this.tarih = tarih;
             this.yapilanIslem = yapilanIslem;
-            this.iscilikSuresi = iscilikSuresi;
+            this.CalismaSuresi = calismaSuresi;
         }
 
-        public GorevAtamaPersonel(int benzersizId, string departman, string islemAdimi, string sure, string iscilikSuresi)
+        public GorevAtamaPersonel(int benzersizId, string departman, string islemAdimi, string sure, DateTime calismaSuresi)
         {
             this.benzersizId = benzersizId;
             this.departman = departman;
             this.islemAdimi = islemAdimi;
             this.sure = sure;
-            this.iscilikSuresi = iscilikSuresi;
+            this.CalismaSuresi = calismaSuresi;
         }
+
+        /*public GorevAtamaPersonel(int benzersizId, string departman, string islemAdimi, string sure, DateTime calismaSuresi)
+        {
+            this.benzersizId = benzersizId;
+            this.departman = departman;
+            this.islemAdimi = islemAdimi;
+            this.sure = sure;
+            this.CalismaSuresi = calismaSuresi;
+        }*/
     }
 }

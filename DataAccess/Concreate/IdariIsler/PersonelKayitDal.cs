@@ -121,6 +121,36 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<PersonelKayit>();
             }
         }
+
+        public List<PersonelKayit> SiparisPersonel(string siparis)
+        {
+            try
+            {
+                List<PersonelKayit> sicilNos = new List<PersonelKayit>();
+                dataReader = sqlServices.StoreReader("SiparisPersonelCalisan", new SqlParameter("@siparis", siparis));
+                while (dataReader.Read())
+                {
+                    sicilNos.Add(new PersonelKayit(dataReader["ID"].ConInt(), dataReader["AD_SOYAD"].ToString(), dataReader["TC"].ToString(), dataReader["HES_KODU"].ToString(),
+                        dataReader["SIGORTA_SICIL_NO"].ToString(), dataReader["IKEMATGAH"].ToString(), dataReader["KAN_GRUBU"].ToString(), dataReader["ES_AD"].ToString(),
+                        dataReader["ES_TELEFON"].ToString(), dataReader["DOGUM_TARIHI"].ConTime(), dataReader["MEDENI_DURUMU"].ToString(), dataReader["ES_IS_DURUMU"].ToString(),
+                        dataReader["COCUK_SAYISI"].ToString(), dataReader["DOGUM_YERI"].ToString(), dataReader["OKUL"].ToString(), dataReader["BOLUM"].ToString(), dataReader["DIPLOMA_NOTU"].ToString(),
+                        dataReader["SIPARIS"].ToString(), dataReader["SAT"].ToString(), dataReader["BUTCE_KODU"].ToString(), dataReader["BUTCE_KALEMİ"].ToString(), dataReader["SICIL"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(), dataReader["MASRAF_YERI"].ToString(), dataReader["MASRAF_YERI_SORUMLUSU"].ToString(), dataReader["SIRKET_BOLUM"].ToString(), dataReader["SIRKET_MAIL"].ToString(),
+                        dataReader["OFICE_MAIL"].ToString(), dataReader["SIRKETCEP"].ToString(), dataReader["SIRKET_KISAKOD"].ToString(), dataReader["DAHİLİ_NO"].ToString(), dataReader["IS_UNVANI"].ToString(),
+                        dataReader["ISE_GIRIS_TARIHI"].ConTime(), dataReader["ASKERLIK_DURUMU"].ToString(), dataReader["ASKERLIK_SINIF"].ToString(), dataReader["RUTBESI"].ToString(), dataReader["GOREVI"].ToString(),
+                        dataReader["ASKERLIK_BAS_TARIHI"].ToString(), dataReader["ASKERLIK_BIT_TARIHI"].ToString(), dataReader["GOREV_YERI"].ToString(), dataReader["TECIL_BITIS_TARIHI"].ToString(), dataReader["TECIL_SEBEBI"].ToString(),
+                        dataReader["MUAF_NEDENI"].ToString(), dataReader["SiparisNo"].ToString(), dataReader["DosyaYolu"].ToString(),
+                        dataReader["FotoYolu"].ToString(), dataReader["PROJE_KODU"].ToString(), dataReader["KGB_NO"].ToString(),
+                        dataReader["KGB_TARIH"].ConTime()));
+                }
+                dataReader.Close();
+                return sicilNos;
+            }
+            catch
+            {
+                return new List<PersonelKayit>();
+            }
+        }
         public List<PersonelKayit> PersonelSiparis(string siparisno)
         {
             try
@@ -316,6 +346,18 @@ namespace DataAccess.Concreate.IdariIsler
             try
             {
                 sqlServices.Stored("PersonelSorumlusuDegistir", new SqlParameter("@personelId", personelId), new SqlParameter("@yetkiliId", yetkiliId));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SiparisGuncelle(string adSoyad, string siparis)
+        {
+            try
+            {
+                sqlServices.Stored("SiparisleriGuncelle", new SqlParameter("@adSoyad", adSoyad), new SqlParameter("@siparisNo", siparis));
                 return "OK";
             }
             catch (Exception ex)

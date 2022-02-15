@@ -13,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.Butce
@@ -23,6 +24,7 @@ namespace UserInterface.Butce
         ComboManager comboManager;
         PersonelKayitManager personelKayitManager;
         SiparislerPersonelManager siparislerPersonelManager;
+        AracZimmetiManager aracZimmetiManager;
 
         Siparisler siparisler;
         List<Siparisler> siparislers;
@@ -36,6 +38,7 @@ namespace UserInterface.Butce
             comboManager = ComboManager.GetInstance();
             personelKayitManager = PersonelKayitManager.GetInstance();
             siparislerPersonelManager = SiparislerPersonelManager.GetInstance();
+            aracZimmetiManager = AracZimmetiManager.GetInstance();
         }
 
         private void FrmSiparisler_Load(object sender, EventArgs e)
@@ -231,7 +234,7 @@ namespace UserInterface.Butce
                 MessageBox.Show("Lütfen Öncelikle AKTARILACAK Bilgisini Ekleyiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            DtgNereye.DataSource = null;
             neredenSiparis = CmbSiparisNereden.Text;
             nereyeSiparis = CmbSiparisNereye.Text;
             if (CmbAktarilacak.Text== "PERSONEL")
@@ -245,6 +248,8 @@ namespace UserInterface.Butce
             }
             if (CmbAktarilacak.Text == "ARAÇ")
             {
+                DtgNereden.DataSource = aracZimmetiManager.SiparisArac(CmbSiparisNereden.Text);
+                AracDuzenle();
 
             }
         }
@@ -302,6 +307,37 @@ namespace UserInterface.Butce
             DtgNereden.Columns["ProjeKodu"].Visible = false;
             DtgNereden.Columns["KgbNo"].Visible = false;
             DtgNereden.Columns["KgbTarih"].Visible = false;
+            LblNeredenToplam.Text = DtgNereden.RowCount.ToString();
+        }
+        void AracDuzenle()
+        {
+            DtgNereden.Columns["Id"].Visible = false;
+            DtgNereden.Columns["IsAkisNo"].Visible = false;
+            DtgNereden.Columns["Plaka"].HeaderText = "PLAKA";
+            DtgNereden.Columns["Marka"].Visible = false;
+            DtgNereden.Columns["Model"].Visible = false;
+            DtgNereden.Columns["MotorNo"].Visible = false;
+            DtgNereden.Columns["SaseNo"].Visible = false;
+            DtgNereden.Columns["MulkiyetBilgileri"].HeaderText = "MÜLKİYET BİLGİLERİ";
+            DtgNereden.Columns["SiparisNo"].Visible = false;
+            DtgNereden.Columns["ProjeTahsisTarihi"].Visible = false;
+            DtgNereden.Columns["PersonelAd"].HeaderText = "ZİMMETLİ PERSONEL";
+            DtgNereden.Columns["SicilNo"].Visible = false;
+            DtgNereden.Columns["MasrafYeriNo"].Visible = false;
+            DtgNereden.Columns["MasrafYeri"].Visible = false;
+            DtgNereden.Columns["MasYerSor"].HeaderText = "MASRAF YERİ SORUMLUSU";
+            DtgNereden.Columns["Bolum"].HeaderText = "BÖLÜMÜ";
+            DtgNereden.Columns["AktarimTarihi"].Visible = false;
+            DtgNereden.Columns["Gerekce"].Visible = false;
+            DtgNereden.Columns["DosyYolu"].Visible = false;
+            DtgNereden.Columns["Km"].Visible = false;
+            DtgNereden.Columns["Durum"].Visible = false;
+
+            DtgNereden.Columns["MasYerSor"].DisplayIndex = 3;
+            DtgNereden.Columns["Bolum"].DisplayIndex = 2;
+            DtgNereden.Columns["PersonelAd"].DisplayIndex = 1;
+            DtgNereden.Columns["Plaka"].DisplayIndex = 1;
+
             LblNeredenToplam.Text = DtgNereden.RowCount.ToString();
         }
         void PersonellerDuzenlenNereye()
@@ -431,6 +467,49 @@ namespace UserInterface.Butce
             //TemizleAktarim();
         }
 
+        string comboAd;
+        private void BtnSatKatEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "SİPARİŞLER SAT KATEGORİ";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void BtnSatEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "SİPARİŞLER SAT";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void BtnProjeEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "SİPARİŞLER PROJE";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void DtgOnay_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string benzersizlistele = DtgMevcutKadro.CurrentRow.Cells["Benzersiz"].Value.ToString();
+            siparislers = siparislerManager.GetList(benzersizlistele);
+            KadroControl();
+            FillTols();
+        }
+
+        private void DtgMevcutKadro_FilterStringChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DtgMevcutKadro_SortStringChanged(object sender, EventArgs e)
+        {
+
+        }
+
         string KontenjanControlGuncelle()
         {
             
@@ -458,7 +537,7 @@ namespace UserInterface.Butce
             {
                 return "";
             }
-            if (LblNeredenToplam.Text.ConInt() >= bosKontejan)
+            if (LblNeredenToplam.Text.ConInt() > bosKontejan)
             {
                 return CmbSiparisNereye.Text + " Nolu Siparişte Yeteri Kadar Boş Kontejan Bulunmamaktadır!";
             }
@@ -474,8 +553,6 @@ namespace UserInterface.Butce
                 return;
             }
 
-
-
             DialogResult dr = MessageBox.Show(CmbSiparisNereden.Text + " Nolu Sipariş Numarasında ki " + LblNeredenToplam.Text + " Personelin Sipariş Numarası " + CmbSiparisNereye.Text + " Nolu Siparişe Aktarılacaktir! Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
 
             if (dr == DialogResult.Yes)
@@ -485,6 +562,7 @@ namespace UserInterface.Butce
                     SiparislerPersonel siparislerManager = new SiparislerPersonel(item.Cells["PersonelAdi"].Value.ToString(), item.Cells["Unvani"].Value.ToString(), item.Cells["MasYerSorumlusu"].Value.ToString(), item.Cells["Bolum"].Value.ToString(), "ÇALIŞIYOR", neredenSiparis, DateTime.Now);
 
                     string control = siparislerPersonelManager.Add(siparislerManager);
+                    personelKayitManager.SiparisGuncelle(item.Cells["PersonelAdi"].Value.ToString(), nereyeSiparis);
                     if (control != "OK")
                     {
                         MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -514,7 +592,7 @@ namespace UserInterface.Butce
             {
                 return;
             }
-            yil = CmbDonemYil.Text;
+            yil = "";/*CmbDonemYil.Text;*/
             DtgMevcutKadro.DataSource = null;
             DtgMevcutKadro.DataSource = siparislerManager.YillikSiparisCek(yil);
             if (DtgMevcutKadro.DataSource==null)
@@ -644,9 +722,99 @@ namespace UserInterface.Butce
                 TOPA.Text = siparislerManager.ToplamArac().ToString();
             }
         }
+        string topPersonel, toplamArac;
         void SiparisNoOlustur()
         {
-            SİPARİSNO = TxtSatt.Text + "-" + TxtDonemYil.Text + "-" + CmbSatKategori.Text + "-" + TOPLAMPERSONEL + "P" + TOPLAMARAC + "A";
+            if (TOPLAMPERSONEL<10)
+            {
+                if (TOPLAMPERSONEL == 1)
+                {
+                    topPersonel = "01";
+                }
+                if (TOPLAMPERSONEL == 2)
+                {
+                    topPersonel = "02";
+                }
+                if (TOPLAMPERSONEL == 3)
+                {
+                    topPersonel = "03";
+                }
+                if (TOPLAMPERSONEL == 4)
+                {
+                    topPersonel = "04";
+                }
+                if (TOPLAMPERSONEL == 5)
+                {
+                    topPersonel = "05";
+                }
+                if (TOPLAMPERSONEL == 6)
+                {
+                    topPersonel = "06";
+                }
+                if (TOPLAMPERSONEL == 7)
+                {
+                    topPersonel = "07";
+                }
+                if (TOPLAMPERSONEL == 8)
+                {
+                    topPersonel = "08";
+                }
+                if (TOPLAMPERSONEL == 9)
+                {
+                    topPersonel = "09";
+                }
+                
+            }
+            else
+            {
+                topPersonel = TOPLAMPERSONEL.ToString();
+            }
+
+            if (TOPLAMARAC<10)
+            {
+                if (TOPLAMARAC == 1)
+                {
+                    toplamArac = "01";
+                }
+                if (TOPLAMARAC == 2)
+                {
+                    toplamArac = "02";
+                }
+                if (TOPLAMARAC == 3)
+                {
+                    toplamArac = "03";
+                }
+                if (TOPLAMARAC == 4)
+                {
+                    toplamArac = "04";
+                }
+                if (TOPLAMARAC == 5)
+                {
+                    toplamArac = "05";
+                }
+                if (TOPLAMARAC == 6)
+                {
+                    toplamArac = "06";
+                }
+                if (TOPLAMARAC == 7)
+                {
+                    toplamArac = "07";
+                }
+                if (TOPLAMARAC == 8)
+                {
+                    toplamArac = "08";
+                }
+                if (TOPLAMARAC == 9)
+                {
+                    toplamArac = "09";
+                }
+            }
+            else
+            {
+                toplamArac = TOPLAMARAC.ToString();
+            }
+
+            SİPARİSNO = TxtSatt.Text + "-" + TxtDonemYil.Text + "-" + CmbSatKategori.Text + "-" + topPersonel + toplamArac;
         }
     }
 }

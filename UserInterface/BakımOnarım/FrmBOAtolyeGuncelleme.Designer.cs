@@ -42,6 +42,9 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label2 = new System.Windows.Forms.Label();
+            this.DtIscilikSaati = new System.Windows.Forms.DateTimePicker();
+            this.DtIscilikSaati2 = new System.Windows.Forms.TextBox();
             this.LblMevcutIslemAdimi = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -145,8 +148,9 @@ namespace UserInterface.BakımOnarım
             this.Column58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.DtgIslemAdimlari = new System.Windows.Forms.DataGridView();
-            this.DtIscilikSaati = new System.Windows.Forms.TextBox();
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
+            this.TxtBildirilenAriza = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
@@ -245,7 +249,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(205, 228);
+            this.BtnKaydet.Location = new System.Drawing.Point(173, 273);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(103, 38);
             this.BtnKaydet.TabIndex = 81;
@@ -260,12 +264,16 @@ namespace UserInterface.BakımOnarım
             this.tabControl2.Location = new System.Drawing.Point(8, 185);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(1465, 302);
+            this.tabControl2.Size = new System.Drawing.Size(1465, 349);
             this.tabControl2.TabIndex = 436;
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.TxtBildirilenAriza);
+            this.tabPage6.Controls.Add(this.label3);
+            this.tabPage6.Controls.Add(this.label2);
             this.tabPage6.Controls.Add(this.DtIscilikSaati);
+            this.tabPage6.Controls.Add(this.DtIscilikSaati2);
             this.tabPage6.Controls.Add(this.LblMevcutIslemAdimi);
             this.tabPage6.Controls.Add(this.label5);
             this.tabPage6.Controls.Add(this.label1);
@@ -280,16 +288,46 @@ namespace UserInterface.BakımOnarım
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
             this.tabPage6.Name = "tabPage6";
             this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1457, 276);
+            this.tabPage6.Size = new System.Drawing.Size(1457, 323);
             this.tabPage6.TabIndex = 0;
             this.tabPage6.Text = "GÜNCELLE";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(256, 217);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(72, 13);
+            this.label2.TabIndex = 451;
+            this.label2.Text = "Saat : Dakika";
+            // 
+            // DtIscilikSaati
+            // 
+            this.DtIscilikSaati.CustomFormat = "HH:mm";
+            this.DtIscilikSaati.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtIscilikSaati.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtIscilikSaati.Location = new System.Drawing.Point(172, 212);
+            this.DtIscilikSaati.Name = "DtIscilikSaati";
+            this.DtIscilikSaati.ShowUpDown = true;
+            this.DtIscilikSaati.Size = new System.Drawing.Size(78, 21);
+            this.DtIscilikSaati.TabIndex = 450;
+            this.DtIscilikSaati.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
+            // 
+            // DtIscilikSaati2
+            // 
+            this.DtIscilikSaati2.Location = new System.Drawing.Point(1191, 165);
+            this.DtIscilikSaati2.Name = "DtIscilikSaati2";
+            this.DtIscilikSaati2.Size = new System.Drawing.Size(100, 20);
+            this.DtIscilikSaati2.TabIndex = 449;
+            this.DtIscilikSaati2.Visible = false;
+            this.DtIscilikSaati2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DtIscilikSaati_KeyPress);
             // 
             // LblMevcutIslemAdimi
             // 
             this.LblMevcutIslemAdimi.AutoSize = true;
             this.LblMevcutIslemAdimi.BackColor = System.Drawing.Color.Yellow;
-            this.LblMevcutIslemAdimi.Location = new System.Drawing.Point(207, 30);
+            this.LblMevcutIslemAdimi.Location = new System.Drawing.Point(175, 70);
             this.LblMevcutIslemAdimi.Name = "LblMevcutIslemAdimi";
             this.LblMevcutIslemAdimi.Size = new System.Drawing.Size(19, 13);
             this.LblMevcutIslemAdimi.TabIndex = 448;
@@ -298,16 +336,16 @@ namespace UserInterface.BakımOnarım
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(106, 172);
+            this.label5.Location = new System.Drawing.Point(96, 217);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(95, 13);
+            this.label5.Size = new System.Drawing.Size(71, 13);
             this.label5.TabIndex = 446;
-            this.label5.Text = "İşçilik Süresi/Saat:";
+            this.label5.Text = "İşçilik Süresi :";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(100, 30);
+            this.label1.Location = new System.Drawing.Point(68, 70);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 445;
@@ -318,7 +356,7 @@ namespace UserInterface.BakımOnarım
             this.CmbGorevAtanacakPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGorevAtanacakPersonel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbGorevAtanacakPersonel.FormattingEnabled = true;
-            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(205, 194);
+            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(173, 239);
             this.CmbGorevAtanacakPersonel.Name = "CmbGorevAtanacakPersonel";
             this.CmbGorevAtanacakPersonel.Size = new System.Drawing.Size(303, 23);
             this.CmbGorevAtanacakPersonel.TabIndex = 443;
@@ -327,7 +365,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(52, 198);
+            this.label10.Location = new System.Drawing.Point(20, 243);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(147, 15);
             this.label10.TabIndex = 442;
@@ -340,7 +378,7 @@ namespace UserInterface.BakımOnarım
             this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
             this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolgeEkle.Location = new System.Drawing.Point(511, 136);
+            this.BtnBolgeEkle.Location = new System.Drawing.Point(479, 178);
             this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBolgeEkle.Name = "BtnBolgeEkle";
             this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);
@@ -369,14 +407,14 @@ namespace UserInterface.BakımOnarım
             "1200-SİPARİŞ KAPATMA",
             "1300-PAKETLEME",
             "1400-TESLİMAT"});
-            this.CmbIslemAdimi.Location = new System.Drawing.Point(207, 139);
+            this.CmbIslemAdimi.Location = new System.Drawing.Point(175, 184);
             this.CmbIslemAdimi.Name = "CmbIslemAdimi";
             this.CmbIslemAdimi.Size = new System.Drawing.Size(301, 23);
             this.CmbIslemAdimi.TabIndex = 439;
             // 
             // TxtYapilanIslemler
             // 
-            this.TxtYapilanIslemler.Location = new System.Drawing.Point(207, 53);
+            this.TxtYapilanIslemler.Location = new System.Drawing.Point(175, 95);
             this.TxtYapilanIslemler.Name = "TxtYapilanIslemler";
             this.TxtYapilanIslemler.Size = new System.Drawing.Size(577, 80);
             this.TxtYapilanIslemler.TabIndex = 437;
@@ -385,7 +423,7 @@ namespace UserInterface.BakımOnarım
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(48, 56);
+            this.label13.Location = new System.Drawing.Point(16, 98);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(154, 13);
             this.label13.TabIndex = 438;
@@ -394,7 +432,7 @@ namespace UserInterface.BakımOnarım
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(80, 144);
+            this.label7.Location = new System.Drawing.Point(48, 189);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(119, 13);
             this.label7.TabIndex = 436;
@@ -476,7 +514,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage7.Location = new System.Drawing.Point(4, 22);
             this.tabPage7.Name = "tabPage7";
             this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage7.Size = new System.Drawing.Size(1457, 276);
+            this.tabPage7.Size = new System.Drawing.Size(1457, 323);
             this.tabPage7.TabIndex = 1;
             this.tabPage7.Text = "MALZEME LİSTESİ";
             // 
@@ -1069,10 +1107,10 @@ namespace UserInterface.BakımOnarım
             this.tabControl3.Controls.Add(this.tabPage9);
             this.tabControl3.Controls.Add(this.tabPage10);
             this.tabControl3.Controls.Add(this.tabPage11);
-            this.tabControl3.Location = new System.Drawing.Point(8, 493);
+            this.tabControl3.Location = new System.Drawing.Point(12, 540);
             this.tabControl3.Name = "tabControl3";
             this.tabControl3.SelectedIndex = 0;
-            this.tabControl3.Size = new System.Drawing.Size(1461, 421);
+            this.tabControl3.Size = new System.Drawing.Size(1461, 374);
             this.tabControl3.TabIndex = 437;
             this.tabControl3.Visible = false;
             // 
@@ -1082,7 +1120,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage8.Location = new System.Drawing.Point(4, 22);
             this.tabPage8.Name = "tabPage8";
             this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage8.Size = new System.Drawing.Size(1453, 395);
+            this.tabPage8.Size = new System.Drawing.Size(1453, 348);
             this.tabPage8.TabIndex = 0;
             this.tabPage8.Text = "İŞLEM KAYITLARI";
             this.tabPage8.UseVisualStyleBackColor = true;
@@ -1098,7 +1136,7 @@ namespace UserInterface.BakımOnarım
             this.DtgIslemKayitlari.Name = "DtgIslemKayitlari";
             this.DtgIslemKayitlari.ReadOnly = true;
             this.DtgIslemKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgIslemKayitlari.Size = new System.Drawing.Size(1447, 389);
+            this.DtgIslemKayitlari.Size = new System.Drawing.Size(1447, 342);
             this.DtgIslemKayitlari.TabIndex = 1;
             // 
             // tabPage9
@@ -1107,7 +1145,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage9.Location = new System.Drawing.Point(4, 22);
             this.tabPage9.Name = "tabPage9";
             this.tabPage9.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage9.Size = new System.Drawing.Size(1453, 395);
+            this.tabPage9.Size = new System.Drawing.Size(1453, 348);
             this.tabPage9.TabIndex = 1;
             this.tabPage9.Text = "CİHAZ MALZEME DURUMU";
             this.tabPage9.UseVisualStyleBackColor = true;
@@ -1129,7 +1167,7 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeler.Name = "DtgMalzemeler";
             this.DtgMalzemeler.ReadOnly = true;
             this.DtgMalzemeler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgMalzemeler.Size = new System.Drawing.Size(1447, 389);
+            this.DtgMalzemeler.Size = new System.Drawing.Size(1447, 342);
             this.DtgMalzemeler.TabIndex = 3;
             this.DtgMalzemeler.TimeFilter = false;
             // 
@@ -1139,7 +1177,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage10.Size = new System.Drawing.Size(1453, 395);
+            this.tabPage10.Size = new System.Drawing.Size(1453, 348);
             this.tabPage10.TabIndex = 2;
             this.tabPage10.Text = "DEPO HAREKETLERİ";
             this.tabPage10.UseVisualStyleBackColor = true;
@@ -1165,7 +1203,7 @@ namespace UserInterface.BakımOnarım
             this.Dtg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Dtg.Location = new System.Drawing.Point(3, 3);
             this.Dtg.Name = "Dtg";
-            this.Dtg.Size = new System.Drawing.Size(1447, 389);
+            this.Dtg.Size = new System.Drawing.Size(1447, 342);
             this.Dtg.TabIndex = 344;
             // 
             // Column46
@@ -1234,7 +1272,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage11.Location = new System.Drawing.Point(4, 22);
             this.tabPage11.Name = "tabPage11";
             this.tabPage11.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage11.Size = new System.Drawing.Size(1453, 395);
+            this.tabPage11.Size = new System.Drawing.Size(1453, 348);
             this.tabPage11.TabIndex = 3;
             this.tabPage11.Text = "İŞLEM ADIM DURUM VE SÜRELERİ";
             this.tabPage11.UseVisualStyleBackColor = true;
@@ -1248,16 +1286,25 @@ namespace UserInterface.BakımOnarım
             this.DtgIslemAdimlari.Location = new System.Drawing.Point(3, 3);
             this.DtgIslemAdimlari.Name = "DtgIslemAdimlari";
             this.DtgIslemAdimlari.ReadOnly = true;
-            this.DtgIslemAdimlari.Size = new System.Drawing.Size(1447, 389);
+            this.DtgIslemAdimlari.Size = new System.Drawing.Size(1447, 342);
             this.DtgIslemAdimlari.TabIndex = 0;
             // 
-            // DtIscilikSaati
+            // TxtBildirilenAriza
             // 
-            this.DtIscilikSaati.Location = new System.Drawing.Point(207, 168);
-            this.DtIscilikSaati.Name = "DtIscilikSaati";
-            this.DtIscilikSaati.Size = new System.Drawing.Size(100, 20);
-            this.DtIscilikSaati.TabIndex = 449;
-            this.DtIscilikSaati.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.DtIscilikSaati_KeyPress);
+            this.TxtBildirilenAriza.Location = new System.Drawing.Point(175, 9);
+            this.TxtBildirilenAriza.Name = "TxtBildirilenAriza";
+            this.TxtBildirilenAriza.Size = new System.Drawing.Size(579, 50);
+            this.TxtBildirilenAriza.TabIndex = 452;
+            this.TxtBildirilenAriza.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(95, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 453;
+            this.label3.Text = "Bildirilen Arıza:";
             // 
             // FrmBOAtolyeGuncelleme
             // 
@@ -1413,6 +1460,10 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridView DtgIslemKayitlari;
         private System.Windows.Forms.Label LblMevcutIslemAdimi;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox DtIscilikSaati;
+        private System.Windows.Forms.TextBox DtIscilikSaati2;
+        private System.Windows.Forms.DateTimePicker DtIscilikSaati;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.RichTextBox TxtBildirilenAriza;
+        private System.Windows.Forms.Label label3;
     }
 }

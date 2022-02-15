@@ -53,9 +53,27 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public IstenAyrilis Get(int id)
+        public IstenAyrilis Get(string adSoyad)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return istenAyrilisDal.Get(adSoyad);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public List<IstenAyrilis> SiparisPersoneller(string siparisNo)
+        {
+            try
+            {
+                return istenAyrilisDal.SiparisPersoneller(siparisNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<IstenAyrilis> GetList(int id=0)

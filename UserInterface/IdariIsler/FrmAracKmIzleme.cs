@@ -61,17 +61,26 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["Id"].Visible = false;
             DtgList.Columns["Plaka"].HeaderText = "PLAKA";
             DtgList.Columns["SiparisNo"].HeaderText = "SİPARİŞ NO";
-            DtgList.Columns["Tarih"].HeaderText = "TARİH";
             DtgList.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgList.Columns["Tarih"].HeaderText = "KM BAŞLANGIÇ TARİHİ";
             DtgList.Columns["BaslangicKm"].HeaderText = "BAŞLANGIÇ KM";
-            DtgList.Columns["PersonelAd"].HeaderText = "ZİMMETLİ PERSONEL ADI";
-            DtgList.Columns["PersonelSiparis"].HeaderText = "PERSONEL SİPARİŞ NO";
-            DtgList.Columns["PersonelUnvani"].HeaderText = "PERSONEL TARİHİ";
-            DtgList.Columns["PerMasYeriNo"].HeaderText = "PERSONEL MASRAF YERİ NO";
-            DtgList.Columns["PerMasYeri"].HeaderText = "PERSONEL MASRAF YERİ";
-            DtgList.Columns["PersMasYerSorumlusu"].HeaderText = "PERSONEL MASRAF YERİ SORUMLUSU";
-            DtgList.Columns["AracMulkiyet"].HeaderText = "ARAÇ MÜLKİYET BİLGİLERİ";
-            
+
+
+            // KM BİTİŞ TARİHİ
+            // BİTİŞ KM
+            // TOPLAM YAPILAN KM
+            // SABİT KM=3500
+            // FARK = YAPILAN KM - 3500
+
+
+            DtgList.Columns["PersonelAd"].Visible = false;
+            DtgList.Columns["PersonelSiparis"].Visible = false;
+            DtgList.Columns["PersonelUnvani"].Visible = false;
+            DtgList.Columns["PerMasYeriNo"].Visible = false;
+            DtgList.Columns["PerMasYeri"].Visible = false;
+            DtgList.Columns["PersMasYerSorumlusu"].Visible = false;
+            DtgList.Columns["AracMulkiyet"].Visible = false;
+
         }
 
         private void TxtPlaka_TextChanged(object sender, EventArgs e)

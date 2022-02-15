@@ -54,7 +54,7 @@ namespace UserInterface.BakımOnarım
             {
                 atolyeManager.ArizaKapat(id, 0, DateTime.Now);
 
-                GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "0,25");
+                GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:25:00".ConOnlyTime());
                 string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "SİPARİŞ KAPATILMIŞTIR");
                 if (kontrol2 != "OK")
                 {

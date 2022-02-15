@@ -60,9 +60,53 @@ namespace DataAccess.Concreate.IdariIsler
             }
         }
 
-        public IstenAyrilis Get(int id)
+        public IstenAyrilis Get(string adSoyad)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("IstenAyrilisPersonel",new SqlParameter("@adSoyad", adSoyad));
+                IstenAyrilis item = null;
+                while (dataReader.Read())
+                {
+                    item = new IstenAyrilis(
+                        dataReader["ID"].ConInt(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["IS_UNVANI"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public List<IstenAyrilis> SiparisPersoneller(string siparisNo)
+        {
+            try
+            {
+                List<IstenAyrilis> ıstenAyrilis = new List<IstenAyrilis>();
+                dataReader = sqlServices.StoreReader("SiparisBulPersonellerAyrilan", new SqlParameter("@siparisNo", siparisNo));
+                while (dataReader.Read())
+                {
+                    ıstenAyrilis.Add(new IstenAyrilis(
+                        dataReader["ID"].ConInt(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["SIRKET_BOLUM"].ToString(),
+                        dataReader["IS_UNVANI"].ToString()));
+                }
+                dataReader.Close();
+                return ıstenAyrilis;
+            }
+            catch (Exception)
+            {
+                return new List<IstenAyrilis>();
+            }
         }
 
         public List<IstenAyrilis> GetList(int id)

@@ -39,6 +39,7 @@ namespace UserInterface.IdariIsler
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
@@ -47,7 +48,6 @@ namespace UserInterface.IdariIsler
             this.label3 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -74,6 +74,7 @@ namespace UserInterface.IdariIsler
             this.BtnCancel.TabIndex = 1;
             this.BtnCancel.Text = "X";
             this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // comboBox6
             // 
@@ -145,6 +146,15 @@ namespace UserInterface.IdariIsler
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(597, 77);
             this.panel2.TabIndex = 352;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(597, 77);
+            this.webBrowser1.TabIndex = 1;
             // 
             // button2
             // 
@@ -223,15 +233,6 @@ namespace UserInterface.IdariIsler
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 360;
             this.label1.Text = "Dönem:";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(597, 77);
-            this.webBrowser1.TabIndex = 1;
             // 
             // FrmArsivKontrolFormu
             // 

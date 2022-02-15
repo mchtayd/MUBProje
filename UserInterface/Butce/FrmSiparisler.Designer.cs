@@ -29,13 +29,12 @@ namespace UserInterface.Butce
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSiparisler));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSiparisler));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TxtMevcutPersonel = new System.Windows.Forms.Label();
             this.label129 = new System.Windows.Forms.Label();
             this.TOPA = new System.Windows.Forms.Label();
@@ -44,7 +43,6 @@ namespace UserInterface.Butce
             this.label87 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.DtgMevcutKadro = new System.Windows.Forms.DataGridView();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.BtnSatKatEkle = new System.Windows.Forms.Button();
             this.BtnSatEkle = new System.Windows.Forms.Button();
@@ -79,8 +77,6 @@ namespace UserInterface.Butce
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.LblNereyeToplam = new System.Windows.Forms.Label();
@@ -99,8 +95,8 @@ namespace UserInterface.Butce
             this.DtgNereye = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgNereden = new System.Windows.Forms.DataGridView();
+            this.DtgMevcutKadro = new ADGV.AdvancedDataGridView();
             this.groupBox19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMevcutKadro)).BeginInit();
             this.groupBox18.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox16.SuspendLayout();
@@ -112,6 +108,7 @@ namespace UserInterface.Butce
             ((System.ComponentModel.ISupportInitialize)(this.DtgNereye)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgNereden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMevcutKadro)).BeginInit();
             this.SuspendLayout();
             // 
             // TxtMevcutPersonel
@@ -186,40 +183,12 @@ namespace UserInterface.Butce
             // groupBox19
             // 
             this.groupBox19.Controls.Add(this.DtgMevcutKadro);
-            this.groupBox19.Location = new System.Drawing.Point(6, 279);
+            this.groupBox19.Location = new System.Drawing.Point(6, 246);
             this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(1443, 392);
+            this.groupBox19.Size = new System.Drawing.Size(1443, 425);
             this.groupBox19.TabIndex = 38;
             this.groupBox19.TabStop = false;
             this.groupBox19.Text = "MEVCUT KADRO";
-            // 
-            // DtgMevcutKadro
-            // 
-            this.DtgMevcutKadro.AllowUserToAddRows = false;
-            this.DtgMevcutKadro.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
-            this.DtgMevcutKadro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgMevcutKadro.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
-            this.DtgMevcutKadro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgMevcutKadro.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.DtgMevcutKadro.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgMevcutKadro.Location = new System.Drawing.Point(3, 16);
-            this.DtgMevcutKadro.MultiSelect = false;
-            this.DtgMevcutKadro.Name = "DtgMevcutKadro";
-            this.DtgMevcutKadro.ReadOnly = true;
-            this.DtgMevcutKadro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgMevcutKadro.Size = new System.Drawing.Size(1437, 373);
-            this.DtgMevcutKadro.TabIndex = 4;
-            this.DtgMevcutKadro.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgMevcutKadro_CellMouseClick);
             // 
             // groupBox18
             // 
@@ -258,6 +227,7 @@ namespace UserInterface.Butce
             this.BtnSatKatEkle.Size = new System.Drawing.Size(34, 21);
             this.BtnSatKatEkle.TabIndex = 35;
             this.BtnSatKatEkle.UseVisualStyleBackColor = true;
+            this.BtnSatKatEkle.Click += new System.EventHandler(this.BtnSatKatEkle_Click);
             // 
             // BtnSatEkle
             // 
@@ -268,6 +238,7 @@ namespace UserInterface.Butce
             this.BtnSatEkle.Size = new System.Drawing.Size(34, 21);
             this.BtnSatEkle.TabIndex = 34;
             this.BtnSatEkle.UseVisualStyleBackColor = true;
+            this.BtnSatEkle.Click += new System.EventHandler(this.BtnSatEkle_Click);
             // 
             // BtnProjeEkle
             // 
@@ -279,6 +250,7 @@ namespace UserInterface.Butce
             this.BtnProjeEkle.Size = new System.Drawing.Size(34, 21);
             this.BtnProjeEkle.TabIndex = 33;
             this.BtnProjeEkle.UseVisualStyleBackColor = true;
+            this.BtnProjeEkle.Click += new System.EventHandler(this.BtnProjeEkle_Click);
             // 
             // label82
             // 
@@ -559,8 +531,6 @@ namespace UserInterface.Butce
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.CmbDonemYil);
-            this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.groupBox19);
             this.tabPage2.Controls.Add(this.groupBox18);
             this.tabPage2.Controls.Add(this.TxtMevcutPersonel);
@@ -577,39 +547,6 @@ namespace UserInterface.Butce
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SİPARİŞ KAYIT";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // CmbDonemYil
-            // 
-            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDonemYil.FormattingEnabled = true;
-            this.CmbDonemYil.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
-            "2024",
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030"});
-            this.CmbDonemYil.Location = new System.Drawing.Point(43, 242);
-            this.CmbDonemYil.Name = "CmbDonemYil";
-            this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
-            this.CmbDonemYil.TabIndex = 414;
-            this.CmbDonemYil.SelectedIndexChanged += new System.EventHandler(this.CmbDonemYil_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(11, 245);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(26, 13);
-            this.label1.TabIndex = 36;
-            this.label1.Text = "YIL:";
             // 
             // tabPage1
             // 
@@ -786,18 +723,18 @@ namespace UserInterface.Butce
             // 
             this.DtgNereye.AllowUserToAddRows = false;
             this.DtgNereye.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgNereye.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgNereye.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgNereye.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgNereye.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgNereye.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgNereye.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.DtgNereye.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgNereye.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DtgNereye.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -823,18 +760,18 @@ namespace UserInterface.Butce
             // 
             this.DtgNereden.AllowUserToAddRows = false;
             this.DtgNereden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgNereden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgNereden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DtgNereden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgNereden.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgNereden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgNereden.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DtgNereden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgNereden.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DtgNereden.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -845,6 +782,30 @@ namespace UserInterface.Butce
             this.DtgNereden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgNereden.Size = new System.Drawing.Size(686, 613);
             this.DtgNereden.TabIndex = 5;
+            // 
+            // DtgMevcutKadro
+            // 
+            this.DtgMevcutKadro.AllowUserToAddRows = false;
+            this.DtgMevcutKadro.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
+            this.DtgMevcutKadro.AutoGenerateContextFilters = true;
+            this.DtgMevcutKadro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMevcutKadro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMevcutKadro.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgMevcutKadro.DateWithTime = false;
+            this.DtgMevcutKadro.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMevcutKadro.Location = new System.Drawing.Point(3, 16);
+            this.DtgMevcutKadro.MultiSelect = false;
+            this.DtgMevcutKadro.Name = "DtgMevcutKadro";
+            this.DtgMevcutKadro.ReadOnly = true;
+            this.DtgMevcutKadro.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMevcutKadro.Size = new System.Drawing.Size(1437, 406);
+            this.DtgMevcutKadro.TabIndex = 415;
+            this.DtgMevcutKadro.TimeFilter = false;
+            this.DtgMevcutKadro.SortStringChanged += new System.EventHandler(this.DtgMevcutKadro_SortStringChanged);
+            this.DtgMevcutKadro.FilterStringChanged += new System.EventHandler(this.DtgMevcutKadro_FilterStringChanged);
+            this.DtgMevcutKadro.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgOnay_CellMouseClick);
             // 
             // FrmSiparisler
             // 
@@ -857,7 +818,6 @@ namespace UserInterface.Butce
             this.Text = "FrmSiparisler";
             this.Load += new System.EventHandler(this.FrmSiparisler_Load);
             this.groupBox19.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMevcutKadro)).EndInit();
             this.groupBox18.ResumeLayout(false);
             this.groupBox18.PerformLayout();
             this.groupBox10.ResumeLayout(false);
@@ -874,6 +834,7 @@ namespace UserInterface.Butce
             ((System.ComponentModel.ISupportInitialize)(this.DtgNereye)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgNereden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMevcutKadro)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -888,7 +849,6 @@ namespace UserInterface.Butce
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.GroupBox groupBox19;
-        private System.Windows.Forms.DataGridView DtgMevcutKadro;
         private System.Windows.Forms.GroupBox groupBox18;
         private System.Windows.Forms.Button BtnSatKatEkle;
         private System.Windows.Forms.Button BtnSatEkle;
@@ -924,8 +884,6 @@ namespace UserInterface.Butce
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox CmbDonemYil;
         private System.Windows.Forms.Button BtnAktar;
         private System.Windows.Forms.Button BtnGetir;
         private System.Windows.Forms.ComboBox CmbAktarilacak;
@@ -943,5 +901,6 @@ namespace UserInterface.Butce
         private System.Windows.Forms.Label LblNeredenToplam;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnKaydet;
+        private ADGV.AdvancedDataGridView DtgMevcutKadro;
     }
 }

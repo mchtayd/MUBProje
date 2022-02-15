@@ -42,9 +42,9 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public AracKm Get(int id)
+        public AracKm Get(string plaka)
         {
-            return aracKmDal.Get(id);
+            return aracKmDal.Get(plaka);
         }
 
         public List<AracKm> GetList()
