@@ -42,6 +42,8 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.TxtBildirilenAriza = new System.Windows.Forms.RichTextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.DtIscilikSaati = new System.Windows.Forms.DateTimePicker();
             this.DtIscilikSaati2 = new System.Windows.Forms.TextBox();
@@ -149,8 +151,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.DtgIslemAdimlari = new System.Windows.Forms.DataGridView();
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
-            this.TxtBildirilenAriza = new System.Windows.Forms.RichTextBox();
-            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
@@ -293,6 +293,23 @@ namespace UserInterface.BakımOnarım
             this.tabPage6.Text = "GÜNCELLE";
             this.tabPage6.UseVisualStyleBackColor = true;
             // 
+            // TxtBildirilenAriza
+            // 
+            this.TxtBildirilenAriza.Location = new System.Drawing.Point(175, 9);
+            this.TxtBildirilenAriza.Name = "TxtBildirilenAriza";
+            this.TxtBildirilenAriza.Size = new System.Drawing.Size(579, 50);
+            this.TxtBildirilenAriza.TabIndex = 452;
+            this.TxtBildirilenAriza.Text = "";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(95, 12);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 453;
+            this.label3.Text = "Bildirilen Arıza:";
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -378,7 +395,7 @@ namespace UserInterface.BakımOnarım
             this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
             this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolgeEkle.Location = new System.Drawing.Point(479, 178);
+            this.BtnBolgeEkle.Location = new System.Drawing.Point(479, 181);
             this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBolgeEkle.Name = "BtnBolgeEkle";
             this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);
@@ -1288,23 +1305,6 @@ namespace UserInterface.BakımOnarım
             this.DtgIslemAdimlari.ReadOnly = true;
             this.DtgIslemAdimlari.Size = new System.Drawing.Size(1447, 342);
             this.DtgIslemAdimlari.TabIndex = 0;
-            // 
-            // TxtBildirilenAriza
-            // 
-            this.TxtBildirilenAriza.Location = new System.Drawing.Point(175, 9);
-            this.TxtBildirilenAriza.Name = "TxtBildirilenAriza";
-            this.TxtBildirilenAriza.Size = new System.Drawing.Size(579, 50);
-            this.TxtBildirilenAriza.TabIndex = 452;
-            this.TxtBildirilenAriza.Text = "";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(95, 12);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 453;
-            this.label3.Text = "Bildirilen Arıza:";
             // 
             // FrmBOAtolyeGuncelleme
             // 

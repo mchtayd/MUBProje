@@ -49,7 +49,7 @@ namespace DataAccess.Concreate.STS
                         dataReader["KATEGORI"].ToString(),
                         array[0],
                         array[1],
-                        dataReader["BELGE_TARIHI"].ConTime(),
+                        dataReader["BELGE_TARIHI"].ConDate(),
                         dataReader["SATIN_ALINAN_FIRMA"].ToString(),
                         dataReader["HARCANAN_TUTAR"].ConDouble(),
                         dataReader["PROJE"].ToString(),
@@ -81,7 +81,7 @@ namespace DataAccess.Concreate.STS
                     tamamlanans.Add(new SatRapor(
                         array[0],
                         array[1],
-                        dataReader["BELGE_TARIHI"].ConTime(),
+                        dataReader["BELGE_TARIHI"].ConDate(),
                         dataReader["BELGE_NUMARASI"].ToString(),
                         dataReader["BELGE_TURU"].ToString(),
                         dataReader["SATIN_ALINAN_FIRMA"].ToString(),

@@ -30,7 +30,7 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgSatTamamlama = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -142,6 +142,7 @@ namespace UserInterface.STS
             this.label9 = new System.Windows.Forms.Label();
             this.CmbHarcamaYapan = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.CmbDonemYil = new System.Windows.Forms.ComboBox();
             this.CmbDonem = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -159,7 +160,6 @@ namespace UserInterface.STS
             this.CmbBelgeTuru = new System.Windows.Forms.ComboBox();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatTamamlama)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -191,8 +191,8 @@ namespace UserInterface.STS
             // 
             this.DtgSatTamamlama.AllowUserToAddRows = false;
             this.DtgSatTamamlama.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatTamamlama.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatTamamlama.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgSatTamamlama.AutoGenerateContextFilters = true;
             this.DtgSatTamamlama.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgSatTamamlama.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1484,6 +1484,15 @@ namespace UserInterface.STS
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(123, 178);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(202, 13);
+            this.label1.TabIndex = 584;
+            this.label1.Text = "Sadece Firma ve Proje Bilgisini Günceller.";
+            // 
             // CmbDonemYil
             // 
             this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1506,6 +1515,7 @@ namespace UserInterface.STS
             this.CmbDonemYil.Name = "CmbDonemYil";
             this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
             this.CmbDonemYil.TabIndex = 583;
+            this.CmbDonemYil.Visible = false;
             // 
             // CmbDonem
             // 
@@ -1528,6 +1538,7 @@ namespace UserInterface.STS
             this.CmbDonem.Name = "CmbDonem";
             this.CmbDonem.Size = new System.Drawing.Size(105, 21);
             this.CmbDonem.TabIndex = 582;
+            this.CmbDonem.Visible = false;
             // 
             // label52
             // 
@@ -1537,6 +1548,7 @@ namespace UserInterface.STS
             this.label52.Size = new System.Drawing.Size(87, 13);
             this.label52.TabIndex = 581;
             this.label52.Text = "DÖNEM (Ay/Yıl):";
+            this.label52.Visible = false;
             // 
             // CmbProjeKodu
             // 
@@ -1675,15 +1687,6 @@ namespace UserInterface.STS
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(446, 401);
             this.webBrowser1.TabIndex = 310;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(123, 178);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(202, 13);
-            this.label1.TabIndex = 584;
-            this.label1.Text = "Sadece Firma ve Proje Bilgisini Günceller.";
             // 
             // FrmSatTamamlama
             // 

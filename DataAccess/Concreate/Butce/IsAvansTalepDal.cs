@@ -62,7 +62,7 @@ namespace DataAccess.Concreate.Butce
                     item = new IsAvansTalep(
                         dataReader["ID"].ConInt(),
                         dataReader["IS_AKIS_NO"].ConInt(),
-                        dataReader["TARIH"].ConTime(),
+                        dataReader["TARIH"].ConDate(),
                         dataReader["ADI_SOYADI"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["UNVANI"].ToString(),
@@ -93,7 +93,7 @@ namespace DataAccess.Concreate.Butce
                     ısAvansTaleps.Add(new IsAvansTalep(
                         dataReader["ID"].ConInt(),
                         dataReader["IS_AKIS_NO"].ConInt(),
-                        dataReader["TARIH"].ConTime(),
+                        dataReader["TARIH"].ConDate(),
                         dataReader["ADI_SOYADI"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["UNVANI"].ToString(),

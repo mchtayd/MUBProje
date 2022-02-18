@@ -265,7 +265,7 @@ namespace UserInterface.STS
             bolum = DtgReddedilenSat.CurrentRow.Cells["Bolum"].Value.ToString();
             usbolgesi = DtgReddedilenSat.CurrentRow.Cells["Usbolgesi"].Value.ToString();
             abfformno = DtgReddedilenSat.CurrentRow.Cells["Abfformno"].Value.ToString();
-            tarih = DtgReddedilenSat.CurrentRow.Cells["Tarih"].Value.ConTime();
+            tarih = DtgReddedilenSat.CurrentRow.Cells["Tarih"].Value.ConDate();
             gerekce = DtgReddedilenSat.CurrentRow.Cells["Gerekce"].Value.ToString();
             donem = DtgReddedilenSat.CurrentRow.Cells["Donem"].Value.ToString();
             islemadimi = DtgReddedilenSat.CurrentRow.Cells["Islemadimi"].Value.ToString();

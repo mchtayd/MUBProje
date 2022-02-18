@@ -66,7 +66,7 @@ namespace DataAccess.Concreate.Yerleskeler
                         dataReader["ABONE_TURU"].ToString(),
                         dataReader["HIZMET_ALINAN_KURUM"].ToString(),
                         dataReader["ABONE_TESISAT_NO"].ToString(),
-                        dataReader["ABONA_TARIHI"].ConTime(),
+                        dataReader["ABONA_TARIHI"].ConDate(),
                         dataReader["ABONELIK_DURUMU"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SIPARIS_NO"].ToString());
@@ -95,7 +95,7 @@ namespace DataAccess.Concreate.Yerleskeler
                         dataReader["ABONE_TURU"].ToString(),
                         dataReader["HIZMET_ALINAN_KURUM"].ToString(),
                         dataReader["ABONE_TESISAT_NO"].ToString(),
-                        dataReader["ABONA_TARIHI"].ConTime(),
+                        dataReader["ABONA_TARIHI"].ConDate(),
                         dataReader["ABONELIK_DURUMU"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SIPARIS_NO"].ToString());
@@ -125,7 +125,7 @@ namespace DataAccess.Concreate.Yerleskeler
                         dataReader["ABONE_TURU"].ToString(),
                         dataReader["HIZMET_ALINAN_KURUM"].ToString(),
                         dataReader["ABONE_TESISAT_NO"].ToString(),
-                        dataReader["ABONA_TARIHI"].ConTime(),
+                        dataReader["ABONA_TARIHI"].ConDate(),
                         dataReader["ABONELIK_DURUMU"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SIPARIS_NO"].ToString()));
@@ -158,7 +158,7 @@ namespace DataAccess.Concreate.Yerleskeler
                         dataReader["ABONE_TURU"].ToString(),
                         dataReader["HIZMET_ALINAN_KURUM"].ToString(),
                         dataReader["ABONE_TESISAT_NO"].ToString(),
-                        dataReader["ABONA_TARIHI"].ConTime(),
+                        dataReader["ABONA_TARIHI"].ConDate(),
                         dataReader["ABONELIK_DURUMU"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SIPARIS_NO"].ToString()));

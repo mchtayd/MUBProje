@@ -234,8 +234,8 @@ namespace UserInterface.BakımOnarım
             CmbIlce.Text= DtgBolgeler.CurrentRow.Cells["Ilce"].Value.ToString();
             TxtBirlikAdresi.Text= DtgBolgeler.CurrentRow.Cells["BirlikAdresi"].Value.ToString();
             CmbDepo.Text= DtgBolgeler.CurrentRow.Cells["Depo"].Value.ToString();
-            DtGarantİBasTarihi.Value= DtgBolgeler.CurrentRow.Cells["GarantiBaslama"].Value.ConTime();
-            DtGarantİBitTarihi.Value = DtgBolgeler.CurrentRow.Cells["GarantiBitis"].Value.ConTime();
+            DtGarantİBasTarihi.Value= DtgBolgeler.CurrentRow.Cells["GarantiBaslama"].Value.ConDate();
+            DtGarantİBitTarihi.Value = DtgBolgeler.CurrentRow.Cells["GarantiBitis"].Value.ConDate();
             CmbProje.Text= DtgBolgeler.CurrentRow.Cells["Proje"].Value.ToString(); 
             CmbPypNo.Text= DtgBolgeler.CurrentRow.Cells["PypNo"].Value.ToString();
             TxtBolgeSorumlusuSicil.Text= DtgBolgeler.CurrentRow.Cells["SorumluSicil"].Value.ToString();

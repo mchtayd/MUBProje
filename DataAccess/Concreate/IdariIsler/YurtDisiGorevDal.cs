@@ -47,8 +47,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ID"].ConInt(),
                         dataReader["AD_SOYAD"].ToString(),
                         dataReader["UNVANI"].ToString(),
-                        dataReader["BAS_TARIHI"].ConTime(),
-                        dataReader["BIT_TARIHI"].ConTime(),
+                        dataReader["BAS_TARIHI"].ConDate(),
+                        dataReader["BIT_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["KALAN_SURE"].ToString()));
                 }

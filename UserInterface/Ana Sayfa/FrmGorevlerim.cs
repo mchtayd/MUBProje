@@ -50,7 +50,7 @@ namespace UserInterface.Ana_Sayfa
             dosyaYolu = DtgYoneticiGorevlerim.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             goreviAtayan = DtgYoneticiGorevlerim.CurrentRow.Cells["GoreviAtayanPersonel"].Value.ToString();
             isAkisNo = DtgYoneticiGorevlerim.CurrentRow.Cells["IsAkisNo"].Value.ToString();
-            bitisTarihi = DtgYoneticiGorevlerim.CurrentRow.Cells["BitisTarihi"].Value.ConTime();
+            bitisTarihi = DtgYoneticiGorevlerim.CurrentRow.Cells["BitisTarihi"].Value.ConDate();
             try
             {
                 webBrowser1.Navigate(dosyaYolu);

@@ -490,6 +490,13 @@ namespace UserInterface.STS
             DtgOnay.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
             DtgOnay.Columns["Donem"].HeaderText = "DÖNEM";
             DtgOnay.Columns["Donem"].DisplayIndex = 3;
+            DtgOnay.Columns["SatOlusturmaTuru"].Visible = false;
+            DtgOnay.Columns["RedNedeni"].Visible = false;
+            DtgOnay.Columns["Durum"].Visible = false;
+            DtgOnay.Columns["TeklifDurumu"].Visible = false;
+            DtgOnay.Columns["SatinAlinanFirma"].HeaderText = "SATIN ALINAN FİRMA";
+            DtgOnay.Columns["MailSiniri"].Visible = false;
+            DtgOnay.Columns["MailDurumu"].Visible = false;
         }
         void Hesapla4()
         {
@@ -679,7 +686,7 @@ namespace UserInterface.STS
             bolum = DtgOnay.CurrentRow.Cells["Bolum"].Value.ToString();
             usbolgesi = DtgOnay.CurrentRow.Cells["Usbolgesi"].Value.ToString();
             abfno = DtgOnay.CurrentRow.Cells["Abfformno"].Value.ToString();
-            istenentarih = DtgOnay.CurrentRow.Cells["Tarih"].Value.ConTime();
+            istenentarih = DtgOnay.CurrentRow.Cells["Tarih"].Value.ConDate();
             gerekce = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
             belgeTuru = DtgOnay.CurrentRow.Cells["BelgeTuru"].Value.ToString();
             masrafyerino = DtgOnay.CurrentRow.Cells["Masyerino"].Value.ToString();
@@ -690,7 +697,7 @@ namespace UserInterface.STS
             belgeNumarasi = DtgOnay.CurrentRow.Cells["BelgeNumarasi"].Value.ToString();
             faturafirma = DtgOnay.CurrentRow.Cells["Faturafirma"].Value.ToString();
             ilgilikisi = DtgOnay.CurrentRow.Cells["Ilgilikisi"].Value.ToString();
-            belgeTarihi = DtgOnay.CurrentRow.Cells["BelgeTarihi"].Value.ConTime();
+            belgeTarihi = DtgOnay.CurrentRow.Cells["BelgeTarihi"].Value.ConDate();
             ucteklif = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
             donem = DtgOnay.CurrentRow.Cells["Donem"].Value.ToString();
             satOlusturmaTuru = DtgOnay.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
@@ -2280,7 +2287,7 @@ namespace UserInterface.STS
             bolum = DtgOnay.CurrentRow.Cells["Bolum"].Value.ToString();
             usbolgesi = DtgOnay.CurrentRow.Cells["Usbolgesi"].Value.ToString();
             abfno = DtgOnay.CurrentRow.Cells["Abfformno"].Value.ToString();
-            istenentarih = DtgOnay.CurrentRow.Cells["Tarih"].Value.ConTime();
+            istenentarih = DtgOnay.CurrentRow.Cells["Tarih"].Value.ConDate();
             gerekce = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
             belgeTuru = DtgOnay.CurrentRow.Cells["BelgeTuru"].Value.ToString();
             masrafyerino = DtgOnay.CurrentRow.Cells["Masyerino"].Value.ToString();
@@ -2291,7 +2298,7 @@ namespace UserInterface.STS
             belgeNumarasi = DtgOnay.CurrentRow.Cells["BelgeNumarasi"].Value.ToString();
             faturafirma = DtgOnay.CurrentRow.Cells["Faturafirma"].Value.ToString();
             ilgilikisi = DtgOnay.CurrentRow.Cells["Ilgilikisi"].Value.ToString();
-            belgeTarihi = DtgOnay.CurrentRow.Cells["BelgeTarihi"].Value.ConTime();
+            belgeTarihi = DtgOnay.CurrentRow.Cells["BelgeTarihi"].Value.ConDate();
             ucteklif = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
             donem = DtgOnay.CurrentRow.Cells["Donem"].Value.ToString();
             satOlusturmaTuru = DtgOnay.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();

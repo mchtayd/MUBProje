@@ -820,8 +820,8 @@ namespace UserInterface.Ana_Sayfa
             otelAd = DtgKonaklama.CurrentRow.Cells["Otelad"].Value.ToString();
             gunlukUcret = DtgKonaklama.CurrentRow.Cells["Gunukucret"].Value.ConDouble();
             toplamUcret = DtgKonaklama.CurrentRow.Cells["Toplamucret"].Value.ConDouble();
-            gidisTarihi = DtgKonaklama.CurrentRow.Cells["Giristarihi"].Value.ConTime();
-            cikisTarihi = DtgKonaklama.CurrentRow.Cells["Cikistarihi"].Value.ConTime();
+            gidisTarihi = DtgKonaklama.CurrentRow.Cells["Giristarihi"].Value.ConDate();
+            cikisTarihi = DtgKonaklama.CurrentRow.Cells["Cikistarihi"].Value.ConDate();
             konaklamaSuresi = DtgKonaklama.CurrentRow.Cells["Konaklamasuresi"].Value.ToString();
             unvani = DtgKonaklama.CurrentRow.Cells["Gorevi"].Value.ToString();
 

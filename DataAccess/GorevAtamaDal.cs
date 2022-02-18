@@ -61,11 +61,11 @@ namespace DataAccess
                         dataReader["ID"].ConInt(),
                         dataReader["IS_AKIS_NO"].ConInt(),
                         dataReader["GOREV_ATANAN_PERSONEL"].ToString(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["ATANAN_GOREVIN_KONUSU"].ToString(),
-                        dataReader["GOREV_ATAMA_TARIHI"].ConTime(),
+                        dataReader["GOREV_ATAMA_TARIHI"].ConDate(),
                         dataReader["GOREVI_ATAYAN_PERSONEL"].ToString(),
-                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConTime(),
+                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConDate(),
                         dataReader["YAPILAN_ISLEM"].ToString(),
                         dataReader["TOPLAM_SURE_SAAT"].ToString(),
                         "",
@@ -91,7 +91,7 @@ namespace DataAccess
                     new SqlParameter("@gorevAtayanPersonel", goreviAtayanPersonel));
                 while (dataReader.Read())
                 {
-                    DateTime startDate = dataReader["GOREV_ATAMA_TARIHI"].ConTime();
+                    DateTime startDate = dataReader["GOREV_ATAMA_TARIHI"].ConDate();
                     string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();
                     gecenSure = gecenSure.Substring(0, gecenSure.LastIndexOf('.'));
 
@@ -100,11 +100,11 @@ namespace DataAccess
                        dataReader["ID"].ConInt(),
                        dataReader["IS_AKIS_NO"].ConInt(),
                         dataReader["GOREV_ATANAN_PERSONEL"].ToString(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["ATANAN_GOREVIN_KONUSU"].ToString(),
                         startDate,
                         dataReader["GOREVI_ATAYAN_PERSONEL"].ToString(),
-                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConTime(),
+                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConDate(),
                         dataReader["YAPILAN_ISLEM"].ToString(),
                         dataReader["TOPLAM_SURE_SAAT"].ToString(),
                         gecenSure,
@@ -127,7 +127,7 @@ namespace DataAccess
                     new SqlParameter("@gorevAtayanPersonel",adSoyad));
                 while (dataReader.Read())
                 {
-                    DateTime startDate = dataReader["GOREV_ATAMA_TARIHI"].ConTime();
+                    DateTime startDate = dataReader["GOREV_ATAMA_TARIHI"].ConDate();
                     string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();
                     gecenSure = gecenSure.Substring(0, gecenSure.LastIndexOf('.'));
 
@@ -136,11 +136,11 @@ namespace DataAccess
                        dataReader["ID"].ConInt(),
                        dataReader["IS_AKIS_NO"].ConInt(),
                         dataReader["GOREV_ATANAN_PERSONEL"].ToString(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["ATANAN_GOREVIN_KONUSU"].ToString(),
-                        dataReader["GOREV_ATAMA_TARIHI"].ConTime(),
+                        dataReader["GOREV_ATAMA_TARIHI"].ConDate(),
                         dataReader["GOREVI_ATAYAN_PERSONEL"].ToString(),
-                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConTime(),
+                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConDate(),
                         dataReader["YAPILAN_ISLEM"].ToString(),
                         dataReader["TOPLAM_SURE_SAAT"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString()));
@@ -161,7 +161,7 @@ namespace DataAccess
                 dataReader = sqlServices.StoreReader("YoneticiGorevlerimiGor", new SqlParameter("@adSoyad", adSoyad));
                 while (dataReader.Read())
                 {
-                    DateTime startDate = dataReader["GOREV_ATAMA_TARIHI"].ConTime();
+                    DateTime startDate = dataReader["GOREV_ATAMA_TARIHI"].ConDate();
                     string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();
                     gecenSure = gecenSure.Substring(0, gecenSure.LastIndexOf('.'));
 
@@ -170,11 +170,11 @@ namespace DataAccess
                        dataReader["ID"].ConInt(),
                        dataReader["IS_AKIS_NO"].ConInt(),
                         dataReader["GOREV_ATANAN_PERSONEL"].ToString(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["ATANAN_GOREVIN_KONUSU"].ToString(),
                         startDate,
                         dataReader["GOREVI_ATAYAN_PERSONEL"].ToString(),
-                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConTime(),
+                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConDate(),
                         dataReader["YAPILAN_ISLEM"].ToString(),
                         dataReader["TOPLAM_SURE_SAAT"].ToString(),
                         gecenSure,

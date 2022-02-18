@@ -1628,8 +1628,8 @@ namespace UserInterface.IdariIsler
                 CmbProjeGun.Text = yurtIciGorev.Proje;
                 TxtGidilecekYerGun.Text = yurtIciGorev.Gidilecekyer;
                 TxtGorevinKonusuGun.Text = yurtIciGorev.Gorevinkonusu;
-                DtBaslamaTarihiGun.Value = yurtIciGorev.Baslamatarihi.ConTime();
-                DtBitisTarihiGun.Value = yurtIciGorev.Bitistarihi.ConTime();
+                DtBaslamaTarihiGun.Value = yurtIciGorev.Baslamatarihi.ConDate();
+                DtBitisTarihiGun.Value = yurtIciGorev.Bitistarihi.ConDate();
                 TxtToplamSureGun.Text = yurtIciGorev.Toplamsure;
                 CmbButceKoduGun.Text = yurtIciGorev.Butcekodu;
                 CmbSiparsGun.Text = yurtIciGorev.Siparisno;

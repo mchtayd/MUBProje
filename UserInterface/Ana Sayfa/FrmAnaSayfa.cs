@@ -1611,6 +1611,14 @@ namespace UserInterface.STS
                         form.Yenilenecekler();
                     }
                 }
+                if (baslik == "TAMAMLANAN ARIZALAR (ATÖLYE)")
+                {
+                    var form = (FrmBOAtolyeTamamlananlar)Application.OpenForms["FrmBOAtolyeTamamlananlar"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
+                    }
+                }
                 if (baslik == "ARAÇ KM İZLEME")
                 {
                     var form = (FrmAracKmIzleme)Application.OpenForms["FrmAracKmIzleme"];
@@ -1865,7 +1873,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Devam Eden Ariza Atolye")
             {
                 FrmBOAtolyeDevamEdenler Go = new FrmBOAtolyeDevamEdenler();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -1876,7 +1884,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Veri Kayit Atolye Kapatma")
             {
                 FrmBOAtolyeKapatma Go = new FrmBOAtolyeKapatma();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;

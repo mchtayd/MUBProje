@@ -62,7 +62,7 @@ namespace DataAccess.Concreate.STS
                     sats.Add(new SatRenkliTablo(
                         dataReader["ID"].ConInt(),
                         dataReader["FIRMA_ADI"].ToString(),
-                        dataReader["TARIH"].ConTime(),
+                        dataReader["TARIH"].ConDate(),
                         dataReader["SIPARIS_ID"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["EX_DOSYA_YOLU"].ToString()));

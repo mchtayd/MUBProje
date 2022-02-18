@@ -566,7 +566,7 @@ namespace UserInterface.IdariIsler
             {
                 foreach (DataGridViewRow item in DtgTTList.Rows)
                 {
-                    string donem = FrmHelper.DonemControl(item.Cells[7].Value.ConTime());
+                    string donem = FrmHelper.DonemControl(item.Cells[7].Value.ConDate());
 
                     AracZimmeti aracZimmeti = aracZimmetiManager.Get(item.Cells[2].Value.ToString());
                     string aracSiparisNo = "";
@@ -577,7 +577,7 @@ namespace UserInterface.IdariIsler
                         zimetliPersonel = aracZimmeti.PersonelAd;
                     }
 
-                    YakitDokum yakitDokum = new YakitDokum(LblIsAkisNoTasit.Text.ConInt(), "PETROL OFİSİ", donem, item.Cells[7].Value.ConTime(), item.Cells[2].Value.ToString(), aracSiparisNo,
+                    YakitDokum yakitDokum = new YakitDokum(LblIsAkisNoTasit.Text.ConInt(), "PETROL OFİSİ", donem, item.Cells[7].Value.ConDate(), item.Cells[2].Value.ToString(), aracSiparisNo,
                         item.Cells[5].Value.ConDouble(), item.Cells[6].Value.ConDouble(), dosyaYolu, zimetliPersonel);
                     
                     string mesaj = yakitDokumManager.AddTasitTanima(yakitDokum);
@@ -609,7 +609,7 @@ namespace UserInterface.IdariIsler
                         item.Cells["AkisNoList"].Value.ConInt(),
                         item.Cells["FirmaList"].Value.ToString(),
                         item.Cells["DonemList"].Value.ToString(),
-                        item.Cells["TarihList"].Value.ConTime(),
+                        item.Cells["TarihList"].Value.ConDate(),
                         item.Cells["DefterNoList"].Value.ToString(),
                         item.Cells["SiraNoList"].Value.ToString(),
                         item.Cells["FisNoList"].Value.ToString(),
@@ -635,7 +635,7 @@ namespace UserInterface.IdariIsler
                         item.Cells["AkisNoTasit"].Value.ConInt(),
                         item.Cells["FirmaListTasit"].Value.ToString(),
                         item.Cells["DonemListTasit"].Value.ToString(),
-                        item.Cells["TarihListTasit"].Value.ConTime(),
+                        item.Cells["TarihListTasit"].Value.ConDate(),
                         item.Cells["PlakaListTasit"].Value.ToString(),
                         item.Cells["SiparisNoListTasit"].Value.ToString(),
                         item.Cells["ToplamListTasit"].Value.ConDouble(),

@@ -30,7 +30,7 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaAcmaCalisma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -920,7 +920,7 @@ namespace UserInterface.BakımOnarım
             // BtnBul
             // 
             this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnBul.Location = new System.Drawing.Point(239, 15);
             this.BtnBul.Name = "BtnBul";
             this.BtnBul.Size = new System.Drawing.Size(63, 23);
@@ -2430,11 +2430,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle3;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -2840,7 +2840,7 @@ namespace UserInterface.BakımOnarım
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Bahnschrift Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label70.ForeColor = System.Drawing.Color.Black;
-            this.label70.Location = new System.Drawing.Point(391, 261);
+            this.label70.Location = new System.Drawing.Point(381, 256);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(336, 56);
             this.label70.TabIndex = 463;
@@ -2850,7 +2850,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.Location = new System.Drawing.Point(138, 359);
+            this.button5.Location = new System.Drawing.Point(128, 359);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(145, 50);
             this.button5.TabIndex = 422;
@@ -2861,7 +2861,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.groupBox8.Controls.Add(this.advancedDataGridView1);
             this.groupBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox8.Location = new System.Drawing.Point(115, 45);
+            this.groupBox8.Location = new System.Drawing.Point(105, 45);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(1283, 124);
             this.groupBox8.TabIndex = 334;
@@ -2950,7 +2950,7 @@ namespace UserInterface.BakımOnarım
             // dateTimePicker4
             // 
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(236, 186);
+            this.dateTimePicker4.Location = new System.Drawing.Point(226, 186);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(112, 20);
             this.dateTimePicker4.TabIndex = 325;
@@ -2958,7 +2958,7 @@ namespace UserInterface.BakımOnarım
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(120, 180);
+            this.label59.Location = new System.Drawing.Point(110, 180);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(110, 26);
             this.label59.TabIndex = 324;
@@ -2972,7 +2972,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
             this.groupBox7.Controls.Add(this.textBox22);
-            this.groupBox7.Location = new System.Drawing.Point(138, 226);
+            this.groupBox7.Location = new System.Drawing.Point(128, 226);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(247, 127);
             this.groupBox7.TabIndex = 323;
@@ -3035,7 +3035,7 @@ namespace UserInterface.BakımOnarım
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(115, 19);
+            this.textBox11.Location = new System.Drawing.Point(105, 19);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(127, 20);
             this.textBox11.TabIndex = 322;
@@ -3043,7 +3043,7 @@ namespace UserInterface.BakımOnarım
             // label55
             // 
             this.label55.AutoSize = true;
-            this.label55.Location = new System.Drawing.Point(36, 22);
+            this.label55.Location = new System.Drawing.Point(26, 22);
             this.label55.Name = "label55";
             this.label55.Size = new System.Drawing.Size(73, 13);
             this.label55.TabIndex = 321;

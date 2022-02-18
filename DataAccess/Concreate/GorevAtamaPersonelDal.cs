@@ -62,7 +62,7 @@ namespace DataAccess.Concreate
                         dataReader["DEPARTMAN"].ToString(),
                         dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
-                        dataReader["TARIH"].ConTime(),
+                        dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime());
@@ -92,7 +92,36 @@ namespace DataAccess.Concreate
                         dataReader["DEPARTMAN"].ToString(),
                         dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
-                        dataReader["TARIH"].ConTime(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["SURE"].ToString(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["CALISMA_SURESI"].ConOnlyTime()));
+                }
+                dataReader.Close();
+                return gorevAtamaPersonels;
+
+            }
+            catch (Exception ex)
+            {
+                dataReader.Close();
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> GorevAtamaGetList(int benzersizId)
+        {
+            try
+            {
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                dataReader = sqlServices.StoreReader("IslemAdimSureleriniDuzelt",new SqlParameter("@benzersizId",benzersizId));
+                while (dataReader.Read())
+                {
+                    gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["DEPARTMAN"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime()));
@@ -122,7 +151,7 @@ namespace DataAccess.Concreate
                         dataReader["DEPARTMAN"].ToString(),
                         dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
-                        dataReader["TARIH"].ConTime(),
+                        dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime()));
@@ -151,7 +180,7 @@ namespace DataAccess.Concreate
                         dataReader["DEPARTMAN"].ToString(),
                         dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
-                        dataReader["TARIH"].ConTime(),
+                        dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime()));
@@ -177,6 +206,22 @@ namespace DataAccess.Concreate
                     new SqlParameter("@sure", entity.Sure),
                     new SqlParameter("@calismaSuresi", entity.CalismaSuresi),
                     new SqlParameter("@yapilanIslemler", yapilanIslemler));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SureDuzelt(int id,string sure)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AtolyeIslemAdimlariSureDuzelt",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@sure", sure));
 
                 dataReader.Close();
                 return "OK";

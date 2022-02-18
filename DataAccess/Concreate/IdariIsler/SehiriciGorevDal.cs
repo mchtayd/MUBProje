@@ -74,8 +74,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["PROJE"].ToString(),
                         dataReader["GIDILECEK_YER"].ToString(),
                         dataReader["GOREVIN_KONUSU"].ToString(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["AD_SOYAD"].ToString(),
@@ -109,8 +109,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["PROJE"].ToString(),
                         dataReader["GIDILECEK_YER"].ToString(),
                         dataReader["GOREVIN_KONUSU"].ToString(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["AD_SOYAD"].ToString(),
@@ -143,8 +143,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["PROJE"].ToString(),
                         dataReader["GIDILECEK_YER"].ToString(),
                         dataReader["GOREVIN_KONUSU"].ToString(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["AD_SOYAD"].ToString(),
@@ -178,8 +178,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["PROJE"].ToString(),
                         dataReader["GIDILECEK_YER"].ToString(),
                         dataReader["GOREVIN_KONUSU"].ToString(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["AD_SOYAD"].ToString(),
@@ -212,8 +212,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["PROJE"].ToString(),
                         dataReader["GIDILECEK_YER"].ToString(),
                         dataReader["GOREVIN_KONUSU"].ToString(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["AD_SOYAD"].ToString(),
@@ -298,7 +298,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader = sqlServices.StoreReader("DevamSehirIciGorevList",new SqlParameter("@toplamsure",toplamsure));
                 while (dataReader.Read())
                 {
-                    DateTime startDate = dataReader["BASLAMA_TARIHI"].ConTime();
+                    DateTime startDate = dataReader["BASLAMA_TARIHI"].ConDate();
                     string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();
                     gecenSure = gecenSure.Substring(0, gecenSure.LastIndexOf('.'));
 

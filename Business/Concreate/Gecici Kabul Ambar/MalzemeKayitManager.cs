@@ -90,6 +90,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<MalzemeKayit>();
             }
         }
+        public List<MalzemeKayit> UstTakimGetList()
+        {
+            try
+            {
+                return malzemeKayitDal.UstTakimGetList();
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeKayit>();
+            }
+        }
 
         public string Update(MalzemeKayit entity,int id)
         {

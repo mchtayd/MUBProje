@@ -81,7 +81,7 @@ namespace UserInterface.BakımOnarım
             CmbGorevAtanacakPersonel.DisplayMember = "Adsoyad";
             CmbGorevAtanacakPersonel.SelectedValue = -1;
         }
-        
+
         void SureBul()
         {
             if (gun == 0)
@@ -120,12 +120,13 @@ namespace UserInterface.BakımOnarım
             }
 
             Atolye atolye1 = atolyeManager.Get(TxtIcSiparisNo.Text);
-            if (atolye1==null)
+            if (atolye1 == null)
             {
                 return;
             }
             id = atolye1.Id;
             bildirilenAriza = atolye1.BildirilenAriza;
+            TxtBildirilenAriza.Text = bildirilenAriza;
             //bulunduguIslemAdimi = atolye1.IslemAdimi;
 
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
@@ -134,19 +135,26 @@ namespace UserInterface.BakımOnarım
             birOncekiTarih = gorevAtamaPersonel.Tarih;
             LblMevcutIslemAdimi.Text = bulunduguIslemAdimi;
 
-            TimeSpan SonucGun = DateTime.Now - birOncekiTarih;
-            TimeSpan SonucSaat = DateTime.Now - birOncekiTarih;
-            TimeSpan SonucDakika = DateTime.Now - birOncekiTarih;
+            //TimeSpan sonuc = DateTime.Now - birOncekiTarih.AddDays(1);
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+            //TimeSpan SonucSaat = DateTime.Now - birOncekiTarih;
+            //TimeSpan SonucDakika = DateTime.Now - birOncekiTarih;
 
-            gun = SonucGun.TotalDays.ConInt();
-            saat = SonucSaat.TotalHours.ConInt();
-            if (SonucSaat.TotalHours < 1)
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
             {
                 saat = 0;
             }
-            
-            dakika = SonucDakika.TotalMinutes.ConInt() % 60;
-            SureBul();
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+            /*string day = sonuc.Days == 0 ? "" : sonuc.Days + " Gün / ";
+            sure = $"{day}{sonuc.Hours} Saat {sonuc.Minutes} Dakika";
+            string myValue=$"{sonuc.tot
+            DateTime dateTime = "19:15:00".ConOnlyTime();*/
+            //SureBul();
 
             DtgAtolye.DataSource = atolyeMalzemeManager.AtolyeMalzemeBul(siparisNo);
 
@@ -599,19 +607,19 @@ namespace UserInterface.BakımOnarım
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            
+
 
             /*if (TxtYapilanIslemler.Text=="")
             {
                 MessageBox.Show("Lütfen Yapılan İşlemler ve Açıklamalar Kısmını Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }*/
-            if (CmbIslemAdimi.Text=="")
+            if (CmbIslemAdimi.Text == "")
             {
                 MessageBox.Show("Lütfen İşlem Adımı Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (DtIscilikSaati.Text=="")
+            if (DtIscilikSaati.Text == "")
             {
                 MessageBox.Show("Lütfen İşçilik Süresi Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -625,13 +633,12 @@ namespace UserInterface.BakımOnarım
 
             if (CmbIslemAdimi.Text == "800-MALZEME HAZIRLAMA (AMBAR)")
             {
-                if (LblMevcutIslemAdimi.Text!= "600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS)")
+                if (LblMevcutIslemAdimi.Text != "600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS)")
                 {
-                    MessageBox.Show("Lütfen 800-MALZEME HAZIRLAMA (AMBAR) İşlem Adımına Görev Ataması Yapmadan Önce 600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS) adımını Uygulayınız!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show("Lütfen 800-MALZEME HAZIRLAMA (AMBAR) İşlem Adımına Görev Ataması Yapmadan Önce 600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS) adımını Uygulayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
-           
 
             if (mesaj == "OK")
             {
@@ -714,7 +721,7 @@ namespace UserInterface.BakımOnarım
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
 
-            
+
         }
 
         void MalzemeKaydet()
@@ -784,7 +791,7 @@ namespace UserInterface.BakımOnarım
             {
                 return kontrol2;
             }
-            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", CmbGorevAtanacakPersonel.Text, CmbIslemAdimi.Text, DateTime.Now, "",DateTime.Now.Date);
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", CmbGorevAtanacakPersonel.Text, CmbIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
             string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
 
             if (kontrol != "OK")
@@ -806,7 +813,7 @@ namespace UserInterface.BakımOnarım
             DtgIslemKayitlari.Columns["Tarih"].HeaderText = "TARİH";
             DtgIslemKayitlari.Columns["Sure"].HeaderText = "İŞLEM ADIMI SÜRELERİ";
             DtgIslemKayitlari.Columns["YapilanIslem"].HeaderText = "YAPILAN İŞLEM";
-            
+
         }
     }
 }

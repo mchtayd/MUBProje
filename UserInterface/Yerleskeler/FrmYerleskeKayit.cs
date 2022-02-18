@@ -180,7 +180,7 @@ namespace UserInterface.Yerleskeler
 
                 if (yerleskeControl.Count==0)
                 {
-                    Yerleske yerleske = new Yerleske(TxtYerleskeAdi.Text, CmbMulkiyetBilgileri.Text, TxtYerleskeAdresi.Text, item.Cells["AboneTuru"].Value.ToString(), item.Cells["HizmetAlinanKurum"].Value.ToString(), item.Cells["AboneTesisatNo"].Value.ToString(), item.Cells["AboneTarihi"].Value.ConTime(), "DEVAM EDİYOR", dosyaYolu, siparisNo);
+                    Yerleske yerleske = new Yerleske(TxtYerleskeAdi.Text, CmbMulkiyetBilgileri.Text, TxtYerleskeAdresi.Text, item.Cells["AboneTuru"].Value.ToString(), item.Cells["HizmetAlinanKurum"].Value.ToString(), item.Cells["AboneTesisatNo"].Value.ToString(), item.Cells["AboneTarihi"].Value.ConDate(), "DEVAM EDİYOR", dosyaYolu, siparisNo);
 
                     yerleskeManager.Add(yerleske);
                 }
@@ -200,7 +200,7 @@ namespace UserInterface.Yerleskeler
                 else
                 {
                     DateTime dateTime;
-                    dateTime = "31.12.1990".ConTime();
+                    dateTime = "31.12.1990".ConDate();
                     Kira kira = new Kira(TxtYerleskeAdi.Text, TxtYerleskeAdresi.Text, CmbMulkiyetBilgileri.Text, "-", "-", "-", "-", "-", "-", dateTime, 0, 0, dosyaYolu, siparisNo);
 
                     kiraManager.Add(kira);

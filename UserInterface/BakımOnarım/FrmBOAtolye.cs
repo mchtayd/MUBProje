@@ -135,6 +135,7 @@ namespace UserInterface.BakımOnarım
 
                 if (DtgMalzemeler.RowCount > 1)
                 {
+
                     foreach (AtolyeMalzeme item in atolyeMalzemes)
                     {
                         LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
@@ -144,6 +145,19 @@ namespace UserInterface.BakımOnarım
                         adet++;
                     }
                 }
+
+
+                /*if (DtgMalzemeler.RowCount > 1)
+                {
+                    foreach (AtolyeMalzeme item in atolyeMalzemes)
+                    {
+                        LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
+                        icSiparisNo = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text + "/" + adet;
+                        IcSiparisler.Add(icSiparisNo);
+
+                        adet++;
+                    }
+                }*/
                 else
                 {
                     LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
@@ -201,7 +215,8 @@ namespace UserInterface.BakımOnarım
             //DtgMalzemeler.Columns["Birim"].HeaderText = "BİRİM";
             DtgMalzemeler.Columns["TalepTarihi"].HeaderText = "TALEP TARİHİ";
             DtgMalzemeler.Columns["SiparisNo"].Visible = false;
-
+            DtgMalzemeler.Columns["Sec"].HeaderText = "KAYIT DURUMU";
+            DtgMalzemeler.Columns["Sec"].DisplayIndex = 0;
 
         }
 
@@ -209,7 +224,6 @@ namespace UserInterface.BakımOnarım
         {
             Temizle();
         }
-
 
         void IscilikGir()
         {
@@ -286,7 +300,7 @@ namespace UserInterface.BakımOnarım
 
                     AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["FormNo"].Value.ConInt(), item.Cells["StokNo"].Value.ToString(),
                         item.Cells["Tanim"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durum"].Value.ToString(),
-                        item.Cells["Revizyon"].Value.ToString(), item.Cells["Miktar"].Value.ConDouble(), item.Cells["TalepTarihi"].Value.ConTime(), 
+                        item.Cells["Revizyon"].Value.ToString(), item.Cells["Miktar"].Value.ConDouble(), item.Cells["TalepTarihi"].Value.ConDate(), 
                         SiparisNos[sayac].ToString());
 
                     atolyeMalzemeManager.Add(atolyeMalzeme);
@@ -338,8 +352,7 @@ namespace UserInterface.BakımOnarım
             GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", CmbGorevAtanacakPersonel.Text, CmbIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
             gorevAtamaPersonelManager.Add(gorevAtamaPersonel4);
 
-
-            string sure = "0" + " Dakika";
+            string sure = "0 Gün " + "0 Saat " + "0 Dakika";
 
             GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", "100-TAKIMIN ÇEKİLMESİ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date);
             gorevAtamaPersonelManager.Update(gorevAtama);

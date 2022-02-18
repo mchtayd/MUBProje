@@ -68,7 +68,7 @@ namespace DataAccess.Concreate.Butce
                         dataReader["MASRAF_YERI_SORUMLUSU"].ToString(),
                         dataReader["DURUM"].ToString(),
                         dataReader["SIPARIS"].ToString(),
-                        dataReader["TARIH"].ConTime()));
+                        dataReader["TARIH"].ConDate()));
                 }
                 dataReader.Close();
                 return siparislerPersonels;

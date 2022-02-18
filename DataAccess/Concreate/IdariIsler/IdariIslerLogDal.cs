@@ -63,7 +63,7 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["BENZERSIZ"].ConInt(),
                         dataReader["ISLEM"].ToString(),
                         dataReader["ISLEM_YAPAN"].ToString(),
-                        dataReader["TARIH"].ConTime()));
+                        dataReader["TARIH"].ConDate()));
                 }
                 dataReader.Close();
                 return logs;

@@ -34,6 +34,8 @@ namespace UserInterface.BakımOnarım
         List<Atolye> atolyes;
         string siparisNo, dosyaYolu;
         int abfNo, id;
+
+        public object[] infos;
         public FrmBOAtolyeDevamEdenler()
         {
             InitializeComponent();
@@ -56,6 +58,21 @@ namespace UserInterface.BakımOnarım
         }
         private void FrmBOAtolyeDevamEdenler_Load(object sender, EventArgs e)
         {
+            if (infos[0].ConInt() != 25)
+            {
+                contextMenuStrip1.Items[0].Visible = false;
+                contextMenuStrip1.Items[1].Visible = false;
+            }
+            if (infos[0].ConInt() != 25)
+            {
+                if (infos[0].ConInt() != 35)
+                {
+                    if (infos[0].ConInt() != 84)
+                    {
+                        contextMenuStrip1.Items[2].Enabled = false;
+                    }
+                }
+            }
             DataDisplay();
         }
         public void Yenilenecekler()
@@ -184,8 +201,6 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
-
-
         }
 
         void DataDisplayAltMalzeme()
@@ -267,8 +282,8 @@ namespace UserInterface.BakımOnarım
                 string value = DtgIslemKayitlari.Rows[i].Cells["CalismaSuresi"].Value.ToString();
                 if (DateTime.TryParse(value, out _))
                 {
-                    toplam = toplam.AddSeconds(value.ConTime().Minute * 60);
-                    toplam = toplam.AddSeconds(value.ConTime().Hour * 3660);
+                    toplam = toplam.AddSeconds(value.ConDate().Minute * 60);
+                    toplam = toplam.AddSeconds(value.ConDate().Hour * 3660);
                 }
                 //toplam += Convert.ToDouble(DtgIslemKayitlari.Rows[i].Cells["IscilikSuresi"].Value);
 
@@ -278,6 +293,7 @@ namespace UserInterface.BakımOnarım
 
         private void işlemAdımlarınıGetirToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
             DialogResult dr = MessageBox.Show("Görev Ataması Yapmak İstediğinze Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
@@ -316,6 +332,46 @@ namespace UserInterface.BakımOnarım
             gorevAtamaPersonelManager.Update(messege3);
             return "OK";
         }
+        string sure;
+        private void işlemAdımSureleriniDuzeltToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            id = DtgDevamEden.CurrentRow.Cells["Id"].Value.ConInt();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GorevAtamaGetList(id);
+            List<DateTime> times = new List<DateTime>();
+            List<int> Idler = new List<int>();
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                times.Add(item.Tarih);
+                Idler.Add(item.Id);
+            }
+            for (int i = 0; i < times.Count; i++)
+            {
+                if (i + 1 == times.Count)
+                {
+                    MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!");
+                    return;
+                }
+
+                TimeSpan sonuc = times[i + 1] - times[i];
+
+                sure = $"{sonuc.Days} Gün {sonuc.Hours} Saat {sonuc.Minutes} Dakika";
+                gorevAtamaPersonelManager.SureDuzelt(Idler[i], sure);
+
+                //string day = sonuc.Days == 0 ? "" : sonuc.Days + " Gün ";
+
+
+                //sure = $"{day}{sonuc.Hours} Saat {sonuc.Minutes} Dakika";
+
+            }
+            
+        }
+
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAtolyeDataGuncelle frmAtolyeDataGuncelle = new FrmAtolyeDataGuncelle();
+            frmAtolyeDataGuncelle.ShowDialog();
+        }
 
         string Parser(int seconds)
         {
@@ -325,63 +381,44 @@ namespace UserInterface.BakımOnarım
             //not the part of format, it just a character that we want in output
             return time.ToString(@"hh\:mm\:ss\:fff");
         }
+        
         void ToplamlarIslemAdimSureleri()
         {
-            double toplamDakika = 0;
-            double toplamSaat = 0;
-            double toplamGun = 0;
+            int toplamDakika = 0;
+            int toplamSaat = 0;
+            int toplamGun = 0;
 
             foreach (DataGridViewRow item in DtgIslemKayitlari.Rows)
             {
                 string sure = item.Cells["Sure"].Value.ToString();
+                if (sure=="Devam Ediyor")
+                {
+                    LblIslemAdimSureleri.Text = toplamGun + " Gün " + toplamSaat + " Saat " + toplamDakika + " Dakika";
+                    return;
+                }
 
                 string[] array = sure.Split(' ');
-                if (array[1].ToString() == "Dakika")
+                int mevcutDakika = array[4].ConInt();
+                int mevcutSaat = array[2].ConInt();
+                int mevcutGun = array[0].ConInt();
+
+                toplamDakika = toplamDakika + mevcutDakika;
+
+                if (toplamDakika >= 60)
                 {
-                    toplamDakika += array[0].ConDouble();
+                    toplamSaat = toplamSaat + (toplamDakika / 60);
+                    toplamDakika = toplamDakika % 60;
                 }
 
-                if (array.Length > 2)
+                toplamSaat = toplamSaat + mevcutSaat;
+
+                if (toplamSaat >= 24)
                 {
-                    if (array[1].ToString() == "Saat")
-                    {
-                        toplamSaat += array[0].ConDouble();
-                        toplamDakika += array[2].ConDouble();
-                    }
-
-                    if (array.Length > 4)
-                    {
-                        if (array[1].ToString() == "Gün")
-                        {
-                            toplamGun += array[0].ConDouble();
-                            toplamSaat += array[2].ConDouble();
-                            if (toplamSaat>=24)
-                            {
-                                toplamGun += toplamSaat % 24;
-                                toplamSaat = toplamSaat + (toplamSaat / 24).ConInt();
-                            }
-                            toplamDakika += array[4].ConDouble();
-                            if (toplamDakika>=60)
-                            {
-                                toplamSaat = toplamDakika % 60;
-                                toplamDakika = toplamSaat + (toplamSaat / 60).ConInt();
-                            }
-                            
-                        }
-                        
-                    }
+                    toplamGun = toplamGun + (toplamSaat / 24);
+                    toplamSaat = toplamSaat % 24;
                 }
-            }
 
-            LblIslemAdimSureleri.Text = toplamDakika.ToString() + " Dakika";
-
-            if (toplamSaat != 0)
-            {
-                LblIslemAdimSureleri.Text = toplamSaat.ToString() + " Saat " + toplamDakika.ToString() + " Dakika";
-            }
-            if (toplamGun != 0)
-            {
-                LblIslemAdimSureleri.Text = toplamGun.ToString() + " Gün " + toplamSaat.ToString() + " Saat " + toplamDakika.ToString() + " Dakika";
+                toplamGun = toplamGun + mevcutGun;
             }
         }
     }

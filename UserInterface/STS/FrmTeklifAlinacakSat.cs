@@ -170,6 +170,9 @@ namespace UserInterface.STS
             DtgMailList.Columns["TeklifDurumu"].Visible = false;
             DtgMailList.Columns["Proje"].Visible = false;
             DtgMailList.Columns["Durum"].Visible = false;
+            DtgMailList.Columns["MailSiniri"].Visible = false;
+            DtgMailList.Columns["MailDurumu"].Visible = false;
+            DtgMailList.Columns["Donem"].DisplayIndex = 3;
 
             TxtMailListCount.Text = DtgMailList.RowCount.ToString();
         }
@@ -215,6 +218,9 @@ namespace UserInterface.STS
             DtgGelenMail.Columns["TeklifDurumu"].Visible = false;
             DtgGelenMail.Columns["Proje"].Visible = false;
             DtgGelenMail.Columns["Durum"].Visible = false;
+            DtgGelenMail.Columns["MailSiniri"].Visible = false;
+            DtgGelenMail.Columns["MailDurumu"].Visible = false;
+            DtgGelenMail.Columns["Donem"].DisplayIndex = 3;
 
             TxtGelenMail.Text = DtgGelenMail.RowCount.ToString();
         }
@@ -913,6 +919,15 @@ namespace UserInterface.STS
             DtgSatList.Columns["BelgeNumarasi"].Visible = false;
             DtgSatList.Columns["BelgeTarihi"].Visible = false;
             DtgSatList.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
+            DtgSatList.Columns["SatOlusturmaTuru"].Visible = false;
+            DtgSatList.Columns["RedNedeni"].Visible = false;
+            DtgSatList.Columns["Durum"].Visible = false;
+            DtgSatList.Columns["TeklifDurumu"].Visible = false;
+            DtgSatList.Columns["SatinAlinanFirma"].Visible = false;
+            DtgSatList.Columns["MailSiniri"].Visible = false;
+            DtgSatList.Columns["MailDurumu"].Visible = false;
+            DtgSatList.Columns["Donem"].DisplayIndex = 3;
+
         }
 
         void SatMalzemeListLoad(string siparisNo)//Sayfa 3 Sağdaki Datagrid
@@ -1084,6 +1099,16 @@ namespace UserInterface.STS
             DtgTeklifAl.Columns["BelgeNumarasi"].Visible = false;
             DtgTeklifAl.Columns["BelgeTarihi"].Visible = false;
             DtgTeklifAl.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
+            DtgTeklifAl.Columns["SatOlusturmaTuru"].Visible = false;
+            DtgTeklifAl.Columns["RedNedeni"].Visible = false;
+            DtgTeklifAl.Columns["TeklifDurumu"].Visible = false;
+            DtgTeklifAl.Columns["SatinAlinanFirma"].Visible = false;
+            DtgTeklifAl.Columns["MailSiniri"].Visible = false;
+            DtgTeklifAl.Columns["MailDurumu"].Visible = false;
+            DtgTeklifAl.Columns["Durum"].Visible = false;
+            DtgTeklifAl.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgTeklifAl.Columns["Proje"].HeaderText = "PROJE";
+            DtgTeklifAl.Columns["Donem"].DisplayIndex = 3;
         }
 
         void IslemAdimlari()

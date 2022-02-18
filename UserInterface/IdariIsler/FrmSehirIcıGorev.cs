@@ -488,15 +488,15 @@ namespace UserInterface.IdariIsler
                 CmbProjeGuncelle.Text = sehirici.Proje;
                 CmbGidilecekYerGun.Text = sehirici.Gidilecekyer;
                 TxtGorevKonusuGun.Text = sehirici.Gorevinkonusu;
-                DtBasGun.Value = sehirici.Baslamatarihi.ConTime();
-                DtBitGun.Value = sehirici.Bitistarihi.ConTime();
+                DtBasGun.Value = sehirici.Baslamatarihi.ConDate();
+                DtBitGun.Value = sehirici.Bitistarihi.ConDate();
                 TxtTopSureGun.Text = sehirici.Toplamsure;
                 CmbSiparsGun.Text = sehirici.Siparisno;
                 CmbAdSoyadGun.Text = sehirici.Adsoyad;
                 TxtMasrafYeriNoGun.Text = sehirici.Masrafyerno;
                 TxtMasrafYeriGun.Text = sehirici.Masrafyeri;
-                DtBitSaatiGun.Value = sehirici.Bitistarihi.ConTime();
-                DtBasSaatiGun.Value = sehirici.Baslamatarihi.ConTime();
+                DtBitSaatiGun.Value = sehirici.Bitistarihi.ConDate();
+                DtBasSaatiGun.Value = sehirici.Baslamatarihi.ConDate();
                 islemadimiguncelle = sehirici.Islemadimi;
                 TxtUnvani.Text = sehirici.Unvani;
                 return;
@@ -704,8 +704,8 @@ namespace UserInterface.IdariIsler
                 TxtProjeT.Text = sehirici.Proje;
                 TxtGidilecekYerT.Text = sehirici.Gidilecekyer;
                 TxtGorevKonusuT.Text = sehirici.Gorevinkonusu;
-                DtBasTarihiTamamlama.Value = sehirici.Baslamatarihi.ConTime();
-                DtBasSaatiTamamlama.Value = sehirici.Baslamatarihi.ConTime();
+                DtBasTarihiTamamlama.Value = sehirici.Baslamatarihi.ConDate();
+                DtBasSaatiTamamlama.Value = sehirici.Baslamatarihi.ConDate();
                 /*DtBitTarihi.Value = sehirici.Bitistarihi.ConTime();
                 DtBitSaati.Value = sehirici.Bitistarihi.ConTime();*/
                 TxtToplamSure.Text = sehirici.Toplamsure;

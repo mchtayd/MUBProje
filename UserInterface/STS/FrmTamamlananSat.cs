@@ -257,15 +257,15 @@ namespace UserInterface.STS
                             "",
                             item.Cell("D").Value.ToString(),
                             item.Cell("Q").Value.ToString(),
-                            item.Cell("H").Value.ConTime(),
-                            item.Cell("I").Value.ConTime(),
+                            item.Cell("H").Value.ConDate(),
+                            item.Cell("I").Value.ConDate(),
                             item.Cell("M").Value.ToString(),
                             item.Cell("N").Value.ToString() + "/" + item.Cell("O").Value.ToString(),
                             item.Cell("R").Value.ToString(),
                             item.Cell("S").Value.ToString(),
                             item.Cell("V").Value.ToString(),
                             item.Cell("X").Value.ToString(),
-                            DateTime.TryParse(item.Cell("W").Value.ToString(), out outDate) ? item.Cell("W").Value.ConTime() : outDate,
+                            DateTime.TryParse(item.Cell("W").Value.ToString(), out outDate) ? item.Cell("W").Value.ConDate() : outDate,
                             //item.Cell("W").Value.ConTime(), // BELGE TARİHİ
                             item.Cell("T").Value.ToString(),
                             item.Cell("G").Value.ToString(),
@@ -284,7 +284,7 @@ namespace UserInterface.STS
 
                         if (outDate.ToString()== "1.01.0001 00:00:00")
                         {
-                            tamamlanan.Belgetarihi = "31.12.1900 00:00:00".ConTime();
+                            tamamlanan.Belgetarihi = "31.12.1900 00:00:00".ConDate();
                         }
                         tamamlananManager.Add(tamamlanan);
                         satir++;

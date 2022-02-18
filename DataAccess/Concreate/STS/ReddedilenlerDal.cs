@@ -100,7 +100,7 @@ namespace DataAccess.Concreate.STS
                         dataReader["BOLUM"].ToString(),
                         dataReader["US_BOLGESI"].ToString(),
                         dataReader["ABF_FORM_NO"].ToString(),
-                        dataReader["ISTENEN_TARIH"].ConTime(),
+                        dataReader["ISTENEN_TARIH"].ConDate(),
                         dataReader["GEREKCE"].ToString(),
                         dataReader["SiparisNo"].ToString(),
                         dataReader["DosyaYolu"].ToString(),

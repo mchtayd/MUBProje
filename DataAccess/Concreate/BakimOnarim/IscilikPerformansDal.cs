@@ -76,10 +76,10 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["MEVCUT_DURAGI"].ToString(),
                         dataReader["CIKIS_DURAGI"].ToString(),
                         dataReader["ISTIKAMET_DURAGI"].ToString(),
-                        dataReader["CIKIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["CIKIS_TARIHI_SAATI"].ConDate(),
                         dataReader["CIKIS_SEBEBI"].ToString(),
                         dataReader["VARIS_DURAGI"].ToString(),
-                        dataReader["VARIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["VARIS_TARIHI_SAATI"].ConDate(),
                         dataReader["SONUC"].ToString(),
                         dataReader["HATA"].ToString());
                 }
@@ -107,10 +107,10 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["MEVCUT_DURAGI"].ToString(),
                         dataReader["CIKIS_DURAGI"].ToString(),
                         dataReader["ISTIKAMET_DURAGI"].ToString(),
-                        dataReader["CIKIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["CIKIS_TARIHI_SAATI"].ConDate(),
                         dataReader["CIKIS_SEBEBI"].ToString(),
                         dataReader["VARIS_DURAGI"].ToString(),
-                        dataReader["VARIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["VARIS_TARIHI_SAATI"].ConDate(),
                         dataReader["SONUC"].ToString(),
                         dataReader["HATA"].ToString());
                 }
@@ -139,10 +139,10 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["MEVCUT_DURAGI"].ToString(),
                         dataReader["CIKIS_DURAGI"].ToString(),
                         dataReader["ISTIKAMET_DURAGI"].ToString(),
-                        dataReader["CIKIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["CIKIS_TARIHI_SAATI"].ConDate(),
                         dataReader["CIKIS_SEBEBI"].ToString(),
                         dataReader["VARIS_DURAGI"].ToString(),
-                        dataReader["VARIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["VARIS_TARIHI_SAATI"].ConDate(),
                         dataReader["SONUC"].ToString(),
                         dataReader["HATA"].ToString()));
                 }
@@ -170,10 +170,10 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["MEVCUT_DURAGI"].ToString(),
                         dataReader["CIKIS_DURAGI"].ToString(),
                         dataReader["ISTIKAMET_DURAGI"].ToString(),
-                        dataReader["CIKIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["CIKIS_TARIHI_SAATI"].ConDate(),
                         dataReader["CIKIS_SEBEBI"].ToString(),
                         dataReader["VARIS_DURAGI"].ToString(),
-                        dataReader["VARIS_TARIHI_SAATI"].ConTime(),
+                        dataReader["VARIS_TARIHI_SAATI"].ConDate(),
                         dataReader["SONUC"].ToString(),
                         dataReader["HATA"].ToString()));
                 }

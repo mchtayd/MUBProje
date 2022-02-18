@@ -279,7 +279,7 @@ namespace UserInterface.STS
             talepeden = DtgSatOlusturan.CurrentRow.Cells["Talepeden"].Value.ToString();
             usbolgesi = DtgSatOlusturan.CurrentRow.Cells["Usbolgesi"].Value.ToString();
             abfno = DtgSatOlusturan.CurrentRow.Cells["Abfformno"].Value.ToString();
-            istenentarih = DtgSatOlusturan.CurrentRow.Cells["Tarih"].Value.ConTime();
+            istenentarih = DtgSatOlusturan.CurrentRow.Cells["Tarih"].Value.ConDate();
             donem = DtgSatOlusturan.CurrentRow.Cells["Donem"].Value.ToString();
             talepEdenPersonel = DtgSatOlusturan.CurrentRow.Cells["TalepEdenPersonel"].Value.ToString();
             personelSiparis = DtgSatOlusturan.CurrentRow.Cells["PersonelSiparis"].Value.ToString();
@@ -407,11 +407,11 @@ namespace UserInterface.STS
                 yapilanislem = "SAT BAŞLATMA ONAYI İŞLEMİ: REDDEDİLDİ.";
                 tarih = DateTime.Now;
 
-                SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, islemyapan, tarih.ConTime());
+                SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, islemyapan, tarih.ConDate());
                 satIslemAdimlariManager.Add(satIslemAdimlari);
 
                 yapilanislem = "SAT RED GEREKÇESİ:" + rednedeni;
-                SatIslemAdimlari satIslemAdimlari2 = new SatIslemAdimlari(siparisNo, yapilanislem, islemyapan, tarih.ConTime());
+                SatIslemAdimlari satIslemAdimlari2 = new SatIslemAdimlari(siparisNo, yapilanislem, islemyapan, tarih.ConDate());
                 satIslemAdimlariManager.Add(satIslemAdimlari2);
 
                 DataDisplay();

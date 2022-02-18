@@ -47,7 +47,7 @@ namespace DataAccess.Concreate
             return Convert.ToBoolean(param);
         }
 
-        public static DateTime ConTime(this object param)
+        public static DateTime ConDate(this object param)
         {
             if (DateTime.TryParse(param.ToString(), out _))
             {

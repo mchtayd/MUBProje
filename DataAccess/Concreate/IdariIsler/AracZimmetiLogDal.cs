@@ -80,7 +80,7 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ALAN_MASRAF_YERI"].ToString(),
                         dataReader["ALAN_MAS_YER_SOR"].ToString(),
                         dataReader["ALAN_BOLUM"].ToString(),
-                        dataReader["AKTARIM_TARIHI"].ConTime(),
+                        dataReader["AKTARIM_TARIHI"].ConDate(),
                         dataReader["ISLEM_YAPAN"].ToString(),
                         dataReader["KM"].ConInt(),
                         dataReader["AKRARIM_GEREKCESI"].ToString());
@@ -117,7 +117,7 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ALAN_MASRAF_YERI"].ToString(),
                         dataReader["ALAN_MAS_YER_SOR"].ToString(),
                         dataReader["ALAN_BOLUM"].ToString(),
-                        dataReader["AKTARIM_TARIHI"].ConTime(),
+                        dataReader["AKTARIM_TARIHI"].ConDate(),
                         dataReader["ISLEM_YAPAN"].ToString(),
                         dataReader["KM"].ConInt(),
                         dataReader["AKTARIM_GEREKCESI"].ToString()));

@@ -8,7 +8,7 @@ namespace Entity.BakimOnarimAtolye
 {
     public class AtolyeMalzeme
     {
-        int id, formNo; string stokNo, tanim, seriNo, durum, revizyon; double miktar; DateTime talepTarihi; string siparisNo;
+        int id, formNo; string stokNo, tanim, seriNo, durum, revizyon; double miktar; DateTime talepTarihi; string siparisNo; bool sec = true;
 
         public int Id { get => id; set => id = value; }
         public int FormNo { get => formNo; set => formNo = value; }
@@ -20,6 +20,7 @@ namespace Entity.BakimOnarimAtolye
         public double Miktar { get => miktar; set => miktar = value; }
         public DateTime TalepTarihi { get => talepTarihi; set => talepTarihi = value; }
         public string SiparisNo { get => siparisNo; set => siparisNo = value; }
+        public bool Sec { get => sec; set => sec = value; }
 
         public AtolyeMalzeme(int id, int formNo, string stokNo, string tanim, string seriNo, string durum, string revizyon, double miktar, DateTime talepTarihi, string siparisNo)
         {

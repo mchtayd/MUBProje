@@ -804,7 +804,7 @@ namespace UserInterface.IdariIşler
                 islem1 = CmbAdSoyad.Text + " Personel Güncellendi";
                 islemyapan1 = infos[1].ToString();
                 islemtarihi1 = DateTime.Now.ToString();
-                DevamEdenIzleme devamEdenIzleme = new DevamEdenIzleme(siparisnogelen, islem1, islemyapan1, islemtarihi1.ConTime());
+                DevamEdenIzleme devamEdenIzleme = new DevamEdenIzleme(siparisnogelen, islem1, islemyapan1, islemtarihi1.ConDate());
                 devamEdenIzlemeManager.Add(devamEdenIzleme);
                 Gadsoyad = CmbAdSoyad.Text;
                 Gsiparis = CmbSiparisG.Text;
@@ -1338,7 +1338,7 @@ namespace UserInterface.IdariIşler
 
                 if (message == "OK")
                 {
-                    DevamEdenIzleme devamEdenIzleme = new DevamEdenIzleme(siparisNo, islem, islemyapan, islemtarihi.ConTime());
+                    DevamEdenIzleme devamEdenIzleme = new DevamEdenIzleme(siparisNo, islem, islemyapan, islemtarihi.ConDate());
                     devamEdenIzlemeManager.Add(devamEdenIzleme);
                     Task.Factory.StartNew(() => MailSendMetot());
                     control = false;
@@ -1599,7 +1599,7 @@ namespace UserInterface.IdariIşler
 
                 if (messege == "Bilgiler Başarıyla Kaydedildi.")
                 {
-                    DevamEdenIzleme devamEdenIzleme = new DevamEdenIzleme(siparisNo, islem2, islemyapan2, islemtarihi2.ConTime());
+                    DevamEdenIzleme devamEdenIzleme = new DevamEdenIzleme(siparisNo, islem2, islemyapan2, islemtarihi2.ConDate());
                     devamEdenIzlemeManager.Add(devamEdenIzleme);
                     int yenimevcut = --mevcut;
                     siparislerManager.KontejanMevcutAzalt(TxtSiparisA.Text, yenimevcut);

@@ -1,5 +1,6 @@
 ﻿using Business;
 using Business.Concreate.Gecici_Kabul_Ambar;
+using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity.Gecic_Kabul_Ambar;
@@ -24,6 +25,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         ComboManager comboManager;
         TedarikciFirmaManager tedarikciFirmaManager;
         TeklifFirmalarManager teklifFirmalarManager;
+        PersonelKayitManager personelKayitManager;
         int id, kaydedildi = 0;
         string dosyayolu, fotoyolu, kaynakdosyaismi1, alinandosya1, yeniad, deneme, foto;
         bool start = true;
@@ -37,6 +39,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             comboManager = ComboManager.GetInstance();
             tedarikciFirmaManager = TedarikciFirmaManager.GetInstance();
             teklifFirmalarManager = TeklifFirmalarManager.GetInstance();
+            personelKayitManager = PersonelKayitManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -77,6 +80,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbFirmalarLoad();
             OnarimYeri();
             MalzemeTuru();
+            CmbStokNoUst();
+            CmbStokNoUst2();
+            Personeller();
             start = false;
             if (buton==true)
             {
@@ -84,6 +90,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
             BtnCancel.Visible =true;
+        }
+        void Personeller()
+        {
+            CmbAdSoyad.DataSource = personelKayitManager.PersonelAdSoyad();
+            CmbAdSoyad.ValueMember = "Id";
+            CmbAdSoyad.DisplayMember = "Adsoyad";
+            CmbAdSoyad.SelectedValue = -1;
         }
         public void CmbFirmalarLoad()
         {
@@ -121,12 +134,27 @@ namespace UserInterface.Gecic_Kabul_Ambar
             TxtStn.DisplayMember = "Stokno";
             TxtStn.SelectedValue = 0;
         }
-        
+        void CmbStokNoUst()
+        {
+            CmbUstTakim.DataSource = malzemeKayitManager.UstTakimGetList();
+            CmbUstTakim.ValueMember = "Id";
+            CmbUstTakim.DisplayMember = "Stokno";
+            CmbUstTakim.SelectedValue = 0;
+        }
+        void CmbStokNoUst2()
+        {
+            CmbMalKulUst.DataSource = malzemeKayitManager.UstTakimGetList();
+            CmbMalKulUst.ValueMember = "Id";
+            CmbMalKulUst.DisplayMember = "Stokno";
+            CmbMalKulUst.SelectedValue = 0;
+        }
+
         void Temizle()
         {
             TxtStn.Text = ""; TxtTanim.Clear(); CmbBirim.SelectedValue = ""; CmbTedarikciFirma.SelectedValue=""; TxtOnarimDurumu.SelectedIndex =-1; CmbOnarimYeri.SelectedValue = "";
             TxtMalzemeTuru.SelectedValue = ""; CmbMalzemeTakip.SelectedIndex = -1; TxtRevizyon.Clear(); CmbMalKulUst.Text = ""; TxtAciklama.Clear(); 
-            PctBox.ImageLocation = ""; webBrowser1.Navigate("");
+            PctBox.ImageLocation = ""; webBrowser1.Navigate(""); CmbUstTakim.SelectedValue = ""; TxtUstTakimTanim.Clear();
+            DtgStokTanim.Rows.Clear(); CmbAdSoyad.SelectedValue = ""; CmbMalKulUst.SelectedValue = ""; TxtUstTanim.Clear(); CmbAdSoyad.SelectedValue = "";
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
@@ -213,6 +241,59 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 CmbOnarimYeri.SelectedIndex = -1;
                 CmbOnarimYeri.Enabled = true;
             }
+        }
+
+        private void CmbUstTa_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==true)
+            {
+                return;
+            }
+            id = CmbUstTakim.SelectedValue.ConInt();
+            MalzemeKayit personelKayit = malzemeKayitManager.Get(id);
+            if (personelKayit==null)
+            {
+                TxtUstTakimTanim.Text = "";
+                return;
+            }
+            TxtUstTakimTanim.Text = personelKayit.Tanim;
+        }
+
+        private void BtnEkle_Click(object sender, EventArgs e)
+        {
+            if (CmbUstTakim.Text=="")
+            {
+                MessageBox.Show("Lütfen Öncelikle Geçerli Bir Stok Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+            DtgStokTanim.Rows.Add();
+            int sonSatir = DtgStokTanim.RowCount - 1;
+
+            DtgStokTanim.Rows[sonSatir].Cells["stokNo"].Value = CmbUstTakim.Text;
+            DtgStokTanim.Rows[sonSatir].Cells["tanim"].Value = TxtUstTakimTanim.Text;
+            CmbUstTakim.SelectedIndex = -1;
+            TxtUstTakimTanim.Clear();
+        }
+
+        private void TxtUstTakimTanim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void CmbMalKulUst_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+            id = CmbMalKulUst.SelectedValue.ConInt();
+            MalzemeKayit personelKayit = malzemeKayitManager.Get(id);
+            if (personelKayit == null)
+            {
+                TxtUstTanim.Text = "";
+                return;
+            }
+            TxtUstTanim.Text = personelKayit.Tanim;
         }
 
         private void BtnSil_Click(object sender, EventArgs e)
@@ -310,6 +391,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
         {
+            if (TxtStn.Text=="")
+            {
+                MessageBox.Show("Lütfen Öncelikle Stok No Bilgisini Yazınız!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
             string root = @"Z:\DTS";
             string subdir = @"Z:\DTS\GEÇİCİ KABUL VE AMBAR\MALZEME KAYIT\";
             //string root = @"C:\STS";

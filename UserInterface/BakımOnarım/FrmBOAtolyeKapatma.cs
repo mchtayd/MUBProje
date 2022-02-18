@@ -37,6 +37,7 @@ namespace UserInterface.BakımOnarım
         DateTime birOncekiTarih;
         bool dosyaKontrol = false;
 
+        public object[] infos;
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
             if (sonIslemAdimi != "1500-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT)")
@@ -54,7 +55,7 @@ namespace UserInterface.BakımOnarım
             {
                 atolyeManager.ArizaKapat(id, 0, DateTime.Now);
 
-                GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:25:00".ConOnlyTime());
+                GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:05:00".ConOnlyTime());
                 string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "SİPARİŞ KAPATILMIŞTIR");
                 if (kontrol2 != "OK")
                 {

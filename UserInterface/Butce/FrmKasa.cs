@@ -441,8 +441,8 @@ namespace UserInterface.Butce
             }
             foreach (DataGridViewRow item in DtgAvans.Rows)
             {
-                Avans avans = new Avans(item.Cells["AkisNo"].Value.ConInt(), item.Cells["Donem"].Value.ToString(), item.Cells["IstemeTarihi"].Value.ConTime(),
-                    item.Cells["GelisTarihi"].Value.ConTime(), item.Cells["Gonderen"].Value.ToString(), item.Cells["YatanHesapNo"].Value.ToString(), 
+                Avans avans = new Avans(item.Cells["AkisNo"].Value.ConInt(), item.Cells["Donem"].Value.ToString(), item.Cells["IstemeTarihi"].Value.ConDate(),
+                    item.Cells["GelisTarihi"].Value.ConDate(), item.Cells["Gonderen"].Value.ToString(), item.Cells["YatanHesapNo"].Value.ToString(), 
                     item.Cells["IbanNo"].Value.ToString(), item.Cells["HesapSahibi"].Value.ToString(), item.Cells["GelenTutar"].Value.ConDouble(),  item.Cells["Column1"].Value.ToString());
 
                 avansManager.Add(avans);

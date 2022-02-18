@@ -70,7 +70,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["DURUM"].ToString(),
                         dataReader["REVIZYON"].ToString(),
                         dataReader["MIKTAR"].ConDouble(),
-                        dataReader["KAYIT_TARIHI"].ConTime(),
+                        dataReader["KAYIT_TARIHI"].ConDate(),
                         dataReader["BIRIM"].ToString()));
                 }
                 dataReader.Close();
@@ -98,7 +98,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["DURUM"].ToString(),
                         dataReader["REVIZYON"].ToString(),
                         dataReader["MIKTAR"].ConDouble(),
-                        dataReader["TALEP_TARIHI"].ConTime(),
+                        dataReader["TALEP_TARIHI"].ConDate(),
                         dataReader["SIPARIS_NO"].ToString()));
                 }
                 dataReader.Close();
@@ -126,7 +126,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["DURUM"].ToString(),
                         dataReader["REVIZYON"].ToString(),
                         dataReader["MIKTAR"].ConDouble(),
-                        dataReader["TALEP_TARIHI"].ConTime(),
+                        dataReader["TALEP_TARIHI"].ConDate(),
                         dataReader["SIPARIS_NO"].ToString()));
                 }
                 dataReader.Close();

@@ -69,15 +69,15 @@ namespace DataAccess.Concreate.IdariIsler
                 {
                     konaklamaGecmis.Add(new KonaklamaGecmis(
                         dataReader["ID"].ConInt(),
-                        dataReader["RES_TARIHI"].ConTime(),
+                        dataReader["RES_TARIHI"].ConDate(),
                         dataReader["PERSONEL"].ToString(),
                         dataReader["KONAKLAMA_IL"].ToString(),
                         dataReader["OTEL"].ToString(),
                         dataReader["GUN_TUTAR"].ConDouble(),
                         dataReader["TOP_TUTAR"].ConDouble(),
                         dataReader["KONAKLANAN_GUN"].ConInt(),
-                        dataReader["GIRIS_TARIHI"].ConTime(),
-                        dataReader["CIKIS_TARIHI"].ConTime(),
+                        dataReader["GIRIS_TARIHI"].ConDate(),
+                        dataReader["CIKIS_TARIHI"].ConDate(),
                         dataReader["PROJE"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["BUTCE_KODU"].ToString(),

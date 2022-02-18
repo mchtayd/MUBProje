@@ -52,9 +52,9 @@ namespace DataAccess.Concreate.STS
                 {
                     item = new SatOnayTarihi(
                         dataReader["SIPARIS_NO"].ToString(),
-                        dataReader["OLUSTURMA_TARIHI"].ConTime(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["ONAY_TARIHI"].ConTime());
+                        dataReader["OLUSTURMA_TARIHI"].ConDate(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["ONAY_TARIHI"].ConDate());
                 }
                 dataReader.Close();
                 return item;

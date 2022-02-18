@@ -97,14 +97,14 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["PROJE"].ToString(),
                         dataReader["BILDIRILEN_ARIZA"].ToString(),
                         dataReader["IC_SIPARIS_NO"].ToString(),
-                        dataReader["CEKILDIGI_TARIHI"].ConTime(),
-                        dataReader["SIPARIS_ACMA_TARIHI"].ConTime(),
+                        dataReader["CEKILDIGI_TARIHI"].ConDate(),
+                        dataReader["SIPARIS_ACMA_TARIHI"].ConDate(),
                         dataReader["MODIFIKASYONLAR"].ToString(),
                         dataReader["NOTLAR"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         "",
-                        dataReader["TAMAMLANMA_TARIHI"].ConTime(),
+                        dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString());
                 }
                 dataReader.Close();
@@ -138,14 +138,14 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["PROJE"].ToString(),
                         dataReader["BILDIRILEN_ARIZA"].ToString(),
                         dataReader["IC_SIPARIS_NO"].ToString(),
-                        dataReader["CEKILDIGI_TARIHI"].ConTime(),
-                        dataReader["SIPARIS_ACMA_TARIHI"].ConTime(),
+                        dataReader["CEKILDIGI_TARIHI"].ConDate(),
+                        dataReader["SIPARIS_ACMA_TARIHI"].ConDate(),
                         dataReader["MODIFIKASYONLAR"].ToString(),
                         dataReader["NOTLAR"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         "",
-                        dataReader["TAMAMLANMA_TARIHI"].ConTime(),
+                        dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString()));
                 }
                 dataReader.Close();
@@ -196,7 +196,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader = sqlServices.StoreReader("AtolyeBakimMalzeme",new SqlParameter("@durum", durum));
                 while (dataReader.Read())
                 {
-                    DateTime startDate = dataReader["CEKILDIGI_TARIHI"].ConTime();
+                    DateTime startDate = dataReader["CEKILDIGI_TARIHI"].ConDate();
                     string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();
                     gecenSure = gecenSure.Substring(0, gecenSure.LastIndexOf('.')); //17:44:08
 
@@ -204,7 +204,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                     string[] array = gecenSure.Split('.');
 
 
-                    if (array[0].ConInt() < 24)
+                    if (array[0].ConInt() > 24)
                     {
                         gecenSure = "1";
                     }
@@ -229,13 +229,13 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["BILDIRILEN_ARIZA"].ToString(),
                         dataReader["IC_SIPARIS_NO"].ToString(),
                         startDate,
-                        dataReader["SIPARIS_ACMA_TARIHI"].ConTime(),
+                        dataReader["SIPARIS_ACMA_TARIHI"].ConDate(),
                         dataReader["MODIFIKASYONLAR"].ToString(),
                         dataReader["NOTLAR"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         gecenSure,
-                        dataReader["TAMAMLANMA_TARIHI"].ConTime(),
+                        dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString()));
                 }
                 dataReader.Close();

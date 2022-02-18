@@ -4293,7 +4293,7 @@ namespace UserInterface.STS
             LblAdSoyad.Text = DtgReddedilenSat.CurrentRow.Cells["Talepeden"].Value.ToString();
             CmbUsBolgesi.Text = DtgReddedilenSat.CurrentRow.Cells["Usbolgesi"].Value.ToString();
             CmbAbfFormno.Text = DtgReddedilenSat.CurrentRow.Cells["Abfformno"].Value.ToString();
-            istenenTarih.Value = DtgReddedilenSat.CurrentRow.Cells["Tarih"].Value.ConTime();
+            istenenTarih.Value = DtgReddedilenSat.CurrentRow.Cells["Tarih"].Value.ConDate();
             CmbDonem.Text = DtgReddedilenSat.CurrentRow.Cells["Donem"].Value.ToString();
             CmbAdSoyad.Text = DtgReddedilenSat.CurrentRow.Cells["TalepEdenPersonel"].Value.ToString();
             TxtGerekceBasaran.Text = DtgReddedilenSat.CurrentRow.Cells["Gerekce"].Value.ToString();
@@ -4312,7 +4312,7 @@ namespace UserInterface.STS
             satOlusturmaTuruGuncelle = DtgReddedilenSat.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             belgeTuruGuncelle = DtgReddedilenSat.CurrentRow.Cells["BelgeTuru"].Value.ToString();
             belgeNumarasi = DtgReddedilenSat.CurrentRow.Cells["BelgeNumarasi"].Value.ToString();
-            belgeTarihi = DtgReddedilenSat.CurrentRow.Cells["BelgeTarihi"].Value.ConTime();
+            belgeTarihi = DtgReddedilenSat.CurrentRow.Cells["BelgeTarihi"].Value.ConDate();
             islemAdimiGuncelle = DtgReddedilenSat.CurrentRow.Cells["IslemAdimi"].Value.ToString();
             mailDurumu= DtgReddedilenSat.CurrentRow.Cells["MailDurumu"].Value.ToString();
             mailSiniri= DtgReddedilenSat.CurrentRow.Cells["MailSiniri"].Value.ToString();

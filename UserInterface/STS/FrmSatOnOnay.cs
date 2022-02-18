@@ -366,7 +366,7 @@ namespace UserInterface.STS
             projekodu = DtgSatOlusturan.CurrentRow.Cells["Projekodu"].Value.ToString();
             usbolgesi = DtgSatOlusturan.CurrentRow.Cells["Usbolgesi"].Value.ToString();
             abfno = DtgSatOlusturan.CurrentRow.Cells["Abfformno"].Value.ToString();
-            istenentarih = DtgSatOlusturan.CurrentRow.Cells["Tarih"].Value.ConTime();
+            istenentarih = DtgSatOlusturan.CurrentRow.Cells["Tarih"].Value.ConDate();
             gerekce = DtgSatOlusturan.CurrentRow.Cells["Gerekce"].Value.ToString();
             siparisNo = DtgSatOlusturan.CurrentRow.Cells["SiparisNo"].Value.ToString();
             dosya = DtgSatOlusturan.CurrentRow.Cells["DosyaYolu"].Value.ToString();

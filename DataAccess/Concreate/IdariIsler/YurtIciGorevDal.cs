@@ -105,8 +105,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["GOREVIN_KONUSU"].ToString(),
                         dataReader["PROJE"].ToString(),
                         dataReader["GIDILECEK_YER"].ToString(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["BUTCE_KODU_TANIMI"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
@@ -169,8 +169,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["GOREVIN_KONUSU"].ToString(),
                         dataReader["PROJE"].ToString(),
                         dataReader["GIDILECEK_YER"].ToString(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["BUTCE_KODU_TANIMI"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
@@ -339,8 +339,8 @@ namespace DataAccess.Concreate.IdariIsler
                     yurts.Add(new YurtIciGorev(
                         dataReader["AD_SOYAD"].ToString(),
                         dataReader["UNVANI"].ToString(),
-                        dataReader["BASLAMA_TARIHI"].ConTime(),
-                        dataReader["BITIS_TARIHI"].ConTime(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["KALAN_SURE"].ToString()));                    
                 }

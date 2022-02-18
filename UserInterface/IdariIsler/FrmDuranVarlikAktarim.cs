@@ -802,9 +802,9 @@ namespace UserInterface.IdariIsler
             TxtSaseNo.Text= DtgZimmetLsitesi.CurrentRow.Cells["SaseNo"].Value.ToString();
             TxtMulkiyet.Text= DtgZimmetLsitesi.CurrentRow.Cells["MulkiyetBilgileri"].Value.ToString();
             TxtSiparisNo.Text= DtgZimmetLsitesi.CurrentRow.Cells["SiparisNo"].Value.ToString();
-            DtProjeTahsisTarihi.Value= DtgZimmetLsitesi.CurrentRow.Cells["ProjeTahsisTarihi"].Value.ConTime();
+            DtProjeTahsisTarihi.Value= DtgZimmetLsitesi.CurrentRow.Cells["ProjeTahsisTarihi"].Value.ConDate();
             CmpPersonelArac.Text= DtgZimmetLsitesi.CurrentRow.Cells["PersonelAd"].Value.ToString();
-            DtgAktarimTarihiArac.Value= DtgZimmetLsitesi.CurrentRow.Cells["AktarimTarihi"].Value.ConTime();
+            DtgAktarimTarihiArac.Value= DtgZimmetLsitesi.CurrentRow.Cells["AktarimTarihi"].Value.ConDate();
             TxkKm.Text= DtgZimmetLsitesi.CurrentRow.Cells["Km"].Value.ToString();
             TxtAktariGerekcesiArac.Text= DtgZimmetLsitesi.CurrentRow.Cells["Gerekce"].Value.ToString();
         }

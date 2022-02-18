@@ -685,9 +685,21 @@ namespace UserInterface.STS
             DtgSatTamamlama.Columns["Unvani"].HeaderText = "ÜNVANI";
             DtgSatTamamlama.Columns["PersonelMasYerNo"].HeaderText = "PERSONEL MASRAF YERİ NO";
             DtgSatTamamlama.Columns["PersonelMasYeri"].HeaderText = "PERSONEL MASRAF YERİ";
+            DtgSatTamamlama.Columns["SatinAlinanFirma"].HeaderText = "SATIN ALINAN FİRMA";
             DtgSatTamamlama.Columns["BelgeTuru"].Visible = false;
             DtgSatTamamlama.Columns["BelgeNumarasi"].Visible = false;
             DtgSatTamamlama.Columns["BelgeTarihi"].Visible = false;
+
+            DtgSatTamamlama.Columns["SatOlusturmaTuru"].Visible = false;
+            DtgSatTamamlama.Columns["RedNedeni"].Visible = false;
+            DtgSatTamamlama.Columns["Durum"].Visible = false;
+            DtgSatTamamlama.Columns["TeklifDurumu"].Visible = false;
+            DtgSatTamamlama.Columns["Proje"].HeaderText = "PROJE";
+            DtgSatTamamlama.Columns["MailSiniri"].Visible = false;
+            DtgSatTamamlama.Columns["MailDurumu"].Visible = false;
+
+            DtgSatTamamlama.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgSatTamamlama.Columns["Donem"].DisplayIndex = 3;
         }
 
         private void BBF2_TextChanged(object sender, EventArgs e)
@@ -824,7 +836,7 @@ namespace UserInterface.STS
             bolum = DtgSatTamamlama.CurrentRow.Cells["Bolum"].Value.ToString();
             usbolgesi = DtgSatTamamlama.CurrentRow.Cells["Usbolgesi"].Value.ToString();
             abfformno = DtgSatTamamlama.CurrentRow.Cells["Abfformno"].Value.ToString();
-            istenentarih = DtgSatTamamlama.CurrentRow.Cells["Tarih"].Value.ConTime();
+            istenentarih = DtgSatTamamlama.CurrentRow.Cells["Tarih"].Value.ConDate();
             gerekce = DtgSatTamamlama.CurrentRow.Cells["Gerekce"].Value.ToString();
             butcekodukalemi = DtgSatTamamlama.CurrentRow.Cells["Burcekodu"].Value.ToString();
             satbirim = DtgSatTamamlama.CurrentRow.Cells["Satbirim"].Value.ToString();
@@ -836,6 +848,7 @@ namespace UserInterface.STS
             donem = DtgSatTamamlama.CurrentRow.Cells["Donem"].Value.ToString();
             satOlusturmaTuru = DtgSatTamamlama.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             proje = DtgSatTamamlama.CurrentRow.Cells["Proje"].Value.ToString();
+            
             satinAlinanFirma = DtgSatTamamlama.CurrentRow.Cells["SatinAlinanFirma"].Value.ToString();
 
 
@@ -1441,8 +1454,6 @@ namespace UserInterface.STS
                             return;
                         }
                     }
-                    
-
 
                     //CreateWord();
                     MessageBox.Show(satno + " Numaralı SAT İşlemi Başarıyla Tamamlanmıştır.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);

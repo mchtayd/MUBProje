@@ -68,8 +68,8 @@ namespace DataAccess.Concreate.DokumanYonetim
                         dataReader["DOKUMAN_NUMARASI"].ToString(),
                         dataReader["DOKUMAN_TANIM"].ToString(),
                         dataReader["DOKUMAN_REVIZYON"].ToString(),
-                        dataReader["ONAY_TARIHI"].ConTime(),
-                        dataReader["YAYIN_TARIHI"].ConTime(),
+                        dataReader["ONAY_TARIHI"].ConDate(),
+                        dataReader["YAYIN_TARIHI"].ConDate(),
                         dataReader["DosyaYolu"].ToString(),
                         dataReader["Benzersiz"].ToString()));
                 }

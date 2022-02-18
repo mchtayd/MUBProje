@@ -73,12 +73,12 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ISCILIK_TURU"].ToString(),
                         dataReader["DESTEK_TURU"].ToString(),
                         dataReader["DESTEK_NEDENI_PERSONEL"].ToString(),
-                        dataReader["BASLAMA_TARIHI_PERSONEL"].ConTime(),
-                        dataReader["BITIS_TARIHI_PERSONEL"].ConTime(),
+                        dataReader["BASLAMA_TARIHI_PERSONEL"].ConDate(),
+                        dataReader["BITIS_TARIHI_PERSONEL"].ConDate(),
                         dataReader["TOPLAM_SURE_PERSONEL"].ToString(),
                         dataReader["DESTEK_NEDENI_ARAC"].ToString(),
-                        dataReader["BASLAMA_TARIHI_ARAC"].ConTime(),
-                        dataReader["BITIS_TARIHI_ARAC"].ConTime(),
+                        dataReader["BASLAMA_TARIHI_ARAC"].ConDate(),
+                        dataReader["BITIS_TARIHI_ARAC"].ConDate(),
                         dataReader["TOPLAM_SURE_ARAC"].ToString(),
                         dataReader["SIPARIS_NO"].ToString());
                 }
@@ -105,12 +105,12 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ISCILIK_TURU"].ToString(),
                         dataReader["DESTEK_TURU"].ToString(),
                         dataReader["DESTEK_NEDENI_PERSONEL"].ToString(),
-                        dataReader["BASLAMA_TARIHI_PERSONEL"].ConTime(),
-                        dataReader["BITIS_TARIHI_PERSONEL"].ConTime(),
+                        dataReader["BASLAMA_TARIHI_PERSONEL"].ConDate(),
+                        dataReader["BITIS_TARIHI_PERSONEL"].ConDate(),
                         dataReader["TOPLAM_SURE_PERSONEL"].ToString(),
                         dataReader["DESTEK_NEDENI_ARAC"].ToString(),
-                        dataReader["BASLAMA_TARIHI_ARAC"].ConTime(),
-                        dataReader["BITIS_TARIHI_ARAC"].ConTime(),
+                        dataReader["BASLAMA_TARIHI_ARAC"].ConDate(),
+                        dataReader["BITIS_TARIHI_ARAC"].ConDate(),
                         dataReader["TOPLAM_SURE_ARAC"].ToString(),
                         dataReader["SIPARIS_NO"].ToString()));
                 }

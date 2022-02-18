@@ -66,7 +66,7 @@ namespace DataAccess.Concreate.STS
                         dataReader["YIL"].ToString(),
                         dataReader["ISLEM_YAPAN"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["TARIH"].ConTime(),
+                        dataReader["TARIH"].ConDate(),
                         dataReader["TOPLAM_TUTAR"].ConDouble()));
                 }
                 dataReader.Close();

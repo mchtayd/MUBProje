@@ -54,7 +54,7 @@ namespace DataAccess.Concreate.STS
                 while (dataReader.Read())
                 {
                     reddedilenIzlemes.Add(new ReddedilenIzleme(dataReader["ID"].ConInt(), dataReader["SiparisNo"].ToString(), dataReader["Islem"].ToString(),
-                        dataReader["IslemYapan"].ToString(), dataReader["Tarih"].ConTime()));
+                        dataReader["IslemYapan"].ToString(), dataReader["Tarih"].ConDate()));
                 }
                 dataReader.Close();
                 return reddedilenIzlemes;

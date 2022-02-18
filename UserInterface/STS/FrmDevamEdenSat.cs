@@ -108,7 +108,15 @@ namespace UserInterface.STS
             DtgDevamEden.Columns["MailDurumu"].Visible = false;
             DtgDevamEden.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
             DtgDevamEden.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgDevamEden.Columns["Proje"].HeaderText = "PROJE";
             DtgDevamEden.Columns["Donem"].DisplayIndex = 3;
+            DtgDevamEden.Columns["SatOlusturmaTuru"].Visible = false;
+            DtgDevamEden.Columns["RedNedeni"].Visible = false;
+            DtgDevamEden.Columns["Durum"].Visible = false;
+            DtgDevamEden.Columns["TeklifDurumu"].Visible = false;
+            DtgDevamEden.Columns["SatinAlinanFirma"].Visible = false;
+            DtgDevamEden.Columns["MailSiniri"].Visible = false;
+            DtgDevamEden.Columns["MailDurumu"].Visible = false;
         }
 
         private void Temizle()
