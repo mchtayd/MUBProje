@@ -107,6 +107,11 @@ namespace UserInterface.BakımOnarım
             dataBinder.Sort = DtgList.SortString;
         }
 
+        private void işAkışNoDüzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         void MalzemeList()
         {
             sFYedekPacas = sFYedekParcaManager.GetList(siparisNo);

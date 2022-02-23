@@ -18,16 +18,23 @@ namespace UserInterface.Gecic_Kabul_Ambar
     {
         List<MalzemeKayit> malzemeKayits;
         List<MalzemeKayit> malzemeKayitsFiltired;
+
+        List<MalzemeStok> malzemeStoks;
+        List<MalzemeStok> malzemeStokssFiltired;
+
         MalzemeKayitManager kayitManager;
+        MalzemeStokManager malzemeStokManager;
         public FrmMalzemeKayitIzleme()
         {
             InitializeComponent();
             kayitManager = MalzemeKayitManager.GetInstance();
+            malzemeStokManager = MalzemeStokManager.GetInstance();
         }
 
         private void FrmMalzemeKayitIzleme_Load(object sender, EventArgs e)
         {
             DataDisplay();
+            //DataDisplayGuncelStok();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -68,7 +75,26 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
             DtgList.Columns["Dosyayolu"].Visible = false;
             DtgList.Columns["AlternatifMalzeme"].HeaderText = "ALTERNATİF MALZEME";
+            DtgList.Columns["SistemStokNo"].HeaderText = "SİSTEM STOK NO";
+            DtgList.Columns["SistemTanim"].HeaderText = "SİSTEM TANIM";
+            DtgList.Columns["SistemPersonel"].HeaderText = "SİSTEM PERSONEL";
         }
+        /*void DataDisplayGuncelStok()
+        {
+            malzemeStoks = malzemeStokManager.GetList();
+            malzemeStokssFiltired = malzemeStoks;
+            dataBinderGuncel.DataSource = malzemeKayits.ToDataTable();
+            DtgGuncelStok.DataSource = dataBinderGuncel;
+            LbGuncelToplam.Text = DtgGuncelStok.RowCount.ToString();
+
+            /*DtgGuncelStok.Columns["Id"].Visible = false;
+            DtgGuncelStok.Columns["StokNo"].HeaderText = "STOK NO";
+            DtgGuncelStok.Columns["Tanim"].HeaderText = "TANIM";
+            DtgGuncelStok.Columns["MalzemeninKulYer"].HeaderText = "MALZEME KULLANIM YERİ";
+            DtgGuncelStok.Columns["MalzemeUstTakim"].HeaderText = "MALZEME ÜST TAKIM";
+            DtgGuncelStok.Columns["DosyaYolu"].Visible = false;
+            
+        }*/
 
         private void TxtStokNo_TextChanged(object sender, EventArgs e)
         {

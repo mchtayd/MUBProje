@@ -39,7 +39,28 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@malzemekul",entity.Malzemekul),
                     new SqlParameter("@aciklama",entity.Aciklama),
                     new SqlParameter("@alternatifMalzeme",entity.AlternatifMalzeme),
-                    new SqlParameter("@dosyayolu",entity.Dosyayolu));
+                    new SqlParameter("@dosyayolu",entity.Dosyayolu),
+                    new SqlParameter("@sistemStokNo",entity.SistemStokNo),
+                    new SqlParameter("@sistemTanim",entity.SistemTanim),
+                    new SqlParameter("@sistemSorumlusu",entity.SistemPersonel));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string UstTakimEkle(string usTakimStok,string usTakimTanim,string altTakimStok,string altTakimTanim)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeUstTakimEkle",
+                    new SqlParameter("@ustTakimStok", usTakimStok),
+                    new SqlParameter("@ustTakimTanim", usTakimTanim),
+                    new SqlParameter("@altTakimStok", altTakimStok),
+                    new SqlParameter("@altTakimTanim", altTakimTanim));
                 dataReader.Close();
                 return "OK";
             }
@@ -54,6 +75,20 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             try
             {
                 dataReader = sqlServices.StoreReader("MalzemeSil",new SqlParameter("@id",id));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+
+                return ex.Message;
+            }
+        }
+        public string UsTakimGuncelle(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeKayitUstTakimEkle", new SqlParameter("@id", id));
                 dataReader.Close();
                 return "OK";
             }
@@ -85,7 +120,10 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["ALTERNATIF_MALZEME"].ToString());
+                        dataReader["ALTERNATIF_MALZEME"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString());
 
                 }
                 dataReader.Close();
@@ -117,7 +155,46 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["ALTERNATIF_MALZEME"].ToString());
+                        dataReader["ALTERNATIF_MALZEME"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString());
+
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public MalzemeKayit MalzemeSonStok()
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeSonStokBul");
+                MalzemeKayit item = null;
+                while (dataReader.Read())
+                {
+                    item = new MalzemeKayit(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TEDARIKCI_FIRMA"].ToString(),
+                        dataReader["MALZEME_ONARIM_DURUMU"].ToString(),
+                        dataReader["MALZEME_ONARIM_YERI"].ToString(),
+                        dataReader["MALZEME_TURU"].ToString(),
+                        dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
+                        dataReader["MALZEME_REVIZYON"].ToString(),
+                        dataReader["MALZEMENIN_KUL_UST"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ALTERNATIF_MALZEME"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString());
 
                 }
                 dataReader.Close();
@@ -151,7 +228,10 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["ALTERNATIF_MALZEME"].ToString()));
+                        dataReader["ALTERNATIF_MALZEME"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return malzemeKayits;
@@ -183,7 +263,10 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["ALTERNATIF_MALZEME"].ToString()));
+                        dataReader["ALTERNATIF_MALZEME"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return malzemeKayits;
@@ -212,7 +295,10 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@malzemekul", entity.Malzemekul),
                     new SqlParameter("@alternatifMalzeme", entity.AlternatifMalzeme),
                     new SqlParameter("@aciklama", entity.Aciklama),
-                    new SqlParameter("@dosyayolu", entity.Dosyayolu));
+                    new SqlParameter("@dosyayolu", entity.Dosyayolu),
+                    new SqlParameter("@sistemStokNo", entity.SistemStokNo),
+                    new SqlParameter("@sistemTanim", entity.SistemTanim),
+                    new SqlParameter("@sistemSorumlusu", entity.SistemPersonel));
                 dataReader.Close();
                 return "OK";
             }

@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMalzemeKayit));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtStn = new System.Windows.Forms.ComboBox();
@@ -74,41 +74,43 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnOnarimYeriEkle = new System.Windows.Forms.Button();
             this.BtnMalzemeTuruEkle = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CmbMalKulUst = new System.Windows.Forms.ComboBox();
             this.CmbAdSoyad = new System.Windows.Forms.ComboBox();
             this.label11 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BtnExcelCek = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.bTN = new System.Windows.Forms.Button();
+            this.TxtUstStok = new System.Windows.Forms.TextBox();
+            this.CmbUstTanim = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.BtnEkle = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.DtgStokTanim = new ADGV.AdvancedDataGridView();
+            this.stokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tanim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label12 = new System.Windows.Forms.Label();
-            this.CmbUstTakim = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label13 = new System.Windows.Forms.Label();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label20 = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.TxtUstTakimTanim = new System.Windows.Forms.TextBox();
-            this.CmbMalKulUst = new System.Windows.Forms.ComboBox();
-            this.stokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.tanim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label19 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgStokTanim)).BeginInit();
+            this.tabPage1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -241,7 +243,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnStokAl.TabIndex = 17;
             this.BtnStokAl.Text = "Stok No Al";
             this.BtnStokAl.UseVisualStyleBackColor = true;
-            this.BtnStokAl.Visible = false;
+            this.BtnStokAl.Click += new System.EventHandler(this.BtnStokAl_Click);
             // 
             // BtnKaydet
             // 
@@ -295,7 +297,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(29, 32);
+            this.label16.Location = new System.Drawing.Point(29, 33);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(94, 15);
             this.label16.TabIndex = 37;
@@ -338,7 +340,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // BtnFotoEkle
             // 
             this.BtnFotoEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFotoEkle.Enabled = false;
             this.BtnFotoEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnFotoEkle.Location = new System.Drawing.Point(518, 155);
             this.BtnFotoEkle.Name = "BtnFotoEkle";
@@ -441,7 +442,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // TxtUstTanim
             // 
-            this.TxtUstTanim.Location = new System.Drawing.Point(129, 61);
+            this.TxtUstTanim.Location = new System.Drawing.Point(129, 58);
             this.TxtUstTanim.Name = "TxtUstTanim";
             this.TxtUstTanim.Size = new System.Drawing.Size(268, 21);
             this.TxtUstTanim.TabIndex = 316;
@@ -449,7 +450,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(37, 64);
+            this.label17.Location = new System.Drawing.Point(37, 61);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(86, 15);
             this.label17.TabIndex = 315;
@@ -537,18 +538,28 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox1.Controls.Add(this.TxtUstTanim);
             this.groupBox1.Controls.Add(this.label17);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(565, 301);
+            this.groupBox1.Location = new System.Drawing.Point(597, 301);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(414, 140);
             this.groupBox1.TabIndex = 322;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "KULLANILDIĞI SİSTEM BİLGİLERİ";
             // 
+            // CmbMalKulUst
+            // 
+            this.CmbMalKulUst.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMalKulUst.FormattingEnabled = true;
+            this.CmbMalKulUst.Location = new System.Drawing.Point(129, 29);
+            this.CmbMalKulUst.Name = "CmbMalKulUst";
+            this.CmbMalKulUst.Size = new System.Drawing.Size(138, 23);
+            this.CmbMalKulUst.TabIndex = 341;
+            this.CmbMalKulUst.SelectedIndexChanged += new System.EventHandler(this.CmbMalKulUst_SelectedIndexChanged);
+            // 
             // CmbAdSoyad
             // 
             this.CmbAdSoyad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbAdSoyad.FormattingEnabled = true;
-            this.CmbAdSoyad.Location = new System.Drawing.Point(129, 92);
+            this.CmbAdSoyad.Location = new System.Drawing.Point(129, 85);
             this.CmbAdSoyad.Name = "CmbAdSoyad";
             this.CmbAdSoyad.Size = new System.Drawing.Size(268, 23);
             this.CmbAdSoyad.TabIndex = 323;
@@ -556,7 +567,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(12, 92);
+            this.label11.Location = new System.Drawing.Point(12, 89);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(111, 15);
             this.label11.TabIndex = 317;
@@ -572,40 +583,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabControl1.Size = new System.Drawing.Size(1697, 860);
             this.tabControl1.TabIndex = 323;
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.label20);
-            this.tabPage1.Controls.Add(this.label19);
-            this.tabPage1.Controls.Add(this.textBox2);
-            this.tabPage1.Location = new System.Drawing.Point(4, 24);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1689, 832);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "SİSTEM";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(28, 27);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(53, 15);
-            this.label19.TabIndex = 3;
-            this.label19.Text = "Stok No:";
-            this.label19.Visible = false;
-            // 
-            // textBox2
-            // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox2.Location = new System.Drawing.Point(87, 24);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(154, 21);
-            this.textBox2.TabIndex = 4;
-            this.textBox2.Visible = false;
-            // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BtnExcelCek);
             this.tabPage2.Controls.Add(this.groupBox3);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.label14);
@@ -654,27 +634,83 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage2.Text = "PARÇA";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // BtnExcelCek
+            // 
+            this.BtnExcelCek.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnExcelCek.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnExcelCek.Location = new System.Drawing.Point(775, 750);
+            this.BtnExcelCek.Name = "BtnExcelCek";
+            this.BtnExcelCek.Size = new System.Drawing.Size(118, 32);
+            this.BtnExcelCek.TabIndex = 341;
+            this.BtnExcelCek.Text = "EXCEL ÇEK";
+            this.BtnExcelCek.UseVisualStyleBackColor = true;
+            this.BtnExcelCek.Visible = false;
+            this.BtnExcelCek.Click += new System.EventHandler(this.BtnExcelCek_Click);
+            // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.bTN);
+            this.groupBox3.Controls.Add(this.TxtUstStok);
+            this.groupBox3.Controls.Add(this.CmbUstTanim);
             this.groupBox3.Controls.Add(this.label21);
             this.groupBox3.Controls.Add(this.BtnEkle);
-            this.groupBox3.Controls.Add(this.TxtUstTakimTanim);
             this.groupBox3.Controls.Add(this.groupBox4);
             this.groupBox3.Controls.Add(this.label12);
-            this.groupBox3.Controls.Add(this.CmbUstTakim);
             this.groupBox3.Location = new System.Drawing.Point(152, 301);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(407, 235);
+            this.groupBox3.Size = new System.Drawing.Size(439, 235);
             this.groupBox3.TabIndex = 340;
             this.groupBox3.TabStop = false;
+            // 
+            // bTN
+            // 
+            this.bTN.AccessibleDescription = "";
+            this.bTN.BackColor = System.Drawing.SystemColors.Control;
+            this.bTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bTN.BackgroundImage")));
+            this.bTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bTN.Location = new System.Drawing.Point(347, 17);
+            this.bTN.Margin = new System.Windows.Forms.Padding(0);
+            this.bTN.Name = "bTN";
+            this.bTN.Size = new System.Drawing.Size(30, 25);
+            this.bTN.TabIndex = 342;
+            this.bTN.Tag = "admin";
+            this.bTN.UseVisualStyleBackColor = false;
+            this.bTN.Click += new System.EventHandler(this.bTN_Click);
+            // 
+            // TxtUstStok
+            // 
+            this.TxtUstStok.Location = new System.Drawing.Point(127, 49);
+            this.TxtUstStok.Name = "TxtUstStok";
+            this.TxtUstStok.Size = new System.Drawing.Size(217, 21);
+            this.TxtUstStok.TabIndex = 342;
+            // 
+            // CmbUstTanim
+            // 
+            this.CmbUstTanim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbUstTanim.FormattingEnabled = true;
+            this.CmbUstTanim.Location = new System.Drawing.Point(127, 19);
+            this.CmbUstTanim.Name = "CmbUstTanim";
+            this.CmbUstTanim.Size = new System.Drawing.Size(217, 23);
+            this.CmbUstTanim.TabIndex = 343;
+            this.CmbUstTanim.SelectedIndexChanged += new System.EventHandler(this.CmbUstTanim_SelectedIndexChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(18, 22);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(103, 15);
+            this.label21.TabIndex = 342;
+            this.label21.Text = "Üst Takım Tanım:";
             // 
             // BtnEkle
             // 
             this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnEkle.Location = new System.Drawing.Point(271, 16);
+            this.BtnEkle.Location = new System.Drawing.Point(380, 19);
             this.BtnEkle.Name = "BtnEkle";
-            this.BtnEkle.Size = new System.Drawing.Size(83, 29);
+            this.BtnEkle.Size = new System.Drawing.Size(48, 23);
             this.BtnEkle.TabIndex = 340;
             this.BtnEkle.Text = "EKLE";
             this.BtnEkle.UseVisualStyleBackColor = true;
@@ -693,8 +729,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.DtgStokTanim.AllowUserToAddRows = false;
             this.DtgStokTanim.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgStokTanim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgStokTanim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgStokTanim.AutoGenerateContextFilters = true;
             this.DtgStokTanim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgStokTanim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -713,25 +749,33 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgStokTanim.TabIndex = 2;
             this.DtgStokTanim.TimeFilter = false;
             // 
+            // stokNo
+            // 
+            this.stokNo.HeaderText = "ÜST TAKIM STOK NO";
+            this.stokNo.MinimumWidth = 22;
+            this.stokNo.Name = "stokNo";
+            this.stokNo.ReadOnly = true;
+            this.stokNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.stokNo.Width = 122;
+            // 
+            // tanim
+            // 
+            this.tanim.HeaderText = "ÜST TAKIM TANIM";
+            this.tanim.MinimumWidth = 22;
+            this.tanim.Name = "tanim";
+            this.tanim.ReadOnly = true;
+            this.tanim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.tanim.Width = 123;
+            // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(10, 23);
+            this.label12.Location = new System.Drawing.Point(10, 52);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(111, 15);
             this.label12.TabIndex = 340;
             this.label12.Text = "Üst Takım Stok No:";
-            // 
-            // CmbUstTakim
-            // 
-            this.CmbUstTakim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbUstTakim.FormattingEnabled = true;
-            this.CmbUstTakim.Location = new System.Drawing.Point(127, 19);
-            this.CmbUstTakim.Name = "CmbUstTakim";
-            this.CmbUstTakim.Size = new System.Drawing.Size(138, 23);
-            this.CmbUstTakim.TabIndex = 0;
-            this.CmbUstTakim.SelectedIndexChanged += new System.EventHandler(this.CmbUstTa_SelectedIndexChanged);
             // 
             // label15
             // 
@@ -787,6 +831,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label7.TabIndex = 323;
             this.label7.Text = "AÇIKLAMA:";
             // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.label20);
+            this.tabPage1.Controls.Add(this.label19);
+            this.tabPage1.Controls.Add(this.textBox2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1689, 832);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "SİSTEM";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
             // label20
             // 
             this.label20.AutoSize = true;
@@ -798,51 +855,24 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label20.Text = "BU SAYFA YAPIM AŞAMASINDADIR";
             this.label20.Visible = false;
             // 
-            // label21
+            // label19
             // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(21, 52);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(100, 15);
-            this.label21.TabIndex = 342;
-            this.label21.Text = "Üs Takım Tanım:";
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(28, 27);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(53, 15);
+            this.label19.TabIndex = 3;
+            this.label19.Text = "Stok No:";
+            this.label19.Visible = false;
             // 
-            // TxtUstTakimTanim
+            // textBox2
             // 
-            this.TxtUstTakimTanim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtUstTakimTanim.Location = new System.Drawing.Point(127, 49);
-            this.TxtUstTakimTanim.Name = "TxtUstTakimTanim";
-            this.TxtUstTakimTanim.Size = new System.Drawing.Size(227, 21);
-            this.TxtUstTakimTanim.TabIndex = 341;
-            this.TxtUstTakimTanim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtUstTakimTanim_KeyPress);
-            // 
-            // CmbMalKulUst
-            // 
-            this.CmbMalKulUst.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbMalKulUst.FormattingEnabled = true;
-            this.CmbMalKulUst.Location = new System.Drawing.Point(129, 29);
-            this.CmbMalKulUst.Name = "CmbMalKulUst";
-            this.CmbMalKulUst.Size = new System.Drawing.Size(138, 23);
-            this.CmbMalKulUst.TabIndex = 341;
-            this.CmbMalKulUst.SelectedIndexChanged += new System.EventHandler(this.CmbMalKulUst_SelectedIndexChanged);
-            // 
-            // stokNo
-            // 
-            this.stokNo.HeaderText = "ÜST TAKIM STOK NO";
-            this.stokNo.MinimumWidth = 22;
-            this.stokNo.Name = "stokNo";
-            this.stokNo.ReadOnly = true;
-            this.stokNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.stokNo.Width = 122;
-            // 
-            // tanim
-            // 
-            this.tanim.HeaderText = "ÜST TAKIM TANIM";
-            this.tanim.MinimumWidth = 22;
-            this.tanim.Name = "tanim";
-            this.tanim.ReadOnly = true;
-            this.tanim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.tanim.Width = 123;
+            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.textBox2.Location = new System.Drawing.Point(87, 24);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(154, 21);
+            this.textBox2.TabIndex = 4;
+            this.textBox2.Visible = false;
             // 
             // FrmMalzemeKayit
             // 
@@ -866,14 +896,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgStokTanim)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -938,14 +968,16 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.GroupBox groupBox4;
         private ADGV.AdvancedDataGridView DtgStokTanim;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.ComboBox CmbUstTakim;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox TxtUstTakimTanim;
         private System.Windows.Forms.ComboBox CmbMalKulUst;
         private System.Windows.Forms.DataGridViewTextBoxColumn stokNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn tanim;
+        private System.Windows.Forms.Button BtnExcelCek;
+        private System.Windows.Forms.ComboBox CmbUstTanim;
+        private System.Windows.Forms.TextBox TxtUstStok;
+        private System.Windows.Forms.Button bTN;
     }
 }

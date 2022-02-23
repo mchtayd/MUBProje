@@ -370,6 +370,7 @@ namespace UserInterface.BakımOnarım
         private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAtolyeDataGuncelle frmAtolyeDataGuncelle = new FrmAtolyeDataGuncelle();
+            frmAtolyeDataGuncelle.icSiparisNo = icSiparisNo;
             frmAtolyeDataGuncelle.ShowDialog();
         }
 

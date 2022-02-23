@@ -1,10 +1,12 @@
 ﻿using Business;
 using Business.Concreate;
 using Business.Concreate.BakimOnarim;
+using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using Entity;
 using Entity.BakimOnarim;
+using Entity.Gecic_Kabul_Ambar;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -22,11 +24,12 @@ namespace UserInterface.BakımOnarım
         IsAkisNoManager isAkisNoManager;
         ArizaKayitManager arizaKayitManager;
         AbfFormNoManager abfFormNoManager;
+        MalzemeKayitManager malzemeKayitManager;
         bool start = true, dosyaKontrol = false, kayitKontrol = false;
         public object[] infos;
         string isAkisNo, dosyaYolu, kaynakdosyaismi, alinandosya, proje, siparisNo;
         List<string> fileNames = new List<string>();
-        int abfForm;
+        int abfForm, id;
         public FrmArizaAcmaCalisma()
         {
             InitializeComponent();
@@ -37,6 +40,7 @@ namespace UserInterface.BakımOnarım
             isAkisNoManager = IsAkisNoManager.GetInstance();
             arizaKayitManager = ArizaKayitManager.GetInstance();
             abfFormNoManager = AbfFormNoManager.GetInstance();
+            malzemeKayitManager = MalzemeKayitManager.GetInstance();
         }
 
         private void FrmArizaAcmaCalisma_Load(object sender, EventArgs e)
@@ -46,6 +50,8 @@ namespace UserInterface.BakımOnarım
             Personeller();
             Personeller2();
             IsAkisNo();
+            CmbStokNo();
+            Kategori();
             start = false;
             LblArizaBildirimiAlan.Text = infos[1].ToString();
         }
@@ -78,11 +84,26 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
+        void CmbStokNo()
+        {
+            CmbParcaNo.DataSource = malzemeKayitManager.UstTakimGetList();
+            CmbParcaNo.ValueMember = "Id";
+            CmbParcaNo.DisplayMember = "Tanim";
+            CmbParcaNo.SelectedValue = 0;
+        }
+
         void IsAkisNo()
         {
             isAkisNoManager.Update();
             IsAkisNo isAkis = isAkisNoManager.Get();
             LblIsAkisNo.Text = isAkis.Id.ToString();
+        }
+        void Kategori()
+        {
+            CmbKategori.DataSource = comboManager.GetList("ABF KATEGORİ");
+            CmbKategori.ValueMember = "Id";
+            CmbKategori.DisplayMember = "Baslik";
+            CmbKategori.SelectedValue = 0;
         }
 
         void Personeller()
@@ -139,6 +160,22 @@ namespace UserInterface.BakımOnarım
         private void BtnPersonelEkle_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void CmbParcaNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+            id = CmbParcaNo.SelectedValue.ConInt();
+            MalzemeKayit personelKayit = malzemeKayitManager.Get(id);
+            if (personelKayit == null)
+            {
+                LbStokNo.Text = "";
+                return;
+            }
+            LbStokNo.Text = personelKayit.Stokno;
         }
 
         void UsBolgeleri()

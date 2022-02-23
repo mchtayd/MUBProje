@@ -72,7 +72,7 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public string Update(ServisFormu entity)
+        public string Update(ServisFormu entity,int id)
         {
             try
             {
@@ -81,7 +81,7 @@ namespace Business.Concreate.BakimOnarim
                 {
                     return controlText;
                 }
-                return servisFormuDal.Update(entity);
+                return servisFormuDal.Update(entity, id);
             }
             catch (Exception ex)
             {

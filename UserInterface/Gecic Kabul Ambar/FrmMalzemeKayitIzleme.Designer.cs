@@ -39,9 +39,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinderGuncel = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderGuncel)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -51,7 +53,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1557, 27);
+            this.panel1.Size = new System.Drawing.Size(1406, 27);
             this.panel1.TabIndex = 304;
             // 
             // BtnCancel
@@ -72,7 +74,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(30, 52);
+            this.label1.Location = new System.Drawing.Point(25, 47);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(146, 15);
             this.label1.TabIndex = 341;
@@ -80,9 +82,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // TxtStokNo
             // 
-            this.TxtStokNo.Location = new System.Drawing.Point(182, 51);
+            this.TxtStokNo.Location = new System.Drawing.Point(177, 46);
             this.TxtStokNo.Name = "TxtStokNo";
-            this.TxtStokNo.Size = new System.Drawing.Size(205, 20);
+            this.TxtStokNo.Size = new System.Drawing.Size(215, 20);
             this.TxtStokNo.TabIndex = 340;
             this.TxtStokNo.TextChanged += new System.EventHandler(this.TxtStokNo_TextChanged);
             // 
@@ -97,11 +99,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgList.DateWithTime = false;
-            this.DtgList.Location = new System.Drawing.Point(5, 91);
+            this.DtgList.Location = new System.Drawing.Point(12, 81);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1540, 577);
+            this.DtgList.Size = new System.Drawing.Size(1382, 620);
             this.DtgList.TabIndex = 342;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
@@ -111,7 +113,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(9, 681);
+            this.label31.Location = new System.Drawing.Point(12, 716);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 343;
@@ -121,7 +123,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(109, 681);
+            this.TxtTop.Location = new System.Drawing.Point(112, 716);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 344;
@@ -131,19 +133,20 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 924);
-            this.Controls.Add(this.label31);
-            this.Controls.Add(this.TxtTop);
+            this.ClientSize = new System.Drawing.Size(1406, 740);
             this.Controls.Add(this.DtgList);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.TxtStokNo);
+            this.Controls.Add(this.label31);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.TxtStokNo);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.TxtTop);
             this.Name = "FrmMalzemeKayitIzleme";
             this.Text = "FrmMalzemeKayitIzleme";
             this.Load += new System.EventHandler(this.FrmMalzemeKayitIzleme_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderGuncel)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -159,5 +162,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.BindingSource dataBinderGuncel;
     }
 }

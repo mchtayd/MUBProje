@@ -78,6 +78,7 @@
     <Compile Include="Concreate\DokumanYonetim\FormDocumentManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\DepoMiktarManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitManager.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeStokManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisManager.cs" />
     <Compile Include="Concreate\GorevAtamaManager.cs" />
     <Compile Include="Concreate\GorevAtamaPersonelManager.cs" />

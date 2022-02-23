@@ -37,8 +37,8 @@ namespace UserInterface.IdariIsler
         List<string> fileNames = new List<string>();
         List<string> fileNames2 = new List<string>();
         public object[] infos;
-        int id, isAkisNo, satNo;
-        string dosya, dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun, kaynakdosyaismiGun, alinandosyaGun, goturecekPersonel, goturecekPersonelBolum, comboAd, siparisNo, personelSiparis = "", unvani = "", masrafYeri="", kaynakdosya, dosya2;
+        int id, isAkisNo, satNo, idTamamlanan;
+        string dosya, dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun, kaynakdosyaismiGun, alinandosyaGun, goturecekPersonel, goturecekPersonelBolum, comboAd, siparisNo, personelSiparis = "", unvani = "", masrafYeri = "", kaynakdosya, dosya2, sayfaTamamlanan;
         bool gec = false, dosyaControl = false;
         public FrmAracBakimKayit()
         {
@@ -136,7 +136,7 @@ namespace UserInterface.IdariIsler
             AracZimmeti aracZimmeti = aracZimmetiManager.Get(TxtPlaka.Text); // ARAÇ ZİMMET LİSTESİNDEN
             if (arac == null)
             {
-                MessageBox.Show("Girmiş Oluduğunuz İş Akış Numarasına Ait Bir Kayıt Bulunamadı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Girmiş Oluduğunuz Plakaya Ait Bir Kayıt Bulunamadı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 return;
             }
@@ -158,6 +158,9 @@ namespace UserInterface.IdariIsler
             TxtZimmetliPersonel.Text = aracZimmeti.PersonelAd;
             TxtKullanildigiBolum.Text = aracZimmeti.Bolum;
 
+            //DtgSonKayit.DataSource = aracBakimManager.AracBakimSonKayit(TxtPlaka.Text);
+            AracBakimSonKayit();
+
             /*if (zimmetAktarim==null)
             {
                 if (aracZimmeti==null)
@@ -174,10 +177,56 @@ namespace UserInterface.IdariIsler
             TxtKullanildigiBolum.Text = zimmetAktarim.Bolum;
             TxtZimmetliPersonel.Text = zimmetAktarim.PersonelAd;*/
         }
+        List<AracBakim> aracBakims = new List<AracBakim>();
+        void AracBakimSonKayit()
+        {
+            AracBakim aracBakim = aracBakimManager.AracBakimSonKayit(TxtPlaka.Text);
+
+            DtgSonKayit.Rows.Add();
+            int sonSatir = DtgSonKayit.RowCount - 1;
+            DtgSonKayit.Rows[sonSatir].Cells["Column1"].Value = aracBakim.IsAkisNo;
+            DtgSonKayit.Rows[sonSatir].Cells["Column2"].Value = aracBakim.Plaka;
+            DtgSonKayit.Rows[sonSatir].Cells["Column7"].Value = aracBakim.Km;
+            DtgSonKayit.Rows[sonSatir].Cells["Column8"].Value = aracBakim.BakimNedeni;
+            DtgSonKayit.Rows[sonSatir].Cells["Column9"].Value = aracBakim.TalepTarihi;
+            DtgSonKayit.Rows[sonSatir].Cells["Column10"].Value = aracBakim.BakYapanFirma;
+            DtgSonKayit.Rows[sonSatir].Cells["Column11"].Value = aracBakim.ArizaAciklamasi;
+            DtgSonKayit.Rows[sonSatir].Cells["Column12"].Value = aracBakim.TamamlanmaTarih;
+            DtgSonKayit.Rows[sonSatir].Cells["Column13"].Value = aracBakim.SonucAciklama;
+            DtgSonKayit.Rows[sonSatir].Cells["Column14"].Value = aracBakim.Tutar;
+
+            sayfaTamamlanan = aracBakim.Sayfa;
+            idTamamlanan = aracBakim.Id;
+            IslemAdimlariDisplayTamamlanan();
+            try
+            {
+                webBrowser3.Navigate(aracBakim.DosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+        }
+        void IslemAdimlariDisplayTamamlanan()
+        {
+            DtgIslemAdimlariDis.DataSource = logManager.GetList(sayfaTamamlanan, idTamamlanan);
+            DtgIslemAdimlariDis.Columns["Id"].Visible = false;
+            DtgIslemAdimlariDis.Columns["Sayfa"].Visible = false;
+            DtgIslemAdimlariDis.Columns["Benzersizid"].Visible = false;
+            DtgIslemAdimlariDis.Columns["Islem"].HeaderText = "YAPILAN İŞLEM";
+            DtgIslemAdimlariDis.Columns["Islemyapan"].HeaderText = "İŞLEM YAPAN";
+            DtgIslemAdimlariDis.Columns["Tarih"].HeaderText = "TARİH";
+            DtgIslemAdimlariDis.Columns["Tarih"].Width = 100;
+            DtgIslemAdimlariDis.Columns["Islemyapan"].Width = 135;
+            DtgIslemAdimlariDis.Columns["Islem"].Width = 400;
+        }
+
         void Temizle()
         {
             TxtPlaka.Clear(); TxtMarkasi.Clear(); TxtModel.Clear(); TxtMotorNo.Clear(); TxtSaseNo.Clear(); TxtMulkiyet.Clear(); TxtSiparisNo.Clear();
             TxtKullanildigiBolum.Clear(); TxtZimmetliPersonel.Clear(); TxtKm.Clear(); CmbBakNedeni.Text = ""; TxtAciklama.Clear(); CmbPersoneller.SelectedValue = ""; TxtGorevi.Text = ""; CmbPersoneller.SelectedValue = -1; TxtGorevi.Clear(); TxtGorevi.Clear();
+            DtgSonKayit.DataSource = null; DtgIslemAdimlariDis.DataSource = null; webBrowser3.Navigate("");
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {

@@ -42,9 +42,16 @@ namespace Business.Concreate.BakimOnarimAtolye
             }
         }
 
-        public string Delete(int id)
+        public string Delete(int id, string siparisNo="")
         {
-            throw new NotImplementedException();
+            try
+            {
+                return atolyeDal.Delete(id, siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public Atolye Get(string icSiparisNo)

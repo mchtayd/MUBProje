@@ -44,7 +44,15 @@ namespace DataAccess.Concreate
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlServices.Stored("GorevAtananIslemAdimiSil",new SqlParameter("@id",id));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public GorevAtamaPersonel Get(int benzersiz, string departman)

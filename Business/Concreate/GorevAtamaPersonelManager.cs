@@ -32,7 +32,14 @@ namespace Business.Concreate
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return gorevAtamaPersonelDal.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public GorevAtamaPersonel Get(int benzersiz, string departman)

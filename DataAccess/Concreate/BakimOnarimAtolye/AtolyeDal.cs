@@ -70,9 +70,17 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             }
         }
 
-        public string Delete(int id)
+        public string Delete(int id,string sipariaNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlServices.Stored("AtolyeKayitSil", new SqlParameter("@id",id),new SqlParameter("@siparisNo",sipariaNo));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public Atolye Get(string icSiparisNo)

@@ -143,6 +143,48 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
+        public AracBakim AracBakimSonKayit(string plaka)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AracBakimSonKayit", new SqlParameter("@plaka", plaka));
+                AracBakim item = null;
+                while (dataReader.Read())
+                {
+                    item = new AracBakim(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["PLAKA"].ToString(),
+                        dataReader["MARKA"].ToString(),
+                        dataReader["MODEL_YILI"].ToString(),
+                        dataReader["MOTOR_NO"].ToString(),
+                        dataReader["SASE_NO"].ToString(),
+                        dataReader["MULKIYET_BILGILERI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["PROJE_TAHSIS_TARIHI"].ConDate(),
+                        dataReader["KULLANILDIGI_BOLUM"].ToString(),
+                        dataReader["ZIMMETLI_PERSONEL"].ToString(),
+                        dataReader["ARAC_KM"].ConInt(),
+                        dataReader["BAKIM_NEDENI"].ToString(),
+                        dataReader["TALEP_TARIHI"].ConDate(),
+                        dataReader["BAKIM_YAPAN_FIRMA"].ToString(),
+                        dataReader["ARIZA_ACIKLAMASI"].ToString(),
+                        dataReader["TAMAMLANMA_TARIHI"].ConDate(),
+                        dataReader["SONUC_ACIKLAMA"].ToString(),
+                        dataReader["TOPLAM_TUTAR"].ConDouble(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["TESLIM_PERSONEL"].ToString(),
+                        dataReader["TESLIM_PERSONEL_BOLUM"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public List<AracBakim> DevamDevamsizlik()
         {
             try

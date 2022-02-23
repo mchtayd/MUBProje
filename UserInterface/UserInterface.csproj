@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>328</ApplicationRevision>
+    <ApplicationRevision>342</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -495,6 +495,12 @@
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayit.Designer.cs">
       <DependentUpon>FrmMalzemeKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmUstTakimEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmUstTakimEkle.Designer.cs">
+      <DependentUpon>FrmUstTakimEkle.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmAracBakimKayitIzleme.cs">
       <SubType>Form</SubType>
@@ -1196,6 +1202,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeKayit.resx">
       <DependentUpon>FrmMalzemeKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmUstTakimEkle.resx">
+      <DependentUpon>FrmUstTakimEkle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracBakimKayitIzleme.resx">
       <DependentUpon>FrmAracBakimKayitIzleme.cs</DependentUpon>

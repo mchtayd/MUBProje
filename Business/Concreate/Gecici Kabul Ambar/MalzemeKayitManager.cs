@@ -36,6 +36,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+        public string UstTakimEkle(string usTakimStok, string usTakimTanim, string altTakimStok, string altTakimTanim)
+        {
+            try
+            {
+                return malzemeKayitDal.UstTakimEkle(usTakimStok, usTakimTanim, altTakimStok, altTakimTanim);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Delete(int id)
         {
@@ -52,12 +63,35 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+        public string UsTakimGuncelle(int id)
+        {
+            try
+            {
+                return malzemeKayitDal.UsTakimGuncelle(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public MalzemeKayit Get(int id)
         {
             try
             {
                 return malzemeKayitDal.Get(id);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+        public MalzemeKayit MalzemeSonStok()
+        {
+            try
+            {
+                return malzemeKayitDal.MalzemeSonStok();
             }
             catch (Exception)
             {
@@ -164,10 +198,10 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             {
                 return "Lütfen MALZEME REVİZYON NO Bilgisini doldurunuz.";
             }
-            if (string.IsNullOrEmpty(malzemeKayit.Malzemekul))
+            /*if (string.IsNullOrEmpty(malzemeKayit.Malzemekul))
             {
                 return "Lütfen MALZEMENİN KULLANILDIĞI ÜST TAKIM STOK NO Bilgisini doldurunuz.";
-            }
+            }*/
             if (string.IsNullOrEmpty(malzemeKayit.Aciklama))
             {
                 return "Lütfen AÇIKLAMA Bilgisini doldurunuz.";

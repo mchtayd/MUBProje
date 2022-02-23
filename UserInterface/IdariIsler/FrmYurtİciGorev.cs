@@ -514,7 +514,6 @@ namespace UserInterface.IdariIsler
             File.Copy(kaynak + "MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01)2.docx", yol + "MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01)2.docx");
 
 
-
             /*var dosyalar = new DirectoryInfo(kaynak).GetFiles("*.docx");
 
 
@@ -631,6 +630,7 @@ namespace UserInterface.IdariIsler
                 Temizle();
             }
         }
+
         void SatOlustur()
         {
             DialogResult dr = MessageBox.Show("Otomatik Olarak Sat Oluşuturalacaktır, Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

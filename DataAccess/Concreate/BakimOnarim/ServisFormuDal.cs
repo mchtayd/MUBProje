@@ -143,12 +143,12 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public string Update(ServisFormu entity)
+        public string Update(ServisFormu entity,int id)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("ServisFormuGuncelle",
-                    new SqlParameter("@id",entity.Id),
+                    new SqlParameter("@id", id),
                     new SqlParameter("@firma", entity.Firma),
                     new SqlParameter("@usBolgesi", entity.UsBolgesi),
                     new SqlParameter("@servisFormNo", entity.ServisFormNo),

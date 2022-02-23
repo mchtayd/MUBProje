@@ -33,7 +33,7 @@ namespace UserInterface.BakımOnarım
         List<AtolyeAltMalzeme> atolyeAltMalzemes = new List<AtolyeAltMalzeme>();
 
         int id, abfNo;
-        string siparisNo, icSiparisNo, dosyaYolu;
+        string siparisNo, icSiparisNo, dosyaYolu, sure;
         public FrmBOAtolyeTamamlananlar()
         {
             InitializeComponent();
@@ -193,6 +193,39 @@ namespace UserInterface.BakımOnarım
             DtgDepoHareketleri.Columns["Aciklama"].DisplayIndex = 17;
 
         }
+
+        private void işlemAdımlarınıDuzeltToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            id = DtgTamamlanan.CurrentRow.Cells["Id"].Value.ConInt();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GorevAtamaGetList(id);
+            List<DateTime> times = new List<DateTime>();
+            List<int> Idler = new List<int>();
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                times.Add(item.Tarih);
+                Idler.Add(item.Id);
+            }
+            for (int i = 0; i < times.Count; i++)
+            {
+                if (i + 1 == times.Count)
+                {
+                    MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!");
+                    return;
+                }
+
+                TimeSpan sonuc = times[i + 1] - times[i];
+
+                sure = $"{sonuc.Days} Gün {sonuc.Hours} Saat {sonuc.Minutes} Dakika";
+                gorevAtamaPersonelManager.SureDuzelt(Idler[i], sure);
+
+                //string day = sonuc.Days == 0 ? "" : sonuc.Days + " Gün ";
+
+
+                //sure = $"{day}{sonuc.Hours} Saat {sonuc.Minutes} Dakika";
+
+            }
+        }
+
         void IslemAdimlariSureleri()
         {
             gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(id, "BAKIM ONARIM ATOLYE");
@@ -244,7 +277,7 @@ namespace UserInterface.BakımOnarım
 
             foreach (DataGridViewRow item in DtgIslemKayitlari.Rows)
             {
-                string sure = item.Cells["Sure"].Value.ToString();
+                /*string sure = item.Cells["Sure"].Value.ToString();
                 if (sure == "Devam Ediyor")
                 {
                     LblIslemAdimSureleri.Text = toplamGun + " Gün " + toplamSaat + " Saat " + toplamDakika + " Dakika";
@@ -272,7 +305,7 @@ namespace UserInterface.BakımOnarım
                     toplamSaat = toplamSaat % 24;
                 }
 
-                toplamGun = toplamGun + mevcutGun;
+                toplamGun = toplamGun + mevcutGun;*/
             }
         }
     }

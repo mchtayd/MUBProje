@@ -106,6 +106,7 @@
     <Compile Include="Concreate\DokumanYonetim\FormDocumentDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\DepoMiktarDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitDal.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeStokDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisDal.cs" />
     <Compile Include="Concreate\GorevAtamaPersonelDal.cs" />
     <Compile Include="Concreate\Helper.cs" />

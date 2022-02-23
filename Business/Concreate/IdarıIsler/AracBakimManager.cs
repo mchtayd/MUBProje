@@ -77,6 +77,17 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
+        public AracBakim AracBakimSonKayit(string plaka)
+        {
+            try
+            {
+                return aracBakimDal.AracBakimSonKayit(plaka);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<AracBakim> GetList(int isAkisNo=0)
         {

@@ -47,8 +47,11 @@ namespace UserInterface.IdariIsler
         List<Konaklama> konaklamas;
         public object[] infos;
         bool start = true, start2 = true, start3 = true, start4 = true;
-        int id, idgun, onayid, sayi, satNo=0;
-        string usamirbolum, usamirisim, siparis, siparisgun, onaydurum, formno, setupYolu, dosya, satno, siparisNo, gerekce, harcamaturu, faturafirma, ilgilikisi, masrafyeri, donem;
+        int id, idgun, onayid, satNo=0;
+        string usamirbolum, usamirisim, siparis, siparisgun, onaydurum, formno, dosya, siparisNo, gerekce, harcamaturu, faturafirma, ilgilikisi, masrafyeri, donem, taslakYolu;
+        string kaynak = @"Z:\DTS\İDARİ İŞLER\WordTaslak\";
+        string yol = @"C:\DTS\Taslak\";
+
         Double miktar, toplam;
         public FrmKonaklama()
         {
@@ -233,12 +236,39 @@ namespace UserInterface.IdariIsler
             TxtGenelTopGun.Text = geneltop.ToString();
 
         }
+        void TaslakKopyala()
+        {
+            string root = @"C:\DTS";
 
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(yol))
+            {
+                Directory.CreateDirectory(yol);
+            }
+
+            File.Copy(kaynak + "DTS_Otel Rezervasyon Talep Formu3 - Copy.docx", yol + "DTS_Otel Rezervasyon Talep Formu3 - Copy.docx");
+            
+
+            /*var dosyalar = new DirectoryInfo(kaynak).GetFiles("*.docx");
+
+
+
+            foreach (FileInfo item in dosyalar)
+            {
+                item.CopyTo(yol + item.Name);
+            }*/
+
+            taslakYolu = yol + "DTS_Otel Rezervasyon Talep Formu3 - Copy.docx";
+        }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Konaklama Bilgilerini Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                TaslakKopyala();
                 if (TxtGorevFormNo.Text == "")
                 {
                     MessageBox.Show("Lütfen Öncelikle Görev Form No Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -437,7 +467,7 @@ namespace UserInterface.IdariIsler
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\Formlar\\DTS_Otel Rezervasyon Talep Formu.docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otel Rezervasyon Talep Formu3.docx";
+            object filePath = taslakYolu;
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 
@@ -640,6 +670,7 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                TaslakKopyala();
                 if (CmbDonemG.Text == "")
                 {
                     MessageBox.Show("Lütfen Öncelikle Dönem Ay Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -694,7 +725,7 @@ namespace UserInterface.IdariIsler
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
             //object filePath = "C:\\Users\\MAYıldırım\\Desktop\\Formlar\\DTS_Otel Rezervasyon Talep Formu.docx"; // taslak yolu
-            object filePath = "Z:\\DTS\\İDARİ İŞLER\\WordTaslak\\DTS_Otel Rezervasyon Talep Formu3.docx";
+            object filePath = taslakYolu;
 
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();

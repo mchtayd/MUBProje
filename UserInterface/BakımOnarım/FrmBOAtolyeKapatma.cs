@@ -40,9 +40,9 @@ namespace UserInterface.BakımOnarım
         public object[] infos;
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            if (sonIslemAdimi != "1500-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT)")
+            if (sonIslemAdimi != "1600-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT)")
             {
-                MessageBox.Show("Bu Kayıt 1500-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT) İşlem Adımında Bulunmamaktadır. Sadece Bu İşlem Adımında Kapatma Yapabilirsiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Bu Kayıt 1600-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT) İşlem Adımında Bulunmamaktadır. Sadece Bu İşlem Adımında Kapatma Yapabilirsiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
             if (dosyaKontrol==false)

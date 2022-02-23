@@ -136,6 +136,7 @@ namespace UserInterface.BakımOnarım
                 if (DtgMalzemeler.RowCount > 1)
                 {
 
+
                     foreach (AtolyeMalzeme item in atolyeMalzemes)
                     {
                         LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
@@ -145,19 +146,6 @@ namespace UserInterface.BakımOnarım
                         adet++;
                     }
                 }
-
-
-                /*if (DtgMalzemeler.RowCount > 1)
-                {
-                    foreach (AtolyeMalzeme item in atolyeMalzemes)
-                    {
-                        LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
-                        icSiparisNo = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text + "/" + adet;
-                        IcSiparisler.Add(icSiparisNo);
-
-                        adet++;
-                    }
-                }*/
                 else
                 {
                     LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
@@ -245,8 +233,59 @@ namespace UserInterface.BakımOnarım
 
         }
 
+        void EditSiparisNos()
+        {
+            string value, siparisNoForEdit;
+            int adet = 1;
+            List<bool> secList = new List<bool>();
+            foreach (DataGridViewRow row in DtgMalzemeler.Rows)
+            {
+                secList.Add(row.Cells[10].Value.ConBool());
+            }
+
+            for (int i = 0; i < secList.Count; i++)
+            {
+                value = IcSiparisler[i];
+                if (atolyeMalzemes.Count > 1 && secList.Where(x => x).Count() == 1)
+                {
+                    siparisNoForEdit = value.Substring(0, value.Length - 2);
+                    IcSiparisler.Clear();
+                    IcSiparisler.Add(siparisNoForEdit);
+                    break;
+                }
+                else if (atolyeMalzemes.Count > 1 && secList.Where(x => x).Count() > 1)
+                {
+                    string prefix = secList[i] ? "/" + adet : "";
+                    siparisNoForEdit = value.Substring(0, value.Length - 2) + prefix;
+                    if (secList[i])
+                    {
+                        IcSiparisler[i] = siparisNoForEdit;
+                        adet++;
+                    }
+                    else
+                    {
+                        IcSiparisler[i] = siparisNoForEdit;
+                    }
+                }
+            }
+            for (int i = 0; i < IcSiparisler.Count; i++)
+            {
+                if (!IcSiparisler[i].Contains('/'))
+                {
+
+                    if (IcSiparisler.Count == 1)
+                    {
+                        break;
+                    }
+                    IcSiparisler.Remove(IcSiparisler[i]);
+                    i--;
+                }
+            }
+        }
+
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
+            #region control
             if (TxtStokNoUst.Text == "" || DtgMalzemeler.RowCount == 0)
             {
                 MessageBox.Show("Lütfen Öncelikle Tüm Bilgileri Eksiksiz Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -267,21 +306,27 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini 400-GÖZ DENETİMİ Olarak Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            #endregion
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 CreateFile();
+
                 if (IcSiparisler.Count > 0)
                 {
+                    EditSiparisNos();
                     for (int i = 0; i < IcSiparisler.Count; i++)
                     {
                         siparisNo = Guid.NewGuid().ToString();
+
+
                         Atolye atolye2 = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, IcSiparisler[i].ToString(), DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
                             DosyaYollari[i].ToString());
 
                         atolyeManager.Add(atolye2);
 
                         SiparisNos.Add(siparisNo);
+
                     }
                 }
                 else
@@ -297,15 +342,18 @@ namespace UserInterface.BakımOnarım
                 int sayac = 0;
                 foreach (DataGridViewRow item in DtgMalzemeler.Rows)
                 {
+                    if (item.Cells[10].Value.ConBool())
+                    {
 
-                    AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["FormNo"].Value.ConInt(), item.Cells["StokNo"].Value.ToString(),
-                        item.Cells["Tanim"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durum"].Value.ToString(),
-                        item.Cells["Revizyon"].Value.ToString(), item.Cells["Miktar"].Value.ConDouble(), item.Cells["TalepTarihi"].Value.ConDate(), 
-                        SiparisNos[sayac].ToString());
+                        AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["FormNo"].Value.ConInt(), item.Cells["StokNo"].Value.ToString(),
+                            item.Cells["Tanim"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durum"].Value.ToString(),
+                            item.Cells["Revizyon"].Value.ToString(), item.Cells["Miktar"].Value.ConDouble(), item.Cells["TalepTarihi"].Value.ConDate(),
+                            SiparisNos[sayac].ToString());
 
-                    atolyeMalzemeManager.Add(atolyeMalzeme);
+                        atolyeMalzemeManager.Add(atolyeMalzeme);
+                        sayac++;
+                    }
 
-                    sayac++;
                 }
 
                 if (IcSiparisler.Count > 0)
@@ -324,7 +372,7 @@ namespace UserInterface.BakımOnarım
                     GorevAtama();
                 }
                 //IscilikGir();
-                
+
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 DtgMalzemeler.DataSource = null;
@@ -405,7 +453,7 @@ namespace UserInterface.BakımOnarım
                 if (IcSiparisler.Count > 0)
                 {
                     dosya = anadosya + DateTime.Now.ToString("dd_MM_yyyy") + "_" + DateTime.Now.ToString("mm_ss") + "\\";
-                    
+
                 }
                 else
                 {
@@ -442,7 +490,7 @@ namespace UserInterface.BakımOnarım
                 {
                     wBookmarks["IcSiparisNo"].Range.Text = LblIcSiparisNo.Text;
                 }
-                
+
                 wBookmarks["Miktar"].Range.Text = item.Cells["Miktar"].Value.ToString();
                 wBookmarks["SeriNo"].Range.Text = item.Cells["SeriNo"].Value.ToString();
                 wBookmarks["Tarih1"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");

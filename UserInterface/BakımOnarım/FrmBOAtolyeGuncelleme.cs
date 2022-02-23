@@ -164,9 +164,10 @@ namespace UserInterface.BakımOnarım
             DtgAtolye.Columns["Tanim"].HeaderText = "TANIM";
             DtgAtolye.Columns["SeriNo"].HeaderText = "SERİ NO";
             DtgAtolye.Columns["Durum"].HeaderText = "DURUM";
-            DtgAtolye.Columns["Revizyon"].HeaderText = "REVİZYON";
+            DtgAtolye.Columns["Revizyon"].HeaderText = "REVİZYON"; 
             DtgAtolye.Columns["Miktar"].HeaderText = "MİKTAR";
             DtgAtolye.Columns["TalepTarihi"].HeaderText = "TALEP TARİHİ";
+            DtgAtolye.Columns["Sec"].Visible = false;
             DtgAtolye.Columns["SiparisNo"].Visible = false;
 
             IslemAdimlariSureleri();

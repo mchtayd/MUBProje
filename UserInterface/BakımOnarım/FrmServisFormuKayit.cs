@@ -97,7 +97,7 @@ namespace UserInterface.BakımOnarım
 
             ServisFormu servisFormu = new ServisFormu(id, CmbFirma.Text, CmbBolgeAdi.Text, TxtServisFormNo.Text, CmbMudehaleTuru.Text, DtgServisTarihi.Value, TxtJenaratorCalismaSaati.Text.ConInt(), basTarihi, bitisTarihi, TxtMarka.Text, TxtModel.Text, TxtSeriNo.Text, TxtGuc.Text, TxtServisRaporu.Text, TxtServisYetkilisi.Text, TxtMusteri.Text);
 
-            string mesaj = servisFormuManager.Update(servisFormu);
+            string mesaj = servisFormuManager.Update(servisFormu, id);
 
             if (mesaj!="OK")
             {
@@ -105,7 +105,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             
-            sFYedekParcaManager.Delete(siparisNo);
+            /*sFYedekParcaManager.Delete(siparisNo);
             int sonSayi = DtgKullanilanMalzemeler.RowCount - 1;
             int sayac = 0;
             foreach (DataGridViewRow item in DtgKullanilanMalzemeler.Rows)
@@ -117,7 +117,7 @@ namespace UserInterface.BakımOnarım
                 SFYedekPaca sFYedekPaca = new SFYedekPaca(item.Cells["ParcaKodu"].Value.ToString(), item.Cells["KullanilanMalzeme"].Value.ToString(), item.Cells["Adet"].Value.ToString(), siparisNo);
 
                 sFYedekParcaManager.Add(sFYedekPaca);
-            }
+            }*/
             IsAkisNo();
             MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
@@ -132,6 +132,7 @@ namespace UserInterface.BakımOnarım
                 BtnGuncelle.Visible = false;
                 IsAkisNo();
                 Temizle();
+                groupBox3.Enabled = true;
             }
             if (CmbIslemTuru.SelectedIndex == 1)
             {
@@ -140,6 +141,7 @@ namespace UserInterface.BakımOnarım
                 BtnGuncelle.Visible = true;
                 IsAkisNo();
                 Temizle();
+                groupBox3.Enabled = false;
             }
         }
 
@@ -169,6 +171,7 @@ namespace UserInterface.BakımOnarım
             TxtServisYetkilisi.Text = servis.ServisYetkilisi;
             TxtMusteri.Text = servis.Musteri;
             siparisNo = servis.SiparisNo;
+            id = servis.Id;
             MalzemeleriGetir();
             try
             {
@@ -182,27 +185,34 @@ namespace UserInterface.BakımOnarım
         }
         void MalzemeleriGetir()
         {
-            DtgKullanilanMalzemeler.Rows.Clear();
+
+            
+            /*DtgKullanilanMalzemeler.Rows.Clear();
             List<SFYedekPaca> sFYedeks = new List<SFYedekPaca>();
             sFYedeks = sFYedekParcaManager.GetList(siparisNo);
+            int sonSatir = DtgKullanilanMalzemeler.RowCount;
+            
 
             foreach (SFYedekPaca item in sFYedeks)
             {
                 DtgKullanilanMalzemeler.Rows.Add();
-                int sonSatir = DtgKullanilanMalzemeler.RowCount - 1;
+                sonSatir = DtgKullanilanMalzemeler.RowCount - 1;
                 DtgKullanilanMalzemeler.Rows[sonSatir].Cells["ParcaKodu"].Value = item.ParcaKodu;
                 DtgKullanilanMalzemeler.Rows[sonSatir].Cells["KullanilanMalzeme"].Value = item.KullanilanMalzeme;
                 DtgKullanilanMalzemeler.Rows[sonSatir].Cells["Adet"].Value = item.Adet;
-            }
-            for (int i = 0; i < DtgKullanilanMalzemeler.RowCount; i++)
+                
+            }*/
+            
+            /*for (int i = 0; i < sFYedeks.Count; i++)
             {
                 DtgKullanilanMalzemeler.Rows.Add();
-                int sonSatir = DtgKullanilanMalzemeler.RowCount - 1;
-                DtgKullanilanMalzemeler.Rows[sonSatir].Cells["ParcaKodu"].Value = sFYedeks[i].ParcaKodu;
-                DtgKullanilanMalzemeler.Rows[sonSatir].Cells["KullanilanMalzeme"].Value = sFYedeks[i].KullanilanMalzeme; ;
-                DtgKullanilanMalzemeler.Rows[sonSatir].Cells["Adet"].Value = sFYedeks[i].Adet;
+                int sonSatir = sFYedeks.Count - 1;
                 
-            }
+                DtgKullanilanMalzemeler.Rows[sonSatir].Cells["ParcaKodu"].Value = sFYedeks[i].ParcaKodu;
+                DtgKullanilanMalzemeler.Rows[sonSatir].Cells["KullanilanMalzeme"].Value = sFYedeks[i].KullanilanMalzeme;
+                DtgKullanilanMalzemeler.Rows[sonSatir].Cells["Adet"].Value = sFYedeks[i].Adet;
+
+            }*/
 
         }
 

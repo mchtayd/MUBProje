@@ -65,6 +65,22 @@ namespace UserInterface.IdariIsler
             this.LblIsAkisNo = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.webBrowser3 = new System.Windows.Forms.WebBrowser();
+            this.DtgSonKayit = new System.Windows.Forms.DataGridView();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.DtgIslemAdimlariDis = new ADGV.AdvancedDataGridView();
             this.BtnGecmis = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtGorevi = new System.Windows.Forms.TextBox();
@@ -127,6 +143,8 @@ namespace UserInterface.IdariIsler
             this.TxtSonucAciklamaGun = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.label125 = new System.Windows.Forms.Label();
+            this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
             this.BtnFirmaEkle = new System.Windows.Forms.Button();
             this.TxtBakOnarimFirma = new System.Windows.Forms.ComboBox();
             this.TxtArizaAciklamasi = new System.Windows.Forms.RichTextBox();
@@ -164,11 +182,14 @@ namespace UserInterface.IdariIsler
             this.TxtKullanildigiBolumKapat = new System.Windows.Forms.TextBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.label125 = new System.Windows.Forms.Label();
-            this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.groupBox6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgSonKayit)).BeginInit();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIslemAdimlariDis)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -184,7 +205,7 @@ namespace UserInterface.IdariIsler
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1635, 27);
+            this.panel1.Size = new System.Drawing.Size(1457, 27);
             this.panel1.TabIndex = 319;
             // 
             // BtnCancel
@@ -485,11 +506,12 @@ namespace UserInterface.IdariIsler
             this.tabControl1.Location = new System.Drawing.Point(0, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1635, 886);
+            this.tabControl1.Size = new System.Drawing.Size(1457, 886);
             this.tabControl1.TabIndex = 354;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.BtnGecmis);
             this.tabPage1.Controls.Add(this.groupBox2);
             this.tabPage1.Controls.Add(this.DtSaat);
@@ -528,10 +550,157 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1627, 860);
+            this.tabPage1.Size = new System.Drawing.Size(1449, 860);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "KAYIT OLUŞTUR";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.groupBox6);
+            this.groupBox5.Controls.Add(this.DtgSonKayit);
+            this.groupBox5.Controls.Add(this.groupBox7);
+            this.groupBox5.Location = new System.Drawing.Point(16, 553);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1399, 291);
+            this.groupBox5.TabIndex = 396;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "EN SON YAPILAN BAKIM KAYDI";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.webBrowser3);
+            this.groupBox6.Location = new System.Drawing.Point(695, 149);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(686, 136);
+            this.groupBox6.TabIndex = 398;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "EKLER";
+            // 
+            // webBrowser3
+            // 
+            this.webBrowser3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser3.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser3.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser3.Name = "webBrowser3";
+            this.webBrowser3.Size = new System.Drawing.Size(680, 117);
+            this.webBrowser3.TabIndex = 0;
+            // 
+            // DtgSonKayit
+            // 
+            this.DtgSonKayit.AllowUserToAddRows = false;
+            this.DtgSonKayit.AllowUserToDeleteRows = false;
+            this.DtgSonKayit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgSonKayit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgSonKayit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column1,
+            this.Column2,
+            this.Column7,
+            this.Column8,
+            this.Column9,
+            this.Column10,
+            this.Column11,
+            this.Column12,
+            this.Column13,
+            this.Column14});
+            this.DtgSonKayit.Location = new System.Drawing.Point(6, 19);
+            this.DtgSonKayit.Name = "DtgSonKayit";
+            this.DtgSonKayit.ReadOnly = true;
+            this.DtgSonKayit.Size = new System.Drawing.Size(1375, 124);
+            this.DtgSonKayit.TabIndex = 397;
+            // 
+            // Column1
+            // 
+            this.Column1.HeaderText = "IS_AKIS_NO";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Width = 94;
+            // 
+            // Column2
+            // 
+            this.Column2.HeaderText = "PLAKA";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 66;
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "KİLOMETRE";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            this.Column7.Width = 94;
+            // 
+            // Column8
+            // 
+            this.Column8.HeaderText = "BAKIM NEDENİ";
+            this.Column8.Name = "Column8";
+            this.Column8.ReadOnly = true;
+            // 
+            // Column9
+            // 
+            this.Column9.HeaderText = "TALEP TARİHİ";
+            this.Column9.Name = "Column9";
+            this.Column9.ReadOnly = true;
+            this.Column9.Width = 96;
+            // 
+            // Column10
+            // 
+            this.Column10.HeaderText = "BAKIM YAPAN FİRMA";
+            this.Column10.Name = "Column10";
+            this.Column10.ReadOnly = true;
+            this.Column10.Width = 128;
+            // 
+            // Column11
+            // 
+            this.Column11.HeaderText = "ARIZA AÇIKLAMASI";
+            this.Column11.Name = "Column11";
+            this.Column11.ReadOnly = true;
+            this.Column11.Width = 119;
+            // 
+            // Column12
+            // 
+            this.Column12.HeaderText = "TAMAMLANMA TARİHİ";
+            this.Column12.Name = "Column12";
+            this.Column12.ReadOnly = true;
+            this.Column12.Width = 134;
+            // 
+            // Column13
+            // 
+            this.Column13.HeaderText = "SONUÇ AÇIKLAMA";
+            this.Column13.Name = "Column13";
+            this.Column13.ReadOnly = true;
+            this.Column13.Width = 115;
+            // 
+            // Column14
+            // 
+            this.Column14.HeaderText = "TUTAR";
+            this.Column14.Name = "Column14";
+            this.Column14.ReadOnly = true;
+            this.Column14.Width = 69;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.DtgIslemAdimlariDis);
+            this.groupBox7.Location = new System.Drawing.Point(6, 149);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(686, 136);
+            this.groupBox7.TabIndex = 397;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "VERİ GEÇMİŞİ";
+            // 
+            // DtgIslemAdimlariDis
+            // 
+            this.DtgIslemAdimlariDis.AutoGenerateContextFilters = true;
+            this.DtgIslemAdimlariDis.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DtgIslemAdimlariDis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgIslemAdimlariDis.DateWithTime = false;
+            this.DtgIslemAdimlariDis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgIslemAdimlariDis.Location = new System.Drawing.Point(3, 16);
+            this.DtgIslemAdimlariDis.Name = "DtgIslemAdimlariDis";
+            this.DtgIslemAdimlariDis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgIslemAdimlariDis.Size = new System.Drawing.Size(680, 117);
+            this.DtgIslemAdimlariDis.TabIndex = 0;
+            this.DtgIslemAdimlariDis.TimeFilter = false;
             // 
             // BtnGecmis
             // 
@@ -667,7 +836,7 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1627, 860);
+            this.tabPage2.Size = new System.Drawing.Size(1449, 860);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "GÜNCELLE";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -1169,10 +1338,28 @@ namespace UserInterface.IdariIsler
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1627, 860);
+            this.tabPage3.Size = new System.Drawing.Size(1449, 860);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "KAYIT KAPAT";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Location = new System.Drawing.Point(86, 523);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(119, 13);
+            this.label125.TabIndex = 409;
+            this.label125.Text = "PROJE KODU/PROJE:";
+            // 
+            // CmbProjeKodu
+            // 
+            this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbProjeKodu.FormattingEnabled = true;
+            this.CmbProjeKodu.Location = new System.Drawing.Point(216, 519);
+            this.CmbProjeKodu.Name = "CmbProjeKodu";
+            this.CmbProjeKodu.Size = new System.Drawing.Size(164, 21);
+            this.CmbProjeKodu.TabIndex = 410;
             // 
             // BtnFirmaEkle
             // 
@@ -1498,29 +1685,11 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // label125
-            // 
-            this.label125.AutoSize = true;
-            this.label125.Location = new System.Drawing.Point(86, 523);
-            this.label125.Name = "label125";
-            this.label125.Size = new System.Drawing.Size(119, 13);
-            this.label125.TabIndex = 409;
-            this.label125.Text = "PROJE KODU/PROJE:";
-            // 
-            // CmbProjeKodu
-            // 
-            this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbProjeKodu.FormattingEnabled = true;
-            this.CmbProjeKodu.Location = new System.Drawing.Point(216, 519);
-            this.CmbProjeKodu.Name = "CmbProjeKodu";
-            this.CmbProjeKodu.Size = new System.Drawing.Size(164, 21);
-            this.CmbProjeKodu.TabIndex = 410;
-            // 
             // FrmAracBakimKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1635, 924);
+            this.ClientSize = new System.Drawing.Size(1457, 924);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.panel1);
             this.Name = "FrmAracBakimKayit";
@@ -1530,6 +1699,11 @@ namespace UserInterface.IdariIsler
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgSonKayit)).EndInit();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIslemAdimlariDis)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.tabPage2.ResumeLayout(false);
@@ -1682,5 +1856,21 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtKullanildigiBolumKapat;
         private System.Windows.Forms.Label label125;
         private System.Windows.Forms.ComboBox CmbProjeKodu;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.DataGridView DtgSonKayit;
+        private System.Windows.Forms.GroupBox groupBox6;
+        private System.Windows.Forms.WebBrowser webBrowser3;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private ADGV.AdvancedDataGridView DtgIslemAdimlariDis;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
     }
 }

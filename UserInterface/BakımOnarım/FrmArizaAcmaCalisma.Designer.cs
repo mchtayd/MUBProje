@@ -30,7 +30,7 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaAcmaCalisma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -82,6 +82,9 @@ namespace UserInterface.BakımOnarım
             this.button4 = new System.Windows.Forms.Button();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -89,13 +92,10 @@ namespace UserInterface.BakımOnarım
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.label79 = new System.Windows.Forms.Label();
-            this.label76 = new System.Windows.Forms.Label();
+            this.LbStokNo = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.BtnCombo = new System.Windows.Forms.Button();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
             this.BtnMalzemeEkle = new System.Windows.Forms.Button();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker6 = new System.Windows.Forms.DateTimePicker();
             this.comboBox14 = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
             this.comboBox13 = new System.Windows.Forms.ComboBox();
@@ -104,7 +104,7 @@ namespace UserInterface.BakımOnarım
             this.label27 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
+            this.CmbKategori = new System.Windows.Forms.ComboBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.comboBox10 = new System.Windows.Forms.ComboBox();
@@ -122,7 +122,7 @@ namespace UserInterface.BakımOnarım
             this.textBox10 = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.comboBox17 = new System.Windows.Forms.ComboBox();
+            this.CmbParcaNo = new System.Windows.Forms.ComboBox();
             this.label40 = new System.Windows.Forms.Label();
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.comboBox27 = new System.Windows.Forms.ComboBox();
@@ -219,15 +219,12 @@ namespace UserInterface.BakımOnarım
             this.label78 = new System.Windows.Forms.Label();
             this.DtgMailGeldigiTarih = new System.Windows.Forms.DateTimePicker();
             this.DtgMudehaleSaati = new System.Windows.Forms.DateTimePicker();
-            this.TxtIscilikSuresi = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.AdvPersonel = new ADGV.AdvancedDataGridView();
             this.AdiSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Gorevi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Bolumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.BtnPersonelEkle = new System.Windows.Forms.Button();
             this.CmbPersoneller = new System.Windows.Forms.ComboBox();
             this.label75 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
@@ -263,6 +260,7 @@ namespace UserInterface.BakımOnarım
             this.TxtAbfFormNo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.label70 = new System.Windows.Forms.Label();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -286,6 +284,7 @@ namespace UserInterface.BakımOnarım
             this.textBox11 = new System.Windows.Forms.TextBox();
             this.label55 = new System.Windows.Forms.Label();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.button7 = new System.Windows.Forms.Button();
             this.label60 = new System.Windows.Forms.Label();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage7 = new System.Windows.Forms.TabPage();
@@ -356,6 +355,10 @@ namespace UserInterface.BakımOnarım
             this.label94 = new System.Windows.Forms.Label();
             this.tabPage12 = new System.Windows.Forms.TabPage();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label21 = new System.Windows.Forms.Label();
+            this.DtIscilikSaati = new System.Windows.Forms.DateTimePicker();
+            this.label76 = new System.Windows.Forms.Label();
+            this.button8 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -954,18 +957,18 @@ namespace UserInterface.BakımOnarım
             // tabPage4
             // 
             this.tabPage4.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage4.Controls.Add(this.label74);
+            this.tabPage4.Controls.Add(this.label73);
+            this.tabPage4.Controls.Add(this.label72);
             this.tabPage4.Controls.Add(this.label11);
             this.tabPage4.Controls.Add(this.panel2);
             this.tabPage4.Controls.Add(this.radioButton3);
             this.tabPage4.Controls.Add(this.radioButton4);
             this.tabPage4.Controls.Add(this.label79);
-            this.tabPage4.Controls.Add(this.label76);
+            this.tabPage4.Controls.Add(this.LbStokNo);
             this.tabPage4.Controls.Add(this.label25);
             this.tabPage4.Controls.Add(this.BtnCombo);
-            this.tabPage4.Controls.Add(this.comboBox4);
             this.tabPage4.Controls.Add(this.BtnMalzemeEkle);
-            this.tabPage4.Controls.Add(this.dateTimePicker3);
-            this.tabPage4.Controls.Add(this.dateTimePicker6);
             this.tabPage4.Controls.Add(this.comboBox14);
             this.tabPage4.Controls.Add(this.label32);
             this.tabPage4.Controls.Add(this.comboBox13);
@@ -974,13 +977,13 @@ namespace UserInterface.BakımOnarım
             this.tabPage4.Controls.Add(this.label27);
             this.tabPage4.Controls.Add(this.label29);
             this.tabPage4.Controls.Add(this.label28);
-            this.tabPage4.Controls.Add(this.comboBox11);
+            this.tabPage4.Controls.Add(this.CmbKategori);
             this.tabPage4.Controls.Add(this.groupBox5);
             this.tabPage4.Controls.Add(this.label37);
             this.tabPage4.Controls.Add(this.textBox10);
             this.tabPage4.Controls.Add(this.label38);
             this.tabPage4.Controls.Add(this.label39);
-            this.tabPage4.Controls.Add(this.comboBox17);
+            this.tabPage4.Controls.Add(this.CmbParcaNo);
             this.tabPage4.Controls.Add(this.label40);
             this.tabPage4.Location = new System.Drawing.Point(4, 24);
             this.tabPage4.Name = "tabPage4";
@@ -988,6 +991,36 @@ namespace UserInterface.BakımOnarım
             this.tabPage4.Size = new System.Drawing.Size(1473, 342);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "SİSTEM / CİHAZ BİLGİLERİ";
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label74.Location = new System.Drawing.Point(525, 85);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(21, 15);
+            this.label74.TabIndex = 391;
+            this.label74.Text = "00";
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label73.Location = new System.Drawing.Point(525, 58);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(21, 15);
+            this.label73.TabIndex = 390;
+            this.label73.Text = "00";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label72.Location = new System.Drawing.Point(525, 29);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(21, 15);
+            this.label72.TabIndex = 389;
+            this.label72.Text = "00";
             // 
             // label11
             // 
@@ -1021,7 +1054,7 @@ namespace UserInterface.BakımOnarım
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(113, 7);
+            this.radioButton2.Location = new System.Drawing.Point(113, 12);
             this.radioButton2.Name = "radioButton2";
             this.radioButton2.Size = new System.Drawing.Size(84, 19);
             this.radioButton2.TabIndex = 384;
@@ -1060,15 +1093,15 @@ namespace UserInterface.BakımOnarım
             this.label79.TabIndex = 381;
             this.label79.Text = "Sistem Cihaz \r\nÇalışma Durumu:";
             // 
-            // label76
+            // LbStokNo
             // 
-            this.label76.AutoSize = true;
-            this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label76.Location = new System.Drawing.Point(124, 58);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(21, 15);
-            this.label76.TabIndex = 380;
-            this.label76.Text = "00";
+            this.LbStokNo.AutoSize = true;
+            this.LbStokNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LbStokNo.Location = new System.Drawing.Point(124, 58);
+            this.LbStokNo.Name = "LbStokNo";
+            this.LbStokNo.Size = new System.Drawing.Size(21, 15);
+            this.LbStokNo.TabIndex = 380;
+            this.LbStokNo.Text = "00";
             // 
             // label25
             // 
@@ -1087,22 +1120,13 @@ namespace UserInterface.BakımOnarım
             this.BtnCombo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnCombo.BackgroundImage")));
             this.BtnCombo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnCombo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCombo.Location = new System.Drawing.Point(331, 105);
+            this.BtnCombo.Location = new System.Drawing.Point(331, 109);
             this.BtnCombo.Margin = new System.Windows.Forms.Padding(0);
             this.BtnCombo.Name = "BtnCombo";
             this.BtnCombo.Size = new System.Drawing.Size(34, 29);
             this.BtnCombo.TabIndex = 55;
             this.BtnCombo.Tag = "admin";
             this.BtnCombo.UseVisualStyleBackColor = false;
-            // 
-            // comboBox4
-            // 
-            this.comboBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Location = new System.Drawing.Point(525, 25);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(240, 23);
-            this.comboBox4.TabIndex = 33;
             // 
             // BtnMalzemeEkle
             // 
@@ -1118,24 +1142,6 @@ namespace UserInterface.BakımOnarım
             this.BtnMalzemeEkle.TabIndex = 54;
             this.BtnMalzemeEkle.Tag = "admin";
             this.BtnMalzemeEkle.UseVisualStyleBackColor = false;
-            // 
-            // dateTimePicker3
-            // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(524, 82);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(241, 21);
-            this.dateTimePicker3.TabIndex = 29;
-            // 
-            // dateTimePicker6
-            // 
-            this.dateTimePicker6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker6.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker6.Location = new System.Drawing.Point(525, 55);
-            this.dateTimePicker6.Name = "dateTimePicker6";
-            this.dateTimePicker6.Size = new System.Drawing.Size(241, 21);
-            this.dateTimePicker6.TabIndex = 28;
             // 
             // comboBox14
             // 
@@ -1213,13 +1219,14 @@ namespace UserInterface.BakımOnarım
             this.label28.TabIndex = 12;
             this.label28.Text = "Garanti Başlama Tarihi:";
             // 
-            // comboBox11
+            // CmbKategori
             // 
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Location = new System.Drawing.Point(124, 108);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(204, 23);
-            this.comboBox11.TabIndex = 45;
+            this.CmbKategori.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbKategori.FormattingEnabled = true;
+            this.CmbKategori.Location = new System.Drawing.Point(124, 112);
+            this.CmbKategori.Name = "CmbKategori";
+            this.CmbKategori.Size = new System.Drawing.Size(204, 23);
+            this.CmbKategori.TabIndex = 45;
             // 
             // groupBox5
             // 
@@ -1364,7 +1371,7 @@ namespace UserInterface.BakımOnarım
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(62, 112);
+            this.label37.Location = new System.Drawing.Point(62, 116);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(56, 15);
             this.label37.TabIndex = 44;
@@ -1389,28 +1396,30 @@ namespace UserInterface.BakımOnarım
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(70, 58);
+            this.label39.Location = new System.Drawing.Point(65, 58);
             this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(48, 15);
+            this.label39.Size = new System.Drawing.Size(53, 15);
             this.label39.TabIndex = 40;
-            this.label39.Text = "Tanımı:";
+            this.label39.Text = "Stok No:";
             // 
-            // comboBox17
+            // CmbParcaNo
             // 
-            this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Location = new System.Drawing.Point(124, 25);
-            this.comboBox17.Name = "comboBox17";
-            this.comboBox17.Size = new System.Drawing.Size(204, 23);
-            this.comboBox17.TabIndex = 39;
+            this.CmbParcaNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbParcaNo.FormattingEnabled = true;
+            this.CmbParcaNo.Location = new System.Drawing.Point(124, 25);
+            this.CmbParcaNo.Name = "CmbParcaNo";
+            this.CmbParcaNo.Size = new System.Drawing.Size(204, 23);
+            this.CmbParcaNo.TabIndex = 39;
+            this.CmbParcaNo.SelectedIndexChanged += new System.EventHandler(this.CmbParcaNo_SelectedIndexChanged);
             // 
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(19, 29);
+            this.label40.Location = new System.Drawing.Point(35, 29);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(99, 15);
+            this.label40.Size = new System.Drawing.Size(83, 15);
             this.label40.TabIndex = 38;
-            this.label40.Text = "Parça Numarası:";
+            this.label40.Text = "Parça Tanımı:";
             // 
             // tabPage5
             // 
@@ -2290,14 +2299,15 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.button8);
+            this.groupBox2.Controls.Add(this.label21);
+            this.groupBox2.Controls.Add(this.DtIscilikSaati);
+            this.groupBox2.Controls.Add(this.label76);
             this.groupBox2.Controls.Add(this.CmbArizaAcmaOnayiVeren);
             this.groupBox2.Controls.Add(this.label78);
             this.groupBox2.Controls.Add(this.DtgMailGeldigiTarih);
             this.groupBox2.Controls.Add(this.DtgMudehaleSaati);
-            this.groupBox2.Controls.Add(this.TxtIscilikSuresi);
-            this.groupBox2.Controls.Add(this.label21);
             this.groupBox2.Controls.Add(this.groupBox4);
-            this.groupBox2.Controls.Add(this.BtnPersonelEkle);
             this.groupBox2.Controls.Add(this.CmbPersoneller);
             this.groupBox2.Controls.Add(this.label75);
             this.groupBox2.Controls.Add(this.label35);
@@ -2353,24 +2363,6 @@ namespace UserInterface.BakımOnarım
             this.DtgMudehaleSaati.Size = new System.Drawing.Size(101, 21);
             this.DtgMudehaleSaati.TabIndex = 380;
             this.DtgMudehaleSaati.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
-            // 
-            // TxtIscilikSuresi
-            // 
-            this.TxtIscilikSuresi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtIscilikSuresi.Location = new System.Drawing.Point(146, 115);
-            this.TxtIscilikSuresi.Name = "TxtIscilikSuresi";
-            this.TxtIscilikSuresi.Size = new System.Drawing.Size(139, 21);
-            this.TxtIscilikSuresi.TabIndex = 379;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label21.Location = new System.Drawing.Point(29, 118);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(111, 15);
-            this.label21.TabIndex = 337;
-            this.label21.Text = "İşçiki Süresi (Saat):";
             // 
             // groupBox4
             // 
@@ -2430,11 +2422,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -2443,23 +2435,6 @@ namespace UserInterface.BakımOnarım
             this.Remove.ToolTipText = "X";
             this.Remove.UseColumnTextForButtonValue = true;
             this.Remove.Width = 64;
-            // 
-            // BtnPersonelEkle
-            // 
-            this.BtnPersonelEkle.AccessibleDescription = "";
-            this.BtnPersonelEkle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnPersonelEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnPersonelEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnPersonelEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnPersonelEkle.Location = new System.Drawing.Point(288, 112);
-            this.BtnPersonelEkle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnPersonelEkle.Name = "BtnPersonelEkle";
-            this.BtnPersonelEkle.Size = new System.Drawing.Size(101, 29);
-            this.BtnPersonelEkle.TabIndex = 334;
-            this.BtnPersonelEkle.Tag = "admin";
-            this.BtnPersonelEkle.Text = "EKLE";
-            this.BtnPersonelEkle.UseVisualStyleBackColor = false;
-            this.BtnPersonelEkle.Click += new System.EventHandler(this.BtnPersonelEkle_Click);
             // 
             // CmbPersoneller
             // 
@@ -2803,7 +2778,7 @@ namespace UserInterface.BakımOnarım
             // 
             // TxtAbfFormNo
             // 
-            this.TxtAbfFormNo.Location = new System.Drawing.Point(106, 17);
+            this.TxtAbfFormNo.Location = new System.Drawing.Point(106, 16);
             this.TxtAbfFormNo.Name = "TxtAbfFormNo";
             this.TxtAbfFormNo.Size = new System.Drawing.Size(127, 20);
             this.TxtAbfFormNo.TabIndex = 320;
@@ -2819,6 +2794,7 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.button1);
             this.tabPage3.Controls.Add(this.label70);
             this.tabPage3.Controls.Add(this.button5);
             this.tabPage3.Controls.Add(this.groupBox8);
@@ -2835,12 +2811,23 @@ namespace UserInterface.BakımOnarım
             this.tabPage3.Text = "BİLDİRİM VE CRM NO TANIMLA";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(238, 17);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(63, 23);
+            this.button1.TabIndex = 464;
+            this.button1.Text = "Bul";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
             // label70
             // 
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Bahnschrift Condensed", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label70.ForeColor = System.Drawing.Color.Black;
-            this.label70.Location = new System.Drawing.Point(381, 256);
+            this.label70.Location = new System.Drawing.Point(361, 256);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(336, 56);
             this.label70.TabIndex = 463;
@@ -2850,7 +2837,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.Location = new System.Drawing.Point(128, 359);
+            this.button5.Location = new System.Drawing.Point(108, 359);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(145, 50);
             this.button5.TabIndex = 422;
@@ -2950,7 +2937,7 @@ namespace UserInterface.BakımOnarım
             // dateTimePicker4
             // 
             this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(226, 186);
+            this.dateTimePicker4.Location = new System.Drawing.Point(221, 187);
             this.dateTimePicker4.Name = "dateTimePicker4";
             this.dateTimePicker4.Size = new System.Drawing.Size(112, 20);
             this.dateTimePicker4.TabIndex = 325;
@@ -2958,7 +2945,7 @@ namespace UserInterface.BakımOnarım
             // label59
             // 
             this.label59.AutoSize = true;
-            this.label59.Location = new System.Drawing.Point(110, 180);
+            this.label59.Location = new System.Drawing.Point(105, 181);
             this.label59.Name = "label59";
             this.label59.Size = new System.Drawing.Size(110, 26);
             this.label59.TabIndex = 324;
@@ -2972,7 +2959,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox7.Controls.Add(this.label57);
             this.groupBox7.Controls.Add(this.label58);
             this.groupBox7.Controls.Add(this.textBox22);
-            this.groupBox7.Location = new System.Drawing.Point(128, 226);
+            this.groupBox7.Location = new System.Drawing.Point(108, 226);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(247, 127);
             this.groupBox7.TabIndex = 323;
@@ -3035,7 +3022,7 @@ namespace UserInterface.BakımOnarım
             // 
             // textBox11
             // 
-            this.textBox11.Location = new System.Drawing.Point(105, 19);
+            this.textBox11.Location = new System.Drawing.Point(105, 18);
             this.textBox11.Name = "textBox11";
             this.textBox11.Size = new System.Drawing.Size(127, 20);
             this.textBox11.TabIndex = 322;
@@ -3051,6 +3038,7 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.button7);
             this.tabPage6.Controls.Add(this.label60);
             this.tabPage6.Controls.Add(this.tabControl3);
             this.tabPage6.Controls.Add(this.button6);
@@ -3088,6 +3076,17 @@ namespace UserInterface.BakımOnarım
             this.tabPage6.TabIndex = 3;
             this.tabPage6.Text = "ARIZA KAYIT KAPAT";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // button7
+            // 
+            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button7.Location = new System.Drawing.Point(257, 19);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(63, 23);
+            this.button7.TabIndex = 426;
+            this.button7.Text = "Bul";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // label60
             // 
@@ -3559,7 +3558,7 @@ namespace UserInterface.BakımOnarım
             // textBox32
             // 
             this.textBox32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox32.Location = new System.Drawing.Point(157, 25);
+            this.textBox32.Location = new System.Drawing.Point(119, 20);
             this.textBox32.Name = "textBox32";
             this.textBox32.Size = new System.Drawing.Size(132, 21);
             this.textBox32.TabIndex = 210;
@@ -3568,7 +3567,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label62.AutoSize = true;
             this.label62.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label62.Location = new System.Drawing.Point(68, 28);
+            this.label62.Location = new System.Drawing.Point(30, 23);
             this.label62.Name = "label62";
             this.label62.Size = new System.Drawing.Size(83, 15);
             this.label62.TabIndex = 209;
@@ -3794,6 +3793,49 @@ namespace UserInterface.BakımOnarım
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label21.Location = new System.Drawing.Point(231, 120);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(79, 15);
+            this.label21.TabIndex = 454;
+            this.label21.Text = "Saat : Dakika";
+            // 
+            // DtIscilikSaati
+            // 
+            this.DtIscilikSaati.CustomFormat = "HH:mm";
+            this.DtIscilikSaati.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtIscilikSaati.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtIscilikSaati.Location = new System.Drawing.Point(147, 117);
+            this.DtIscilikSaati.Name = "DtIscilikSaati";
+            this.DtIscilikSaati.ShowUpDown = true;
+            this.DtIscilikSaati.Size = new System.Drawing.Size(78, 21);
+            this.DtIscilikSaati.TabIndex = 453;
+            this.DtIscilikSaati.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label76.Location = new System.Drawing.Point(60, 120);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(81, 15);
+            this.label76.TabIndex = 452;
+            this.label76.Text = "İşçilik Süresi :";
+            // 
+            // button8
+            // 
+            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button8.Location = new System.Drawing.Point(395, 84);
+            this.button8.Name = "button8";
+            this.button8.Size = new System.Drawing.Size(55, 23);
+            this.button8.TabIndex = 455;
+            this.button8.Text = "EKLE";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
             // FrmArizaAcmaCalisma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3905,13 +3947,10 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.RadioButton radioButton4;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Label LbStokNo;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Button BtnCombo;
-        private System.Windows.Forms.ComboBox comboBox4;
         private System.Windows.Forms.Button BtnMalzemeEkle;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker6;
         private System.Windows.Forms.ComboBox comboBox14;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.ComboBox comboBox13;
@@ -3920,7 +3959,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox comboBox11;
+        private System.Windows.Forms.ComboBox CmbKategori;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ComboBox comboBox10;
@@ -3938,7 +3977,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TextBox textBox10;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.ComboBox comboBox17;
+        private System.Windows.Forms.ComboBox CmbParcaNo;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.ComboBox comboBox27;
@@ -4035,15 +4074,12 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.DateTimePicker DtgMailGeldigiTarih;
         private System.Windows.Forms.DateTimePicker DtgMudehaleSaati;
-        private System.Windows.Forms.TextBox TxtIscilikSuresi;
-        private System.Windows.Forms.Label label21;
         private System.Windows.Forms.GroupBox groupBox4;
         private ADGV.AdvancedDataGridView AdvPersonel;
         private System.Windows.Forms.DataGridViewTextBoxColumn AdiSoyadi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Gorevi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Bolumu;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
-        private System.Windows.Forms.Button BtnPersonelEkle;
         private System.Windows.Forms.ComboBox CmbPersoneller;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label35;
@@ -4180,5 +4216,14 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridView DtgMalzemeBilgileriSokulenTakilan;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.TabPage tabPage12;
+        private System.Windows.Forms.Label label74;
+        private System.Windows.Forms.Label label73;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DateTimePicker DtIscilikSaati;
+        private System.Windows.Forms.Label label76;
+        private System.Windows.Forms.Button button8;
     }
 }

@@ -233,6 +233,9 @@ namespace UserInterface.STS
             DtgYedekParca.Columns["Aciklama"].Visible = false;
             DtgYedekParca.Columns["Dosyayolu"].Visible = false;
             DtgYedekParca.Columns["AlternatifMalzeme"].Visible = false;
+            DtgYedekParca.Columns["SistemStokNo"].Visible = false;
+            DtgYedekParca.Columns["SistemTanim"].Visible = false;
+            DtgYedekParca.Columns["SistemPersonel"].Visible = false;
         }
         void DataDisplay()
         {

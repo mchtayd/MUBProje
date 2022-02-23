@@ -78,6 +78,7 @@
     <Compile Include="DokumanYonetim\FormDocument.cs" />
     <Compile Include="Gecic Kabul Ambar\DepoMiktar.cs" />
     <Compile Include="Gecic Kabul Ambar\MalzemeKayit.cs" />
+    <Compile Include="Gecic Kabul Ambar\MalzemeStok.cs" />
     <Compile Include="Gecic Kabul Ambar\StokGirisCıkıs.cs" />
     <Compile Include="GorevAtama.cs" />
     <Compile Include="GorevAtamaPersonel.cs" />

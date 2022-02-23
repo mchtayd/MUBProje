@@ -53,6 +53,8 @@ namespace UserInterface.BakımOnarım
             this.LblIslemAdimSureleri = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.işlemAdımlarınıDuzeltToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).BeginInit();
@@ -66,6 +68,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -111,6 +114,7 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan.AutoGenerateContextFilters = true;
             this.DtgTamamlanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTamamlanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgTamamlanan.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgTamamlanan.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgTamamlanan.DateWithTime = false;
             this.DtgTamamlanan.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -295,6 +299,20 @@ namespace UserInterface.BakımOnarım
             this.LblIslemAdimSureleri.TabIndex = 447;
             this.LblIslemAdimSureleri.Text = "00";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.işlemAdımlarınıDuzeltToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 48);
+            // 
+            // işlemAdımlarınıDuzeltToolStripMenuItem
+            // 
+            this.işlemAdımlarınıDuzeltToolStripMenuItem.Name = "işlemAdımlarınıDuzeltToolStripMenuItem";
+            this.işlemAdımlarınıDuzeltToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.işlemAdımlarınıDuzeltToolStripMenuItem.Text = "İşlem Adımlarını Duzelt";
+            this.işlemAdımlarınıDuzeltToolStripMenuItem.Click += new System.EventHandler(this.işlemAdımlarınıDuzeltToolStripMenuItem_Click);
+            // 
             // FrmBOAtolyeTamamlananlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -325,6 +343,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -353,5 +372,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.BindingSource dataBinder2;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem işlemAdımlarınıDuzeltToolStripMenuItem;
     }
 }

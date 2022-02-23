@@ -8,7 +8,7 @@ namespace Entity.Gecic_Kabul_Ambar
 {
     public class MalzemeKayit
     {
-        int id; string stokno, tanim, birim, tedarikcifirma, malzemeonarimdurumu, malzemeonarımyeri, malzemeturu, malzemetakipdurumu, malzemerevizyon, malzemekul, aciklama, dosyayolu, alternatifMalzeme;
+        int id; string stokno, tanim, birim, tedarikcifirma, malzemeonarimdurumu, malzemeonarımyeri, malzemeturu, malzemetakipdurumu, malzemerevizyon, malzemekul, aciklama, dosyayolu, alternatifMalzeme, sistemStokNo, sistemTanim, sistemPersonel;
 
         public int Id { get => id; set => id = value; }
         public string Stokno { get => stokno; set => stokno = value; }
@@ -24,8 +24,11 @@ namespace Entity.Gecic_Kabul_Ambar
         public string Aciklama { get => aciklama; set => aciklama = value; }
         public string Dosyayolu { get => dosyayolu; set => dosyayolu = value; }
         public string AlternatifMalzeme { get => alternatifMalzeme; set => alternatifMalzeme = value; }
+        public string SistemStokNo { get => sistemStokNo; set => sistemStokNo = value; }
+        public string SistemTanim { get => sistemTanim; set => sistemTanim = value; }
+        public string SistemPersonel { get => sistemPersonel; set => sistemPersonel = value; }
 
-        public MalzemeKayit(int id, string stokno, string tanim, string birim, string tedarikcifirma, string malzemeonarimdurumu, string malzemeonarımyeri, string malzemeturu, string malzemetakipdurumu, string malzemerevizyon, string malzemekul, string aciklama, string dosyayolu,string alternatifMalzeme)
+        public MalzemeKayit(int id, string stokno, string tanim, string birim, string tedarikcifirma, string malzemeonarimdurumu, string malzemeonarımyeri, string malzemeturu, string malzemetakipdurumu, string malzemerevizyon, string malzemekul, string aciklama, string dosyayolu,string alternatifMalzeme,string sistemStokNo,string sistemTanim,string sistemPersonel)
         {
             this.Id = id;
             this.stokno = stokno;
@@ -41,9 +44,12 @@ namespace Entity.Gecic_Kabul_Ambar
             this.Aciklama = aciklama;
             this.Dosyayolu = dosyayolu;
             this.alternatifMalzeme = alternatifMalzeme;
+            this.sistemStokNo = sistemStokNo;
+            this.sistemTanim = sistemTanim;
+            this.sistemPersonel = sistemPersonel;
         }
 
-        public MalzemeKayit(string stokno, string tanim, string birim, string tedarikcifirma, string malzemeonarimdurumu, string malzemeonarımyeri, string malzemeturu, string malzemetakipdurumu, string malzemerevizyon, string malzemekul, string aciklama, string dosyayolu, string alternatifMalzeme)
+        public MalzemeKayit(string stokno, string tanim, string birim, string tedarikcifirma, string malzemeonarimdurumu, string malzemeonarımyeri, string malzemeturu, string malzemetakipdurumu, string malzemerevizyon, string malzemekul, string aciklama, string dosyayolu, string alternatifMalzeme, string sistemStokNo, string sistemTanim, string sistemPersonel)
         {
             this.stokno = stokno;
             this.Tanim = tanim;
@@ -58,6 +64,9 @@ namespace Entity.Gecic_Kabul_Ambar
             this.Aciklama = aciklama;
             this.Dosyayolu = dosyayolu;
             this.alternatifMalzeme = alternatifMalzeme;
+            this.sistemStokNo = sistemStokNo;
+            this.sistemTanim = sistemTanim;
+            this.sistemPersonel = sistemPersonel;
         }
     }
 }
