@@ -65,6 +65,37 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+        public string DepoBirimFiyat(double birimFiyat,string stokNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoGirisCikisBirimFiyat", new SqlParameter("@stokNo", stokNo), new SqlParameter("@birimFiyat", birimFiyat));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public double DepoBirimFiyat(string stokNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoBirimFiyatBul",new SqlParameter("@stokNo",stokNo));
+                double birimFiyat = 0;
+                while (dataReader.Read())
+                {
+                    birimFiyat = dataReader["BIRIM_FIYAT"].ConDouble();
+                }
+                dataReader.Close();
+                return birimFiyat;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
 
         public StokGirisCıkıs Get(string stokNo,string depoNo,string seriNo,string lotNo,string revizyon)
         {

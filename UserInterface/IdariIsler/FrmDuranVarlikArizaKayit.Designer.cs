@@ -697,7 +697,7 @@ namespace UserInterface.IdariIsler
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(16, 616);
+            this.label22.Location = new System.Drawing.Point(10, 619);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(108, 13);
             this.label22.TabIndex = 340;

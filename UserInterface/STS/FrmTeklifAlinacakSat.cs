@@ -3395,7 +3395,7 @@ namespace UserInterface.STS
 
         private void t1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            //e.Handled = true;
         }
 
         private void t2_KeyPress(object sender, KeyPressEventArgs e)

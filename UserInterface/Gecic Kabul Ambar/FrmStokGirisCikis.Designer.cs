@@ -30,12 +30,14 @@ namespace UserInterface.Depo
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStokGirisCikis));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtBirimFiyat = new System.Windows.Forms.TextBox();
+            this.LblBirimFiyat = new System.Windows.Forms.Label();
             this.BtnDepo = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.DtTarih = new System.Windows.Forms.DateTimePicker();
@@ -137,8 +139,6 @@ namespace UserInterface.Depo
             this.panel6 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.DtgSilControl = new ADGV.AdvancedDataGridView();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -210,8 +210,8 @@ namespace UserInterface.Depo
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.label23);
+            this.groupBox1.Controls.Add(this.TxtBirimFiyat);
+            this.groupBox1.Controls.Add(this.LblBirimFiyat);
             this.groupBox1.Controls.Add(this.BtnDepo);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.DtTarih);
@@ -229,6 +229,28 @@ namespace UserInterface.Depo
             this.groupBox1.TabIndex = 46;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "İŞLEM YAPILACAK MALZEME BİLGİSİ";
+            // 
+            // TxtBirimFiyat
+            // 
+            this.TxtBirimFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBirimFiyat.Location = new System.Drawing.Point(373, 112);
+            this.TxtBirimFiyat.Name = "TxtBirimFiyat";
+            this.TxtBirimFiyat.Size = new System.Drawing.Size(102, 21);
+            this.TxtBirimFiyat.TabIndex = 142;
+            this.TxtBirimFiyat.Visible = false;
+            this.TxtBirimFiyat.TextChanged += new System.EventHandler(this.TxtBirimFiyat_TextChanged);
+            this.TxtBirimFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBirimFiyat_KeyPress);
+            // 
+            // LblBirimFiyat
+            // 
+            this.LblBirimFiyat.AutoSize = true;
+            this.LblBirimFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBirimFiyat.Location = new System.Drawing.Point(242, 116);
+            this.LblBirimFiyat.Name = "LblBirimFiyat";
+            this.LblBirimFiyat.Size = new System.Drawing.Size(125, 15);
+            this.LblBirimFiyat.TabIndex = 141;
+            this.LblBirimFiyat.Text = "Malzeme Birim Fiyatı:";
+            this.LblBirimFiyat.Visible = false;
             // 
             // BtnDepo
             // 
@@ -307,6 +329,7 @@ namespace UserInterface.Depo
             this.TxtMiktar.Size = new System.Drawing.Size(113, 20);
             this.TxtMiktar.TabIndex = 50;
             this.TxtMiktar.TextChanged += new System.EventHandler(this.TxtMiktar_TextChanged);
+            this.TxtMiktar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMiktar_KeyPress);
             // 
             // label3
             // 
@@ -893,11 +916,11 @@ namespace UserInterface.Depo
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1239,26 +1262,10 @@ namespace UserInterface.Depo
             this.DtgSilControl.DateWithTime = false;
             this.DtgSilControl.Location = new System.Drawing.Point(1297, 451);
             this.DtgSilControl.Name = "DtgSilControl";
-            this.DtgSilControl.Size = new System.Drawing.Size(37, 39);
+            this.DtgSilControl.Size = new System.Drawing.Size(27, 29);
             this.DtgSilControl.TabIndex = 141;
             this.DtgSilControl.TimeFilter = false;
             this.DtgSilControl.Visible = false;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(352, 112);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(88, 20);
-            this.textBox1.TabIndex = 142;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(242, 116);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(104, 13);
-            this.label23.TabIndex = 141;
-            this.label23.Text = "Malzeme Birim Fiyatı:";
             // 
             // FrmStokGirisCikis
             // 
@@ -1427,7 +1434,7 @@ namespace UserInterface.Depo
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.TextBox TxtBirimFiyat;
+        private System.Windows.Forms.Label LblBirimFiyat;
     }
 }

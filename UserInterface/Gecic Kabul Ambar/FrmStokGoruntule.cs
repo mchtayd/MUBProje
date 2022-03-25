@@ -19,6 +19,7 @@ namespace UserInterface.Depo
         StokGirisCikisManager stokGirisCikisManager;
         MalzemeKayitManager malzemeKayitManager;
         DepoMiktarManager depoMiktarManager;
+        MalzemeManager malzemeManager;
         
         List<DepoMiktar> depoMiktars;
         string stokNo="";
@@ -28,6 +29,7 @@ namespace UserInterface.Depo
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
             depoMiktarManager = DepoMiktarManager.GetInstance();
+            malzemeManager = MalzemeManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -75,10 +77,13 @@ namespace UserInterface.Depo
             DtgDepoBilgileri.Columns["Miktar"].HeaderText = "MİKTAR";
             DtgDepoBilgileri.Columns["DepoNo"].HeaderText = "DEPO NO";
             DtgDepoBilgileri.Columns["DepoAdresi"].HeaderText = "DEPO ADRESİ";
+            DtgDepoBilgileri.Columns["DepoLokasyon"].HeaderText = "DEPO LOKASYON";
             DtgDepoBilgileri.Columns["SeriNo"].HeaderText = "SERİ NO";
             DtgDepoBilgileri.Columns["LotNo"].HeaderText = "LOT NO";
             DtgDepoBilgileri.Columns["Revizyon"].HeaderText = "REVİZYON";
             DtgDepoBilgileri.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
+
+            DtgDepoBilgileri.Columns["DepoLokasyon"].DisplayIndex = 8;
             TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
         }
 
@@ -89,23 +94,33 @@ namespace UserInterface.Depo
                 MessageBox.Show("Lütfen Stok No Bilgisini Doldurunuz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            DtgMalzemeBilgisi.DataSource =  malzemeKayitManager.GetList(TxtStokNo.Text);
+
+            DtgMalzemeBilgisi.DataSource = malzemeManager.MalzemeGetList(TxtStokNo.Text);
 
             DtgMalzemeBilgisi.Columns["Id"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgMalzemeBilgisi.Columns["StokNo"].HeaderText = "STOK NO";
             DtgMalzemeBilgisi.Columns["Tanim"].HeaderText = "TANIM";
             DtgMalzemeBilgisi.Columns["Birim"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Tedarikcifirma"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Malzemeonarimdurumu"].HeaderText = "ONARIM DURUMU";
-            DtgMalzemeBilgisi.Columns["Malzemeonarımyeri"].HeaderText = "ONARIM YERİ";
-            DtgMalzemeBilgisi.Columns["Malzemeturu"].HeaderText = "MALZEME TÜRÜ";
-            DtgMalzemeBilgisi.Columns["Malzemetakipdurumu"].HeaderText = "TAKİP DURUMU";
-            DtgMalzemeBilgisi.Columns["Malzemerevizyon"].Visible = false;
-            //DtgMalzemeBilgisi.Columns["Malzemelot"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Malzemekul"].HeaderText = "MALZEMENİN KULLANILDIĞI YER";
+            DtgMalzemeBilgisi.Columns["TedarikciFirma"].Visible = false;
+            DtgMalzemeBilgisi.Columns["OnarimDurumu"].HeaderText = "ONARIM DURUMU";
+            DtgMalzemeBilgisi.Columns["OnarimYeri"].HeaderText = "ONARIM YERİ";
+            DtgMalzemeBilgisi.Columns["TedarikTuru"].Visible = false;
+            DtgMalzemeBilgisi.Columns["ParcaSinifi"].HeaderText = "PARÇA SINIFI";
+            DtgMalzemeBilgisi.Columns["AlternatifParca"].Visible = false;
             DtgMalzemeBilgisi.Columns["Aciklama"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Dosyayolu"].Visible = false;
-            DtgMalzemeBilgisi.Columns["AlternatifMalzeme"].Visible = false;
+            DtgMalzemeBilgisi.Columns["DosyaYolu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SistemSorumlusu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SistemStokNo"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SistemTanimi"].Visible = false;
+            DtgMalzemeBilgisi.Columns["IslemYapan"].Visible = false;
+            DtgMalzemeBilgisi.Columns["TakipDurumu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["UstStok"].Visible = false;
+            DtgMalzemeBilgisi.Columns["UstTanim"].Visible = false;
+            DtgMalzemeBilgisi.Columns["BenzersizId"].Visible = false;
+
+            double birimFiyat = stokGirisCikisManager.DepoBirimFiyat(TxtStokNo.Text);
+
+            BirimFiyat.Text = birimFiyat.ToString("C2");
         }
 
         private void DtgMalzemeBilgisi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

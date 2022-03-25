@@ -306,7 +306,15 @@ namespace UserInterface.IdariIsler
                 //System.Threading.Tasks.Task.Factory.StartNew(() => BodyMailSendMetod());
                 CreateWord();
                 CreateLog();
-                
+                try
+                {
+                    Directory.Delete(yol, true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    File.Delete(taslakYolu);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataDisplayOnay();
                 Temizle();
@@ -449,7 +457,15 @@ namespace UserInterface.IdariIsler
             firmaBilgisi = DtgList.CurrentRow.Cells["Otelad"].Value.ToString();
 
             SiparisPersonel siparis = siparisPersonelManager.Get("", personelAd);
-            proje = siparis.Projekodu;
+            if (siparis==null)
+            {
+                proje = "ASL-001/MUB";
+            }
+            else
+            {
+                proje = siparis.Projekodu;
+            }
+            
         }
         
         void CreateLog()
@@ -706,6 +722,15 @@ namespace UserInterface.IdariIsler
                 CreateDirectorGuncelle();
                 CreateWordGuncelle();
                 CreateLogGuncelle();
+                try
+                {
+                    Directory.Delete(yol, true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    File.Delete(taslakYolu);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Güncellendi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleGuncelle();
             }

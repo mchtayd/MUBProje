@@ -58,6 +58,17 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
+        public DuranVarlikKayit DvSonNo(string dvSahibi)
+        {
+            try
+            {
+                return kayitDal.DvSonNo(dvSahibi);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DuranVarlikKayit> GetList()
         {

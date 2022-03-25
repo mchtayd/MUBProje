@@ -44,6 +44,8 @@ namespace UserInterface.Depo
             this.TxtStokNo = new System.Windows.Forms.TextBox();
             this.LblToplamMiktar = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.LblBirimFiyat = new System.Windows.Forms.Label();
+            this.BirimFiyat = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoBilgileri)).BeginInit();
@@ -89,6 +91,7 @@ namespace UserInterface.Depo
             // 
             this.DtgDepoBilgileri.AllowUserToAddRows = false;
             this.DtgDepoBilgileri.AllowUserToDeleteRows = false;
+            this.DtgDepoBilgileri.AllowUserToOrderColumns = true;
             this.DtgDepoBilgileri.AutoGenerateContextFilters = true;
             this.DtgDepoBilgileri.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDepoBilgileri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -155,11 +158,15 @@ namespace UserInterface.Depo
             // 
             // DtgMalzemeBilgisi
             // 
+            this.DtgMalzemeBilgisi.AllowUserToAddRows = false;
+            this.DtgMalzemeBilgisi.AllowUserToDeleteRows = false;
+            this.DtgMalzemeBilgisi.AllowUserToOrderColumns = true;
             this.DtgMalzemeBilgisi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeBilgisi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgMalzemeBilgisi.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgMalzemeBilgisi.Location = new System.Drawing.Point(3, 16);
             this.DtgMalzemeBilgisi.Name = "DtgMalzemeBilgisi";
+            this.DtgMalzemeBilgisi.ReadOnly = true;
             this.DtgMalzemeBilgisi.Size = new System.Drawing.Size(1033, 71);
             this.DtgMalzemeBilgisi.TabIndex = 321;
             this.DtgMalzemeBilgisi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgMalzemeBilgisi_CellMouseClick);
@@ -191,11 +198,33 @@ namespace UserInterface.Depo
             this.label3.TabIndex = 321;
             this.label3.Text = "Toplam Miktar:";
             // 
+            // LblBirimFiyat
+            // 
+            this.LblBirimFiyat.AutoSize = true;
+            this.LblBirimFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBirimFiyat.Location = new System.Drawing.Point(1061, 151);
+            this.LblBirimFiyat.Name = "LblBirimFiyat";
+            this.LblBirimFiyat.Size = new System.Drawing.Size(125, 15);
+            this.LblBirimFiyat.TabIndex = 323;
+            this.LblBirimFiyat.Text = "Malzeme Birim Fiyatı:";
+            // 
+            // BirimFiyat
+            // 
+            this.BirimFiyat.AutoSize = true;
+            this.BirimFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BirimFiyat.Location = new System.Drawing.Point(1192, 151);
+            this.BirimFiyat.Name = "BirimFiyat";
+            this.BirimFiyat.Size = new System.Drawing.Size(24, 15);
+            this.BirimFiyat.TabIndex = 324;
+            this.BirimFiyat.Text = "₺ 0";
+            // 
             // FrmStokGoruntule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 867);
+            this.Controls.Add(this.BirimFiyat);
+            this.Controls.Add(this.LblBirimFiyat);
             this.Controls.Add(this.LblToplamMiktar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtStokNo);
@@ -236,5 +265,7 @@ namespace UserInterface.Depo
         private System.Windows.Forms.DataGridView DtgMalzemeBilgisi;
         private System.Windows.Forms.Label LblToplamMiktar;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblBirimFiyat;
+        private System.Windows.Forms.Label BirimFiyat;
     }
 }

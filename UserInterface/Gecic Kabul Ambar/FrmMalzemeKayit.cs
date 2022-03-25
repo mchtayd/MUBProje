@@ -28,12 +28,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
         TeklifFirmalarManager teklifFirmalarManager;
         PersonelKayitManager personelKayitManager;
         MalzemeStokManager malzemeStokManager;
+        MalzemeManager malzemeManager;
+
         int id, kaydedildi = 0;
-        string dosyayolu, fotoyolu, kaynakdosyaismi1, alinandosya1, yeniad, deneme, foto;
+        string dosyayolu, fotoyolu, kaynakdosyaismi1, yeniad, deneme, foto;
         bool start = true;
         List<string> fileNames = new List<string>();
-        public bool buton = false;
+        List<Malzeme> malzemes = new List<Malzeme>();
+
+        public bool buton = false, dosyaControl = false, fotoControl = false;
         public string comboAd;
+        public object[] infos;
+
         public FrmMalzemeKayit()
         {
             InitializeComponent();
@@ -43,6 +49,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             teklifFirmalarManager = TeklifFirmalarManager.GetInstance();
             personelKayitManager = PersonelKayitManager.GetInstance();
             malzemeStokManager = MalzemeStokManager.GetInstance();
+            malzemeManager = MalzemeManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -86,6 +93,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbStokNoUst();
             CmbStokNoUst2();
             Personeller();
+            TedarikTuru();
             start = false;
             if (buton == true)
             {
@@ -123,6 +131,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
             TxtMalzemeTuru.DisplayMember = "Baslik";
             TxtMalzemeTuru.SelectedValue = 0;
         }
+        public void TedarikTuru()
+        {
+            CmbTedarikTuru.DataSource = comboManager.GetList("TEDARIK_TURU");
+            CmbTedarikTuru.ValueMember = "Id";
+            CmbTedarikTuru.DisplayMember = "Baslik";
+            CmbTedarikTuru.SelectedValue = 0;
+        }
         public void OnarimYeri()
         {
             CmbOnarimYeri.DataSource = comboManager.GetList("ONARIM_YERI");
@@ -148,17 +163,16 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             CmbMalKulUst.DataSource = malzemeKayitManager.UstTakimGetList();
             CmbMalKulUst.ValueMember = "Id";
-            CmbMalKulUst.DisplayMember = "Stokno";
+            CmbMalKulUst.DisplayMember = "Tanim";
             CmbMalKulUst.SelectedValue = 0;
         }
 
         void Temizle()
         {
             TxtStn.Text = ""; TxtTanim.Clear(); CmbBirim.SelectedValue = ""; CmbTedarikciFirma.SelectedValue = ""; TxtOnarimDurumu.SelectedIndex = -1; CmbOnarimYeri.SelectedValue = "";
-            TxtMalzemeTuru.SelectedValue = ""; CmbMalzemeTakip.SelectedIndex = -1; TxtRevizyon.Clear(); CmbMalKulUst.Text = ""; TxtAciklama.Clear();
+            TxtMalzemeTuru.SelectedValue = ""; CmbMalzemeTakip.SelectedIndex = -1; CmbMalKulUst.Text = ""; TxtAciklama.Clear();
             PctBox.ImageLocation = ""; webBrowser1.Navigate(""); CmbUstTanim.SelectedValue = ""; TxtUstStok.Clear();
-            DtgStokTanim.Rows.Clear(); CmbAdSoyad.SelectedValue = ""; CmbMalKulUst.SelectedValue = ""; TxtUstTanim.Clear(); CmbAdSoyad.SelectedValue = ""; DtgStokTanim.Rows.Clear();
-
+            DtgStokTanim.Rows.Clear(); CmbAdSoyad.SelectedValue = ""; CmbMalKulUst.SelectedValue = ""; TxtUstTanim.Clear(); CmbAdSoyad.SelectedValue = ""; DtgStokTanim.Rows.Clear(); CmbTedarikTuru.SelectedIndex = -1;
 
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -166,7 +180,84 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DialogResult dialogResult = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
-                MalzemeKayit malzemeKayit = new MalzemeKayit(TxtStn.Text, TxtTanim.Text, CmbBirim.Text, CmbTedarikciFirma.Text, TxtOnarimDurumu.Text, CmbOnarimYeri.Text, TxtMalzemeTuru.Text, CmbMalzemeTakip.Text, TxtRevizyon.Text, CmbMalKulUst.Text, TxtAciklama.Text, dosyayolu, TxtAlternatifMalzeme.Text, CmbMalKulUst.Text, TxtUstTanim.Text, CmbAdSoyad.Text);
+                if (foto == "")
+                {
+                    if (dosyaControl == false)
+                    {
+                        MessageBox.Show("Lütfen Öncelikle Dosya Veya Fotoğraf Ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (fotoControl == false)
+                    {
+                        MessageBox.Show("Lütfen Öncelikle Fotoğraf Ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                else
+                {
+                    if (foto!=null)
+                    {
+                        dosyayolu = foto;
+                    }
+                }
+                
+                Malzeme malzeme = new Malzeme(TxtStn.Text, TxtTanim.Text, CmbBirim.Text, CmbTedarikciFirma.Text, TxtOnarimDurumu.Text, CmbOnarimYeri.Text, CmbTedarikTuru.Text, TxtMalzemeTuru.Text, TxtAlternatifMalzeme.Text, TxtAciklama.Text, dosyayolu, TxtUstTanim.Text, CmbMalKulUst.Text, CmbAdSoyad.Text, infos[1].ToString(), CmbMalzemeTakip.Text);
+
+                string mesaj = malzemeManager.Add(malzeme);
+                dosyaControl = false;
+
+                if (mesaj == "OK")
+                {
+                    Malzeme malzeme1 = malzemeManager.Get(TxtStn.Text);
+                    int benzersizId = malzeme1.Id;
+
+                    if (DtgStokTanim.RowCount != 0)
+                    {
+                        foreach (DataGridViewRow item in DtgStokTanim.Rows)
+                        {
+                            if (malzemes.Count!=0)
+                            {
+                                foreach (Malzeme item2 in malzemes)
+                                {
+                                    if (item2.UstStok == item.Cells["stokNo"].Value.ToString())
+                                    {
+                                        
+                                    }
+                                    else
+                                    {
+                                        Malzeme malzeme2 = new Malzeme(item.Cells["stokNo"].Value.ToString(), item.Cells["tanim"].Value.ToString(), benzersizId);
+                                        malzemeManager.UstTakimEkle(malzeme2);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Malzeme malzeme2 = new Malzeme(item.Cells["stokNo"].Value.ToString(), item.Cells["tanim"].Value.ToString(), benzersizId);
+                                malzemeManager.UstTakimEkle(malzeme2);
+                            }
+                            
+
+                        }
+                    }
+                }
+                else
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                fotoControl = false;
+                dosyaControl = false;
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+            }
+
+
+            #region ÖncekiKayit
+            /*DialogResult dialogResult = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dialogResult == DialogResult.Yes)
+            {
+                MalzemeKayit malzemeKayit = new MalzemeKayit(TxtStn.Text, TxtTanim.Text, CmbBirim.Text, CmbTedarikciFirma.Text, TxtOnarimDurumu.Text, CmbOnarimYeri.Text, TxtMalzemeTuru.Text, CmbMalzemeTakip.Text, CmbMalKulUst.Text, TxtAciklama.Text, dosyayolu, TxtAlternatifMalzeme.Text, CmbMalKulUst.Text, TxtUstTanim.Text, CmbAdSoyad.Text);
                 string mesaj = malzemeKayitManager.Add(malzemeKayit);
                 if (mesaj == "OK")
                 {
@@ -189,7 +280,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-            }
+            }*/
+            #endregion
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -202,7 +294,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     MessageBox.Show("Lütfen Öncelikle Bir Stok No Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                MalzemeKayit malzemeKayit = new MalzemeKayit(TxtStn.Text, TxtTanim.Text, CmbBirim.Text, CmbTedarikciFirma.Text, TxtOnarimDurumu.Text, CmbOnarimYeri.Text, TxtMalzemeTuru.Text, CmbMalzemeTakip.Text, TxtRevizyon.Text, CmbMalKulUst.Text, TxtAciklama.Text, dosyayolu, TxtAlternatifMalzeme.Text,CmbMalKulUst.Text, TxtUstTanim.Text, CmbAdSoyad.Text);
+                MalzemeKayit malzemeKayit = new MalzemeKayit(TxtStn.Text, TxtTanim.Text, CmbBirim.Text, CmbTedarikciFirma.Text, TxtOnarimDurumu.Text, CmbOnarimYeri.Text, TxtMalzemeTuru.Text, CmbMalzemeTakip.Text, CmbMalKulUst.Text, TxtAciklama.Text, dosyayolu, TxtAlternatifMalzeme.Text, CmbMalKulUst.Text, TxtUstTanim.Text, CmbAdSoyad.Text);
                 string mesaj = malzemeKayitManager.Update(malzemeKayit, id);
                 if (mesaj != "OK")
                 {
@@ -291,7 +383,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 TxtUstTanim.Text = "";
                 return;
             }
-            TxtUstTanim.Text = personelKayit.Tanim;
+            TxtUstTanim.Text = personelKayit.Stokno;
         }
         string dosya = "", stok = "";
         void CreateFile()
@@ -356,6 +448,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             FrmUstTakimEkle frmUstTakimEkle = new FrmUstTakimEkle();
             frmUstTakimEkle.ShowDialog();
+        }
+
+        private void BtnTedarikTürüEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "TEDARIK_TURU";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
         }
 
         private void BtnExcelCek_Click(object sender, EventArgs e)
@@ -423,6 +523,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return;
             }
+
+            DtgStokTanim.Rows.Clear();
             id = TxtStn.SelectedValue.ConInt();
             MalzemeKayit personelKayit = malzemeKayitManager.Get(id);
             TxtTanim.Text = personelKayit.Tanim;
@@ -432,7 +534,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbOnarimYeri.Text = personelKayit.Malzemeonarımyeri;
             TxtMalzemeTuru.Text = personelKayit.Malzemeturu;
             CmbMalzemeTakip.Text = personelKayit.Malzemetakipdurumu;
-            TxtRevizyon.Text = personelKayit.Malzemerevizyon;
             CmbMalKulUst.Text = personelKayit.Malzemekul;
             TxtAciklama.Text = personelKayit.Aciklama;
             dosyayolu = personelKayit.Dosyayolu;
@@ -442,6 +543,25 @@ namespace UserInterface.Gecic_Kabul_Ambar
             foto = personelKayit.Dosyayolu;
             PctBox.ImageLocation = foto + deneme;
 
+            malzemes = malzemeManager.MalzemeUstTakimList(id);
+
+            if (malzemes.Count == 0)
+            {
+                return;
+            }
+            else
+            {
+                foreach (Malzeme item in malzemes)
+                {
+                    DtgStokTanim.Rows.Add();
+                    int sonSatir = DtgStokTanim.RowCount - 1;
+                    DtgStokTanim.Rows[sonSatir].Cells["stokNo"].Value = item.StokNo;
+                    DtgStokTanim.Rows[sonSatir].Cells["tanim"].Value = item.Tanim;
+
+                }
+
+
+            }
         }
         private void BtnFotoEkle_Click(object sender, EventArgs e)
         {
@@ -491,12 +611,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     File.Delete(silinecek);
                 }
                 File.Copy(fotoyolu, dosyayolu + "\\" + yeniad);
+                dosyaControl = true;
+                fotoControl = true;
             }
             else
             {
                 MessageBox.Show("Lütfen JPEG veya PNG formatında olan bir dosyayı seçiniz.");
             }
-            BtnKaydet.Enabled = true;
+
         }
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
@@ -524,7 +646,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 Directory.CreateDirectory(dosyayolu);
             }
-           
+
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
             {
                 kaynakdosyaismi = openFileDialog1.SafeFileName.ToString();
@@ -545,6 +667,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 fileNames.Add(alinandosya);
                 //BtnFotoEkle.Enabled = true;
                 webBrowser1.Navigate(dosyayolu);
+                dosyaControl = true;
             }
         }
     }

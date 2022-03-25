@@ -103,7 +103,26 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public DuranVarlikKayit DvSonNo(string dvSahibi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DuranVarlikSonNo",new SqlParameter("@dvSahibi",dvSahibi));
+                DuranVarlikKayit item = null;
+                while (dataReader.Read())
+                {
+                    item = new DuranVarlikKayit(
+                        dataReader["IS_AKIS_NO"].ConInt());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
             {
                 return null;
             }
@@ -148,6 +167,7 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<DuranVarlikKayit>();
             }
         }
+
 
         public string Update(DuranVarlikKayit entity,int id)
         {

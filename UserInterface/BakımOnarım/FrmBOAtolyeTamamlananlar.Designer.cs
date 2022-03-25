@@ -36,6 +36,8 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgTamamlanan = new ADGV.AdvancedDataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.işlemAdımlarınıDuzeltToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
             this.tabControl3 = new System.Windows.Forms.TabControl();
@@ -53,11 +55,10 @@ namespace UserInterface.BakımOnarım
             this.LblIslemAdimSureleri = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.işlemAdımlarınıDuzeltToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).BeginInit();
@@ -68,7 +69,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,7 +114,6 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan.AutoGenerateContextFilters = true;
             this.DtgTamamlanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTamamlanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgTamamlanan.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgTamamlanan.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgTamamlanan.DateWithTime = false;
             this.DtgTamamlanan.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -126,7 +125,23 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan.Size = new System.Drawing.Size(1425, 347);
             this.DtgTamamlanan.TabIndex = 4;
             this.DtgTamamlanan.TimeFilter = false;
+            this.DtgTamamlanan.SortStringChanged += new System.EventHandler(this.DtgTamamlanan_SortStringChanged);
+            this.DtgTamamlanan.FilterStringChanged += new System.EventHandler(this.DtgTamamlanan_FilterStringChanged);
             this.DtgTamamlanan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgTamamlanan_CellMouseClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.işlemAdımlarınıDuzeltToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 26);
+            // 
+            // işlemAdımlarınıDuzeltToolStripMenuItem
+            // 
+            this.işlemAdımlarınıDuzeltToolStripMenuItem.Name = "işlemAdımlarınıDuzeltToolStripMenuItem";
+            this.işlemAdımlarınıDuzeltToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
+            this.işlemAdımlarınıDuzeltToolStripMenuItem.Text = "İşlem Adımlarını Duzelt";
+            this.işlemAdımlarınıDuzeltToolStripMenuItem.Click += new System.EventHandler(this.işlemAdımlarınıDuzeltToolStripMenuItem_Click);
             // 
             // label3
             // 
@@ -299,20 +314,6 @@ namespace UserInterface.BakımOnarım
             this.LblIslemAdimSureleri.TabIndex = 447;
             this.LblIslemAdimSureleri.Text = "00";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.işlemAdımlarınıDuzeltToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(197, 48);
-            // 
-            // işlemAdımlarınıDuzeltToolStripMenuItem
-            // 
-            this.işlemAdımlarınıDuzeltToolStripMenuItem.Name = "işlemAdımlarınıDuzeltToolStripMenuItem";
-            this.işlemAdımlarınıDuzeltToolStripMenuItem.Size = new System.Drawing.Size(196, 22);
-            this.işlemAdımlarınıDuzeltToolStripMenuItem.Text = "İşlem Adımlarını Duzelt";
-            this.işlemAdımlarınıDuzeltToolStripMenuItem.Click += new System.EventHandler(this.işlemAdımlarınıDuzeltToolStripMenuItem_Click);
-            // 
             // FrmBOAtolyeTamamlananlar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +334,7 @@ namespace UserInterface.BakımOnarım
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).EndInit();
@@ -343,7 +345,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

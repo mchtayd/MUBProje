@@ -74,7 +74,7 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ISCILIK_TURU"].ToString(),
                         dataReader["ABF_SIPARIS"].ToString(),
                         dataReader["TARIH"].ConDate(),
-                        dataReader["ISCILIK_SURESI_SAAT"].ToString());
+                        dataReader["ISCILIK_SURESI_SAAT"].ConOnlyTime());
                 }
                 dataReader.Close();
                 return item;
@@ -102,7 +102,7 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ISCILIK_TURU"].ToString(),
                         dataReader["ABF_NO"].ToString(),
                         dataReader["TARIH"].ConDate(),
-                        dataReader["ISCILIK_SURESI_SAAT"].ToString()));
+                        dataReader["ISCILIK_SURESI_SAAT"].ConOnlyTime()));
                 }
                 dataReader.Close();
                 return ısciliks;

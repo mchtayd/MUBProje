@@ -87,7 +87,7 @@ namespace UserInterface.BakımOnarım
             DtgTamamlanan.Columns["Modifikasyonlar"].HeaderText = "MODİFİKASYONLAR";
             DtgTamamlanan.Columns["Notlar"].HeaderText = "NOTLAR";
             DtgTamamlanan.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
-            DtgTamamlanan.Columns["Gecensure"].HeaderText = "GEÇEN SÜRE (GÜN)";
+            DtgTamamlanan.Columns["Gecensure"].Visible = false;
             DtgTamamlanan.Columns["KapatmaTarihi"].HeaderText = "KAPATMA TARİHİ";
             DtgTamamlanan.Columns["SiparisNo"].Visible = false;
             DtgTamamlanan.Columns["BildirilenAriza"].Visible = false;
@@ -130,7 +130,15 @@ namespace UserInterface.BakımOnarım
             DataDisplayAltMalzeme();
             IslemAdimlariSureleri();
             DepoHareketleri();
-            webBrowser1.Navigate(dosyaYolu);
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
         void DataDisplayAltMalzeme()
         {
@@ -193,37 +201,39 @@ namespace UserInterface.BakımOnarım
             DtgDepoHareketleri.Columns["Aciklama"].DisplayIndex = 17;
 
         }
+        string bulunduguIslemAdimi = "";
+        DateTime birOncekiTarih;
+
+        private void DtgTamamlanan_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgTamamlanan.FilterString;
+            TxtTop.Text = DtgTamamlanan.RowCount.ToString();
+        }
+
+        private void DtgTamamlanan_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgTamamlanan.SortString;
+        }
 
         private void işlemAdımlarınıDuzeltToolStripMenuItem_Click(object sender, EventArgs e)
         {
             id = DtgTamamlanan.CurrentRow.Cells["Id"].Value.ConInt();
             gorevAtamaPersonels = gorevAtamaPersonelManager.GorevAtamaGetList(id);
-            List<DateTime> times = new List<DateTime>();
-            List<int> Idler = new List<int>();
-            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
-            {
-                times.Add(item.Tarih);
-                Idler.Add(item.Id);
-            }
-            for (int i = 0; i < times.Count; i++)
-            {
-                if (i + 1 == times.Count)
-                {
-                    MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!");
-                    return;
-                }
 
-                TimeSpan sonuc = times[i + 1] - times[i];
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
+
+            bulunduguIslemAdimi = gorevAtamaPersonel.IslemAdimi;
+            birOncekiTarih = gorevAtamaPersonel.Tarih;
+            id = gorevAtamaPersonel.Id;
+
+            if (bulunduguIslemAdimi== "1600-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT)")
+            {
+                TimeSpan sonuc = DateTime.Now - birOncekiTarih;
 
                 sure = $"{sonuc.Days} Gün {sonuc.Hours} Saat {sonuc.Minutes} Dakika";
-                gorevAtamaPersonelManager.SureDuzelt(Idler[i], sure);
-
-                //string day = sonuc.Days == 0 ? "" : sonuc.Days + " Gün ";
-
-
-                //sure = $"{day}{sonuc.Hours} Saat {sonuc.Minutes} Dakika";
-
+                gorevAtamaPersonelManager.SureDuzelt(id, sure);
             }
+            
         }
 
         void IslemAdimlariSureleri()
@@ -277,12 +287,9 @@ namespace UserInterface.BakımOnarım
 
             foreach (DataGridViewRow item in DtgIslemKayitlari.Rows)
             {
-                /*string sure = item.Cells["Sure"].Value.ToString();
-                if (sure == "Devam Ediyor")
-                {
-                    LblIslemAdimSureleri.Text = toplamGun + " Gün " + toplamSaat + " Saat " + toplamDakika + " Dakika";
-                    return;
-                }
+                string sure = item.Cells["Sure"].Value.ToString();
+                string islemAdimi = item.Cells["IslemAdimi"].Value.ToString();
+                
 
                 string[] array = sure.Split(' ');
                 int mevcutDakika = array[4].ConInt();
@@ -305,7 +312,13 @@ namespace UserInterface.BakımOnarım
                     toplamSaat = toplamSaat % 24;
                 }
 
-                toplamGun = toplamGun + mevcutGun;*/
+                toplamGun = toplamGun + mevcutGun;
+
+                if (islemAdimi == "1600-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT)")
+                {
+                    LblIslemAdimSureleri.Text = toplamGun + " Gün " + toplamSaat + " Saat " + toplamDakika + " Dakika";
+                    return;
+                }
             }
         }
     }

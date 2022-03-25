@@ -28,6 +28,7 @@ namespace UserInterface.Butce
 
         Siparisler siparisler;
         List<Siparisler> siparislers;
+        List<Siparisler> siparislers2;
         int ids, TOPLAMPERSONEL, TOPLAMARAC, yoneticiarac, araziarac, personelyonetici, personel, personeldepo, kontenjan, mevcut, siparisNereyeKontenjan;
         string benzersizgelen, benzersizolustur, SİPARİSNO, yil, neredenSiparis = "", nereyeSiparis = "";
         bool start = false;
@@ -85,7 +86,10 @@ namespace UserInterface.Butce
         }
         public void MevcutKadro()
         {
-            DtgMevcutKadro.DataSource = siparislerManager.GetList();
+            siparislers2 = siparislerManager.GetList();
+            dataBinder.DataSource = siparislers2.ToDataTable();
+            DtgMevcutKadro.DataSource = dataBinder;
+
             DataDisplay();
             KadroControl();
         }
@@ -502,12 +506,13 @@ namespace UserInterface.Butce
 
         private void DtgMevcutKadro_FilterStringChanged(object sender, EventArgs e)
         {
-
+            dataBinder.Filter = DtgMevcutKadro.FilterString;
+            Toplamlar();
         }
 
         private void DtgMevcutKadro_SortStringChanged(object sender, EventArgs e)
         {
-
+            dataBinder.Sort = DtgMevcutKadro.SortString;
         }
 
         string KontenjanControlGuncelle()

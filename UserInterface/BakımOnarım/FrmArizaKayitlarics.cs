@@ -69,7 +69,7 @@ namespace UserInterface.BakımOnarım
             DtgArizaKayitlari.Columns["ABAlanPersonel"].HeaderText = "ARIZA BİLDİRİMİNİ ALAN PERSONEL";
             DtgArizaKayitlari.Columns["BildirimKanali"].HeaderText = "BİLDİRİM KANALI";
             DtgArizaKayitlari.Columns["ArizaAciklama"].HeaderText = "ARIZA AÇIKLAMA";
-            DtgArizaKayitlari.Columns["GorevAtanacakPersonel"].HeaderText = "GÖREV ATANACAK PERSONEL";
+            DtgArizaKayitlari.Columns["GorevAtanacakPersonel"].HeaderText = "GÖREV ATANAN PERSONEL";
             DtgArizaKayitlari.Columns["IslemAdimi"].HeaderText = "İŞLEM ADIMI";
             DtgArizaKayitlari.Columns["DosyaYolu"].Visible = false;
             DtgArizaKayitlari.Columns["SiparisNo"].Visible = false;
@@ -78,13 +78,14 @@ namespace UserInterface.BakımOnarım
             DtgArizaKayitlari.Columns["LojRutbesi"].Visible = false;
             DtgArizaKayitlari.Columns["LojGorevi"].Visible = false;
             DtgArizaKayitlari.Columns["LojTarihi"].Visible = false;
-            DtgArizaKayitlari.Columns["LojSaati"].Visible = false;
+            
             DtgArizaKayitlari.Columns["TespitEdilenAriza"].Visible = false;
             DtgArizaKayitlari.Columns["AcmaOnayiVeren"].Visible = false;
             DtgArizaKayitlari.Columns["CsSiparisNo"].Visible = false;
             DtgArizaKayitlari.Columns["BildirimNo"].Visible = false;
             DtgArizaKayitlari.Columns["CrmNo"].Visible = false;
             DtgArizaKayitlari.Columns["SiparisNo"].Visible = false;
+            DtgArizaKayitlari.Columns["TelefonNo"].Visible = false;
 
         }
     }

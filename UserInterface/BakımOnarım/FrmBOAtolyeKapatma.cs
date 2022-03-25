@@ -53,9 +53,12 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show(TxtIcSiparisNo.Text + " Nolu Kaydı Kapatmak İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
+
                 atolyeManager.ArizaKapat(id, 0, DateTime.Now);
 
                 GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:05:00".ConOnlyTime());
+
+                
                 string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "SİPARİŞ KAPATILMIŞTIR");
                 if (kontrol2 != "OK")
                 {
@@ -193,18 +196,19 @@ namespace UserInterface.BakımOnarım
             birOncekiTarih = gorevAtamaPersonel.Tarih;
             //LblMevcutIslemAdimi.Text = bulunduguIslemAdimi;
 
-            TimeSpan SonucGun = DateTime.Now - birOncekiTarih;
-            TimeSpan SonucSaat = DateTime.Now - birOncekiTarih;
-            TimeSpan SonucDakika = DateTime.Now - birOncekiTarih;
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
 
-            gun = SonucGun.TotalDays.ConInt();
-            saat = SonucSaat.TotalHours.ConInt();
-            if (SonucSaat.TotalHours < 1)
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
             {
                 saat = 0;
             }
-            dakika = SonucDakika.TotalMinutes.ConInt();
-            SureBul();
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
 
             DtgAtolye.DataSource = atolyeMalzemeManager.AtolyeMalzemeBul(siparisNo);
 
@@ -305,25 +309,6 @@ namespace UserInterface.BakımOnarım
             sonIslemAdimi = gorevAtamaPersonels[sonKayit - 1].IslemAdimi;
 
         }
-        void SureBul()
-        {
-            if (gun == 0)
-            {
-                if (saat == 0)
-                {
-                    if (dakika != 0)
-                    {
-                        sure = dakika.ToString() + " Dakika";
-                        return;
-                    }
-                    sure = "0" + " Dakika";
-                    return;
-                }
-                sure = saat.ToString() + " Saat" + dakika.ToString() + " Dakika";
-                return;
-            }
-            sure = gun.ToString() + " Gün" + saat.ToString() + " Saat" + dakika.ToString() + " Dakika";
-            return;
-        }
+        
     }
 }

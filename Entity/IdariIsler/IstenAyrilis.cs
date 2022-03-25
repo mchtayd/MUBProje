@@ -168,13 +168,13 @@ namespace Entity.IdariIsler
             this.siparisno = siparisno;
         }
 
-        public IstenAyrilis(int id, string adsoyad, string siparis, string masyerino, string sirketBolum, string isunvani)
+        public IstenAyrilis(int id, string adsoyad, string siparis, string masyerino, string masrafYeri, string isunvani)
         {
             this.id = id;
             this.adsoyad = adsoyad;
             this.siparis = siparis;
             this.masyerino = masyerino;
-            this.sirketbolum = sirketBolum;
+            this.masrafyeri = masrafYeri;
             this.isunvani = isunvani;
         }
     }

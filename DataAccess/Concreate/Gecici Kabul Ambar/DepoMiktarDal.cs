@@ -36,6 +36,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@miktar",entity.Miktar),
                     new SqlParameter("@depoNo",entity.DepoNo),
                     new SqlParameter("@depoAdresi",entity.DepoAdresi),
+                    new SqlParameter("@depoLokasyon",entity.DepoLokasyon),
                     new SqlParameter("@aciklama",entity.Aciklama));
 
                 dataReader.Close();
@@ -80,6 +81,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["SON_ISLEM_YAPAN"].ToString(),
                         dataReader["DEPO_NO"].ToString(),
                         dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
                         dataReader["ACIKLAMA"].ToString());
                 }
@@ -115,13 +117,14 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["SON_ISLEM_YAPAN"].ToString(),
                         dataReader["DEPO_NO"].ToString(),
                         dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
                         dataReader["ACIKLAMA"].ToString());
                 }
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -146,6 +149,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["SON_ISLEM_YAPAN"].ToString(),
                         dataReader["DEPO_NO"].ToString(),
                         dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
                         dataReader["ACIKLAMA"].ToString()));
                 }
@@ -176,6 +180,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["SON_ISLEM_YAPAN"].ToString(),
                         dataReader["DEPO_NO"].ToString(),
                         dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
                         dataReader["ACIKLAMA"].ToString()));
                 }

@@ -181,6 +181,11 @@ namespace UserInterface.IdariIsler
         void AracBakimSonKayit()
         {
             AracBakim aracBakim = aracBakimManager.AracBakimSonKayit(TxtPlaka.Text);
+            if (aracBakim==null)
+            {
+                MessageBox.Show("Araç Daha Önce Bakıma Gitmediği İçin Son Bakım Kaydı Getirilmemektedir!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                return;
+            }
 
             DtgSonKayit.Rows.Add();
             int sonSatir = DtgSonKayit.RowCount - 1;
@@ -338,6 +343,7 @@ namespace UserInterface.IdariIsler
             wBookmarks["TalepTarihi"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
             wBookmarks["Km"].Range.Text = TxtKm.Text;
             wBookmarks["TalepAciklama"].Range.Text = TxtAciklama.Text;
+            wBookmarks["TalepNedeni"].Range.Text = CmbBakNedeni.Text;
             wBookmarks["TalepEden"].Range.Text = goturecekPersonel;
             wBookmarks["Tarih1"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
             wBookmarks["Saat1"].Range.Text = DtSaat.Value.ToString("H:mm:ss");
@@ -624,6 +630,7 @@ namespace UserInterface.IdariIsler
             SiparisPersonel siparis = siparisPersonelManager.Get("", TxtPersonelKapat.Text);
             if (siparis==null)
             {
+                MessageBox.Show("Bu Aracın Zimmetli Personeli İşten Ayrılmıştır! Yinede Sat Oluşuturulacaktır.","Hata",MessageBoxButtons.OK,MessageBoxIcon.Warning);
                 IstenAyrilis ıstenAyrilis = ıstenAyrilisManager.Get(TxtPersonelKapat.Text);
                 masrafyerino = ıstenAyrilis.Masyerino;
                 personelSiparis = ıstenAyrilis.Siparis;

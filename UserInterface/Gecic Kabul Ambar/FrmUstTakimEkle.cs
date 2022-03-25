@@ -55,6 +55,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["SistemStokNo"].Visible = false;
             DtgList.Columns["SistemTanim"].Visible = false;
             DtgList.Columns["SistemPersonel"].Visible = false;
+            
+            DtgList.Columns["KayitDurumu"].Visible = false;
+            DtgList.Columns["SeriNo"].Visible = false;
+            DtgList.Columns["Durum"].Visible = false;
+            DtgList.Columns["Revizyon"].Visible = false;
+            DtgList.Columns["Miktar"].Visible = false;
+            DtgList.Columns["TalepTarihi"].Visible = false;
+            DtgList.Columns["SistemStokNo"].Visible = false;
+            DtgList.Columns["SistemTanim"].Visible = false;
         }
 
         private void TxtStokNo_TextChanged(object sender, EventArgs e)

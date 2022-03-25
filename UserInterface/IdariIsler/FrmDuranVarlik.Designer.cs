@@ -35,6 +35,8 @@ namespace UserInterface.EgitimDok
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.asdadasd = new System.Windows.Forms.GroupBox();
+            this.TxtSatNo = new System.Windows.Forms.TextBox();
+            this.TxtTanim = new System.Windows.Forms.TextBox();
             this.LblAdet = new System.Windows.Forms.Label();
             this.TxtAdet = new System.Windows.Forms.TextBox();
             this.BtnCoklu = new System.Windows.Forms.Button();
@@ -51,7 +53,6 @@ namespace UserInterface.EgitimDok
             this.TxtMarka = new System.Windows.Forms.TextBox();
             this.TxtMiktar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.CmbSatNo = new System.Windows.Forms.ComboBox();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.TxtFiyat = new System.Windows.Forms.TextBox();
@@ -64,7 +65,6 @@ namespace UserInterface.EgitimDok
             this.TxtSeriNo = new System.Windows.Forms.TextBox();
             this.label23 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.CmbDvTanim = new System.Windows.Forms.ComboBox();
             this.TxtModel = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
@@ -134,6 +134,9 @@ namespace UserInterface.EgitimDok
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
+            this.BtnButceKoduEkle = new System.Windows.Forms.Button();
+            this.BtnDvGrubuEkle = new System.Windows.Forms.Button();
+            this.BtnDvDurumuEkle = new System.Windows.Forms.Button();
             this.groupBox5.SuspendLayout();
             this.asdadasd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
@@ -150,7 +153,7 @@ namespace UserInterface.EgitimDok
             // 
             this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(596, 567);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(587, 497);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(157, 50);
             this.BtnDosyaEkle.TabIndex = 143;
@@ -162,7 +165,7 @@ namespace UserInterface.EgitimDok
             // 
             this.label80.AutoSize = true;
             this.label80.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label80.Location = new System.Drawing.Point(23, 576);
+            this.label80.Location = new System.Drawing.Point(14, 506);
             this.label80.Name = "label80";
             this.label80.Size = new System.Drawing.Size(567, 30);
             this.label80.TabIndex = 142;
@@ -171,7 +174,7 @@ namespace UserInterface.EgitimDok
             // groupBox5
             // 
             this.groupBox5.Controls.Add(this.webBrowser1);
-            this.groupBox5.Location = new System.Drawing.Point(26, 409);
+            this.groupBox5.Location = new System.Drawing.Point(17, 345);
             this.groupBox5.Name = "groupBox5";
             this.groupBox5.Size = new System.Drawing.Size(730, 146);
             this.groupBox5.TabIndex = 141;
@@ -189,6 +192,11 @@ namespace UserInterface.EgitimDok
             // 
             // asdadasd
             // 
+            this.asdadasd.Controls.Add(this.BtnDvDurumuEkle);
+            this.asdadasd.Controls.Add(this.BtnDvGrubuEkle);
+            this.asdadasd.Controls.Add(this.BtnButceKoduEkle);
+            this.asdadasd.Controls.Add(this.TxtSatNo);
+            this.asdadasd.Controls.Add(this.TxtTanim);
             this.asdadasd.Controls.Add(this.LblAdet);
             this.asdadasd.Controls.Add(this.TxtAdet);
             this.asdadasd.Controls.Add(this.BtnCoklu);
@@ -205,7 +213,6 @@ namespace UserInterface.EgitimDok
             this.asdadasd.Controls.Add(this.TxtMarka);
             this.asdadasd.Controls.Add(this.TxtMiktar);
             this.asdadasd.Controls.Add(this.label1);
-            this.asdadasd.Controls.Add(this.CmbSatNo);
             this.asdadasd.Controls.Add(this.TxtAciklama);
             this.asdadasd.Controls.Add(this.label24);
             this.asdadasd.Controls.Add(this.TxtFiyat);
@@ -218,7 +225,6 @@ namespace UserInterface.EgitimDok
             this.asdadasd.Controls.Add(this.TxtSeriNo);
             this.asdadasd.Controls.Add(this.label23);
             this.asdadasd.Controls.Add(this.label28);
-            this.asdadasd.Controls.Add(this.CmbDvTanim);
             this.asdadasd.Controls.Add(this.TxtModel);
             this.asdadasd.Controls.Add(this.label29);
             this.asdadasd.Controls.Add(this.label30);
@@ -232,18 +238,32 @@ namespace UserInterface.EgitimDok
             this.asdadasd.Controls.Add(this.PctBox);
             this.asdadasd.Controls.Add(this.label40);
             this.asdadasd.Controls.Add(this.label39);
-            this.asdadasd.Location = new System.Drawing.Point(26, 27);
+            this.asdadasd.Location = new System.Drawing.Point(8, 27);
             this.asdadasd.Name = "asdadasd";
-            this.asdadasd.Size = new System.Drawing.Size(1360, 376);
+            this.asdadasd.Size = new System.Drawing.Size(1462, 312);
             this.asdadasd.TabIndex = 138;
             this.asdadasd.TabStop = false;
             this.asdadasd.Text = "DURAN VARLIK BİLGİLER";
+            // 
+            // TxtSatNo
+            // 
+            this.TxtSatNo.Location = new System.Drawing.Point(1069, 19);
+            this.TxtSatNo.Name = "TxtSatNo";
+            this.TxtSatNo.Size = new System.Drawing.Size(194, 20);
+            this.TxtSatNo.TabIndex = 356;
+            // 
+            // TxtTanim
+            // 
+            this.TxtTanim.Location = new System.Drawing.Point(673, 19);
+            this.TxtTanim.Name = "TxtTanim";
+            this.TxtTanim.Size = new System.Drawing.Size(281, 20);
+            this.TxtTanim.TabIndex = 355;
             // 
             // LblAdet
             // 
             this.LblAdet.AutoSize = true;
             this.LblAdet.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblAdet.Location = new System.Drawing.Point(466, 31);
+            this.LblAdet.Location = new System.Drawing.Point(451, 49);
             this.LblAdet.Name = "LblAdet";
             this.LblAdet.Size = new System.Drawing.Size(106, 12);
             this.LblAdet.TabIndex = 354;
@@ -252,7 +272,7 @@ namespace UserInterface.EgitimDok
             // 
             // TxtAdet
             // 
-            this.TxtAdet.Location = new System.Drawing.Point(421, 27);
+            this.TxtAdet.Location = new System.Drawing.Point(406, 45);
             this.TxtAdet.Name = "TxtAdet";
             this.TxtAdet.Size = new System.Drawing.Size(39, 20);
             this.TxtAdet.TabIndex = 353;
@@ -264,7 +284,7 @@ namespace UserInterface.EgitimDok
             // 
             this.BtnCoklu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCoklu.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnCoklu.Location = new System.Drawing.Point(377, 27);
+            this.BtnCoklu.Location = new System.Drawing.Point(362, 45);
             this.BtnCoklu.Name = "BtnCoklu";
             this.BtnCoklu.Size = new System.Drawing.Size(38, 20);
             this.BtnCoklu.TabIndex = 352;
@@ -276,7 +296,7 @@ namespace UserInterface.EgitimDok
             // 
             this.BtnTekli.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTekli.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTekli.Location = new System.Drawing.Point(333, 27);
+            this.BtnTekli.Location = new System.Drawing.Point(318, 45);
             this.BtnTekli.Name = "BtnTekli";
             this.BtnTekli.Size = new System.Drawing.Size(38, 20);
             this.BtnTekli.TabIndex = 345;
@@ -286,14 +306,14 @@ namespace UserInterface.EgitimDok
             // 
             // LblIsAkisNo
             // 
-            this.LblIsAkisNo.Location = new System.Drawing.Point(133, 27);
+            this.LblIsAkisNo.Location = new System.Drawing.Point(118, 46);
             this.LblIsAkisNo.Name = "LblIsAkisNo";
             this.LblIsAkisNo.Size = new System.Drawing.Size(194, 20);
             this.LblIsAkisNo.TabIndex = 351;
             // 
             // CmbSaticiFirma
             // 
-            this.CmbSaticiFirma.Location = new System.Drawing.Point(734, 86);
+            this.CmbSaticiFirma.Location = new System.Drawing.Point(1069, 46);
             this.CmbSaticiFirma.Name = "CmbSaticiFirma";
             this.CmbSaticiFirma.Size = new System.Drawing.Size(194, 20);
             this.CmbSaticiFirma.TabIndex = 350;
@@ -302,7 +322,7 @@ namespace UserInterface.EgitimDok
             // 
             this.BtnNoAl.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnNoAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnNoAl.Location = new System.Drawing.Point(254, 105);
+            this.BtnNoAl.Location = new System.Drawing.Point(239, 97);
             this.BtnNoAl.Name = "BtnNoAl";
             this.BtnNoAl.Size = new System.Drawing.Size(73, 25);
             this.BtnNoAl.TabIndex = 345;
@@ -317,7 +337,7 @@ namespace UserInterface.EgitimDok
             "FAAL",
             "HURDA",
             "ZAYİ (KAYIP)"});
-            this.CmbDurumu.Location = new System.Drawing.Point(133, 161);
+            this.CmbDurumu.Location = new System.Drawing.Point(118, 154);
             this.CmbDurumu.Name = "CmbDurumu";
             this.CmbDurumu.Size = new System.Drawing.Size(194, 21);
             this.CmbDurumu.TabIndex = 349;
@@ -325,7 +345,7 @@ namespace UserInterface.EgitimDok
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(50, 165);
+            this.label2.Location = new System.Drawing.Point(35, 158);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(77, 13);
             this.label2.TabIndex = 348;
@@ -333,7 +353,7 @@ namespace UserInterface.EgitimDok
             // 
             // DtFaturaTarihi
             // 
-            this.DtFaturaTarihi.Location = new System.Drawing.Point(735, 112);
+            this.DtFaturaTarihi.Location = new System.Drawing.Point(1070, 73);
             this.DtFaturaTarihi.Mask = "00/00/0000";
             this.DtFaturaTarihi.Name = "DtFaturaTarihi";
             this.DtFaturaTarihi.Size = new System.Drawing.Size(193, 20);
@@ -343,7 +363,7 @@ namespace UserInterface.EgitimDok
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(21, 31);
+            this.label8.Location = new System.Drawing.Point(6, 50);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(109, 13);
             this.label8.TabIndex = 165;
@@ -351,19 +371,20 @@ namespace UserInterface.EgitimDok
             // 
             // CmbKalGerek
             // 
+            this.CmbKalGerek.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbKalGerek.FormattingEnabled = true;
             this.CmbKalGerek.Items.AddRange(new object[] {
             "EVET",
             "HAYIR"});
-            this.CmbKalGerek.Location = new System.Drawing.Point(430, 186);
+            this.CmbKalGerek.Location = new System.Drawing.Point(673, 155);
             this.CmbKalGerek.Name = "CmbKalGerek";
-            this.CmbKalGerek.Size = new System.Drawing.Size(194, 21);
+            this.CmbKalGerek.Size = new System.Drawing.Size(115, 21);
             this.CmbKalGerek.TabIndex = 164;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(231, 194);
+            this.label7.Location = new System.Drawing.Point(475, 159);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(192, 13);
             this.label7.TabIndex = 163;
@@ -371,48 +392,40 @@ namespace UserInterface.EgitimDok
             // 
             // TxtMarka
             // 
-            this.TxtMarka.Location = new System.Drawing.Point(430, 108);
+            this.TxtMarka.Location = new System.Drawing.Point(673, 73);
             this.TxtMarka.Name = "TxtMarka";
-            this.TxtMarka.Size = new System.Drawing.Size(194, 20);
+            this.TxtMarka.Size = new System.Drawing.Size(281, 20);
             this.TxtMarka.TabIndex = 155;
             // 
             // TxtMiktar
             // 
-            this.TxtMiktar.Location = new System.Drawing.Point(430, 81);
+            this.TxtMiktar.Location = new System.Drawing.Point(673, 46);
             this.TxtMiktar.Name = "TxtMiktar";
-            this.TxtMiktar.Size = new System.Drawing.Size(194, 20);
+            this.TxtMiktar.Size = new System.Drawing.Size(281, 20);
             this.TxtMiktar.TabIndex = 154;
             this.TxtMiktar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMiktar_KeyPress);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(49, 229);
+            this.label1.Location = new System.Drawing.Point(49, 209);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 145;
             this.label1.Text = "AÇIKLAMA:";
             // 
-            // CmbSatNo
-            // 
-            this.CmbSatNo.FormattingEnabled = true;
-            this.CmbSatNo.Location = new System.Drawing.Point(734, 58);
-            this.CmbSatNo.Name = "CmbSatNo";
-            this.CmbSatNo.Size = new System.Drawing.Size(194, 21);
-            this.CmbSatNo.TabIndex = 152;
-            // 
             // TxtAciklama
             // 
-            this.TxtAciklama.Location = new System.Drawing.Point(48, 245);
+            this.TxtAciklama.Location = new System.Drawing.Point(118, 203);
             this.TxtAciklama.Name = "TxtAciklama";
-            this.TxtAciklama.Size = new System.Drawing.Size(870, 96);
+            this.TxtAciklama.Size = new System.Drawing.Size(837, 92);
             this.TxtAciklama.TabIndex = 144;
             this.TxtAciklama.Text = "";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(678, 62);
+            this.label24.Location = new System.Drawing.Point(1013, 22);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(50, 13);
             this.label24.TabIndex = 151;
@@ -420,7 +433,7 @@ namespace UserInterface.EgitimDok
             // 
             // TxtFiyat
             // 
-            this.TxtFiyat.Location = new System.Drawing.Point(734, 164);
+            this.TxtFiyat.Location = new System.Drawing.Point(1069, 127);
             this.TxtFiyat.Name = "TxtFiyat";
             this.TxtFiyat.Size = new System.Drawing.Size(194, 20);
             this.TxtFiyat.TabIndex = 150;
@@ -429,7 +442,7 @@ namespace UserInterface.EgitimDok
             // deneme
             // 
             this.deneme.AutoSize = true;
-            this.deneme.Location = new System.Drawing.Point(685, 168);
+            this.deneme.Location = new System.Drawing.Point(1020, 131);
             this.deneme.Name = "deneme";
             this.deneme.Size = new System.Drawing.Size(43, 13);
             this.deneme.TabIndex = 149;
@@ -439,7 +452,7 @@ namespace UserInterface.EgitimDok
             // 
             this.BtnFotoEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnFotoEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnFotoEkle.Location = new System.Drawing.Point(955, 221);
+            this.BtnFotoEkle.Location = new System.Drawing.Point(1274, 184);
             this.BtnFotoEkle.Name = "BtnFotoEkle";
             this.BtnFotoEkle.Size = new System.Drawing.Size(165, 29);
             this.BtnFotoEkle.TabIndex = 113;
@@ -450,7 +463,7 @@ namespace UserInterface.EgitimDok
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(636, 116);
+            this.label34.Location = new System.Drawing.Point(971, 77);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(92, 13);
             this.label34.TabIndex = 145;
@@ -458,7 +471,7 @@ namespace UserInterface.EgitimDok
             // 
             // TxtFaturaNo
             // 
-            this.TxtFaturaNo.Location = new System.Drawing.Point(735, 138);
+            this.TxtFaturaNo.Location = new System.Drawing.Point(1070, 99);
             this.TxtFaturaNo.Name = "TxtFaturaNo";
             this.TxtFaturaNo.Size = new System.Drawing.Size(194, 20);
             this.TxtFaturaNo.TabIndex = 142;
@@ -466,7 +479,7 @@ namespace UserInterface.EgitimDok
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(648, 89);
+            this.label36.Location = new System.Drawing.Point(983, 50);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(80, 13);
             this.label36.TabIndex = 140;
@@ -475,7 +488,7 @@ namespace UserInterface.EgitimDok
             // deneme1
             // 
             this.deneme1.AutoSize = true;
-            this.deneme1.Location = new System.Drawing.Point(656, 142);
+            this.deneme1.Location = new System.Drawing.Point(991, 103);
             this.deneme1.Name = "deneme1";
             this.deneme1.Size = new System.Drawing.Size(72, 13);
             this.deneme1.TabIndex = 141;
@@ -483,15 +496,15 @@ namespace UserInterface.EgitimDok
             // 
             // TxtSeriNo
             // 
-            this.TxtSeriNo.Location = new System.Drawing.Point(431, 160);
+            this.TxtSeriNo.Location = new System.Drawing.Point(674, 127);
             this.TxtSeriNo.Name = "TxtSeriNo";
-            this.TxtSeriNo.Size = new System.Drawing.Size(194, 20);
+            this.TxtSeriNo.Size = new System.Drawing.Size(281, 20);
             this.TxtSeriNo.TabIndex = 138;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(370, 164);
+            this.label23.Location = new System.Drawing.Point(613, 131);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(54, 13);
             this.label23.TabIndex = 137;
@@ -500,31 +513,23 @@ namespace UserInterface.EgitimDok
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(376, 112);
+            this.label28.Location = new System.Drawing.Point(619, 77);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(48, 13);
             this.label28.TabIndex = 133;
             this.label28.Text = "MARKA:";
             // 
-            // CmbDvTanim
-            // 
-            this.CmbDvTanim.FormattingEnabled = true;
-            this.CmbDvTanim.Location = new System.Drawing.Point(431, 54);
-            this.CmbDvTanim.Name = "CmbDvTanim";
-            this.CmbDvTanim.Size = new System.Drawing.Size(194, 21);
-            this.CmbDvTanim.TabIndex = 131;
-            // 
             // TxtModel
             // 
-            this.TxtModel.Location = new System.Drawing.Point(430, 134);
+            this.TxtModel.Location = new System.Drawing.Point(673, 99);
             this.TxtModel.Name = "TxtModel";
-            this.TxtModel.Size = new System.Drawing.Size(194, 20);
+            this.TxtModel.Size = new System.Drawing.Size(281, 20);
             this.TxtModel.TabIndex = 130;
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(362, 58);
+            this.label29.Location = new System.Drawing.Point(605, 23);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(62, 13);
             this.label29.TabIndex = 127;
@@ -533,7 +538,7 @@ namespace UserInterface.EgitimDok
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(340, 85);
+            this.label30.Location = new System.Drawing.Point(583, 50);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(84, 13);
             this.label30.TabIndex = 128;
@@ -542,7 +547,7 @@ namespace UserInterface.EgitimDok
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(376, 138);
+            this.label31.Location = new System.Drawing.Point(619, 103);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(48, 13);
             this.label31.TabIndex = 129;
@@ -550,7 +555,7 @@ namespace UserInterface.EgitimDok
             // 
             // TxtDvEtiketNo
             // 
-            this.TxtDvEtiketNo.Location = new System.Drawing.Point(133, 107);
+            this.TxtDvEtiketNo.Location = new System.Drawing.Point(118, 100);
             this.TxtDvEtiketNo.Name = "TxtDvEtiketNo";
             this.TxtDvEtiketNo.Size = new System.Drawing.Size(115, 20);
             this.TxtDvEtiketNo.TabIndex = 126;
@@ -558,7 +563,7 @@ namespace UserInterface.EgitimDok
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(42, 111);
+            this.label21.Location = new System.Drawing.Point(27, 104);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(85, 13);
             this.label21.TabIndex = 125;
@@ -617,7 +622,7 @@ namespace UserInterface.EgitimDok
             "YANGIN TÜPÜ",
             "YAZI TAHTASI",
             "YEMEK KARTI"});
-            this.CmbDvGrubu.Location = new System.Drawing.Point(133, 133);
+            this.CmbDvGrubu.Location = new System.Drawing.Point(118, 126);
             this.CmbDvGrubu.Name = "CmbDvGrubu";
             this.CmbDvGrubu.Size = new System.Drawing.Size(194, 21);
             this.CmbDvGrubu.TabIndex = 124;
@@ -625,7 +630,7 @@ namespace UserInterface.EgitimDok
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(60, 137);
+            this.label10.Location = new System.Drawing.Point(45, 130);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(67, 13);
             this.label10.TabIndex = 123;
@@ -636,19 +641,21 @@ namespace UserInterface.EgitimDok
             this.CmbButceKodu.FormattingEnabled = true;
             this.CmbButceKodu.Items.AddRange(new object[] {
             "BM03-KÜÇÜK DEMİRBAŞ",
-            "BM04-DEMİRBAŞ"});
-            this.CmbButceKodu.Location = new System.Drawing.Point(133, 80);
+            "BM04-DEMİRBAŞ",
+            "BM43/BİLGİ TEKNOLOJİLERİ ENVANTERİ"});
+            this.CmbButceKodu.Location = new System.Drawing.Point(118, 73);
             this.CmbButceKodu.Name = "CmbButceKodu";
             this.CmbButceKodu.Size = new System.Drawing.Size(194, 21);
             this.CmbButceKodu.TabIndex = 120;
             // 
             // CmbDvSahibi
             // 
+            this.CmbDvSahibi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDvSahibi.FormattingEnabled = true;
             this.CmbDvSahibi.Items.AddRange(new object[] {
             "ASELSAN",
             "BAŞARAN"});
-            this.CmbDvSahibi.Location = new System.Drawing.Point(133, 53);
+            this.CmbDvSahibi.Location = new System.Drawing.Point(118, 19);
             this.CmbDvSahibi.Name = "CmbDvSahibi";
             this.CmbDvSahibi.Size = new System.Drawing.Size(194, 21);
             this.CmbDvSahibi.TabIndex = 119;
@@ -656,7 +663,7 @@ namespace UserInterface.EgitimDok
             // PctBox
             // 
             this.PctBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PctBox.Location = new System.Drawing.Point(955, 57);
+            this.PctBox.Location = new System.Drawing.Point(1274, 19);
             this.PctBox.Name = "PctBox";
             this.PctBox.Size = new System.Drawing.Size(165, 159);
             this.PctBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -666,7 +673,7 @@ namespace UserInterface.EgitimDok
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(64, 57);
+            this.label40.Location = new System.Drawing.Point(49, 23);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(63, 13);
             this.label40.TabIndex = 77;
@@ -675,7 +682,7 @@ namespace UserInterface.EgitimDok
             // label39
             // 
             this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(44, 84);
+            this.label39.Location = new System.Drawing.Point(29, 77);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(83, 13);
             this.label39.TabIndex = 79;
@@ -710,7 +717,7 @@ namespace UserInterface.EgitimDok
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(23, 619);
+            this.BtnKaydet.Location = new System.Drawing.Point(14, 549);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(157, 50);
             this.BtnKaydet.TabIndex = 344;
@@ -1344,6 +1351,52 @@ namespace UserInterface.EgitimDok
             // 
             this.openFileDialog3.FileName = "openFileDialog3";
             // 
+            // BtnButceKoduEkle
+            // 
+            this.BtnButceKoduEkle.AccessibleDescription = "";
+            this.BtnButceKoduEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnButceKoduEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnButceKoduEkle.BackgroundImage")));
+            this.BtnButceKoduEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnButceKoduEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnButceKoduEkle.Location = new System.Drawing.Point(315, 68);
+            this.BtnButceKoduEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnButceKoduEkle.Name = "BtnButceKoduEkle";
+            this.BtnButceKoduEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnButceKoduEkle.TabIndex = 397;
+            this.BtnButceKoduEkle.Tag = "admin";
+            this.BtnButceKoduEkle.UseVisualStyleBackColor = false;
+            this.BtnButceKoduEkle.Click += new System.EventHandler(this.BtnButceKoduEkle_Click);
+            // 
+            // BtnDvGrubuEkle
+            // 
+            this.BtnDvGrubuEkle.AccessibleDescription = "";
+            this.BtnDvGrubuEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnDvGrubuEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDvGrubuEkle.BackgroundImage")));
+            this.BtnDvGrubuEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDvGrubuEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDvGrubuEkle.Location = new System.Drawing.Point(315, 121);
+            this.BtnDvGrubuEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDvGrubuEkle.Name = "BtnDvGrubuEkle";
+            this.BtnDvGrubuEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnDvGrubuEkle.TabIndex = 398;
+            this.BtnDvGrubuEkle.Tag = "admin";
+            this.BtnDvGrubuEkle.UseVisualStyleBackColor = false;
+            // 
+            // BtnDvDurumuEkle
+            // 
+            this.BtnDvDurumuEkle.AccessibleDescription = "";
+            this.BtnDvDurumuEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnDvDurumuEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDvDurumuEkle.BackgroundImage")));
+            this.BtnDvDurumuEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDvDurumuEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDvDurumuEkle.Location = new System.Drawing.Point(315, 150);
+            this.BtnDvDurumuEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDvDurumuEkle.Name = "BtnDvDurumuEkle";
+            this.BtnDvDurumuEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnDvDurumuEkle.TabIndex = 399;
+            this.BtnDvDurumuEkle.Tag = "admin";
+            this.BtnDvDurumuEkle.UseVisualStyleBackColor = false;
+            // 
             // DuranVarlik
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1384,7 +1437,6 @@ namespace UserInterface.EgitimDok
         private System.Windows.Forms.Button BtnFotoEkle;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.ComboBox CmbSatNo;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox TxtFiyat;
         private System.Windows.Forms.Label deneme;
@@ -1395,7 +1447,6 @@ namespace UserInterface.EgitimDok
         private System.Windows.Forms.TextBox TxtSeriNo;
         private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.ComboBox CmbDvTanim;
         private System.Windows.Forms.TextBox TxtModel;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
@@ -1479,5 +1530,10 @@ namespace UserInterface.EgitimDok
         private System.Windows.Forms.TextBox TxtAdet;
         private System.Windows.Forms.Button BtnCoklu;
         private System.Windows.Forms.Button BtnTekli;
+        private System.Windows.Forms.TextBox TxtTanim;
+        private System.Windows.Forms.TextBox TxtSatNo;
+        private System.Windows.Forms.Button BtnButceKoduEkle;
+        private System.Windows.Forms.Button BtnDvDurumuEkle;
+        private System.Windows.Forms.Button BtnDvGrubuEkle;
     }
 }

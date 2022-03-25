@@ -54,7 +54,30 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 throw;
             }
         }
+        public string DepoBirimFiyat(double birimFiyat, string stokNo)
+        {
+            try
+            {
+               
+                return stokGirisCikisDal.DepoBirimFiyat(birimFiyat,stokNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public double DepoBirimFiyat(string stokNo)
+        {
+            try
+            {
+                return stokGirisCikisDal.DepoBirimFiyat(stokNo);
+            }
+            catch (Exception)
+            {
 
+                return 0;
+            }
+        }
         public StokGirisCıkıs DepoRafBul(string stokNo,string depoNo)
         {
             try

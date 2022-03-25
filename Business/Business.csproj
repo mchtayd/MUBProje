@@ -41,12 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmbarVeriManager.cs" />
     <Compile Include="ComboManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\IslemAdimlariManager.cs" />
     <Compile Include="Concreate\BakimOnarim\AbfFormNoManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\AbfMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarim\ArizaKayitManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeManager.cs" />
@@ -78,6 +80,7 @@
     <Compile Include="Concreate\DokumanYonetim\FormDocumentManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\DepoMiktarManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitManager.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeStokManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisManager.cs" />
     <Compile Include="Concreate\GorevAtamaManager.cs" />
@@ -88,6 +91,7 @@
     <Compile Include="Concreate\IdarıIsler\AracZimmetiLogManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracZimmetiManager.cs" />
     <Compile Include="Concreate\IdarıIsler\ArsivTutanakManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\ButceKoduKalemiManager.cs" />
     <Compile Include="Concreate\IdarıIsler\DVKayitManager.cs" />
     <Compile Include="Concreate\IdarıIsler\DvNoManager.cs" />
     <Compile Include="Concreate\IdarıIsler\EvrakKayitManager.cs" />

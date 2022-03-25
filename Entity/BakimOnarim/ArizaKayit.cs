@@ -8,7 +8,8 @@ namespace Entity.BakimOnarim
 {
     public class ArizaKayit
     {
-        int id, isAkisNo, abfFormNo; string proje, bolgeAdi, bolukKomutani, telefonNo, birlikAdresi, il, ilce, bildirilenAriza, arizaiBildirenPersonel, abRutbesi, abGorevi, abTelefon; DateTime abTarihSaat; string aBAlanPersonel, bildirimKanali, arizaAciklama, gorevAtanacakPersonel, islemAdimi, dosyaYolu, garantiDurumu, lojistikSorumluPersonel, lojRutbesi, lojGorevi, lojTarihi, lojSaati, tespitEdilenAriza, acmaOnayiVeren, csSiparisNo, bildirimNo, crmNo, siparisNo;
+        int id, isAkisNo, abfFormNo; string proje, bolgeAdi, bolukKomutani, telefonNo, birlikAdresi, il, ilce, bildirilenAriza, arizaiBildirenPersonel, abRutbesi, abGorevi, abTelefon; DateTime abTarihSaat; string aBAlanPersonel, bildirimKanali, arizaAciklama, gorevAtanacakPersonel, islemAdimi, dosyaYolu, garantiDurumu, lojistikSorumluPersonel, lojRutbesi, lojGorevi, lojTarihi, tespitEdilenAriza, acmaOnayiVeren, csSiparisNo, bildirimNo, crmNo, bildirimMailTarihi, siparisNo,
+            stokNo, tanim, seriNo, kategori, ilgiliFirma, bildirimTuru, pypNo, sorumluPersonel, islemTuru, hesaplama;
 
         public int Id { get => id; set => id = value; }
         public int IsAkisNo { get => isAkisNo; set => isAkisNo = value; }
@@ -37,13 +38,23 @@ namespace Entity.BakimOnarim
         public string LojRutbesi { get => lojRutbesi; set => lojRutbesi = value; }
         public string LojGorevi { get => lojGorevi; set => lojGorevi = value; }
         public string LojTarihi { get => lojTarihi; set => lojTarihi = value; }
-        public string LojSaati { get => lojSaati; set => lojSaati = value; }
         public string TespitEdilenAriza { get => tespitEdilenAriza; set => tespitEdilenAriza = value; }
         public string AcmaOnayiVeren { get => acmaOnayiVeren; set => acmaOnayiVeren = value; }
         public string CsSiparisNo { get => csSiparisNo; set => csSiparisNo = value; }
         public string BildirimNo { get => bildirimNo; set => bildirimNo = value; }
         public string CrmNo { get => crmNo; set => crmNo = value; }
         public string SiparisNo { get => siparisNo; set => siparisNo = value; }
+        public string BildirimMailTarihi { get => bildirimMailTarihi; set => bildirimMailTarihi = value; }
+        public string StokNo { get => stokNo; set => stokNo = value; }
+        public string Tanim { get => tanim; set => tanim = value; }
+        public string SeriNo { get => seriNo; set => seriNo = value; }
+        public string Kategori { get => kategori; set => kategori = value; }
+        public string IlgiliFirma { get => ilgiliFirma; set => ilgiliFirma = value; }
+        public string BildirimTuru { get => bildirimTuru; set => bildirimTuru = value; }
+        public string PypNo { get => pypNo; set => pypNo = value; }
+        public string SorumluPersonel { get => sorumluPersonel; set => sorumluPersonel = value; }
+        public string IslemTuru { get => islemTuru; set => islemTuru = value; }
+        public string Hesaplama { get => hesaplama; set => hesaplama = value; }
 
         public ArizaKayit(int isAkisNo, int abfFormNo, string proje, string bolgeAdi, string bolukKomutani, string telefonNo, string birlikAdresi, string il, string ilce, string bildirilenAriza, string arizaiBildirenPersonel, string abRutbesi, string abGorevi, string abTelefon, DateTime abTarihSaat, string aBAlanPersonel, string bildirimKanali, string arizaAciklama, string gorevAtanacakPersonel, string islemAdimi, string dosyaYolu,string siparisNo)
         {
@@ -95,6 +106,34 @@ namespace Entity.BakimOnarim
             this.islemAdimi = islemAdimi;
             this.dosyaYolu = dosyaYolu;
             this.siparisNo = siparisNo;
+        }
+
+        public ArizaKayit(int id, string garantiDurumu,string lojistikSorumluPersonel, string lojRutbesi, string lojGorevi, string lojTarihi, string tespitEdilenAriza, string acmaOnayiVeren)
+        {
+            this.id = id;
+            this.garantiDurumu = garantiDurumu;
+            this.lojistikSorumluPersonel = lojistikSorumluPersonel;
+            this.lojRutbesi = lojRutbesi;
+            this.lojGorevi = lojGorevi;
+            this.lojTarihi = lojTarihi;
+            this.tespitEdilenAriza = tespitEdilenAriza;
+            this.acmaOnayiVeren = acmaOnayiVeren;
+        }
+
+        public ArizaKayit(int id, string csSiparisNo, string bildirimNo, string crmNo, string bildirimMailTarihi)
+        {
+            this.id = id;
+            this.csSiparisNo = csSiparisNo;
+            this.bildirimNo = bildirimNo;
+            this.crmNo = crmNo;
+            this.bildirimMailTarihi = bildirimMailTarihi;
+        }
+
+        public ArizaKayit(int id, string stokNo, string tanim, string seriNo, string kategori, string ilgiliFirma, string bildirimTuru, string pypNo, string sorumluPersonel, string islemTuru, string hesaplama) : this(id, stokNo, tanim, seriNo, kategori, ilgiliFirma, bildirimTuru, pypNo)
+        {
+            this.sorumluPersonel = sorumluPersonel;
+            this.islemTuru = islemTuru;
+            this.hesaplama = hesaplama;
         }
     }
 }

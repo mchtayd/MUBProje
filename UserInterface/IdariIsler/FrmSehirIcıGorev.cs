@@ -499,6 +499,7 @@ namespace UserInterface.IdariIsler
                 DtBasSaatiGun.Value = sehirici.Baslamatarihi.ConDate();
                 islemadimiguncelle = sehirici.Islemadimi;
                 TxtUnvani.Text = sehirici.Unvani;
+                id = sehirici.Id;
                 return;
             }
             MessageBox.Show("Lütfen 9 haneli İş Akiş Numarasını Eksiksiz Girinz", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -536,9 +537,17 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show(TxtIsAkisNo.Text + " Nolu Görevi Tamamen Silmek İstediğinize Emin Misiniz? Bu İşlem Geri Alınamaz.", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                sehiriciGorevManager.Delete(TxtIsAkisNo.Text.ConInt());
-                MessageBox.Show(TxtIsAkisNo.Text + " Nolu Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TemizleGuncelle();
+                string mesaj = sehiriciGorevManager.Delete(id);
+                if (mesaj=="OK")
+                {
+                    MessageBox.Show(TxtIsAkisNo.Text + " Nolu Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TemizleGuncelle();
+                }
+                else
+                {
+                    MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    return;
+                }
             }
         }
 

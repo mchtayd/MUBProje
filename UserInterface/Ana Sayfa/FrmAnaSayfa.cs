@@ -1627,6 +1627,14 @@ namespace UserInterface.STS
                         form.Yenilenecekler();
                     }
                 }
+                if (baslik == "DEVAM EDEN ARIZALAR (ATÖLYE)")
+                {
+                    var form = (FrmBOAtolyeDevamEdenler)Application.OpenForms["FrmBOAtolyeDevamEdenler"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
+                    }
+                }
             }
         }
 
@@ -2511,7 +2519,7 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageMalzemeKayit", "MALZEME KAYIT", Go);
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.Show();
             }
             if (e.Node.Name == "Stok Giris Cikis")
@@ -2789,6 +2797,17 @@ namespace UserInterface.STS
         {
             ArsivDosyaFihrist arsivDosyaFihrist = new ArsivDosyaFihrist();
             arsivDosyaFihrist.ShowDialog();
+        }
+
+        private void iZLEMESAYFALARIToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void aMBARVEGEÇİÇİKABULToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIzlemeAmbar frmIzlemeAmbar = new FrmIzlemeAmbar();
+            frmIzlemeAmbar.ShowDialog();
         }
 
         private void FrmAnaSayfa_SizeChanged(object sender, EventArgs e)

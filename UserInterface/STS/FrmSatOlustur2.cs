@@ -227,7 +227,7 @@ namespace UserInterface.STS
             DtgYedekParca.Columns["Malzemeonarımyeri"].Visible = false;
             DtgYedekParca.Columns["Malzemeturu"].Visible = false;
             DtgYedekParca.Columns["Malzemetakipdurumu"].Visible = false;
-            DtgYedekParca.Columns["Malzemerevizyon"].Visible = false;
+            //DtgYedekParca.Columns["Malzemerevizyon"].Visible = false;
             //DtgYedekParca.Columns["Malzemelot"].Visible = false;
             DtgYedekParca.Columns["Malzemekul"].Visible = false;
             DtgYedekParca.Columns["Aciklama"].Visible = false;
@@ -236,6 +236,12 @@ namespace UserInterface.STS
             DtgYedekParca.Columns["SistemStokNo"].Visible = false;
             DtgYedekParca.Columns["SistemTanim"].Visible = false;
             DtgYedekParca.Columns["SistemPersonel"].Visible = false;
+            DtgYedekParca.Columns["KayitDurumu"].Visible = false;
+            DtgYedekParca.Columns["SeriNo"].Visible = false;
+            DtgYedekParca.Columns["Durum"].Visible = false;
+            DtgYedekParca.Columns["Revizyon"].Visible = false;
+            DtgYedekParca.Columns["Miktar"].Visible = false;
+            DtgYedekParca.Columns["TalepTarihi"].Visible = false;
         }
         void DataDisplay()
         {

@@ -313,7 +313,7 @@ namespace UserInterface.BakımOnarım
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(256, 217);
+            this.label2.Location = new System.Drawing.Point(259, 218);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(72, 13);
             this.label2.TabIndex = 451;
@@ -324,7 +324,7 @@ namespace UserInterface.BakımOnarım
             this.DtIscilikSaati.CustomFormat = "HH:mm";
             this.DtIscilikSaati.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DtIscilikSaati.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtIscilikSaati.Location = new System.Drawing.Point(172, 212);
+            this.DtIscilikSaati.Location = new System.Drawing.Point(175, 213);
             this.DtIscilikSaati.Name = "DtIscilikSaati";
             this.DtIscilikSaati.ShowUpDown = true;
             this.DtIscilikSaati.Size = new System.Drawing.Size(78, 21);
@@ -373,7 +373,7 @@ namespace UserInterface.BakımOnarım
             this.CmbGorevAtanacakPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGorevAtanacakPersonel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbGorevAtanacakPersonel.FormattingEnabled = true;
-            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(173, 239);
+            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(175, 239);
             this.CmbGorevAtanacakPersonel.Name = "CmbGorevAtanacakPersonel";
             this.CmbGorevAtanacakPersonel.Size = new System.Drawing.Size(303, 23);
             this.CmbGorevAtanacakPersonel.TabIndex = 443;

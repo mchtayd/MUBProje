@@ -163,6 +163,7 @@ namespace UserInterface.Ana_Sayfa
             this.Controls.Add(this.BtnEkle);
             this.Controls.Add(this.TxtBaslik);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmCombo";

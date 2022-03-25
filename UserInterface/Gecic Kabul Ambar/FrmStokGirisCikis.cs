@@ -33,8 +33,10 @@ namespace UserInterface.Depo
         AbfFormNoManager abfFormNoManager;
         AtolyeManager atolyeManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        MalzemeManager malzemeManager;
 
         List<GorevAtamaPersonel> gorevAtamaPersonels;
+        List<Malzeme> malzemes;
         List<MalzemeKayit> malzemeKayits;
         bool start = true;
         int id, mevcutMiktar, miktar, dusulenMiktar, cekilenMiktar;
@@ -52,6 +54,7 @@ namespace UserInterface.Depo
             abfFormNoManager = AbfFormNoManager.GetInstance();
             atolyeManager = AtolyeManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
+            malzemeManager = MalzemeManager.GetInstance();
         }
         private void FrmStokGirisCikis_Load(object sender, EventArgs e)
         {
@@ -102,10 +105,10 @@ namespace UserInterface.Depo
         }
         void StokBilgileri()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
-            CmbStokNo.DataSource = malzemeKayits;
+            malzemes = malzemeManager.GetList();
+            CmbStokNo.DataSource = malzemes;
             CmbStokNo.ValueMember = "Id";
-            CmbStokNo.DisplayMember = "Stokno";
+            CmbStokNo.DisplayMember = "StokNo";
             CmbStokNo.SelectedValue = 0;
         }
 
@@ -180,11 +183,11 @@ namespace UserInterface.Depo
         void FillTools()
         {
             id = CmbStokNo.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(id);
+            Malzeme malzeme = malzemeManager.Get(CmbStokNo.Text);
             //StokGirisCıkıs stokGirisCıkıs = stokGirisCikisManager.StokGor(CmbStokNo.Text);
-            TxtTanim.Text = malzemeKayit.Tanim;
-            CmbBirim.Text = malzemeKayit.Birim;
-            takipdurumu = malzemeKayit.Malzemetakipdurumu;
+            TxtTanim.Text = malzeme.Tanim;
+            CmbBirim.Text = malzeme.Birim;
+            takipdurumu = malzeme.TakipDurumu;
             /*if (stokGirisCıkıs == null)
             {
                 mevcutMiktar = 0;
@@ -258,8 +261,17 @@ namespace UserInterface.Depo
         {
             if (CmbIslemTuru.Text == "100-YENİ DEPO GİRİŞİ")
             {
+                if (TxtBirimFiyat.Text=="")
+                {
+                    DialogResult dr = MessageBox.Show("Malzeme İçin Birim Fiyatı Tanımlamadınız!\nYinede Devam Etmek İstiyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    if (dr==DialogResult.No)
+                    {
+                        return;
+                    }
+                }
                 depoNoDusulen = CmbDepoNo.Text;
                 malzemeYeri = TxtMalzemeYeri.Text;
+                
             }
             if (CmbIslemTuru.Text == "101-DEPODAN DEPOYA İADE")
             {
@@ -575,6 +587,8 @@ namespace UserInterface.Depo
 
                     depoNoDusulen = item.Cells["Column15"].Value.ToString(); //  DÜŞÜLEN DEPO
                     depoAdresi = item.Cells["Column16"].Value.ToString();
+
+
                     miktar = item.Cells["Column4"].Value.ConInt();
 
                     DepoMiktar depo = depoMiktarManager.Get(stokNo, depoNoDusulen, seriNo, lotNo, revizyon);
@@ -594,7 +608,7 @@ namespace UserInterface.Depo
 
                         mevcutMiktar = +miktar;
 
-                        DepoMiktar depoMiktar = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, mevcutMiktar, item.Cells["Column14"].Value.ToString());
+                        DepoMiktar depoMiktar = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
                         depoMiktarManager.Add(depoMiktar);
 
                         if (miktarKontrol == true)
@@ -612,6 +626,8 @@ namespace UserInterface.Depo
                         StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs(islemTuru, stokNo, tanim, item.Cells["Column5"].Value.ToString(), item.Cells["Column6"].Value.ConDate(), item.Cells["Column7"].Value.ToString(), item.Cells["Column8"].Value.ToString(), item.Cells["Column9"].Value.ToString(), item.Cells["Column15"].Value.ToString(), item.Cells["Column16"].Value.ToString(), item.Cells["Column17"].Value.ToString(), miktar, item.Cells["Column19"].Value.ToString(), item.Cells["Column14"].Value.ToString(), item.Cells["Column10"].Value.ToString(), item.Cells["Column12"].Value.ToString(), item.Cells["Column11"].Value.ToString());
 
                         stokGirisCikisManager.Add(stokGirisCıkıs);
+
+                        stokGirisCikisManager.DepoBirimFiyat(TxtBirimFiyat.Text.ConDouble(), stokNo);
                     }
 
                     if (islemTuru == "101-DEPODAN DEPOYA İADE")
@@ -619,7 +635,7 @@ namespace UserInterface.Depo
                         DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, CmbDepoNoDusulen.Text, seriNo, lotNo, revizyon);
                         if (depoMiktar == null)
                         {
-                            DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, mevcutMiktar, item.Cells["Column14"].Value.ToString());
+                            DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
                             depoMiktarManager.Add(depoMiktar2);
                         }
 
@@ -682,7 +698,7 @@ namespace UserInterface.Depo
                         DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, CmbBildirimdenDepoyaDepoNo.Text, seriNo, lotNo, revizyon);
                         if (depoMiktar == null)
                         {
-                            DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, mevcutMiktar, item.Cells["Column14"].Value.ToString());
+                            DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
                             depoMiktarManager.Add(depoMiktar2);
                         }
 
@@ -716,6 +732,22 @@ namespace UserInterface.Depo
                 }
             }
         }
+
+        private void TxtBirimFiyat_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TxtMiktar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TxtBirimFiyat_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
         private void BtnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
@@ -763,6 +795,7 @@ namespace UserInterface.Depo
 
         private void TxtMiktar_TextChanged(object sender, EventArgs e)
         {
+
             if (CmbStokNo.Text == "")
             {
                 //MessageBox.Show("Öncelikle Bir Stok Numarası Giriniz.");
@@ -775,6 +808,7 @@ namespace UserInterface.Depo
                 AdvMalzemeOnizleme.Rows.Clear();
                 return;
             }
+            
             if (takipdurumu == "LOT NO")
             {
                 AdvMalzemeOnizleme.Columns["SeriLotNo"].HeaderText = "LOT NO";
@@ -814,6 +848,7 @@ namespace UserInterface.Depo
                 GrbDepodanDepoya.Visible = false;
                 GrbDepodanBildirime.Visible = false;
                 GrbBildirimdenDepoya.Visible = false;
+                LblBirimFiyat.Visible = true; TxtBirimFiyat.Visible = true;
             }
             if (CmbIslemTuru.SelectedIndex == 1)
             {
@@ -821,6 +856,7 @@ namespace UserInterface.Depo
                 GrbDepodanDepoya.Visible = true;
                 GrbDepodanBildirime.Visible = false;
                 GrbBildirimdenDepoya.Visible = false;
+                LblBirimFiyat.Visible = false; TxtBirimFiyat.Visible = false;
                 return;
             }
             if (CmbIslemTuru.SelectedIndex == 2)
@@ -829,6 +865,7 @@ namespace UserInterface.Depo
                 GrbIslemYapılacakDepo.Visible = false;
                 GrbDepodanBildirime.Visible = true;
                 GrbBildirimdenDepoya.Visible = false;
+                LblBirimFiyat.Visible = false; TxtBirimFiyat.Visible = false;
                 return;
             }
             if (CmbIslemTuru.SelectedIndex == 3)
@@ -837,6 +874,7 @@ namespace UserInterface.Depo
                 GrbIslemYapılacakDepo.Visible = false;
                 GrbDepodanBildirime.Visible = false;
                 GrbBildirimdenDepoya.Visible = true;
+                LblBirimFiyat.Visible = false; TxtBirimFiyat.Visible = false;
                 return;
             }
 

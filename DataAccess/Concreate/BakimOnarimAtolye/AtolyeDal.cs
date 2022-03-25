@@ -208,18 +208,17 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                     string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();
                     gecenSure = gecenSure.Substring(0, gecenSure.LastIndexOf('.')); //17:44:08
 
-
                     string[] array = gecenSure.Split('.');
 
-
-                    if (array[0].ConInt() > 24)
+                    gecenSure = array[0].ConInt().ToString();
+                    /*if (array[0].ConInt() > 24)
                     {
                         gecenSure = "1";
                     }
                     else
                     {
                         gecenSure = array[0].ConInt().ToString();
-                    }
+                    }*/
 
 
                     atolyes1.Add(new Atolye(

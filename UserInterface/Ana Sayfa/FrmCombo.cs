@@ -243,9 +243,16 @@ namespace UserInterface.Ana_Sayfa
             if (comboAd == "ONARIM_YERI")
             {
                 var form = (FrmMalzemeKayit)Application.OpenForms["FrmMalzemeKayit"];
+                var form2 = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
+
                 if (form != null)
                 {
                     form.OnarimYeri();
+
+                }
+                if (form2 != null)
+                {
+                    form2.Yenilenecekler();
                 }
             }
             if (comboAd == "MALZEME_TURU")
@@ -264,6 +271,31 @@ namespace UserInterface.Ana_Sayfa
                     form.AbonelikTuru();
                 }
             }
+            if (comboAd == "ABF KATEGORİ")
+            {
+                var form = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
+                if (form != null)
+                {
+                    form.Yenilenecekler();
+                }
+            }
+            if (comboAd == "BILDIRIM TURU")
+            {
+                var form = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
+                if (form != null)
+                {
+                    form.Yenilenecekler();
+                }
+            }
+            if (comboAd == "TEDARIK_TURU")
+            {
+                var form = (FrmMalzemeKayit)Application.OpenForms["FrmMalzemeKayit"];
+                if (form != null)
+                {
+                    form.TedarikTuru();
+                }
+            }
+
         }
     }
 }

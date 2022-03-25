@@ -35,7 +35,6 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@malzemeonarimyeri",entity.Malzemeonarımyeri),
                     new SqlParameter("@malzemeturu",entity.Malzemeturu),
                     new SqlParameter("@malzemetakipdurumu",entity.Malzemetakipdurumu),
-                    new SqlParameter("@malzemerevizyon",entity.Malzemerevizyon),
                     new SqlParameter("@malzemekul",entity.Malzemekul),
                     new SqlParameter("@aciklama",entity.Aciklama),
                     new SqlParameter("@alternatifMalzeme",entity.AlternatifMalzeme),
@@ -52,23 +51,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string UstTakimEkle(string usTakimStok,string usTakimTanim,string altTakimStok,string altTakimTanim)
-        {
-            try
-            {
-                dataReader = sqlServices.StoreReader("MalzemeUstTakimEkle",
-                    new SqlParameter("@ustTakimStok", usTakimStok),
-                    new SqlParameter("@ustTakimTanim", usTakimTanim),
-                    new SqlParameter("@altTakimStok", altTakimStok),
-                    new SqlParameter("@altTakimTanim", altTakimTanim));
-                dataReader.Close();
-                return "OK";
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
+        
 
         public string Delete(int id)
         {
@@ -116,7 +99,6 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEME_ONARIM_YERI"].ToString(),
                         dataReader["MALZEME_TURU"].ToString(),
                         dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
-                        dataReader["MALZEME_REVIZYON"].ToString(),
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
@@ -151,7 +133,6 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEME_ONARIM_YERI"].ToString(),
                         dataReader["MALZEME_TURU"].ToString(),
                         dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
-                        dataReader["MALZEME_REVIZYON"].ToString(),
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
@@ -187,7 +168,6 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEME_ONARIM_YERI"].ToString(),
                         dataReader["MALZEME_TURU"].ToString(),
                         dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
-                        dataReader["MALZEME_REVIZYON"].ToString(),
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
@@ -224,7 +204,6 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEME_ONARIM_YERI"].ToString(),
                         dataReader["MALZEME_TURU"].ToString(),
                         dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
-                        dataReader["MALZEME_REVIZYON"].ToString(),
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
@@ -259,7 +238,6 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["MALZEME_ONARIM_YERI"].ToString(),
                         dataReader["MALZEME_TURU"].ToString(),
                         dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
-                        dataReader["MALZEME_REVIZYON"].ToString(),
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
@@ -291,7 +269,6 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@malzemeonarimyeri", entity.Malzemeonarımyeri),
                     new SqlParameter("@malzemeturu", entity.Malzemeturu),
                     new SqlParameter("@malzemetakipdurumu", entity.Malzemetakipdurumu),
-                    new SqlParameter("@malzemerevizyon", entity.Malzemerevizyon),
                     new SqlParameter("@malzemekul", entity.Malzemekul),
                     new SqlParameter("@alternatifMalzeme", entity.AlternatifMalzeme),
                     new SqlParameter("@aciklama", entity.Aciklama),

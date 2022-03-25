@@ -189,6 +189,14 @@ namespace UserInterface.STS
             DtgStokList.Columns["Malzemekul"].Visible = false;
             DtgStokList.Columns["Aciklama"].Visible = false;
             DtgStokList.Columns["Dosyayolu"].Visible = false;
+            DtgStokList.Columns["KayitDurumu"].Visible = false;
+            DtgStokList.Columns["SeriNo"].Visible = false;
+            DtgStokList.Columns["Durum"].Visible = false;
+            DtgStokList.Columns["Revizyon"].Visible = false;
+            DtgStokList.Columns["Miktar"].Visible = false;
+            DtgStokList.Columns["TalepTarihi"].Visible = false;
+            DtgStokList.Columns["SistemStokNo"].Visible = false;
+            DtgStokList.Columns["SistemTanim"].Visible = false;
 
             TxtGuncelStok.Text = DtgStokList.RowCount.ToString();
         }

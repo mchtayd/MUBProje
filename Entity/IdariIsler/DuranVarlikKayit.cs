@@ -83,6 +83,10 @@ namespace DataAccess.Concreate.IdariIsler
             this.fotoYolu = fotoYolu;
         }
 
+        public DuranVarlikKayit(int isAkisNo)
+        {
+            this.isAkisNo = isAkisNo;
+        }
     }
 
 }

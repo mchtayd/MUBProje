@@ -36,17 +36,7 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
-        public string UstTakimEkle(string usTakimStok, string usTakimTanim, string altTakimStok, string altTakimTanim)
-        {
-            try
-            {
-                return malzemeKayitDal.UstTakimEkle(usTakimStok, usTakimTanim, altTakimStok, altTakimTanim);
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-            }
-        }
+        
 
         public string Delete(int id)
         {
@@ -193,10 +183,6 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             if (string.IsNullOrEmpty(malzemeKayit.Malzemetakipdurumu))
             {
                 return "Lütfen MALZEME TAKİP DURUMU Bilgisini doldurunuz.";
-            }
-            if (string.IsNullOrEmpty(malzemeKayit.Malzemerevizyon))
-            {
-                return "Lütfen MALZEME REVİZYON NO Bilgisini doldurunuz.";
             }
             /*if (string.IsNullOrEmpty(malzemeKayit.Malzemekul))
             {

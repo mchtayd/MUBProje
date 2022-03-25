@@ -73,12 +73,12 @@ namespace UserInterface.BakımOnarım
             this.tabPage10 = new System.Windows.Forms.TabPage();
             this.DtgDepoHareketleri = new System.Windows.Forms.DataGridView();
             this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -525,6 +525,14 @@ namespace UserInterface.BakımOnarım
             this.tabPage11.Text = "İŞLEM ADIM DURUM VE SÜRELERİ";
             this.tabPage11.UseVisualStyleBackColor = true;
             // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(2, 3);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(784, 214);
+            this.webBrowser1.TabIndex = 1;
+            // 
             // BtnKaydet
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -566,14 +574,6 @@ namespace UserInterface.BakımOnarım
             this.BtnDosyaEkle.Text = "DOSYA EKLE";
             this.BtnDosyaEkle.UseVisualStyleBackColor = true;
             this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Location = new System.Drawing.Point(2, 3);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(784, 214);
-            this.webBrowser1.TabIndex = 1;
             // 
             // openFileDialog1
             // 

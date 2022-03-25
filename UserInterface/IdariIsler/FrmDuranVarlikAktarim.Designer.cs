@@ -123,7 +123,7 @@ namespace UserInterface.IdariIsler
             this.MiktarP = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ChkBox = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.BtnTumunuSec = new System.Windows.Forms.Button();
             this.BtnListeyeAktar = new System.Windows.Forms.Button();
             this.label53 = new System.Windows.Forms.Label();
             this.label51 = new System.Windows.Forms.Label();
@@ -1125,16 +1125,17 @@ namespace UserInterface.IdariIsler
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "DURAN VARLIK BİLGİLERİ";
             // 
-            // button1
+            // BtnTumunuSec
             // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(218, 519);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(194, 36);
-            this.button1.TabIndex = 353;
-            this.button1.Text = "TÜMÜNÜ SEÇ";
-            this.button1.UseVisualStyleBackColor = true;
+            this.BtnTumunuSec.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTumunuSec.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTumunuSec.Location = new System.Drawing.Point(218, 519);
+            this.BtnTumunuSec.Name = "BtnTumunuSec";
+            this.BtnTumunuSec.Size = new System.Drawing.Size(194, 36);
+            this.BtnTumunuSec.TabIndex = 353;
+            this.BtnTumunuSec.Text = "TÜMÜNÜ SEÇ";
+            this.BtnTumunuSec.UseVisualStyleBackColor = true;
+            this.BtnTumunuSec.Click += new System.EventHandler(this.BtnTumunuSec_Click);
             // 
             // BtnListeyeAktar
             // 
@@ -1459,7 +1460,7 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Controls.Add(this.button2);
             this.tabPage1.Controls.Add(this.BtnBul);
             this.tabPage1.Controls.Add(this.BtnListeyiTemizle);
-            this.tabPage1.Controls.Add(this.button1);
+            this.tabPage1.Controls.Add(this.BtnTumunuSec);
             this.tabPage1.Controls.Add(this.BtnKaydet);
             this.tabPage1.Controls.Add(this.groupBox6);
             this.tabPage1.Controls.Add(this.BtnListeyeAktar);
@@ -1478,6 +1479,7 @@ namespace UserInterface.IdariIsler
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "DURAN VARLIK AKTARIM";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
             // tabPage2
             // 
@@ -2063,7 +2065,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.GroupBox groupBox1;
         private ADGV.AdvancedDataGridView AdvMalzemeOnizleme;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnTumunuSec;
         private System.Windows.Forms.Button BtnListeyeAktar;
         private System.Windows.Forms.Button BtnZimmetGor;
         private System.Windows.Forms.DataGridViewTextBoxColumn DvNoP;

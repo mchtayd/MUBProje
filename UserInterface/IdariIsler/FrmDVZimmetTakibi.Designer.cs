@@ -180,7 +180,7 @@ namespace UserInterface.IdariIsler
             this.groupBox1.Size = new System.Drawing.Size(686, 170);
             this.groupBox1.TabIndex = 343;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "İŞLEM ADIMLARI";
+            this.groupBox1.Text = "VERİ GEÇMİŞİ";
             // 
             // DtgIslemAdimlari
             // 

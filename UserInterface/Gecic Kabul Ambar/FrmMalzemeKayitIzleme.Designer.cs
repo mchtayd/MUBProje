@@ -40,6 +40,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderGuncel = new System.Windows.Forms.BindingSource(this.components);
+            this.label14 = new System.Windows.Forms.Label();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -103,17 +105,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1382, 620);
+            this.DtgList.Size = new System.Drawing.Size(1382, 473);
             this.DtgList.TabIndex = 342;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(12, 716);
+            this.label31.Location = new System.Drawing.Point(9, 566);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 343;
@@ -123,17 +126,36 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 716);
+            this.TxtTop.Location = new System.Drawing.Point(109, 566);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 344;
             this.TxtTop.Text = "00";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(12, 608);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(45, 13);
+            this.label14.TabIndex = 346;
+            this.label14.Text = "EKLER:";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Location = new System.Drawing.Point(12, 624);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(23, 23);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(827, 112);
+            this.webBrowser1.TabIndex = 345;
+            // 
             // FrmMalzemeKayitIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 740);
+            this.ClientSize = new System.Drawing.Size(1406, 789);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.DtgList);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.panel1);
@@ -163,5 +185,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.BindingSource dataBinderGuncel;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

@@ -105,12 +105,13 @@ namespace UserInterface.BakımOnarım
         string bildirilenAriza;
         private void BtnBul_Click(object sender, EventArgs e)
         {
+
             if (TxtIcSiparisNo.Text == "")
             {
                 MessageBox.Show("Lütfen Öncelikle İç Sipariş No Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            DtgAtolye.DataSource = null;
             atolyes = atolyeManager.AtolyeIcSiparis(TxtIcSiparisNo.Text);
 
 
@@ -127,11 +128,11 @@ namespace UserInterface.BakımOnarım
             id = atolye1.Id;
             bildirilenAriza = atolye1.BildirilenAriza;
             TxtBildirilenAriza.Text = bildirilenAriza;
-            //bulunduguIslemAdimi = atolye1.IslemAdimi;
+            bulunduguIslemAdimi = atolye1.IslemAdimi;
 
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
 
-            bulunduguIslemAdimi = gorevAtamaPersonel.IslemAdimi;
+            //bulunduguIslemAdimi = gorevAtamaPersonel.IslemAdimi;
             birOncekiTarih = gorevAtamaPersonel.Tarih;
             LblMevcutIslemAdimi.Text = bulunduguIslemAdimi;
 
@@ -700,6 +701,7 @@ namespace UserInterface.BakımOnarım
             LblMevcutIslemAdimi.Text = "";
             DtIscilikSaati2.Clear();
             TxtBildirilenAriza.Clear();
+            DtgAtolye.Rows.Clear();
 
             Stok1.Clear(); t1.Clear(); SokulenSeri1.Clear(); TakilanSeri1.Clear(); m1.Clear(); b1.Text = ""; YapilacakIslemler1.SelectedIndex = -1;
 
@@ -721,7 +723,6 @@ namespace UserInterface.BakımOnarım
         private void DtIscilikSaati_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
-
 
         }
 
@@ -792,7 +793,9 @@ namespace UserInterface.BakımOnarım
             {
                 return kontrol2;
             }
-            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", CmbGorevAtanacakPersonel.Text, CmbIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
+            string birSonrakiIslemAdimi = CmbIslemAdimi.Text;
+            string gorevAtanacakPersonel = CmbGorevAtanacakPersonel.Text;
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", gorevAtanacakPersonel, birSonrakiIslemAdimi, DateTime.Now, "", DateTime.Now.Date);
             string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
 
             if (kontrol != "OK")

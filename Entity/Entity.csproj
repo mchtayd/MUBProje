@@ -41,10 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AmbarVeri.cs" />
     <Compile Include="BakimOnarimAtolye\Atolye.cs" />
     <Compile Include="BakimOnarimAtolye\AtolyeAltMalzeme.cs" />
     <Compile Include="BakimOnarimAtolye\AtolyeMalzeme.cs" />
     <Compile Include="BakimOnarim\AbfFormNo.cs" />
+    <Compile Include="BakimOnarim\AbfMalzeme.cs" />
     <Compile Include="BakimOnarim\ArizaKayit.cs" />
     <Compile Include="BakimOnarim\BakimOnarimLog.cs" />
     <Compile Include="BakimOnarim\Bolge.cs" />
@@ -77,6 +79,7 @@
     <Compile Include="DokumanYonetim\Dokuman.cs" />
     <Compile Include="DokumanYonetim\FormDocument.cs" />
     <Compile Include="Gecic Kabul Ambar\DepoMiktar.cs" />
+    <Compile Include="Gecic Kabul Ambar\Malzeme.cs" />
     <Compile Include="Gecic Kabul Ambar\MalzemeKayit.cs" />
     <Compile Include="Gecic Kabul Ambar\MalzemeStok.cs" />
     <Compile Include="Gecic Kabul Ambar\StokGirisCıkıs.cs" />
@@ -89,6 +92,7 @@
     <Compile Include="IdariIsler\AracZimmeti.cs" />
     <Compile Include="IdariIsler\AracZimmetiLog.cs" />
     <Compile Include="IdariIsler\ArsivTutanak.cs" />
+    <Compile Include="IdariIsler\ButceKodu.cs" />
     <Compile Include="IdariIsler\DuranVarlikKayit.cs" />
     <Compile Include="IdariIsler\DuranVarlikSonuc.cs" />
     <Compile Include="IdariIsler\DvNo.cs" />

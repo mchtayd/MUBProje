@@ -88,6 +88,55 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string ArizaSiparisOlustur(ArizaKayit entity)
+        {
+            try
+            {
+                
+                return arizaKayitDal.ArizaSiparisOlustur(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string CrmNoTanimla(ArizaKayit entity)
+        {
+            try
+            {
+
+                return arizaKayitDal.CrmNoTanimla(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SistemCihazBilgileri(ArizaKayit entity)
+        {
+            try
+            {
+
+                return arizaKayitDal.SistemCihazBilgileri(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string IslemAdimiGuncelle(int id, string islemAdimi)
+        {
+            try
+            {
+                
+                return arizaKayitDal.IslemAdimiGuncelle(id,islemAdimi);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         string Complete(ArizaKayit arizaKayit)
         {
             if (string.IsNullOrEmpty(arizaKayit.Proje))

@@ -8,7 +8,7 @@ namespace Entity.Gecic_Kabul_Ambar
 {
     public class DepoMiktar
     {
-        int id; string stokNo, tanim, seriNo, lotNo, revizyon; DateTime sonIslemTarihi; string sonIslemYapan, depoNo, depoAdresi; int miktar; string aciklama;
+        int id; string stokNo, tanim, seriNo, lotNo, revizyon; DateTime sonIslemTarihi; string sonIslemYapan, depoNo, depoAdresi, depoLokasyon; int miktar; string aciklama;
 
         public int Id { get => id; set => id = value; }
         public string StokNo { get => stokNo; set => stokNo = value; }
@@ -22,8 +22,9 @@ namespace Entity.Gecic_Kabul_Ambar
         public string LotNo { get => lotNo; set => lotNo = value; }
         public string Revizyon { get => revizyon; set => revizyon = value; }
         public string Aciklama { get => aciklama; set => aciklama = value; }
+        public string DepoLokasyon { get => depoLokasyon; set => depoLokasyon = value; }
 
-        public DepoMiktar(int id, string stokNo, string tanim, string seriNo, string lotNo, string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, string depoNo, string depoAdresi, int miktar, string aciklama)
+        public DepoMiktar(int id, string stokNo, string tanim, string seriNo, string lotNo, string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, string depoNo, string depoAdresi, string depoLokasyon, int miktar, string aciklama)
         {
             this.id = id;
             this.stokNo = stokNo;
@@ -33,13 +34,14 @@ namespace Entity.Gecic_Kabul_Ambar
             this.miktar = miktar;
             this.depoNo = depoNo;
             this.depoAdresi = depoAdresi;
+            this.depoLokasyon = depoLokasyon;
             this.seriNo = seriNo;
             this.lotNo = lotNo;
             this.revizyon = revizyon;
             this.aciklama = aciklama;
         }
 
-        public DepoMiktar(string stokNo, string tanim, string seriNo, string lotNo, string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, string depoNo,string depoAdresi,int miktar,string aciklama)
+        public DepoMiktar(string stokNo, string tanim, string seriNo, string lotNo, string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, string depoNo,string depoAdresi, string depoLokasyon, int miktar,string aciklama)
         {
             this.stokNo = stokNo;
             this.seriNo = seriNo;
@@ -52,6 +54,7 @@ namespace Entity.Gecic_Kabul_Ambar
             this.depoNo = depoNo;
             this.depoAdresi = depoAdresi;
             this.aciklama = aciklama;
+            this.depoLokasyon = depoLokasyon;
         }
 
         public DepoMiktar(string stokNo, string depoNo, string seriNo, string lotNo,string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, int miktar)

@@ -9,6 +9,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using UserInterface.IdariIsler;
 using UserInterface.STS;
 
 namespace UserInterface.EgitimDok
@@ -20,11 +21,12 @@ namespace UserInterface.EgitimDok
         IdariIslerLogManager logManager;
         DvNoManager dvNoManager;
         List<string> fileNames = new List<string>();
+        List<string> dvEtiketNos = new List<string>();
         public object[] infos;
         string kaynakdosyaismi, alinandosya, fotoyolu, kaynakdosyaismi1, alinandosya1, yeniad, dosyaYoluGun, fotoYoluGun, fotoyoluGun, kaynakdosyaismiGun, alinandosyaGun, yeniadGun;
         public string dosyaYolu="";
         bool dosyaControl = false, fotoControl = false;
-        int id;
+        int id, yeniDvNo, adet, sira;
         public bool kaydet = false, coklu = false, tekli = false, ilkGelis = true;
         public DuranVarlik()
         {
@@ -69,9 +71,34 @@ namespace UserInterface.EgitimDok
             IdariIslerLog log = new IdariIslerLog(sayfa, benzersizid, islem, islemyapan, DateTime.Now);
             logManager.Add(log);
         }
-        int adet;
         private void BtnCoklu_Click(object sender, EventArgs e)
         {
+            if (CmbDvSahibi.Text=="")
+            {
+                MessageBox.Show("Lütfen Öncelikle DV SAHİBİ Bilgisini Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                return;
+            }
+
+            LblIsAkisNo.Clear();
+            CmbDvSahibi.Text = "";
+            TxtDvEtiketNo.Clear();
+            DuranVarlikKayit duranVarlikKayit = kayitManager.DvSonNo(CmbDvSahibi.Text);
+            if (duranVarlikKayit==null)
+            {
+                LblIsAkisNo.Text = "";
+                return;
+            }
+            int sonNo = duranVarlikKayit.IsAkisNo;
+            yeniDvNo = sonNo + 1;
+            LblIsAkisNo.Text = yeniDvNo.ToString();
+            TxtAdet.Visible = true;
+            LblAdet.Visible = true;
+            tekli = false;
+            coklu = true;
+
+
+            #region EskiKod
+            /*
             if (tekli==true)
             {
                 MessageBox.Show("Çoklu Bilgisini Seçtiniz Tekli İşlemleriniz İptal Ediliyor!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -90,11 +117,37 @@ namespace UserInterface.EgitimDok
             LblAdet.Visible = true;
             coklu = true;
             TxtAdet.Text="0";
+            */
+            #endregion
         }
-
+        
         private void BtnTekli_Click(object sender, EventArgs e)
         {
-            if (coklu==true)
+            if (CmbDvSahibi.Text=="")
+            {
+                MessageBox.Show("Lütfen Öncelikle DV SAHİBİ Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            LblIsAkisNo.Clear();
+            CmbDvSahibi.Text = "";
+            TxtDvEtiketNo.Clear();
+            DuranVarlikKayit duranVarlikKayit =  kayitManager.DvSonNo(CmbDvSahibi.Text);
+            if (duranVarlikKayit == null)
+            {
+                LblIsAkisNo.Text = "";
+                return;
+            }
+            int sonNo = duranVarlikKayit.IsAkisNo;
+            yeniDvNo = sonNo + 1;
+            LblIsAkisNo.Text = yeniDvNo.ToString();
+            TxtAdet.Visible = false;
+            LblAdet.Visible = false;
+            tekli = true;
+            coklu = false;
+
+
+            #region EskiKod
+            /*if (coklu==true)
             {
                 MessageBox.Show("Tekli Bilgisine Tıkladız İşlemleriniz İptal Ediliyor!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 Temizle();
@@ -133,7 +186,7 @@ namespace UserInterface.EgitimDok
                 MessageBox.Show("Lütfen Öncelikle Bilgileri Kaydı Tamamlayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }*/
-
+            #endregion
         }
         void DvNoArttir()
         {
@@ -141,14 +194,40 @@ namespace UserInterface.EgitimDok
             DvNo dvNo = dvNoManager.Get();
             LblIsAkisNo.Text = dvNo.DvNoGoster.ToString();
         }
+
+        private void BtnButceKoduEkle_Click(object sender, EventArgs e)
+        {
+            FrmButceKoduKalemiDuzenle frmButceKoduKalemi = new FrmButceKoduKalemiDuzenle();
+            frmButceKoduKalemi.ShowDialog();
+        }
+
         private void TxtAdet_TextChanged(object sender, EventArgs e)
         {
-            if (TxtAdet.Text=="0")
+            dvEtiketNos.Clear();
+            string sayac;
+            adet = TxtAdet.Text.ConInt();
+            for (int i = 0; i < adet; i++)
+            {
+                yeniDvNo %= 100000;
+                if (i==0)
+                {
+                    sayac = "";
+                }
+                else
+                {
+                    sayac = "/" + i.ToString();
+                }
+                dvEtiketNos.Add("0"+ yeniDvNo + sayac);
+            }
+
+            #region EskiKod
+            /*if (TxtAdet.Text=="0")
             {
                 return;
             }
             DvNoArttir();
-            adet = TxtAdet.Text.ConInt();
+            adet = TxtAdet.Text.ConInt();*/
+            #endregion
         }
         string isim;
 
@@ -157,10 +236,41 @@ namespace UserInterface.EgitimDok
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
 
-        int sonhaneler;
         private void BtnNoAl_Click(object sender, EventArgs e)
         {
-            
+            if (CmbDvSahibi.Text == "")
+            {
+                MessageBox.Show("Lütfen Öncelikle DURAN VARLIK Sahibi Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbDvSahibi.Text == "ASELSAN")
+            {
+                isim = "AS-PE-";
+            }
+            if (CmbDvSahibi.Text == "BAŞARAN")
+            {
+                isim = "BM-PE-";
+            }
+            if (tekli==true)
+            {
+                yeniDvNo %= 100000;
+                TxtDvEtiketNo.Text = isim + "0" + yeniDvNo;
+            }
+            if (coklu==true)
+            {
+                if (sira >= adet)
+                {
+                    MessageBox.Show("Belirtmiş Olduğunuz Adet Kadar Etiket Numarası Verilmiştir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                TxtDvEtiketNo.Text = isim + dvEtiketNos[sira].ToString();
+                sira++;
+            }
+
+
+
+            #region EskiKod
+            /*
             if (CmbDvSahibi.Text=="")
             {
                 MessageBox.Show("Lütfen Öncelikle DURAN VARLIK Sahibi Bilgisini Giriniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -185,14 +295,14 @@ namespace UserInterface.EgitimDok
             }
             if (coklu == true)
             {
-                /*if (adet == 1 || adet == 0)
-                {
-                    MessageBox.Show("Lütfen Tekli Girişleriniz İçin Tekli Butonuna Tıklayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    dvNoManager.UpdateAzalt();
-                    TxtAdet.Clear();
-                    coklu = false;
-                    return;
-                }*/
+                //if (adet == 1 || adet == 0)
+                //{
+                //    MessageBox.Show("Lütfen Tekli Girişleriniz İçin Tekli Butonuna Tıklayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    dvNoManager.UpdateAzalt();
+                //    TxtAdet.Clear();
+                //    coklu = false;
+                //    return;
+                //}
                 adet--;
 
                 if (adet == 0)
@@ -213,6 +323,8 @@ namespace UserInterface.EgitimDok
                 sonhaneler = sonhaneler % 100000;
                 TxtDvEtiketNo.Text = isim +"0"+ sonhaneler;
             }
+            */
+            #endregion
         }
 
         private void TxtAdet_KeyPress(object sender, KeyPressEventArgs e)
@@ -225,7 +337,7 @@ namespace UserInterface.EgitimDok
             /*IXLWorkbook workbook = new XLWorkbook(@"C:\Users\MAYıldırım\Desktop\MÜB PROJE DİREKTÖRLÜĞÜ DEMİRBAŞ & ENVANTER LİSTESİ.xlsx");
             IXLWorksheets sheets = workbook.Worksheets;
             IXLWorksheet worksheet = workbook.Worksheet("DEMİRBAŞ LİSTESİ");
-            var rows = worksheet.Rows(2, 2349);
+            var rows = worksheet.Rows(2, 2231);
             DateTime outDate = DateTime.Now;
             //double outDouble = 0;
             foreach (IXLRow item in rows)
@@ -253,7 +365,8 @@ namespace UserInterface.EgitimDok
                     ""); // FOTO YOLU
                 kayitManager.Add(yakits);
             }*/
-            #region KAYDET
+            
+            
             if (LblIsAkisNo.Text=="")
             {
                 MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -278,7 +391,7 @@ namespace UserInterface.EgitimDok
             if (dr == DialogResult.Yes)
             {
                 int isakisno = LblIsAkisNo.Text.ConInt();
-                DuranVarlikKayit duranVarlik = new DuranVarlikKayit(isakisno, CmbDvSahibi.Text, CmbButceKodu.Text, TxtDvEtiketNo.Text, CmbDvGrubu.Text, CmbDvTanim.Text, TxtMiktar.Text, TxtMarka.Text, TxtModel.Text, TxtSeriNo.Text, CmbKalGerek.Text, CmbSatNo.Text, CmbSaticiFirma.Text, DtFaturaTarihi.Text, TxtFaturaNo.Text, TxtFiyat.Text.ConDouble(), TxtAciklama.Text, CmbDurumu.Text, dosyaYolu, fotoyolu);
+                DuranVarlikKayit duranVarlik = new DuranVarlikKayit(isakisno, CmbDvSahibi.Text, CmbButceKodu.Text, TxtDvEtiketNo.Text, CmbDvGrubu.Text, TxtTanim.Text, TxtMiktar.Text, TxtMarka.Text, TxtModel.Text, TxtSeriNo.Text, CmbKalGerek.Text, TxtSatNo.Text, CmbSaticiFirma.Text, DtFaturaTarihi.Text, TxtFaturaNo.Text, TxtFiyat.Text.ConDouble(), TxtAciklama.Text, CmbDurumu.Text, dosyaYolu, fotoyolu);
                 string mesaj = kayitManager.Add(duranVarlik);
                 if (mesaj != "OK")
                 {
@@ -289,7 +402,29 @@ namespace UserInterface.EgitimDok
                 fotoControl = false;
                 dosyaControl = false;
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                string dvNoTut = LblIsAkisNo.Text;
+                
+                if (tekli==true)
+                {
+                    Temizle();
+                    LblIsAkisNo.Clear();
+                }
+                if (coklu==true)
+                {
+                    if (sira >= adet)
+                    {
+                        Temizle();
+                        LblIsAkisNo.Clear();
+                        TxtAdet.Clear();
+
+                    }
+                    else
+                    {
+                        Temizle();
+                    }
+                }
+
+                #region EskiKod
+                /*string dvNoTut = LblIsAkisNo.Text;
                 Temizle();
                 IsAkisNo();
                 if (coklu==true)
@@ -317,16 +452,18 @@ namespace UserInterface.EgitimDok
                     Temizle();
                     kaydet = true;
                     tekli = false;
-                }
+                }*/
             }
+            
             #endregion
+
         }
         void Temizle()
         {
-            CmbDvSahibi.Text = ""; CmbButceKodu.Text = ""; TxtDvEtiketNo.Clear(); CmbDvGrubu.Text = "";
-            CmbDvTanim.Text = ""; TxtMiktar.Clear(); TxtMarka.Clear(); TxtModel.Clear(); TxtSeriNo.Clear(); CmbKalGerek.Text = ""; CmbSatNo.Text = "";
+            CmbDvSahibi.Text = ""; CmbButceKodu.Text = ""; CmbDvGrubu.Text = ""; TxtDvEtiketNo.Clear();
+            TxtTanim.Clear(); TxtMiktar.Clear(); TxtMarka.Clear(); TxtModel.Clear(); TxtSeriNo.Clear(); CmbKalGerek.Text = ""; TxtSatNo.Clear();
             CmbSaticiFirma.Text = ""; TxtFaturaNo.Clear(); TxtFiyat.Clear(); TxtAciklama.Clear(); webBrowser1.Navigate(""); PctBox.ImageLocation = "";
-            CmbDurumu.Text = ""; LblIsAkisNo.Clear(); kaydet = false;
+            CmbDurumu.Text = ""; kaydet = false;
         }
 
         private void BtnDosyaEkleGun_Click(object sender, EventArgs e)
@@ -443,7 +580,7 @@ namespace UserInterface.EgitimDok
 
         private void TxtMiktar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            //e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
         private void BtnFotoEkle_Click(object sender, EventArgs e)
         {
@@ -542,7 +679,7 @@ namespace UserInterface.EgitimDok
             {
                 Directory.CreateDirectory(anadosya);
             }
-            dosyaYolu = anadosya + TxtDvEtiketNo.Text + "\\";
+            dosyaYolu = anadosya + DateTime.Now.ToString("dd_MM_yyyy") + "_" + DateTime.Now.ToString("mm_ss") + "\\";
             if (!Directory.Exists(dosyaYolu))
             {
                 Directory.CreateDirectory(dosyaYolu);

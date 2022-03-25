@@ -56,6 +56,85 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string IslemAdimiGuncelle(int id,string islemAdimi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BakimOnarimIslemAdimiGuncelle",
+                    new SqlParameter("@id", id),new SqlParameter("@islemAdimi",islemAdimi));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string ArizaSiparisOlustur(ArizaKayit entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BakimOanrimSiparisOlustur",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@garantiDurumu",entity.GarantiDurumu),
+                    new SqlParameter("@lojSorumlusu", entity.LojistikSorumluPersonel),
+                    new SqlParameter("@lojRutbesi",entity.LojRutbesi),
+                    new SqlParameter("@lojGorevi",entity.LojGorevi),
+                    new SqlParameter("@lojTarihi",entity.LojTarihi),
+                    new SqlParameter("@tespitEdilenAriza",entity.TespitEdilenAriza),
+                    new SqlParameter("@acmaOnayiVeren",entity.AcmaOnayiVeren));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string CrmNoTanimla(ArizaKayit entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BakimOnarimCrmNoTanimla",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@csSiparisNo", entity.CsSiparisNo),
+                    new SqlParameter("@bildirimNo", entity.BildirimNo),
+                    new SqlParameter("@crmNo", entity.CrmNo),
+                    new SqlParameter("@mailTarihi", entity.BildirimMailTarihi));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SistemCihazBilgileri(ArizaKayit entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BakimOanrimSistemCihazBilgileri",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@stokNo", entity.StokNo),
+                    new SqlParameter("@seriNo", entity.SeriNo),
+                    new SqlParameter("@kategori", entity.Kategori),
+                    new SqlParameter("@ilgiliFirma", entity.IlgiliFirma),
+                    new SqlParameter("@bildirimTuru", entity.BildirimTuru),
+                    new SqlParameter("@pypNo",entity.PypNo),
+                    new SqlParameter("@sorumluPersonel",entity.SorumluPersonel),
+                    new SqlParameter("@islemTuru",entity.IslemTuru),
+                    new SqlParameter("@hesaplama",entity.Hesaplama));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Delete(int id)
         {

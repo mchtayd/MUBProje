@@ -33,6 +33,7 @@ namespace UserInterface.IdariIsler
         AracManager aracManager;
         IsAkisNoManager isAkisNoManager;
         AracZimmetiManager aracZimmetiManager;
+        IdariIslerLogManager logManager;
         AracZimmetiLogManager aracZimmetiLogManager;
         List<ZimmetAktarim> zimmetAktarims = new List<ZimmetAktarim>();
         List<DuranVarlikSonuc> duranVarliks = new List<DuranVarlikSonuc>();
@@ -54,6 +55,7 @@ namespace UserInterface.IdariIsler
             aracManager = AracManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
             aracZimmetiLogManager = AracZimmetiLogManager.GetInstance();
+            logManager = IdariIslerLogManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -145,7 +147,7 @@ namespace UserInterface.IdariIsler
         }
         void IsAkisNo()
         {
-            isAkisNoManager.Update();
+            isAkisNoManager.UpdateKontrolsuz();
             IsAkisNo isAkis = isAkisNoManager.Get();
             LblIsAkisNo.Text = isAkis.Id.ToString();
         }
@@ -200,7 +202,8 @@ namespace UserInterface.IdariIsler
             TxtSeriNo.Text = duranVarlikKayit.SeriNo;
             TxtDurumu.Text = duranVarlikKayit.Durumu;
             TxtMiktar.Text = duranVarlikKayit.Miktar;
-            fotoYolu = duranVarlikKayit.FotoYolu;
+            dosyaYolu = duranVarlikKayit.DosyaYolu;
+            fotoYolu = dosyaYolu + TxtDvEtiketNo.Text+".jpg";
             PctBox.ImageLocation = fotoYolu;
         }
         void Personeller1()
@@ -480,6 +483,16 @@ namespace UserInterface.IdariIsler
             dosya = anadosya2 + LblIsAkisNo.Text + "\\";
             Directory.CreateDirectory(dosya);
         }
+        void CreateLog(string dvEtiketNo)
+        {
+            string sayfa = "ZIMMET AKTARIM";
+            ZimmetAktarim yakit = zimmetAktarimManager.Get(dvEtiketNo);
+            int benzersizid = yakit.Id;
+            string islem = "DURAN VARLIK AKTARIM İŞLEMİ GERÇEKLEŞMİŞTİR.";
+            string islemyapan = infos[1].ToString();
+            IdariIslerLog log = new IdariIslerLog(sayfa, benzersizid, islem, islemyapan, DateTime.Now);
+            logManager.Add(log);
+        }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
             if (DtgList.RowCount == 0)
@@ -497,23 +510,25 @@ namespace UserInterface.IdariIsler
                 {
                     foreach (DataGridViewRow item in DtgList.Rows)
                     {
-                        ZimmetAktarim zimmetAktarim = new ZimmetAktarim(item.Cells["DvNo"].Value.ConInt(), LblIsAkisNo.Text.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, CmbAdDP.Text, TxtSicilDP.Text, TxtMasrafYeriNoDP.Text, TxtMasrafYeriDP.Text, TxtMasYeriSorDP.Text, TxtBolumDP.Text, DtDP.Text.ToString(), "", "", "", TxtAktarimGerekcesiDP.Text, fotoYolu, dosyaYolu);
+                        ZimmetAktarim zimmetAktarim = new ZimmetAktarim(item.Cells["DvNo"].Value.ConInt(), LblIsAkisNo.Text.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, CmbAdDP.Text, TxtSicilDP.Text, TxtMasrafYeriNoDP.Text, TxtMasrafYeriDP.Text, TxtMasYeriSorDP.Text, TxtBolumDP.Text, DtDP.Text.ToString(), "", "", "", TxtAktarimGerekcesiDP.Text, fotoYolu, dosya);
 
                         string etiketno = item.Cells["DvEtiketNo"].Value.ToString();
 
                         zimmetAktarimManager.Add(zimmetAktarim);
                         zimmetAktarimManager.Delete(etiketno, "");
 
-                        ZimmetVeriGecmis zimmetVeriGecmis = new ZimmetVeriGecmis(item.Cells["DvNo"].Value.ConInt(), LblIsAkisNo.Text.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, infos[1].ToString(), "", "", "", "", "", "", DtDP.Value, CmbAdDP.Text, TxtSicilDP.Text, TxtMasrafYeriNoDP.Text, TxtMasrafYeriDP.Text, TxtMasYeriSorDP.Text, TxtBolumDP.Text, TxtAktarimGerekcesiDP.Text, "", "", "", dosyaYolu);
+                        ZimmetVeriGecmis zimmetVeriGecmis = new ZimmetVeriGecmis(item.Cells["DvNo"].Value.ConInt(), LblIsAkisNo.Text.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, infos[1].ToString(), "", "", "", "", "", "", DtDP.Value, CmbAdDP.Text, TxtSicilDP.Text, TxtMasrafYeriNoDP.Text, TxtMasrafYeriDP.Text, TxtMasYeriSorDP.Text, TxtBolumDP.Text, TxtAktarimGerekcesiDP.Text, "", "", "", dosya);
 
                         zimmetVeriGecmisManager.Add(zimmetVeriGecmis);
+
+                        CreateLog(item.Cells["DvEtiketNo"].Value.ToString());
                     }
                 }
                 if (index == 1) // PERSONELDEN DEPOYA
                 {
                     foreach (DataGridViewRow item in DtgList.Rows)
                     {
-                        ZimmetAktarim zimmetAktarim = new ZimmetAktarim(item.Cells["DvNo"].Value.ConInt(), LblIsAkisNo.Text.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, "", "", "", "", "", "", DTPD.Text.ToString(), CmbDepoAdresi.Text, CmbLokasyon.Text, CmbLokasyonBilgi.Text, TxtAktarimGerekcesiPD.Text, fotoYolu, dosyaYolu);
+                        ZimmetAktarim zimmetAktarim = new ZimmetAktarim(item.Cells["DvNo"].Value.ConInt(), LblIsAkisNo.Text.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, "", "", "", "", "", "", DTPD.Text.ToString(), CmbDepoAdresi.Text, CmbLokasyon.Text, CmbLokasyonBilgi.Text, TxtAktarimGerekcesiPD.Text, fotoYolu, dosya);
 
                         zimmetAktarimlar.Add(zimmetAktarim);
 
@@ -521,10 +536,10 @@ namespace UserInterface.IdariIsler
                         zimmetAktarimManager.Add(zimmetAktarim);
                         zimmetAktarimManager.Delete(etiketno, CmbAdPD.Text);
 
-                        ZimmetVeriGecmis zimmetVeriGecmis = new ZimmetVeriGecmis(item.Cells["DvNo"].Value.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, infos[1].ToString(), CmbAdPD.Text, TxtSicilPD.Text, TxtMasrafYeriNoPD.Text, TxtMasrafYeriPD.Text, TxtMasYeriSorPD.Text, TxtBolumPD.Text, DTPD.Value, "", "", "", "", "", "", TxtAktarimGerekcesiPD.Text, CmbDepoAdresi.Text, CmbLokasyon.Text, CmbLokasyonBilgi.Text, dosyaYolu);
+                        ZimmetVeriGecmis zimmetVeriGecmis = new ZimmetVeriGecmis(item.Cells["DvNo"].Value.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, infos[1].ToString(), CmbAdPD.Text, TxtSicilPD.Text, TxtMasrafYeriNoPD.Text, TxtMasrafYeriPD.Text, TxtMasYeriSorPD.Text, TxtBolumPD.Text, DTPD.Value, "", "", "", "", "", "", TxtAktarimGerekcesiPD.Text, CmbDepoAdresi.Text, CmbLokasyon.Text, CmbLokasyonBilgi.Text, dosya);
 
                         zimmetVeriGecmisManager.Add(zimmetVeriGecmis);
-
+                        CreateLog(item.Cells["DvEtiketNo"].Value.ToString());
                         if (zimmetAktarimlar.Count > 0)
                         {
                             IXLWorkbook workbook = new XLWorkbook(@"Z:\DTS\EĞİTİM DOKÜMANTASYON\STANDART FORMLAR\MP-FR-027 DURAN VARLIK AKTARIM FORMU REV (00)\MP-FR-027 DURAN VARLIK AKTARIM FORMU REV (00).xlsx");
@@ -559,13 +574,14 @@ namespace UserInterface.IdariIsler
                             //workbook.SaveAs(Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Excel_File.xlsx");
                             workbook.Dispose();
                         }
+                        
                     }
                 }
                 if (index == 2) // PERSONELDEN PERSONELE
                 {
                     foreach (DataGridViewRow item in DtgList.Rows)
                     {
-                        ZimmetAktarim zimmetAktarim = new ZimmetAktarim(item.Cells["DvNo"].Value.ConInt(), LblIsAkisNo.Text.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, CmbAdPPAlacak.Text, TxtSicilPPAlacak.Text, TxtMasrafYeriNoPPAlacak.Text, TxtMasrafYeriPPAlacak.Text, TxtMasrafYeriSorumlusuPPAlacak.Text, TxtBolumPPAlacak.Text, DtPP.Text.ToString(), "", "", "", TxtAktarimGerekcesiPP.Text, fotoYolu, dosyaYolu);
+                        ZimmetAktarim zimmetAktarim = new ZimmetAktarim(item.Cells["DvNo"].Value.ConInt(), LblIsAkisNo.Text.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, CmbAdPPAlacak.Text, TxtSicilPPAlacak.Text, TxtMasrafYeriNoPPAlacak.Text, TxtMasrafYeriPPAlacak.Text, TxtMasrafYeriSorumlusuPPAlacak.Text, TxtBolumPPAlacak.Text, DtPP.Text.ToString(), "", "", "", TxtAktarimGerekcesiPP.Text, fotoYolu, dosya);
 
                         zimmetAktarimlar.Add(zimmetAktarim);
 
@@ -573,10 +589,12 @@ namespace UserInterface.IdariIsler
                         zimmetAktarimManager.Add(zimmetAktarim); // zimmet personele eklendi
                         zimmetAktarimManager.Delete(etiketno, CmbAdPPAktaracak.Text); // zimmet personelden alındı
 
-                        ZimmetVeriGecmis zimmetVeriGecmis = new ZimmetVeriGecmis(item.Cells["DvNo"].Value.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, infos[1].ToString(), CmbAdPPAktaracak.Text, TxtSicilPPAktaracak.Text, TxtMasrafYeriNoPPAktaracak.Text, TxtMasrafYeriPPAktaracak.Text, TxtMasrafYeriSorumlusuPPAktaracak.Text, TxtBolumPPAktaracak.Text, DtPP.Value, CmbAdPPAlacak.Text, TxtSicilPPAlacak.Text, TxtMasrafYeriNoPPAlacak.Text, TxtMasrafYeriPPAlacak.Text, TxtMasrafYeriSorumlusuPPAlacak.Text, TxtBolumPPAlacak.Text, TxtAktarimGerekcesiPP.Text, "", "", "", dosyaYolu);
+                        ZimmetVeriGecmis zimmetVeriGecmis = new ZimmetVeriGecmis(item.Cells["DvNo"].Value.ConInt(), item.Cells["DvEtiketNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Marka"].Value.ToString(), item.Cells["Model"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durumu"].Value.ToString(), item.Cells["Miktar"].Value.ToString(), CmbIslemTuru.Text, infos[1].ToString(), CmbAdPPAktaracak.Text, TxtSicilPPAktaracak.Text, TxtMasrafYeriNoPPAktaracak.Text, TxtMasrafYeriPPAktaracak.Text, TxtMasrafYeriSorumlusuPPAktaracak.Text, TxtBolumPPAktaracak.Text, DtPP.Value, CmbAdPPAlacak.Text, TxtSicilPPAlacak.Text, TxtMasrafYeriNoPPAlacak.Text, TxtMasrafYeriPPAlacak.Text, TxtMasrafYeriSorumlusuPPAlacak.Text, TxtBolumPPAlacak.Text, TxtAktarimGerekcesiPP.Text, "", "", "", dosya);
 
                         zimmetVeriGecmisManager.Add(zimmetVeriGecmis); // zimmet veri geçmişe kaydedildi.
+                        CreateLog(item.Cells["DvEtiketNo"].Value.ToString());
                     }
+                    
                     if (zimmetAktarimlar.Count > 0)
                     {
                         IXLWorkbook workbook = new XLWorkbook(@"Z:\DTS\EĞİTİM DOKÜMANTASYON\STANDART FORMLAR\MP-FR-027 DURAN VARLIK AKTARIM FORMU REV (00)\MP-FR-027 DURAN VARLIK AKTARIM FORMU REV (00).xlsx");
@@ -628,6 +646,32 @@ namespace UserInterface.IdariIsler
         private void DtgZimmetLsitesi_SortStringChanged(object sender, EventArgs e)
         {
             dataBinder3.Sort = DtgZimmetLsitesi.SortString;
+        }
+
+        private void BtnTumunuSec_Click(object sender, EventArgs e)
+        {
+            if (AdvMalzemeOnizleme.Rows[0].Cells["ChkBox"].Value.ConBool() == false)
+            {
+                for (int i = 0; i < AdvMalzemeOnizleme.RowCount; i++)
+                {
+                    AdvMalzemeOnizleme.Rows[i].Cells["ChkBox"].Value = true;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < AdvMalzemeOnizleme.RowCount; i++)
+                {
+                    AdvMalzemeOnizleme.Rows[i].Cells["ChkBox"].Value = false;
+                }
+            }
+            
+
+            
+        }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
         }
 
         void CreateDirectoryDP()
@@ -707,10 +751,7 @@ namespace UserInterface.IdariIsler
                 return;
             }
 
-            
-
             List<DuranVarlikSonuc> aktarilacaklar = new List<DuranVarlikSonuc>();
-            
             
 
             foreach (DataGridViewRow row in AdvMalzemeOnizleme.Rows)
@@ -749,7 +790,7 @@ namespace UserInterface.IdariIsler
             IXLWorkbook workbook = new XLWorkbook(@"C:\Users\MAYıldırım\Desktop\MÜB PROJE DİREKTÖRLÜĞÜ DEMİRBAŞ & ENVANTER LİSTESİ.xlsx");
             IXLWorksheets sheets = workbook.Worksheets;
             IXLWorksheet worksheet = workbook.Worksheet("DEMİRBAŞ LİSTESİ");
-            var rows = worksheet.Rows(2, 2349);
+            var rows = worksheet.Rows(2, 2231);
             DateTime outDate = DateTime.Now;
             //double outDouble = 0;
             foreach (IXLRow item in rows)

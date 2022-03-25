@@ -37,15 +37,15 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public string Delete(int isakisno)
+        public string Delete(int id)
         {
             try
             {
-                if (isakisno==0)
+                if (id==0)
                 {
                     return "Lütfen Geçerli Bir İŞ AKIŞ NO giriniz.";
                 }
-                return sehiriciGorevDal.Delete(isakisno);
+                return sehiriciGorevDal.Delete(id);
             }
             catch (Exception ex)
             {
