@@ -63,6 +63,22 @@ namespace DataAccess
                 return ex.Message;
             }
         }
+
+        public string DevamEdenSatGuncelle(SatinAlinacakMalzemeler entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DevamEdenSatMalzemeGuncelle", new SqlParameter("@stokNo", entity.Stn1), new SqlParameter("@tanim", entity.T1),
+                    new SqlParameter("@miktari", entity.M1), new SqlParameter("@birim", entity.B1), new SqlParameter("@id", entity.Id));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string SatDurumOnay(string siparisno)
         {
             try

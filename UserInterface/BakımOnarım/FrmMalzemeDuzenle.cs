@@ -20,6 +20,7 @@ namespace UserInterface.BakımOnarım
         MalzemeKayitManager malzemeKayitManager;
         AbfMalzemeManager abfMalzemeManager;
         public int benzersizId;
+        int deleteId;
 
         List<MalzemeKayit> malzemeKayits;
         List<MalzemeKayit> malzemeKayitsFiltired;
@@ -135,6 +136,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmArizaAcmaCalisma frmArizaAcmaCalisma = new FrmArizaAcmaCalisma();
                 frmArizaAcmaCalisma.FillTools();
+                frmArizaAcmaCalisma.id = benzersizId;
                 this.Close();
 
             }
@@ -142,22 +144,38 @@ namespace UserInterface.BakımOnarım
 
         private void silToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            int deleteId = DtgEklenecekMalzemeler.CurrentRow.Cells["Id"].ConInt();
-
+            deleteId = DtgEklenecekMalzemeler.CurrentRow.Cells["Id"].Value.ConInt();
             if (deleteId == 0)
             {
                 MessageBox.Show("Lütfen Geçerli Bir Malzeme Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string messega = abfMalzemeManager.Delete(deleteId);
-            if (messega=="OK")
+            DialogResult dr = MessageBox.Show("Malzeme Kaydını Silmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
             {
-                MessageBox.Show("Lütfen Geçerli Bir Malzeme Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                string messega = abfMalzemeManager.DeleteTekMalzemeSil(deleteId);
+                if (messega != "OK")
+                {
+                    MessageBox.Show("Lütfen Geçerli Bir Malzeme Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                AbfMalzemeDisplay();
+               
             }
-            MessageBox.Show("Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+        }
 
+        private void DtgEklenecekMalzemeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+        }
+
+        private void FrmMalzemeDuzenle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FrmArizaAcmaCalisma frmArizaAcmaCalisma = new FrmArizaAcmaCalisma();
+            frmArizaAcmaCalisma.id = benzersizId;
+            frmArizaAcmaCalisma.FillTools();
         }
 
         private void TxtAbfFormNo_TextChanged(object sender, EventArgs e)

@@ -41,8 +41,10 @@ namespace UserInterface.BakımOnarım
         string isAkisNo, dosyaYolu = "", kaynakdosyaismi, alinandosya, proje, siparisNo, comboAd, personelGorevi, personelBolumu, sure;
         List<string> fileNames = new List<string>();
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
-        int abfForm, id, abf, gun, saat, dakika;
+        int abfForm, abf, gun, saat, dakika;
         DateTime birOncekiTarih;
+        public int id;
+        string lojTarihi;
 
 
         public FrmArizaAcmaCalisma()
@@ -78,7 +80,8 @@ namespace UserInterface.BakımOnarım
             Personeller3();
             IslemAdimlari();
             Personeller4();
-
+            Personeller5();
+            CrmIslemAdimlari();
             start = false;
             LblArizaBildirimiAlan.Text = infos[1].ToString();
         }
@@ -98,6 +101,8 @@ namespace UserInterface.BakımOnarım
             Personeller3();
             IslemAdimlari();
             Personeller4();
+            Personeller5();
+            CrmIslemAdimlari();
             start = false;
         }
         int AbfFormNo()
@@ -188,17 +193,25 @@ namespace UserInterface.BakımOnarım
         }
         void Personeller3()
         {
-            CmbArizaAcmaOnayiVeren.DataSource = kayitManager.PersonelAdSoyad();
-            CmbArizaAcmaOnayiVeren.ValueMember = "Id";
-            CmbArizaAcmaOnayiVeren.DisplayMember = "Adsoyad";
-            CmbArizaAcmaOnayiVeren.SelectedValue = -1;
+            CmbPersoneller.DataSource = kayitManager.PersonelAdSoyad();
+            CmbPersoneller.ValueMember = "Id";
+            CmbPersoneller.DisplayMember = "Adsoyad";
+            CmbPersoneller.SelectedValue = -1;
         }
+        
         void Personeller4()
         {
             CmbGorevAtanacak.DataSource = kayitManager.PersonelAdSoyad();
             CmbGorevAtanacak.ValueMember = "Id";
             CmbGorevAtanacak.DisplayMember = "Adsoyad";
             CmbGorevAtanacak.SelectedValue = -1;
+        }
+        void Personeller5()
+        {
+            CmbCrmGorevAtanacakPer.DataSource = kayitManager.PersonelAdSoyad();
+            CmbCrmGorevAtanacakPer.ValueMember = "Id";
+            CmbCrmGorevAtanacakPer.DisplayMember = "Adsoyad";
+            CmbCrmGorevAtanacakPer.SelectedValue = -1;
         }
         void CmbProj()
         {
@@ -214,17 +227,13 @@ namespace UserInterface.BakımOnarım
             CmbIslemAdimi.DisplayMember = "IslemaAdimi";
             CmbIslemAdimi.SelectedValue = -1;
         }
-        void Malzemeler()
+
+        void CrmIslemAdimlari()
         {
-            List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
-            malzemeKayits = malzemeKayitManager.GetList();
-
-
-
-            StokNo1.DataSource = islemAdimlariManager.GetList("BAKIM ONARIM");
-            StokNo1.ValueMember = "Id";
-            StokNo1.DisplayMember = "IslemaAdimi";
-            StokNo1.SelectedValue = -1;
+            CmbCrmIslemAdimlari.DataSource = islemAdimlariManager.GetList("BAKIM ONARIM");
+            CmbCrmIslemAdimlari.ValueMember = "Id";
+            CmbCrmIslemAdimlari.DisplayMember = "IslemaAdimi";
+            CmbCrmIslemAdimlari.SelectedValue = -1;
         }
 
 
@@ -311,39 +320,10 @@ namespace UserInterface.BakımOnarım
         public void FillTools()
         {
             //MalzemeTemizle();
-            
+
+            abfMalzemes.Clear();
             abfMalzemes = abfMalzemeManager.GetList(id);
-            DtgMalzemeList.Rows.Clear();
-            /*foreach (AbfMalzeme item in abfMalzemes)
-            {
-                DtgMalzemeList.Rows.Add();
-
-                DataGridViewComboBoxColumn colCombo = (DataGridViewComboBoxColumn)DtgMalzemeList.Columns["SokulenStokNo"];
-                colCombo.DataSource = malzemeKayitList;
-                colCombo.DataPropertyName = "StokNo";
-                colCombo.ValueMember = "Id";
-                colCombo.DisplayMember = "StokNo";
-
-                int sonSatir = DtgMalzemeList.RowCount - 1;              
-                DtgMalzemeList.Rows[sonSatir].Cells["SokulenStokNo"].Value = item.SokulenStokNo;
-                //DtgMalzemeList.Rows[sonSatir].Cells["SokulenTanim"].Value = item.SokulenTanim;
-                DtgMalzemeList.Rows[sonSatir].Cells["SokulenSeriNo"].Value = item.SokulenSeriNo;
-                DtgMalzemeList.Rows[sonSatir].Cells["SokulenMiktar"].Value = item.SokulenMiktar;
-                DtgMalzemeList.Rows[sonSatir].Cells["SokulenBirim"].Value = item.SokulenBirim;
-                DtgMalzemeList.Rows[sonSatir].Cells["SokulenCalismaSaati"].Value = item.SokulenCalismaSaati;
-                DtgMalzemeList.Rows[sonSatir].Cells["SokulenRevizyon"].Value = item.SokulenRevizyon;
-                DtgMalzemeList.Rows[sonSatir].Cells["CalismaDurumu"].Value = item.CalismaDurumu;
-                DtgMalzemeList.Rows[sonSatir].Cells["FizikselDurum"].Value = item.FizikselDurum;
-                DtgMalzemeList.Rows[sonSatir].Cells["YapilacakIslem"].Value = item.YapilacakIslem;
-                //DtgMalzemeList.Rows[sonSatir].Cells["TakilanStokNo"].Value = item.TakilanStokNo;
-                //DtgMalzemeList.Rows[sonSatir].Cells["TakilanTanim"].Value = item.TakilanTanim;
-                DtgMalzemeList.Rows[sonSatir].Cells["TakilanMiktar"].Value = item.TakilanMiktar;
-                DtgMalzemeList.Rows[sonSatir].Cells["TakilanBirim"].Value = item.TakilanBirim;
-                DtgMalzemeList.Rows[sonSatir].Cells["TakilanSeriNo"].Value = item.TakilanSeriNo;
-                DtgMalzemeList.Rows[sonSatir].Cells["TakilanCalismaSaati"].Value = item.TakilanCalismaSaati;
-                DtgMalzemeList.Rows[sonSatir].Cells["TakilanRevizyon"].Value = item.TakilanRevizyon;
-            }*/
-
+            DtgMalzemeList.DataSource = null;
             DtgMalzemeList.DataSource = abfMalzemes;
 
             DtgMalzemeList.Columns["Id"].Visible = false;
@@ -734,13 +714,17 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                arizaKayitManager.IslemAdimiGuncelle(id, CmbCrmIslemAdimlari.Text, CmbCrmGorevAtanacakPer.Text);
+                GorevAtamCrm();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 CrmTemizle();
             }
         }
         void CrmTemizle()
         {
-            TxtCrmFormNo.Clear(); DtgFormBilgileri.DataSource = null; TxtCsSiparisNo.Clear(); TxtBildirimNo.Clear(); TxtCrmNo.Clear();
+            TxtCrmFormNo.Clear(); DtgFormBilgileri.Rows.Clear(); TxtCsSiparisNo.Clear(); TxtBildirimNo.Clear(); TxtCrmNo.Clear();
+            LblCrmMevcutIslemAdimi.Text = "00"; CmbCrmGorevAtanacakPer.SelectedIndex = -1; CmbCrmIslemAdimlari.SelectedIndex = -1;
+
         }
         string CrmNoKontrol()
         {
@@ -760,6 +744,14 @@ namespace UserInterface.BakımOnarım
             {
                 return "Lütfen Crm No Bilgisini Yazınız!";
             }
+            if (CmbCrmGorevAtanacakPer.Text=="")
+            {
+                return "Lütfen Görev Atanacak Personel Bilgisini Seçiniz!";
+            }
+            if (CmbCrmIslemAdimlari.Text == "")
+            {
+                return "Lütfen Bir Sonraki İşlem Adımı Bilgisini Seçiniz!";
+            }
             return "OK";
         }
 
@@ -772,6 +764,7 @@ namespace UserInterface.BakımOnarım
             }
             DtgFormBilgileri.Rows.Clear();
             ArizaKayit arizaKayit = arizaKayitManager.Get(TxtCrmFormNo.Text.ConInt());
+
             if (arizaKayit == null)
             {
                 MessageBox.Show("Girmiş Olduğunuz ABF No Ya Ait Bir Kayıt Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -784,12 +777,17 @@ namespace UserInterface.BakımOnarım
             DtgFormBilgileri.Rows[sonSatir].Cells["BolgeAdi"].Value = arizaKayit.BolgeAdi;
             DtgFormBilgileri.Rows[sonSatir].Cells["BildirimTarihi"].Value = arizaKayit.AbTarihSaat.ToString();
             DtgFormBilgileri.Rows[sonSatir].Cells["BolgeSorumlusu"].Value = arizaKayit.AcmaOnayiVeren;
-            // stok no, tanım, seri no bilgisini alınız.
-
+            DtgFormBilgileri.Rows[sonSatir].Cells["StokNo"].Value = arizaKayit.StokNo;
+            DtgFormBilgileri.Rows[sonSatir].Cells["Tanim"].Value = arizaKayit.Tanim;
+            DtgFormBilgileri.Rows[sonSatir].Cells["SeriNo"].Value = arizaKayit.SeriNo;
+            LblCrmMevcutIslemAdimi.Text = arizaKayit.IslemAdimi;
+            abf = arizaKayit.AbfFormNo;
 
             LblMevcutIslemAdimi.Text = arizaKayit.IslemAdimi;
             abfForm = arizaKayit.AbfFormNo;
             id = arizaKayit.Id;
+
+            CrmSureBul();
         }
 
         private void AdvPersonel_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -824,16 +822,28 @@ namespace UserInterface.BakımOnarım
             }
             else
             {
+
+                ArizaKayit arizaKayit2 = arizaKayitManager.Get(abf);
+                id = arizaKayit2.Id;
+
+                DateTime lojTarih = new DateTime(DtLojistikTarih.Value.Year, DtLojistikTarih.Value.Month, DtLojistikTarih.Value.Day, DtLojistikSaat.Value.Hour, DtLojistikSaat.Value.Minute, DtLojistikSaat.Value.Second);
+
                 mesaj = PersonelIscilikleriEkle();
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                
-                DateTime lojTarih = new DateTime(DtLojistikTarih.Value.Year + DtLojistikTarih.Value.Month + DtLojistikTarih.Value.Day + DtLojistikSaat.Value.Hour, DtLojistikSaat.Value.Minute, DtLojistikSaat.Value.Second);
+                if (CmbGarantiDurumu.Text=="İÇİ")
+                {
+                    lojTarihi = "";
+                }
+                else
+                {
+                    lojTarihi = lojTarih.ToString();
+                }
 
-                ArizaKayit arizaKayit = new ArizaKayit(id, CmbGarantiDurumu.Text, TxtLojistikSorumlusu.Text, TxtLojistikSorRutbesi.Text, TxtLojistikSorGorevi.Text, lojTarih.ToString(), TxtTespitEdilenAriza.Text, CmbArizaAcmaOnayiVeren.Text);
+                ArizaKayit arizaKayit = new ArizaKayit(id, CmbGarantiDurumu.Text, TxtLojistikSorumlusu.Text, TxtLojistikSorRutbesi.Text, TxtLojistikSorGorevi.Text, lojTarihi, TxtTespitEdilenAriza.Text, CmbArizaAcmaOnayiVeren.Text);
 
                 string mesaj2 = arizaKayitManager.ArizaSiparisOlustur(arizaKayit);
                 if (mesaj2 != "OK")
@@ -841,6 +851,9 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                arizaKayitManager.IslemAdimiGuncelle(id, CmbIslemAdimi.Text, CmbGorevAtanacakPersonel.Text);
+                
                 SistemCihazBilgileriKayit();
                 mesaj2 = GorevAtamaSiparisOlustur();
                 
@@ -849,12 +862,18 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
-
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TemizleSiparisOlustur();
+                SiparisTemizle();
             }
+        }
+        void SiparisTemizle()
+        {
+            CmbPersoneller.SelectedIndex = -1; DtIscilikSaati.Text = "00:00"; AdvPersonel.Rows.Clear(); DtgMudehaleSaati.Text = "00:00"; CmbArizaAcmaOnayiVeren.SelectedValue = ""; DtgMalzemeList.DataSource = null;
         }
         void SistemCihazBilgileriKayit()
         {
+
             ArizaKayit arizaKayit = new ArizaKayit(id, LbStokNo.Text, CmbParcaNo.Text, TxtSeriNo.Text, CmbKategori.Text, CmbIlgiliFirma.Text, CmbBildirimTuru.Text, CmbPypNo.Text, TxtSorumluPersonel.Text, TxtSiparisTuru.Text, TxtHesaplama.Text);
 
             arizaKayitManager.SistemCihazBilgileri(arizaKayit);
@@ -868,7 +887,6 @@ namespace UserInterface.BakımOnarım
 
                 ıscilikIscilikManager.Add(ıscilikIscilik);
             }
-
             return "OK";
         }
 
@@ -960,6 +978,10 @@ namespace UserInterface.BakımOnarım
         private void CmbPersoneller_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start == true)
+            {
+                return;
+            }
+            if (CmbPersoneller.SelectedIndex==-1)
             {
                 return;
             }
@@ -1127,6 +1149,9 @@ namespace UserInterface.BakımOnarım
         }
         string GorevAtamaSiparisOlustur()
         {
+            ArizaKayit arizaKayit = arizaKayitManager.Get(abf);
+            id = arizaKayit.Id;
+
             GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", LblMevcutIslemAdimi.Text, sure, "00:05:00".ConOnlyTime());
             string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, TxtTespitEdilenAriza.Text);
             if (kontrol2 != "OK")
@@ -1150,6 +1175,46 @@ namespace UserInterface.BakımOnarım
             TxtBirlikPerRutbesi.Clear(); TxtBirlikPerGorevi.Clear(); TxtABTelefon.Clear(); CmbBildirimKanali.Text = "";
             TxtArizaAciklama.Clear(); webBrowser1.Navigate("");
 
+        }
+        string GorevAtamCrm()
+        {
+            ArizaKayit arizaKayit = arizaKayitManager.Get(abf);
+            id = arizaKayit.Id;
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", LblCrmMevcutIslemAdimi.Text, sure, "00:05:00".ConOnlyTime());
+            string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "ASELSAN BİLDİRİMİ YAPILDI.");
+            if (kontrol2 != "OK")
+            {
+                return kontrol2;
+            }
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM", CmbCrmGorevAtanacakPer.Text, CmbCrmIslemAdimlari.Text, DateTime.Now, "", DateTime.Now.Date);
+            string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+
+            if (kontrol != "OK")
+            {
+                return kontrol;
+            }
+            return "OK";
+
+        }
+        void CrmSureBul()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM");
+
+            birOncekiTarih = gorevAtamaPersonel.Tarih;
+
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
+            {
+                saat = 0;
+            }
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
         }
 
     }

@@ -44,5 +44,15 @@ namespace DataAccess.Concreate.STS
             this.stokno = stokno;
             this.tutar = tutar;
         }
+
+        public TeklifsizSat(int id, string stokno, string tanim, double miktar, string birim, double tutar)
+        {
+            this.id = id;
+            this.stokno = stokno;
+            this.tanim = tanim;
+            this.miktar = miktar;
+            this.birim = birim;
+            this.tutar = tutar;
+        }
     }
 }

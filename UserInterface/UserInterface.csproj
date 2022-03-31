@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>360</ApplicationRevision>
+    <ApplicationRevision>365</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -876,6 +876,12 @@
     <Compile Include="STS\FrmButceKoduKalemi.Designer.cs">
       <DependentUpon>FrmButceKoduKalemi.cs</DependentUpon>
     </Compile>
+    <Compile Include="STS\FrmDevamEdenGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmDevamEdenGuncelle.Designer.cs">
+      <DependentUpon>FrmDevamEdenGuncelle.cs</DependentUpon>
+    </Compile>
     <Compile Include="STS\FrmDevamEdenSat.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1419,6 +1425,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmButceKoduKalemi.resx">
       <DependentUpon>FrmButceKoduKalemi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmDevamEdenGuncelle.resx">
+      <DependentUpon>FrmDevamEdenGuncelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmDevamEdenSat.resx">
       <DependentUpon>FrmDevamEdenSat.cs</DependentUpon>

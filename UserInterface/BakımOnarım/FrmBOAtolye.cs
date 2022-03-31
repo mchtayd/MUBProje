@@ -912,7 +912,7 @@ namespace UserInterface.BakımOnarım
 
             foreach (MalzemeKayit item in malzemeKayitsSecilenler)
             {
-                LblIcSiparisManuel.Text = "221RWK" + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + DateTime.Now.ToString("yy") + DateTime.Now.ToString("HH");
+                LblIcSiparisManuel.Text = "221RWK" + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + DateTime.Now.ToString("yy") + DateTime.Now.ToString("ff");
                 icSiparisNo = LblIcSiparisManuel.Text + "/" + adet;
                 IcSiparisler.Add(icSiparisNo);
                 adet++;

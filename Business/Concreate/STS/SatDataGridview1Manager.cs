@@ -171,6 +171,18 @@ namespace Business.Concreate
             }
         }
 
+        public SatDataGridview1 SatGuncelleGet(string siparisNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.SatGuncelleGet(siparisNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public List<SatDataGridview1> GetList(string durum, int loginId = 0)
         {
             try
@@ -296,6 +308,17 @@ namespace Business.Concreate
             try
             {
                 return satDataGridview1Dal.SatGuncelle2(entity, siparisno);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DevamEdenSatGuncelle(SatDataGridview1 entity)
+        {
+            try
+            {
+                return satDataGridview1Dal.DevamEdenSatGuncelle(entity);
             }
             catch (Exception ex)
             {

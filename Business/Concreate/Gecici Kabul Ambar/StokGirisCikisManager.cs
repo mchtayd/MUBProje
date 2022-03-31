@@ -139,11 +139,11 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
-        public List<StokGirisCıkıs> AtolyeDepoHareketleri(string icSiparisNo)
+        public List<StokGirisCıkıs> AtolyeDepoHareketleri(string abfSiparisNo)
         {
             try
             {
-                return stokGirisCikisDal.AtolyeDepoHareketleri(icSiparisNo);
+                return stokGirisCikisDal.AtolyeDepoHareketleri(abfSiparisNo);
             }
             catch (Exception)
             {

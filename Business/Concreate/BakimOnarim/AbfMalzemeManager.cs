@@ -42,6 +42,17 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string DeleteTekMalzemeSil(int id)
+        {
+            try
+            {
+                return abfMalzemeDal.DeleteTekMalzemeSil(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public AbfMalzeme Get(int id)
         {

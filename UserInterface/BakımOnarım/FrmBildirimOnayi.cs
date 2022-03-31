@@ -16,6 +16,7 @@ namespace UserInterface.BakımOnarım
         public FrmBildirimOnayi()
         {
             InitializeComponent();
+
         }
 
         private void FrmBildirimOnayi_Load(object sender, EventArgs e)

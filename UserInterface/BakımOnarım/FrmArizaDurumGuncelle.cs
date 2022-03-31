@@ -439,7 +439,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Arızaya Ait Sökülen Malzeme Bulunamamıştır!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            string mesaj = arizaKayitManager.IslemAdimiGuncelle(id, CmbIslemAdimi.Text);
+            string mesaj = arizaKayitManager.IslemAdimiGuncelle(id, CmbIslemAdimi.Text, CmbGorevAtanacakPersonel.Text);
             if (mesaj != "OK")
             {
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);

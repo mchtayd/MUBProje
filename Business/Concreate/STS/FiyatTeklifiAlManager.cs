@@ -81,6 +81,17 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
+        public string DevamEdenFiyateklifiGuncelle(FiyatTeklifiAl entity)
+        {
+            try
+            {
+                return fiyatTeklifiAlDal.DevamEdenFiyateklifiGuncelle(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         string IsFiyatTeklifiComplete(FiyatTeklifiAl fiyatTeklifi)
         {
             if (string.IsNullOrEmpty(fiyatTeklifi.Firma1))

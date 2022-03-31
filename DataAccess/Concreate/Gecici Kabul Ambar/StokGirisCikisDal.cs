@@ -259,12 +259,12 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
-        public List<StokGirisCıkıs> AtolyeDepoHareketleri(string icSiparisNo)
+        public List<StokGirisCıkıs> AtolyeDepoHareketleri(string abfSiparisNo)
         {
             try
             {
                 List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
-                dataReader = sqlServices.StoreReader("StokGirisCikisList", new SqlParameter("@icSiparisNo", icSiparisNo));
+                dataReader = sqlServices.StoreReader("AtolyeDepoHareketleri", new SqlParameter("@abfSiparisNo", abfSiparisNo));
                 while (dataReader.Read())
                 {
                     stokGirisCıkıs.Add(new StokGirisCıkıs(

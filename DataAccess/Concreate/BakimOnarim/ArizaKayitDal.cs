@@ -56,12 +56,13 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public string IslemAdimiGuncelle(int id,string islemAdimi)
+        public string IslemAdimiGuncelle(int id,string islemAdimi,string gorevAtanacakPersonel)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("BakimOnarimIslemAdimiGuncelle",
-                    new SqlParameter("@id", id),new SqlParameter("@islemAdimi",islemAdimi));
+                    new SqlParameter("@id", id), new SqlParameter("@islemAdimi", islemAdimi),
+                    new SqlParameter("@gorevAtanacakPersonel", gorevAtanacakPersonel));
 
                 dataReader.Close();
                 return "OK";
@@ -77,7 +78,7 @@ namespace DataAccess.Concreate.BakimOnarim
             {
                 dataReader = sqlServices.StoreReader("BakimOanrimSiparisOlustur",
                     new SqlParameter("@id", entity.Id),
-                    new SqlParameter("@garantiDurumu",entity.GarantiDurumu),
+                    new SqlParameter("@garantiDurumu", entity.GarantiDurumu),
                     new SqlParameter("@lojSorumlusu", entity.LojistikSorumluPersonel),
                     new SqlParameter("@lojRutbesi",entity.LojRutbesi),
                     new SqlParameter("@lojGorevi",entity.LojGorevi),
@@ -118,6 +119,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader = sqlServices.StoreReader("BakimOanrimSistemCihazBilgileri",
                     new SqlParameter("@id", entity.Id),
                     new SqlParameter("@stokNo", entity.StokNo),
+                    new SqlParameter("@tanim",entity.Tanim),
                     new SqlParameter("@seriNo", entity.SeriNo),
                     new SqlParameter("@kategori", entity.Kategori),
                     new SqlParameter("@ilgiliFirma", entity.IlgiliFirma),
@@ -181,7 +183,28 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["SIPARIS_NO"].ToString());
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["LOJISTIK_SORUMLU_PERSONEL"].ToString(),
+                        dataReader["LOJ_RUTBESI"].ToString(),
+                        dataReader["LOJ_GOREVI"].ToString(),
+                        dataReader["LOJ_TARIH"].ToString(),
+                        dataReader["TESPIT_EDILEN_ARIZA"].ToString(),
+                        dataReader["ARIZA_ACMA_ONAYI_VEREN"].ToString(),
+                        dataReader["CS_SIPARIS_NO"].ToString(),
+                        dataReader["BILDIRIM_NO"].ToString(),
+                        dataReader["CRM_NO"].ToString(),
+                        dataReader["ASELSAN_BILDIRIM_TARIHI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["KATEGORI"].ToString(),
+                        dataReader["ILGILI_FIRMA"].ToString(),
+                        dataReader["BILDIRIM_TURU"].ToString(),
+                        dataReader["PYP_NO"].ToString(),
+                        dataReader["SORUMLU_PERSONEL"].ToString(),
+                        dataReader["ISLEM_TURU"].ToString(),
+                        dataReader["HESAPLAMA"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -223,12 +246,95 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
                         dataReader["ISLEM_ADIMI"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["SIPARIS_NO"].ToString()));
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["LOJISTIK_SORUMLU_PERSONEL"].ToString(),
+                        dataReader["LOJ_RUTBESI"].ToString(),
+                        dataReader["LOJ_GOREVI"].ToString(),
+                        dataReader["LOJ_TARIH"].ToString(),
+                        dataReader["TESPIT_EDILEN_ARIZA"].ToString(),
+                        dataReader["ARIZA_ACMA_ONAYI_VEREN"].ToString(),
+                        dataReader["CS_SIPARIS_NO"].ToString(),
+                        dataReader["BILDIRIM_NO"].ToString(),
+                        dataReader["CRM_NO"].ToString(),
+                        dataReader["ASELSAN_BILDIRIM_TARIHI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["KATEGORI"].ToString(),
+                        dataReader["ILGILI_FIRMA"].ToString(),
+                        dataReader["BILDIRIM_TURU"].ToString(),
+                        dataReader["PYP_NO"].ToString(),
+                        dataReader["SORUMLU_PERSONEL"].ToString(),
+                        dataReader["ISLEM_TURU"].ToString(),
+                        dataReader["HESAPLAMA"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
             }
             catch (Exception)
+            {
+                return new List<ArizaKayit>();
+            }
+        }
+        public List<ArizaKayit> DevamEdenlerGetList()
+        {
+            try
+            {
+                List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
+                dataReader = sqlServices.StoreReader("BakimOnarimDevamEdenler");
+                while (dataReader.Read())
+                {
+                    arizaKayits.Add(new ArizaKayit(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["BOLGE_ADI"].ToString(),
+                        dataReader["BOLUK_KOMUTANI"].ToString(),
+                        dataReader["TELEFON_NO"].ToString(),
+                        dataReader["BIRLIK_ADRESI"].ToString(),
+                        dataReader["IL"].ToString(),
+                        dataReader["ILCE"].ToString(),
+                        dataReader["BILDIRILEN_ARIZA"].ToString(),
+                        dataReader["ARIZAYI_BILDIREN_PERSONEL"].ToString(),
+                        dataReader["AB_RUTBESI"].ToString(),
+                        dataReader["AB_GOREVI"].ToString(),
+                        dataReader["AB_TELEFON"].ToString(),
+                        dataReader["AB_TARIH_SAAT"].ConDate(),
+                        dataReader["A_B_ALAN_PERSONEL"].ToString(),
+                        dataReader["BILDIRIM_KANALI"].ToString(),
+                        dataReader["ARIZA_ACIKLAMA"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["LOJISTIK_SORUMLU_PERSONEL"].ToString(),
+                        dataReader["LOJ_RUTBESI"].ToString(),
+                        dataReader["LOJ_GOREVI"].ToString(),
+                        dataReader["LOJ_TARIH"].ToString(),
+                        dataReader["TESPIT_EDILEN_ARIZA"].ToString(),
+                        dataReader["ARIZA_ACMA_ONAYI_VEREN"].ToString(),
+                        dataReader["CS_SIPARIS_NO"].ToString(),
+                        dataReader["BILDIRIM_NO"].ToString(),
+                        dataReader["CRM_NO"].ToString(),
+                        dataReader["ASELSAN_BILDIRIM_TARIHI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["KATEGORI"].ToString(),
+                        dataReader["ILGILI_FIRMA"].ToString(),
+                        dataReader["BILDIRIM_TURU"].ToString(),
+                        dataReader["PYP_NO"].ToString(),
+                        dataReader["SORUMLU_PERSONEL"].ToString(),
+                        dataReader["ISLEM_TURU"].ToString(),
+                        dataReader["HESAPLAMA"].ToString()));
+                }
+                dataReader.Close();
+                return arizaKayits;
+            }
+            catch (Exception ex)
             {
                 return new List<ArizaKayit>();
             }

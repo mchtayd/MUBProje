@@ -163,6 +163,49 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             {
                 return new List<Atolye>();
             }
+
+        }
+
+        public List<Atolye> AtolyeAbf(string abfNo)
+        {
+            try
+            {
+                List<Atolye> atolyes = new List<Atolye>();
+                dataReader = sqlServices.StoreReader("AbfAtolyeKayitlari", new SqlParameter("@abfNo", abfNo));
+                while (dataReader.Read())
+                {
+                    atolyes.Add(new Atolye(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["BILDIRIM_NO"].ToString(),
+                        dataReader["CRM_NO"].ToString(),
+                        dataReader["KATEGORI"].ToString(),
+                        dataReader["BOLGE_ADI"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["BILDIRILEN_ARIZA"].ToString(),
+                        dataReader["IC_SIPARIS_NO"].ToString(),
+                        dataReader["CEKILDIGI_TARIHI"].ConDate(),
+                        dataReader["SIPARIS_ACMA_TARIHI"].ConDate(),
+                        dataReader["MODIFIKASYONLAR"].ToString(),
+                        dataReader["NOTLAR"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        "",
+                        dataReader["TAMAMLANMA_TARIHI"].ConDate(),
+                        dataReader["DOSYA_YOLU"].ToString()));
+                }
+                dataReader.Close();
+                return atolyes;
+            }
+            catch (Exception)
+            {
+                return new List<Atolye>();
+            }
+
         }
 
         public Atolye ArizaGetir(int abfNo)

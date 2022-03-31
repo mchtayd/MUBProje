@@ -130,6 +130,17 @@ namespace UserInterface.IdariIsler
             TxtTop.Text = DtgList.RowCount.ToString();
         }
 
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgList.FilterString;
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgList.SortString;
+        }
+
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -156,5 +167,6 @@ namespace UserInterface.IdariIsler
             DtgIslemAdimlari.Columns["Islemyapan"].Width = 135;
             DtgIslemAdimlari.Columns["Islem"].Width = 400;
         }
+
     }
 }

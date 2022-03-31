@@ -184,7 +184,7 @@ namespace UserInterface.STS
             DtgStokList.Columns["Malzemeonarımyeri"].Visible = false;
             DtgStokList.Columns["Malzemeturu"].Visible = false;
             DtgStokList.Columns["Malzemetakipdurumu"].Visible = false;
-            DtgStokList.Columns["Malzemerevizyon"].Visible = false;
+            //DtgStokList.Columns["Malzemerevizyon"].Visible = false;
             //DtgStokList.Columns["Malzemelot"].Visible = false;
             DtgStokList.Columns["Malzemekul"].Visible = false;
             DtgStokList.Columns["Aciklama"].Visible = false;
@@ -4423,8 +4423,9 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show("Güncelleme İşleminden Sonra SAT Reddedildiği İşlem Adımına Tekrar İletilecektir.Güncellemek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
 
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(idRed, LblIsAkisNo2.Text.ConInt(), satnoGuncelle, LblMasrafYeriNo.Text,LblAdSoyad.Text, LblMasrafYeri.Text, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, siparisNoGuncelle, dosyaYoluGuncelle, CmbButceKoduRed.Text, CmbSatBirimRed.Text, CmbHarcamaTuruRed.Text, CmbFaturaFirmaRed.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, ucTeklif, firmaBilgisi, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, belgeTuruGuncelle,belgeNumarasi,belgeTarihi,islemAdimi, CmbDonem.Text, satOlusturmaTuruGuncelle, redNedeni,durum,teklifDurumu, TxtProje.Text, TxtFirmaGuncelle.Text, mailSiniri, mailDurumu);
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(idRed, LblIsAkisNo2.Text.ConInt(), satnoGuncelle, LblMasrafYeriNo.Text,LblAdSoyad.Text, LblMasrafYeri.Text, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, siparisNoGuncelle, dosyaYoluGuncelle, CmbButceKoduRed.Text, CmbSatBirimRed.Text, CmbHarcamaTuruRed.Text, CmbFaturaFirmaRed.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, ucTeklif, firmaBilgisi, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, belgeTuruGuncelle,belgeNumarasi,belgeTarihi,islemAdimi, donem, satOlusturmaTuruGuncelle, redNedeni,durum,teklifDurumu, TxtProje.Text, TxtFirmaGuncelle.Text, mailSiniri, mailDurumu);
 
                 string messege = satDataGridview1Manager.RedUpdate(satDataGridview1);
                 if (messege!="OK")

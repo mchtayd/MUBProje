@@ -219,6 +219,7 @@ namespace UserInterface.STS
             TxtTop.Text = DtgYedekParca.RowCount.ToString();
 
             DtgYedekParca.Columns["Id"].Visible = false;
+            DtgYedekParca.Columns["DataTypeValue"].Visible = false;
             DtgYedekParca.Columns["Stokno"].HeaderText = "STOK NO";
             DtgYedekParca.Columns["Tanim"].HeaderText = "TANIM";
             DtgYedekParca.Columns["Birim"].HeaderText = "BİRİM";
@@ -242,6 +243,7 @@ namespace UserInterface.STS
             DtgYedekParca.Columns["Revizyon"].Visible = false;
             DtgYedekParca.Columns["Miktar"].Visible = false;
             DtgYedekParca.Columns["TalepTarihi"].Visible = false;
+
         }
         void DataDisplay()
         {
@@ -302,9 +304,9 @@ namespace UserInterface.STS
             }
             if (stn1.Text == "")
             {
-                stn1.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t1.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b1.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn1.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t1.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b1.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 0;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
@@ -317,9 +319,9 @@ namespace UserInterface.STS
             }
             if (stn2.Text == "")
             {
-                stn2.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t2.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b2.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn2.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t2.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b2.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
                 {
@@ -331,9 +333,9 @@ namespace UserInterface.STS
             }
             if (stn3.Text == "")
             {
-                stn3.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t3.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b3.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn3.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t3.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b3.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 2;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
@@ -346,9 +348,9 @@ namespace UserInterface.STS
             }
             if (stn4.Text == "")
             {
-                stn4.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t4.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b4.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn4.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t4.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b4.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 3;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
@@ -361,9 +363,9 @@ namespace UserInterface.STS
             }
             if (stn5.Text == "")
             {
-                stn5.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t5.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b5.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn5.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t5.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b5.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 4;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
@@ -376,9 +378,9 @@ namespace UserInterface.STS
             }
             if (stn6.Text == "")
             {
-                stn6.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t6.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b6.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn6.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t6.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b6.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 5;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
@@ -391,9 +393,9 @@ namespace UserInterface.STS
             }
             if (stn7.Text == "")
             {
-                stn7.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t7.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b7.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn7.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t7.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b7.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 6;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
@@ -406,9 +408,9 @@ namespace UserInterface.STS
             }
             if (stn8.Text == "")
             {
-                stn8.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t8.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b8.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn8.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t8.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b8.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 7;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
@@ -421,9 +423,9 @@ namespace UserInterface.STS
             }
             if (stn9.Text == "")
             {
-                stn9.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t9.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b9.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn9.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t9.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b9.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 8;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")
@@ -436,9 +438,9 @@ namespace UserInterface.STS
             }
             if (stn10.Text == "")
             {
-                stn10.Text = DtgYedekParca.CurrentRow.Cells[1].Value.ToString();
-                t10.Text = DtgYedekParca.CurrentRow.Cells[2].Value.ToString();
-                b10.Text = DtgYedekParca.CurrentRow.Cells[3].Value.ToString();
+                stn10.Text = DtgYedekParca.CurrentRow.Cells["Stokno"].Value.ToString();
+                t10.Text = DtgYedekParca.CurrentRow.Cells["Tanim"].Value.ToString();
+                b10.Text = DtgYedekParca.CurrentRow.Cells["Birim"].Value.ToString();
                 atla = 9;
                 bilgi = MalzemeKonrol();
                 if (bilgi == "")

@@ -30,10 +30,12 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl3 = new System.Windows.Forms.TabControl();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.DtgIslemKayitlari = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.işlemAdımınıSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.DtgMalzemeler = new ADGV.AdvancedDataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
@@ -47,11 +49,10 @@ namespace UserInterface.BakımOnarım
             this.BtnSil = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgAtolye = new System.Windows.Forms.DataGridView();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.işlemAdımınıSilToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl3.SuspendLayout();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).BeginInit();
             this.tabPage10.SuspendLayout();
@@ -61,7 +62,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl3
@@ -98,10 +98,24 @@ namespace UserInterface.BakımOnarım
             this.DtgIslemKayitlari.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgIslemKayitlari.Location = new System.Drawing.Point(3, 3);
             this.DtgIslemKayitlari.Name = "DtgIslemKayitlari";
-            this.DtgIslemKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgIslemKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DtgIslemKayitlari.Size = new System.Drawing.Size(1419, 284);
             this.DtgIslemKayitlari.TabIndex = 2;
             this.DtgIslemKayitlari.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgIslemKayitlari_CellMouseClick);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.işlemAdımınıSilToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(163, 26);
+            // 
+            // işlemAdımınıSilToolStripMenuItem
+            // 
+            this.işlemAdımınıSilToolStripMenuItem.Name = "işlemAdımınıSilToolStripMenuItem";
+            this.işlemAdımınıSilToolStripMenuItem.Size = new System.Drawing.Size(162, 22);
+            this.işlemAdımınıSilToolStripMenuItem.Text = "İşlem Adımını Sil";
+            this.işlemAdımınıSilToolStripMenuItem.Click += new System.EventHandler(this.işlemAdımınıSilToolStripMenuItem_Click);
             // 
             // tabPage9
             // 
@@ -118,8 +132,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeler.AllowUserToAddRows = false;
             this.DtgMalzemeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DtgMalzemeler.AutoGenerateContextFilters = true;
             this.DtgMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -210,19 +224,20 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(16, 456);
+            this.BtnGuncelle.Location = new System.Drawing.Point(124, 452);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(103, 38);
             this.BtnGuncelle.TabIndex = 442;
             this.BtnGuncelle.Text = "GÜNCELLE";
             this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Visible = false;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // BtnSil
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSil.Location = new System.Drawing.Point(125, 456);
+            this.BtnSil.Location = new System.Drawing.Point(15, 452);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(103, 38);
             this.BtnSil.TabIndex = 443;
@@ -252,25 +267,11 @@ namespace UserInterface.BakımOnarım
             this.DtgAtolye.Size = new System.Drawing.Size(1423, 87);
             this.DtgAtolye.TabIndex = 0;
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.işlemAdımınıSilToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
-            // 
-            // işlemAdımınıSilToolStripMenuItem
-            // 
-            this.işlemAdımınıSilToolStripMenuItem.Name = "işlemAdımınıSilToolStripMenuItem";
-            this.işlemAdımınıSilToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.işlemAdımınıSilToolStripMenuItem.Text = "İşlem Adımını Sil";
-            this.işlemAdımınıSilToolStripMenuItem.Click += new System.EventHandler(this.işlemAdımınıSilToolStripMenuItem_Click);
-            // 
             // FrmAtolyeDataGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1459, 533);
+            this.ClientSize = new System.Drawing.Size(1459, 507);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.BtnGuncelle);
@@ -285,6 +286,7 @@ namespace UserInterface.BakımOnarım
             this.tabControl3.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).EndInit();
             this.tabPage10.ResumeLayout(false);
@@ -294,7 +296,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox3.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

@@ -62,7 +62,7 @@ namespace DataAccess.Concreate.BakimOnarim
         {
             try
             {
-                sqlServices.Stored("AbfMazlemeSil", new SqlParameter("@benzersizId", id));
+                sqlServices.Stored("AbfTekMalzemeSil", new SqlParameter("@id", id));
                 return "OK";
             }
             catch (Exception ex)

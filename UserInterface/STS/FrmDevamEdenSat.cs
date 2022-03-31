@@ -69,11 +69,12 @@ namespace UserInterface.STS
             DataDisplay();
             TxtTop.Text = DtgDevamEden.RowCount.ToString();
         }
-        void DataDisplay()
+        public void DataDisplay()
         {
             satDatas = satDataGridview1Manager.List();
             dataBinder.DataSource = satDatas.ToDataTable();
             DtgDevamEden.DataSource = dataBinder;
+            TxtTop.Text = DtgDevamEden.RowCount.ToString();
 
             DtgDevamEden.Columns["Id"].Visible = false;
             DtgDevamEden.Columns["Satno"].HeaderText = "SAT NO";
@@ -499,6 +500,14 @@ namespace UserInterface.STS
         int teklifdurumu;
         string talepeden, satOlusturmaTuru;
 
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDevamEdenGuncelle frmDevamEdenGuncelle = new FrmDevamEdenGuncelle();
+            frmDevamEdenGuncelle.siparisNo = siparisNo;
+            frmDevamEdenGuncelle.infos = infos;
+            frmDevamEdenGuncelle.ShowDialog();
+        }
+
         private void DtgDevamEden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
@@ -507,6 +516,7 @@ namespace UserInterface.STS
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
+
             siparisNo = DtgDevamEden.CurrentRow.Cells["SiparisNo"].Value.ToString();
             dosyayolu = DtgDevamEden.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             belgeTuru = DtgDevamEden.CurrentRow.Cells["BelgeTuru"].Value.ToString();

@@ -198,6 +198,27 @@ namespace Entity
             this.islemAdimi = islemAdimi;
             this.donem = donem;
         }
+
+        public SatDataGridview1(int id, string usbolgesi, string abfformno, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, DateTime tarih, string gerekce, string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string donem)
+        {
+            this.id = id;
+            this.usbolgesi = usbolgesi;
+            this.abfformno = abfformno;
+            this.burcekodu = burcekodu;
+            this.satbirim = satbirim;
+            this.harcamaturu = harcamaturu;
+            this.faturafirma = faturafirma;
+            this.ilgilikisi = ilgilikisi;
+            this.masyerino = masyerino;
+            this.tarih = tarih;
+            this.gerekce = gerekce;
+            this.talepEdenPersonel = talepEdenPersonel;
+            this.personelSiparis = personelSiparis;
+            this.unvani = unvani;
+            this.personelMasYerNo = personelMasYerNo;
+            this.personelMasYeri = personelMasYeri;
+            this.donem = donem;
+        }
     }
 
 }

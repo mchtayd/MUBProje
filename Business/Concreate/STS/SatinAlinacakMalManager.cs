@@ -38,6 +38,7 @@ namespace Business.Concreate
             }
         }
 
+
         public string SatDurumRed(string siparisno)
         {
             try
@@ -54,6 +55,18 @@ namespace Business.Concreate
             try
             {
                 return satinAlinacakMalDal.SatDurumOnay(siparisno);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string DevamEdenSatGuncelle(SatinAlinacakMalzemeler entity)
+        {
+            try
+            {
+                return satinAlinacakMalDal.DevamEdenSatGuncelle(entity);
             }
             catch (Exception ex)
             {

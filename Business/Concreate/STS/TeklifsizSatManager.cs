@@ -116,6 +116,28 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
+        public string DevamEdenSatHYGuncelle(int id, double tutar)
+        {
+            try
+            {
+                return teklifsizSatDal.DevamEdenSatHYGuncelle(id, tutar);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DevamEdenSatGuncelle(TeklifsizSat entity)
+        {
+            try
+            {
+                return teklifsizSatDal.DevamEdenSatGuncelle(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         string IsTeklifsizSatComplete(TeklifsizSat teklifsiz)
         {
             if (string.IsNullOrEmpty(teklifsiz.Tutar.ToString()))

@@ -87,7 +87,7 @@ namespace DataAccess.Concreate.STS
                 return fiyats;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<FiyatTeklifiAl>();
             }
@@ -119,6 +119,35 @@ namespace DataAccess.Concreate.STS
                     new SqlParameter("@bf", entity.Bbf),
                     new SqlParameter("@tf", entity.Btf),
                     new SqlParameter("@onayliTeklif", onayliTeklif));
+
+                dataReader.Close();
+                return "OK";
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DevamEdenFiyateklifiGuncelle(FiyatTeklifiAl entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DevamEdenFiyatTeklifiGuncelle",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@stokNo", entity.Stokno),
+                    new SqlParameter("@tanim", entity.Tanim),
+                    new SqlParameter("@miktar", entity.Miktar),
+                    new SqlParameter("@birim", entity.Birim),
+                    new SqlParameter("@firma1", entity.Firma1),
+                    new SqlParameter("@bbf", entity.Bbf),
+                    new SqlParameter("@btf", entity.Btf),
+                    new SqlParameter("@firma2", entity.Firma2),
+                    new SqlParameter("@ibf",entity.Ibf),
+                    new SqlParameter("@itf",entity.Itf),
+                    new SqlParameter("@firma3",entity.Firma3),
+                    new SqlParameter("@ubf",entity.Ubf),
+                    new SqlParameter("@utf",entity.Utf));
 
                 dataReader.Close();
                 return "OK";

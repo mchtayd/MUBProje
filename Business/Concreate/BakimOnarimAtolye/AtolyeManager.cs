@@ -99,6 +99,17 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return new List<Atolye>();
             }
         }
+        public List<Atolye> AtolyeAbf(string abfNo)
+        {
+            try
+            {
+                return atolyeDal.AtolyeAbf(abfNo);
+            }
+            catch (Exception)
+            {
+                return new List<Atolye>();
+            }
+        }
 
         public string IslemAdimiGuncelle(string islemAdimi,int id)
         {

@@ -108,7 +108,7 @@ namespace DataAccess.Concreate.STS
                 return sats;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<TeklifsizSat>();
             }
@@ -122,6 +122,43 @@ namespace DataAccess.Concreate.STS
                     new SqlParameter("@stokno", entity.Stokno), 
                     new SqlParameter("@tutar", entity.Tutar), 
                     new SqlParameter("@siparisno", siparisno));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DevamEdenSatHYGuncelle(int id, double tutar)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DevamEdenTeklifsizSatGuncelleHY",
+                    new SqlParameter("@tutar", tutar),
+                    new SqlParameter("@id", id));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string DevamEdenSatGuncelle(TeklifsizSat entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DevamEdenTeklifsizSatGuncelle",
+                    new SqlParameter("@stokNo", entity.Stokno),
+                    new SqlParameter("@tanim", entity.Tanim),
+                    new SqlParameter("@miktar",entity.Miktar),
+                    new SqlParameter("@birim",entity.Birim),
+                    new SqlParameter("@tutar",entity.Tutar),
+                    new SqlParameter("@id",entity.Id));
 
                 dataReader.Close();
                 return "OK";

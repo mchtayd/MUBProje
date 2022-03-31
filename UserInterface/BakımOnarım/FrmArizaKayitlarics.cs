@@ -78,7 +78,9 @@ namespace UserInterface.BakımOnarım
             DtgArizaKayitlari.Columns["LojRutbesi"].Visible = false;
             DtgArizaKayitlari.Columns["LojGorevi"].Visible = false;
             DtgArizaKayitlari.Columns["LojTarihi"].Visible = false;
-            
+            DtgArizaKayitlari.Columns["LojTarihi"].Visible = false;
+
+
             DtgArizaKayitlari.Columns["TespitEdilenAriza"].Visible = false;
             DtgArizaKayitlari.Columns["AcmaOnayiVeren"].Visible = false;
             DtgArizaKayitlari.Columns["CsSiparisNo"].Visible = false;

@@ -71,6 +71,17 @@ namespace Business.Concreate.BakimOnarim
                 return new List<ArizaKayit>();
             }
         }
+        public List<ArizaKayit> DevamEdenlerGetList()
+        {
+            try
+            {
+                return arizaKayitDal.DevamEdenlerGetList();
+            }
+            catch (Exception)
+            {
+                return new List<ArizaKayit>();
+            }
+        }
 
         public string Update(ArizaKayit entity)
         {
@@ -124,12 +135,13 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public string IslemAdimiGuncelle(int id, string islemAdimi)
+
+        public string IslemAdimiGuncelle(int id, string islemAdimi,string gorevAtanacakPersonel)
         {
             try
             {
                 
-                return arizaKayitDal.IslemAdimiGuncelle(id,islemAdimi);
+                return arizaKayitDal.IslemAdimiGuncelle(id,islemAdimi, gorevAtanacakPersonel);
             }
             catch (Exception ex)
             {

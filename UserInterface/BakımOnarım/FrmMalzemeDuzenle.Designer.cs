@@ -30,8 +30,8 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.TxtStokNo = new System.Windows.Forms.TextBox();
@@ -68,8 +68,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -138,8 +138,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgEklenecekMalzemeler.AllowUserToAddRows = false;
             this.DtgEklenecekMalzemeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgEklenecekMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgEklenecekMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgEklenecekMalzemeler.AutoGenerateContextFilters = true;
             this.DtgEklenecekMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgEklenecekMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -154,6 +154,7 @@ namespace UserInterface.BakımOnarım
             this.DtgEklenecekMalzemeler.Size = new System.Drawing.Size(1203, 276);
             this.DtgEklenecekMalzemeler.TabIndex = 3;
             this.DtgEklenecekMalzemeler.TimeFilter = false;
+            this.DtgEklenecekMalzemeler.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgEklenecekMalzemeler_CellMouseClick);
             // 
             // BtnSiparisKaydet
             // 
@@ -192,12 +193,12 @@ namespace UserInterface.BakımOnarım
             this.ContextMenuEdit.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.silToolStripMenuItem});
             this.ContextMenuEdit.Name = "ContextMenuEdit";
-            this.ContextMenuEdit.Size = new System.Drawing.Size(181, 48);
+            this.ContextMenuEdit.Size = new System.Drawing.Size(87, 26);
             // 
             // silToolStripMenuItem
             // 
             this.silToolStripMenuItem.Name = "silToolStripMenuItem";
-            this.silToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.silToolStripMenuItem.Text = "Sil";
             this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
             // 
@@ -221,6 +222,7 @@ namespace UserInterface.BakımOnarım
             this.Name = "FrmMalzemeDuzenle";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BtnMalzemeDuzenle";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMalzemeDuzenle_FormClosing);
             this.Load += new System.EventHandler(this.BtnMalzemeDuzenle_Load);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();

@@ -220,6 +220,62 @@ namespace DataAccess.Concreate
                 return null;
             }
         }
+        public SatDataGridview1 SatGuncelleGet(string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatGuncelleListele", new SqlParameter("@siparisNo", siparisNo));
+                SatDataGridview1 item = null;
+                while (dataReader.Read())
+                {
+                    item = new SatDataGridview1(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SAT_FORM_NO"].ConInt(),
+                        dataReader["SAT_NO"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["TALEP_EDEN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["US_BOLGESI"].ToString(),
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        dataReader["ISTENEN_TARIH"].ConDate(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["DosyaYolu"].ToString(),
+                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        dataReader["SAT_BIRIM"].ToString(),
+                        dataReader["HARCAMA_TURU"].ToString(),
+                        dataReader["FATURA_EDILECEK_FIRMA"].ToString(),
+                        dataReader["ILGILI_KISI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["UC_TEKLIF"].ConInt(),
+                        dataReader["FIRMA_BILGISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["PERSONEL_SIPARIS"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["PERSONEL_MAS_YER_NO"].ToString(),
+                        dataReader["PERSONEL_MAS_YERI"].ToString(),
+                        dataReader["BELGE_TURU"].ToString(),
+                        dataReader["BELGE_NUMARASI"].ToString(),
+                        dataReader["BELGE_TARIHI"].ConDate(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["SAT_OLUSTURMA_TURU"].ToString(),
+                        dataReader["RED_NEDENI"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["TEKLIF_DURUM"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<SatDataGridview1> GetList(string durum, int loginId)
         {
@@ -421,6 +477,37 @@ namespace DataAccess.Concreate
                     new SqlParameter("@ilgilikisi", entity.Ilgilikisi),
                     new SqlParameter("@masrafyerino", entity.Masyerino),
                     new SqlParameter("@siparisno", siparisno));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DevamEdenSatGuncelle(SatDataGridview1 entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DevamEdenSatGuncelle",
+                    new SqlParameter("@id",entity.Id),
+                    new SqlParameter("@usBolgesi", entity.Usbolgesi),
+                    new SqlParameter("@formNo", entity.Formno),
+                    new SqlParameter("@istenenTarih", entity.Tarih),
+                    new SqlParameter("@gerekce", entity.Gerekce),
+                    new SqlParameter("@talepEdenPersonel", entity.TalepEdenPersonel),
+                    new SqlParameter("@personelSiparis", entity.PersonelSiparis),
+                    new SqlParameter("@unvani", entity.Unvani),
+                    new SqlParameter("@persMasYerNo",entity.PersonelMasYerNo),
+                    new SqlParameter("@personelMasYeri",entity.PersonelMasYeri),
+                    new SqlParameter("@butceKoduKalemi",entity.Burcekodu),
+                    new SqlParameter("@satBirim",entity.Satbirim),
+                    new SqlParameter("@harcamaTuru",entity.Harcamaturu),
+                    new SqlParameter("@faturaEdilecekFirma",entity.Faturafirma),
+                    new SqlParameter("@ilgiliKisi",entity.Ilgilikisi),
+                    new SqlParameter("@masrafYeriNo",entity.Masyerino),
+                    new SqlParameter("@donem",entity.Donem));
 
                 dataReader.Close();
                 return "OK";

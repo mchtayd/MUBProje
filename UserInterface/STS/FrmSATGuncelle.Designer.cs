@@ -701,8 +701,6 @@ namespace UserInterface.STS
             this.groupBox18 = new System.Windows.Forms.GroupBox();
             this.TxtProje = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
-            this.CmbDonem = new System.Windows.Forms.ComboBox();
-            this.label122 = new System.Windows.Forms.Label();
             this.istenenTarih = new System.Windows.Forms.DateTimePicker();
             this.label123 = new System.Windows.Forms.Label();
             this.label124 = new System.Windows.Forms.Label();
@@ -724,6 +722,9 @@ namespace UserInterface.STS
             this.label38 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.DtgReddedilenSat = new ADGV.AdvancedDataGridView();
+            this.tabPage13 = new System.Windows.Forms.TabPage();
+            this.groupBox23 = new System.Windows.Forms.GroupBox();
+            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
             this.dataBinder1 = new System.Windows.Forms.BindingSource(this.components);
             this.productBinder = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -737,9 +738,9 @@ namespace UserInterface.STS
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder6 = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
+            this.CmbDonem = new System.Windows.Forms.ComboBox();
+            this.label122 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -792,6 +793,9 @@ namespace UserInterface.STS
             this.groupBox16.SuspendLayout();
             this.groupBox15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgReddedilenSat)).BeginInit();
+            this.tabPage13.SuspendLayout();
+            this.groupBox23.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
@@ -800,9 +804,6 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder6)).BeginInit();
-            this.tabPage13.SuspendLayout();
-            this.groupBox23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -7528,10 +7529,11 @@ namespace UserInterface.STS
             // 
             // groupBox18
             // 
-            this.groupBox18.Controls.Add(this.TxtProje);
-            this.groupBox18.Controls.Add(this.label37);
+            this.groupBox18.Controls.Add(this.CmbDonemYil);
             this.groupBox18.Controls.Add(this.CmbDonem);
             this.groupBox18.Controls.Add(this.label122);
+            this.groupBox18.Controls.Add(this.TxtProje);
+            this.groupBox18.Controls.Add(this.label37);
             this.groupBox18.Controls.Add(this.istenenTarih);
             this.groupBox18.Controls.Add(this.label123);
             this.groupBox18.Controls.Add(this.label124);
@@ -7560,37 +7562,6 @@ namespace UserInterface.STS
             this.label37.Size = new System.Drawing.Size(45, 13);
             this.label37.TabIndex = 28;
             this.label37.Text = "PROJE:";
-            // 
-            // CmbDonem
-            // 
-            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDonem.FormattingEnabled = true;
-            this.CmbDonem.Items.AddRange(new object[] {
-            "OCAK",
-            "ŞUBAT",
-            "MART",
-            "NİSAN",
-            "MAYIS",
-            "HAZİRAN",
-            "TEMMUZ",
-            "AĞUSTOS",
-            "EYLÜL",
-            "EKİM",
-            "KASIM",
-            "ARALIK"});
-            this.CmbDonem.Location = new System.Drawing.Point(116, 139);
-            this.CmbDonem.Name = "CmbDonem";
-            this.CmbDonem.Size = new System.Drawing.Size(105, 21);
-            this.CmbDonem.TabIndex = 108;
-            // 
-            // label122
-            // 
-            this.label122.AutoSize = true;
-            this.label122.Location = new System.Drawing.Point(60, 143);
-            this.label122.Name = "label122";
-            this.label122.Size = new System.Drawing.Size(50, 13);
-            this.label122.TabIndex = 107;
-            this.label122.Text = "DÖNEM:";
             // 
             // istenenTarih
             // 
@@ -7809,26 +7780,6 @@ namespace UserInterface.STS
             this.DtgReddedilenSat.TimeFilter = false;
             this.DtgReddedilenSat.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgReddedilenSat_CellMouseClick);
             // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // openFileDosya1
-            // 
-            this.openFileDosya1.FileName = "openFileDialog2";
-            // 
-            // openFileDosya2
-            // 
-            this.openFileDosya2.FileName = "openFileDialog2";
-            // 
-            // openFileDosya3
-            // 
-            this.openFileDosya3.FileName = "openFileDialog3";
-            // 
-            // openFileDialog2
-            // 
-            this.openFileDialog2.FileName = "openFileDialog2";
-            // 
             // tabPage13
             // 
             this.tabPage13.Controls.Add(this.groupBox23);
@@ -7868,6 +7819,80 @@ namespace UserInterface.STS
             this.advancedDataGridView1.Size = new System.Drawing.Size(1527, 255);
             this.advancedDataGridView1.TabIndex = 2;
             this.advancedDataGridView1.TimeFilter = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // openFileDosya1
+            // 
+            this.openFileDosya1.FileName = "openFileDialog2";
+            // 
+            // openFileDosya2
+            // 
+            this.openFileDosya2.FileName = "openFileDialog2";
+            // 
+            // openFileDosya3
+            // 
+            this.openFileDosya3.FileName = "openFileDialog3";
+            // 
+            // openFileDialog2
+            // 
+            this.openFileDialog2.FileName = "openFileDialog2";
+            // 
+            // CmbDonemYil
+            // 
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(227, 135);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemYil.TabIndex = 419;
+            // 
+            // CmbDonem
+            // 
+            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonem.FormattingEnabled = true;
+            this.CmbDonem.Items.AddRange(new object[] {
+            "OCAK",
+            "ŞUBAT",
+            "MART",
+            "NİSAN",
+            "MAYIS",
+            "HAZİRAN",
+            "TEMMUZ",
+            "AĞUSTOS",
+            "EYLÜL",
+            "EKİM",
+            "KASIM",
+            "ARALIK"});
+            this.CmbDonem.Location = new System.Drawing.Point(116, 135);
+            this.CmbDonem.Name = "CmbDonem";
+            this.CmbDonem.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonem.TabIndex = 418;
+            // 
+            // label122
+            // 
+            this.label122.AutoSize = true;
+            this.label122.Location = new System.Drawing.Point(19, 139);
+            this.label122.Name = "label122";
+            this.label122.Size = new System.Drawing.Size(87, 13);
+            this.label122.TabIndex = 417;
+            this.label122.Text = "DÖNEM (Ay/Yıl):";
             // 
             // FrmSATGuncelle
             // 
@@ -7953,6 +7978,9 @@ namespace UserInterface.STS
             this.groupBox16.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgReddedilenSat)).EndInit();
+            this.tabPage13.ResumeLayout(false);
+            this.groupBox23.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
@@ -7961,9 +7989,6 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder6)).EndInit();
-            this.tabPage13.ResumeLayout(false);
-            this.groupBox23.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -8527,8 +8552,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label120;
         private System.Windows.Forms.Label label121;
         private System.Windows.Forms.GroupBox groupBox18;
-        private System.Windows.Forms.ComboBox CmbDonem;
-        private System.Windows.Forms.Label label122;
         private System.Windows.Forms.DateTimePicker istenenTarih;
         private System.Windows.Forms.Label label123;
         private System.Windows.Forms.Label label124;
@@ -8668,5 +8691,8 @@ namespace UserInterface.STS
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.GroupBox groupBox23;
         private ADGV.AdvancedDataGridView advancedDataGridView1;
+        private System.Windows.Forms.ComboBox CmbDonemYil;
+        private System.Windows.Forms.ComboBox CmbDonem;
+        private System.Windows.Forms.Label label122;
     }
 }
