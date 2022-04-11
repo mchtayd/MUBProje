@@ -1635,6 +1635,22 @@ namespace UserInterface.STS
                         form.Yenilenecekler();
                     }
                 }
+                if (baslik == "AÇIK ARIZALAR")
+                {
+                    var form = (FrmArizaDevamEden)Application.OpenForms["FrmArizaDevamEden"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
+                    }
+                }
+                if (baslik == "TAMAMLANAN ARIZALAR")
+                {
+                    var form = (FrmArizaKayitlariKapatilan)Application.OpenForms["FrmArizaKayitlariKapatilan"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
+                    }
+                }
             }
         }
 
@@ -1773,6 +1789,16 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageAcikArizalar", "AÇIK ARIZALAR", Go);
+                Go.Show();
+            }
+            if (e.Node.Name == "Tamamlanan Arıza")
+            {
+                FrmArizaKayitlariKapatilan Go = new FrmArizaKayitlariKapatilan();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageTamamlananArizalar", "TAMAMLANAN ARIZALAR", Go);
                 Go.Show();
             }
             if (e.Node.Name == "Ariza Kayitlari")

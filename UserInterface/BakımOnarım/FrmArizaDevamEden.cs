@@ -67,7 +67,10 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-
+        public void Yenilenecekler()
+        {
+            DataDisplay();
+        }
         void DataDisplay()
         {
             arizaKayits = arizaKayitManager.DevamEdenlerGetList();
@@ -119,6 +122,15 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["SorumluPersonel"].Visible = false;
             DtgList.Columns["IslemTuru"].Visible = false;
             DtgList.Columns["Hesaplama"].Visible = false;
+            DtgList.Columns["Durum"].Visible = false;
+            DtgList.Columns["OnarimNotu"].Visible = false;
+            DtgList.Columns["TeslimEdenPersonel"].Visible = false;
+            DtgList.Columns["TeslimAlanPersonel"].Visible = false;
+            DtgList.Columns["TeslimTarihi"].Visible = false;
+            DtgList.Columns["NesneTanimi"].Visible = false;
+            DtgList.Columns["HasarKodu"].Visible = false;
+            DtgList.Columns["NedenKodu"].Visible = false;
+            DtgList.Columns["EksikEvrak"].Visible = false;
 
 
             DtgList.Columns["AbfFormNo"].DisplayIndex = 0;
@@ -400,6 +412,23 @@ namespace UserInterface.BakımOnarım
             AtolyeToplamlar();
             AtolyeToplamlarIslemAdimSureleri();
         }
+
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgList.SortString;
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgList.FilterString;
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
         private void DtgAtolye_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgAtolye.CurrentRow == null)

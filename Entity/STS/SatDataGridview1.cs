@@ -199,7 +199,7 @@ namespace Entity
             this.donem = donem;
         }
 
-        public SatDataGridview1(int id, string usbolgesi, string abfformno, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, DateTime tarih, string gerekce, string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string donem)
+        public SatDataGridview1(int id, string usbolgesi, string abfformno, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, DateTime tarih, string gerekce, string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string donem,string belgeTuru, string belgeNumarasi, DateTime belgeTarihi, string satinAlinanFirma)
         {
             this.id = id;
             this.usbolgesi = usbolgesi;
@@ -218,6 +218,11 @@ namespace Entity
             this.personelMasYerNo = personelMasYerNo;
             this.personelMasYeri = personelMasYeri;
             this.donem = donem;
+            this.belgeTuru = belgeTuru;
+            this.belgeNumarasi = belgeNumarasi;
+            this.belgeTarihi = belgeTarihi;
+            this.satinAlinanFirma = satinAlinanFirma;
+
         }
     }
 

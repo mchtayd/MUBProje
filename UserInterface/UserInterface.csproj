@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>365</ApplicationRevision>
+    <ApplicationRevision>369</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -238,6 +238,12 @@
     <Compile Include="Ana Sayfa\Zimmetlerim.Designer.cs">
       <DependentUpon>Zimmetlerim.cs</DependentUpon>
     </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitlariKapatilan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitlariKapatilan.Designer.cs">
+      <DependentUpon>FrmArizaKayitlariKapatilan.cs</DependentUpon>
+    </Compile>
     <Compile Include="BakımOnarım\FrmMalzemeDuzenle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -369,6 +375,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfOlustrma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfOlustrma.Designer.cs">
+      <DependentUpon>FrmOkfOlustrma.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmPyp.cs">
       <SubType>Form</SubType>
@@ -1098,6 +1110,9 @@
     <EmbeddedResource Include="Ana Sayfa\Zimmetlerim.resx">
       <DependentUpon>Zimmetlerim.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaKayitlariKapatilan.resx">
+      <DependentUpon>FrmArizaKayitlariKapatilan.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmMalzemeDuzenle.resx">
       <DependentUpon>FrmMalzemeDuzenle.cs</DependentUpon>
     </EmbeddedResource>
@@ -1163,6 +1178,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmOkfOlustrma.resx">
+      <DependentUpon>FrmOkfOlustrma.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmPyp.resx">
       <DependentUpon>FrmPyp.cs</DependentUpon>

@@ -1547,7 +1547,7 @@ namespace UserInterface.STS
                 islemAdimi = "TAMAMLANAN SATLAR";
                 if (satbirim== "PRJ.DİR.SATIN ALMA")
                 {
-                    harcamaYapan = "GÜLŞAH OTACI";
+                    harcamaYapan = "EBRU BAYDAŞ";
                 }
                 if (satbirim == "BSRN GN.MDL.SATIN ALMA")
                 {

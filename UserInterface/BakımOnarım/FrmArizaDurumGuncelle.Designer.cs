@@ -126,6 +126,8 @@ namespace UserInterface.BakımOnarım
             this.label5 = new System.Windows.Forms.Label();
             this.DtIscilikSaati = new System.Windows.Forms.DateTimePicker();
             this.label76 = new System.Windows.Forms.Label();
+            this.LblIsAkisNo = new System.Windows.Forms.Label();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -209,6 +211,7 @@ namespace UserInterface.BakımOnarım
             this.BtnDosyaEkle.TabIndex = 417;
             this.BtnDosyaEkle.Text = "DOSYA EKLE";
             this.BtnDosyaEkle.UseVisualStyleBackColor = true;
+            this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
             // 
             // groupBox8
             // 
@@ -1127,11 +1130,26 @@ namespace UserInterface.BakımOnarım
             this.label76.TabIndex = 486;
             this.label76.Text = "İşçilik Süresi :";
             // 
+            // LblIsAkisNo
+            // 
+            this.LblIsAkisNo.AutoSize = true;
+            this.LblIsAkisNo.Location = new System.Drawing.Point(772, 60);
+            this.LblIsAkisNo.Name = "LblIsAkisNo";
+            this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNo.TabIndex = 489;
+            this.LblIsAkisNo.Text = "00";
+            this.LblIsAkisNo.Visible = false;
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
             // FrmArizaDurumGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1474, 944);
+            this.Controls.Add(this.LblIsAkisNo);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.DtIscilikSaati);
@@ -1278,5 +1296,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn TakilanBirim;
         private System.Windows.Forms.DataGridViewTextBoxColumn TakilanCalismaSaati;
         private System.Windows.Forms.DataGridViewTextBoxColumn TakilanRevizyon;
+        private System.Windows.Forms.Label LblIsAkisNo;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

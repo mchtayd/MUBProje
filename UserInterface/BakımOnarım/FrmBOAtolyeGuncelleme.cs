@@ -25,6 +25,7 @@ namespace UserInterface.BakımOnarım
         AtolyeMalzemeManager atolyeMalzemeManager;
         AtolyeAltMalzemeManager atolyeAltMalzemeManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        string icSiparis;
         int id;
 
         List<AtolyeMalzeme> atolyeMalzemes;
@@ -119,13 +120,14 @@ namespace UserInterface.BakımOnarım
             {
                 siparisNo = item.SiparisNo.ToString();
             }
-
+            
             Atolye atolye1 = atolyeManager.Get(TxtIcSiparisNo.Text);
             if (atolye1 == null)
             {
                 return;
             }
             id = atolye1.Id;
+            icSiparis = TxtIcSiparisNo.Text;
             bildirilenAriza = atolye1.BildirilenAriza;
             TxtBildirilenAriza.Text = bildirilenAriza;
             bulunduguIslemAdimi = atolye1.IslemAdimi;
@@ -786,6 +788,17 @@ namespace UserInterface.BakımOnarım
         }
         string GorevAtama()
         {
+            //icSiparis
+
+            Atolye atolye3 = atolyeManager.Get(icSiparis);
+            if (atolye3 == null)
+            {
+                return "Kayıt Bulunamadı!";
+            }
+            id = atolye3.Id;
+
+            GorevAtamaPersonel gorevAtamaPersonel2 = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
+            bulunduguIslemAdimi = gorevAtamaPersonel2.IslemAdimi;
 
             GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, DtIscilikSaati.Value);
             string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, TxtYapilanIslemler.Text);

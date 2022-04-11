@@ -491,7 +491,7 @@ namespace DataAccess.Concreate
             try
             {
                 dataReader = sqlServices.StoreReader("DevamEdenSatGuncelle",
-                    new SqlParameter("@id",entity.Id),
+                    new SqlParameter("@id", entity.Id),
                     new SqlParameter("@usBolgesi", entity.Usbolgesi),
                     new SqlParameter("@formNo", entity.Formno),
                     new SqlParameter("@istenenTarih", entity.Tarih),
@@ -499,15 +499,19 @@ namespace DataAccess.Concreate
                     new SqlParameter("@talepEdenPersonel", entity.TalepEdenPersonel),
                     new SqlParameter("@personelSiparis", entity.PersonelSiparis),
                     new SqlParameter("@unvani", entity.Unvani),
-                    new SqlParameter("@persMasYerNo",entity.PersonelMasYerNo),
-                    new SqlParameter("@personelMasYeri",entity.PersonelMasYeri),
-                    new SqlParameter("@butceKoduKalemi",entity.Burcekodu),
-                    new SqlParameter("@satBirim",entity.Satbirim),
-                    new SqlParameter("@harcamaTuru",entity.Harcamaturu),
-                    new SqlParameter("@faturaEdilecekFirma",entity.Faturafirma),
-                    new SqlParameter("@ilgiliKisi",entity.Ilgilikisi),
-                    new SqlParameter("@masrafYeriNo",entity.Masyerino),
-                    new SqlParameter("@donem",entity.Donem));
+                    new SqlParameter("@persMasYerNo", entity.PersonelMasYerNo),
+                    new SqlParameter("@personelMasYeri", entity.PersonelMasYeri),
+                    new SqlParameter("@butceKoduKalemi", entity.Burcekodu),
+                    new SqlParameter("@satBirim", entity.Satbirim),
+                    new SqlParameter("@harcamaTuru", entity.Harcamaturu),
+                    new SqlParameter("@faturaEdilecekFirma", entity.Faturafirma),
+                    new SqlParameter("@ilgiliKisi", entity.Ilgilikisi),
+                    new SqlParameter("@masrafYeriNo", entity.Masyerino),
+                    new SqlParameter("@donem", entity.Donem),
+                    new SqlParameter("@belgeTuru", entity.BelgeTuru),
+                    new SqlParameter("@belgeNumarasi", entity.BelgeNumarasi),
+                    new SqlParameter("@belgeTarihi", entity.BelgeTarihi),
+                    new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma));
 
                 dataReader.Close();
                 return "OK";

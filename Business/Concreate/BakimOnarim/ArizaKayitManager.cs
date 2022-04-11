@@ -83,6 +83,41 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
+        public List<ArizaKayit> BOTamamlananGetList()
+        {
+            try
+            {
+                return arizaKayitDal.TamamlananGetList();
+            }
+            catch (Exception)
+            {
+                return new List<ArizaKayit>();
+            }
+        }
+
+        public List<ArizaKayit> BildirimOnayiList()
+        {
+            try
+            {
+                return arizaKayitDal.BildirimOnayiList();
+            }
+            catch (Exception)
+            {
+                return new List<ArizaKayit>();
+            }
+        }
+        public List<ArizaKayit> BOEksikEvrekList()
+        {
+            try
+            {
+                return arizaKayitDal.BOEksikEvrakList();
+            }
+            catch (Exception)
+            {
+                return new List<ArizaKayit>();
+            }
+        }
+
         public string Update(ArizaKayit entity)
         {
             try
@@ -135,6 +170,17 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string KapatKayit(ArizaKayit entity)
+        {
+            try
+            {
+                return arizaKayitDal.KapatKayit(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string IslemAdimiGuncelle(int id, string islemAdimi,string gorevAtanacakPersonel)
         {
@@ -148,7 +194,28 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-
+        public string AbfKapat(int id)
+        {
+            try
+            {
+                return arizaKayitDal.AbfKapat(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string BOEksikEvrakList(int id)
+        {
+            try
+            {
+                return arizaKayitDal.BOEksikEvrakKayit(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         string Complete(ArizaKayit arizaKayit)
         {
             if (string.IsNullOrEmpty(arizaKayit.Proje))

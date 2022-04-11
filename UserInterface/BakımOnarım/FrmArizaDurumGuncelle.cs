@@ -1,4 +1,5 @@
-﻿using Business.Concreate;
+﻿using Business;
+using Business.Concreate;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
@@ -10,6 +11,7 @@ using Entity.Gecic_Kabul_Ambar;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 using UserInterface.STS;
 
@@ -23,6 +25,7 @@ namespace UserInterface.BakımOnarım
         MalzemeKayitManager malzemeKayitManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         AbfMalzemeManager abfMalzemeManager;
+        IsAkisNoManager isAkisNoManager;
 
         List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
@@ -30,7 +33,7 @@ namespace UserInterface.BakımOnarım
         bool start = true;
         int id, comboId, abfForm, gun, saat, dakika;
         DateTime birOncekiTarih;
-        string sure;
+        string sure, dosyaYolu, isAkisNo;
 
 
         public FrmArizaDurumGuncelle()
@@ -42,6 +45,7 @@ namespace UserInterface.BakımOnarım
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
+            isAkisNoManager = IsAkisNoManager.GetInstance();
         }
 
         private void FrmArizaDurumGuncelle_Load(object sender, EventArgs e)
@@ -105,6 +109,9 @@ namespace UserInterface.BakımOnarım
             DtgFormBilgileri.Rows[sonSatir].Cells["BolgeAdi"].Value = arizaKayit.BolgeAdi;
             DtgFormBilgileri.Rows[sonSatir].Cells["BildirimTarihi"].Value = arizaKayit.AbTarihSaat.ToString();
             DtgFormBilgileri.Rows[sonSatir].Cells["BolgeSorumlusu"].Value = arizaKayit.AcmaOnayiVeren;
+            DtgFormBilgileri.Rows[sonSatir].Cells["StokNo"].Value = arizaKayit.StokNo;
+            DtgFormBilgileri.Rows[sonSatir].Cells["Tanim"].Value = arizaKayit.Tanim;
+            DtgFormBilgileri.Rows[sonSatir].Cells["SeriNo"].Value = arizaKayit.SeriNo;
 
             LblMevcutIslemAdimi.Text = arizaKayit.IslemAdimi;
 
@@ -141,6 +148,17 @@ namespace UserInterface.BakımOnarım
             dakika = sonuc.Seconds.ConInt() % 60;
 
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+            dosyaYolu = arizaKayit.DosyaYolu;
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
         void CmbStokNoSokulen()
         {
@@ -358,6 +376,61 @@ namespace UserInterface.BakımOnarım
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
         }
+        string kaynakdosyaismi1, alinandosya1;
+
+        private void BtnDosyaEkle_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncelikle geçerli bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (!Directory.Exists(dosyaYolu))
+            {
+                IsAkisNo();
+                string root = @"Z:\DTS";
+                string subdir = @"Z:\DTS\BAKIM ONARIM\ARIZA\";
+
+                isAkisNo = LblIsAkisNo.Text;
+
+                if (!Directory.Exists(root))
+                {
+                    Directory.CreateDirectory(root);
+                }
+                if (!Directory.Exists(subdir))
+                {
+                    Directory.CreateDirectory(subdir);
+                }
+                dosyaYolu = subdir + isAkisNo;
+                Directory.CreateDirectory(dosyaYolu);
+            }
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                kaynakdosyaismi1 = openFileDialog1.SafeFileName.ToString();
+                alinandosya1 = openFileDialog1.FileName.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Dosya Seçmediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (File.Exists(dosyaYolu))
+            {
+                MessageBox.Show("Belirtilen Klasörde " + dosyaYolu + " Adıyla Zaten Bir Dosya Mevcut!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                File.Copy(alinandosya1, dosyaYolu);
+            }
+            webBrowser1.Navigate(dosyaYolu);
+        }
+        void IsAkisNo()
+        {
+            isAkisNoManager.Update();
+            IsAkisNo isAkis = isAkisNoManager.Get();
+            LblIsAkisNo.Text = isAkis.Id.ToString();
+        }
 
         private void TxtTakilanCalismaSaati_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -519,6 +592,7 @@ namespace UserInterface.BakımOnarım
             TakilanTemizle();
             DtgSokulen.Rows.Clear();
             DtgTakilan.Rows.Clear();
+            webBrowser1.Navigate("");
         }
     }
 }

@@ -284,7 +284,7 @@ namespace UserInterface.Ana_Sayfa
                 var form = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
                 if (form != null)
                 {
-                    form.Yenilenecekler();
+                    form.BildirimTuru();
                 }
             }
             if (comboAd == "TEDARIK_TURU")
@@ -293,6 +293,30 @@ namespace UserInterface.Ana_Sayfa
                 if (form != null)
                 {
                     form.TedarikTuru();
+                }
+            }
+            if (comboAd == "NESNE_TANIMI")
+            {
+                var form = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
+                if (form != null)
+                {
+                    form.NesneTanimi();
+                }
+            }
+            if (comboAd == "NEDEN_KODU")
+            {
+                var form = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
+                if (form != null)
+                {
+                    form.NedenKodu();
+                }
+            }
+            if (comboAd == "HASAR_KODU")
+            {
+                var form = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
+                if (form != null)
+                {
+                    form.HasarKodu();
                 }
             }
 

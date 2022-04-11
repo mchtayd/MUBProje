@@ -1,7 +1,7 @@
 ﻿
 namespace UserInterface.BakımOnarım
 {
-    partial class FrmArizaDevamEden
+    partial class FrmArizaKayitlariKapatilan
     {
         /// <summary>
         /// Required designer variable.
@@ -55,11 +55,11 @@ namespace UserInterface.BakımOnarım
             this.DtgAtolye = new System.Windows.Forms.DataGridView();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.LblIslemAdimSureleri = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
-            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -86,8 +86,7 @@ namespace UserInterface.BakımOnarım
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1555, 27);
-            this.panel1.TabIndex = 314;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.TabIndex = 315;
             // 
             // BtnCancel
             // 
@@ -106,12 +105,12 @@ namespace UserInterface.BakımOnarım
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 40);
+            this.groupBox1.Location = new System.Drawing.Point(12, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1531, 429);
-            this.groupBox1.TabIndex = 315;
+            this.groupBox1.Size = new System.Drawing.Size(1531, 445);
+            this.groupBox1.TabIndex = 316;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "AÇIK ARIZALAR";
+            this.groupBox1.Text = "KAPATILAN ARIZALAR";
             // 
             // DtgList
             // 
@@ -131,7 +130,7 @@ namespace UserInterface.BakımOnarım
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1525, 410);
+            this.DtgList.Size = new System.Drawing.Size(1525, 426);
             this.DtgList.TabIndex = 2;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
@@ -144,11 +143,11 @@ namespace UserInterface.BakımOnarım
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(12, 503);
+            this.tabControl1.Location = new System.Drawing.Point(12, 514);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1528, 367);
-            this.tabControl1.TabIndex = 316;
+            this.tabControl1.TabIndex = 317;
             // 
             // tabPage1
             // 
@@ -343,63 +342,63 @@ namespace UserInterface.BakımOnarım
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(12, 476);
+            this.label31.Location = new System.Drawing.Point(12, 491);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
-            this.label31.TabIndex = 342;
+            this.label31.TabIndex = 344;
             this.label31.Text = "Toplam Kayıt:";
             // 
             // TxtTop
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 476);
+            this.TxtTop.Location = new System.Drawing.Point(112, 491);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
-            this.TxtTop.TabIndex = 343;
+            this.TxtTop.TabIndex = 345;
             this.TxtTop.Text = "00";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(16, 876);
+            this.label1.Location = new System.Drawing.Point(12, 885);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(179, 15);
-            this.label1.TabIndex = 452;
+            this.label1.TabIndex = 456;
             this.label1.Text = "Toplam İşlem Adım Süresi:";
             // 
             // LblIslemAdimSureleri
             // 
             this.LblIslemAdimSureleri.AutoSize = true;
             this.LblIslemAdimSureleri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblIslemAdimSureleri.Location = new System.Drawing.Point(201, 876);
+            this.LblIslemAdimSureleri.Location = new System.Drawing.Point(197, 885);
             this.LblIslemAdimSureleri.Name = "LblIslemAdimSureleri";
             this.LblIslemAdimSureleri.Size = new System.Drawing.Size(21, 15);
-            this.LblIslemAdimSureleri.TabIndex = 453;
+            this.LblIslemAdimSureleri.TabIndex = 457;
             this.LblIslemAdimSureleri.Text = "00";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(384, 876);
+            this.label3.Location = new System.Drawing.Point(380, 885);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(166, 15);
-            this.label3.TabIndex = 450;
+            this.label3.TabIndex = 454;
             this.label3.Text = "Toplam Harcanan İşçilik:";
             // 
             // LblGenelTop
             // 
             this.LblGenelTop.AutoSize = true;
             this.LblGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGenelTop.Location = new System.Drawing.Point(556, 876);
+            this.LblGenelTop.Location = new System.Drawing.Point(552, 885);
             this.LblGenelTop.Name = "LblGenelTop";
             this.LblGenelTop.Size = new System.Drawing.Size(21, 15);
-            this.LblGenelTop.TabIndex = 451;
+            this.LblGenelTop.TabIndex = 455;
             this.LblGenelTop.Text = "00";
             // 
-            // FrmArizaDevamEden
+            // FrmArizaKayitlariKapatilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -413,9 +412,9 @@ namespace UserInterface.BakımOnarım
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.panel1);
-            this.Name = "FrmArizaDevamEden";
-            this.Text = "FrmArizaDevamEden";
-            this.Load += new System.EventHandler(this.FrmArizaDevamEden_Load);
+            this.Name = "FrmArizaKayitlariKapatilan";
+            this.Text = "FrmArizaKayitlariKapatilan";
+            this.Load += new System.EventHandler(this.FrmArizaKayitlariKapatilan_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
@@ -446,27 +445,27 @@ namespace UserInterface.BakımOnarım
         private ADGV.AdvancedDataGridView DtgList;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label TxtTop;
-        private ADGV.AdvancedDataGridView DtgMalzemeListesi;
-        private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.BindingSource dataBinder;
-        private System.Windows.Forms.DataGridView DtgIslemKayitlari;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label LblIslemAdimSureleri;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label LblGenelTop;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.DataGridView DtgIslemKayitlari;
+        private System.Windows.Forms.TabPage tabPage2;
+        private ADGV.AdvancedDataGridView DtgMalzemeListesi;
+        private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.DataGridView DtgDepoHareketleri;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.DataGridView DtgAtolyeIslemler;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView DtgAtolye;
+        private System.Windows.Forms.TabPage tabPage5;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblAtolyeIslemAdimiTop;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LblToplamIsclikAtolye;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.DataGridView DtgAtolyeIslemler;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView DtgAtolye;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label TxtTop;
+        private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblIslemAdimSureleri;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblGenelTop;
     }
 }

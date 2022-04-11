@@ -38,10 +38,13 @@ namespace UserInterface.BakımOnarım
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgArizaKayitlari)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,7 +76,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.Controls.Add(this.DtgArizaKayitlari);
             this.groupBox1.Location = new System.Drawing.Point(12, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1519, 722);
+            this.groupBox1.Size = new System.Drawing.Size(1519, 518);
             this.groupBox1.TabIndex = 316;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ARIZA KAYITLARI";
@@ -95,15 +98,18 @@ namespace UserInterface.BakımOnarım
             this.DtgArizaKayitlari.Name = "DtgArizaKayitlari";
             this.DtgArizaKayitlari.ReadOnly = true;
             this.DtgArizaKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgArizaKayitlari.Size = new System.Drawing.Size(1513, 703);
+            this.DtgArizaKayitlari.Size = new System.Drawing.Size(1513, 499);
             this.DtgArizaKayitlari.TabIndex = 2;
             this.DtgArizaKayitlari.TimeFilter = false;
+            this.DtgArizaKayitlari.SortStringChanged += new System.EventHandler(this.DtgArizaKayitlari_SortStringChanged);
+            this.DtgArizaKayitlari.FilterStringChanged += new System.EventHandler(this.DtgArizaKayitlari_FilterStringChanged);
+            this.DtgArizaKayitlari.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgArizaKayitlari_CellMouseClick);
             // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(12, 766);
+            this.label31.Location = new System.Drawing.Point(12, 558);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 344;
@@ -113,17 +119,37 @@ namespace UserInterface.BakımOnarım
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 766);
+            this.TxtTop.Location = new System.Drawing.Point(112, 558);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 345;
             this.TxtTop.Text = "00";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.webBrowser1);
+            this.groupBox2.Location = new System.Drawing.Point(12, 588);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(826, 183);
+            this.groupBox2.TabIndex = 346;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ekler:";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(820, 164);
+            this.webBrowser1.TabIndex = 5;
             // 
             // FrmArizaKayitlarics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1555, 798);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.groupBox1);
@@ -135,6 +161,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgArizaKayitlari)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -149,5 +176,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

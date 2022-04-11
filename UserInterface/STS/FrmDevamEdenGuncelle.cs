@@ -153,6 +153,10 @@ namespace UserInterface.STS
             TxtProje.Text = satDataGridview1.Proje;
             CmbAbfFormno.Text = satDataGridview1.Abfformno;
             dosyaYolu = satDataGridview1.DosyaYolu;
+            CmbBelgeTuru.Text = satDataGridview1.BelgeTuru;
+            TxtBelgeNumarasi.Text = satDataGridview1.BelgeNumarasi;
+            DtBelgeTarihi.Value = satDataGridview1.BelgeTarihi;
+            TxtSatinAlinanFirma.Text = satDataGridview1.SatinAlinanFirma;
 
             teklifsizSats = null;
             satinAlinacakMalzemelers = null;
@@ -264,7 +268,7 @@ namespace UserInterface.STS
             if (dr==DialogResult.Yes)
             {
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, donem);
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, donem, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value, TxtSatinAlinanFirma.Text);
 
                 string mesaj = satDataGridview1Manager.DevamEdenSatGuncelle(satDataGridview1);
                 if (mesaj!="OK")

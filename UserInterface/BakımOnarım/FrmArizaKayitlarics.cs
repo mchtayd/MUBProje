@@ -18,6 +18,8 @@ namespace UserInterface.BakımOnarım
     {
         ArizaKayitManager arizaKayitManager;
         List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
+
+        string dosyaYolu;
         public FrmArizaKayitlarics()
         {
             InitializeComponent();
@@ -79,8 +81,6 @@ namespace UserInterface.BakımOnarım
             DtgArizaKayitlari.Columns["LojGorevi"].Visible = false;
             DtgArizaKayitlari.Columns["LojTarihi"].Visible = false;
             DtgArizaKayitlari.Columns["LojTarihi"].Visible = false;
-
-
             DtgArizaKayitlari.Columns["TespitEdilenAriza"].Visible = false;
             DtgArizaKayitlari.Columns["AcmaOnayiVeren"].Visible = false;
             DtgArizaKayitlari.Columns["CsSiparisNo"].Visible = false;
@@ -88,7 +88,62 @@ namespace UserInterface.BakımOnarım
             DtgArizaKayitlari.Columns["CrmNo"].Visible = false;
             DtgArizaKayitlari.Columns["SiparisNo"].Visible = false;
             DtgArizaKayitlari.Columns["TelefonNo"].Visible = false;
+            DtgArizaKayitlari.Columns["StokNo"].Visible = false;
+            DtgArizaKayitlari.Columns["Tanim"].Visible = false;
+            DtgArizaKayitlari.Columns["SeriNo"].Visible = false;
+            DtgArizaKayitlari.Columns["IlgiliFirma"].Visible = false;
+            DtgArizaKayitlari.Columns["BildirimTuru"].Visible = false;
+            DtgArizaKayitlari.Columns["PypNo"].Visible = false;
+            DtgArizaKayitlari.Columns["SorumluPersonel"].Visible = false;
+            DtgArizaKayitlari.Columns["IslemTuru"].Visible = false;
+            DtgArizaKayitlari.Columns["Hesaplama"].Visible = false;
+            DtgArizaKayitlari.Columns["BildirimMailTarihi"].Visible = false;
+            DtgArizaKayitlari.Columns["Kategori"].Visible = false;
+            DtgArizaKayitlari.Columns["IlgiliFirma"].Visible = false;
+            DtgArizaKayitlari.Columns["BildirimTuru"].HeaderText = "BİLDİRİM TÜRÜ";
+            DtgArizaKayitlari.Columns["PypNo"].Visible = false;
+            DtgArizaKayitlari.Columns["SorumluPersonel"].Visible = false;
+            DtgArizaKayitlari.Columns["IslemTuru"].Visible = false;
+            DtgArizaKayitlari.Columns["Hesaplama"].Visible = false;
+            DtgArizaKayitlari.Columns["Durum"].Visible = false;
+            DtgArizaKayitlari.Columns["OnarimNotu"].Visible = false;
+            DtgArizaKayitlari.Columns["TeslimEdenPersonel"].Visible = false;
+            DtgArizaKayitlari.Columns["TeslimAlanPersonel"].Visible = false;
+            DtgArizaKayitlari.Columns["TeslimTarihi"].Visible = false;
+            DtgArizaKayitlari.Columns["NesneTanimi"].Visible = false;
+            DtgArizaKayitlari.Columns["HasarKodu"].Visible = false;
+            DtgArizaKayitlari.Columns["NedenKodu"].Visible = false;
+            DtgArizaKayitlari.Columns["EksikEvrak"].Visible = false;
+            DtgArizaKayitlari.Columns["EkipmanNo"].Visible = false;
 
+        }
+
+        private void DtgArizaKayitlari_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgArizaKayitlari.FilterString;
+        }
+
+        private void DtgArizaKayitlari_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgArizaKayitlari.SortString;
+        }
+
+        private void DtgArizaKayitlari_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgArizaKayitlari.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+            dosyaYolu = DtgArizaKayitlari.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
     }
 }

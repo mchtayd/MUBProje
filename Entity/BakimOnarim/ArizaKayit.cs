@@ -9,7 +9,7 @@ namespace Entity.BakimOnarim
     public class ArizaKayit
     {
         int id, isAkisNo, abfFormNo; string proje, bolgeAdi, bolukKomutani, telefonNo, birlikAdresi, il, ilce, bildirilenAriza, arizaiBildirenPersonel, abRutbesi, abGorevi, abTelefon; DateTime abTarihSaat; string aBAlanPersonel, bildirimKanali, arizaAciklama, gorevAtanacakPersonel, islemAdimi, dosyaYolu, garantiDurumu, lojistikSorumluPersonel, lojRutbesi, lojGorevi, lojTarihi, tespitEdilenAriza, acmaOnayiVeren, csSiparisNo, bildirimNo, crmNo, bildirimMailTarihi, siparisNo,
-            stokNo, tanim, seriNo, kategori, ilgiliFirma, bildirimTuru, pypNo, sorumluPersonel, islemTuru, hesaplama;
+            stokNo, tanim, seriNo, kategori, ilgiliFirma, bildirimTuru, pypNo, sorumluPersonel, islemTuru, hesaplama; int durum; string onarimNotu, teslimEdenPersonel, teslimAlanPersonel; DateTime teslimTarihi; string nesneTanimi, hasarKodu, nedenKodu; int eksikEvrak; string ekipmanNo; 
 
         public int Id { get => id; set => id = value; }
         public int IsAkisNo { get => isAkisNo; set => isAkisNo = value; }
@@ -55,6 +55,16 @@ namespace Entity.BakimOnarim
         public string SorumluPersonel { get => sorumluPersonel; set => sorumluPersonel = value; }
         public string IslemTuru { get => islemTuru; set => islemTuru = value; }
         public string Hesaplama { get => hesaplama; set => hesaplama = value; }
+        public int Durum { get => durum; set => durum = value; }
+        public string OnarimNotu { get => onarimNotu; set => onarimNotu = value; }
+        public string TeslimEdenPersonel { get => teslimEdenPersonel; set => teslimEdenPersonel = value; }
+        public string TeslimAlanPersonel { get => teslimAlanPersonel; set => teslimAlanPersonel = value; }
+        public DateTime TeslimTarihi { get => teslimTarihi; set => teslimTarihi = value; }
+        public string NesneTanimi { get => nesneTanimi; set => nesneTanimi = value; }
+        public string HasarKodu { get => hasarKodu; set => hasarKodu = value; }
+        public string NedenKodu { get => nedenKodu; set => nedenKodu = value; }
+        public int EksikEvrak { get => eksikEvrak; set => eksikEvrak = value; }
+        public string EkipmanNo { get => ekipmanNo; set => ekipmanNo = value; }
 
         public ArizaKayit(int isAkisNo, int abfFormNo, string proje, string bolgeAdi, string bolukKomutani, string telefonNo, string birlikAdresi, string il, string ilce, string bildirilenAriza, string arizaiBildirenPersonel, string abRutbesi, string abGorevi, string abTelefon, DateTime abTarihSaat, string aBAlanPersonel, string bildirimKanali, string arizaAciklama, string gorevAtanacakPersonel, string islemAdimi, string dosyaYolu,string siparisNo)
         {
@@ -82,7 +92,7 @@ namespace Entity.BakimOnarim
             this.siparisNo = siparisNo;
         }
 
-        public ArizaKayit(int id, int isAkisNo, int abfFormNo, string proje, string bolgeAdi, string bolukKomutani, string telefonNo, string birlikAdresi, string il, string ilce, string bildirilenAriza, string arizaiBildirenPersonel, string abRutbesi, string abGorevi, string abTelefon, DateTime abTarihSaat, string aBAlanPersonel, string bildirimKanali, string arizaAciklama, string gorevAtanacakPersonel, string islemAdimi, string dosyaYolu, string garantiDurumu, string lojistikSorumluPersonel, string lojRutbesi, string lojGorevi, string lojTarihi, string tespitEdilenAriza, string acmaOnayiVeren, string csSiparisNo, string bildirimNo, string crmNo, string bildirimMailTarihi, string siparisNo, string stokNo, string tanim, string seriNo, string kategori, string ilgiliFirma, string bildirimTuru, string pypNo, string sorumluPersonel, string islemTuru, string hesaplama)
+        public ArizaKayit(int id, int isAkisNo, int abfFormNo, string proje, string bolgeAdi, string bolukKomutani, string telefonNo, string birlikAdresi, string il, string ilce, string bildirilenAriza, string arizaiBildirenPersonel, string abRutbesi, string abGorevi, string abTelefon, DateTime abTarihSaat, string aBAlanPersonel, string bildirimKanali, string arizaAciklama, string gorevAtanacakPersonel, string islemAdimi, string dosyaYolu, string garantiDurumu, string lojistikSorumluPersonel, string lojRutbesi, string lojGorevi, string lojTarihi, string tespitEdilenAriza, string acmaOnayiVeren, string csSiparisNo, string bildirimNo, string crmNo, string bildirimMailTarihi, string siparisNo, string stokNo, string tanim, string seriNo, string kategori, string ilgiliFirma, string bildirimTuru, string pypNo, string sorumluPersonel, string islemTuru, string hesaplama, int durum, string onarimNotu, string teslimEdenPersonel, string teslimAlanaPersonel, DateTime teslimTarihi, string nesneTanim, string hasarKodu, string nedenKodu, int eksikEvrak,string ekipmanNo)
         {
             this.id = id;
             this.isAkisNo = isAkisNo;
@@ -128,6 +138,16 @@ namespace Entity.BakimOnarim
             this.sorumluPersonel = sorumluPersonel;
             this.islemTuru = islemTuru;
             this.hesaplama = hesaplama;
+            this.durum = durum;
+            this.onarimNotu = onarimNotu;
+            this.teslimEdenPersonel = teslimEdenPersonel;
+            this.teslimAlanPersonel = teslimAlanaPersonel;
+            this.teslimTarihi = teslimTarihi;
+            this.nesneTanimi = nesneTanim;
+            this.hasarKodu = hasarKodu;
+            this.nedenKodu = nedenKodu;
+            this.eksikEvrak = eksikEvrak;
+            this.ekipmanNo = ekipmanNo;
         }
 
         public ArizaKayit(int id, string garantiDurumu,string lojistikSorumluPersonel, string lojRutbesi, string lojGorevi, string lojTarihi, string tespitEdilenAriza, string acmaOnayiVeren)
@@ -142,13 +162,14 @@ namespace Entity.BakimOnarim
             this.acmaOnayiVeren = acmaOnayiVeren;
         }
 
-        public ArizaKayit(int id, string csSiparisNo, string bildirimNo, string crmNo, string bildirimMailTarihi)
+        public ArizaKayit(int id, string csSiparisNo, string bildirimNo, string crmNo, string bildirimMailTarihi,string ekipmanNo)
         {
             this.id = id;
             this.csSiparisNo = csSiparisNo;
             this.bildirimNo = bildirimNo;
             this.crmNo = crmNo;
             this.bildirimMailTarihi = bildirimMailTarihi;
+            this.ekipmanNo = ekipmanNo;
         }
 
         public ArizaKayit(int id, string stokNo, string tanim, string seriNo, string kategori, string ilgiliFirma, string bildirimTuru, string pypNo, string sorumluPersonel, string islemTuru, string hesaplama)
@@ -164,6 +185,19 @@ namespace Entity.BakimOnarim
             this.sorumluPersonel = sorumluPersonel;
             this.islemTuru = islemTuru;
             this.hesaplama = hesaplama;
+        }
+
+        public ArizaKayit(int id, string onarimNotu, string teslimEdenPersonel, string teslimAlanPersonel, DateTime teslimTarihi, string nesneTanimi, string hasarKodu, string nedenKodu, int eksikEvrak)
+        {
+            this.id = id;
+            this.onarimNotu = onarimNotu;
+            this.teslimEdenPersonel = teslimEdenPersonel;
+            this.teslimAlanPersonel = teslimAlanPersonel;
+            this.teslimTarihi = teslimTarihi;
+            this.nesneTanimi = nesneTanimi;
+            this.hasarKodu = hasarKodu;
+            this.nedenKodu = nedenKodu;
+            this.eksikEvrak = eksikEvrak;
         }
     }
 }
