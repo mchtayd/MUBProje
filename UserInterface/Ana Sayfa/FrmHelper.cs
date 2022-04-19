@@ -5,6 +5,7 @@ using ClosedXML.Excel;
 using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
 using Entity;
+using Entity.BakimOnarim;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
- 
+
 namespace UserInterface.Ana_Sayfa
 {
     public partial class FrmHelper : Form
@@ -95,13 +96,18 @@ namespace UserInterface.Ana_Sayfa
             ws.Protect("1234");
             if (string.IsNullOrEmpty(filePath))
             {
-                filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + "\\Excel_File.xlsx";
+                filePath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + " \\Excel_File.xlsx";
             }
             wb.SaveAs(filePath);
             wb.Dispose();
         }
+        public static void ExportAbf(ArizaKayit arizaKayit, string fileName = "", string filePath = "")
+        {
 
-        public static List<FiyatTeklifiAl> GetRequestList(DataGridView gridView, string supplierName)//Mail Gönderilebilinir mi diye kontrol için eklendi
+
+        }
+
+        public static List<FiyatTeklifiAl> GetRequestList(DataGridView gridView, string supplierName) //Mail Gönderilebilinir mi diye kontrol için eklendi
         {
             List<FiyatTeklifiAl> list = new List<FiyatTeklifiAl>();
             List<SatRenkliTablo> tumRenkler = SatRenkliiTabloManager.GetInstance().GetList("", "BEKLIYOR");

@@ -11,30 +11,27 @@ using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
 {
-    public partial class FrmOkfOlustrma : Form
+    public partial class FrmDTFOlustur : Form
     {
-        public FrmOkfOlustrma()
+        public FrmDTFOlustur()
         {
             InitializeComponent();
         }
 
-        private void FrmOkfOlustrma_Load(object sender, EventArgs e)
+        private void FrmDTFOlustur_Load(object sender, EventArgs e)
         {
 
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)System.Windows.Forms.Application.OpenForms["FrmAnasayfa"];
             this.Close();
-            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageOKFOlusturma"]);
+            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageDTFOlusturma"]);
+
             if (frmAnaSayfa.tabAnasayfa.TabPages.Count == 0)
             {
                 frmAnaSayfa.tabAnasayfa.Visible = false;
-            }
-            else
-            {
-                frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
     }

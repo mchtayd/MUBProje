@@ -1851,6 +1851,26 @@ namespace UserInterface.STS
                 OpenTabPage("PageYolDurumlari", "YOL DURUMLARI", Go);
                 Go.Show();
             }
+            if (e.Node.Name == "OKF Olusturma")
+            {
+                FrmOkfOlustrma Go = new FrmOkfOlustrma();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageOKFOlusturma", "OKF OLUŞTUR", Go);
+                Go.Show();
+            }
+            if (e.Node.Name == "DTF Olusturma")
+            {
+                FrmDTFOlustur Go = new FrmDTFOlustur();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageDTFOlusturma", "DTF OLUŞTUR", Go);
+                Go.Show();
+            }
 
             /////////////////////////////////////////////////BAKIM ONARIM ATEOLYE//////////////////////////////////////////////////////////////
 

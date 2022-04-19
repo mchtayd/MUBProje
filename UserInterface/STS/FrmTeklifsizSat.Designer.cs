@@ -51,9 +51,7 @@ namespace UserInterface.STS
             this.Tutar1 = new System.Windows.Forms.TextBox();
             this.Tutar2 = new System.Windows.Forms.TextBox();
             this.Tutar7 = new System.Windows.Forms.TextBox();
-            this.TxtGenelTop = new System.Windows.Forms.Label();
             this.Tutar6 = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.Tutar3 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.Tutar8 = new System.Windows.Forms.TextBox();
@@ -118,6 +116,8 @@ namespace UserInterface.STS
             this.label68 = new System.Windows.Forms.Label();
             this.binderSetRequest = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtGenelTop = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSat)).BeginInit();
             this.panel1.SuspendLayout();
@@ -419,16 +419,6 @@ namespace UserInterface.STS
             this.Tutar7.TextChanged += new System.EventHandler(this.Tutar7_TextChanged);
             this.Tutar7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tutar7_KeyPress);
             // 
-            // TxtGenelTop
-            // 
-            this.TxtGenelTop.AutoSize = true;
-            this.TxtGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtGenelTop.Location = new System.Drawing.Point(688, 311);
-            this.TxtGenelTop.Name = "TxtGenelTop";
-            this.TxtGenelTop.Size = new System.Drawing.Size(27, 15);
-            this.TxtGenelTop.TabIndex = 501;
-            this.TxtGenelTop.Text = "0 ₺";
-            // 
             // Tutar6
             // 
             this.Tutar6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -438,16 +428,6 @@ namespace UserInterface.STS
             this.Tutar6.TabIndex = 495;
             this.Tutar6.TextChanged += new System.EventHandler(this.Tutar6_TextChanged);
             this.Tutar6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tutar6_KeyPress);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(566, 311);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(116, 15);
-            this.label2.TabIndex = 500;
-            this.label2.Text = "GENEL TOPLAM:";
             // 
             // Tutar3
             // 
@@ -1035,6 +1015,26 @@ namespace UserInterface.STS
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(566, 311);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(116, 15);
+            this.label2.TabIndex = 500;
+            this.label2.Text = "GENEL TOPLAM:";
+            // 
+            // TxtGenelTop
+            // 
+            this.TxtGenelTop.AutoSize = true;
+            this.TxtGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtGenelTop.Location = new System.Drawing.Point(688, 311);
+            this.TxtGenelTop.Name = "TxtGenelTop";
+            this.TxtGenelTop.Size = new System.Drawing.Size(27, 15);
+            this.TxtGenelTop.TabIndex = 501;
+            this.TxtGenelTop.Text = "0 ₺";
+            // 
             // FrmTeklifsizSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1146,11 +1146,11 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label68;
         private System.Windows.Forms.BindingSource binderSetRequest;
         private ADGV.AdvancedDataGridView DtgSat;
-        private System.Windows.Forms.Label TxtGenelTop;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnDosyaEkle;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label TxtGenelTop;
+        private System.Windows.Forms.Label label2;
     }
 }
