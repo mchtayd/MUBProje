@@ -55,7 +55,14 @@ namespace Business.Concreate.STS
 
         public AltYuklenici Get(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return altYukleniciDal.Get(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<AltYuklenici> GetList(int id)

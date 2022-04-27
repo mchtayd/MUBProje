@@ -1147,7 +1147,7 @@ namespace UserInterface.STS
             treeNode7.Name = "OKF";
             treeNode7.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             treeNode7.Text = "OKF İzleme";
-            treeNode8.Name = "DTF";
+            treeNode8.Name = "DTF Izleme";
             treeNode8.NodeFont = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             treeNode8.Text = "DTF İzleme";
             treeNode9.Name = "Musteri Bildiri";

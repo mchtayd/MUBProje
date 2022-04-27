@@ -319,6 +319,23 @@ namespace UserInterface.Ana_Sayfa
                     form.HasarKodu();
                 }
             }
+            if (comboAd == "PROJE_KODU")
+            {
+                var form = (FrmDTFOlustur)Application.OpenForms["FrmDTFOlustur"];
+                if (form != null)
+                {
+                    form.ProjeKodu();
+                }
+            }
+            if (comboAd == "IS_KATEGORISI")
+            {
+                var form = (FrmDTFOlustur)Application.OpenForms["FrmDTFOlustur"];
+                if (form != null)
+                {
+                    form.IsKategorisi();
+                }
+            }
+
 
         }
     }

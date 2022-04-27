@@ -1357,6 +1357,7 @@ namespace UserInterface.BakımOnarım
             this.BtnMalzemeEkle.TabIndex = 54;
             this.BtnMalzemeEkle.Tag = "admin";
             this.BtnMalzemeEkle.UseVisualStyleBackColor = false;
+            this.BtnMalzemeEkle.Click += new System.EventHandler(this.BtnMalzemeEkle_Click);
             // 
             // CmbBildirimTuru
             // 

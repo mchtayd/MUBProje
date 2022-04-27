@@ -2080,6 +2080,11 @@ namespace UserInterface.BakımOnarım
             return "OK";
         }
 
+        private void BtnMalzemeEkle_Click(object sender, EventArgs e)
+        {
+
+        }
+
         void MalzemeKaydetAK()
         {
             ArizaKayit arizaKayit2 = arizaKayitManager.Get(abfForm);

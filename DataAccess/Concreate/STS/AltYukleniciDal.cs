@@ -60,7 +60,32 @@ namespace DataAccess.Concreate.STS
 
         public AltYuklenici Get(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("AltYukleniciFirmaList",new SqlParameter("@id",id));
+                AltYuklenici item = null;
+                while (dataReader.Read())
+                {
+                    item = new AltYuklenici(
+                    dataReader["ID"].ConInt(),
+                    dataReader["FIRMA_ADI"].ToString(),
+                    dataReader["FIRMA_ADRESI"].ToString(),
+                    dataReader["IL"].ToString(),
+                    dataReader["ILCE"].ToString(),
+                    dataReader["TELEFON"].ToString(),
+                    dataReader["FALIYET_ALANI"].ToString(),
+                    dataReader["PERSONEL_AD"].ToString(),
+                    dataReader["PERSONEL_TELEFON"].ToString(),
+                    dataReader["MAIL"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<AltYuklenici> GetList(int id)
@@ -68,7 +93,7 @@ namespace DataAccess.Concreate.STS
             try
             {
                 List<AltYuklenici> altYuklenicis = new List<AltYuklenici>();
-                dataReader = sqlServices.StoreReader("AltYukleniciFirmaList",new SqlParameter("id",id));
+                dataReader = sqlServices.StoreReader("AltYukleniciFirmaList",new SqlParameter("@id", id));
                 while (dataReader.Read())
                 {
                     altYuklenicis.Add(new AltYuklenici(
@@ -86,7 +111,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return altYuklenicis;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<AltYuklenici>();
             }

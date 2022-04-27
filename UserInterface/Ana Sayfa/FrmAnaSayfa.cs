@@ -1864,11 +1864,22 @@ namespace UserInterface.STS
             if (e.Node.Name == "DTF Olusturma")
             {
                 FrmDTFOlustur Go = new FrmDTFOlustur();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageDTFOlusturma", "DTF OLUŞTUR", Go);
+                Go.Show();
+            }
+
+            if (e.Node.Name == "DTF Izleme")
+            {
+                FrmDtfIzleme Go = new FrmDtfIzleme();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageDTFIzleme", "DTF İZLEME", Go);
                 Go.Show();
             }
 

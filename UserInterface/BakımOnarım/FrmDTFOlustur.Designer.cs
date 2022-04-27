@@ -32,43 +32,46 @@ namespace UserInterface.BakımOnarım
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDTFOlustur));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BtnTemizle = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label14 = new System.Windows.Forms.Label();
+            this.DtgIsinVerildigiTarih = new System.Windows.Forms.DateTimePicker();
+            this.BtnAltYukFirmaEkle = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.LblFirmaSorumlusu = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.CmbAltYukleniciFirma = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.label15 = new System.Windows.Forms.Label();
+            this.CmbTanim = new System.Windows.Forms.ComboBox();
+            this.CmbOnarimYeri = new System.Windows.Forms.ComboBox();
+            this.LblStokNo = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtSeriNo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.comboBox10 = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.TxtIsinTanimi = new System.Windows.Forms.RichTextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.BtnIsinTanimiEkle = new System.Windows.Forms.Button();
+            this.CmbIsKategorisi = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
-            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.CmbGarantiDurumu = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
-            this.BtnBolgeEkle = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.BtnProjeEkle = new System.Windows.Forms.Button();
+            this.CmbBolgeAdi = new System.Windows.Forms.ComboBox();
+            this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
+            this.TxtAbfNo = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.CmbButceKodu = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.label9 = new System.Windows.Forms.Label();
+            this.LblKayitTarihi = new System.Windows.Forms.Label();
             this.CmbDonemYil = new System.Windows.Forms.ComboBox();
-            this.CmbDonem = new System.Windows.Forms.ComboBox();
+            this.CmbDonemAy = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
             this.TalepEden = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -76,83 +79,90 @@ namespace UserInterface.BakımOnarım
             this.label5 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.TxtIsinTanimiKO = new System.Windows.Forms.RichTextBox();
+            this.DtIsBitisTarihi = new System.Windows.Forms.DateTimePicker();
             this.label98 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DtIsBaslamaTarihi = new System.Windows.Forms.DateTimePicker();
             this.label97 = new System.Windows.Forms.Label();
-            this.richTextBox2 = new System.Windows.Forms.RichTextBox();
+            this.TxtYapilanIslemler = new System.Windows.Forms.RichTextBox();
             this.label96 = new System.Windows.Forms.Label();
-            this.button4 = new System.Windows.Forms.Button();
+            this.BtnKaydetKO = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
-            this.label64 = new System.Windows.Forms.Label();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
-            this.comboBox8 = new System.Windows.Forms.ComboBox();
-            this.comboBox11 = new System.Windows.Forms.ComboBox();
-            this.comboBox12 = new System.Windows.Forms.ComboBox();
-            this.comboBox13 = new System.Windows.Forms.ComboBox();
-            this.comboBox14 = new System.Windows.Forms.ComboBox();
+            this.Pb7 = new System.Windows.Forms.ComboBox();
+            this.TTutar7 = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.BTutar7 = new System.Windows.Forms.TextBox();
+            this.m7 = new System.Windows.Forms.TextBox();
+            this.IsTanimi7 = new System.Windows.Forms.TextBox();
+            this.b7 = new System.Windows.Forms.ComboBox();
             this.TxtGenelTop = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.Pb1 = new System.Windows.Forms.ComboBox();
+            this.Pb2 = new System.Windows.Forms.ComboBox();
             this.label63 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.Pb3 = new System.Windows.Forms.ComboBox();
+            this.Pb4 = new System.Windows.Forms.ComboBox();
+            this.Pb5 = new System.Windows.Forms.ComboBox();
+            this.Pb6 = new System.Windows.Forms.ComboBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.TTutar1 = new System.Windows.Forms.TextBox();
+            this.TTutar6 = new System.Windows.Forms.TextBox();
+            this.TTutar5 = new System.Windows.Forms.TextBox();
+            this.TTutar4 = new System.Windows.Forms.TextBox();
+            this.TTutar3 = new System.Windows.Forms.TextBox();
+            this.TTutar2 = new System.Windows.Forms.TextBox();
             this.label61 = new System.Windows.Forms.Label();
             this.label60 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
-            this.t1 = new System.Windows.Forms.TextBox();
+            this.BTutar1 = new System.Windows.Forms.TextBox();
             this.label51 = new System.Windows.Forms.Label();
             this.label53 = new System.Windows.Forms.Label();
             this.label54 = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label57 = new System.Windows.Forms.Label();
-            this.t6 = new System.Windows.Forms.TextBox();
-            this.t5 = new System.Windows.Forms.TextBox();
+            this.BTutar6 = new System.Windows.Forms.TextBox();
+            this.BTutar5 = new System.Windows.Forms.TextBox();
             this.m1 = new System.Windows.Forms.TextBox();
-            this.t4 = new System.Windows.Forms.TextBox();
+            this.BTutar4 = new System.Windows.Forms.TextBox();
             this.m2 = new System.Windows.Forms.TextBox();
-            this.t3 = new System.Windows.Forms.TextBox();
+            this.BTutar3 = new System.Windows.Forms.TextBox();
             this.m3 = new System.Windows.Forms.TextBox();
-            this.t2 = new System.Windows.Forms.TextBox();
+            this.BTutar2 = new System.Windows.Forms.TextBox();
             this.m4 = new System.Windows.Forms.TextBox();
             this.m5 = new System.Windows.Forms.TextBox();
             this.m6 = new System.Windows.Forms.TextBox();
-            this.stn6 = new System.Windows.Forms.TextBox();
-            this.stn5 = new System.Windows.Forms.TextBox();
+            this.IsTanimi6 = new System.Windows.Forms.TextBox();
+            this.IsTanimi5 = new System.Windows.Forms.TextBox();
             this.b1 = new System.Windows.Forms.ComboBox();
-            this.stn4 = new System.Windows.Forms.TextBox();
+            this.IsTanimi4 = new System.Windows.Forms.TextBox();
             this.b2 = new System.Windows.Forms.ComboBox();
-            this.stn3 = new System.Windows.Forms.TextBox();
+            this.IsTanimi3 = new System.Windows.Forms.TextBox();
             this.b3 = new System.Windows.Forms.ComboBox();
-            this.stn2 = new System.Windows.Forms.TextBox();
+            this.IsTanimi2 = new System.Windows.Forms.TextBox();
             this.b4 = new System.Windows.Forms.ComboBox();
-            this.stn1 = new System.Windows.Forms.TextBox();
+            this.IsTanimi1 = new System.Windows.Forms.TextBox();
             this.b5 = new System.Windows.Forms.ComboBox();
             this.b6 = new System.Windows.Forms.ComboBox();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
+            this.LblFirmaSorumlusuKO = new System.Windows.Forms.Label();
+            this.LblAltYukFirmaKO = new System.Windows.Forms.Label();
             this.label47 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
+            this.LblOnarimYeriKO = new System.Windows.Forms.Label();
+            this.LblSeriNoKO = new System.Windows.Forms.Label();
+            this.LblStokNoKO = new System.Windows.Forms.Label();
+            this.LblTanimKO = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label37 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
+            this.LblIsKategorisiKO = new System.Windows.Forms.Label();
+            this.LblGarantiDurumuKO = new System.Windows.Forms.Label();
+            this.LblProjeKoduKO = new System.Windows.Forms.Label();
+            this.LblUsBolgesiKO = new System.Windows.Forms.Label();
+            this.LblAbfNoKO = new System.Windows.Forms.Label();
+            this.LblHarcamaKoduKO = new System.Windows.Forms.Label();
             this.label24 = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
@@ -160,119 +170,125 @@ namespace UserInterface.BakımOnarım
             this.label28 = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.LblDonemKO = new System.Windows.Forms.Label();
+            this.LblKayitTarihiKO = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.BtnBul = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.button8 = new System.Windows.Forms.Button();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.DtIsBitisTarihiGun = new System.Windows.Forms.DateTimePicker();
             this.label105 = new System.Windows.Forms.Label();
-            this.dateTimePicker4 = new System.Windows.Forms.DateTimePicker();
+            this.DtIsBaslamaTarihiGun = new System.Windows.Forms.DateTimePicker();
             this.label106 = new System.Windows.Forms.Label();
-            this.richTextBox4 = new System.Windows.Forms.RichTextBox();
+            this.TxtYapilanIslemlerGun = new System.Windows.Forms.RichTextBox();
             this.label107 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.label88 = new System.Windows.Forms.Label();
-            this.comboBox25 = new System.Windows.Forms.ComboBox();
-            this.comboBox26 = new System.Windows.Forms.ComboBox();
-            this.comboBox27 = new System.Windows.Forms.ComboBox();
-            this.comboBox28 = new System.Windows.Forms.ComboBox();
-            this.comboBox29 = new System.Windows.Forms.ComboBox();
-            this.comboBox30 = new System.Windows.Forms.ComboBox();
-            this.label89 = new System.Windows.Forms.Label();
+            this.PbGun1 = new System.Windows.Forms.ComboBox();
+            this.PbGun2 = new System.Windows.Forms.ComboBox();
+            this.PbGun3 = new System.Windows.Forms.ComboBox();
+            this.PbGun4 = new System.Windows.Forms.ComboBox();
+            this.PbGun5 = new System.Windows.Forms.ComboBox();
+            this.PbGun6 = new System.Windows.Forms.ComboBox();
+            this.TxtGenelTopGun = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
             this.label91 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.TTutarGun1 = new System.Windows.Forms.TextBox();
+            this.TTutarGun6 = new System.Windows.Forms.TextBox();
+            this.TTutarGun5 = new System.Windows.Forms.TextBox();
+            this.TTutarGun4 = new System.Windows.Forms.TextBox();
+            this.TTutarGun3 = new System.Windows.Forms.TextBox();
+            this.TTutarGun2 = new System.Windows.Forms.TextBox();
             this.label92 = new System.Windows.Forms.Label();
             this.label93 = new System.Windows.Forms.Label();
             this.label94 = new System.Windows.Forms.Label();
             this.label95 = new System.Windows.Forms.Label();
-            this.textBox19 = new System.Windows.Forms.TextBox();
+            this.BTutarGun1 = new System.Windows.Forms.TextBox();
             this.label99 = new System.Windows.Forms.Label();
             this.label100 = new System.Windows.Forms.Label();
             this.label101 = new System.Windows.Forms.Label();
             this.label102 = new System.Windows.Forms.Label();
             this.label103 = new System.Windows.Forms.Label();
             this.label104 = new System.Windows.Forms.Label();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.comboBox31 = new System.Windows.Forms.ComboBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.comboBox32 = new System.Windows.Forms.ComboBox();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.comboBox33 = new System.Windows.Forms.ComboBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.comboBox34 = new System.Windows.Forms.ComboBox();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.comboBox35 = new System.Windows.Forms.ComboBox();
-            this.comboBox36 = new System.Windows.Forms.ComboBox();
+            this.BTutarGun6 = new System.Windows.Forms.TextBox();
+            this.BTutarGun5 = new System.Windows.Forms.TextBox();
+            this.mGun1 = new System.Windows.Forms.TextBox();
+            this.BTutarGun4 = new System.Windows.Forms.TextBox();
+            this.mGun2 = new System.Windows.Forms.TextBox();
+            this.BTutarGun3 = new System.Windows.Forms.TextBox();
+            this.mGun3 = new System.Windows.Forms.TextBox();
+            this.BTutarGun2 = new System.Windows.Forms.TextBox();
+            this.mGun4 = new System.Windows.Forms.TextBox();
+            this.mGun5 = new System.Windows.Forms.TextBox();
+            this.mGun6 = new System.Windows.Forms.TextBox();
+            this.IsTanimiGun6 = new System.Windows.Forms.TextBox();
+            this.IsTanimiGun5 = new System.Windows.Forms.TextBox();
+            this.bGun1 = new System.Windows.Forms.ComboBox();
+            this.IsTanimiGun4 = new System.Windows.Forms.TextBox();
+            this.bGun2 = new System.Windows.Forms.ComboBox();
+            this.IsTanimiGun3 = new System.Windows.Forms.TextBox();
+            this.bGun3 = new System.Windows.Forms.ComboBox();
+            this.IsTanimiGun2 = new System.Windows.Forms.TextBox();
+            this.bGun4 = new System.Windows.Forms.ComboBox();
+            this.IsTanimiGun1 = new System.Windows.Forms.TextBox();
+            this.bGun5 = new System.Windows.Forms.ComboBox();
+            this.bGun6 = new System.Windows.Forms.ComboBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.label66 = new System.Windows.Forms.Label();
+            this.LblFirmaSorumlusuGun = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
-            this.comboBox15 = new System.Windows.Forms.ComboBox();
+            this.CmbAltYukleniciFirmaGun = new System.Windows.Forms.ComboBox();
             this.label68 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.comboBox16 = new System.Windows.Forms.ComboBox();
-            this.label69 = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label72 = new System.Windows.Forms.Label();
-            this.comboBox17 = new System.Windows.Forms.ComboBox();
-            this.label73 = new System.Windows.Forms.Label();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.richTextBox3 = new System.Windows.Forms.RichTextBox();
+            this.TxtIsinTanimiGun = new System.Windows.Forms.RichTextBox();
             this.label74 = new System.Windows.Forms.Label();
-            this.button5 = new System.Windows.Forms.Button();
-            this.comboBox18 = new System.Windows.Forms.ComboBox();
+            this.CmbIsKategorisiGun = new System.Windows.Forms.ComboBox();
             this.label75 = new System.Windows.Forms.Label();
-            this.comboBox19 = new System.Windows.Forms.ComboBox();
+            this.CmbGarantiDurumuGun = new System.Windows.Forms.ComboBox();
             this.label76 = new System.Windows.Forms.Label();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.comboBox20 = new System.Windows.Forms.ComboBox();
-            this.comboBox21 = new System.Windows.Forms.ComboBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.CmbBolgeAdiGun = new System.Windows.Forms.ComboBox();
+            this.CmbProjeKoduGun = new System.Windows.Forms.ComboBox();
+            this.TxtAbfNoGun = new System.Windows.Forms.TextBox();
             this.label77 = new System.Windows.Forms.Label();
             this.label78 = new System.Windows.Forms.Label();
             this.label79 = new System.Windows.Forms.Label();
-            this.comboBox22 = new System.Windows.Forms.ComboBox();
+            this.CmbHarcamaKoduGun = new System.Windows.Forms.ComboBox();
             this.label80 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label81 = new System.Windows.Forms.Label();
-            this.comboBox23 = new System.Windows.Forms.ComboBox();
-            this.comboBox24 = new System.Windows.Forms.ComboBox();
+            this.LblKayitTarihiGun = new System.Windows.Forms.Label();
+            this.CmbDonemYilGun = new System.Windows.Forms.ComboBox();
+            this.CmbDonemAyGun = new System.Windows.Forms.ComboBox();
             this.label82 = new System.Windows.Forms.Label();
-            this.label83 = new System.Windows.Forms.Label();
+            this.LblAdSoyadGun = new System.Windows.Forms.Label();
             this.label84 = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
+            this.LblIsAkisNoGun = new System.Windows.Forms.Label();
             this.label86 = new System.Windows.Forms.Label();
             this.label87 = new System.Windows.Forms.Label();
-            this.button3 = new System.Windows.Forms.Button();
+            this.BtnBulGun = new System.Windows.Forms.Button();
             this.label65 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.TxtIsAkisNoGun = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.CmbTanimGun = new System.Windows.Forms.ComboBox();
+            this.CmbOnarimYeriGun = new System.Windows.Forms.ComboBox();
+            this.LblStokNoGun = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.TxtSeriNoGun = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.DtgIsinVerildigiTarihGun = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
+            this.PbGun7 = new System.Windows.Forms.ComboBox();
+            this.TTutarGun7 = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.BTutarGun7 = new System.Windows.Forms.TextBox();
+            this.mGun7 = new System.Windows.Forms.TextBox();
+            this.IsTanimiGun7 = new System.Windows.Forms.TextBox();
+            this.bGun7 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -284,10 +300,10 @@ namespace UserInterface.BakımOnarım
             this.tabPage3.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -295,14 +311,15 @@ namespace UserInterface.BakımOnarım
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(12, 38);
+            this.tabControl1.Location = new System.Drawing.Point(12, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1432, 873);
+            this.tabControl1.Size = new System.Drawing.Size(1543, 873);
             this.tabControl1.TabIndex = 443;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnTemizle);
             this.tabPage1.Controls.Add(this.BtnKaydet);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -311,10 +328,22 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1424, 864);
+            this.tabPage1.Size = new System.Drawing.Size(1535, 847);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "İŞE BAŞLAMA";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // BtnTemizle
+            // 
+            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizle.Location = new System.Drawing.Point(132, 458);
+            this.BtnTemizle.Name = "BtnTemizle";
+            this.BtnTemizle.Size = new System.Drawing.Size(110, 41);
+            this.BtnTemizle.TabIndex = 448;
+            this.BtnTemizle.Text = "TEMİZLE";
+            this.BtnTemizle.UseVisualStyleBackColor = true;
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
             // BtnKaydet
             // 
@@ -326,12 +355,16 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet.TabIndex = 447;
             this.BtnKaydet.Text = "KAYDET";
             this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.label14);
+            this.groupBox4.Controls.Add(this.DtgIsinVerildigiTarih);
+            this.groupBox4.Controls.Add(this.BtnAltYukFirmaEkle);
+            this.groupBox4.Controls.Add(this.label9);
+            this.groupBox4.Controls.Add(this.LblFirmaSorumlusu);
             this.groupBox4.Controls.Add(this.label18);
-            this.groupBox4.Controls.Add(this.comboBox7);
+            this.groupBox4.Controls.Add(this.CmbAltYukleniciFirma);
             this.groupBox4.Controls.Add(this.label12);
             this.groupBox4.Location = new System.Drawing.Point(386, 304);
             this.groupBox4.Name = "groupBox4";
@@ -340,14 +373,47 @@ namespace UserInterface.BakımOnarım
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "FİRMA BİLGİLERİ";
             // 
-            // label14
+            // DtgIsinVerildigiTarih
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(157, 66);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(19, 13);
-            this.label14.TabIndex = 425;
-            this.label14.Text = "00";
+            this.DtgIsinVerildigiTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgIsinVerildigiTarih.Location = new System.Drawing.Point(157, 86);
+            this.DtgIsinVerildigiTarih.Name = "DtgIsinVerildigiTarih";
+            this.DtgIsinVerildigiTarih.Size = new System.Drawing.Size(102, 20);
+            this.DtgIsinVerildigiTarih.TabIndex = 499;
+            // 
+            // BtnAltYukFirmaEkle
+            // 
+            this.BtnAltYukFirmaEkle.AccessibleDescription = "";
+            this.BtnAltYukFirmaEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnAltYukFirmaEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnAltYukFirmaEkle.BackgroundImage")));
+            this.BtnAltYukFirmaEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnAltYukFirmaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAltYukFirmaEkle.Location = new System.Drawing.Point(396, 28);
+            this.BtnAltYukFirmaEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnAltYukFirmaEkle.Name = "BtnAltYukFirmaEkle";
+            this.BtnAltYukFirmaEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnAltYukFirmaEkle.TabIndex = 433;
+            this.BtnAltYukFirmaEkle.Tag = "admin";
+            this.BtnAltYukFirmaEkle.UseVisualStyleBackColor = false;
+            this.BtnAltYukFirmaEkle.Click += new System.EventHandler(this.BtnAltYukFirmaEkle_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(28, 90);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(123, 13);
+            this.label9.TabIndex = 418;
+            this.label9.Text = "İŞİN VERİLDİĞİ TARİH:";
+            // 
+            // LblFirmaSorumlusu
+            // 
+            this.LblFirmaSorumlusu.AutoSize = true;
+            this.LblFirmaSorumlusu.Location = new System.Drawing.Point(157, 66);
+            this.LblFirmaSorumlusu.Name = "LblFirmaSorumlusu";
+            this.LblFirmaSorumlusu.Size = new System.Drawing.Size(19, 13);
+            this.LblFirmaSorumlusu.TabIndex = 425;
+            this.LblFirmaSorumlusu.Text = "00";
             // 
             // label18
             // 
@@ -358,17 +424,15 @@ namespace UserInterface.BakımOnarım
             this.label18.TabIndex = 424;
             this.label18.Text = "FİRMA SORUMLUSU:";
             // 
-            // comboBox7
+            // CmbAltYukleniciFirma
             // 
-            this.comboBox7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox7.FormattingEnabled = true;
-            this.comboBox7.Items.AddRange(new object[] {
-            "YERİNDE ONARIM",
-            "FİRMADA ONARIM-İMALAT"});
-            this.comboBox7.Location = new System.Drawing.Point(157, 33);
-            this.comboBox7.Name = "comboBox7";
-            this.comboBox7.Size = new System.Drawing.Size(236, 21);
-            this.comboBox7.TabIndex = 423;
+            this.CmbAltYukleniciFirma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbAltYukleniciFirma.FormattingEnabled = true;
+            this.CmbAltYukleniciFirma.Location = new System.Drawing.Point(157, 33);
+            this.CmbAltYukleniciFirma.Name = "CmbAltYukleniciFirma";
+            this.CmbAltYukleniciFirma.Size = new System.Drawing.Size(236, 21);
+            this.CmbAltYukleniciFirma.TabIndex = 423;
+            this.CmbAltYukleniciFirma.SelectedIndexChanged += new System.EventHandler(this.CmbAltYukleniciFirma_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -381,13 +445,13 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.comboBox9);
-            this.groupBox2.Controls.Add(this.label15);
+            this.groupBox2.Controls.Add(this.CmbTanim);
+            this.groupBox2.Controls.Add(this.CmbOnarimYeri);
+            this.groupBox2.Controls.Add(this.LblStokNo);
             this.groupBox2.Controls.Add(this.label11);
-            this.groupBox2.Controls.Add(this.textBox3);
+            this.groupBox2.Controls.Add(this.TxtSeriNo);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.comboBox10);
             this.groupBox2.Controls.Add(this.label17);
             this.groupBox2.Location = new System.Drawing.Point(16, 304);
             this.groupBox2.Name = "groupBox2";
@@ -396,26 +460,38 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "MALZEME BİLGİLERİ";
             // 
-            // comboBox9
+            // CmbTanim
             // 
-            this.comboBox9.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox9.FormattingEnabled = true;
-            this.comboBox9.Items.AddRange(new object[] {
+            this.CmbTanim.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbTanim.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbTanim.FormattingEnabled = true;
+            this.CmbTanim.Location = new System.Drawing.Point(94, 30);
+            this.CmbTanim.Name = "CmbTanim";
+            this.CmbTanim.Size = new System.Drawing.Size(236, 21);
+            this.CmbTanim.TabIndex = 501;
+            this.CmbTanim.SelectedIndexChanged += new System.EventHandler(this.CmbTanim_SelectedIndexChanged);
+            this.CmbTanim.TextChanged += new System.EventHandler(this.CmbTanim_TextChanged);
+            // 
+            // CmbOnarimYeri
+            // 
+            this.CmbOnarimYeri.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbOnarimYeri.FormattingEnabled = true;
+            this.CmbOnarimYeri.Items.AddRange(new object[] {
             "YERİNDE ONARIM",
             "FİRMADA ONARIM-İMALAT"});
-            this.comboBox9.Location = new System.Drawing.Point(94, 109);
-            this.comboBox9.Name = "comboBox9";
-            this.comboBox9.Size = new System.Drawing.Size(236, 21);
-            this.comboBox9.TabIndex = 424;
+            this.CmbOnarimYeri.Location = new System.Drawing.Point(94, 109);
+            this.CmbOnarimYeri.Name = "CmbOnarimYeri";
+            this.CmbOnarimYeri.Size = new System.Drawing.Size(236, 21);
+            this.CmbOnarimYeri.TabIndex = 424;
             // 
-            // label15
+            // LblStokNo
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(94, 61);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(19, 13);
-            this.label15.TabIndex = 418;
-            this.label15.Text = "00";
+            this.LblStokNo.AutoSize = true;
+            this.LblStokNo.Location = new System.Drawing.Point(94, 61);
+            this.LblStokNo.Name = "LblStokNo";
+            this.LblStokNo.Size = new System.Drawing.Size(19, 13);
+            this.LblStokNo.TabIndex = 418;
+            this.LblStokNo.Text = "00";
             // 
             // label11
             // 
@@ -426,12 +502,12 @@ namespace UserInterface.BakımOnarım
             this.label11.TabIndex = 422;
             this.label11.Text = "ONARIM YERİ:";
             // 
-            // textBox3
+            // TxtSeriNo
             // 
-            this.textBox3.Location = new System.Drawing.Point(94, 83);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(236, 20);
-            this.textBox3.TabIndex = 423;
+            this.TxtSeriNo.Location = new System.Drawing.Point(94, 83);
+            this.TxtSeriNo.Name = "TxtSeriNo";
+            this.TxtSeriNo.Size = new System.Drawing.Size(236, 20);
+            this.TxtSeriNo.TabIndex = 423;
             // 
             // label10
             // 
@@ -451,18 +527,6 @@ namespace UserInterface.BakımOnarım
             this.label16.TabIndex = 418;
             this.label16.Text = "STOK NO:";
             // 
-            // comboBox10
-            // 
-            this.comboBox10.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox10.FormattingEnabled = true;
-            this.comboBox10.Items.AddRange(new object[] {
-            "BM07 BAKIM ONARIM",
-            "BM14 EKSTRA"});
-            this.comboBox10.Location = new System.Drawing.Point(94, 30);
-            this.comboBox10.Name = "comboBox10";
-            this.comboBox10.Size = new System.Drawing.Size(236, 21);
-            this.comboBox10.TabIndex = 417;
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
@@ -474,22 +538,21 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.richTextBox1);
+            this.groupBox1.Controls.Add(this.TxtIsinTanimi);
             this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.button2);
-            this.groupBox1.Controls.Add(this.comboBox5);
+            this.groupBox1.Controls.Add(this.BtnIsinTanimiEkle);
+            this.groupBox1.Controls.Add(this.CmbIsKategorisi);
             this.groupBox1.Controls.Add(this.label6);
-            this.groupBox1.Controls.Add(this.comboBox4);
+            this.groupBox1.Controls.Add(this.CmbGarantiDurumu);
             this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.BtnBolgeEkle);
-            this.groupBox1.Controls.Add(this.comboBox2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.BtnProjeEkle);
+            this.groupBox1.Controls.Add(this.CmbBolgeAdi);
+            this.groupBox1.Controls.Add(this.CmbProjeKodu);
+            this.groupBox1.Controls.Add(this.TxtAbfNo);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.comboBox3);
+            this.groupBox1.Controls.Add(this.CmbButceKodu);
             this.groupBox1.Controls.Add(this.label7);
             this.groupBox1.Location = new System.Drawing.Point(386, 18);
             this.groupBox1.Name = "groupBox1";
@@ -498,13 +561,13 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ARIZA BİLGİLERİ";
             // 
-            // richTextBox1
+            // TxtIsinTanimi
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(157, 190);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(446, 69);
-            this.richTextBox1.TabIndex = 432;
-            this.richTextBox1.Text = "";
+            this.TxtIsinTanimi.Location = new System.Drawing.Point(157, 190);
+            this.TxtIsinTanimi.Name = "TxtIsinTanimi";
+            this.TxtIsinTanimi.Size = new System.Drawing.Size(446, 69);
+            this.TxtIsinTanimi.TabIndex = 432;
+            this.TxtIsinTanimi.Text = "";
             // 
             // label8
             // 
@@ -515,45 +578,30 @@ namespace UserInterface.BakımOnarım
             this.label8.TabIndex = 431;
             this.label8.Text = "İŞİN TANIMI:";
             // 
-            // button2
+            // BtnIsinTanimiEkle
             // 
-            this.button2.AccessibleDescription = "";
-            this.button2.BackColor = System.Drawing.SystemColors.Control;
-            this.button2.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button2.BackgroundImage")));
-            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(396, 158);
-            this.button2.Margin = new System.Windows.Forms.Padding(0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(34, 29);
-            this.button2.TabIndex = 430;
-            this.button2.Tag = "admin";
-            this.button2.UseVisualStyleBackColor = false;
+            this.BtnIsinTanimiEkle.AccessibleDescription = "";
+            this.BtnIsinTanimiEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnIsinTanimiEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnIsinTanimiEkle.BackgroundImage")));
+            this.BtnIsinTanimiEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnIsinTanimiEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnIsinTanimiEkle.Location = new System.Drawing.Point(396, 158);
+            this.BtnIsinTanimiEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnIsinTanimiEkle.Name = "BtnIsinTanimiEkle";
+            this.BtnIsinTanimiEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnIsinTanimiEkle.TabIndex = 430;
+            this.BtnIsinTanimiEkle.Tag = "admin";
+            this.BtnIsinTanimiEkle.UseVisualStyleBackColor = false;
+            this.BtnIsinTanimiEkle.Click += new System.EventHandler(this.BtnIsinTanimiEkle_Click);
             // 
-            // comboBox5
+            // CmbIsKategorisi
             // 
-            this.comboBox5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox5.FormattingEnabled = true;
-            this.comboBox5.Items.AddRange(new object[] {
-            "ALT YAPI ENERJİ",
-            "BENVARİ",
-            "BOYLER",
-            "FİBER",
-            "HİDRAFOR",
-            "İNŞAAT",
-            "JENARATÖR",
-            "KLİMA",
-            "KÖŞK ENERJİ",
-            "MKGS MAST",
-            "MKGS APU",
-            "MEKANİK",
-            "SOĞUK HAVA DEPOSU",
-            "SU YUMUŞATMA SİSTEMİ",
-            "UPS"});
-            this.comboBox5.Location = new System.Drawing.Point(157, 163);
-            this.comboBox5.Name = "comboBox5";
-            this.comboBox5.Size = new System.Drawing.Size(236, 21);
-            this.comboBox5.TabIndex = 429;
+            this.CmbIsKategorisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbIsKategorisi.FormattingEnabled = true;
+            this.CmbIsKategorisi.Location = new System.Drawing.Point(157, 163);
+            this.CmbIsKategorisi.Name = "CmbIsKategorisi";
+            this.CmbIsKategorisi.Size = new System.Drawing.Size(236, 21);
+            this.CmbIsKategorisi.TabIndex = 429;
             // 
             // label6
             // 
@@ -564,18 +612,18 @@ namespace UserInterface.BakımOnarım
             this.label6.TabIndex = 428;
             this.label6.Text = "İŞ KATEGORİSİ:";
             // 
-            // comboBox4
+            // CmbGarantiDurumu
             // 
-            this.comboBox4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox4.FormattingEnabled = true;
-            this.comboBox4.Items.AddRange(new object[] {
+            this.CmbGarantiDurumu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGarantiDurumu.FormattingEnabled = true;
+            this.CmbGarantiDurumu.Items.AddRange(new object[] {
             "GARANTİ İÇİ",
             "GARANTİ DIŞI (OKF)",
             "PDL"});
-            this.comboBox4.Location = new System.Drawing.Point(157, 136);
-            this.comboBox4.Name = "comboBox4";
-            this.comboBox4.Size = new System.Drawing.Size(236, 21);
-            this.comboBox4.TabIndex = 427;
+            this.CmbGarantiDurumu.Location = new System.Drawing.Point(157, 136);
+            this.CmbGarantiDurumu.Name = "CmbGarantiDurumu";
+            this.CmbGarantiDurumu.Size = new System.Drawing.Size(236, 21);
+            this.CmbGarantiDurumu.TabIndex = 427;
             // 
             // label4
             // 
@@ -586,94 +634,46 @@ namespace UserInterface.BakımOnarım
             this.label4.TabIndex = 426;
             this.label4.Text = "GARANTİ DURUMU:";
             // 
-            // button1
+            // BtnProjeEkle
             // 
-            this.button1.AccessibleDescription = "";
-            this.button1.BackColor = System.Drawing.SystemColors.Control;
-            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
-            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Location = new System.Drawing.Point(396, 77);
-            this.button1.Margin = new System.Windows.Forms.Padding(0);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(34, 29);
-            this.button1.TabIndex = 425;
-            this.button1.Tag = "admin";
-            this.button1.UseVisualStyleBackColor = false;
+            this.BtnProjeEkle.AccessibleDescription = "";
+            this.BtnProjeEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnProjeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnProjeEkle.BackgroundImage")));
+            this.BtnProjeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnProjeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnProjeEkle.Location = new System.Drawing.Point(396, 105);
+            this.BtnProjeEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnProjeEkle.Name = "BtnProjeEkle";
+            this.BtnProjeEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnProjeEkle.TabIndex = 424;
+            this.BtnProjeEkle.Tag = "admin";
+            this.BtnProjeEkle.UseVisualStyleBackColor = false;
+            this.BtnProjeEkle.Click += new System.EventHandler(this.BtnProjeEkle_Click);
             // 
-            // BtnBolgeEkle
+            // CmbBolgeAdi
             // 
-            this.BtnBolgeEkle.AccessibleDescription = "";
-            this.BtnBolgeEkle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
-            this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolgeEkle.Location = new System.Drawing.Point(396, 105);
-            this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnBolgeEkle.Name = "BtnBolgeEkle";
-            this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);
-            this.BtnBolgeEkle.TabIndex = 424;
-            this.BtnBolgeEkle.Tag = "admin";
-            this.BtnBolgeEkle.UseVisualStyleBackColor = false;
+            this.CmbBolgeAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbBolgeAdi.FormattingEnabled = true;
+            this.CmbBolgeAdi.Location = new System.Drawing.Point(157, 82);
+            this.CmbBolgeAdi.Name = "CmbBolgeAdi";
+            this.CmbBolgeAdi.Size = new System.Drawing.Size(236, 21);
+            this.CmbBolgeAdi.TabIndex = 423;
             // 
-            // comboBox2
+            // CmbProjeKodu
             // 
-            this.comboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
-            "MGUB 1",
-            "MGUB 2",
-            "MGUB 3",
-            "MGUB 4",
-            "MGUB 5",
-            "MGUB 6",
-            "MGUB 7",
-            "MGUB 8",
-            "MGUB 9",
-            "MGUB 10",
-            "MGUB 11",
-            "MGUB 12",
-            "MKGS",
-            "ATEŞ",
-            "GURU",
-            "GUKAS"});
-            this.comboBox2.Location = new System.Drawing.Point(157, 82);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(236, 21);
-            this.comboBox2.TabIndex = 423;
+            this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbProjeKodu.FormattingEnabled = true;
+            this.CmbProjeKodu.Location = new System.Drawing.Point(157, 109);
+            this.CmbProjeKodu.Name = "CmbProjeKodu";
+            this.CmbProjeKodu.Size = new System.Drawing.Size(236, 21);
+            this.CmbProjeKodu.TabIndex = 422;
             // 
-            // comboBox1
+            // TxtAbfNo
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "MGUB 1",
-            "MGUB 2",
-            "MGUB 3",
-            "MGUB 4",
-            "MGUB 5",
-            "MGUB 6",
-            "MGUB 7",
-            "MGUB 8",
-            "MGUB 9",
-            "MGUB 10",
-            "MGUB 11",
-            "MGUB 12",
-            "MKGS",
-            "ATEŞ",
-            "GURU",
-            "GUKAS"});
-            this.comboBox1.Location = new System.Drawing.Point(157, 109);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(236, 21);
-            this.comboBox1.TabIndex = 422;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(157, 53);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(236, 20);
-            this.textBox1.TabIndex = 421;
+            this.TxtAbfNo.Location = new System.Drawing.Point(157, 53);
+            this.TxtAbfNo.Name = "TxtAbfNo";
+            this.TxtAbfNo.Size = new System.Drawing.Size(236, 20);
+            this.TxtAbfNo.TabIndex = 421;
             // 
             // label3
             // 
@@ -702,17 +702,17 @@ namespace UserInterface.BakımOnarım
             this.label1.TabIndex = 418;
             this.label1.Text = "ABF/BİLDİRİM NO:";
             // 
-            // comboBox3
+            // CmbButceKodu
             // 
-            this.comboBox3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Items.AddRange(new object[] {
-            "BM07 BAKIM ONARIM",
-            "BM14 EKSTRA"});
-            this.comboBox3.Location = new System.Drawing.Point(157, 26);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(236, 21);
-            this.comboBox3.TabIndex = 417;
+            this.CmbButceKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbButceKodu.FormattingEnabled = true;
+            this.CmbButceKodu.Items.AddRange(new object[] {
+            "BM07/BAKIM ONARIM",
+            "BM14/EKSTRA ALIMLAR"});
+            this.CmbButceKodu.Location = new System.Drawing.Point(157, 26);
+            this.CmbButceKodu.Name = "CmbButceKodu";
+            this.CmbButceKodu.Size = new System.Drawing.Size(236, 21);
+            this.CmbButceKodu.TabIndex = 417;
             // 
             // label7
             // 
@@ -725,9 +725,9 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.LblKayitTarihi);
             this.groupBox3.Controls.Add(this.CmbDonemYil);
-            this.groupBox3.Controls.Add(this.CmbDonem);
+            this.groupBox3.Controls.Add(this.CmbDonemAy);
             this.groupBox3.Controls.Add(this.label52);
             this.groupBox3.Controls.Add(this.TalepEden);
             this.groupBox3.Controls.Add(this.label13);
@@ -741,14 +741,14 @@ namespace UserInterface.BakımOnarım
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TALEBİ OLUŞTURAN";
             // 
-            // label9
+            // LblKayitTarihi
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(115, 81);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(19, 13);
-            this.label9.TabIndex = 417;
-            this.label9.Text = "00";
+            this.LblKayitTarihi.AutoSize = true;
+            this.LblKayitTarihi.Location = new System.Drawing.Point(115, 81);
+            this.LblKayitTarihi.Name = "LblKayitTarihi";
+            this.LblKayitTarihi.Size = new System.Drawing.Size(19, 13);
+            this.LblKayitTarihi.TabIndex = 417;
+            this.LblKayitTarihi.Text = "00";
             // 
             // CmbDonemYil
             // 
@@ -768,16 +768,16 @@ namespace UserInterface.BakımOnarım
             "2028",
             "2029",
             "2030"});
-            this.CmbDonemYil.Location = new System.Drawing.Point(225, 103);
+            this.CmbDonemYil.Location = new System.Drawing.Point(229, 103);
             this.CmbDonemYil.Name = "CmbDonemYil";
             this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
             this.CmbDonemYil.TabIndex = 416;
             // 
-            // CmbDonem
+            // CmbDonemAy
             // 
-            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDonem.FormattingEnabled = true;
-            this.CmbDonem.Items.AddRange(new object[] {
+            this.CmbDonemAy.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemAy.FormattingEnabled = true;
+            this.CmbDonemAy.Items.AddRange(new object[] {
             "OCAK",
             "ŞUBAT",
             "MART",
@@ -790,10 +790,10 @@ namespace UserInterface.BakımOnarım
             "EKİM",
             "KASIM",
             "ARALIK"});
-            this.CmbDonem.Location = new System.Drawing.Point(114, 103);
-            this.CmbDonem.Name = "CmbDonem";
-            this.CmbDonem.Size = new System.Drawing.Size(105, 21);
-            this.CmbDonem.TabIndex = 415;
+            this.CmbDonemAy.Location = new System.Drawing.Point(118, 103);
+            this.CmbDonemAy.Name = "CmbDonemAy";
+            this.CmbDonemAy.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemAy.TabIndex = 415;
             // 
             // label52
             // 
@@ -851,33 +851,33 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.dateTimePicker2);
+            this.tabPage2.Controls.Add(this.TxtIsinTanimiKO);
+            this.tabPage2.Controls.Add(this.DtIsBitisTarihi);
             this.tabPage2.Controls.Add(this.label98);
-            this.tabPage2.Controls.Add(this.dateTimePicker1);
+            this.tabPage2.Controls.Add(this.DtIsBaslamaTarihi);
             this.tabPage2.Controls.Add(this.label97);
-            this.tabPage2.Controls.Add(this.richTextBox2);
+            this.tabPage2.Controls.Add(this.TxtYapilanIslemler);
             this.tabPage2.Controls.Add(this.label96);
-            this.tabPage2.Controls.Add(this.button4);
+            this.tabPage2.Controls.Add(this.BtnKaydetKO);
             this.tabPage2.Controls.Add(this.groupBox5);
-            this.tabPage2.Controls.Add(this.label50);
-            this.tabPage2.Controls.Add(this.label49);
+            this.tabPage2.Controls.Add(this.LblFirmaSorumlusuKO);
+            this.tabPage2.Controls.Add(this.LblAltYukFirmaKO);
             this.tabPage2.Controls.Add(this.label47);
             this.tabPage2.Controls.Add(this.label48);
-            this.tabPage2.Controls.Add(this.label44);
-            this.tabPage2.Controls.Add(this.label45);
-            this.tabPage2.Controls.Add(this.label46);
-            this.tabPage2.Controls.Add(this.label43);
+            this.tabPage2.Controls.Add(this.LblOnarimYeriKO);
+            this.tabPage2.Controls.Add(this.LblSeriNoKO);
+            this.tabPage2.Controls.Add(this.LblStokNoKO);
+            this.tabPage2.Controls.Add(this.LblTanimKO);
             this.tabPage2.Controls.Add(this.label38);
             this.tabPage2.Controls.Add(this.label40);
             this.tabPage2.Controls.Add(this.label41);
             this.tabPage2.Controls.Add(this.label42);
-            this.tabPage2.Controls.Add(this.label39);
-            this.tabPage2.Controls.Add(this.label35);
-            this.tabPage2.Controls.Add(this.label37);
-            this.tabPage2.Controls.Add(this.label33);
-            this.tabPage2.Controls.Add(this.label34);
-            this.tabPage2.Controls.Add(this.label31);
-            this.tabPage2.Controls.Add(this.label32);
+            this.tabPage2.Controls.Add(this.LblIsKategorisiKO);
+            this.tabPage2.Controls.Add(this.LblGarantiDurumuKO);
+            this.tabPage2.Controls.Add(this.LblProjeKoduKO);
+            this.tabPage2.Controls.Add(this.LblUsBolgesiKO);
+            this.tabPage2.Controls.Add(this.LblAbfNoKO);
+            this.tabPage2.Controls.Add(this.LblHarcamaKoduKO);
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.label25);
             this.tabPage2.Controls.Add(this.label26);
@@ -885,141 +885,237 @@ namespace UserInterface.BakımOnarım
             this.tabPage2.Controls.Add(this.label28);
             this.tabPage2.Controls.Add(this.label29);
             this.tabPage2.Controls.Add(this.label30);
-            this.tabPage2.Controls.Add(this.label23);
-            this.tabPage2.Controls.Add(this.label20);
+            this.tabPage2.Controls.Add(this.LblDonemKO);
+            this.tabPage2.Controls.Add(this.LblKayitTarihiKO);
             this.tabPage2.Controls.Add(this.label21);
             this.tabPage2.Controls.Add(this.label22);
             this.tabPage2.Controls.Add(this.BtnBul);
             this.tabPage2.Controls.Add(this.label19);
-            this.tabPage2.Controls.Add(this.textBox2);
+            this.tabPage2.Controls.Add(this.TxtIsAkisNo);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1424, 864);
+            this.tabPage2.Size = new System.Drawing.Size(1535, 847);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "KONTROL VE ONAY";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // dateTimePicker2
+            // TxtIsinTanimiKO
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(159, 595);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(102, 20);
-            this.dateTimePicker2.TabIndex = 500;
+            this.TxtIsinTanimiKO.Location = new System.Drawing.Point(706, 235);
+            this.TxtIsinTanimiKO.Name = "TxtIsinTanimiKO";
+            this.TxtIsinTanimiKO.Size = new System.Drawing.Size(509, 95);
+            this.TxtIsinTanimiKO.TabIndex = 501;
+            this.TxtIsinTanimiKO.Text = "";
+            // 
+            // DtIsBitisTarihi
+            // 
+            this.DtIsBitisTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtIsBitisTarihi.Location = new System.Drawing.Point(168, 661);
+            this.DtIsBitisTarihi.Name = "DtIsBitisTarihi";
+            this.DtIsBitisTarihi.Size = new System.Drawing.Size(102, 20);
+            this.DtIsBitisTarihi.TabIndex = 500;
             // 
             // label98
             // 
             this.label98.AutoSize = true;
-            this.label98.Location = new System.Drawing.Point(64, 599);
+            this.label98.Location = new System.Drawing.Point(73, 665);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(89, 13);
             this.label98.TabIndex = 499;
             this.label98.Text = "İŞ BİTİŞ TARİHİ:";
             // 
-            // dateTimePicker1
+            // DtIsBaslamaTarihi
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(159, 569);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(102, 20);
-            this.dateTimePicker1.TabIndex = 498;
+            this.DtIsBaslamaTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtIsBaslamaTarihi.Location = new System.Drawing.Point(168, 635);
+            this.DtIsBaslamaTarihi.Name = "DtIsBaslamaTarihi";
+            this.DtIsBaslamaTarihi.Size = new System.Drawing.Size(102, 20);
+            this.DtIsBaslamaTarihi.TabIndex = 498;
             // 
             // label97
             // 
             this.label97.AutoSize = true;
-            this.label97.Location = new System.Drawing.Point(34, 573);
+            this.label97.Location = new System.Drawing.Point(43, 639);
             this.label97.Name = "label97";
             this.label97.Size = new System.Drawing.Size(119, 13);
             this.label97.TabIndex = 497;
             this.label97.Text = "İŞE BAŞLAMA TARİHİ:";
             // 
-            // richTextBox2
+            // TxtYapilanIslemler
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(159, 621);
-            this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(687, 69);
-            this.richTextBox2.TabIndex = 496;
-            this.richTextBox2.Text = "";
+            this.TxtYapilanIslemler.Location = new System.Drawing.Point(168, 687);
+            this.TxtYapilanIslemler.Name = "TxtYapilanIslemler";
+            this.TxtYapilanIslemler.Size = new System.Drawing.Size(687, 69);
+            this.TxtYapilanIslemler.TabIndex = 496;
+            this.TxtYapilanIslemler.Text = "";
             // 
             // label96
             // 
             this.label96.AutoSize = true;
-            this.label96.Location = new System.Drawing.Point(42, 624);
+            this.label96.Location = new System.Drawing.Point(51, 690);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(111, 13);
             this.label96.TabIndex = 495;
             this.label96.Text = "YAPILAN İŞLEMLER:";
             // 
-            // button4
+            // BtnKaydetKO
             // 
-            this.button4.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(159, 696);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 41);
-            this.button4.TabIndex = 459;
-            this.button4.Text = "KAYDET";
-            this.button4.UseVisualStyleBackColor = true;
+            this.BtnKaydetKO.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydetKO.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydetKO.Location = new System.Drawing.Point(168, 762);
+            this.BtnKaydetKO.Name = "BtnKaydetKO";
+            this.BtnKaydetKO.Size = new System.Drawing.Size(110, 41);
+            this.BtnKaydetKO.TabIndex = 459;
+            this.BtnKaydetKO.Text = "KAYDET";
+            this.BtnKaydetKO.UseVisualStyleBackColor = true;
+            this.BtnKaydetKO.Click += new System.EventHandler(this.BtnKaydetKO_Click);
             // 
             // groupBox5
             // 
-            this.groupBox5.Controls.Add(this.label64);
-            this.groupBox5.Controls.Add(this.comboBox6);
-            this.groupBox5.Controls.Add(this.comboBox8);
-            this.groupBox5.Controls.Add(this.comboBox11);
-            this.groupBox5.Controls.Add(this.comboBox12);
-            this.groupBox5.Controls.Add(this.comboBox13);
-            this.groupBox5.Controls.Add(this.comboBox14);
+            this.groupBox5.Controls.Add(this.Pb7);
+            this.groupBox5.Controls.Add(this.TTutar7);
+            this.groupBox5.Controls.Add(this.label14);
+            this.groupBox5.Controls.Add(this.BTutar7);
+            this.groupBox5.Controls.Add(this.m7);
+            this.groupBox5.Controls.Add(this.IsTanimi7);
+            this.groupBox5.Controls.Add(this.b7);
             this.groupBox5.Controls.Add(this.TxtGenelTop);
-            this.groupBox5.Controls.Add(this.label62);
+            this.groupBox5.Controls.Add(this.label64);
+            this.groupBox5.Controls.Add(this.Pb1);
+            this.groupBox5.Controls.Add(this.Pb2);
             this.groupBox5.Controls.Add(this.label63);
-            this.groupBox5.Controls.Add(this.textBox4);
-            this.groupBox5.Controls.Add(this.textBox5);
-            this.groupBox5.Controls.Add(this.textBox6);
-            this.groupBox5.Controls.Add(this.textBox7);
-            this.groupBox5.Controls.Add(this.textBox8);
-            this.groupBox5.Controls.Add(this.textBox9);
+            this.groupBox5.Controls.Add(this.Pb3);
+            this.groupBox5.Controls.Add(this.Pb4);
+            this.groupBox5.Controls.Add(this.Pb5);
+            this.groupBox5.Controls.Add(this.Pb6);
+            this.groupBox5.Controls.Add(this.label62);
+            this.groupBox5.Controls.Add(this.TTutar1);
+            this.groupBox5.Controls.Add(this.TTutar6);
+            this.groupBox5.Controls.Add(this.TTutar5);
+            this.groupBox5.Controls.Add(this.TTutar4);
+            this.groupBox5.Controls.Add(this.TTutar3);
+            this.groupBox5.Controls.Add(this.TTutar2);
             this.groupBox5.Controls.Add(this.label61);
             this.groupBox5.Controls.Add(this.label60);
             this.groupBox5.Controls.Add(this.label59);
             this.groupBox5.Controls.Add(this.label58);
-            this.groupBox5.Controls.Add(this.t1);
+            this.groupBox5.Controls.Add(this.BTutar1);
             this.groupBox5.Controls.Add(this.label51);
             this.groupBox5.Controls.Add(this.label53);
             this.groupBox5.Controls.Add(this.label54);
             this.groupBox5.Controls.Add(this.label55);
             this.groupBox5.Controls.Add(this.label56);
             this.groupBox5.Controls.Add(this.label57);
-            this.groupBox5.Controls.Add(this.t6);
-            this.groupBox5.Controls.Add(this.t5);
+            this.groupBox5.Controls.Add(this.BTutar6);
+            this.groupBox5.Controls.Add(this.BTutar5);
             this.groupBox5.Controls.Add(this.m1);
-            this.groupBox5.Controls.Add(this.t4);
+            this.groupBox5.Controls.Add(this.BTutar4);
             this.groupBox5.Controls.Add(this.m2);
-            this.groupBox5.Controls.Add(this.t3);
+            this.groupBox5.Controls.Add(this.BTutar3);
             this.groupBox5.Controls.Add(this.m3);
-            this.groupBox5.Controls.Add(this.t2);
+            this.groupBox5.Controls.Add(this.BTutar2);
             this.groupBox5.Controls.Add(this.m4);
             this.groupBox5.Controls.Add(this.m5);
             this.groupBox5.Controls.Add(this.m6);
-            this.groupBox5.Controls.Add(this.stn6);
-            this.groupBox5.Controls.Add(this.stn5);
+            this.groupBox5.Controls.Add(this.IsTanimi6);
+            this.groupBox5.Controls.Add(this.IsTanimi5);
             this.groupBox5.Controls.Add(this.b1);
-            this.groupBox5.Controls.Add(this.stn4);
+            this.groupBox5.Controls.Add(this.IsTanimi4);
             this.groupBox5.Controls.Add(this.b2);
-            this.groupBox5.Controls.Add(this.stn3);
+            this.groupBox5.Controls.Add(this.IsTanimi3);
             this.groupBox5.Controls.Add(this.b3);
-            this.groupBox5.Controls.Add(this.stn2);
+            this.groupBox5.Controls.Add(this.IsTanimi2);
             this.groupBox5.Controls.Add(this.b4);
-            this.groupBox5.Controls.Add(this.stn1);
+            this.groupBox5.Controls.Add(this.IsTanimi1);
             this.groupBox5.Controls.Add(this.b5);
             this.groupBox5.Controls.Add(this.b6);
-            this.groupBox5.Location = new System.Drawing.Point(6, 292);
+            this.groupBox5.Location = new System.Drawing.Point(6, 336);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1209, 262);
+            this.groupBox5.Size = new System.Drawing.Size(1209, 282);
             this.groupBox5.TabIndex = 458;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "YAKLAŞIK MALİYET TABLOSU";
+            // 
+            // Pb7
+            // 
+            this.Pb7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pb7.FormattingEnabled = true;
+            this.Pb7.Items.AddRange(new object[] {
+            "TL",
+            "USD",
+            "EURO"});
+            this.Pb7.Location = new System.Drawing.Point(829, 220);
+            this.Pb7.Name = "Pb7";
+            this.Pb7.Size = new System.Drawing.Size(71, 21);
+            this.Pb7.TabIndex = 517;
+            this.Pb7.SelectedIndexChanged += new System.EventHandler(this.Pb7_SelectedIndexChanged);
+            // 
+            // TTutar7
+            // 
+            this.TTutar7.Location = new System.Drawing.Point(1026, 221);
+            this.TTutar7.Name = "TTutar7";
+            this.TTutar7.Size = new System.Drawing.Size(142, 20);
+            this.TTutar7.TabIndex = 516;
+            this.TTutar7.TextChanged += new System.EventHandler(this.TTutar7_TextChanged);
+            this.TTutar7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTutar7_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.Location = new System.Drawing.Point(14, 224);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 15);
+            this.label14.TabIndex = 511;
+            this.label14.Text = "7.";
+            // 
+            // BTutar7
+            // 
+            this.BTutar7.Location = new System.Drawing.Point(906, 221);
+            this.BTutar7.Name = "BTutar7";
+            this.BTutar7.Size = new System.Drawing.Size(113, 20);
+            this.BTutar7.TabIndex = 515;
+            this.BTutar7.TextChanged += new System.EventHandler(this.BTutar7_TextChanged);
+            // 
+            // m7
+            // 
+            this.m7.Location = new System.Drawing.Point(637, 221);
+            this.m7.Name = "m7";
+            this.m7.Size = new System.Drawing.Size(84, 20);
+            this.m7.TabIndex = 512;
+            this.m7.TextChanged += new System.EventHandler(this.m7_TextChanged);
+            this.m7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m7_KeyPress);
+            // 
+            // IsTanimi7
+            // 
+            this.IsTanimi7.Location = new System.Drawing.Point(44, 221);
+            this.IsTanimi7.Name = "IsTanimi7";
+            this.IsTanimi7.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimi7.TabIndex = 514;
+            // 
+            // b7
+            // 
+            this.b7.FormattingEnabled = true;
+            this.b7.Items.AddRange(new object[] {
+            "KG",
+            "ADET",
+            "METRE",
+            "LİTRE"});
+            this.b7.Location = new System.Drawing.Point(727, 221);
+            this.b7.Name = "b7";
+            this.b7.Size = new System.Drawing.Size(96, 21);
+            this.b7.TabIndex = 513;
+            // 
+            // TxtGenelTop
+            // 
+            this.TxtGenelTop.AutoSize = true;
+            this.TxtGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtGenelTop.Location = new System.Drawing.Point(1025, 256);
+            this.TxtGenelTop.Name = "TxtGenelTop";
+            this.TxtGenelTop.Size = new System.Drawing.Size(15, 15);
+            this.TxtGenelTop.TabIndex = 503;
+            this.TxtGenelTop.Text = "0";
             // 
             // label64
             // 
@@ -1031,117 +1127,99 @@ namespace UserInterface.BakımOnarım
             this.label64.TabIndex = 510;
             this.label64.Text = "P. BİRİM";
             // 
-            // comboBox6
+            // Pb1
             // 
-            this.comboBox6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Items.AddRange(new object[] {
+            this.Pb1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pb1.FormattingEnabled = true;
+            this.Pb1.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox6.Location = new System.Drawing.Point(829, 47);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(71, 21);
-            this.comboBox6.TabIndex = 504;
+            "EURO"});
+            this.Pb1.Location = new System.Drawing.Point(829, 47);
+            this.Pb1.Name = "Pb1";
+            this.Pb1.Size = new System.Drawing.Size(71, 21);
+            this.Pb1.TabIndex = 504;
+            this.Pb1.SelectedIndexChanged += new System.EventHandler(this.Pb1_SelectedIndexChanged);
             // 
-            // comboBox8
+            // Pb2
             // 
-            this.comboBox8.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox8.FormattingEnabled = true;
-            this.comboBox8.Items.AddRange(new object[] {
+            this.Pb2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pb2.FormattingEnabled = true;
+            this.Pb2.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox8.Location = new System.Drawing.Point(829, 76);
-            this.comboBox8.Name = "comboBox8";
-            this.comboBox8.Size = new System.Drawing.Size(71, 21);
-            this.comboBox8.TabIndex = 505;
+            "EURO"});
+            this.Pb2.Location = new System.Drawing.Point(829, 76);
+            this.Pb2.Name = "Pb2";
+            this.Pb2.Size = new System.Drawing.Size(71, 21);
+            this.Pb2.TabIndex = 505;
+            this.Pb2.SelectedIndexChanged += new System.EventHandler(this.Pb2_SelectedIndexChanged);
             // 
-            // comboBox11
+            // label63
             // 
-            this.comboBox11.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox11.FormattingEnabled = true;
-            this.comboBox11.Items.AddRange(new object[] {
+            this.label63.AutoSize = true;
+            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label63.Location = new System.Drawing.Point(903, 256);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(116, 15);
+            this.label63.TabIndex = 502;
+            this.label63.Text = "GENEL TOPLAM:";
+            // 
+            // Pb3
+            // 
+            this.Pb3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pb3.FormattingEnabled = true;
+            this.Pb3.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox11.Location = new System.Drawing.Point(829, 105);
-            this.comboBox11.Name = "comboBox11";
-            this.comboBox11.Size = new System.Drawing.Size(71, 21);
-            this.comboBox11.TabIndex = 506;
+            "EURO"});
+            this.Pb3.Location = new System.Drawing.Point(829, 105);
+            this.Pb3.Name = "Pb3";
+            this.Pb3.Size = new System.Drawing.Size(71, 21);
+            this.Pb3.TabIndex = 506;
+            this.Pb3.SelectedIndexChanged += new System.EventHandler(this.Pb3_SelectedIndexChanged);
             // 
-            // comboBox12
+            // Pb4
             // 
-            this.comboBox12.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox12.FormattingEnabled = true;
-            this.comboBox12.Items.AddRange(new object[] {
+            this.Pb4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pb4.FormattingEnabled = true;
+            this.Pb4.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox12.Location = new System.Drawing.Point(829, 134);
-            this.comboBox12.Name = "comboBox12";
-            this.comboBox12.Size = new System.Drawing.Size(71, 21);
-            this.comboBox12.TabIndex = 507;
+            "EURO"});
+            this.Pb4.Location = new System.Drawing.Point(829, 134);
+            this.Pb4.Name = "Pb4";
+            this.Pb4.Size = new System.Drawing.Size(71, 21);
+            this.Pb4.TabIndex = 507;
+            this.Pb4.SelectedIndexChanged += new System.EventHandler(this.Pb4_SelectedIndexChanged);
             // 
-            // comboBox13
+            // Pb5
             // 
-            this.comboBox13.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox13.FormattingEnabled = true;
-            this.comboBox13.Items.AddRange(new object[] {
+            this.Pb5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pb5.FormattingEnabled = true;
+            this.Pb5.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox13.Location = new System.Drawing.Point(829, 163);
-            this.comboBox13.Name = "comboBox13";
-            this.comboBox13.Size = new System.Drawing.Size(71, 21);
-            this.comboBox13.TabIndex = 508;
+            "EURO"});
+            this.Pb5.Location = new System.Drawing.Point(829, 163);
+            this.Pb5.Name = "Pb5";
+            this.Pb5.Size = new System.Drawing.Size(71, 21);
+            this.Pb5.TabIndex = 508;
+            this.Pb5.SelectedIndexChanged += new System.EventHandler(this.Pb5_SelectedIndexChanged);
             // 
-            // comboBox14
+            // Pb6
             // 
-            this.comboBox14.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox14.FormattingEnabled = true;
-            this.comboBox14.Items.AddRange(new object[] {
+            this.Pb6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.Pb6.FormattingEnabled = true;
+            this.Pb6.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox14.Location = new System.Drawing.Point(829, 192);
-            this.comboBox14.Name = "comboBox14";
-            this.comboBox14.Size = new System.Drawing.Size(71, 21);
-            this.comboBox14.TabIndex = 509;
-            // 
-            // TxtGenelTop
-            // 
-            this.TxtGenelTop.AutoSize = true;
-            this.TxtGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtGenelTop.Location = new System.Drawing.Point(1025, 233);
-            this.TxtGenelTop.Name = "TxtGenelTop";
-            this.TxtGenelTop.Size = new System.Drawing.Size(15, 15);
-            this.TxtGenelTop.TabIndex = 503;
-            this.TxtGenelTop.Text = "0";
+            "EURO"});
+            this.Pb6.Location = new System.Drawing.Point(829, 192);
+            this.Pb6.Name = "Pb6";
+            this.Pb6.Size = new System.Drawing.Size(71, 21);
+            this.Pb6.TabIndex = 509;
+            this.Pb6.SelectedIndexChanged += new System.EventHandler(this.Pb6_SelectedIndexChanged);
             // 
             // label62
             // 
@@ -1153,57 +1231,59 @@ namespace UserInterface.BakımOnarım
             this.label62.TabIndex = 469;
             this.label62.Text = "TOPLAM TUTAR";
             // 
-            // label63
+            // TTutar1
             // 
-            this.label63.AutoSize = true;
-            this.label63.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label63.Location = new System.Drawing.Point(903, 233);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(116, 15);
-            this.label63.TabIndex = 502;
-            this.label63.Text = "GENEL TOPLAM:";
+            this.TTutar1.Location = new System.Drawing.Point(1026, 48);
+            this.TTutar1.Name = "TTutar1";
+            this.TTutar1.Size = new System.Drawing.Size(142, 20);
+            this.TTutar1.TabIndex = 463;
+            this.TTutar1.TextChanged += new System.EventHandler(this.TTutar1_TextChanged);
+            this.TTutar1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTutar1_KeyPress);
             // 
-            // textBox4
+            // TTutar6
             // 
-            this.textBox4.Location = new System.Drawing.Point(1026, 48);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(142, 20);
-            this.textBox4.TabIndex = 463;
+            this.TTutar6.Location = new System.Drawing.Point(1026, 193);
+            this.TTutar6.Name = "TTutar6";
+            this.TTutar6.Size = new System.Drawing.Size(142, 20);
+            this.TTutar6.TabIndex = 468;
+            this.TTutar6.TextChanged += new System.EventHandler(this.TTutar6_TextChanged);
+            this.TTutar6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTutar6_KeyPress);
             // 
-            // textBox5
+            // TTutar5
             // 
-            this.textBox5.Location = new System.Drawing.Point(1026, 193);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(142, 20);
-            this.textBox5.TabIndex = 468;
+            this.TTutar5.Location = new System.Drawing.Point(1026, 164);
+            this.TTutar5.Name = "TTutar5";
+            this.TTutar5.Size = new System.Drawing.Size(142, 20);
+            this.TTutar5.TabIndex = 467;
+            this.TTutar5.TextChanged += new System.EventHandler(this.TTutar5_TextChanged);
+            this.TTutar5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTutar5_KeyPress);
             // 
-            // textBox6
+            // TTutar4
             // 
-            this.textBox6.Location = new System.Drawing.Point(1026, 164);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(142, 20);
-            this.textBox6.TabIndex = 467;
+            this.TTutar4.Location = new System.Drawing.Point(1026, 135);
+            this.TTutar4.Name = "TTutar4";
+            this.TTutar4.Size = new System.Drawing.Size(142, 20);
+            this.TTutar4.TabIndex = 466;
+            this.TTutar4.TextChanged += new System.EventHandler(this.TTutar4_TextChanged);
+            this.TTutar4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTutar4_KeyPress);
             // 
-            // textBox7
+            // TTutar3
             // 
-            this.textBox7.Location = new System.Drawing.Point(1026, 135);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(142, 20);
-            this.textBox7.TabIndex = 466;
+            this.TTutar3.Location = new System.Drawing.Point(1026, 106);
+            this.TTutar3.Name = "TTutar3";
+            this.TTutar3.Size = new System.Drawing.Size(142, 20);
+            this.TTutar3.TabIndex = 465;
+            this.TTutar3.TextChanged += new System.EventHandler(this.TTutar3_TextChanged);
+            this.TTutar3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTutar3_KeyPress);
             // 
-            // textBox8
+            // TTutar2
             // 
-            this.textBox8.Location = new System.Drawing.Point(1026, 106);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(142, 20);
-            this.textBox8.TabIndex = 465;
-            // 
-            // textBox9
-            // 
-            this.textBox9.Location = new System.Drawing.Point(1026, 77);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(142, 20);
-            this.textBox9.TabIndex = 464;
+            this.TTutar2.Location = new System.Drawing.Point(1026, 77);
+            this.TTutar2.Name = "TTutar2";
+            this.TTutar2.Size = new System.Drawing.Size(142, 20);
+            this.TTutar2.TabIndex = 464;
+            this.TTutar2.TextChanged += new System.EventHandler(this.TTutar2_TextChanged);
+            this.TTutar2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TTutar2_KeyPress);
             // 
             // label61
             // 
@@ -1245,12 +1325,13 @@ namespace UserInterface.BakımOnarım
             this.label58.TabIndex = 459;
             this.label58.Text = "MAL/HİZMET/İŞ TANIMI";
             // 
-            // t1
+            // BTutar1
             // 
-            this.t1.Location = new System.Drawing.Point(906, 48);
-            this.t1.Name = "t1";
-            this.t1.Size = new System.Drawing.Size(113, 20);
-            this.t1.TabIndex = 169;
+            this.BTutar1.Location = new System.Drawing.Point(906, 48);
+            this.BTutar1.Name = "BTutar1";
+            this.BTutar1.Size = new System.Drawing.Size(113, 20);
+            this.BTutar1.TabIndex = 169;
+            this.BTutar1.TextChanged += new System.EventHandler(this.BTutar1_TextChanged);
             // 
             // label51
             // 
@@ -1312,19 +1393,21 @@ namespace UserInterface.BakımOnarım
             this.label57.TabIndex = 150;
             this.label57.Text = "6.";
             // 
-            // t6
+            // BTutar6
             // 
-            this.t6.Location = new System.Drawing.Point(906, 193);
-            this.t6.Name = "t6";
-            this.t6.Size = new System.Drawing.Size(113, 20);
-            this.t6.TabIndex = 174;
+            this.BTutar6.Location = new System.Drawing.Point(906, 193);
+            this.BTutar6.Name = "BTutar6";
+            this.BTutar6.Size = new System.Drawing.Size(113, 20);
+            this.BTutar6.TabIndex = 174;
+            this.BTutar6.TextChanged += new System.EventHandler(this.BTutar6_TextChanged);
             // 
-            // t5
+            // BTutar5
             // 
-            this.t5.Location = new System.Drawing.Point(906, 164);
-            this.t5.Name = "t5";
-            this.t5.Size = new System.Drawing.Size(113, 20);
-            this.t5.TabIndex = 173;
+            this.BTutar5.Location = new System.Drawing.Point(906, 164);
+            this.BTutar5.Name = "BTutar5";
+            this.BTutar5.Size = new System.Drawing.Size(113, 20);
+            this.BTutar5.TabIndex = 173;
+            this.BTutar5.TextChanged += new System.EventHandler(this.BTutar5_TextChanged);
             // 
             // m1
             // 
@@ -1332,13 +1415,16 @@ namespace UserInterface.BakımOnarım
             this.m1.Name = "m1";
             this.m1.Size = new System.Drawing.Size(84, 20);
             this.m1.TabIndex = 151;
+            this.m1.TextChanged += new System.EventHandler(this.m1_TextChanged);
+            this.m1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m1_KeyPress);
             // 
-            // t4
+            // BTutar4
             // 
-            this.t4.Location = new System.Drawing.Point(906, 135);
-            this.t4.Name = "t4";
-            this.t4.Size = new System.Drawing.Size(113, 20);
-            this.t4.TabIndex = 172;
+            this.BTutar4.Location = new System.Drawing.Point(906, 135);
+            this.BTutar4.Name = "BTutar4";
+            this.BTutar4.Size = new System.Drawing.Size(113, 20);
+            this.BTutar4.TabIndex = 172;
+            this.BTutar4.TextChanged += new System.EventHandler(this.BTutar4_TextChanged);
             // 
             // m2
             // 
@@ -1346,13 +1432,16 @@ namespace UserInterface.BakımOnarım
             this.m2.Name = "m2";
             this.m2.Size = new System.Drawing.Size(84, 20);
             this.m2.TabIndex = 152;
+            this.m2.TextChanged += new System.EventHandler(this.m2_TextChanged);
+            this.m2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m2_KeyPress);
             // 
-            // t3
+            // BTutar3
             // 
-            this.t3.Location = new System.Drawing.Point(906, 106);
-            this.t3.Name = "t3";
-            this.t3.Size = new System.Drawing.Size(113, 20);
-            this.t3.TabIndex = 171;
+            this.BTutar3.Location = new System.Drawing.Point(906, 106);
+            this.BTutar3.Name = "BTutar3";
+            this.BTutar3.Size = new System.Drawing.Size(113, 20);
+            this.BTutar3.TabIndex = 171;
+            this.BTutar3.TextChanged += new System.EventHandler(this.BTutar3_TextChanged);
             // 
             // m3
             // 
@@ -1360,13 +1449,16 @@ namespace UserInterface.BakımOnarım
             this.m3.Name = "m3";
             this.m3.Size = new System.Drawing.Size(84, 20);
             this.m3.TabIndex = 153;
+            this.m3.TextChanged += new System.EventHandler(this.m3_TextChanged);
+            this.m3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m3_KeyPress);
             // 
-            // t2
+            // BTutar2
             // 
-            this.t2.Location = new System.Drawing.Point(906, 77);
-            this.t2.Name = "t2";
-            this.t2.Size = new System.Drawing.Size(113, 20);
-            this.t2.TabIndex = 170;
+            this.BTutar2.Location = new System.Drawing.Point(906, 77);
+            this.BTutar2.Name = "BTutar2";
+            this.BTutar2.Size = new System.Drawing.Size(113, 20);
+            this.BTutar2.TabIndex = 170;
+            this.BTutar2.TextChanged += new System.EventHandler(this.BTutar2_TextChanged);
             // 
             // m4
             // 
@@ -1374,6 +1466,8 @@ namespace UserInterface.BakımOnarım
             this.m4.Name = "m4";
             this.m4.Size = new System.Drawing.Size(84, 20);
             this.m4.TabIndex = 154;
+            this.m4.TextChanged += new System.EventHandler(this.m4_TextChanged);
+            this.m4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m4_KeyPress);
             // 
             // m5
             // 
@@ -1381,6 +1475,8 @@ namespace UserInterface.BakımOnarım
             this.m5.Name = "m5";
             this.m5.Size = new System.Drawing.Size(84, 20);
             this.m5.TabIndex = 155;
+            this.m5.TextChanged += new System.EventHandler(this.m5_TextChanged);
+            this.m5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m5_KeyPress);
             // 
             // m6
             // 
@@ -1388,20 +1484,22 @@ namespace UserInterface.BakımOnarım
             this.m6.Name = "m6";
             this.m6.Size = new System.Drawing.Size(84, 20);
             this.m6.TabIndex = 156;
+            this.m6.TextChanged += new System.EventHandler(this.m6_TextChanged);
+            this.m6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m6_KeyPress);
             // 
-            // stn6
+            // IsTanimi6
             // 
-            this.stn6.Location = new System.Drawing.Point(44, 193);
-            this.stn6.Name = "stn6";
-            this.stn6.Size = new System.Drawing.Size(587, 20);
-            this.stn6.TabIndex = 168;
+            this.IsTanimi6.Location = new System.Drawing.Point(44, 193);
+            this.IsTanimi6.Name = "IsTanimi6";
+            this.IsTanimi6.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimi6.TabIndex = 168;
             // 
-            // stn5
+            // IsTanimi5
             // 
-            this.stn5.Location = new System.Drawing.Point(44, 164);
-            this.stn5.Name = "stn5";
-            this.stn5.Size = new System.Drawing.Size(587, 20);
-            this.stn5.TabIndex = 167;
+            this.IsTanimi5.Location = new System.Drawing.Point(44, 164);
+            this.IsTanimi5.Name = "IsTanimi5";
+            this.IsTanimi5.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimi5.TabIndex = 167;
             // 
             // b1
             // 
@@ -1416,12 +1514,12 @@ namespace UserInterface.BakımOnarım
             this.b1.Size = new System.Drawing.Size(96, 21);
             this.b1.TabIndex = 157;
             // 
-            // stn4
+            // IsTanimi4
             // 
-            this.stn4.Location = new System.Drawing.Point(44, 135);
-            this.stn4.Name = "stn4";
-            this.stn4.Size = new System.Drawing.Size(587, 20);
-            this.stn4.TabIndex = 166;
+            this.IsTanimi4.Location = new System.Drawing.Point(44, 135);
+            this.IsTanimi4.Name = "IsTanimi4";
+            this.IsTanimi4.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimi4.TabIndex = 166;
             // 
             // b2
             // 
@@ -1436,12 +1534,12 @@ namespace UserInterface.BakımOnarım
             this.b2.Size = new System.Drawing.Size(96, 21);
             this.b2.TabIndex = 158;
             // 
-            // stn3
+            // IsTanimi3
             // 
-            this.stn3.Location = new System.Drawing.Point(44, 106);
-            this.stn3.Name = "stn3";
-            this.stn3.Size = new System.Drawing.Size(587, 20);
-            this.stn3.TabIndex = 165;
+            this.IsTanimi3.Location = new System.Drawing.Point(44, 106);
+            this.IsTanimi3.Name = "IsTanimi3";
+            this.IsTanimi3.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimi3.TabIndex = 165;
             // 
             // b3
             // 
@@ -1456,12 +1554,12 @@ namespace UserInterface.BakımOnarım
             this.b3.Size = new System.Drawing.Size(96, 21);
             this.b3.TabIndex = 159;
             // 
-            // stn2
+            // IsTanimi2
             // 
-            this.stn2.Location = new System.Drawing.Point(44, 77);
-            this.stn2.Name = "stn2";
-            this.stn2.Size = new System.Drawing.Size(587, 20);
-            this.stn2.TabIndex = 164;
+            this.IsTanimi2.Location = new System.Drawing.Point(44, 77);
+            this.IsTanimi2.Name = "IsTanimi2";
+            this.IsTanimi2.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimi2.TabIndex = 164;
             // 
             // b4
             // 
@@ -1476,12 +1574,12 @@ namespace UserInterface.BakımOnarım
             this.b4.Size = new System.Drawing.Size(96, 21);
             this.b4.TabIndex = 160;
             // 
-            // stn1
+            // IsTanimi1
             // 
-            this.stn1.Location = new System.Drawing.Point(44, 48);
-            this.stn1.Name = "stn1";
-            this.stn1.Size = new System.Drawing.Size(587, 20);
-            this.stn1.TabIndex = 163;
+            this.IsTanimi1.Location = new System.Drawing.Point(44, 48);
+            this.IsTanimi1.Name = "IsTanimi1";
+            this.IsTanimi1.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimi1.TabIndex = 163;
             // 
             // b5
             // 
@@ -1509,28 +1607,28 @@ namespace UserInterface.BakımOnarım
             this.b6.Size = new System.Drawing.Size(96, 21);
             this.b6.TabIndex = 162;
             // 
-            // label50
+            // LblFirmaSorumlusuKO
             // 
-            this.label50.AutoSize = true;
-            this.label50.Location = new System.Drawing.Point(701, 238);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(19, 13);
-            this.label50.TabIndex = 457;
-            this.label50.Text = "00";
+            this.LblFirmaSorumlusuKO.AutoSize = true;
+            this.LblFirmaSorumlusuKO.Location = new System.Drawing.Point(706, 210);
+            this.LblFirmaSorumlusuKO.Name = "LblFirmaSorumlusuKO";
+            this.LblFirmaSorumlusuKO.Size = new System.Drawing.Size(19, 13);
+            this.LblFirmaSorumlusuKO.TabIndex = 457;
+            this.LblFirmaSorumlusuKO.Text = "00";
             // 
-            // label49
+            // LblAltYukFirmaKO
             // 
-            this.label49.AutoSize = true;
-            this.label49.Location = new System.Drawing.Point(701, 208);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(19, 13);
-            this.label49.TabIndex = 456;
-            this.label49.Text = "00";
+            this.LblAltYukFirmaKO.AutoSize = true;
+            this.LblAltYukFirmaKO.Location = new System.Drawing.Point(706, 180);
+            this.LblAltYukFirmaKO.Name = "LblAltYukFirmaKO";
+            this.LblAltYukFirmaKO.Size = new System.Drawing.Size(19, 13);
+            this.LblAltYukFirmaKO.TabIndex = 456;
+            this.LblAltYukFirmaKO.Text = "00";
             // 
             // label47
             // 
             this.label47.AutoSize = true;
-            this.label47.Location = new System.Drawing.Point(580, 238);
+            this.label47.Location = new System.Drawing.Point(585, 210);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(115, 13);
             this.label47.TabIndex = 455;
@@ -1539,52 +1637,52 @@ namespace UserInterface.BakımOnarım
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(570, 208);
+            this.label48.Location = new System.Drawing.Point(575, 180);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(125, 13);
             this.label48.TabIndex = 454;
             this.label48.Text = "ALT YÜKLENİCİ FİRMA:";
             // 
-            // label44
+            // LblOnarimYeriKO
             // 
-            this.label44.AutoSize = true;
-            this.label44.Location = new System.Drawing.Point(701, 180);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(19, 13);
-            this.label44.TabIndex = 453;
-            this.label44.Text = "00";
+            this.LblOnarimYeriKO.AutoSize = true;
+            this.LblOnarimYeriKO.Location = new System.Drawing.Point(706, 152);
+            this.LblOnarimYeriKO.Name = "LblOnarimYeriKO";
+            this.LblOnarimYeriKO.Size = new System.Drawing.Size(19, 13);
+            this.LblOnarimYeriKO.TabIndex = 453;
+            this.LblOnarimYeriKO.Text = "00";
             // 
-            // label45
+            // LblSeriNoKO
             // 
-            this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(701, 152);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(19, 13);
-            this.label45.TabIndex = 452;
-            this.label45.Text = "00";
+            this.LblSeriNoKO.AutoSize = true;
+            this.LblSeriNoKO.Location = new System.Drawing.Point(706, 124);
+            this.LblSeriNoKO.Name = "LblSeriNoKO";
+            this.LblSeriNoKO.Size = new System.Drawing.Size(19, 13);
+            this.LblSeriNoKO.TabIndex = 452;
+            this.LblSeriNoKO.Text = "00";
             // 
-            // label46
+            // LblStokNoKO
             // 
-            this.label46.AutoSize = true;
-            this.label46.Location = new System.Drawing.Point(701, 125);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(19, 13);
-            this.label46.TabIndex = 451;
-            this.label46.Text = "00";
+            this.LblStokNoKO.AutoSize = true;
+            this.LblStokNoKO.Location = new System.Drawing.Point(706, 97);
+            this.LblStokNoKO.Name = "LblStokNoKO";
+            this.LblStokNoKO.Size = new System.Drawing.Size(19, 13);
+            this.LblStokNoKO.TabIndex = 451;
+            this.LblStokNoKO.Text = "00";
             // 
-            // label43
+            // LblTanimKO
             // 
-            this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(701, 97);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(19, 13);
-            this.label43.TabIndex = 450;
-            this.label43.Text = "00";
+            this.LblTanimKO.AutoSize = true;
+            this.LblTanimKO.Location = new System.Drawing.Point(706, 69);
+            this.LblTanimKO.Name = "LblTanimKO";
+            this.LblTanimKO.Size = new System.Drawing.Size(19, 13);
+            this.LblTanimKO.TabIndex = 450;
+            this.LblTanimKO.Text = "00";
             // 
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(614, 180);
+            this.label38.Location = new System.Drawing.Point(619, 152);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(81, 13);
             this.label38.TabIndex = 448;
@@ -1593,7 +1691,7 @@ namespace UserInterface.BakımOnarım
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(641, 150);
+            this.label40.Location = new System.Drawing.Point(646, 122);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(54, 13);
             this.label40.TabIndex = 449;
@@ -1602,7 +1700,7 @@ namespace UserInterface.BakımOnarım
             // label41
             // 
             this.label41.AutoSize = true;
-            this.label41.Location = new System.Drawing.Point(637, 125);
+            this.label41.Location = new System.Drawing.Point(642, 97);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(58, 13);
             this.label41.TabIndex = 447;
@@ -1611,79 +1709,70 @@ namespace UserInterface.BakımOnarım
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(651, 97);
+            this.label42.Location = new System.Drawing.Point(656, 69);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(44, 13);
             this.label42.TabIndex = 446;
             this.label42.Text = "TANIM:";
             // 
-            // label39
+            // LblIsKategorisiKO
             // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(701, 69);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(19, 13);
-            this.label39.TabIndex = 445;
-            this.label39.Text = "00";
+            this.LblIsKategorisiKO.AutoSize = true;
+            this.LblIsKategorisiKO.Location = new System.Drawing.Point(168, 258);
+            this.LblIsKategorisiKO.Name = "LblIsKategorisiKO";
+            this.LblIsKategorisiKO.Size = new System.Drawing.Size(19, 13);
+            this.LblIsKategorisiKO.TabIndex = 444;
+            this.LblIsKategorisiKO.Text = "00";
             // 
-            // label35
+            // LblGarantiDurumuKO
             // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(168, 258);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(19, 13);
-            this.label35.TabIndex = 444;
-            this.label35.Text = "00";
+            this.LblGarantiDurumuKO.AutoSize = true;
+            this.LblGarantiDurumuKO.Location = new System.Drawing.Point(168, 231);
+            this.LblGarantiDurumuKO.Name = "LblGarantiDurumuKO";
+            this.LblGarantiDurumuKO.Size = new System.Drawing.Size(19, 13);
+            this.LblGarantiDurumuKO.TabIndex = 443;
+            this.LblGarantiDurumuKO.Text = "00";
             // 
-            // label37
+            // LblProjeKoduKO
             // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(168, 231);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(19, 13);
-            this.label37.TabIndex = 443;
-            this.label37.Text = "00";
+            this.LblProjeKoduKO.AutoSize = true;
+            this.LblProjeKoduKO.Location = new System.Drawing.Point(168, 204);
+            this.LblProjeKoduKO.Name = "LblProjeKoduKO";
+            this.LblProjeKoduKO.Size = new System.Drawing.Size(19, 13);
+            this.LblProjeKoduKO.TabIndex = 442;
+            this.LblProjeKoduKO.Text = "00";
             // 
-            // label33
+            // LblUsBolgesiKO
             // 
-            this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(168, 204);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(19, 13);
-            this.label33.TabIndex = 442;
-            this.label33.Text = "00";
+            this.LblUsBolgesiKO.AutoSize = true;
+            this.LblUsBolgesiKO.Location = new System.Drawing.Point(168, 177);
+            this.LblUsBolgesiKO.Name = "LblUsBolgesiKO";
+            this.LblUsBolgesiKO.Size = new System.Drawing.Size(19, 13);
+            this.LblUsBolgesiKO.TabIndex = 441;
+            this.LblUsBolgesiKO.Text = "00";
             // 
-            // label34
+            // LblAbfNoKO
             // 
-            this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(168, 177);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(19, 13);
-            this.label34.TabIndex = 441;
-            this.label34.Text = "00";
+            this.LblAbfNoKO.AutoSize = true;
+            this.LblAbfNoKO.Location = new System.Drawing.Point(168, 150);
+            this.LblAbfNoKO.Name = "LblAbfNoKO";
+            this.LblAbfNoKO.Size = new System.Drawing.Size(19, 13);
+            this.LblAbfNoKO.TabIndex = 440;
+            this.LblAbfNoKO.Text = "00";
             // 
-            // label31
+            // LblHarcamaKoduKO
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(168, 150);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(19, 13);
-            this.label31.TabIndex = 440;
-            this.label31.Text = "00";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(168, 123);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(19, 13);
-            this.label32.TabIndex = 439;
-            this.label32.Text = "00";
+            this.LblHarcamaKoduKO.AutoSize = true;
+            this.LblHarcamaKoduKO.Location = new System.Drawing.Point(168, 123);
+            this.LblHarcamaKoduKO.Name = "LblHarcamaKoduKO";
+            this.LblHarcamaKoduKO.Size = new System.Drawing.Size(19, 13);
+            this.LblHarcamaKoduKO.TabIndex = 439;
+            this.LblHarcamaKoduKO.Text = "00";
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(624, 69);
+            this.label24.Location = new System.Drawing.Point(629, 238);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(71, 13);
             this.label24.TabIndex = 438;
@@ -1743,23 +1832,23 @@ namespace UserInterface.BakımOnarım
             this.label30.TabIndex = 432;
             this.label30.Text = "HARCAMA KODU KALEMİ:";
             // 
-            // label23
+            // LblDonemKO
             // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(168, 96);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(19, 13);
-            this.label23.TabIndex = 429;
-            this.label23.Text = "00";
+            this.LblDonemKO.AutoSize = true;
+            this.LblDonemKO.Location = new System.Drawing.Point(168, 96);
+            this.LblDonemKO.Name = "LblDonemKO";
+            this.LblDonemKO.Size = new System.Drawing.Size(19, 13);
+            this.LblDonemKO.TabIndex = 429;
+            this.LblDonemKO.Text = "00";
             // 
-            // label20
+            // LblKayitTarihiKO
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(168, 69);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(19, 13);
-            this.label20.TabIndex = 428;
-            this.label20.Text = "00";
+            this.LblKayitTarihiKO.AutoSize = true;
+            this.LblKayitTarihiKO.Location = new System.Drawing.Point(168, 69);
+            this.LblKayitTarihiKO.Name = "LblKayitTarihiKO";
+            this.LblKayitTarihiKO.Size = new System.Drawing.Size(19, 13);
+            this.LblKayitTarihiKO.TabIndex = 428;
+            this.LblKayitTarihiKO.Text = "00";
             // 
             // label21
             // 
@@ -1789,6 +1878,7 @@ namespace UserInterface.BakımOnarım
             this.BtnBul.TabIndex = 423;
             this.BtnBul.Text = "Bul";
             this.BtnBul.UseVisualStyleBackColor = true;
+            this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
             // label19
             // 
@@ -1799,55 +1889,58 @@ namespace UserInterface.BakımOnarım
             this.label19.TabIndex = 116;
             this.label19.Text = "İŞ AKIŞ NO:";
             // 
-            // textBox2
+            // TxtIsAkisNo
             // 
-            this.textBox2.Location = new System.Drawing.Point(168, 23);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(175, 20);
-            this.textBox2.TabIndex = 0;
+            this.TxtIsAkisNo.Location = new System.Drawing.Point(168, 23);
+            this.TxtIsAkisNo.Name = "TxtIsAkisNo";
+            this.TxtIsAkisNo.Size = new System.Drawing.Size(175, 20);
+            this.TxtIsAkisNo.TabIndex = 0;
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.button8);
-            this.tabPage3.Controls.Add(this.dateTimePicker3);
+            this.tabPage3.Controls.Add(this.groupBox7);
+            this.tabPage3.Controls.Add(this.BtnGuncelle);
+            this.tabPage3.Controls.Add(this.DtIsBitisTarihiGun);
             this.tabPage3.Controls.Add(this.label105);
-            this.tabPage3.Controls.Add(this.dateTimePicker4);
+            this.tabPage3.Controls.Add(this.DtIsBaslamaTarihiGun);
             this.tabPage3.Controls.Add(this.label106);
-            this.tabPage3.Controls.Add(this.richTextBox4);
+            this.tabPage3.Controls.Add(this.TxtYapilanIslemlerGun);
+            this.tabPage3.Controls.Add(this.TxtGenelTopGun);
             this.tabPage3.Controls.Add(this.label107);
             this.tabPage3.Controls.Add(this.groupBox10);
+            this.tabPage3.Controls.Add(this.label91);
             this.tabPage3.Controls.Add(this.groupBox6);
-            this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Controls.Add(this.groupBox8);
             this.tabPage3.Controls.Add(this.groupBox9);
-            this.tabPage3.Controls.Add(this.button3);
+            this.tabPage3.Controls.Add(this.BtnBulGun);
             this.tabPage3.Controls.Add(this.label65);
-            this.tabPage3.Controls.Add(this.textBox10);
+            this.tabPage3.Controls.Add(this.TxtIsAkisNoGun);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(1424, 847);
+            this.tabPage3.Size = new System.Drawing.Size(1535, 847);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "GÜNCELLE";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // button8
+            // BtnGuncelle
             // 
-            this.button8.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button8.Location = new System.Drawing.Point(847, 793);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(110, 41);
-            this.button8.TabIndex = 507;
-            this.button8.Text = "GÜNCELLE";
-            this.button8.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Location = new System.Drawing.Point(847, 793);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(110, 41);
+            this.BtnGuncelle.TabIndex = 507;
+            this.BtnGuncelle.Text = "GÜNCELLE";
+            this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
-            // dateTimePicker3
+            // DtIsBitisTarihiGun
             // 
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker3.Location = new System.Drawing.Point(388, 751);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(102, 20);
-            this.dateTimePicker3.TabIndex = 506;
+            this.DtIsBitisTarihiGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtIsBitisTarihiGun.Location = new System.Drawing.Point(388, 751);
+            this.DtIsBitisTarihiGun.Name = "DtIsBitisTarihiGun";
+            this.DtIsBitisTarihiGun.Size = new System.Drawing.Size(102, 20);
+            this.DtIsBitisTarihiGun.TabIndex = 506;
             // 
             // label105
             // 
@@ -1858,13 +1951,13 @@ namespace UserInterface.BakımOnarım
             this.label105.TabIndex = 505;
             this.label105.Text = "İŞ BİTİŞ TARİHİ:";
             // 
-            // dateTimePicker4
+            // DtIsBaslamaTarihiGun
             // 
-            this.dateTimePicker4.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker4.Location = new System.Drawing.Point(174, 751);
-            this.dateTimePicker4.Name = "dateTimePicker4";
-            this.dateTimePicker4.Size = new System.Drawing.Size(102, 20);
-            this.dateTimePicker4.TabIndex = 504;
+            this.DtIsBaslamaTarihiGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtIsBaslamaTarihiGun.Location = new System.Drawing.Point(174, 751);
+            this.DtIsBaslamaTarihiGun.Name = "DtIsBaslamaTarihiGun";
+            this.DtIsBaslamaTarihiGun.Size = new System.Drawing.Size(102, 20);
+            this.DtIsBaslamaTarihiGun.TabIndex = 504;
             // 
             // label106
             // 
@@ -1875,13 +1968,13 @@ namespace UserInterface.BakımOnarım
             this.label106.TabIndex = 503;
             this.label106.Text = "İŞE BAŞLAMA TARİHİ:";
             // 
-            // richTextBox4
+            // TxtYapilanIslemlerGun
             // 
-            this.richTextBox4.Location = new System.Drawing.Point(172, 777);
-            this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(669, 57);
-            this.richTextBox4.TabIndex = 502;
-            this.richTextBox4.Text = "";
+            this.TxtYapilanIslemlerGun.Location = new System.Drawing.Point(172, 777);
+            this.TxtYapilanIslemlerGun.Name = "TxtYapilanIslemlerGun";
+            this.TxtYapilanIslemlerGun.Size = new System.Drawing.Size(669, 57);
+            this.TxtYapilanIslemlerGun.TabIndex = 502;
+            this.TxtYapilanIslemlerGun.Text = "";
             // 
             // label107
             // 
@@ -1894,56 +1987,61 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox10
             // 
+            this.groupBox10.Controls.Add(this.PbGun7);
+            this.groupBox10.Controls.Add(this.TTutarGun7);
+            this.groupBox10.Controls.Add(this.label33);
+            this.groupBox10.Controls.Add(this.BTutarGun7);
+            this.groupBox10.Controls.Add(this.mGun7);
+            this.groupBox10.Controls.Add(this.IsTanimiGun7);
+            this.groupBox10.Controls.Add(this.bGun7);
             this.groupBox10.Controls.Add(this.label88);
-            this.groupBox10.Controls.Add(this.comboBox25);
-            this.groupBox10.Controls.Add(this.comboBox26);
-            this.groupBox10.Controls.Add(this.comboBox27);
-            this.groupBox10.Controls.Add(this.comboBox28);
-            this.groupBox10.Controls.Add(this.comboBox29);
-            this.groupBox10.Controls.Add(this.comboBox30);
-            this.groupBox10.Controls.Add(this.label89);
+            this.groupBox10.Controls.Add(this.PbGun1);
+            this.groupBox10.Controls.Add(this.PbGun2);
+            this.groupBox10.Controls.Add(this.PbGun3);
+            this.groupBox10.Controls.Add(this.PbGun4);
+            this.groupBox10.Controls.Add(this.PbGun5);
+            this.groupBox10.Controls.Add(this.PbGun6);
             this.groupBox10.Controls.Add(this.label90);
-            this.groupBox10.Controls.Add(this.label91);
-            this.groupBox10.Controls.Add(this.textBox13);
-            this.groupBox10.Controls.Add(this.textBox14);
-            this.groupBox10.Controls.Add(this.textBox15);
-            this.groupBox10.Controls.Add(this.textBox16);
-            this.groupBox10.Controls.Add(this.textBox17);
-            this.groupBox10.Controls.Add(this.textBox18);
+            this.groupBox10.Controls.Add(this.TTutarGun1);
+            this.groupBox10.Controls.Add(this.TTutarGun6);
+            this.groupBox10.Controls.Add(this.TTutarGun5);
+            this.groupBox10.Controls.Add(this.TTutarGun4);
+            this.groupBox10.Controls.Add(this.TTutarGun3);
+            this.groupBox10.Controls.Add(this.TTutarGun2);
             this.groupBox10.Controls.Add(this.label92);
             this.groupBox10.Controls.Add(this.label93);
             this.groupBox10.Controls.Add(this.label94);
             this.groupBox10.Controls.Add(this.label95);
-            this.groupBox10.Controls.Add(this.textBox19);
+            this.groupBox10.Controls.Add(this.BTutarGun1);
             this.groupBox10.Controls.Add(this.label99);
             this.groupBox10.Controls.Add(this.label100);
             this.groupBox10.Controls.Add(this.label101);
             this.groupBox10.Controls.Add(this.label102);
             this.groupBox10.Controls.Add(this.label103);
             this.groupBox10.Controls.Add(this.label104);
-            this.groupBox10.Controls.Add(this.textBox20);
-            this.groupBox10.Controls.Add(this.textBox21);
-            this.groupBox10.Controls.Add(this.textBox22);
-            this.groupBox10.Controls.Add(this.textBox23);
-            this.groupBox10.Controls.Add(this.textBox24);
-            this.groupBox10.Controls.Add(this.textBox25);
-            this.groupBox10.Controls.Add(this.textBox26);
-            this.groupBox10.Controls.Add(this.textBox27);
-            this.groupBox10.Controls.Add(this.textBox28);
-            this.groupBox10.Controls.Add(this.textBox29);
-            this.groupBox10.Controls.Add(this.textBox30);
-            this.groupBox10.Controls.Add(this.textBox31);
-            this.groupBox10.Controls.Add(this.textBox32);
-            this.groupBox10.Controls.Add(this.comboBox31);
-            this.groupBox10.Controls.Add(this.textBox33);
-            this.groupBox10.Controls.Add(this.comboBox32);
-            this.groupBox10.Controls.Add(this.textBox34);
-            this.groupBox10.Controls.Add(this.comboBox33);
-            this.groupBox10.Controls.Add(this.textBox35);
-            this.groupBox10.Controls.Add(this.comboBox34);
-            this.groupBox10.Controls.Add(this.textBox36);
-            this.groupBox10.Controls.Add(this.comboBox35);
-            this.groupBox10.Controls.Add(this.comboBox36);
+            this.groupBox10.Controls.Add(this.BTutarGun6);
+            this.groupBox10.Controls.Add(this.BTutarGun5);
+            this.groupBox10.Controls.Add(this.mGun1);
+            this.groupBox10.Controls.Add(this.BTutarGun4);
+            this.groupBox10.Controls.Add(this.mGun2);
+            this.groupBox10.Controls.Add(this.BTutarGun3);
+            this.groupBox10.Controls.Add(this.mGun3);
+            this.groupBox10.Controls.Add(this.BTutarGun2);
+            this.groupBox10.Controls.Add(this.mGun4);
+            this.groupBox10.Controls.Add(this.mGun5);
+            this.groupBox10.Controls.Add(this.mGun6);
+            this.groupBox10.Controls.Add(this.IsTanimiGun6);
+            this.groupBox10.Controls.Add(this.IsTanimiGun5);
+            this.groupBox10.Controls.Add(this.bGun1);
+            this.groupBox10.Controls.Add(this.IsTanimiGun4);
+            this.groupBox10.Controls.Add(this.bGun2);
+            this.groupBox10.Controls.Add(this.IsTanimiGun3);
+            this.groupBox10.Controls.Add(this.bGun3);
+            this.groupBox10.Controls.Add(this.IsTanimiGun2);
+            this.groupBox10.Controls.Add(this.bGun4);
+            this.groupBox10.Controls.Add(this.IsTanimiGun1);
+            this.groupBox10.Controls.Add(this.bGun5);
+            this.groupBox10.Controls.Add(this.bGun6);
             this.groupBox10.Location = new System.Drawing.Point(18, 483);
             this.groupBox10.Name = "groupBox10";
             this.groupBox10.Size = new System.Drawing.Size(1209, 262);
@@ -1961,117 +2059,93 @@ namespace UserInterface.BakımOnarım
             this.label88.TabIndex = 510;
             this.label88.Text = "P. BİRİM";
             // 
-            // comboBox25
+            // PbGun1
             // 
-            this.comboBox25.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox25.FormattingEnabled = true;
-            this.comboBox25.Items.AddRange(new object[] {
+            this.PbGun1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PbGun1.FormattingEnabled = true;
+            this.PbGun1.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox25.Location = new System.Drawing.Point(829, 47);
-            this.comboBox25.Name = "comboBox25";
-            this.comboBox25.Size = new System.Drawing.Size(71, 21);
-            this.comboBox25.TabIndex = 504;
+            "EURO"});
+            this.PbGun1.Location = new System.Drawing.Point(829, 48);
+            this.PbGun1.Name = "PbGun1";
+            this.PbGun1.Size = new System.Drawing.Size(71, 21);
+            this.PbGun1.TabIndex = 504;
             // 
-            // comboBox26
+            // PbGun2
             // 
-            this.comboBox26.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox26.FormattingEnabled = true;
-            this.comboBox26.Items.AddRange(new object[] {
+            this.PbGun2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PbGun2.FormattingEnabled = true;
+            this.PbGun2.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox26.Location = new System.Drawing.Point(829, 76);
-            this.comboBox26.Name = "comboBox26";
-            this.comboBox26.Size = new System.Drawing.Size(71, 21);
-            this.comboBox26.TabIndex = 505;
+            "EURO"});
+            this.PbGun2.Location = new System.Drawing.Point(829, 77);
+            this.PbGun2.Name = "PbGun2";
+            this.PbGun2.Size = new System.Drawing.Size(71, 21);
+            this.PbGun2.TabIndex = 505;
             // 
-            // comboBox27
+            // PbGun3
             // 
-            this.comboBox27.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox27.FormattingEnabled = true;
-            this.comboBox27.Items.AddRange(new object[] {
+            this.PbGun3.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PbGun3.FormattingEnabled = true;
+            this.PbGun3.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox27.Location = new System.Drawing.Point(829, 105);
-            this.comboBox27.Name = "comboBox27";
-            this.comboBox27.Size = new System.Drawing.Size(71, 21);
-            this.comboBox27.TabIndex = 506;
+            "EURO"});
+            this.PbGun3.Location = new System.Drawing.Point(829, 106);
+            this.PbGun3.Name = "PbGun3";
+            this.PbGun3.Size = new System.Drawing.Size(71, 21);
+            this.PbGun3.TabIndex = 506;
             // 
-            // comboBox28
+            // PbGun4
             // 
-            this.comboBox28.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox28.FormattingEnabled = true;
-            this.comboBox28.Items.AddRange(new object[] {
+            this.PbGun4.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PbGun4.FormattingEnabled = true;
+            this.PbGun4.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox28.Location = new System.Drawing.Point(829, 134);
-            this.comboBox28.Name = "comboBox28";
-            this.comboBox28.Size = new System.Drawing.Size(71, 21);
-            this.comboBox28.TabIndex = 507;
+            "EURO"});
+            this.PbGun4.Location = new System.Drawing.Point(829, 135);
+            this.PbGun4.Name = "PbGun4";
+            this.PbGun4.Size = new System.Drawing.Size(71, 21);
+            this.PbGun4.TabIndex = 507;
             // 
-            // comboBox29
+            // PbGun5
             // 
-            this.comboBox29.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox29.FormattingEnabled = true;
-            this.comboBox29.Items.AddRange(new object[] {
+            this.PbGun5.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PbGun5.FormattingEnabled = true;
+            this.PbGun5.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox29.Location = new System.Drawing.Point(829, 163);
-            this.comboBox29.Name = "comboBox29";
-            this.comboBox29.Size = new System.Drawing.Size(71, 21);
-            this.comboBox29.TabIndex = 508;
+            "EURO"});
+            this.PbGun5.Location = new System.Drawing.Point(829, 164);
+            this.PbGun5.Name = "PbGun5";
+            this.PbGun5.Size = new System.Drawing.Size(71, 21);
+            this.PbGun5.TabIndex = 508;
             // 
-            // comboBox30
+            // PbGun6
             // 
-            this.comboBox30.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox30.FormattingEnabled = true;
-            this.comboBox30.Items.AddRange(new object[] {
+            this.PbGun6.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PbGun6.FormattingEnabled = true;
+            this.PbGun6.Items.AddRange(new object[] {
             "TL",
             "USD",
-            "EURO",
-            "RUBLE",
-            "RİYAL",
-            "YEN",
-            "DİNAR"});
-            this.comboBox30.Location = new System.Drawing.Point(829, 192);
-            this.comboBox30.Name = "comboBox30";
-            this.comboBox30.Size = new System.Drawing.Size(71, 21);
-            this.comboBox30.TabIndex = 509;
+            "EURO"});
+            this.PbGun6.Location = new System.Drawing.Point(829, 193);
+            this.PbGun6.Name = "PbGun6";
+            this.PbGun6.Size = new System.Drawing.Size(71, 21);
+            this.PbGun6.TabIndex = 509;
             // 
-            // label89
+            // TxtGenelTopGun
             // 
-            this.label89.AutoSize = true;
-            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label89.Location = new System.Drawing.Point(1025, 233);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(15, 15);
-            this.label89.TabIndex = 503;
-            this.label89.Text = "0";
+            this.TxtGenelTopGun.AutoSize = true;
+            this.TxtGenelTopGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtGenelTopGun.Location = new System.Drawing.Point(1080, 755);
+            this.TxtGenelTopGun.Name = "TxtGenelTopGun";
+            this.TxtGenelTopGun.Size = new System.Drawing.Size(15, 15);
+            this.TxtGenelTopGun.TabIndex = 503;
+            this.TxtGenelTopGun.Text = "0";
             // 
             // label90
             // 
@@ -2087,53 +2161,59 @@ namespace UserInterface.BakımOnarım
             // 
             this.label91.AutoSize = true;
             this.label91.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label91.Location = new System.Drawing.Point(903, 233);
+            this.label91.Location = new System.Drawing.Point(958, 755);
             this.label91.Name = "label91";
             this.label91.Size = new System.Drawing.Size(116, 15);
             this.label91.TabIndex = 502;
             this.label91.Text = "GENEL TOPLAM:";
             // 
-            // textBox13
+            // TTutarGun1
             // 
-            this.textBox13.Location = new System.Drawing.Point(1026, 48);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(142, 20);
-            this.textBox13.TabIndex = 463;
+            this.TTutarGun1.Location = new System.Drawing.Point(1026, 48);
+            this.TTutarGun1.Name = "TTutarGun1";
+            this.TTutarGun1.Size = new System.Drawing.Size(142, 20);
+            this.TTutarGun1.TabIndex = 463;
+            this.TTutarGun1.TextChanged += new System.EventHandler(this.TTutarGun1_TextChanged);
             // 
-            // textBox14
+            // TTutarGun6
             // 
-            this.textBox14.Location = new System.Drawing.Point(1026, 193);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(142, 20);
-            this.textBox14.TabIndex = 468;
+            this.TTutarGun6.Location = new System.Drawing.Point(1026, 193);
+            this.TTutarGun6.Name = "TTutarGun6";
+            this.TTutarGun6.Size = new System.Drawing.Size(142, 20);
+            this.TTutarGun6.TabIndex = 468;
+            this.TTutarGun6.TextChanged += new System.EventHandler(this.TTutarGun6_TextChanged);
             // 
-            // textBox15
+            // TTutarGun5
             // 
-            this.textBox15.Location = new System.Drawing.Point(1026, 164);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(142, 20);
-            this.textBox15.TabIndex = 467;
+            this.TTutarGun5.Location = new System.Drawing.Point(1026, 164);
+            this.TTutarGun5.Name = "TTutarGun5";
+            this.TTutarGun5.Size = new System.Drawing.Size(142, 20);
+            this.TTutarGun5.TabIndex = 467;
+            this.TTutarGun5.TextChanged += new System.EventHandler(this.TTutarGun5_TextChanged);
             // 
-            // textBox16
+            // TTutarGun4
             // 
-            this.textBox16.Location = new System.Drawing.Point(1026, 135);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(142, 20);
-            this.textBox16.TabIndex = 466;
+            this.TTutarGun4.Location = new System.Drawing.Point(1026, 135);
+            this.TTutarGun4.Name = "TTutarGun4";
+            this.TTutarGun4.Size = new System.Drawing.Size(142, 20);
+            this.TTutarGun4.TabIndex = 466;
+            this.TTutarGun4.TextChanged += new System.EventHandler(this.TTutarGun4_TextChanged);
             // 
-            // textBox17
+            // TTutarGun3
             // 
-            this.textBox17.Location = new System.Drawing.Point(1026, 106);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(142, 20);
-            this.textBox17.TabIndex = 465;
+            this.TTutarGun3.Location = new System.Drawing.Point(1026, 106);
+            this.TTutarGun3.Name = "TTutarGun3";
+            this.TTutarGun3.Size = new System.Drawing.Size(142, 20);
+            this.TTutarGun3.TabIndex = 465;
+            this.TTutarGun3.TextChanged += new System.EventHandler(this.TTutarGun3_TextChanged);
             // 
-            // textBox18
+            // TTutarGun2
             // 
-            this.textBox18.Location = new System.Drawing.Point(1026, 77);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(142, 20);
-            this.textBox18.TabIndex = 464;
+            this.TTutarGun2.Location = new System.Drawing.Point(1026, 77);
+            this.TTutarGun2.Name = "TTutarGun2";
+            this.TTutarGun2.Size = new System.Drawing.Size(142, 20);
+            this.TTutarGun2.TabIndex = 464;
+            this.TTutarGun2.TextChanged += new System.EventHandler(this.TTutarGun2_TextChanged);
             // 
             // label92
             // 
@@ -2175,12 +2255,12 @@ namespace UserInterface.BakımOnarım
             this.label95.TabIndex = 459;
             this.label95.Text = "MAL/HİZMET/İŞ TANIMI";
             // 
-            // textBox19
+            // BTutarGun1
             // 
-            this.textBox19.Location = new System.Drawing.Point(906, 48);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(113, 20);
-            this.textBox19.TabIndex = 169;
+            this.BTutarGun1.Location = new System.Drawing.Point(906, 48);
+            this.BTutarGun1.Name = "BTutarGun1";
+            this.BTutarGun1.Size = new System.Drawing.Size(113, 20);
+            this.BTutarGun1.TabIndex = 169;
             // 
             // label99
             // 
@@ -2242,208 +2322,210 @@ namespace UserInterface.BakımOnarım
             this.label104.TabIndex = 150;
             this.label104.Text = "6.";
             // 
-            // textBox20
+            // BTutarGun6
             // 
-            this.textBox20.Location = new System.Drawing.Point(906, 193);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(113, 20);
-            this.textBox20.TabIndex = 174;
+            this.BTutarGun6.Location = new System.Drawing.Point(906, 193);
+            this.BTutarGun6.Name = "BTutarGun6";
+            this.BTutarGun6.Size = new System.Drawing.Size(113, 20);
+            this.BTutarGun6.TabIndex = 174;
             // 
-            // textBox21
+            // BTutarGun5
             // 
-            this.textBox21.Location = new System.Drawing.Point(906, 164);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(113, 20);
-            this.textBox21.TabIndex = 173;
+            this.BTutarGun5.Location = new System.Drawing.Point(906, 164);
+            this.BTutarGun5.Name = "BTutarGun5";
+            this.BTutarGun5.Size = new System.Drawing.Size(113, 20);
+            this.BTutarGun5.TabIndex = 173;
             // 
-            // textBox22
+            // mGun1
             // 
-            this.textBox22.Location = new System.Drawing.Point(637, 48);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(84, 20);
-            this.textBox22.TabIndex = 151;
+            this.mGun1.Location = new System.Drawing.Point(637, 48);
+            this.mGun1.Name = "mGun1";
+            this.mGun1.Size = new System.Drawing.Size(84, 20);
+            this.mGun1.TabIndex = 151;
             // 
-            // textBox23
+            // BTutarGun4
             // 
-            this.textBox23.Location = new System.Drawing.Point(906, 135);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(113, 20);
-            this.textBox23.TabIndex = 172;
+            this.BTutarGun4.Location = new System.Drawing.Point(906, 135);
+            this.BTutarGun4.Name = "BTutarGun4";
+            this.BTutarGun4.Size = new System.Drawing.Size(113, 20);
+            this.BTutarGun4.TabIndex = 172;
             // 
-            // textBox24
+            // mGun2
             // 
-            this.textBox24.Location = new System.Drawing.Point(637, 77);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(84, 20);
-            this.textBox24.TabIndex = 152;
+            this.mGun2.Location = new System.Drawing.Point(637, 77);
+            this.mGun2.Name = "mGun2";
+            this.mGun2.Size = new System.Drawing.Size(84, 20);
+            this.mGun2.TabIndex = 152;
             // 
-            // textBox25
+            // BTutarGun3
             // 
-            this.textBox25.Location = new System.Drawing.Point(906, 106);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(113, 20);
-            this.textBox25.TabIndex = 171;
+            this.BTutarGun3.Location = new System.Drawing.Point(906, 106);
+            this.BTutarGun3.Name = "BTutarGun3";
+            this.BTutarGun3.Size = new System.Drawing.Size(113, 20);
+            this.BTutarGun3.TabIndex = 171;
             // 
-            // textBox26
+            // mGun3
             // 
-            this.textBox26.Location = new System.Drawing.Point(637, 106);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(84, 20);
-            this.textBox26.TabIndex = 153;
+            this.mGun3.Location = new System.Drawing.Point(637, 106);
+            this.mGun3.Name = "mGun3";
+            this.mGun3.Size = new System.Drawing.Size(84, 20);
+            this.mGun3.TabIndex = 153;
             // 
-            // textBox27
+            // BTutarGun2
             // 
-            this.textBox27.Location = new System.Drawing.Point(906, 77);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(113, 20);
-            this.textBox27.TabIndex = 170;
+            this.BTutarGun2.Location = new System.Drawing.Point(906, 77);
+            this.BTutarGun2.Name = "BTutarGun2";
+            this.BTutarGun2.Size = new System.Drawing.Size(113, 20);
+            this.BTutarGun2.TabIndex = 170;
             // 
-            // textBox28
+            // mGun4
             // 
-            this.textBox28.Location = new System.Drawing.Point(637, 135);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(84, 20);
-            this.textBox28.TabIndex = 154;
+            this.mGun4.Location = new System.Drawing.Point(637, 135);
+            this.mGun4.Name = "mGun4";
+            this.mGun4.Size = new System.Drawing.Size(84, 20);
+            this.mGun4.TabIndex = 154;
             // 
-            // textBox29
+            // mGun5
             // 
-            this.textBox29.Location = new System.Drawing.Point(637, 164);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(84, 20);
-            this.textBox29.TabIndex = 155;
+            this.mGun5.Location = new System.Drawing.Point(637, 164);
+            this.mGun5.Name = "mGun5";
+            this.mGun5.Size = new System.Drawing.Size(84, 20);
+            this.mGun5.TabIndex = 155;
             // 
-            // textBox30
+            // mGun6
             // 
-            this.textBox30.Location = new System.Drawing.Point(637, 193);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(84, 20);
-            this.textBox30.TabIndex = 156;
+            this.mGun6.Location = new System.Drawing.Point(637, 193);
+            this.mGun6.Name = "mGun6";
+            this.mGun6.Size = new System.Drawing.Size(84, 20);
+            this.mGun6.TabIndex = 156;
             // 
-            // textBox31
+            // IsTanimiGun6
             // 
-            this.textBox31.Location = new System.Drawing.Point(44, 193);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(587, 20);
-            this.textBox31.TabIndex = 168;
+            this.IsTanimiGun6.Location = new System.Drawing.Point(44, 193);
+            this.IsTanimiGun6.Name = "IsTanimiGun6";
+            this.IsTanimiGun6.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimiGun6.TabIndex = 168;
             // 
-            // textBox32
+            // IsTanimiGun5
             // 
-            this.textBox32.Location = new System.Drawing.Point(44, 164);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(587, 20);
-            this.textBox32.TabIndex = 167;
+            this.IsTanimiGun5.Location = new System.Drawing.Point(44, 164);
+            this.IsTanimiGun5.Name = "IsTanimiGun5";
+            this.IsTanimiGun5.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimiGun5.TabIndex = 167;
             // 
-            // comboBox31
+            // bGun1
             // 
-            this.comboBox31.FormattingEnabled = true;
-            this.comboBox31.Items.AddRange(new object[] {
+            this.bGun1.FormattingEnabled = true;
+            this.bGun1.Items.AddRange(new object[] {
             "KG",
             "ADET",
             "METRE",
             "LİTRE"});
-            this.comboBox31.Location = new System.Drawing.Point(727, 48);
-            this.comboBox31.Name = "comboBox31";
-            this.comboBox31.Size = new System.Drawing.Size(96, 21);
-            this.comboBox31.TabIndex = 157;
+            this.bGun1.Location = new System.Drawing.Point(727, 48);
+            this.bGun1.Name = "bGun1";
+            this.bGun1.Size = new System.Drawing.Size(96, 21);
+            this.bGun1.TabIndex = 157;
             // 
-            // textBox33
+            // IsTanimiGun4
             // 
-            this.textBox33.Location = new System.Drawing.Point(44, 135);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(587, 20);
-            this.textBox33.TabIndex = 166;
+            this.IsTanimiGun4.Location = new System.Drawing.Point(44, 135);
+            this.IsTanimiGun4.Name = "IsTanimiGun4";
+            this.IsTanimiGun4.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimiGun4.TabIndex = 166;
             // 
-            // comboBox32
+            // bGun2
             // 
-            this.comboBox32.FormattingEnabled = true;
-            this.comboBox32.Items.AddRange(new object[] {
+            this.bGun2.FormattingEnabled = true;
+            this.bGun2.Items.AddRange(new object[] {
             "KG",
             "ADET",
             "METRE",
             "LİTRE"});
-            this.comboBox32.Location = new System.Drawing.Point(727, 77);
-            this.comboBox32.Name = "comboBox32";
-            this.comboBox32.Size = new System.Drawing.Size(96, 21);
-            this.comboBox32.TabIndex = 158;
+            this.bGun2.Location = new System.Drawing.Point(727, 77);
+            this.bGun2.Name = "bGun2";
+            this.bGun2.Size = new System.Drawing.Size(96, 21);
+            this.bGun2.TabIndex = 158;
             // 
-            // textBox34
+            // IsTanimiGun3
             // 
-            this.textBox34.Location = new System.Drawing.Point(44, 106);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(587, 20);
-            this.textBox34.TabIndex = 165;
+            this.IsTanimiGun3.Location = new System.Drawing.Point(44, 106);
+            this.IsTanimiGun3.Name = "IsTanimiGun3";
+            this.IsTanimiGun3.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimiGun3.TabIndex = 165;
             // 
-            // comboBox33
+            // bGun3
             // 
-            this.comboBox33.FormattingEnabled = true;
-            this.comboBox33.Items.AddRange(new object[] {
+            this.bGun3.FormattingEnabled = true;
+            this.bGun3.Items.AddRange(new object[] {
             "KG",
             "ADET",
             "METRE",
             "LİTRE"});
-            this.comboBox33.Location = new System.Drawing.Point(727, 106);
-            this.comboBox33.Name = "comboBox33";
-            this.comboBox33.Size = new System.Drawing.Size(96, 21);
-            this.comboBox33.TabIndex = 159;
+            this.bGun3.Location = new System.Drawing.Point(727, 106);
+            this.bGun3.Name = "bGun3";
+            this.bGun3.Size = new System.Drawing.Size(96, 21);
+            this.bGun3.TabIndex = 159;
             // 
-            // textBox35
+            // IsTanimiGun2
             // 
-            this.textBox35.Location = new System.Drawing.Point(44, 77);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(587, 20);
-            this.textBox35.TabIndex = 164;
+            this.IsTanimiGun2.Location = new System.Drawing.Point(44, 77);
+            this.IsTanimiGun2.Name = "IsTanimiGun2";
+            this.IsTanimiGun2.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimiGun2.TabIndex = 164;
             // 
-            // comboBox34
+            // bGun4
             // 
-            this.comboBox34.FormattingEnabled = true;
-            this.comboBox34.Items.AddRange(new object[] {
+            this.bGun4.FormattingEnabled = true;
+            this.bGun4.Items.AddRange(new object[] {
             "KG",
             "ADET",
             "METRE",
             "LİTRE"});
-            this.comboBox34.Location = new System.Drawing.Point(727, 135);
-            this.comboBox34.Name = "comboBox34";
-            this.comboBox34.Size = new System.Drawing.Size(96, 21);
-            this.comboBox34.TabIndex = 160;
+            this.bGun4.Location = new System.Drawing.Point(727, 135);
+            this.bGun4.Name = "bGun4";
+            this.bGun4.Size = new System.Drawing.Size(96, 21);
+            this.bGun4.TabIndex = 160;
             // 
-            // textBox36
+            // IsTanimiGun1
             // 
-            this.textBox36.Location = new System.Drawing.Point(44, 48);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(587, 20);
-            this.textBox36.TabIndex = 163;
+            this.IsTanimiGun1.Location = new System.Drawing.Point(44, 48);
+            this.IsTanimiGun1.Name = "IsTanimiGun1";
+            this.IsTanimiGun1.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimiGun1.TabIndex = 163;
             // 
-            // comboBox35
+            // bGun5
             // 
-            this.comboBox35.FormattingEnabled = true;
-            this.comboBox35.Items.AddRange(new object[] {
+            this.bGun5.FormattingEnabled = true;
+            this.bGun5.Items.AddRange(new object[] {
             "KG",
             "ADET",
             "METRE",
             "LİTRE"});
-            this.comboBox35.Location = new System.Drawing.Point(727, 164);
-            this.comboBox35.Name = "comboBox35";
-            this.comboBox35.Size = new System.Drawing.Size(96, 21);
-            this.comboBox35.TabIndex = 161;
+            this.bGun5.Location = new System.Drawing.Point(727, 164);
+            this.bGun5.Name = "bGun5";
+            this.bGun5.Size = new System.Drawing.Size(96, 21);
+            this.bGun5.TabIndex = 161;
             // 
-            // comboBox36
+            // bGun6
             // 
-            this.comboBox36.FormattingEnabled = true;
-            this.comboBox36.Items.AddRange(new object[] {
+            this.bGun6.FormattingEnabled = true;
+            this.bGun6.Items.AddRange(new object[] {
             "KG",
             "ADET",
             "METRE",
             "LİTRE"});
-            this.comboBox36.Location = new System.Drawing.Point(727, 193);
-            this.comboBox36.Name = "comboBox36";
-            this.comboBox36.Size = new System.Drawing.Size(96, 21);
-            this.comboBox36.TabIndex = 162;
+            this.bGun6.Location = new System.Drawing.Point(727, 193);
+            this.bGun6.Name = "bGun6";
+            this.bGun6.Size = new System.Drawing.Size(96, 21);
+            this.bGun6.TabIndex = 162;
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.label66);
+            this.groupBox6.Controls.Add(this.DtgIsinVerildigiTarihGun);
+            this.groupBox6.Controls.Add(this.label15);
+            this.groupBox6.Controls.Add(this.LblFirmaSorumlusuGun);
             this.groupBox6.Controls.Add(this.label67);
-            this.groupBox6.Controls.Add(this.comboBox15);
+            this.groupBox6.Controls.Add(this.CmbAltYukleniciFirmaGun);
             this.groupBox6.Controls.Add(this.label68);
             this.groupBox6.Location = new System.Drawing.Point(388, 329);
             this.groupBox6.Name = "groupBox6";
@@ -2452,14 +2534,14 @@ namespace UserInterface.BakımOnarım
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "FİRMA BİLGİLERİ";
             // 
-            // label66
+            // LblFirmaSorumlusuGun
             // 
-            this.label66.AutoSize = true;
-            this.label66.Location = new System.Drawing.Point(157, 66);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(19, 13);
-            this.label66.TabIndex = 425;
-            this.label66.Text = "00";
+            this.LblFirmaSorumlusuGun.AutoSize = true;
+            this.LblFirmaSorumlusuGun.Location = new System.Drawing.Point(157, 66);
+            this.LblFirmaSorumlusuGun.Name = "LblFirmaSorumlusuGun";
+            this.LblFirmaSorumlusuGun.Size = new System.Drawing.Size(19, 13);
+            this.LblFirmaSorumlusuGun.TabIndex = 425;
+            this.LblFirmaSorumlusuGun.Text = "00";
             // 
             // label67
             // 
@@ -2470,17 +2552,14 @@ namespace UserInterface.BakımOnarım
             this.label67.TabIndex = 424;
             this.label67.Text = "FİRMA SORUMLUSU:";
             // 
-            // comboBox15
+            // CmbAltYukleniciFirmaGun
             // 
-            this.comboBox15.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox15.FormattingEnabled = true;
-            this.comboBox15.Items.AddRange(new object[] {
-            "YERİNDE ONARIM",
-            "FİRMADA ONARIM-İMALAT"});
-            this.comboBox15.Location = new System.Drawing.Point(157, 33);
-            this.comboBox15.Name = "comboBox15";
-            this.comboBox15.Size = new System.Drawing.Size(236, 21);
-            this.comboBox15.TabIndex = 423;
+            this.CmbAltYukleniciFirmaGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbAltYukleniciFirmaGun.FormattingEnabled = true;
+            this.CmbAltYukleniciFirmaGun.Location = new System.Drawing.Point(157, 33);
+            this.CmbAltYukleniciFirmaGun.Name = "CmbAltYukleniciFirmaGun";
+            this.CmbAltYukleniciFirmaGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbAltYukleniciFirmaGun.TabIndex = 423;
             // 
             // label68
             // 
@@ -2491,117 +2570,21 @@ namespace UserInterface.BakımOnarım
             this.label68.TabIndex = 418;
             this.label68.Text = "ALT YÜKLENİCİ FİRMA:";
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.comboBox16);
-            this.groupBox7.Controls.Add(this.label69);
-            this.groupBox7.Controls.Add(this.label70);
-            this.groupBox7.Controls.Add(this.textBox11);
-            this.groupBox7.Controls.Add(this.label71);
-            this.groupBox7.Controls.Add(this.label72);
-            this.groupBox7.Controls.Add(this.comboBox17);
-            this.groupBox7.Controls.Add(this.label73);
-            this.groupBox7.Location = new System.Drawing.Point(18, 329);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(364, 148);
-            this.groupBox7.TabIndex = 449;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "MALZEME BİLGİLERİ";
-            // 
-            // comboBox16
-            // 
-            this.comboBox16.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox16.FormattingEnabled = true;
-            this.comboBox16.Items.AddRange(new object[] {
-            "YERİNDE ONARIM",
-            "FİRMADA ONARIM-İMALAT"});
-            this.comboBox16.Location = new System.Drawing.Point(94, 109);
-            this.comboBox16.Name = "comboBox16";
-            this.comboBox16.Size = new System.Drawing.Size(236, 21);
-            this.comboBox16.TabIndex = 424;
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(94, 61);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(19, 13);
-            this.label69.TabIndex = 418;
-            this.label69.Text = "00";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(7, 116);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(81, 13);
-            this.label70.TabIndex = 422;
-            this.label70.Text = "ONARIM YERİ:";
-            // 
-            // textBox11
-            // 
-            this.textBox11.Location = new System.Drawing.Point(94, 83);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(236, 20);
-            this.textBox11.TabIndex = 423;
-            // 
-            // label71
-            // 
-            this.label71.AutoSize = true;
-            this.label71.Location = new System.Drawing.Point(34, 86);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(54, 13);
-            this.label71.TabIndex = 422;
-            this.label71.Text = "SERİ NO:";
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(30, 61);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(58, 13);
-            this.label72.TabIndex = 418;
-            this.label72.Text = "STOK NO:";
-            // 
-            // comboBox17
-            // 
-            this.comboBox17.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox17.FormattingEnabled = true;
-            this.comboBox17.Items.AddRange(new object[] {
-            "BM07 BAKIM ONARIM",
-            "BM14 EKSTRA"});
-            this.comboBox17.Location = new System.Drawing.Point(94, 30);
-            this.comboBox17.Name = "comboBox17";
-            this.comboBox17.Size = new System.Drawing.Size(236, 21);
-            this.comboBox17.TabIndex = 417;
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(44, 33);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(44, 13);
-            this.label73.TabIndex = 115;
-            this.label73.Text = "TANIM:";
-            // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.richTextBox3);
+            this.groupBox8.Controls.Add(this.TxtIsinTanimiGun);
             this.groupBox8.Controls.Add(this.label74);
-            this.groupBox8.Controls.Add(this.button5);
-            this.groupBox8.Controls.Add(this.comboBox18);
+            this.groupBox8.Controls.Add(this.CmbIsKategorisiGun);
             this.groupBox8.Controls.Add(this.label75);
-            this.groupBox8.Controls.Add(this.comboBox19);
+            this.groupBox8.Controls.Add(this.CmbGarantiDurumuGun);
             this.groupBox8.Controls.Add(this.label76);
-            this.groupBox8.Controls.Add(this.button6);
-            this.groupBox8.Controls.Add(this.button7);
-            this.groupBox8.Controls.Add(this.comboBox20);
-            this.groupBox8.Controls.Add(this.comboBox21);
-            this.groupBox8.Controls.Add(this.textBox12);
+            this.groupBox8.Controls.Add(this.CmbBolgeAdiGun);
+            this.groupBox8.Controls.Add(this.CmbProjeKoduGun);
+            this.groupBox8.Controls.Add(this.TxtAbfNoGun);
             this.groupBox8.Controls.Add(this.label77);
             this.groupBox8.Controls.Add(this.label78);
             this.groupBox8.Controls.Add(this.label79);
-            this.groupBox8.Controls.Add(this.comboBox22);
+            this.groupBox8.Controls.Add(this.CmbHarcamaKoduGun);
             this.groupBox8.Controls.Add(this.label80);
             this.groupBox8.Location = new System.Drawing.Point(388, 58);
             this.groupBox8.Name = "groupBox8";
@@ -2610,13 +2593,13 @@ namespace UserInterface.BakımOnarım
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "ARIZA BİLGİLERİ";
             // 
-            // richTextBox3
+            // TxtIsinTanimiGun
             // 
-            this.richTextBox3.Location = new System.Drawing.Point(157, 190);
-            this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(446, 69);
-            this.richTextBox3.TabIndex = 432;
-            this.richTextBox3.Text = "";
+            this.TxtIsinTanimiGun.Location = new System.Drawing.Point(157, 190);
+            this.TxtIsinTanimiGun.Name = "TxtIsinTanimiGun";
+            this.TxtIsinTanimiGun.Size = new System.Drawing.Size(446, 69);
+            this.TxtIsinTanimiGun.TabIndex = 432;
+            this.TxtIsinTanimiGun.Text = "";
             // 
             // label74
             // 
@@ -2627,45 +2610,14 @@ namespace UserInterface.BakımOnarım
             this.label74.TabIndex = 431;
             this.label74.Text = "İŞİN TANIMI:";
             // 
-            // button5
+            // CmbIsKategorisiGun
             // 
-            this.button5.AccessibleDescription = "";
-            this.button5.BackColor = System.Drawing.SystemColors.Control;
-            this.button5.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button5.BackgroundImage")));
-            this.button5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Location = new System.Drawing.Point(396, 158);
-            this.button5.Margin = new System.Windows.Forms.Padding(0);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(34, 29);
-            this.button5.TabIndex = 430;
-            this.button5.Tag = "admin";
-            this.button5.UseVisualStyleBackColor = false;
-            // 
-            // comboBox18
-            // 
-            this.comboBox18.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox18.FormattingEnabled = true;
-            this.comboBox18.Items.AddRange(new object[] {
-            "ALT YAPI ENERJİ",
-            "BENVARİ",
-            "BOYLER",
-            "FİBER",
-            "HİDRAFOR",
-            "İNŞAAT",
-            "JENARATÖR",
-            "KLİMA",
-            "KÖŞK ENERJİ",
-            "MKGS MAST",
-            "MKGS APU",
-            "MEKANİK",
-            "SOĞUK HAVA DEPOSU",
-            "SU YUMUŞATMA SİSTEMİ",
-            "UPS"});
-            this.comboBox18.Location = new System.Drawing.Point(157, 163);
-            this.comboBox18.Name = "comboBox18";
-            this.comboBox18.Size = new System.Drawing.Size(236, 21);
-            this.comboBox18.TabIndex = 429;
+            this.CmbIsKategorisiGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbIsKategorisiGun.FormattingEnabled = true;
+            this.CmbIsKategorisiGun.Location = new System.Drawing.Point(157, 163);
+            this.CmbIsKategorisiGun.Name = "CmbIsKategorisiGun";
+            this.CmbIsKategorisiGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbIsKategorisiGun.TabIndex = 429;
             // 
             // label75
             // 
@@ -2676,18 +2628,18 @@ namespace UserInterface.BakımOnarım
             this.label75.TabIndex = 428;
             this.label75.Text = "İŞ KATEGORİSİ:";
             // 
-            // comboBox19
+            // CmbGarantiDurumuGun
             // 
-            this.comboBox19.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox19.FormattingEnabled = true;
-            this.comboBox19.Items.AddRange(new object[] {
+            this.CmbGarantiDurumuGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGarantiDurumuGun.FormattingEnabled = true;
+            this.CmbGarantiDurumuGun.Items.AddRange(new object[] {
             "GARANTİ İÇİ",
             "GARANTİ DIŞI (OKF)",
             "PDL"});
-            this.comboBox19.Location = new System.Drawing.Point(157, 136);
-            this.comboBox19.Name = "comboBox19";
-            this.comboBox19.Size = new System.Drawing.Size(236, 21);
-            this.comboBox19.TabIndex = 427;
+            this.CmbGarantiDurumuGun.Location = new System.Drawing.Point(157, 136);
+            this.CmbGarantiDurumuGun.Name = "CmbGarantiDurumuGun";
+            this.CmbGarantiDurumuGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbGarantiDurumuGun.TabIndex = 427;
             // 
             // label76
             // 
@@ -2698,94 +2650,30 @@ namespace UserInterface.BakımOnarım
             this.label76.TabIndex = 426;
             this.label76.Text = "GARANTİ DURUMU:";
             // 
-            // button6
+            // CmbBolgeAdiGun
             // 
-            this.button6.AccessibleDescription = "";
-            this.button6.BackColor = System.Drawing.SystemColors.Control;
-            this.button6.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button6.BackgroundImage")));
-            this.button6.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button6.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button6.Location = new System.Drawing.Point(396, 77);
-            this.button6.Margin = new System.Windows.Forms.Padding(0);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(34, 29);
-            this.button6.TabIndex = 425;
-            this.button6.Tag = "admin";
-            this.button6.UseVisualStyleBackColor = false;
+            this.CmbBolgeAdiGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbBolgeAdiGun.FormattingEnabled = true;
+            this.CmbBolgeAdiGun.Location = new System.Drawing.Point(157, 82);
+            this.CmbBolgeAdiGun.Name = "CmbBolgeAdiGun";
+            this.CmbBolgeAdiGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbBolgeAdiGun.TabIndex = 423;
             // 
-            // button7
+            // CmbProjeKoduGun
             // 
-            this.button7.AccessibleDescription = "";
-            this.button7.BackColor = System.Drawing.SystemColors.Control;
-            this.button7.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button7.BackgroundImage")));
-            this.button7.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.button7.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button7.Location = new System.Drawing.Point(396, 105);
-            this.button7.Margin = new System.Windows.Forms.Padding(0);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(34, 29);
-            this.button7.TabIndex = 424;
-            this.button7.Tag = "admin";
-            this.button7.UseVisualStyleBackColor = false;
+            this.CmbProjeKoduGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbProjeKoduGun.FormattingEnabled = true;
+            this.CmbProjeKoduGun.Location = new System.Drawing.Point(157, 109);
+            this.CmbProjeKoduGun.Name = "CmbProjeKoduGun";
+            this.CmbProjeKoduGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbProjeKoduGun.TabIndex = 422;
             // 
-            // comboBox20
+            // TxtAbfNoGun
             // 
-            this.comboBox20.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox20.FormattingEnabled = true;
-            this.comboBox20.Items.AddRange(new object[] {
-            "MGUB 1",
-            "MGUB 2",
-            "MGUB 3",
-            "MGUB 4",
-            "MGUB 5",
-            "MGUB 6",
-            "MGUB 7",
-            "MGUB 8",
-            "MGUB 9",
-            "MGUB 10",
-            "MGUB 11",
-            "MGUB 12",
-            "MKGS",
-            "ATEŞ",
-            "GURU",
-            "GUKAS"});
-            this.comboBox20.Location = new System.Drawing.Point(157, 82);
-            this.comboBox20.Name = "comboBox20";
-            this.comboBox20.Size = new System.Drawing.Size(236, 21);
-            this.comboBox20.TabIndex = 423;
-            // 
-            // comboBox21
-            // 
-            this.comboBox21.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox21.FormattingEnabled = true;
-            this.comboBox21.Items.AddRange(new object[] {
-            "MGUB 1",
-            "MGUB 2",
-            "MGUB 3",
-            "MGUB 4",
-            "MGUB 5",
-            "MGUB 6",
-            "MGUB 7",
-            "MGUB 8",
-            "MGUB 9",
-            "MGUB 10",
-            "MGUB 11",
-            "MGUB 12",
-            "MKGS",
-            "ATEŞ",
-            "GURU",
-            "GUKAS"});
-            this.comboBox21.Location = new System.Drawing.Point(157, 109);
-            this.comboBox21.Name = "comboBox21";
-            this.comboBox21.Size = new System.Drawing.Size(236, 21);
-            this.comboBox21.TabIndex = 422;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Location = new System.Drawing.Point(157, 53);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(236, 20);
-            this.textBox12.TabIndex = 421;
+            this.TxtAbfNoGun.Location = new System.Drawing.Point(157, 53);
+            this.TxtAbfNoGun.Name = "TxtAbfNoGun";
+            this.TxtAbfNoGun.Size = new System.Drawing.Size(236, 20);
+            this.TxtAbfNoGun.TabIndex = 421;
             // 
             // label77
             // 
@@ -2814,17 +2702,17 @@ namespace UserInterface.BakımOnarım
             this.label79.TabIndex = 418;
             this.label79.Text = "ABF/BİLDİRİM NO:";
             // 
-            // comboBox22
+            // CmbHarcamaKoduGun
             // 
-            this.comboBox22.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox22.FormattingEnabled = true;
-            this.comboBox22.Items.AddRange(new object[] {
+            this.CmbHarcamaKoduGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbHarcamaKoduGun.FormattingEnabled = true;
+            this.CmbHarcamaKoduGun.Items.AddRange(new object[] {
             "BM07 BAKIM ONARIM",
             "BM14 EKSTRA"});
-            this.comboBox22.Location = new System.Drawing.Point(157, 26);
-            this.comboBox22.Name = "comboBox22";
-            this.comboBox22.Size = new System.Drawing.Size(236, 21);
-            this.comboBox22.TabIndex = 417;
+            this.CmbHarcamaKoduGun.Location = new System.Drawing.Point(157, 26);
+            this.CmbHarcamaKoduGun.Name = "CmbHarcamaKoduGun";
+            this.CmbHarcamaKoduGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbHarcamaKoduGun.TabIndex = 417;
             // 
             // label80
             // 
@@ -2837,13 +2725,13 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox9
             // 
-            this.groupBox9.Controls.Add(this.label81);
-            this.groupBox9.Controls.Add(this.comboBox23);
-            this.groupBox9.Controls.Add(this.comboBox24);
+            this.groupBox9.Controls.Add(this.LblKayitTarihiGun);
+            this.groupBox9.Controls.Add(this.CmbDonemYilGun);
+            this.groupBox9.Controls.Add(this.CmbDonemAyGun);
             this.groupBox9.Controls.Add(this.label82);
-            this.groupBox9.Controls.Add(this.label83);
+            this.groupBox9.Controls.Add(this.LblAdSoyadGun);
             this.groupBox9.Controls.Add(this.label84);
-            this.groupBox9.Controls.Add(this.label85);
+            this.groupBox9.Controls.Add(this.LblIsAkisNoGun);
             this.groupBox9.Controls.Add(this.label86);
             this.groupBox9.Controls.Add(this.label87);
             this.groupBox9.Location = new System.Drawing.Point(18, 58);
@@ -2853,20 +2741,20 @@ namespace UserInterface.BakımOnarım
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "TALEBİ OLUŞTURAN";
             // 
-            // label81
+            // LblKayitTarihiGun
             // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(115, 81);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(19, 13);
-            this.label81.TabIndex = 417;
-            this.label81.Text = "00";
+            this.LblKayitTarihiGun.AutoSize = true;
+            this.LblKayitTarihiGun.Location = new System.Drawing.Point(115, 81);
+            this.LblKayitTarihiGun.Name = "LblKayitTarihiGun";
+            this.LblKayitTarihiGun.Size = new System.Drawing.Size(19, 13);
+            this.LblKayitTarihiGun.TabIndex = 417;
+            this.LblKayitTarihiGun.Text = "00";
             // 
-            // comboBox23
+            // CmbDonemYilGun
             // 
-            this.comboBox23.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox23.FormattingEnabled = true;
-            this.comboBox23.Items.AddRange(new object[] {
+            this.CmbDonemYilGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYilGun.FormattingEnabled = true;
+            this.CmbDonemYilGun.Items.AddRange(new object[] {
             "2018",
             "2019",
             "2020",
@@ -2880,16 +2768,16 @@ namespace UserInterface.BakımOnarım
             "2028",
             "2029",
             "2030"});
-            this.comboBox23.Location = new System.Drawing.Point(225, 103);
-            this.comboBox23.Name = "comboBox23";
-            this.comboBox23.Size = new System.Drawing.Size(105, 21);
-            this.comboBox23.TabIndex = 416;
+            this.CmbDonemYilGun.Location = new System.Drawing.Point(225, 103);
+            this.CmbDonemYilGun.Name = "CmbDonemYilGun";
+            this.CmbDonemYilGun.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemYilGun.TabIndex = 416;
             // 
-            // comboBox24
+            // CmbDonemAyGun
             // 
-            this.comboBox24.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox24.FormattingEnabled = true;
-            this.comboBox24.Items.AddRange(new object[] {
+            this.CmbDonemAyGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemAyGun.FormattingEnabled = true;
+            this.CmbDonemAyGun.Items.AddRange(new object[] {
             "OCAK",
             "ŞUBAT",
             "MART",
@@ -2902,10 +2790,10 @@ namespace UserInterface.BakımOnarım
             "EKİM",
             "KASIM",
             "ARALIK"});
-            this.comboBox24.Location = new System.Drawing.Point(114, 103);
-            this.comboBox24.Name = "comboBox24";
-            this.comboBox24.Size = new System.Drawing.Size(105, 21);
-            this.comboBox24.TabIndex = 415;
+            this.CmbDonemAyGun.Location = new System.Drawing.Point(114, 103);
+            this.CmbDonemAyGun.Name = "CmbDonemAyGun";
+            this.CmbDonemAyGun.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemAyGun.TabIndex = 415;
             // 
             // label82
             // 
@@ -2916,14 +2804,14 @@ namespace UserInterface.BakımOnarım
             this.label82.TabIndex = 414;
             this.label82.Text = "DÖNEM (Ay/Yıl):";
             // 
-            // label83
+            // LblAdSoyadGun
             // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(114, 53);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(19, 13);
-            this.label83.TabIndex = 103;
-            this.label83.Text = "00";
+            this.LblAdSoyadGun.AutoSize = true;
+            this.LblAdSoyadGun.Location = new System.Drawing.Point(114, 53);
+            this.LblAdSoyadGun.Name = "LblAdSoyadGun";
+            this.LblAdSoyadGun.Size = new System.Drawing.Size(19, 13);
+            this.LblAdSoyadGun.TabIndex = 103;
+            this.LblAdSoyadGun.Text = "00";
             // 
             // label84
             // 
@@ -2934,14 +2822,14 @@ namespace UserInterface.BakımOnarım
             this.label84.TabIndex = 330;
             this.label84.Text = "KAYIT TARİH:";
             // 
-            // label85
+            // LblIsAkisNoGun
             // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(115, 28);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(19, 13);
-            this.label85.TabIndex = 116;
-            this.label85.Text = "00";
+            this.LblIsAkisNoGun.AutoSize = true;
+            this.LblIsAkisNoGun.Location = new System.Drawing.Point(115, 28);
+            this.LblIsAkisNoGun.Name = "LblIsAkisNoGun";
+            this.LblIsAkisNoGun.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNoGun.TabIndex = 116;
+            this.LblIsAkisNoGun.Text = "00";
             // 
             // label86
             // 
@@ -2961,16 +2849,17 @@ namespace UserInterface.BakımOnarım
             this.label87.TabIndex = 115;
             this.label87.Text = "İŞ AKIŞ NO:";
             // 
-            // button3
+            // BtnBulGun
             // 
-            this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(282, 20);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(63, 23);
-            this.button3.TabIndex = 426;
-            this.button3.Text = "Bul";
-            this.button3.UseVisualStyleBackColor = true;
+            this.BtnBulGun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBulGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnBulGun.Location = new System.Drawing.Point(282, 20);
+            this.BtnBulGun.Name = "BtnBulGun";
+            this.BtnBulGun.Size = new System.Drawing.Size(63, 23);
+            this.BtnBulGun.TabIndex = 426;
+            this.BtnBulGun.Text = "Bul";
+            this.BtnBulGun.UseVisualStyleBackColor = true;
+            this.BtnBulGun.Click += new System.EventHandler(this.BtnBulGun_Click);
             // 
             // label65
             // 
@@ -2981,12 +2870,12 @@ namespace UserInterface.BakımOnarım
             this.label65.TabIndex = 425;
             this.label65.Text = "İŞ AKIŞ NO:";
             // 
-            // textBox10
+            // TxtIsAkisNoGun
             // 
-            this.textBox10.Location = new System.Drawing.Point(101, 21);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(175, 20);
-            this.textBox10.TabIndex = 424;
+            this.TxtIsAkisNoGun.Location = new System.Drawing.Point(101, 21);
+            this.TxtIsAkisNoGun.Name = "TxtIsAkisNoGun";
+            this.TxtIsAkisNoGun.Size = new System.Drawing.Size(175, 20);
+            this.TxtIsAkisNoGun.TabIndex = 424;
             // 
             // panel1
             // 
@@ -2995,7 +2884,7 @@ namespace UserInterface.BakımOnarım
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1449, 27);
+            this.panel1.Size = new System.Drawing.Size(1555, 27);
             this.panel1.TabIndex = 444;
             // 
             // BtnCancel
@@ -3012,11 +2901,186 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.CmbTanimGun);
+            this.groupBox7.Controls.Add(this.CmbOnarimYeriGun);
+            this.groupBox7.Controls.Add(this.LblStokNoGun);
+            this.groupBox7.Controls.Add(this.label20);
+            this.groupBox7.Controls.Add(this.TxtSeriNoGun);
+            this.groupBox7.Controls.Add(this.label23);
+            this.groupBox7.Controls.Add(this.label31);
+            this.groupBox7.Controls.Add(this.label32);
+            this.groupBox7.Location = new System.Drawing.Point(18, 329);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(364, 148);
+            this.groupBox7.TabIndex = 508;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "MALZEME BİLGİLERİ";
+            // 
+            // CmbTanimGun
+            // 
+            this.CmbTanimGun.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbTanimGun.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbTanimGun.FormattingEnabled = true;
+            this.CmbTanimGun.Location = new System.Drawing.Point(94, 30);
+            this.CmbTanimGun.Name = "CmbTanimGun";
+            this.CmbTanimGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbTanimGun.TabIndex = 501;
+            this.CmbTanimGun.SelectedIndexChanged += new System.EventHandler(this.CmbTanimGun_SelectedIndexChanged);
+            this.CmbTanimGun.TextChanged += new System.EventHandler(this.CmbTanimGun_TextChanged);
+            // 
+            // CmbOnarimYeriGun
+            // 
+            this.CmbOnarimYeriGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbOnarimYeriGun.FormattingEnabled = true;
+            this.CmbOnarimYeriGun.Items.AddRange(new object[] {
+            "YERİNDE ONARIM",
+            "FİRMADA ONARIM-İMALAT"});
+            this.CmbOnarimYeriGun.Location = new System.Drawing.Point(94, 109);
+            this.CmbOnarimYeriGun.Name = "CmbOnarimYeriGun";
+            this.CmbOnarimYeriGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbOnarimYeriGun.TabIndex = 424;
+            // 
+            // LblStokNoGun
+            // 
+            this.LblStokNoGun.AutoSize = true;
+            this.LblStokNoGun.Location = new System.Drawing.Point(94, 61);
+            this.LblStokNoGun.Name = "LblStokNoGun";
+            this.LblStokNoGun.Size = new System.Drawing.Size(19, 13);
+            this.LblStokNoGun.TabIndex = 418;
+            this.LblStokNoGun.Text = "00";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(7, 116);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 13);
+            this.label20.TabIndex = 422;
+            this.label20.Text = "ONARIM YERİ:";
+            // 
+            // TxtSeriNoGun
+            // 
+            this.TxtSeriNoGun.Location = new System.Drawing.Point(94, 83);
+            this.TxtSeriNoGun.Name = "TxtSeriNoGun";
+            this.TxtSeriNoGun.Size = new System.Drawing.Size(236, 20);
+            this.TxtSeriNoGun.TabIndex = 423;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(34, 86);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(54, 13);
+            this.label23.TabIndex = 422;
+            this.label23.Text = "SERİ NO:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(30, 61);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(58, 13);
+            this.label31.TabIndex = 418;
+            this.label31.Text = "STOK NO:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(44, 33);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(44, 13);
+            this.label32.TabIndex = 115;
+            this.label32.Text = "TANIM:";
+            // 
+            // DtgIsinVerildigiTarihGun
+            // 
+            this.DtgIsinVerildigiTarihGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgIsinVerildigiTarihGun.Location = new System.Drawing.Point(157, 86);
+            this.DtgIsinVerildigiTarihGun.Name = "DtgIsinVerildigiTarihGun";
+            this.DtgIsinVerildigiTarihGun.Size = new System.Drawing.Size(102, 20);
+            this.DtgIsinVerildigiTarihGun.TabIndex = 501;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(28, 90);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(123, 13);
+            this.label15.TabIndex = 500;
+            this.label15.Text = "İŞİN VERİLDİĞİ TARİH:";
+            // 
+            // PbGun7
+            // 
+            this.PbGun7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PbGun7.FormattingEnabled = true;
+            this.PbGun7.Items.AddRange(new object[] {
+            "TL",
+            "USD",
+            "EURO"});
+            this.PbGun7.Location = new System.Drawing.Point(829, 220);
+            this.PbGun7.Name = "PbGun7";
+            this.PbGun7.Size = new System.Drawing.Size(71, 21);
+            this.PbGun7.TabIndex = 517;
+            // 
+            // TTutarGun7
+            // 
+            this.TTutarGun7.Location = new System.Drawing.Point(1026, 220);
+            this.TTutarGun7.Name = "TTutarGun7";
+            this.TTutarGun7.Size = new System.Drawing.Size(142, 20);
+            this.TTutarGun7.TabIndex = 516;
+            this.TTutarGun7.TextChanged += new System.EventHandler(this.TTutarGun7_TextChanged);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label33.Location = new System.Drawing.Point(14, 223);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(19, 15);
+            this.label33.TabIndex = 511;
+            this.label33.Text = "7.";
+            // 
+            // BTutarGun7
+            // 
+            this.BTutarGun7.Location = new System.Drawing.Point(906, 220);
+            this.BTutarGun7.Name = "BTutarGun7";
+            this.BTutarGun7.Size = new System.Drawing.Size(113, 20);
+            this.BTutarGun7.TabIndex = 515;
+            // 
+            // mGun7
+            // 
+            this.mGun7.Location = new System.Drawing.Point(637, 220);
+            this.mGun7.Name = "mGun7";
+            this.mGun7.Size = new System.Drawing.Size(84, 20);
+            this.mGun7.TabIndex = 512;
+            // 
+            // IsTanimiGun7
+            // 
+            this.IsTanimiGun7.Location = new System.Drawing.Point(44, 220);
+            this.IsTanimiGun7.Name = "IsTanimiGun7";
+            this.IsTanimiGun7.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimiGun7.TabIndex = 514;
+            // 
+            // bGun7
+            // 
+            this.bGun7.FormattingEnabled = true;
+            this.bGun7.Items.AddRange(new object[] {
+            "KG",
+            "ADET",
+            "METRE",
+            "LİTRE"});
+            this.bGun7.Location = new System.Drawing.Point(727, 220);
+            this.bGun7.Name = "bGun7";
+            this.bGun7.Size = new System.Drawing.Size(96, 21);
+            this.bGun7.TabIndex = 513;
+            // 
             // FrmDTFOlustur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1449, 915);
+            this.ClientSize = new System.Drawing.Size(1555, 909);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Name = "FrmDTFOlustur";
@@ -3042,13 +3106,13 @@ namespace UserInterface.BakımOnarım
             this.groupBox10.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.groupBox8.ResumeLayout(false);
             this.groupBox8.PerformLayout();
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.panel1.ResumeLayout(false);
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3059,41 +3123,39 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label LblFirmaSorumlusu;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.ComboBox CmbAltYukleniciFirma;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox comboBox9;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox CmbOnarimYeri;
+        private System.Windows.Forms.Label LblStokNo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtSeriNo;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.ComboBox comboBox10;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox TxtIsinTanimi;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.Button BtnIsinTanimiEkle;
+        private System.Windows.Forms.ComboBox CmbIsKategorisi;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.ComboBox CmbGarantiDurumu;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button BtnBolgeEkle;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button BtnProjeEkle;
+        private System.Windows.Forms.ComboBox CmbBolgeAdi;
+        private System.Windows.Forms.ComboBox CmbProjeKodu;
+        private System.Windows.Forms.TextBox TxtAbfNo;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox CmbButceKodu;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label LblKayitTarihi;
         private System.Windows.Forms.ComboBox CmbDonemYil;
-        private System.Windows.Forms.ComboBox CmbDonem;
+        private System.Windows.Forms.ComboBox CmbDonemAy;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label TalepEden;
         private System.Windows.Forms.Label label13;
@@ -3102,23 +3164,22 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtIsAkisNo;
         private System.Windows.Forms.Button BtnBul;
-        private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label LblOnarimYeriKO;
+        private System.Windows.Forms.Label LblSeriNoKO;
+        private System.Windows.Forms.Label LblStokNoKO;
+        private System.Windows.Forms.Label LblTanimKO;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label LblIsKategorisiKO;
+        private System.Windows.Forms.Label LblGarantiDurumuKO;
+        private System.Windows.Forms.Label LblProjeKoduKO;
+        private System.Windows.Forms.Label LblUsBolgesiKO;
+        private System.Windows.Forms.Label LblAbfNoKO;
+        private System.Windows.Forms.Label LblHarcamaKoduKO;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.Label label26;
@@ -3126,177 +3187,196 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label28;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label LblDonemKO;
+        private System.Windows.Forms.Label LblKayitTarihiKO;
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label48;
-        private System.Windows.Forms.Label label50;
-        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label LblFirmaSorumlusuKO;
+        private System.Windows.Forms.Label LblAltYukFirmaKO;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label62;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox TTutar1;
+        private System.Windows.Forms.TextBox TTutar6;
+        private System.Windows.Forms.TextBox TTutar5;
+        private System.Windows.Forms.TextBox TTutar4;
+        private System.Windows.Forms.TextBox TTutar3;
+        private System.Windows.Forms.TextBox TTutar2;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Label label58;
-        private System.Windows.Forms.TextBox t1;
+        private System.Windows.Forms.TextBox BTutar1;
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.Label label55;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label57;
-        private System.Windows.Forms.TextBox t6;
-        private System.Windows.Forms.TextBox t5;
+        private System.Windows.Forms.TextBox BTutar6;
+        private System.Windows.Forms.TextBox BTutar5;
         private System.Windows.Forms.TextBox m1;
-        private System.Windows.Forms.TextBox t4;
+        private System.Windows.Forms.TextBox BTutar4;
         private System.Windows.Forms.TextBox m2;
-        private System.Windows.Forms.TextBox t3;
+        private System.Windows.Forms.TextBox BTutar3;
         private System.Windows.Forms.TextBox m3;
-        private System.Windows.Forms.TextBox t2;
+        private System.Windows.Forms.TextBox BTutar2;
         private System.Windows.Forms.TextBox m4;
         private System.Windows.Forms.TextBox m5;
         private System.Windows.Forms.TextBox m6;
-        private System.Windows.Forms.TextBox stn6;
-        private System.Windows.Forms.TextBox stn5;
+        private System.Windows.Forms.TextBox IsTanimi6;
+        private System.Windows.Forms.TextBox IsTanimi5;
         private System.Windows.Forms.ComboBox b1;
-        private System.Windows.Forms.TextBox stn4;
+        private System.Windows.Forms.TextBox IsTanimi4;
         private System.Windows.Forms.ComboBox b2;
-        private System.Windows.Forms.TextBox stn3;
+        private System.Windows.Forms.TextBox IsTanimi3;
         private System.Windows.Forms.ComboBox b3;
-        private System.Windows.Forms.TextBox stn2;
+        private System.Windows.Forms.TextBox IsTanimi2;
         private System.Windows.Forms.ComboBox b4;
-        private System.Windows.Forms.TextBox stn1;
+        private System.Windows.Forms.TextBox IsTanimi1;
         private System.Windows.Forms.ComboBox b5;
         private System.Windows.Forms.ComboBox b6;
         private System.Windows.Forms.Label label64;
-        private System.Windows.Forms.ComboBox comboBox6;
-        private System.Windows.Forms.ComboBox comboBox8;
-        private System.Windows.Forms.ComboBox comboBox11;
-        private System.Windows.Forms.ComboBox comboBox12;
-        private System.Windows.Forms.ComboBox comboBox13;
-        private System.Windows.Forms.ComboBox comboBox14;
+        private System.Windows.Forms.ComboBox Pb1;
+        private System.Windows.Forms.ComboBox Pb2;
+        private System.Windows.Forms.ComboBox Pb3;
+        private System.Windows.Forms.ComboBox Pb4;
+        private System.Windows.Forms.ComboBox Pb5;
+        private System.Windows.Forms.ComboBox Pb6;
         private System.Windows.Forms.Label TxtGenelTop;
         private System.Windows.Forms.Label label63;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker DtIsBitisTarihi;
         private System.Windows.Forms.Label label98;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DtIsBaslamaTarihi;
         private System.Windows.Forms.Label label97;
-        private System.Windows.Forms.RichTextBox richTextBox2;
+        private System.Windows.Forms.RichTextBox TxtYapilanIslemler;
         private System.Windows.Forms.Label label96;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button BtnKaydetKO;
         private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.Button BtnGuncelle;
+        private System.Windows.Forms.DateTimePicker DtIsBitisTarihiGun;
         private System.Windows.Forms.Label label105;
-        private System.Windows.Forms.DateTimePicker dateTimePicker4;
+        private System.Windows.Forms.DateTimePicker DtIsBaslamaTarihiGun;
         private System.Windows.Forms.Label label106;
-        private System.Windows.Forms.RichTextBox richTextBox4;
+        private System.Windows.Forms.RichTextBox TxtYapilanIslemlerGun;
         private System.Windows.Forms.Label label107;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.Label label88;
-        private System.Windows.Forms.ComboBox comboBox25;
-        private System.Windows.Forms.ComboBox comboBox26;
-        private System.Windows.Forms.ComboBox comboBox27;
-        private System.Windows.Forms.ComboBox comboBox28;
-        private System.Windows.Forms.ComboBox comboBox29;
-        private System.Windows.Forms.ComboBox comboBox30;
-        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.ComboBox PbGun1;
+        private System.Windows.Forms.ComboBox PbGun2;
+        private System.Windows.Forms.ComboBox PbGun3;
+        private System.Windows.Forms.ComboBox PbGun4;
+        private System.Windows.Forms.ComboBox PbGun5;
+        private System.Windows.Forms.ComboBox PbGun6;
+        private System.Windows.Forms.Label TxtGenelTopGun;
         private System.Windows.Forms.Label label90;
         private System.Windows.Forms.Label label91;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox TTutarGun1;
+        private System.Windows.Forms.TextBox TTutarGun6;
+        private System.Windows.Forms.TextBox TTutarGun5;
+        private System.Windows.Forms.TextBox TTutarGun4;
+        private System.Windows.Forms.TextBox TTutarGun3;
+        private System.Windows.Forms.TextBox TTutarGun2;
         private System.Windows.Forms.Label label92;
         private System.Windows.Forms.Label label93;
         private System.Windows.Forms.Label label94;
         private System.Windows.Forms.Label label95;
-        private System.Windows.Forms.TextBox textBox19;
+        private System.Windows.Forms.TextBox BTutarGun1;
         private System.Windows.Forms.Label label99;
         private System.Windows.Forms.Label label100;
         private System.Windows.Forms.Label label101;
         private System.Windows.Forms.Label label102;
         private System.Windows.Forms.Label label103;
         private System.Windows.Forms.Label label104;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.ComboBox comboBox31;
-        private System.Windows.Forms.TextBox textBox33;
-        private System.Windows.Forms.ComboBox comboBox32;
-        private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.ComboBox comboBox33;
-        private System.Windows.Forms.TextBox textBox35;
-        private System.Windows.Forms.ComboBox comboBox34;
-        private System.Windows.Forms.TextBox textBox36;
-        private System.Windows.Forms.ComboBox comboBox35;
-        private System.Windows.Forms.ComboBox comboBox36;
+        private System.Windows.Forms.TextBox BTutarGun6;
+        private System.Windows.Forms.TextBox BTutarGun5;
+        private System.Windows.Forms.TextBox mGun1;
+        private System.Windows.Forms.TextBox BTutarGun4;
+        private System.Windows.Forms.TextBox mGun2;
+        private System.Windows.Forms.TextBox BTutarGun3;
+        private System.Windows.Forms.TextBox mGun3;
+        private System.Windows.Forms.TextBox BTutarGun2;
+        private System.Windows.Forms.TextBox mGun4;
+        private System.Windows.Forms.TextBox mGun5;
+        private System.Windows.Forms.TextBox mGun6;
+        private System.Windows.Forms.TextBox IsTanimiGun6;
+        private System.Windows.Forms.TextBox IsTanimiGun5;
+        private System.Windows.Forms.ComboBox bGun1;
+        private System.Windows.Forms.TextBox IsTanimiGun4;
+        private System.Windows.Forms.ComboBox bGun2;
+        private System.Windows.Forms.TextBox IsTanimiGun3;
+        private System.Windows.Forms.ComboBox bGun3;
+        private System.Windows.Forms.TextBox IsTanimiGun2;
+        private System.Windows.Forms.ComboBox bGun4;
+        private System.Windows.Forms.TextBox IsTanimiGun1;
+        private System.Windows.Forms.ComboBox bGun5;
+        private System.Windows.Forms.ComboBox bGun6;
         private System.Windows.Forms.GroupBox groupBox6;
-        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label LblFirmaSorumlusuGun;
         private System.Windows.Forms.Label label67;
-        private System.Windows.Forms.ComboBox comboBox15;
+        private System.Windows.Forms.ComboBox CmbAltYukleniciFirmaGun;
         private System.Windows.Forms.Label label68;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.ComboBox comboBox16;
-        private System.Windows.Forms.Label label69;
-        private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.Label label71;
-        private System.Windows.Forms.Label label72;
-        private System.Windows.Forms.ComboBox comboBox17;
-        private System.Windows.Forms.Label label73;
         private System.Windows.Forms.GroupBox groupBox8;
-        private System.Windows.Forms.RichTextBox richTextBox3;
+        private System.Windows.Forms.RichTextBox TxtIsinTanimiGun;
         private System.Windows.Forms.Label label74;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.ComboBox comboBox18;
+        private System.Windows.Forms.ComboBox CmbIsKategorisiGun;
         private System.Windows.Forms.Label label75;
-        private System.Windows.Forms.ComboBox comboBox19;
+        private System.Windows.Forms.ComboBox CmbGarantiDurumuGun;
         private System.Windows.Forms.Label label76;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button7;
-        private System.Windows.Forms.ComboBox comboBox20;
-        private System.Windows.Forms.ComboBox comboBox21;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.ComboBox CmbBolgeAdiGun;
+        private System.Windows.Forms.ComboBox CmbProjeKoduGun;
+        private System.Windows.Forms.TextBox TxtAbfNoGun;
         private System.Windows.Forms.Label label77;
         private System.Windows.Forms.Label label78;
         private System.Windows.Forms.Label label79;
-        private System.Windows.Forms.ComboBox comboBox22;
+        private System.Windows.Forms.ComboBox CmbHarcamaKoduGun;
         private System.Windows.Forms.Label label80;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label label81;
-        private System.Windows.Forms.ComboBox comboBox23;
-        private System.Windows.Forms.ComboBox comboBox24;
+        private System.Windows.Forms.Label LblKayitTarihiGun;
+        private System.Windows.Forms.ComboBox CmbDonemYilGun;
+        private System.Windows.Forms.ComboBox CmbDonemAyGun;
         private System.Windows.Forms.Label label82;
-        private System.Windows.Forms.Label label83;
+        private System.Windows.Forms.Label LblAdSoyadGun;
         private System.Windows.Forms.Label label84;
-        private System.Windows.Forms.Label label85;
+        private System.Windows.Forms.Label LblIsAkisNoGun;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.Label label87;
-        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button BtnBulGun;
         private System.Windows.Forms.Label label65;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox TxtIsAkisNoGun;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
+        private System.Windows.Forms.Button BtnAltYukFirmaEkle;
+        private System.Windows.Forms.ComboBox CmbTanim;
+        private System.Windows.Forms.DateTimePicker DtgIsinVerildigiTarih;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button BtnTemizle;
+        private System.Windows.Forms.RichTextBox TxtIsinTanimiKO;
+        private System.Windows.Forms.ComboBox Pb7;
+        private System.Windows.Forms.TextBox TTutar7;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.TextBox BTutar7;
+        private System.Windows.Forms.TextBox m7;
+        private System.Windows.Forms.TextBox IsTanimi7;
+        private System.Windows.Forms.ComboBox b7;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.ComboBox CmbTanimGun;
+        private System.Windows.Forms.ComboBox CmbOnarimYeriGun;
+        private System.Windows.Forms.Label LblStokNoGun;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.TextBox TxtSeriNoGun;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.DateTimePicker DtgIsinVerildigiTarihGun;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox PbGun7;
+        private System.Windows.Forms.TextBox TTutarGun7;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.TextBox BTutarGun7;
+        private System.Windows.Forms.TextBox mGun7;
+        private System.Windows.Forms.TextBox IsTanimiGun7;
+        private System.Windows.Forms.ComboBox bGun7;
     }
 }

@@ -79,6 +79,8 @@
     <Compile Include="Concreate\BakimOnarim\ArizaKayitDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\DtfDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\DtfMaliyetDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDestekIsciliklDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloAracDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloDal.cs" />

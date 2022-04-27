@@ -52,6 +52,8 @@
     <Compile Include="Concreate\BakimOnarim\ArizaKayitManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\DtfMaliyetManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\DtfManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDesteIscilikManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloAracManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloManager.cs" />

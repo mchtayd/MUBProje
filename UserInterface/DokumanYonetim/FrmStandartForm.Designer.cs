@@ -30,7 +30,7 @@ namespace UserInterface.DokumanYonetim
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TxtDocumentName = new System.Windows.Forms.TextBox();
             this.TxtDocumentNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -54,7 +54,7 @@ namespace UserInterface.DokumanYonetim
             // 
             // TxtDocumentName
             // 
-            this.TxtDocumentName.Location = new System.Drawing.Point(150, 86);
+            this.TxtDocumentName.Location = new System.Drawing.Point(154, 66);
             this.TxtDocumentName.Name = "TxtDocumentName";
             this.TxtDocumentName.Size = new System.Drawing.Size(232, 20);
             this.TxtDocumentName.TabIndex = 12;
@@ -62,7 +62,7 @@ namespace UserInterface.DokumanYonetim
             // 
             // TxtDocumentNo
             // 
-            this.TxtDocumentNo.Location = new System.Drawing.Point(150, 61);
+            this.TxtDocumentNo.Location = new System.Drawing.Point(154, 41);
             this.TxtDocumentNo.Name = "TxtDocumentNo";
             this.TxtDocumentNo.Size = new System.Drawing.Size(232, 20);
             this.TxtDocumentNo.TabIndex = 11;
@@ -71,7 +71,7 @@ namespace UserInterface.DokumanYonetim
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(31, 90);
+            this.label2.Location = new System.Drawing.Point(35, 70);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 10;
@@ -80,7 +80,7 @@ namespace UserInterface.DokumanYonetim
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 65);
+            this.label1.Location = new System.Drawing.Point(22, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(112, 13);
             this.label1.TabIndex = 9;
@@ -89,7 +89,7 @@ namespace UserInterface.DokumanYonetim
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.webBrowser1);
-            this.groupBox2.Location = new System.Drawing.Point(12, 643);
+            this.groupBox2.Location = new System.Drawing.Point(6, 436);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(670, 98);
             this.groupBox2.TabIndex = 8;
@@ -108,9 +108,9 @@ namespace UserInterface.DokumanYonetim
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgDokumanListesi);
-            this.groupBox1.Location = new System.Drawing.Point(9, 134);
+            this.groupBox1.Location = new System.Drawing.Point(12, 92);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1524, 462);
+            this.groupBox1.Size = new System.Drawing.Size(1370, 294);
             this.groupBox1.TabIndex = 7;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "FORM LİSTESİ";
@@ -119,8 +119,8 @@ namespace UserInterface.DokumanYonetim
             // 
             this.DtgDokumanListesi.AllowUserToAddRows = false;
             this.DtgDokumanListesi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDokumanListesi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgDokumanListesi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgDokumanListesi.AutoGenerateContextFilters = true;
             this.DtgDokumanListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgDokumanListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -132,7 +132,7 @@ namespace UserInterface.DokumanYonetim
             this.DtgDokumanListesi.Name = "DtgDokumanListesi";
             this.DtgDokumanListesi.ReadOnly = true;
             this.DtgDokumanListesi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgDokumanListesi.Size = new System.Drawing.Size(1518, 443);
+            this.DtgDokumanListesi.Size = new System.Drawing.Size(1364, 275);
             this.DtgDokumanListesi.TabIndex = 3;
             this.DtgDokumanListesi.TimeFilter = false;
             this.DtgDokumanListesi.SortStringChanged += new System.EventHandler(this.DtgDokumanListesi_SortStringChanged_1);
@@ -146,7 +146,7 @@ namespace UserInterface.DokumanYonetim
             this.panel1.Controls.Add(this.button5);
             this.panel1.Location = new System.Drawing.Point(9, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1524, 27);
+            this.panel1.Size = new System.Drawing.Size(1373, 27);
             this.panel1.TabIndex = 45;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -168,7 +168,7 @@ namespace UserInterface.DokumanYonetim
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(183, 607);
+            this.TxtTop.Location = new System.Drawing.Point(177, 400);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(27, 20);
             this.TxtTop.TabIndex = 316;
@@ -178,7 +178,7 @@ namespace UserInterface.DokumanYonetim
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(17, 608);
+            this.label3.Location = new System.Drawing.Point(11, 401);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(164, 20);
             this.label3.TabIndex = 315;
@@ -193,7 +193,7 @@ namespace UserInterface.DokumanYonetim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.ClientSize = new System.Drawing.Size(1390, 800);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.panel1);
