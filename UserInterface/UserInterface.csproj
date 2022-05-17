@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>372</ApplicationRevision>
+    <ApplicationRevision>377</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -585,6 +585,12 @@
     </Compile>
     <Compile Include="IdariIsler\FrmAracTalep.Designer.cs">
       <DependentUpon>FrmAracTalep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTalepIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTalepIzleme.Designer.cs">
+      <DependentUpon>FrmAracTalepIzleme.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmAracZimmetiLogKayitlari.cs">
       <SubType>Form</SubType>
@@ -1295,6 +1301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracTalep.resx">
       <DependentUpon>FrmAracTalep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracTalepIzleme.resx">
+      <DependentUpon>FrmAracTalepIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracZimmetiLogKayitlari.resx">
       <DependentUpon>FrmAracZimmetiLogKayitlari.cs</DependentUpon>

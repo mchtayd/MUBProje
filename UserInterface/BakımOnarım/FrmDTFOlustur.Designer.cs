@@ -178,14 +178,31 @@ namespace UserInterface.BakımOnarım
             this.label19 = new System.Windows.Forms.Label();
             this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.CmbTanimGun = new System.Windows.Forms.ComboBox();
+            this.CmbOnarimYeriGun = new System.Windows.Forms.ComboBox();
+            this.LblStokNoGun = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.TxtSeriNoGun = new System.Windows.Forms.TextBox();
+            this.label23 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.DtIsBitisTarihiGun = new System.Windows.Forms.DateTimePicker();
             this.label105 = new System.Windows.Forms.Label();
             this.DtIsBaslamaTarihiGun = new System.Windows.Forms.DateTimePicker();
             this.label106 = new System.Windows.Forms.Label();
             this.TxtYapilanIslemlerGun = new System.Windows.Forms.RichTextBox();
+            this.TxtGenelTopGun = new System.Windows.Forms.Label();
             this.label107 = new System.Windows.Forms.Label();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.PbGun7 = new System.Windows.Forms.ComboBox();
+            this.TTutarGun7 = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.BTutarGun7 = new System.Windows.Forms.TextBox();
+            this.mGun7 = new System.Windows.Forms.TextBox();
+            this.IsTanimiGun7 = new System.Windows.Forms.TextBox();
+            this.bGun7 = new System.Windows.Forms.ComboBox();
             this.label88 = new System.Windows.Forms.Label();
             this.PbGun1 = new System.Windows.Forms.ComboBox();
             this.PbGun2 = new System.Windows.Forms.ComboBox();
@@ -193,9 +210,7 @@ namespace UserInterface.BakımOnarım
             this.PbGun4 = new System.Windows.Forms.ComboBox();
             this.PbGun5 = new System.Windows.Forms.ComboBox();
             this.PbGun6 = new System.Windows.Forms.ComboBox();
-            this.TxtGenelTopGun = new System.Windows.Forms.Label();
             this.label90 = new System.Windows.Forms.Label();
-            this.label91 = new System.Windows.Forms.Label();
             this.TTutarGun1 = new System.Windows.Forms.TextBox();
             this.TTutarGun6 = new System.Windows.Forms.TextBox();
             this.TTutarGun5 = new System.Windows.Forms.TextBox();
@@ -236,7 +251,10 @@ namespace UserInterface.BakımOnarım
             this.IsTanimiGun1 = new System.Windows.Forms.TextBox();
             this.bGun5 = new System.Windows.Forms.ComboBox();
             this.bGun6 = new System.Windows.Forms.ComboBox();
+            this.label91 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.DtgIsinVerildigiTarihGun = new System.Windows.Forms.DateTimePicker();
+            this.label15 = new System.Windows.Forms.Label();
             this.LblFirmaSorumlusuGun = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.CmbAltYukleniciFirmaGun = new System.Windows.Forms.ComboBox();
@@ -271,24 +289,6 @@ namespace UserInterface.BakımOnarım
             this.TxtIsAkisNoGun = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.CmbTanimGun = new System.Windows.Forms.ComboBox();
-            this.CmbOnarimYeriGun = new System.Windows.Forms.ComboBox();
-            this.LblStokNoGun = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.TxtSeriNoGun = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.DtgIsinVerildigiTarihGun = new System.Windows.Forms.DateTimePicker();
-            this.label15 = new System.Windows.Forms.Label();
-            this.PbGun7 = new System.Windows.Forms.ComboBox();
-            this.TTutarGun7 = new System.Windows.Forms.TextBox();
-            this.label33 = new System.Windows.Forms.Label();
-            this.BTutarGun7 = new System.Windows.Forms.TextBox();
-            this.mGun7 = new System.Windows.Forms.TextBox();
-            this.IsTanimiGun7 = new System.Windows.Forms.TextBox();
-            this.bGun7 = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -298,12 +298,12 @@ namespace UserInterface.BakımOnarım
             this.tabPage2.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox7.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.panel1.SuspendLayout();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -1922,6 +1922,99 @@ namespace UserInterface.BakımOnarım
             this.tabPage3.Text = "GÜNCELLE";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.CmbTanimGun);
+            this.groupBox7.Controls.Add(this.CmbOnarimYeriGun);
+            this.groupBox7.Controls.Add(this.LblStokNoGun);
+            this.groupBox7.Controls.Add(this.label20);
+            this.groupBox7.Controls.Add(this.TxtSeriNoGun);
+            this.groupBox7.Controls.Add(this.label23);
+            this.groupBox7.Controls.Add(this.label31);
+            this.groupBox7.Controls.Add(this.label32);
+            this.groupBox7.Location = new System.Drawing.Point(18, 329);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(364, 148);
+            this.groupBox7.TabIndex = 508;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "MALZEME BİLGİLERİ";
+            // 
+            // CmbTanimGun
+            // 
+            this.CmbTanimGun.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbTanimGun.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbTanimGun.FormattingEnabled = true;
+            this.CmbTanimGun.Location = new System.Drawing.Point(94, 30);
+            this.CmbTanimGun.Name = "CmbTanimGun";
+            this.CmbTanimGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbTanimGun.TabIndex = 501;
+            this.CmbTanimGun.SelectedIndexChanged += new System.EventHandler(this.CmbTanimGun_SelectedIndexChanged);
+            this.CmbTanimGun.TextChanged += new System.EventHandler(this.CmbTanimGun_TextChanged);
+            // 
+            // CmbOnarimYeriGun
+            // 
+            this.CmbOnarimYeriGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbOnarimYeriGun.FormattingEnabled = true;
+            this.CmbOnarimYeriGun.Items.AddRange(new object[] {
+            "YERİNDE ONARIM",
+            "FİRMADA ONARIM-İMALAT"});
+            this.CmbOnarimYeriGun.Location = new System.Drawing.Point(94, 109);
+            this.CmbOnarimYeriGun.Name = "CmbOnarimYeriGun";
+            this.CmbOnarimYeriGun.Size = new System.Drawing.Size(236, 21);
+            this.CmbOnarimYeriGun.TabIndex = 424;
+            // 
+            // LblStokNoGun
+            // 
+            this.LblStokNoGun.AutoSize = true;
+            this.LblStokNoGun.Location = new System.Drawing.Point(94, 61);
+            this.LblStokNoGun.Name = "LblStokNoGun";
+            this.LblStokNoGun.Size = new System.Drawing.Size(19, 13);
+            this.LblStokNoGun.TabIndex = 418;
+            this.LblStokNoGun.Text = "00";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(7, 116);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(81, 13);
+            this.label20.TabIndex = 422;
+            this.label20.Text = "ONARIM YERİ:";
+            // 
+            // TxtSeriNoGun
+            // 
+            this.TxtSeriNoGun.Location = new System.Drawing.Point(94, 83);
+            this.TxtSeriNoGun.Name = "TxtSeriNoGun";
+            this.TxtSeriNoGun.Size = new System.Drawing.Size(236, 20);
+            this.TxtSeriNoGun.TabIndex = 423;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(34, 86);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(54, 13);
+            this.label23.TabIndex = 422;
+            this.label23.Text = "SERİ NO:";
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(30, 61);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(58, 13);
+            this.label31.TabIndex = 418;
+            this.label31.Text = "STOK NO:";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(44, 33);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(44, 13);
+            this.label32.TabIndex = 115;
+            this.label32.Text = "TANIM:";
+            // 
             // BtnGuncelle
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -1975,6 +2068,16 @@ namespace UserInterface.BakımOnarım
             this.TxtYapilanIslemlerGun.Size = new System.Drawing.Size(669, 57);
             this.TxtYapilanIslemlerGun.TabIndex = 502;
             this.TxtYapilanIslemlerGun.Text = "";
+            // 
+            // TxtGenelTopGun
+            // 
+            this.TxtGenelTopGun.AutoSize = true;
+            this.TxtGenelTopGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtGenelTopGun.Location = new System.Drawing.Point(1080, 755);
+            this.TxtGenelTopGun.Name = "TxtGenelTopGun";
+            this.TxtGenelTopGun.Size = new System.Drawing.Size(15, 15);
+            this.TxtGenelTopGun.TabIndex = 503;
+            this.TxtGenelTopGun.Text = "0";
             // 
             // label107
             // 
@@ -2048,6 +2151,73 @@ namespace UserInterface.BakımOnarım
             this.groupBox10.TabIndex = 459;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "YAKLAŞIK MALİYET TABLOSU";
+            // 
+            // PbGun7
+            // 
+            this.PbGun7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.PbGun7.FormattingEnabled = true;
+            this.PbGun7.Items.AddRange(new object[] {
+            "TL",
+            "USD",
+            "EURO"});
+            this.PbGun7.Location = new System.Drawing.Point(829, 220);
+            this.PbGun7.Name = "PbGun7";
+            this.PbGun7.Size = new System.Drawing.Size(71, 21);
+            this.PbGun7.TabIndex = 517;
+            // 
+            // TTutarGun7
+            // 
+            this.TTutarGun7.Location = new System.Drawing.Point(1026, 220);
+            this.TTutarGun7.Name = "TTutarGun7";
+            this.TTutarGun7.Size = new System.Drawing.Size(142, 20);
+            this.TTutarGun7.TabIndex = 516;
+            this.TTutarGun7.TextChanged += new System.EventHandler(this.TTutarGun7_TextChanged);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label33.Location = new System.Drawing.Point(14, 223);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(19, 15);
+            this.label33.TabIndex = 511;
+            this.label33.Text = "7.";
+            // 
+            // BTutarGun7
+            // 
+            this.BTutarGun7.Location = new System.Drawing.Point(906, 220);
+            this.BTutarGun7.Name = "BTutarGun7";
+            this.BTutarGun7.Size = new System.Drawing.Size(113, 20);
+            this.BTutarGun7.TabIndex = 515;
+            this.BTutarGun7.TextChanged += new System.EventHandler(this.BTutarGun7_TextChanged);
+            // 
+            // mGun7
+            // 
+            this.mGun7.Location = new System.Drawing.Point(637, 220);
+            this.mGun7.Name = "mGun7";
+            this.mGun7.Size = new System.Drawing.Size(84, 20);
+            this.mGun7.TabIndex = 512;
+            this.mGun7.TextChanged += new System.EventHandler(this.mGun7_TextChanged);
+            // 
+            // IsTanimiGun7
+            // 
+            this.IsTanimiGun7.Location = new System.Drawing.Point(44, 220);
+            this.IsTanimiGun7.Name = "IsTanimiGun7";
+            this.IsTanimiGun7.Size = new System.Drawing.Size(587, 20);
+            this.IsTanimiGun7.TabIndex = 514;
+            // 
+            // bGun7
+            // 
+            this.bGun7.FormattingEnabled = true;
+            this.bGun7.Items.AddRange(new object[] {
+            "KG",
+            "ADET",
+            "METRE",
+            "LİTRE"});
+            this.bGun7.Location = new System.Drawing.Point(727, 220);
+            this.bGun7.Name = "bGun7";
+            this.bGun7.Size = new System.Drawing.Size(96, 21);
+            this.bGun7.TabIndex = 513;
             // 
             // label88
             // 
@@ -2137,16 +2307,6 @@ namespace UserInterface.BakımOnarım
             this.PbGun6.Size = new System.Drawing.Size(71, 21);
             this.PbGun6.TabIndex = 509;
             // 
-            // TxtGenelTopGun
-            // 
-            this.TxtGenelTopGun.AutoSize = true;
-            this.TxtGenelTopGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtGenelTopGun.Location = new System.Drawing.Point(1080, 755);
-            this.TxtGenelTopGun.Name = "TxtGenelTopGun";
-            this.TxtGenelTopGun.Size = new System.Drawing.Size(15, 15);
-            this.TxtGenelTopGun.TabIndex = 503;
-            this.TxtGenelTopGun.Text = "0";
-            // 
             // label90
             // 
             this.label90.AutoSize = true;
@@ -2156,16 +2316,6 @@ namespace UserInterface.BakımOnarım
             this.label90.Size = new System.Drawing.Size(110, 15);
             this.label90.TabIndex = 469;
             this.label90.Text = "TOPLAM TUTAR";
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label91.Location = new System.Drawing.Point(958, 755);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(116, 15);
-            this.label91.TabIndex = 502;
-            this.label91.Text = "GENEL TOPLAM:";
             // 
             // TTutarGun1
             // 
@@ -2261,6 +2411,7 @@ namespace UserInterface.BakımOnarım
             this.BTutarGun1.Name = "BTutarGun1";
             this.BTutarGun1.Size = new System.Drawing.Size(113, 20);
             this.BTutarGun1.TabIndex = 169;
+            this.BTutarGun1.TextChanged += new System.EventHandler(this.BTutarGun1_TextChanged);
             // 
             // label99
             // 
@@ -2328,6 +2479,7 @@ namespace UserInterface.BakımOnarım
             this.BTutarGun6.Name = "BTutarGun6";
             this.BTutarGun6.Size = new System.Drawing.Size(113, 20);
             this.BTutarGun6.TabIndex = 174;
+            this.BTutarGun6.TextChanged += new System.EventHandler(this.BTutarGun6_TextChanged);
             // 
             // BTutarGun5
             // 
@@ -2335,6 +2487,7 @@ namespace UserInterface.BakımOnarım
             this.BTutarGun5.Name = "BTutarGun5";
             this.BTutarGun5.Size = new System.Drawing.Size(113, 20);
             this.BTutarGun5.TabIndex = 173;
+            this.BTutarGun5.TextChanged += new System.EventHandler(this.BTutarGun5_TextChanged);
             // 
             // mGun1
             // 
@@ -2342,6 +2495,7 @@ namespace UserInterface.BakımOnarım
             this.mGun1.Name = "mGun1";
             this.mGun1.Size = new System.Drawing.Size(84, 20);
             this.mGun1.TabIndex = 151;
+            this.mGun1.TextChanged += new System.EventHandler(this.mGun1_TextChanged);
             // 
             // BTutarGun4
             // 
@@ -2349,6 +2503,7 @@ namespace UserInterface.BakımOnarım
             this.BTutarGun4.Name = "BTutarGun4";
             this.BTutarGun4.Size = new System.Drawing.Size(113, 20);
             this.BTutarGun4.TabIndex = 172;
+            this.BTutarGun4.TextChanged += new System.EventHandler(this.BTutarGun4_TextChanged);
             // 
             // mGun2
             // 
@@ -2356,6 +2511,7 @@ namespace UserInterface.BakımOnarım
             this.mGun2.Name = "mGun2";
             this.mGun2.Size = new System.Drawing.Size(84, 20);
             this.mGun2.TabIndex = 152;
+            this.mGun2.TextChanged += new System.EventHandler(this.mGun2_TextChanged);
             // 
             // BTutarGun3
             // 
@@ -2363,6 +2519,7 @@ namespace UserInterface.BakımOnarım
             this.BTutarGun3.Name = "BTutarGun3";
             this.BTutarGun3.Size = new System.Drawing.Size(113, 20);
             this.BTutarGun3.TabIndex = 171;
+            this.BTutarGun3.TextChanged += new System.EventHandler(this.BTutarGun3_TextChanged);
             // 
             // mGun3
             // 
@@ -2370,6 +2527,7 @@ namespace UserInterface.BakımOnarım
             this.mGun3.Name = "mGun3";
             this.mGun3.Size = new System.Drawing.Size(84, 20);
             this.mGun3.TabIndex = 153;
+            this.mGun3.TextChanged += new System.EventHandler(this.mGun3_TextChanged);
             // 
             // BTutarGun2
             // 
@@ -2377,6 +2535,7 @@ namespace UserInterface.BakımOnarım
             this.BTutarGun2.Name = "BTutarGun2";
             this.BTutarGun2.Size = new System.Drawing.Size(113, 20);
             this.BTutarGun2.TabIndex = 170;
+            this.BTutarGun2.TextChanged += new System.EventHandler(this.BTutarGun2_TextChanged);
             // 
             // mGun4
             // 
@@ -2384,6 +2543,7 @@ namespace UserInterface.BakımOnarım
             this.mGun4.Name = "mGun4";
             this.mGun4.Size = new System.Drawing.Size(84, 20);
             this.mGun4.TabIndex = 154;
+            this.mGun4.TextChanged += new System.EventHandler(this.mGun4_TextChanged);
             // 
             // mGun5
             // 
@@ -2391,6 +2551,7 @@ namespace UserInterface.BakımOnarım
             this.mGun5.Name = "mGun5";
             this.mGun5.Size = new System.Drawing.Size(84, 20);
             this.mGun5.TabIndex = 155;
+            this.mGun5.TextChanged += new System.EventHandler(this.mGun5_TextChanged);
             // 
             // mGun6
             // 
@@ -2398,6 +2559,7 @@ namespace UserInterface.BakımOnarım
             this.mGun6.Name = "mGun6";
             this.mGun6.Size = new System.Drawing.Size(84, 20);
             this.mGun6.TabIndex = 156;
+            this.mGun6.TextChanged += new System.EventHandler(this.mGun6_TextChanged);
             // 
             // IsTanimiGun6
             // 
@@ -2519,6 +2681,16 @@ namespace UserInterface.BakımOnarım
             this.bGun6.Size = new System.Drawing.Size(96, 21);
             this.bGun6.TabIndex = 162;
             // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label91.Location = new System.Drawing.Point(958, 755);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(116, 15);
+            this.label91.TabIndex = 502;
+            this.label91.Text = "GENEL TOPLAM:";
+            // 
             // groupBox6
             // 
             this.groupBox6.Controls.Add(this.DtgIsinVerildigiTarihGun);
@@ -2533,6 +2705,23 @@ namespace UserInterface.BakımOnarım
             this.groupBox6.TabIndex = 450;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "FİRMA BİLGİLERİ";
+            // 
+            // DtgIsinVerildigiTarihGun
+            // 
+            this.DtgIsinVerildigiTarihGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgIsinVerildigiTarihGun.Location = new System.Drawing.Point(157, 86);
+            this.DtgIsinVerildigiTarihGun.Name = "DtgIsinVerildigiTarihGun";
+            this.DtgIsinVerildigiTarihGun.Size = new System.Drawing.Size(102, 20);
+            this.DtgIsinVerildigiTarihGun.TabIndex = 501;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(28, 90);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(123, 13);
+            this.label15.TabIndex = 500;
+            this.label15.Text = "İŞİN VERİLDİĞİ TARİH:";
             // 
             // LblFirmaSorumlusuGun
             // 
@@ -2707,8 +2896,8 @@ namespace UserInterface.BakımOnarım
             this.CmbHarcamaKoduGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbHarcamaKoduGun.FormattingEnabled = true;
             this.CmbHarcamaKoduGun.Items.AddRange(new object[] {
-            "BM07 BAKIM ONARIM",
-            "BM14 EKSTRA"});
+            "BM07/BAKIM ONARIM",
+            "BM14/EKSTRA ALIMLAR"});
             this.CmbHarcamaKoduGun.Location = new System.Drawing.Point(157, 26);
             this.CmbHarcamaKoduGun.Name = "CmbHarcamaKoduGun";
             this.CmbHarcamaKoduGun.Size = new System.Drawing.Size(236, 21);
@@ -2901,181 +3090,6 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.CmbTanimGun);
-            this.groupBox7.Controls.Add(this.CmbOnarimYeriGun);
-            this.groupBox7.Controls.Add(this.LblStokNoGun);
-            this.groupBox7.Controls.Add(this.label20);
-            this.groupBox7.Controls.Add(this.TxtSeriNoGun);
-            this.groupBox7.Controls.Add(this.label23);
-            this.groupBox7.Controls.Add(this.label31);
-            this.groupBox7.Controls.Add(this.label32);
-            this.groupBox7.Location = new System.Drawing.Point(18, 329);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(364, 148);
-            this.groupBox7.TabIndex = 508;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "MALZEME BİLGİLERİ";
-            // 
-            // CmbTanimGun
-            // 
-            this.CmbTanimGun.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CmbTanimGun.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbTanimGun.FormattingEnabled = true;
-            this.CmbTanimGun.Location = new System.Drawing.Point(94, 30);
-            this.CmbTanimGun.Name = "CmbTanimGun";
-            this.CmbTanimGun.Size = new System.Drawing.Size(236, 21);
-            this.CmbTanimGun.TabIndex = 501;
-            this.CmbTanimGun.SelectedIndexChanged += new System.EventHandler(this.CmbTanimGun_SelectedIndexChanged);
-            this.CmbTanimGun.TextChanged += new System.EventHandler(this.CmbTanimGun_TextChanged);
-            // 
-            // CmbOnarimYeriGun
-            // 
-            this.CmbOnarimYeriGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbOnarimYeriGun.FormattingEnabled = true;
-            this.CmbOnarimYeriGun.Items.AddRange(new object[] {
-            "YERİNDE ONARIM",
-            "FİRMADA ONARIM-İMALAT"});
-            this.CmbOnarimYeriGun.Location = new System.Drawing.Point(94, 109);
-            this.CmbOnarimYeriGun.Name = "CmbOnarimYeriGun";
-            this.CmbOnarimYeriGun.Size = new System.Drawing.Size(236, 21);
-            this.CmbOnarimYeriGun.TabIndex = 424;
-            // 
-            // LblStokNoGun
-            // 
-            this.LblStokNoGun.AutoSize = true;
-            this.LblStokNoGun.Location = new System.Drawing.Point(94, 61);
-            this.LblStokNoGun.Name = "LblStokNoGun";
-            this.LblStokNoGun.Size = new System.Drawing.Size(19, 13);
-            this.LblStokNoGun.TabIndex = 418;
-            this.LblStokNoGun.Text = "00";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(7, 116);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(81, 13);
-            this.label20.TabIndex = 422;
-            this.label20.Text = "ONARIM YERİ:";
-            // 
-            // TxtSeriNoGun
-            // 
-            this.TxtSeriNoGun.Location = new System.Drawing.Point(94, 83);
-            this.TxtSeriNoGun.Name = "TxtSeriNoGun";
-            this.TxtSeriNoGun.Size = new System.Drawing.Size(236, 20);
-            this.TxtSeriNoGun.TabIndex = 423;
-            // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(34, 86);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(54, 13);
-            this.label23.TabIndex = 422;
-            this.label23.Text = "SERİ NO:";
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(30, 61);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(58, 13);
-            this.label31.TabIndex = 418;
-            this.label31.Text = "STOK NO:";
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Location = new System.Drawing.Point(44, 33);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(44, 13);
-            this.label32.TabIndex = 115;
-            this.label32.Text = "TANIM:";
-            // 
-            // DtgIsinVerildigiTarihGun
-            // 
-            this.DtgIsinVerildigiTarihGun.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtgIsinVerildigiTarihGun.Location = new System.Drawing.Point(157, 86);
-            this.DtgIsinVerildigiTarihGun.Name = "DtgIsinVerildigiTarihGun";
-            this.DtgIsinVerildigiTarihGun.Size = new System.Drawing.Size(102, 20);
-            this.DtgIsinVerildigiTarihGun.TabIndex = 501;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(28, 90);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(123, 13);
-            this.label15.TabIndex = 500;
-            this.label15.Text = "İŞİN VERİLDİĞİ TARİH:";
-            // 
-            // PbGun7
-            // 
-            this.PbGun7.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.PbGun7.FormattingEnabled = true;
-            this.PbGun7.Items.AddRange(new object[] {
-            "TL",
-            "USD",
-            "EURO"});
-            this.PbGun7.Location = new System.Drawing.Point(829, 220);
-            this.PbGun7.Name = "PbGun7";
-            this.PbGun7.Size = new System.Drawing.Size(71, 21);
-            this.PbGun7.TabIndex = 517;
-            // 
-            // TTutarGun7
-            // 
-            this.TTutarGun7.Location = new System.Drawing.Point(1026, 220);
-            this.TTutarGun7.Name = "TTutarGun7";
-            this.TTutarGun7.Size = new System.Drawing.Size(142, 20);
-            this.TTutarGun7.TabIndex = 516;
-            this.TTutarGun7.TextChanged += new System.EventHandler(this.TTutarGun7_TextChanged);
-            // 
-            // label33
-            // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label33.Location = new System.Drawing.Point(14, 223);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(19, 15);
-            this.label33.TabIndex = 511;
-            this.label33.Text = "7.";
-            // 
-            // BTutarGun7
-            // 
-            this.BTutarGun7.Location = new System.Drawing.Point(906, 220);
-            this.BTutarGun7.Name = "BTutarGun7";
-            this.BTutarGun7.Size = new System.Drawing.Size(113, 20);
-            this.BTutarGun7.TabIndex = 515;
-            // 
-            // mGun7
-            // 
-            this.mGun7.Location = new System.Drawing.Point(637, 220);
-            this.mGun7.Name = "mGun7";
-            this.mGun7.Size = new System.Drawing.Size(84, 20);
-            this.mGun7.TabIndex = 512;
-            // 
-            // IsTanimiGun7
-            // 
-            this.IsTanimiGun7.Location = new System.Drawing.Point(44, 220);
-            this.IsTanimiGun7.Name = "IsTanimiGun7";
-            this.IsTanimiGun7.Size = new System.Drawing.Size(587, 20);
-            this.IsTanimiGun7.TabIndex = 514;
-            // 
-            // bGun7
-            // 
-            this.bGun7.FormattingEnabled = true;
-            this.bGun7.Items.AddRange(new object[] {
-            "KG",
-            "ADET",
-            "METRE",
-            "LİTRE"});
-            this.bGun7.Location = new System.Drawing.Point(727, 220);
-            this.bGun7.Name = "bGun7";
-            this.bGun7.Size = new System.Drawing.Size(96, 21);
-            this.bGun7.TabIndex = 513;
-            // 
             // FrmDTFOlustur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3102,6 +3116,8 @@ namespace UserInterface.BakımOnarım
             this.groupBox5.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.groupBox7.PerformLayout();
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -3111,8 +3127,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox9.ResumeLayout(false);
             this.groupBox9.PerformLayout();
             this.panel1.ResumeLayout(false);
-            this.groupBox7.ResumeLayout(false);
-            this.groupBox7.PerformLayout();
             this.ResumeLayout(false);
 
         }

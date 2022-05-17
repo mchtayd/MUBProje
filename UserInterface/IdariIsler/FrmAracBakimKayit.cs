@@ -654,13 +654,15 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            SatDataGridview1 dataGridview1 = new SatDataGridview1(satNo, butcekodu, "BSRN GN.MDL.SATIN ALMA", "HAVALE/EFT", "ASELSAN AŞ. UGES ÜRÜN DES.MDL.", "ERKAN İPEK", "2017007-1", siparisNo, 0, dosya, "SAT ONAY");
+
+            SatDataGridview1 dataGridview1 = new SatDataGridview1(satNo, butcekodu, "BSRN GN.MDL.SATIN ALMA", "HAVALE/EFT", "BAŞARAN İLERİ TEKNOLOJİ", "RESUL GÜNEŞ", "2017000-1", siparisNo, 0, dosya, "SAT ONAY");
             mesaj = satDataGridview1Manager.Update(dataGridview1);
             if (mesaj !=" SAT Ön Onay İşlemi Başarıyla Tamamlandı.")
             {
                 MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+
             satDataGridview1Manager.TeklifDurum(siparisNo);
             satDataGridview1Manager.DurumGuncelleOnay(siparisNo);
             string yapilanislem = TxtIsAkisNo.Text + " Nolu Araç Bakım Kayıt İçin SAT Oluşturuldu.";

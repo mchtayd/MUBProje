@@ -770,8 +770,8 @@ namespace UserInterface.BakımOnarım
             TxtAbfNoGun.Text = dtf.AbfNo;
             CmbBolgeAdiGun.Text = dtf.UsBolgesi;
             CmbProjeKoduGun.Text = dtf.ProjeKodu;
-            CmbGarantiDurumuGun.Text = dtf.ProjeKodu;
-            CmbIsKategorisiGun.Text = dtf.GarantiDurumu;
+            CmbGarantiDurumuGun.Text = dtf.GarantiDurumu;
+            CmbIsKategorisiGun.Text = dtf.IsKategorisi;
             CmbTanimGun.Text = dtf.Tanim;
             LblStokNoGun.Text = dtf.StokNo;
             TxtSeriNoGun.Text = dtf.SeriNo;
@@ -828,13 +828,20 @@ namespace UserInterface.BakımOnarım
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Bilgileri güncellemek istiyor musunuz?", "Soru", MessageBoxButtons.OK, MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Bilgileri güncellemek istiyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
+               string mesaj = MaliyetKontrolGuncelle();
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                TaslakKopyala();
                 string donem = CmbDonemAyGun.Text + " " + CmbDonemYilGun.Text;
                 Dtf dtf = new Dtf(idGun, LblIsAkisNoGun.Text.ConInt(), LblAdSoyadGun.Text, LblKayitTarihiGun.Text.ConDate(), donem, CmbHarcamaKoduGun.Text, TxtAbfNoGun.Text, CmbBolgeAdiGun.Text, CmbProjeKoduGun.Text, CmbGarantiDurumuGun.Text, CmbIsKategorisiGun.Text, TxtIsinTanimiGun.Text, LblStokNoGun.Text, CmbTanimGun.Text, TxtSeriNoGun.Text, CmbOnarimYeriGun.Text, CmbAltYukleniciFirmaGun.Text, LblFirmaSorumlusuGun.Text, DtgIsinVerildigiTarihGun.Value, DtIsBaslamaTarihiGun.Value, DtIsBitisTarihiGun.Value, TxtYapilanIslemlerGun.Text, dosyaYolu);
 
-                string mesaj = dtfManager.Update(dtf);
+                mesaj = dtfManager.Update(dtf);
 
                 if (mesaj!="OK")
                 {
@@ -848,11 +855,20 @@ namespace UserInterface.BakımOnarım
                 TemizleGuncelle();
             }
         }
+        
         void TemizleGuncelle()
         {
             LblIsAkisNoGun.Text = "00"; LblAdSoyadGun.Text = "00"; LblKayitTarihiGun.Text = "00"; CmbDonemAyGun.SelectedIndex = -1; CmbDonemYilGun.SelectedIndex = -1;
             CmbHarcamaKoduGun.SelectedIndex=-1; TxtAbfNoGun.Clear(); CmbBolgeAdiGun.SelectedIndex = -1; CmbProjeKoduGun.SelectedIndex = -1;
-            CmbGarantiDurumuGun.SelectedIndex = -1; CmbIsKategorisiGun.SelectedIndex = -1; TxtIsinTanimiGun.Clear(); CmbTanimGun.Text = "";
+            CmbGarantiDurumuGun.SelectedIndex = -1; CmbIsKategorisiGun.SelectedIndex = -1; TxtIsinTanimiGun.Clear(); CmbTanimGun.Text = ""; LblStokNoGun.Text = "00";
+            TxtSeriNoGun.Clear(); CmbOnarimYeriGun.SelectedIndex = -1; CmbAltYukleniciFirmaGun.SelectedIndex = -1; LblFirmaSorumlusuGun.Text = "00";
+            TxtYapilanIslemlerGun.Clear(); IsTanimiGun1.Clear(); IsTanimiGun2.Clear(); IsTanimiGun3.Clear(); IsTanimiGun4.Clear(); IsTanimiGun5.Clear();
+            IsTanimiGun6.Clear(); IsTanimiGun7.Clear(); mGun1.Clear(); mGun2.Clear(); mGun3.Clear(); mGun4.Clear(); mGun5.Clear(); mGun6.Clear(); mGun7.Clear();
+            bGun1.Text = ""; bGun2.Text = ""; bGun3.Text = ""; bGun4.Text = ""; bGun5.Text = ""; bGun6.Text = ""; bGun7.Text = ""; PbGun1.SelectedIndex = -1;
+            PbGun2.SelectedIndex = -1; PbGun3.SelectedIndex = -1; PbGun4.SelectedIndex = -1; PbGun5.SelectedIndex = -1; PbGun6.SelectedIndex = -1;
+            PbGun7.SelectedIndex = -1; BTutarGun1.Clear(); BTutarGun2.Clear(); BTutarGun3.Clear(); BTutarGun4.Clear(); BTutarGun5.Clear(); BTutarGun6.Clear();
+            BTutarGun7.Clear(); TTutarGun1.Clear(); TTutarGun2.Clear(); TTutarGun3.Clear(); TTutarGun4.Clear(); TTutarGun5.Clear(); TTutarGun6.Clear();
+            TTutarGun7.Clear();
         }
 
         void YaklasikMaliyetKayitGuncelle()
@@ -907,7 +923,7 @@ namespace UserInterface.BakımOnarım
         {
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
-            object filePath = dosyaYolu + isAkisNo + ".docx";
+            object filePath = taslakYolu;
 
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false);
             wDoc.Activate();
@@ -948,7 +964,7 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["BT1"].Range.Text = BTutarGun1.Text;
                 wBookmarks["TT1"].Range.Text = TTutarGun1.Text;
             }
-            if (IsTanimi2.Text != "")
+            if (IsTanimiGun2.Text != "")
             {
                 wBookmarks["S2"].Range.Text = "2";
                 wBookmarks["IsTanim2"].Range.Text = IsTanimiGun2.Text;
@@ -957,7 +973,7 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["BT2"].Range.Text = BTutarGun2.Text;
                 wBookmarks["TT2"].Range.Text = TTutarGun2.Text;
             }
-            if (IsTanimi3.Text != "")
+            if (IsTanimiGun3.Text != "")
             {
                 wBookmarks["S3"].Range.Text = "3";
                 wBookmarks["IsTanim3"].Range.Text = IsTanimiGun3.Text;
@@ -966,7 +982,7 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["BT3"].Range.Text = BTutarGun3.Text;
                 wBookmarks["TT3"].Range.Text = TTutarGun3.Text;
             }
-            if (IsTanimi4.Text != "")
+            if (IsTanimiGun4.Text != "")
             {
                 wBookmarks["S4"].Range.Text = "4";
                 wBookmarks["IsTanim4"].Range.Text = IsTanimiGun4.Text;
@@ -975,7 +991,7 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["BT4"].Range.Text = BTutarGun4.Text;
                 wBookmarks["TT4"].Range.Text = TTutarGun4.Text;
             }
-            if (IsTanimi5.Text != "")
+            if (IsTanimiGun5.Text != "")
             {
                 wBookmarks["S5"].Range.Text = "5";
                 wBookmarks["IsTanim5"].Range.Text = IsTanimiGun5.Text;
@@ -984,7 +1000,7 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["BT5"].Range.Text = BTutarGun5.Text;
                 wBookmarks["TT5"].Range.Text = TTutarGun5.Text;
             }
-            if (IsTanimi6.Text != "")
+            if (IsTanimiGun6.Text != "")
             {
                 wBookmarks["S6"].Range.Text = "6";
                 wBookmarks["IsTanim6"].Range.Text = IsTanimiGun6.Text;
@@ -993,7 +1009,7 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["BT6"].Range.Text = BTutarGun6.Text;
                 wBookmarks["TT6"].Range.Text = TTutarGun6.Text;
             }
-            if (IsTanimi7.Text != "")
+            if (IsTanimiGun7.Text != "")
             {
                 wBookmarks["S7"].Range.Text = "7";
                 wBookmarks["IsTanim7"].Range.Text = IsTanimiGun7.Text;
@@ -1008,9 +1024,19 @@ namespace UserInterface.BakımOnarım
             wBookmarks["IsBitisTarihi"].Range.Text = DtIsBitisTarihiGun.Value.ToString("dd.MM.yyyy");
             wBookmarks["YapilanIslemler"].Range.Text = TxtYapilanIslemlerGun.Text;
 
-            wDoc.SaveAs2(dosyaYolu + LblIsAkisNoGun.Text + "_" + DateTime.Now.ToString("dd")+ "Up" + ".docx");
+            wDoc.SaveAs2(dosyaYolu + LblIsAkisNoGun.Text + "_" + DateTime.Now.ToString("ss")+ "Up" + ".docx");
             wDoc.Close();
             wApp.Quit(false);
+
+            try
+            {
+                Directory.Delete(yol, true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                File.Delete(taslakYolu);
+            }
 
         }
         private void TTutarGun1_TextChanged(object sender, EventArgs e)
@@ -1171,6 +1197,76 @@ namespace UserInterface.BakımOnarım
                 BTutarGun7.Text = dtfMaliyets[6].BirimTutar.ToString();
                 TTutarGun7.Text = dtfMaliyets[6].ToplamTutar.ToString();
             }
+        }
+
+        private void BTutarGun1_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun1.Text = TopFiyatHesapla(BTutarGun1.Text, mGun1.Text);
+        }
+
+        private void BTutarGun2_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun2.Text = TopFiyatHesapla(BTutarGun2.Text, mGun2.Text);
+        }
+
+        private void BTutarGun3_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun3.Text = TopFiyatHesapla(BTutarGun3.Text, mGun3.Text);
+        }
+
+        private void BTutarGun4_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun4.Text = TopFiyatHesapla(BTutarGun4.Text, mGun4.Text);
+        }
+
+        private void BTutarGun5_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun5.Text = TopFiyatHesapla(BTutarGun5.Text, mGun5.Text);
+        }
+
+        private void BTutarGun6_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun6.Text = TopFiyatHesapla(BTutarGun6.Text, mGun6.Text);
+        }
+
+        private void BTutarGun7_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun7.Text = TopFiyatHesapla(BTutarGun7.Text, mGun7.Text);
+        }
+
+        private void mGun1_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun1.Text = TopFiyatHesapla(BTutarGun1.Text, mGun1.Text);
+        }
+
+        private void mGun2_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun2.Text = TopFiyatHesapla(BTutarGun2.Text, mGun2.Text);
+        }
+
+        private void mGun3_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun3.Text = TopFiyatHesapla(BTutarGun3.Text, mGun3.Text);
+        }
+
+        private void mGun4_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun4.Text = TopFiyatHesapla(BTutarGun4.Text, mGun4.Text);
+        }
+
+        private void mGun5_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun5.Text = TopFiyatHesapla(BTutarGun5.Text, mGun5.Text);
+        }
+
+        private void mGun6_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun6.Text = TopFiyatHesapla(BTutarGun6.Text, mGun6.Text);
+        }
+
+        private void mGun7_TextChanged(object sender, EventArgs e)
+        {
+            BTutarGun7.Text = TopFiyatHesapla(BTutarGun7.Text, mGun7.Text);
         }
 
         private void TTutar5_KeyPress(object sender, KeyPressEventArgs e)
@@ -1494,6 +1590,125 @@ namespace UserInterface.BakımOnarım
                 return "Lütfen Yapılan İşlemler bilgisini doldurunuz!";
             }
             
+            return "OK";
+        }
+        string MaliyetKontrolGuncelle()
+        {
+            if (LblKayitTarihiGun.Text == "00")
+            {
+                return "Lütfen Geçerli Bir İş Akış No Yazarak Bul Butonuna basınız!";
+            }
+            if (IsTanimiGun1.Text == "")
+            {
+                return "Lütfen en az bir tane Yaklaşık Maliyet Bilgisini eksiksiz doldurunuz!";
+            }
+            if (mGun1.Text == "")
+            {
+                return "Lütfen en az bir tane Yaklaşık Maliyet Bilgisini eksiksiz doldurunuz!";
+            }
+            if (bGun1.Text == "")
+            {
+                return "Lütfen en az bir tane Yaklaşık Maliyet Bilgisini eksiksiz doldurunuz!";
+            }
+            if (PbGun1.Text == "")
+            {
+                return "Lütfen en az bir tane Yaklaşık Maliyet Bilgisini eksiksiz doldurunuz!";
+            }
+            if (BTutarGun1.Text == "")
+            {
+                return "Lütfen en az bir tane Yaklaşık Maliyet Bilgisini eksiksiz doldurunuz!";
+            }
+            if (IsTanimiGun2.Text != "" || mGun2.Text != "")
+            {
+                if (mGun2.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 2. verinin Miktar bilgisini doldurunuz!";
+                }
+                if (PbGun2.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 2. verinin Para Birimi bilgisini doldurunuz!";
+                }
+                if (BTutarGun2.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 2. verinin Birim Tutar bilgisini doldurunuz!";
+                }
+            }
+            if (IsTanimiGun3.Text != "" || mGun3.Text != "")
+            {
+                if (mGun3.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 3. verinin Miktar bilgisini doldurunuz!";
+                }
+                if (PbGun3.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 3. verinin Para Birimi bilgisini doldurunuz!";
+                }
+                if (BTutarGun3.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 3. verinin Birim Tutar bilgisini doldurunuz!";
+                }
+            }
+            if (IsTanimiGun4.Text != "" || mGun4.Text != "")
+            {
+                if (mGun4.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 4. verinin Miktar bilgisini doldurunuz!";
+                }
+                if (PbGun4.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 4. verinin Para Birimi bilgisini doldurunuz!";
+                }
+                if (BTutarGun4.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 4. verinin Birim Tutar bilgisini doldurunuz!";
+                }
+            }
+            if (IsTanimiGun5.Text != "" || mGun5.Text != "")
+            {
+                if (mGun5.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 5. verinin Miktar bilgisini doldurunuz!";
+                }
+                if (PbGun5.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 5. verinin Para Birimi bilgisini doldurunuz!";
+                }
+                if (BTutarGun5.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 5. verinin Birim Tutar bilgisini doldurunuz!";
+                }
+            }
+            if (IsTanimiGun6.Text != "" || mGun6.Text != "")
+            {
+                if (mGun6.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 6. verinin Miktar bilgisini doldurunuz!";
+                }
+                if (PbGun6.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 6. verinin Para Birimi bilgisini doldurunuz!";
+                }
+                if (BTutarGun6.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 6. verinin Birim Tutar bilgisini doldurunuz!";
+                }
+            }
+            if (IsTanimiGun7.Text != "" || mGun7.Text != "")
+            {
+                if (mGun7.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 7. verinin Miktar bilgisini doldurunuz!";
+                }
+                if (PbGun7.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 7. verinin Para Birimi bilgisini doldurunuz!";
+                }
+                if (BTutarGun7.Text == "")
+                {
+                    return "Lütfen Yaklaşık Maliyet Tablosunda ki 7. verinin Birim Tutar bilgisini doldurunuz!";
+                }
+            }
+
             return "OK";
         }
 

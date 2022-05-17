@@ -637,11 +637,11 @@ namespace UserInterface.BakımOnarım
 
             if (CmbIslemAdimi.Text == "800-MALZEME HAZIRLAMA (AMBAR)")
             {
-                if (LblMevcutIslemAdimi.Text != "600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS)")
-                {
-                    MessageBox.Show("Lütfen 800-MALZEME HAZIRLAMA (AMBAR) İşlem Adımına Görev Ataması Yapmadan Önce 600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS) adımını Uygulayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (LblMevcutIslemAdimi.Text == "600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS)")
+                //{
+                //    MessageBox.Show("Lütfen 800-MALZEME HAZIRLAMA (AMBAR) İşlem Adımına Görev Ataması Yapmadan Önce 600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS) adımını Uygulayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
             }
 
             if (mesaj == "OK")

@@ -55,7 +55,7 @@ namespace Entity.IdariIsler
             this.dosyaYolu = dosyaYolu;
         }
 
-        public AracTalep(string gorevEmriNo, string butceKoduTanimi, string aracTalepNedeni, string gidilecekYer, DateTime baslamaTarihiSaati, DateTime bitisTarihiSaati, string toplamSure, string personelAd, string personelSiparis, string unvani, string personelMasYeriNo, string personelMasYeri, string masrafYeriSorumlusu, string plaka, string aracSiparis, int cikisKm, int donusKm, string aracZimmetliPersonel, string dosyaYolu)
+        public AracTalep(string gorevEmriNo, string butceKoduTanimi, string aracTalepNedeni, string gidilecekYer, DateTime baslamaTarihiSaati, DateTime bitisTarihiSaati, string toplamSure, string personelAd, string personelSiparis, string unvani, string personelMasYeriNo, string personelMasYeri, string masrafYeriSorumlusu, string plaka, string aracSiparis, int cikisKm, string aracZimmetliPersonel, string dosyaYolu)
         {
             this.gorevEmriNo = gorevEmriNo;
             this.butceKoduTanimi = butceKoduTanimi;

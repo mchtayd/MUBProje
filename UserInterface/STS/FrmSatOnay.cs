@@ -2371,16 +2371,6 @@ namespace UserInterface.STS
             }
         }
 
-        private void tabControl1_DrawItem(object sender, DrawItemEventArgs e)
-        {
-            
-        }
-
-        private void DtgOnay_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
         private void bb3_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;

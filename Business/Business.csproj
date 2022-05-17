@@ -90,6 +90,7 @@
     <Compile Include="Concreate\IdarıIsler\AracBakimManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracKmManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\AracTalepManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracZimmetiLogManager.cs" />
     <Compile Include="Concreate\IdarıIsler\AracZimmetiManager.cs" />
     <Compile Include="Concreate\IdarıIsler\ArsivTutanakManager.cs" />

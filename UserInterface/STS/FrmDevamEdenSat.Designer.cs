@@ -152,7 +152,6 @@ namespace UserInterface.STS
             this.DtgDevamEden.DateWithTime = false;
             this.DtgDevamEden.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgDevamEden.Location = new System.Drawing.Point(3, 16);
-            this.DtgDevamEden.MultiSelect = false;
             this.DtgDevamEden.Name = "DtgDevamEden";
             this.DtgDevamEden.ReadOnly = true;
             this.DtgDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -926,19 +925,19 @@ namespace UserInterface.STS
             this.yenileToolStripMenuItem,
             this.güncelleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
             // 
             // yenileToolStripMenuItem
             // 
             this.yenileToolStripMenuItem.Name = "yenileToolStripMenuItem";
-            this.yenileToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.yenileToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
             // güncelleToolStripMenuItem
             // 
             this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
-            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.güncelleToolStripMenuItem.Text = "Güncelle";
             this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
             // 

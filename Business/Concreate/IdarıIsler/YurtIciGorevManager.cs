@@ -60,6 +60,18 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
+        public YurtIciGorev AracTalepGet(string gorevEmriNo)
+        {
+            try
+            {
+                return yurtIciGorevDal.AracTalepGet(gorevEmriNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public List<YurtIciGorev> GetList(string durum)
         {
             try
