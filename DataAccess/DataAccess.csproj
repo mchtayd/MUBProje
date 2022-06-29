@@ -71,6 +71,7 @@
     <Compile Include="Abstract\SqlServices.cs" />
     <Compile Include="AmbarVeriDal.cs" />
     <Compile Include="ComboDal.cs" />
+    <Compile Include="Concreate\AnaSayfa\MenuDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeDal.cs" />
@@ -192,6 +193,7 @@
     <Compile Include="PersonelIslemleriDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concreate\STS\SatinAlinacakMalDal.cs" />
+    <Compile Include="Rapor\ArizaRaporDal.cs" />
     <Compile Include="VersionDal.cs" />
     <Compile Include="YetkilerDal.cs" />
   </ItemGroup>

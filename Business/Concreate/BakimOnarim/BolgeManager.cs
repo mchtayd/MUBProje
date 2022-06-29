@@ -59,6 +59,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public Bolge ArizaRaporBolgeGet(string bolgeAdi)
+        {
+            try
+            {
+                return bolgeDal.ArizaRaporBolgeGet(bolgeAdi);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<Bolge> GetList()
         {

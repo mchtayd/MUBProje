@@ -99,6 +99,25 @@ namespace DataAccess.Concreate.BakimOnarim
                 return null;
             }
         }
+        public Bolge ArizaRaporBolgeGet(string bolgeAdi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("ArizaRporBolgeAdi", new SqlParameter("@bolgeAdi", bolgeAdi));
+                Bolge item = null;
+                while (dataReader.Read())
+                {
+                    item = new Bolge(
+                        dataReader["PROJE"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<Bolge> GetList()
         {

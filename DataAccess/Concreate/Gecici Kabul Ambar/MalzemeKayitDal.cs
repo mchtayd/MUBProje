@@ -284,6 +284,22 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+
+        public string StokDuzelt(string stokNo,int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("StokDuzelt",
+                    new SqlParameter("@stokno", stokNo),
+                    new SqlParameter("@id", id));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static MalzemeKayitDal GetInstance()
         {
             if (malzemeKayitDal == null)

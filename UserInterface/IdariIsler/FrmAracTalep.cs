@@ -19,15 +19,17 @@ namespace UserInterface.IdariIsler
         SiparisPersonelManager siparisPersonelManager;
         PersonelKayitManager kayitManager;
         AracZimmetiManager aracZimmetiManager;
+        SehiriciGorevManager sehiriciGorevManager;
+        ButceKoduManager butceKoduManager;
 
         List<AracZimmeti> aracZimmetis;
         List<AracTalep> aracTaleps;
         bool start;
         public object[] infos;
-        string dosyaYolu, taslakYolu;
+        string dosyaYolu, taslakYolu, isAkisNo;
         string yol = @"C:\DTS\Taslak\";
         string kaynak = @"Z:\DTS\İDARİ İŞLER\WordTaslak\";
-        
+
         int id;
 
         public FrmAracTalep()
@@ -38,6 +40,8 @@ namespace UserInterface.IdariIsler
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
             kayitManager = PersonelKayitManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
+            sehiriciGorevManager = SehiriciGorevManager.GetInstance();
+            butceKoduManager = ButceKoduManager.GetInstance();
         }
 
         private void FrmAracTalep_Load(object sender, EventArgs e)
@@ -45,6 +49,7 @@ namespace UserInterface.IdariIsler
             Personeller();
             Plakalar();
             DataDisplay();
+            ButceKoduKalemi();
             start = true;
         }
 
@@ -63,30 +68,37 @@ namespace UserInterface.IdariIsler
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
+        void ButceKoduKalemi()
+        {
+            CmbButceKodu.DataSource = butceKoduManager.GetList();
+            CmbButceKodu.ValueMember = "Id";
+            CmbButceKodu.DisplayMember = "Butcekodu";
+            CmbButceKodu.SelectedValue = 0;
+        }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            if (LblPersonelSiparisNo.Text=="")
+            if (LblPersonelSiparisNo.Text == "")
             {
                 MessageBox.Show("Lütfen Öncelikle Geçerli Bir Görev Emri No Yazıp BUL Butonuna basınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            if (dr == DialogResult.Yes)
             {
                 DateTime baslamaTarihi = new DateTime(DtBaslamaTarihi.Value.Year, DtBaslamaTarihi.Value.Month, DtBaslamaTarihi.Value.Day, DtgBaslamaSaati.Value.Hour, DtgBaslamaSaati.Value.Minute, DtgBaslamaSaati.Value.Second);
 
                 DateTime bitisTarihi = new DateTime(DtBitisTarihi.Value.Year, DtBitisTarihi.Value.Month, DtBitisTarihi.Value.Day, DtgBitisSaati.Value.Hour, DtgBitisSaati.Value.Minute, DtgBitisSaati.Value.Second);
 
-                string geciciDosya = @"Z:\DTS\İDARİ İŞLER\ARAÇ TALEP\" + TxtGorevEmriNo.Text + "\\";
+                string geciciDosya = @"Z:\DTS\İDARİ İŞLER\ARAÇ TALEP\" + TxtIsAkisNo.Text + "\\";
 
 
-                AracTalep aracTalep = new AracTalep(TxtGorevEmriNo.Text, CmbButceKodu.Text, TxtTalepNedeni.Text, TxtGidilecekYer.Text, baslamaTarihi, bitisTarihi, TxtToplamSure.Text, CmbTalepEdenAd.Text, LblPersonelSiparisNo.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text, LblMasrafYeriSorumlusu.Text, CmbPlaka.Text, LblAracSiparisNo.Text, TxtCikisKm.Text.ConInt(), LblZimmetliPersonel.Text, geciciDosya);
+                AracTalep aracTalep = new AracTalep(TxtIsAkisNo.Text, CmbButceKodu.Text, TxtTalepNedeni.Text, TxtGidilecekYer.Text, baslamaTarihi, bitisTarihi, TxtToplamSure.Text, CmbTalepEdenAd.Text, LblPersonelSiparisNo.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text, LblMasrafYeriSorumlusu.Text, CmbPlaka.Text, LblAracSiparisNo.Text, TxtCikisKm.Text.ConInt(), LblZimmetliPersonel.Text, geciciDosya);
 
 
                 string mesaj = aracTalepManager.Add(aracTalep);
-                if (mesaj!="OK")
+                if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -116,6 +128,7 @@ namespace UserInterface.IdariIsler
 
             taslakYolu = yol + "MP-FR-091 ARAÇ TALEP FORMU REV (01).docx";
         }
+        static int outValue = 0;
         void CreateWord()
         {
             string root = @"Z:\DTS";
@@ -134,7 +147,8 @@ namespace UserInterface.IdariIsler
             {
                 Directory.CreateDirectory(anadosya);
             }
-            dosyaYolu = anadosya + TxtGorevEmriNo.Text + "\\";
+
+            dosyaYolu = anadosya + isAkisNo + "\\";
             Directory.CreateDirectory(dosyaYolu);
 
             Application wApp = new Application();
@@ -143,6 +157,7 @@ namespace UserInterface.IdariIsler
 
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
+
 
             Bookmarks wBookmarks = wDoc.Bookmarks;
             wBookmarks["TalepEdenBolum"].Range.Text = LblMasrafYeri.Text;
@@ -161,8 +176,8 @@ namespace UserInterface.IdariIsler
             wBookmarks["AracTeslimEden"].Range.Text = infos[1].ToString();
             wBookmarks["AracTeslimAlan"].Range.Text = CmbTalepEdenAd.Text;
             wBookmarks["DonusKm"].Range.Text = "";
-
-            wDoc.SaveAs2(dosyaYolu + TxtGorevEmriNo.Text + ".docx");
+            
+            wDoc.SaveAs2(dosyaYolu + isAkisNo + ".docx");
             wDoc.Close();
             wApp.Quit(false);
 
@@ -186,31 +201,52 @@ namespace UserInterface.IdariIsler
 
         private void BtnBul_Click(object sender, EventArgs e)
         {
-            if (TxtGorevEmriNo.Text=="")
+            if (TxtIsAkisNo.Text == "")
             {
                 MessageBox.Show("Lütfen Öncelikle Geçerli Bir Görev Emri No Yazıp BUL Butonuna basınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            YurtIciGorev yurtIciGorev = yurtIciGorevManager.AracTalepGet(TxtGorevEmriNo.Text);
-            if (yurtIciGorev==null)
+            YurtIciGorev yurtIciGorev = yurtIciGorevManager.AracTalepGet(TxtIsAkisNo.Text);
+            if (yurtIciGorev != null)
             {
-                MessageBox.Show("Girmiş olduğunuz Görev Emri Numarasına ait bir kayıt bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                CmbButceKodu.Text = yurtIciGorev.Butcekodu;
+                TxtTalepNedeni.Text = yurtIciGorev.Gorevinkonusu;
+                TxtGidilecekYer.Text = yurtIciGorev.Gidilecekyer;
+                DtBaslamaTarihi.Value = yurtIciGorev.Baslamatarihi;
+                DtBitisTarihi.Value = yurtIciGorev.Bitistarihi;
+                CmbTalepEdenAd.Text = yurtIciGorev.Adsoyad;
+                CmbPlaka.Text = yurtIciGorev.Plaka;
+                TxtCikisKm.Text = yurtIciGorev.Cikiskm.ToString();
+                isAkisNo = yurtIciGorev.Isakisno.ToString();
+
+                DateTime bTarih = DtBaslamaTarihi.Value;
+                DateTime kTarih = DtBitisTarihi.Value;
+                TimeSpan Sonuc = kTarih - bTarih;
+                int gun = Sonuc.TotalDays.ConInt();
+                if (gun == 0)
+                {
+                    TxtToplamSure.Text = "1 Gün";
+                }
+                else
+                {
+                    TxtToplamSure.Text = gun.ToString() + " Gün";
+                }
                 return;
             }
-            CmbButceKodu.Text = yurtIciGorev.Butcekodu;
-            TxtTalepNedeni.Text = yurtIciGorev.Gorevinkonusu;
-            TxtGidilecekYer.Text = yurtIciGorev.Gidilecekyer;
-            DtBaslamaTarihi.Value = yurtIciGorev.Baslamatarihi;
-            DtBitisTarihi.Value = yurtIciGorev.Bitistarihi;
-            CmbTalepEdenAd.Text = yurtIciGorev.Adsoyad;
-            CmbPlaka.Text = yurtIciGorev.Plaka;
-            TxtCikisKm.Text = yurtIciGorev.Cikiskm.ToString();
 
-            DateTime bTarih = DtBaslamaTarihi.Value;
-            DateTime kTarih = DtBitisTarihi.Value;
-            TimeSpan Sonuc = kTarih - bTarih;
-            int gun = Sonuc.TotalDays.ConInt();
-            TxtToplamSure.Text = gun.ToString() + " Gün";
+            SehiriciGorev sehiriciGorev = sehiriciGorevManager.Get(TxtIsAkisNo.Text.ConInt());
+            if (sehiriciGorev != null)
+            {
+                TxtGidilecekYer.Text = sehiriciGorev.Gidilecekyer;
+                DtBaslamaTarihi.Value = sehiriciGorev.Baslamatarihi;
+                DtgBaslamaSaati.Value = sehiriciGorev.Baslamatarihi;
+                CmbTalepEdenAd.Text = sehiriciGorev.Adsoyad;
+                isAkisNo = sehiriciGorev.Isakisno.ToString();
+                return;
+            }
+
+            MessageBox.Show("Girmiş olduğunuz İş Akış Numarasına göre bir kayıt bulunamamıştır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            return;
         }
 
         private void BtnSureHesapla_Click(object sender, EventArgs e)
@@ -219,7 +255,14 @@ namespace UserInterface.IdariIsler
             DateTime kTarih = DtBitisTarihi.Value;
             TimeSpan Sonuc = kTarih - bTarih;
             int gun = Sonuc.TotalDays.ConInt();
-            TxtToplamSure.Text = gun.ToString() + " Gün";
+            if (gun == 0)
+            {
+                TxtToplamSure.Text = "1 Gün";
+            }
+            else
+            {
+                TxtToplamSure.Text = gun.ToString() + " Gün";
+            }
         }
 
         private void CmbTalepEdenAd_SelectedIndexChanged(object sender, EventArgs e)
@@ -238,7 +281,7 @@ namespace UserInterface.IdariIsler
                 return;
             }
             SiparisPersonel siparis = siparisPersonelManager.Get("", CmbTalepEdenAd.Text);
-            if (siparis==null)
+            if (siparis == null)
             {
                 MessageBox.Show("Personel Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -257,7 +300,7 @@ namespace UserInterface.IdariIsler
             {
                 return;
             }
-            if (CmbPlaka.Text=="")
+            if (CmbPlaka.Text == "")
             {
                 LblAracSiparisNo.Text = "00";
                 LblZimmetliPersonel.Text = "00";
@@ -275,7 +318,7 @@ namespace UserInterface.IdariIsler
             CmbPlaka.DisplayMember = "Plaka";
             CmbPlaka.SelectedValue = -1;
         }
-
+        
         private void BtnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
@@ -288,8 +331,8 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
-
-            LblGorevEmriNo.Text = DtgList.CurrentRow.Cells["GorevEmriNo"].Value.ToString();
+            isAkisNo = DtgList.CurrentRow.Cells["GorevEmriNo"].Value.ToString();
+            LblIsAkisNo.Text = DtgList.CurrentRow.Cells["GorevEmriNo"].Value.ToString();
             DtDonusTarihi.Value = DtgList.CurrentRow.Cells["BitisTarihiSaati"].Value.ConDate();
             DtDonusSaati.Value = DtgList.CurrentRow.Cells["BitisTarihiSaati"].Value.ConDate();
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
@@ -298,12 +341,12 @@ namespace UserInterface.IdariIsler
 
         private void BtnKapat_Click(object sender, EventArgs e)
         {
-            if (id==0)
+            if (id == 0)
             {
                 MessageBox.Show("Lütfen öncelikle geçerli bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (TxtDonusKm.Text=="")
+            if (TxtDonusKm.Text == "")
             {
                 MessageBox.Show("Lütfen öncelikle dönüş kilometresini eksiksiz giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -315,7 +358,7 @@ namespace UserInterface.IdariIsler
             }
 
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            if (dr == DialogResult.Yes)
             {
                 DateTime donusTarihiSaati = new DateTime(DtDonusTarihi.Value.Year, DtDonusTarihi.Value.Month, DtDonusTarihi.Value.Day, DtDonusSaati.Value.Hour, DtDonusSaati.Value.Minute, DtDonusSaati.Value.Second);
 
@@ -337,26 +380,28 @@ namespace UserInterface.IdariIsler
 
         void CreateWordKapat()
         {
-
             if (!Directory.Exists(dosyaYolu))
             {
                 Directory.CreateDirectory(dosyaYolu);
             }
 
+            string[] array = dosyaYolu.Split('\\');
+            //string dosyaAdi = array[3].ToString();
+
             Application wApp = new Application();
             Documents wDocs = wApp.Documents;
-            object filePath = dosyaYolu + LblGorevEmriNo.Text + ".docx";
+            object filePath = dosyaYolu + isAkisNo + ".docx";
 
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 
             Bookmarks wBookmarks = wDoc.Bookmarks;
-            
+
             wBookmarks["GorevDonusTarihi"].Range.Text = DtDonusTarihi.Value.ToString("dd.MM.yyyy");
             wBookmarks["DonusSaati"].Range.Text = DtDonusSaati.Text;
             wBookmarks["DonusKm"].Range.Text = TxtDonusKm.Text;
 
-            wDoc.SaveAs2(dosyaYolu + LblGorevEmriNo.Text + "_" + DateTime.Now.ToString("ss") + ".docx");
+            wDoc.SaveAs2(dosyaYolu + isAkisNo + "_" + DateTime.Now.ToString("ss") + ".docx");
             wDoc.Close();
             wApp.Quit(false);
 
@@ -364,7 +409,7 @@ namespace UserInterface.IdariIsler
 
         void Temizle()
         {
-            TxtGorevEmriNo.Clear(); CmbButceKodu.Text = ""; TxtTalepNedeni.Clear(); TxtGidilecekYer.Clear(); TxtToplamSure.Clear(); CmbTalepEdenAd.SelectedIndex = -1;
+            TxtIsAkisNo.Clear(); CmbButceKodu.Text = ""; TxtTalepNedeni.Clear(); TxtGidilecekYer.Clear(); TxtToplamSure.Clear(); CmbTalepEdenAd.SelectedIndex = -1;
             CmbPlaka.Text = ""; TxtCikisKm.Clear(); TxtGidilecekKurum.Clear(); LblAracSiparisNo.Text = "00"; LblZimmetliPersonel.Text = "00";
         }
 

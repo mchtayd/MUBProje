@@ -60,11 +60,11 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public YurtIciGorev AracTalepGet(string gorevEmriNo)
+        public YurtIciGorev AracTalepGet(string isAkisNo)
         {
             try
             {
-                return yurtIciGorevDal.AracTalepGet(gorevEmriNo);
+                return yurtIciGorevDal.AracTalepGet(isAkisNo);
             }
             catch (Exception)
             {
@@ -77,6 +77,18 @@ namespace Business.Concreate.IdarıIsler
             try
             {
                 return yurtIciGorevDal.GetList(durum);
+            }
+            catch (Exception)
+            {
+                return new List<YurtIciGorev>();
+            }
+        }
+
+        public List<YurtIciGorev> YurtIciGorevlerim(string adSoyad)
+        {
+            try
+            {
+                return yurtIciGorevDal.YurtIciGorevlerim(adSoyad);
             }
             catch (Exception)
             {

@@ -95,7 +95,32 @@ namespace UserInterface.Depo
                 return;
             }
 
-            DtgMalzemeBilgisi.DataSource = malzemeManager.MalzemeGetList(TxtStokNo.Text);
+            DtgMalzemeBilgisi.DataSource = malzemeKayitManager.GetList(TxtStokNo.Text);
+
+            DtgMalzemeBilgisi.Columns["Id"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgMalzemeBilgisi.Columns["Tanim"].HeaderText = "TANIM";
+            DtgMalzemeBilgisi.Columns["Birim"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Tedarikcifirma"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Malzemeonarimdurumu"].HeaderText = "ONARIM DURUMU";
+            DtgMalzemeBilgisi.Columns["Malzemeonarımyeri"].HeaderText = "ONARIM YERİ";
+            DtgMalzemeBilgisi.Columns["Malzemeturu"].HeaderText = "PARÇA SINIFI";
+            DtgMalzemeBilgisi.Columns["Malzemetakipdurumu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Malzemekul"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Aciklama"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Dosyayolu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["AlternatifMalzeme"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SistemStokNo"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SistemTanim"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SistemPersonel"].Visible = false;
+            DtgMalzemeBilgisi.Columns["KayitDurumu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SeriNo"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Durum"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Revizyon"].Visible = false; 
+            DtgMalzemeBilgisi.Columns["Miktar"].Visible = false;
+            DtgMalzemeBilgisi.Columns["TalepTarihi"].Visible = false;
+            DtgMalzemeBilgisi.Columns["DataTypeValue"].Visible = false;
+            /*DtgMalzemeBilgisi.DataSource = malzemeManager.MalzemeGetList(TxtStokNo.Text);
 
             DtgMalzemeBilgisi.Columns["Id"].Visible = false;
             DtgMalzemeBilgisi.Columns["StokNo"].HeaderText = "STOK NO";
@@ -116,7 +141,7 @@ namespace UserInterface.Depo
             DtgMalzemeBilgisi.Columns["TakipDurumu"].Visible = false;
             DtgMalzemeBilgisi.Columns["UstStok"].Visible = false;
             DtgMalzemeBilgisi.Columns["UstTanim"].Visible = false;
-            DtgMalzemeBilgisi.Columns["BenzersizId"].Visible = false;
+            DtgMalzemeBilgisi.Columns["BenzersizId"].Visible = false;*/
 
             double birimFiyat = stokGirisCikisManager.DepoBirimFiyat(TxtStokNo.Text);
 

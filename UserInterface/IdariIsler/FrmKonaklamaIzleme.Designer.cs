@@ -48,6 +48,7 @@ namespace UserInterface.IdariIsler
             this.label2 = new System.Windows.Forms.Label();
             this.TxtToplam = new System.Windows.Forms.Label();
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnDuzenle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -131,6 +132,7 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnDuzenle);
             this.tabPage1.Controls.Add(this.label3);
             this.tabPage1.Controls.Add(this.LblGenelTop);
             this.tabPage1.Controls.Add(this.groupBox2);
@@ -229,6 +231,16 @@ namespace UserInterface.IdariIsler
             this.TxtToplam.TabIndex = 345;
             this.TxtToplam.Text = "00";
             // 
+            // BtnDuzenle
+            // 
+            this.BtnDuzenle.Location = new System.Drawing.Point(425, 647);
+            this.BtnDuzenle.Name = "BtnDuzenle";
+            this.BtnDuzenle.Size = new System.Drawing.Size(75, 23);
+            this.BtnDuzenle.TabIndex = 350;
+            this.BtnDuzenle.Text = "Düzenle";
+            this.BtnDuzenle.UseVisualStyleBackColor = true;
+            this.BtnDuzenle.Click += new System.EventHandler(this.BtnDuzenle_Click);
+            // 
             // FrmKonaklamaIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -274,5 +286,6 @@ namespace UserInterface.IdariIsler
         private ADGV.AdvancedDataGridView DtgIslemAdimlari;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblGenelTop;
+        private System.Windows.Forms.Button BtnDuzenle;
     }
 }

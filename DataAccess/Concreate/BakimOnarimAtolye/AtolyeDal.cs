@@ -263,7 +263,6 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         gecenSure = array[0].ConInt().ToString();
                     }*/
 
-
                     atolyes1.Add(new Atolye(
                         dataReader["ID"].ConInt(),
                         dataReader["ABF_FORM_NO"].ConInt(),

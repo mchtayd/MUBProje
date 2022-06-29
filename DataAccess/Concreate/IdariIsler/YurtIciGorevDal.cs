@@ -153,11 +153,11 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
-        public YurtIciGorev AracTalepGet(string gorevEmriNo)
+        public YurtIciGorev AracTalepGet(string isAkisNo)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("YurtIciGorevAracTalepList", new SqlParameter("@gorevEmriNo", gorevEmriNo));
+                dataReader = sqlServices.StoreReader("YurtIciGorevAracTalepList", new SqlParameter("@isAkisNo", isAkisNo));
                 YurtIciGorev item = null;
                 while (dataReader.Read())
                 {
@@ -223,6 +223,69 @@ namespace DataAccess.Concreate.IdariIsler
             {
                 List<YurtIciGorev> yurtIcis = new List<YurtIciGorev>();
                 dataReader = sqlServices.StoreReader("YurtIciGorevList", new SqlParameter("@durum", durum));
+                while (dataReader.Read())
+                {
+                    yurtIcis.Add(new YurtIciGorev(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["GOREV_EMRI_NO"].ToString(),
+                        dataReader["GOREVIN_KONUSU"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["GIDILECEK_YER"].ToString(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
+                        dataReader["TOPLAM_SURE"].ToString(),
+                        dataReader["BUTCE_KODU_TANIMI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["ULASIM_GIDIS"].ToString(),
+                        dataReader["ULASIM_GOREV_YERI"].ToString(),
+                        dataReader["ULASIM_DONUS"].ToString(),
+                        dataReader["KONAKLAMA_GUN"].ConInt(),
+                        dataReader["KONAKLAMA_GUN_TL"].ConDouble(),
+                        dataReader["KONAKLAMA_TOPLAM"].ConDouble(),
+                        dataReader["KIRALAMA_GUN"].ConInt(),
+                        dataReader["KIRALAMA_GUN_TL"].ConDouble(),
+                        dataReader["KIRALAMA_YAKIT"].ConDouble(),
+                        dataReader["KIRALAMA_TOPLAM"].ConDouble(),
+                        dataReader["SEYAHAT_AVANS_GUN"].ConInt(),
+                        dataReader["SEYAHAT_GUN_TL"].ConDouble(),
+                        dataReader["SEYAHAT_TOPLAM"].ConDouble(),
+                        dataReader["HARCIRAH_GUN"].ConInt(),
+                        dataReader["HARCIRAH_GUN_TL"].ConDouble(),
+                        dataReader["HARCIRAH_TOPLAM"].ConDouble(),
+                        dataReader["IASE_GUN"].ConInt(),
+                        dataReader["IASE_GUN_TL"].ConDouble(),
+                        dataReader["IASE_TOPLAM"].ConDouble(),
+                        dataReader["UCAK_BILETI"].ConDouble(),
+                        dataReader["OTOBUS_BILETI"].ConDouble(),
+                        dataReader["ARAC_PLAKASI"].ToString(),
+                        dataReader["CIKIS_KM"].ConInt(),
+                        dataReader["DONUS_KM"].ConInt(),
+                        dataReader["TOPLAM_KM"].ConInt(),
+                        dataReader["GENEL_TOPLAM"].ConDouble(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["KONAKLAMA_TURU"].ToString()));
+                }
+                dataReader.Close();
+                return yurtIcis;
+            }
+            catch (Exception ex)
+            {
+                return new List<YurtIciGorev>();
+            }
+        }
+        public List<YurtIciGorev> YurtIciGorevlerim(string adSoyad)
+        {
+            try
+            {
+                List<YurtIciGorev> yurtIcis = new List<YurtIciGorev>();
+                dataReader = sqlServices.StoreReader("YurtIciGorevlerim", new SqlParameter("@adSoyad", adSoyad));
                 while (dataReader.Read())
                 {
                     yurtIcis.Add(new YurtIciGorev(

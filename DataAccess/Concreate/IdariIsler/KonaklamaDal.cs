@@ -162,6 +162,50 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<Konaklama>();
             }
         }
+        public List<Konaklama> Konaklamalarim(string adSoyad)
+        {
+            try
+            {
+                List<Konaklama> konaklamas = new List<Konaklama>();
+                dataReader = sqlServices.StoreReader("KonaklamalarimList", new SqlParameter("@adSoyad", adSoyad));
+                while (dataReader.Read())
+                {
+                    konaklamas.Add(new Konaklama(dataReader["ID"].ConInt(),
+                    dataReader["IS_AKIS_NO"].ConInt(),
+                    dataReader["TALEP_TURU"].ToString(),
+                    dataReader["GOREV_FORM_NO"].ToString(),
+                    dataReader["BUTCE_KODU_TANIMI"].ToString(),
+                    dataReader["SIPARIS_NO"].ToString(),
+                    dataReader["AD_SOYAD"].ToString(),
+                    dataReader["GOREVI"].ToString(),
+                    dataReader["MASRAF_YERI_NO"].ToString(),
+                    dataReader["MASRAF_YERI"].ToString(),
+                    dataReader["TC"].ToString(),
+                    dataReader["HES"].ToString(),
+                    dataReader["E_MAIL"].ToString(),
+                    dataReader["KISA_KOD"].ToString(),
+                    dataReader["OTEL_SEHIR"].ToString(),
+                    dataReader["OTEL_AD"].ToString(),
+                    dataReader["GUNLUK_UCRET"].ConDouble(),
+                    dataReader["GENEL_TOPLAM"].ConDouble(),
+                    dataReader["GIRIS_TARIHI"].ConDate(),
+                    dataReader["CIKIS_TARIHI"].ConDate(),
+                    dataReader["KONAKLAMA_SURESI"].ToString(),
+                    dataReader["ONAY"].ToString(),
+                    dataReader["DOSYA_YOLU"].ToString(),
+                    dataReader["SAYFA"].ToString(),
+                    dataReader["SAT_NO"].ConInt(),
+                    dataReader["DONEM"].ToString(),
+                    dataReader["GEREKCE"].ToString()));
+                }
+                dataReader.Close();
+                return konaklamas;
+            }
+            catch (Exception ex)
+            {
+                return new List<Konaklama>();
+            }
+        }
         public List<Konaklama> OnayList(string onay)
         {
             try

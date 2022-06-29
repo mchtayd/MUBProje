@@ -72,7 +72,6 @@ namespace Entity.Gecic_Kabul_Ambar
             this.lotno = lotno;
             this.revizyon = revizyon;
             this.talepEdenPersonel = talepEdenPersonel;
-
         }
 
         public StokGirisCıkıs(string stokno, string dusulenDepoNo, string serino, string lotno, string revizyon)

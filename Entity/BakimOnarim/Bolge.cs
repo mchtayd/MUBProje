@@ -68,5 +68,10 @@ namespace Entity.BakimOnarim
             this.SsRutbe = ssRutbe;
             this.depo = depo;
         }
+
+        public Bolge(string proje)
+        {
+            this.proje = proje;
+        }
     }
 }

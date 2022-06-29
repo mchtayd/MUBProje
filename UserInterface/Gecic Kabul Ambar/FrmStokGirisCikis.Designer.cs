@@ -30,7 +30,7 @@ namespace UserInterface.Depo
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStokGirisCikis));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -266,6 +266,7 @@ namespace UserInterface.Depo
             this.BtnDepo.TabIndex = 137;
             this.BtnDepo.Tag = "admin";
             this.BtnDepo.UseVisualStyleBackColor = false;
+            this.BtnDepo.Click += new System.EventHandler(this.BtnDepo_Click);
             // 
             // label10
             // 
@@ -717,7 +718,7 @@ namespace UserInterface.Depo
             this.GrbIslemYapılacakDepo.Controls.Add(this.CmbDepoNo);
             this.GrbIslemYapılacakDepo.Controls.Add(this.label7);
             this.GrbIslemYapılacakDepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(10, 271);
+            this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(7, 275);
             this.GrbIslemYapılacakDepo.Name = "GrbIslemYapılacakDepo";
             this.GrbIslemYapılacakDepo.Size = new System.Drawing.Size(1431, 139);
             this.GrbIslemYapılacakDepo.TabIndex = 53;
@@ -916,11 +917,11 @@ namespace UserInterface.Depo
             // 
             // Remove
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1142,7 +1143,7 @@ namespace UserInterface.Depo
             this.GrbDepodanBildirime.Controls.Add(this.label25);
             this.GrbDepodanBildirime.Controls.Add(this.panel6);
             this.GrbDepodanBildirime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbDepodanBildirime.Location = new System.Drawing.Point(7, 281);
+            this.GrbDepodanBildirime.Location = new System.Drawing.Point(10, 283);
             this.GrbDepodanBildirime.Name = "GrbDepodanBildirime";
             this.GrbDepodanBildirime.Size = new System.Drawing.Size(801, 158);
             this.GrbDepodanBildirime.TabIndex = 153;

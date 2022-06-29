@@ -107,6 +107,7 @@ namespace UserInterface.IdariIsler
             DtgList.DataSource = dataBinder;
             izinFiltired = ızins;
             TxtTop.Text = DtgList.RowCount.ToString();
+            Toplamlar();
         }
 
         private void TxtAdSoyad_TextChanged(object sender, EventArgs e)
@@ -128,12 +129,14 @@ namespace UserInterface.IdariIsler
             DtgList.DataSource = dataBinder;
             izinFiltired = ızins;
             TxtTop.Text = DtgList.RowCount.ToString();
+            Toplamlar();
         }
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)
         {
             dataBinder.Filter = DtgList.FilterString;
             TxtTop.Text = DtgList.RowCount.ToString();
+            Toplamlar();
         }
 
         private void DtgList_SortStringChanged(object sender, EventArgs e)
@@ -166,6 +169,17 @@ namespace UserInterface.IdariIsler
             DtgIslemAdimlari.Columns["Tarih"].Width = 100;
             DtgIslemAdimlari.Columns["Islemyapan"].Width = 135;
             DtgIslemAdimlari.Columns["Islem"].Width = 400;
+        }
+        void Toplamlar()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgList.Rows.Count; ++i)
+            {
+                string izinsuresi = DtgList.Rows[i].Cells[13].Value.ToString();
+                string[] array = izinsuresi.Split(' ');
+                toplam += Convert.ToDouble(array[0].ConInt());
+            }
+            LblGenelTop.Text = toplam.ToString() + " Gün";
         }
 
     }

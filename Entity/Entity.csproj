@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmbarVeri.cs" />
+    <Compile Include="AnaSayfa\Menu.cs" />
     <Compile Include="BakimOnarimAtolye\Atolye.cs" />
     <Compile Include="BakimOnarimAtolye\AtolyeAltMalzeme.cs" />
     <Compile Include="BakimOnarimAtolye\AtolyeMalzeme.cs" />
@@ -127,6 +128,7 @@
     <Compile Include="IsAkisNo.cs" />
     <Compile Include="BakimOnarim\IscilikPerformans.cs" />
     <Compile Include="PersonelIslemleri.cs" />
+    <Compile Include="Rapor\ArizaRapor.cs" />
     <Compile Include="STS\AltYuklenici.cs" />
     <Compile Include="STS\ButceKodu.cs" />
     <Compile Include="STS\DevamEdenIzleme.cs" />
@@ -166,8 +168,6 @@
     <Compile Include="Yerleskeler\Yerleske.cs" />
     <Compile Include="Yetki.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="AnaSayfa\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

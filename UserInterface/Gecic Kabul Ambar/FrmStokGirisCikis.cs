@@ -37,7 +37,7 @@ namespace UserInterface.Depo
 
         List<GorevAtamaPersonel> gorevAtamaPersonels;
         List<Malzeme> malzemes;
-        List<MalzemeKayit> malzemeKayits;
+        //List<MalzemeKayit> malzemeKayits;
         bool start = true;
         int id, mevcutMiktar, miktar, dusulenMiktar, cekilenMiktar;
         string takipdurumu, depoNoDusulen, malzemeYeri, stokNo, tanim, depoAdresi, islemTuru, seriNo, lotNo, revizyon;
@@ -746,6 +746,11 @@ namespace UserInterface.Depo
         private void TxtBirimFiyat_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void BtnDepo_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void BtnTemizle_Click(object sender, EventArgs e)

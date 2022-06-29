@@ -176,6 +176,7 @@ namespace UserInterface.BakımOnarım
             DtgStokList.Columns["Revizyon"].HeaderText = "REVİZYON";
             DtgStokList.Columns["Miktar"].HeaderText = "MİKTAR";
             DtgStokList.Columns["TalepTarihi"].HeaderText = "TALEP TARİHİ";
+            DtgStokList.Columns["DataTypeValue"].Visible = false;
 
             DtgStokList.Columns["KayitDurumu"].DisplayIndex = 0;
             DtgStokList.Columns["Stokno"].DisplayIndex = 1;

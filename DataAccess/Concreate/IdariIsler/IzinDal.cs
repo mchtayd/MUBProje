@@ -131,6 +131,40 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<Izin>();
             }
         }
+        public List<Izin> GetListIzinlerim(string adSoyad)
+        {
+            try
+            {
+                List<Izin> izins = new List<Izin>();
+                dataReader = sqlServices.StoreReader("IzinlerimList", new SqlParameter("@personelAd", adSoyad));
+                while (dataReader.Read())
+                {
+                    izins.Add(new Izin(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["IZIN_KATEGORI"].ToString(),
+                        dataReader["IZIN_TURU"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["BOLUMU"].ToString(),
+                        dataReader["IZIN_NEDENI"].ToString(),
+                        dataReader["IZIN_BAS_TARIHI"].ConDate(),
+                        dataReader["IZIN_BIT_TARIHI"].ConDate(),
+                        dataReader["IZIN_DURUMU"].ToString(),
+                        dataReader["TOPLAM_SURE"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SAYFA"].ToString()));
+                }
+                dataReader.Close();
+                return izins;
+            }
+            catch (Exception)
+            {
+                return new List<Izin>();
+            }
+        }
         public List<Izin> DevamDevamsizlik()
         {
             try

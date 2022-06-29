@@ -77,12 +77,21 @@ namespace DataAccess.Concreate.STS
             throw new NotImplementedException();
         }
 
-        public List<Tamamlanan> GetList()
+        public List<Tamamlanan> GetList(string yil)
         {
             try
             {
+                int yildanfalza;
+                if (yil=="1990")
+                {
+                    yildanfalza = 2022;
+                }
+                else
+                {
+                    yildanfalza = yil.ConInt() + 1;
+                }
                 List<Tamamlanan> tamamlanans = new List<Tamamlanan>();
-                dataReader = sqlServices.StoreReader("SatTamamlananlarListele");
+                dataReader = sqlServices.StoreReader("SatTamamlananlarListele",new SqlParameter("@yil", yil),new SqlParameter("@yildanFalza", yildanfalza.ToString()));
                 while (dataReader.Read())
                 {
                     tamamlanans.Add(new Tamamlanan(
@@ -124,6 +133,25 @@ namespace DataAccess.Concreate.STS
             catch (Exception ex)
             {
                 return new List<Tamamlanan>();
+            }
+        }
+        public List<string> Yillar()
+        {
+            try
+            {
+                List<string> yillar = new List<string>();
+                dataReader = sqlServices.StoreReader("SatTarihler");
+                while (dataReader.Read())
+                {
+                    yillar.Add(dataReader[0].ToString());
+                }
+                dataReader.Close();
+                return yillar;
+
+            }
+            catch (Exception ex)
+            {
+                return new List<string>();
             }
         }
         public List<Tamamlanan> GetListDirektorluk()

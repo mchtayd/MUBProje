@@ -232,6 +232,40 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<SehiriciGorev>();
             }
         }
+        public List<SehiriciGorev> SehirIciGorevlerim(string adSoyad)
+        {
+            try
+            {
+                List<SehiriciGorev> sehiriciGorevs = new List<SehiriciGorev>();
+                dataReader = sqlServices.StoreReader("SehirIciGorevlerim", new SqlParameter("@adSoyad", adSoyad));
+                while (dataReader.Read())
+                {
+                    sehiriciGorevs.Add(new SehiriciGorev(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["GIDILECEK_YER"].ToString(),
+                        dataReader["GOREVIN_KONUSU"].ToString(),
+                        dataReader["BASLAMA_TARIHI"].ConDate(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
+                        dataReader["TOPLAM_SURE"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["PERSONEL_ID"].ConInt(),
+                        dataReader["SAYFA"].ToString()));
+                }
+                dataReader.Close();
+                return sehiriciGorevs;
+            }
+            catch (Exception ex)
+            {
+                return new List<SehiriciGorev>();
+            }
+        }
 
         public string Update(SehiriciGorev entity, int isakisno)
         {

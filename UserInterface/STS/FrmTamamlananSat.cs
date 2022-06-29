@@ -44,12 +44,18 @@ namespace UserInterface.STS
 
         private void FrmTamamlananSat_Load(object sender, EventArgs e)
         {
+            Yillar();
             TamamlananSatlar();
             ProjeKodu();
             TxtTop.Text = DtgTamamlananSatlar.RowCount.ToString();
             start = false;
         }
-
+        void Yillar()
+        {
+            CmbYillar.DataSource = tamamlananManager.Yillar();
+            int index = CmbYillar.Items.Count.ConInt() - 1;
+            CmbYillar.SelectedIndex = index;
+        }
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
@@ -72,9 +78,21 @@ namespace UserInterface.STS
         }
         void TamamlananSatlar()
         {
-            tamamlanans = tamamlananManager.GetList();
+            if (ChkTumunuGoster.Checked==true)
+            {
+                tamamlanans = tamamlananManager.GetList(0);
+            }
+            if (CmbYillar.Text=="2021")
+            {
+                tamamlanans = tamamlananManager.GetList(1990);
+            }
+            else
+            {
+                tamamlanans = tamamlananManager.GetList(CmbYillar.Text.ConInt());
+            }
             dataBinder.DataSource = tamamlanans.ToDataTable();
             DtgTamamlananSatlar.DataSource = dataBinder;
+            TxtTop.Text = DtgTamamlananSatlar.RowCount.ToString();
             DataDisplay();
             Toplamlar();
         }
@@ -979,6 +997,33 @@ namespace UserInterface.STS
             }
         }
 
+        private void CmbYillar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==true)
+            {
+                return;
+            }
+            if (CmbYillar.SelectedIndex==-1)
+            {
+                return;
+            }
+            TamamlananSatlar();
+        }
+
+        private void ChkTumunuGoster_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkTumunuGoster.Checked==true)
+            {
+                CmbYillar.SelectedIndex = -1;
+                TamamlananSatlar();
+            }
+            else
+            {
+                Yillar();
+                TamamlananSatlar();
+            }
+        }
+
         private void BBF1_TextChanged(object sender, EventArgs e)
         {
             BT1.Text = TopFiyatHesapla(BBF1.Text, m1.Text);
@@ -1163,8 +1208,6 @@ namespace UserInterface.STS
                 BBF10.Text = item.Birimfiyat.ToString();
                 BT10.Text = item.Toplamfiyat.ToString();
             }
-
         }
-
     }
 }

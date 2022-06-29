@@ -109,6 +109,17 @@ namespace Business.Concreate.IdarıIsler
                 return new List<SehiriciGorev>();
             }
         }
+        public List<SehiriciGorev> SehirIciGorevlerim(string adSoyad)
+        {
+            try
+            {
+                return sehiriciGorevDal.SehirIciGorevlerim(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<SehiriciGorev>();
+            }
+        }
         public List<SehiriciGorev> DevamDevamsizlik(string toplamsure)
         {
             try

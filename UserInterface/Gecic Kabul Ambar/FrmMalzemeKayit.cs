@@ -159,7 +159,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbUstTanim.DisplayMember = "Tanim";
             CmbUstTanim.SelectedValue = 0;
         }
-        void CmbStokNoUst2()
+        public void CmbStokNoUst2()
         {
             CmbMalKulUst.DataSource = malzemeKayitManager.UstTakimGetList();
             CmbMalKulUst.ValueMember = "Id";

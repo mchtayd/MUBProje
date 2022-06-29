@@ -89,7 +89,15 @@ namespace UserInterface.DokumanYonetim
         }
         private void WebBrowser1()
         {
-            webBrowser1.Navigate(dosya);
+            try
+            {
+                webBrowser1.Navigate(dosya);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)

@@ -71,6 +71,19 @@ namespace Business.Concreate.IdarıIsler
                 return new List<Konaklama>();
             }
         }
+
+        public List<Konaklama> Konaklamalarim(string adSoyad)
+        {
+            try
+            {
+                return konaklamaDal.Konaklamalarim(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<Konaklama>();
+            }
+        }
+
         public List<Konaklama> OnayList(string onay)
         {
             try

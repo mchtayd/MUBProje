@@ -46,7 +46,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["Malzemeonarımyeri"].Visible = false;
             DtgList.Columns["Malzemeturu"].Visible = false;
             DtgList.Columns["Malzemetakipdurumu"].Visible = false;
-            DtgList.Columns["Malzemerevizyon"].Visible = false;
+            //DtgList.Columns["Malzemerevizyon"].Visible = false;
             //DtgList.Columns["Malzemelot"].HeaderText = "MALZEME LOT NO";
             DtgList.Columns["Malzemekul"].Visible = false;
             DtgList.Columns["Aciklama"].Visible = false;
@@ -55,7 +55,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["SistemStokNo"].Visible = false;
             DtgList.Columns["SistemTanim"].Visible = false;
             DtgList.Columns["SistemPersonel"].Visible = false;
-            
+            DtgList.Columns["DataTypeValue"].Visible = false;
+
             DtgList.Columns["KayitDurumu"].Visible = false;
             DtgList.Columns["SeriNo"].Visible = false;
             DtgList.Columns["Durum"].Visible = false;
@@ -134,6 +135,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 FrmMalzemeKayit frmMalzemeKayit = new FrmMalzemeKayit();
                 frmMalzemeKayit.CmbStokNoUst();
+                frmMalzemeKayit.CmbStokNoUst2();
                 this.Close();
             }
         }

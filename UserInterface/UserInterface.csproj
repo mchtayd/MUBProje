@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>377</ApplicationRevision>
+    <ApplicationRevision>386</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -104,6 +104,12 @@
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="WindowsBase" />
+    <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.8\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Ana Sayfa\ArsivDosyaFihrist.cs">
@@ -472,11 +478,29 @@
     <Compile Include="Depo\FrmMalzemeKayitDestekDepo.Designer.cs">
       <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Egitim\FrmEgitimPlanıOlustur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Egitim\FrmEgitimPlanıOlustur.Designer.cs">
+      <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoDusum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoDusum.Designer.cs">
+      <DependentUpon>FrmDepoDusum.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleri.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleri.Designer.cs">
       <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmGirisCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmGirisCikis.Designer.cs">
+      <DependentUpon>FrmGirisCikis.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.cs">
       <SubType>Form</SubType>
@@ -876,6 +900,12 @@
     <Compile Include="Ana Sayfa\FrmAnaSayfa.Designer.cs">
       <DependentUpon>FrmAnaSayfa.cs</DependentUpon>
     </Compile>
+    <Compile Include="RAPORLAMALAR\FrmArizaRaporlama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\FrmArizaRaporlama.Designer.cs">
+      <DependentUpon>FrmArizaRaporlama.cs</DependentUpon>
+    </Compile>
     <Compile Include="RAPORLAMALAR\FrmSatRaporu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1245,8 +1275,17 @@
     <EmbeddedResource Include="Depo\FrmMalzemeKayitDestekDepo.resx">
       <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Egitim\FrmEgitimPlanıOlustur.resx">
+      <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoDusum.resx">
+      <DependentUpon>FrmDepoDusum.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoHareketleri.resx">
       <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmGirisCikis.resx">
+      <DependentUpon>FrmGirisCikis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.resx">
       <DependentUpon>FrmMalzemeHazirlama.cs</DependentUpon>
@@ -1455,6 +1494,9 @@
     </Compile>
     <EmbeddedResource Include="Ana Sayfa\FrmAnaSayfa.resx">
       <DependentUpon>FrmAnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAPORLAMALAR\FrmArizaRaporlama.resx">
+      <DependentUpon>FrmArizaRaporlama.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RAPORLAMALAR\FrmSatRaporu.resx">
       <DependentUpon>FrmSatRaporu.cs</DependentUpon>

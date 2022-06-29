@@ -97,7 +97,7 @@ namespace UserInterface.BakımOnarım
             bolges = bolgeManager.GetList();
             dataBinder.DataSource = bolges.ToDataTable();
             DtgBolgeler.DataSource = dataBinder;
-            TxtTop.Text = DtgBolgeler.RowCount.ToString();
+            //TxtTop.Text = DtgBolgeler.RowCount.ToString();
 
             DtgBolgeler.Columns["Id"].Visible = false;
             DtgBolgeler.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
@@ -149,7 +149,7 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
-                Bolge bolge = new Bolge(TxtBolgeAdi.Text, TxtIlgiliPersonel.Text,TxtBirlikAdresi.Text,TxtTelefon.Text,"N/A", CmbPypNo.Text, TxtBolgeSorumlusuSicil.Text, CmbIl.Text, CmbIlce.Text, CmbProje.Text, DtGarantİBasTarihi.Value.ToString("dd,MM,yyyy"), DtGarantİBitTarihi.Value.ToString("dd,MM,yyyy"), TxtSSPersonel.Text, TxtSSPGorevi.Text, TxtSSPRutbe.Text, CmbDepo.Text);
+                /*Bolge bolge = new Bolge(TxtBolgeAdi.Text, TxtIlgiliPersonel.Text,TxtBirlikAdresi.Text,TxtTelefon.Text,"N/A", CmbPypNo.Text, TxtBolgeSorumlusuSicil.Text, CmbIl.Text, CmbIlce.Text, CmbProje.Text, DtGarantİBasTarihi.Value.ToString("dd,MM,yyyy"), DtGarantİBitTarihi.Value.ToString("dd,MM,yyyy"), TxtSSPersonel.Text, TxtSSPGorevi.Text, TxtSSPRutbe.Text, CmbDepo.Text);
 
                 string mesaj = bolgeManager.Add(bolge);
 
@@ -160,7 +160,7 @@ namespace UserInterface.BakımOnarım
                 }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 DataDisplay();
-                Temizle();
+                Temizle();*/
             }
         }
         void Yenilenecekler()
@@ -174,7 +174,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Lütfen Öncelikle Geçerli Bir Kayıt Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            Bolge bolge = new Bolge(id,TxtBolgeAdi.Text, TxtIlgiliPersonel.Text, TxtBirlikAdresi.Text, TxtTelefon.Text, "N/A", CmbPypNo.Text, TxtBolgeSorumlusuSicil.Text, CmbIl.Text, CmbIlce.Text, CmbProje.Text, DtGarantİBasTarihi.Value.ToString("dd,MM,yyyy"), DtGarantİBitTarihi.Value.ToString("dd,MM,yyyy"), TxtSSPersonel.Text, TxtSSPGorevi.Text, TxtSSPRutbe.Text, CmbDepo.Text);
+            /*Bolge bolge = new Bolge(id,TxtBolgeAdi.Text, TxtIlgiliPersonel.Text, TxtBirlikAdresi.Text, TxtTelefon.Text, "N/A", CmbPypNo.Text, TxtBolgeSorumlusuSicil.Text, CmbIl.Text, CmbIlce.Text, CmbProje.Text, DtGarantİBasTarihi.Value.ToString("dd,MM,yyyy"), DtGarantİBitTarihi.Value.ToString("dd,MM,yyyy"), TxtSSPersonel.Text, TxtSSPGorevi.Text, TxtSSPRutbe.Text, CmbDepo.Text);
 
             string mesaj = bolgeManager.Update(bolge);
 
@@ -185,7 +185,7 @@ namespace UserInterface.BakımOnarım
             }
             MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             DataDisplay();
-            Temizle();
+            Temizle();*/
         }
 
         private void BtnSil_Click(object sender, EventArgs e)
@@ -212,7 +212,7 @@ namespace UserInterface.BakımOnarım
         }
         void Temizle()
         {
-            TxtBolgeAdi.Clear(); TxtIlgiliPersonel.Clear(); TxtTelefon.Clear(); CmbIl.Text = ""; CmbIlce.Text = ""; TxtBirlikAdresi.Clear(); CmbDepo.SelectedValue = ""; CmbProje.SelectedValue = ""; CmbPypNo.SelectedValue = ""; TxtBolgeSorumlusuSicil.Clear(); TxtBolgeSorumlusuAd.Clear(); TxtSSPersonel.Clear(); TxtSSPRutbe.Clear(); TxtSSPGorevi.Clear();
+            /*TxtBolgeAdi.Clear(); TxtIlgiliPersonel.Clear(); TxtTelefon.Clear(); CmbIl.Text = ""; CmbIlce.Text = ""; TxtBirlikAdresi.Clear(); CmbDepo.SelectedValue = ""; CmbProje.SelectedValue = ""; CmbPypNo.SelectedValue = ""; TxtBolgeSorumlusuSicil.Clear(); TxtBolgeSorumlusuAd.Clear(); TxtSSPersonel.Clear(); TxtSSPRutbe.Clear(); TxtSSPGorevi.Clear();*/
         }
         private void BtnTemizle_Click(object sender, EventArgs e)
         {
@@ -228,8 +228,8 @@ namespace UserInterface.BakımOnarım
             }
             id = DtgBolgeler.CurrentRow.Cells["Id"].Value.ConInt();
             TxtBolgeAdi.Text=DtgBolgeler.CurrentRow.Cells["BolgeAdi"].Value.ToString();
-            TxtIlgiliPersonel.Text= DtgBolgeler.CurrentRow.Cells["IlgiliPersonel"].Value.ToString();
-            TxtTelefon.Text= DtgBolgeler.CurrentRow.Cells["Telefon"].Value.ToString();
+            /*TxtIlgiliPersonel.Text= DtgBolgeler.CurrentRow.Cells["IlgiliPersonel"].Value.ToString();
+            TxtTelefon.Text= DtgBolgeler.CurrentRow.Cells["Telefon"].Value.ToString();*/
             CmbIl.Text= DtgBolgeler.CurrentRow.Cells["Il"].Value.ToString();
             CmbIlce.Text= DtgBolgeler.CurrentRow.Cells["Ilce"].Value.ToString();
             TxtBirlikAdresi.Text= DtgBolgeler.CurrentRow.Cells["BirlikAdresi"].Value.ToString();
@@ -240,9 +240,9 @@ namespace UserInterface.BakımOnarım
             CmbPypNo.Text= DtgBolgeler.CurrentRow.Cells["PypNo"].Value.ToString();
             TxtBolgeSorumlusuSicil.Text= DtgBolgeler.CurrentRow.Cells["SorumluSicil"].Value.ToString();
             TxtBolgeSorumlusuAd.Text = "";
-            TxtSSPersonel.Text= DtgBolgeler.CurrentRow.Cells["SsPersonel"].Value.ToString();
+            /*TxtSSPersonel.Text= DtgBolgeler.CurrentRow.Cells["SsPersonel"].Value.ToString();
             TxtSSPRutbe.Text= DtgBolgeler.CurrentRow.Cells["SsRutbe"].Value.ToString();
-            TxtSSPGorevi.Text= DtgBolgeler.CurrentRow.Cells["SspGorev"].Value.ToString();
+            TxtSSPGorevi.Text= DtgBolgeler.CurrentRow.Cells["SspGorev"].Value.ToString();*/
 
         }
 
@@ -250,6 +250,11 @@ namespace UserInterface.BakımOnarım
         {
             FrmDepoLokasyonKayit frmDepoLokasyonKayit = new FrmDepoLokasyonKayit();
             frmDepoLokasyonKayit.ShowDialog();
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void buton_proje_Click(object sender, EventArgs e)

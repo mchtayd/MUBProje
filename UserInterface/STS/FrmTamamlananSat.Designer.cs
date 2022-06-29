@@ -30,9 +30,9 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -154,6 +154,9 @@ namespace UserInterface.STS
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.BtnProjeDuzelt = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.CmbYillar = new System.Windows.Forms.ComboBox();
+            this.ChkTumunuGoster = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
@@ -198,9 +201,9 @@ namespace UserInterface.STS
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgTamamlananSatlar);
-            this.groupBox1.Location = new System.Drawing.Point(7, 33);
+            this.groupBox1.Location = new System.Drawing.Point(10, 85);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1545, 474);
+            this.groupBox1.Size = new System.Drawing.Size(1545, 420);
             this.groupBox1.TabIndex = 305;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "TAMAMLANAN SATLAR";
@@ -209,8 +212,8 @@ namespace UserInterface.STS
             // 
             this.DtgTamamlananSatlar.AllowUserToAddRows = false;
             this.DtgTamamlananSatlar.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgTamamlananSatlar.AutoGenerateContextFilters = true;
             this.DtgTamamlananSatlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTamamlananSatlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -221,7 +224,7 @@ namespace UserInterface.STS
             this.DtgTamamlananSatlar.Name = "DtgTamamlananSatlar";
             this.DtgTamamlananSatlar.ReadOnly = true;
             this.DtgTamamlananSatlar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgTamamlananSatlar.Size = new System.Drawing.Size(1539, 455);
+            this.DtgTamamlananSatlar.Size = new System.Drawing.Size(1539, 401);
             this.DtgTamamlananSatlar.TabIndex = 1;
             this.DtgTamamlananSatlar.TimeFilter = false;
             this.DtgTamamlananSatlar.SortStringChanged += new System.EventHandler(this.DtgTamamlananSatlar_SortStringChanged);
@@ -1294,18 +1297,18 @@ namespace UserInterface.STS
             // 
             this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
             this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1429,7 +1432,42 @@ namespace UserInterface.STS
             this.BtnProjeDuzelt.TabIndex = 532;
             this.BtnProjeDuzelt.Text = "ProjeDuzelt";
             this.BtnProjeDuzelt.UseVisualStyleBackColor = true;
+            this.BtnProjeDuzelt.Visible = false;
             this.BtnProjeDuzelt.Click += new System.EventHandler(this.BtnProjeDuzelt_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(12, 47);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 15);
+            this.label1.TabIndex = 533;
+            this.label1.Text = "YIL:";
+            // 
+            // CmbYillar
+            // 
+            this.CmbYillar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbYillar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbYillar.FormattingEnabled = true;
+            this.CmbYillar.Location = new System.Drawing.Point(49, 43);
+            this.CmbYillar.Name = "CmbYillar";
+            this.CmbYillar.Size = new System.Drawing.Size(121, 23);
+            this.CmbYillar.TabIndex = 534;
+            this.CmbYillar.SelectedIndexChanged += new System.EventHandler(this.CmbYillar_SelectedIndexChanged);
+            // 
+            // ChkTumunuGoster
+            // 
+            this.ChkTumunuGoster.AutoSize = true;
+            this.ChkTumunuGoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkTumunuGoster.Location = new System.Drawing.Point(193, 45);
+            this.ChkTumunuGoster.Name = "ChkTumunuGoster";
+            this.ChkTumunuGoster.Size = new System.Drawing.Size(146, 19);
+            this.ChkTumunuGoster.TabIndex = 536;
+            this.ChkTumunuGoster.Text = "TÜMÜNÜ GÖSTER";
+            this.ChkTumunuGoster.UseVisualStyleBackColor = true;
+            this.ChkTumunuGoster.CheckedChanged += new System.EventHandler(this.ChkTumunuGoster_CheckedChanged);
             // 
             // FrmTamamlananSat
             // 
@@ -1437,6 +1475,9 @@ namespace UserInterface.STS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.ChkTumunuGoster);
+            this.Controls.Add(this.CmbYillar);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.BtnProjeDuzelt);
             this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.PnlTemsili);
@@ -1600,5 +1641,8 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label151;
         private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Button BtnProjeDuzelt;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CmbYillar;
+        private System.Windows.Forms.CheckBox ChkTumunuGoster;
     }
 }

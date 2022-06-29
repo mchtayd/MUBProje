@@ -37,7 +37,7 @@ namespace UserInterface.Ana_Sayfa
             }
             if (CmbSatTuru.SelectedIndex == 1)
             {
-                DtgList.DataSource = tamamlananManager.GetList();
+                DtgList.DataSource = tamamlananManager.GetList(0);
             }
         }
         string yeniDonem;

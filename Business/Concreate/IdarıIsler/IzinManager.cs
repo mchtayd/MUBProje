@@ -73,6 +73,17 @@ namespace Business.Concreate.IdarıIsler
                 return new List<Izin>();
             }
         }
+        public List<Izin> GetListIzinlerim(string personelAd)
+        {
+            try
+            {
+                return İzinDal.GetListIzinlerim(personelAd);
+            }
+            catch (Exception)
+            {
+                return new List<Izin>();
+            }
+        }
         public List<Izin> DevamDevamsizlik()
         {
             try

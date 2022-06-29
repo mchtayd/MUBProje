@@ -1,16 +1,20 @@
 ﻿using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using Entity.IdariIsler;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
+using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.STS;
+using Application = Microsoft.Office.Interop.Word.Application;
 
 namespace UserInterface.IdariIsler
 {
@@ -38,7 +42,7 @@ namespace UserInterface.IdariIsler
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
-            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)System.Windows.Forms.Application.OpenForms["FrmAnasayfa"];
             this.Close();
             frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageKonaklamaIzleme"]);
 
@@ -129,6 +133,30 @@ namespace UserInterface.IdariIsler
             webBrowser1.Navigate(dosyayolu);
             IslemAdimlariDisplay();
         }
+
+        private void BtnDuzenle_Click(object sender, EventArgs e)
+        {
+            var file = File.ReadAllText(@"C:\myfile.txt", Encoding.ASCII).Split(new[] { ' ' });
+            string filePath = @"Z:\DTS\İDARİ İŞLER\KONAKLAMA\100000073\100000073.docx";
+            using (var mappedFile1 = MemoryMappedFile.CreateFromFile(filePath))
+            {
+                using (Stream mmStream = mappedFile1.CreateViewStream())
+                {
+                    using (StreamReader sr = new StreamReader(mmStream, ASCIIEncoding.ASCII))
+                    {
+                        while (!sr.EndOfStream)
+                        {
+                            var line = sr.ReadLine();
+                            var lineWords = line.Split(' ');
+                        }
+                    }
+                }
+            }
+
+
+            //@"Z:\DTS\İDARİ İŞLER\KONAKLAMA\100000073\100000073.docx"
+        }
+
         void IslemAdimlariDisplay()
         {
             DtgIslemAdimlari.DataSource = logManager.GetList(sayfa, id);

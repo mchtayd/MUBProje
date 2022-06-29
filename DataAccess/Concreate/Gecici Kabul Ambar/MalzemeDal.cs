@@ -95,7 +95,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }

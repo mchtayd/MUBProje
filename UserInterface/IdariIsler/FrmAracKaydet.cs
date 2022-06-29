@@ -496,7 +496,8 @@ namespace UserInterface.IdariIsler
                 TxtPersonelBolum.Visible = false;
                 LblPersonel.Visible = false;
                 LblPersonelBolum.Visible = false;*/
-                ZimmetAktarim zimmetAktarim = zimmetAktarimManager.AracZimmetBilgileri("%" + TxtPlaka.Text + '%');
+                
+                /*ZimmetAktarim zimmetAktarim = zimmetAktarimManager.AracZimmetBilgileri("%" + TxtPlaka.Text + '%');
                 if (zimmetAktarim==null)
                 {
                     MessageBox.Show(TxtPlaka.Text + " Plakalı Araç Hiç Bir Personele Zimmetli Değildir. Kayıt İşlemine Devam Etmek İçin Öncelikle Aracın Duran Varlık Kaydı Yapılmalıdır!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -504,7 +505,7 @@ namespace UserInterface.IdariIsler
                     return;
                 }
                 zimmetliPersonel = zimmetAktarim.PersonelAd;
-                personelBolum = zimmetAktarim.Bolum;
+                personelBolum = zimmetAktarim.Bolum;*/
             }
         }
         bool gec = true;string zimmetliPersonel,personelBolum;

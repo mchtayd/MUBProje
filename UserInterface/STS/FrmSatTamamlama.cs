@@ -507,7 +507,7 @@ namespace UserInterface.STS
         }
         void TamamlananSatlar()
         {
-            tamamlanans = tamamlananManager.GetList();
+            tamamlanans = tamamlananManager.GetList(0);
             
             dataBinder.DataSource = tamamlanans.ToDataTable();
             DtgSatTamamlama.DataSource = dataBinder;

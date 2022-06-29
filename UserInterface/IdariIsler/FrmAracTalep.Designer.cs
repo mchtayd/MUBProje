@@ -30,7 +30,7 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -51,8 +51,8 @@ namespace UserInterface.IdariIsler
             this.label9 = new System.Windows.Forms.Label();
             this.TxtTalepNedeni = new System.Windows.Forms.TextBox();
             this.BtnBul = new System.Windows.Forms.Button();
-            this.TxtGorevEmriNo = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
+            this.Label = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.LblZimmetliPersonel = new System.Windows.Forms.Label();
@@ -84,7 +84,7 @@ namespace UserInterface.IdariIsler
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.BtnKapat = new System.Windows.Forms.Button();
-            this.LblGorevEmriNo = new System.Windows.Forms.Label();
+            this.LblIsAkisNo = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.DtDonusSaati = new System.Windows.Forms.DateTimePicker();
             this.DtDonusTarihi = new System.Windows.Forms.DateTimePicker();
@@ -147,8 +147,8 @@ namespace UserInterface.IdariIsler
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.TxtTalepNedeni);
             this.groupBox1.Controls.Add(this.BtnBul);
-            this.groupBox1.Controls.Add(this.TxtGorevEmriNo);
-            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.TxtIsAkisNo);
+            this.groupBox1.Controls.Add(this.Label);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(8, 6);
             this.groupBox1.Name = "groupBox1";
@@ -212,11 +212,6 @@ namespace UserInterface.IdariIsler
             // CmbButceKodu
             // 
             this.CmbButceKodu.FormattingEnabled = true;
-            this.CmbButceKodu.Items.AddRange(new object[] {
-            "BM08/KONAKLAMA",
-            "BM15/YURT İÇİ SEYAHAT",
-            "BM16/EĞİTİM, KURS, SEMİNER, FUAR",
-            "BM39/YURT DIŞI SEYEHAT"});
             this.CmbButceKodu.Location = new System.Drawing.Point(180, 59);
             this.CmbButceKodu.Name = "CmbButceKodu";
             this.CmbButceKodu.Size = new System.Drawing.Size(260, 21);
@@ -316,21 +311,21 @@ namespace UserInterface.IdariIsler
             this.BtnBul.UseVisualStyleBackColor = true;
             this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
-            // TxtGorevEmriNo
+            // TxtIsAkisNo
             // 
-            this.TxtGorevEmriNo.Location = new System.Drawing.Point(180, 33);
-            this.TxtGorevEmriNo.Name = "TxtGorevEmriNo";
-            this.TxtGorevEmriNo.Size = new System.Drawing.Size(171, 20);
-            this.TxtGorevEmriNo.TabIndex = 4;
+            this.TxtIsAkisNo.Location = new System.Drawing.Point(180, 33);
+            this.TxtIsAkisNo.Name = "TxtIsAkisNo";
+            this.TxtIsAkisNo.Size = new System.Drawing.Size(171, 20);
+            this.TxtIsAkisNo.TabIndex = 4;
             // 
-            // label3
+            // Label
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(95, 37);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(79, 13);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "Görev Emri No:";
+            this.Label.AutoSize = true;
+            this.Label.Location = new System.Drawing.Point(116, 37);
+            this.Label.Name = "Label";
+            this.Label.Size = new System.Drawing.Size(58, 13);
+            this.Label.TabIndex = 3;
+            this.Label.Text = "İş Akış No:";
             // 
             // label2
             // 
@@ -612,7 +607,7 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Controls.Add(this.label31);
             this.tabPage2.Controls.Add(this.TxtTop);
             this.tabPage2.Controls.Add(this.BtnKapat);
-            this.tabPage2.Controls.Add(this.LblGorevEmriNo);
+            this.tabPage2.Controls.Add(this.LblIsAkisNo);
             this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.DtDonusSaati);
             this.tabPage2.Controls.Add(this.DtDonusTarihi);
@@ -660,23 +655,23 @@ namespace UserInterface.IdariIsler
             this.BtnKapat.UseVisualStyleBackColor = true;
             this.BtnKapat.Click += new System.EventHandler(this.BtnKapat_Click);
             // 
-            // LblGorevEmriNo
+            // LblIsAkisNo
             // 
-            this.LblGorevEmriNo.AutoSize = true;
-            this.LblGorevEmriNo.Location = new System.Drawing.Point(117, 344);
-            this.LblGorevEmriNo.Name = "LblGorevEmriNo";
-            this.LblGorevEmriNo.Size = new System.Drawing.Size(19, 13);
-            this.LblGorevEmriNo.TabIndex = 386;
-            this.LblGorevEmriNo.Text = "00";
+            this.LblIsAkisNo.AutoSize = true;
+            this.LblIsAkisNo.Location = new System.Drawing.Point(117, 344);
+            this.LblIsAkisNo.Name = "LblIsAkisNo";
+            this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNo.TabIndex = 386;
+            this.LblIsAkisNo.Text = "00";
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(35, 344);
+            this.label12.Location = new System.Drawing.Point(56, 344);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(79, 13);
+            this.label12.Size = new System.Drawing.Size(58, 13);
             this.label12.TabIndex = 385;
-            this.label12.Text = "Görev Emri No:";
+            this.label12.Text = "İş Akış No:";
             // 
             // DtDonusSaati
             // 
@@ -728,8 +723,8 @@ namespace UserInterface.IdariIsler
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -777,8 +772,8 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox TxtGorevEmriNo;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox TxtIsAkisNo;
+        private System.Windows.Forms.Label Label;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnBul;
         private System.Windows.Forms.TextBox TxtTalepNedeni;
@@ -830,7 +825,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtDonusKm;
         private System.Windows.Forms.Label label7;
         private ADGV.AdvancedDataGridView DtgList;
-        private System.Windows.Forms.Label LblGorevEmriNo;
+        private System.Windows.Forms.Label LblIsAkisNo;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnKapat;
         private System.Windows.Forms.Label label31;

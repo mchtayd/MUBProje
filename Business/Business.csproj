@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="AmbarVeriManager.cs" />
     <Compile Include="ComboManager.cs" />
+    <Compile Include="Concreate\AnaSayfa\MenuManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeManager.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Concreate\IdarıIsler\ZimmetAktarimManager.cs" />
     <Compile Include="Concreate\IdarıIsler\ZimmetVeriGecmisManager.cs" />
     <Compile Include="Concreate\IdarıIsler\ZiyaretciKayitManager.cs" />
+    <Compile Include="Concreate\Rapor\ArizaRaporManager.cs" />
     <Compile Include="Concreate\STS\AltYukleniciManager.cs" />
     <Compile Include="Concreate\STS\ButceKoduManager.cs" />
     <Compile Include="Concreate\STS\DevamEdenIzlemeManager.cs" />

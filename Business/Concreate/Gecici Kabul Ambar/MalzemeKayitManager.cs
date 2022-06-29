@@ -142,6 +142,18 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+
+        public string StokDuzelt(string stokNo, int id)
+        {
+            try
+            {
+                return malzemeKayitDal.StokDuzelt(stokNo, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static MalzemeKayitManager GetInstance()
         {
             if (malzemeKayitManager == null)

@@ -1,4 +1,6 @@
 ﻿using Business.Concreate.IdarıIsler;
+using DataAccess.Concreate;
+using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,6 +16,7 @@ namespace UserInterface.IdariIsler
     public partial class FrmAracZimmetiLogKayitlari : Form
     {
         AracZimmetiLogManager aracZimmetiLogManager;
+        List<AracZimmetiLog> aracZimmetiLogs;
         public FrmAracZimmetiLogKayitlari()
         {
             InitializeComponent();
@@ -26,7 +29,8 @@ namespace UserInterface.IdariIsler
         }
         void ZimmetliAraclar()
         {
-            dataBinder.DataSource = aracZimmetiLogManager.GetList();
+            aracZimmetiLogs = aracZimmetiLogManager.GetList();
+            dataBinder.DataSource = aracZimmetiLogs.ToDataTable();
             DtgLog.DataSource = dataBinder;
             TxtTop.Text = DtgLog.RowCount.ToString();
 

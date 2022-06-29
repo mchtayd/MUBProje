@@ -29,7 +29,7 @@ namespace UserInterface.STS
 
         private void FrmSatDosyaYoluDuzelt_Load(object sender, EventArgs e)
         {
-            DtgList.DataSource = tamamlananManager.GetList();
+            DtgList.DataSource = tamamlananManager.GetList(0);
             LblToplam.Text = DtgList.RowCount.ToString();
 
             //DtgList.DataSource = satDataGridview1Manager.List();

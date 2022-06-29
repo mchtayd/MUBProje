@@ -272,7 +272,6 @@ namespace UserInterface.RAPORLAMALAR
             dosya = dosya + DateTime.Now.ToString("dd_MM_yyyy") + "_" + DateTime.Now.ToString("mm_ss") + ".xlsx";
 
             workBook.SaveAs(dosya);
-
         }
         void CreateDirectoryAselsan()
         {

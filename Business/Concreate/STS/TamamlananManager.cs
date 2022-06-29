@@ -1,4 +1,5 @@
 ﻿using DataAccess.Abstract;
+using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
 using Entity.STS;
 using System;
@@ -40,15 +41,30 @@ namespace Business.Concreate.STS
             throw new NotImplementedException();
         }
 
-        public List<Tamamlanan> GetList()
+        public List<Tamamlanan> GetList(int yil)
         {
             try
             {
-                return tamamlananDal.GetList();
+                if (yil==0)
+                {
+                    return tamamlananDal.GetList("");
+                }
+                return tamamlananDal.GetList(yil.ToString());
             }
             catch
             {
                 return new List<Tamamlanan>();
+            }
+        }
+        public List<string> Yillar()
+        {
+            try
+            {
+                return tamamlananDal.Yillar();
+            }
+            catch
+            {
+                return new List<string>();
             }
         }
         public List<Tamamlanan> GetListDirektorluk()
