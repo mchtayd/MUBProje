@@ -33,11 +33,11 @@ namespace Business.Concreate.AnaSayfa
             throw new NotImplementedException();
         }
 
-        public List<MenuBaslik> GetList()
+        public List<MenuBaslik> GetList(int sonId=0)
         {
             try
             {
-                return menuDal.GetList();
+                return menuDal.GetList(sonId);
             }
             catch (Exception)
             {

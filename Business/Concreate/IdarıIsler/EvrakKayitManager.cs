@@ -60,15 +60,26 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<EvrakKayit> GetList()
+        public List<EvrakKayit> GetList(int isAkisNo=0)
         {
             try
             {
-                return evrakKayitDal.GetList();
+                return evrakKayitDal.GetList(isAkisNo);
             }
             catch (Exception)
             {
                 return new List<EvrakKayit>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                return evrakKayitDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
         public static EvrakKayitManager GetInstance()

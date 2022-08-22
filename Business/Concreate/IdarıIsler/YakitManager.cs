@@ -59,15 +59,27 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<Yakit> GetList()
+        public List<Yakit> GetList(int isAkisNo=0)
         {
             try
             {
-                return yakitDal.GetList();
+                return yakitDal.GetList(isAkisNo);
             }
             catch (Exception)
             {
                 return new List<Yakit>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo)
+        {
+            try
+            {
+
+                return yakitDal.IsAkisNoDuzelt(id, isAkisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
         public List<Yakit> YakitKontrolBeyan(string donem)

@@ -135,6 +135,7 @@
     <Compile Include="Concreate\IdariIsler\OtelDal.cs" />
     <Compile Include="Concreate\IdariIsler\PersKaytLojistikDal.cs" />
     <Compile Include="Concreate\IdariIsler\PersoneKayitBODal.cs" />
+    <Compile Include="Concreate\IdariIsler\PersonelHesapDal.cs" />
     <Compile Include="Concreate\IdariIsler\PersonelKayitDal.cs" />
     <Compile Include="Concreate\IdariIsler\PersonelKayitIdariDal.cs" />
     <Compile Include="Concreate\IdariIsler\PersonelKayitLojistikDal.cs" />
@@ -190,6 +191,8 @@
     <Compile Include="Concreate\IdariIsler\DvNoDal.cs" />
     <Compile Include="GorevAtamaDal.cs" />
     <Compile Include="IsAkisNoDal.cs" />
+    <Compile Include="LoginDal.cs" />
+    <Compile Include="PersonelDal.cs" />
     <Compile Include="PersonelIslemleriDal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Concreate\STS\SatinAlinacakMalDal.cs" />

@@ -40,9 +40,27 @@ namespace Business
             }
         }
 
-        public List<IsAkisNo> GetList()
+        public List<IsAkisNo> GetListKontrol(string tabloAd)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return isAkisNoDal.GetListKontrol(tabloAd);
+            }
+            catch (Exception)
+            {
+                return new List<IsAkisNo>();
+            }
+        }
+        public List<string> TabloBasliklari()
+        {
+            try
+            {
+                return isAkisNoDal.TabloBasliklari();
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
         }
 
         public string Update()

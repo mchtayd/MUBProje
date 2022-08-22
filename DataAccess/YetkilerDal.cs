@@ -23,7 +23,19 @@ namespace DataAccess
 
         public string Add(Yetki entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("YetkilerEkle",
+                    new SqlParameter("@name", entity.Name),
+                    new SqlParameter("@izinIdler", entity.IzinIdleri));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Delete(int id)
@@ -31,9 +43,23 @@ namespace DataAccess
             throw new NotImplementedException();
         }
 
-        public Yetki Get(int id)
+        public Yetki Get(string isim)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("YetkileriCek", new SqlParameter("@isim", isim));
+                Yetki item = null;
+                while (dataReader.Read())
+                {
+                    item = new Yetki(dataReader["Id"].ConInt(), dataReader["Name"].ToString(), dataReader["Izin_Idleri"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<Yetki> GetList()

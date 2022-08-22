@@ -61,6 +61,22 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("IzinDuzenle",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public Izin Get(int isakisno)
         {

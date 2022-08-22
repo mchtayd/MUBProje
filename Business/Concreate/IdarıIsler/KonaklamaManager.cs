@@ -47,6 +47,17 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
+        public string IsAkisNoDuzelt(int id,int isAkisNo,string dosyaYolu)
+        {
+            try
+            {
+                return konaklamaDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public Konaklama Get(int isakisno)
         {
@@ -60,11 +71,11 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<Konaklama> GetList()
+        public List<Konaklama> GetList(int isAkisNo=0)
         {
             try
             {
-                return konaklamaDal.GetList();
+                return konaklamaDal.GetList(isAkisNo);
             }
             catch (Exception)
             {

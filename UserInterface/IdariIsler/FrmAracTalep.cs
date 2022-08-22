@@ -176,7 +176,10 @@ namespace UserInterface.IdariIsler
             wBookmarks["AracTeslimEden"].Range.Text = infos[1].ToString();
             wBookmarks["AracTeslimAlan"].Range.Text = CmbTalepEdenAd.Text;
             wBookmarks["DonusKm"].Range.Text = "";
-            
+            wBookmarks["Plaka"].Range.Text = CmbPlaka.Text;//GorevDonusTarihi
+            wBookmarks["TarihOnay"].Range.Text = DateTime.Now.ToString("dd.MM.yyyy");
+
+
             wDoc.SaveAs2(dosyaYolu + isAkisNo + ".docx");
             wDoc.Close();
             wApp.Quit(false);
@@ -397,6 +400,7 @@ namespace UserInterface.IdariIsler
 
             Bookmarks wBookmarks = wDoc.Bookmarks;
 
+            wBookmarks["GorevDonusTarihi"].Range.Text = "";
             wBookmarks["GorevDonusTarihi"].Range.Text = DtDonusTarihi.Value.ToString("dd.MM.yyyy");
             wBookmarks["DonusSaati"].Range.Text = DtDonusSaati.Text;
             wBookmarks["DonusKm"].Range.Text = TxtDonusKm.Text;

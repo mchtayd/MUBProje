@@ -73,6 +73,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button4 = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -92,10 +93,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.BtnCancel = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.advancedDataGridView4 = new ADGV.AdvancedDataGridView();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -112,7 +110,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.button3 = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.BtnCancel = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -126,9 +127,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView3)).BeginInit();
             this.tabPage3.SuspendLayout();
-            this.panel1.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView4)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -145,6 +146,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button5);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label2);
@@ -168,7 +170,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox3.Controls.Add(this.BtnBolgeEkle);
             this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.CmbDepoAdresleri);
-            this.groupBox3.Location = new System.Drawing.Point(168, 642);
+            this.groupBox3.Location = new System.Drawing.Point(9, 630);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(407, 203);
             this.groupBox3.TabIndex = 339;
@@ -302,7 +304,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(12, 642);
+            this.button1.Location = new System.Drawing.Point(422, 638);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(150, 39);
             this.button1.TabIndex = 336;
@@ -567,6 +569,16 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage2.Text = "STOKTA OLAN (HAZIRLANACAK)";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // button4
+            // 
+            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button4.Location = new System.Drawing.Point(9, 589);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(150, 39);
+            this.button4.TabIndex = 341;
+            this.button4.Text = "MHF YAZDIR";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -771,49 +783,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage3.Text = "STOKTA OLMAYAN (SAT)";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
+            // button3
             // 
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1537, 856);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "MALZEME TEMİNİ";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Controls.Add(this.BtnCancel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1557, 27);
-            this.panel1.TabIndex = 313;
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnCancel.ForeColor = System.Drawing.Color.DarkRed;
-            this.BtnCancel.Location = new System.Drawing.Point(12, 4);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(35, 23);
-            this.BtnCancel.TabIndex = 19;
-            this.BtnCancel.Text = "X";
-            this.BtnCancel.UseVisualStyleBackColor = false;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
-            // button4
-            // 
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button4.Location = new System.Drawing.Point(9, 589);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(150, 39);
-            this.button4.TabIndex = 341;
-            this.button4.Text = "MHF YAZDIR";
-            this.button4.UseVisualStyleBackColor = true;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button3.Location = new System.Drawing.Point(9, 580);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(150, 39);
+            this.button3.TabIndex = 342;
+            this.button3.Text = "SAT";
+            this.button3.UseVisualStyleBackColor = true;
             // 
             // groupBox6
             // 
@@ -987,15 +965,49 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.dataGridViewTextBoxColumn26.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             this.dataGridViewTextBoxColumn26.Width = 106;
             // 
-            // button3
+            // tabPage4
             // 
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button3.Location = new System.Drawing.Point(9, 580);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(150, 39);
-            this.button3.TabIndex = 342;
-            this.button3.Text = "SAT";
-            this.button3.UseVisualStyleBackColor = true;
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1537, 856);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "MALZEME TEMİNİ";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.BtnCancel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1557, 27);
+            this.panel1.TabIndex = 313;
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnCancel.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnCancel.Location = new System.Drawing.Point(12, 4);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(35, 23);
+            this.BtnCancel.TabIndex = 19;
+            this.BtnCancel.Text = "X";
+            this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            // 
+            // button5
+            // 
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button5.Location = new System.Drawing.Point(422, 683);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(150, 39);
+            this.button5.TabIndex = 340;
+            this.button5.Text = "REZERVE ET";
+            this.button5.UseVisualStyleBackColor = true;
             // 
             // FrmMalzemeHazirlama
             // 
@@ -1023,9 +1035,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView3)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            this.panel1.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView4)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1110,5 +1122,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.Button button5;
     }
 }

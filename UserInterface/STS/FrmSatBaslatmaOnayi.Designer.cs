@@ -238,7 +238,7 @@ namespace UserInterface.STS
             "",
             "ERKAN İPEK",
             "UĞUR DURAN",
-            "GÜLİZ MARAŞ",
+            "YASEMİN DURAN",
             "RESUL GÜNEŞ"});
             this.CmbIlgiliKisi.Location = new System.Drawing.Point(208, 160);
             this.CmbIlgiliKisi.Name = "CmbIlgiliKisi";

@@ -47,15 +47,27 @@ namespace Business.Concreate.Butce
             }
         }
 
-        public List<IsAvansTalep> GetList()
+        public List<IsAvansTalep> GetList(int isAkisNo=0)
         {
             try
             {
-                return ısAvansTalepDal.GetList();
+                return ısAvansTalepDal.GetList(isAkisNo);
             }
             catch (Exception)
             {
                 return new List<IsAvansTalep>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+
+                return ısAvansTalepDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
 

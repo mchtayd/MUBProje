@@ -59,17 +59,29 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<UcakOtobus> GetList()
+        public List<UcakOtobus> GetList(int isAkisNo=0)
         {
             try
             {
-                return ucakOtobusDal.GetList();
+                return ucakOtobusDal.GetList(isAkisNo);
             }
             catch (Exception)
             {
                 return new List<UcakOtobus>();
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                return ucakOtobusDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public List<UcakOtobus> OnayList(string islemadimi)
         {
             try

@@ -42,6 +42,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.TxtBarkod = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -164,11 +166,30 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.TxtTop.TabIndex = 464;
             this.TxtTop.Text = "00";
             // 
+            // TxtBarkod
+            // 
+            this.TxtBarkod.Location = new System.Drawing.Point(468, 59);
+            this.TxtBarkod.Name = "TxtBarkod";
+            this.TxtBarkod.Size = new System.Drawing.Size(303, 20);
+            this.TxtBarkod.TabIndex = 466;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(406, 60);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 15);
+            this.label2.TabIndex = 465;
+            this.label2.Text = "Barkod:";
+            // 
             // FrmDepoHareketleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1551, 882);
+            this.Controls.Add(this.TxtBarkod);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.groupBox1);
@@ -204,5 +225,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.TextBox TxtBarkod;
+        private System.Windows.Forms.Label label2;
     }
 }

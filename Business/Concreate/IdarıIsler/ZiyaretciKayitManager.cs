@@ -53,12 +53,23 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
-
-        public List<ZiyaretciKayit> GetList()
+        public string IsAkisNoDuzelt(int id, int isAkisNo)
         {
             try
             {
-                return ziyaretciKayitDal.GetList();
+
+                return ziyaretciKayitDal.IsAkisNoDuzelt(id, isAkisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public List<ZiyaretciKayit> GetList(int isAkisNo=0)
+        {
+            try
+            {
+                return ziyaretciKayitDal.GetList(isAkisNo);
             }
             catch (Exception)
             {

@@ -45,6 +45,7 @@ namespace UserInterface.STS
         MenuManager menuManager;
         FrmWait frmWait = new FrmWait();
         List<MenuBaslik> menuBasliks;
+        List<MenuBaslik> menuBasliksFilter;
         List<MenuBaslik> menuBasliksVeriGiris = new List<MenuBaslik>();
         List<MenuBaslik> menuBasliksVeriIzleme = new List<MenuBaslik>();
         List<MenuBaslik> menuBasliks2 = new List<MenuBaslik>();
@@ -54,7 +55,7 @@ namespace UserInterface.STS
         public object[] infos1;
         int control = 0;
         int atla = 0, atladal = 0, personId, authId, tamamlananSatlar, devamEdenSatlar, reddedilenSatlar;
-        string izinIdleri;
+        string izinIdleri, yetkiModu;
 
         int index = 0;
         int indexAlt = 0;
@@ -87,31 +88,60 @@ namespace UserInterface.STS
             personId = infos[0].ConInt();
             authId = infos[5].ConInt();
             izinIdleri = infos[6].ToString();
+            yetkiModu = infos[11].ToString();
             if (personId == 25)
             {
-                VersionEkle.Visible = false;
+                VersionEkle.Visible = true;
                 button3.Visible = false;
                 BtnDosyaKitle.Visible = false;
             }
-            Basliklar();
+            Basliklar(authId);
             Admin();
             ControlNodes(authId);
             button1.Image = imageList.Images["kucultme.png"];
             LblVersionNo.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             VersionBul();
-
+            if (yetkiModu == "KULLANICI")
+            {
+                sayfalar.Visible = false;
+            }
         }
 
-        void Basliklar()
+        void Basliklar(int authId)
         {
+
+            string[] array = izinIdleri.Split(';');
+
+            int sayac = 0;
+            int donguDeger = array.Length;
+
             menuBasliks = new List<MenuBaslik>();
+            menuBasliksFilter = new List<MenuBaslik>();
             menuBasliks = menuManager.GetList();
+
+
+            foreach (MenuBaslik item in menuBasliks)
+            {
+                if (donguDeger==sayac)
+                {
+                    break;
+                }
+                if (array[sayac].ConInt() == item.Id)
+                {
+                    menuBasliksFilter.Add(item);
+                    sayac++;
+                }
+                
+            }
+
+            menuBasliks = menuBasliksFilter;
+
+
             menuBasliksVeriGiris.Clear();
             menuBasliksVeriIzleme.Clear();
             menuBasliks2.Clear();
             menuBasliks3.Clear();
             menuBasliks4.Clear();
-
 
             int id = 0;
             foreach (MenuBaslik item in menuBasliks)
@@ -140,56 +170,147 @@ namespace UserInterface.STS
 
             index = 0;
             indexAlt = 0;
+            sayac = 0;
 
             foreach (MenuBaslik item in menuBasliksVeriGiris)
             {
                 TreeMenu.Nodes[0].Nodes.Add(item.Baslik);
                 TreeMenu.Nodes[0].BackColor = Color.CadetBlue;
                 menuBasliks2 = menuManager.GetListAlt(item.Id);
+                List<MenuBaslik> menuBasliks = new List<MenuBaslik>();
+                
+                for (int i = 0; i < menuBasliks2.Count(); i++)
+                {
+                    sayac = 0;
+                    foreach (var dizi in array)
+                    {
+                        if (sayac==donguDeger)
+                        {
+                            break;
+                        }
+                        if (array[sayac].ConInt() == menuBasliks2[i].Id)
+                        {
+                            menuBasliks.Add(menuBasliks2[i]);
+                        }
+                        sayac++;
+                    }
+                }
+
+                menuBasliks2.Clear();
+                menuBasliks2 = menuBasliks;
+
+                menuBasliks = new List<MenuBaslik>();
+
                 foreach (MenuBaslik item2 in menuBasliks2)
                 {
                     TreeMenu.Nodes[0].Nodes[index].Nodes.Add(item2.Baslik);
                     menuBasliks4 = menuManager.GetListAlt(item2.Id);
+                    int dongu = menuBasliks4.Count();
                     if (menuBasliks4.Count!=0)
                     {
-                        foreach (MenuBaslik item3 in menuBasliks4)
+                        for (int i = 0; i < dongu; i++)
                         {
-                            TreeMenu.Nodes[0].Nodes[index].Nodes[indexAlt].Nodes.Add(item3.Baslik);
+                            sayac = 0;
+
+                            foreach (var dizi in array)
+                            {
+                                if (sayac == donguDeger)
+                                {
+                                    break;
+                                }
+                                if (array[sayac].ConInt() == menuBasliks4[i].Id)
+                                {
+                                    menuBasliks.Add(menuBasliks4[i]);
+                                }
+                                sayac++;
+                            }
+
                         }
-                        indexAlt++;
-                        menuBasliks4.Clear();
+
+                        int ind = TreeMenu.Nodes[0].Nodes[index].Nodes.Count.ConInt() - 1;
+                        foreach (MenuBaslik item3 in menuBasliks)
+                        {
+                            TreeMenu.Nodes[0].Nodes[index].Nodes[ind].Nodes.Add(item3.Baslik);
+                        }
+                        menuBasliks.Clear();
                     }
-                    
                 }
                 index++;
 
             }
 
+
             index = 0;
             indexAlt = 0;
+            sayac = 0;
+
             foreach (MenuBaslik item in menuBasliksVeriIzleme)
             {
                 TreeMenu.Nodes[1].Nodes.Add(item.Baslik);
                 TreeMenu.Nodes[1].BackColor = Color.CadetBlue;
                 menuBasliks3 = menuManager.GetListAlt(item.Id);
+
+                List<MenuBaslik> menuBasliks = new List<MenuBaslik>();
+
+                for (int i = 0; i < menuBasliks3.Count(); i++)
+                {
+                    sayac = 0;
+
+                    foreach (var dizi in array)
+                    {
+                        if (sayac == donguDeger)
+                        {
+                            break;
+                        }
+                        if (array[sayac].ConInt() == menuBasliks3[i].Id)
+                        {
+                            menuBasliks.Add(menuBasliks3[i]);
+                        }
+                        sayac++;
+                    }
+
+                }
+
+                menuBasliks3.Clear();
+                menuBasliks3 = menuBasliks;
+                menuBasliks = new List<MenuBaslik>();
+
                 foreach (MenuBaslik item2 in menuBasliks3)
                 {
                     TreeMenu.Nodes[1].Nodes[index].Nodes.Add(item2.Baslik);
                     menuBasliks4 = menuManager.GetListAlt(item2.Id);
+                    int dongu = menuBasliks4.Count();
+
                     if (menuBasliks4.Count != 0)
                     {
-                        foreach (MenuBaslik item3 in menuBasliks4)
+                        for (int i = 0; i < dongu; i++)
                         {
-                            TreeMenu.Nodes[1].Nodes[index].Nodes[indexAlt].Nodes.Add(item3.Baslik);
+                            sayac = 0;
+                            foreach (var dizi in array)
+                            {
+                                if (sayac == donguDeger)
+                                {
+                                    break;
+                                }
+                                if (array[sayac].ConInt() == menuBasliks4[i].Id)
+                                {
+                                    menuBasliks.Add(menuBasliks4[i]);
+                                }
+                                sayac++;
+                            }
                         }
-                        indexAlt++;
-                        menuBasliks4.Clear();
+
+                        int ind = TreeMenu.Nodes[1].Nodes[index].Nodes.Count.ConInt() - 1;
+                        foreach (MenuBaslik item3 in menuBasliks)
+                        {
+                            TreeMenu.Nodes[1].Nodes[index].Nodes[ind].Nodes.Add(item3.Baslik);
+                        }
+                        menuBasliks.Clear();
                     }
-                    
                 }
                 index++;
+
             }
-            
 
         }
         public void ToplamSayilar()
@@ -1260,7 +1381,7 @@ namespace UserInterface.STS
                 //MessageBox.Show("Lütfen öncelikle Komut bilgisini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TreeMenu.Nodes[0].Remove();
                 TreeMenu.Nodes[0].Remove();
-                Basliklar();
+                Basliklar(authId);
                 
             }
             menuBasliksVeriGiris.Clear();
@@ -1873,6 +1994,14 @@ namespace UserInterface.STS
                     if (form != null)
                     {
                         form.Yenilenecekler();
+                    }
+                }
+                if (baslik == "Firma Servis Formu Kayıt İzleme")
+                {
+                    var form = (FrmServisTalepleriIzleme)Application.OpenForms["FrmServisTalepleriIzleme"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
                     }
                 }
             }
@@ -4342,14 +4471,24 @@ namespace UserInterface.STS
             frmSehirIciGorevlerim.ShowDialog();
         }
 
+        private void hesapOluşturToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmHesapOlustur frmHesapOlustur = new FrmHesapOlustur();
+            frmHesapOlustur.ShowDialog();
+        }
+
+        private void serverToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmServer frmServer = new FrmServer();
+            frmServer.ShowDialog();
+        }
+
         private void konaklamalarımToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmKonaklamalarim frmKonaklamalarim = new FrmKonaklamalarim();
             frmKonaklamalarim.infos = infos;
             frmKonaklamalarim.ShowDialog();
         }
-
-        
 
         private void FrmAnaSayfa_SizeChanged(object sender, EventArgs e)
         {

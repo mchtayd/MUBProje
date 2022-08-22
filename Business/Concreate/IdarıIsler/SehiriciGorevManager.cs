@@ -148,6 +148,19 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
+
+        public string IsAkisNoDuzelt(int id,int isAkisNo)
+        {
+            try
+            {
+                
+                return sehiriciGorevDal.IsAkisNoDuzelt(id, isAkisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string GorevOnay(SehiriciGorev entity, int id)
         {
             try

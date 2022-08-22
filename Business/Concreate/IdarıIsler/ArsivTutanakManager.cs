@@ -61,15 +61,27 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<ArsivTutanak> GetList()
+        public List<ArsivTutanak> GetList(int isAkisNo=0)
         {
             try
             {
-                return arsivTutanakDal.GetList();
+                return arsivTutanakDal.GetList(isAkisNo);
             }
             catch (Exception)
             {
                 return new List<ArsivTutanak>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+
+                return arsivTutanakDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
 

@@ -46,6 +46,7 @@ namespace UserInterface.BakımOnarım
             IsAkisNo();
             UsBolgeleri();
             Firmalar();
+            
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -222,6 +223,7 @@ namespace UserInterface.BakımOnarım
             CmbFirma.ValueMember = "Id";
             CmbFirma.DisplayMember = "Firmaadi";
             CmbFirma.SelectedValue = "";
+
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)

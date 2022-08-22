@@ -125,13 +125,29 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("UcakOtobusDuzenle",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
-        public List<UcakOtobus> GetList()
+        public List<UcakOtobus> GetList(int isakisno)
         {
             try
             {
                 List<UcakOtobus> ucakOtobus = new List<UcakOtobus>();
-                dataReader = sqlServices.StoreReader("UcakOtobusList");
+                dataReader = sqlServices.StoreReader("UcakOtobusList", new SqlParameter("@isakisno", isakisno));
                 while (dataReader.Read())
                 {
                     ucakOtobus.Add(new UcakOtobus(dataReader["ID"].ConInt(),

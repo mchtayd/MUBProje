@@ -129,7 +129,7 @@ namespace UserInterface.BakımOnarım
             this.CmbFirma.Location = new System.Drawing.Point(181, 75);
             this.CmbFirma.Name = "CmbFirma";
             this.CmbFirma.Size = new System.Drawing.Size(204, 21);
-            this.CmbFirma.TabIndex = 47;
+            this.CmbFirma.TabIndex = 2;
             // 
             // label2
             // 
@@ -146,7 +146,7 @@ namespace UserInterface.BakımOnarım
             this.CmbBolgeAdi.Location = new System.Drawing.Point(181, 102);
             this.CmbBolgeAdi.Name = "CmbBolgeAdi";
             this.CmbBolgeAdi.Size = new System.Drawing.Size(204, 21);
-            this.CmbBolgeAdi.TabIndex = 49;
+            this.CmbBolgeAdi.TabIndex = 3;
             // 
             // label3
             // 
@@ -162,7 +162,7 @@ namespace UserInterface.BakımOnarım
             this.TxtServisFormNo.Location = new System.Drawing.Point(181, 129);
             this.TxtServisFormNo.Name = "TxtServisFormNo";
             this.TxtServisFormNo.Size = new System.Drawing.Size(204, 20);
-            this.TxtServisFormNo.TabIndex = 51;
+            this.TxtServisFormNo.TabIndex = 4;
             // 
             // label4
             // 
@@ -192,7 +192,7 @@ namespace UserInterface.BakımOnarım
             this.CmbMudehaleTuru.Location = new System.Drawing.Point(181, 155);
             this.CmbMudehaleTuru.Name = "CmbMudehaleTuru";
             this.CmbMudehaleTuru.Size = new System.Drawing.Size(204, 21);
-            this.CmbMudehaleTuru.TabIndex = 58;
+            this.CmbMudehaleTuru.TabIndex = 5;
             // 
             // label7
             // 
@@ -208,7 +208,7 @@ namespace UserInterface.BakımOnarım
             this.TxtMarka.Location = new System.Drawing.Point(181, 287);
             this.TxtMarka.Name = "TxtMarka";
             this.TxtMarka.Size = new System.Drawing.Size(204, 20);
-            this.TxtMarka.TabIndex = 61;
+            this.TxtMarka.TabIndex = 12;
             // 
             // label8
             // 
@@ -224,7 +224,7 @@ namespace UserInterface.BakımOnarım
             this.TxtSeriNo.Location = new System.Drawing.Point(181, 339);
             this.TxtSeriNo.Name = "TxtSeriNo";
             this.TxtSeriNo.Size = new System.Drawing.Size(204, 20);
-            this.TxtSeriNo.TabIndex = 63;
+            this.TxtSeriNo.TabIndex = 14;
             // 
             // label9
             // 
@@ -240,7 +240,7 @@ namespace UserInterface.BakımOnarım
             this.TxtModel.Location = new System.Drawing.Point(181, 313);
             this.TxtModel.Name = "TxtModel";
             this.TxtModel.Size = new System.Drawing.Size(204, 20);
-            this.TxtModel.TabIndex = 65;
+            this.TxtModel.TabIndex = 13;
             // 
             // label10
             // 
@@ -265,7 +265,7 @@ namespace UserInterface.BakımOnarım
             this.TxtServisRaporu.Location = new System.Drawing.Point(181, 392);
             this.TxtServisRaporu.Name = "TxtServisRaporu";
             this.TxtServisRaporu.Size = new System.Drawing.Size(789, 136);
-            this.TxtServisRaporu.TabIndex = 67;
+            this.TxtServisRaporu.TabIndex = 16;
             this.TxtServisRaporu.Text = "";
             // 
             // label12
@@ -281,7 +281,7 @@ namespace UserInterface.BakımOnarım
             this.TxtServisYetkilisi.Location = new System.Drawing.Point(181, 734);
             this.TxtServisYetkilisi.Name = "TxtServisYetkilisi";
             this.TxtServisYetkilisi.Size = new System.Drawing.Size(204, 20);
-            this.TxtServisYetkilisi.TabIndex = 71;
+            this.TxtServisYetkilisi.TabIndex = 18;
             // 
             // label19
             // 
@@ -297,7 +297,7 @@ namespace UserInterface.BakımOnarım
             this.TxtMusteri.Location = new System.Drawing.Point(181, 760);
             this.TxtMusteri.Name = "TxtMusteri";
             this.TxtMusteri.Size = new System.Drawing.Size(204, 20);
-            this.TxtMusteri.TabIndex = 73;
+            this.TxtMusteri.TabIndex = 19;
             // 
             // label20
             // 
@@ -315,7 +315,7 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet.Location = new System.Drawing.Point(17, 855);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(158, 48);
-            this.BtnKaydet.TabIndex = 74;
+            this.BtnKaydet.TabIndex = 21;
             this.BtnKaydet.Text = "KAYDET";
             this.BtnKaydet.UseVisualStyleBackColor = true;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
@@ -334,7 +334,7 @@ namespace UserInterface.BakımOnarım
             this.TxtJenaratorCalismaSaati.Location = new System.Drawing.Point(181, 208);
             this.TxtJenaratorCalismaSaati.Name = "TxtJenaratorCalismaSaati";
             this.TxtJenaratorCalismaSaati.Size = new System.Drawing.Size(204, 20);
-            this.TxtJenaratorCalismaSaati.TabIndex = 76;
+            this.TxtJenaratorCalismaSaati.TabIndex = 7;
             // 
             // label21
             // 
@@ -350,7 +350,7 @@ namespace UserInterface.BakımOnarım
             this.TxtGuc.Location = new System.Drawing.Point(181, 365);
             this.TxtGuc.Name = "TxtGuc";
             this.TxtGuc.Size = new System.Drawing.Size(204, 20);
-            this.TxtGuc.TabIndex = 78;
+            this.TxtGuc.TabIndex = 15;
             // 
             // label22
             // 
@@ -368,7 +368,7 @@ namespace UserInterface.BakımOnarım
             this.BtnDosyaEkle.Location = new System.Drawing.Point(17, 801);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(158, 48);
-            this.BtnDosyaEkle.TabIndex = 79;
+            this.BtnDosyaEkle.TabIndex = 20;
             this.BtnDosyaEkle.Text = "DOSYA EKLE";
             this.BtnDosyaEkle.UseVisualStyleBackColor = true;
             this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
@@ -402,7 +402,7 @@ namespace UserInterface.BakımOnarım
             this.CmbIslemTuru.Location = new System.Drawing.Point(533, 45);
             this.CmbIslemTuru.Name = "CmbIslemTuru";
             this.CmbIslemTuru.Size = new System.Drawing.Size(216, 21);
-            this.CmbIslemTuru.TabIndex = 93;
+            this.CmbIslemTuru.TabIndex = 0;
             this.CmbIslemTuru.SelectedIndexChanged += new System.EventHandler(this.CmbIslemTuru_SelectedIndexChanged);
             // 
             // label39
@@ -439,7 +439,7 @@ namespace UserInterface.BakımOnarım
             this.BtnGuncelle.Location = new System.Drawing.Point(17, 855);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(158, 48);
-            this.BtnGuncelle.TabIndex = 96;
+            this.BtnGuncelle.TabIndex = 22;
             this.BtnGuncelle.Text = "GÜNCELLE";
             this.BtnGuncelle.UseVisualStyleBackColor = true;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
@@ -482,7 +482,7 @@ namespace UserInterface.BakımOnarım
             this.DtgKullanilanMalzemeler.Location = new System.Drawing.Point(3, 16);
             this.DtgKullanilanMalzemeler.Name = "DtgKullanilanMalzemeler";
             this.DtgKullanilanMalzemeler.Size = new System.Drawing.Size(783, 164);
-            this.DtgKullanilanMalzemeler.TabIndex = 0;
+            this.DtgKullanilanMalzemeler.TabIndex = 17;
             // 
             // ParcaKodu
             // 
@@ -505,7 +505,7 @@ namespace UserInterface.BakımOnarım
             this.DtgServisTarihi.Location = new System.Drawing.Point(181, 182);
             this.DtgServisTarihi.Name = "DtgServisTarihi";
             this.DtgServisTarihi.Size = new System.Drawing.Size(204, 20);
-            this.DtgServisTarihi.TabIndex = 399;
+            this.DtgServisTarihi.TabIndex = 6;
             // 
             // DtBaslamaTarihi
             // 
@@ -513,7 +513,7 @@ namespace UserInterface.BakımOnarım
             this.DtBaslamaTarihi.Location = new System.Drawing.Point(181, 233);
             this.DtBaslamaTarihi.Name = "DtBaslamaTarihi";
             this.DtBaslamaTarihi.Size = new System.Drawing.Size(120, 20);
-            this.DtBaslamaTarihi.TabIndex = 400;
+            this.DtBaslamaTarihi.TabIndex = 8;
             // 
             // DtBaslamaTarihiSaati
             // 
@@ -524,7 +524,7 @@ namespace UserInterface.BakımOnarım
             this.DtBaslamaTarihiSaati.Name = "DtBaslamaTarihiSaati";
             this.DtBaslamaTarihiSaati.ShowUpDown = true;
             this.DtBaslamaTarihiSaati.Size = new System.Drawing.Size(78, 21);
-            this.DtBaslamaTarihiSaati.TabIndex = 402;
+            this.DtBaslamaTarihiSaati.TabIndex = 9;
             this.DtBaslamaTarihiSaati.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
             // 
             // DtBitisTarihiSaati
@@ -536,7 +536,7 @@ namespace UserInterface.BakımOnarım
             this.DtBitisTarihiSaati.Name = "DtBitisTarihiSaati";
             this.DtBitisTarihiSaati.ShowUpDown = true;
             this.DtBitisTarihiSaati.Size = new System.Drawing.Size(78, 21);
-            this.DtBitisTarihiSaati.TabIndex = 404;
+            this.DtBitisTarihiSaati.TabIndex = 11;
             this.DtBitisTarihiSaati.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
             // 
             // DtBitisTarihi
@@ -545,7 +545,7 @@ namespace UserInterface.BakımOnarım
             this.DtBitisTarihi.Location = new System.Drawing.Point(181, 260);
             this.DtBitisTarihi.Name = "DtBitisTarihi";
             this.DtBitisTarihi.Size = new System.Drawing.Size(120, 20);
-            this.DtBitisTarihi.TabIndex = 403;
+            this.DtBitisTarihi.TabIndex = 10;
             // 
             // openFileDialog1
             // 
@@ -556,7 +556,7 @@ namespace UserInterface.BakımOnarım
             this.TxtIsAkisNo.Location = new System.Drawing.Point(180, 46);
             this.TxtIsAkisNo.Name = "TxtIsAkisNo";
             this.TxtIsAkisNo.Size = new System.Drawing.Size(204, 20);
-            this.TxtIsAkisNo.TabIndex = 405;
+            this.TxtIsAkisNo.TabIndex = 1;
             // 
             // BtnBul
             // 

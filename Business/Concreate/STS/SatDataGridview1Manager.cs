@@ -495,15 +495,27 @@ namespace Business.Concreate
                 throw;
             }
         }
-        public List<SatDataGridview1> List()
+        public List<SatDataGridview1> List(int isAkisNo=0)
         {
             try
             {
-                return satDataGridview1Dal.List();
+                return satDataGridview1Dal.List(isAkisNo);
             }
             catch
             {
                 return new List<SatDataGridview1>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo,string dosyaYolu)
+        {
+            try
+            {
+
+                return satDataGridview1Dal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
         public List<SatDataGridview1> TekifDurumListele(string teklifdurumu, string durum, int ucteklif,string firmabilgisi)

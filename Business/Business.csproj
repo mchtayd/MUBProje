@@ -100,6 +100,7 @@
     <Compile Include="Concreate\IdarıIsler\DvNoManager.cs" />
     <Compile Include="Concreate\IdarıIsler\EvrakKayitManager.cs" />
     <Compile Include="Concreate\IdarıIsler\IdariIslerManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\Irepository.cs" />
     <Compile Include="Concreate\IdarıIsler\IstenAyrilisManager.cs" />
     <Compile Include="Concreate\IdarıIsler\IzinManager.cs" />
     <Compile Include="Concreate\IdarıIsler\KonaklamaGecmisManager.cs" />
@@ -107,6 +108,7 @@
     <Compile Include="Concreate\IdarıIsler\KonaklamaManager.cs" />
     <Compile Include="Concreate\IdarıIsler\OtelManager.cs" />
     <Compile Include="Concreate\IdarıIsler\PersKaytLojistikManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\PersonelHesapManager.cs" />
     <Compile Include="Concreate\IdarıIsler\PersonelKayitBOManager.cs" />
     <Compile Include="Concreate\IdarıIsler\PersonelKayitIdariManager.cs" />
     <Compile Include="Concreate\IdarıIsler\PersonelKayitLojisikManager.cs" />
@@ -158,7 +160,9 @@
     <Compile Include="Concreate\Yerleskeler\KiraManager.cs" />
     <Compile Include="Concreate\Yerleskeler\YerleskeManager.cs" />
     <Compile Include="IsAkisNoManager.cs" />
+    <Compile Include="LoginManager.cs" />
     <Compile Include="PersonelIslemleriManager.cs" />
+    <Compile Include="PersonelManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VersionManager.cs" />
     <Compile Include="YetkilerManager.cs" />

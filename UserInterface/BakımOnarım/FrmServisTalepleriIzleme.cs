@@ -52,7 +52,7 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-        void DataDisplay()
+        public void DataDisplay()
         {
             servisFormus = servisFormuManager.GetList();
             dataBinder.DataSource = servisFormus.ToDataTable();

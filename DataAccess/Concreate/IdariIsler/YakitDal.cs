@@ -98,13 +98,27 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
-
-        public List<Yakit> GetList()
+        public string IsAkisNoDuzelt(int id, int isAkisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("YakitBeyaniDuzenle",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public List<Yakit> GetList(int isakisno)
         {
             try
             {
                 List<Yakit> yakits = new List<Yakit>();
-                dataReader = sqlServices.StoreReader("YakitBeyanList");
+                dataReader = sqlServices.StoreReader("YakitBeyanList", new SqlParameter("@isakisno", isakisno));
                 while (dataReader.Read())
                 {
                     yakits.Add(new Yakit(dataReader["ID"].ConInt(),

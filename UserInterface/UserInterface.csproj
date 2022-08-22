@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>386</ApplicationRevision>
+    <ApplicationRevision>388</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -142,6 +142,12 @@
     <Compile Include="Ana Sayfa\FrmDonemDuzlet.Designer.cs">
       <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmHesapOlustur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmHesapOlustur.Designer.cs">
+      <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmIzlemeAmbar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +225,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmSehirIciGorevlerim.Designer.cs">
       <DependentUpon>FrmSehirIciGorevlerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmServer.Designer.cs">
+      <DependentUpon>FrmServer.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmSifremiDegistir.cs">
       <SubType>Form</SubType>
@@ -682,12 +694,6 @@
     <Compile Include="Ana Sayfa\FrmLogin.Designer.cs">
       <DependentUpon>FrmLogin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Ana Sayfa\FrmYonetim.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Ana Sayfa\FrmYonetim.Designer.cs">
-      <DependentUpon>FrmYonetim.cs</DependentUpon>
-    </Compile>
     <Compile Include="IdariIsler\FrmDuranVarlikAktarim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1107,6 +1113,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmDonemDuzlet.resx">
       <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmHesapOlustur.resx">
+      <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmIzlemeAmbar.resx">
       <DependentUpon>FrmIzlemeAmbar.cs</DependentUpon>
     </EmbeddedResource>
@@ -1145,6 +1154,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmSehirIciGorevlerim.resx">
       <DependentUpon>FrmSehirIciGorevlerim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmServer.resx">
+      <DependentUpon>FrmServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmSifremiDegistir.resx">
       <DependentUpon>FrmSifremiDegistir.cs</DependentUpon>
@@ -1376,9 +1388,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Ana Sayfa\FrmYonetim.resx">
-      <DependentUpon>FrmYonetim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmDuranVarlikAktarim.resx">
       <DependentUpon>FrmDuranVarlikAktarim.cs</DependentUpon>

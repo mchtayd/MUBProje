@@ -78,11 +78,35 @@ namespace Business.Concreate.STS
                 return new List<Tamamlanan>();
             }
         }
+        public List<Tamamlanan> GetListSatTumu(int isAAkisNo)
+        {
+            try
+            {
+                return tamamlananDal.GetListSatTumu(isAAkisNo);
+            }
+            catch
+            {
+                return new List<Tamamlanan>();
+            }
+        }
+
         public string SatFirmaGuncelle(string siparisNo, string proje, string firma)
         {
             try
             {
                 return tamamlananDal.SatFirmaGuncelle(siparisNo, proje, firma);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+
+                return tamamlananDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
             }
             catch (Exception ex)
             {

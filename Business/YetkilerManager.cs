@@ -20,7 +20,14 @@ namespace Business
         }
         public string Add(Yetki entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return yetkilerDal.Add(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public string Delete(int id)
@@ -28,9 +35,24 @@ namespace Business
             throw new NotImplementedException();
         }
 
-        public Yetki Get(int id)
+        public Yetki Get(string isim) 
         {
-            throw new NotImplementedException();
+            try
+            {
+                try
+                {
+                    return yetkilerDal.Get(isim);
+                }
+                catch (Exception)
+                {
+                    return null;
+                }
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<Yetki> GetList()

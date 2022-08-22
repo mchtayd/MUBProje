@@ -46,6 +46,8 @@ namespace UserInterface.Depo
             this.label3 = new System.Windows.Forms.Label();
             this.LblBirimFiyat = new System.Windows.Forms.Label();
             this.BirimFiyat = new System.Windows.Forms.Label();
+            this.TxtBarkod = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoBilgileri)).BeginInit();
@@ -218,11 +220,30 @@ namespace UserInterface.Depo
             this.BirimFiyat.TabIndex = 324;
             this.BirimFiyat.Text = "₺ 0";
             // 
+            // TxtBarkod
+            // 
+            this.TxtBarkod.Location = new System.Drawing.Point(482, 47);
+            this.TxtBarkod.Name = "TxtBarkod";
+            this.TxtBarkod.Size = new System.Drawing.Size(303, 20);
+            this.TxtBarkod.TabIndex = 326;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(420, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 15);
+            this.label2.TabIndex = 325;
+            this.label2.Text = "Barkod:";
+            // 
             // FrmStokGoruntule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 867);
+            this.Controls.Add(this.TxtBarkod);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BirimFiyat);
             this.Controls.Add(this.LblBirimFiyat);
             this.Controls.Add(this.LblToplamMiktar);
@@ -267,5 +288,7 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblBirimFiyat;
         private System.Windows.Forms.Label BirimFiyat;
+        private System.Windows.Forms.TextBox TxtBarkod;
+        private System.Windows.Forms.Label label2;
     }
 }

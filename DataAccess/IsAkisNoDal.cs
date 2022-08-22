@@ -50,9 +50,48 @@ namespace DataAccess
             }
         }
 
-        public List<IsAkisNo> GetList()
+        public List<IsAkisNo> GetListKontrol(string tabloAd)
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<IsAkisNo> ısAkisNos = new List<IsAkisNo>();
+                dataReader = sqlServices.StoreReader("IsAkisNoKontrol", new SqlParameter("@tabloAd", tabloAd));
+                while (dataReader.Read())
+                {
+                    if (tabloAd == "SAT_DATAGRIT1" || tabloAd == "TAMAMLANAN_SATLAR")
+                    {
+                        ısAkisNos.Add(new IsAkisNo(dataReader["SAT_FORM_NO"].ConInt(), tabloAd));
+                    }
+                    else
+                    {
+                        ısAkisNos.Add(new IsAkisNo(dataReader["IS_AKIS_NO"].ConInt(), tabloAd));
+                    }
+                }
+                dataReader.Close();
+                return ısAkisNos;
+            }
+            catch (Exception ex)
+            {
+                return new List<IsAkisNo>();
+            }
+        }
+        public List<string> TabloBasliklari()
+        {
+            try
+            {
+                List<string> ısAkisNos = new List<string>();
+                dataReader = sqlServices.StoreReader("TableNames");
+                while (dataReader.Read())
+                {
+                    ısAkisNos.Add(dataReader["name"].ToString());
+                }
+                dataReader.Close();
+                return ısAkisNos;
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
         }
 
         public string Update()

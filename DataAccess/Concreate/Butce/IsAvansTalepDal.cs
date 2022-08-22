@@ -81,13 +81,28 @@ namespace DataAccess.Concreate.Butce
                 return null;
             }
         }
-
-        public List<IsAvansTalep> GetList()
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("IsAvasTalepDuzelt",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public List<IsAvansTalep> GetList(int isAkisNo)
         {
             try
             {
                 List<IsAvansTalep> ısAvansTaleps = new List<IsAvansTalep>();
-                dataReader = sqlServices.StoreReader("IsAvansTalepListele");
+                dataReader = sqlServices.StoreReader("IsAvansTalepListele", new SqlParameter("@isAkisNo", isAkisNo));
                 while (dataReader.Read())
                 {
                     ısAvansTaleps.Add(new IsAvansTalep(

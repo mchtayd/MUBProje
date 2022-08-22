@@ -667,12 +667,28 @@ namespace DataAccess.Concreate
                 throw;
             }
         }
-        public List<SatDataGridview1> List()
+        public string IsAkisNoDuzelt(int id, int isAkisNo,string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatIsAkisNoDuzelt",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public List<SatDataGridview1> List(int isAkisNo)
         {
             try
             {
                 List<SatDataGridview1> satDatas = new List<SatDataGridview1>();
-                dataReader = sqlServices.StoreReader("SatDataGridDevamEden");
+                dataReader = sqlServices.StoreReader("SatDataGridDevamEden", new SqlParameter("@isAkisNo", isAkisNo));
                 while (dataReader.Read())
                 {
                     satDatas.Add(new SatDataGridview1(

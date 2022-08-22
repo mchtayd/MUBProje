@@ -33,6 +33,8 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -107,6 +109,7 @@
     <Compile Include="IdariIsler\KonaklamaKirilim.cs" />
     <Compile Include="IdariIsler\Otel.cs" />
     <Compile Include="IdariIsler\PersKaytLojistik.cs" />
+    <Compile Include="IdariIsler\PersonelHesap.cs" />
     <Compile Include="IdariIsler\PersonelKayit.cs" />
     <Compile Include="IdariIsler\IstenAyrilis.cs" />
     <Compile Include="IdariIsler\PersonelKayitBO.cs" />
@@ -127,6 +130,7 @@
     <Compile Include="IdariIsler\ZiyaretciKayit.cs" />
     <Compile Include="IsAkisNo.cs" />
     <Compile Include="BakimOnarim\IscilikPerformans.cs" />
+    <Compile Include="Login.cs" />
     <Compile Include="PersonelIslemleri.cs" />
     <Compile Include="Rapor\ArizaRapor.cs" />
     <Compile Include="STS\AltYuklenici.cs" />
@@ -165,6 +169,7 @@
     <Compile Include="STS\UstAmirMail.cs" />
     <Compile Include="Version.cs" />
     <Compile Include="Yerleskeler\Kira.cs" />
+    <Compile Include="Personel.cs" />
     <Compile Include="Yerleskeler\Yerleske.cs" />
     <Compile Include="Yetki.cs" />
   </ItemGroup>

@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using PersonelManager = Business.Concreate.PersonelManager;
 
 namespace UserInterface.Ana_Sayfa
 {
@@ -42,8 +43,8 @@ namespace UserInterface.Ana_Sayfa
                 MessageBox.Show("Lütfen Tüm Bilgileri Eksiksiz Giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            object[] kontrol = personelManager.Login(TxtSicil.Text,TxtEskiSifre.Text);
-            
+            object[] kontrol = personelManager.Login(TxtSicil.Text, TxtEskiSifre.Text);
+
             if (kontrol == null)
             {
                 MessageBox.Show("Hatalı Sicil Numarası Veya Şifre Girdiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);

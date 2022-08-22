@@ -203,6 +203,71 @@ namespace DataAccess.Concreate.STS
                 return new List<Tamamlanan>();
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatTamamlananIsAkisNoDuzelt",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public List<Tamamlanan> GetListSatTumu(int isAkisNo)
+        {
+            try
+            {
+                List<Tamamlanan> tamamlanans = new List<Tamamlanan>();
+                dataReader = sqlServices.StoreReader("SatTamamlananTumu", new SqlParameter("@isAkisNo", isAkisNo));
+                while (dataReader.Read())
+                {
+                    tamamlanans.Add(new Tamamlanan(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SAT_FORM_NO"].ConInt(),
+                        dataReader["SAT_NO"].ToString(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["TALEP_EDEN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["US_BOLGESI"].ToString(),
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        dataReader["ISTENEN_TARIH"].ConDate(),
+                        dataReader["TAMAMLANAN_TARIH"].ConDate(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        dataReader["SAT_BIRIM"].ToString(),
+                        dataReader["HARCAMA_TURU"].ToString(),
+                        dataReader["FATURA_EDILECEK_FIRMA"].ToString(),
+                        dataReader["ILGILI_KISI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["HARCANAN_TUTAR"].ConDouble(),
+                        dataReader["BELGE_TURU"].ToString(),
+                        dataReader["BELGE_NUMARASI"].ToString(),
+                        dataReader["BELGE_TARIHI"].ConDate(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["UC_TEKLIF"].ConInt(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["SAT_OLUSTURMA_TURU"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["HARCAMA_YAPAN"].ToString()));
+                }
+                dataReader.Close();
+                return tamamlanans;
+
+            }
+            catch (Exception ex)
+            {
+                return new List<Tamamlanan>();
+            }
+        }
         public string SatFirmaGuncelle(string siparisNo, string proje, string firma)
         {
             try

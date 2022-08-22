@@ -71,6 +71,29 @@ namespace Business.Concreate.IdarıIsler
                 return new List<AracZimmeti>();
             }
         }
+        public List<AracZimmeti> AracZimmetiListele(int isAkisNo = 0)
+        {
+            try
+            {
+                return aracZimmetDal.AracZimmetiListele(isAkisNo);
+            }
+            catch (Exception)
+            {
+                return new List<AracZimmeti>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo)
+        {
+            try
+            {
+
+                return aracZimmetDal.IsAkisNoDuzelt(id, isAkisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public List<AracZimmeti> SiparisArac(string siparis)
         {
             try

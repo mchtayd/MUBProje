@@ -293,6 +293,23 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+
+        public string IsAkisNoDuzelt(int id, int isAkisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SehirIciGorevDuzenle",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string GorevOnay(SehiriciGorev entity, int id)
         {
             try

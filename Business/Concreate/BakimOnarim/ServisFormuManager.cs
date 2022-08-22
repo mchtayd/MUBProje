@@ -59,12 +59,24 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
-
-        public List<ServisFormu> GetList()
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
         {
             try
             {
-                return servisFormuDal.GetList();
+
+                return servisFormuDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public List<ServisFormu> GetList(int isAkisNo=0)
+        {
+            try
+            {
+                return servisFormuDal.GetList(isAkisNo);
             }
             catch (Exception)
             {

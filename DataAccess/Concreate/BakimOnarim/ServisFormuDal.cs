@@ -104,13 +104,29 @@ namespace DataAccess.Concreate.BakimOnarim
                 return null;
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("ServisFormuDuzelt",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
-        public List<ServisFormu> GetList()
+        public List<ServisFormu> GetList(int isAkisNo)
         {
             try
             {
                 List<ServisFormu> servisFormus = new List<ServisFormu>();
-                dataReader = sqlServices.StoreReader("ServisFormuList");
+                dataReader = sqlServices.StoreReader("ServisFormuList", new SqlParameter("@isAkisNo", isAkisNo));
                 while (dataReader.Read())
                 {
                     servisFormus.Add(new ServisFormu(

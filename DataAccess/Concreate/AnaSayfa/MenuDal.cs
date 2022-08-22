@@ -36,12 +36,12 @@ namespace DataAccess.Concreate.AnaSayfa
             throw new NotImplementedException();
         }
 
-        public List<MenuBaslik> GetList()
+        public List<MenuBaslik> GetList(int sonId)
         {
             try
             {
                 List<MenuBaslik> menuBasliks = new List<MenuBaslik>();
-                dataReader = sqlServices.StoreReader("BasiklarList");
+                dataReader = sqlServices.StoreReader("BasiklarList", new SqlParameter("@id", sonId));
                 while (dataReader.Read())
                 {
                     menuBasliks.Add(new MenuBaslik(dataReader["ID"].ConInt(), dataReader["BASLIK_ID"].ConInt(),

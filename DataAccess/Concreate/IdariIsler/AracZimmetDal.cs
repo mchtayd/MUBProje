@@ -144,6 +144,58 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<AracZimmeti>();
             }
         }
+        public List<AracZimmeti> AracZimmetiListele(int isAkisNo)
+        {
+            try
+            {
+                List<AracZimmeti> aracZimmetis = new List<AracZimmeti>();
+                dataReader = sqlServices.StoreReader("AracZimmetleriLisele", new SqlParameter("@isAkisNo", isAkisNo));
+                while (dataReader.Read())
+                {
+                    aracZimmetis.Add(new AracZimmeti(dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["PLAKA"].ToString(),
+                        dataReader["MARKA"].ToString(),
+                        dataReader["MODEL"].ToString(),
+                        dataReader["MOTOR_NO"].ToString(),
+                        dataReader["SASE_NO"].ToString(),
+                        dataReader["MULKIYET_BILGILERI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["PROJE_TAHSIS_TARIHI"].ConDate(),
+                        dataReader["PERSONEL_AD"].ToString(),
+                        dataReader["SICIL_NO"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["MASRAF_YER_SOR"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["AKTARIM_TARIHI"].ConDate(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["KM"].ConInt()));
+                }
+                dataReader.Close();
+                return aracZimmetis;
+            }
+            catch (Exception)
+            {
+                return new List<AracZimmeti>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AracZimmetleriDuzenle",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public List<AracZimmeti> SiparisArac(string siparis)
         {
             try

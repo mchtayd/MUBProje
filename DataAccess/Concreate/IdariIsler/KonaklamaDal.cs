@@ -71,6 +71,22 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+        public string IsAkisNoDuzelt(int id,int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("KonaklamaDuzenle",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public Konaklama Get(int isakisno)
         {
@@ -118,12 +134,12 @@ namespace DataAccess.Concreate.IdariIsler
             }
         }
 
-        public List<Konaklama> GetList()
+        public List<Konaklama> GetList(int isAkisNo)
         {
             try
             {
                 List<Konaklama> konaklamas = new List<Konaklama>();
-                dataReader = sqlServices.StoreReader("KonaklamaList");
+                dataReader = sqlServices.StoreReader("KonaklamaList", new SqlParameter("@isakisno", isAkisNo));
                 while (dataReader.Read())
                 {
                     konaklamas.Add(new Konaklama(dataReader["ID"].ConInt(),

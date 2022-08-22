@@ -699,6 +699,9 @@ namespace UserInterface.STS
             this.label120 = new System.Windows.Forms.Label();
             this.label121 = new System.Windows.Forms.Label();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
+            this.CmbDonem = new System.Windows.Forms.ComboBox();
+            this.label122 = new System.Windows.Forms.Label();
             this.TxtProje = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.istenenTarih = new System.Windows.Forms.DateTimePicker();
@@ -738,9 +741,6 @@ namespace UserInterface.STS
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder6 = new System.Windows.Forms.BindingSource(this.components);
-            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
-            this.CmbDonem = new System.Windows.Forms.ComboBox();
-            this.label122 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1975,7 +1975,7 @@ namespace UserInterface.STS
             "",
             "ERKAN İPEK",
             "UĞUR DURAN",
-            "GÜLİZ MARAŞ",
+            "YASEMİN DURAN",
             "RESUL GÜNEŞ"});
             this.CmbIlgiliKisi.Location = new System.Drawing.Point(208, 160);
             this.CmbIlgiliKisi.Name = "CmbIlgiliKisi";
@@ -7547,6 +7547,60 @@ namespace UserInterface.STS
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "TALEP EDİLEN YER";
             // 
+            // CmbDonemYil
+            // 
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(227, 135);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemYil.TabIndex = 419;
+            // 
+            // CmbDonem
+            // 
+            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonem.FormattingEnabled = true;
+            this.CmbDonem.Items.AddRange(new object[] {
+            "OCAK",
+            "ŞUBAT",
+            "MART",
+            "NİSAN",
+            "MAYIS",
+            "HAZİRAN",
+            "TEMMUZ",
+            "AĞUSTOS",
+            "EYLÜL",
+            "EKİM",
+            "KASIM",
+            "ARALIK"});
+            this.CmbDonem.Location = new System.Drawing.Point(116, 135);
+            this.CmbDonem.Name = "CmbDonem";
+            this.CmbDonem.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonem.TabIndex = 418;
+            // 
+            // label122
+            // 
+            this.label122.AutoSize = true;
+            this.label122.Location = new System.Drawing.Point(19, 139);
+            this.label122.Name = "label122";
+            this.label122.Size = new System.Drawing.Size(87, 13);
+            this.label122.TabIndex = 417;
+            this.label122.Text = "DÖNEM (Ay/Yıl):";
+            // 
             // TxtProje
             // 
             this.TxtProje.Location = new System.Drawing.Point(116, 82);
@@ -7839,60 +7893,6 @@ namespace UserInterface.STS
             // openFileDialog2
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
-            // 
-            // CmbDonemYil
-            // 
-            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDonemYil.FormattingEnabled = true;
-            this.CmbDonemYil.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
-            "2024",
-            "2025",
-            "2026",
-            "2027",
-            "2028",
-            "2029",
-            "2030"});
-            this.CmbDonemYil.Location = new System.Drawing.Point(227, 135);
-            this.CmbDonemYil.Name = "CmbDonemYil";
-            this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
-            this.CmbDonemYil.TabIndex = 419;
-            // 
-            // CmbDonem
-            // 
-            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbDonem.FormattingEnabled = true;
-            this.CmbDonem.Items.AddRange(new object[] {
-            "OCAK",
-            "ŞUBAT",
-            "MART",
-            "NİSAN",
-            "MAYIS",
-            "HAZİRAN",
-            "TEMMUZ",
-            "AĞUSTOS",
-            "EYLÜL",
-            "EKİM",
-            "KASIM",
-            "ARALIK"});
-            this.CmbDonem.Location = new System.Drawing.Point(116, 135);
-            this.CmbDonem.Name = "CmbDonem";
-            this.CmbDonem.Size = new System.Drawing.Size(105, 21);
-            this.CmbDonem.TabIndex = 418;
-            // 
-            // label122
-            // 
-            this.label122.AutoSize = true;
-            this.label122.Location = new System.Drawing.Point(19, 139);
-            this.label122.Name = "label122";
-            this.label122.Size = new System.Drawing.Size(87, 13);
-            this.label122.TabIndex = 417;
-            this.label122.Text = "DÖNEM (Ay/Yıl):";
             // 
             // FrmSATGuncelle
             // 
