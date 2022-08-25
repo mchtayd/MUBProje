@@ -42,11 +42,16 @@ namespace UserInterface.Ana_Sayfa
         ArsivTutanakManager arsivTutanakManager;
         IsAvansTalepManager talepManager;
         ServisFormuManager servisFormuManager;
+        GorevAtamaManager gorevAtamaManager;
+        ArizaKayitManager arizaKayitManager;
+        IscilikPerformansManager iscilikPerformansManager;
+        DtfManager dtfManager;
 
         List<string> sqlBasliklar = new List<string>();
         List<IsAkisNo> ısAkisNos = new List<IsAkisNo>();
         List<IsAkisNo> ısAkisNos2 = new List<IsAkisNo>();
 
+        public object[] infos;
         string dosyaYolu;
         int satNo;
         public FrmServer()
@@ -67,11 +72,20 @@ namespace UserInterface.Ana_Sayfa
             arsivTutanakManager = ArsivTutanakManager.GetInstance();
             talepManager = IsAvansTalepManager.GetInstance();
             servisFormuManager = ServisFormuManager.GetInstance();
+            gorevAtamaManager = GorevAtamaManager.GetInstance();
+            arizaKayitManager = ArizaKayitManager.GetInstance();
+            iscilikPerformansManager = IscilikPerformansManager.GetInstance();
+            dtfManager = DtfManager.GetInstance();
+
         }
 
         private void FrmServer_Load(object sender, EventArgs e)
         {
             IsAkisNo();
+            if (infos[11].ToString()== "KULLANICI")
+            {
+                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
+            }
         }
         void IsAkisNo()
         {
@@ -330,6 +344,21 @@ namespace UserInterface.Ana_Sayfa
                 Directory.CreateDirectory(dosyaYolu);
             }
         }
+        /*string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\ATANAN GÖREVLER\";
+
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+            dosyaYolu = subdir + isAkisNo;
+            Directory.CreateDirectory(subdir + isAkisNo);
+         */
         void CreateDirectoryServisFormu()
         {
             string root = @"Z:\DTS";
@@ -345,6 +374,70 @@ namespace UserInterface.Ana_Sayfa
                 Directory.CreateDirectory(subdir);
             }
             dosyaYolu = subdir + LblIsAkisNo.Text + "\\";
+            if (!Directory.Exists(dosyaYolu))
+            {
+                Directory.CreateDirectory(dosyaYolu);
+            }
+        }
+        void CreateDirectoryGorevAtama()
+        {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\ATANAN GÖREVLER\";
+
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+            dosyaYolu = subdir + LblIsAkisNo.Text + "\\";
+            if (!Directory.Exists(dosyaYolu))
+            {
+                Directory.CreateDirectory(dosyaYolu);
+            }
+        }
+        void CreateDirectoryArizaKayit()
+        {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\BAKIM ONARIM\ARIZA\";
+
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+            dosyaYolu = subdir + LblIsAkisNo.Text;
+            if (!Directory.Exists(dosyaYolu))
+            {
+                Directory.CreateDirectory(dosyaYolu);
+            }
+        }
+        void CreateDirectoryDtf()
+        {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\BAKIM ONARIM\";
+            string anadosya = @"Z:\DTS\BAKIM ONARIM\DTF\";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+            if (!Directory.Exists(anadosya))
+            {
+                Directory.CreateDirectory(anadosya);
+            }
+            dosyaYolu = anadosya + LblIsAkisNo.Text + "\\";
             if (!Directory.Exists(dosyaYolu))
             {
                 Directory.CreateDirectory(dosyaYolu);
@@ -543,11 +636,59 @@ namespace UserInterface.Ana_Sayfa
                         }
                     }
 
-                    
+                    if (item.TabloAd == "YONETICI_GOREVLERI")
+                    {
+                        List<GorevAtama> gorevAtamas = new List<GorevAtama>();
+                        gorevAtamas = gorevAtamaManager.GorevlerList(item.Id);
+                        foreach (GorevAtama gorevAtama in gorevAtamas)
+                        {
+                            isAkisNoManager.UpdateKontrolsuz();
+                            IsAkisNo();
+                            CreateDirectoryGorevAtama();
+                            gorevAtamaManager.IsAkisNoDuzelt(gorevAtama.Id, LblIsAkisNo.Text.ConInt(), dosyaYolu);
+                        }
+                    }
 
+                    if (item.TabloAd == "BAKIM_ONARIM")
+                    {
+                        List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
+                        arizaKayits = arizaKayitManager.ArizalarList(item.Id);
+                        foreach (ArizaKayit arizaKayit in arizaKayits)
+                        {
+                            isAkisNoManager.UpdateKontrolsuz();
+                            IsAkisNo();
+                            CreateDirectoryArizaKayit();
+                            arizaKayitManager.IsAkisNoDuzelt(arizaKayit.Id, LblIsAkisNo.Text.ConInt(), dosyaYolu);
+                        }
+                    }
+
+                    if (item.TabloAd == "ISCILIK_PERFORMANS")
+                    {
+                        List<IscilikPerformans> ıscilikPerformans = new List<IscilikPerformans>();
+                        ıscilikPerformans = iscilikPerformansManager.IscilikPerformansList(item.Id);
+                        foreach (IscilikPerformans performans in ıscilikPerformans)
+                        {
+                            isAkisNoManager.UpdateKontrolsuz();
+                            IsAkisNo();
+                            iscilikPerformansManager.IsAkisNoDuzelt(performans.Id, LblIsAkisNo.Text.ConInt());
+                        }
+                    }
+                    if (item.TabloAd == "DTF_KAYIT")
+                    {
+                        List<Dtf> dtfs = new List<Dtf>();
+                        dtfs = dtfManager.DtfKayitList(item.Id);
+                        foreach (Dtf dtf in dtfs)
+                        {
+                            isAkisNoManager.UpdateKontrolsuz();
+                            IsAkisNo();
+                            CreateDirectoryDtf();
+                            dtfManager.IsAkisNoDuzelt(dtf.Id, LblIsAkisNo.Text.ConInt(), dosyaYolu);
+                        }
+                    }
                 }
 
                 MessageBox.Show("Bilgiler başarıyla güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DtgList.DataSource = null;
                 IsAkisNo();
             }
         }

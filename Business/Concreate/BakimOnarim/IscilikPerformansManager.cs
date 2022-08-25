@@ -94,6 +94,29 @@ namespace Business.Concreate.BakimOnarim
                 return new List<IscilikPerformans>();
             }
         }
+        public List<IscilikPerformans> IscilikPerformansList(int isAkisNo)
+        {
+            try
+            {
+                return performansDal.IscilikPerformansList(isAkisNo);
+            }
+            catch (Exception)
+            {
+                return new List<IscilikPerformans>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo)
+        {
+            try
+            {
+
+                return performansDal.IsAkisNoDuzelt(id, isAkisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Update(IscilikPerformans entity,int isAkisNo,string hata)
         {

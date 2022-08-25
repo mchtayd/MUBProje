@@ -153,6 +153,53 @@ namespace DataAccess
                 return new List<GorevAtama>();
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("GorevAtamaDuzelt",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public List<GorevAtama> GorevlerList(int isAkisNo)
+        {
+            try
+            {
+                List<GorevAtama> gorevAtamas = new List<GorevAtama>();
+                dataReader = sqlServices.StoreReader("YoneticiGorevleriList",
+                    new SqlParameter("@isAkisNo", isAkisNo));
+                while (dataReader.Read())
+                {
+                    gorevAtamas.Add(new GorevAtama(
+                       dataReader["ID"].ConInt(),
+                       dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["GOREV_ATANAN_PERSONEL"].ToString(),
+                        dataReader["BITIS_TARIHI"].ConDate(),
+                        dataReader["ATANAN_GOREVIN_KONUSU"].ToString(),
+                        dataReader["GOREV_ATAMA_TARIHI"].ConDate(),
+                        dataReader["GOREVI_ATAYAN_PERSONEL"].ToString(),
+                        dataReader["GOREVIN_TAMAMLANDIGI_TARIH"].ConDate(),
+                        dataReader["YAPILAN_ISLEM"].ToString(),
+                        dataReader["TOPLAM_SURE_SAAT"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString()));
+                }
+                dataReader.Close();
+                return gorevAtamas;
+            }
+            catch (Exception ex)
+            {
+                return new List<GorevAtama>();
+            }
+        }
         public List<GorevAtama> GetListGorevlerim(string adSoyad)
         {
             try

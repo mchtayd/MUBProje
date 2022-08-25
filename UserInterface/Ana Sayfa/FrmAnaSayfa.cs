@@ -104,6 +104,7 @@ namespace UserInterface.STS
             if (yetkiModu == "KULLANICI")
             {
                 sayfalar.Visible = false;
+
             }
         }
 
@@ -2962,7 +2963,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Barkod Oluştur")
             {
                 FrmDepoDusum Go = new FrmDepoDusum();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.ShowDialog();
             }
             if (e.Node.Text == "Depo Stok Görüntüle")
@@ -3005,6 +3006,11 @@ namespace UserInterface.STS
                 OpenTabPage("PageMalzemeHazirmala", "MALZEME HAZIRLAMA", Go);
                 //Go.infos = infos;
                 Go.Show();
+            }
+            if (e.Node.Text == "Ambar Veri İzleme")
+            {
+                FrmIzlemeAmbar Go = new FrmIzlemeAmbar();
+                Go.ShowDialog();
             }
 
             /////////////////////////////////////////////////DESTEK DEPO///////////////////////////////////////////////////////////////////
@@ -4392,9 +4398,9 @@ namespace UserInterface.STS
 
         private void yetkilendirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmAdmin frmAdmin = new FrmAdmin();
+            /*FrmAdmin frmAdmin = new FrmAdmin();
             frmAdmin.infos = infos;
-            frmAdmin.ShowDialog();
+            frmAdmin.ShowDialog();*/
         }
 
         private void devamDevamsızlıkToolStripMenuItem_Click(object sender, EventArgs e)
@@ -4480,6 +4486,7 @@ namespace UserInterface.STS
         private void serverToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmServer frmServer = new FrmServer();
+            frmServer.infos = infos;
             frmServer.ShowDialog();
         }
 

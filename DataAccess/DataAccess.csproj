@@ -109,6 +109,7 @@
     <Compile Include="Concreate\Depo\TemizlikUrunleriDal.cs" />
     <Compile Include="Concreate\DokumanYonetim\DokumanDal.cs" />
     <Compile Include="Concreate\DokumanYonetim\FormDocumentDal.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\BarkodDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\DepoMiktarDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitDal.cs" />

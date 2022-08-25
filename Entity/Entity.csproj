@@ -83,6 +83,7 @@
     <Compile Include="Depo\DestekDepoTemizlikUrunleri.cs" />
     <Compile Include="DokumanYonetim\Dokuman.cs" />
     <Compile Include="DokumanYonetim\FormDocument.cs" />
+    <Compile Include="Gecic Kabul Ambar\Barkod.cs" />
     <Compile Include="Gecic Kabul Ambar\DepoMiktar.cs" />
     <Compile Include="Gecic Kabul Ambar\Malzeme.cs" />
     <Compile Include="Gecic Kabul Ambar\MalzemeKayit.cs" />

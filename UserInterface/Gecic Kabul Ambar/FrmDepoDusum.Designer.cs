@@ -37,7 +37,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnBarkodOlustur = new System.Windows.Forms.Button();
             this.PctBarcode = new System.Windows.Forms.PictureBox();
             this.TxtSeriNo = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LblTakipDurumu = new System.Windows.Forms.Label();
             this.CmbStokNo = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnPrint = new System.Windows.Forms.Button();
@@ -83,7 +83,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnBarkodOlustur.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBarkodOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBarkodOlustur.Location = new System.Drawing.Point(65, 313);
+            this.BtnBarkodOlustur.Location = new System.Drawing.Point(65, 392);
             this.BtnBarkodOlustur.Name = "BtnBarkodOlustur";
             this.BtnBarkodOlustur.Size = new System.Drawing.Size(126, 35);
             this.BtnBarkodOlustur.TabIndex = 2;
@@ -94,36 +94,36 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // PctBarcode
             // 
             this.PctBarcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PctBarcode.Location = new System.Drawing.Point(65, 52);
+            this.PctBarcode.Location = new System.Drawing.Point(65, 36);
             this.PctBarcode.Margin = new System.Windows.Forms.Padding(3, 15, 3, 3);
             this.PctBarcode.Name = "PctBarcode";
-            this.PctBarcode.Size = new System.Drawing.Size(309, 126);
+            this.PctBarcode.Size = new System.Drawing.Size(250, 204);
             this.PctBarcode.TabIndex = 317;
             this.PctBarcode.TabStop = false;
             // 
             // TxtSeriNo
             // 
-            this.TxtSeriNo.Location = new System.Drawing.Point(65, 241);
+            this.TxtSeriNo.Location = new System.Drawing.Point(65, 320);
             this.TxtSeriNo.Name = "TxtSeriNo";
             this.TxtSeriNo.Size = new System.Drawing.Size(309, 20);
             this.TxtSeriNo.TabIndex = 0;
             this.TxtSeriNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtSeriNo_KeyUp);
             // 
-            // label2
+            // LblTakipDurumu
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(16, 244);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(45, 13);
-            this.label2.TabIndex = 320;
-            this.label2.Text = "Seri No:";
+            this.LblTakipDurumu.AutoSize = true;
+            this.LblTakipDurumu.Location = new System.Drawing.Point(16, 323);
+            this.LblTakipDurumu.Name = "LblTakipDurumu";
+            this.LblTakipDurumu.Size = new System.Drawing.Size(45, 13);
+            this.LblTakipDurumu.TabIndex = 320;
+            this.LblTakipDurumu.Text = "Seri No:";
             // 
             // CmbStokNo
             // 
             this.CmbStokNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.CmbStokNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CmbStokNo.FormattingEnabled = true;
-            this.CmbStokNo.Location = new System.Drawing.Point(65, 187);
+            this.CmbStokNo.Location = new System.Drawing.Point(65, 266);
             this.CmbStokNo.Name = "CmbStokNo";
             this.CmbStokNo.Size = new System.Drawing.Size(309, 21);
             this.CmbStokNo.TabIndex = 321;
@@ -133,7 +133,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 190);
+            this.label1.Location = new System.Drawing.Point(12, 269);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 13);
             this.label1.TabIndex = 322;
@@ -155,7 +155,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnListeyeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnListeyeEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListeyeEkle.Location = new System.Drawing.Point(65, 354);
+            this.BtnListeyeEkle.Location = new System.Drawing.Point(65, 433);
             this.BtnListeyeEkle.Name = "BtnListeyeEkle";
             this.BtnListeyeEkle.Size = new System.Drawing.Size(126, 35);
             this.BtnListeyeEkle.TabIndex = 325;
@@ -204,7 +204,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DtgYedekParca.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgYedekParca.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.DtgYedekParca.RowTemplate.Height = 150;
+            this.DtgYedekParca.RowTemplate.Height = 220;
             this.DtgYedekParca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgYedekParca.Size = new System.Drawing.Size(359, 501);
             this.DtgYedekParca.TabIndex = 329;
@@ -222,7 +222,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(22, 217);
+            this.label3.Location = new System.Drawing.Point(22, 296);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(39, 13);
             this.label3.TabIndex = 327;
@@ -233,7 +233,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.CmbTanim.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.CmbTanim.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.CmbTanim.FormattingEnabled = true;
-            this.CmbTanim.Location = new System.Drawing.Point(65, 214);
+            this.CmbTanim.Location = new System.Drawing.Point(65, 293);
             this.CmbTanim.Name = "CmbTanim";
             this.CmbTanim.Size = new System.Drawing.Size(309, 21);
             this.CmbTanim.TabIndex = 328;
@@ -243,7 +243,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(7, 270);
+            this.label4.Location = new System.Drawing.Point(7, 349);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(54, 13);
             this.label4.TabIndex = 330;
@@ -251,7 +251,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // TxtRevizyon
             // 
-            this.TxtRevizyon.Location = new System.Drawing.Point(65, 267);
+            this.TxtRevizyon.Location = new System.Drawing.Point(65, 346);
             this.TxtRevizyon.Name = "TxtRevizyon";
             this.TxtRevizyon.Size = new System.Drawing.Size(309, 20);
             this.TxtRevizyon.TabIndex = 329;
@@ -271,7 +271,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.Controls.Add(this.BtnPrint);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.CmbStokNo);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LblTakipDurumu);
             this.Controls.Add(this.TxtSeriNo);
             this.Controls.Add(this.PctBarcode);
             this.Controls.Add(this.BtnBarkodOlustur);
@@ -298,7 +298,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Button BtnBarkodOlustur;
         private System.Windows.Forms.PictureBox PctBarcode;
         private System.Windows.Forms.TextBox TxtSeriNo;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblTakipDurumu;
         private System.Windows.Forms.ComboBox CmbStokNo;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnPrint;

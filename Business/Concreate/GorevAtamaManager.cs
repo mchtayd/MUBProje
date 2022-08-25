@@ -70,6 +70,31 @@ namespace Business.Concreate
                 return null;
             }
         }
+
+        public List<GorevAtama> GorevlerList(int isAkisNo)
+        {
+            try
+            {
+                return gorevAtamaDal.GorevlerList(isAkisNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+
+                return gorevAtamaDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public List<GorevAtama> GetListGorevlerim(string adSoyad)
         {
             try

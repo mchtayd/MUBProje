@@ -65,6 +65,30 @@ namespace Business.Concreate.BakimOnarim
                 return new List<Dtf>();
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+
+                return dtfDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public List<Dtf> DtfKayitList(int isAkisNo)
+        {
+            try
+            {
+                return dtfDal.DtfKayitList(isAkisNo);
+            }
+            catch (Exception)
+            {
+                return new List<Dtf>();
+            }
+        }
 
         public string Update(Dtf entity)
         {

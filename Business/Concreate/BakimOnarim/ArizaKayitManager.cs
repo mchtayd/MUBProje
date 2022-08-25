@@ -71,6 +71,29 @@ namespace Business.Concreate.BakimOnarim
                 return new List<ArizaKayit>();
             }
         }
+        public List<ArizaKayit> ArizalarList(int isAkisNo)
+        {
+            try
+            {
+                return arizaKayitDal.ArizalarList(isAkisNo);
+            }
+            catch (Exception)
+            {
+                return new List<ArizaKayit>();
+            }
+        }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+
+                return arizaKayitDal.IsAkisNoDuzelt(id, isAkisNo, dosyaYolu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public List<ArizaKayit> DevamEdenlerGetList()
         {
             try

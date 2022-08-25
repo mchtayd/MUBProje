@@ -24,17 +24,23 @@ namespace UserInterface.Gecic_Kabul_Ambar
         List<Malzeme> malzemes2;
         List<MalzemeKayit> malzemeKayits;
         List<MalzemeKayit> malzemeKayits2;
+        List<Barkod> barkodList = new List<Barkod>();
+
         MalzemeManager malzemeManager;
         MalzemeKayitManager malzemeKayitManager;
+        BarkodManager barkodManager;
+
+        public object[] infos;
         string readedBarcode;
-        int comboId;
-        bool start = true;
+        int comboId, id = 0;
+        bool start = true, firstClick = false, kayitDurumu = false;
 
         public FrmDepoDusum()
         {
             InitializeComponent();
             malzemeManager = MalzemeManager.GetInstance();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            barkodManager = BarkodManager.GetInstance();
         }
 
         private void FrmDepoDusum_Load(object sender, EventArgs e)
@@ -80,35 +86,125 @@ namespace UserInterface.Gecic_Kabul_Ambar
         }
         int sayi = 0;
         //80mm X 40mm kuşe etiket
+        string CreateBarkodControl()
+        {
+            if (CmbStokNo.Text=="")
+            {
+                return "Lütfen öncelikle bir Stok No seçiniz!";
+            }
+            if (TxtSeriNo.Text=="")
+            {
+                return "Lütfen Seri No Bilgisini doldurunuz!";
+            }
+            if (TxtRevizyon.Text=="")
+            {
+                return "Lütfen Revizyon bilgisini doldurunuz!";
+            }
+            return "OK";
+        }
         private void BtnBarkodOlustur_Click(object sender, EventArgs e)
         {
+            string mesaj = CreateBarkodControl();
+            if (mesaj!="OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             BarcodeWriter writer = new BarcodeWriter()
             {
-                Format = BarcodeFormat.CODE_128,
-                Options = new ZXing.Common.EncodingOptions() { Width = 300, Height = 100 }
+                Format = BarcodeFormat.QR_CODE,
+                Options = new ZXing.Common.EncodingOptions() { Width = 120, Height = 120 }
+
+                //Format = BarcodeFormat.CODE_128,
+                //Options = new ZXing.Common.EncodingOptions() { Width = 300, Height = 100 }
             };
-            Bitmap myBitmap1 = writer.Write(CmbStokNo.Text + " " + TxtSeriNo.Text + " " + TxtRevizyon.Text);
-            PctBarcode.Image = myBitmap1;
+
+            Barkod barkod = barkodManager.BarkodKontrolList(CmbStokNo.Text, TxtSeriNo.Text, TxtRevizyon.Text);
+
+            if (barkod!=null)
+            {
+                id = barkod.Id;
+                Bitmap myBitmap1 = writer.Write(CmbStokNo.Text + "\n" + CmbTanim.Text+ "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
+                PctBarcode.Image = myBitmap1;
+                kayitDurumu = true;
+            }
+            else
+            {
+                List<Barkod> barkods = new List<Barkod>();
+                kayitDurumu = false;
+                barkods = barkodManager.GetList();
+                if (firstClick == false)
+                {
+                    if (barkods.Count()==0)
+                    {
+                        id = 10000;
+                    }
+                    else
+                    {
+                        if (barkodList.Count==0)
+                        {
+                            id = barkods[barkodList.Count].Id.ConInt();
+                            id++;
+                        }
+                        else
+                        {
+                            id = barkodList[barkodList.Count - 1].Id.ConInt();
+                            id++;
+                        }
+                        
+                    }
+
+                    Bitmap myBitmap1 = writer.Write(CmbStokNo.Text + "\n" + CmbTanim.Text + "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
+                    PctBarcode.Image = myBitmap1;
+                }
+                else
+                {
+                    id = barkodList[barkodList.Count - 1].Id.ConInt();
+                    id++;
+                    Bitmap myBitmap1 = writer.Write(CmbStokNo.Text + "\n" + CmbTanim.Text + "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
+                    PctBarcode.Image = myBitmap1;
+                }
+            }
+            
+
+            //BarcodeWriter writer = new BarcodeWriter()
+            //{
+            //    Format = BarcodeFormat.CODE_128,
+            //    Options = new ZXing.Common.EncodingOptions() { Width = 300, Height = 100 }
+            //};
+            //Bitmap myBitmap1 = writer.Write(CmbStokNo.Text + " " + TxtSeriNo.Text + " " + TxtRevizyon.Text);
+            //PctBarcode.Image = myBitmap1;
 
         }
         private void BtnPrint_Click(object sender, EventArgs e)
         {
             try
             {
-                foreach (DataGridViewRow item in DtgYedekParca.Rows)
+                
+                foreach (Barkod item in barkodList)
                 {
+                    if (item.KayitDurumu==false)
+                    {
+                        barkodManager.Add(item);
+                    }
+                    else
+                    {
+                        barkodManager.BarkodTekrarCikti(item);
+                    }
+
                     PrinterSettings ps = new PrinterSettings();
 
                     PrintDocument printDoc = new PrintDocument
                     {
                         PrinterSettings = ps
                     };
-                    printDoc.DefaultPageSettings.PaperSize = new PaperSize("Custom", 400, 100);
+                    
+                    printDoc.DefaultPageSettings.PaperSize = new PaperSize("Custom", 150, 120);
                     printDoc.PrintPage += PrintPage;
                     printDoc.Print();
                     sayi++;
                 }
-
                 
 
             }
@@ -118,6 +214,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
 
         }
+        void Temizle()
+        {
+            DtgYedekParca.Rows.Clear(); CmbStokNo.SelectedIndex = -1; CmbTanim.SelectedIndex = -1; TxtSeriNo.Clear(); TxtRevizyon.Clear();
+        }
 
         // En 10 / Boy 4cm
         private void PrintPage(object o, PrintPageEventArgs e)
@@ -126,7 +226,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 //Point loc = new Point(1, 10);
                 //e.Graphics.DrawImage(images[0], new Point(1, -1));
-                e.Graphics.DrawImage(images[sayi], 2, -1, 400, 100);
+                e.Graphics.DrawImage(images[sayi], 2, -1, 150, 120);
                 /*int size = e.MarginBounds.Width;
                 Bitmap bitmap = new Bitmap(size, size);
                 Graphics graphics = Graphics.FromImage(bitmap);
@@ -171,6 +271,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
             CmbTanim.Text = malzemeKayit.Tanim;
+            string takipDurumu = malzemeKayit.Malzemetakipdurumu;
+            if (takipDurumu=="LOT NO")
+            {
+                LblTakipDurumu.Text = "Lot No :";
+            }
+            else
+            {
+                LblTakipDurumu.Text = "Seri No:";
+            }
         }
 
         private void CmbStokNo_TextChanged(object sender, EventArgs e)
@@ -194,7 +303,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 }
             }
         }
-
+        
         private void CmbTanim_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start == true)
@@ -239,6 +348,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 try
                 {
+                    Barkod controlListKayitsiz = new Barkod(id, CmbStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, TxtRevizyon.Text, infos[1].ToString(), DateTime.Now, kayitDurumu);
+                    barkodList.Add(controlListKayitsiz);
+                    firstClick = true;
+
                     DataGridViewImageColumn dgvImageColumn = new DataGridViewImageColumn();
                     dgvImageColumn.HeaderText = "Barkod";
                     dgvImageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
@@ -246,14 +359,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     //DtgYedekParca.Rows.Add(dgvImageColumn);
                     DtgYedekParca.Rows.Add(PctBarcode.Image);
 
-
                     images.Add(PctBarcode.Image);
-
 
                 }
                 catch (Exception ex)
                 {
-
                     return;
                 }
             }

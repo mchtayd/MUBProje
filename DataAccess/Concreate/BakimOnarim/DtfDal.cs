@@ -142,6 +142,64 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<Dtf>();
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DtfDuzelt",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@dosyaYolu", dosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public List<Dtf> DtfKayitList(int isAkisNo)
+        {
+            try
+            {
+                List<Dtf> dtfs = new List<Dtf>();
+                dataReader = sqlServices.StoreReader("DtfList", new SqlParameter("@isAkisNo", isAkisNo));
+                while (dataReader.Read())
+                {
+                    dtfs.Add(new Dtf(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["ADI_SOYADI"].ToString(),
+                        dataReader["KAYIT_TARIHI"].ConDate(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        dataReader["ABF_NO"].ToString(),
+                        dataReader["US_BOLGESI"].ToString(),
+                        dataReader["PROJE_KODU"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["IS_KATEGORISI"].ToString(),
+                        dataReader["IS_TANIMI"].ToString(),
+                        dataReader["UST_STOK_NO"].ToString(),
+                        dataReader["UST_TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["ONARIM_YERI"].ToString(),
+                        dataReader["ALT_YUKLENICI_FIRMA"].ToString(),
+                        dataReader["FIRMA_SORUMLUSU"].ToString(),
+                        dataReader["ISIN_VERILDIGI_TARIH"].ConDate(),
+                        dataReader["IS_BASLAMA_TARIHI"].ConDate(),
+                        dataReader["IS_BITIS_TARIHI"].ConDate(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString()));
+                }
+                dataReader.Close();
+                return dtfs;
+            }
+            catch (Exception)
+            {
+                return new List<Dtf>();
+            }
+        }
 
         public string Update(Dtf entity)
         {

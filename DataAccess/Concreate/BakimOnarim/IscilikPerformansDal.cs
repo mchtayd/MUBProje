@@ -154,6 +154,53 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<IscilikPerformans>();
             }
         }
+        public string IsAkisNoDuzelt(int id, int isAkisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("IscilikPerformansDuzelt",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@isAkisNo", isAkisNo));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public List<IscilikPerformans> IscilikPerformansList(int isAkisNo)
+        {
+            try
+            {
+                List<IscilikPerformans> performans = new List<IscilikPerformans>();
+                dataReader = sqlServices.StoreReader("IscilikPerformansBul", new SqlParameter("@isAkisNo", isAkisNo));
+                while (dataReader.Read())
+                {
+                    performans.Add(new IscilikPerformans(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["ISCILIK_TURU"].ToString(),
+                        dataReader["PERSONEL"].ToString(),
+                        dataReader["MEVCUT_DURAGI"].ToString(),
+                        dataReader["CIKIS_DURAGI"].ToString(),
+                        dataReader["ISTIKAMET_DURAGI"].ToString(),
+                        dataReader["CIKIS_TARIHI_SAATI"].ConDate(),
+                        dataReader["CIKIS_SEBEBI"].ToString(),
+                        dataReader["VARIS_DURAGI"].ToString(),
+                        dataReader["VARIS_TARIHI_SAATI"].ConDate(),
+                        dataReader["SONUC"].ToString(),
+                        dataReader["HATA"].ToString()));
+                }
+                dataReader.Close();
+                return performans;
+            }
+            catch (Exception ex)
+            {
+                return new List<IscilikPerformans>();
+            }
+        }
         public List<IscilikPerformans> PerformansHatalilar()
         {
             try

@@ -33,6 +33,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         AtolyeManager atolyeManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         MalzemeManager malzemeManager;
+        BarkodManager barkodManager;
 
         List<GorevAtamaPersonel> gorevAtamaPersonels;
         //List<Malzeme> malzemes;
@@ -56,6 +57,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             atolyeManager = AtolyeManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
+            barkodManager = BarkodManager.GetInstance();
         }
 
         private void CmbIslemTuru_SelectedIndexChanged(object sender, EventArgs e)
@@ -523,6 +525,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     return;
                 }
                 readedBarcode = TxtBarkod.Text;
+
+                Barkod barkod = barkodManager.Get(readedBarcode.ConInt());
+                if (barkod==null)
+                {
+                    MessageBox.Show("Bu malzemeye ait kayıt bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                #region EskiKod
+                /*
                 string[] array = TxtBarkod.Text.Split(' ');
                 string[] array2 = readedBarcode.Split('*');
 
@@ -550,9 +561,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         TxtBarkod.Text = stok;
                     }
                 }
+                */
+                #endregion
 
-
-                MalzemeKayit malzeme = malzemeKayitManager.MalzemeBul(st);
+                MalzemeKayit malzeme = malzemeKayitManager.MalzemeBul(barkod.StokNo);
                 if (malzeme == null)
                 {
                     CmbStokNo.Text = "";
@@ -563,34 +575,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 }
                 else
                 {
-                    CmbStokNo.Text = malzeme.Stokno;
-                    LblTanim.Text = malzeme.Tanim;
+                    CmbStokNo.Text = barkod.StokNo;
+                    LblTanim.Text = barkod.Tanim;
                     LblBirim.Text = malzeme.Birim;
-                    LblSeriLotNo.Text = array[1].ToString();
-                    if (array.Count() == 2)
-                    {
-                        if (array[1].ToString() == '_'.ToString())
-                        {
-                            LblRevizyon.Text = "+";
-                        }
-                        else
-                        {
-                            LblRevizyon.Text = array[1].ToString();
-                        }
-                        takipdurumu = malzeme.Malzemetakipdurumu;
-                    }
-                    else
-                    {
-                        if (array[2].ToString() == '_'.ToString())
-                        {
-                            LblRevizyon.Text = "+";
-                        }
-                        else
-                        {
-                            LblRevizyon.Text = array[2].ToString();
-                        }
-                        takipdurumu = malzeme.Malzemetakipdurumu;
-                    }
+                    LblSeriLotNo.Text = barkod.SeriNo;
+                    takipdurumu = malzeme.Malzemetakipdurumu;
 
                 }
 
@@ -602,7 +591,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     TxtBarkod.Clear();
                     return;
                 }
-
 
                 if (CmbStokNo.Text != "00")
                 {
