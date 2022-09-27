@@ -681,7 +681,7 @@ namespace UserInterface.STS
         }
         void ProjeKodu()
         {
-            CmbProjeKodu.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
+            CmbProjeKodu.DataSource = comboManager.GetList("PROJE");
             CmbProjeKodu.ValueMember = "Id";
             CmbProjeKodu.DisplayMember = "Baslik";
             CmbProjeKodu.SelectedValue = 0;

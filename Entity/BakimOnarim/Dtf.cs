@@ -91,5 +91,17 @@ namespace Entity.BakimOnarim
             this.isBitisTarihi = isBitisTarihi;
             this.yapilanIslemler = yapilanIslemler;
         }
+
+        public Dtf(int id,string usBolgesi, string garantiDurumu, string projeKodu,string kategori,string tanim,string seriNo,string isinTanimi)
+        {
+            this.id = id;
+            this.usBolgesi = usBolgesi;
+            this.garantiDurumu = garantiDurumu;
+            this.projeKodu = projeKodu;
+            this.isKategorisi = kategori;
+            this.tanim = tanim;
+            this.seriNo = seriNo;
+            this.isTanimi = isinTanimi;
+        }
     }
 }

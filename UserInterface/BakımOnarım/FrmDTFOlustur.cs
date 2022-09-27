@@ -162,7 +162,7 @@ namespace UserInterface.BakımOnarım
         }
         void Tanim()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
+            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
             CmbTanim.DataSource = malzemeKayits;
             CmbTanim.ValueMember = "Id";
             CmbTanim.DisplayMember = "Tanim";
@@ -170,7 +170,7 @@ namespace UserInterface.BakımOnarım
         }
         void TanimGuncelle()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
+            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
             CmbTanimGun.DataSource = malzemeKayits;
             CmbTanimGun.ValueMember = "Id";
             CmbTanimGun.DisplayMember = "Tanim";
@@ -354,7 +354,7 @@ namespace UserInterface.BakımOnarım
 
                 string anadosya = @"Z:\DTS\BAKIM ONARIM\DTF\";
                 dosyaYolu = anadosya + LblIsAkisNo.Text + "\\";
-                Dtf dtf = new Dtf(LblIsAkisNo.Text.ConInt(), TalepEden.Text, LblKayitTarihi.Text.ConDate(), donem, CmbButceKodu.Text, TxtAbfNo.Text, CmbBolgeAdi.Text, CmbProjeKodu.Text, CmbGarantiDurumu.Text, CmbIsKategorisi.Text, TxtIsinTanimi.Text, LblStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, CmbOnarimYeri.Text, CmbAltYukleniciFirma.Text, LblFirmaSorumlusu.Text, DtgIsinVerildigiTarih.Value, dosyaYolu);
+                Dtf dtf = new Dtf(LblIsAkisNo.Text.ConInt(), TalepEden.Text, LblKayitTarihi.Value, donem, CmbButceKodu.Text, TxtAbfNo.Text, CmbBolgeAdi.Text, CmbProjeKodu.Text, CmbGarantiDurumu.Text, CmbIsKategorisi.Text, TxtIsinTanimi.Text.ToUpper(), LblStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, CmbOnarimYeri.Text, CmbAltYukleniciFirma.Text, LblFirmaSorumlusu.Text, DtgIsinVerildigiTarih.Value, dosyaYolu);
 
                 string mesaj = dtfManager.Add(dtf);
                 if (mesaj!="OK")
@@ -1267,6 +1267,24 @@ namespace UserInterface.BakımOnarım
         private void mGun7_TextChanged(object sender, EventArgs e)
         {
             BTutarGun7.Text = TopFiyatHesapla(BTutarGun7.Text, mGun7.Text);
+        }
+        
+        private void TxtAbfNo_TextChanged(object sender, EventArgs e)
+        {
+            if (TxtAbfNo.Text.Length >= 6)
+            {
+                Dtf dtf = dtfManager.DtfArizaBilgileri(TxtAbfNo.Text.ConInt());
+                if (dtf!=null)
+                {
+                    CmbBolgeAdi.Text = dtf.UsBolgesi;
+                    CmbProjeKodu.Text = dtf.ProjeKodu;
+                    CmbGarantiDurumu.Text = dtf.GarantiDurumu;
+                    CmbIsKategorisi.Text = dtf.IsKategorisi;
+                    CmbTanim.Text = dtf.Tanim;
+                    TxtSeriNo.Text = dtf.SeriNo;
+                    TxtIsinTanimi.Text = dtf.IsTanimi.ToUpper();
+                }
+            }
         }
 
         private void TTutar5_KeyPress(object sender, KeyPressEventArgs e)

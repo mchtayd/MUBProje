@@ -164,7 +164,7 @@ namespace UserInterface.BakımOnarım
         void CmbStokNoSokulen()
         {
 
-            malzemeKayits = malzemeKayitManager.GetList();
+            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
             CmbSokulenStokNo.DataSource = malzemeKayits;
             CmbSokulenStokNo.ValueMember = "Id";
             CmbSokulenStokNo.DisplayMember = "Stokno";
@@ -172,7 +172,7 @@ namespace UserInterface.BakımOnarım
         }
         void StokNoTakilan()
         {
-            CmbStokNoTakilan.DataSource = malzemeKayitManager.GetList();
+            CmbStokNoTakilan.DataSource = malzemeKayitManager.GetListMalzemeKayit();
             CmbStokNoTakilan.ValueMember = "Id";
             CmbStokNoTakilan.DisplayMember = "Stokno";
             CmbStokNoTakilan.SelectedValue = 0;

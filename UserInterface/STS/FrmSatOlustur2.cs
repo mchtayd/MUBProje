@@ -212,7 +212,7 @@ namespace UserInterface.STS
         }
         void YedekParca()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
+            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
             malzemesFiltered = malzemeKayits;
             dataBinder.DataSource = malzemeKayits.ToDataTable();
             DtgYedekParca.DataSource = dataBinder;

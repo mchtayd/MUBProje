@@ -100,6 +100,76 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public Malzeme Get2(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoMalzemeList", new SqlParameter("@id", id));
+                Malzeme item = null;
+                while (dataReader.Read())
+                {
+                    item = new Malzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TEDARIKCI_FIRMA"].ToString(),
+                        dataReader["ONARIM_DURUMU"].ToString(),
+                        dataReader["ONARIM_YERI"].ToString(),
+                        dataReader["TEDARIK_TURU"].ToString(),
+                        dataReader["PARCA_SINIFI"].ToString(),
+                        dataReader["ALTRNATIF_PARCA"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString(),
+                        dataReader["KAYIT_YAPAN"].ToString(),
+                        dataReader["TAKIP_DURUMU"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public Malzeme MalzemeSonStok()
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeSonStokBul");
+                Malzeme item = null;
+                while (dataReader.Read())
+                {
+                    item = new Malzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TEDARIKCI_FIRMA"].ToString(),
+                        dataReader["ONARIM_DURUMU"].ToString(),
+                        dataReader["ONARIM_YERI"].ToString(),
+                        dataReader["TEDARIK_TURU"].ToString(),
+                        dataReader["PARCA_SINIFI"].ToString(),
+                        dataReader["ALTRNATIF_PARCA"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString(),
+                        dataReader["KAYIT_YAPAN"].ToString(),
+                        dataReader["TAKIP_DURUMU"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public string UstTakimEkle(Malzeme entity)
         {
             try
@@ -108,6 +178,21 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@ustTakimStok", entity.UstStok),
                     new SqlParameter("@ustTakimTanim", entity.UstTanim),
                     new SqlParameter("@benzersizId", entity.BenzersizId));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MalzemeTanimDuzelt(string tanim, int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeTanimDuzelt",
+                    new SqlParameter("@tanim", tanim),
+                    new SqlParameter("@id", id));
                 dataReader.Close();
                 return "OK";
             }

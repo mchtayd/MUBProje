@@ -77,6 +77,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<DepoMiktar>();
             }
         }
+        public List<DepoMiktar> StokKontrol(string stokNo)
+        {
+            try
+            {
+                return depoMiktarDal.StokKontrol(stokNo);
+            }
+            catch (Exception)
+            {
+                return new List<DepoMiktar>();
+            }
+        }
         public List<DepoMiktar> DepoGor()
         {
             try
@@ -94,6 +105,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             try
             {
                 return depoMiktarDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DepoRezerve(DepoMiktar entity)
+        {
+            try
+            {
+                return depoMiktarDal.DepoRezerve(entity);
             }
             catch (Exception ex)
             {

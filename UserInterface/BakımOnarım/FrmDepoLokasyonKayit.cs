@@ -15,7 +15,7 @@ namespace UserInterface.BakımOnarım
         List<DepoKayit> depoKayits;
         List<DepoKayitLokasyon> depoKayitLokasyons;
         string depo;
-        int depoId;
+        int depoId, lokasyonId;
         public FrmDepoLokasyonKayit()
         {
             InitializeComponent();
@@ -48,6 +48,8 @@ namespace UserInterface.BakımOnarım
             }
             depoId = DtgDepolar.CurrentRow.Cells["Id"].Value.ConInt();
             depo = DtgDepolar.CurrentRow.Cells["Depo"].Value.ToString();
+            TxtDepo.Text = depo;
+            TxtDepoAciklama.Text = DtgDepolar.CurrentRow.Cells["Aciklama"].Value.ToString();
             DataDisplyaLokasyonlar();
         }
         void DataDisplyaLokasyonlar()
@@ -64,23 +66,51 @@ namespace UserInterface.BakımOnarım
 
         private void BtnDepoEkle_Click(object sender, EventArgs e)
         {
-
-            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            if (depoId==0)
             {
-                DepoKayit depoKayit = new DepoKayit(TxtDepo.Text, TxtDepoAciklama.Text);
-                string mesaj = depoKayitManagercs.Add(depoKayit);
-                if (mesaj!="OK")
+                MessageBox.Show("Lütfen öncelikle geçerli bir depo bilgisi seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            foreach (DepoKayit item in depoKayits)
+            {
+                if (TxtDepo.Text.Trim() == item.Depo.Trim())
                 {
-                    MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    DialogResult dr = MessageBox.Show(TxtDepo.Text + " isimli depo " + item.Depo.ToString() + " depo adıyla değiştirilecek! Lokasyon bilgileri aynı kalacak.\nOnaylıyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
+                    {
+                        DepoKayit depoKayit2 = new DepoKayit(depoId,TxtDepo.Text, TxtDepoAciklama.Text);
+                        string mesaj = depoKayitManagercs.Update(depoKayit2);
+                        if (mesaj!="OK")
+                        {
+                            MessageBox.Show(mesaj, "Hata", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
+                else
+                {
+                    
+                }
+            }
+
+            DepoKayit depoKayit = new DepoKayit(TxtDepo.Text, TxtDepoAciklama.Text);
+            DialogResult dr2 = MessageBox.Show(TxtDepo.Text + " isimli depo kaydedilecek!\nOnaylıyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr2 == DialogResult.Yes)
+            {
+                string mesaj = depoKayitManagercs.Add(depoKayit);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 DataDisplayDepolar();
                 Yenile();
-
             }
+
+
         }
         void Yenile()
         {
@@ -106,27 +136,87 @@ namespace UserInterface.BakımOnarım
         {
             if (depoId == 0)
             {
-                MessageBox.Show("Lütfen Öncelikle Geçerli Bir Depo Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Öncelikle Geçerli Bir Depo Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DialogResult dr = MessageBox.Show(depo + " Nolu Depoya "+ TxtLokasyon.Text + " Adlı Lokasyon Bilgisini Eklemek İstediğinize Emin Msiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            DialogResult dr = MessageBox.Show(depo + " Nolu Depoya " + TxtLokasyon.Text + " Adlı Lokasyon Bilgisini Eklemek İstediğinize Emin Msiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
 
                 DepoKayitLokasyon depoKayitLokasyon = new DepoKayitLokasyon(depoId, TxtLokasyon.Text, TxtLokasyonAcıklama.Text);
                 string mesaj = depoKayitLokasyonManager.Add(depoKayitLokasyon);
 
-                if (mesaj!="OK")
+                if (mesaj != "OK")
                 {
-                    MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataDisplayDepolar();
                 DtgLokasyonlar.DataSource = null;
                 Temizle();
             }
+        }
+
+        private void BtnDepoSil_Click(object sender, EventArgs e)
+        {
+            if (depoId != 0)
+            {
+                DialogResult dr = MessageBox.Show(TxtDepo.Text + " isimli depo kaydını silmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    string mesaj = depoKayitManagercs.Delete(depoId);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    MessageBox.Show("Kayıt başarıyla silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TxtDepo.Clear(); TxtDepoAciklama.Clear(); depoId = 0;
+                    DataDisplayDepolar();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen geçerli bir depo bilgisi seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private void BtnLokasyonSil_Click(object sender, EventArgs e)
+        {
+            if (lokasyonId != 0)
+            {
+                DialogResult dr = MessageBox.Show(TxtLokasyon.Text + " isimli lokasyon kaydını silmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr == DialogResult.Yes)
+                {
+                    string mesaj = depoKayitLokasyonManager.Delete(lokasyonId);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    MessageBox.Show("Kayıt başarıyla silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TxtLokasyon.Clear(); TxtLokasyonAcıklama.Clear(); lokasyonId = 0; DtgLokasyonlar.DataSource = null;
+                }
+            }
+            else
+            {
+                MessageBox.Show("Lütfen geçerli bir depo bilgisi seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void DtgLokasyonlar_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgLokasyonlar.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+            lokasyonId = DtgLokasyonlar.CurrentRow.Cells["Id"].Value.ConInt();
+            TxtLokasyon.Text = DtgLokasyonlar.CurrentRow.Cells["Lokasyon"].Value.ToString();
+            TxtLokasyonAcıklama.Text = DtgDepolar.CurrentRow.Cells["Aciklama"].Value.ToString();
         }
     }
 }

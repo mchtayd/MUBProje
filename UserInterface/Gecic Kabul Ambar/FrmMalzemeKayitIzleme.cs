@@ -151,5 +151,27 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
         }
+
+        private void TxtTanim_TextChanged(object sender, EventArgs e)
+        {
+            string isim = TxtTanim.Text;
+            if (string.IsNullOrEmpty(isim))
+            {
+                malzemesFiltired = malzemes;
+                dataBinder.DataSource = malzemes.ToDataTable();
+                DtgList.DataSource = dataBinder;
+                TxtTop.Text = DtgList.RowCount.ToString();
+                return;
+            }
+            if (TxtTanim.Text.Length < 3)
+            {
+                return;
+            }
+
+            dataBinder.DataSource = malzemesFiltired.Where(x => x.Tanim.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
+            DtgList.DataSource = dataBinder;
+            malzemesFiltired = malzemes;
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
     }
 }

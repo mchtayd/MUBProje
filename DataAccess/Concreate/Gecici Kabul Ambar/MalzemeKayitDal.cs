@@ -175,7 +175,6 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["SISTEM_STOK_NO"].ToString(),
                         dataReader["SISTEM_TANIM"].ToString(),
                         dataReader["SISTEM_SORUMLUSU"].ToString());
-
                 }
                 dataReader.Close();
                 return item;
@@ -192,6 +191,40 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             {
                 List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
                 dataReader = sqlServices.StoreReader("MalzemelerList", new SqlParameter("@stokno", stokNo));
+                while (dataReader.Read())
+                {
+                    malzemeKayits.Add(new MalzemeKayit(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TEDARIKCI_FIRMA"].ToString(),
+                        dataReader["MALZEME_ONARIM_DURUMU"].ToString(),
+                        dataReader["MALZEME_ONARIM_YERI"].ToString(),
+                        dataReader["MALZEME_TURU"].ToString(),
+                        dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
+                        dataReader["MALZEMENIN_KUL_UST"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ALTERNATIF_MALZEME"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString()));
+                }
+                dataReader.Close();
+                return malzemeKayits;
+            }
+            catch (Exception ex)
+            {
+                return new List<MalzemeKayit>();
+            }
+        }
+        public List<MalzemeKayit> GetListMalzemeKayit(string stokNo)
+        {
+            try
+            {
+                List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
+                dataReader = sqlServices.StoreReader("MalzemeKayitList", new SqlParameter("@stokno", stokNo));
                 while (dataReader.Read())
                 {
                     malzemeKayits.Add(new MalzemeKayit(

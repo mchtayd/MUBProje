@@ -32,6 +32,7 @@ namespace UserInterface.BakımOnarım
         ArizaKayitManager arizaKayitManager;
         AbfFormNoManager abfFormNoManager;
         MalzemeKayitManager malzemeKayitManager;
+        MalzemeManager malzemeManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         IslemAdimlariManager islemAdimlariManager;
         PypManager pypManager;
@@ -47,7 +48,8 @@ namespace UserInterface.BakımOnarım
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
         List<StokGirisCıkıs> stokGirisCıkıs;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
-        List<MalzemeKayit> malzemeKayits;
+        //List<MalzemeKayit> malzemeKayits;
+        List<Malzeme> malzemes;
         List<Atolye> atolyes;
         List<ArizaKayit> arizaKayits;
         int abfForm, abf, gun, saat, dakika;
@@ -67,7 +69,7 @@ namespace UserInterface.BakımOnarım
             isAkisNoManager = IsAkisNoManager.GetInstance();
             arizaKayitManager = ArizaKayitManager.GetInstance();
             abfFormNoManager = AbfFormNoManager.GetInstance();
-            malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            //malzemeKayitManager = MalzemeKayitManager.GetInstance();
             pypManager = PypManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             islemAdimlariManager = IslemAdimlariManager.GetInstance();
@@ -75,6 +77,7 @@ namespace UserInterface.BakımOnarım
             ıscilikIscilikManager = IscilikIscilikManager.GetInstance();
             atolyeManager = AtolyeManager.GetInstance();
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
+            malzemeManager = MalzemeManager.GetInstance();
         }
 
         private void FrmArizaAcmaCalisma_Load(object sender, EventArgs e)
@@ -182,17 +185,17 @@ namespace UserInterface.BakımOnarım
         }
         void CmbStokNo()
         {
-            CmbParcaNo.DataSource = malzemeKayitManager.UstTakimGetList();
-            CmbParcaNo.ValueMember = "Id";
-            CmbParcaNo.DisplayMember = "Tanim";
-            CmbParcaNo.SelectedValue = 0;
+            //CmbParcaNo.DataSource = malzemeManager.MalzemeUstTakimList();
+            //CmbParcaNo.ValueMember = "Id";
+            //CmbParcaNo.DisplayMember = "Tanim";
+            //CmbParcaNo.SelectedValue = 0;
         }
         void ParcaTanimiAK()
         {
-            CmbParcaTanimiAK.DataSource = malzemeKayitManager.UstTakimGetList();
-            CmbParcaTanimiAK.ValueMember = "Id";
-            CmbParcaTanimiAK.DisplayMember = "Tanim";
-            CmbParcaTanimiAK.SelectedValue = 0;
+            //CmbParcaTanimiAK.DataSource = malzemeManager.MalzemeUstTakimList();
+            //CmbParcaTanimiAK.ValueMember = "Id";
+            //CmbParcaTanimiAK.DisplayMember = "Tanim";
+            //CmbParcaTanimiAK.SelectedValue = 0;
         }
         void IlgiliFirma()
         {
@@ -832,17 +835,17 @@ namespace UserInterface.BakımOnarım
         }
         void CmbStokNoSokulen()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
-            CmbSokulenStokNo.DataSource = malzemeKayits;
+            malzemes = malzemeManager.GetList();
+            CmbSokulenStokNo.DataSource = malzemes;
             CmbSokulenStokNo.ValueMember = "Id";
-            CmbSokulenStokNo.DisplayMember = "Stokno";
+            CmbSokulenStokNo.DisplayMember = "StokNo";
             CmbSokulenStokNo.SelectedValue = 0;
         }
         void StokNoTakilan()
         {
-            CmbStokNoTakilan.DataSource = malzemeKayitManager.GetList();
+            CmbStokNoTakilan.DataSource = malzemeManager.GetList();
             CmbStokNoTakilan.ValueMember = "Id";
-            CmbStokNoTakilan.DisplayMember = "Stokno";
+            CmbStokNoTakilan.DisplayMember = "StokNo";
             CmbStokNoTakilan.SelectedValue = 0;
         }
 
@@ -1372,14 +1375,14 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             id = CmbParcaNo.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(id);
+            Malzeme malzemeKayit = malzemeManager.Get2(id);
             if (malzemeKayit == null)
             {
                 LbStokNo.Text = "";
                 return;
             }
-            LbStokNo.Text = malzemeKayit.Stokno;
-            CmbIlgiliFirma.Text = malzemeKayit.Malzemeonarımyeri;
+            LbStokNo.Text = malzemeKayit.StokNo;
+            CmbIlgiliFirma.Text = malzemeKayit.OnarimYeri;
         }
 
         void UsBolgeleri()
@@ -1612,7 +1615,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             comboId = CmbSokulenStokNo.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(comboId);
+            Malzeme malzemeKayit = malzemeManager.Get2(comboId);
             if (malzemeKayit == null)
             {
                 TxtSokulenTanim.Text = "";
@@ -1629,9 +1632,9 @@ namespace UserInterface.BakımOnarım
             }
             else
             {
-                foreach (MalzemeKayit item in malzemeKayits)
+                foreach (Malzeme item in malzemes)
                 {
-                    if (CmbSokulenStokNo.Text == item.Stokno)
+                    if (CmbSokulenStokNo.Text == item.StokNo)
                     {
                         TxtSokulenTanim.Text = item.Tanim;
                     }
@@ -1646,7 +1649,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             comboId = CmbStokNoTakilan.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(comboId);
+            Malzeme malzemeKayit = malzemeManager.Get2(comboId);
             if (malzemeKayit == null)
             {
                 TxtTakilanTanim.Text = "";
@@ -1663,9 +1666,9 @@ namespace UserInterface.BakımOnarım
             }
             else
             {
-                foreach (MalzemeKayit item in malzemeKayits)
+                foreach (Malzeme item in malzemes)
                 {
-                    if (CmbStokNoTakilan.Text == item.Stokno)
+                    if (CmbStokNoTakilan.Text == item.StokNo)
                     {
                         TxtTakilanTanim.Text = item.Tanim;
                     }
@@ -1857,14 +1860,14 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             id = CmbParcaTanimiAK.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(id);
+            Malzeme malzemeKayit = malzemeManager.Get2(id);
             if (malzemeKayit == null)
             {
                 LblStokNoAK.Text = "";
                 return;
             }
-            LblStokNoAK.Text = malzemeKayit.Stokno;
-            CmbIlgliFirmaAK.Text = malzemeKayit.Malzemeonarımyeri;
+            LblStokNoAK.Text = malzemeKayit.StokNo;
+            CmbIlgliFirmaAK.Text = malzemeKayit.OnarimYeri;
         }
 
         private void CmbPypNoAK_SelectedIndexChanged(object sender, EventArgs e)

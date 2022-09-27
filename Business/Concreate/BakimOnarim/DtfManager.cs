@@ -89,6 +89,18 @@ namespace Business.Concreate.BakimOnarim
                 return new List<Dtf>();
             }
         }
+        public Dtf DtfArizaBilgileri(int abfNo)
+        {
+            try
+            {
+                return dtfDal.DtfArizaBilgileri(abfNo);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
 
         public string Update(Dtf entity)
         {

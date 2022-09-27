@@ -40,6 +40,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
         public string comboAd;
         public object[] infos;
 
+        List<Malzeme> malzemes2 = new List<Malzeme>();
+
         public FrmMalzemeKayit()
         {
             InitializeComponent();
@@ -147,7 +149,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         }
         void CmbStokNo()
         {
-            TxtStn.DataSource = malzemeKayitManager.GetList();
+            TxtStn.DataSource = malzemeKayitManager.GetListMalzemeKayit();
             TxtStn.ValueMember = "Id";
             TxtStn.DisplayMember = "Stokno";
             TxtStn.SelectedValue = 0;
@@ -418,15 +420,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
         string yeniStok = "";
         private void BtnStokAl_Click(object sender, EventArgs e)
         {
-            MalzemeKayit malzemeKayit = malzemeKayitManager.MalzemeSonStok();
-            string sonStok = malzemeKayit.Stokno; //UGS-0000-1167
+            Malzeme malzemeKayit = malzemeManager.MalzemeSonStok();
+            string sonStok = malzemeKayit.StokNo; //UGS-0000-1167
             string[] array = sonStok.Split('-');
             int sayi = array[2].ConInt() + 1;
             yeniStok = array[0].ToString() + "-" + array[1].ToString() + "-" + sayi;
 
             TxtStn.Text = yeniStok;
         }
-
+        int index = 0;
         private void CmbUstTanim_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start == true)
@@ -442,12 +444,33 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             TxtUstStok.Text = personelKayit.Stokno;
 
+            index = CmbUstTanim.SelectedIndex;
+            CmbMalKulUst.SelectedIndex = index;
+
         }
 
         private void bTN_Click(object sender, EventArgs e)
         {
             FrmUstTakimEkle frmUstTakimEkle = new FrmUstTakimEkle();
             frmUstTakimEkle.ShowDialog();
+        }
+        
+        private void button1_Click(object sender, EventArgs e)
+        {
+            malzemes2 = malzemeManager.GetList();
+
+            foreach (Malzeme item in malzemes2)
+            {
+                string[] array = item.Tanim.Split('\n');
+                int uzunluk = array.Length;
+                if (uzunluk > 1 )
+                {
+                    string tanim = array[0].ToString().Trim();
+                    malzemeManager.MalzemeTanimDuzelt(tanim, item.Id.ConInt());
+
+                }
+            }
+            MessageBox.Show("Tanımlar Düzeldi.");
         }
 
         private void BtnTedarikTürüEkle_Click(object sender, EventArgs e)

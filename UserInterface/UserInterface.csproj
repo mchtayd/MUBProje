@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>390</ApplicationRevision>
+    <ApplicationRevision>408</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -117,6 +117,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\ArsivDosyaFihrist.Designer.cs">
       <DependentUpon>ArsivDosyaFihrist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAtolyeRapor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAtolyeRapor.Designer.cs">
+      <DependentUpon>FrmAtolyeRapor.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmButceler.cs">
       <SubType>Form</SubType>
@@ -513,6 +519,12 @@
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmGirisCikis.Designer.cs">
       <DependentUpon>FrmGirisCikis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeAciklama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeAciklama.Designer.cs">
+      <DependentUpon>FrmMalzemeAciklama.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.cs">
       <SubType>Form</SubType>
@@ -1101,6 +1113,9 @@
     <EmbeddedResource Include="Ana Sayfa\ArsivDosyaFihrist.resx">
       <DependentUpon>ArsivDosyaFihrist.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmAtolyeRapor.resx">
+      <DependentUpon>FrmAtolyeRapor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmButceler.resx">
       <DependentUpon>FrmButceler.cs</DependentUpon>
     </EmbeddedResource>
@@ -1298,6 +1313,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmGirisCikis.resx">
       <DependentUpon>FrmGirisCikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeAciklama.resx">
+      <DependentUpon>FrmMalzemeAciklama.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.resx">
       <DependentUpon>FrmMalzemeHazirlama.cs</DependentUpon>

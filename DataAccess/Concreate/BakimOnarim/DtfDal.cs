@@ -255,6 +255,25 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public Dtf DtfArizaBilgileri(int abfNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DtfBlgeOgren", new SqlParameter("@abfNo", abfNo));
+                Dtf item = null;
+                while (dataReader.Read())
+                {
+                    item = new Dtf(dataReader["Kimlik"].ConInt(), dataReader["BOLGE_ADI"].ToString(), dataReader["GARANTI"].ToString(), dataReader["PROJE"].ToString(), dataReader["KATEGORI"].ToString(), dataReader["TANIM"].ToString(), dataReader["SERI_NO"].ToString(),
+                        dataReader["ARIZA_BULUNAN"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         public static DtfDal GetInstance()
         {

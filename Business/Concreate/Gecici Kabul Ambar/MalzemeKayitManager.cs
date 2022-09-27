@@ -114,6 +114,19 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<MalzemeKayit>();
             }
         }
+
+        public List<MalzemeKayit> GetListMalzemeKayit(string stokNo = "")
+        {
+            try
+            {
+                return malzemeKayitDal.GetListMalzemeKayit(stokNo);
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeKayit>();
+            }
+        }
+
         public List<MalzemeKayit> UstTakimGetList()
         {
             try

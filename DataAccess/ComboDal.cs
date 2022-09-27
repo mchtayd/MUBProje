@@ -104,7 +104,7 @@ namespace DataAccess
                 dataReader.Close();
                 return combos;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 throw;

@@ -63,11 +63,45 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public Malzeme Get2(int id)
+        {
+            try
+            {
+                return malzemeDal.Get2(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Malzeme MalzemeSonStok()
+        {
+            try
+            {
+                return malzemeDal.MalzemeSonStok();
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
         public string UstTakimEkle(Malzeme entity)
         {
             try
             {
                 return malzemeDal.UstTakimEkle(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MalzemeTanimDuzelt(string tanim, int id)
+        {
+            try
+            {
+                return malzemeDal.MalzemeTanimDuzelt(tanim, id);
             }
             catch (Exception ex)
             {

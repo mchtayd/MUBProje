@@ -63,8 +63,6 @@ namespace UserInterface.STS
         public FrmAnaSayfa()
         {
 
-
-
             InitializeComponent();
             satinAlinacakMalManager = SatinAlinacakMalManager.GetInstance();
             versionManager = VersionManager.GetInstance();
@@ -2212,7 +2210,7 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "DTF")
+            if (e.Node.Text == "DTF İzleme")
             {
                 FrmDtfIzleme Go = new FrmDtfIzleme();
                 //Go.infos = infos;
@@ -2501,7 +2499,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageDuranVarlikAktarim", "DURAN VARLIK AKTARIM", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "DV Zimmet Takip")
+            if (e.Node.Text == "Duran Varlık Takip İzleme")
             {
                 FrmDuranVarlikTakip Go = new FrmDuranVarlikTakip();
 
@@ -2966,7 +2964,7 @@ namespace UserInterface.STS
                 Go.infos = infos;
                 Go.ShowDialog();
             }
-            if (e.Node.Text == "Depo Stok Görüntüle")
+            if (e.Node.Text == "Depo Stok Görüntüle İzleme")
             {
                 FrmStokGoruntule Go = new FrmStokGoruntule();
                 Go.FormBorderStyle = FormBorderStyle.None;
@@ -2987,7 +2985,7 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "Depo Hareketleri")
+            if (e.Node.Text == "Depo Hareketleri İzleme")
             {
                 FrmDepoHareketleri Go = new FrmDepoHareketleri();
                 Go.FormBorderStyle = FormBorderStyle.None;
@@ -3050,7 +3048,7 @@ namespace UserInterface.STS
                 Go.infos = infos;
                 Go.Show();
             }
-            if (e.Node.Text == "SAT Raporu")
+            if (e.Node.Text == "SAT Raporu İzleme")
             {
                 FrmSatRaporuIzleme Go = new FrmSatRaporuIzleme();
                 Go.FormBorderStyle = FormBorderStyle.None;
@@ -3853,7 +3851,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageBakimKayit", "ARAÇ BAKIM KAYIT", Go);
                 Go.Show();
             }
-            if (e.Node.Name == "DV Zimmet Takibi")
+            if (e.Node.Name == "DV Zimmet Takip İzleme")
             {
                 //frmWait.Show();
                 FrmDVZimmetTakibi Go = new FrmDVZimmetTakibi();
@@ -4123,7 +4121,7 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageMalzemeHazirmala", "MALZEME HAZIRLAMA", Go);
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.Show();
             }
 

@@ -8,7 +8,7 @@ namespace Entity.Gecic_Kabul_Ambar
 {
     public class Barkod
     {
-        int id; string stokNo, tanim, seriNo, revizyon, barkodOlusturan; DateTime barkodOlusturmaTarihi, sonCiktiTarihi; int tekrarAdeti; bool kayitDurumu;
+        int id; string stokNo, tanim, seriNo, revizyon, barkodOlusturan; DateTime barkodOlusturmaTarihi, sonCiktiTarihi; int tekrarAdeti; bool kayitDurumu; string sonCiktiAlan;
 
         public int Id { get => id; set => id = value; }
         public string StokNo { get => stokNo; set => stokNo = value; }
@@ -20,8 +20,9 @@ namespace Entity.Gecic_Kabul_Ambar
         public DateTime SonCiktiTarihi { get => sonCiktiTarihi; set => sonCiktiTarihi = value; }
         public int TekrarAdeti { get => tekrarAdeti; set => tekrarAdeti = value; }
         public bool KayitDurumu { get => kayitDurumu; set => kayitDurumu = value; }
+        public string SonCiktiAlan { get => sonCiktiAlan; set => sonCiktiAlan = value; }
 
-        public Barkod(int id, string stokNo, string tanim, string seriNo, string revizyon, string barkodOlusturan, DateTime barkodOlusturmaTarihi, DateTime sonCiktiTarihi, int tekrarAdeti)
+        public Barkod(int id, string stokNo, string tanim, string seriNo, string revizyon, string barkodOlusturan, DateTime barkodOlusturmaTarihi, DateTime sonCiktiTarihi, int tekrarAdeti,string sonCiktiAlan)
         {
             this.id = id;
             this.stokNo = stokNo;
@@ -32,9 +33,10 @@ namespace Entity.Gecic_Kabul_Ambar
             this.barkodOlusturmaTarihi = barkodOlusturmaTarihi;
             this.sonCiktiTarihi = sonCiktiTarihi;
             this.tekrarAdeti = tekrarAdeti;
+            this.sonCiktiAlan = sonCiktiAlan;
         }
 
-        public Barkod(int id, string stokNo, string tanim, string seriNo, string revizyon, string barkodOlusturan, DateTime sonCiktiTarihi, bool kayitDurumu)
+        public Barkod(int id, string stokNo, string tanim, string seriNo, string revizyon, string barkodOlusturan, DateTime sonCiktiTarihi, bool kayitDurumu, string sonCiktiAlan)
         {
             this.id = id;
             this.stokNo = stokNo;
@@ -44,12 +46,14 @@ namespace Entity.Gecic_Kabul_Ambar
             this.barkodOlusturan = barkodOlusturan;
             this.sonCiktiTarihi = sonCiktiTarihi;
             this.kayitDurumu = kayitDurumu;
+            this.sonCiktiAlan = sonCiktiAlan;
         }
 
-        public Barkod(int id, DateTime sonCiktiTarihi)
+        public Barkod(int id, DateTime sonCiktiTarihi,string sonCiktiAlan)
         {
             this.id = id;
             this.sonCiktiTarihi = sonCiktiTarihi;
+            this.sonCiktiAlan = sonCiktiAlan;
         }
     }
 }

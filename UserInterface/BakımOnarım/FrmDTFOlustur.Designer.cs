@@ -69,7 +69,6 @@ namespace UserInterface.BakımOnarım
             this.CmbButceKodu = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.LblKayitTarihi = new System.Windows.Forms.Label();
             this.CmbDonemYil = new System.Windows.Forms.ComboBox();
             this.CmbDonemAy = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -289,6 +288,7 @@ namespace UserInterface.BakımOnarım
             this.TxtIsAkisNoGun = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.LblKayitTarihi = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -618,6 +618,7 @@ namespace UserInterface.BakımOnarım
             this.CmbGarantiDurumu.FormattingEnabled = true;
             this.CmbGarantiDurumu.Items.AddRange(new object[] {
             "GARANTİ İÇİ",
+            "GARANTİ DIŞI",
             "GARANTİ DIŞI (OKF)",
             "PDL"});
             this.CmbGarantiDurumu.Location = new System.Drawing.Point(157, 136);
@@ -674,6 +675,7 @@ namespace UserInterface.BakımOnarım
             this.TxtAbfNo.Name = "TxtAbfNo";
             this.TxtAbfNo.Size = new System.Drawing.Size(236, 20);
             this.TxtAbfNo.TabIndex = 421;
+            this.TxtAbfNo.TextChanged += new System.EventHandler(this.TxtAbfNo_TextChanged);
             // 
             // label3
             // 
@@ -740,15 +742,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox3.TabIndex = 443;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TALEBİ OLUŞTURAN";
-            // 
-            // LblKayitTarihi
-            // 
-            this.LblKayitTarihi.AutoSize = true;
-            this.LblKayitTarihi.Location = new System.Drawing.Point(115, 81);
-            this.LblKayitTarihi.Name = "LblKayitTarihi";
-            this.LblKayitTarihi.Size = new System.Drawing.Size(19, 13);
-            this.LblKayitTarihi.TabIndex = 417;
-            this.LblKayitTarihi.Text = "00";
             // 
             // CmbDonemYil
             // 
@@ -3090,6 +3083,14 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // LblKayitTarihi
+            // 
+            this.LblKayitTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.LblKayitTarihi.Location = new System.Drawing.Point(118, 77);
+            this.LblKayitTarihi.Name = "LblKayitTarihi";
+            this.LblKayitTarihi.Size = new System.Drawing.Size(104, 20);
+            this.LblKayitTarihi.TabIndex = 449;
+            // 
             // FrmDTFOlustur
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3167,7 +3168,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ComboBox CmbButceKodu;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label LblKayitTarihi;
         private System.Windows.Forms.ComboBox CmbDonemYil;
         private System.Windows.Forms.ComboBox CmbDonemAy;
         private System.Windows.Forms.Label label52;
@@ -3392,5 +3392,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TextBox mGun7;
         private System.Windows.Forms.TextBox IsTanimiGun7;
         private System.Windows.Forms.ComboBox bGun7;
+        private System.Windows.Forms.DateTimePicker LblKayitTarihi;
     }
 }

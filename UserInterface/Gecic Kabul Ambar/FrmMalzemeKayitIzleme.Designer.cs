@@ -42,6 +42,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.dataBinderGuncel = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.TxtTanim = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -104,7 +106,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.Location = new System.Drawing.Point(12, 81);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DtgList.Size = new System.Drawing.Size(1382, 473);
             this.DtgList.TabIndex = 342;
             this.DtgList.TimeFilter = false;
@@ -149,11 +151,31 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.webBrowser1.Size = new System.Drawing.Size(827, 112);
             this.webBrowser1.TabIndex = 345;
             // 
+            // TxtTanim
+            // 
+            this.TxtTanim.Location = new System.Drawing.Point(563, 46);
+            this.TxtTanim.Name = "TxtTanim";
+            this.TxtTanim.Size = new System.Drawing.Size(293, 20);
+            this.TxtTanim.TabIndex = 347;
+            this.TxtTanim.TextChanged += new System.EventHandler(this.TxtTanim_TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(429, 48);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(128, 15);
+            this.label2.TabIndex = 348;
+            this.label2.Text = "TANIM İLE ARAMA:";
+            // 
             // FrmMalzemeKayitIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1406, 789);
+            this.Controls.Add(this.TxtTanim);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.webBrowser1);
             this.Controls.Add(this.DtgList);
@@ -187,5 +209,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.BindingSource dataBinderGuncel;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.TextBox TxtTanim;
+        private System.Windows.Forms.Label label2;
     }
 }

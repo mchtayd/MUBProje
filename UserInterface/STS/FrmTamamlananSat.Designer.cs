@@ -1346,7 +1346,6 @@ namespace UserInterface.STS
             // 
             // CmbProjeKodu
             // 
-            this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbProjeKodu.FormattingEnabled = true;
             this.CmbProjeKodu.Location = new System.Drawing.Point(143, 33);
             this.CmbProjeKodu.Name = "CmbProjeKodu";

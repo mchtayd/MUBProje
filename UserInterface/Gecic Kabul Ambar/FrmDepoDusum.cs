@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         BarkodManager barkodManager;
 
         public object[] infos;
-        string readedBarcode;
+        string readedBarcode, stokNo, tanim;
         int comboId, id = 0;
         bool start = true, firstClick = false, kayitDurumu = false;
 
@@ -59,16 +59,16 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         void StokBilgileri()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
-            CmbStokNo.DataSource = malzemeKayits;
+            malzemes = malzemeManager.GetList();
+            CmbStokNo.DataSource = malzemes;
             CmbStokNo.ValueMember = "Id";
             CmbStokNo.DisplayMember = "StokNo";
             CmbStokNo.SelectedValue = 0;
         }
         void TanimBilgileri()
         {
-            malzemeKayits2 = malzemeKayitManager.GetList();
-            CmbTanim.DataSource = malzemeKayits2;
+            malzemes2 = malzemeManager.GetList();
+            CmbTanim.DataSource = malzemes2;
             CmbTanim.ValueMember = "Id";
             CmbTanim.DisplayMember = "Tanim";
             CmbTanim.SelectedValue = 0;
@@ -102,6 +102,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             return "OK";
         }
+
         private void BtnBarkodOlustur_Click(object sender, EventArgs e)
         {
             string mesaj = CreateBarkodControl();
@@ -114,7 +115,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             BarcodeWriter writer = new BarcodeWriter()
             {
                 Format = BarcodeFormat.QR_CODE,
-                Options = new ZXing.Common.EncodingOptions() { Width = 120, Height = 120 }
+                Options = new ZXing.Common.EncodingOptions() { Width = 200, Height = 200 }
 
                 //Format = BarcodeFormat.CODE_128,
                 //Options = new ZXing.Common.EncodingOptions() { Width = 300, Height = 100 }
@@ -125,7 +126,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             if (barkod!=null)
             {
                 id = barkod.Id;
-                Bitmap myBitmap1 = writer.Write(CmbStokNo.Text + "\n" + CmbTanim.Text+ "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
+                Bitmap myBitmap1 = writer.Write(id + " " + "\n" +  CmbStokNo.Text + "\n" + CmbTanim.Text+ "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
                 PctBarcode.Image = myBitmap1;
                 kayitDurumu = true;
             }
@@ -138,7 +139,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 {
                     if (barkods.Count()==0)
                     {
-                        id = 10000;
+                        id = 1;
                     }
                     else
                     {
@@ -152,17 +153,17 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             id = barkodList[barkodList.Count - 1].Id.ConInt();
                             id++;
                         }
-                        
+                        // KRAL 29.08.2022 
                     }
 
-                    Bitmap myBitmap1 = writer.Write(CmbStokNo.Text + "\n" + CmbTanim.Text + "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
+                    Bitmap myBitmap1 = writer.Write(id + " " + "\n" +  CmbStokNo.Text + "\n" + CmbTanim.Text + "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
                     PctBarcode.Image = myBitmap1;
                 }
                 else
                 {
                     id = barkodList[barkodList.Count - 1].Id.ConInt();
                     id++;
-                    Bitmap myBitmap1 = writer.Write(CmbStokNo.Text + "\n" + CmbTanim.Text + "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
+                    Bitmap myBitmap1 = writer.Write(id + " " + "\n" +  CmbStokNo.Text + "\n" + CmbTanim.Text + "\n" + TxtSeriNo.Text + "\n" + TxtRevizyon.Text);
                     PctBarcode.Image = myBitmap1;
                 }
             }
@@ -190,7 +191,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     }
                     else
                     {
-                        barkodManager.BarkodTekrarCikti(item);
+                        barkodManager.Add(item);
+                        //barkodManager.BarkodTekrarCikti(item);
                     }
 
                     PrinterSettings ps = new PrinterSettings();
@@ -200,7 +202,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         PrinterSettings = ps
                     };
                     
-                    printDoc.DefaultPageSettings.PaperSize = new PaperSize("Custom", 150, 120);
+                    printDoc.DefaultPageSettings.PaperSize = new PaperSize("Custom", 150, 130);
                     printDoc.PrintPage += PrintPage;
                     printDoc.Print();
                     sayi++;
@@ -226,7 +228,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 //Point loc = new Point(1, 10);
                 //e.Graphics.DrawImage(images[0], new Point(1, -1));
-                e.Graphics.DrawImage(images[sayi], 2, -1, 150, 120);
+                e.Graphics.DrawImage(images[sayi], 2, -1, 150, 130);
                 /*int size = e.MarginBounds.Width;
                 Bitmap bitmap = new Bitmap(size, size);
                 Graphics graphics = Graphics.FromImage(bitmap);
@@ -264,21 +266,24 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
             comboId = CmbStokNo.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(comboId);
+            stokNo = CmbStokNo.Text;
+            Malzeme malzemeKayit = malzemeManager.Get(stokNo);
             if (malzemeKayit == null)
             {
                 CmbTanim.Text = "";
                 return;
             }
             CmbTanim.Text = malzemeKayit.Tanim;
-            string takipDurumu = malzemeKayit.Malzemetakipdurumu;
+            string takipDurumu = malzemeKayit.TakipDurumu;
             if (takipDurumu=="LOT NO")
             {
                 LblTakipDurumu.Text = "Lot No :";
+                BtnLotAl.Visible = true;
             }
             else
             {
                 LblTakipDurumu.Text = "Seri No:";
+                BtnLotAl.Visible = false;
             }
         }
 
@@ -294,16 +299,31 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             else
             {
-                foreach (MalzemeKayit item in malzemeKayits)
+                foreach (Malzeme item in malzemes)
                 {
-                    if (CmbStokNo.Text == item.Stokno)
+                    if (CmbStokNo.Text == item.StokNo)
                     {
                         CmbTanim.Text = item.Tanim;
                     }
                 }
             }
         }
-        
+
+        private void BtnLotAl_Click(object sender, EventArgs e)
+        {
+            if (CmbStokNo.Text=="")
+            {
+                MessageBox.Show("Lütfen öncelikle Stok No bilgisini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbTanim.Text=="")
+            {
+                MessageBox.Show("Lütfen öncelikle Tanım bilgisini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            TxtSeriNo.Text = DateTime.Now.ToString("yyyy") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + DateTime.Now.ToString("HH");
+        }
+
         private void CmbTanim_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start == true)
@@ -311,13 +331,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
             comboId = CmbTanim.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(comboId);
+            stokNo = CmbStokNo.Text;
+            Malzeme malzemeKayit = malzemeManager.Get(stokNo);
             if (malzemeKayit == null)
             {
                 CmbStokNo.Text = "";
                 return;
             }
-            CmbStokNo.Text = malzemeKayit.Stokno;
+            CmbStokNo.Text = malzemeKayit.StokNo;
         }
 
         private void CmbTanim_TextChanged(object sender, EventArgs e)
@@ -332,11 +353,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             else
             {
-                foreach (MalzemeKayit item in malzemeKayits2)
+                foreach (Malzeme item in malzemes2)
                 {
                     if (CmbTanim.Text == item.Tanim)
                     {
-                        CmbStokNo.Text = item.Stokno;
+                        CmbStokNo.Text = item.StokNo;
                     }
                 }
             }
@@ -348,7 +369,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 try
                 {
-                    Barkod controlListKayitsiz = new Barkod(id, CmbStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, TxtRevizyon.Text, infos[1].ToString(), DateTime.Now, kayitDurumu);
+                    Barkod controlListKayitsiz = new Barkod(id, CmbStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, TxtRevizyon.Text, infos[1].ToString(), DateTime.Now, kayitDurumu, infos[1].ToString());
                     barkodList.Add(controlListKayitsiz);
                     firstClick = true;
 

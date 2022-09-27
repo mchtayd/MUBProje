@@ -29,9 +29,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnBarkodOlustur = new System.Windows.Forms.Button();
@@ -49,6 +49,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.CmbTanim = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtRevizyon = new System.Windows.Forms.TextBox();
+            this.BtnLotAl = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBarcode)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -62,7 +63,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(757, 27);
+            this.panel1.Size = new System.Drawing.Size(774, 27);
             this.panel1.TabIndex = 314;
             // 
             // BtnCancel
@@ -83,7 +84,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnBarkodOlustur.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBarkodOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBarkodOlustur.Location = new System.Drawing.Point(65, 392);
+            this.BtnBarkodOlustur.Location = new System.Drawing.Point(65, 381);
             this.BtnBarkodOlustur.Name = "BtnBarkodOlustur";
             this.BtnBarkodOlustur.Size = new System.Drawing.Size(126, 35);
             this.BtnBarkodOlustur.TabIndex = 2;
@@ -105,7 +106,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.TxtSeriNo.Location = new System.Drawing.Point(65, 320);
             this.TxtSeriNo.Name = "TxtSeriNo";
-            this.TxtSeriNo.Size = new System.Drawing.Size(309, 20);
+            this.TxtSeriNo.Size = new System.Drawing.Size(250, 20);
             this.TxtSeriNo.TabIndex = 0;
             this.TxtSeriNo.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtSeriNo_KeyUp);
             // 
@@ -125,7 +126,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.CmbStokNo.FormattingEnabled = true;
             this.CmbStokNo.Location = new System.Drawing.Point(65, 266);
             this.CmbStokNo.Name = "CmbStokNo";
-            this.CmbStokNo.Size = new System.Drawing.Size(309, 21);
+            this.CmbStokNo.Size = new System.Drawing.Size(250, 21);
             this.CmbStokNo.TabIndex = 321;
             this.CmbStokNo.SelectedIndexChanged += new System.EventHandler(this.CmbStokNo_SelectedIndexChanged);
             this.CmbStokNo.TextChanged += new System.EventHandler(this.CmbStokNo_TextChanged);
@@ -143,7 +144,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnPrint.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPrint.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnPrint.Location = new System.Drawing.Point(380, 559);
+            this.BtnPrint.Location = new System.Drawing.Point(394, 562);
             this.BtnPrint.Name = "BtnPrint";
             this.BtnPrint.Size = new System.Drawing.Size(126, 35);
             this.BtnPrint.TabIndex = 323;
@@ -155,7 +156,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnListeyeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnListeyeEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListeyeEkle.Location = new System.Drawing.Point(65, 433);
+            this.BtnListeyeEkle.Location = new System.Drawing.Point(65, 422);
             this.BtnListeyeEkle.Name = "BtnListeyeEkle";
             this.BtnListeyeEkle.Size = new System.Drawing.Size(126, 35);
             this.BtnListeyeEkle.TabIndex = 325;
@@ -166,7 +167,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgYedekParca);
-            this.groupBox1.Location = new System.Drawing.Point(380, 36);
+            this.groupBox1.Location = new System.Drawing.Point(391, 36);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(365, 520);
             this.groupBox1.TabIndex = 326;
@@ -179,18 +180,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgYedekParca.AllowUserToDeleteRows = false;
             this.DtgYedekParca.AllowUserToResizeColumns = false;
             this.DtgYedekParca.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.DtgYedekParca.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle10.BackColor = System.Drawing.Color.White;
+            this.DtgYedekParca.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
             this.DtgYedekParca.AutoGenerateContextFilters = true;
             this.DtgYedekParca.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgYedekParca.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgYedekParca.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.DtgYedekParca.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgYedekParca.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Photo});
@@ -201,8 +202,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgYedekParca.Name = "DtgYedekParca";
             this.DtgYedekParca.ReadOnly = true;
             this.DtgYedekParca.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.DtgYedekParca.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtgYedekParca.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.DtgYedekParca.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DtgYedekParca.RowTemplate.Height = 220;
             this.DtgYedekParca.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -235,7 +236,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.CmbTanim.FormattingEnabled = true;
             this.CmbTanim.Location = new System.Drawing.Point(65, 293);
             this.CmbTanim.Name = "CmbTanim";
-            this.CmbTanim.Size = new System.Drawing.Size(309, 21);
+            this.CmbTanim.Size = new System.Drawing.Size(320, 21);
             this.CmbTanim.TabIndex = 328;
             this.CmbTanim.SelectedIndexChanged += new System.EventHandler(this.CmbTanim_SelectedIndexChanged);
             this.CmbTanim.TextChanged += new System.EventHandler(this.CmbTanim_TextChanged);
@@ -253,15 +254,29 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.TxtRevizyon.Location = new System.Drawing.Point(65, 346);
             this.TxtRevizyon.Name = "TxtRevizyon";
-            this.TxtRevizyon.Size = new System.Drawing.Size(309, 20);
+            this.TxtRevizyon.Size = new System.Drawing.Size(250, 20);
             this.TxtRevizyon.TabIndex = 329;
+            // 
+            // BtnLotAl
+            // 
+            this.BtnLotAl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLotAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnLotAl.Location = new System.Drawing.Point(321, 320);
+            this.BtnLotAl.Name = "BtnLotAl";
+            this.BtnLotAl.Size = new System.Drawing.Size(64, 20);
+            this.BtnLotAl.TabIndex = 331;
+            this.BtnLotAl.Text = "Lot Al";
+            this.BtnLotAl.UseVisualStyleBackColor = true;
+            this.BtnLotAl.Visible = false;
+            this.BtnLotAl.Click += new System.EventHandler(this.BtnLotAl_Click);
             // 
             // FrmDepoDusum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(757, 605);
+            this.ClientSize = new System.Drawing.Size(774, 605);
             this.ControlBox = false;
+            this.Controls.Add(this.BtnLotAl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtRevizyon);
             this.Controls.Add(this.CmbTanim);
@@ -310,5 +325,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.DataGridViewImageColumn Photo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtRevizyon;
+        private System.Windows.Forms.Button BtnLotAl;
     }
 }

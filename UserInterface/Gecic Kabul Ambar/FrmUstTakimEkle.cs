@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         }
         void DataDisplay()
         {
-            malzemeKayits = kayitManager.GetList();
+            malzemeKayits = kayitManager.GetListMalzemeKayit();
             malzemeKayitsFiltired = malzemeKayits;
             dataBinder.DataSource = malzemeKayits.ToDataTable();
             DtgList.DataSource = dataBinder;

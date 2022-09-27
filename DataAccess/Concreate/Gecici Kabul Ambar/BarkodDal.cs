@@ -63,7 +63,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["BARKOD_OLUSTURAN"].ToString(),
                         dataReader["BARKOD_OLUSTURMA_TARIHI"].ConDate(),
                         dataReader["SON_CIKTI_TARIHI"].ConDate(),
-                        dataReader["TEKRAR_ADETI"].ConInt());
+                        dataReader["TEKRAR_ADETI"].ConInt(),
+                        dataReader["SON_CIKTI_ALAN"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -79,7 +80,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
         {
             try
             {
-                dataReader = sqlServices.StoreReader("BarkodList", new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo),
+                dataReader = sqlServices.StoreReader("BarkodKontrolList", new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo),
                     new SqlParameter("@revizyon", revizyon));
                 Barkod item = null;
                 while (dataReader.Read())
@@ -93,12 +94,13 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["BARKOD_OLUSTURAN"].ToString(),
                         dataReader["BARKOD_OLUSTURMA_TARIHI"].ConDate(),
                         dataReader["SON_CIKTI_TARIHI"].ConDate(),
-                        dataReader["TEKRAR_ADETI"].ConInt());
+                        dataReader["TEKRAR_ADETI"].ConInt(),
+                        dataReader["SON_CIKTI_ALAN"].ToString());
                 }
                 dataReader.Close();
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }
@@ -121,7 +123,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["BARKOD_OLUSTURAN"].ToString(),
                         dataReader["BARKOD_OLUSTURMA_TARIHI"].ConDate(),
                         dataReader["SON_CIKTI_TARIHI"].ConDate(),
-                        dataReader["TEKRAR_ADETI"].ConInt()));
+                        dataReader["TEKRAR_ADETI"].ConInt(),
+                        dataReader["SON_CIKTI_ALAN"].ToString()));
                     
                 }
                 dataReader.Close();
@@ -137,9 +140,10 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
         {
             try
             {
-                dataReader = sqlServices.StoreReader("BarkodTekrarCikti", 
-                    new SqlParameter("@id", entity.Id), 
-                    new SqlParameter("@sonCiktiTarihi", entity.SonCiktiTarihi));
+                dataReader = sqlServices.StoreReader("BarkodTekrarCikti",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@sonCiktiTarihi", entity.SonCiktiTarihi),
+                    new SqlParameter("@sonCiktiAlan", entity.SonCiktiAlan));
 
                 dataReader.Close();
                 return "OK";

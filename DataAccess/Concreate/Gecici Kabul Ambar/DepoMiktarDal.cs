@@ -83,7 +83,9 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["DEPO_ADRESI"].ToString(),
                         dataReader["DEPO_LOKASYON"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
-                        dataReader["ACIKLAMA"].ToString());
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["REZERVE_DURUMU"].ToString(),
+                        dataReader["REZERVE_ID"].ConInt());
                 }
                 dataReader.Close();
                 return item;
@@ -119,7 +121,9 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["DEPO_ADRESI"].ToString(),
                         dataReader["DEPO_LOKASYON"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
-                        dataReader["ACIKLAMA"].ToString());
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["REZERVE_DURUMU"].ToString(),
+                         dataReader["REZERVE_ID"].ConInt());
                 }
                 dataReader.Close();
                 return item;
@@ -151,7 +155,9 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["DEPO_ADRESI"].ToString(),
                         dataReader["DEPO_LOKASYON"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
-                        dataReader["ACIKLAMA"].ToString()));
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["REZERVE_DURUMU"].ToString(),
+                         dataReader["REZERVE_ID"].ConInt()));
                 }
                 dataReader.Close();
                 return depoMiktars;
@@ -161,6 +167,40 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return new List<DepoMiktar>();
             }
         }
+        public List<DepoMiktar> StokKontrol(string stokNo)
+        {
+            try
+            {
+                List<DepoMiktar> depoMiktars = new List<DepoMiktar>();
+                dataReader = sqlServices.StoreReader("DepoStokKontrol", new SqlParameter("@stokNo", stokNo));
+                while (dataReader.Read())
+                {
+                    depoMiktars.Add(new DepoMiktar(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SON_ISLEM_TARIHI"].ConDate(),
+                        dataReader["SON_ISLEM_YAPAN"].ToString(),
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["REZERVE_DURUMU"].ToString(),
+                         dataReader["REZERVE_ID"].ConInt()));
+                }
+                dataReader.Close();
+                return depoMiktars;
+            }
+            catch (Exception)
+            {
+                return new List<DepoMiktar>();
+            }
+        }
+
         public List<DepoMiktar> DepoGor()
         {
             try
@@ -182,7 +222,9 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["DEPO_ADRESI"].ToString(),
                         dataReader["DEPO_LOKASYON"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
-                        dataReader["ACIKLAMA"].ToString()));
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["REZERVE_DURUMU"].ToString(),
+                         dataReader["REZERVE_ID"].ConInt()));
                 }
                 dataReader.Close();
                 return depoMiktars;
@@ -206,6 +248,24 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@sonIslemTarihi", entity.SonIslemTarihi),
                     new SqlParameter("@sonIslemYapan", entity.SonIslemYapan),
                     new SqlParameter("@miktar", entity.Miktar));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DepoRezerve(DepoMiktar entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoRezerve",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@islemYapan", entity.SonIslemYapan),
+                    new SqlParameter("@aciklama", entity.Aciklama),
+                    new SqlParameter("@rezerveId", entity.RezerveId));
 
                 dataReader.Close();
                 return "OK";

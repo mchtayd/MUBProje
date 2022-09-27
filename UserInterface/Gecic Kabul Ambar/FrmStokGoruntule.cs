@@ -68,7 +68,7 @@ namespace UserInterface.Depo
                     DtgDepoBilgileri.Rows.RemoveAt(selectedIndex);
                 }
             }
-
+            DtgDepoBilgileri.Columns["Secim"].Visible = false;
             DtgDepoBilgileri.Columns["Id"].Visible = false;
             DtgDepoBilgileri.Columns["StokNo"].HeaderText = "STOK NO";
             DtgDepoBilgileri.Columns["Tanim"].HeaderText = "TANIM";
@@ -82,6 +82,8 @@ namespace UserInterface.Depo
             DtgDepoBilgileri.Columns["LotNo"].HeaderText = "LOT NO";
             DtgDepoBilgileri.Columns["Revizyon"].HeaderText = "REVİZYON";
             DtgDepoBilgileri.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
+            DtgDepoBilgileri.Columns["RezerveDurumu"].HeaderText = "REZERVE DURUMU";
+            DtgDepoBilgileri.Columns["RezerveId"].HeaderText = "REZERVE EDİLEN KİMLİK";
 
             DtgDepoBilgileri.Columns["DepoLokasyon"].DisplayIndex = 8;
             TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
@@ -95,7 +97,7 @@ namespace UserInterface.Depo
                 return;
             }
 
-            DtgMalzemeBilgisi.DataSource = malzemeKayitManager.GetList(TxtStokNo.Text);
+            DtgMalzemeBilgisi.DataSource = malzemeKayitManager.GetListMalzemeKayit(TxtStokNo.Text);
 
             DtgMalzemeBilgisi.Columns["Id"].Visible = false;
             DtgMalzemeBilgisi.Columns["Stokno"].HeaderText = "STOK NO";

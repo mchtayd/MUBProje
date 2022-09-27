@@ -175,7 +175,6 @@ namespace UserInterface.BakımOnarım
             this.DtgDevamEden.DateWithTime = false;
             this.DtgDevamEden.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgDevamEden.Location = new System.Drawing.Point(3, 16);
-            this.DtgDevamEden.MultiSelect = false;
             this.DtgDevamEden.Name = "DtgDevamEden";
             this.DtgDevamEden.ReadOnly = true;
             this.DtgDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -262,7 +261,6 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan.DateWithTime = false;
             this.DtgTamamlanan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgTamamlanan.Location = new System.Drawing.Point(3, 16);
-            this.DtgTamamlanan.MultiSelect = false;
             this.DtgTamamlanan.Name = "DtgTamamlanan";
             this.DtgTamamlanan.ReadOnly = true;
             this.DtgTamamlanan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

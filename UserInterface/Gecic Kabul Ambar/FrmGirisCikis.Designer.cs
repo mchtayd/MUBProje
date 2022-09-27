@@ -115,6 +115,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label38 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
+            this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -138,6 +139,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.BtnStokDuzelt = new System.Windows.Forms.Button();
             this.BtnTemizle = new System.Windows.Forms.Button();
+            this.LblToplam = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.TmrBarcode = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.GrbIslemYapılacakDepo.SuspendLayout();
             this.GrbBildirimdenDepoya.SuspendLayout();
@@ -235,6 +239,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnMalzemeYeri.TabIndex = 140;
             this.BtnMalzemeYeri.Tag = "admin";
             this.BtnMalzemeYeri.UseVisualStyleBackColor = false;
+            this.BtnMalzemeYeri.Click += new System.EventHandler(this.BtnMalzemeYeri_Click);
             // 
             // TxtMalzemeYeri
             // 
@@ -265,6 +270,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnDepoEkle.TabIndex = 136;
             this.BtnDepoEkle.Tag = "admin";
             this.BtnDepoEkle.UseVisualStyleBackColor = false;
+            this.BtnDepoEkle.Click += new System.EventHandler(this.BtnDepoEkle_Click);
             // 
             // label9
             // 
@@ -798,6 +804,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnBul.TabIndex = 350;
             this.BtnBul.Text = "Bul";
             this.BtnBul.UseVisualStyleBackColor = true;
+            this.BtnBul.Visible = false;
             this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
             // LblRevizyon
@@ -829,6 +836,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.TxtBirimFiyat.Name = "TxtBirimFiyat";
             this.TxtBirimFiyat.Size = new System.Drawing.Size(102, 21);
             this.TxtBirimFiyat.TabIndex = 333;
+            this.TxtBirimFiyat.Text = "0";
             this.TxtBirimFiyat.Visible = false;
             // 
             // LblBirimFiyat
@@ -991,7 +999,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.TxtAciklama.Name = "TxtAciklama";
             this.TxtAciklama.Size = new System.Drawing.Size(601, 57);
             this.TxtAciklama.TabIndex = 340;
-            this.TxtAciklama.Text = "";
+            this.TxtAciklama.Text = "DEPO SAYIMI STOK GİRİŞİ";
             // 
             // label38
             // 
@@ -1019,6 +1027,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column18,
             this.Column13,
             this.Column2,
             this.Column3,
@@ -1045,6 +1054,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.Size = new System.Drawing.Size(1416, 273);
             this.DtgList.TabIndex = 2;
             this.DtgList.TimeFilter = false;
+            // 
+            // Column18
+            // 
+            this.Column18.HeaderText = "ID";
+            this.Column18.MinimumWidth = 22;
+            this.Column18.Name = "Column18";
+            this.Column18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
             // 
             // Column13
             // 
@@ -1182,7 +1198,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // silToolStripMenuItem
             // 
             this.silToolStripMenuItem.Name = "silToolStripMenuItem";
-            this.silToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
             this.silToolStripMenuItem.Text = "Sil";
             this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
             // 
@@ -1209,6 +1225,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnStokDuzelt.Text = "Stok Duzelt";
             this.BtnStokDuzelt.UseVisualStyleBackColor = true;
             this.BtnStokDuzelt.Visible = false;
+            this.BtnStokDuzelt.Click += new System.EventHandler(this.BtnStokDuzelt_Click_1);
             // 
             // BtnTemizle
             // 
@@ -1222,11 +1239,38 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnTemizle.UseVisualStyleBackColor = true;
             this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
+            // LblToplam
+            // 
+            this.LblToplam.AutoSize = true;
+            this.LblToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblToplam.Location = new System.Drawing.Point(1311, 770);
+            this.LblToplam.Name = "LblToplam";
+            this.LblToplam.Size = new System.Drawing.Size(23, 15);
+            this.LblToplam.TabIndex = 346;
+            this.LblToplam.Text = "00";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(1202, 770);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(103, 15);
+            this.label6.TabIndex = 345;
+            this.label6.Text = "Toplam Miktar:";
+            // 
+            // TmrBarcode
+            // 
+            this.TmrBarcode.Interval = 1000;
+            this.TmrBarcode.Tick += new System.EventHandler(this.TmrBarcode_Tick_1);
+            // 
             // FrmGirisCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1446, 850);
+            this.Controls.Add(this.LblToplam);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.GrbIslemYapılacakDepo);
             this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnStokDuzelt);
@@ -1365,6 +1409,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
         private System.Windows.Forms.Button BtnBul;
+        private System.Windows.Forms.Button BtnTemizle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
@@ -1383,6 +1429,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.Button BtnTemizle;
+        private System.Windows.Forms.Label LblToplam;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Timer TmrBarcode;
     }
 }

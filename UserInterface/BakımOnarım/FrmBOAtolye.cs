@@ -111,7 +111,7 @@ namespace UserInterface.BakımOnarım
         }
         void CmbStokNo()
         {
-            TxtTanimUs.DataSource = malzemeKayitManager.UstTakimGetList();
+            TxtTanimUs.DataSource = malzemeKayitManager.GetListMalzemeKayit();
             TxtTanimUs.ValueMember = "Id";
             TxtTanimUs.DisplayMember = "Tanim";
             TxtTanimUs.SelectedValue = 0;
@@ -146,7 +146,7 @@ namespace UserInterface.BakımOnarım
         }
         void DataDisplayManuel()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
+            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
             malzemeKayitsFiltired = malzemeKayits;
             dataBinder.DataSource = malzemeKayits.ToDataTable();
             DtgStokList.DataSource = dataBinder;

@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMalzemeKayit));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtStn = new System.Windows.Forms.ComboBox();
@@ -76,6 +76,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label11 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BtnTedarikTürüEkle = new System.Windows.Forms.Button();
+            this.CmbTedarikTuru = new System.Windows.Forms.ComboBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.BtnExcelCek = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.bTN = new System.Windows.Forms.Button();
@@ -94,14 +98,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label13 = new System.Windows.Forms.Label();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.BtnMalzemeTuruEkle = new System.Windows.Forms.Button();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.BtnTedarikTürüEkle = new System.Windows.Forms.Button();
-            this.CmbTedarikTuru = new System.Windows.Forms.ComboBox();
-            this.label10 = new System.Windows.Forms.Label();
-            this.BtnMalzemeTuruEkle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -414,6 +415,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.TxtAlternatifMalzeme.Name = "TxtAlternatifMalzeme";
             this.TxtAlternatifMalzeme.Size = new System.Drawing.Size(238, 21);
             this.TxtAlternatifMalzeme.TabIndex = 313;
+            this.TxtAlternatifMalzeme.Text = "YOK";
             // 
             // label18
             // 
@@ -553,6 +555,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.BtnTedarikTürüEkle);
             this.tabPage2.Controls.Add(this.CmbTedarikTuru);
             this.tabPage2.Controls.Add(this.label10);
@@ -602,6 +605,53 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "PARÇA";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button1.Location = new System.Drawing.Point(899, 778);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(118, 32);
+            this.button1.TabIndex = 345;
+            this.button1.Text = "Tanım Düzelt";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // BtnTedarikTürüEkle
+            // 
+            this.BtnTedarikTürüEkle.AccessibleDescription = "";
+            this.BtnTedarikTürüEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnTedarikTürüEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTedarikTürüEkle.BackgroundImage")));
+            this.BtnTedarikTürüEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnTedarikTürüEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTedarikTürüEkle.Location = new System.Drawing.Point(393, 187);
+            this.BtnTedarikTürüEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnTedarikTürüEkle.Name = "BtnTedarikTürüEkle";
+            this.BtnTedarikTürüEkle.Size = new System.Drawing.Size(30, 25);
+            this.BtnTedarikTürüEkle.TabIndex = 344;
+            this.BtnTedarikTürüEkle.Tag = "admin";
+            this.BtnTedarikTürüEkle.UseVisualStyleBackColor = false;
+            this.BtnTedarikTürüEkle.Click += new System.EventHandler(this.BtnTedarikTürüEkle_Click);
+            // 
+            // CmbTedarikTuru
+            // 
+            this.CmbTedarikTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTedarikTuru.FormattingEnabled = true;
+            this.CmbTedarikTuru.Location = new System.Drawing.Point(152, 189);
+            this.CmbTedarikTuru.Name = "CmbTedarikTuru";
+            this.CmbTedarikTuru.Size = new System.Drawing.Size(238, 23);
+            this.CmbTedarikTuru.TabIndex = 343;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(67, 192);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(79, 15);
+            this.label10.TabIndex = 342;
+            this.label10.Text = "Tedarik Türü:";
             // 
             // BtnExcelCek
             // 
@@ -698,8 +748,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.DtgStokTanim.AllowUserToAddRows = false;
             this.DtgStokTanim.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgStokTanim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgStokTanim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgStokTanim.AutoGenerateContextFilters = true;
             this.DtgStokTanim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgStokTanim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -800,6 +850,22 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label7.TabIndex = 323;
             this.label7.Text = "AÇIKLAMA:";
             // 
+            // BtnMalzemeTuruEkle
+            // 
+            this.BtnMalzemeTuruEkle.AccessibleDescription = "";
+            this.BtnMalzemeTuruEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnMalzemeTuruEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMalzemeTuruEkle.BackgroundImage")));
+            this.BtnMalzemeTuruEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMalzemeTuruEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMalzemeTuruEkle.Location = new System.Drawing.Point(393, 217);
+            this.BtnMalzemeTuruEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMalzemeTuruEkle.Name = "BtnMalzemeTuruEkle";
+            this.BtnMalzemeTuruEkle.Size = new System.Drawing.Size(30, 25);
+            this.BtnMalzemeTuruEkle.TabIndex = 321;
+            this.BtnMalzemeTuruEkle.Tag = "admin";
+            this.BtnMalzemeTuruEkle.UseVisualStyleBackColor = false;
+            this.BtnMalzemeTuruEkle.Click += new System.EventHandler(this.BtnMalzemeTuruEkle_Click);
+            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.label20);
@@ -842,56 +908,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.textBox2.Size = new System.Drawing.Size(154, 21);
             this.textBox2.TabIndex = 4;
             this.textBox2.Visible = false;
-            // 
-            // BtnTedarikTürüEkle
-            // 
-            this.BtnTedarikTürüEkle.AccessibleDescription = "";
-            this.BtnTedarikTürüEkle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnTedarikTürüEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTedarikTürüEkle.BackgroundImage")));
-            this.BtnTedarikTürüEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnTedarikTürüEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTedarikTürüEkle.Location = new System.Drawing.Point(393, 187);
-            this.BtnTedarikTürüEkle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnTedarikTürüEkle.Name = "BtnTedarikTürüEkle";
-            this.BtnTedarikTürüEkle.Size = new System.Drawing.Size(30, 25);
-            this.BtnTedarikTürüEkle.TabIndex = 344;
-            this.BtnTedarikTürüEkle.Tag = "admin";
-            this.BtnTedarikTürüEkle.UseVisualStyleBackColor = false;
-            this.BtnTedarikTürüEkle.Click += new System.EventHandler(this.BtnTedarikTürüEkle_Click);
-            // 
-            // CmbTedarikTuru
-            // 
-            this.CmbTedarikTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTedarikTuru.FormattingEnabled = true;
-            this.CmbTedarikTuru.Location = new System.Drawing.Point(152, 189);
-            this.CmbTedarikTuru.Name = "CmbTedarikTuru";
-            this.CmbTedarikTuru.Size = new System.Drawing.Size(238, 23);
-            this.CmbTedarikTuru.TabIndex = 343;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(67, 192);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(79, 15);
-            this.label10.TabIndex = 342;
-            this.label10.Text = "Tedarik Türü:";
-            // 
-            // BtnMalzemeTuruEkle
-            // 
-            this.BtnMalzemeTuruEkle.AccessibleDescription = "";
-            this.BtnMalzemeTuruEkle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnMalzemeTuruEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMalzemeTuruEkle.BackgroundImage")));
-            this.BtnMalzemeTuruEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnMalzemeTuruEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnMalzemeTuruEkle.Location = new System.Drawing.Point(393, 217);
-            this.BtnMalzemeTuruEkle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMalzemeTuruEkle.Name = "BtnMalzemeTuruEkle";
-            this.BtnMalzemeTuruEkle.Size = new System.Drawing.Size(30, 25);
-            this.BtnMalzemeTuruEkle.TabIndex = 321;
-            this.BtnMalzemeTuruEkle.Tag = "admin";
-            this.BtnMalzemeTuruEkle.UseVisualStyleBackColor = false;
-            this.BtnMalzemeTuruEkle.Click += new System.EventHandler(this.BtnMalzemeTuruEkle_Click);
             // 
             // FrmMalzemeKayit
             // 
@@ -999,5 +1015,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.ComboBox CmbTedarikTuru;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BtnMalzemeTuruEkle;
+        private System.Windows.Forms.Button button1;
     }
 }

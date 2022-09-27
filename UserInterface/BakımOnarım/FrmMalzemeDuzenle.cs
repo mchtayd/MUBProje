@@ -40,7 +40,7 @@ namespace UserInterface.BakımOnarım
         }
         void MalzemeList()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
+            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
             malzemeKayitsFiltired = malzemeKayits;
             dataBinder.DataSource = malzemeKayits.ToDataTable();
             DtgList.DataSource = dataBinder;
