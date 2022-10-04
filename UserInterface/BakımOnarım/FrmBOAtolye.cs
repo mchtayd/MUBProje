@@ -22,6 +22,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 using Application = Microsoft.Office.Interop.Word.Application;
 
@@ -51,7 +52,7 @@ namespace UserInterface.BakımOnarım
 
         public object[] infos;
         int id;
-        string siparisNo = "", dosya, taslakYolu = "";
+        string siparisNo = "", dosya, taslakYolu = "", comboAd = "";
         string kaynak = @"Z:\DTS\BAKIM ONARIM ATOLYE\Taslak\";
         string yol = @"C:\DTS\Taslak\";
         bool start = true;
@@ -80,8 +81,27 @@ namespace UserInterface.BakımOnarım
             Kategori();
             ComboProje();
             IcSiparisNo();
+            AtolyeKategoriOto();
+            AtolyeKategorManuel();
             start = false;
         }
+        void Don()
+        {
+            start = true;
+            IslemAdimlari();
+            IslemAdimlariManuel();
+            Personeller();
+            PersonellerManuel();
+            CmbStokNo();
+            DataDisplayManuel();
+            Kategori();
+            ComboProje();
+            IcSiparisNo();
+            AtolyeKategoriOto();
+            AtolyeKategorManuel();
+            start = false;
+        }
+
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -391,11 +411,16 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (CmbIslemAdimi.Text != "400-BİLDİRİM ve B/O BAŞLAMA ONAYI (MÜHENDİS)")
+            if (CmbAtolyeKategoriOto.Text == "")
             {
-                MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini 400-GÖZ DENETİMİ Olarak Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Öncelikle Atölye Kategori Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            //if (CmbIslemAdimi.Text != "400-BİLDİRİM ve B/O BAŞLAMA ONAYI (MÜHENDİS)")
+            //{
+            //    MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini 400-GÖZ DENETİMİ Olarak Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             #endregion
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
@@ -415,7 +440,7 @@ namespace UserInterface.BakımOnarım
 
 
                         Atolye atolye2 = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, IcSiparisler[i].ToString(), DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
-                            DosyaYollari[i].ToString());
+                            DosyaYollari[i].ToString(), CmbAtolyeKategoriOto.Text);
 
                         atolyeManager.Add(atolye2);
 
@@ -427,7 +452,7 @@ namespace UserInterface.BakımOnarım
                 {
                     siparisNo = Guid.NewGuid().ToString();
                     Atolye atolye = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, LblIcSiparisNo.Text, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
-                        dosya);
+                        dosya, CmbAtolyeKategoriOto.Text);
 
                     SiparisNos.Add(siparisNo);
                     atolyeManager.Add(atolye);
@@ -447,6 +472,7 @@ namespace UserInterface.BakımOnarım
                         atolyeMalzemeManager.Add(atolyeMalzeme);
                         sayac++;
                     }
+                    
 
                 }
 
@@ -587,6 +613,11 @@ namespace UserInterface.BakımOnarım
             {
                 return "Lütfen Öncelikle İşlem Adımı Bilgisini Seçiniz!";
             }
+            if (CmbAtolyeKategoriManuel.Text=="")
+            {
+                return "Lütfen Öncelikle Atölye Kategori Bilgisini Seçiniz!";
+            }
+
             string kontrol = "hata";
 
             foreach (DataGridViewRow item in DtgStokList.Rows)
@@ -596,17 +627,24 @@ namespace UserInterface.BakımOnarım
                     kontrol = "";
                     break;
                 }
+                
                 kontrol = "hata";
             }
             if (kontrol=="")
             {
+
+                
                 return "OK";
             }
             else
             {
                 return "Lütfen Öncelikle Malzeme Listesinden Malzeme Seçiniz!";
             }
+
+            
         }
+
+        string malzemeSeriKontrol = "";
 
         private void BtnKaydetManuel_Click(object sender, EventArgs e)
         {
@@ -623,11 +661,12 @@ namespace UserInterface.BakımOnarım
                 if (IcSiparisler.Count > 0)
                 {
                     //EditSiparisNos();
+                    
                     for (int i = 0; i < IcSiparisler.Count; i++)
                     {
                         siparisNo = Guid.NewGuid().ToString();
 
-                        Atolye atolye2 = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", IcSiparisler[i].ToString(), DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, DosyaYollari[i].ToString());
+                        Atolye atolye2 = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", IcSiparisler[i].ToString(), DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, DosyaYollari[i].ToString(), CmbAtolyeKategoriManuel.Text);
 
                         atolyeManager.Add(atolye2);
 
@@ -638,18 +677,22 @@ namespace UserInterface.BakımOnarım
                 else
                 {
                     siparisNo = Guid.NewGuid().ToString();
-                    Atolye atolye = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", LblIcSiparisManuel.Text, DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, dosya);
+                    Atolye atolye = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", LblIcSiparisManuel.Text, DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, dosya, CmbAtolyeKategoriManuel.Text);
 
                     SiparisNos.Add(siparisNo);
                     atolyeManager.Add(atolye);
                 }
 
                 int sayac = 0;
+
+
+
                 foreach (MalzemeKayit item in malzemeKayitsSecilenler)
                 {
 
                     AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(0, item.Stokno, item.Tanim, item.SeriNo, item.Durum, item.Revizyon, item.Miktar, item.TalepTarihi.ConDate(), SiparisNos[sayac].ToString());
 
+                    malzemeSeriKontrol = item.SeriNo;
                     atolyeMalzemeManager.Add(atolyeMalzeme);
                     sayac++;
 
@@ -684,18 +727,35 @@ namespace UserInterface.BakımOnarım
                     item.Cells["KayitDurumu"].Value = false;
                 }
 
-                IcSiparisler.Clear();
-                SiparisNos.Clear();
-                DosyaYollari.Clear();
+                //malzemeKayitsSecilenler.Clear();
+                IcSiparisler = new List<string>();
+                SiparisNos = new List<string>();
+                DosyaYollari = new List<string>();
+                malzemeKayitsSecilenler = new List<MalzemeKayit>();
                 IcSiparisNo();
+                Don();
             }
         }
-        void Kategori()
+        public void Kategori()
         {
             CmbKategori.DataSource = comboManager.GetList("ABF KATEGORİ");
             CmbKategori.ValueMember = "Id";
             CmbKategori.DisplayMember = "Baslik";
             CmbKategori.SelectedValue = 0;
+        }
+        public void AtolyeKategoriOto()
+        {
+            CmbAtolyeKategoriOto.DataSource = comboManager.GetList("ATOLYE KATEGORI");
+            CmbAtolyeKategoriOto.ValueMember = "Id";
+            CmbAtolyeKategoriOto.DisplayMember = "Baslik";
+            CmbAtolyeKategoriOto.SelectedValue = 0;
+        }
+        public void AtolyeKategorManuel()
+        {
+            CmbAtolyeKategoriManuel.DataSource = comboManager.GetList("ATOLYE KATEGORI");
+            CmbAtolyeKategoriManuel.ValueMember = "Id";
+            CmbAtolyeKategoriManuel.DisplayMember = "Baslik";
+            CmbAtolyeKategoriManuel.SelectedValue = 0;
         }
 
         private void TxtTemizleManuel_Click(object sender, EventArgs e)
@@ -760,6 +820,30 @@ namespace UserInterface.BakımOnarım
             GorevAtamaPersonel messege3 = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", "300-SİPARİŞ OLUŞTURMA (AMBAR VERİ KAYIT)", sure, "00:25:00".ConOnlyTime());
             gorevAtamaPersonelManager.Update(messege3);
             return "OK";
+        }
+
+        private void CmbAtolyeKategori_Click(object sender, EventArgs e)
+        {
+            comboAd = "ATOLYE KATEGORI";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void CmbAtolyeKategoriEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "ATOLYE KATEGORI";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void BtnKategoriEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "ABF KATEGORİ";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
         }
 
         void CreateFile()

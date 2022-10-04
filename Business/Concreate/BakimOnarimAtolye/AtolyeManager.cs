@@ -88,6 +88,17 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return new List<Atolye>();
             }
         }
+        public List<Atolye> GetListVeriMalzeme()
+        {
+            try
+            {
+                return atolyeDal.GetListVeriMalzeme();
+            }
+            catch (Exception)
+            {
+                return new List<Atolye>();
+            }
+        }
         public List<Atolye> AtolyeIcSiparis(string icSiparisNo)
         {
             try
@@ -110,6 +121,28 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return new List<Atolye>();
             }
         }
+        public List<Atolye> AtolyeKategori()
+        {
+            try
+            {
+                return atolyeDal.AtolyeKategori();
+            }
+            catch (Exception)
+            {
+                return new List<Atolye>();
+            }
+        }
+        public List<Atolye> AtolyeKategoriAdet(string kategoriAd)
+        {
+            try
+            {
+                return atolyeDal.AtolyeKategoriAdet(kategoriAd);
+            }
+            catch (Exception)
+            {
+                return new List<Atolye>();
+            }
+        }
 
         public string IslemAdimiGuncelle(string islemAdimi,int id)
         {
@@ -122,6 +155,19 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return ex.Message;
             }
         }
+
+        public string AtolyeVeriDuzelt(string siparisNo)
+        {
+            try
+            {
+                return atolyeDal.AtolyeVeriDuzelt(siparisNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string ArizaKapat(int id, int durum, DateTime tamamlanmaTarihi)
         {
             try

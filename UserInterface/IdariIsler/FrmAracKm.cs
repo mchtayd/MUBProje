@@ -144,7 +144,6 @@ namespace UserInterface.IdariIsler
         int bitisKm=0, toplamYapilanKm=0, sabitKm=3500, fark=0, mevcutKm=0;
         DateTime aysonu;
 
-
         void TarihBul()
         {
             aysonu = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1).AddDays(-1);
@@ -153,7 +152,14 @@ namespace UserInterface.IdariIsler
         {
             AracKm aracKm = aracKmManager.Get(TxtPlaka.Text);
 
-            mevcutKm = aracKm.BaslangicKm;
+            if (aracKm!=null)
+            {
+                mevcutKm = aracKm.BaslangicKm;
+            }
+            else
+            {
+                mevcutKm = 0;
+            }
 
             toplamYapilanKm = TxtKm.Text.ConInt() - mevcutKm;
 

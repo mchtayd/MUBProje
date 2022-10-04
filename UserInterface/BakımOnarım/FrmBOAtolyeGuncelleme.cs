@@ -34,6 +34,7 @@ namespace UserInterface.BakımOnarım
 
         List<Atolye> atolyes;
         string bulunduguIslemAdimi, sure, dosyaYolu;
+        public string personelAd = "";
         DateTime birOncekiTarih;
         int gun, saat, dakika;
         public FrmBOAtolyeGuncelleme()
@@ -51,6 +52,7 @@ namespace UserInterface.BakımOnarım
         {
             IslemAdimlari();
             Personeller();
+            CmbGorevAtanacakPersonel.Text = personelAd;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -68,14 +70,14 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-        void IslemAdimlari()
+        public void IslemAdimlari()
         {
             CmbIslemAdimi.DataSource = adimlariManager.GetList("BAKIM ONARIM ATOLYE");
             CmbIslemAdimi.ValueMember = "Id";
             CmbIslemAdimi.DisplayMember = "IslemaAdimi";
             CmbIslemAdimi.SelectedValue = "";
         }
-        void Personeller()
+        public void Personeller()
         {
             CmbGorevAtanacakPersonel.DataSource = kayitManager.PersonelAdSoyad();
             CmbGorevAtanacakPersonel.ValueMember = "Id";
@@ -106,7 +108,12 @@ namespace UserInterface.BakımOnarım
         string bildirilenAriza;
         private void BtnBul_Click(object sender, EventArgs e)
         {
+            BulClick();
+        }
+        string siparisNo;
 
+        public void BulClick()
+        {
             if (TxtIcSiparisNo.Text == "")
             {
                 MessageBox.Show("Lütfen Öncelikle İç Sipariş No Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -120,7 +127,7 @@ namespace UserInterface.BakımOnarım
             {
                 siparisNo = item.SiparisNo.ToString();
             }
-            
+
             Atolye atolye1 = atolyeManager.Get(TxtIcSiparisNo.Text);
             if (atolye1 == null)
             {
@@ -167,7 +174,7 @@ namespace UserInterface.BakımOnarım
             DtgAtolye.Columns["Tanim"].HeaderText = "TANIM";
             DtgAtolye.Columns["SeriNo"].HeaderText = "SERİ NO";
             DtgAtolye.Columns["Durum"].HeaderText = "DURUM";
-            DtgAtolye.Columns["Revizyon"].HeaderText = "REVİZYON"; 
+            DtgAtolye.Columns["Revizyon"].HeaderText = "REVİZYON";
             DtgAtolye.Columns["Miktar"].HeaderText = "MİKTAR";
             DtgAtolye.Columns["TalepTarihi"].HeaderText = "TALEP TARİHİ";
             DtgAtolye.Columns["Sec"].Visible = false;
@@ -175,7 +182,6 @@ namespace UserInterface.BakımOnarım
 
             IslemAdimlariSureleri();
         }
-        string siparisNo;
         private void DtgAtolye_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgAtolye.CurrentRow == null)
@@ -635,7 +641,7 @@ namespace UserInterface.BakımOnarım
             }
             string mesaj = MalzemeKontrol();
 
-            if (CmbIslemAdimi.Text == "800-MALZEME HAZIRLAMA (AMBAR)")
+            if (CmbIslemAdimi.Text == "600-MALZEME TEMİNİ (AMBAR)")
             {
                 //if (LblMevcutIslemAdimi.Text == "600-ARIZA TESPİTİ/ELEKTRİKSEL/FONK. KONTROL (TEKNİK SERVİS)")
                 //{

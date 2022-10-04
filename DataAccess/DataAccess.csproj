@@ -70,6 +70,7 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\SqlServices.cs" />
     <Compile Include="AmbarVeriDal.cs" />
+    <Compile Include="AtolyeRaporDal.cs" />
     <Compile Include="ComboDal.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeDal.cs" />

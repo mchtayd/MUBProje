@@ -38,6 +38,7 @@ namespace UserInterface.Ana_Sayfa
             this.ClientSize = new System.Drawing.Size(1443, 807);
             this.Name = "ArsivDosyaFihrist";
             this.Text = "ArsivDosyaFihrist";
+            this.Load += new System.EventHandler(this.ArsivDosyaFihrist_Load);
             this.ResumeLayout(false);
 
         }

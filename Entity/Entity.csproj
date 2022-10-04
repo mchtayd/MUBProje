@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="AmbarVeri.cs" />
     <Compile Include="AnaSayfa\Menu.cs" />
+    <Compile Include="AtolyeRapor.cs" />
     <Compile Include="BakimOnarimAtolye\Atolye.cs" />
     <Compile Include="BakimOnarimAtolye\AtolyeAltMalzeme.cs" />
     <Compile Include="BakimOnarimAtolye\AtolyeMalzeme.cs" />

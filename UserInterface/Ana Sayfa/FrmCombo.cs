@@ -279,6 +279,14 @@ namespace UserInterface.Ana_Sayfa
                     form.Yenilenecekler();
                 }
             }
+            if (comboAd == "ABF KATEGORİ")
+            {
+                var form = (FrmBOAtolye)Application.OpenForms["FrmBOAtolye"];
+                if (form != null)
+                {
+                    form.Kategori();
+                }
+            }
             if (comboAd == "BILDIRIM TURU")
             {
                 var form = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
@@ -335,7 +343,15 @@ namespace UserInterface.Ana_Sayfa
                     form.IsKategorisi();
                 }
             }
-
+            if (comboAd == "ATOLYE KATEGORI")
+            {
+                var form = (FrmBOAtolye)Application.OpenForms["FrmBOAtolye"];
+                if (form != null)
+                {
+                    form.AtolyeKategoriOto();
+                    form.AtolyeKategorManuel();
+                }
+            }
 
         }
     }

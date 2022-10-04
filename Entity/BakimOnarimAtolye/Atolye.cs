@@ -8,7 +8,7 @@ namespace Entity.BakimOnarimAtolye
 {
     public class Atolye
     {
-        int id, abfNo; string stokNoUst, tanimUst, seriNoUst, garantiDurumu, bildirimNo, crmNo, kategori, bolgeAdi, proje, bildirilenAriza, icSiparisNo; DateTime cekildigiTarih, siparisAcmaTarihi; string modifikasyonlar, notlar, islemAdimi, siparisNo, bulunduguIslemAdimi; int arizaDurum; string gecensure; DateTime kapatmaTarihi; string dosyaYolu;
+        int id, abfNo; string stokNoUst, tanimUst, seriNoUst, garantiDurumu, bildirimNo, crmNo, kategori, bolgeAdi, proje, bildirilenAriza, icSiparisNo; DateTime cekildigiTarih, siparisAcmaTarihi; string modifikasyonlar, notlar, islemAdimi, siparisNo, bulunduguIslemAdimi; int arizaDurum; string gecensure; DateTime kapatmaTarihi; string dosyaYolu, atolyeKategori;
 
         public int Id { get => id; set => id = value; }
         public int AbfNo { get => abfNo; set => abfNo = value; }
@@ -34,8 +34,9 @@ namespace Entity.BakimOnarimAtolye
         public string Gecensure { get => gecensure; set => gecensure = value; }
         public DateTime KapatmaTarihi { get => kapatmaTarihi; set => kapatmaTarihi = value; }
         public string DosyaYolu { get => dosyaYolu; set => dosyaYolu = value; }
+        public string AtolyeKategori { get => atolyeKategori; set => atolyeKategori = value; }
 
-        public Atolye(int id, int abfNo, string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza, string icSiparisNo, DateTime cekildigiTarih, DateTime siparisAcmaTarihi, string modifikasyonlar, string notlar, string islemAdimi, string siparisNo, string gecensure,DateTime kapatmaTarihi,string dosyaYolu)
+        public Atolye(int id, int abfNo, string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza, string icSiparisNo, DateTime cekildigiTarih, DateTime siparisAcmaTarihi, string modifikasyonlar, string notlar, string islemAdimi, string siparisNo, string gecensure,DateTime kapatmaTarihi,string dosyaYolu,string atolyeKategori)
         {
             this.id = id;
             this.abfNo = abfNo;
@@ -59,10 +60,11 @@ namespace Entity.BakimOnarimAtolye
             this.gecensure = gecensure;
             this.kapatmaTarihi = kapatmaTarihi;
             this.dosyaYolu = dosyaYolu;
+            this.atolyeKategori = atolyeKategori;
             //this.
         }
 
-        public Atolye(int abfNo, string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza, string icSiparisNo, DateTime cekildigiTarih, DateTime siparisAcmaTarihi, string modifikasyonlar, string notlar, string islemAdimi, string siparisNo,string dosyaYolu)
+        public Atolye(int abfNo, string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza, string icSiparisNo, DateTime cekildigiTarih, DateTime siparisAcmaTarihi, string modifikasyonlar, string notlar, string islemAdimi, string siparisNo,string dosyaYolu,string atolyeKategori)
         {
             this.abfNo = abfNo;
             this.stokNoUst = stokNoUst;
@@ -83,6 +85,7 @@ namespace Entity.BakimOnarimAtolye
             this.islemAdimi = islemAdimi;
             this.siparisNo = siparisNo;
             this.dosyaYolu = dosyaYolu;
+            this.atolyeKategori = atolyeKategori;
         }
 
         public Atolye(string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza,string bulunduguIslemAdimi,int arizaDurumu)
@@ -102,5 +105,9 @@ namespace Entity.BakimOnarimAtolye
             
         }
 
+        public Atolye(string atolyeKategori)
+        {
+            this.atolyeKategori = atolyeKategori;
+        }
     }
 }

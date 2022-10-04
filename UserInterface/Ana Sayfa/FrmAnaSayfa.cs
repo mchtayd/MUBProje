@@ -314,12 +314,12 @@ namespace UserInterface.STS
         }
         public void ToplamSayilar()
         {
-            tamamlananSatlar = tamamlananManager.GetList(0).Count;
-            treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["Tamamlanan Sat"].Text = "Tamamlanan SAT " + "(" + tamamlananSatlar + ")";
-            devamEdenSatlar = satDataGridview1Manager.List().Count;
-            treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["devamedensat"].Text = "Devam Eden SAT " + "(" + devamEdenSatlar + ")";
-            reddedilenSatlar = satDataGridview1Manager.GetList("Reddedildi").Count;
-            treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["RedEdilenSat"].Text = "Ret Edilen SAT " + "(" + reddedilenSatlar + ")";
+            //tamamlananSatlar = tamamlananManager.GetList(0).Count;
+            //treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["Tamamlanan Sat"].Text = "Tamamlanan SAT " + "(" + tamamlananSatlar + ")";
+            //devamEdenSatlar = satDataGridview1Manager.List().Count;
+            //treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["devamedensat"].Text = "Devam Eden SAT " + "(" + devamEdenSatlar + ")";
+            //reddedilenSatlar = satDataGridview1Manager.GetList("Reddedildi").Count;
+            //treeView2.Nodes["SATIN ALMA"].Nodes["SA VERI IZLEME"].Nodes["RedEdilenSat"].Text = "Ret Edilen SAT " + "(" + reddedilenSatlar + ")";
         }
         private void FrmAnaSayfa_Shown(object sender, EventArgs e)
         {
@@ -4486,6 +4486,18 @@ namespace UserInterface.STS
             FrmServer frmServer = new FrmServer();
             frmServer.infos = infos;
             frmServer.ShowDialog();
+        }
+
+        private void ambarVeriİzlemeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIzlemeAmbar frmIzlemeAmbar = new FrmIzlemeAmbar();
+            frmIzlemeAmbar.ShowDialog();
+        }
+
+        private void atölyeVeriİzlemeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAtolyeVeri frmAtolyeRapor = new FrmAtolyeVeri();
+            frmAtolyeRapor.ShowDialog();
         }
 
         private void konaklamalarımToolStripMenuItem_Click(object sender, EventArgs e)

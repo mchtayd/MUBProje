@@ -62,6 +62,7 @@ namespace UserInterface.BakımOnarım
             {
                 contextMenuStrip1.Items[0].Visible = false;
                 contextMenuStrip1.Items[1].Visible = false;
+                contextMenuStrip1.Items[2].Visible = false;
             }
             if (infos[0].ConInt() != 25)
             {
@@ -104,6 +105,7 @@ namespace UserInterface.BakımOnarım
             DtgDevamEden.Columns["Notlar"].HeaderText = "NOTLAR";
             DtgDevamEden.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
             DtgDevamEden.Columns["Gecensure"].HeaderText = "GEÇEN SÜRE (GÜN)";
+            DtgDevamEden.Columns["AtolyeKategori"].HeaderText = "ATÖLYE KATEGORİ";
             DtgDevamEden.Columns["SiparisNo"].Visible = false;
             DtgDevamEden.Columns["BildirilenAriza"].Visible = false;
             DtgDevamEden.Columns["BulunduguIslemAdimi"].Visible = false;
@@ -174,7 +176,7 @@ namespace UserInterface.BakımOnarım
 
         }
 
-        string icSiparisNo;
+        string icSiparisNo = "";
         private void DtgDevamEden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgDevamEden.CurrentRow == null)
@@ -372,6 +374,30 @@ namespace UserInterface.BakımOnarım
             FrmAtolyeDataGuncelle frmAtolyeDataGuncelle = new FrmAtolyeDataGuncelle();
             frmAtolyeDataGuncelle.icSiparisNo = icSiparisNo;
             frmAtolyeDataGuncelle.ShowDialog();
+        }
+
+        private void durumGüncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (icSiparisNo=="")
+            {
+                MessageBox.Show("Lütfen öncelikle geçerli bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmBOAtolyeGuncelleme frmBOAtolyeGuncelleme = new FrmBOAtolyeGuncelleme();
+            frmBOAtolyeGuncelleme.BtnCancel.Visible = false;
+            frmBOAtolyeGuncelleme.TxtIcSiparisNo.Text = icSiparisNo;
+            frmBOAtolyeGuncelleme.personelAd = infos[1].ToString();
+            frmBOAtolyeGuncelleme.BulClick();
+            frmBOAtolyeGuncelleme.ShowDialog();
+        }
+
+        private void BtnVeriDuzelt_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in DtgDevamEden.Rows)
+            {
+                atolyeManager.AtolyeVeriDuzelt(item.Cells["SiparisNo"].Value.ToString());
+            }
+            MessageBox.Show("Bilgiler Başarıyla Güncellendi!");
         }
 
         string Parser(int seconds)

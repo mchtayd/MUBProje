@@ -16,5 +16,10 @@ namespace UserInterface.Ana_Sayfa
         {
             InitializeComponent();
         }
+
+        private void ArsivDosyaFihrist_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

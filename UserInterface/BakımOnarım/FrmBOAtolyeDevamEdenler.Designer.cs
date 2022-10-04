@@ -30,8 +30,8 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -39,6 +39,8 @@ namespace UserInterface.BakımOnarım
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.işlemAdımlarınıGetirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.işlemAdımSureleriniDuzeltToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.durumGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.tabControl3 = new System.Windows.Forms.TabControl();
@@ -59,7 +61,7 @@ namespace UserInterface.BakımOnarım
             this.LblIslemAdimSureleri = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
-            this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnVeriDuzelt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).BeginInit();
@@ -116,8 +118,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgDevamEden.AllowUserToAddRows = false;
             this.DtgDevamEden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtgDevamEden.AutoGenerateContextFilters = true;
             this.DtgDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -142,7 +144,8 @@ namespace UserInterface.BakımOnarım
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.işlemAdımlarınıGetirToolStripMenuItem,
             this.işlemAdımSureleriniDuzeltToolStripMenuItem,
-            this.güncelleToolStripMenuItem});
+            this.güncelleToolStripMenuItem,
+            this.durumGüncelleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(223, 92);
             // 
@@ -159,6 +162,20 @@ namespace UserInterface.BakımOnarım
             this.işlemAdımSureleriniDuzeltToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
             this.işlemAdımSureleriniDuzeltToolStripMenuItem.Text = "İşlem Adım Surelerini Duzelt";
             this.işlemAdımSureleriniDuzeltToolStripMenuItem.Click += new System.EventHandler(this.işlemAdımSureleriniDuzeltToolStripMenuItem_Click);
+            // 
+            // güncelleToolStripMenuItem
+            // 
+            this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.güncelleToolStripMenuItem.Text = "Güncelle";
+            this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
+            // 
+            // durumGüncelleToolStripMenuItem
+            // 
+            this.durumGüncelleToolStripMenuItem.Name = "durumGüncelleToolStripMenuItem";
+            this.durumGüncelleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
+            this.durumGüncelleToolStripMenuItem.Text = "Durum Güncelle";
+            this.durumGüncelleToolStripMenuItem.Click += new System.EventHandler(this.durumGüncelleToolStripMenuItem_Click);
             // 
             // TxtTop
             // 
@@ -233,8 +250,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeler.AllowUserToAddRows = false;
             this.DtgMalzemeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgMalzemeler.AutoGenerateContextFilters = true;
             this.DtgMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -361,18 +378,23 @@ namespace UserInterface.BakımOnarım
             this.LblIslemAdimSureleri.TabIndex = 449;
             this.LblIslemAdimSureleri.Text = "00";
             // 
-            // güncelleToolStripMenuItem
+            // BtnVeriDuzelt
             // 
-            this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
-            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(222, 22);
-            this.güncelleToolStripMenuItem.Text = "Güncelle";
-            this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
+            this.BtnVeriDuzelt.Location = new System.Drawing.Point(1355, 466);
+            this.BtnVeriDuzelt.Name = "BtnVeriDuzelt";
+            this.BtnVeriDuzelt.Size = new System.Drawing.Size(75, 23);
+            this.BtnVeriDuzelt.TabIndex = 450;
+            this.BtnVeriDuzelt.Text = "VeriDuzelt";
+            this.BtnVeriDuzelt.UseVisualStyleBackColor = true;
+            this.BtnVeriDuzelt.Visible = false;
+            this.BtnVeriDuzelt.Click += new System.EventHandler(this.BtnVeriDuzelt_Click);
             // 
             // FrmBOAtolyeDevamEdenler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 853);
+            this.Controls.Add(this.BtnVeriDuzelt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LblIslemAdimSureleri);
             this.Controls.Add(this.label3);
@@ -436,5 +458,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.RichTextBox TxtBildirilenAriza;
         private System.Windows.Forms.ToolStripMenuItem işlemAdımSureleriniDuzeltToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem durumGüncelleToolStripMenuItem;
+        private System.Windows.Forms.Button BtnVeriDuzelt;
     }
 }

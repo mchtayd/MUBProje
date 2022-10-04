@@ -31,7 +31,7 @@ namespace UserInterface.BakımOnarım
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBOAtolyeGuncelleme));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtIcSiparisNo = new System.Windows.Forms.TextBox();
@@ -395,7 +395,7 @@ namespace UserInterface.BakımOnarım
             this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
             this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolgeEkle.Location = new System.Drawing.Point(479, 181);
+            this.BtnBolgeEkle.Location = new System.Drawing.Point(595, 181);
             this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBolgeEkle.Name = "BtnBolgeEkle";
             this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);
@@ -426,7 +426,7 @@ namespace UserInterface.BakımOnarım
             "1400-TESLİMAT"});
             this.CmbIslemAdimi.Location = new System.Drawing.Point(175, 184);
             this.CmbIslemAdimi.Name = "CmbIslemAdimi";
-            this.CmbIslemAdimi.Size = new System.Drawing.Size(301, 23);
+            this.CmbIslemAdimi.Size = new System.Drawing.Size(417, 23);
             this.CmbIslemAdimi.TabIndex = 439;
             // 
             // TxtYapilanIslemler
@@ -1171,8 +1171,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeler.AllowUserToAddRows = false;
             this.DtgMalzemeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgMalzemeler.AutoGenerateContextFilters = true;
             this.DtgMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1318,8 +1318,12 @@ namespace UserInterface.BakımOnarım
             this.Controls.Add(this.label22);
             this.Controls.Add(this.TxtIcSiparisNo);
             this.Controls.Add(this.BtnBul);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmBOAtolyeGuncelleme";
-            this.Text = "FrmBOAtolyeGuncelleme";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Durum Güncelle";
             this.Load += new System.EventHandler(this.FrmBOAtolyeGuncelleme_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -1347,8 +1351,6 @@ namespace UserInterface.BakımOnarım
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.TextBox TxtIcSiparisNo;
         private System.Windows.Forms.Button BtnBul;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -1416,7 +1418,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.ComboBox CmbGorevAtanacakPersonel;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TabControl tabControl3;
         private System.Windows.Forms.TabPage tabPage8;
@@ -1465,5 +1466,8 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.RichTextBox TxtBildirilenAriza;
         private System.Windows.Forms.Label label3;
+        public System.Windows.Forms.Button BtnCancel;
+        public System.Windows.Forms.TextBox TxtIcSiparisNo;
+        public System.Windows.Forms.ComboBox CmbGorevAtanacakPersonel;
     }
 }

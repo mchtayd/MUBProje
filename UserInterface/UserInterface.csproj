@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>408</ApplicationRevision>
+    <ApplicationRevision>425</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -123,6 +123,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmAtolyeRapor.Designer.cs">
       <DependentUpon>FrmAtolyeRapor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAtolyeVeri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAtolyeVeri.Designer.cs">
+      <DependentUpon>FrmAtolyeVeri.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmButceler.cs">
       <SubType>Form</SubType>
@@ -1115,6 +1121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmAtolyeRapor.resx">
       <DependentUpon>FrmAtolyeRapor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmAtolyeVeri.resx">
+      <DependentUpon>FrmAtolyeVeri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmButceler.resx">
       <DependentUpon>FrmButceler.cs</DependentUpon>

@@ -89,6 +89,7 @@ namespace UserInterface.BakımOnarım
             DtgTamamlanan.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
             DtgTamamlanan.Columns["Gecensure"].Visible = false;
             DtgTamamlanan.Columns["KapatmaTarihi"].HeaderText = "KAPATMA TARİHİ";
+            DtgTamamlanan.Columns["AtolyeKategori"].HeaderText = "ATÖLYE KATEGORİ";
             DtgTamamlanan.Columns["SiparisNo"].Visible = false;
             DtgTamamlanan.Columns["BildirilenAriza"].Visible = false;
             DtgTamamlanan.Columns["BulunduguIslemAdimi"].Visible = false;

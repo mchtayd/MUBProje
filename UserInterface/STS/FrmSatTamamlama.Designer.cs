@@ -30,7 +30,7 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgSatTamamlama = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -191,8 +191,8 @@ namespace UserInterface.STS
             // 
             this.DtgSatTamamlama.AllowUserToAddRows = false;
             this.DtgSatTamamlama.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatTamamlama.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatTamamlama.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgSatTamamlama.AutoGenerateContextFilters = true;
             this.DtgSatTamamlama.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgSatTamamlama.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1459,7 +1459,8 @@ namespace UserInterface.STS
             this.CmbHarcamaYapan.Items.AddRange(new object[] {
             "GÜLŞAH OTACI",
             "TURGUT AYDIN",
-            "EBRU BAYDAŞ"});
+            "EBRU BAYDAŞ",
+            "ASELSAN A.Ş"});
             this.CmbHarcamaYapan.Location = new System.Drawing.Point(149, 104);
             this.CmbHarcamaYapan.Name = "CmbHarcamaYapan";
             this.CmbHarcamaYapan.Size = new System.Drawing.Size(281, 21);
