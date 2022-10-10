@@ -46,6 +46,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         string readedBarcode, st = "", takipdurumu, malzemeYeri = "", islemAdimiSorumlusu;
         int miktar, mevcutMiktar, dusulenMiktar, cekilenMiktar, id;
 
+        List<Malzeme> malzemes = new List<Malzeme>();
         public FrmGirisCikis()
         {
             InitializeComponent();
@@ -63,15 +64,16 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void CmbIslemTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CmbIslemTuru.SelectedIndex == 0)
+            if (CmbIslemTuru.SelectedIndex == 0 && CmbDusumTuru.SelectedIndex == 0)
             {
                 GrbIslemYapılacakDepo.Visible = true;
                 GrbDepodanDepoya.Visible = false;
                 GrbDepodanBildirime.Visible = false;
                 GrbBildirimdenDepoya.Visible = false;
                 LblBirimFiyat.Visible = true; TxtBirimFiyat.Visible = true;
+                return;
             }
-            if (CmbIslemTuru.SelectedIndex == 1)
+            if (CmbIslemTuru.SelectedIndex == 1 && CmbDusumTuru.SelectedIndex == 0)
             {
                 GrbIslemYapılacakDepo.Visible = false;
                 GrbDepodanDepoya.Visible = true;
@@ -80,7 +82,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 LblBirimFiyat.Visible = false; TxtBirimFiyat.Visible = false;
                 return;
             }
-            if (CmbIslemTuru.SelectedIndex == 2)
+            if (CmbIslemTuru.SelectedIndex == 2 && CmbDusumTuru.SelectedIndex == 0)
             {
                 GrbDepodanDepoya.Visible = false;
                 GrbIslemYapılacakDepo.Visible = false;
@@ -89,7 +91,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 LblBirimFiyat.Visible = false; TxtBirimFiyat.Visible = false;
                 return;
             }
-            if (CmbIslemTuru.SelectedIndex == 3)
+            if (CmbIslemTuru.SelectedIndex == 3 && CmbDusumTuru.SelectedIndex == 0)
             {
                 GrbDepodanDepoya.Visible = false;
                 GrbIslemYapılacakDepo.Visible = false;
@@ -98,6 +100,43 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 LblBirimFiyat.Visible = false; TxtBirimFiyat.Visible = false;
                 return;
             }
+            if (CmbIslemTuru.SelectedIndex == 0 && CmbDusumTuru.SelectedIndex == 1)
+            {
+                GrbIslemYapılacakDepo.Visible = true;
+                GrbDepodanDepoya.Visible = false;
+                GrbDepodanBildirime.Visible = false;
+                GrbBildirimdenDepoya.Visible = false;
+                LblBirimFiyatManuel.Visible = true; TxtBirimFiyatManuel.Visible = true;
+                return;
+            }
+            if (CmbIslemTuru.SelectedIndex == 1 && CmbDusumTuru.SelectedIndex == 1)
+            {
+                GrbIslemYapılacakDepo.Visible = false;
+                GrbDepodanDepoya.Visible = true;
+                GrbDepodanBildirime.Visible = false;
+                GrbBildirimdenDepoya.Visible = false;
+                LblBirimFiyatManuel.Visible = false; TxtBirimFiyatManuel.Visible = false;
+                return;
+            }
+            if (CmbIslemTuru.SelectedIndex == 2 && CmbDusumTuru.SelectedIndex == 1)
+            {
+                GrbDepodanDepoya.Visible = false;
+                GrbIslemYapılacakDepo.Visible = false;
+                GrbDepodanBildirime.Visible = true;
+                GrbBildirimdenDepoya.Visible = false;
+                LblBirimFiyatManuel.Visible = false; TxtBirimFiyatManuel.Visible = false;
+                return;
+            }
+            if (CmbIslemTuru.SelectedIndex == 3 && CmbDusumTuru.SelectedIndex == 1)
+            {
+                GrbDepodanDepoya.Visible = false;
+                GrbIslemYapılacakDepo.Visible = false;
+                GrbDepodanBildirime.Visible = false;
+                GrbBildirimdenDepoya.Visible = true;
+                LblBirimFiyatManuel.Visible = false; TxtBirimFiyatManuel.Visible = false;
+                return;
+            }
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -123,8 +162,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbDepoDusulen();
             CmbDepodanBildirime();
             CmbBildirimdenDepoya();
+            StokBilgileri();
             start = false;
             contextMenuStrip1.Items[0].Enabled = false;
+            CmbDusumTuru.SelectedIndex = 0;
+        }
+
+        void StokBilgileri()
+        {
+            malzemes = malzemeManager.GetList();
+            CmbStokManuel.DataSource = malzemes;
+            CmbStokManuel.ValueMember = "Id";
+            CmbStokManuel.DisplayMember = "StokNo";
+            CmbStokManuel.SelectedValue = 0;
         }
 
         public void CmbDepo()
@@ -734,6 +784,101 @@ namespace UserInterface.Gecic_Kabul_Ambar
             //CmbStokNo.Text = "00"; LblTanim.Text = "00"; LblBirim.Text = "00"; LblSeriLotNo.Text = "00"; LblRevizyon.Text = "00"; TxtBirimFiyat.Clear();
         }
         string islemTuru, stokNo, tanim, seriNo, lotNo, revizyon, depoNoDusulen, depoAdresi;
+
+        private void TxtMiktarManuel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void TxtMiktarManuel_TextChanged(object sender, EventArgs e)
+        {
+            if (CmbStokManuel.Text == "")
+            {
+                //MessageBox.Show("Öncelikle Bir Stok Numarası Giriniz.");
+                return;
+            }
+            if (TxtMiktarManuel.Text == "")
+            {
+                //MessageBox.Show("Lütfen Miktar Belirtiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //AdvMalzemeOnizleme.DataSource = "";
+                AdvMalzemeOnizleme.Rows.Clear();
+                return;
+            }
+
+            if (takipdurumu == "LOT NO")
+            {
+                AdvMalzemeOnizleme.Columns["SeriLotNo"].HeaderText = "LOT NO";
+                AdvMalzemeOnizleme.Columns["Remove"].Visible = false;
+            }
+            else
+            {
+                AdvMalzemeOnizleme.Columns["SeriLotNo"].HeaderText = "SERİ NO";
+                AdvMalzemeOnizleme.Columns["Remove"].Visible = true;
+            }
+
+            AdvMalzemeOnizleme.Rows.Clear();
+            for (int i = 0; i < TxtMiktarManuel.Text.ConInt(); i++)
+            {
+                AdvMalzemeOnizleme.Rows.Add();
+                int sonSatir = AdvMalzemeOnizleme.RowCount - 1;
+                AdvMalzemeOnizleme.Rows[sonSatir].Cells["SiraNo"].Value = i + 1;
+                AdvMalzemeOnizleme.Rows[sonSatir].Cells["SeriLotNo"].Value = "";
+                AdvMalzemeOnizleme.Rows[sonSatir].Cells["Rev"].Value = "";
+
+                if (takipdurumu == "LOT NO")
+                {
+                    break;
+                }
+            }
+            DataGridViewButtonColumn c = (DataGridViewButtonColumn)AdvMalzemeOnizleme.Columns["Remove"];
+            c.FlatStyle = FlatStyle.Popup;
+            c.DefaultCellStyle.ForeColor = Color.Red;
+            c.DefaultCellStyle.BackColor = Color.Gainsboro;
+        }
+
+        private void CmbStokManuel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start)
+            {
+                return;
+            }
+            if (CmbStokManuel.Text == "")
+            {
+                return;
+            }
+            FillTools();
+        }
+        void FillTools()
+        {
+            id = CmbStokManuel.SelectedValue.ConInt();
+            Malzeme malzeme = malzemeManager.Get(CmbStokManuel.Text);
+            //StokGirisCıkıs stokGirisCıkıs = stokGirisCikisManager.StokGor(CmbStokNo.Text);
+            TxtTanim.Text = malzeme.Tanim;
+            CmbBirim.Text = malzeme.Birim;
+            takipdurumu = malzeme.TakipDurumu;
+            /*if (stokGirisCıkıs == null)
+            {
+                mevcutMiktar = 0;
+                return;
+            }
+            mevcutMiktar = stokGirisCıkıs.MevcutMiktar;*/
+
+        }
+        private void CmbDusumTuru_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbDusumTuru.SelectedIndex==0)
+            {
+                GrbBarkod.Visible = true;
+                GrbManuelStok.Visible = false;
+                CmbIslemTuru.SelectedIndex = -1;
+            }
+            if (CmbDusumTuru.SelectedIndex == 1)
+            {
+                GrbManuelStok.Visible = true;
+                GrbBarkod.Visible = false;
+                CmbIslemTuru.SelectedIndex = -1;
+            }
+        }
 
         private void BtnStokDuzelt_Click_1(object sender, EventArgs e)
         {

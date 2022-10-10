@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Entity.IdariIsler
 {
-    public class PersonelKayitIdariDal : IRepository<PersonelKayitIdari>
+    public class PersonelKayitIdariDal //: IRepository<PersonelKayitIdari>
     {
         static PersonelKayitIdariDal personelKayitIdari;
         SqlServices sqlServices;

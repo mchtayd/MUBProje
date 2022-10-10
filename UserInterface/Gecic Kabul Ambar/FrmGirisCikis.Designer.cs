@@ -31,6 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGirisCikis));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
@@ -91,7 +92,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label36 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label37 = new System.Windows.Forms.Label();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.GrbBarkod = new System.Windows.Forms.GroupBox();
             this.BtnBul = new System.Windows.Forms.Button();
             this.LblRevizyon = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
@@ -142,6 +143,30 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.LblToplam = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TmrBarcode = new System.Windows.Forms.Timer(this.components);
+            this.CmbDusumTuru = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.GrbManuelStok = new System.Windows.Forms.GroupBox();
+            this.TxtBirimFiyatManuel = new System.Windows.Forms.TextBox();
+            this.LblBirimFiyatManuel = new System.Windows.Forms.Label();
+            this.BtnDepo = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.DtgTarihManuel = new System.Windows.Forms.DateTimePicker();
+            this.TxtTanim = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
+            this.CmbBirim = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.TxtMiktarManuel = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.CmbStokManuel = new System.Windows.Forms.ComboBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.BtnListEkle = new System.Windows.Forms.Button();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.AdvMalzemeOnizleme = new ADGV.AdvancedDataGridView();
+            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
+            this.SiraNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeriLotNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rev = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.GrbIslemYapılacakDepo.SuspendLayout();
             this.GrbBildirimdenDepoya.SuspendLayout();
@@ -153,10 +178,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbDepodanDepoya.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.GrbBarkod.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.GrbManuelStok.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.AdvMalzemeOnizleme)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -766,33 +795,33 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label37.TabIndex = 0;
             this.label37.Text = "Çekilen Yer Bilgileri";
             // 
-            // groupBox1
+            // GrbBarkod
             // 
-            this.groupBox1.Controls.Add(this.BtnBul);
-            this.groupBox1.Controls.Add(this.LblRevizyon);
-            this.groupBox1.Controls.Add(this.label40);
-            this.groupBox1.Controls.Add(this.TxtBirimFiyat);
-            this.groupBox1.Controls.Add(this.LblBirimFiyat);
-            this.groupBox1.Controls.Add(this.label16);
-            this.groupBox1.Controls.Add(this.DtTarih);
-            this.groupBox1.Controls.Add(this.LblBirim);
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.TxtMiktar);
-            this.groupBox1.Controls.Add(this.LblSeriLotNo);
-            this.groupBox1.Controls.Add(this.LblTanim);
-            this.groupBox1.Controls.Add(this.CmbStokNo);
-            this.groupBox1.Controls.Add(this.label4);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.TxtBarkod);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 336);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1422, 117);
-            this.groupBox1.TabIndex = 338;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Malzeme Bilgileri";
+            this.GrbBarkod.Controls.Add(this.BtnBul);
+            this.GrbBarkod.Controls.Add(this.LblRevizyon);
+            this.GrbBarkod.Controls.Add(this.label40);
+            this.GrbBarkod.Controls.Add(this.TxtBirimFiyat);
+            this.GrbBarkod.Controls.Add(this.LblBirimFiyat);
+            this.GrbBarkod.Controls.Add(this.label16);
+            this.GrbBarkod.Controls.Add(this.DtTarih);
+            this.GrbBarkod.Controls.Add(this.LblBirim);
+            this.GrbBarkod.Controls.Add(this.label15);
+            this.GrbBarkod.Controls.Add(this.label14);
+            this.GrbBarkod.Controls.Add(this.TxtMiktar);
+            this.GrbBarkod.Controls.Add(this.LblSeriLotNo);
+            this.GrbBarkod.Controls.Add(this.LblTanim);
+            this.GrbBarkod.Controls.Add(this.CmbStokNo);
+            this.GrbBarkod.Controls.Add(this.label4);
+            this.GrbBarkod.Controls.Add(this.label3);
+            this.GrbBarkod.Controls.Add(this.label2);
+            this.GrbBarkod.Controls.Add(this.TxtBarkod);
+            this.GrbBarkod.Controls.Add(this.label1);
+            this.GrbBarkod.Location = new System.Drawing.Point(12, 336);
+            this.GrbBarkod.Name = "GrbBarkod";
+            this.GrbBarkod.Size = new System.Drawing.Size(1422, 117);
+            this.GrbBarkod.TabIndex = 338;
+            this.GrbBarkod.TabStop = false;
+            this.GrbBarkod.Text = "Malzeme Bilgileri";
             // 
             // BtnBul
             // 
@@ -1013,7 +1042,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.DtgList);
-            this.groupBox2.Location = new System.Drawing.Point(12, 459);
+            this.groupBox2.Location = new System.Drawing.Point(12, 497);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1422, 292);
             this.groupBox2.TabIndex = 341;
@@ -1206,7 +1235,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 757);
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 795);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(103, 43);
             this.BtnKaydet.TabIndex = 342;
@@ -1218,7 +1247,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnStokDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnStokDuzelt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnStokDuzelt.Location = new System.Drawing.Point(229, 757);
+            this.BtnStokDuzelt.Location = new System.Drawing.Point(229, 795);
             this.BtnStokDuzelt.Name = "BtnStokDuzelt";
             this.BtnStokDuzelt.Size = new System.Drawing.Size(103, 43);
             this.BtnStokDuzelt.TabIndex = 343;
@@ -1231,7 +1260,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(120, 757);
+            this.BtnTemizle.Location = new System.Drawing.Point(120, 795);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(103, 43);
             this.BtnTemizle.TabIndex = 344;
@@ -1243,7 +1272,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.LblToplam.AutoSize = true;
             this.LblToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblToplam.Location = new System.Drawing.Point(1311, 770);
+            this.LblToplam.Location = new System.Drawing.Point(1330, 795);
             this.LblToplam.Name = "LblToplam";
             this.LblToplam.Size = new System.Drawing.Size(23, 15);
             this.LblToplam.TabIndex = 346;
@@ -1253,7 +1282,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(1202, 770);
+            this.label6.Location = new System.Drawing.Point(1221, 795);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(103, 15);
             this.label6.TabIndex = 345;
@@ -1264,11 +1293,281 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.TmrBarcode.Interval = 1000;
             this.TmrBarcode.Tick += new System.EventHandler(this.TmrBarcode_Tick_1);
             // 
+            // CmbDusumTuru
+            // 
+            this.CmbDusumTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDusumTuru.FormattingEnabled = true;
+            this.CmbDusumTuru.Items.AddRange(new object[] {
+            "BARKOD",
+            "MANUEL"});
+            this.CmbDusumTuru.Location = new System.Drawing.Point(487, 43);
+            this.CmbDusumTuru.Name = "CmbDusumTuru";
+            this.CmbDusumTuru.Size = new System.Drawing.Size(185, 21);
+            this.CmbDusumTuru.TabIndex = 348;
+            this.CmbDusumTuru.SelectedIndexChanged += new System.EventHandler(this.CmbDusumTuru_SelectedIndexChanged);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(364, 46);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 13);
+            this.label5.TabIndex = 347;
+            this.label5.Text = "DEPO DÜŞÜM TÜRÜ:";
+            // 
+            // GrbManuelStok
+            // 
+            this.GrbManuelStok.Controls.Add(this.groupBox4);
+            this.GrbManuelStok.Controls.Add(this.BtnListEkle);
+            this.GrbManuelStok.Controls.Add(this.TxtBirimFiyatManuel);
+            this.GrbManuelStok.Controls.Add(this.LblBirimFiyatManuel);
+            this.GrbManuelStok.Controls.Add(this.BtnDepo);
+            this.GrbManuelStok.Controls.Add(this.label13);
+            this.GrbManuelStok.Controls.Add(this.DtgTarihManuel);
+            this.GrbManuelStok.Controls.Add(this.TxtTanim);
+            this.GrbManuelStok.Controls.Add(this.label39);
+            this.GrbManuelStok.Controls.Add(this.CmbBirim);
+            this.GrbManuelStok.Controls.Add(this.label41);
+            this.GrbManuelStok.Controls.Add(this.TxtMiktarManuel);
+            this.GrbManuelStok.Controls.Add(this.label42);
+            this.GrbManuelStok.Controls.Add(this.CmbStokManuel);
+            this.GrbManuelStok.Controls.Add(this.label43);
+            this.GrbManuelStok.Location = new System.Drawing.Point(9, 336);
+            this.GrbManuelStok.Name = "GrbManuelStok";
+            this.GrbManuelStok.Size = new System.Drawing.Size(1434, 155);
+            this.GrbManuelStok.TabIndex = 349;
+            this.GrbManuelStok.TabStop = false;
+            this.GrbManuelStok.Text = "İŞLEM YAPILACAK MALZEME BİLGİSİ";
+            this.GrbManuelStok.Visible = false;
+            // 
+            // TxtBirimFiyatManuel
+            // 
+            this.TxtBirimFiyatManuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBirimFiyatManuel.Location = new System.Drawing.Point(555, 50);
+            this.TxtBirimFiyatManuel.Name = "TxtBirimFiyatManuel";
+            this.TxtBirimFiyatManuel.Size = new System.Drawing.Size(113, 21);
+            this.TxtBirimFiyatManuel.TabIndex = 142;
+            this.TxtBirimFiyatManuel.Visible = false;
+            // 
+            // LblBirimFiyatManuel
+            // 
+            this.LblBirimFiyatManuel.AutoSize = true;
+            this.LblBirimFiyatManuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBirimFiyatManuel.Location = new System.Drawing.Point(404, 54);
+            this.LblBirimFiyatManuel.Name = "LblBirimFiyatManuel";
+            this.LblBirimFiyatManuel.Size = new System.Drawing.Size(143, 15);
+            this.LblBirimFiyatManuel.TabIndex = 141;
+            this.LblBirimFiyatManuel.Text = "MALZEME BİRİM FİYATI:";
+            this.LblBirimFiyatManuel.Visible = false;
+            // 
+            // BtnDepo
+            // 
+            this.BtnDepo.AccessibleDescription = "";
+            this.BtnDepo.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnDepo.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDepo.BackgroundImage")));
+            this.BtnDepo.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDepo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDepo.Location = new System.Drawing.Point(347, 24);
+            this.BtnDepo.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDepo.Name = "BtnDepo";
+            this.BtnDepo.Size = new System.Drawing.Size(34, 29);
+            this.BtnDepo.TabIndex = 137;
+            this.BtnDepo.Tag = "admin";
+            this.BtnDepo.UseVisualStyleBackColor = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(466, 31);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(81, 13);
+            this.label13.TabIndex = 56;
+            this.label13.Text = "İŞLEM TARİHİ:";
+            // 
+            // DtgTarihManuel
+            // 
+            this.DtgTarihManuel.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgTarihManuel.Location = new System.Drawing.Point(555, 27);
+            this.DtgTarihManuel.Name = "DtgTarihManuel";
+            this.DtgTarihManuel.Size = new System.Drawing.Size(113, 20);
+            this.DtgTarihManuel.TabIndex = 55;
+            // 
+            // TxtTanim
+            // 
+            this.TxtTanim.Location = new System.Drawing.Point(120, 55);
+            this.TxtTanim.Name = "TxtTanim";
+            this.TxtTanim.Size = new System.Drawing.Size(273, 20);
+            this.TxtTanim.TabIndex = 54;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(68, 59);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(44, 13);
+            this.label39.TabIndex = 53;
+            this.label39.Text = "TANIM:";
+            // 
+            // CmbBirim
+            // 
+            this.CmbBirim.FormattingEnabled = true;
+            this.CmbBirim.Items.AddRange(new object[] {
+            "KG",
+            "ADET",
+            "METRE",
+            "LİTRE"});
+            this.CmbBirim.Location = new System.Drawing.Point(120, 107);
+            this.CmbBirim.Name = "CmbBirim";
+            this.CmbBirim.Size = new System.Drawing.Size(113, 21);
+            this.CmbBirim.TabIndex = 52;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Location = new System.Drawing.Point(72, 111);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(40, 13);
+            this.label41.TabIndex = 51;
+            this.label41.Text = "BİRİM:";
+            // 
+            // TxtMiktarManuel
+            // 
+            this.TxtMiktarManuel.Location = new System.Drawing.Point(120, 81);
+            this.TxtMiktarManuel.Name = "TxtMiktarManuel";
+            this.TxtMiktarManuel.Size = new System.Drawing.Size(113, 20);
+            this.TxtMiktarManuel.TabIndex = 50;
+            this.TxtMiktarManuel.TextChanged += new System.EventHandler(this.TxtMiktarManuel_TextChanged);
+            this.TxtMiktarManuel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMiktarManuel_KeyPress);
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Location = new System.Drawing.Point(61, 85);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(51, 13);
+            this.label42.TabIndex = 49;
+            this.label42.Text = "MİKTAR:";
+            // 
+            // CmbStokManuel
+            // 
+            this.CmbStokManuel.FormattingEnabled = true;
+            this.CmbStokManuel.Location = new System.Drawing.Point(120, 28);
+            this.CmbStokManuel.Name = "CmbStokManuel";
+            this.CmbStokManuel.Size = new System.Drawing.Size(224, 21);
+            this.CmbStokManuel.TabIndex = 48;
+            this.CmbStokManuel.SelectedIndexChanged += new System.EventHandler(this.CmbStokManuel_SelectedIndexChanged);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(54, 32);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(58, 13);
+            this.label43.TabIndex = 47;
+            this.label43.Text = "STOK NO:";
+            // 
+            // BtnListEkle
+            // 
+            this.BtnListEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnListEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnListEkle.Location = new System.Drawing.Point(1129, 108);
+            this.BtnListEkle.Name = "BtnListEkle";
+            this.BtnListEkle.Size = new System.Drawing.Size(132, 32);
+            this.BtnListEkle.TabIndex = 144;
+            this.BtnListEkle.Text = "LİSTEYE EKLE";
+            this.BtnListEkle.UseVisualStyleBackColor = true;
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.AdvMalzemeOnizleme);
+            this.groupBox4.Controls.Add(this.advancedDataGridView1);
+            this.groupBox4.Location = new System.Drawing.Point(676, 22);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(450, 124);
+            this.groupBox4.TabIndex = 145;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Tag = "";
+            this.groupBox4.Text = "Seri No / Lot No / Revizyon Bilgisi Girmek İçin Miktar Belirtiniz.";
+            // 
+            // AdvMalzemeOnizleme
+            // 
+            this.AdvMalzemeOnizleme.AllowUserToAddRows = false;
+            this.AdvMalzemeOnizleme.AllowUserToDeleteRows = false;
+            this.AdvMalzemeOnizleme.AutoGenerateContextFilters = true;
+            this.AdvMalzemeOnizleme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AdvMalzemeOnizleme.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SiraNo,
+            this.SeriLotNo,
+            this.Rev,
+            this.Remove});
+            this.AdvMalzemeOnizleme.DateWithTime = false;
+            this.AdvMalzemeOnizleme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AdvMalzemeOnizleme.Location = new System.Drawing.Point(3, 16);
+            this.AdvMalzemeOnizleme.Name = "AdvMalzemeOnizleme";
+            this.AdvMalzemeOnizleme.Size = new System.Drawing.Size(444, 105);
+            this.AdvMalzemeOnizleme.TabIndex = 1;
+            this.AdvMalzemeOnizleme.TimeFilter = false;
+            // 
+            // advancedDataGridView1
+            // 
+            this.advancedDataGridView1.AllowUserToAddRows = false;
+            this.advancedDataGridView1.AllowUserToDeleteRows = false;
+            this.advancedDataGridView1.AutoGenerateContextFilters = true;
+            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advancedDataGridView1.DateWithTime = false;
+            this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.advancedDataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.advancedDataGridView1.Name = "advancedDataGridView1";
+            this.advancedDataGridView1.ReadOnly = true;
+            this.advancedDataGridView1.Size = new System.Drawing.Size(444, 105);
+            this.advancedDataGridView1.TabIndex = 0;
+            this.advancedDataGridView1.TimeFilter = false;
+            // 
+            // SiraNo
+            // 
+            this.SiraNo.HeaderText = "SIRA NO";
+            this.SiraNo.MinimumWidth = 22;
+            this.SiraNo.Name = "SiraNo";
+            this.SiraNo.ReadOnly = true;
+            this.SiraNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // SeriLotNo
+            // 
+            this.SeriLotNo.HeaderText = "SERİ NO";
+            this.SeriLotNo.MinimumWidth = 22;
+            this.SeriLotNo.Name = "SeriLotNo";
+            this.SeriLotNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Rev
+            // 
+            this.Rev.HeaderText = "REVİZYON";
+            this.Rev.MinimumWidth = 22;
+            this.Rev.Name = "Rev";
+            this.Rev.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Remove
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.MinimumWidth = 22;
+            this.Remove.Name = "Remove";
+            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.UseColumnTextForButtonValue = true;
+            // 
             // FrmGirisCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1446, 850);
+            this.Controls.Add(this.GrbManuelStok);
+            this.Controls.Add(this.CmbDusumTuru);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.LblToplam);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.GrbIslemYapılacakDepo);
@@ -1278,7 +1577,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.TxtAciklama);
             this.Controls.Add(this.label38);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.GrbBarkod);
             this.Controls.Add(this.GrbDepodanBildirime);
             this.Controls.Add(this.GrbBildirimdenDepoya);
             this.Controls.Add(this.GrbDepodanDepoya);
@@ -1309,11 +1608,16 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.panel3.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.GrbBarkod.ResumeLayout(false);
+            this.GrbBarkod.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.GrbManuelStok.ResumeLayout(false);
+            this.GrbManuelStok.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.AdvMalzemeOnizleme)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1381,7 +1685,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label label37;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox GrbBarkod;
         private System.Windows.Forms.TextBox TxtBirimFiyat;
         private System.Windows.Forms.Label LblBirimFiyat;
         private System.Windows.Forms.Label label16;
@@ -1432,5 +1736,29 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label LblToplam;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Timer TmrBarcode;
+        private System.Windows.Forms.ComboBox CmbDusumTuru;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.GroupBox GrbManuelStok;
+        private System.Windows.Forms.TextBox TxtBirimFiyatManuel;
+        private System.Windows.Forms.Label LblBirimFiyatManuel;
+        private System.Windows.Forms.Button BtnDepo;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.DateTimePicker DtgTarihManuel;
+        private System.Windows.Forms.TextBox TxtTanim;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.ComboBox CmbBirim;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.TextBox TxtMiktarManuel;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.ComboBox CmbStokManuel;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Button BtnListEkle;
+        private System.Windows.Forms.GroupBox groupBox4;
+        private ADGV.AdvancedDataGridView AdvMalzemeOnizleme;
+        private ADGV.AdvancedDataGridView advancedDataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SiraNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SeriLotNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Rev;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

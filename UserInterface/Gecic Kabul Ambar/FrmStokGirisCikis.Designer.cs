@@ -139,6 +139,8 @@ namespace UserInterface.Depo
             this.panel6 = new System.Windows.Forms.Panel();
             this.label27 = new System.Windows.Forms.Label();
             this.DtgSilControl = new ADGV.AdvancedDataGridView();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label23 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -1268,11 +1270,36 @@ namespace UserInterface.Depo
             this.DtgSilControl.TimeFilter = false;
             this.DtgSilControl.Visible = false;
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "100-YENİ DEPO GİRİŞİ",
+            "101-DEPODAN DEPOYA İADE",
+            "102-DEPODAN BİLDİRİME ÇEKİM",
+            "201-BİLDİRİMDEN DEPOYA İADE"});
+            this.comboBox1.Location = new System.Drawing.Point(434, 52);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(224, 21);
+            this.comboBox1.TabIndex = 157;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(352, 55);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(76, 13);
+            this.label23.TabIndex = 156;
+            this.label23.Text = "İŞLEM TÜRÜ:";
+            // 
             // FrmStokGirisCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1567, 888);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label23);
             this.Controls.Add(this.DtgSilControl);
             this.Controls.Add(this.BtnPreview);
             this.Controls.Add(this.GrbIslemYapılacakDepo);
@@ -1437,5 +1464,7 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.TextBox TxtBirimFiyat;
         private System.Windows.Forms.Label LblBirimFiyat;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label23;
     }
 }
