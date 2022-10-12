@@ -69,7 +69,7 @@ namespace UserInterface.BakımOnarım
             isAkisNoManager = IsAkisNoManager.GetInstance();
             arizaKayitManager = ArizaKayitManager.GetInstance();
             abfFormNoManager = AbfFormNoManager.GetInstance();
-            //malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            malzemeKayitManager = MalzemeKayitManager.GetInstance();
             pypManager = PypManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             islemAdimlariManager = IslemAdimlariManager.GetInstance();
@@ -185,10 +185,10 @@ namespace UserInterface.BakımOnarım
         }
         void CmbStokNo()
         {
-            //CmbParcaNo.DataSource = malzemeManager.MalzemeUstTakimList();
-            //CmbParcaNo.ValueMember = "Id";
-            //CmbParcaNo.DisplayMember = "Tanim";
-            //CmbParcaNo.SelectedValue = 0;
+            CmbParcaNo.DataSource = malzemeKayitManager.UstTakimGetList();
+            CmbParcaNo.ValueMember = "Id";
+            CmbParcaNo.DisplayMember = "Tanim";
+            CmbParcaNo.SelectedValue = 0;
         }
         void ParcaTanimiAK()
         {
@@ -455,6 +455,7 @@ namespace UserInterface.BakımOnarım
             abf = arizaKayit.AbfFormNo;
             id = arizaKayit.Id;
             dosyaYolu = arizaKayit.DosyaYolu;
+            TxtTespitEdilenAriza.Text = arizaKayit.BildirilenAriza;
 
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM");
             if (gorevAtamaPersonel == null)
@@ -916,30 +917,30 @@ namespace UserInterface.BakımOnarım
 
         private string ExcelDoldurCrmNo()
         {
-            string excelFilePath = Path.Combine(dosyaYolu, abfForm + ".xlsx");
-            bool exists = File.Exists(excelFilePath);
-            if (exists==false)
-            {
-                return "Excel Dosyası Bulunamadı!";
-            }
-            IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
-            IXLWorksheet worksheet = xLWorkbook.Worksheet("Sayfa1");
+            //string excelFilePath = Path.Combine(dosyaYolu, abfForm + ".xlsx");
+            //bool exists = File.Exists(excelFilePath);
+            //if (exists==false)
+            //{
+            //    return "Excel Dosyası Bulunamadı!";
+            //}
+            //IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
+            //IXLWorksheet worksheet = xLWorkbook.Worksheet("Sayfa1");
 
-            var range = worksheet.RangeUsed();
-            range.Cell("I9").Value = TxtBildirimNo.Text; // BİLDİRİM NO
-            range.Cell("O9").Value = TxtCsSiparisNo.Text; // SİPARİŞ NO
-            if (TxtCrmNo.Text!="")
-            {
-                range.Cell("O9").Value = "CRM:" + TxtCrmNo.Text; // CRM NO
-            }
-            range.Cell("I18").Value = TxtEkipmanNo.Text; // EKİPMAN NO
+            //var range = worksheet.RangeUsed();
+            //range.Cell("I9").Value = TxtBildirimNo.Text; // BİLDİRİM NO
+            //range.Cell("O9").Value = TxtCsSiparisNo.Text; // SİPARİŞ NO
+            //if (TxtCrmNo.Text!="")
+            //{
+            //    range.Cell("O9").Value = "CRM:" + TxtCrmNo.Text; // CRM NO
+            //}
+            //range.Cell("I18").Value = TxtEkipmanNo.Text; // EKİPMAN NO
             
 
 
-            if (dosyaYolu != "")
-            {
-                xLWorkbook.SaveAs(dosyaYolu + bolgeAdi + " " + abfForm + ".xlsx");
-            }
+            //if (dosyaYolu != "")
+            //{
+            //    xLWorkbook.SaveAs(dosyaYolu + bolgeAdi + " " + abfForm + ".xlsx");
+            //}
 
             return "OK";
         }
@@ -1375,14 +1376,15 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             id = CmbParcaNo.SelectedValue.ConInt();
-            Malzeme malzemeKayit = malzemeManager.Get2(id);
+            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(id);
             if (malzemeKayit == null)
             {
                 LbStokNo.Text = "";
+
                 return;
             }
-            LbStokNo.Text = malzemeKayit.StokNo;
-            CmbIlgiliFirma.Text = malzemeKayit.OnarimYeri;
+            LbStokNo.Text = malzemeKayit.Stokno;
+            CmbIlgiliFirma.Text = malzemeKayit.Malzemeonarımyeri;
         }
 
         void UsBolgeleri()

@@ -123,7 +123,7 @@ namespace UserInterface.BakımOnarım
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new Point(15, 876);
             }
-            if (LblMevcutIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
+            if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new Point(15, 876);

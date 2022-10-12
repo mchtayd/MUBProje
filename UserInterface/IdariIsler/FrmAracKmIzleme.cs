@@ -58,12 +58,18 @@ namespace UserInterface.IdariIsler
             DtgList.DataSource = dataBinder;
             TxtTop.Text = DtgList.RowCount.ToString();
 
+
             DtgList.Columns["Id"].Visible = false;
             DtgList.Columns["Plaka"].HeaderText = "PLAKA";
             DtgList.Columns["SiparisNo"].HeaderText = "SİPARİŞ NO";
             DtgList.Columns["Donem"].HeaderText = "DÖNEM";
             DtgList.Columns["Tarih"].HeaderText = "KM BAŞLANGIÇ TARİHİ";
             DtgList.Columns["BaslangicKm"].HeaderText = "BAŞLANGIÇ KM";
+            DtgList.Columns["KmBitisTarihi"].HeaderText = "KM BİTİŞ TARİHİ";
+            DtgList.Columns["BitisKm"].HeaderText = "BİTİŞ KM";
+            DtgList.Columns["ToplamYapilanKm"].HeaderText = "TOPLAM YAPILAN KM";
+            DtgList.Columns["SabitKm"].HeaderText = "SABİT KM";
+            DtgList.Columns["Fark"].HeaderText = "FARK";
 
 
             // KM BİTİŞ TARİHİ
@@ -80,6 +86,26 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["PerMasYeri"].Visible = false;
             DtgList.Columns["PersMasYerSorumlusu"].Visible = false;
             DtgList.Columns["AracMulkiyet"].Visible = false;
+
+            foreach (AracKm item in aracKms)
+            {
+                if (item.Siparis!="")
+                {
+                    DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Detay"];
+                    c.FlatStyle = FlatStyle.Popup;
+                    c.DefaultCellStyle.ForeColor = Color.Red;
+                    c.DefaultCellStyle.BackColor = Color.Red;
+                }
+                else
+                {
+                    DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Detay"];
+                    c.FlatStyle = FlatStyle.Popup;
+                    c.DefaultCellStyle.ForeColor = Color.Red;
+                    c.DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+
+            
 
         }
 
@@ -114,5 +140,6 @@ namespace UserInterface.IdariIsler
         {
             dataBinder.Sort = DtgList.SortString;
         }
+
     }
 }

@@ -35,6 +35,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         MalzemeManager malzemeManager;
         BarkodManager barkodManager;
+        ArizaKayitManager arizaKayitManager;
 
         List<GorevAtamaPersonel> gorevAtamaPersonels;
         //List<Malzeme> malzemes;
@@ -60,6 +61,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
             barkodManager = BarkodManager.GetInstance();
+            arizaKayitManager = ArizaKayitManager.GetInstance();
         }
 
         private void CmbIslemTuru_SelectedIndexChanged(object sender, EventArgs e)
@@ -457,6 +459,36 @@ namespace UserInterface.Gecic_Kabul_Ambar
             return "OK";
 
         }
+        string BilgiControlManuel()
+        {
+            string lotNo = "", seriNo = "", revizyon = "";
+            if (takipdurumu == "LOT NO")
+            {
+                lotNo = AdvMalzemeOnizleme.CurrentRow.Cells["SeriLotNo"].Value.ToString();
+                seriNo = "N/A";
+                revizyon = AdvMalzemeOnizleme.CurrentRow.Cells["Rev"].Value.ToString();
+            }
+            else
+            {
+                seriNo = AdvMalzemeOnizleme.CurrentRow.Cells["SeriLotNo"].Value.ToString();
+                lotNo = "N/A";
+                revizyon = AdvMalzemeOnizleme.CurrentRow.Cells["Rev"].Value.ToString();
+            }
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(CmbStokManuel.Text, depoNoDusulen, seriNo, lotNo, revizyon);
+            if (depoMiktar == null || depoMiktar.Miktar == 0)
+            {
+                if (takipdurumu == "LOT NO")
+                {
+                    return CmbStokManuel.Text + " Stok Numaralı Malzemenin Lot Bilgisi veya Revizyon Bilgisi " + depoNoDusulen + " Nolu Depo Kayıtlarındaki Bilgi İle Uyuşmadığı İçin İşlem Gerçekleştirilemez!";
+                }
+                else
+                {
+                    return CmbStokManuel.Text + " Stok Numaralı Malzemenin Seri No Bilgisi " + depoNoDusulen + " Nolu Depo Kayıtlarındaki Seri No Bilgisileri İle Uyuşmadığı İçin İşlem Gerçekleştirilemez!";
+                }
+            }
+            return "OK";
+
+        }
 
         string MiktarKontrol()
         {
@@ -836,6 +868,234 @@ namespace UserInterface.Gecic_Kabul_Ambar
             c.DefaultCellStyle.BackColor = Color.Gainsboro;
         }
 
+        private void BtnListEkle_Click(object sender, EventArgs e)
+        {
+            if (CmbIslemTuru.Text == "100-YENİ DEPO GİRİŞİ")
+            {
+                if (TxtBirimFiyatManuel.Text == "")
+                {
+                    DialogResult dr = MessageBox.Show("Malzeme İçin Birim Fiyatı Tanımlamadınız!\nYinede Devam Etmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.No)
+                    {
+                        return;
+                    }
+                }
+                depoNoDusulen = CmbDepoNo.Text;
+                malzemeYeri = TxtMalzemeYeri.Text;
+
+            }
+            if (CmbIslemTuru.Text == "101-DEPODAN DEPOYA İADE")
+            {
+                depoNoDusulen = CmbDepoNoCekilen.Text;
+                malzemeYeri = CmbMalzemeYeriCekilen.Text;
+                if (CmbDepoNoCekilen.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Çekilen Depo Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (CmbMalzemeYeriCekilen.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Çekilen Depo Malzeme Yeri Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string bilgiControl = BilgiControlManuel();
+
+                if (bilgiControl != "OK")
+                {
+                    MessageBox.Show(bilgiControl, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            if (CmbIslemTuru.Text == "102-DEPODAN BİLDİRİME ÇEKİM")
+            {
+                depoNoDusulen = CmbDepodanBildirimeDepoNo.Text;
+                malzemeYeri = CmbDepodanBildirimeMalzemeYeri.Text;
+                if (CmbDepodanBildirimeDepoNo.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Çekilen Depo Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (CmbDepodanBildirimeMalzemeYeri.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Çekilen Depo Malzeme Yeri Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string bilgiControl = BilgiControlManuel();
+
+                if (bilgiControl != "OK")
+                {
+                    MessageBox.Show(bilgiControl, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            /*string control = Control();
+
+            if (control != "")
+            {
+                MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }*/
+
+            DtgList.Rows.Clear();
+            foreach (DataGridViewRow item in AdvMalzemeOnizleme.Rows)
+            {
+                if (CmbIslemTuru.Text == "101-DEPODAN DEPOYA İADE")
+                {
+                    if (takipdurumu == "LOT NO")
+                    {
+                        string control = MiktarKontrol(CmbStokManuel.Text, CmbDepoNoCekilen.Text, "N/A", item.Cells["SeriLotNo"].Value.ToString(), "N/A", TxtMiktarManuel.Text.ConInt());
+                        if (control != "OK")
+                        {
+                            MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    string control2 = MiktarKontrol(CmbStokManuel.Text, CmbDepoNoCekilen.Text, item.Cells["SeriLotNo"].Value.ToString(), "N/A", item.Cells["Rev"].Value.ToString(), TxtMiktarManuel.Text.ConInt());
+                    if (control2 != "OK")
+                    {
+                        MessageBox.Show(control2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                if (CmbIslemTuru.Text == "102-DEPODAN BİLDİRİME ÇEKİM")
+                {
+                    if (takipdurumu == "LOT NO")
+                    {
+                        string control = MiktarKontrol(CmbStokManuel.Text, CmbDepodanBildirimeDepoNo.Text, "N/A", item.Cells["SeriLotNo"].Value.ToString(), item.Cells["Rev"].Value.ToString(), TxtMiktarManuel.Text.ConInt());
+                        if (control != "OK")
+                        {
+                            MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        string control2 = MiktarKontrol(CmbStokManuel.Text, CmbDepodanBildirimeDepoNo.Text, item.Cells["SeriLotNo"].Value.ToString(), "N/A", item.Cells["Rev"].Value.ToString(), TxtMiktarManuel.Text.ConInt());
+                        if (control2 != "OK")
+                        {
+                            MessageBox.Show(control2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                    }
+                }
+                if (CmbIslemTuru.Text == "201-BİLDİRİMDEN DEPOYA İADE")
+                {
+                    if (takipdurumu == "LOT NO")
+                    {
+                        string control = BildirimdenDepoyaKontrol(CmbStokManuel.Text, "N/A", item.Cells["SeriLotNo"].Value.ToString(), item.Cells["Rev"].Value.ToString(), TxtBildirimdenDepoyaFormNo.Text);
+                        if (control != "OK")
+                        {
+                            MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        string control2 = BildirimdenDepoyaKontrol(CmbStokManuel.Text, item.Cells["SeriLotNo"].Value.ToString(), "N/A", item.Cells["Rev"].Value.ToString(), TxtBildirimdenDepoyaFormNo.Text);
+                        if (control2 != "OK")
+                        {
+                            MessageBox.Show(control2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                    }
+                }
+
+                int sirano = item.Cells["SiraNo"].Value.ConInt();
+
+
+                DtgList.Rows.Add();
+                int sonSatir = DtgList.RowCount - 1;
+
+                DtgList.Rows[sonSatir].Cells["Column1"].Value = sirano;
+                DtgList.Rows[sonSatir].Cells["Column13"].Value = CmbIslemTuru.Text;
+                DtgList.Rows[sonSatir].Cells["Column2"].Value = CmbStokManuel.Text;
+                DtgList.Rows[sonSatir].Cells["Column3"].Value = TxtTanim.Text;
+                if (takipdurumu == "LOT NO")
+                {
+                    DtgList.Rows[sonSatir].Cells["Column4"].Value = TxtMiktarManuel.Text;
+                }
+                else
+                {
+                    DtgList.Rows[sonSatir].Cells["Column4"].Value = 1;
+                }
+                DtgList.Rows[sonSatir].Cells["Column5"].Value = CmbBirim.Text;
+                DtgList.Rows[sonSatir].Cells["Column6"].Value = DtgTarihManuel.Value;
+                DtgList.Rows[sonSatir].Cells["Column14"].Value = TxtAciklama.Text;
+
+                if (CmbIslemTuru.Text == "100-YENİ DEPO GİRİŞİ")
+                {
+
+                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbDepoNo.Text; // DÜŞÜLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column16"].Value = CmbAdres.Text;
+                    DtgList.Rows[sonSatir].Cells["Column17"].Value = TxtMalzemeYeri.Text;
+                    DtgList.Rows[sonSatir].Cells["Column7"].Value = ""; // ÇEKİLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column8"].Value = "";
+                    DtgList.Rows[sonSatir].Cells["Column9"].Value = "";
+                    //DtgList.Rows[sonSatir].Cells["Column18"].Value = ""; // ABF FORM NO
+                    DtgList.Rows[sonSatir].Cells["Column19"].Value = ""; // TALEP EDEN PERSONEL
+                }
+
+                if (CmbIslemTuru.Text == "101-DEPODAN DEPOYA İADE")
+                {
+
+                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbDepoNoDusulen.Text; // DÜŞÜLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column16"].Value = TxtDepoAdresiDusulen.Text;
+                    DtgList.Rows[sonSatir].Cells["Column17"].Value = CmbMalzemeYeriDusulen.Text;
+                    DtgList.Rows[sonSatir].Cells["Column7"].Value = CmbDepoNoCekilen.Text; // ÇEKİLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column8"].Value = TxtDepoAdresiCekilen.Text;
+                    DtgList.Rows[sonSatir].Cells["Column9"].Value = CmbMalzemeYeriCekilen.Text;
+                    //DtgList.Rows[sonSatir].Cells["Column18"].Value = ""; // ABF FORM NO
+                    DtgList.Rows[sonSatir].Cells["Column19"].Value = ""; // TALEP EDEN PERSONEL
+                }
+
+                if (CmbIslemTuru.Text == "102-DEPODAN BİLDİRİME ÇEKİM")
+                {
+
+                    DtgList.Rows[sonSatir].Cells["Column15"].Value = TxtDepodanBildirimeAbfNo.Text; ; // DÜŞÜLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column16"].Value = "";
+                    DtgList.Rows[sonSatir].Cells["Column17"].Value = "";
+                    DtgList.Rows[sonSatir].Cells["Column7"].Value = CmbDepodanBildirimeDepoNo.Text; // ÇEKİLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column8"].Value = TxtDepodanBildirimeDepoAdresi.Text;
+                    DtgList.Rows[sonSatir].Cells["Column9"].Value = CmbDepodanBildirimeMalzemeYeri.Text;
+                    //DtgList.Rows[sonSatir].Cells["Column18"].Value =  // ABF FORM NO
+                    DtgList.Rows[sonSatir].Cells["Column19"].Value = LblDepodanBildirimePersonel.Text; // TALEP EDEN PERSONEL
+                }
+
+                if (CmbIslemTuru.Text == "201-BİLDİRİMDEN DEPOYA İADE")
+                {
+
+                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbBildirimdenDepoyaDepoNo.Text; // DÜŞÜLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column16"].Value = TxtBildirimdenDepoyaDepoAdres.Text;
+                    DtgList.Rows[sonSatir].Cells["Column17"].Value = CmbBildirimdenDepoyaMalzemeYeri.Text;
+                    DtgList.Rows[sonSatir].Cells["Column7"].Value = TxtBildirimdenDepoyaFormNo.Text; // ÇEKİLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column8"].Value = "";
+                    DtgList.Rows[sonSatir].Cells["Column9"].Value = "";
+                    //DtgList.Rows[sonSatir].Cells["Column18"].Value = ; // ABF FORM NO
+                    DtgList.Rows[sonSatir].Cells["Column19"].Value = LblBildirimdenDepoyaPersonel.Text; // TALEP EDEN PERSONEL
+                }
+
+
+                if (takipdurumu == "LOT NO")
+                {
+                    DtgList.Columns["Column10"].Visible = false;
+                    DtgList.Rows[sonSatir].Cells["Column10"].Value = "N/A";
+                    DtgList.Columns["Column12"].Visible = true;
+                    DtgList.Rows[sonSatir].Cells["Column12"].Value = item.Cells["SeriLotNo"].Value.ToString();
+                }
+                else
+                {
+                    DtgList.Columns["Column12"].Visible = false;
+                    DtgList.Rows[sonSatir].Cells["Column12"].Value = "N/A";
+                    DtgList.Columns["Column10"].Visible = true;
+                    DtgList.Rows[sonSatir].Cells["Column10"].Value = item.Cells["SeriLotNo"].Value.ToString();
+                }
+                DtgList.Rows[sonSatir].Cells["Column11"].Value = item.Cells["Rev"].Value.ToString();
+            }
+        }
+
         private void CmbStokManuel_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start)
@@ -1059,8 +1319,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return;
             }
-            AbfFormNo abfFormNo = abfFormNoManager.PersonelSicil(TxtDepodanBildirimeAbfNo.Text);
-            if (abfFormNo == null)
+            //AbfFormNo abfFormNo = abfFormNoManager.PersonelSicil(TxtDepodanBildirimeAbfNo.Text);
+            ArizaKayit arizaKayit = arizaKayitManager.Get(TxtDepodanBildirimeAbfNo.Text.ConInt());
+            if (arizaKayit == null)
             {
                 Atolye atolye = atolyeManager.Get(TxtDepodanBildirimeAbfNo.Text);
                 if (atolye == null)
@@ -1086,7 +1347,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
 
-            LblDepodanBildirimePersonel.Text = abfFormNo.PersonelAd;
+            LblDepodanBildirimePersonel.Text = arizaKayit.ArizaiBildirenPersonel;
         }
 
         private void TxtBildirimdenDepoyaFormNo_TextChanged(object sender, EventArgs e)
@@ -1096,9 +1357,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
 
-            AbfFormNo abfFormNo = abfFormNoManager.PersonelSicil(TxtBildirimdenDepoyaFormNo.Text);
-
-            if (abfFormNo == null)
+            //AbfFormNo abfFormNo = abfFormNoManager.PersonelSicil(TxtBildirimdenDepoyaFormNo.Text);
+            ArizaKayit arizaKayit = arizaKayitManager.Get(TxtBildirimdenDepoyaFormNo.Text.ConInt());
+            if (arizaKayit == null)
             {
                 Atolye atolye = atolyeManager.Get(TxtBildirimdenDepoyaFormNo.Text);
                 if (atolye == null)
@@ -1122,7 +1383,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 LblBildirimdenDepoyaPersonel.Text = islemAdimiSorumlusu;
                 return;
             }
-            LblBildirimdenDepoyaPersonel.Text = abfFormNo.PersonelAd;
+            LblBildirimdenDepoyaPersonel.Text = arizaKayit.ArizaiBildirenPersonel;
         }
 
         private void silToolStripMenuItem_Click(object sender, EventArgs e)

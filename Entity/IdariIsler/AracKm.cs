@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class AracKm
     {
-        int id; string plaka, siparisNo; DateTime tarih; string donem; int baslangicKm; string personelAd, personelSiparis, personelUnvani, perMasYeriNo, perMasYeri, persMasYerSorumlusu, aracMulkiyet; DateTime kmBitisTarihi; int bitisKm, toplamYapilanKm, sabitKm, fark;
+        int id; string plaka, siparisNo; DateTime tarih; string donem; int baslangicKm; string personelAd, personelSiparis, personelUnvani, perMasYeriNo, perMasYeri, persMasYerSorumlusu, aracMulkiyet; DateTime kmBitisTarihi; int bitisKm, toplamYapilanKm, sabitKm, fark; string siparis;
 
         public int Id { get => id; set => id = value; }
         public string Plaka { get => plaka; set => plaka = value; }
@@ -28,8 +28,9 @@ namespace Entity.IdariIsler
         public int ToplamYapilanKm { get => toplamYapilanKm; set => toplamYapilanKm = value; }
         public int SabitKm { get => sabitKm; set => sabitKm = value; }
         public int Fark { get => fark; set => fark = value; }
+        public string Siparis { get => siparis; set => siparis = value; }
 
-        public AracKm(int id, string plaka, string siparisNo, DateTime tarih, string donem, int baslangicKm, string personelAd, string personelSiparis, string personelUnvani, string perMasYeriNo, string perMasYeri, string persMasYerSorumlusu, string aracMulkiyet, DateTime kmBitisTarihi, int bitisKm, int toplamYapilanKm,int sabitKm, int fark)
+        public AracKm(int id, string plaka, string siparisNo, DateTime tarih, string donem, int baslangicKm, string personelAd, string personelSiparis, string personelUnvani, string perMasYeriNo, string perMasYeri, string persMasYerSorumlusu, string aracMulkiyet, DateTime kmBitisTarihi, int bitisKm, int toplamYapilanKm,int sabitKm, int fark, string siparis)
         {
             this.id = id;
             this.plaka = plaka;
@@ -49,9 +50,10 @@ namespace Entity.IdariIsler
             this.toplamYapilanKm = toplamYapilanKm;
             this.sabitKm = sabitKm;
             this.fark = fark;
+            this.siparis = siparis;
         }
 
-        public AracKm(string plaka, string siparisNo, DateTime tarih, string donem, int baslangicKm, string personelAd, string personelSiparis, string personelUnvani, string perMasYeriNo, string perMasYeri, string persMasYerSorumlusu, string aracMulkiyet, DateTime kmBitisTarihi, int bitisKm, int toplamYapilanKm, int sabitKm, int fark)
+        public AracKm(string plaka, string siparisNo, DateTime tarih, string donem, int baslangicKm, string personelAd, string personelSiparis, string personelUnvani, string perMasYeriNo, string perMasYeri, string persMasYerSorumlusu, string aracMulkiyet, DateTime kmBitisTarihi, int bitisKm, int toplamYapilanKm, int sabitKm, int fark, string siparis)
         {
             this.plaka = plaka;
             this.siparisNo = siparisNo;
@@ -70,6 +72,7 @@ namespace Entity.IdariIsler
             this.toplamYapilanKm = toplamYapilanKm;
             this.sabitKm = sabitKm;
             this.fark = fark;
+            this.siparis = siparis;
         }
     }
 }

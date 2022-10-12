@@ -41,6 +41,7 @@ namespace Business.Concreate.BakimOnarim
         }
         public AbfFormNo PersonelSicil(string abfNo)
         {
+
             try
             {
                 return abfFormNoDal.PersonelSicil(abfNo);

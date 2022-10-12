@@ -126,6 +126,7 @@
     <Compile Include="Concreate\IdariIsler\AracZimmetiLogDal.cs" />
     <Compile Include="Concreate\IdariIsler\ArsivTutanakDal.cs" />
     <Compile Include="Concreate\IdariIsler\ButceKoduDal.cs" />
+    <Compile Include="Concreate\IdariIsler\CokluAracDal.cs" />
     <Compile Include="Concreate\IdariIsler\DVKayitDal.cs" />
     <Compile Include="Concreate\IdariIsler\EvrakKayitDal.cs" />
     <Compile Include="Concreate\IdariIsler\IdariIslerLogDal.cs" />

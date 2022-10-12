@@ -25,23 +25,24 @@ namespace DataAccess.Concreate.IdariIsler
             try
             {
                 dataReader = sqlServices.StoreReader("AracKmKayit",
-                    new SqlParameter("@plaka",entity.Plaka),
-                    new SqlParameter("@aracSiparis",entity.SiparisNo),
-                    new SqlParameter("@tarih",entity.Tarih),
-                    new SqlParameter("@donem",entity.Donem),
-                    new SqlParameter("@baslangicKm",entity.BaslangicKm),
-                    new SqlParameter("@personelAd",entity.PersonelAd),
-                    new SqlParameter("@personelSiparis",entity.PersonelSiparis),
-                    new SqlParameter("@personeUnvani",entity.PersonelUnvani),
-                    new SqlParameter("@personelMasrafYeriNo",entity.PerMasYeriNo),
-                    new SqlParameter("@personelMasrafYeri",entity.PerMasYeri),
-                    new SqlParameter("@masYerSorumlusu",entity.PersMasYerSorumlusu),
-                    new SqlParameter("@aracMulkiyet",entity.AracMulkiyet),
-                    new SqlParameter("@kmBitisTarihi",entity.KmBitisTarihi),
-                    new SqlParameter("@bitisKm",entity.BitisKm),
-                    new SqlParameter("@toplamYapilanKm",entity.ToplamYapilanKm),
-                    new SqlParameter("@sabitKm",entity.SabitKm),
-                    new SqlParameter("@fark",entity.Fark));
+                    new SqlParameter("@plaka", entity.Plaka),
+                    new SqlParameter("@aracSiparis", entity.SiparisNo),
+                    new SqlParameter("@tarih", entity.Tarih),
+                    new SqlParameter("@donem", entity.Donem),
+                    new SqlParameter("@baslangicKm", entity.BaslangicKm),
+                    new SqlParameter("@personelAd", entity.PersonelAd),
+                    new SqlParameter("@personelSiparis", entity.PersonelSiparis),
+                    new SqlParameter("@personeUnvani", entity.PersonelUnvani),
+                    new SqlParameter("@personelMasrafYeriNo", entity.PerMasYeriNo),
+                    new SqlParameter("@personelMasrafYeri", entity.PerMasYeri),
+                    new SqlParameter("@masYerSorumlusu", entity.PersMasYerSorumlusu),
+                    new SqlParameter("@aracMulkiyet", entity.AracMulkiyet),
+                    new SqlParameter("@kmBitisTarihi", entity.KmBitisTarihi),
+                    new SqlParameter("@bitisKm", entity.BitisKm),
+                    new SqlParameter("@toplamYapilanKm", entity.ToplamYapilanKm),
+                    new SqlParameter("@sabitKm", entity.SabitKm),
+                    new SqlParameter("@fark", entity.Fark),
+                    new SqlParameter("@siparis", entity.Siparis));
                 
                 dataReader.Close();
                 return "OK";
@@ -92,7 +93,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["BITIS_KM"].ConInt(),
                         dataReader["TOPLAM_YAPILAN_KM"].ConInt(),
                         dataReader["SABIT_KM"].ConInt(),
-                        dataReader["FARK"].ConInt());
+                        dataReader["FARK"].ConInt(),
+                        dataReader["SIPARIS"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -111,7 +113,8 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader = sqlServices.StoreReader("AracKmList");
                 while (dataReader.Read())
                 {
-                    aracKms.Add(new AracKm(dataReader["ID"].ConInt(),
+                    aracKms.Add(new AracKm(
+                        dataReader["ID"].ConInt(),
                         dataReader["PLAKA"].ToString(),
                         dataReader["ARAC_SIPARIS"].ToString(),
                         dataReader["TARIH"].ConDate(),
@@ -128,7 +131,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["BITIS_KM"].ConInt(),
                         dataReader["TOPLAM_YAPILAN_KM"].ConInt(),
                         dataReader["SABIT_KM"].ConInt(),
-                        dataReader["FARK"].ConInt()));
+                        dataReader["FARK"].ConInt(),
+                        dataReader["SIPARIS"].ToString()));
                 }
                 dataReader.Close();
                 return aracKms;

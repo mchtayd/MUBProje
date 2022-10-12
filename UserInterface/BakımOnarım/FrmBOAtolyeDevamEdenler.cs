@@ -91,12 +91,12 @@ namespace UserInterface.BakımOnarım
             DtgDevamEden.Columns["StokNoUst"].HeaderText = "STOK NO";
             DtgDevamEden.Columns["TanimUst"].HeaderText = "TANIM";
             DtgDevamEden.Columns["SeriNoUst"].HeaderText = "SERİ NO";
-            DtgDevamEden.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
-            DtgDevamEden.Columns["BildirimNo"].HeaderText = "ÜST TAKIM BİLDİRİM NO";
-            DtgDevamEden.Columns["CrmNo"].HeaderText = "ÜST TAKIM CRM NO";
-            DtgDevamEden.Columns["Kategori"].HeaderText = "KATEGORİ";
+            DtgDevamEden.Columns["GarantiDurumu"].Visible = false;
+            DtgDevamEden.Columns["BildirimNo"].Visible = false;
+            DtgDevamEden.Columns["CrmNo"].Visible = false;
+            DtgDevamEden.Columns["Kategori"].Visible = false;
             DtgDevamEden.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
-            DtgDevamEden.Columns["Proje"].HeaderText = "PROJE";
+            DtgDevamEden.Columns["Proje"].Visible = false;
             DtgDevamEden.Columns["BildirilenAriza"].HeaderText = "BİLDİRİLEN ARIZA";
             DtgDevamEden.Columns["IcSiparisNo"].HeaderText = "İÇ SİPARİŞ NO";
             DtgDevamEden.Columns["CekildigiTarih"].HeaderText = "MALZEMENİN ÇEKİLDİĞİ TARİH";
@@ -113,20 +113,36 @@ namespace UserInterface.BakımOnarım
             DtgDevamEden.Columns["KapatmaTarihi"].Visible = false;
             DtgDevamEden.Columns["DosyaYolu"].Visible = false;
 
-
-            DtgDevamEden.Columns["IcSiparisNo"].DisplayIndex = 0;
             DtgDevamEden.Columns["Gecensure"].DisplayIndex = 1;
-            DtgDevamEden.Columns["BolgeAdi"].DisplayIndex = 2;
-            DtgDevamEden.Columns["AbfNo"].DisplayIndex = 3;
-            DtgDevamEden.Columns["BildirimNo"].DisplayIndex = 4;
-            DtgDevamEden.Columns["CrmNo"].DisplayIndex = 5;
-            DtgDevamEden.Columns["Kategori"].DisplayIndex = 6;
-            DtgDevamEden.Columns["Proje"].DisplayIndex = 7;
-            DtgDevamEden.Columns["StokNoUst"].DisplayIndex = 8;
-            DtgDevamEden.Columns["TanimUst"].DisplayIndex = 9;
-            DtgDevamEden.Columns["SeriNoUst"].DisplayIndex = 10;
-            DtgDevamEden.Columns["GarantiDurumu"].DisplayIndex = 11;
-            DtgDevamEden.Columns["IslemAdimi"].DisplayIndex = 12;
+            DtgDevamEden.Columns["IcSiparisNo"].DisplayIndex = 0;
+            DtgDevamEden.Columns["StokNoUst"].DisplayIndex = 2;
+            DtgDevamEden.Columns["TanimUst"].DisplayIndex = 3;
+            DtgDevamEden.Columns["SeriNoUst"].DisplayIndex = 4;
+            DtgDevamEden.Columns["AtolyeKategori"].DisplayIndex = 5;
+            DtgDevamEden.Columns["IslemAdimi"].DisplayIndex = 6;
+            DtgDevamEden.Columns["AbfNo"].DisplayIndex = 7;
+            DtgDevamEden.Columns["BolgeAdi"].DisplayIndex = 8;
+            DtgDevamEden.Columns["BildirilenAriza"].DisplayIndex = 9;
+            DtgDevamEden.Columns["CekildigiTarih"].DisplayIndex = 10;
+            DtgDevamEden.Columns["SiparisAcmaTarihi"].DisplayIndex = 11;
+            DtgDevamEden.Columns["Modifikasyonlar"].DisplayIndex = 12;
+            DtgDevamEden.Columns["Notlar"].DisplayIndex = 13;
+
+
+            //DtgDevamEden.Columns["IcSiparisNo"].DisplayIndex = 0;
+            //DtgDevamEden.Columns["Gecensure"].DisplayIndex = 1;
+            //DtgDevamEden.Columns["BolgeAdi"].DisplayIndex = 2;
+            //DtgDevamEden.Columns["AbfNo"].DisplayIndex = 3;
+            //DtgDevamEden.Columns["BildirimNo"].DisplayIndex = 4;
+            //DtgDevamEden.Columns["CrmNo"].DisplayIndex = 5;
+            //DtgDevamEden.Columns["Kategori"].DisplayIndex = 6;
+            //DtgDevamEden.Columns["Proje"].DisplayIndex = 7;
+            //DtgDevamEden.Columns["StokNoUst"].DisplayIndex = 8;
+            //DtgDevamEden.Columns["TanimUst"].DisplayIndex = 9;
+            //DtgDevamEden.Columns["SeriNoUst"].DisplayIndex = 10;
+            //DtgDevamEden.Columns["GarantiDurumu"].DisplayIndex = 11;
+            //DtgDevamEden.Columns["IslemAdimi"].DisplayIndex = 12;
+            //DtgDevamEden.Columns["AtolyeKategori"].DisplayIndex = 12;
 
             TxtTop.Text = DtgDevamEden.RowCount.ToString();
         }

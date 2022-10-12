@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGirisCikis));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
@@ -146,6 +146,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.CmbDusumTuru = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.GrbManuelStok = new System.Windows.Forms.GroupBox();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.AdvMalzemeOnizleme = new ADGV.AdvancedDataGridView();
+            this.SiraNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeriLotNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rev = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
+            this.BtnListEkle = new System.Windows.Forms.Button();
             this.TxtBirimFiyatManuel = new System.Windows.Forms.TextBox();
             this.LblBirimFiyatManuel = new System.Windows.Forms.Label();
             this.BtnDepo = new System.Windows.Forms.Button();
@@ -159,14 +167,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label42 = new System.Windows.Forms.Label();
             this.CmbStokManuel = new System.Windows.Forms.ComboBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.BtnListEkle = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.AdvMalzemeOnizleme = new ADGV.AdvancedDataGridView();
-            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
-            this.SiraNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SeriLotNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.GrbIslemYapılacakDepo.SuspendLayout();
             this.GrbBildirimdenDepoya.SuspendLayout();
@@ -247,7 +247,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbIslemYapılacakDepo.Controls.Add(this.CmbDepoNo);
             this.GrbIslemYapılacakDepo.Controls.Add(this.label11);
             this.GrbIslemYapılacakDepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(12, 87);
+            this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(9, 91);
             this.GrbIslemYapılacakDepo.Name = "GrbIslemYapılacakDepo";
             this.GrbIslemYapılacakDepo.Size = new System.Drawing.Size(1431, 139);
             this.GrbIslemYapılacakDepo.TabIndex = 334;
@@ -499,7 +499,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbDepodanBildirime.Controls.Add(this.label25);
             this.GrbDepodanBildirime.Controls.Add(this.panel6);
             this.GrbDepodanBildirime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbDepodanBildirime.Location = new System.Drawing.Point(12, 88);
+            this.GrbDepodanBildirime.Location = new System.Drawing.Point(9, 91);
             this.GrbDepodanBildirime.Name = "GrbDepodanBildirime";
             this.GrbDepodanBildirime.Size = new System.Drawing.Size(801, 158);
             this.GrbDepodanBildirime.TabIndex = 336;
@@ -1340,6 +1340,101 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbManuelStok.Text = "İŞLEM YAPILACAK MALZEME BİLGİSİ";
             this.GrbManuelStok.Visible = false;
             // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.AdvMalzemeOnizleme);
+            this.groupBox4.Controls.Add(this.advancedDataGridView1);
+            this.groupBox4.Location = new System.Drawing.Point(676, 22);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(450, 124);
+            this.groupBox4.TabIndex = 145;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Tag = "";
+            this.groupBox4.Text = "Seri No / Lot No / Revizyon Bilgisi Girmek İçin Miktar Belirtiniz.";
+            // 
+            // AdvMalzemeOnizleme
+            // 
+            this.AdvMalzemeOnizleme.AllowUserToAddRows = false;
+            this.AdvMalzemeOnizleme.AllowUserToDeleteRows = false;
+            this.AdvMalzemeOnizleme.AutoGenerateContextFilters = true;
+            this.AdvMalzemeOnizleme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.AdvMalzemeOnizleme.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SiraNo,
+            this.SeriLotNo,
+            this.Rev,
+            this.Remove});
+            this.AdvMalzemeOnizleme.DateWithTime = false;
+            this.AdvMalzemeOnizleme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.AdvMalzemeOnizleme.Location = new System.Drawing.Point(3, 16);
+            this.AdvMalzemeOnizleme.Name = "AdvMalzemeOnizleme";
+            this.AdvMalzemeOnizleme.Size = new System.Drawing.Size(444, 105);
+            this.AdvMalzemeOnizleme.TabIndex = 1;
+            this.AdvMalzemeOnizleme.TimeFilter = false;
+            // 
+            // SiraNo
+            // 
+            this.SiraNo.HeaderText = "SIRA NO";
+            this.SiraNo.MinimumWidth = 22;
+            this.SiraNo.Name = "SiraNo";
+            this.SiraNo.ReadOnly = true;
+            this.SiraNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // SeriLotNo
+            // 
+            this.SeriLotNo.HeaderText = "SERİ NO";
+            this.SeriLotNo.MinimumWidth = 22;
+            this.SeriLotNo.Name = "SeriLotNo";
+            this.SeriLotNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Rev
+            // 
+            this.Rev.HeaderText = "REVİZYON";
+            this.Rev.MinimumWidth = 22;
+            this.Rev.Name = "Rev";
+            this.Rev.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Remove
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.MinimumWidth = 22;
+            this.Remove.Name = "Remove";
+            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.UseColumnTextForButtonValue = true;
+            // 
+            // advancedDataGridView1
+            // 
+            this.advancedDataGridView1.AllowUserToAddRows = false;
+            this.advancedDataGridView1.AllowUserToDeleteRows = false;
+            this.advancedDataGridView1.AutoGenerateContextFilters = true;
+            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.advancedDataGridView1.DateWithTime = false;
+            this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.advancedDataGridView1.Location = new System.Drawing.Point(3, 16);
+            this.advancedDataGridView1.Name = "advancedDataGridView1";
+            this.advancedDataGridView1.ReadOnly = true;
+            this.advancedDataGridView1.Size = new System.Drawing.Size(444, 105);
+            this.advancedDataGridView1.TabIndex = 0;
+            this.advancedDataGridView1.TimeFilter = false;
+            // 
+            // BtnListEkle
+            // 
+            this.BtnListEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnListEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnListEkle.Location = new System.Drawing.Point(1129, 108);
+            this.BtnListEkle.Name = "BtnListEkle";
+            this.BtnListEkle.Size = new System.Drawing.Size(132, 32);
+            this.BtnListEkle.TabIndex = 144;
+            this.BtnListEkle.Text = "LİSTEYE EKLE";
+            this.BtnListEkle.UseVisualStyleBackColor = true;
+            this.BtnListEkle.Click += new System.EventHandler(this.BtnListEkle_Click);
+            // 
             // TxtBirimFiyatManuel
             // 
             this.TxtBirimFiyatManuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -1465,100 +1560,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label43.Size = new System.Drawing.Size(58, 13);
             this.label43.TabIndex = 47;
             this.label43.Text = "STOK NO:";
-            // 
-            // BtnListEkle
-            // 
-            this.BtnListEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnListEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListEkle.Location = new System.Drawing.Point(1129, 108);
-            this.BtnListEkle.Name = "BtnListEkle";
-            this.BtnListEkle.Size = new System.Drawing.Size(132, 32);
-            this.BtnListEkle.TabIndex = 144;
-            this.BtnListEkle.Text = "LİSTEYE EKLE";
-            this.BtnListEkle.UseVisualStyleBackColor = true;
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.AdvMalzemeOnizleme);
-            this.groupBox4.Controls.Add(this.advancedDataGridView1);
-            this.groupBox4.Location = new System.Drawing.Point(676, 22);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(450, 124);
-            this.groupBox4.TabIndex = 145;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Tag = "";
-            this.groupBox4.Text = "Seri No / Lot No / Revizyon Bilgisi Girmek İçin Miktar Belirtiniz.";
-            // 
-            // AdvMalzemeOnizleme
-            // 
-            this.AdvMalzemeOnizleme.AllowUserToAddRows = false;
-            this.AdvMalzemeOnizleme.AllowUserToDeleteRows = false;
-            this.AdvMalzemeOnizleme.AutoGenerateContextFilters = true;
-            this.AdvMalzemeOnizleme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.AdvMalzemeOnizleme.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.SiraNo,
-            this.SeriLotNo,
-            this.Rev,
-            this.Remove});
-            this.AdvMalzemeOnizleme.DateWithTime = false;
-            this.AdvMalzemeOnizleme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.AdvMalzemeOnizleme.Location = new System.Drawing.Point(3, 16);
-            this.AdvMalzemeOnizleme.Name = "AdvMalzemeOnizleme";
-            this.AdvMalzemeOnizleme.Size = new System.Drawing.Size(444, 105);
-            this.AdvMalzemeOnizleme.TabIndex = 1;
-            this.AdvMalzemeOnizleme.TimeFilter = false;
-            // 
-            // advancedDataGridView1
-            // 
-            this.advancedDataGridView1.AllowUserToAddRows = false;
-            this.advancedDataGridView1.AllowUserToDeleteRows = false;
-            this.advancedDataGridView1.AutoGenerateContextFilters = true;
-            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView1.DateWithTime = false;
-            this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.advancedDataGridView1.Name = "advancedDataGridView1";
-            this.advancedDataGridView1.ReadOnly = true;
-            this.advancedDataGridView1.Size = new System.Drawing.Size(444, 105);
-            this.advancedDataGridView1.TabIndex = 0;
-            this.advancedDataGridView1.TimeFilter = false;
-            // 
-            // SiraNo
-            // 
-            this.SiraNo.HeaderText = "SIRA NO";
-            this.SiraNo.MinimumWidth = 22;
-            this.SiraNo.Name = "SiraNo";
-            this.SiraNo.ReadOnly = true;
-            this.SiraNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // SeriLotNo
-            // 
-            this.SeriLotNo.HeaderText = "SERİ NO";
-            this.SeriLotNo.MinimumWidth = 22;
-            this.SeriLotNo.Name = "SeriLotNo";
-            this.SeriLotNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Rev
-            // 
-            this.Rev.HeaderText = "REVİZYON";
-            this.Rev.MinimumWidth = 22;
-            this.Rev.Name = "Rev";
-            this.Rev.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Remove
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Remove.HeaderText = "KALDIR";
-            this.Remove.MinimumWidth = 22;
-            this.Remove.Name = "Remove";
-            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Remove.Text = "X";
-            this.Remove.ToolTipText = "X";
-            this.Remove.UseColumnTextForButtonValue = true;
             // 
             // FrmGirisCikis
             // 

@@ -98,6 +98,7 @@
     <Compile Include="Concreate\IdarıIsler\AracZimmetiManager.cs" />
     <Compile Include="Concreate\IdarıIsler\ArsivTutanakManager.cs" />
     <Compile Include="Concreate\IdarıIsler\ButceKoduKalemiManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\CokluAracManager.cs" />
     <Compile Include="Concreate\IdarıIsler\DVKayitManager.cs" />
     <Compile Include="Concreate\IdarıIsler\DvNoManager.cs" />
     <Compile Include="Concreate\IdarıIsler\EvrakKayitManager.cs" />

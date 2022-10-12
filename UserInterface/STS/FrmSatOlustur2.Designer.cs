@@ -1369,7 +1369,8 @@ namespace UserInterface.STS
             this.comboBox9.Items.AddRange(new object[] {
             "",
             "BSRN GN.MDL.SATIN ALMA",
-            "PRJ.DİR.SATIN ALMA"});
+            "PRJ.DİR.SATIN ALMA",
+            "RESUL GÜNEŞ"});
             this.comboBox9.Location = new System.Drawing.Point(170, 168);
             this.comboBox9.Name = "comboBox9";
             this.comboBox9.Size = new System.Drawing.Size(252, 21);

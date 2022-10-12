@@ -30,8 +30,8 @@ namespace UserInterface.Ana_Sayfa
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAtolyeVeri));
             this.label1 = new System.Windows.Forms.Label();
             this.DtgIslemAdimi = new System.Windows.Forms.DataGridView();
@@ -146,14 +146,14 @@ namespace UserInterface.Ana_Sayfa
             this.DtgIslemAdimi.AllowUserToDeleteRows = false;
             this.DtgIslemAdimi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgIslemAdimi.BackgroundColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgIslemAdimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgIslemAdimi.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgIslemAdimi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgIslemAdimi.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.C400,
@@ -169,14 +169,14 @@ namespace UserInterface.Ana_Sayfa
             this.C1400,
             this.C1500,
             this.C1600});
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.DtgIslemAdimi.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.DtgIslemAdimi.DefaultCellStyle = dataGridViewCellStyle2;
             this.DtgIslemAdimi.Location = new System.Drawing.Point(573, 218);
             this.DtgIslemAdimi.Name = "DtgIslemAdimi";
             this.DtgIslemAdimi.ReadOnly = true;
@@ -541,7 +541,7 @@ namespace UserInterface.Ana_Sayfa
             this.Lbl1000.BackColor = System.Drawing.Color.Azure;
             this.Lbl1000.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1000.ForeColor = System.Drawing.Color.Blue;
-            this.Lbl1000.Location = new System.Drawing.Point(1241, 441);
+            this.Lbl1000.Location = new System.Drawing.Point(1242, 441);
             this.Lbl1000.Name = "Lbl1000";
             this.Lbl1000.Size = new System.Drawing.Size(42, 48);
             this.Lbl1000.TabIndex = 126;
@@ -551,7 +551,7 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.richTextBox4.BackColor = System.Drawing.Color.Azure;
             this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox4.Location = new System.Drawing.Point(1234, 423);
+            this.richTextBox4.Location = new System.Drawing.Point(1374, 423);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(100, 82);
             this.richTextBox4.TabIndex = 127;
@@ -574,7 +574,7 @@ namespace UserInterface.Ana_Sayfa
             this.Lbl1100.BackColor = System.Drawing.Color.Azure;
             this.Lbl1100.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1100.ForeColor = System.Drawing.Color.Blue;
-            this.Lbl1100.Location = new System.Drawing.Point(1379, 441);
+            this.Lbl1100.Location = new System.Drawing.Point(1386, 441);
             this.Lbl1100.Name = "Lbl1100";
             this.Lbl1100.Size = new System.Drawing.Size(42, 48);
             this.Lbl1100.TabIndex = 129;
@@ -584,7 +584,7 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.richTextBox5.BackColor = System.Drawing.Color.Azure;
             this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox5.Location = new System.Drawing.Point(1371, 423);
+            this.richTextBox5.Location = new System.Drawing.Point(1234, 423);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.Size = new System.Drawing.Size(100, 82);
             this.richTextBox5.TabIndex = 130;
@@ -596,7 +596,7 @@ namespace UserInterface.Ana_Sayfa
             this.Lbl1200.BackColor = System.Drawing.Color.Azure;
             this.Lbl1200.Font = new System.Drawing.Font("Bahnschrift", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1200.ForeColor = System.Drawing.Color.Blue;
-            this.Lbl1200.Location = new System.Drawing.Point(1521, 441);
+            this.Lbl1200.Location = new System.Drawing.Point(1520, 441);
             this.Lbl1200.Name = "Lbl1200";
             this.Lbl1200.Size = new System.Drawing.Size(42, 48);
             this.Lbl1200.TabIndex = 132;
@@ -617,33 +617,33 @@ namespace UserInterface.Ana_Sayfa
             this.label21.AutoSize = true;
             this.label21.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label21.ForeColor = System.Drawing.Color.Maroon;
-            this.label21.Location = new System.Drawing.Point(1360, 339);
+            this.label21.Location = new System.Drawing.Point(1224, 339);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(120, 48);
             this.label21.TabIndex = 137;
-            this.label21.Text = "     1100\r\nPAKETLEME";
+            this.label21.Text = "     1000\r\nPAKETLEME";
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label23.ForeColor = System.Drawing.Color.Maroon;
-            this.label23.Location = new System.Drawing.Point(1235, 339);
+            this.label23.Location = new System.Drawing.Point(1510, 339);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(99, 72);
             this.label23.TabIndex = 140;
-            this.label23.Text = "   1000\r\n SİPARİŞ\r\nKAPATMA";
+            this.label23.Text = "   1200\r\n SİPARİŞ\r\nKAPATMA";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Bahnschrift", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label25.ForeColor = System.Drawing.Color.Maroon;
-            this.label25.Location = new System.Drawing.Point(1510, 339);
+            this.label25.Location = new System.Drawing.Point(1374, 339);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(100, 48);
             this.label25.TabIndex = 143;
-            this.label25.Text = "   1200\r\nTESLİMAT";
+            this.label25.Text = "   1100\r\nTESLİMAT";
             // 
             // label27
             // 
@@ -1083,6 +1083,8 @@ namespace UserInterface.Ana_Sayfa
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 897);
+            this.Controls.Add(this.Lbl1100);
+            this.Controls.Add(this.Lbl1000);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label27);
@@ -1128,9 +1130,7 @@ namespace UserInterface.Ana_Sayfa
             this.Controls.Add(this.Lbl1200);
             this.Controls.Add(this.richTextBox6);
             this.Controls.Add(this.label17);
-            this.Controls.Add(this.Lbl1100);
             this.Controls.Add(this.richTextBox5);
-            this.Controls.Add(this.Lbl1000);
             this.Controls.Add(this.richTextBox4);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.Lbl900);

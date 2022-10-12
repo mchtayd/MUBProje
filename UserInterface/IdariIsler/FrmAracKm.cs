@@ -21,7 +21,9 @@ namespace UserInterface.IdariIsler
         AracManager aracManager;
         AracZimmetiManager aracZimmetiManager;
         SiparisPersonelManager siparisPersonelManager;
+        CokluAracManager cokluAracManager;
 
+        string siparisNo = "";
         int id;
         public FrmAracKm()
         {
@@ -30,6 +32,7 @@ namespace UserInterface.IdariIsler
             aracManager = AracManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
+            cokluAracManager = CokluAracManager.GetInstance();
         }
 
         private void FrmAracKm_Load(object sender, EventArgs e)
@@ -91,57 +94,260 @@ namespace UserInterface.IdariIsler
                 CmbSiparisNo.Text = siparis.Siparis;
                 TxtMasrafYeriSorumlusu.Text = siparis.MasrafYeriSorumlusu;
             }
-            
+
         }
         void Temizle()
         {
-            TxtPlaka.Clear(); TxtSiparisNo.Clear(); CmbDonem.SelectedIndex = -1; CmbDonemYil.SelectedIndex = -1; TxtKm.Clear(); TxtAdSoyad.Clear(); CmbSiparisNo.Clear(); TxtGorevi.Clear(); TxtMasrafyeriNo.Clear(); TxtMasrafYeri.Clear(); TxtMasrafYeriSorumlusu.Clear(); TxtMulkiyetBilgileri.Clear();
+            TxtPlaka.Clear(); TxtSiparisNo.Clear(); TxtKmBaslangic.Clear(); TxtAdSoyad.Clear(); CmbSiparisNo.Clear(); TxtGorevi.Clear(); TxtMasrafyeriNo.Clear(); TxtMasrafYeri.Clear(); TxtMasrafYeriSorumlusu.Clear(); TxtMulkiyetBilgileri.Clear(); TxtAciklama.Clear(); TxtKmBitis.Clear();
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            TarihBul();
+            if (RdbEvet.Checked == true && DtgAracList.RowCount==1)
+            {
+                MessageBox.Show("Çoklu araç kaydında lütfen iki veya daha fazla araç bilgisi ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            siparisNo = Guid.NewGuid().ToString();
+
+            if (RdbEvet.Checked == true)
+            {
+                foreach (DataGridViewRow item in DtgAracList.Rows)
+                {
+                    CokluArac cokluArac = new CokluArac(siparisNo, item.Cells["Plaka"].Value.ToString(), item.Cells["BaslangicKm"].Value.ConInt(), item.Cells["BitisK"].Value.ConInt(), item.Cells["ToplamKm"].Value.ConInt(), item.Cells["Aciklama"].Value.ToString(), item.Cells["BaslangicTarihi"].Value.ConDate(), item.Cells["BitisTarihi"].Value.ConDate());
+
+                    cokluAracManager.Add(cokluArac);
+                }
+
+                TarihBul();
+                if (TxtPlaka.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (TxtSiparisNo.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazarak Araç Bilgilerini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (TxtAdSoyad.Text == "")
+                {
+                    MessageBox.Show("Lütfen Hiç Bir Personele Zimmetli Değildir. Lütfen Öncelikle Zimmet Bilgilerini Kontrol Ediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (CmbDonem.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Ay Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (CmbDonemYil.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                KmFarkBul();
+                string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
+                string mesaj = "";
+
+                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKmBaslangic.Text.ConInt(), LblToplamKm.Text.ConInt(), sabitKm, fark, siparisNo);
+
+                mesaj = aracKmManager.Add(aracKm);
+
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+            }
+
+            else
+            {
+                TarihBul();
+                if (TxtPlaka.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (TxtSiparisNo.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazarak Araç Bilgilerini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (TxtAdSoyad.Text == "")
+                {
+                    MessageBox.Show("Lütfen Hiç Bir Personele Zimmetli Değildir. Lütfen Öncelikle Zimmet Bilgilerini Kontrol Ediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (CmbDonem.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Ay Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (CmbDonemYil.Text == "")
+                {
+                    MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                KmFarkBul();
+                string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
+                string mesaj = "";
+
+                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKmBaslangic.Text.ConInt(), toplamYapilanKm, sabitKm, fark, "");
+
+                mesaj = aracKmManager.Add(aracKm);
+
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+            }
+        }
+        int bitisKm=0, toplamYapilanKm=0, sabitKm=3500, fark=0, mevcutKm=0;
+
+        private void TxtSiparisNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtSiparisNo_KeyDown(object sender, KeyEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtAdSoyad_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void CmbSiparisNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtGorevi_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtMasrafyeriNo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtMasrafYeri_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtMasrafYeriSorumlusu_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+
+        private void TxtMulkiyetBilgileri_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
+        string Kontrol()
+        {
             if (TxtPlaka.Text=="")
             {
-                MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazınız!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
+                return "Lütfen öncelikle Plaka bilgisini doldurunuz!";
             }
-            if (TxtSiparisNo.Text == "")
+            if (TxtKmBaslangic.Text == "")
             {
-                MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazarak Araç Bilgilerini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return "Lütfen öncelikle Başlangıç Km bilgisini doldurunuz!";
             }
-            if (TxtAdSoyad.Text == "")
+            if (TxtKmBitis.Text == "")
             {
-                MessageBox.Show("Lütfen Hiç Bir Personele Zimmetli Değildir. Lütfen Öncelikle Zimmet Bilgilerini Kontrol Ediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return "Lütfen öncelikle Bitiş Km bilgisini doldurunuz!";
             }
-            if (CmbDonem.Text=="")
+            if (TxtAciklama.Text == "")
             {
-                MessageBox.Show("Lütfen Öncelikle Dönem Ay Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                return "Lütfen öncelikle Açıklama bilgisini doldurunuz!";
             }
-            if (CmbDonemYil.Text == "")
+            return "OK";
+        }
+        
+        private void BtnAracEkle_Click(object sender, EventArgs e)
+        {
+            if (DtBaslamaTarihi.Value.Day.ToString() != "1")
             {
-                MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (DtgAracList.RowCount==0)
+                {
+                    MessageBox.Show("Öncelikle ayın ilk gününden kayıt başlatınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
-            KmFarkBul();
-            string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
-            AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKm.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKm.Text.ConInt(), toplamYapilanKm, sabitKm, fark);
 
-            string mesaj = aracKmManager.Add(aracKm);
+            string mesaj = Kontrol();
 
             if (mesaj!="OK")
             {
-                MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
-            Temizle();
+            int toplamKm = TxtKmBitis.Text.ConInt() - TxtKmBaslangic.Text.ConInt();
+            DtgAracList.Rows.Add();
+            int sonSatir = DtgAracList.RowCount - 1;
+            
+            DtgAracList.Rows[sonSatir].Cells["Plaka"].Value = TxtPlaka.Text;
+            DtgAracList.Rows[sonSatir].Cells["BaslangicKm"].Value = TxtKmBaslangic.Text;
+            DtgAracList.Rows[sonSatir].Cells["BitisK"].Value = TxtKmBitis.Text;
+            DtgAracList.Rows[sonSatir].Cells["ToplamKm"].Value = toplamKm.ToString();
+            DtgAracList.Rows[sonSatir].Cells["Aciklama"].Value = TxtAciklama.Text;
+            DtgAracList.Rows[sonSatir].Cells["BaslangicTarihi"].Value = DtBaslamaTarihi.Value.ToString("dd.MM.yyyy");
+            DtgAracList.Rows[sonSatir].Cells["BitisTarihi"].Value = DtgBitisTarihi.Value.ToString("dd.MM.yyyy");
+
+            Toplamlar();
+            //EkleTemizle();
 
         }
-        int bitisKm=0, toplamYapilanKm=0, sabitKm=3500, fark=0, mevcutKm=0;
+        void EkleTemizle()
+        {
+            TxtPlaka.Clear(); TxtSiparisNo.Clear(); CmbSiparisNo.Clear(); TxtGorevi.Clear(); TxtMasrafyeriNo.Clear(); TxtMasrafYeri.Clear();
+            TxtMasrafYeriSorumlusu.Clear(); TxtMulkiyetBilgileri.Clear(); TxtAciklama.Clear(); TxtKmBaslangic.Clear(); TxtKmBitis.Clear();
+        }
+        void Toplamlar()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgAracList.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgAracList.Rows[i].Cells[5].Value);
+            }
+            LblToplamKm.Text = toplam.ToString();
+        }
+
+        private void RdbEvet_CheckedChanged(object sender, EventArgs e)
+        {
+            if (RdbEvet.Checked==true)
+            {
+                BtnAracEkle.Visible = true;
+                GrbAracList.Visible = true;
+                TxtAciklama.Visible = true;
+                LblAciklama.Visible = true;
+                LblTop.Visible = true;
+                LblToplamKm.Visible = true;
+                BtnKaydet.Location = new Point(527, 445);
+            }
+            if (RdbEvet.Checked == false)
+            {
+                BtnAracEkle.Visible = false;
+                GrbAracList.Visible = false; //162; 544
+                TxtAciklama.Visible = false;
+                LblAciklama.Visible = false;
+                LblTop.Visible = false;
+                LblToplamKm.Visible = false;
+                BtnKaydet.Location = new Point(161, 544);
+            }
+        }
+
         DateTime aysonu;
 
         void TarihBul()
@@ -161,7 +367,7 @@ namespace UserInterface.IdariIsler
                 mevcutKm = 0;
             }
 
-            toplamYapilanKm = TxtKm.Text.ConInt() - mevcutKm;
+            toplamYapilanKm = TxtKmBaslangic.Text.ConInt() - mevcutKm;
 
             fark = toplamYapilanKm - sabitKm;
 

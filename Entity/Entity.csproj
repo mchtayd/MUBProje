@@ -100,6 +100,7 @@
     <Compile Include="IdariIsler\AracZimmetiLog.cs" />
     <Compile Include="IdariIsler\ArsivTutanak.cs" />
     <Compile Include="IdariIsler\ButceKodu.cs" />
+    <Compile Include="IdariIsler\CokluArac.cs" />
     <Compile Include="IdariIsler\DuranVarlikKayit.cs" />
     <Compile Include="IdariIsler\DuranVarlikSonuc.cs" />
     <Compile Include="IdariIsler\DvNo.cs" />

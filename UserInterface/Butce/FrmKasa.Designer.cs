@@ -30,7 +30,7 @@ namespace UserInterface.Butce
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -79,6 +79,8 @@ namespace UserInterface.Butce
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.TxtHesapNo = new System.Windows.Forms.TextBox();
+            this.TxtHesabSahibi = new System.Windows.Forms.ComboBox();
             this.BtnBul = new System.Windows.Forms.Button();
             this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
@@ -122,8 +124,6 @@ namespace UserInterface.Butce
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
-            this.TxtHesabSahibi = new System.Windows.Forms.ComboBox();
-            this.TxtHesapNo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -421,8 +421,8 @@ namespace UserInterface.Butce
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -661,6 +661,23 @@ namespace UserInterface.Butce
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "ALINAN İŞ AVANSLARI";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // TxtHesapNo
+            // 
+            this.TxtHesapNo.Location = new System.Drawing.Point(163, 185);
+            this.TxtHesapNo.Name = "TxtHesapNo";
+            this.TxtHesapNo.Size = new System.Drawing.Size(242, 21);
+            this.TxtHesapNo.TabIndex = 354;
+            // 
+            // TxtHesabSahibi
+            // 
+            this.TxtHesabSahibi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtHesabSahibi.FormattingEnabled = true;
+            this.TxtHesabSahibi.Location = new System.Drawing.Point(163, 156);
+            this.TxtHesabSahibi.Name = "TxtHesabSahibi";
+            this.TxtHesabSahibi.Size = new System.Drawing.Size(242, 23);
+            this.TxtHesabSahibi.TabIndex = 353;
+            this.TxtHesabSahibi.SelectedIndexChanged += new System.EventHandler(this.TxtHesabSahibi_SelectedIndexChanged);
             // 
             // BtnBul
             // 
@@ -1020,23 +1037,6 @@ namespace UserInterface.Butce
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // TxtHesabSahibi
-            // 
-            this.TxtHesabSahibi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.TxtHesabSahibi.FormattingEnabled = true;
-            this.TxtHesabSahibi.Location = new System.Drawing.Point(163, 156);
-            this.TxtHesabSahibi.Name = "TxtHesabSahibi";
-            this.TxtHesabSahibi.Size = new System.Drawing.Size(242, 23);
-            this.TxtHesabSahibi.TabIndex = 353;
-            this.TxtHesabSahibi.SelectedIndexChanged += new System.EventHandler(this.TxtHesabSahibi_SelectedIndexChanged);
-            // 
-            // TxtHesapNo
-            // 
-            this.TxtHesapNo.Location = new System.Drawing.Point(163, 185);
-            this.TxtHesapNo.Name = "TxtHesapNo";
-            this.TxtHesapNo.Size = new System.Drawing.Size(242, 21);
-            this.TxtHesapNo.TabIndex = 354;
             // 
             // FrmKasa
             // 

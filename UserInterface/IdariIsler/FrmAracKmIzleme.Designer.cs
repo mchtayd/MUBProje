@@ -31,6 +31,7 @@ namespace UserInterface.IdariIsler
         {
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtPlaka = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -41,6 +42,7 @@ namespace UserInterface.IdariIsler
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
             this.F = new System.Windows.Forms.Label();
+            this.Detay = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -95,8 +97,10 @@ namespace UserInterface.IdariIsler
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
-            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Detay});
             this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgList.DateWithTime = false;
             this.DtgList.Location = new System.Drawing.Point(12, 87);
@@ -150,6 +154,17 @@ namespace UserInterface.IdariIsler
             this.F.TabIndex = 347;
             this.F.Text = "00";
             // 
+            // Detay
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            this.Detay.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Detay.HeaderText = "DETAY GÖR";
+            this.Detay.MinimumWidth = 22;
+            this.Detay.Name = "Detay";
+            this.Detay.ReadOnly = true;
+            this.Detay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
             // FrmAracKmIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,5 +201,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label F;
+        private System.Windows.Forms.DataGridViewButtonColumn Detay;
     }
 }
