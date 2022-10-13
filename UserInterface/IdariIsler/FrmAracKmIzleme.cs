@@ -20,6 +20,8 @@ namespace UserInterface.IdariIsler
 
         List<AracKm> aracKms = new List<AracKm>();
         List<AracKm> aracKmsFiltired = new List<AracKm>();
+
+        string siparisNo = "";
         public FrmAracKmIzleme()
         {
             InitializeComponent();
@@ -29,6 +31,9 @@ namespace UserInterface.IdariIsler
         private void FrmAracKmIzleme_Load(object sender, EventArgs e)
         {
             DataDisplay();
+            ToplamlarKm();
+            ToplamlarSabit();
+            ToplamlarFark();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -49,6 +54,9 @@ namespace UserInterface.IdariIsler
         public void Yenilenecekler()
         {
             DataDisplay();
+            ToplamlarKm();
+            ToplamlarSabit();
+            ToplamlarFark();
         }
         void DataDisplay()
         {
@@ -86,27 +94,65 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["PerMasYeri"].Visible = false;
             DtgList.Columns["PersMasYerSorumlusu"].Visible = false;
             DtgList.Columns["AracMulkiyet"].Visible = false;
+            DtgList.Columns["Siparis"].Visible = false;
 
-            foreach (AracKm item in aracKms)
+            foreach (DataGridViewRow item in DtgList.Rows)
             {
-                if (item.Siparis!="")
+                
+                if (item.Cells["Siparis"].Value.ToString() != "")
                 {
+                    item.DefaultCellStyle.BackColor = Color.Red;
                     DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Detay"];
-                    c.FlatStyle = FlatStyle.Popup;
-                    c.DefaultCellStyle.ForeColor = Color.Red;
-                    c.DefaultCellStyle.BackColor = Color.Red;
-                }
-                else
-                {
-                    DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Detay"];
-                    c.FlatStyle = FlatStyle.Popup;
-                    c.DefaultCellStyle.ForeColor = Color.Red;
-                    c.DefaultCellStyle.BackColor = Color.White;
+                    c.Text = "DENEME";
                 }
             }
 
-            
 
+            //foreach (AracKm item in aracKms)
+            //{
+            //    if (item.Siparis!="")
+            //    {
+            //        DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Detay"];
+            //        c.FlatStyle = FlatStyle.Popup;
+            //        c.DefaultCellStyle.ForeColor = Color.Red;
+            //        c.DefaultCellStyle.BackColor = Color.Red;
+            //    }
+            //    else
+            //    {
+            //        DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Detay"];
+            //        c.FlatStyle = FlatStyle.Popup;
+            //        c.DefaultCellStyle.ForeColor = Color.Red;
+            //        c.DefaultCellStyle.BackColor = Color.White;
+            //    }
+            //}
+
+        }
+        void ToplamlarKm()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgList.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgList.Rows[i].Cells["ToplamYapilanKm"].Value);
+            }
+            TxtKm.Text = toplam.ToString();
+        }
+        void ToplamlarSabit()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgList.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgList.Rows[i].Cells["SabitKm"].Value);
+            }
+            LblSabitToplam.Text = toplam.ToString();
+        }
+        void ToplamlarFark()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgList.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgList.Rows[i].Cells["Fark"].Value);
+            }
+            LblFark.Text = toplam.ToString();
         }
 
         private void TxtPlaka_TextChanged(object sender, EventArgs e)
@@ -134,6 +180,9 @@ namespace UserInterface.IdariIsler
         {
             dataBinder.Filter = DtgList.FilterString;
             TxtTop.Text = DtgList.RowCount.ToString();
+            ToplamlarKm();
+            ToplamlarSabit();
+            ToplamlarFark();
         }
 
         private void DtgList_SortStringChanged(object sender, EventArgs e)
@@ -141,5 +190,33 @@ namespace UserInterface.IdariIsler
             dataBinder.Sort = DtgList.SortString;
         }
 
+        private void DtgList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                FrmCokluArac frmCokluKm = new FrmCokluArac();
+                frmCokluKm.siparisNo = siparisNo;
+                frmCokluKm.ShowDialog();
+            }
+        }
+
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            siparisNo = DtgList.CurrentRow.Cells["Siparis"].Value.ToString();
+
+            foreach (DataGridViewRow item in DtgList.Rows)
+            {
+
+                if (item.Cells["Siparis"].Value.ToString() != "")
+                {
+                    item.DefaultCellStyle.BackColor = Color.Red;
+                    DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Detay"];
+                    c.Text = "DENEME";
+                }
+            }
+
+        }
     }
 }

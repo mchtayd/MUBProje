@@ -22,6 +22,7 @@ namespace UserInterface.IdariIsler
         AracZimmetiManager aracZimmetiManager;
         SiparisPersonelManager siparisPersonelManager;
         CokluAracManager cokluAracManager;
+        IstenAyrilisManager ıstenAyrilisManager;
 
         string siparisNo = "";
         int id;
@@ -33,6 +34,7 @@ namespace UserInterface.IdariIsler
             aracZimmetiManager = AracZimmetiManager.GetInstance();
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
             cokluAracManager = CokluAracManager.GetInstance();
+            ıstenAyrilisManager = IstenAyrilisManager.GetInstance();
         }
 
         private void FrmAracKm_Load(object sender, EventArgs e)
@@ -88,6 +90,26 @@ namespace UserInterface.IdariIsler
                 TxtAdSoyad.Text = aracZimmeti.PersonelAd;
 
                 SiparisPersonel siparis = siparisPersonelManager.Get("", TxtAdSoyad.Text);
+                if (siparis==null)
+                {
+                    DialogResult dr = MessageBox.Show("Aracın zimmetli olduğu " + TxtAdSoyad.Text + " adlı personel işten ayrılmıştır. Lütfen aracın zimmet işlemlerini tamamlayınız!\nİşleme " + TxtAdSoyad.Text + " isimli personel kaydı üzerinden devam edilecektir. Onaylıyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr==DialogResult.Yes)
+                    {
+                        IstenAyrilis ıstenAyrilis = ıstenAyrilisManager.Get(TxtAdSoyad.Text);
+                        TxtMasrafyeriNo.Text = ıstenAyrilis.Masyerino;
+                        TxtMasrafYeri.Text = ıstenAyrilis.Masrafyeri;
+                        TxtGorevi.Text = ıstenAyrilis.Isunvani;
+                        CmbSiparisNo.Text = ıstenAyrilis.Siparis;
+                        TxtMasrafYeriSorumlusu.Text = "RESUL GÜNEŞ";
+                        return;
+                    }
+                    else
+                    {
+                        Temizle();
+                        return;
+                    }
+                }
+
                 TxtMasrafyeriNo.Text = siparis.Masrafyerino;
                 TxtMasrafYeri.Text = siparis.Masrafyeri;
                 TxtGorevi.Text = siparis.Gorevi;
@@ -145,11 +167,11 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                KmFarkBul();
+                KmFarkBulCoklu();
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 string mesaj = "";
 
-                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKmBaslangic.Text.ConInt(), LblToplamKm.Text.ConInt(), sabitKm, fark, siparisNo);
+                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKmBitis.Text.ConInt(), LblToplamKm.Text.ConInt(), sabitKm, fark, siparisNo);
 
                 mesaj = aracKmManager.Add(aracKm);
 
@@ -159,6 +181,8 @@ namespace UserInterface.IdariIsler
                     return;
                 }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DtgAracList.Rows.Clear();
+                LblToplamKm.Text = "00";
                 Temizle();
             }
 
@@ -194,7 +218,7 @@ namespace UserInterface.IdariIsler
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 string mesaj = "";
 
-                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKmBaslangic.Text.ConInt(), toplamYapilanKm, sabitKm, fark, "");
+                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKmBitis.Text.ConInt(), toplamYapilanKm, sabitKm, fark, "");
 
                 mesaj = aracKmManager.Add(aracKm);
 
@@ -339,7 +363,7 @@ namespace UserInterface.IdariIsler
             if (RdbEvet.Checked == false)
             {
                 BtnAracEkle.Visible = false;
-                GrbAracList.Visible = false; //162; 544
+                GrbAracList.Visible = false;
                 TxtAciklama.Visible = false;
                 LblAciklama.Visible = false;
                 LblTop.Visible = false;
@@ -356,18 +380,15 @@ namespace UserInterface.IdariIsler
         }
         void KmFarkBul()
         {
-            AracKm aracKm = aracKmManager.Get(TxtPlaka.Text);
 
-            if (aracKm!=null)
-            {
-                mevcutKm = aracKm.BaslangicKm;
-            }
-            else
-            {
-                mevcutKm = 0;
-            }
+            toplamYapilanKm = TxtKmBitis.Text.ConInt() - TxtKmBaslangic.Text.ConInt();
 
-            toplamYapilanKm = TxtKmBaslangic.Text.ConInt() - mevcutKm;
+            fark = toplamYapilanKm - sabitKm;
+
+        }
+        void KmFarkBulCoklu()
+        {
+            toplamYapilanKm = TxtKmBitis.Text.ConInt() - LblToplamKm.Text.ConInt();
 
             fark = toplamYapilanKm - sabitKm;
 

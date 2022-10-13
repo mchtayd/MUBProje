@@ -54,12 +54,12 @@ namespace DataAccess.Concreate.IdariIsler
             throw new NotImplementedException();
         }
 
-        public List<CokluArac> GetList(int benzersizId)
+        public List<CokluArac> GetList(string siparisNo)
         {
             try
             {
                 List<CokluArac> cokluAracs = new List<CokluArac>();
-                dataReader = sqlServices.StoreReader("CokuAracListGoster", new SqlParameter("@benzersizId", benzersizId));
+                dataReader = sqlServices.StoreReader("CokuAracListGoster", new SqlParameter("@siparisNo", siparisNo));
                 while (dataReader.Read())
                 {
                     cokluAracs.Add(new CokluArac(

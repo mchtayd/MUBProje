@@ -40,11 +40,11 @@ namespace Business.Concreate.IdarıIsler
             throw new NotImplementedException();
         }
 
-        public List<CokluArac> GetList(int benzersizId)
+        public List<CokluArac> GetList(string siparisNo)
         {
             try
             {
-                return cokluAracDal.GetList(benzersizId);
+                return cokluAracDal.GetList(siparisNo);
             }
             catch (Exception)
             {

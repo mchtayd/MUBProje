@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>426</ApplicationRevision>
+    <ApplicationRevision>427</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -693,6 +693,12 @@
     </Compile>
     <Compile Include="IdariIsler\FrmButceKoduKalemiDuzenle.Designer.cs">
       <DependentUpon>FrmButceKoduKalemiDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmCokluArac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmCokluArac.Designer.cs">
+      <DependentUpon>FrmCokluArac.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmCokluKonaklama.cs">
       <SubType>Form</SubType>
@@ -1406,6 +1412,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmButceKoduKalemiDuzenle.resx">
       <DependentUpon>FrmButceKoduKalemiDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmCokluArac.resx">
+      <DependentUpon>FrmCokluArac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmCokluKonaklama.resx">
       <DependentUpon>FrmCokluKonaklama.cs</DependentUpon>

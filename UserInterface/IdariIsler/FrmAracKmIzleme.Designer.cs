@@ -39,10 +39,14 @@ namespace UserInterface.IdariIsler
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
-            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label2 = new System.Windows.Forms.Label();
-            this.F = new System.Windows.Forms.Label();
+            this.TxtKm = new System.Windows.Forms.Label();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.Detay = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblSabitToplam = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LblFark = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -104,7 +108,6 @@ namespace UserInterface.IdariIsler
             this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgList.DateWithTime = false;
             this.DtgList.Location = new System.Drawing.Point(12, 87);
-            this.DtgList.MultiSelect = false;
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -113,6 +116,8 @@ namespace UserInterface.IdariIsler
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // label31
             // 
@@ -138,40 +143,85 @@ namespace UserInterface.IdariIsler
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(250, 708);
+            this.label2.Location = new System.Drawing.Point(241, 708);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(94, 15);
+            this.label2.Size = new System.Drawing.Size(136, 15);
             this.label2.TabIndex = 346;
-            this.label2.Text = "Toplam Kayıt:";
+            this.label2.Text = "Toplam Yapılan Km:";
             // 
-            // F
+            // TxtKm
             // 
-            this.F.AutoSize = true;
-            this.F.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.F.Location = new System.Drawing.Point(350, 708);
-            this.F.Name = "F";
-            this.F.Size = new System.Drawing.Size(21, 15);
-            this.F.TabIndex = 347;
-            this.F.Text = "00";
+            this.TxtKm.AutoSize = true;
+            this.TxtKm.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKm.Location = new System.Drawing.Point(383, 708);
+            this.TxtKm.Name = "TxtKm";
+            this.TxtKm.Size = new System.Drawing.Size(21, 15);
+            this.TxtKm.TabIndex = 347;
+            this.TxtKm.Text = "00";
             // 
             // Detay
             // 
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
             this.Detay.DefaultCellStyle = dataGridViewCellStyle2;
             this.Detay.HeaderText = "DETAY GÖR";
             this.Detay.MinimumWidth = 22;
             this.Detay.Name = "Detay";
             this.Detay.ReadOnly = true;
             this.Detay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Detay.Text = "!";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(565, 708);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(121, 15);
+            this.label3.TabIndex = 348;
+            this.label3.Text = "Toplam Sabit Km:";
+            // 
+            // LblSabitToplam
+            // 
+            this.LblSabitToplam.AutoSize = true;
+            this.LblSabitToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblSabitToplam.Location = new System.Drawing.Point(692, 708);
+            this.LblSabitToplam.Name = "LblSabitToplam";
+            this.LblSabitToplam.Size = new System.Drawing.Size(21, 15);
+            this.LblSabitToplam.TabIndex = 349;
+            this.LblSabitToplam.Text = "00";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(861, 708);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(116, 15);
+            this.label5.TabIndex = 350;
+            this.label5.Text = "Toplam Fark Km:";
+            // 
+            // LblFark
+            // 
+            this.LblFark.AutoSize = true;
+            this.LblFark.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblFark.Location = new System.Drawing.Point(983, 708);
+            this.LblFark.Name = "LblFark";
+            this.LblFark.Size = new System.Drawing.Size(21, 15);
+            this.LblFark.TabIndex = 351;
+            this.LblFark.Text = "00";
             // 
             // FrmAracKmIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1460, 732);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.LblFark);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LblSabitToplam);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.F);
+            this.Controls.Add(this.TxtKm);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.DtgList);
@@ -200,7 +250,11 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label F;
+        private System.Windows.Forms.Label TxtKm;
         private System.Windows.Forms.DataGridViewButtonColumn Detay;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblSabitToplam;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblFark;
     }
 }
