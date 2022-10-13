@@ -41,6 +41,7 @@ namespace UserInterface.IdariIsler
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CmbSiparisler = new System.Windows.Forms.TextBox();
             this.TxtGorevi = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.DtBitSaati = new System.Windows.Forms.DateTimePicker();
@@ -54,11 +55,11 @@ namespace UserInterface.IdariIsler
             this.label12 = new System.Windows.Forms.Label();
             this.TxtIzinNedeni = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.CmbPersonel = new System.Windows.Forms.ComboBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.CmbPersonel = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.CmbIzınTuru = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -76,6 +77,7 @@ namespace UserInterface.IdariIsler
             this.BtnBul = new System.Windows.Forms.Button();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CmbSiparis = new System.Windows.Forms.TextBox();
             this.DtBitisSaati = new System.Windows.Forms.DateTimePicker();
             this.DtBaslamaSaati = new System.Windows.Forms.DateTimePicker();
             this.label26 = new System.Windows.Forms.Label();
@@ -90,10 +92,10 @@ namespace UserInterface.IdariIsler
             this.TxtNedeni = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
             this.CmbAd = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.CmbTuru = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
@@ -104,8 +106,7 @@ namespace UserInterface.IdariIsler
             this.BtnCancel = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.CmbSiparisler = new System.Windows.Forms.TextBox();
-            this.CmbSiparis = new System.Windows.Forms.TextBox();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.BtnGuncelle.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -128,6 +129,7 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.BtnDosyaEkle);
             this.tabPage1.Controls.Add(this.CmbDokumanTuru);
@@ -276,6 +278,13 @@ namespace UserInterface.IdariIsler
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "İZİN TALEBİNDE BULUNAN PERSONEL BİLGİLERİ";
             // 
+            // CmbSiparisler
+            // 
+            this.CmbSiparisler.Location = new System.Drawing.Point(138, 77);
+            this.CmbSiparisler.Name = "CmbSiparisler";
+            this.CmbSiparisler.Size = new System.Drawing.Size(227, 20);
+            this.CmbSiparisler.TabIndex = 35;
+            // 
             // TxtGorevi
             // 
             this.TxtGorevi.Location = new System.Drawing.Point(138, 104);
@@ -381,6 +390,24 @@ namespace UserInterface.IdariIsler
             this.label10.TabIndex = 20;
             this.label10.Text = "İZİN BİTİŞ TARİHİ:";
             // 
+            // CmbPersonel
+            // 
+            this.CmbPersonel.FormattingEnabled = true;
+            this.CmbPersonel.Location = new System.Drawing.Point(138, 50);
+            this.CmbPersonel.Name = "CmbPersonel";
+            this.CmbPersonel.Size = new System.Drawing.Size(227, 21);
+            this.CmbPersonel.TabIndex = 9;
+            this.CmbPersonel.SelectedIndexChanged += new System.EventHandler(this.CmbPersonel_SelectedIndexChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(67, 54);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 13);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "AD SOYAD:";
+            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -408,24 +435,6 @@ namespace UserInterface.IdariIsler
             this.label6.TabIndex = 12;
             this.label6.Text = "MASRAF YERİ NO:";
             // 
-            // CmbPersonel
-            // 
-            this.CmbPersonel.FormattingEnabled = true;
-            this.CmbPersonel.Location = new System.Drawing.Point(138, 50);
-            this.CmbPersonel.Name = "CmbPersonel";
-            this.CmbPersonel.Size = new System.Drawing.Size(227, 21);
-            this.CmbPersonel.TabIndex = 9;
-            this.CmbPersonel.SelectedIndexChanged += new System.EventHandler(this.CmbPersonel_SelectedIndexChanged);
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(67, 54);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(65, 13);
-            this.label4.TabIndex = 8;
-            this.label4.Text = "AD SOYAD:";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -444,7 +453,8 @@ namespace UserInterface.IdariIsler
             "DOĞUM İZNİ",
             "EVLİLİK İZNİ",
             "ÖLÜM İZNİ",
-            "RAPOR"});
+            "RAPOR",
+            "HAFTALIK İZİN"});
             this.CmbIzınTuru.Location = new System.Drawing.Point(138, 85);
             this.CmbIzınTuru.Name = "CmbIzınTuru";
             this.CmbIzınTuru.Size = new System.Drawing.Size(227, 21);
@@ -640,6 +650,13 @@ namespace UserInterface.IdariIsler
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İZİN TALEBİNDE BULUNAN PERSONEL BİLGİLERİ";
             // 
+            // CmbSiparis
+            // 
+            this.CmbSiparis.Location = new System.Drawing.Point(138, 78);
+            this.CmbSiparis.Name = "CmbSiparis";
+            this.CmbSiparis.Size = new System.Drawing.Size(227, 20);
+            this.CmbSiparis.TabIndex = 41;
+            // 
             // DtBitisSaati
             // 
             this.DtBitisSaati.Format = System.Windows.Forms.DateTimePickerFormat.Time;
@@ -754,24 +771,6 @@ namespace UserInterface.IdariIsler
             this.label17.TabIndex = 16;
             this.label17.Text = "İZİN BAŞLAMA TARİHİ:";
             // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(76, 160);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 13);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "BÖLÜMÜ:";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(31, 133);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(101, 13);
-            this.label19.TabIndex = 12;
-            this.label19.Text = "MASRAF YERİ NO:";
-            // 
             // CmbAd
             // 
             this.CmbAd.FormattingEnabled = true;
@@ -789,6 +788,24 @@ namespace UserInterface.IdariIsler
             this.label21.Size = new System.Drawing.Size(65, 13);
             this.label21.TabIndex = 8;
             this.label21.Text = "AD SOYAD:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(76, 160);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(56, 13);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "BÖLÜMÜ:";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(31, 133);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(101, 13);
+            this.label19.TabIndex = 12;
+            this.label19.Text = "MASRAF YERİ NO:";
             // 
             // label22
             // 
@@ -886,19 +903,14 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // CmbSiparisler
+            // groupBox5
             // 
-            this.CmbSiparisler.Location = new System.Drawing.Point(138, 77);
-            this.CmbSiparisler.Name = "CmbSiparisler";
-            this.CmbSiparisler.Size = new System.Drawing.Size(227, 20);
-            this.CmbSiparisler.TabIndex = 35;
-            // 
-            // CmbSiparis
-            // 
-            this.CmbSiparis.Location = new System.Drawing.Point(138, 78);
-            this.CmbSiparis.Name = "CmbSiparis";
-            this.CmbSiparis.Size = new System.Drawing.Size(227, 20);
-            this.CmbSiparis.TabIndex = 41;
+            this.groupBox5.Location = new System.Drawing.Point(22, 426);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(571, 246);
+            this.groupBox5.TabIndex = 341;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "PERSONEL BİLGİLERİ";
             // 
             // FrmIzin
             // 
@@ -1006,5 +1018,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.TextBox CmbSiparisler;
         private System.Windows.Forms.TextBox CmbSiparis;
+        private System.Windows.Forms.GroupBox groupBox5;
     }
 }

@@ -766,6 +766,12 @@
     <Compile Include="IdariIsler\FrmGecmisKayit.Designer.cs">
       <DependentUpon>FrmGecmisKayit.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmGiysiTalep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmGiysiTalep.Designer.cs">
+      <DependentUpon>FrmGiysiTalep.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmHarcamaBeyannamesi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1448,6 +1454,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmGecmisKayit.resx">
       <DependentUpon>FrmGecmisKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmGiysiTalep.resx">
+      <DependentUpon>FrmGiysiTalep.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmHarcamaBeyannamesi.resx">
       <DependentUpon>FrmHarcamaBeyannamesi.cs</DependentUpon>

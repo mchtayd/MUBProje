@@ -2880,6 +2880,16 @@ namespace UserInterface.STS
                 OpenTabPage("PageYolDurumlariIzleme", "BÖLGE YOL DURUMLARI İZLEME", Go);
                 Go.Show();
             }
+            if (e.Node.Text == "Malzeme İstek Formu")
+            {
+                FrmGiysiTalep Go = new FrmGiysiTalep();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageGiysiTalep", "MİF", Go);
+                Go.Show();
+            }
 
             /////////////////////////////////////////////////DÖKÜMAN YÖNETİM SİSTEMİ/////////////////////////////////////////////////////////
 
