@@ -24,12 +24,14 @@ namespace UserInterface.Butce
         ComboManager comboManager;
         PersonelKayitManager personelKayitManager;
         SiparislerPersonelManager siparislerPersonelManager;
+        SiparislerAracManager siparislerAracManager;
         AracZimmetiManager aracZimmetiManager;
+        AracManager aracManager;
 
         Siparisler siparisler;
         List<Siparisler> siparislers;
         List<Siparisler> siparislers2;
-        int ids, TOPLAMPERSONEL, TOPLAMARAC, yoneticiarac, araziarac, personelyonetici, personel, personeldepo, kontenjan, mevcut, siparisNereyeKontenjan;
+        int ids, TOPLAMPERSONEL, TOPLAMARAC, yoneticiarac, araziarac, personelyonetici, personel, personeldepo, kontenjan, mevcut;
         string benzersizgelen, benzersizolustur, SİPARİSNO, yil, neredenSiparis = "", nereyeSiparis = "";
         bool start = false;
         public FrmSiparisler()
@@ -40,6 +42,8 @@ namespace UserInterface.Butce
             personelKayitManager = PersonelKayitManager.GetInstance();
             siparislerPersonelManager = SiparislerPersonelManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
+            siparislerAracManager = SiparislerAracManager.GetInstance();
+            aracManager = AracManager.GetInstance();
         }
 
         private void FrmSiparisler_Load(object sender, EventArgs e)
@@ -739,7 +743,23 @@ namespace UserInterface.Butce
 
             if (CmbAktarilacak.Text == "ARAÇ")
             {
+                DialogResult dr = MessageBox.Show(CmbSiparisNereden.Text + " Nolu Sipariş Numarasında ki " + LblNeredenToplam.Text + " Aracın Sipariş Numarası " + CmbSiparisNereye.Text + " Nolu Siparişe Aktarılacaktir! Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+                if (dr==DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow item in DtgNereye.Rows)
+                    {
+                        SiparislerArac siparislerArac = new SiparislerArac(item.Cells["Plaka"].Value.ToString(), item.Cells["MulkiyetBilgileri"].Value.ToString(), item.Cells["Bolum"].Value.ToString(), item.Cells["ZimmetliPersonel"].Value.ToString(), item.Cells["MasrafYeriSorumlusu"].Value.ToString(), "PROJE İÇİ", neredenSiparis, DateTime.Now);
+
+                        string control = siparislerAracManager.Add(siparislerArac);
+                        aracManager.SiparisGuncelle(item.Cells["Plaka"].Value.ToString(), nereyeSiparis);
+                        if (control != "OK")
+                        {
+                            MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+                }
             }
 
             MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

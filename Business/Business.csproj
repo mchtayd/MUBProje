@@ -68,6 +68,7 @@
     <Compile Include="Concreate\Butce\IsAvansTalepManager.cs" />
     <Compile Include="Concreate\Butce\KasaDurumManager.cs" />
     <Compile Include="Concreate\Butce\KasaManager.cs" />
+    <Compile Include="Concreate\Butce\SiparislerAracManager.cs" />
     <Compile Include="Concreate\Butce\SiparislerPersonelManager.cs" />
     <Compile Include="Concreate\Depo\AmbarManager.cs" />
     <Compile Include="Concreate\Depo\CayOcagiManager.cs" />

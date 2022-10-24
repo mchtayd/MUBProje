@@ -100,6 +100,20 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
+
+        public string SiparisGuncelle(string plaka, string siparis)
+        {
+            try
+            {
+                
+                return aracDal.SiparisGuncelle(plaka, siparis);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string Kapatma(Arac entity, int id)
         {
             try

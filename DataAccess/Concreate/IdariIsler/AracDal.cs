@@ -209,7 +209,22 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<Arac>();
             }
         }
-        
+
+        public string SiparisGuncelle(string plaka,string siparis)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SiparisleriGuncelleArac",
+                    new SqlParameter("@plaka", plaka),
+                    new SqlParameter("@siparisNo", siparis));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Update(Arac entity,int id)
         {

@@ -96,6 +96,7 @@
     <Compile Include="Concreate\Butce\IsAvansTalepDal.cs" />
     <Compile Include="Concreate\Butce\KasaDal.cs" />
     <Compile Include="Concreate\Butce\KasaDurumDal.cs" />
+    <Compile Include="Concreate\Butce\SiparislerAracDal.cs" />
     <Compile Include="Concreate\Butce\SiparislerPersonelDal.cs" />
     <Compile Include="Concreate\Depo\AmbarDal.cs" />
     <Compile Include="Concreate\Depo\CayOcagiDal.cs" />
