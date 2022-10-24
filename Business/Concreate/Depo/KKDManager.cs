@@ -62,6 +62,17 @@ namespace DataAccess.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoKKD GetTanim(string tanim)
+        {
+            try
+            {
+                return kKDDal.GetTanim(tanim);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoKKD> GetList(int id=0)
         {

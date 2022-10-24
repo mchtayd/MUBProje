@@ -1,4 +1,5 @@
-﻿using Business.Concreate.Depo;
+﻿using Business;
+using Business.Concreate.Depo;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
 using DataAccess.Concreate.Depo;
@@ -28,7 +29,15 @@ namespace UserInterface.Depo
         KirtasiyeManager kirtasiyeManager;
         KKDManager kKDManager;
         TemizlikUrunleriManager temizlikUrunleriManager;
+        ComboManager comboManager;
         bool start = true;
+        string yeniStok = "";
+        string yeniSayiTxt = "";
+        string[] array2;
+        int sayac;
+        int yeniSayi;
+        string[] array;
+        string sonKayitStok;
         public FrmMalzemeKayitDestekDepo()
         {
             InitializeComponent();
@@ -41,11 +50,19 @@ namespace UserInterface.Depo
             kirtasiyeManager = KirtasiyeManager.GetInstance();
             kKDManager = KKDManager.GetInstance();
             temizlikUrunleriManager = TemizlikUrunleriManager.GetInstance();
+            comboManager = ComboManager.GetInstance();
         }
 
         private void FrmMalzemeKayitDestekDepo_Load(object sender, EventArgs e)
         {
-
+            MalzemeKtegorisi();
+        }
+        public void MalzemeKtegorisi()
+        {
+            CmbMalzemeTuru.DataSource = comboManager.GetList("MALZEME_KATEGORISI");
+            CmbMalzemeTuru.ValueMember = "Id";
+            CmbMalzemeTuru.DisplayMember = "Baslik";
+            CmbMalzemeTuru.SelectedValue = 0;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -164,6 +181,18 @@ namespace UserInterface.Depo
                     MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     Temizle();
                 }
+                if (CmbMalzemeTuru.Text == "SARF MALZEME (DEPO)")
+                {
+                    //DestekDepoTemizlikUrunleri temizlikUrunleri = new DestekDepoTemizlikUrunleri(CmbStokNo.Text, TxtTanim.Text, TxtBirim.Text);
+                    //string mesaj = temizlikUrunleriManager.Add(temizlikUrunleri);
+                    //if (mesaj != "OK")
+                    //{
+                    //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    return;
+                    //}
+                    //MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Temizle();
+                }
             }
             
             /*IXLWorkbook workbook = new XLWorkbook(@"C:\Users\MAYıldırım\Desktop\Kopya DESTEK DEPO ÜRÜN KATALOĞU.xlsx");
@@ -186,13 +215,12 @@ namespace UserInterface.Depo
         int id;
         private void CmbMalzemeTuru_SelectedIndexChanged(object sender, EventArgs e)//bilgisayarmuhendisligi.sek@mersin.edu.tr
         {
-            index = CmbMalzemeTuru.SelectedIndex;
+            //index = CmbMalzemeTuru.SelectedIndex;
             StokCek();
         }
         void StokCek()
         {
-
-            if (index == 1)
+            if (CmbMalzemeTuru.Text == "AMBAR")
             {
                 CmbStokNo.DataSource = ambarManager.GetList();
                 CmbStokNo.ValueMember = "Id";
@@ -200,7 +228,7 @@ namespace UserInterface.Depo
                 CmbStokNo.SelectedValue = 0;
                 start = false;
             }
-            if (index == 2)
+            if (CmbMalzemeTuru.Text == "ÇAY OCAĞI")
             {
                 CmbStokNo.DataSource = cayOcagiManager.GetList();
                 CmbStokNo.ValueMember = "Id";
@@ -208,7 +236,7 @@ namespace UserInterface.Depo
                 CmbStokNo.SelectedValue = 0;
                 start = false;
             }
-            if (index == 3)
+            if (CmbMalzemeTuru.Text == "EL ALETLERİ")
             {
                 CmbStokNo.DataSource = elAletleriManager.GetList();
                 CmbStokNo.ValueMember = "Id";
@@ -216,7 +244,7 @@ namespace UserInterface.Depo
                 CmbStokNo.SelectedValue = 0;
                 start = false;
             }
-            if (index == 4)
+            if (CmbMalzemeTuru.Text == "İŞ GİYSİ")
             {
                 CmbStokNo.DataSource = isGiysiManager.GetList();
                 CmbStokNo.ValueMember = "Id";
@@ -224,7 +252,7 @@ namespace UserInterface.Depo
                 CmbStokNo.SelectedValue = 0;
                 start = false;
             }
-            if (index == 5)
+            if (CmbMalzemeTuru.Text == "KIRTASİYE")
             {
                 CmbStokNo.DataSource = kirtasiyeManager.GetList();
                 CmbStokNo.ValueMember = "Id";
@@ -232,7 +260,7 @@ namespace UserInterface.Depo
                 CmbStokNo.SelectedValue = 0;
                 start = false;
             }
-            if (index == 6)
+            if (CmbMalzemeTuru.Text == "KKD")
             {
                 CmbStokNo.DataSource = kKDManager.GetList();
                 CmbStokNo.ValueMember = "Id";
@@ -240,13 +268,21 @@ namespace UserInterface.Depo
                 CmbStokNo.SelectedValue = 0;
                 start = false;
             }
-            if (index == 7)
+            if (CmbMalzemeTuru.Text == "TEMİZLİK ÜRÜNLERİ")
             {
                 CmbStokNo.DataSource = temizlikUrunleriManager.GetList();
                 CmbStokNo.ValueMember = "Id";
                 CmbStokNo.DisplayMember = "Stokno";
                 CmbStokNo.SelectedValue = 0;
                 start = false;
+            }
+            if (CmbMalzemeTuru.Text == "SARF MALZEME (DEPO)")
+            {
+                //CmbStokNo.DataSource = temizlikUrunleriManager.GetList();
+                //CmbStokNo.ValueMember = "Id";
+                //CmbStokNo.DisplayMember = "Stokno";
+                //CmbStokNo.SelectedValue = 0;
+                //start = false;
             }
             TxtTanim.Clear();
             TxtBirim.Clear();
@@ -494,7 +530,32 @@ namespace UserInterface.Depo
                 Temizle();
             }
         }
-
+        string SiradakiStok(string sonKayitStok)
+        {
+            yeniSayiTxt = "";
+            sayac = 0;
+            array = null;
+            array2 = null;
+            yeniStok = "";
+            array = sonKayitStok.Split('-');
+            yeniSayi = array[2].ConInt() + 1;
+            sayac = array[2].Length;
+            array2 = array[2].ToString().Split('0');
+            for (int i = 0; i < sayac; i++)
+            {
+                if (array2[i].ToString() != "")
+                {
+                    yeniSayiTxt += yeniSayi.ToString();
+                    break;
+                }
+                else
+                {
+                    yeniSayiTxt += "0";
+                }
+            }
+            yeniStok = array[0].ToString() + "-" + array[1].ToString() + "-" + yeniSayiTxt;
+            return yeniStok;
+        }
         private void BtnStokAl_Click(object sender, EventArgs e)
         {
             if (CmbMalzemeTuru.Text == "")
@@ -502,15 +563,67 @@ namespace UserInterface.Depo
                 MessageBox.Show("Lütfen Öncelikle Malzeme Türünü Belirleyiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (index == 1)
+            
+            if (CmbMalzemeTuru.Text == "AMBAR")
             {
-                /*List<DestekDepoAmbar> destekDepos = new List<DestekDepoAmbar>();
-                destekDepos = ambarManager.GetList();
-                 = destekDepos[destekDepos.Count - 1];*/
-            }
-            if (index == 2)
-            {
+                Temizle();
+                List<DestekDepoAmbar> destekDepos = new List<DestekDepoAmbar>();
+                destekDepos = ambarManager.GetList(); //BMPD-GKA-0008
+                sonKayitStok = destekDepos[destekDepos.Count - 1].Stokno.ToString();
+                CmbStokNo.Text= SiradakiStok(sonKayitStok);
 
+            }
+            if (CmbMalzemeTuru.Text == "ÇAY OCAĞI")
+            {
+                Temizle();
+                List<DestekDepoCayOcagi> destekDepoCays = new List<DestekDepoCayOcagi>();
+                destekDepoCays = cayOcagiManager.GetList();
+                sonKayitStok = destekDepoCays[destekDepoCays.Count - 1].Stokno.ToString();
+                CmbStokNo.Text = SiradakiStok(sonKayitStok);
+            }
+            if (CmbMalzemeTuru.Text == "EL ALETLERİ")
+            {
+                Temizle();
+                List<DestekDepoElAletleri> destekDepoEls = new List<DestekDepoElAletleri>();
+                destekDepoEls = elAletleriManager.GetList();
+                sonKayitStok = destekDepoEls[destekDepoEls.Count - 1].Stokno.ToString();
+                CmbStokNo.Text = SiradakiStok(sonKayitStok);
+            }
+            if (CmbMalzemeTuru.Text == "İŞ GİYSİ")
+            {
+                Temizle();
+                List<DestekDepoIsGiysi> destekDepoIs = new List<DestekDepoIsGiysi>();
+                destekDepoIs = isGiysiManager.GetList();
+                sonKayitStok = destekDepoIs[destekDepoIs.Count - 1].Stokno.ToString();
+                CmbStokNo.Text = SiradakiStok(sonKayitStok);
+            }
+            if (CmbMalzemeTuru.Text == "KIRTASİYE")
+            {
+                Temizle();
+                List<DestekDepoKirtasiye> destekDepoKirtasiyes = new List<DestekDepoKirtasiye>();
+                destekDepoKirtasiyes = kirtasiyeManager.GetList();
+                sonKayitStok = destekDepoKirtasiyes[destekDepoKirtasiyes.Count - 1].Stokno.ToString();
+                CmbStokNo.Text = SiradakiStok(sonKayitStok);
+            }
+            if (CmbMalzemeTuru.Text == "KKD")
+            {
+                Temizle();
+                List<DestekDepoKKD> destekDepoKKDs = new List<DestekDepoKKD>();
+                destekDepoKKDs = kKDManager.GetList();
+                sonKayitStok = destekDepoKKDs[destekDepoKKDs.Count - 1].Stokno.ToString();
+                CmbStokNo.Text = SiradakiStok(sonKayitStok);
+            }
+            if (CmbMalzemeTuru.Text == "TEMİZLİK ÜRÜNLERİ")
+            {
+                Temizle();
+                List<DestekDepoTemizlikUrunleri> destekDepoTemizliks = new List<DestekDepoTemizlikUrunleri>();
+                destekDepoTemizliks = temizlikUrunleriManager.GetList();
+                sonKayitStok = destekDepoTemizliks[destekDepoTemizliks.Count - 1].Stokno.ToString();
+                CmbStokNo.Text = SiradakiStok(sonKayitStok);
+            }
+            if (CmbMalzemeTuru.Text == "SARF MALZEME (DEPO)")
+            {
+                Temizle();
             }
         }
     }

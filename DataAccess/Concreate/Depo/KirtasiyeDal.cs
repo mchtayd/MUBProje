@@ -75,6 +75,29 @@ namespace DataAccess.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoKirtasiye GetTanim(string tanim)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DestekDepoKirtasiyeList", new SqlParameter("@tanim", tanim));
+                DestekDepoKirtasiye item = null;
+                while (dataReader.Read())
+                {
+                    item = new DestekDepoKirtasiye(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString());
+
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoKirtasiye> GetList(int id)
         {

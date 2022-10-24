@@ -63,6 +63,17 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoAmbar GetTanim(string tanim)
+        {
+            try
+            {
+                return ambarDal.GetTanim(tanim);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoAmbar> GetList(int id=0)
         {

@@ -418,15 +418,25 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
         }
         string yeniStok = "";
-        private void BtnStokAl_Click(object sender, EventArgs e)
+        void StokAl()
         {
             Malzeme malzemeKayit = malzemeManager.MalzemeSonStok();
             string sonStok = malzemeKayit.StokNo; //UGS-0000-1167
             string[] array = sonStok.Split('-');
+            string parca = array[1].ToString();
+            if (parca.Length==3)
+            {
+                parca = "0000";
+            }
             int sayi = array[2].ConInt() + 1;
-            yeniStok = array[0].ToString() + "-" + array[1].ToString() + "-" + sayi;
+
+            yeniStok = array[0].ToString() + "-" + parca + "-" + sayi;
 
             TxtStn.Text = yeniStok;
+        }
+        private void BtnStokAl_Click(object sender, EventArgs e)
+        {
+            StokAl();
         }
         int index = 0;
         private void CmbUstTanim_SelectedIndexChanged(object sender, EventArgs e)
@@ -471,6 +481,43 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 }
             }
             MessageBox.Show("Tanımlar Düzeldi.");
+        }
+
+        private void BtnStokDuzelt_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("UGS-000- şeklinde olan tüm Stok Numaraları UGS-0000- olarak düzeltilecektir. Dosya yolları aynı kalacaktır! OTS datası kontrol edilecek ve UGS-0000- sıfırlı olarak o stok daha önce kullanılmış ise DTS deki kayıda yeni stok verilecektir.Onaylıyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                List<Malzeme> malzemes = new List<Malzeme>();
+                malzemes = malzemeManager.MalzemeStokDuzeltList();
+                foreach (Malzeme item in malzemes)
+                {
+                    string[] array = item.StokNo.Split('-');
+                    if (array[1].ToString()=="000")
+                    {
+                        string stok = array[0].ToString() + "-0000-" + array[2].ToString();
+                        Malzeme malzeme = malzemeManager.MalzemeStokKontrolOTS(stok);
+                        if (malzeme!=null)
+                        {
+                            if (malzeme.Tanim.Trim() != item.Tanim.Trim())
+                            {
+                                StokAl();
+                                stok = yeniStok;
+                                malzemeKayitManager.StokDuzelt(stok, item.Id.ConInt());
+                            }
+                            else
+                            {
+                                malzemeKayitManager.StokDuzelt(stok, item.Id.ConInt());
+                            }
+                        }
+                        else
+                        {
+                            malzemeKayitManager.StokDuzelt(stok, item.Id.ConInt());
+                        }
+                    }
+                }
+                MessageBox.Show("Kaydedilmiştir.");
+            }
         }
 
         private void BtnTedarikTürüEkle_Click(object sender, EventArgs e)

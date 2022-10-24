@@ -256,6 +256,24 @@ namespace DataAccess.Concreate.IdariIsler
                 return -1;
             }
         }
+        public int KontejanKontrolArac(string siparisno)
+        {
+            try
+            {
+                int personel = -1;
+                dataReader = sqlServices.StoreReader("AracKontenjan", new SqlParameter("@siparisno", siparisno));
+                if (dataReader.Read())
+                {
+                    personel = dataReader["TOPLAM_ARAC"].ConInt();
+                }
+                dataReader.Close();
+                return personel;
+            }
+            catch (Exception EX)
+            {
+                return -1;
+            }
+        }
         public int KontejanKontrolMevcut(string siparisno)
         {
             try
@@ -265,6 +283,24 @@ namespace DataAccess.Concreate.IdariIsler
                 if (dataReader.Read())
                 {
                     personel = dataReader["MEVCUT_PERSONEL"].ConInt();
+                }
+                dataReader.Close();
+                return personel;
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        public int KontejanKontrolMevcutArac(string siparisno)
+        {
+            try
+            {
+                int personel = -1;
+                dataReader = sqlServices.StoreReader("PersonelKontejanKontrolMevcutArac", new SqlParameter("@siparisno", siparisno));
+                if (dataReader.Read())
+                {
+                    personel = dataReader["MEVCUT_ARAC"].ConInt();
                 }
                 dataReader.Close();
                 return personel;

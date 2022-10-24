@@ -196,15 +196,6 @@ namespace UserInterface.Depo
             // 
             this.CmbMalzemeTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbMalzemeTuru.FormattingEnabled = true;
-            this.CmbMalzemeTuru.Items.AddRange(new object[] {
-            "",
-            "AMBAR",
-            "ÇAY OCAĞI",
-            "EL ALETLERİ",
-            "İŞ GİYSİ",
-            "KIRTASİYE",
-            "KKD",
-            "TEMİZLİK ÜRÜNLERİ"});
             this.CmbMalzemeTuru.Location = new System.Drawing.Point(141, 74);
             this.CmbMalzemeTuru.Name = "CmbMalzemeTuru";
             this.CmbMalzemeTuru.Size = new System.Drawing.Size(205, 21);

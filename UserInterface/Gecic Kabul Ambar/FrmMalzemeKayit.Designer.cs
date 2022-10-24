@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMalzemeKayit));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtStn = new System.Windows.Forms.ComboBox();
@@ -103,6 +103,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BtnStokDuzelt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -555,6 +556,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.BtnStokDuzelt);
             this.tabPage2.Controls.Add(this.button1);
             this.tabPage2.Controls.Add(this.BtnTedarikTürüEkle);
             this.tabPage2.Controls.Add(this.CmbTedarikTuru);
@@ -748,8 +750,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.DtgStokTanim.AllowUserToAddRows = false;
             this.DtgStokTanim.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgStokTanim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgStokTanim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgStokTanim.AutoGenerateContextFilters = true;
             this.DtgStokTanim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgStokTanim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -909,6 +911,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.textBox2.TabIndex = 4;
             this.textBox2.Visible = false;
             // 
+            // BtnStokDuzelt
+            // 
+            this.BtnStokDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnStokDuzelt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnStokDuzelt.Location = new System.Drawing.Point(1023, 778);
+            this.BtnStokDuzelt.Name = "BtnStokDuzelt";
+            this.BtnStokDuzelt.Size = new System.Drawing.Size(118, 32);
+            this.BtnStokDuzelt.TabIndex = 346;
+            this.BtnStokDuzelt.Text = "Stok Düzelt";
+            this.BtnStokDuzelt.UseVisualStyleBackColor = true;
+            this.BtnStokDuzelt.Visible = false;
+            this.BtnStokDuzelt.Click += new System.EventHandler(this.BtnStokDuzelt_Click);
+            // 
             // FrmMalzemeKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1016,5 +1031,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button BtnMalzemeTuruEkle;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnStokDuzelt;
     }
 }

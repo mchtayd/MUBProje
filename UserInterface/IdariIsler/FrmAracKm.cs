@@ -171,7 +171,7 @@ namespace UserInterface.IdariIsler
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 string mesaj = "";
 
-                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKmBitis.Text.ConInt(), LblToplamKm.Text.ConInt(), sabitKm, fark, siparisNo);
+                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, DtgBitisTarihi.Value, TxtKmBitis.Text.ConInt() ,LblToplamKm.Text.ConInt(), sabitKm, fark, siparisNo);
 
                 mesaj = aracKmManager.Add(aracKm);
 
@@ -218,7 +218,7 @@ namespace UserInterface.IdariIsler
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 string mesaj = "";
 
-                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, aysonu, TxtKmBitis.Text.ConInt(), toplamYapilanKm, sabitKm, fark, "");
+                AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, DtgBitisTarihi.Value, TxtKmBitis.Text.ConInt(), toplamYapilanKm, sabitKm, fark, "");
 
                 mesaj = aracKmManager.Add(aracKm);
 

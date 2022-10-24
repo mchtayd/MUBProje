@@ -223,7 +223,7 @@ namespace UserInterface.Butce
         {
             if (CmbSiparisNereden.Text == "")
             {
-                MessageBox.Show("Lütfen Öncelikle NEREDEN Bilgisini Ekleyiniz.","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Öncelikle NEREDEN Bilgisini Ekleyiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -238,10 +238,31 @@ namespace UserInterface.Butce
                 MessageBox.Show("Lütfen Öncelikle AKTARILACAK Bilgisini Ekleyiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (DtgNereye.Columns.Count!=0)
+            {
+                if (CmbAktarilacak.Text == "PERSONEL")
+                {
+                    DtgNereye.Columns.Remove("PersonelAdi");
+                    DtgNereye.Columns.Remove("Unvani");
+                    DtgNereye.Columns.Remove("MasYerSorumlusu");
+                    DtgNereye.Columns.Remove("Bolum");
+                }
+                if (CmbAktarilacak.Text == "ARAÇ")
+                {
+                    DtgNereye.Columns.Remove("Plaka");
+                    DtgNereye.Columns.Remove("MulkiyetBilgileri");
+                    DtgNereye.Columns.Remove("ZimmetliPersonel");
+                    DtgNereye.Columns.Remove("MasrafYeriSorumlusu");
+                    DtgNereye.Columns.Remove("Bolum");
+                }
+            }
+
             DtgNereye.DataSource = null;
             neredenSiparis = CmbSiparisNereden.Text;
             nereyeSiparis = CmbSiparisNereye.Text;
-            if (CmbAktarilacak.Text== "PERSONEL")
+
+            if (CmbAktarilacak.Text == "PERSONEL")
             {
                 DtgNereden.DataSource = personelKayitManager.PersonelSiparis(CmbSiparisNereden.Text);
                 PersonellerDuzenle();
@@ -250,10 +271,16 @@ namespace UserInterface.Butce
                 DtgNereye.Columns.Add("MasYerSorumlusu", "MASRAF YERİ SORUMLUSU");
                 DtgNereye.Columns.Add("Bolum", "BÖLÜMÜ");
             }
+
             if (CmbAktarilacak.Text == "ARAÇ")
             {
                 DtgNereden.DataSource = aracZimmetiManager.SiparisArac(CmbSiparisNereden.Text);
                 AracDuzenle();
+                DtgNereye.Columns.Add("Plaka", "PLAKA");
+                DtgNereye.Columns.Add("MulkiyetBilgileri", "MÜLKİYET BİLGİLERİ");
+                DtgNereye.Columns.Add("ZimmetliPersonel", "ZİMMETLİ PERSONEL");
+                DtgNereye.Columns.Add("MasrafYeriSorumlusu", "MASRAF YERİ SORUMLUSU");
+                DtgNereye.Columns.Add("Bolum", "BÖLÜMÜ");
 
             }
         }
@@ -400,22 +427,24 @@ namespace UserInterface.Butce
             DtgNereye.Columns["KgbTarih"].Visible = false;
             LblNeredenToplam.Text = DtgNereden.RowCount.ToString();
         }
-
+        bool cokluClick = false;
         private void BtnAktar_Click(object sender, EventArgs e)
         {
-            if (DtgNereden.RowCount==0)
+            DtgNereye.Rows.Clear();
+            cokluClick = true;
+            if (DtgNereden.RowCount == 0)
             {
-                MessageBox.Show("Lütfen Öncelikle NEREDEN Listesine Personel Bilgilerini Ekleyiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Öncelikle NEREDEN Listesine Personel Bilgilerini Ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (CmbAktarilacak.Text== "PERSONEL")
+            if (CmbAktarilacak.Text == "PERSONEL")
             {
                 string message = KontenjanControlAktarim();
 
                 if (message != "OK")
                 {
-                    MessageBox.Show(message, "Hata", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show(message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -432,11 +461,31 @@ namespace UserInterface.Butce
                 LblNereyeToplam.Text = DtgNereye.RowCount.ToString();
             }
 
+
+
             if (CmbAktarilacak.Text == "ARAÇ")
             {
+                string message = KontenjanControlAktarimArac();
 
+                if (message != "OK")
+                {
+                    MessageBox.Show(message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                foreach (DataGridViewRow item in DtgNereden.Rows)
+                {
+                    DtgNereye.Rows.Add();
+
+                    int sonSatir = DtgNereye.RowCount - 1;
+                    DtgNereye.Rows[sonSatir].Cells["Plaka"].Value = item.Cells["Plaka"].Value;
+                    DtgNereye.Rows[sonSatir].Cells["MulkiyetBilgileri"].Value = item.Cells["MulkiyetBilgileri"].Value;
+                    DtgNereye.Rows[sonSatir].Cells["ZimmetliPersonel"].Value = item.Cells["PersonelAd"].Value;
+                    DtgNereye.Rows[sonSatir].Cells["MasrafYeriSorumlusu"].Value = item.Cells["MasYerSor"].Value;
+                    DtgNereye.Rows[sonSatir].Cells["Bolum"].Value = item.Cells["Bolum"].Value;
+                }
+                LblNereyeToplam.Text = DtgNereye.RowCount.ToString();
             }
-
 
         }
 
@@ -452,15 +501,15 @@ namespace UserInterface.Butce
                 return;
             }
             string mesaj = KontenjanControlGuncelle();
-            if (mesaj=="")
+            if (mesaj == "")
             {
                 TemizleAktarim();
                 return;
             }
-            
+
             if (mesaj != "OK")
             {
-                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 CmbSiparisNereye.SelectedIndex = -1;
                 TemizleAktarim();
             }
@@ -515,9 +564,102 @@ namespace UserInterface.Butce
             dataBinder.Sort = DtgMevcutKadro.SortString;
         }
 
+        private void BtnTekliAktar_Click(object sender, EventArgs e)
+        {
+            if (DtgNereden.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (cokluClick == true)
+            {
+                DtgNereye.Rows.Clear();
+                cokluClick = false;
+            }
+            if (CmbAktarilacak.Text == "PERSONEL")
+            {
+                if (personelAdi == "")
+                {
+                    MessageBox.Show("Öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string message = KontenjanControlAktarim();
+
+                if (message != "OK")
+                {
+                    MessageBox.Show(message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DtgNereye.Rows.Add();
+
+                int sonSatir = DtgNereye.RowCount - 1;
+                DtgNereye.Rows[sonSatir].Cells["PersonelAdi"].Value = personelAdi;
+                DtgNereye.Rows[sonSatir].Cells["Unvani"].Value = isUnvani;
+                DtgNereye.Rows[sonSatir].Cells["MasYerSorumlusu"].Value = masrafYeriSorumlusu;
+                DtgNereye.Rows[sonSatir].Cells["Bolum"].Value = bolum;
+
+                LblNereyeToplam.Text = DtgNereye.RowCount.ToString();
+            }
+
+            if (CmbAktarilacak.Text == "ARAÇ")
+            {
+                if (plaka == "")
+                {
+                    MessageBox.Show("Öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                string message = KontenjanControlAktarimArac();
+
+                if (message != "OK")
+                {
+                    MessageBox.Show(message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DtgNereye.Rows.Add();
+
+                int sonSatir = DtgNereye.RowCount - 1;
+                DtgNereye.Rows[sonSatir].Cells["Plaka"].Value = plaka;
+                DtgNereye.Rows[sonSatir].Cells["MulkiyetBilgileri"].Value = mulkiyetBilgileri;
+                DtgNereye.Rows[sonSatir].Cells["ZimmetliPersonel"].Value = zimmetliPersonel;
+                DtgNereye.Rows[sonSatir].Cells["MasrafYeriSorumlusu"].Value = masrafYeriSorumlusuArac;
+                DtgNereye.Rows[sonSatir].Cells["Bolum"].Value = aracBolum;
+
+                LblNereyeToplam.Text = DtgNereye.RowCount.ToString();
+
+            }
+        }
+        string personelAdi, isUnvani, masrafYeriSorumlusu, bolum, plaka, mulkiyetBilgileri, zimmetliPersonel, masrafYeriSorumlusuArac, aracBolum = "";
+
+        private void BtnTemizle_Click(object sender, EventArgs e)
+        {
+            TemizleAktarim();
+        }
+
+        private void DtgNereden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (CmbAktarilacak.Text == "PERSONEL")
+            {
+                personelAdi = DtgNereden.CurrentRow.Cells["Adsoyad"].Value.ToString();
+                isUnvani = DtgNereden.CurrentRow.Cells["Isunvani"].Value.ToString();
+                masrafYeriSorumlusu = DtgNereden.CurrentRow.Cells["MasrafYeriSorumlusu"].Value.ToString();
+                bolum = DtgNereden.CurrentRow.Cells["Sirketbolum"].Value.ToString();
+            }
+            if (CmbAktarilacak.Text == "ARAÇ")
+            {
+                plaka = DtgNereden.CurrentRow.Cells["Plaka"].Value.ToString();
+                mulkiyetBilgileri = DtgNereden.CurrentRow.Cells["MulkiyetBilgileri"].Value.ToString();
+                zimmetliPersonel = DtgNereden.CurrentRow.Cells["PersonelAd"].Value.ToString();
+                masrafYeriSorumlusuArac = DtgNereden.CurrentRow.Cells["MasYerSor"].Value.ToString();
+                aracBolum = DtgNereden.CurrentRow.Cells["Bolum"].Value.ToString();
+            }
+
+        }
+
         string KontenjanControlGuncelle()
         {
-            
+
             kontenjan = siparislerManager.KontejanKontrol(CmbSiparisNereye.Text);
             mevcut = siparislerManager.KontejanKontrolMevcut(CmbSiparisNereye.Text);
             if (kontenjan == -1)
@@ -548,35 +690,60 @@ namespace UserInterface.Butce
             }
             return "OK";
         }
+        string KontenjanControlAktarimArac()
+        {
+
+            kontenjan = siparislerManager.KontejanKontrolArac(nereyeSiparis);
+            mevcut = siparislerManager.KontejanKontrolMevcutArac(nereyeSiparis);
+
+            int bosKontejan = kontenjan - mevcut;
+            if (kontenjan == -1)
+            {
+                return "";
+            }
+            if (LblNeredenToplam.Text.ConInt() > bosKontejan)
+            {
+                return CmbSiparisNereye.Text + " Nolu Siparişte Yeteri Kadar Boş Kontejan Bulunmamaktadır!";
+            }
+            return "OK";
+        }
 
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            if (DtgNereye.RowCount==0)
+            if (DtgNereye.RowCount == 0)
             {
-                MessageBox.Show("Lütfen Öncelikle NEREYE Listesine Kayıtlarını Aktarınız!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Öncelikle NEREYE Listesine Kayıtlarını Aktarınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            DialogResult dr = MessageBox.Show(CmbSiparisNereden.Text + " Nolu Sipariş Numarasında ki " + LblNeredenToplam.Text + " Personelin Sipariş Numarası " + CmbSiparisNereye.Text + " Nolu Siparişe Aktarılacaktir! Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-
-            if (dr == DialogResult.Yes)
+            if (CmbAktarilacak.Text== "PERSONEL")
             {
-                foreach (DataGridViewRow item in DtgNereye.Rows)
-                {
-                    SiparislerPersonel siparislerManager = new SiparislerPersonel(item.Cells["PersonelAdi"].Value.ToString(), item.Cells["Unvani"].Value.ToString(), item.Cells["MasYerSorumlusu"].Value.ToString(), item.Cells["Bolum"].Value.ToString(), "ÇALIŞIYOR", neredenSiparis, DateTime.Now);
+                DialogResult dr = MessageBox.Show(CmbSiparisNereden.Text + " Nolu Sipariş Numarasında ki " + LblNeredenToplam.Text + " Personelin Sipariş Numarası " + CmbSiparisNereye.Text + " Nolu Siparişe Aktarılacaktir! Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
-                    string control = siparislerPersonelManager.Add(siparislerManager);
-                    personelKayitManager.SiparisGuncelle(item.Cells["PersonelAdi"].Value.ToString(), nereyeSiparis);
-                    if (control != "OK")
+                if (dr == DialogResult.Yes)
+                {
+                    foreach (DataGridViewRow item in DtgNereye.Rows)
                     {
-                        MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        SiparislerPersonel siparislerManager = new SiparislerPersonel(item.Cells["PersonelAdi"].Value.ToString(), item.Cells["Unvani"].Value.ToString(), item.Cells["MasYerSorumlusu"].Value.ToString(), item.Cells["Bolum"].Value.ToString(), "ÇALIŞIYOR", neredenSiparis, DateTime.Now);
+
+                        string control = siparislerPersonelManager.Add(siparislerManager);
+                        personelKayitManager.SiparisGuncelle(item.Cells["PersonelAdi"].Value.ToString(), nereyeSiparis);
+                        if (control != "OK")
+                        {
+                            MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
                     }
                 }
-                MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TemizleAktarim();
             }
+
+            if (CmbAktarilacak.Text == "ARAÇ")
+            {
+
+            }
+
+            MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            TemizleAktarim();
 
         }
 
@@ -593,14 +760,14 @@ namespace UserInterface.Butce
 
         private void CmbDonemYil_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (start==false)
+            if (start == false)
             {
                 return;
             }
             yil = "";/*CmbDonemYil.Text;*/
             DtgMevcutKadro.DataSource = null;
             DtgMevcutKadro.DataSource = siparislerManager.YillikSiparisCek(yil);
-            if (DtgMevcutKadro.DataSource==null)
+            if (DtgMevcutKadro.DataSource == null)
             {
                 return;
             }
@@ -730,7 +897,7 @@ namespace UserInterface.Butce
         string topPersonel, toplamArac;
         void SiparisNoOlustur()
         {
-            if (TOPLAMPERSONEL<10)
+            if (TOPLAMPERSONEL < 10)
             {
                 if (TOPLAMPERSONEL == 1)
                 {
@@ -768,14 +935,14 @@ namespace UserInterface.Butce
                 {
                     topPersonel = "09";
                 }
-                
+
             }
             else
             {
                 topPersonel = TOPLAMPERSONEL.ToString();
             }
 
-            if (TOPLAMARAC<10)
+            if (TOPLAMARAC < 10)
             {
                 if (TOPLAMARAC == 1)
                 {

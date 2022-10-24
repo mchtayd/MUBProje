@@ -259,5 +259,16 @@ namespace Entity.IdariIsler
         {
 
         }
+
+        public PersonelKayit(int id, string adsoyad, string siparis, string masyerino, string masrafYeriSorumlusu, string sirketmail, string gorevi, string sirketbolum, string projeKodu) : this(id, adsoyad)
+        {
+            this.siparis = siparis;
+            this.masyerino = masyerino;
+            this.masrafYeriSorumlusu = masrafYeriSorumlusu;
+            this.sirketmail = sirketmail;
+            this.gorevi = gorevi;
+            this.sirketbolum = sirketbolum;
+            this.projeKodu = projeKodu;
+        }
     }
 }

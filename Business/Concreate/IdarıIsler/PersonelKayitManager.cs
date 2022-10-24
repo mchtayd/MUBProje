@@ -52,6 +52,17 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
+        public List<PersonelKayit> GetMasrafYeriSorumlusuPer(string personeAd)
+        {
+            try
+            {
+                return personelKayitDal.GetMasrafYeriSorumlusuPer(personeAd);
+            }
+            catch
+            {
+                return new List<PersonelKayit>();
+            }
+        }
 
         public List<PersonelKayit> GetList(string siparisNo = "")
         {

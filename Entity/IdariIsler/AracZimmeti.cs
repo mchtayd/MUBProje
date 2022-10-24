@@ -79,11 +79,13 @@ namespace Entity.IdariIsler
             this.km = km;
         }
 
-        public AracZimmeti(string plaka, string mulkiyetBilgileri, string bolum,string durum)
+        public AracZimmeti(string plaka, string mulkiyetBilgileri, string bolum,string durum,string zimmetliPersonel,string masrafYeriSorumlusu)
         {
             this.plaka = plaka;
             this.mulkiyetBilgileri = mulkiyetBilgileri;
             this.bolum = bolum;
+            this.personelAd = zimmetliPersonel;
+            this.masYerSor = masrafYeriSorumlusu;
             this.durum = durum;
         }
     }

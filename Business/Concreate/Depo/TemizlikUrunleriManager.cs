@@ -63,6 +63,17 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoTemizlikUrunleri GetTanim(string tanim)
+        {
+            try
+            {
+                return temizlikUrunleriDal.GetTanim(tanim);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoTemizlikUrunleri> GetList(int id =0)
         {

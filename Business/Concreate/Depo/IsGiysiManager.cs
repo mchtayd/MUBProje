@@ -64,6 +64,17 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoIsGiysi GetTanim(string tanim)
+        {
+            try
+            {
+                return isGiysiDal.GetTanim(tanim);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoIsGiysi> GetList(int id=0)
         {

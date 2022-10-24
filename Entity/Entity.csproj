@@ -110,6 +110,7 @@
     <Compile Include="IdariIsler\Konaklama.cs" />
     <Compile Include="IdariIsler\KonaklamaGecmis.cs" />
     <Compile Include="IdariIsler\KonaklamaKirilim.cs" />
+    <Compile Include="IdariIsler\MalzemeTalep.cs" />
     <Compile Include="IdariIsler\Otel.cs" />
     <Compile Include="IdariIsler\PersKaytLojistik.cs" />
     <Compile Include="IdariIsler\PersonelHesap.cs" />

@@ -1370,6 +1370,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.AdvMalzemeOnizleme.Size = new System.Drawing.Size(444, 105);
             this.AdvMalzemeOnizleme.TabIndex = 1;
             this.AdvMalzemeOnizleme.TimeFilter = false;
+            this.AdvMalzemeOnizleme.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdvMalzemeOnizleme_CellContentClick);
             // 
             // SiraNo
             // 

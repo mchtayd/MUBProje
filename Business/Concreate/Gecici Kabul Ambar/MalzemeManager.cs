@@ -86,6 +86,18 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public Malzeme MalzemeStokKontrolOTS(string stokNo)
+        {
+            try
+            {
+                return malzemeDal.MalzemeStokKontrolOTS(stokNo);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
         public string UstTakimEkle(Malzeme entity)
         {
             try
@@ -114,6 +126,18 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             try
             {
                 return malzemeDal.GetList();
+            }
+            catch (Exception)
+            {
+
+                return new List<Malzeme>();
+            }
+        }
+        public List<Malzeme> MalzemeStokDuzeltList()
+        {
+            try
+            {
+                return malzemeDal.MalzemeStokDuzeltList();
             }
             catch (Exception)
             {
@@ -151,6 +175,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             try
             {
                 return malzemeDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MalzemeStokDuzelt(string stokNo, int id)
+        {
+            try
+            {
+                return malzemeDal.MalzemeStokDuzelt(stokNo, id);
             }
             catch (Exception ex)
             {

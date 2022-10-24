@@ -257,6 +257,78 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return new List<Malzeme>();
             }
         }
+        public Malzeme MalzemeStokKontrolOTS(string stokNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeStokKontrolOts", new SqlParameter("@stokNo", stokNo));
+                Malzeme item = null;
+                while (dataReader.Read())
+                {
+                    item = new Malzeme(
+                        dataReader["Kimlik"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        "",
+                        dataReader["ONARIM_DURUMU"].ToString(),
+                        dataReader["ONARIM_YERI"].ToString(),
+                        "",
+                        dataReader["MALZEME_TURU"].ToString(),
+                        "",
+                        dataReader["ACIKLAMA"].ToString(),
+                        "",
+                        "",
+                        "",
+                        "",
+                        "",
+                        dataReader["TAKIP_DURUMU"].ToString());
+                    
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+        public List<Malzeme> MalzemeStokDuzeltList()
+        {
+            try
+            {
+                List<Malzeme> malzemes = new List<Malzeme>();
+                dataReader = sqlServices.StoreReader("MalzemeStokDuzeltList");
+                while (dataReader.Read())
+                {
+                    malzemes.Add(new Malzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TEDARIKCI_FIRMA"].ToString(),
+                        dataReader["ONARIM_DURUMU"].ToString(),
+                        dataReader["ONARIM_YERI"].ToString(),
+                        dataReader["TEDARIK_TURU"].ToString(),
+                        dataReader["PARCA_SINIFI"].ToString(),
+                        dataReader["ALTRNATIF_PARCA"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString(),
+                        dataReader["KAYIT_YAPAN"].ToString(),
+                        dataReader["TAKIP_DURUMU"].ToString()));
+                }
+                dataReader.Close();
+                return malzemes;
+            }
+            catch (Exception ex)
+            {
+                return new List<Malzeme>();
+            }
+        }
+        
 
         public List<Malzeme> MalzemeGetList(string stokNo)
         {
@@ -314,6 +386,22 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@sistemTanim", entity.SistemTanimi),
                     new SqlParameter("@sistemSorumlusu", entity.SistemSorumlusu),
                     new SqlParameter("@islemYapan", entity.IslemYapan));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MalzemeStokDuzelt(string stokNo, int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeStokDuzelt",
+                    new SqlParameter("@stokNo", stokNo),
+                    new SqlParameter("@id", id));
 
                 dataReader.Close();
                 return "OK";

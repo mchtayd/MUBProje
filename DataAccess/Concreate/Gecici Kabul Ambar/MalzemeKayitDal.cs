@@ -322,7 +322,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
         {
             try
             {
-                dataReader = sqlServices.StoreReader("StokDuzelt",
+                dataReader = sqlServices.StoreReader("MalzemeStokDuzelt",
                     new SqlParameter("@stokno", stokNo),
                     new SqlParameter("@id", id));
                 dataReader.Close();

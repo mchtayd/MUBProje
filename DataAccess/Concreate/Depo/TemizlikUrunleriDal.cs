@@ -75,6 +75,29 @@ namespace DataAccess.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoTemizlikUrunleri GetTanim(string tanim)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DestekDepoTemizlikUrunleriList", new SqlParameter("@tanim", tanim));
+                DestekDepoTemizlikUrunleri item = null;
+                while (dataReader.Read())
+                {
+                    item = new DestekDepoTemizlikUrunleri(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString());
+
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoTemizlikUrunleri> GetList(int id)
         {

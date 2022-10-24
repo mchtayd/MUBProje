@@ -114,7 +114,6 @@ namespace UserInterface.Ana_Sayfa
                     LblUyumlamaBrimleri.Text = atolyesAdet[0].AtolyeKategori.ToString();
                     continue;
                 }
-
             }
 
             //LblGorevsayar.Text = "0";

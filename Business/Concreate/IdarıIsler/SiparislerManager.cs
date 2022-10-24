@@ -210,11 +210,33 @@ namespace Business.Concreate.IdarıIsler
                 return -1;
             }
         }
+        public int KontejanKontrolArac(string siparisno)
+        {
+            try
+            {
+                return siparislerDal.KontejanKontrolArac(siparisno);
+            }
+            catch
+            {
+                return -1;
+            }
+        }
         public int KontejanKontrolMevcut(string siparisno)
         {
             try
             {
                 return siparislerDal.KontejanKontrolMevcut(siparisno);
+            }
+            catch
+            {
+                return -1;
+            }
+        }
+        public int KontejanKontrolMevcutArac(string siparisno)
+        {
+            try
+            {
+                return siparislerDal.KontejanKontrolMevcutArac(siparisno);
             }
             catch
             {

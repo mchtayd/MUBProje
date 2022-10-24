@@ -64,6 +64,17 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoCayOcagi GetTanim(string tanim)
+        {
+            try
+            {
+                return cayOcagiDal.GetTanim(tanim);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoCayOcagi> GetList(int id=0)
         {

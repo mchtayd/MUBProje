@@ -53,7 +53,7 @@ namespace Entity.IdariIsler
             this.siparis = siparis;
         }
 
-        public AracKm(string plaka, string siparisNo, DateTime tarih, string donem, int baslangicKm, string personelAd, string personelSiparis, string personelUnvani, string perMasYeriNo, string perMasYeri, string persMasYerSorumlusu, string aracMulkiyet, DateTime kmBitisTarihi, int bitisKm, int toplamYapilanKm, int sabitKm, int fark, string siparis)
+        public AracKm(string plaka, string siparisNo, DateTime tarih ,string donem, int baslangicKm, string personelAd, string personelSiparis, string personelUnvani, string perMasYeriNo, string perMasYeri, string persMasYerSorumlusu, string aracMulkiyet, DateTime kmBitisTarihi, int bitisKm, int toplamYapilanKm, int sabitKm, int fark, string siparis)
         {
             this.plaka = plaka;
             this.siparisNo = siparisNo;

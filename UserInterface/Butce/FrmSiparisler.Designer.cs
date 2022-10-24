@@ -98,6 +98,8 @@ namespace UserInterface.Butce
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgNereden = new System.Windows.Forms.DataGridView();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnTekliAktar = new System.Windows.Forms.Button();
+            this.BtnTemizle = new System.Windows.Forms.Button();
             this.groupBox19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMevcutKadro)).BeginInit();
             this.groupBox18.SuspendLayout();
@@ -577,6 +579,8 @@ namespace UserInterface.Butce
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnTemizle);
+            this.tabPage1.Controls.Add(this.BtnTekliAktar);
             this.tabPage1.Controls.Add(this.BtnKaydet);
             this.tabPage1.Controls.Add(this.LblNereyeToplam);
             this.tabPage1.Controls.Add(this.label8);
@@ -654,7 +658,7 @@ namespace UserInterface.Butce
             // 
             this.BtnAktar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnAktar.Location = new System.Drawing.Point(720, 345);
+            this.BtnAktar.Location = new System.Drawing.Point(720, 378);
             this.BtnAktar.Name = "BtnAktar";
             this.BtnAktar.Size = new System.Drawing.Size(75, 35);
             this.BtnAktar.TabIndex = 51;
@@ -809,6 +813,31 @@ namespace UserInterface.Butce
             this.DtgNereden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgNereden.Size = new System.Drawing.Size(686, 613);
             this.DtgNereden.TabIndex = 5;
+            this.DtgNereden.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgNereden_CellMouseClick);
+            // 
+            // BtnTekliAktar
+            // 
+            this.BtnTekliAktar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTekliAktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTekliAktar.Location = new System.Drawing.Point(720, 337);
+            this.BtnTekliAktar.Name = "BtnTekliAktar";
+            this.BtnTekliAktar.Size = new System.Drawing.Size(75, 35);
+            this.BtnTekliAktar.TabIndex = 57;
+            this.BtnTekliAktar.Text = ">";
+            this.BtnTekliAktar.UseVisualStyleBackColor = true;
+            this.BtnTekliAktar.Click += new System.EventHandler(this.BtnTekliAktar_Click);
+            // 
+            // BtnTemizle
+            // 
+            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizle.Location = new System.Drawing.Point(144, 756);
+            this.BtnTemizle.Name = "BtnTemizle";
+            this.BtnTemizle.Size = new System.Drawing.Size(113, 45);
+            this.BtnTemizle.TabIndex = 58;
+            this.BtnTemizle.Text = "TEMİZLE";
+            this.BtnTemizle.UseVisualStyleBackColor = true;
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
             // FrmSiparisler
             // 
@@ -907,5 +936,7 @@ namespace UserInterface.Butce
         private System.Windows.Forms.Button BtnKaydet;
         private ADGV.AdvancedDataGridView DtgMevcutKadro;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.Button BtnTekliAktar;
+        private System.Windows.Forms.Button BtnTemizle;
     }
 }

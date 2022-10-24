@@ -293,7 +293,7 @@ namespace UserInterface.Ana_Sayfa
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.Blue;
-            this.label3.Location = new System.Drawing.Point(678, 863);
+            this.label3.Location = new System.Drawing.Point(678, 1006);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(645, 25);
             this.label3.TabIndex = 96;
@@ -1082,7 +1082,7 @@ namespace UserInterface.Ana_Sayfa
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1924, 897);
+            this.ClientSize = new System.Drawing.Size(1924, 1040);
             this.Controls.Add(this.Lbl1100);
             this.Controls.Add(this.Lbl1000);
             this.Controls.Add(this.label9);

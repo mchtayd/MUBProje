@@ -2884,10 +2884,20 @@ namespace UserInterface.STS
             {
                 FrmGiysiTalep Go = new FrmGiysiTalep();
                 Go.FormBorderStyle = FormBorderStyle.None;
+                Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageTalep", "MİF", Go);
+                Go.Show();
+            }
+            if (e.Node.Text == "Malzeme İstek Formu İzleme")
+            {
+                FrmTalepIzleme Go = new FrmTalepIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
                 //Go.infos = infos;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageGiysiTalep", "MİF", Go);
+                OpenTabPage("PageMifIzleme", "MİF İZLEME", Go);
                 Go.Show();
             }
 

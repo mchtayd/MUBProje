@@ -208,7 +208,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["ARAC_PLAKASI"].ToString(),
                         dataReader["MULKIYET_BILGILERI"].ToString(),
                         dataReader["BOLUM"].ToString(),
-                        dataReader["DURUM"].ToString()));
+                        dataReader["DURUM"].ToString(),
+                        dataReader["PERSONEL_AD"].ToString(),
+                        dataReader["MASRAF_YERI_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return aracZimmetis;

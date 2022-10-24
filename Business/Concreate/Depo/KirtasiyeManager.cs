@@ -62,6 +62,17 @@ namespace DataAccess.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoKirtasiye GetTanim(string tanim)
+        {
+            try
+            {
+                return kirtasiyeDal.GetTanim(tanim);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoKirtasiye> GetList(int id=0)
         {

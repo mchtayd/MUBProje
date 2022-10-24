@@ -135,6 +135,7 @@
     <Compile Include="Concreate\IdariIsler\KonaklamaDal.cs" />
     <Compile Include="Concreate\IdariIsler\KonaklamaGecmisDal.cs" />
     <Compile Include="Concreate\IdariIsler\KonaklamaKirilimDal.cs" />
+    <Compile Include="Concreate\IdariIsler\MalzemeTalepDal.cs" />
     <Compile Include="Concreate\IdariIsler\OtelDal.cs" />
     <Compile Include="Concreate\IdariIsler\PersKaytLojistikDal.cs" />
     <Compile Include="Concreate\IdariIsler\PersoneKayitBODal.cs" />

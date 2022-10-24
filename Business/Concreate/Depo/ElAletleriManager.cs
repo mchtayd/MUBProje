@@ -63,6 +63,17 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoElAletleri GetTanim(string tanim)
+        {
+            try
+            {
+                return elAletleriDal.GetTanim(tanim);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoElAletleri> GetList(int id=0)
         {
