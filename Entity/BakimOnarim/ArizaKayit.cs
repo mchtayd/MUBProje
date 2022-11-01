@@ -202,5 +202,13 @@ namespace Entity.BakimOnarim
             this.nedenKodu = nedenKodu;
             this.eksikEvrak = eksikEvrak;
         }
+
+        public ArizaKayit(int id, string stokNo, string tanim, string seriNo)
+        {
+            this.id = id;
+            this.stokNo = stokNo;
+            this.tanim = tanim;
+            this.seriNo = seriNo;
+        }
     }
 }

@@ -17,6 +17,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
+using UserInterface.IdariIsler;
 using UserInterface.STS;
 
 namespace UserInterface.IdariIşler
@@ -40,6 +41,8 @@ namespace UserInterface.IdariIşler
         List<PersonelKayit> dokumens;
         List<PersonelKayit> dokumensFiltered;
         SiparisPersonelManager siparisPersonelManager;
+        MasrafYeriManager masrafYeriManager;
+
         string[] array;
 
         string departman, bolum1, bolum2, bolum3, BOLUM;
@@ -204,6 +207,7 @@ namespace UserInterface.IdariIşler
             persKaytLojistikManager = PersKaytLojistikManager.GetInstance();
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            masrafYeriManager = MasrafYeriManager.GetInstance();
         }
         private void TxtPersonelDepo_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -350,6 +354,12 @@ namespace UserInterface.IdariIşler
             yetkiliId = CmbMasrafYeriSorumlusu.SelectedValue.ConInt();
         }
 
+        private void BtnMasrafYeriDuzelt_Click(object sender, EventArgs e)
+        {
+            FrmMasrafYeri frmMasrafYeri = new FrmMasrafYeri();
+            frmMasrafYeri.ShowDialog();
+        }
+
         void Bolum2Degistir()
         {
             if (bolumid == 0)
@@ -440,6 +450,13 @@ namespace UserInterface.IdariIşler
             BOLUM = departman + "/" + bolum1 + "/" + CmbBolum2.Text + "/" + CmbBolum3G.Text;
 
         }
+
+        private void BtnMasrafYeriDuzelt_Click_1(object sender, EventArgs e)
+        {
+            FrmMasrafYeri frmMasrafYeri = new FrmMasrafYeri();
+            frmMasrafYeri.ShowDialog();
+        }
+
         void BolumOlusturG()
         {
             if (CmbDepartmanG.Text == "")
@@ -625,6 +642,10 @@ namespace UserInterface.IdariIşler
 
         private void CmbMasrafYeriNoG_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (start==true)
+            {
+                return;
+            }
             index3 = CmbMasrafYeriNoG.SelectedIndex;
             CmbMastafYeriG.SelectedIndex = index3;
         }
@@ -715,6 +736,10 @@ namespace UserInterface.IdariIşler
 
         private void CmbMasYeriNo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (start == true)
+            {
+                return;
+            }
             index1 = CmbMasYeriNo.SelectedIndex;
             TxtMasrafYeri.SelectedIndex = index1;
         }
@@ -1153,8 +1178,6 @@ namespace UserInterface.IdariIşler
         {
             //dokumens = personelKayits.GetList();
 
-            
-
             BtnDosyaEkle.Enabled = false;
             BtnFotoEkle.Enabled = false;
             BtnKaydet.Enabled = false;
@@ -1172,6 +1195,10 @@ namespace UserInterface.IdariIşler
             ComboSatKategori();
             ProjeKodu();
             ProjeKoduGun();
+            MasrafYeriGuncel();
+            MasrafYeri();
+            MasrafYeriBilgiGuncel();
+            MasrafYeriBilgi();
             //TOPP.Text = siparislerManager.ToplamPers().ToString();
             Toplamlar2();
             TOPA.Text = siparislerManager.ToplamArac().ToString();
@@ -1191,6 +1218,34 @@ namespace UserInterface.IdariIşler
             }*/
 
 
+        }
+        public void MasrafYeriGuncel()
+        {
+            CmbMasrafYeriNoG.DataSource = masrafYeriManager.GetList();
+            CmbMasrafYeriNoG.ValueMember = "Id";
+            CmbMasrafYeriNoG.DisplayMember = "MasrafYeriNo";
+            CmbMasrafYeriNoG.SelectedValue = 0;
+        }
+        public void MasrafYeri()
+        {
+            CmbMasYeriNo.DataSource = masrafYeriManager.GetList();
+            CmbMasYeriNo.ValueMember = "Id";
+            CmbMasYeriNo.DisplayMember = "MasrafYeriNo";
+            CmbMasYeriNo.SelectedValue = 0;
+        }
+        public void MasrafYeriBilgiGuncel()
+        {
+            CmbMastafYeriG.DataSource = masrafYeriManager.GetList();
+            CmbMastafYeriG.ValueMember = "Id";
+            CmbMastafYeriG.DisplayMember = "MasrafYeriBilgi";
+            CmbMastafYeriG.SelectedValue = 0;
+        }
+        public void MasrafYeriBilgi()
+        {
+            TxtMasrafYeri.DataSource = masrafYeriManager.GetList();
+            TxtMasrafYeri.ValueMember = "Id";
+            TxtMasrafYeri.DisplayMember = "MasrafYeriBilgi";
+            TxtMasrafYeri.SelectedValue = 0;
         }
         void ProjeKodu()
         {

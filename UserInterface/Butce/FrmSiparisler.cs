@@ -254,11 +254,11 @@ namespace UserInterface.Butce
                 }
                 if (CmbAktarilacak.Text == "ARAÇ")
                 {
-                    DtgNereye.Columns.Remove("Plaka");
-                    DtgNereye.Columns.Remove("MulkiyetBilgileri");
-                    DtgNereye.Columns.Remove("ZimmetliPersonel");
-                    DtgNereye.Columns.Remove("MasrafYeriSorumlusu");
-                    DtgNereye.Columns.Remove("Bolum");
+                    //DtgNereye.Columns.Remove("Plaka");
+                    //DtgNereye.Columns.Remove("MulkiyetBilgileri");
+                    //DtgNereye.Columns.Remove("ZimmetliPersonel");
+                    //DtgNereye.Columns.Remove("MasrafYeriSorumlusu");
+                    //DtgNereye.Columns.Remove("Bolum");
                 }
             }
 
@@ -587,7 +587,7 @@ namespace UserInterface.Butce
                     MessageBox.Show("Öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string message = KontenjanControlAktarim();
+                string message = KontenjanControlAktarimTekli();
 
                 if (message != "OK")
                 {
@@ -613,7 +613,7 @@ namespace UserInterface.Butce
                     MessageBox.Show("Öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                string message = KontenjanControlAktarimArac();
+                string message = KontenjanControlAktarimAracTekli();
 
                 if (message != "OK")
                 {
@@ -694,6 +694,23 @@ namespace UserInterface.Butce
             }
             return "OK";
         }
+        string KontenjanControlAktarimTekli()
+        {
+
+            kontenjan = siparislerManager.KontejanKontrol(nereyeSiparis);
+            mevcut = siparislerManager.KontejanKontrolMevcut(nereyeSiparis);
+
+            int bosKontejan = kontenjan - mevcut;
+            if (kontenjan == -1)
+            {
+                return "";
+            }
+            if (1 > bosKontejan)
+            {
+                return CmbSiparisNereye.Text + " Nolu Siparişte Yeteri Kadar Boş Kontejan Bulunmamaktadır!";
+            }
+            return "OK";
+        }
         string KontenjanControlAktarimArac()
         {
 
@@ -711,6 +728,23 @@ namespace UserInterface.Butce
             }
             return "OK";
         }
+        string KontenjanControlAktarimAracTekli()
+        {
+
+            kontenjan = siparislerManager.KontejanKontrolArac(nereyeSiparis);
+            mevcut = siparislerManager.KontejanKontrolMevcutArac(nereyeSiparis);
+
+            int bosKontejan = kontenjan - mevcut;
+            if (kontenjan == -1)
+            {
+                return "";
+            }
+            if (1 > bosKontejan)
+            {
+                return CmbSiparisNereye.Text + " Nolu Siparişte Yeteri Kadar Boş Kontejan Bulunmamaktadır!";
+            }
+            return "OK";
+        }
 
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -722,7 +756,7 @@ namespace UserInterface.Butce
             }
             if (CmbAktarilacak.Text== "PERSONEL")
             {
-                DialogResult dr = MessageBox.Show(CmbSiparisNereden.Text + " Nolu Sipariş Numarasında ki " + LblNeredenToplam.Text + " Personelin Sipariş Numarası " + CmbSiparisNereye.Text + " Nolu Siparişe Aktarılacaktir! Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = MessageBox.Show(CmbSiparisNereden.Text + " Nolu Sipariş Numarasında ki " + LblNereyeToplam.Text + " Personelin Sipariş Numarası " + CmbSiparisNereye.Text + " Nolu Siparişe Aktarılacaktir! Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dr == DialogResult.Yes)
                 {
@@ -743,7 +777,7 @@ namespace UserInterface.Butce
 
             if (CmbAktarilacak.Text == "ARAÇ")
             {
-                DialogResult dr = MessageBox.Show(CmbSiparisNereden.Text + " Nolu Sipariş Numarasında ki " + LblNeredenToplam.Text + " Aracın Sipariş Numarası " + CmbSiparisNereye.Text + " Nolu Siparişe Aktarılacaktir! Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult dr = MessageBox.Show(CmbSiparisNereden.Text + " Nolu Sipariş Numarasında ki " + LblNereyeToplam.Text + " Aracın Sipariş Numarası " + CmbSiparisNereye.Text + " Nolu Siparişe Aktarılacaktir! Onaylıyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
                 if (dr==DialogResult.Yes)
                 {
@@ -751,8 +785,8 @@ namespace UserInterface.Butce
                     {
                         SiparislerArac siparislerArac = new SiparislerArac(item.Cells["Plaka"].Value.ToString(), item.Cells["MulkiyetBilgileri"].Value.ToString(), item.Cells["Bolum"].Value.ToString(), item.Cells["ZimmetliPersonel"].Value.ToString(), item.Cells["MasrafYeriSorumlusu"].Value.ToString(), "PROJE İÇİ", neredenSiparis, DateTime.Now);
 
-                        string control = siparislerAracManager.Add(siparislerArac);
-                        aracManager.SiparisGuncelle(item.Cells["Plaka"].Value.ToString(), nereyeSiparis);
+                        //string control = siparislerAracManager.Add(siparislerArac);
+                        string control = aracManager.SiparisGuncelle(item.Cells["Plaka"].Value.ToString(), nereyeSiparis);
                         if (control != "OK")
                         {
                             MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);

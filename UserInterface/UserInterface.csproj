@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>429</ApplicationRevision>
+    <ApplicationRevision>434</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -273,6 +273,12 @@
     </Compile>
     <Compile Include="BakımOnarım\FrmArizaKayitlariKapatilan.Designer.cs">
       <DependentUpon>FrmArizaKayitlariKapatilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitOlusturSaha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitOlusturSaha.Designer.cs">
+      <DependentUpon>FrmArizaKayitOlusturSaha.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmDtfIzleme.cs">
       <SubType>Form</SubType>
@@ -814,6 +820,12 @@
     <Compile Include="IdariIsler\FrmKonaklamaIzleme.Designer.cs">
       <DependentUpon>FrmKonaklamaIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmMasrafYeri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmMasrafYeri.Designer.cs">
+      <DependentUpon>FrmMasrafYeri.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmOtelEkle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1215,6 +1227,9 @@
     <EmbeddedResource Include="BakımOnarım\FrmArizaKayitlariKapatilan.resx">
       <DependentUpon>FrmArizaKayitlariKapatilan.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaKayitOlusturSaha.resx">
+      <DependentUpon>FrmArizaKayitOlusturSaha.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmDtfIzleme.resx">
       <DependentUpon>FrmDtfIzleme.cs</DependentUpon>
     </EmbeddedResource>
@@ -1484,6 +1499,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmKonaklamaIzleme.resx">
       <DependentUpon>FrmKonaklamaIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmMasrafYeri.resx">
+      <DependentUpon>FrmMasrafYeri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmOtelEkle.resx">
       <DependentUpon>FrmOtelEkle.cs</DependentUpon>

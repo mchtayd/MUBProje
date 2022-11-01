@@ -131,6 +131,8 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["HasarKodu"].Visible = false;
             DtgList.Columns["NedenKodu"].Visible = false;
             DtgList.Columns["EksikEvrak"].Visible = false;
+            DtgList.Columns["SiparisTuru"].Visible = false;
+            DtgList.Columns["EkipmanNo"].Visible = false;
 
 
             DtgList.Columns["AbfFormNo"].DisplayIndex = 0;

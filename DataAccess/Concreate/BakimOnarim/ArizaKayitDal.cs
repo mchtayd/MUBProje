@@ -167,6 +167,24 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string SistemCihazBilgileri2(ArizaKayit entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BakimOanrimSistemCihazBilgileri2",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@stokNo", entity.StokNo),
+                    new SqlParameter("@tanim", entity.Tanim),
+                    new SqlParameter("@seriNo", entity.SeriNo));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Delete(int id)
         {

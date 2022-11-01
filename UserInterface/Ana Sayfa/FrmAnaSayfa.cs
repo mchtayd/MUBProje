@@ -2003,7 +2003,24 @@ namespace UserInterface.STS
                         form.DataDisplay();
                     }
                 }
+                if (baslik == "Açık Bildirimler")
+                {
+                    var form = (FrmArizaDevamEden)Application.OpenForms["FrmArizaDevamEden"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
+                    }
+                }
+                if (baslik == "Arıza Kayıtları")
+                {
+                    var form = (FrmArizaKayitlarics)Application.OpenForms["FrmArizaKayitlarics"];
+                    if (form != null)
+                    {
+                        form.ArizaKayitlari();
+                    }
+                }
             }
+            
         }
 
         private void oRGANİZSAYONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2047,7 +2064,7 @@ namespace UserInterface.STS
             ////////////////////////////////////////////////BAKIM ONARIM/////////////////////////////////////////////////////////////////////
 
 
-            if (e.Node.Text == "Veri Kayıt (Arıza Açma/Kapatma)")
+            if (e.Node.Text == "Bildirim Aç/Kapat")
             {
                 FrmArizaAcmaCalisma Go = new FrmArizaAcmaCalisma();
                 Go.infos = infos;
@@ -2080,7 +2097,7 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "Destek Ve İşçilik")
+            if (e.Node.Text == "Destek/İşçilik Girişi")
             {
                 FrmDestekIscilikVeriGiris Go = new FrmDestekIscilikVeriGiris();
                 Go.infos = infos;
@@ -2091,10 +2108,10 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "Veri Kayıt (Arıza Güncelle)")
+            if (e.Node.Text == "Bildirim Güncelle")
             {
                 FrmArizaDurumGuncelle Go = new FrmArizaDurumGuncelle();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2102,7 +2119,7 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "Açık Arızalar (SAHA)")
+            if (e.Node.Text == "Açık Bildirimler")
             {
                 FrmArizaDevamEden Go = new FrmArizaDevamEden();
                 //Go.infos = infos;
@@ -2113,7 +2130,7 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "Arıza Kayıtları (SAHA)")
+            if (e.Node.Text == "Arıza Kayıtları")
             {
                 FrmArizaKayitlarics Go = new FrmArizaKayitlarics();
                 //Go.infos = infos;
@@ -2124,7 +2141,7 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "Kapatılan Arızalar (SAHA)")
+            if (e.Node.Text == "Kapatılan Bildirimler")
             {
                 FrmArizaKayitlariKapatilan Go = new FrmArizaKayitlariKapatilan();
                 //Go.infos = infos;
@@ -2135,7 +2152,7 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "Veri Kayıt (Arıza Bildirim Onayı)")
+            if (e.Node.Text == "Bildirim Onayı")
             {
                 FrmBildirimOnayi Go = new FrmBildirimOnayi();
                 //Go.infos = infos;
@@ -2221,9 +2238,20 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
+            if (e.Node.Text == "Arıza Kaydı Oluştur")
+            {
+                FrmArizaKayitOlusturSaha Go = new FrmArizaKayitOlusturSaha();
+                Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageArizaKaydiOlusturSaha", "ARIZA KAYDI OLUŞTUR", Go);
+                Go.Show();
+            }
+
             /////////////////////////////////////////////////BAKIM ONARIM ATEOLYE//////////////////////////////////////////////////////////////
 
-            if (e.Node.Text == "Veri Kayıt (Arıza Açma)")
+            if (e.Node.Text == "Atölye Bildirim Oluştur")
             {
                 FrmBOAtolye Go = new FrmBOAtolye();
                 Go.infos = infos;
@@ -2233,7 +2261,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageArizaAcmaAtolye", "ARIZA AÇMA (ATÖLYE)", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "Veri Kayıt (Arıza Güncelleme)")
+            if (e.Node.Text == "Atölye Bildirim Güncelle")
             {
                 FrmBOAtolyeGuncelleme Go = new FrmBOAtolyeGuncelleme();
                 //Go.infos = infos;
@@ -2243,7 +2271,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageArizaAcmaAtolyeGuncelle", "ARIZA GÜNCELLEME (ATÖLYE)", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "Bölge Ve Ekipman Kayıt")
+            if (e.Node.Text == "Bölge ve Ekipman Kayıt")
             {
                 FrmBolgeler Go = new FrmBolgeler();
                 //Go.infos = infos;
@@ -2264,7 +2292,7 @@ namespace UserInterface.STS
                 Go.Show();
             }*/
             
-            if (e.Node.Text == "Açık Arızalar (ATOLYE)")
+            if (e.Node.Text == "Atölye Açık Bildirimler")
             {
                 FrmBOAtolyeDevamEdenler Go = new FrmBOAtolyeDevamEdenler();
                 Go.infos = infos;
@@ -2275,7 +2303,7 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "Veri Kayıt (Arıza Kapatma)")
+            if (e.Node.Text == "Atölye Bildirim Kapat")
             {
                 FrmBOAtolyeKapatma Go = new FrmBOAtolyeKapatma();
                 Go.infos = infos;
@@ -2285,7 +2313,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageAtolyeKapatma", "ARIZA KAPATMA (ATÖLYE)", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "Kapatılan Arızalar (ATOLYE)")
+            if (e.Node.Text == "Atölye Kapatılan Bildirimler")
             {
                 FrmBOAtolyeTamamlananlar Go = new FrmBOAtolyeTamamlananlar();
                 //Go.infos = infos;

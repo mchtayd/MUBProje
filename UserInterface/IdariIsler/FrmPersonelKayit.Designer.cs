@@ -31,8 +31,8 @@ namespace UserInterface.IdariIşler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonelKayit));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
@@ -352,7 +352,9 @@ namespace UserInterface.IdariIşler
             this.button5 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnMasrafYeriDuzeltGun = new System.Windows.Forms.Button();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnMasrafYeriDuzelt = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -525,18 +527,18 @@ namespace UserInterface.IdariIşler
             // 
             this.DtgMevcutKadro.AllowUserToAddRows = false;
             this.DtgMevcutKadro.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtgMevcutKadro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMevcutKadro.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgMevcutKadro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgMevcutKadro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DtgMevcutKadro.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1383,6 +1385,7 @@ namespace UserInterface.IdariIşler
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.BtnMasrafYeriDuzeltGun);
             this.groupBox6.Controls.Add(this.DtKgbGuncelle);
             this.groupBox6.Controls.Add(this.label132);
             this.groupBox6.Controls.Add(this.TxtKgbNoGun);
@@ -1431,7 +1434,7 @@ namespace UserInterface.IdariIşler
             this.groupBox6.Controls.Add(this.label52);
             this.groupBox6.Location = new System.Drawing.Point(24, 313);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1211, 236);
+            this.groupBox6.Size = new System.Drawing.Size(1390, 236);
             this.groupBox6.TabIndex = 115;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ŞİRKET BİLGİLER";
@@ -1439,7 +1442,7 @@ namespace UserInterface.IdariIşler
             // DtKgbGuncelle
             // 
             this.DtKgbGuncelle.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtKgbGuncelle.Location = new System.Drawing.Point(945, 198);
+            this.DtKgbGuncelle.Location = new System.Drawing.Point(1018, 201);
             this.DtKgbGuncelle.Name = "DtKgbGuncelle";
             this.DtKgbGuncelle.Size = new System.Drawing.Size(174, 20);
             this.DtKgbGuncelle.TabIndex = 143;
@@ -1447,7 +1450,7 @@ namespace UserInterface.IdariIşler
             // label132
             // 
             this.label132.AutoSize = true;
-            this.label132.Location = new System.Drawing.Point(798, 202);
+            this.label132.Location = new System.Drawing.Point(871, 205);
             this.label132.Name = "label132";
             this.label132.Size = new System.Drawing.Size(136, 13);
             this.label132.TabIndex = 142;
@@ -1455,7 +1458,7 @@ namespace UserInterface.IdariIşler
             // 
             // TxtKgbNoGun
             // 
-            this.TxtKgbNoGun.Location = new System.Drawing.Point(944, 172);
+            this.TxtKgbNoGun.Location = new System.Drawing.Point(1017, 175);
             this.TxtKgbNoGun.Name = "TxtKgbNoGun";
             this.TxtKgbNoGun.Size = new System.Drawing.Size(236, 20);
             this.TxtKgbNoGun.TabIndex = 142;
@@ -1463,7 +1466,7 @@ namespace UserInterface.IdariIşler
             // label130
             // 
             this.label130.AutoSize = true;
-            this.label130.Location = new System.Drawing.Point(883, 176);
+            this.label130.Location = new System.Drawing.Point(956, 179);
             this.label130.Name = "label130";
             this.label130.Size = new System.Drawing.Size(51, 13);
             this.label130.TabIndex = 141;
@@ -1472,7 +1475,7 @@ namespace UserInterface.IdariIşler
             // label126
             // 
             this.label126.AutoSize = true;
-            this.label126.Location = new System.Drawing.Point(814, 149);
+            this.label126.Location = new System.Drawing.Point(887, 152);
             this.label126.Name = "label126";
             this.label126.Size = new System.Drawing.Size(119, 13);
             this.label126.TabIndex = 139;
@@ -1482,7 +1485,7 @@ namespace UserInterface.IdariIşler
             // 
             this.CmbProjeKoduGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbProjeKoduGun.FormattingEnabled = true;
-            this.CmbProjeKoduGun.Location = new System.Drawing.Point(945, 145);
+            this.CmbProjeKoduGun.Location = new System.Drawing.Point(1018, 148);
             this.CmbProjeKoduGun.Name = "CmbProjeKoduGun";
             this.CmbProjeKoduGun.Size = new System.Drawing.Size(174, 21);
             this.CmbProjeKoduGun.TabIndex = 140;
@@ -1490,7 +1493,7 @@ namespace UserInterface.IdariIşler
             // CmbMasrafYeriSorumlusuGun
             // 
             this.CmbMasrafYeriSorumlusuGun.FormattingEnabled = true;
-            this.CmbMasrafYeriSorumlusuGun.Location = new System.Drawing.Point(485, 201);
+            this.CmbMasrafYeriSorumlusuGun.Location = new System.Drawing.Point(537, 201);
             this.CmbMasrafYeriSorumlusuGun.Name = "CmbMasrafYeriSorumlusuGun";
             this.CmbMasrafYeriSorumlusuGun.Size = new System.Drawing.Size(265, 21);
             this.CmbMasrafYeriSorumlusuGun.TabIndex = 138;
@@ -1499,7 +1502,7 @@ namespace UserInterface.IdariIşler
             // label123
             // 
             this.label123.AutoSize = true;
-            this.label123.Location = new System.Drawing.Point(323, 206);
+            this.label123.Location = new System.Drawing.Point(375, 206);
             this.label123.Name = "label123";
             this.label123.Size = new System.Drawing.Size(154, 13);
             this.label123.TabIndex = 137;
@@ -1507,7 +1510,7 @@ namespace UserInterface.IdariIşler
             // 
             // TxtBulunduguBolum
             // 
-            this.TxtBulunduguBolum.Location = new System.Drawing.Point(485, 18);
+            this.TxtBulunduguBolum.Location = new System.Drawing.Point(537, 18);
             this.TxtBulunduguBolum.Name = "TxtBulunduguBolum";
             this.TxtBulunduguBolum.Size = new System.Drawing.Size(265, 20);
             this.TxtBulunduguBolum.TabIndex = 136;
@@ -1515,7 +1518,7 @@ namespace UserInterface.IdariIşler
             // label121
             // 
             this.label121.AutoSize = true;
-            this.label121.Location = new System.Drawing.Point(357, 22);
+            this.label121.Location = new System.Drawing.Point(409, 22);
             this.label121.Name = "label121";
             this.label121.Size = new System.Drawing.Size(120, 13);
             this.label121.TabIndex = 115;
@@ -1524,7 +1527,7 @@ namespace UserInterface.IdariIşler
             // CmbBolum3G
             // 
             this.CmbBolum3G.FormattingEnabled = true;
-            this.CmbBolum3G.Location = new System.Drawing.Point(485, 122);
+            this.CmbBolum3G.Location = new System.Drawing.Point(537, 122);
             this.CmbBolum3G.Name = "CmbBolum3G";
             this.CmbBolum3G.Size = new System.Drawing.Size(265, 21);
             this.CmbBolum3G.TabIndex = 135;
@@ -1533,7 +1536,7 @@ namespace UserInterface.IdariIşler
             // label110
             // 
             this.label110.AutoSize = true;
-            this.label110.Location = new System.Drawing.Point(420, 125);
+            this.label110.Location = new System.Drawing.Point(472, 125);
             this.label110.Name = "label110";
             this.label110.Size = new System.Drawing.Size(57, 13);
             this.label110.TabIndex = 134;
@@ -1542,7 +1545,7 @@ namespace UserInterface.IdariIşler
             // CmbBolum2G
             // 
             this.CmbBolum2G.FormattingEnabled = true;
-            this.CmbBolum2G.Location = new System.Drawing.Point(485, 96);
+            this.CmbBolum2G.Location = new System.Drawing.Point(537, 96);
             this.CmbBolum2G.Name = "CmbBolum2G";
             this.CmbBolum2G.Size = new System.Drawing.Size(265, 21);
             this.CmbBolum2G.TabIndex = 133;
@@ -1551,7 +1554,7 @@ namespace UserInterface.IdariIşler
             // label119
             // 
             this.label119.AutoSize = true;
-            this.label119.Location = new System.Drawing.Point(420, 100);
+            this.label119.Location = new System.Drawing.Point(472, 100);
             this.label119.Name = "label119";
             this.label119.Size = new System.Drawing.Size(57, 13);
             this.label119.TabIndex = 132;
@@ -1566,7 +1569,7 @@ namespace UserInterface.IdariIşler
             "KALİTE MÜHENDİSLİĞİ",
             "YAZILIM MÜHENDİSLİĞİ",
             "İDARİ İŞLER ŞEFLİĞİ"});
-            this.CmbBolumG.Location = new System.Drawing.Point(485, 70);
+            this.CmbBolumG.Location = new System.Drawing.Point(537, 70);
             this.CmbBolumG.Name = "CmbBolumG";
             this.CmbBolumG.Size = new System.Drawing.Size(265, 21);
             this.CmbBolumG.TabIndex = 131;
@@ -1575,7 +1578,7 @@ namespace UserInterface.IdariIşler
             // label120
             // 
             this.label120.AutoSize = true;
-            this.label120.Location = new System.Drawing.Point(420, 73);
+            this.label120.Location = new System.Drawing.Point(472, 73);
             this.label120.Name = "label120";
             this.label120.Size = new System.Drawing.Size(57, 13);
             this.label120.TabIndex = 130;
@@ -1586,7 +1589,7 @@ namespace UserInterface.IdariIşler
             this.CmbDepartmanG.FormattingEnabled = true;
             this.CmbDepartmanG.Items.AddRange(new object[] {
             "MÜB PROJE DİREKTÖRLÜĞÜ"});
-            this.CmbDepartmanG.Location = new System.Drawing.Point(485, 44);
+            this.CmbDepartmanG.Location = new System.Drawing.Point(537, 44);
             this.CmbDepartmanG.Name = "CmbDepartmanG";
             this.CmbDepartmanG.Size = new System.Drawing.Size(265, 21);
             this.CmbDepartmanG.TabIndex = 129;
@@ -1594,7 +1597,7 @@ namespace UserInterface.IdariIşler
             // label84
             // 
             this.label84.AutoSize = true;
-            this.label84.Location = new System.Drawing.Point(399, 48);
+            this.label84.Location = new System.Drawing.Point(451, 48);
             this.label84.Name = "label84";
             this.label84.Size = new System.Drawing.Size(78, 13);
             this.label84.TabIndex = 128;
@@ -1603,39 +1606,6 @@ namespace UserInterface.IdariIşler
             // CmbMastafYeriG
             // 
             this.CmbMastafYeriG.FormattingEnabled = true;
-            this.CmbMastafYeriG.Items.AddRange(new object[] {
-            "PROJE DİREKTÖRLÜĞÜ",
-            "LOJİSTİK DESTEK VE PLANLAMA MDL.",
-            "PLANLAMA VE ANALİZ MÜH.",
-            "VERİ KAYIT",
-            "GEÇİCİ KABUL VE AMBAR",
-            "SATIN ALMA",
-            "ALT. YÜK. KONT. KRD. MÜH.",
-            "TESİS B/O 1.SEKTÖR",
-            "TESİS B/O 2.SEKTÖR",
-            "SAHA VE ÜRÜN DESTEĞİ MÜH.",
-            "SAHA DESTEĞİ",
-            "ÜRÜN DESTEĞİ",
-            "EĞT. VE DOK. MÜH.",
-            "SİSTEM TESİS B/O MDL.",
-            "ŞIRNAK 1. SEKTÖR SİSTEM B/O MÜH.",
-            "ŞIRNAK 2. SEKTÖR SİSTEM B/O MÜH.",
-            "ŞIRNAK 3. SEKTÖR SİSTEM B/O MÜH.",
-            "ÇUKURCA 1. SEKTÖR SİSTEM B/O MÜH.",
-            "ÇUKURCA 2. SEKTÖR SİSTEM B/O MÜH.",
-            "YÜKSEOVA SİSTEM B/O MÜH.",
-            "ŞEMDİNLİ SİSTEM B/O MÜH.",
-            "DERECİK SİSTEM B/O MÜH.",
-            "ÇAKI SİSTEM B/O MÜH.",
-            "İDARİ İŞLER ŞEFLİĞİ",
-            "PERSONEL İŞLERİ/ARŞİV",
-            "ULAŞTIRMA",
-            "GÜVENLİK VE KAT HİZMETLERİ",
-            "YAZILIM MÜH.",
-            "KALİTE MÜH.",
-            "ASELSAN UGES ELDD ÜRÜN DES. MDL.",
-            "ASELSAN UGES İÇ GÜV.PROG.DİR. (PROJE YÖNRTİMİ)",
-            "ASELSAN UGES İÇ GÜV.PROG.MDL.(PROJE YÖNETİMİ)"});
             this.CmbMastafYeriG.Location = new System.Drawing.Point(121, 175);
             this.CmbMastafYeriG.Name = "CmbMastafYeriG";
             this.CmbMastafYeriG.Size = new System.Drawing.Size(235, 21);
@@ -1666,7 +1636,7 @@ namespace UserInterface.IdariIşler
             // 
             // TxtOficeDahiliNoG
             // 
-            this.TxtOficeDahiliNoG.Location = new System.Drawing.Point(945, 67);
+            this.TxtOficeDahiliNoG.Location = new System.Drawing.Point(1018, 70);
             this.TxtOficeDahiliNoG.Name = "TxtOficeDahiliNoG";
             this.TxtOficeDahiliNoG.Size = new System.Drawing.Size(235, 20);
             this.TxtOficeDahiliNoG.TabIndex = 59;
@@ -1686,7 +1656,7 @@ namespace UserInterface.IdariIşler
             "KAT HİZMETLİSİ",
             "DEPO SORUMLUSU",
             "GÜVENLİK GÖREVLİSİ"});
-            this.CmbIsUnvaniG.Location = new System.Drawing.Point(945, 93);
+            this.CmbIsUnvaniG.Location = new System.Drawing.Point(1018, 96);
             this.CmbIsUnvaniG.Name = "CmbIsUnvaniG";
             this.CmbIsUnvaniG.Size = new System.Drawing.Size(173, 21);
             this.CmbIsUnvaniG.TabIndex = 37;
@@ -1694,7 +1664,7 @@ namespace UserInterface.IdariIşler
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(835, 123);
+            this.label3.Location = new System.Drawing.Point(908, 126);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 13);
             this.label3.TabIndex = 49;
@@ -1703,7 +1673,7 @@ namespace UserInterface.IdariIşler
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(869, 97);
+            this.label21.Location = new System.Drawing.Point(942, 100);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(64, 13);
             this.label21.TabIndex = 38;
@@ -1754,7 +1724,7 @@ namespace UserInterface.IdariIşler
             // 
             // TxtOficeMailG
             // 
-            this.TxtOficeMailG.Location = new System.Drawing.Point(485, 175);
+            this.TxtOficeMailG.Location = new System.Drawing.Point(537, 175);
             this.TxtOficeMailG.Name = "TxtOficeMailG";
             this.TxtOficeMailG.Size = new System.Drawing.Size(265, 20);
             this.TxtOficeMailG.TabIndex = 67;
@@ -1770,21 +1740,21 @@ namespace UserInterface.IdariIşler
             // 
             // TxtSirketKısaKodG
             // 
-            this.TxtSirketKısaKodG.Location = new System.Drawing.Point(945, 41);
+            this.TxtSirketKısaKodG.Location = new System.Drawing.Point(1018, 44);
             this.TxtSirketKısaKodG.Name = "TxtSirketKısaKodG";
             this.TxtSirketKısaKodG.Size = new System.Drawing.Size(235, 20);
             this.TxtSirketKısaKodG.TabIndex = 57;
             // 
             // TxtSirketMailG
             // 
-            this.TxtSirketMailG.Location = new System.Drawing.Point(485, 149);
+            this.TxtSirketMailG.Location = new System.Drawing.Point(537, 149);
             this.TxtSirketMailG.Name = "TxtSirketMailG";
             this.TxtSirketMailG.Size = new System.Drawing.Size(265, 20);
             this.TxtSirketMailG.TabIndex = 66;
             // 
             // TxtSirketCepG
             // 
-            this.TxtSirketCepG.Location = new System.Drawing.Point(945, 15);
+            this.TxtSirketCepG.Location = new System.Drawing.Point(1018, 18);
             this.TxtSirketCepG.Name = "TxtSirketCepG";
             this.TxtSirketCepG.Size = new System.Drawing.Size(235, 20);
             this.TxtSirketCepG.TabIndex = 55;
@@ -1805,7 +1775,7 @@ namespace UserInterface.IdariIşler
             // label42
             // 
             this.label42.AutoSize = true;
-            this.label42.Location = new System.Drawing.Point(842, 19);
+            this.label42.Location = new System.Drawing.Point(915, 22);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(92, 13);
             this.label42.TabIndex = 58;
@@ -1814,7 +1784,7 @@ namespace UserInterface.IdariIşler
             // label43
             // 
             this.label43.AutoSize = true;
-            this.label43.Location = new System.Drawing.Point(808, 45);
+            this.label43.Location = new System.Drawing.Point(881, 48);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(126, 13);
             this.label43.TabIndex = 60;
@@ -1832,7 +1802,7 @@ namespace UserInterface.IdariIşler
             // label45
             // 
             this.label45.AutoSize = true;
-            this.label45.Location = new System.Drawing.Point(843, 71);
+            this.label45.Location = new System.Drawing.Point(916, 74);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(91, 13);
             this.label45.TabIndex = 62;
@@ -1841,7 +1811,7 @@ namespace UserInterface.IdariIşler
             // DtIseGirisG
             // 
             this.DtIseGirisG.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtIseGirisG.Location = new System.Drawing.Point(945, 119);
+            this.DtIseGirisG.Location = new System.Drawing.Point(1018, 122);
             this.DtIseGirisG.Name = "DtIseGirisG";
             this.DtIseGirisG.Size = new System.Drawing.Size(174, 20);
             this.DtIseGirisG.TabIndex = 64;
@@ -1865,39 +1835,6 @@ namespace UserInterface.IdariIşler
             // CmbMasrafYeriNoG
             // 
             this.CmbMasrafYeriNoG.FormattingEnabled = true;
-            this.CmbMasrafYeriNoG.Items.AddRange(new object[] {
-            "2017000-1",
-            "2017100-1",
-            "2017101-1",
-            "2017101-2",
-            "2017101-3",
-            "2017101-4",
-            "2017102-1",
-            "2017102-2",
-            "2017102-3",
-            "2017103-1",
-            "2017103-2",
-            "2017103-3",
-            "2017104-1",
-            "2017200-1",
-            "2017201-1",
-            "2017201-2",
-            "2017201-3",
-            "2017202-1",
-            "2017202-2",
-            "2017203-1",
-            "2017204-1",
-            "2017205-1",
-            "2017206-1",
-            "2017300-1",
-            "2017301-1",
-            "2017301-2",
-            "2017301-6",
-            "2017400-1",
-            "2017500-1",
-            "2017007-1",
-            "2017008-1",
-            "2017008-2"});
             this.CmbMasrafYeriNoG.Location = new System.Drawing.Point(121, 148);
             this.CmbMasrafYeriNoG.Name = "CmbMasrafYeriNoG";
             this.CmbMasrafYeriNoG.Size = new System.Drawing.Size(235, 21);
@@ -1916,7 +1853,7 @@ namespace UserInterface.IdariIşler
             // label48
             // 
             this.label48.AutoSize = true;
-            this.label48.Location = new System.Drawing.Point(390, 153);
+            this.label48.Location = new System.Drawing.Point(442, 153);
             this.label48.Name = "label48";
             this.label48.Size = new System.Drawing.Size(87, 13);
             this.label48.TabIndex = 54;
@@ -1925,7 +1862,7 @@ namespace UserInterface.IdariIşler
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(405, 182);
+            this.label52.Location = new System.Drawing.Point(457, 182);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(72, 13);
             this.label52.TabIndex = 56;
@@ -1961,7 +1898,7 @@ namespace UserInterface.IdariIşler
             this.groupBox7.Controls.Add(this.CmbEsIsDurumuG);
             this.groupBox7.Location = new System.Drawing.Point(24, 59);
             this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(1211, 185);
+            this.groupBox7.Size = new System.Drawing.Size(1390, 185);
             this.groupBox7.TabIndex = 114;
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "KİŞİSEL BİLGİLER";
@@ -2226,7 +2163,7 @@ namespace UserInterface.IdariIşler
             this.groupBox8.Controls.Add(this.TxtOkulG);
             this.groupBox8.Location = new System.Drawing.Point(24, 250);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(1211, 57);
+            this.groupBox8.Size = new System.Drawing.Size(1390, 57);
             this.groupBox8.TabIndex = 113;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "EĞİTİM BİLGİLERİ";
@@ -2304,7 +2241,7 @@ namespace UserInterface.IdariIşler
             this.groupBox9.Controls.Add(this.TxtSinifG);
             this.groupBox9.Location = new System.Drawing.Point(27, 555);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(1211, 111);
+            this.groupBox9.Size = new System.Drawing.Size(1387, 111);
             this.groupBox9.TabIndex = 112;
             this.groupBox9.TabStop = false;
             this.groupBox9.Text = "ASKERLİK BİLGİLERİ";
@@ -2571,6 +2508,7 @@ namespace UserInterface.IdariIşler
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.BtnMasrafYeriDuzelt);
             this.groupBox4.Controls.Add(this.DtKgb);
             this.groupBox4.Controls.Add(this.label131);
             this.groupBox4.Controls.Add(this.TxtKgbNo);
@@ -2617,7 +2555,7 @@ namespace UserInterface.IdariIşler
             this.groupBox4.Controls.Add(this.label17);
             this.groupBox4.Location = new System.Drawing.Point(16, 270);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1305, 243);
+            this.groupBox4.Size = new System.Drawing.Size(1390, 236);
             this.groupBox4.TabIndex = 111;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ŞİRKET BİLGİLER";
@@ -2625,7 +2563,7 @@ namespace UserInterface.IdariIşler
             // DtKgb
             // 
             this.DtKgb.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtKgb.Location = new System.Drawing.Point(945, 201);
+            this.DtKgb.Location = new System.Drawing.Point(1032, 201);
             this.DtKgb.Name = "DtKgb";
             this.DtKgb.Size = new System.Drawing.Size(174, 20);
             this.DtKgb.TabIndex = 135;
@@ -2633,7 +2571,7 @@ namespace UserInterface.IdariIşler
             // label131
             // 
             this.label131.AutoSize = true;
-            this.label131.Location = new System.Drawing.Point(798, 205);
+            this.label131.Location = new System.Drawing.Point(885, 205);
             this.label131.Name = "label131";
             this.label131.Size = new System.Drawing.Size(136, 13);
             this.label131.TabIndex = 134;
@@ -2641,7 +2579,7 @@ namespace UserInterface.IdariIşler
             // 
             // TxtKgbNo
             // 
-            this.TxtKgbNo.Location = new System.Drawing.Point(944, 175);
+            this.TxtKgbNo.Location = new System.Drawing.Point(1031, 175);
             this.TxtKgbNo.Name = "TxtKgbNo";
             this.TxtKgbNo.Size = new System.Drawing.Size(236, 20);
             this.TxtKgbNo.TabIndex = 133;
@@ -2649,7 +2587,7 @@ namespace UserInterface.IdariIşler
             // label127
             // 
             this.label127.AutoSize = true;
-            this.label127.Location = new System.Drawing.Point(883, 179);
+            this.label127.Location = new System.Drawing.Point(970, 179);
             this.label127.Name = "label127";
             this.label127.Size = new System.Drawing.Size(51, 13);
             this.label127.TabIndex = 132;
@@ -2658,7 +2596,7 @@ namespace UserInterface.IdariIşler
             // label125
             // 
             this.label125.AutoSize = true;
-            this.label125.Location = new System.Drawing.Point(815, 152);
+            this.label125.Location = new System.Drawing.Point(902, 152);
             this.label125.Name = "label125";
             this.label125.Size = new System.Drawing.Size(119, 13);
             this.label125.TabIndex = 130;
@@ -2668,7 +2606,7 @@ namespace UserInterface.IdariIşler
             // 
             this.CmbProjeKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbProjeKodu.FormattingEnabled = true;
-            this.CmbProjeKodu.Location = new System.Drawing.Point(945, 148);
+            this.CmbProjeKodu.Location = new System.Drawing.Point(1032, 148);
             this.CmbProjeKodu.Name = "CmbProjeKodu";
             this.CmbProjeKodu.Size = new System.Drawing.Size(174, 21);
             this.CmbProjeKodu.TabIndex = 131;
@@ -2676,7 +2614,7 @@ namespace UserInterface.IdariIşler
             // CmbMasrafYeriSorumlusu
             // 
             this.CmbMasrafYeriSorumlusu.FormattingEnabled = true;
-            this.CmbMasrafYeriSorumlusu.Location = new System.Drawing.Point(540, 173);
+            this.CmbMasrafYeriSorumlusu.Location = new System.Drawing.Point(594, 172);
             this.CmbMasrafYeriSorumlusu.Name = "CmbMasrafYeriSorumlusu";
             this.CmbMasrafYeriSorumlusu.Size = new System.Drawing.Size(235, 21);
             this.CmbMasrafYeriSorumlusu.TabIndex = 129;
@@ -2685,7 +2623,7 @@ namespace UserInterface.IdariIşler
             // label122
             // 
             this.label122.AutoSize = true;
-            this.label122.Location = new System.Drawing.Point(380, 178);
+            this.label122.Location = new System.Drawing.Point(434, 177);
             this.label122.Name = "label122";
             this.label122.Size = new System.Drawing.Size(154, 13);
             this.label122.TabIndex = 128;
@@ -2696,7 +2634,7 @@ namespace UserInterface.IdariIşler
             this.CmbDepartman.FormattingEnabled = true;
             this.CmbDepartman.Items.AddRange(new object[] {
             "MÜB PROJE DİREKTÖRLÜĞÜ"});
-            this.CmbDepartman.Location = new System.Drawing.Point(539, 18);
+            this.CmbDepartman.Location = new System.Drawing.Point(593, 17);
             this.CmbDepartman.Name = "CmbDepartman";
             this.CmbDepartman.Size = new System.Drawing.Size(236, 21);
             this.CmbDepartman.TabIndex = 127;
@@ -2704,7 +2642,7 @@ namespace UserInterface.IdariIşler
             // label103
             // 
             this.label103.AutoSize = true;
-            this.label103.Location = new System.Drawing.Point(455, 22);
+            this.label103.Location = new System.Drawing.Point(509, 21);
             this.label103.Name = "label103";
             this.label103.Size = new System.Drawing.Size(75, 13);
             this.label103.TabIndex = 126;
@@ -2713,7 +2651,7 @@ namespace UserInterface.IdariIşler
             // CmbBolum3
             // 
             this.CmbBolum3.FormattingEnabled = true;
-            this.CmbBolum3.Location = new System.Drawing.Point(539, 96);
+            this.CmbBolum3.Location = new System.Drawing.Point(593, 95);
             this.CmbBolum3.Name = "CmbBolum3";
             this.CmbBolum3.Size = new System.Drawing.Size(236, 21);
             this.CmbBolum3.TabIndex = 125;
@@ -2721,7 +2659,7 @@ namespace UserInterface.IdariIşler
             // label90
             // 
             this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(474, 99);
+            this.label90.Location = new System.Drawing.Point(528, 98);
             this.label90.Name = "label90";
             this.label90.Size = new System.Drawing.Size(57, 13);
             this.label90.TabIndex = 124;
@@ -2730,7 +2668,7 @@ namespace UserInterface.IdariIşler
             // CmbBolum2
             // 
             this.CmbBolum2.FormattingEnabled = true;
-            this.CmbBolum2.Location = new System.Drawing.Point(539, 70);
+            this.CmbBolum2.Location = new System.Drawing.Point(593, 69);
             this.CmbBolum2.Name = "CmbBolum2";
             this.CmbBolum2.Size = new System.Drawing.Size(236, 21);
             this.CmbBolum2.TabIndex = 123;
@@ -2739,7 +2677,7 @@ namespace UserInterface.IdariIşler
             // label89
             // 
             this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(474, 74);
+            this.label89.Location = new System.Drawing.Point(528, 73);
             this.label89.Name = "label89";
             this.label89.Size = new System.Drawing.Size(57, 13);
             this.label89.TabIndex = 122;
@@ -2748,39 +2686,6 @@ namespace UserInterface.IdariIşler
             // TxtMasrafYeri
             // 
             this.TxtMasrafYeri.FormattingEnabled = true;
-            this.TxtMasrafYeri.Items.AddRange(new object[] {
-            "PROJE DİREKTÖRLÜĞÜ",
-            "LOJİSTİK DESTEK VE PLANLAMA MDL.",
-            "PLANLAMA VE ANALİZ MÜH.",
-            "VERİ KAYIT",
-            "GEÇİCİ KABUL VE AMBAR",
-            "SATIN ALMA",
-            "ALT. YÜK. KONT. KRD. MÜH.",
-            "TESİS B/O 1.SEKTÖR",
-            "TESİS B/O 2.SEKTÖR",
-            "SAHA VE ÜRÜN DESTEĞİ MÜH.",
-            "SAHA DESTEĞİ",
-            "ÜRÜN DESTEĞİ",
-            "EĞT. VE DOK. MÜH.",
-            "SİSTEM TESİS B/O MDL.",
-            "ŞIRNAK 1. SEKTÖR SİSTEM B/O MÜH.",
-            "ŞIRNAK 2. SEKTÖR SİSTEM B/O MÜH.",
-            "ŞIRNAK 3. SEKTÖR SİSTEM B/O MÜH.",
-            "ÇUKURCA 1. SEKTÖR SİSTEM B/O MÜH.",
-            "ÇUKURCA 2. SEKTÖR SİSTEM B/O MÜH.",
-            "YÜKSEOVA SİSTEM B/O MÜH.",
-            "ŞEMDİNLİ SİSTEM B/O MÜH.",
-            "DERECİK SİSTEM B/O MÜH.",
-            "ÇAKI SİSTEM B/O MÜH.",
-            "İDARİ İŞLER ŞEFLİĞİ",
-            "PERSONEL İŞLERİ/ARŞİV",
-            "ULAŞTIRMA",
-            "GÜVENLİK VE KAT HİZMETLERİ",
-            "YAZILIM MÜH.",
-            "KALİTE MÜH.",
-            "ASELSAN UGES ELDD ÜRÜN DES. MDL.",
-            "ASELSAN UGES İÇ GÜV.PROG.DİR. (PROJE YÖNRTİMİ)",
-            "ASELSAN UGES İÇ GÜV.PROG.MDL.(PROJE YÖNETİMİ)"});
             this.TxtMasrafYeri.Location = new System.Drawing.Point(121, 176);
             this.TxtMasrafYeri.Name = "TxtMasrafYeri";
             this.TxtMasrafYeri.Size = new System.Drawing.Size(235, 21);
@@ -2795,7 +2700,7 @@ namespace UserInterface.IdariIşler
             "KALİTE MÜHENDİSLİĞİ",
             "YAZILIM MÜHENDİSLİĞİ",
             "İDARİ İŞLER ŞEFLİĞİ"});
-            this.CmbBolum.Location = new System.Drawing.Point(539, 44);
+            this.CmbBolum.Location = new System.Drawing.Point(593, 43);
             this.CmbBolum.Name = "CmbBolum";
             this.CmbBolum.Size = new System.Drawing.Size(236, 21);
             this.CmbBolum.TabIndex = 120;
@@ -2804,7 +2709,7 @@ namespace UserInterface.IdariIşler
             // label83
             // 
             this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(474, 47);
+            this.label83.Location = new System.Drawing.Point(528, 46);
             this.label83.Name = "label83";
             this.label83.Size = new System.Drawing.Size(57, 13);
             this.label83.TabIndex = 119;
@@ -2812,7 +2717,7 @@ namespace UserInterface.IdariIşler
             // 
             // MsdDahiliNo
             // 
-            this.MsdDahiliNo.Location = new System.Drawing.Point(945, 70);
+            this.MsdDahiliNo.Location = new System.Drawing.Point(1032, 70);
             this.MsdDahiliNo.Mask = "0000";
             this.MsdDahiliNo.Name = "MsdDahiliNo";
             this.MsdDahiliNo.Size = new System.Drawing.Size(235, 20);
@@ -2821,7 +2726,7 @@ namespace UserInterface.IdariIşler
             // 
             // MsdKisaKod
             // 
-            this.MsdKisaKod.Location = new System.Drawing.Point(945, 44);
+            this.MsdKisaKod.Location = new System.Drawing.Point(1032, 44);
             this.MsdKisaKod.Mask = "0000";
             this.MsdKisaKod.Name = "MsdKisaKod";
             this.MsdKisaKod.Size = new System.Drawing.Size(235, 20);
@@ -2830,7 +2735,7 @@ namespace UserInterface.IdariIşler
             // 
             // MsdSırketCepNo
             // 
-            this.MsdSırketCepNo.Location = new System.Drawing.Point(945, 18);
+            this.MsdSırketCepNo.Location = new System.Drawing.Point(1032, 18);
             this.MsdSırketCepNo.Mask = "(999) 000-0000";
             this.MsdSırketCepNo.Name = "MsdSırketCepNo";
             this.MsdSırketCepNo.Size = new System.Drawing.Size(236, 20);
@@ -2869,7 +2774,7 @@ namespace UserInterface.IdariIşler
             "KAT HİZMETLİSİ",
             "DEPO SORUMLUSU",
             "GÜVENLİK GÖREVLİSİ"});
-            this.CmbIsUnvani.Location = new System.Drawing.Point(945, 96);
+            this.CmbIsUnvani.Location = new System.Drawing.Point(1032, 96);
             this.CmbIsUnvani.Name = "CmbIsUnvani";
             this.CmbIsUnvani.Size = new System.Drawing.Size(174, 21);
             this.CmbIsUnvani.TabIndex = 37;
@@ -2877,7 +2782,7 @@ namespace UserInterface.IdariIşler
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(836, 126);
+            this.label13.Location = new System.Drawing.Point(923, 126);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(98, 13);
             this.label13.TabIndex = 49;
@@ -2886,7 +2791,7 @@ namespace UserInterface.IdariIşler
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(870, 100);
+            this.label2.Location = new System.Drawing.Point(957, 100);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(64, 13);
             this.label2.TabIndex = 38;
@@ -2937,7 +2842,7 @@ namespace UserInterface.IdariIşler
             // 
             // TxtOfficeMail
             // 
-            this.TxtOfficeMail.Location = new System.Drawing.Point(539, 147);
+            this.TxtOfficeMail.Location = new System.Drawing.Point(593, 146);
             this.TxtOfficeMail.Name = "TxtOfficeMail";
             this.TxtOfficeMail.Size = new System.Drawing.Size(236, 20);
             this.TxtOfficeMail.TabIndex = 67;
@@ -2953,7 +2858,7 @@ namespace UserInterface.IdariIşler
             // 
             // TxtSirketMail
             // 
-            this.TxtSirketMail.Location = new System.Drawing.Point(539, 122);
+            this.TxtSirketMail.Location = new System.Drawing.Point(593, 121);
             this.TxtSirketMail.Name = "TxtSirketMail";
             this.TxtSirketMail.Size = new System.Drawing.Size(236, 20);
             this.TxtSirketMail.TabIndex = 66;
@@ -2974,7 +2879,7 @@ namespace UserInterface.IdariIşler
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(843, 22);
+            this.label18.Location = new System.Drawing.Point(930, 22);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(92, 13);
             this.label18.TabIndex = 58;
@@ -2983,7 +2888,7 @@ namespace UserInterface.IdariIşler
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(809, 48);
+            this.label19.Location = new System.Drawing.Point(896, 48);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(126, 13);
             this.label19.TabIndex = 60;
@@ -3001,7 +2906,7 @@ namespace UserInterface.IdariIşler
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(844, 74);
+            this.label20.Location = new System.Drawing.Point(931, 74);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(91, 13);
             this.label20.TabIndex = 62;
@@ -3010,7 +2915,7 @@ namespace UserInterface.IdariIşler
             // DtIseGirisTarihi
             // 
             this.DtIseGirisTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtIseGirisTarihi.Location = new System.Drawing.Point(945, 122);
+            this.DtIseGirisTarihi.Location = new System.Drawing.Point(1032, 122);
             this.DtIseGirisTarihi.Name = "DtIseGirisTarihi";
             this.DtIseGirisTarihi.Size = new System.Drawing.Size(174, 20);
             this.DtIseGirisTarihi.TabIndex = 64;
@@ -3034,39 +2939,6 @@ namespace UserInterface.IdariIşler
             // CmbMasYeriNo
             // 
             this.CmbMasYeriNo.FormattingEnabled = true;
-            this.CmbMasYeriNo.Items.AddRange(new object[] {
-            "2017000-1",
-            "2017100-1",
-            "2017101-1",
-            "2017101-2",
-            "2017101-3",
-            "2017101-4",
-            "2017102-1",
-            "2017102-2",
-            "2017102-3",
-            "2017103-1",
-            "2017103-2",
-            "2017103-3",
-            "2017104-1",
-            "2017200-1",
-            "2017201-1",
-            "2017201-2",
-            "2017201-3",
-            "2017202-1",
-            "2017202-2",
-            "2017203-1",
-            "2017204-1",
-            "2017205-1",
-            "2017206-1",
-            "2017300-1",
-            "2017301-1",
-            "2017301-2",
-            "2017301-6",
-            "2017400-1",
-            "2017500-1",
-            "2017007-1",
-            "2017008-1",
-            "2017008-2"});
             this.CmbMasYeriNo.Location = new System.Drawing.Point(121, 149);
             this.CmbMasYeriNo.Name = "CmbMasYeriNo";
             this.CmbMasYeriNo.Size = new System.Drawing.Size(235, 21);
@@ -3085,7 +2957,7 @@ namespace UserInterface.IdariIşler
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(442, 126);
+            this.label16.Location = new System.Drawing.Point(496, 125);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(87, 13);
             this.label16.TabIndex = 54;
@@ -3094,7 +2966,7 @@ namespace UserInterface.IdariIşler
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(457, 152);
+            this.label17.Location = new System.Drawing.Point(511, 151);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(72, 13);
             this.label17.TabIndex = 56;
@@ -3132,7 +3004,7 @@ namespace UserInterface.IdariIşler
             this.asdadasd.Controls.Add(this.CmbEsIsDurumu);
             this.asdadasd.Location = new System.Drawing.Point(16, 16);
             this.asdadasd.Name = "asdadasd";
-            this.asdadasd.Size = new System.Drawing.Size(1305, 185);
+            this.asdadasd.Size = new System.Drawing.Size(1390, 185);
             this.asdadasd.TabIndex = 110;
             this.asdadasd.TabStop = false;
             this.asdadasd.Text = "KİŞİSEL BİLGİLER";
@@ -3408,7 +3280,7 @@ namespace UserInterface.IdariIşler
             this.groupBox2.Controls.Add(this.TxtBolum);
             this.groupBox2.Location = new System.Drawing.Point(16, 207);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1305, 57);
+            this.groupBox2.Size = new System.Drawing.Size(1390, 57);
             this.groupBox2.TabIndex = 109;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "EĞİTİM BİLGİLERİ";
@@ -3486,7 +3358,7 @@ namespace UserInterface.IdariIşler
             this.groupBox1.Controls.Add(this.TxtSinif);
             this.groupBox1.Location = new System.Drawing.Point(16, 519);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1305, 111);
+            this.groupBox1.Size = new System.Drawing.Size(1390, 111);
             this.groupBox1.TabIndex = 108;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ASKERLİK BİLGİLERİ";
@@ -3746,6 +3618,38 @@ namespace UserInterface.IdariIşler
             this.yenileToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
+            // 
+            // BtnMasrafYeriDuzeltGun
+            // 
+            this.BtnMasrafYeriDuzeltGun.AccessibleDescription = "";
+            this.BtnMasrafYeriDuzeltGun.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnMasrafYeriDuzeltGun.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMasrafYeriDuzeltGun.BackgroundImage")));
+            this.BtnMasrafYeriDuzeltGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMasrafYeriDuzeltGun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMasrafYeriDuzeltGun.Location = new System.Drawing.Point(359, 144);
+            this.BtnMasrafYeriDuzeltGun.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMasrafYeriDuzeltGun.Name = "BtnMasrafYeriDuzeltGun";
+            this.BtnMasrafYeriDuzeltGun.Size = new System.Drawing.Size(34, 29);
+            this.BtnMasrafYeriDuzeltGun.TabIndex = 397;
+            this.BtnMasrafYeriDuzeltGun.Tag = "admin";
+            this.BtnMasrafYeriDuzeltGun.UseVisualStyleBackColor = false;
+            this.BtnMasrafYeriDuzeltGun.Click += new System.EventHandler(this.BtnMasrafYeriDuzelt_Click);
+            // 
+            // BtnMasrafYeriDuzelt
+            // 
+            this.BtnMasrafYeriDuzelt.AccessibleDescription = "";
+            this.BtnMasrafYeriDuzelt.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnMasrafYeriDuzelt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMasrafYeriDuzelt.BackgroundImage")));
+            this.BtnMasrafYeriDuzelt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMasrafYeriDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMasrafYeriDuzelt.Location = new System.Drawing.Point(359, 144);
+            this.BtnMasrafYeriDuzelt.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMasrafYeriDuzelt.Name = "BtnMasrafYeriDuzelt";
+            this.BtnMasrafYeriDuzelt.Size = new System.Drawing.Size(34, 29);
+            this.BtnMasrafYeriDuzelt.TabIndex = 398;
+            this.BtnMasrafYeriDuzelt.Tag = "admin";
+            this.BtnMasrafYeriDuzelt.UseVisualStyleBackColor = false;
+            this.BtnMasrafYeriDuzelt.Click += new System.EventHandler(this.BtnMasrafYeriDuzelt_Click_1);
             // 
             // FrmPersonelKayit
             // 
@@ -4132,5 +4036,7 @@ namespace UserInterface.IdariIşler
         private System.Windows.Forms.Label label132;
         private System.Windows.Forms.DateTimePicker DtKgb;
         private System.Windows.Forms.Label label131;
+        private System.Windows.Forms.Button BtnMasrafYeriDuzeltGun;
+        private System.Windows.Forms.Button BtnMasrafYeriDuzelt;
     }
 }

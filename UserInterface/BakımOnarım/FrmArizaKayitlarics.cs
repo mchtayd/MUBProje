@@ -46,7 +46,7 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-        void ArizaKayitlari()
+        public void ArizaKayitlari()
         {
             arizaKayits = arizaKayitManager.GetList();
             dataBinder.DataSource = arizaKayits.ToDataTable();
@@ -74,6 +74,7 @@ namespace UserInterface.BakımOnarım
             DtgArizaKayitlari.Columns["GorevAtanacakPersonel"].HeaderText = "GÖREV ATANAN PERSONEL";
             DtgArizaKayitlari.Columns["IslemAdimi"].HeaderText = "İŞLEM ADIMI";
             DtgArizaKayitlari.Columns["DosyaYolu"].Visible = false;
+            DtgArizaKayitlari.Columns["SiparisTuru"].Visible = false;
             DtgArizaKayitlari.Columns["SiparisNo"].Visible = false;
             DtgArizaKayitlari.Columns["GarantiDurumu"].Visible = false;
             DtgArizaKayitlari.Columns["LojistikSorumluPersonel"].Visible = false;

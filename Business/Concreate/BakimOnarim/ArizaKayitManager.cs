@@ -204,6 +204,18 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string SistemCihazBilgileri2(ArizaKayit entity)
+        {
+            try
+            {
+
+                return arizaKayitDal.SistemCihazBilgileri2(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string KapatKayit(ArizaKayit entity)
         {
             try

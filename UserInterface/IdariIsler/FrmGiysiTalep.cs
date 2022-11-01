@@ -312,10 +312,6 @@ namespace UserInterface.IdariIsler
             }
 
         }
-        void FormOlustur()
-        {
-
-        }
 
         private void DtgList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {

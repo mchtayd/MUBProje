@@ -101,5 +101,23 @@ namespace UserInterface.IdariIsler
         {
             dataBinder.Sort = DtgList.SortString;
         }
+
+        private void BtnSatOlustur_Click(object sender, EventArgs e)
+        {
+
+            //StringBuilder strB = new StringBuilder();
+            //strB.AppendLine("<html><head><meta charset=utf-8><style>table{padding:10px;} th,td{padding:8px;}</style></head><body>");
+            //strB.AppendLine("<html><head><meta charset=utf-8><style>h1{padding:20px; align=center}</style></head><body>");
+            //strB.AppendLine(
+            //"<h1>BAŞLIK</h1>" +
+            //"<br><br> Aşağıda bilgileri verilen arızalar için fiyat teklifi alınmıştır.Bir sonraki ayda tarafınıza fatura edilecektir.Alım yapmak için onayınızı rica ediyorum. <br><br> İyi Çalışmalar.<br><br>");
+
+            //strB.AppendLine("</body></html>");
+
+            //webContent.DocumentText = strB.ToString();
+
+
+
+        }
     }
 }

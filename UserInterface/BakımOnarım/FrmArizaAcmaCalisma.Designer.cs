@@ -31,13 +31,15 @@ namespace UserInterface.BakımOnarım
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaAcmaCalisma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.label53 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
             this.LblIslemAdimi = new System.Windows.Forms.Label();
             this.LblArizaBildirimiAlan = new System.Windows.Forms.Label();
             this.CmbGorevAtanacakPersonel = new System.Windows.Forms.ComboBox();
@@ -53,6 +55,8 @@ namespace UserInterface.BakımOnarım
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label103 = new System.Windows.Forms.Label();
+            this.label100 = new System.Windows.Forms.Label();
             this.LblIsAkisNo = new System.Windows.Forms.Label();
             this.label71 = new System.Windows.Forms.Label();
             this.TxtABTelefon = new System.Windows.Forms.MaskedTextBox();
@@ -164,7 +168,6 @@ namespace UserInterface.BakımOnarım
             this.LblLojistik = new System.Windows.Forms.Label();
             this.TxtLojistikSorGorevi = new System.Windows.Forms.TextBox();
             this.TxtLojistikSorRutbesi = new System.Windows.Forms.TextBox();
-            this.TxtTespitEdilenAriza = new System.Windows.Forms.RichTextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.TxtLojistikSorumlusu = new System.Windows.Forms.TextBox();
             this.label67 = new System.Windows.Forms.Label();
@@ -497,6 +500,9 @@ namespace UserInterface.BakımOnarım
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.TxtIslemAdimiAciklama = new System.Windows.Forms.RichTextBox();
+            this.label110 = new System.Windows.Forms.Label();
+            this.LblTespit = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -599,6 +605,8 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label53);
+            this.tabPage1.Controls.Add(this.label52);
             this.tabPage1.Controls.Add(this.LblIslemAdimi);
             this.tabPage1.Controls.Add(this.LblArizaBildirimiAlan);
             this.tabPage1.Controls.Add(this.CmbGorevAtanacakPersonel);
@@ -620,6 +628,30 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ARIZA KAYIT OLUŞTUR";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label53.Location = new System.Drawing.Point(771, 586);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(280, 30);
+            this.label53.TabIndex = 427;
+            this.label53.Text = "NOT: Ekler kısmına arızaya yönelik fotoğraf, video, \r\nWhatsapp görüşme notları vb" +
+    ". dosyaları ekleyiniz";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label52.Location = new System.Drawing.Point(768, 491);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(240, 30);
+            this.label52.TabIndex = 426;
+            this.label52.Text = "NOT: Varsa eklemek istediğiniz not, mesaj \r\nveya bilinmesi istediğiniz içerikleri" +
+    " yazınız.";
             // 
             // LblIslemAdimi
             // 
@@ -768,6 +800,8 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label103);
+            this.groupBox1.Controls.Add(this.label100);
             this.groupBox1.Controls.Add(this.LblIsAkisNo);
             this.groupBox1.Controls.Add(this.label71);
             this.groupBox1.Controls.Add(this.TxtABTelefon);
@@ -802,6 +836,26 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.TabIndex = 411;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ÜS BÖLGESİ VE BİLDİRİLEN ARIZA BİLGİLERİ";
+            // 
+            // label103
+            // 
+            this.label103.AutoSize = true;
+            this.label103.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label103.Location = new System.Drawing.Point(444, 105);
+            this.label103.Name = "label103";
+            this.label103.Size = new System.Drawing.Size(119, 15);
+            this.label103.TabIndex = 404;
+            this.label103.Text = "PDL Sistem garantili";
+            // 
+            // label100
+            // 
+            this.label100.AutoSize = true;
+            this.label100.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label100.Location = new System.Drawing.Point(444, 82);
+            this.label100.Name = "label100";
+            this.label100.Size = new System.Drawing.Size(142, 15);
+            this.label100.TabIndex = 403;
+            this.label100.Text = "İlk Teslimat 2 Yıl garantili";
             // 
             // LblIsAkisNo
             // 
@@ -1174,6 +1228,8 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.TxtIslemAdimiAciklama);
+            this.groupBox11.Controls.Add(this.label110);
             this.groupBox11.Controls.Add(this.CmbGorevAtanacak);
             this.groupBox11.Controls.Add(this.LblMevcutIslemAdimi);
             this.groupBox11.Controls.Add(this.label73);
@@ -1182,7 +1238,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox11.Controls.Add(this.CmbIslemAdimi);
             this.groupBox11.Location = new System.Drawing.Point(422, 183);
             this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(472, 126);
+            this.groupBox11.Size = new System.Drawing.Size(906, 126);
             this.groupBox11.TabIndex = 394;
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "GÖREV ATA";
@@ -1664,12 +1720,13 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.Controls.Add(this.DtgMudehaleTarihi);
             this.groupBox2.Controls.Add(this.label41);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(801, 54);
+            this.groupBox2.Location = new System.Drawing.Point(936, 82);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(696, 306);
+            this.groupBox2.Size = new System.Drawing.Size(445, 289);
             this.groupBox2.TabIndex = 322;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "TEKNİK PERSONEL MÜDEHALE BİLGİLERİ";
+            this.groupBox2.Visible = false;
             // 
             // BtnPersonelEkle
             // 
@@ -1815,12 +1872,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle31;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1892,6 +1949,7 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.LblTespit);
             this.groupBox6.Controls.Add(this.LblBolgeAdi);
             this.groupBox6.Controls.Add(this.TxtBildirilenArizaSiparis);
             this.groupBox6.Controls.Add(this.label42);
@@ -1904,7 +1962,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox6.Controls.Add(this.LblLojistik);
             this.groupBox6.Controls.Add(this.TxtLojistikSorGorevi);
             this.groupBox6.Controls.Add(this.TxtLojistikSorRutbesi);
-            this.groupBox6.Controls.Add(this.TxtTespitEdilenAriza);
             this.groupBox6.Controls.Add(this.label33);
             this.groupBox6.Controls.Add(this.TxtLojistikSorumlusu);
             this.groupBox6.Controls.Add(this.label67);
@@ -2046,15 +2103,6 @@ namespace UserInterface.BakımOnarım
             this.TxtLojistikSorRutbesi.Size = new System.Drawing.Size(135, 21);
             this.TxtLojistikSorRutbesi.TabIndex = 358;
             this.TxtLojistikSorRutbesi.Visible = false;
-            // 
-            // TxtTespitEdilenAriza
-            // 
-            this.TxtTespitEdilenAriza.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTespitEdilenAriza.Location = new System.Drawing.Point(128, 145);
-            this.TxtTespitEdilenAriza.Name = "TxtTespitEdilenAriza";
-            this.TxtTespitEdilenAriza.Size = new System.Drawing.Size(631, 50);
-            this.TxtTespitEdilenAriza.TabIndex = 26;
-            this.TxtTespitEdilenAriza.Text = "";
             // 
             // label33
             // 
@@ -2216,9 +2264,9 @@ namespace UserInterface.BakımOnarım
             this.groupBox12.Controls.Add(this.label79);
             this.groupBox12.Controls.Add(this.label95);
             this.groupBox12.Controls.Add(this.CmbCrmIslemAdimlari);
-            this.groupBox12.Location = new System.Drawing.Point(571, 226);
+            this.groupBox12.Location = new System.Drawing.Point(493, 220);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Size = new System.Drawing.Size(472, 126);
+            this.groupBox12.Size = new System.Drawing.Size(459, 146);
             this.groupBox12.TabIndex = 465;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "GÖREV ATA";
@@ -4606,12 +4654,12 @@ namespace UserInterface.BakımOnarım
             // 
             // RemoveAK
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.RemoveAK.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.RemoveAK.DefaultCellStyle = dataGridViewCellStyle32;
             this.RemoveAK.HeaderText = "Kaldır";
             this.RemoveAK.MinimumWidth = 22;
             this.RemoveAK.Name = "RemoveAK";
@@ -5585,8 +5633,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
             this.DtgList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -5608,6 +5656,35 @@ namespace UserInterface.BakımOnarım
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // TxtIslemAdimiAciklama
+            // 
+            this.TxtIslemAdimiAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtIslemAdimiAciklama.Location = new System.Drawing.Point(537, 26);
+            this.TxtIslemAdimiAciklama.Name = "TxtIslemAdimiAciklama";
+            this.TxtIslemAdimiAciklama.Size = new System.Drawing.Size(348, 89);
+            this.TxtIslemAdimiAciklama.TabIndex = 452;
+            this.TxtIslemAdimiAciklama.Text = "SİPARİŞ OLUŞTURULMUŞTUR.";
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label110.Location = new System.Drawing.Point(457, 60);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(74, 30);
+            this.label110.TabIndex = 451;
+            this.label110.Text = "İşlem Adımı \r\nAçıklama:";
+            // 
+            // LblTespit
+            // 
+            this.LblTespit.AutoSize = true;
+            this.LblTespit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTespit.Location = new System.Drawing.Point(125, 148);
+            this.LblTespit.Name = "LblTespit";
+            this.LblTespit.Size = new System.Drawing.Size(21, 15);
+            this.LblTespit.TabIndex = 383;
+            this.LblTespit.Text = "00";
             // 
             // FrmArizaAcmaCalisma
             // 
@@ -5789,7 +5866,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ComboBox CmbPersoneller;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.RichTextBox TxtTespitEdilenAriza;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.DateTimePicker DtgMudehaleTarihi;
@@ -6171,5 +6247,12 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn GoreviAK;
         private System.Windows.Forms.DataGridViewTextBoxColumn BolumuAK;
         private System.Windows.Forms.DataGridViewButtonColumn RemoveAK;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label103;
+        private System.Windows.Forms.Label label100;
+        private System.Windows.Forms.RichTextBox TxtIslemAdimiAciklama;
+        private System.Windows.Forms.Label label110;
+        private System.Windows.Forms.Label LblTespit;
     }
 }

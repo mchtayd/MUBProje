@@ -111,6 +111,7 @@
     <Compile Include="Concreate\IdarıIsler\KonaklamaKirilimManager.cs" />
     <Compile Include="Concreate\IdarıIsler\KonaklamaManager.cs" />
     <Compile Include="Concreate\IdarıIsler\MalzemeTalepManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\MasrafYeriManager.cs" />
     <Compile Include="Concreate\IdarıIsler\OtelManager.cs" />
     <Compile Include="Concreate\IdarıIsler\PersKaytLojistikManager.cs" />
     <Compile Include="Concreate\IdarıIsler\PersonelHesapManager.cs" />
