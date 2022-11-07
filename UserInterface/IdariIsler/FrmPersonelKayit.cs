@@ -457,6 +457,11 @@ namespace UserInterface.IdariIşler
             frmMasrafYeri.ShowDialog();
         }
 
+        private void BtnBolumDuzeltGuncelle_Click(object sender, EventArgs e)
+        {
+
+        }
+
         void BolumOlusturG()
         {
             if (CmbDepartmanG.Text == "")

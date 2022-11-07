@@ -352,6 +352,24 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
+        public PersonelKayit PersonelMailWeb(string adsoyad)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("PersonelMailWeb", new SqlParameter("@isim", adsoyad));
+                PersonelKayit item = null;
+                while (dataReader.Read())
+                {
+                    item = new PersonelKayit(dataReader["SIRKET_MAIL"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public PersonelKayit PersonelProjeKodu(string adsoyad)
         {
             try

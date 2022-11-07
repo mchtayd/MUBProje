@@ -10,7 +10,9 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -35,6 +37,7 @@ namespace UserInterface.IdariIsler
         public object[] infos;
         bool start = true;
         bool start2 = false;
+        string mail = "";
         public FrmGiysiTalep()
         {
             InitializeComponent();
@@ -306,11 +309,13 @@ namespace UserInterface.IdariIsler
                     malzemeTalepManager.Add(malzemeTalep);
                 }
 
+                PersonelMail();
+                Task.Factory.StartNew(() => MailSendMetotPersonel());
+
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 DtgList.Rows.Clear();
             }
-
         }
 
         private void DtgList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -321,6 +326,67 @@ namespace UserInterface.IdariIsler
             {
                 DtgList.Rows.RemoveAt(e.RowIndex);
             }
+        }
+        void PersonelMail()
+        {
+            PersonelKayit personelKayit = personelKayitManager.PersonelMailWeb("MÜCAHİT AYDEMİR");
+            mail = personelKayit.Oficemail;
+        }
+
+        void MailSendMetotPersonel()
+        {
+            string kaydiOlusturan = infos[1].ToString();
+            MailSend("MALZEME İSTEK FORMU", "Merhaba " + "MÜCAHİT AYDEMİR," + "\n\n"+ kaydiOlusturan  + " tarafından malzeme isteğinde bulunulmuştur." + "\n\nİyi Çalışmalar.", new List<string>() { mail });
+        }
+
+        public void MailSend(string subject, string body, List<string> receivers, List<string> attachments = null)
+        {
+            try
+            {
+                SmtpClient client = new SmtpClient();
+                client.Port = 25;
+                //client.Host = "smtp.gmail.com";
+                client.Host = "192.168.23.10";
+                //client.Host = "smtp-mail.outlook.com ";
+                client.EnableSsl = false;
+                client.Timeout = 11000;
+                client.DeliveryMethod = SmtpDeliveryMethod.Network;
+                client.UseDefaultCredentials = false;
+                //client.Credentials = new System.Net.NetworkCredential("mubotomasyon@gmail.com", "MCHT44aa:");
+                client.Credentials = new System.Net.NetworkCredential("dts@mubvan.net", "123456");
+                //client.Credentials = new System.Net.NetworkCredential("mucahitaydemir@basaranteknoloji.net", "Aydemir_123");
+                MailMessage mailMessage = new MailMessage();
+                mailMessage.From = new MailAddress("dts@mubvan.net", "DTS Bilgilendirme");
+                mailMessage.SubjectEncoding = Encoding.UTF8;
+                mailMessage.Subject = subject; //E-posta Konu Kısmı
+                mailMessage.BodyEncoding = Encoding.UTF8;
+                mailMessage.Body = body; // E-posta'nın Gövde Metni
+                foreach (string item in receivers)
+                {
+                    mailMessage.To.Add(item);
+                }
+                mailMessage.DeliveryNotificationOptions = DeliveryNotificationOptions.OnFailure;
+                if (attachments != null)
+                {
+                    if (attachments.Count > 0)
+                    {
+                        foreach (string filePath in attachments)
+                        {
+                            if (File.Exists(filePath))
+                            {
+                                Attachment attachment = new Attachment(filePath);
+                                mailMessage.Attachments.Add(attachment);
+                            }
+                        }
+                    }
+                }
+                client.Send(mailMessage);
+            }
+            catch (Exception)
+            {
+                //  MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

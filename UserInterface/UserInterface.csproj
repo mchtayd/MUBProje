@@ -694,6 +694,12 @@
     <Compile Include="IdariIsler\FrmBakimKayitIzleme.Designer.cs">
       <DependentUpon>FrmBakimKayitIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmBolumDuzelt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmBolumDuzelt.Designer.cs">
+      <DependentUpon>FrmBolumDuzelt.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmButceKoduKalemiDuzenle.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -181,6 +181,18 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
+        public PersonelKayit PersonelMailWeb(string adsoyad)
+        {
+            try
+            {
+                return personelKayitDal.PersonelMailWeb(adsoyad);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
         public PersonelKayit PersonelProjeKodu(string adsoyad)
         {
             try

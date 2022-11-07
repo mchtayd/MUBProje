@@ -31,8 +31,8 @@ namespace UserInterface.IdariIşler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPersonelKayit));
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
@@ -133,6 +133,7 @@ namespace UserInterface.IdariIşler
             this.CmbAdSoyad = new System.Windows.Forms.ComboBox();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.BtnMasrafYeriDuzeltGun = new System.Windows.Forms.Button();
             this.DtKgbGuncelle = new System.Windows.Forms.DateTimePicker();
             this.label132 = new System.Windows.Forms.Label();
             this.TxtKgbNoGun = new System.Windows.Forms.TextBox();
@@ -243,6 +244,7 @@ namespace UserInterface.IdariIşler
             this.webBrowser4 = new System.Windows.Forms.WebBrowser();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnMasrafYeriDuzelt = new System.Windows.Forms.Button();
             this.DtKgb = new System.Windows.Forms.DateTimePicker();
             this.label131 = new System.Windows.Forms.Label();
             this.TxtKgbNo = new System.Windows.Forms.TextBox();
@@ -352,9 +354,9 @@ namespace UserInterface.IdariIşler
             this.button5 = new System.Windows.Forms.Button();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BtnMasrafYeriDuzeltGun = new System.Windows.Forms.Button();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.BtnMasrafYeriDuzelt = new System.Windows.Forms.Button();
+            this.BtnBolumDuzelt = new System.Windows.Forms.Button();
+            this.BtnBolumDuzeltGuncelle = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -527,18 +529,18 @@ namespace UserInterface.IdariIşler
             // 
             this.DtgMevcutKadro.AllowUserToAddRows = false;
             this.DtgMevcutKadro.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMevcutKadro.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgMevcutKadro.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMevcutKadro.BackgroundColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgMevcutKadro.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgMevcutKadro.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgMevcutKadro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.DtgMevcutKadro.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1385,6 +1387,7 @@ namespace UserInterface.IdariIşler
             // 
             // groupBox6
             // 
+            this.groupBox6.Controls.Add(this.BtnBolumDuzeltGuncelle);
             this.groupBox6.Controls.Add(this.BtnMasrafYeriDuzeltGun);
             this.groupBox6.Controls.Add(this.DtKgbGuncelle);
             this.groupBox6.Controls.Add(this.label132);
@@ -1438,6 +1441,22 @@ namespace UserInterface.IdariIşler
             this.groupBox6.TabIndex = 115;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ŞİRKET BİLGİLER";
+            // 
+            // BtnMasrafYeriDuzeltGun
+            // 
+            this.BtnMasrafYeriDuzeltGun.AccessibleDescription = "";
+            this.BtnMasrafYeriDuzeltGun.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnMasrafYeriDuzeltGun.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMasrafYeriDuzeltGun.BackgroundImage")));
+            this.BtnMasrafYeriDuzeltGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMasrafYeriDuzeltGun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMasrafYeriDuzeltGun.Location = new System.Drawing.Point(359, 144);
+            this.BtnMasrafYeriDuzeltGun.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMasrafYeriDuzeltGun.Name = "BtnMasrafYeriDuzeltGun";
+            this.BtnMasrafYeriDuzeltGun.Size = new System.Drawing.Size(34, 29);
+            this.BtnMasrafYeriDuzeltGun.TabIndex = 397;
+            this.BtnMasrafYeriDuzeltGun.Tag = "admin";
+            this.BtnMasrafYeriDuzeltGun.UseVisualStyleBackColor = false;
+            this.BtnMasrafYeriDuzeltGun.Click += new System.EventHandler(this.BtnMasrafYeriDuzelt_Click);
             // 
             // DtKgbGuncelle
             // 
@@ -2508,6 +2527,7 @@ namespace UserInterface.IdariIşler
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.BtnBolumDuzelt);
             this.groupBox4.Controls.Add(this.BtnMasrafYeriDuzelt);
             this.groupBox4.Controls.Add(this.DtKgb);
             this.groupBox4.Controls.Add(this.label131);
@@ -2559,6 +2579,22 @@ namespace UserInterface.IdariIşler
             this.groupBox4.TabIndex = 111;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ŞİRKET BİLGİLER";
+            // 
+            // BtnMasrafYeriDuzelt
+            // 
+            this.BtnMasrafYeriDuzelt.AccessibleDescription = "";
+            this.BtnMasrafYeriDuzelt.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnMasrafYeriDuzelt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMasrafYeriDuzelt.BackgroundImage")));
+            this.BtnMasrafYeriDuzelt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMasrafYeriDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMasrafYeriDuzelt.Location = new System.Drawing.Point(359, 144);
+            this.BtnMasrafYeriDuzelt.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMasrafYeriDuzelt.Name = "BtnMasrafYeriDuzelt";
+            this.BtnMasrafYeriDuzelt.Size = new System.Drawing.Size(34, 29);
+            this.BtnMasrafYeriDuzelt.TabIndex = 398;
+            this.BtnMasrafYeriDuzelt.Tag = "admin";
+            this.BtnMasrafYeriDuzelt.UseVisualStyleBackColor = false;
+            this.BtnMasrafYeriDuzelt.Click += new System.EventHandler(this.BtnMasrafYeriDuzelt_Click_1);
             // 
             // DtKgb
             // 
@@ -3619,37 +3655,36 @@ namespace UserInterface.IdariIşler
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
-            // BtnMasrafYeriDuzeltGun
+            // BtnBolumDuzelt
             // 
-            this.BtnMasrafYeriDuzeltGun.AccessibleDescription = "";
-            this.BtnMasrafYeriDuzeltGun.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnMasrafYeriDuzeltGun.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMasrafYeriDuzeltGun.BackgroundImage")));
-            this.BtnMasrafYeriDuzeltGun.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnMasrafYeriDuzeltGun.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnMasrafYeriDuzeltGun.Location = new System.Drawing.Point(359, 144);
-            this.BtnMasrafYeriDuzeltGun.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMasrafYeriDuzeltGun.Name = "BtnMasrafYeriDuzeltGun";
-            this.BtnMasrafYeriDuzeltGun.Size = new System.Drawing.Size(34, 29);
-            this.BtnMasrafYeriDuzeltGun.TabIndex = 397;
-            this.BtnMasrafYeriDuzeltGun.Tag = "admin";
-            this.BtnMasrafYeriDuzeltGun.UseVisualStyleBackColor = false;
-            this.BtnMasrafYeriDuzeltGun.Click += new System.EventHandler(this.BtnMasrafYeriDuzelt_Click);
+            this.BtnBolumDuzelt.AccessibleDescription = "";
+            this.BtnBolumDuzelt.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBolumDuzelt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolumDuzelt.BackgroundImage")));
+            this.BtnBolumDuzelt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBolumDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBolumDuzelt.Location = new System.Drawing.Point(832, 14);
+            this.BtnBolumDuzelt.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBolumDuzelt.Name = "BtnBolumDuzelt";
+            this.BtnBolumDuzelt.Size = new System.Drawing.Size(34, 29);
+            this.BtnBolumDuzelt.TabIndex = 399;
+            this.BtnBolumDuzelt.Tag = "admin";
+            this.BtnBolumDuzelt.UseVisualStyleBackColor = false;
             // 
-            // BtnMasrafYeriDuzelt
+            // BtnBolumDuzeltGuncelle
             // 
-            this.BtnMasrafYeriDuzelt.AccessibleDescription = "";
-            this.BtnMasrafYeriDuzelt.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnMasrafYeriDuzelt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMasrafYeriDuzelt.BackgroundImage")));
-            this.BtnMasrafYeriDuzelt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnMasrafYeriDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnMasrafYeriDuzelt.Location = new System.Drawing.Point(359, 144);
-            this.BtnMasrafYeriDuzelt.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnMasrafYeriDuzelt.Name = "BtnMasrafYeriDuzelt";
-            this.BtnMasrafYeriDuzelt.Size = new System.Drawing.Size(34, 29);
-            this.BtnMasrafYeriDuzelt.TabIndex = 398;
-            this.BtnMasrafYeriDuzelt.Tag = "admin";
-            this.BtnMasrafYeriDuzelt.UseVisualStyleBackColor = false;
-            this.BtnMasrafYeriDuzelt.Click += new System.EventHandler(this.BtnMasrafYeriDuzelt_Click_1);
+            this.BtnBolumDuzeltGuncelle.AccessibleDescription = "";
+            this.BtnBolumDuzeltGuncelle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBolumDuzeltGuncelle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolumDuzeltGuncelle.BackgroundImage")));
+            this.BtnBolumDuzeltGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBolumDuzeltGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBolumDuzeltGuncelle.Location = new System.Drawing.Point(805, 44);
+            this.BtnBolumDuzeltGuncelle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBolumDuzeltGuncelle.Name = "BtnBolumDuzeltGuncelle";
+            this.BtnBolumDuzeltGuncelle.Size = new System.Drawing.Size(34, 29);
+            this.BtnBolumDuzeltGuncelle.TabIndex = 400;
+            this.BtnBolumDuzeltGuncelle.Tag = "admin";
+            this.BtnBolumDuzeltGuncelle.UseVisualStyleBackColor = false;
+            this.BtnBolumDuzeltGuncelle.Click += new System.EventHandler(this.BtnBolumDuzeltGuncelle_Click);
             // 
             // FrmPersonelKayit
             // 
@@ -4038,5 +4073,7 @@ namespace UserInterface.IdariIşler
         private System.Windows.Forms.Label label131;
         private System.Windows.Forms.Button BtnMasrafYeriDuzeltGun;
         private System.Windows.Forms.Button BtnMasrafYeriDuzelt;
+        private System.Windows.Forms.Button BtnBolumDuzelt;
+        private System.Windows.Forms.Button BtnBolumDuzeltGuncelle;
     }
 }
