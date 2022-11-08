@@ -31,9 +31,9 @@ namespace UserInterface.BakımOnarım
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaAcmaCalisma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -91,6 +91,8 @@ namespace UserInterface.BakımOnarım
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.TxtIslemAdimiAciklama = new System.Windows.Forms.RichTextBox();
+            this.label110 = new System.Windows.Forms.Label();
             this.CmbGorevAtanacak = new System.Windows.Forms.ComboBox();
             this.LblMevcutIslemAdimi = new System.Windows.Forms.Label();
             this.label73 = new System.Windows.Forms.Label();
@@ -156,6 +158,7 @@ namespace UserInterface.BakımOnarım
             this.DtgMudehaleTarihi = new System.Windows.Forms.DateTimePicker();
             this.label41 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.LblTespit = new System.Windows.Forms.Label();
             this.LblBolgeAdi = new System.Windows.Forms.Label();
             this.TxtBildirilenArizaSiparis = new System.Windows.Forms.RichTextBox();
             this.label42 = new System.Windows.Forms.Label();
@@ -204,8 +207,6 @@ namespace UserInterface.BakımOnarım
             this.DtgMailTarihi = new System.Windows.Forms.DateTimePicker();
             this.label59 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.TxtEkipmanNo = new System.Windows.Forms.TextBox();
             this.TxtCsSiparisNo = new System.Windows.Forms.TextBox();
             this.label56 = new System.Windows.Forms.Label();
             this.TxtBildirimNo = new System.Windows.Forms.TextBox();
@@ -412,7 +413,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage19 = new System.Windows.Forms.TabPage();
             this.DtMailGondermeTarihiAK = new System.Windows.Forms.DateTimePicker();
             this.label153 = new System.Windows.Forms.Label();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
             this.label154 = new System.Windows.Forms.Label();
             this.TxtEkipmanNoAK = new System.Windows.Forms.TextBox();
             this.TxtCSSiparisNoAK = new System.Windows.Forms.TextBox();
@@ -500,9 +500,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.TxtIslemAdimiAciklama = new System.Windows.Forms.RichTextBox();
-            this.label110 = new System.Windows.Forms.Label();
-            this.LblTespit = new System.Windows.Forms.Label();
+            this.TxtEkipmanNo = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -555,7 +554,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox21.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdvPersonelAK)).BeginInit();
             this.tabPage19.SuspendLayout();
-            this.groupBox22.SuspendLayout();
             this.tabPage20.SuspendLayout();
             this.groupBox15.SuspendLayout();
             this.tabPage12.SuspendLayout();
@@ -1243,6 +1241,25 @@ namespace UserInterface.BakımOnarım
             this.groupBox11.TabStop = false;
             this.groupBox11.Text = "GÖREV ATA";
             // 
+            // TxtIslemAdimiAciklama
+            // 
+            this.TxtIslemAdimiAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtIslemAdimiAciklama.Location = new System.Drawing.Point(537, 26);
+            this.TxtIslemAdimiAciklama.Name = "TxtIslemAdimiAciklama";
+            this.TxtIslemAdimiAciklama.Size = new System.Drawing.Size(348, 89);
+            this.TxtIslemAdimiAciklama.TabIndex = 452;
+            this.TxtIslemAdimiAciklama.Text = "SİPARİŞ OLUŞTURULMUŞTUR.";
+            // 
+            // label110
+            // 
+            this.label110.AutoSize = true;
+            this.label110.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label110.Location = new System.Drawing.Point(457, 60);
+            this.label110.Name = "label110";
+            this.label110.Size = new System.Drawing.Size(74, 30);
+            this.label110.TabIndex = 451;
+            this.label110.Text = "İşlem Adımı \r\nAçıklama:";
+            // 
             // CmbGorevAtanacak
             // 
             this.CmbGorevAtanacak.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1872,12 +1889,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1981,6 +1998,16 @@ namespace UserInterface.BakımOnarım
             this.groupBox6.TabIndex = 321;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ÜS BÖLGESİ VE BİLDİRİLEN ARIZA BİLGİLERİ";
+            // 
+            // LblTespit
+            // 
+            this.LblTespit.AutoSize = true;
+            this.LblTespit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTespit.Location = new System.Drawing.Point(125, 148);
+            this.LblTespit.Name = "LblTespit";
+            this.LblTespit.Size = new System.Drawing.Size(21, 15);
+            this.LblTespit.TabIndex = 383;
+            this.LblTespit.Text = "00";
             // 
             // LblBolgeAdi
             // 
@@ -2239,7 +2266,13 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage3
             // 
+            this.tabPage3.Controls.Add(this.TxtCsSiparisNo);
+            this.tabPage3.Controls.Add(this.label57);
+            this.tabPage3.Controls.Add(this.label17);
+            this.tabPage3.Controls.Add(this.label58);
+            this.tabPage3.Controls.Add(this.TxtEkipmanNo);
             this.tabPage3.Controls.Add(this.groupBox12);
+            this.tabPage3.Controls.Add(this.TxtCrmNo);
             this.tabPage3.Controls.Add(this.BtnBulCrm);
             this.tabPage3.Controls.Add(this.BtnCrmNoKaydet);
             this.tabPage3.Controls.Add(this.groupBox8);
@@ -2253,7 +2286,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage3.Size = new System.Drawing.Size(1538, 851);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "BİLDİRİM VE CRM NO TANIMLA";
+            this.tabPage3.Text = "BİLDİRİM NO TANIMLA";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox12
@@ -2276,7 +2309,7 @@ namespace UserInterface.BakımOnarım
             this.CmbCrmGorevAtanacakPer.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCrmGorevAtanacakPer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbCrmGorevAtanacakPer.FormattingEnabled = true;
-            this.CmbCrmGorevAtanacakPer.Location = new System.Drawing.Point(162, 54);
+            this.CmbCrmGorevAtanacakPer.Location = new System.Drawing.Point(162, 56);
             this.CmbCrmGorevAtanacakPer.Name = "CmbCrmGorevAtanacakPer";
             this.CmbCrmGorevAtanacakPer.Size = new System.Drawing.Size(279, 23);
             this.CmbCrmGorevAtanacakPer.TabIndex = 435;
@@ -2285,7 +2318,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.LblCrmMevcutIslemAdimi.AutoSize = true;
             this.LblCrmMevcutIslemAdimi.BackColor = System.Drawing.Color.Yellow;
-            this.LblCrmMevcutIslemAdimi.Location = new System.Drawing.Point(162, 29);
+            this.LblCrmMevcutIslemAdimi.Location = new System.Drawing.Point(162, 31);
             this.LblCrmMevcutIslemAdimi.Name = "LblCrmMevcutIslemAdimi";
             this.LblCrmMevcutIslemAdimi.Size = new System.Drawing.Size(19, 13);
             this.LblCrmMevcutIslemAdimi.TabIndex = 450;
@@ -2295,7 +2328,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label70.AutoSize = true;
             this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label70.Location = new System.Drawing.Point(19, 86);
+            this.label70.Location = new System.Drawing.Point(19, 88);
             this.label70.Name = "label70";
             this.label70.Size = new System.Drawing.Size(137, 15);
             this.label70.TabIndex = 433;
@@ -2304,7 +2337,7 @@ namespace UserInterface.BakımOnarım
             // label79
             // 
             this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(40, 29);
+            this.label79.Location = new System.Drawing.Point(40, 31);
             this.label79.Name = "label79";
             this.label79.Size = new System.Drawing.Size(101, 13);
             this.label79.TabIndex = 449;
@@ -2314,7 +2347,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label95.AutoSize = true;
             this.label95.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label95.Location = new System.Drawing.Point(9, 57);
+            this.label95.Location = new System.Drawing.Point(9, 59);
             this.label95.Name = "label95";
             this.label95.Size = new System.Drawing.Size(147, 15);
             this.label95.TabIndex = 434;
@@ -2325,7 +2358,7 @@ namespace UserInterface.BakımOnarım
             this.CmbCrmIslemAdimlari.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbCrmIslemAdimlari.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbCrmIslemAdimlari.FormattingEnabled = true;
-            this.CmbCrmIslemAdimlari.Location = new System.Drawing.Point(162, 83);
+            this.CmbCrmIslemAdimlari.Location = new System.Drawing.Point(162, 85);
             this.CmbCrmIslemAdimlari.Name = "CmbCrmIslemAdimlari";
             this.CmbCrmIslemAdimlari.Size = new System.Drawing.Size(279, 23);
             this.CmbCrmIslemAdimlari.TabIndex = 436;
@@ -2471,14 +2504,8 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.label17);
-            this.groupBox7.Controls.Add(this.TxtEkipmanNo);
-            this.groupBox7.Controls.Add(this.TxtCsSiparisNo);
-            this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Controls.Add(this.TxtBildirimNo);
-            this.groupBox7.Controls.Add(this.label57);
-            this.groupBox7.Controls.Add(this.label58);
-            this.groupBox7.Controls.Add(this.TxtCrmNo);
+            this.groupBox7.Controls.Add(this.label56);
             this.groupBox7.Location = new System.Drawing.Point(108, 220);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(379, 146);
@@ -2486,37 +2513,20 @@ namespace UserInterface.BakımOnarım
             this.groupBox7.TabStop = false;
             this.groupBox7.Text = "TANIMLAMA YAPILACAK NOLAR";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label17.Location = new System.Drawing.Point(11, 110);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(123, 15);
-            this.label17.TabIndex = 219;
-            this.label17.Text = "Bildirim Ekipman No:";
-            // 
-            // TxtEkipmanNo
-            // 
-            this.TxtEkipmanNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtEkipmanNo.Location = new System.Drawing.Point(142, 107);
-            this.TxtEkipmanNo.Name = "TxtEkipmanNo";
-            this.TxtEkipmanNo.Size = new System.Drawing.Size(201, 21);
-            this.TxtEkipmanNo.TabIndex = 220;
-            // 
             // TxtCsSiparisNo
             // 
             this.TxtCsSiparisNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtCsSiparisNo.Location = new System.Drawing.Point(142, 26);
+            this.TxtCsSiparisNo.Location = new System.Drawing.Point(1124, 241);
             this.TxtCsSiparisNo.Name = "TxtCsSiparisNo";
             this.TxtCsSiparisNo.Size = new System.Drawing.Size(201, 21);
             this.TxtCsSiparisNo.TabIndex = 218;
+            this.TxtCsSiparisNo.Visible = false;
             // 
             // label56
             // 
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label56.Location = new System.Drawing.Point(65, 56);
+            this.label56.Location = new System.Drawing.Point(65, 59);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(71, 15);
             this.label56.TabIndex = 213;
@@ -2525,7 +2535,7 @@ namespace UserInterface.BakımOnarım
             // TxtBildirimNo
             // 
             this.TxtBildirimNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBildirimNo.Location = new System.Drawing.Point(142, 53);
+            this.TxtBildirimNo.Location = new System.Drawing.Point(142, 56);
             this.TxtBildirimNo.Name = "TxtBildirimNo";
             this.TxtBildirimNo.Size = new System.Drawing.Size(201, 21);
             this.TxtBildirimNo.TabIndex = 214;
@@ -2534,29 +2544,32 @@ namespace UserInterface.BakımOnarım
             // 
             this.label57.AutoSize = true;
             this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label57.Location = new System.Drawing.Point(53, 29);
+            this.label57.Location = new System.Drawing.Point(1032, 244);
             this.label57.Name = "label57";
             this.label57.Size = new System.Drawing.Size(86, 15);
             this.label57.TabIndex = 217;
             this.label57.Text = "CS Sipariş No:";
+            this.label57.Visible = false;
             // 
             // label58
             // 
             this.label58.AutoSize = true;
             this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label58.Location = new System.Drawing.Point(77, 83);
+            this.label58.Location = new System.Drawing.Point(1061, 298);
             this.label58.Name = "label58";
             this.label58.Size = new System.Drawing.Size(57, 15);
             this.label58.TabIndex = 215;
             this.label58.Text = "CRM No:";
+            this.label58.Visible = false;
             // 
             // TxtCrmNo
             // 
             this.TxtCrmNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtCrmNo.Location = new System.Drawing.Point(142, 80);
+            this.TxtCrmNo.Location = new System.Drawing.Point(1124, 295);
             this.TxtCrmNo.Name = "TxtCrmNo";
             this.TxtCrmNo.Size = new System.Drawing.Size(201, 21);
             this.TxtCrmNo.TabIndex = 216;
+            this.TxtCrmNo.Visible = false;
             // 
             // TxtCrmFormNo
             // 
@@ -4654,12 +4667,12 @@ namespace UserInterface.BakımOnarım
             // 
             // RemoveAK
             // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle32.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.RemoveAK.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.RemoveAK.DefaultCellStyle = dataGridViewCellStyle2;
             this.RemoveAK.HeaderText = "Kaldır";
             this.RemoveAK.MinimumWidth = 22;
             this.RemoveAK.Name = "RemoveAK";
@@ -4731,14 +4744,21 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage19
             // 
+            this.tabPage19.Controls.Add(this.label155);
+            this.tabPage19.Controls.Add(this.TxtCSSiparisNoAK);
+            this.tabPage19.Controls.Add(this.TxtBildirimNoAK);
+            this.tabPage19.Controls.Add(this.label154);
             this.tabPage19.Controls.Add(this.DtMailGondermeTarihiAK);
+            this.tabPage19.Controls.Add(this.label156);
+            this.tabPage19.Controls.Add(this.TxtEkipmanNoAK);
             this.tabPage19.Controls.Add(this.label153);
-            this.tabPage19.Controls.Add(this.groupBox22);
+            this.tabPage19.Controls.Add(this.TxtCRMNoAK);
+            this.tabPage19.Controls.Add(this.label157);
             this.tabPage19.Location = new System.Drawing.Point(4, 24);
             this.tabPage19.Name = "tabPage19";
             this.tabPage19.Size = new System.Drawing.Size(1501, 390);
             this.tabPage19.TabIndex = 3;
-            this.tabPage19.Text = "CRM BİLGİLERİ";
+            this.tabPage19.Text = "BİLDİRİM NO";
             this.tabPage19.UseVisualStyleBackColor = true;
             // 
             // DtMailGondermeTarihiAK
@@ -4758,54 +4778,40 @@ namespace UserInterface.BakımOnarım
             this.label153.TabIndex = 327;
             this.label153.Text = "Aselsan Bildirim\r\nGönderme Mail Tarihi:";
             // 
-            // groupBox22
-            // 
-            this.groupBox22.Controls.Add(this.label154);
-            this.groupBox22.Controls.Add(this.TxtEkipmanNoAK);
-            this.groupBox22.Controls.Add(this.TxtCSSiparisNoAK);
-            this.groupBox22.Controls.Add(this.label155);
-            this.groupBox22.Controls.Add(this.TxtBildirimNoAK);
-            this.groupBox22.Controls.Add(this.label156);
-            this.groupBox22.Controls.Add(this.label157);
-            this.groupBox22.Controls.Add(this.TxtCRMNoAK);
-            this.groupBox22.Location = new System.Drawing.Point(22, 69);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(379, 146);
-            this.groupBox22.TabIndex = 326;
-            this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "TANIMLAMA YAPILACAK NOLAR";
-            // 
             // label154
             // 
             this.label154.AutoSize = true;
             this.label154.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label154.Location = new System.Drawing.Point(11, 113);
+            this.label154.Location = new System.Drawing.Point(505, 180);
             this.label154.Name = "label154";
             this.label154.Size = new System.Drawing.Size(123, 15);
             this.label154.TabIndex = 219;
             this.label154.Text = "Bildirim Ekipman No:";
+            this.label154.Visible = false;
             // 
             // TxtEkipmanNoAK
             // 
             this.TxtEkipmanNoAK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtEkipmanNoAK.Location = new System.Drawing.Point(142, 107);
+            this.TxtEkipmanNoAK.Location = new System.Drawing.Point(636, 174);
             this.TxtEkipmanNoAK.Name = "TxtEkipmanNoAK";
             this.TxtEkipmanNoAK.Size = new System.Drawing.Size(201, 21);
             this.TxtEkipmanNoAK.TabIndex = 220;
+            this.TxtEkipmanNoAK.Visible = false;
             // 
             // TxtCSSiparisNoAK
             // 
             this.TxtCSSiparisNoAK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtCSSiparisNoAK.Location = new System.Drawing.Point(142, 26);
+            this.TxtCSSiparisNoAK.Location = new System.Drawing.Point(636, 119);
             this.TxtCSSiparisNoAK.Name = "TxtCSSiparisNoAK";
             this.TxtCSSiparisNoAK.Size = new System.Drawing.Size(201, 21);
             this.TxtCSSiparisNoAK.TabIndex = 218;
+            this.TxtCSSiparisNoAK.Visible = false;
             // 
             // label155
             // 
             this.label155.AutoSize = true;
             this.label155.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label155.Location = new System.Drawing.Point(65, 56);
+            this.label155.Location = new System.Drawing.Point(107, 75);
             this.label155.Name = "label155";
             this.label155.Size = new System.Drawing.Size(71, 15);
             this.label155.TabIndex = 213;
@@ -4814,7 +4820,7 @@ namespace UserInterface.BakımOnarım
             // TxtBildirimNoAK
             // 
             this.TxtBildirimNoAK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBildirimNoAK.Location = new System.Drawing.Point(142, 53);
+            this.TxtBildirimNoAK.Location = new System.Drawing.Point(184, 72);
             this.TxtBildirimNoAK.Name = "TxtBildirimNoAK";
             this.TxtBildirimNoAK.Size = new System.Drawing.Size(201, 21);
             this.TxtBildirimNoAK.TabIndex = 214;
@@ -4823,29 +4829,32 @@ namespace UserInterface.BakımOnarım
             // 
             this.label156.AutoSize = true;
             this.label156.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label156.Location = new System.Drawing.Point(53, 29);
+            this.label156.Location = new System.Drawing.Point(547, 122);
             this.label156.Name = "label156";
             this.label156.Size = new System.Drawing.Size(86, 15);
             this.label156.TabIndex = 217;
             this.label156.Text = "CS Sipariş No:";
+            this.label156.Visible = false;
             // 
             // label157
             // 
             this.label157.AutoSize = true;
             this.label157.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label157.Location = new System.Drawing.Point(77, 83);
+            this.label157.Location = new System.Drawing.Point(571, 150);
             this.label157.Name = "label157";
             this.label157.Size = new System.Drawing.Size(57, 15);
             this.label157.TabIndex = 215;
             this.label157.Text = "CRM No:";
+            this.label157.Visible = false;
             // 
             // TxtCRMNoAK
             // 
             this.TxtCRMNoAK.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtCRMNoAK.Location = new System.Drawing.Point(142, 80);
+            this.TxtCRMNoAK.Location = new System.Drawing.Point(636, 147);
             this.TxtCRMNoAK.Name = "TxtCRMNoAK";
             this.TxtCRMNoAK.Size = new System.Drawing.Size(201, 21);
             this.TxtCRMNoAK.TabIndex = 216;
+            this.TxtCRMNoAK.Visible = false;
             // 
             // tabPage20
             // 
@@ -5633,8 +5642,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
             this.DtgList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -5657,34 +5666,25 @@ namespace UserInterface.BakımOnarım
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // TxtIslemAdimiAciklama
+            // TxtEkipmanNo
             // 
-            this.TxtIslemAdimiAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtIslemAdimiAciklama.Location = new System.Drawing.Point(537, 26);
-            this.TxtIslemAdimiAciklama.Name = "TxtIslemAdimiAciklama";
-            this.TxtIslemAdimiAciklama.Size = new System.Drawing.Size(348, 89);
-            this.TxtIslemAdimiAciklama.TabIndex = 452;
-            this.TxtIslemAdimiAciklama.Text = "SİPARİŞ OLUŞTURULMUŞTUR.";
+            this.TxtEkipmanNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtEkipmanNo.Location = new System.Drawing.Point(1124, 268);
+            this.TxtEkipmanNo.Name = "TxtEkipmanNo";
+            this.TxtEkipmanNo.Size = new System.Drawing.Size(201, 21);
+            this.TxtEkipmanNo.TabIndex = 220;
+            this.TxtEkipmanNo.Visible = false;
             // 
-            // label110
+            // label17
             // 
-            this.label110.AutoSize = true;
-            this.label110.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label110.Location = new System.Drawing.Point(457, 60);
-            this.label110.Name = "label110";
-            this.label110.Size = new System.Drawing.Size(74, 30);
-            this.label110.TabIndex = 451;
-            this.label110.Text = "İşlem Adımı \r\nAçıklama:";
-            // 
-            // LblTespit
-            // 
-            this.LblTespit.AutoSize = true;
-            this.LblTespit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTespit.Location = new System.Drawing.Point(125, 148);
-            this.LblTespit.Name = "LblTespit";
-            this.LblTespit.Size = new System.Drawing.Size(21, 15);
-            this.LblTespit.TabIndex = 383;
-            this.LblTespit.Text = "00";
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(995, 271);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(123, 15);
+            this.label17.TabIndex = 219;
+            this.label17.Text = "Bildirim Ekipman No:";
+            this.label17.Visible = false;
             // 
             // FrmArizaAcmaCalisma
             // 
@@ -5768,8 +5768,6 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.AdvPersonelAK)).EndInit();
             this.tabPage19.ResumeLayout(false);
             this.tabPage19.PerformLayout();
-            this.groupBox22.ResumeLayout(false);
-            this.groupBox22.PerformLayout();
             this.tabPage20.ResumeLayout(false);
             this.tabPage20.PerformLayout();
             this.groupBox15.ResumeLayout(false);
@@ -6047,8 +6045,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.WebBrowser webBrowser3;
         private System.Windows.Forms.BindingSource dataBinder;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.TextBox TxtEkipmanNo;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.Label LblIsAkisNoAK;
         private System.Windows.Forms.Label label43;
@@ -6208,7 +6204,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TabPage tabPage19;
         private System.Windows.Forms.DateTimePicker DtMailGondermeTarihiAK;
         private System.Windows.Forms.Label label153;
-        private System.Windows.Forms.GroupBox groupBox22;
         private System.Windows.Forms.Label label154;
         private System.Windows.Forms.TextBox TxtEkipmanNoAK;
         private System.Windows.Forms.TextBox TxtCSSiparisNoAK;
@@ -6254,5 +6249,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.RichTextBox TxtIslemAdimiAciklama;
         private System.Windows.Forms.Label label110;
         private System.Windows.Forms.Label LblTespit;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox TxtEkipmanNo;
     }
 }

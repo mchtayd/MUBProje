@@ -30,6 +30,7 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGiysiTalep));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
@@ -49,6 +50,13 @@ namespace UserInterface.IdariIsler
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgList = new System.Windows.Forms.DataGridView();
+            this.MalzemeKategorisi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TalepEdenPersonel = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MalzemeTanimi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TalepEdenMiktar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birimm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.CmbTalepEdenPersonel = new System.Windows.Forms.ComboBox();
@@ -61,19 +69,15 @@ namespace UserInterface.IdariIsler
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.MalzemeKategorisi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TalepEdenPersonel = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MalzemeTanimi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TalepEdenMiktar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Birimm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.Picture = new System.Windows.Forms.PictureBox();
+            this.BtnFotoDuzenle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -279,6 +283,63 @@ namespace UserInterface.IdariIsler
             this.DtgList.TabIndex = 0;
             this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
             // 
+            // MalzemeKategorisi
+            // 
+            this.MalzemeKategorisi.HeaderText = "MALZEME KATEGORİSİ";
+            this.MalzemeKategorisi.Name = "MalzemeKategorisi";
+            this.MalzemeKategorisi.ReadOnly = true;
+            this.MalzemeKategorisi.Width = 139;
+            // 
+            // TalepEdenPersonel
+            // 
+            this.TalepEdenPersonel.HeaderText = "TALEP EDİLEN PERSONEL";
+            this.TalepEdenPersonel.Name = "TalepEdenPersonel";
+            this.TalepEdenPersonel.ReadOnly = true;
+            this.TalepEdenPersonel.Width = 154;
+            // 
+            // MalzemeTanimi
+            // 
+            this.MalzemeTanimi.HeaderText = "MALZEME TANIMI";
+            this.MalzemeTanimi.Name = "MalzemeTanimi";
+            this.MalzemeTanimi.ReadOnly = true;
+            this.MalzemeTanimi.Width = 114;
+            // 
+            // StokNo
+            // 
+            this.StokNo.HeaderText = "STOK NO";
+            this.StokNo.Name = "StokNo";
+            this.StokNo.ReadOnly = true;
+            this.StokNo.Width = 74;
+            // 
+            // TalepEdenMiktar
+            // 
+            this.TalepEdenMiktar.HeaderText = "TALEP EDİLEN MİKTAR";
+            this.TalepEdenMiktar.Name = "TalepEdenMiktar";
+            this.TalepEdenMiktar.ReadOnly = true;
+            this.TalepEdenMiktar.Width = 139;
+            // 
+            // Birimm
+            // 
+            this.Birimm.HeaderText = "BİRİM";
+            this.Birimm.Name = "Birimm";
+            this.Birimm.ReadOnly = true;
+            this.Birimm.Width = 62;
+            // 
+            // Remove
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 52;
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.label1);
@@ -287,7 +348,7 @@ namespace UserInterface.IdariIsler
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Location = new System.Drawing.Point(12, 239);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(742, 97);
+            this.groupBox2.Size = new System.Drawing.Size(742, 105);
             this.groupBox2.TabIndex = 328;
             this.groupBox2.TabStop = false;
             // 
@@ -311,6 +372,8 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.BtnFotoDuzenle);
+            this.groupBox3.Controls.Add(this.Picture);
             this.groupBox3.Controls.Add(this.TxtStok);
             this.groupBox3.Controls.Add(this.BtnEkle);
             this.groupBox3.Controls.Add(this.TxtMiktar);
@@ -399,62 +462,28 @@ namespace UserInterface.IdariIsler
             this.BtnKaydet.UseVisualStyleBackColor = true;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // MalzemeKategorisi
+            // Picture
             // 
-            this.MalzemeKategorisi.HeaderText = "MALZEME KATEGORİSİ";
-            this.MalzemeKategorisi.Name = "MalzemeKategorisi";
-            this.MalzemeKategorisi.ReadOnly = true;
-            this.MalzemeKategorisi.Width = 139;
+            this.Picture.Location = new System.Drawing.Point(453, 31);
+            this.Picture.Name = "Picture";
+            this.Picture.Size = new System.Drawing.Size(120, 123);
+            this.Picture.TabIndex = 336;
+            this.Picture.TabStop = false;
             // 
-            // TalepEdenPersonel
+            // BtnFotoDuzenle
             // 
-            this.TalepEdenPersonel.HeaderText = "TALEP EDİLEN PERSONEL";
-            this.TalepEdenPersonel.Name = "TalepEdenPersonel";
-            this.TalepEdenPersonel.ReadOnly = true;
-            this.TalepEdenPersonel.Width = 154;
-            // 
-            // MalzemeTanimi
-            // 
-            this.MalzemeTanimi.HeaderText = "MALZEME TANIMI";
-            this.MalzemeTanimi.Name = "MalzemeTanimi";
-            this.MalzemeTanimi.ReadOnly = true;
-            this.MalzemeTanimi.Width = 114;
-            // 
-            // StokNo
-            // 
-            this.StokNo.HeaderText = "STOK NO";
-            this.StokNo.Name = "StokNo";
-            this.StokNo.ReadOnly = true;
-            this.StokNo.Width = 74;
-            // 
-            // TalepEdenMiktar
-            // 
-            this.TalepEdenMiktar.HeaderText = "TALEP EDİLEN MİKTAR";
-            this.TalepEdenMiktar.Name = "TalepEdenMiktar";
-            this.TalepEdenMiktar.ReadOnly = true;
-            this.TalepEdenMiktar.Width = 139;
-            // 
-            // Birimm
-            // 
-            this.Birimm.HeaderText = "BİRİM";
-            this.Birimm.Name = "Birimm";
-            this.Birimm.ReadOnly = true;
-            this.Birimm.Width = 62;
-            // 
-            // Remove
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Remove.HeaderText = "KALDIR";
-            this.Remove.Name = "Remove";
-            this.Remove.ReadOnly = true;
-            this.Remove.Text = "X";
-            this.Remove.ToolTipText = "X";
-            this.Remove.UseColumnTextForButtonValue = true;
-            this.Remove.Width = 52;
+            this.BtnFotoDuzenle.AccessibleDescription = "";
+            this.BtnFotoDuzenle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnFotoDuzenle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFotoDuzenle.BackgroundImage")));
+            this.BtnFotoDuzenle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnFotoDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFotoDuzenle.Location = new System.Drawing.Point(576, 125);
+            this.BtnFotoDuzenle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnFotoDuzenle.Name = "BtnFotoDuzenle";
+            this.BtnFotoDuzenle.Size = new System.Drawing.Size(34, 29);
+            this.BtnFotoDuzenle.TabIndex = 397;
+            this.BtnFotoDuzenle.Tag = "admin";
+            this.BtnFotoDuzenle.UseVisualStyleBackColor = false;
             // 
             // FrmGiysiTalep
             // 
@@ -479,6 +508,7 @@ namespace UserInterface.IdariIsler
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Picture)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -523,5 +553,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.DataGridViewTextBoxColumn TalepEdenMiktar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Birimm;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.PictureBox Picture;
+        private System.Windows.Forms.Button BtnFotoDuzenle;
     }
 }

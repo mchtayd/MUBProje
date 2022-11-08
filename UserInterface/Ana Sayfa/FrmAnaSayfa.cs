@@ -2019,6 +2019,14 @@ namespace UserInterface.STS
                         form.ArizaKayitlari();
                     }
                 }
+                if (baslik == "MİF İZLEME")
+                {
+                    var form = (FrmTalepIzleme)Application.OpenForms["FrmTalepIzleme"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
             }
             
         }

@@ -29,6 +29,7 @@ namespace UserInterface.Depo
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMalzemeKayitDestekDepo));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnStokAl = new System.Windows.Forms.Button();
@@ -43,8 +44,12 @@ namespace UserInterface.Depo
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.BtnSil = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.CmbMalzemeTuru = new System.Windows.Forms.ComboBox();
+            this.CmbMalzemeKategorisi = new System.Windows.Forms.ComboBox();
+            this.PctBox = new System.Windows.Forms.PictureBox();
+            this.BtnFotoDuzenle = new System.Windows.Forms.Button();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -74,7 +79,7 @@ namespace UserInterface.Depo
             // BtnStokAl
             // 
             this.BtnStokAl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnStokAl.Location = new System.Drawing.Point(361, 101);
+            this.BtnStokAl.Location = new System.Drawing.Point(352, 101);
             this.BtnStokAl.Name = "BtnStokAl";
             this.BtnStokAl.Size = new System.Drawing.Size(89, 26);
             this.BtnStokAl.TabIndex = 311;
@@ -104,11 +109,12 @@ namespace UserInterface.Depo
             this.TxtTanim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TxtTanim.Location = new System.Drawing.Point(141, 134);
             this.TxtTanim.Name = "TxtTanim";
-            this.TxtTanim.Size = new System.Drawing.Size(362, 21);
+            this.TxtTanim.Size = new System.Drawing.Size(300, 21);
             this.TxtTanim.TabIndex = 308;
             // 
             // CmbStokNo
             // 
+            this.CmbStokNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbStokNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbStokNo.FormattingEnabled = true;
             this.CmbStokNo.Location = new System.Drawing.Point(141, 103);
@@ -192,22 +198,54 @@ namespace UserInterface.Depo
             this.label3.TabIndex = 316;
             this.label3.Text = "MALZEME TÜRÜ:";
             // 
-            // CmbMalzemeTuru
+            // CmbMalzemeKategorisi
             // 
-            this.CmbMalzemeTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbMalzemeTuru.FormattingEnabled = true;
-            this.CmbMalzemeTuru.Location = new System.Drawing.Point(141, 74);
-            this.CmbMalzemeTuru.Name = "CmbMalzemeTuru";
-            this.CmbMalzemeTuru.Size = new System.Drawing.Size(205, 21);
-            this.CmbMalzemeTuru.TabIndex = 317;
-            this.CmbMalzemeTuru.SelectedIndexChanged += new System.EventHandler(this.CmbMalzemeTuru_SelectedIndexChanged);
+            this.CmbMalzemeKategorisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMalzemeKategorisi.FormattingEnabled = true;
+            this.CmbMalzemeKategorisi.Location = new System.Drawing.Point(141, 74);
+            this.CmbMalzemeKategorisi.Name = "CmbMalzemeKategorisi";
+            this.CmbMalzemeKategorisi.Size = new System.Drawing.Size(205, 21);
+            this.CmbMalzemeKategorisi.TabIndex = 317;
+            this.CmbMalzemeKategorisi.SelectedIndexChanged += new System.EventHandler(this.CmbMalzemeTuru_SelectedIndexChanged);
+            // 
+            // PctBox
+            // 
+            this.PctBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.PctBox.Location = new System.Drawing.Point(456, 58);
+            this.PctBox.Name = "PctBox";
+            this.PctBox.Size = new System.Drawing.Size(117, 126);
+            this.PctBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PctBox.TabIndex = 337;
+            this.PctBox.TabStop = false;
+            // 
+            // BtnFotoDuzenle
+            // 
+            this.BtnFotoDuzenle.AccessibleDescription = "";
+            this.BtnFotoDuzenle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnFotoDuzenle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFotoDuzenle.BackgroundImage")));
+            this.BtnFotoDuzenle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnFotoDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFotoDuzenle.Location = new System.Drawing.Point(577, 155);
+            this.BtnFotoDuzenle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnFotoDuzenle.Name = "BtnFotoDuzenle";
+            this.BtnFotoDuzenle.Size = new System.Drawing.Size(34, 29);
+            this.BtnFotoDuzenle.TabIndex = 398;
+            this.BtnFotoDuzenle.Tag = "admin";
+            this.BtnFotoDuzenle.UseVisualStyleBackColor = false;
+            this.BtnFotoDuzenle.Click += new System.EventHandler(this.BtnFotoDuzenle_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
             // 
             // FrmMalzemeKayitDestekDepo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
-            this.Controls.Add(this.CmbMalzemeTuru);
+            this.Controls.Add(this.BtnFotoDuzenle);
+            this.Controls.Add(this.PctBox);
+            this.Controls.Add(this.CmbMalzemeKategorisi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.BtnGuncelle);
@@ -225,6 +263,7 @@ namespace UserInterface.Depo
             this.Text = "FrmMalzemeKayitDestekDepo";
             this.Load += new System.EventHandler(this.FrmMalzemeKayitDestekDepo_Load);
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PctBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -246,6 +285,9 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Button BtnTemizle;
         private System.Windows.Forms.Button BtnSil;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox CmbMalzemeTuru;
+        private System.Windows.Forms.ComboBox CmbMalzemeKategorisi;
+        private System.Windows.Forms.PictureBox PctBox;
+        private System.Windows.Forms.Button BtnFotoDuzenle;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
     }
 }

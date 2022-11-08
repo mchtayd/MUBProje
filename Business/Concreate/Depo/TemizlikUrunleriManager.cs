@@ -74,6 +74,17 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoTemizlikUrunleri GetStokNo(string stokNo)
+        {
+            try
+            {
+                return temizlikUrunleriDal.GetStokNo(stokNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoTemizlikUrunleri> GetList(int id =0)
         {

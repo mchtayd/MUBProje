@@ -16,5 +16,10 @@ namespace UserInterface.IdariIsler
         {
             InitializeComponent();
         }
+
+        private void FrmBolumDuzelt_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

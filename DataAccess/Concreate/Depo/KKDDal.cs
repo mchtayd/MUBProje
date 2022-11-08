@@ -98,6 +98,29 @@ namespace DataAccess.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoKKD GetStokNo(string stokNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DestekDepoKKDListStokNo", new SqlParameter("@stokNo", stokNo));
+                DestekDepoKKD item = null;
+                while (dataReader.Read())
+                {
+                    item = new DestekDepoKKD(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString());
+
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoKKD> GetList(int id)
         {

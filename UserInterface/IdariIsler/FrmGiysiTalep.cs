@@ -309,8 +309,8 @@ namespace UserInterface.IdariIsler
                     malzemeTalepManager.Add(malzemeTalep);
                 }
 
-                PersonelMail();
-                Task.Factory.StartNew(() => MailSendMetotPersonel());
+                //PersonelMail();
+                //MailSendMetotPersonel();
 
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
@@ -345,7 +345,7 @@ namespace UserInterface.IdariIsler
             {
                 SmtpClient client = new SmtpClient();
                 client.Port = 25;
-                //client.Host = "smtp.gmail.com";
+                //client.Host = "smtp-relay.gmail.com";
                 client.Host = "192.168.23.10";
                 //client.Host = "smtp-mail.outlook.com ";
                 client.EnableSsl = false;
@@ -356,7 +356,7 @@ namespace UserInterface.IdariIsler
                 client.Credentials = new System.Net.NetworkCredential("dts@mubvan.net", "123456");
                 //client.Credentials = new System.Net.NetworkCredential("mucahitaydemir@basaranteknoloji.net", "Aydemir_123");
                 MailMessage mailMessage = new MailMessage();
-                mailMessage.From = new MailAddress("dts@mubvan.net", "DTS Bilgilendirme");
+                mailMessage.From = new MailAddress("dts@mubvan.net", "123456");
                 mailMessage.SubjectEncoding = Encoding.UTF8;
                 mailMessage.Subject = subject; //E-posta Konu Kısmı
                 mailMessage.BodyEncoding = Encoding.UTF8;
@@ -382,7 +382,7 @@ namespace UserInterface.IdariIsler
                 }
                 client.Send(mailMessage);
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 //  MessageBox.Show(ex.Message);
             }

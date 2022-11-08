@@ -54,7 +54,7 @@ namespace UserInterface.IdariIsler
             TxtMiktar.Text = toplam.ToString();
         }
 
-        void DataDisplay()
+        public void DataDisplay()
         {
             malzemeTaleps = malzemeTalepManager.GetList();
             dataBinder.DataSource = malzemeTaleps.ToDataTable();

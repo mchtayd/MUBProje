@@ -74,6 +74,17 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoAmbar GetStok(string stokNo)
+        {
+            try
+            {
+                return ambarDal.GetStok(stokNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoAmbar> GetList(int id=0)
         {

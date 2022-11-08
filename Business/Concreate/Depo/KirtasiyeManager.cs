@@ -73,6 +73,17 @@ namespace DataAccess.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoKirtasiye GetStokNo(string stokNo)
+        {
+            try
+            {
+                return kirtasiyeDal.GetStokNo(stokNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoKirtasiye> GetList(int id=0)
         {

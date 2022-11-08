@@ -962,8 +962,6 @@ namespace UserInterface.BakımOnarım
             }
             range.Cell("I18").Value = TxtEkipmanNo.Text; // EKİPMAN NO
 
-
-
             if (dosyaYolu != "")
             {
                 xLWorkbook.SaveAs(dosyaYolu + bolgeAdi + " " + abfForm + ".xlsx");
@@ -976,7 +974,6 @@ namespace UserInterface.BakımOnarım
         {
             TxtCrmFormNo.Clear(); DtgFormBilgileri.Rows.Clear(); TxtCsSiparisNo.Clear(); TxtBildirimNo.Clear(); TxtCrmNo.Clear();
             LblCrmMevcutIslemAdimi.Text = "00"; CmbCrmGorevAtanacakPer.SelectedIndex = -1; CmbCrmIslemAdimlari.SelectedIndex = -1;
-
         }
         string CrmNoKontrol()
         {
@@ -984,18 +981,18 @@ namespace UserInterface.BakımOnarım
             {
                 return "Lütfen Öncelikle Geçerli Bir Abf No Yazarak Bul Butonuna Basınız!";
             }
-            if (TxtCsSiparisNo.Text == "")
-            {
-                return "Lütfen CS Sipariş No Bilgisini Yazınız!";
-            }
-            if (TxtBildirimNo.Text == "")
-            {
-                return "Lütfen Bildirim No Bilgisini Yazınız!";
-            }
-            if (TxtCrmNo.Text == "")
-            {
-                return "Lütfen Crm No Bilgisini Yazınız!";
-            }
+            //if (TxtCsSiparisNo.Text == "")
+            //{
+            //    return "Lütfen CS Sipariş No Bilgisini Yazınız!";
+            //}
+            //if (TxtBildirimNo.Text == "")
+            //{
+            //    return "Lütfen Bildirim No Bilgisini Yazınız!";
+            //}
+            //if (TxtCrmNo.Text == "")
+            //{
+            //    return "Lütfen Crm No Bilgisini Yazınız!";
+            //}
             if (CmbCrmGorevAtanacakPer.Text == "")
             {
                 return "Lütfen Görev Atanacak Personel Bilgisini Seçiniz!";

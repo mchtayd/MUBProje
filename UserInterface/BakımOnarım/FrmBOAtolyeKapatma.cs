@@ -45,11 +45,11 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Bu Kayıt 1200-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT) İşlem Adımında Bulunmamaktadır. Sadece Bu İşlem Adımında Kapatma Yapabilirsiniz!", "Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            if (dosyaKontrol==false)
-            {
-                MessageBox.Show("Lütfen Öncelikle Bakım Onarım İzleme Formunu Taratarak Ekleyiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
+            //if (dosyaKontrol==false)
+            //{
+            //    MessageBox.Show("Lütfen Öncelikle Bakım Onarım İzleme Formunu Taratarak Ekleyiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //    return;
+            //}
             DialogResult dr = MessageBox.Show(TxtIcSiparisNo.Text + " Nolu Kaydı Kapatmak İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {

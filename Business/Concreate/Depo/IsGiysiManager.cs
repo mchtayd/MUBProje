@@ -75,6 +75,17 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoIsGiysi GetStokNo(string stokNo)
+        {
+            try
+            {
+                return isGiysiDal.GetStokNo(stokNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<DestekDepoIsGiysi> GetList(int id=0)
         {

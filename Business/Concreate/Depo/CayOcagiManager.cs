@@ -75,6 +75,18 @@ namespace Business.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoCayOcagi GetStokNo(string stokNo)
+        {
+            try
+            {
+                return cayOcagiDal.GetStokNo(stokNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
 
         public List<DestekDepoCayOcagi> GetList(int id=0)
         {

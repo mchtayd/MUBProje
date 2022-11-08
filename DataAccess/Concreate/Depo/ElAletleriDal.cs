@@ -28,7 +28,8 @@ namespace DataAccess.Concreate.Depo
                 dataReader = sqlServices.StoreReader("DestekDepoElAletleriKaydet",
                     new SqlParameter("@stokno", entity.Stokno),
                     new SqlParameter("@tanim", entity.Tanim),
-                    new SqlParameter("@birim", entity.Birim));
+                    new SqlParameter("@birim", entity.Birim),
+                    new SqlParameter("@dosyaYolu",entity.DosyaYolu));
                 dataReader.Close();
                 return "OK";
             }
@@ -65,7 +66,8 @@ namespace DataAccess.Concreate.Depo
                         dataReader["ID"].ConInt(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
-                        dataReader["BIRIM"].ToString());
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString());
 
                 }
                 dataReader.Close();
@@ -88,7 +90,8 @@ namespace DataAccess.Concreate.Depo
                         dataReader["ID"].ConInt(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
-                        dataReader["BIRIM"].ToString());
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString());
 
                 }
                 dataReader.Close();
@@ -99,6 +102,31 @@ namespace DataAccess.Concreate.Depo
                 return null;
             }
         }
+        public DestekDepoElAletleri GetStokNo(string stokNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DestekDepoElAletleriListStokNo", new SqlParameter("@stokNo", stokNo));
+                DestekDepoElAletleri item = null;
+                while (dataReader.Read())
+                {
+                    item = new DestekDepoElAletleri(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString());
+
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
 
         public List<DestekDepoElAletleri> GetList(int id)
         {
@@ -112,7 +140,8 @@ namespace DataAccess.Concreate.Depo
                         dataReader["ID"].ConInt(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
-                        dataReader["BIRIM"].ToString()));
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString()));
                 }
                 dataReader.Close();
                 return malzemeKayits;
@@ -131,7 +160,22 @@ namespace DataAccess.Concreate.Depo
                     new SqlParameter("@id", id),
                     new SqlParameter("@stokno", entity.Stokno),
                     new SqlParameter("@tanim", entity.Tanim),
-                    new SqlParameter("@birim", entity.Birim));
+                    new SqlParameter("@birim", entity.Birim),
+                    new SqlParameter("@dosyaYolu",entity.DosyaYolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string FotoDuzelt(DestekDepoElAletleri entity, int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DestekDepoElAletleriFoto",
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
                 dataReader.Close();
                 return "OK";
             }

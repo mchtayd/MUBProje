@@ -106,9 +106,9 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["LojTarihi"].Visible = false;
             DtgList.Columns["TespitEdilenAriza"].Visible = false;
             DtgList.Columns["AcmaOnayiVeren"].Visible = false;
-            DtgList.Columns["CsSiparisNo"].HeaderText = "CS SİPARİŞ NO";
+            DtgList.Columns["CsSiparisNo"].Visible = false;
             DtgList.Columns["BildirimNo"].HeaderText = "BİLDİRİM NO";
-            DtgList.Columns["CrmNo"].HeaderText = "CRM HİZMET NO";
+            DtgList.Columns["CrmNo"].Visible = false;
             DtgList.Columns["SiparisNo"].Visible = false;
             DtgList.Columns["BildirimMailTarihi"].Visible = false;
             DtgList.Columns["TelefonNo"].Visible = false;
