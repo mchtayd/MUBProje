@@ -27,7 +27,8 @@ namespace DataAccess.Concreate.Depo
                 dataReader = sqlServices.StoreReader("DestekDepoKKDKaydet",
                     new SqlParameter("@stokno", entity.Stokno),
                     new SqlParameter("@tanim", entity.Tanim),
-                    new SqlParameter("@birim", entity.Birim));
+                    new SqlParameter("@birim", entity.Birim),
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
                 dataReader.Close();
                 return "OK";
             }
@@ -64,7 +65,8 @@ namespace DataAccess.Concreate.Depo
                         dataReader["ID"].ConInt(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
-                        dataReader["BIRIM"].ToString());
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString());
 
                 }
                 dataReader.Close();
@@ -87,7 +89,8 @@ namespace DataAccess.Concreate.Depo
                         dataReader["ID"].ConInt(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
-                        dataReader["BIRIM"].ToString());
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString());
 
                 }
                 dataReader.Close();
@@ -110,7 +113,8 @@ namespace DataAccess.Concreate.Depo
                         dataReader["ID"].ConInt(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
-                        dataReader["BIRIM"].ToString());
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString());
 
                 }
                 dataReader.Close();
@@ -134,7 +138,8 @@ namespace DataAccess.Concreate.Depo
                         dataReader["ID"].ConInt(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
-                        dataReader["BIRIM"].ToString()));
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString()));
                 }
                 dataReader.Close();
                 return malzemeKayits;
@@ -153,7 +158,8 @@ namespace DataAccess.Concreate.Depo
                     new SqlParameter("@id", id),
                     new SqlParameter("@stokno", entity.Stokno),
                     new SqlParameter("@tanim", entity.Tanim),
-                    new SqlParameter("@birim", entity.Birim));
+                    new SqlParameter("@birim", entity.Birim),
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
                 dataReader.Close();
                 return "OK";
             }

@@ -16,6 +16,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Depo;
 using UserInterface.STS;
 
 namespace UserInterface.IdariIsler
@@ -183,11 +184,13 @@ namespace UserInterface.IdariIsler
             {
                 return;
             }
+            Picture.ImageLocation = "";
             int id = CmbMalzemeKategorisi.SelectedIndex;
             if (CmbMalzemeKategorisi.Text == "AMBAR")
             {
                 DestekDepoAmbar ambar = ambarManager.GetTanim(CmbTanim.Text);
                 TxtStok.Text = ambar.Stokno;
+                Picture.ImageLocation = ambar.DosyaYolu;
                 //TxtMiktar.Text = ambar.Birim;
                 birim = ambar.Birim;
             }
@@ -195,6 +198,7 @@ namespace UserInterface.IdariIsler
             {
                 DestekDepoCayOcagi cayOcagi = cayOcagiManager.GetTanim(CmbTanim.Text);
                 TxtStok.Text = cayOcagi.Stokno;
+                Picture.ImageLocation = cayOcagi.DosyaYolu;
                 //TxtMiktar.Text = cayOcagi.Birim;
                 birim = cayOcagi.Birim;
             }
@@ -202,6 +206,7 @@ namespace UserInterface.IdariIsler
             {
                 DestekDepoElAletleri elAletleri = elAletleriManager.GetTanim(CmbTanim.Text);
                 TxtStok.Text = elAletleri.Stokno;
+                Picture.ImageLocation = elAletleri.DosyaYolu;
                 //TxtMiktar.Text = elAletleri.Birim;
                 birim = elAletleri.Birim;
             }
@@ -209,6 +214,7 @@ namespace UserInterface.IdariIsler
             {
                 DestekDepoIsGiysi depoIsGiysi = isGiysiManager.GetTanim(CmbTanim.Text);
                 TxtStok.Text = depoIsGiysi.Stokno;
+                Picture.ImageLocation = depoIsGiysi.DosyaYolu;
                 //TxtMiktar.Text = depoIsGiysi.Birim;
                 birim = depoIsGiysi.Birim;
             }
@@ -216,6 +222,7 @@ namespace UserInterface.IdariIsler
             {
                 DestekDepoKirtasiye kirtasiye = kirtasiyeManager.GetTanim(CmbTanim.Text);
                 TxtStok.Text = kirtasiye.Stokno;
+                Picture.ImageLocation = kirtasiye.DosyaYolu;
                 //TxtMiktar.Text = kirtasiye.Birim;
                 birim = kirtasiye.Birim;
             }
@@ -223,6 +230,7 @@ namespace UserInterface.IdariIsler
             {
                 DestekDepoKKD kkd = kKDManager.GetTanim(CmbTanim.Text);
                 TxtStok.Text = kkd.Stokno;
+                Picture.ImageLocation = kkd.DosyaYolu;
                 //TxtMiktar.Text = kkd.Birim;
                 birim = kkd.Birim;
             }
@@ -230,6 +238,7 @@ namespace UserInterface.IdariIsler
             {
                 DestekDepoTemizlikUrunleri temizlikUrunleri = temizlikUrunleriManager.GetTanim(CmbTanim.Text);
                 TxtStok.Text = temizlikUrunleri.Stokno;
+                Picture.ImageLocation = temizlikUrunleri.DosyaYolu;
                 //TxtMiktar.Text = temizlikUrunleri.Birim;
                 birim = temizlikUrunleri.Birim;
             }
@@ -386,6 +395,14 @@ namespace UserInterface.IdariIsler
             {
                 //  MessageBox.Show(ex.Message);
             }
+
+        }
+
+        private void Picture_DoubleClick(object sender, EventArgs e)
+        {
+            FrmPhotoFullScreen frmPhotoFullScreen = new FrmPhotoFullScreen();
+            frmPhotoFullScreen.imageLocation = Picture.ImageLocation;
+            frmPhotoFullScreen.ShowDialog();
 
         }
     }

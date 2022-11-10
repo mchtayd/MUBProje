@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>437</ApplicationRevision>
+    <ApplicationRevision>438</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -507,6 +507,12 @@
     </Compile>
     <Compile Include="Depo\FrmMalzemeKayitDestekDepo.Designer.cs">
       <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmPhotoFullScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmPhotoFullScreen.Designer.cs">
+      <DependentUpon>FrmPhotoFullScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Egitim\FrmEgitimPlanıOlustur.cs">
       <SubType>Form</SubType>
@@ -1349,6 +1355,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Depo\FrmMalzemeKayitDestekDepo.resx">
       <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmPhotoFullScreen.resx">
+      <DependentUpon>FrmPhotoFullScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Egitim\FrmEgitimPlanıOlustur.resx">
       <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>

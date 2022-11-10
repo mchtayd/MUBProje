@@ -114,7 +114,6 @@ namespace UserInterface.Depo
             // 
             // CmbStokNo
             // 
-            this.CmbStokNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbStokNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbStokNo.FormattingEnabled = true;
             this.CmbStokNo.Location = new System.Drawing.Point(141, 103);

@@ -29,7 +29,7 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGiysiTalep));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -61,6 +61,8 @@ namespace UserInterface.IdariIsler
             this.label1 = new System.Windows.Forms.Label();
             this.CmbTalepEdenPersonel = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.BtnFotoDuzenle = new System.Windows.Forms.Button();
+            this.Picture = new System.Windows.Forms.PictureBox();
             this.TxtStok = new System.Windows.Forms.TextBox();
             this.BtnEkle = new System.Windows.Forms.Button();
             this.TxtMiktar = new System.Windows.Forms.TextBox();
@@ -69,8 +71,6 @@ namespace UserInterface.IdariIsler
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.Picture = new System.Windows.Forms.PictureBox();
-            this.BtnFotoDuzenle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -327,11 +327,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle3;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.Name = "Remove";
             this.Remove.ReadOnly = true;
@@ -386,6 +386,33 @@ namespace UserInterface.IdariIsler
             this.groupBox3.Size = new System.Drawing.Size(742, 160);
             this.groupBox3.TabIndex = 329;
             this.groupBox3.TabStop = false;
+            // 
+            // BtnFotoDuzenle
+            // 
+            this.BtnFotoDuzenle.AccessibleDescription = "";
+            this.BtnFotoDuzenle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnFotoDuzenle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFotoDuzenle.BackgroundImage")));
+            this.BtnFotoDuzenle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnFotoDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnFotoDuzenle.Location = new System.Drawing.Point(576, 125);
+            this.BtnFotoDuzenle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnFotoDuzenle.Name = "BtnFotoDuzenle";
+            this.BtnFotoDuzenle.Size = new System.Drawing.Size(34, 29);
+            this.BtnFotoDuzenle.TabIndex = 397;
+            this.BtnFotoDuzenle.Tag = "admin";
+            this.BtnFotoDuzenle.UseVisualStyleBackColor = false;
+            this.BtnFotoDuzenle.Visible = false;
+            // 
+            // Picture
+            // 
+            this.Picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Picture.Location = new System.Drawing.Point(453, 31);
+            this.Picture.Name = "Picture";
+            this.Picture.Size = new System.Drawing.Size(120, 123);
+            this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.Picture.TabIndex = 336;
+            this.Picture.TabStop = false;
+            this.Picture.DoubleClick += new System.EventHandler(this.Picture_DoubleClick);
             // 
             // TxtStok
             // 
@@ -461,29 +488,6 @@ namespace UserInterface.IdariIsler
             this.BtnKaydet.Text = "KAYDET";
             this.BtnKaydet.UseVisualStyleBackColor = true;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
-            // Picture
-            // 
-            this.Picture.Location = new System.Drawing.Point(453, 31);
-            this.Picture.Name = "Picture";
-            this.Picture.Size = new System.Drawing.Size(120, 123);
-            this.Picture.TabIndex = 336;
-            this.Picture.TabStop = false;
-            // 
-            // BtnFotoDuzenle
-            // 
-            this.BtnFotoDuzenle.AccessibleDescription = "";
-            this.BtnFotoDuzenle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnFotoDuzenle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFotoDuzenle.BackgroundImage")));
-            this.BtnFotoDuzenle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnFotoDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFotoDuzenle.Location = new System.Drawing.Point(576, 125);
-            this.BtnFotoDuzenle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnFotoDuzenle.Name = "BtnFotoDuzenle";
-            this.BtnFotoDuzenle.Size = new System.Drawing.Size(34, 29);
-            this.BtnFotoDuzenle.TabIndex = 397;
-            this.BtnFotoDuzenle.Tag = "admin";
-            this.BtnFotoDuzenle.UseVisualStyleBackColor = false;
             // 
             // FrmGiysiTalep
             // 
