@@ -51,6 +51,14 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan = new ADGV.AdvancedDataGridView();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderTamamlanan = new System.Windows.Forms.BindingSource(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblMaliyetTop = new System.Windows.Forms.Label();
+            this.DtgMaliyet = new System.Windows.Forms.DataGridView();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblGenelTop = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblGenelT = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -63,6 +71,8 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderTamamlanan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMaliyet)).BeginInit();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -187,6 +197,13 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label3);
+            this.tabPage2.Controls.Add(this.LblGenelT);
+            this.tabPage2.Controls.Add(this.groupBox5);
+            this.tabPage2.Controls.Add(this.label4);
+            this.tabPage2.Controls.Add(this.LblGenelTop);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.LblMaliyetTop);
             this.tabPage2.Controls.Add(this.groupBox4);
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.TxtTop2);
@@ -202,9 +219,9 @@ namespace UserInterface.BakımOnarım
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.webBrowser2);
-            this.groupBox4.Location = new System.Drawing.Point(9, 557);
+            this.groupBox4.Location = new System.Drawing.Point(9, 554);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(856, 180);
+            this.groupBox4.Size = new System.Drawing.Size(741, 258);
             this.groupBox4.TabIndex = 349;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Ekler:";
@@ -215,14 +232,14 @@ namespace UserInterface.BakımOnarım
             this.webBrowser2.Location = new System.Drawing.Point(3, 16);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(850, 161);
+            this.webBrowser2.Size = new System.Drawing.Size(735, 239);
             this.webBrowser2.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(6, 530);
+            this.label1.Location = new System.Drawing.Point(6, 525);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 15);
             this.label1.TabIndex = 347;
@@ -232,7 +249,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.TxtTop2.AutoSize = true;
             this.TxtTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop2.Location = new System.Drawing.Point(106, 530);
+            this.TxtTop2.Location = new System.Drawing.Point(106, 525);
             this.TxtTop2.Name = "TxtTop2";
             this.TxtTop2.Size = new System.Drawing.Size(21, 15);
             this.TxtTop2.TabIndex = 348;
@@ -267,7 +284,92 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan.Size = new System.Drawing.Size(1515, 497);
             this.DtgTamamlanan.TabIndex = 2;
             this.DtgTamamlanan.TimeFilter = false;
+            this.DtgTamamlanan.SortStringChanged += new System.EventHandler(this.DtgTamamlanan_SortStringChanged);
+            this.DtgTamamlanan.FilterStringChanged += new System.EventHandler(this.DtgTamamlanan_FilterStringChanged);
             this.DtgTamamlanan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgTamamlanan_CellMouseClick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(753, 819);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 15);
+            this.label2.TabIndex = 351;
+            this.label2.Text = "Toplam Kayıt:";
+            // 
+            // LblMaliyetTop
+            // 
+            this.LblMaliyetTop.AutoSize = true;
+            this.LblMaliyetTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblMaliyetTop.Location = new System.Drawing.Point(853, 819);
+            this.LblMaliyetTop.Name = "LblMaliyetTop";
+            this.LblMaliyetTop.Size = new System.Drawing.Size(21, 15);
+            this.LblMaliyetTop.TabIndex = 352;
+            this.LblMaliyetTop.Text = "00";
+            // 
+            // DtgMaliyet
+            // 
+            this.DtgMaliyet.AllowUserToAddRows = false;
+            this.DtgMaliyet.AllowUserToDeleteRows = false;
+            this.DtgMaliyet.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMaliyet.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMaliyet.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMaliyet.Location = new System.Drawing.Point(3, 16);
+            this.DtgMaliyet.Name = "DtgMaliyet";
+            this.DtgMaliyet.ReadOnly = true;
+            this.DtgMaliyet.Size = new System.Drawing.Size(762, 239);
+            this.DtgMaliyet.TabIndex = 353;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(921, 819);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(150, 15);
+            this.label4.TabIndex = 354;
+            this.label4.Text = "Toplam Maliyet Tutarı:";
+            // 
+            // LblGenelTop
+            // 
+            this.LblGenelTop.AutoSize = true;
+            this.LblGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGenelTop.Location = new System.Drawing.Point(1077, 819);
+            this.LblGenelTop.Name = "LblGenelTop";
+            this.LblGenelTop.Size = new System.Drawing.Size(21, 15);
+            this.LblGenelTop.TabIndex = 355;
+            this.LblGenelTop.Text = "00";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.DtgMaliyet);
+            this.groupBox5.Location = new System.Drawing.Point(756, 554);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(768, 258);
+            this.groupBox5.TabIndex = 356;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "GENEL MALİYET TABLOSU";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(237, 525);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(138, 15);
+            this.label3.TabIndex = 357;
+            this.label3.Text = "Genel Toplam Tutar:";
+            // 
+            // LblGenelT
+            // 
+            this.LblGenelT.AutoSize = true;
+            this.LblGenelT.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGenelT.Location = new System.Drawing.Point(381, 525);
+            this.LblGenelT.Name = "LblGenelT";
+            this.LblGenelT.Size = new System.Drawing.Size(21, 15);
+            this.LblGenelT.TabIndex = 358;
+            this.LblGenelT.Text = "00";
             // 
             // FrmDtfIzleme
             // 
@@ -293,6 +395,8 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderTamamlanan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMaliyet)).EndInit();
+            this.groupBox5.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -318,5 +422,13 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.GroupBox groupBox3;
         private ADGV.AdvancedDataGridView DtgTamamlanan;
         private System.Windows.Forms.BindingSource dataBinderTamamlanan;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblMaliyetTop;
+        private System.Windows.Forms.DataGridView DtgMaliyet;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label LblGenelTop;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblGenelT;
     }
 }

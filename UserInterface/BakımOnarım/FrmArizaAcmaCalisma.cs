@@ -1150,7 +1150,6 @@ namespace UserInterface.BakımOnarım
         }
         void SistemCihazBilgileriKayit()
         {
-
             ArizaKayit arizaKayit = new ArizaKayit(id, LbStokNo.Text, CmbParcaNo.Text, TxtSeriNo.Text, CmbKategori.Text, CmbIlgiliFirma.Text, CmbBildirimTuru.Text, CmbPypNo.Text, TxtSorumluPersonel.Text, TxtSiparisTuru.Text, TxtSiparisTuru.Text, TxtHesaplama.Text);
 
             arizaKayitManager.SistemCihazBilgileri(arizaKayit);
@@ -2604,7 +2603,6 @@ namespace UserInterface.BakımOnarım
 
             dosyaYolu = subdir + isAkisNo;
             Directory.CreateDirectory(dosyaYolu);
-
         }
 
         void GorevAtama()

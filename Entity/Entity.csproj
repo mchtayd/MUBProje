@@ -54,6 +54,8 @@
     <Compile Include="BakimOnarim\ArizaKayit.cs" />
     <Compile Include="BakimOnarim\BakimOnarimLog.cs" />
     <Compile Include="BakimOnarim\Bolge.cs" />
+    <Compile Include="BakimOnarim\BolgeGaranti.cs" />
+    <Compile Include="BakimOnarim\BolgeKayit.cs" />
     <Compile Include="BakimOnarim\Dtf.cs" />
     <Compile Include="BakimOnarim\DtfMaliyet.cs" />
     <Compile Include="BakimOnarim\IscilikDestekIscilik.cs" />

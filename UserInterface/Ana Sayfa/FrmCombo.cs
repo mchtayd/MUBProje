@@ -352,6 +352,14 @@ namespace UserInterface.Ana_Sayfa
                     form.AtolyeKategorManuel();
                 }
             }
+            if (comboAd == "GARANTI_PAKETI")
+            {
+                var form = (FrmGarantiSureleri)Application.OpenForms["FrmGarantiSureleri"];
+                if (form != null)
+                {
+                    form.ComboYasamAlani();
+                }
+            }
 
         }
     }

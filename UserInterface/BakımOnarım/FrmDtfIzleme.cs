@@ -17,21 +17,26 @@ namespace UserInterface.BakımOnarım
     public partial class FrmDtfIzleme : Form
     {
         DtfManager dtfManager;
+        DtfMaliyetManager dtfMaliyetManager;
 
         List<Dtf> dtfsDevamEden;
         List<Dtf> dtfsTamamlanan;
+        List<DtfMaliyet> dtfMaliyets;
 
         string dosyaYolu;
+        int id;
         public FrmDtfIzleme()
         {
             InitializeComponent();
             dtfManager = DtfManager.GetInstance();
+            dtfMaliyetManager = DtfMaliyetManager.GetInstance();
         }
 
         private void FrmDtfIzleme_Load(object sender, EventArgs e)
         {
             DataDisplayDevamEden();
             DataDisplayTamamlanan();
+
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -78,14 +83,32 @@ namespace UserInterface.BakımOnarım
 
             DtgDevamEden.Columns["SeriNo"].DisplayIndex = 14;
         }
+        double genelToplma;
+        List<DtfMaliyet> dtfMaliyets2;
+        void ToplamMaliyet()
+        {
+            
+            int sayac = 0;
+
+            foreach (Dtf item in dtfsTamamlanan)
+            {
+                dtfMaliyets2 = dtfMaliyetManager.GetList(item.Id);
+                ToplamlarList();
+                dtfsTamamlanan[sayac].ToplamTutar = genelToplma;
+                sayac++;
+            }
+        }
         void DataDisplayTamamlanan()
         {
             dtfsTamamlanan = dtfManager.GetList("TAMAMLANAN");
+            ToplamMaliyet();
+
             dataBinderTamamlanan.DataSource = dtfsTamamlanan.ToDataTable();
             DtgTamamlanan.DataSource = dataBinderTamamlanan;
             TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
 
             DtgTamamlanan.Columns["Id"].Visible = false;
+            
             DtgTamamlanan.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
             DtgTamamlanan.Columns["AdiSoyadi"].HeaderText = "ADI SOYADI";
             DtgTamamlanan.Columns["KayitTarihi"].HeaderText = "KAYIT TARİHİ";
@@ -108,9 +131,20 @@ namespace UserInterface.BakımOnarım
             DtgTamamlanan.Columns["YapilanIslemler"].HeaderText = "YAPILAN İŞLEMLER";
             DtgTamamlanan.Columns["DosyaYolu"].Visible = false;
             DtgTamamlanan.Columns["SeriNo"].HeaderText = "SERİ NO";
-
+            DtgTamamlanan.Columns["ToplamTutar"].HeaderText = "TOPLAM MALİYET TUTARI";
             DtgTamamlanan.Columns["SeriNo"].DisplayIndex = 14;
+            DtgTamamlanan.Columns["OnarimYeri"].DisplayIndex = 15;
+            DtgTamamlanan.Columns["AltYukleniciFirma"].DisplayIndex = 16;
+            DtgTamamlanan.Columns["FirmaSorumlusu"].DisplayIndex = 17;
+            DtgTamamlanan.Columns["IsinVerildigiTarih"].DisplayIndex = 17;
+            DtgTamamlanan.Columns["IsBaslamaTarihi"].DisplayIndex = 18;
+            DtgTamamlanan.Columns["IsBitisTarihi"].DisplayIndex = 19;
+            DtgTamamlanan.Columns["YapilanIslemler"].DisplayIndex = 20;
+            DtgTamamlanan.Columns["DosyaYolu"].DisplayIndex = 21;
+            ToplamlarGenel();
+
         }
+
 
         private void DtgDevamEden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -148,7 +182,9 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
+            id = DtgTamamlanan.CurrentRow.Cells["Id"].Value.ConInt();
             dosyaYolu = DtgTamamlanan.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            FillTools();
 
             try
             {
@@ -158,6 +194,76 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
+        }
+        void Toplamlar()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgMaliyet.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgMaliyet.Rows[i].Cells[7].Value);
+            }
+            LblGenelTop.Text = toplam.ToString("C2");
+        }
+        void ToplamlarGenel()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgTamamlanan.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgTamamlanan.Rows[i].Cells[23].Value);
+            }
+            LblGenelT.Text = toplam.ToString("C2");
+        }
+        void ToplamlarList()
+        {
+            double toplam = 0;
+            for (int i = 0; i < dtfMaliyets2.Count; ++i)
+            {
+                toplam += dtfMaliyets2[i].ToplamTutar.ConDouble();
+            }
+            genelToplma = toplam;
+        }
+
+
+        void MaliyetDataEdit()
+        {
+            DtgMaliyet.Columns["Id"].Visible = false;
+            DtgMaliyet.Columns["BenzersizId"].Visible = false;
+            DtgMaliyet.Columns["IsTanimi"].HeaderText = "İŞ TANIMI";
+            DtgMaliyet.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgMaliyet.Columns["Birim"].HeaderText = "BİRİM";
+            DtgMaliyet.Columns["PBirimi"].HeaderText = "PARA BİRİMİ";
+            DtgMaliyet.Columns["BirimTutar"].HeaderText = "BİRİM TUTARI";
+            DtgMaliyet.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
+            LblMaliyetTop.Text = DtgTamamlanan.RowCount.ToString();
+            Toplamlar();
+
+        }
+        void FillTools()
+        {
+            dtfMaliyets = dtfMaliyetManager.GetList(id);
+            if (dtfMaliyets == null)
+            {
+                DtgMaliyet.DataSource = null;
+                MaliyetDataEdit();
+            }
+            else
+            {
+                DtgMaliyet.DataSource = dtfMaliyets;
+                MaliyetDataEdit();
+            }
+
+        }
+
+        private void DtgTamamlanan_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderTamamlanan.Filter = DtgTamamlanan.FilterString;
+            TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
+            ToplamlarGenel();
+        }
+
+        private void DtgTamamlanan_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderTamamlanan.Sort = DtgTamamlanan.SortString;
         }
     }
 }

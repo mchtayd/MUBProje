@@ -32,23 +32,30 @@ namespace UserInterface.BakımOnarım
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgBolgeler = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.DtgMalzemeler = new ADGV.AdvancedDataGridView();
             this.TxtEkipmanSayisi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DtgGarantiPaketi = new ADGV.AdvancedDataGridView();
+            this.DtgEkipman = new ADGV.AdvancedDataGridView();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGarantiPaketi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgEkipman)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,37 +133,6 @@ namespace UserInterface.BakımOnarım
             this.label5.TabIndex = 312;
             this.label5.Text = "Toplam Kayıt:";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.DtgMalzemeler);
-            this.groupBox2.Location = new System.Drawing.Point(12, 520);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1449, 311);
-            this.groupBox2.TabIndex = 313;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "EKİPMAN İZLE";
-            // 
-            // DtgMalzemeler
-            // 
-            this.DtgMalzemeler.AllowUserToAddRows = false;
-            this.DtgMalzemeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DtgMalzemeler.AutoGenerateContextFilters = true;
-            this.DtgMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgMalzemeler.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgMalzemeler.DateWithTime = false;
-            this.DtgMalzemeler.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgMalzemeler.Location = new System.Drawing.Point(3, 16);
-            this.DtgMalzemeler.MultiSelect = false;
-            this.DtgMalzemeler.Name = "DtgMalzemeler";
-            this.DtgMalzemeler.ReadOnly = true;
-            this.DtgMalzemeler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgMalzemeler.Size = new System.Drawing.Size(1443, 292);
-            this.DtgMalzemeler.TabIndex = 5;
-            this.DtgMalzemeler.TimeFilter = false;
-            // 
             // TxtEkipmanSayisi
             // 
             this.TxtEkipmanSayisi.AutoSize = true;
@@ -177,14 +153,88 @@ namespace UserInterface.BakımOnarım
             this.label2.TabIndex = 314;
             this.label2.Text = "Toplam Ekipman Sayısı:";
             // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Location = new System.Drawing.Point(15, 526);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(1439, 306);
+            this.tabControl1.TabIndex = 316;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.DtgGarantiPaketi);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1431, 280);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "GARANTİ PAKETİ BİLGİLERİ";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.DtgEkipman);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1431, 280);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "EKİPMAN BİLGİLERİ";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // DtgGarantiPaketi
+            // 
+            this.DtgGarantiPaketi.AllowUserToAddRows = false;
+            this.DtgGarantiPaketi.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgGarantiPaketi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.DtgGarantiPaketi.AutoGenerateContextFilters = true;
+            this.DtgGarantiPaketi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgGarantiPaketi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgGarantiPaketi.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgGarantiPaketi.DateWithTime = false;
+            this.DtgGarantiPaketi.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgGarantiPaketi.Location = new System.Drawing.Point(3, 3);
+            this.DtgGarantiPaketi.MultiSelect = false;
+            this.DtgGarantiPaketi.Name = "DtgGarantiPaketi";
+            this.DtgGarantiPaketi.ReadOnly = true;
+            this.DtgGarantiPaketi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgGarantiPaketi.Size = new System.Drawing.Size(1425, 274);
+            this.DtgGarantiPaketi.TabIndex = 6;
+            this.DtgGarantiPaketi.TimeFilter = false;
+            // 
+            // DtgEkipman
+            // 
+            this.DtgEkipman.AllowUserToAddRows = false;
+            this.DtgEkipman.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgEkipman.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DtgEkipman.AutoGenerateContextFilters = true;
+            this.DtgEkipman.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgEkipman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgEkipman.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgEkipman.DateWithTime = false;
+            this.DtgEkipman.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgEkipman.Location = new System.Drawing.Point(3, 3);
+            this.DtgEkipman.MultiSelect = false;
+            this.DtgEkipman.Name = "DtgEkipman";
+            this.DtgEkipman.ReadOnly = true;
+            this.DtgEkipman.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgEkipman.Size = new System.Drawing.Size(1425, 274);
+            this.DtgEkipman.TabIndex = 7;
+            this.DtgEkipman.TimeFilter = false;
+            // 
             // FrmBolgeKayitIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1479, 872);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.TxtEkipmanSayisi);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
@@ -195,9 +245,12 @@ namespace UserInterface.BakımOnarım
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGarantiPaketi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgEkipman)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,10 +264,13 @@ namespace UserInterface.BakımOnarım
         private ADGV.AdvancedDataGridView DtgBolgeler;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private ADGV.AdvancedDataGridView DtgMalzemeler;
         private System.Windows.Forms.Label TxtEkipmanSayisi;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private ADGV.AdvancedDataGridView DtgGarantiPaketi;
+        private System.Windows.Forms.TabPage tabPage2;
+        private ADGV.AdvancedDataGridView DtgEkipman;
     }
 }

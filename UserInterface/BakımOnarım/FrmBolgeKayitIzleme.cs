@@ -17,17 +17,20 @@ namespace UserInterface.BakımOnarım
     public partial class FrmBolgeKayitIzleme : Form
     {
         List<Bolge> bolges = new List<Bolge>();
+        List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
         BolgeManager bolgeManager;
+        BolgeKayitManager bolgeKayitManager;
         public FrmBolgeKayitIzleme()
         {
             InitializeComponent();
             bolgeManager = BolgeManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void FrmBolgeKayitIzleme_Load(object sender, EventArgs e)
         {
             DataDisplay();
-            TxtEkipmanSayisi.Text = DtgMalzemeler.RowCount.ToString();
+            TxtEkipmanSayisi.Text = DtgGarantiPaketi.RowCount.ToString();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -47,28 +50,31 @@ namespace UserInterface.BakımOnarım
         }
         void DataDisplay()
         {
-            bolges = bolgeManager.GetList();
-            dataBinder.DataSource = bolges.ToDataTable();
+            bolgeKayits = bolgeKayitManager.GetList();
+            dataBinder.DataSource = bolgeKayits.ToDataTable();
             DtgBolgeler.DataSource = dataBinder;
             TxtTop.Text = DtgBolgeler.RowCount.ToString();
 
             DtgBolgeler.Columns["Id"].Visible = false;
             DtgBolgeler.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
-            DtgBolgeler.Columns["IlgiliPersonel"].HeaderText = "İLGİLİ PERSONEL";
-            DtgBolgeler.Columns["BirlikAdresi"].HeaderText = "BİRLİK ADRESİ";
-            DtgBolgeler.Columns["Telefon"].HeaderText = "TELEFON";
-            DtgBolgeler.Columns["FaturaAdresi"].HeaderText = "FATURA ADRESİ";
-            DtgBolgeler.Columns["PypNo"].HeaderText = "PYP NO";
-            DtgBolgeler.Columns["SorumluSicil"].HeaderText = "BÖLGE SORUMLUSU SİCİL";
+            DtgBolgeler.Columns["KodAdi"].HeaderText = "KOD ADI";
+            DtgBolgeler.Columns["UsBolgesiStok"].HeaderText = "ÜST BÖLGESİ STOK NO";
+            DtgBolgeler.Columns["KabulTarihi"].HeaderText = "KABUL TARİHİ";
+            DtgBolgeler.Columns["GuvenlikYazilimi"].HeaderText = "GÜVENLİK YAZILIMI";
+            DtgBolgeler.Columns["KesifGozetlemeTuru"].HeaderText = "KEŞİF GÖZETMELE TÜRÜ";
+            DtgBolgeler.Columns["YasamAlani"].HeaderText = "YAŞAM ALANI";
+            DtgBolgeler.Columns["Tabur"].HeaderText = "BAĞLI OLDUĞU TABUR";
+            DtgBolgeler.Columns["Tugay"].HeaderText = "BAĞLI OLDUĞU TUGAY";
             DtgBolgeler.Columns["Il"].HeaderText = "İL";
             DtgBolgeler.Columns["Ilce"].HeaderText = "İLÇE";
-            DtgBolgeler.Columns["Proje"].HeaderText = "PROJE";
-            DtgBolgeler.Columns["GarantiBaslama"].HeaderText = "GARANTİ BAŞLAMA";
-            DtgBolgeler.Columns["GarantiBitis"].HeaderText = "GARANTİ BİTİŞ";
-            DtgBolgeler.Columns["SsPersonel"].HeaderText = "SORUMLU PERSONEL";
-            DtgBolgeler.Columns["SspGorev"].HeaderText = "SORUMLU PERSONEL GÖREVİ";
-            DtgBolgeler.Columns["Depo"].HeaderText = "DEPO";
-            DtgBolgeler.Columns["SsRutbe"].HeaderText = "SORUMLU PERSONEL RÜTBE";
+            DtgBolgeler.Columns["BirlikAdresi"].HeaderText = "BİRLİK ADRESİ";
+            DtgBolgeler.Columns["GarantiBaslama"].HeaderText = "GARANTİ BAŞLAMA TARİHİ";
+            DtgBolgeler.Columns["GarantiBitis"].HeaderText = "GARANTİ BİTİŞ TARİHİ";
+            DtgBolgeler.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
+            DtgBolgeler.Columns["Depo"].HeaderText = "BAĞLI OLDUĞU DEPO";
+            DtgBolgeler.Columns["SiparisNo"].Visible = false;
+            DtgBolgeler.Columns["DosyaYolu"].Visible = false;
+            DtgBolgeler.Columns["PypNo"].HeaderText = "PYP NO";
         }
     }
 }

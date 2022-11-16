@@ -69,6 +69,7 @@ namespace UserInterface.BakımOnarım
             this.CmbButceKodu = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.LblKayitTarihi = new System.Windows.Forms.DateTimePicker();
             this.CmbDonemYil = new System.Windows.Forms.ComboBox();
             this.CmbDonemAy = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -288,7 +289,6 @@ namespace UserInterface.BakımOnarım
             this.TxtIsAkisNoGun = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.LblKayitTarihi = new System.Windows.Forms.DateTimePicker();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -742,6 +742,14 @@ namespace UserInterface.BakımOnarım
             this.groupBox3.TabIndex = 443;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TALEBİ OLUŞTURAN";
+            // 
+            // LblKayitTarihi
+            // 
+            this.LblKayitTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.LblKayitTarihi.Location = new System.Drawing.Point(118, 77);
+            this.LblKayitTarihi.Name = "LblKayitTarihi";
+            this.LblKayitTarihi.Size = new System.Drawing.Size(104, 20);
+            this.LblKayitTarihi.TabIndex = 449;
             // 
             // CmbDonemYil
             // 
@@ -2140,7 +2148,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox10.Controls.Add(this.bGun6);
             this.groupBox10.Location = new System.Drawing.Point(18, 483);
             this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(1209, 262);
+            this.groupBox10.Size = new System.Drawing.Size(1185, 262);
             this.groupBox10.TabIndex = 459;
             this.groupBox10.TabStop = false;
             this.groupBox10.Text = "YAKLAŞIK MALİYET TABLOSU";
@@ -2817,6 +2825,7 @@ namespace UserInterface.BakımOnarım
             this.CmbGarantiDurumuGun.Items.AddRange(new object[] {
             "GARANTİ İÇİ",
             "GARANTİ DIŞI (OKF)",
+            "GARANTİ DIŞI",
             "PDL"});
             this.CmbGarantiDurumuGun.Location = new System.Drawing.Point(157, 136);
             this.CmbGarantiDurumuGun.Name = "CmbGarantiDurumuGun";
@@ -3082,14 +3091,6 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel.Text = "X";
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
-            // LblKayitTarihi
-            // 
-            this.LblKayitTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.LblKayitTarihi.Location = new System.Drawing.Point(118, 77);
-            this.LblKayitTarihi.Name = "LblKayitTarihi";
-            this.LblKayitTarihi.Size = new System.Drawing.Size(104, 20);
-            this.LblKayitTarihi.TabIndex = 449;
             // 
             // FrmDTFOlustur
             // 

@@ -281,8 +281,8 @@ namespace UserInterface.BakımOnarım
             wBookmarks["IsinTanimi"].Range.Text = TxtIsinTanimi.Text;
             wBookmarks["TalebiOlusturan"].Range.Text = TalepEden.Text;
             wBookmarks["IsinVerildigiTarih"].Range.Text = DtgIsinVerildigiTarih.Value.ToString("dd/MM/yyyy");
-            wBookmarks["Tarih"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            wBookmarks["Tarih2"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            wBookmarks["Tarih"].Range.Text = DtgIsinVerildigiTarih.Value.ToString("dd/MM/yyyy");
+            wBookmarks["Tarih2"].Range.Text = DtgIsinVerildigiTarih.Value.ToString("dd/MM/yyyy");
 
             wDoc.SaveAs2(dosyaYolu + LblIsAkisNo.Text + ".docx");
             wDoc.Close();
@@ -480,6 +480,7 @@ namespace UserInterface.BakımOnarım
             Pb5.SelectedIndex = -1; Pb6.SelectedIndex = -1; Pb7.SelectedIndex = -1; BTutar1.Clear(); BTutar2.Clear(); BTutar3.Clear(); BTutar4.Clear();
             BTutar5.Clear(); BTutar6.Clear(); BTutar7.Clear(); TTutar1.Clear(); TTutar2.Clear(); TTutar3.Clear(); TTutar4.Clear(); TTutar5.Clear();
             TTutar6.Clear(); TTutar7.Clear(); TxtGenelTop.Text = "0";
+            TxtYapilanIslemler.Clear(); TxtIsAkisNo.Clear();
         }
         void TemizleGun()
         {
@@ -870,10 +871,14 @@ namespace UserInterface.BakımOnarım
             BTutarGun7.Clear(); TTutarGun1.Clear(); TTutarGun2.Clear(); TTutarGun3.Clear(); TTutarGun4.Clear(); TTutarGun5.Clear(); TTutarGun6.Clear();
             TTutarGun7.Clear();
         }
-
+        string mesaj;
         void YaklasikMaliyetKayitGuncelle()
         {
-            string mesaj = dtfMaliyetManager.Delete(idGun);
+            foreach (DtfMaliyet item in dtfMaliyets)
+            {
+                mesaj = dtfMaliyetManager.Delete(item.Id);
+            }
+            
             if (mesaj=="OK")
             {
                 List<DtfMaliyet> dtfMaliyets = new List<DtfMaliyet>();
@@ -1201,37 +1206,37 @@ namespace UserInterface.BakımOnarım
 
         private void BTutarGun1_TextChanged(object sender, EventArgs e)
         {
-            BTutarGun1.Text = TopFiyatHesapla(BTutarGun1.Text, mGun1.Text);
+            TTutarGun1.Text = TopFiyatHesapla(BTutarGun1.Text, mGun1.Text);
         }
 
         private void BTutarGun2_TextChanged(object sender, EventArgs e)
         {
-            BTutarGun2.Text = TopFiyatHesapla(BTutarGun2.Text, mGun2.Text);
+            TTutarGun2.Text = TopFiyatHesapla(BTutarGun2.Text, mGun2.Text);
         }
 
         private void BTutarGun3_TextChanged(object sender, EventArgs e)
         {
-            BTutarGun3.Text = TopFiyatHesapla(BTutarGun3.Text, mGun3.Text);
+            TTutarGun3.Text = TopFiyatHesapla(BTutarGun3.Text, mGun3.Text);
         }
 
         private void BTutarGun4_TextChanged(object sender, EventArgs e)
         {
-            BTutarGun4.Text = TopFiyatHesapla(BTutarGun4.Text, mGun4.Text);
+            TTutarGun4.Text = TopFiyatHesapla(BTutarGun4.Text, mGun4.Text);
         }
 
         private void BTutarGun5_TextChanged(object sender, EventArgs e)
         {
-            BTutarGun5.Text = TopFiyatHesapla(BTutarGun5.Text, mGun5.Text);
+            TTutarGun5.Text = TopFiyatHesapla(BTutarGun5.Text, mGun5.Text);
         }
 
         private void BTutarGun6_TextChanged(object sender, EventArgs e)
         {
-            BTutarGun6.Text = TopFiyatHesapla(BTutarGun6.Text, mGun6.Text);
+            TTutarGun6.Text = TopFiyatHesapla(BTutarGun6.Text, mGun6.Text);
         }
 
         private void BTutarGun7_TextChanged(object sender, EventArgs e)
         {
-            BTutarGun7.Text = TopFiyatHesapla(BTutarGun7.Text, mGun7.Text);
+            TTutarGun7.Text = TopFiyatHesapla(BTutarGun7.Text, mGun7.Text);
         }
 
         private void mGun1_TextChanged(object sender, EventArgs e)
@@ -1346,7 +1351,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
 
-            Dtf dtf = new Dtf(id, DtIsBaslamaTarihi.Value, DtIsBitisTarihi.Value, TxtIsinTanimiKO.Text);
+            Dtf dtf = new Dtf(id, DtIsBaslamaTarihi.Value, DtIsBitisTarihi.Value, TxtYapilanIslemler.Text);
             mesaj = dtfManager.KontrolOnayGuncelle(dtf);
 
             if (mesaj!="OK")

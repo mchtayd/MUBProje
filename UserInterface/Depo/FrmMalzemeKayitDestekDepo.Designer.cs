@@ -216,6 +216,7 @@ namespace UserInterface.Depo
             this.PctBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PctBox.TabIndex = 337;
             this.PctBox.TabStop = false;
+            this.PctBox.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.PctBox_MouseDoubleClick);
             // 
             // BtnFotoDuzenle
             // 

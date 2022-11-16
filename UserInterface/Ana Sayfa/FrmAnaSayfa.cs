@@ -2289,16 +2289,16 @@ namespace UserInterface.STS
                 OpenTabPage("PageBolgeler", "BÖLGE KAYIT", Go);
                 Go.Show();
             }
-            /*if (e.Node.Text == "BolgeKayitIzleme")
+            if (e.Node.Text == "Bölge Kayıtları")
             {
                 FrmBolgeKayitIzleme Go = new FrmBolgeKayitIzleme();
                 //Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageBolgeKayitIzleme", "BÖLGE KAYIT İZLEME", Go);
+                OpenTabPage("PageBolgeKayitIzleme", "BÖLGE KAYITLARI", Go);
                 Go.Show();
-            }*/
+            }
             
             if (e.Node.Text == "Atölye Açık Bildirimler")
             {
@@ -4554,6 +4554,50 @@ namespace UserInterface.STS
         {
             FrmAtolyeVeri frmAtolyeRapor = new FrmAtolyeVeri();
             frmAtolyeRapor.ShowDialog();
+        }
+
+        private void malzemeTalepOnayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMifOnay Go = new FrmMifOnay();
+            Go.infos = infos;
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageMifOnay", "MİF ONAY", Go);
+            Go.Show();
+        }
+
+        private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+            FrmSehitİciGorevOnay Go = new FrmSehitİciGorevOnay();
+            Go.infos = infos;
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageSehitIciGorevOnay", "ŞEHİT İÇİ GÖREV ONAY", Go);
+            Go.Show();
+        }
+
+        private void konaklamaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmKonaklamaOnay Go = new FrmKonaklamaOnay();
+            Go.infos = infos;
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageKonaklamaOnay", "KONAKLAMA ONAY", Go);
+            Go.Show();
+        }
+
+        private void uçakOtobüsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmUcakOtobusOnay Go = new FrmUcakOtobusOnay();
+            Go.infos = infos;
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageUcakOtobusOnay", "UÇAK/OTOBÜS ONAY", Go);
+            Go.Show();
         }
 
         private void konaklamalarımToolStripMenuItem_Click(object sender, EventArgs e)

@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>438</ApplicationRevision>
+    <ApplicationRevision>444</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -291,6 +291,12 @@
     </Compile>
     <Compile Include="BakımOnarım\FrmDTFOlustur.Designer.cs">
       <DependentUpon>FrmDTFOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmGarantiSureleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmGarantiSureleri.Designer.cs">
+      <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmMalzemeDuzenle.cs">
       <SubType>Form</SubType>
@@ -832,11 +838,23 @@
     <Compile Include="IdariIsler\FrmKonaklamaIzleme.Designer.cs">
       <DependentUpon>FrmKonaklamaIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmKonaklamaOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklamaOnay.Designer.cs">
+      <DependentUpon>FrmKonaklamaOnay.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmMasrafYeri.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IdariIsler\FrmMasrafYeri.Designer.cs">
       <DependentUpon>FrmMasrafYeri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmMifOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmMifOnay.Designer.cs">
+      <DependentUpon>FrmMifOnay.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmOtelEkle.cs">
       <SubType>Form</SubType>
@@ -880,6 +898,12 @@
     <Compile Include="IdariIsler\FrmSehirIcıGorev.Designer.cs">
       <DependentUpon>FrmSehirIcıGorev.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmSehitİciGorevOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmSehitİciGorevOnay.Designer.cs">
+      <DependentUpon>FrmSehitİciGorevOnay.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmTalepIzleme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -897,6 +921,12 @@
     </Compile>
     <Compile Include="IdariIsler\FrmUcakOtobusBiletiIzleme.Designer.cs">
       <DependentUpon>FrmUcakOtobusBiletiIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmUcakOtobusOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmUcakOtobusOnay.Designer.cs">
+      <DependentUpon>FrmUcakOtobusOnay.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmYakitBeyani.cs">
       <SubType>Form</SubType>
@@ -1248,6 +1278,9 @@
     <EmbeddedResource Include="BakımOnarım\FrmDTFOlustur.resx">
       <DependentUpon>FrmDTFOlustur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmGarantiSureleri.resx">
+      <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmMalzemeDuzenle.resx">
       <DependentUpon>FrmMalzemeDuzenle.cs</DependentUpon>
     </EmbeddedResource>
@@ -1518,8 +1551,14 @@
     <EmbeddedResource Include="IdariIsler\FrmKonaklamaIzleme.resx">
       <DependentUpon>FrmKonaklamaIzleme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmKonaklamaOnay.resx">
+      <DependentUpon>FrmKonaklamaOnay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmMasrafYeri.resx">
       <DependentUpon>FrmMasrafYeri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmMifOnay.resx">
+      <DependentUpon>FrmMifOnay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmOtelEkle.resx">
       <DependentUpon>FrmOtelEkle.cs</DependentUpon>
@@ -1542,6 +1581,9 @@
     <EmbeddedResource Include="IdariIsler\FrmSehirIcıGorev.resx">
       <DependentUpon>FrmSehirIcıGorev.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmSehitİciGorevOnay.resx">
+      <DependentUpon>FrmSehitİciGorevOnay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmTalepIzleme.resx">
       <DependentUpon>FrmTalepIzleme.cs</DependentUpon>
     </EmbeddedResource>
@@ -1550,6 +1592,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmUcakOtobusBiletiIzleme.resx">
       <DependentUpon>FrmUcakOtobusBiletiIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmUcakOtobusOnay.resx">
+      <DependentUpon>FrmUcakOtobusOnay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmYakitBeyani.resx">
       <DependentUpon>FrmYakitBeyani.cs</DependentUpon>

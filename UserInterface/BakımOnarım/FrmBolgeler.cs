@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -21,15 +22,20 @@ namespace UserInterface.BakımOnarım
     public partial class FrmBolgeler : Form
     {
         public bool buton = false;
-        string il, comboAd;
+        string il, comboAd, dosyaYolu, kaynakdosyaismi, alinandosya, siparisNo;
         int id;
         List<Bolge> bolges = new List<Bolge>();
+
         BolgeManager bolgeManager;
+        BolgeKayitManager bolgeKayitManager;
         ComboManager comboManager;
         PypManager pypManager;
         DepoKayitManagercs depoKayitManagercs;
         TedarikciFirmaManager tedarikciFirmaManager;
+        SiparisPersonelManager siparisPersonelManager;
+
         bool start;
+        bool dosyaControl = false;
         public FrmBolgeler()
         {
             InitializeComponent();
@@ -38,6 +44,8 @@ namespace UserInterface.BakımOnarım
             comboManager = ComboManager.GetInstance();
             pypManager = PypManager.GetInstance();
             depoKayitManagercs = DepoKayitManagercs.GetInstance();
+            siparisPersonelManager = SiparisPersonelManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void BtnCancel_Click_1(object sender, EventArgs e)
@@ -63,6 +71,11 @@ namespace UserInterface.BakımOnarım
             ComboProje();
             ComboPypNo();
             ComboDepo();
+            ComboYazilim();
+            ComboKesifGozetleme();
+            ComboYasamAlani();
+            MasrafYeriSorumlusu();
+            BolgeBilgileri();
             start = false;
             if (buton == true)
             {
@@ -70,13 +83,50 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             BtnCancel.Visible = true;
+            CmbIslemTuru.SelectedIndex = 0;
         }
+        void MasrafYeriSorumlusu()
+        {
+            CmbBolgeSorumlusu.DataSource = siparisPersonelManager.MasrafYeriSorumlusu();
+            CmbBolgeSorumlusu.ValueMember = "Id";
+            CmbBolgeSorumlusu.DisplayMember = "Personel";
+            CmbBolgeSorumlusu.SelectedValue = 0;
+        }
+        void BolgeBilgileri()
+        {
+            CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
+            CmbBolgeAdi.ValueMember = "Id";
+            CmbBolgeAdi.DisplayMember = "BolgeAdi";
+            CmbBolgeAdi.SelectedValue = 0;
+        }
+
         public void ComboProje()
         {
             CmbProje.DataSource = comboManager.GetList("PROJE");
             CmbProje.ValueMember = "Id";
             CmbProje.DisplayMember = "Baslik";
             CmbProje.SelectedValue = 0;
+        }
+        public void ComboYazilim()
+        {
+            CmbYazilimBilgisi.DataSource = comboManager.GetList("YAZILIM BILGISI");
+            CmbYazilimBilgisi.ValueMember = "Id";
+            CmbYazilimBilgisi.DisplayMember = "Baslik";
+            CmbYazilimBilgisi.SelectedValue = 0;
+        }
+        public void ComboKesifGozetleme()
+        {
+            CmbGozetlemeTuru.DataSource = comboManager.GetList("KESIF_GOZETLEME");
+            CmbGozetlemeTuru.ValueMember = "Id";
+            CmbGozetlemeTuru.DisplayMember = "Baslik";
+            CmbGozetlemeTuru.SelectedValue = 0;
+        }
+        public void ComboYasamAlani()
+        {
+            CmbYasamAlani.DataSource = comboManager.GetList("YASAM_ALANI");
+            CmbYasamAlani.ValueMember = "Id";
+            CmbYasamAlani.DisplayMember = "Baslik";
+            CmbYasamAlani.SelectedValue = 0;
         }
         public void ComboDepo()
         {
@@ -142,82 +192,19 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             CmbIlce.DataSource = tedarikciFirmaManager.Ilceler(il);
+            CmbIlce.SelectedIndex = -1;
+            CmbIlce.Text = "";
         }
 
-        private void BtnKaydet_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
-            {
-                /*Bolge bolge = new Bolge(TxtBolgeAdi.Text, TxtIlgiliPersonel.Text,TxtBirlikAdresi.Text,TxtTelefon.Text,"N/A", CmbPypNo.Text, TxtBolgeSorumlusuSicil.Text, CmbIl.Text, CmbIlce.Text, CmbProje.Text, DtGarantİBasTarihi.Value.ToString("dd,MM,yyyy"), DtGarantİBitTarihi.Value.ToString("dd,MM,yyyy"), TxtSSPersonel.Text, TxtSSPGorevi.Text, TxtSSPRutbe.Text, CmbDepo.Text);
-
-                string mesaj = bolgeManager.Add(bolge);
-
-                if (mesaj!="OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return;
-                }
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                DataDisplay();
-                Temizle();*/
-            }
-        }
-        void Yenilenecekler()
-        {
-
-        }
-        private void BtnGuncelle_Click(object sender, EventArgs e)
-        {
-            if (id==0)
-            {
-                MessageBox.Show("Lütfen Öncelikle Geçerli Bir Kayıt Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            /*Bolge bolge = new Bolge(id,TxtBolgeAdi.Text, TxtIlgiliPersonel.Text, TxtBirlikAdresi.Text, TxtTelefon.Text, "N/A", CmbPypNo.Text, TxtBolgeSorumlusuSicil.Text, CmbIl.Text, CmbIlce.Text, CmbProje.Text, DtGarantİBasTarihi.Value.ToString("dd,MM,yyyy"), DtGarantİBitTarihi.Value.ToString("dd,MM,yyyy"), TxtSSPersonel.Text, TxtSSPGorevi.Text, TxtSSPRutbe.Text, CmbDepo.Text);
-
-            string mesaj = bolgeManager.Update(bolge);
-
-            if (mesaj != "OK")
-            {
-                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            DataDisplay();
-            Temizle();*/
-        }
-
-        private void BtnSil_Click(object sender, EventArgs e)
-        {
-            if (id == 0)
-            {
-                MessageBox.Show("Lütfen Öncelikle Geçerli Bir Kayıt Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            DialogResult dr= MessageBox.Show("Bölge Kaydını Silmek İstediğize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
-            {
-                string mesaj = bolgeManager.Delete(id);
-                if (mesaj!="OK")
-                {
-                    MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return;
-                }
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                DataDisplay();
-                Temizle();
-            }
-
-        }
+        
         void Temizle()
         {
-            /*TxtBolgeAdi.Clear(); TxtIlgiliPersonel.Clear(); TxtTelefon.Clear(); CmbIl.Text = ""; CmbIlce.Text = ""; TxtBirlikAdresi.Clear(); CmbDepo.SelectedValue = ""; CmbProje.SelectedValue = ""; CmbPypNo.SelectedValue = ""; TxtBolgeSorumlusuSicil.Clear(); TxtBolgeSorumlusuAd.Clear(); TxtSSPersonel.Clear(); TxtSSPRutbe.Clear(); TxtSSPGorevi.Clear();*/
+            TxtBolgeAdi.Clear(); TxtKodAdi.Clear(); TxtBolgeStokNo.Clear(); CmbProje.SelectedIndex = -1; CmbYazilimBilgisi.SelectedIndex = -1;
+            CmbGozetlemeTuru.SelectedIndex = -1; CmbYasamAlani.SelectedIndex = -1; TxtTabur.Clear(); TxtTugay.Clear(); CmbIl.SelectedIndex = -1;
+            CmbIlce.SelectedIndex = -1; TxtBirlikAdresi.Clear(); CmbPypNo.SelectedIndex = -1; CmbDepo.SelectedIndex = -1; CmbBolgeSorumlusu.SelectedIndex = -1;
+            webBrowser1.Navigate("");
         }
-        private void BtnTemizle_Click(object sender, EventArgs e)
-        {
-            Temizle();
-        }
+        
 
         private void DtgBolgeler_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -238,8 +225,8 @@ namespace UserInterface.BakımOnarım
             DtGarantİBitTarihi.Value = DtgBolgeler.CurrentRow.Cells["GarantiBitis"].Value.ConDate();
             CmbProje.Text= DtgBolgeler.CurrentRow.Cells["Proje"].Value.ToString(); 
             CmbPypNo.Text= DtgBolgeler.CurrentRow.Cells["PypNo"].Value.ToString();
-            TxtBolgeSorumlusuSicil.Text= DtgBolgeler.CurrentRow.Cells["SorumluSicil"].Value.ToString();
-            TxtBolgeSorumlusuAd.Text = "";
+            //TxtBolgeSorumlusuSicil.Text= DtgBolgeler.CurrentRow.Cells["SorumluSicil"].Value.ToString();
+            
             /*TxtSSPersonel.Text= DtgBolgeler.CurrentRow.Cells["SsPersonel"].Value.ToString();
             TxtSSPRutbe.Text= DtgBolgeler.CurrentRow.Cells["SsRutbe"].Value.ToString();
             TxtSSPGorevi.Text= DtgBolgeler.CurrentRow.Cells["SspGorev"].Value.ToString();*/
@@ -252,10 +239,63 @@ namespace UserInterface.BakımOnarım
             frmDepoLokasyonKayit.ShowDialog();
         }
 
-        private void tabPage4_Click(object sender, EventArgs e)
-        {
+        
 
+        private void CmbIslemTuru_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbIslemTuru.Text== "YENİ KAYIT")
+            {
+                BtnGarantiEdit.Visible = false;
+                TxtBolgeAdi.Visible = true;
+                CmbBolgeAdi.Visible = false;
+                BtnGuncelle.Visible = false;
+                BtnKaydet.Visible = true;
+                DtGarantİBasTarihi.Enabled = true;
+                DtGarantİBitTarihi.Enabled = true;
+            }
+            else
+            {
+                BtnGarantiEdit.Visible = true;
+                TxtBolgeAdi.Visible = false;
+                CmbBolgeAdi.Visible = true;
+                BtnGuncelle.Visible = true;
+                BtnKaydet.Visible = false;
+                DtGarantİBasTarihi.Enabled = false;
+                DtGarantİBitTarihi.Enabled = false;
+            }
         }
+
+        private void BtnGarantiEdit_Click_1(object sender, EventArgs e)
+        {
+            FrmGarantiSureleri frmGarantiSureleri = new FrmGarantiSureleri();
+            frmGarantiSureleri.ShowDialog();
+        }
+
+        private void BtnYazlim_Click(object sender, EventArgs e)
+        {
+            comboAd = "YAZILIM BILGISI";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void BtnGozetlemeTuru_Click(object sender, EventArgs e)
+        {
+            comboAd = "KESIF_GOZETLEME";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void BtnYasamAlani_Click(object sender, EventArgs e)
+        {
+            comboAd = "YASAM_ALANI";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        
 
         private void buton_proje_Click(object sender, EventArgs e)
         {
@@ -263,6 +303,153 @@ namespace UserInterface.BakımOnarım
             FrmCombo frmCombo = new FrmCombo();
             frmCombo.comboAd = comboAd;
             frmCombo.ShowDialog();
+        }
+
+        private void BtnDosyaEkle_Click(object sender, EventArgs e)
+        {
+            CreateFile();
+            dosyaControl = true;
+        }
+
+        private void CmbBolgeAdi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+            id = CmbBolgeAdi.SelectedValue.ConInt();
+            BolgeKayit bolgeKayit = bolgeKayitManager.Get(id);
+            if (bolgeKayit == null)
+            {
+                MessageBox.Show("Bölge kaydına ulaşılamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            TxtKodAdi.Text = bolgeKayit.KodAdi;
+            TxtBolgeStokNo.Text = bolgeKayit.UsBolgesiStok;
+            CmbProje.Text = bolgeKayit.Proje;
+            DtgKabulTarihi.Value = bolgeKayit.KabulTarihi;
+            CmbYazilimBilgisi.Text = bolgeKayit.GuvenlikYazilimi;
+            CmbGozetlemeTuru.Text = bolgeKayit.KesifGozetlemeTuru;
+            CmbYasamAlani.Text = bolgeKayit.YasamAlani;
+            TxtTabur.Text = bolgeKayit.Tabur;
+            TxtTugay.Text = bolgeKayit.Tugay;
+            CmbIl.Text = bolgeKayit.Il;
+            CmbIlce.Text = bolgeKayit.Ilce;
+            TxtBirlikAdresi.Text = bolgeKayit.BirlikAdresi;
+            DtGarantİBasTarihi.Value = bolgeKayit.GarantiBaslama;
+            DtGarantİBitTarihi.Value = bolgeKayit.GarantiBitis;
+            CmbPypNo.Text = bolgeKayit.PypNo;
+            CmbDepo.Text = bolgeKayit.Depo;
+            CmbBolgeSorumlusu.Text = bolgeKayit.BolgeSorumlusu;
+            dosyaYolu = bolgeKayit.DosyaYolu;
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void BtnTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+
+        void CreateFile()
+        {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\BAKIM ONARIM\BÖLGE\";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+
+            dosyaYolu = subdir + TxtBolgeAdi;
+
+            if (!Directory.Exists(dosyaYolu))
+            {
+                Directory.CreateDirectory(dosyaYolu);
+            }
+
+            if (openFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                kaynakdosyaismi = openFileDialog1.SafeFileName.ToString();
+                alinandosya = openFileDialog1.FileName.ToString();
+            }
+            else
+            {
+                MessageBox.Show("Dosya Seçmediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (File.Exists(dosyaYolu + "\\" + kaynakdosyaismi))
+            {
+                MessageBox.Show("Belirtilen Klasörde " + kaynakdosyaismi + " Adıyla Zaten Bir Dosya Mevcut!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                File.Copy(alinandosya, dosyaYolu + "\\" + kaynakdosyaismi);
+                webBrowser1.Navigate(dosyaYolu);
+            }
+
+        }
+
+        private void BtnKabulTutanak_Click(object sender, EventArgs e)
+        {
+            CreateFile();
+            dosyaControl = true;
+        }
+
+        private void BtnKaydet_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                if (dosyaControl==false)
+                {
+                    MessageBox.Show("Lütfen bölgeye ait olan teslim tutanağını ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                siparisNo = Guid.NewGuid().ToString();
+                BolgeKayit bolgeKayit = new BolgeKayit(TxtBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, siparisNo, dosyaYolu);
+
+                string mesaj = bolgeKayitManager.Add(bolgeKayit);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                dosyaControl = false;
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+                BolgeBilgileri();
+            }
+        }
+        private void BtnGuncelle_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri güncellemek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                BolgeKayit bolgeKayit = new BolgeKayit(id, TxtBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text);
+
+                string mesaj = bolgeKayitManager.Update(bolgeKayit);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Bilgiler başarıyla güncelkenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+            }
         }
     }
 }

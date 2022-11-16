@@ -62,6 +62,12 @@ namespace UserInterface.IdariIsler
             LblKisiAdet.Text = CmbTalepEdenPersonel.Items.Count.ToString();
             MalzemeKtegorisi();
             start = false;
+
+            if (infos[1].ToString() == "ABDULMÜTTALİP TEKİN")
+            {
+                BtnKaydet.Location = new Point(763, 433);
+            }
+            
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -253,6 +259,7 @@ namespace UserInterface.IdariIsler
         }
         void Temizle()
         {
+            Picture.ImageLocation = "";
             CmbTalepEdenPersonel.SelectedIndex = -1;
             CmbTanim.SelectedIndex = -1;
             TxtStok.Clear();
@@ -405,5 +412,6 @@ namespace UserInterface.IdariIsler
             frmPhotoFullScreen.ShowDialog();
 
         }
+
     }
 }

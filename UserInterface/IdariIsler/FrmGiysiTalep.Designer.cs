@@ -29,7 +29,7 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGiysiTalep));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -118,7 +118,7 @@ namespace UserInterface.IdariIsler
             this.groupBox8.Controls.Add(this.label56);
             this.groupBox8.Controls.Add(this.label58);
             this.groupBox8.Controls.Add(this.label59);
-            this.groupBox8.Location = new System.Drawing.Point(12, 46);
+            this.groupBox8.Location = new System.Drawing.Point(12, 33);
             this.groupBox8.Name = "groupBox8";
             this.groupBox8.Size = new System.Drawing.Size(742, 187);
             this.groupBox8.TabIndex = 320;
@@ -237,7 +237,7 @@ namespace UserInterface.IdariIsler
             // 
             this.CmbMalzemeKategorisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbMalzemeKategorisi.FormattingEnabled = true;
-            this.CmbMalzemeKategorisi.Location = new System.Drawing.Point(167, 29);
+            this.CmbMalzemeKategorisi.Location = new System.Drawing.Point(167, 19);
             this.CmbMalzemeKategorisi.Name = "CmbMalzemeKategorisi";
             this.CmbMalzemeKategorisi.Size = new System.Drawing.Size(274, 21);
             this.CmbMalzemeKategorisi.TabIndex = 319;
@@ -246,7 +246,7 @@ namespace UserInterface.IdariIsler
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(17, 32);
+            this.label3.Location = new System.Drawing.Point(17, 22);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(127, 13);
             this.label3.TabIndex = 318;
@@ -255,9 +255,9 @@ namespace UserInterface.IdariIsler
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 508);
+            this.groupBox1.Location = new System.Drawing.Point(15, 474);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1056, 246);
+            this.groupBox1.Size = new System.Drawing.Size(1056, 212);
             this.groupBox1.TabIndex = 323;
             this.groupBox1.TabStop = false;
             // 
@@ -279,7 +279,7 @@ namespace UserInterface.IdariIsler
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.Size = new System.Drawing.Size(1050, 227);
+            this.DtgList.Size = new System.Drawing.Size(1050, 193);
             this.DtgList.TabIndex = 0;
             this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
             // 
@@ -327,11 +327,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle4;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.Name = "Remove";
             this.Remove.ReadOnly = true;
@@ -346,16 +346,16 @@ namespace UserInterface.IdariIsler
             this.groupBox2.Controls.Add(this.CmbMalzemeKategorisi);
             this.groupBox2.Controls.Add(this.CmbTalepEdenPersonel);
             this.groupBox2.Controls.Add(this.label3);
-            this.groupBox2.Location = new System.Drawing.Point(12, 239);
+            this.groupBox2.Location = new System.Drawing.Point(12, 226);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(742, 105);
+            this.groupBox2.Size = new System.Drawing.Size(742, 88);
             this.groupBox2.TabIndex = 328;
             this.groupBox2.TabStop = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(14, 61);
+            this.label1.Location = new System.Drawing.Point(14, 51);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(147, 13);
             this.label1.TabIndex = 334;
@@ -365,7 +365,7 @@ namespace UserInterface.IdariIsler
             // 
             this.CmbTalepEdenPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTalepEdenPersonel.FormattingEnabled = true;
-            this.CmbTalepEdenPersonel.Location = new System.Drawing.Point(167, 56);
+            this.CmbTalepEdenPersonel.Location = new System.Drawing.Point(167, 46);
             this.CmbTalepEdenPersonel.Name = "CmbTalepEdenPersonel";
             this.CmbTalepEdenPersonel.Size = new System.Drawing.Size(274, 21);
             this.CmbTalepEdenPersonel.TabIndex = 335;
@@ -381,9 +381,9 @@ namespace UserInterface.IdariIsler
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label9);
             this.groupBox3.Controls.Add(this.label10);
-            this.groupBox3.Location = new System.Drawing.Point(12, 342);
+            this.groupBox3.Location = new System.Drawing.Point(15, 320);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(742, 160);
+            this.groupBox3.Size = new System.Drawing.Size(742, 148);
             this.groupBox3.TabIndex = 329;
             this.groupBox3.TabStop = false;
             // 
@@ -394,7 +394,7 @@ namespace UserInterface.IdariIsler
             this.BtnFotoDuzenle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFotoDuzenle.BackgroundImage")));
             this.BtnFotoDuzenle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnFotoDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFotoDuzenle.Location = new System.Drawing.Point(576, 125);
+            this.BtnFotoDuzenle.Location = new System.Drawing.Point(573, 113);
             this.BtnFotoDuzenle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnFotoDuzenle.Name = "BtnFotoDuzenle";
             this.BtnFotoDuzenle.Size = new System.Drawing.Size(34, 29);
@@ -406,7 +406,7 @@ namespace UserInterface.IdariIsler
             // Picture
             // 
             this.Picture.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.Picture.Location = new System.Drawing.Point(453, 31);
+            this.Picture.Location = new System.Drawing.Point(450, 19);
             this.Picture.Name = "Picture";
             this.Picture.Size = new System.Drawing.Size(120, 123);
             this.Picture.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -416,7 +416,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtStok
             // 
-            this.TxtStok.Location = new System.Drawing.Point(167, 59);
+            this.TxtStok.Location = new System.Drawing.Point(164, 47);
             this.TxtStok.Name = "TxtStok";
             this.TxtStok.Size = new System.Drawing.Size(274, 20);
             this.TxtStok.TabIndex = 334;
@@ -425,7 +425,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnEkle.Location = new System.Drawing.Point(167, 114);
+            this.BtnEkle.Location = new System.Drawing.Point(164, 102);
             this.BtnEkle.Name = "BtnEkle";
             this.BtnEkle.Size = new System.Drawing.Size(81, 28);
             this.BtnEkle.TabIndex = 333;
@@ -435,7 +435,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtMiktar
             // 
-            this.TxtMiktar.Location = new System.Drawing.Point(167, 85);
+            this.TxtMiktar.Location = new System.Drawing.Point(164, 73);
             this.TxtMiktar.Name = "TxtMiktar";
             this.TxtMiktar.Size = new System.Drawing.Size(105, 20);
             this.TxtMiktar.TabIndex = 328;
@@ -444,7 +444,7 @@ namespace UserInterface.IdariIsler
             // 
             this.CmbTanim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTanim.FormattingEnabled = true;
-            this.CmbTanim.Location = new System.Drawing.Point(167, 31);
+            this.CmbTanim.Location = new System.Drawing.Point(164, 19);
             this.CmbTanim.Name = "CmbTanim";
             this.CmbTanim.Size = new System.Drawing.Size(274, 21);
             this.CmbTanim.TabIndex = 319;
@@ -453,7 +453,7 @@ namespace UserInterface.IdariIsler
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(56, 35);
+            this.label7.Location = new System.Drawing.Point(53, 23);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(102, 13);
             this.label7.TabIndex = 318;
@@ -462,7 +462,7 @@ namespace UserInterface.IdariIsler
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(100, 62);
+            this.label9.Location = new System.Drawing.Point(97, 50);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(58, 13);
             this.label9.TabIndex = 321;
@@ -471,7 +471,7 @@ namespace UserInterface.IdariIsler
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(28, 89);
+            this.label10.Location = new System.Drawing.Point(25, 77);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(130, 13);
             this.label10.TabIndex = 324;
@@ -481,7 +481,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(15, 760);
+            this.BtnKaydet.Location = new System.Drawing.Point(18, 694);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(113, 36);
             this.BtnKaydet.TabIndex = 334;
@@ -493,7 +493,7 @@ namespace UserInterface.IdariIsler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1285, 808);
+            this.ClientSize = new System.Drawing.Size(1285, 755);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);

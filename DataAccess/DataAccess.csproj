@@ -73,6 +73,9 @@
     <Compile Include="AtolyeRaporDal.cs" />
     <Compile Include="ComboDal.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuDal.cs" />
+    <Compile Include="Concreate\AnaSayfa\RjButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeDal.cs" />
@@ -81,6 +84,8 @@
     <Compile Include="Concreate\BakimOnarim\ArizaKayitDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\BolgeGarantiDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\BolgeKayitDal.cs" />
     <Compile Include="Concreate\BakimOnarim\DtfDal.cs" />
     <Compile Include="Concreate\BakimOnarim\DtfMaliyetDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDestekIsciliklDal.cs" />

@@ -386,6 +386,13 @@ namespace UserInterface.Depo
             Temizle();
         }
 
+        private void PctBox_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmPhotoFullScreen frmPhotoFullScreen = new FrmPhotoFullScreen();
+            frmPhotoFullScreen.imageLocation = PctBox.ImageLocation;
+            frmPhotoFullScreen.ShowDialog();
+        }
+
         private void BtnSil_Click(object sender, EventArgs e)
         {
             if (CmbMalzemeKategorisi.Text=="")

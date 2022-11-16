@@ -1,0 +1,84 @@
+﻿using DataAccess.Abstract;
+using DataAccess.Concreate.BakimOnarim;
+using Entity.BakimOnarim;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Business.Concreate.BakimOnarim
+{
+    public class BolgeGarantiManager //: IRepository<BolgeGaranti>
+    {
+        static BolgeGarantiManager bolgeGarantiManager;
+        BolgeGarantiDal bolgeGarantiDal;
+
+        private BolgeGarantiManager()
+        {
+            bolgeGarantiDal = BolgeGarantiDal.GetInstance();
+        }
+
+        public static BolgeGarantiManager GetInstance()
+        {
+            if (bolgeGarantiManager == null)
+            {
+                bolgeGarantiManager = new BolgeGarantiManager();
+            }
+            return bolgeGarantiManager;
+        }
+
+        public string Add(BolgeGaranti entity)
+        {
+            try
+            {
+                return bolgeGarantiDal.Add(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string Delete(int id)
+        {
+            try
+            {
+                return bolgeGarantiDal.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public BolgeGaranti Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<BolgeGaranti> GetList(string siparisNo)
+        {
+            try
+            {
+                return bolgeGarantiDal.GetList(siparisNo);
+            }
+            catch (Exception)
+            {
+                return new List<BolgeGaranti>();
+            }
+        }
+
+        public string Update(BolgeGaranti entity)
+        {
+            try
+            {
+                return bolgeGarantiDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+    }
+}
