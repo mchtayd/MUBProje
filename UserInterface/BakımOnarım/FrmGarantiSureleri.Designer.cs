@@ -29,22 +29,28 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGarantiSureleri));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CmbGarantiPaketi = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.kToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DtBaslamaTarihi = new System.Windows.Forms.DateTimePicker();
+            this.DtBitisTarihi = new System.Windows.Forms.DateTimePicker();
             this.BtnListeyeEkle = new System.Windows.Forms.Button();
             this.BtnGarantiPaketi = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.DtgList = new System.Windows.Forms.DataGridView();
+            this.GarantiPaketi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BasTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BitTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TopSure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -83,44 +89,41 @@ namespace UserInterface.BakımOnarım
             this.label3.TabIndex = 3;
             this.label3.Text = "Garanti Bitiş Tarihi:";
             // 
-            // dataGridView1
+            // contextMenuStrip1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column2,
-            this.Column3,
-            this.Column4,
-            this.Column5});
-            this.dataGridView1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dataGridView1.Location = new System.Drawing.Point(20, 102);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(622, 242);
-            this.dataGridView1.TabIndex = 4;
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.kToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(105, 26);
             // 
-            // dateTimePicker1
+            // kToolStripMenuItem
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(159, 63);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(121, 21);
-            this.dateTimePicker1.TabIndex = 5;
+            this.kToolStripMenuItem.Name = "kToolStripMenuItem";
+            this.kToolStripMenuItem.Size = new System.Drawing.Size(104, 22);
+            this.kToolStripMenuItem.Text = "Kaldır";
+            this.kToolStripMenuItem.Click += new System.EventHandler(this.kToolStripMenuItem_Click);
             // 
-            // dateTimePicker2
+            // DtBaslamaTarihi
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(405, 63);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(121, 21);
-            this.dateTimePicker2.TabIndex = 6;
+            this.DtBaslamaTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtBaslamaTarihi.Location = new System.Drawing.Point(159, 63);
+            this.DtBaslamaTarihi.Name = "DtBaslamaTarihi";
+            this.DtBaslamaTarihi.Size = new System.Drawing.Size(121, 21);
+            this.DtBaslamaTarihi.TabIndex = 5;
+            // 
+            // DtBitisTarihi
+            // 
+            this.DtBitisTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtBitisTarihi.Location = new System.Drawing.Point(405, 63);
+            this.DtBitisTarihi.Name = "DtBitisTarihi";
+            this.DtBitisTarihi.Size = new System.Drawing.Size(121, 21);
+            this.DtBitisTarihi.TabIndex = 6;
             // 
             // BtnListeyeEkle
             // 
             this.BtnListeyeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnListeyeEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListeyeEkle.Location = new System.Drawing.Point(532, 61);
+            this.BtnListeyeEkle.Location = new System.Drawing.Point(532, 62);
             this.BtnListeyeEkle.Name = "BtnListeyeEkle";
             this.BtnListeyeEkle.Size = new System.Drawing.Size(110, 23);
             this.BtnListeyeEkle.TabIndex = 7;
@@ -151,49 +154,88 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(20, 351);
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 342);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 318;
             this.BtnKaydet.Text = "     KAYDET";
             this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // Column2
+            // DtgList
             // 
-            this.Column2.HeaderText = "GARANTİ PAKETİ";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GarantiPaketi,
+            this.BasTarihi,
+            this.BitTarihi,
+            this.TopSure,
+            this.Remove});
+            this.DtgList.Location = new System.Drawing.Point(12, 100);
+            this.DtgList.Name = "DtgList";
+            this.DtgList.ReadOnly = true;
+            this.DtgList.Size = new System.Drawing.Size(645, 233);
+            this.DtgList.TabIndex = 319;
+            this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
             // 
-            // Column3
+            // GarantiPaketi
             // 
-            this.Column3.HeaderText = "GARANTİ BAŞLAMA TARİHİ";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
+            this.GarantiPaketi.HeaderText = "GARANTİ PAKETİ";
+            this.GarantiPaketi.Name = "GarantiPaketi";
+            this.GarantiPaketi.ReadOnly = true;
+            this.GarantiPaketi.Width = 116;
             // 
-            // Column4
+            // BasTarihi
             // 
-            this.Column4.HeaderText = "GARANTİ BİTİŞ TARİHİ";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
+            this.BasTarihi.HeaderText = "GARANTİ BAŞLAMA TARİHİ";
+            this.BasTarihi.Name = "BasTarihi";
+            this.BasTarihi.ReadOnly = true;
+            this.BasTarihi.Width = 132;
             // 
-            // Column5
+            // BitTarihi
             // 
-            this.Column5.HeaderText = "TOPLAM GARANTİ SÜRESİ (YIL)";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
+            this.BitTarihi.HeaderText = "GARANTİ BİTİŞ TARİHİ";
+            this.BitTarihi.Name = "BitTarihi";
+            this.BitTarihi.ReadOnly = true;
+            this.BitTarihi.Width = 108;
+            // 
+            // TopSure
+            // 
+            this.TopSure.HeaderText = "TOPLAM SÜRE";
+            this.TopSure.Name = "TopSure";
+            this.TopSure.ReadOnly = true;
+            this.TopSure.Width = 108;
+            // 
+            // Remove
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 56;
             // 
             // FrmGarantiSureleri
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(669, 414);
+            this.Controls.Add(this.DtgList);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.BtnGarantiPaketi);
             this.Controls.Add(this.BtnListeyeEkle);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.DtBitisTarihi);
+            this.Controls.Add(this.DtBaslamaTarihi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CmbGarantiPaketi);
             this.Controls.Add(this.label2);
@@ -205,7 +247,8 @@ namespace UserInterface.BakımOnarım
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "GARANTİ SÜRELERİ";
             this.Load += new System.EventHandler(this.FrmGarantiSureleri_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -217,15 +260,18 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox CmbGarantiPaketi;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker DtBaslamaTarihi;
+        private System.Windows.Forms.DateTimePicker DtBitisTarihi;
         private System.Windows.Forms.Button BtnListeyeEkle;
         private System.Windows.Forms.Button BtnGarantiPaketi;
         private System.Windows.Forms.Button BtnKaydet;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem kToolStripMenuItem;
+        private System.Windows.Forms.DataGridView DtgList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GarantiPaketi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BasTarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn BitTarihi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TopSure;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

@@ -80,7 +80,7 @@ namespace Business.Concreate.BakimOnarim
                 return new List<BolgeKayit>();
             }
         }
-
+        
         public string Update(BolgeKayit entity)
         {
             try
@@ -91,6 +91,18 @@ namespace Business.Concreate.BakimOnarim
                     return controlText;
                 }
                 return bolgeKayitDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdateSiparisNo(int id, string siparisNo)
+        {
+            try
+            {
+
+                return bolgeKayitDal.UpdateSiparisNo(id, siparisNo);
             }
             catch (Exception ex)
             {

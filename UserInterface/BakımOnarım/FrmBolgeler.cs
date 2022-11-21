@@ -22,7 +22,8 @@ namespace UserInterface.BakımOnarım
     public partial class FrmBolgeler : Form
     {
         public bool buton = false;
-        string il, comboAd, dosyaYolu, kaynakdosyaismi, alinandosya, siparisNo;
+        string il, comboAd, dosyaYolu, kaynakdosyaismi, alinandosya;
+        public string siparisNo = "";
         int id;
         List<Bolge> bolges = new List<Bolge>();
 
@@ -34,7 +35,7 @@ namespace UserInterface.BakımOnarım
         TedarikciFirmaManager tedarikciFirmaManager;
         SiparisPersonelManager siparisPersonelManager;
 
-        bool start;
+        bool start = true;
         bool dosyaControl = false;
         public FrmBolgeler()
         {
@@ -66,6 +67,8 @@ namespace UserInterface.BakımOnarım
 
         private void FrmBolgeler_Load(object sender, EventArgs e)
         {
+            BolgeBilgileri();
+            BolgeBilgileriEkipman();
             DataDisplay();
             CmbIlYükle();
             ComboProje();
@@ -75,7 +78,6 @@ namespace UserInterface.BakımOnarım
             ComboKesifGozetleme();
             ComboYasamAlani();
             MasrafYeriSorumlusu();
-            BolgeBilgileri();
             start = false;
             if (buton == true)
             {
@@ -97,7 +99,14 @@ namespace UserInterface.BakımOnarım
             CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
             CmbBolgeAdi.ValueMember = "Id";
             CmbBolgeAdi.DisplayMember = "BolgeAdi";
-            CmbBolgeAdi.SelectedValue = 0;
+            CmbBolgeAdi.SelectedValue = -1;
+        }
+        void BolgeBilgileriEkipman()
+        {
+            CmbBolgeAdiEkipman.DataSource = bolgeKayitManager.GetList();
+            CmbBolgeAdiEkipman.ValueMember = "Id";
+            CmbBolgeAdiEkipman.DisplayMember = "BolgeAdi";
+            CmbBolgeAdiEkipman.SelectedValue = 0;
         }
 
         public void ComboProje()
@@ -202,7 +211,7 @@ namespace UserInterface.BakımOnarım
             TxtBolgeAdi.Clear(); TxtKodAdi.Clear(); TxtBolgeStokNo.Clear(); CmbProje.SelectedIndex = -1; CmbYazilimBilgisi.SelectedIndex = -1;
             CmbGozetlemeTuru.SelectedIndex = -1; CmbYasamAlani.SelectedIndex = -1; TxtTabur.Clear(); TxtTugay.Clear(); CmbIl.SelectedIndex = -1;
             CmbIlce.SelectedIndex = -1; TxtBirlikAdresi.Clear(); CmbPypNo.SelectedIndex = -1; CmbDepo.SelectedIndex = -1; CmbBolgeSorumlusu.SelectedIndex = -1;
-            webBrowser1.Navigate("");
+            webBrowser1.Navigate(""); CmbBolgeAdi.SelectedIndex = -1;
         }
         
 
@@ -264,12 +273,7 @@ namespace UserInterface.BakımOnarım
                 DtGarantİBitTarihi.Enabled = false;
             }
         }
-
-        private void BtnGarantiEdit_Click_1(object sender, EventArgs e)
-        {
-            FrmGarantiSureleri frmGarantiSureleri = new FrmGarantiSureleri();
-            frmGarantiSureleri.ShowDialog();
-        }
+        
 
         private void BtnYazlim_Click(object sender, EventArgs e)
         {
@@ -313,7 +317,11 @@ namespace UserInterface.BakımOnarım
 
         private void CmbBolgeAdi_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (start == true)
+            if (start != false)
+            {
+                return;
+            }
+            if (CmbBolgeAdi.SelectedIndex==-1)
             {
                 return;
             }
@@ -343,6 +351,7 @@ namespace UserInterface.BakımOnarım
             CmbDepo.Text = bolgeKayit.Depo;
             CmbBolgeSorumlusu.Text = bolgeKayit.BolgeSorumlusu;
             dosyaYolu = bolgeKayit.DosyaYolu;
+            siparisNo = bolgeKayit.SiparisNo;
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -351,6 +360,14 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
+        }
+
+        private void BtnGarantiEdit_Click(object sender, EventArgs e)
+        {
+            FrmGarantiSureleri frmGarantiSureleri = new FrmGarantiSureleri();
+            frmGarantiSureleri.siparisNo = siparisNo;
+            frmGarantiSureleri.id = id;
+            frmGarantiSureleri.ShowDialog();
         }
 
         private void BtnTemizle_Click(object sender, EventArgs e)
@@ -372,7 +389,7 @@ namespace UserInterface.BakımOnarım
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + TxtBolgeAdi;
+            dosyaYolu = subdir + TxtBolgeAdi.Text;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -413,11 +430,11 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
-                if (dosyaControl==false)
-                {
-                    MessageBox.Show("Lütfen bölgeye ait olan teslim tutanağını ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (dosyaControl==false)
+                //{
+                //    MessageBox.Show("Lütfen bölgeye ait olan teslim tutanağını ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
 
                 siparisNo = Guid.NewGuid().ToString();
                 BolgeKayit bolgeKayit = new BolgeKayit(TxtBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, siparisNo, dosyaYolu);
@@ -430,8 +447,9 @@ namespace UserInterface.BakımOnarım
                 }
                 dosyaControl = false;
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Temizle();
                 BolgeBilgileri();
+                BolgeBilgileriEkipman();
+                Temizle();
             }
         }
         private void BtnGuncelle_Click_1(object sender, EventArgs e)

@@ -197,7 +197,7 @@ namespace UserInterface.BakımOnarım
         {
             if (DtgDevamEden.CurrentRow == null)
             {
-                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 

@@ -2027,6 +2027,15 @@ namespace UserInterface.STS
                         form.DataDisplay();
                     }
                 }
+
+                if (baslik == "BÖLGE KAYITLARI")
+                {
+                    var form = (FrmBolgeKayitIzleme)Application.OpenForms["FrmBolgeKayitIzleme"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
             }
             
         }
@@ -2383,7 +2392,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageSatBaslatma", "SAT BAŞLATMA ONAYI", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "SAT Tamamlama")
+            if (e.Node.Text == "SAT Tamamla")
             {
                 FrmSatTamamlama Go = new FrmSatTamamlama();
                 Go.infos = infos;

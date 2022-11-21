@@ -1423,11 +1423,11 @@ namespace UserInterface.STS
                     MessageBox.Show("Lütfen Bir SAT Seçiniz.","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                     return;
                 }
-                if (BtnDosyaEkle.BackColor!=Color.LightGreen)
-                {
-                    MessageBox.Show("Lütfen SAT İşlemini Bitirmeden Önce Firmadan Gelen Fatura Bilgilerini Dosyaya Ekleyiniz.,","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return;
-                }
+                //if (BtnDosyaEkle.BackColor!=Color.LightGreen)
+                //{
+                //    MessageBox.Show("Lütfen SAT İşlemini Bitirmeden Önce Firmadan Gelen Fatura Bilgilerini Dosyaya Ekleyiniz.,","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                //    return;
+                //}
                 tamamlanantarih = DateTime.Now;
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(),formno,masrafyeri,talepeden,bolum,usbolgesi,abfformno,istenentarih, tamamlanantarih,gerekce,butcekodukalemi,satbirim,harcamaturu,CmbBelgeTuru.Text,TxtBelgeNumarasi.Text,DtBelgeTarihi.Value,
                     faturafirma,ilgilikisi,masrafyerino,toplam,dosyayolu,siparisNo,ucteklif, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, CmbHarcamaYapan.Text);

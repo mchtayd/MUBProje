@@ -20,17 +20,22 @@ namespace UserInterface.BakımOnarım
         List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
         BolgeManager bolgeManager;
         BolgeKayitManager bolgeKayitManager;
+        BolgeGarantiManager bolgeGarantiManager;
+
+        int id;
+        string siparisNo, dosyaYolu;
         public FrmBolgeKayitIzleme()
         {
             InitializeComponent();
             bolgeManager = BolgeManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
+            bolgeGarantiManager = BolgeGarantiManager.GetInstance();
         }
 
         private void FrmBolgeKayitIzleme_Load(object sender, EventArgs e)
         {
             DataDisplay();
-            TxtEkipmanSayisi.Text = DtgGarantiPaketi.RowCount.ToString();
+            
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -48,7 +53,7 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-        void DataDisplay()
+        public void DataDisplay()
         {
             bolgeKayits = bolgeKayitManager.GetList();
             dataBinder.DataSource = bolgeKayits.ToDataTable();
@@ -75,6 +80,56 @@ namespace UserInterface.BakımOnarım
             DtgBolgeler.Columns["SiparisNo"].Visible = false;
             DtgBolgeler.Columns["DosyaYolu"].Visible = false;
             DtgBolgeler.Columns["PypNo"].HeaderText = "PYP NO";
+            DtgBolgeler.Columns["Proje"].HeaderText = "PROJE";
+        }
+
+        private void DtgBolgeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgBolgeler.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            id = DtgBolgeler.CurrentRow.Cells["Id"].Value.ConInt();
+            siparisNo = DtgBolgeler.CurrentRow.Cells["SiparisNo"].Value.ToString();
+            dosyaYolu = DtgBolgeler.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+
+            GarantiPaketleriDisplay(siparisNo);
+
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+
+        }
+
+        private void DtgBolgeler_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgBolgeler.FilterString;
+            TxtTop.Text = DtgBolgeler.RowCount.ToString();
+        }
+
+        private void DtgBolgeler_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgBolgeler.SortString;
+        }
+
+        void GarantiPaketleriDisplay(string siparisNo)
+        {
+            DtgGarantiPaketi.DataSource = bolgeGarantiManager.GetList(siparisNo);
+
+            DtgGarantiPaketi.Columns["Id"].Visible = false;
+            DtgGarantiPaketi.Columns["GarantiPaketi"].HeaderText = "GARANTİ PAKETİ";
+            DtgGarantiPaketi.Columns["GarantiBaslama"].HeaderText = "GARANTİ BAŞLAMA TARİHİ";
+            DtgGarantiPaketi.Columns["GarantiBitis"].HeaderText = "GARANTİ BİTİŞ TARİHİ";
+            DtgGarantiPaketi.Columns["ToplamSure"].HeaderText = "TOPLAM SÜRE";
+            DtgGarantiPaketi.Columns["SiparisNo"].Visible = false;
+
         }
     }
 }

@@ -40,11 +40,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public string Delete(int id)
+        public string Delete(string siparisNo)
         {
             try
             {
-                return bolgeGarantiDal.Delete(id);
+                return bolgeGarantiDal.Delete(siparisNo);
             }
             catch (Exception ex)
             {

@@ -189,5 +189,21 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string UpdateSiparisNo(int id, string siparisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BolgeSiparisGuncelle",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@siparisNo", siparisNo));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

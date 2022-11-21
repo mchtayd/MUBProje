@@ -49,11 +49,11 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public string Delete(int id)
+        public string Delete(string siparisNo)
         {
             try
             {
-                sqlServices.Stored("BolgeGarantiBilgileriDelete", new SqlParameter("@id", id));
+                sqlServices.Stored("BolgeGarantiBilgileriDelete", new SqlParameter("@siparisNo", siparisNo));
                 return "OK";
             }
             catch (Exception ex)

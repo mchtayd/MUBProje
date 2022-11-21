@@ -30,7 +30,7 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBolgeler));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgBolgeler = new ADGV.AdvancedDataGridView();
@@ -226,7 +226,7 @@ namespace UserInterface.BakımOnarım
             this.Column88 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column89 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column90 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.CmbBolgeAdiEkipman = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -284,8 +284,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgBolgeler.AllowUserToAddRows = false;
             this.DtgBolgeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgBolgeler.AutoGenerateContextFilters = true;
             this.DtgBolgeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgBolgeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -438,7 +438,7 @@ namespace UserInterface.BakımOnarım
             this.BtnGarantiEdit.Text = "Garanti Paketi Güncelle";
             this.BtnGarantiEdit.UseVisualStyleBackColor = false;
             this.BtnGarantiEdit.Visible = false;
-            this.BtnGarantiEdit.Click += new System.EventHandler(this.BtnGarantiEdit_Click_1);
+            this.BtnGarantiEdit.Click += new System.EventHandler(this.BtnGarantiEdit_Click);
             // 
             // CmbBolgeAdi
             // 
@@ -932,7 +932,7 @@ namespace UserInterface.BakımOnarım
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.tabControl2);
-            this.tabPage3.Controls.Add(this.comboBox6);
+            this.tabPage3.Controls.Add(this.CmbBolgeAdiEkipman);
             this.tabPage3.Controls.Add(this.label4);
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
@@ -1882,13 +1882,14 @@ namespace UserInterface.BakımOnarım
             this.Column90.HeaderText = "TAŞ YAPI";
             this.Column90.Name = "Column90";
             // 
-            // comboBox6
+            // CmbBolgeAdiEkipman
             // 
-            this.comboBox6.FormattingEnabled = true;
-            this.comboBox6.Location = new System.Drawing.Point(134, 35);
-            this.comboBox6.Name = "comboBox6";
-            this.comboBox6.Size = new System.Drawing.Size(254, 21);
-            this.comboBox6.TabIndex = 19;
+            this.CmbBolgeAdiEkipman.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbBolgeAdiEkipman.FormattingEnabled = true;
+            this.CmbBolgeAdiEkipman.Location = new System.Drawing.Point(134, 35);
+            this.CmbBolgeAdiEkipman.Name = "CmbBolgeAdiEkipman";
+            this.CmbBolgeAdiEkipman.Size = new System.Drawing.Size(254, 21);
+            this.CmbBolgeAdiEkipman.TabIndex = 19;
             // 
             // label4
             // 
@@ -2048,7 +2049,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TabPage tabPage12;
         private System.Windows.Forms.TabPage tabPage13;
         private System.Windows.Forms.TabPage tabPage14;
-        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.ComboBox CmbBolgeAdiEkipman;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
