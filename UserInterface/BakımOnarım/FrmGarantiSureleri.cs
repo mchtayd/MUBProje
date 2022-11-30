@@ -24,7 +24,7 @@ namespace UserInterface.BakımOnarım
 
         List<BolgeGaranti> bolgeGarantis;
         string comboAd;
-        string toplamYil;
+        string toplamYilAy;
         public string siparisNo = "";
         public int id;
 
@@ -90,6 +90,12 @@ namespace UserInterface.BakımOnarım
             TimeSpan sonuc = bitisTarihi - baslangicTarihi;
             int gun = sonuc.TotalDays.ConInt();
             string yil = (gun / 365).ToString() + " Yıl";
+            string ay = (gun / 30).ToString() + " Ay";
+
+            if (yil=="0 Yıl")
+            {
+                return ay;
+            }
 
             return yil;
         }
@@ -103,13 +109,13 @@ namespace UserInterface.BakımOnarım
                 return;
             }
 
-            toplamYil = YilHesapla(DtBaslamaTarihi.Value, DtBitisTarihi.Value);
+            toplamYilAy = YilHesapla(DtBaslamaTarihi.Value, DtBitisTarihi.Value);
 
-            if (toplamYil == "0 Yıl")
-            {
-                MessageBox.Show("Garanti toplam süresi 0 olamaz. Lütfen geçerli bir tarih giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (toplamYil == "0 Yıl")
+            //{
+            //    MessageBox.Show("Garanti toplam süresi 0 olamaz. Lütfen geçerli bir tarih giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             if (siparisNo=="")
             {
@@ -122,7 +128,7 @@ namespace UserInterface.BakımOnarım
             DtgList.Rows[sonSatir].Cells["GarantiPaketi"].Value = CmbGarantiPaketi.Text;
             DtgList.Rows[sonSatir].Cells["BasTarihi"].Value = DtBaslamaTarihi.Value.ToString("dd.MM.yyyy");
             DtgList.Rows[sonSatir].Cells["BitTarihi"].Value = DtBitisTarihi.Value.ToString("dd.MM.yyyy");
-            DtgList.Rows[sonSatir].Cells["TopSure"].Value = toplamYil;
+            DtgList.Rows[sonSatir].Cells["TopSure"].Value = toplamYilAy;
 
             DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Remove"];
             c.FlatStyle = FlatStyle.Popup;

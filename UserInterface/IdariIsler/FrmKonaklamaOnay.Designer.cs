@@ -29,25 +29,27 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmKonaklamaOnay));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.BtnTumunuOnaylaKonaklama = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgKonaklama = new ADGV.AdvancedDataGridView();
-            this.BtnKonaklamaRed = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnKonaklamaOnay = new System.Windows.Forms.Button();
             this.TxtTopKonaklama = new System.Windows.Forms.Label();
-            this.BtnGuncelle = new System.Windows.Forms.Button();
-            this.BtnDosyaEkle = new System.Windows.Forms.Button();
-            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnReddet = new System.Windows.Forms.Button();
+            this.BtnTumunuOnayla = new System.Windows.Forms.Button();
+            this.BtnOnayla = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgKonaklama)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -73,17 +75,6 @@ namespace UserInterface.IdariIsler
             this.BtnCancel.Text = "X";
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
-            // 
-            // BtnTumunuOnaylaKonaklama
-            // 
-            this.BtnTumunuOnaylaKonaklama.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTumunuOnaylaKonaklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTumunuOnaylaKonaklama.Location = new System.Drawing.Point(199, 617);
-            this.BtnTumunuOnaylaKonaklama.Name = "BtnTumunuOnaylaKonaklama";
-            this.BtnTumunuOnaylaKonaklama.Size = new System.Drawing.Size(178, 50);
-            this.BtnTumunuOnaylaKonaklama.TabIndex = 333;
-            this.BtnTumunuOnaylaKonaklama.Text = "TÜMÜNÜ ONAYLA";
-            this.BtnTumunuOnaylaKonaklama.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -131,17 +122,9 @@ namespace UserInterface.IdariIsler
             this.DtgKonaklama.Size = new System.Drawing.Size(1394, 512);
             this.DtgKonaklama.TabIndex = 2;
             this.DtgKonaklama.TimeFilter = false;
-            // 
-            // BtnKonaklamaRed
-            // 
-            this.BtnKonaklamaRed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKonaklamaRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKonaklamaRed.Location = new System.Drawing.Point(383, 617);
-            this.BtnKonaklamaRed.Name = "BtnKonaklamaRed";
-            this.BtnKonaklamaRed.Size = new System.Drawing.Size(178, 50);
-            this.BtnKonaklamaRed.TabIndex = 332;
-            this.BtnKonaklamaRed.Text = "REDDET";
-            this.BtnKonaklamaRed.UseVisualStyleBackColor = true;
+            this.DtgKonaklama.SortStringChanged += new System.EventHandler(this.DtgKonaklama_SortStringChanged);
+            this.DtgKonaklama.FilterStringChanged += new System.EventHandler(this.DtgKonaklama_FilterStringChanged);
+            this.DtgKonaklama.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgKonaklama_CellMouseClick);
             // 
             // label1
             // 
@@ -153,17 +136,6 @@ namespace UserInterface.IdariIsler
             this.label1.TabIndex = 329;
             this.label1.Text = "Toplam Kayıt:";
             // 
-            // BtnKonaklamaOnay
-            // 
-            this.BtnKonaklamaOnay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKonaklamaOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKonaklamaOnay.Location = new System.Drawing.Point(15, 617);
-            this.BtnKonaklamaOnay.Name = "BtnKonaklamaOnay";
-            this.BtnKonaklamaOnay.Size = new System.Drawing.Size(178, 50);
-            this.BtnKonaklamaOnay.TabIndex = 331;
-            this.BtnKonaklamaOnay.Text = "ONAYLA";
-            this.BtnKonaklamaOnay.UseVisualStyleBackColor = true;
-            // 
             // TxtTopKonaklama
             // 
             this.TxtTopKonaklama.AutoSize = true;
@@ -174,66 +146,82 @@ namespace UserInterface.IdariIsler
             this.TxtTopKonaklama.TabIndex = 330;
             this.TxtTopKonaklama.Text = "00";
             // 
-            // BtnGuncelle
+            // ımageList1
             // 
-            this.BtnGuncelle.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
-            this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnGuncelle.Location = new System.Drawing.Point(888, 618);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
-            this.BtnGuncelle.TabIndex = 337;
-            this.BtnGuncelle.Text = "  GÜNCELLE";
-            this.BtnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuncelle.UseVisualStyleBackColor = false;
-            this.BtnGuncelle.Visible = false;
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "okey.png");
+            this.ımageList1.Images.SetKeyName(1, "ok.png");
             // 
-            // BtnDosyaEkle
+            // ımageList2
             // 
-            this.BtnDosyaEkle.AutoSize = true;
-            this.BtnDosyaEkle.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnDosyaEkle.Image")));
-            this.BtnDosyaEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(616, 618);
-            this.BtnDosyaEkle.Name = "BtnDosyaEkle";
-            this.BtnDosyaEkle.Size = new System.Drawing.Size(130, 51);
-            this.BtnDosyaEkle.TabIndex = 336;
-            this.BtnDosyaEkle.Text = "ONAYLA";
-            this.BtnDosyaEkle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnDosyaEkle.UseVisualStyleBackColor = false;
+            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
+            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList2.Images.SetKeyName(0, "allokey.ico");
+            this.ımageList2.Images.SetKeyName(1, "delete-sign.png");
+            this.ımageList2.Images.SetKeyName(2, "Icojam-Blue-Bits-Database-check.ico");
             // 
-            // BtnKaydet
+            // BtnReddet
             // 
-            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
-            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(752, 618);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
-            this.BtnKaydet.TabIndex = 335;
-            this.BtnKaydet.Text = "     KAYDET";
-            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnReddet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnReddet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnReddet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnReddet.ImageKey = "delete-sign.png";
+            this.BtnReddet.ImageList = this.ımageList2;
+            this.BtnReddet.Location = new System.Drawing.Point(309, 618);
+            this.BtnReddet.Name = "BtnReddet";
+            this.BtnReddet.Size = new System.Drawing.Size(123, 51);
+            this.BtnReddet.TabIndex = 347;
+            this.BtnReddet.Text = "    REDDET";
+            this.BtnReddet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnReddet.UseVisualStyleBackColor = false;
+            this.BtnReddet.Click += new System.EventHandler(this.BtnReddet_Click);
+            // 
+            // BtnTumunuOnayla
+            // 
+            this.BtnTumunuOnayla.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTumunuOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTumunuOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTumunuOnayla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTumunuOnayla.ImageKey = "Icojam-Blue-Bits-Database-check.ico";
+            this.BtnTumunuOnayla.ImageList = this.ımageList2;
+            this.BtnTumunuOnayla.Location = new System.Drawing.Point(143, 618);
+            this.BtnTumunuOnayla.Name = "BtnTumunuOnayla";
+            this.BtnTumunuOnayla.Size = new System.Drawing.Size(160, 51);
+            this.BtnTumunuOnayla.TabIndex = 346;
+            this.BtnTumunuOnayla.Text = "TÜMÜNÜ ONAYLA";
+            this.BtnTumunuOnayla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTumunuOnayla.UseVisualStyleBackColor = false;
+            this.BtnTumunuOnayla.Click += new System.EventHandler(this.BtnTumunuOnayla_Click);
+            // 
+            // BtnOnayla
+            // 
+            this.BtnOnayla.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnOnayla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnOnayla.ImageKey = "ok.png";
+            this.BtnOnayla.ImageList = this.ımageList1;
+            this.BtnOnayla.Location = new System.Drawing.Point(14, 618);
+            this.BtnOnayla.Name = "BtnOnayla";
+            this.BtnOnayla.Size = new System.Drawing.Size(123, 51);
+            this.BtnOnayla.TabIndex = 345;
+            this.BtnOnayla.Text = "  ONAYLA";
+            this.BtnOnayla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOnayla.UseVisualStyleBackColor = false;
+            this.BtnOnayla.Click += new System.EventHandler(this.BtnOnayla_Click);
             // 
             // FrmKonaklamaOnay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1426, 806);
-            this.Controls.Add(this.BtnGuncelle);
-            this.Controls.Add(this.BtnDosyaEkle);
-            this.Controls.Add(this.BtnKaydet);
-            this.Controls.Add(this.BtnTumunuOnaylaKonaklama);
+            this.Controls.Add(this.BtnReddet);
+            this.Controls.Add(this.BtnTumunuOnayla);
+            this.Controls.Add(this.BtnOnayla);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.BtnKonaklamaRed);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BtnKonaklamaOnay);
             this.Controls.Add(this.TxtTopKonaklama);
             this.Controls.Add(this.panel1);
             this.Name = "FrmKonaklamaOnay";
@@ -242,6 +230,7 @@ namespace UserInterface.IdariIsler
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgKonaklama)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,15 +240,15 @@ namespace UserInterface.IdariIsler
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Button BtnTumunuOnaylaKonaklama;
         private System.Windows.Forms.GroupBox groupBox1;
         private ADGV.AdvancedDataGridView DtgKonaklama;
-        private System.Windows.Forms.Button BtnKonaklamaRed;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnKonaklamaOnay;
         private System.Windows.Forms.Label TxtTopKonaklama;
-        private System.Windows.Forms.Button BtnGuncelle;
-        private System.Windows.Forms.Button BtnDosyaEkle;
-        private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.ImageList ımageList2;
+        private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.Button BtnReddet;
+        private System.Windows.Forms.Button BtnTumunuOnayla;
+        private System.Windows.Forms.Button BtnOnayla;
     }
 }

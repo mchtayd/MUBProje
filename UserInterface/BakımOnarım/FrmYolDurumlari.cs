@@ -13,10 +13,12 @@ namespace UserInterface.BakımOnarım
 {
     public partial class FrmYolDurumlari : Form
     {
+
         public FrmYolDurumlari()
         {
             InitializeComponent();
         }
+
 
         private void FrmYolDurumlari_Load(object sender, EventArgs e)
         {
@@ -37,6 +39,18 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
 
+        }
+
+        private void BtnKaydet_Click(object sender, EventArgs e)
+        {
+            if (CmbYolDurumu.Text == "KAPALI" || CmbYolDurumu.Text== "KISMİ")
+            {
+                if (TxtAciklama.Text=="")
+                {
+                    MessageBox.Show("Lütfen açıklama giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
         }
     }
 }

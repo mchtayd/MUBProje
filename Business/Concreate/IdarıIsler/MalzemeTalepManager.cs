@@ -36,9 +36,16 @@ namespace Business.Concreate.IdarıIsler
             throw new NotImplementedException();
         }
 
-        public MalzemeTalep Get(int id)
+        public int GetToplam(string masrafYeriSorumlusu, string kategori)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return malzemeTalepDal.GetToplam(masrafYeriSorumlusu, kategori);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
         }
 
         public List<MalzemeTalep> GetList()
@@ -52,10 +59,52 @@ namespace Business.Concreate.IdarıIsler
                 return new List<MalzemeTalep>();
             }
         }
-
-        public string Update(MalzemeTalep entity)
+        public List<MalzemeTalep> GetListPersonel(string masrafYeriSorumlusu,string kategori)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return malzemeTalepDal.GetListPersonel(masrafYeriSorumlusu, kategori);
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
+        public List<MalzemeTalep> MasrafYeriSorumlusu()
+        {
+            try
+            {
+                return malzemeTalepDal.GetListMasrafYeri();
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
+
+        public List<MalzemeTalep> GetListIslemDurumu(string islemAdimi)
+        {
+            try
+            {
+                return malzemeTalepDal.GetListIslemDurumu(islemAdimi);
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
+        
+
+        public string Update(int id, string islemDurumu, string redGerekcesi="")
+        {
+            try
+            {
+                return malzemeTalepDal.Update(id, islemDurumu, redGerekcesi);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static MalzemeTalepManager GetInstance()
         {

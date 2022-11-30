@@ -584,8 +584,7 @@ namespace UserInterface.IdariIsler
                 SehiriciGorev sehiriciGorev = new SehiriciGorev(TxtIsAkisNoTamamla.Text.ConInt(), bitTarihi, TxtToplamSure.Text);
                 sehiriciGorevManager.GorevTamamla(sehiriciGorev, TxtIsAkisNoTamamla.Text.ConInt());
                 string sehiricigorev = "4.ADIM:GÖREV TAMAMLANMIŞTIR.";
-                SehiriciGorev sehirici = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehirici, tamamlamaid);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, tamamlamaid);
                 CreateLogTamamla();
                 Task.Factory.StartNew(() => MailSendMetotTamamlama());
                 //CreateWord();s
@@ -637,8 +636,7 @@ namespace UserInterface.IdariIsler
                 string sehiricigorev = "GÖREV "+infos[1].ToString()+" TARAFINDAN REDDEDİLDİ";
                 SehiriciGorev sehiriciGorev = new SehiriciGorev(isakisno, DateTime.Now, "0 Saat");
                 sehiriciGorevManager.GorevTamamla(sehiriciGorev, isakisno);
-                SehiriciGorev sehirici = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehirici, onayid);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayid);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Task.Factory.StartNew(() => MailSendMetotRet());
                 DataDisplayPersonel();
@@ -659,8 +657,7 @@ namespace UserInterface.IdariIsler
                 string sehiricigorev = "GÖREV "+infos[1].ToString() +" TARAFINDAN REDDEDİLDİ";
                 SehiriciGorev sehiriciGorev = new SehiriciGorev(isakisnoamir, DateTime.Now, "0 Saat");
                 sehiriciGorevManager.GorevTamamla(sehiriciGorev, isakisnoamir);
-                SehiriciGorev sehirici = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehirici, onayamirid);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayamirid);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataDisplayAmir();
                 CreateLogAmirRed();
@@ -763,8 +760,7 @@ namespace UserInterface.IdariIsler
             if (dr == DialogResult.Yes)
             {
                 string sehiricigorev = "3.ADIM:GÖREV AMİR TARAFINDAN ONAYLANDI";
-                SehiriciGorev sehiriciGorev = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehiriciGorev, onayamirid);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayamirid);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Task.Factory.StartNew(() => MailSendMetotOnay());
                 DataDisplayAmir();
@@ -800,8 +796,7 @@ namespace UserInterface.IdariIsler
             if (dr==DialogResult.Yes)
             {
                 string sehiricigorev = "2.ADIM:GÖREV PERSONEL TARAFINDAN ONAYLANDI.";
-                SehiriciGorev sehiriciGorev = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehiriciGorev, onayid);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayid);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 UstAmirMail();
 

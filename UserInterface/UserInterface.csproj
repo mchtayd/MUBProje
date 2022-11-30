@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>447</ApplicationRevision>
+    <ApplicationRevision>456</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -71,6 +71,9 @@
     <Reference Include="AdvancedDataGridView, Version=0.1.0.10, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ADGV.0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
     </Reference>
+    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\AxInterop.WMPLib.dll</HintPath>
+    </Reference>
     <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
     </Reference>
@@ -79,6 +82,10 @@
     </Reference>
     <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
       <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\Interop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\..\..\..\Desktop\124\kurulum\user\vbdll\MetroFramework.dll</HintPath>
@@ -103,6 +110,9 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.38.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.38\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
       <HintPath>..\packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
@@ -130,6 +140,18 @@
     <Compile Include="Ana Sayfa\FrmAtolyeVeri.Designer.cs">
       <DependentUpon>FrmAtolyeVeri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimler.Designer.cs">
+      <DependentUpon>FrmBildirimler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimPanel.Designer.cs">
+      <DependentUpon>FrmBildirimPanel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmButceler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -153,6 +175,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmDonemDuzlet.Designer.cs">
       <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDuyuru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDuyuru.Designer.cs">
+      <DependentUpon>FrmDuyuru.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmHesapOlustur.cs">
       <SubType>Form</SubType>
@@ -297,6 +325,18 @@
     </Compile>
     <Compile Include="BakımOnarım\FrmGarantiSureleri.Designer.cs">
       <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmHaftalikControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmHaftalikControl.Designer.cs">
+      <DependentUpon>FrmHaftalikControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmHaftalikControlIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmHaftalikControlIzleme.Designer.cs">
+      <DependentUpon>FrmHaftalikControlIzleme.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmMalzemeDuzenle.cs">
       <SubType>Form</SubType>
@@ -507,6 +547,24 @@
     </Compile>
     <Compile Include="Butce\FrmSiparislerIzleme.Designer.cs">
       <DependentUpon>FrmSiparislerIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmDDMalzemeHazirlama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmDDMalzemeHazirlama.Designer.cs">
+      <DependentUpon>FrmDDMalzemeHazirlama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmDepoKontrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmDepoKontrol.Designer.cs">
+      <DependentUpon>FrmDepoKontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmDDStokGirisCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmDDStokGirisCikis.Designer.cs">
+      <DependentUpon>FrmDDStokGirisCikis.cs</DependentUpon>
     </Compile>
     <Compile Include="Depo\FrmMalzemeKayitDestekDepo.cs">
       <SubType>Form</SubType>
@@ -1197,6 +1255,12 @@
     <EmbeddedResource Include="Ana Sayfa\FrmAtolyeVeri.resx">
       <DependentUpon>FrmAtolyeVeri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmBildirimler.resx">
+      <DependentUpon>FrmBildirimler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmBildirimPanel.resx">
+      <DependentUpon>FrmBildirimPanel.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmButceler.resx">
       <DependentUpon>FrmButceler.cs</DependentUpon>
     </EmbeddedResource>
@@ -1208,6 +1272,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmDonemDuzlet.resx">
       <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmDuyuru.resx">
+      <DependentUpon>FrmDuyuru.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmHesapOlustur.resx">
       <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
@@ -1280,6 +1347,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmGarantiSureleri.resx">
       <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmHaftalikControl.resx">
+      <DependentUpon>FrmHaftalikControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmHaftalikControlIzleme.resx">
+      <DependentUpon>FrmHaftalikControlIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmMalzemeDuzenle.resx">
       <DependentUpon>FrmMalzemeDuzenle.cs</DependentUpon>
@@ -1385,6 +1458,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Butce\FrmSiparislerIzleme.resx">
       <DependentUpon>FrmSiparislerIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmDDMalzemeHazirlama.resx">
+      <DependentUpon>FrmDDMalzemeHazirlama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmDepoKontrol.resx">
+      <DependentUpon>FrmDepoKontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmDDStokGirisCikis.resx">
+      <DependentUpon>FrmDDStokGirisCikis.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Depo\FrmMalzemeKayitDestekDepo.resx">
       <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>

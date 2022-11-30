@@ -161,11 +161,11 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
-        public string GorevOnay(SehiriciGorev entity, int id)
+        public string GorevOnay(string islemAdimi, int id)
         {
             try
             {
-                return sehiriciGorevDal.GorevOnay(entity, id);
+                return sehiriciGorevDal.GorevOnay(islemAdimi, id);
             }
             catch (Exception ex)
             {

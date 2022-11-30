@@ -71,8 +71,10 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["Bolum"].HeaderText = "BÖLÜM";
             DtgList.Columns["SatBilgisi"].Visible = false;
             DtgList.Columns["MasrafYeri"].HeaderText = "MASRAF YERİ NO";
+            DtgList.Columns["IslemDurumu"].HeaderText = "İŞLEM DURUMU";
+            DtgList.Columns["RedGerekcesi"].Visible = false;
 
-            
+
             DtgList.Columns["Bolum"].DisplayIndex = 0;
             DtgList.Columns["MasrafYeri"].DisplayIndex = 1;
             DtgList.Columns["TalebiOlusturan"].DisplayIndex = 2;

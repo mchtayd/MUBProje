@@ -837,6 +837,28 @@ namespace UserInterface.BakımOnarım
             frmCombo.comboAd = comboAd;
             frmCombo.ShowDialog();
         }
+        int index;
+        private void DtgStokList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            index = DtgStokList.CurrentRow.Index;
+            bool deneme = DtgStokList.Rows[index].Cells["KayitDurumu"].Value.ConBool();
+
+            if (deneme == true)
+            {
+                DtgStokList.Rows[index].Cells["Miktar"].Value = 1;
+            }
+            else
+            {
+                DtgStokList.Rows[index].Cells["Miktar"].Value = 0;
+            }
+
+        }
+
+        private void DtgStokList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            
+            
+        }
 
         private void BtnKategoriEkle_Click(object sender, EventArgs e)
         {

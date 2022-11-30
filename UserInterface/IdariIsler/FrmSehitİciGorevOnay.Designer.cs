@@ -29,20 +29,27 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSehitİciGorevOnay));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DtgSehirIciAmir = new ADGV.AdvancedDataGridView();
-            this.BtnAmirRed = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
-            this.BtnAmirOnay = new System.Windows.Forms.Button();
             this.TxtTopAmir = new System.Windows.Forms.Label();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnReddet = new System.Windows.Forms.Button();
+            this.BtnTumunuOnayla = new System.Windows.Forms.Button();
+            this.BtnOnayla = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSehirIciAmir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -115,17 +122,9 @@ namespace UserInterface.IdariIsler
             this.DtgSehirIciAmir.Size = new System.Drawing.Size(1394, 512);
             this.DtgSehirIciAmir.TabIndex = 2;
             this.DtgSehirIciAmir.TimeFilter = false;
-            // 
-            // BtnAmirRed
-            // 
-            this.BtnAmirRed.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAmirRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnAmirRed.Location = new System.Drawing.Point(199, 616);
-            this.BtnAmirRed.Name = "BtnAmirRed";
-            this.BtnAmirRed.Size = new System.Drawing.Size(178, 50);
-            this.BtnAmirRed.TabIndex = 336;
-            this.BtnAmirRed.Text = "REDDET";
-            this.BtnAmirRed.UseVisualStyleBackColor = true;
+            this.DtgSehirIciAmir.SortStringChanged += new System.EventHandler(this.DtgSehirIciAmir_SortStringChanged);
+            this.DtgSehirIciAmir.FilterStringChanged += new System.EventHandler(this.DtgSehirIciAmir_FilterStringChanged);
+            this.DtgSehirIciAmir.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgSehirIciAmir_CellMouseClick);
             // 
             // label3
             // 
@@ -137,17 +136,6 @@ namespace UserInterface.IdariIsler
             this.label3.TabIndex = 333;
             this.label3.Text = "Toplam Kayıt:";
             // 
-            // BtnAmirOnay
-            // 
-            this.BtnAmirOnay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnAmirOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnAmirOnay.Location = new System.Drawing.Point(15, 616);
-            this.BtnAmirOnay.Name = "BtnAmirOnay";
-            this.BtnAmirOnay.Size = new System.Drawing.Size(178, 50);
-            this.BtnAmirOnay.TabIndex = 335;
-            this.BtnAmirOnay.Text = "ONAYLA";
-            this.BtnAmirOnay.UseVisualStyleBackColor = true;
-            // 
             // TxtTopAmir
             // 
             this.TxtTopAmir.AutoSize = true;
@@ -158,15 +146,82 @@ namespace UserInterface.IdariIsler
             this.TxtTopAmir.TabIndex = 334;
             this.TxtTopAmir.Text = "00";
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "okey.png");
+            this.ımageList1.Images.SetKeyName(1, "ok.png");
+            // 
+            // ımageList2
+            // 
+            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
+            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList2.Images.SetKeyName(0, "allokey.ico");
+            this.ımageList2.Images.SetKeyName(1, "delete-sign.png");
+            this.ımageList2.Images.SetKeyName(2, "Icojam-Blue-Bits-Database-check.ico");
+            // 
+            // BtnReddet
+            // 
+            this.BtnReddet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnReddet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnReddet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnReddet.ImageKey = "delete-sign.png";
+            this.BtnReddet.ImageList = this.ımageList2;
+            this.BtnReddet.Location = new System.Drawing.Point(310, 618);
+            this.BtnReddet.Name = "BtnReddet";
+            this.BtnReddet.Size = new System.Drawing.Size(123, 51);
+            this.BtnReddet.TabIndex = 347;
+            this.BtnReddet.Text = "    REDDET";
+            this.BtnReddet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnReddet.UseVisualStyleBackColor = false;
+            this.BtnReddet.Click += new System.EventHandler(this.BtnReddet_Click);
+            // 
+            // BtnTumunuOnayla
+            // 
+            this.BtnTumunuOnayla.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTumunuOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTumunuOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTumunuOnayla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTumunuOnayla.ImageKey = "Icojam-Blue-Bits-Database-check.ico";
+            this.BtnTumunuOnayla.ImageList = this.ımageList2;
+            this.BtnTumunuOnayla.Location = new System.Drawing.Point(144, 618);
+            this.BtnTumunuOnayla.Name = "BtnTumunuOnayla";
+            this.BtnTumunuOnayla.Size = new System.Drawing.Size(160, 51);
+            this.BtnTumunuOnayla.TabIndex = 346;
+            this.BtnTumunuOnayla.Text = "TÜMÜNÜ ONAYLA";
+            this.BtnTumunuOnayla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTumunuOnayla.UseVisualStyleBackColor = false;
+            this.BtnTumunuOnayla.Click += new System.EventHandler(this.BtnTumunuOnayla_Click);
+            // 
+            // BtnOnayla
+            // 
+            this.BtnOnayla.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnOnayla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnOnayla.ImageKey = "ok.png";
+            this.BtnOnayla.ImageList = this.ımageList1;
+            this.BtnOnayla.Location = new System.Drawing.Point(15, 618);
+            this.BtnOnayla.Name = "BtnOnayla";
+            this.BtnOnayla.Size = new System.Drawing.Size(123, 51);
+            this.BtnOnayla.TabIndex = 345;
+            this.BtnOnayla.Text = "  ONAYLA";
+            this.BtnOnayla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOnayla.UseVisualStyleBackColor = false;
+            this.BtnOnayla.Click += new System.EventHandler(this.BtnOnayla_Click);
+            // 
             // FrmSehitİciGorevOnay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1426, 806);
+            this.Controls.Add(this.BtnReddet);
+            this.Controls.Add(this.BtnTumunuOnayla);
+            this.Controls.Add(this.BtnOnayla);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.BtnAmirRed);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.BtnAmirOnay);
             this.Controls.Add(this.TxtTopAmir);
             this.Controls.Add(this.panel1);
             this.Name = "FrmSehitİciGorevOnay";
@@ -175,6 +230,7 @@ namespace UserInterface.IdariIsler
             this.panel1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgSehirIciAmir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -186,9 +242,13 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.GroupBox groupBox2;
         private ADGV.AdvancedDataGridView DtgSehirIciAmir;
-        private System.Windows.Forms.Button BtnAmirRed;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button BtnAmirOnay;
         private System.Windows.Forms.Label TxtTopAmir;
+        private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.ImageList ımageList2;
+        private System.Windows.Forms.Button BtnReddet;
+        private System.Windows.Forms.Button BtnTumunuOnayla;
+        private System.Windows.Forms.Button BtnOnayla;
     }
 }

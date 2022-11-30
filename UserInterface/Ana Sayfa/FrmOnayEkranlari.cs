@@ -237,8 +237,7 @@ namespace UserInterface.Ana_Sayfa
             if (dr == DialogResult.Yes)
             {
                 string sehiricigorev = "2.ADIM:GÖREV PERSONEL TARAFINDAN ONAYLANDI.";
-                SehiriciGorev sehiriciGorev = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehiriciGorev, onayidPersonel);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayidPersonel);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 UstAmirMail();
 
@@ -284,8 +283,7 @@ namespace UserInterface.Ana_Sayfa
                 string sehiricigorev = "GÖREV " + infos[1].ToString() + " TARAFINDAN REDDEDİLDİ";
                 SehiriciGorev sehiriciGorev = new SehiriciGorev(isakisno, DateTime.Now, "0 Saat");
                 sehiriciGorevManager.GorevTamamla(sehiriciGorev, isakisno);
-                SehiriciGorev sehirici = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehirici, onayidPersonel);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayidPersonel);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Task.Factory.StartNew(() => MailSendMetotRet());
                 SehirIciGorevPersonel();
@@ -328,8 +326,7 @@ namespace UserInterface.Ana_Sayfa
             if (dr == DialogResult.Yes)
             {
                 string sehiricigorev = "3.ADIM:GÖREV AMİR TARAFINDAN ONAYLANDI";
-                SehiriciGorev sehiriciGorev = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehiriciGorev, onayamirid);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayamirid);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Task.Factory.StartNew(() => MailSendMetotOnay());
                 CreateLogAmirOnay();
@@ -351,8 +348,7 @@ namespace UserInterface.Ana_Sayfa
                 string sehiricigorev = "GÖREV " + infos[1].ToString() + " TARAFINDAN REDDEDİLDİ";
                 SehiriciGorev sehiriciGorev = new SehiriciGorev(isakisnoamir, DateTime.Now, "0 Saat");
                 sehiriciGorevManager.GorevTamamla(sehiriciGorev, isakisnoamir);
-                SehiriciGorev sehirici = new SehiriciGorev(sehiricigorev);
-                sehiriciGorevManager.GorevOnay(sehirici, onayamirid);
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayamirid);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SehirIciGorevAmir();
                 CreateLogAmirRed();
@@ -391,8 +387,8 @@ namespace UserInterface.Ana_Sayfa
             DialogResult dr = MessageBox.Show(formno + " Nolu Konaklama Talebini Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                Konaklama konaklama = new Konaklama("ONAYLANDI");
-                string mesaj = konaklamaManager.OnayGuncelle(konaklama, onayidKonaklama);
+                
+                string mesaj = konaklamaManager.OnayGuncelle("ONAYLANDI", onayidKonaklama);
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -411,8 +407,8 @@ namespace UserInterface.Ana_Sayfa
             DialogResult dr = MessageBox.Show(formno + " Nolu Konaklama Talebini Reddetmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                Konaklama konaklama = new Konaklama("REDDEDİLDİ");
-                string mesaj = konaklamaManager.OnayGuncelle(konaklama, onayidKonaklama);
+                
+                string mesaj = konaklamaManager.OnayGuncelle("REDDEDİLDİ", onayidKonaklama);
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -519,8 +515,8 @@ namespace UserInterface.Ana_Sayfa
                         DtgKonaklama.Invoke((MethodInvoker)(() => dosyaKonaklama = item.Cells["Dosyayolu"].Value.ToString()));
                         DtgKonaklama.Invoke((MethodInvoker)(() => onayidKonaklama = item.Cells["Id"].Value.ConInt()));
 
-                        Konaklama konaklama = new Konaklama("ONAYLANDI");
-                        string mesaj = konaklamaManager.OnayGuncelle(konaklama, onayidKonaklama);
+                        
+                        string mesaj = konaklamaManager.OnayGuncelle("ONAYLANDI", onayidKonaklama);
                         //string mesaj = "OK";
                         if (mesaj != "OK")
                         {

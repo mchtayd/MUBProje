@@ -105,11 +105,6 @@ namespace Entity.IdariIsler
             this.islemadimi = islemadimi;
         }
 
-        public SehiriciGorev(string islemadimi)
-        {
-            this.islemadimi = islemadimi;
-        }
-
         public SehiriciGorev(string gorevinkonusu, DateTime baslamatarihi, string adsoyad, string unvani, string gecensure)
         {
             this.gorevinkonusu = gorevinkonusu;

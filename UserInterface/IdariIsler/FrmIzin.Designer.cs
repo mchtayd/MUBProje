@@ -106,7 +106,6 @@ namespace UserInterface.IdariIsler
             this.BtnCancel = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.BtnGuncelle.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -129,7 +128,6 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox5);
             this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.BtnDosyaEkle);
             this.tabPage1.Controls.Add(this.CmbDokumanTuru);
@@ -154,9 +152,9 @@ namespace UserInterface.IdariIsler
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webBrowser1);
-            this.groupBox3.Location = new System.Drawing.Point(427, 359);
+            this.groupBox3.Location = new System.Drawing.Point(8, 411);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(686, 170);
+            this.groupBox3.Size = new System.Drawing.Size(686, 246);
             this.groupBox3.TabIndex = 340;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "İZİN DOSYASI";
@@ -167,7 +165,7 @@ namespace UserInterface.IdariIsler
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(680, 151);
+            this.webBrowser1.Size = new System.Drawing.Size(680, 227);
             this.webBrowser1.TabIndex = 0;
             // 
             // BtnDosyaEkle
@@ -903,15 +901,6 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // groupBox5
-            // 
-            this.groupBox5.Location = new System.Drawing.Point(22, 426);
-            this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(571, 246);
-            this.groupBox5.TabIndex = 341;
-            this.groupBox5.TabStop = false;
-            this.groupBox5.Text = "PERSONEL BİLGİLERİ";
-            // 
             // FrmIzin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1018,6 +1007,5 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.OpenFileDialog openFileDialog2;
         private System.Windows.Forms.TextBox CmbSiparisler;
         private System.Windows.Forms.TextBox CmbSiparis;
-        private System.Windows.Forms.GroupBox groupBox5;
     }
 }

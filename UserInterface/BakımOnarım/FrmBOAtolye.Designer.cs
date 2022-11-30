@@ -1146,6 +1146,8 @@ namespace UserInterface.BakımOnarım
             this.DtgStokList.Name = "DtgStokList";
             this.DtgStokList.Size = new System.Drawing.Size(785, 432);
             this.DtgStokList.TabIndex = 0;
+            this.DtgStokList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgStokList_CellContentClick);
+            this.DtgStokList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgStokList_CellMouseClick);
             // 
             // LblTop
             // 

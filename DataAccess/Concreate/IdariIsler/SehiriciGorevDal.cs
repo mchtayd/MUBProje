@@ -310,13 +310,13 @@ namespace DataAccess.Concreate.IdariIsler
             }
         }
 
-        public string GorevOnay(SehiriciGorev entity, int id)
+        public string GorevOnay(string islemAdimi, int id)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("SehirIciGorevOnayla",
                     new SqlParameter("@id", id),
-                    new SqlParameter("@islemadimi", entity.Islemadimi));
+                    new SqlParameter("@islemadimi", islemAdimi));
                 dataReader.Close();
                 return "OK";
             }

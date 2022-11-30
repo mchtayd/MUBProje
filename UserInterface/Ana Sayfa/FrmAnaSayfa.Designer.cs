@@ -339,6 +339,7 @@ namespace UserInterface.STS
             treeNode307});
             this.LblTarih = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.BtnBildirim = new System.Windows.Forms.Button();
             this.BtnDonemDuzelt = new System.Windows.Forms.Button();
             this.BtnDosyaDuzelt = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -384,8 +385,11 @@ namespace UserInterface.STS
             this.onayEkranlarıToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.malzemeTalepOnayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.konaklamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.uçakOtobüsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devamDevamsızlıkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organizasyonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.duyuruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.şifremiDeğitirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -402,14 +406,23 @@ namespace UserInterface.STS
             this.toolStripDropDownButton5 = new System.Windows.Forms.ToolStripDropDownButton();
             this.ambarVeriİzlemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atölyeVeriİzlemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.konaklamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.uçakOtobüsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripDropDownButton6 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.YurtIci = new System.Windows.Forms.ToolStripMenuItem();
+            this.SehirIcı = new System.Windows.Forms.ToolStripMenuItem();
+            this.Izin = new System.Windows.Forms.ToolStripMenuItem();
+            this.konaklamaToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.uçakVeOtobüsBiletiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.harcamaBeyannamesiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.malzemeİstekFormuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PnlBildirim = new System.Windows.Forms.Panel();
+            this.webContent = new System.Windows.Forms.WebBrowser();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
             this.contextTreeView.SuspendLayout();
             this.toolStrip1.SuspendLayout();
+            this.PnlBildirim.SuspendLayout();
             this.SuspendLayout();
             // 
             // LblTarih
@@ -426,6 +439,7 @@ namespace UserInterface.STS
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel4.Controls.Add(this.BtnBildirim);
             this.panel4.Controls.Add(this.BtnDonemDuzelt);
             this.panel4.Controls.Add(this.BtnDosyaDuzelt);
             this.panel4.Controls.Add(this.panel3);
@@ -438,10 +452,23 @@ namespace UserInterface.STS
             this.panel4.Controls.Add(this.LblKullanici);
             this.panel4.Controls.Add(this.label4);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel4.Location = new System.Drawing.Point(0, 659);
+            this.panel4.Location = new System.Drawing.Point(0, 684);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1099, 29);
+            this.panel4.Size = new System.Drawing.Size(1222, 29);
             this.panel4.TabIndex = 6;
+            // 
+            // BtnBildirim
+            // 
+            this.BtnBildirim.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBildirim.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnBildirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnBildirim.Location = new System.Drawing.Point(1172, 0);
+            this.BtnBildirim.Name = "BtnBildirim";
+            this.BtnBildirim.Size = new System.Drawing.Size(50, 29);
+            this.BtnBildirim.TabIndex = 101;
+            this.BtnBildirim.Text = "0";
+            this.BtnBildirim.UseVisualStyleBackColor = true;
+            this.BtnBildirim.Click += new System.EventHandler(this.BtnBildirim_Click);
             // 
             // BtnDonemDuzelt
             // 
@@ -472,7 +499,7 @@ namespace UserInterface.STS
             this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel3.Controls.Add(this.label3);
             this.panel3.Controls.Add(this.LblSaat);
-            this.panel3.Location = new System.Drawing.Point(918, 1);
+            this.panel3.Location = new System.Drawing.Point(985, 1);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(169, 25);
             this.panel3.TabIndex = 98;
@@ -503,7 +530,7 @@ namespace UserInterface.STS
             this.panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.panel2.Controls.Add(this.label1);
             this.panel2.Controls.Add(this.LblTarih);
-            this.panel2.Location = new System.Drawing.Point(691, 1);
+            this.panel2.Location = new System.Drawing.Point(758, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(221, 25);
             this.panel2.TabIndex = 97;
@@ -606,8 +633,9 @@ namespace UserInterface.STS
             this.panel1.Controls.Add(this.label2);
             this.panel1.Location = new System.Drawing.Point(0, 27);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(340, 626);
+            this.panel1.Size = new System.Drawing.Size(340, 651);
             this.panel1.TabIndex = 88;
+            this.panel1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseClick);
             // 
             // lblCompanyName
             // 
@@ -639,7 +667,7 @@ namespace UserInterface.STS
             this.TreeMenu.SelectedImageIndex = 1;
             this.TreeMenu.ShowLines = false;
             this.TreeMenu.ShowNodeToolTips = true;
-            this.TreeMenu.Size = new System.Drawing.Size(340, 587);
+            this.TreeMenu.Size = new System.Drawing.Size(340, 612);
             this.TreeMenu.TabIndex = 97;
             this.TreeMenu.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.TreeMenu_NodeMouseClick);
             // 
@@ -1174,7 +1202,7 @@ namespace UserInterface.STS
             this.treeView2.Nodes.AddRange(new System.Windows.Forms.TreeNode[] {
             treeNode241,
             treeNode308});
-            this.treeView2.Size = new System.Drawing.Size(340, 587);
+            this.treeView2.Size = new System.Drawing.Size(340, 612);
             this.treeView2.TabIndex = 87;
             this.treeView2.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView2_NodeMouseClick);
             // 
@@ -1240,15 +1268,17 @@ namespace UserInterface.STS
             this.tabAnasayfa.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.tabAnasayfa.Location = new System.Drawing.Point(346, 27);
+            this.tabAnasayfa.Location = new System.Drawing.Point(343, 27);
             this.tabAnasayfa.Name = "tabAnasayfa";
             this.tabAnasayfa.Padding = new System.Drawing.Point(15, 10);
             this.tabAnasayfa.SelectedIndex = 0;
-            this.tabAnasayfa.Size = new System.Drawing.Size(753, 626);
+            this.tabAnasayfa.Size = new System.Drawing.Size(608, 651);
             this.tabAnasayfa.TabIndex = 87;
             this.tabAnasayfa.Visible = false;
             this.tabAnasayfa.SelectedIndexChanged += new System.EventHandler(this.tabAnasayfa_SelectedIndexChanged);
             this.tabAnasayfa.TabIndexChanged += new System.EventHandler(this.tabAnasayfa_TabIndexChanged);
+            this.tabAnasayfa.Click += new System.EventHandler(this.tabAnasayfa_Click);
+            this.tabAnasayfa.MouseClick += new System.Windows.Forms.MouseEventHandler(this.tabAnasayfa_MouseClick);
             // 
             // imageList
             // 
@@ -1276,12 +1306,14 @@ namespace UserInterface.STS
             this.toolStripDropDownButton2,
             this.toolStripDropDownButton3,
             this.toolStripDropDownButton4,
-            this.toolStripDropDownButton5});
+            this.toolStripDropDownButton5,
+            this.toolStripDropDownButton6});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1099, 28);
+            this.toolStrip1.Size = new System.Drawing.Size(1222, 28);
             this.toolStrip1.TabIndex = 97;
             this.toolStrip1.Text = "toolStrip1";
+            this.toolStrip1.Click += new System.EventHandler(this.toolStrip1_Click);
             // 
             // toolStripDropDownButton1
             // 
@@ -1342,7 +1374,8 @@ namespace UserInterface.STS
             this.hesapOluşturToolStripMenuItem,
             this.onayEkranlarıToolStripMenuItem,
             this.devamDevamsızlıkToolStripMenuItem,
-            this.organizasyonToolStripMenuItem});
+            this.organizasyonToolStripMenuItem,
+            this.duyuruToolStripMenuItem});
             this.sayfalar.Image = ((System.Drawing.Image)(resources.GetObject("sayfalar.Image")));
             this.sayfalar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.sayfalar.Name = "sayfalar";
@@ -1382,6 +1415,20 @@ namespace UserInterface.STS
             this.toolStripMenuItem3.Text = "Şehir İçi Görev";
             this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
             // 
+            // konaklamaToolStripMenuItem
+            // 
+            this.konaklamaToolStripMenuItem.Name = "konaklamaToolStripMenuItem";
+            this.konaklamaToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.konaklamaToolStripMenuItem.Text = "Konaklama";
+            this.konaklamaToolStripMenuItem.Click += new System.EventHandler(this.konaklamaToolStripMenuItem_Click);
+            // 
+            // uçakOtobüsToolStripMenuItem
+            // 
+            this.uçakOtobüsToolStripMenuItem.Name = "uçakOtobüsToolStripMenuItem";
+            this.uçakOtobüsToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.uçakOtobüsToolStripMenuItem.Text = "Uçak/Otobüs";
+            this.uçakOtobüsToolStripMenuItem.Click += new System.EventHandler(this.uçakOtobüsToolStripMenuItem_Click);
+            // 
             // devamDevamsızlıkToolStripMenuItem
             // 
             this.devamDevamsızlıkToolStripMenuItem.Name = "devamDevamsızlıkToolStripMenuItem";
@@ -1395,6 +1442,13 @@ namespace UserInterface.STS
             this.organizasyonToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.organizasyonToolStripMenuItem.Text = "Organizasyon";
             this.organizasyonToolStripMenuItem.Click += new System.EventHandler(this.organizasyonToolStripMenuItem_Click);
+            // 
+            // duyuruToolStripMenuItem
+            // 
+            this.duyuruToolStripMenuItem.Name = "duyuruToolStripMenuItem";
+            this.duyuruToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.duyuruToolStripMenuItem.Text = "Duyuru";
+            this.duyuruToolStripMenuItem.Click += new System.EventHandler(this.duyuruToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -1528,26 +1582,95 @@ namespace UserInterface.STS
             this.atölyeVeriİzlemeToolStripMenuItem.Text = "Atölye Veri İzle";
             this.atölyeVeriİzlemeToolStripMenuItem.Click += new System.EventHandler(this.atölyeVeriİzlemeToolStripMenuItem_Click);
             // 
-            // konaklamaToolStripMenuItem
+            // toolStripDropDownButton6
             // 
-            this.konaklamaToolStripMenuItem.Name = "konaklamaToolStripMenuItem";
-            this.konaklamaToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
-            this.konaklamaToolStripMenuItem.Text = "Konaklama";
-            this.konaklamaToolStripMenuItem.Click += new System.EventHandler(this.konaklamaToolStripMenuItem_Click);
+            this.toolStripDropDownButton6.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.YurtIci,
+            this.SehirIcı,
+            this.Izin,
+            this.konaklamaToolStripMenuItem1,
+            this.uçakVeOtobüsBiletiToolStripMenuItem,
+            this.harcamaBeyannamesiToolStripMenuItem,
+            this.malzemeİstekFormuToolStripMenuItem});
+            this.toolStripDropDownButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton6.Image")));
+            this.toolStripDropDownButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton6.Name = "toolStripDropDownButton6";
+            this.toolStripDropDownButton6.Size = new System.Drawing.Size(105, 25);
+            this.toolStripDropDownButton6.Text = "İş Akışları";
             // 
-            // uçakOtobüsToolStripMenuItem
+            // YurtIci
             // 
-            this.uçakOtobüsToolStripMenuItem.Name = "uçakOtobüsToolStripMenuItem";
-            this.uçakOtobüsToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
-            this.uçakOtobüsToolStripMenuItem.Text = "Uçak/Otobüs";
-            this.uçakOtobüsToolStripMenuItem.Click += new System.EventHandler(this.uçakOtobüsToolStripMenuItem_Click);
+            this.YurtIci.Name = "YurtIci";
+            this.YurtIci.Size = new System.Drawing.Size(238, 26);
+            this.YurtIci.Text = "Yurt İçi Görev";
+            this.YurtIci.Click += new System.EventHandler(this.YurtIci_Click);
+            // 
+            // SehirIcı
+            // 
+            this.SehirIcı.Name = "SehirIcı";
+            this.SehirIcı.Size = new System.Drawing.Size(238, 26);
+            this.SehirIcı.Text = "Şehir İçi Görev";
+            this.SehirIcı.Click += new System.EventHandler(this.SehirIcı_Click);
+            // 
+            // Izin
+            // 
+            this.Izin.Name = "Izin";
+            this.Izin.Size = new System.Drawing.Size(238, 26);
+            this.Izin.Text = "İzin";
+            this.Izin.Click += new System.EventHandler(this.Izin_Click);
+            // 
+            // konaklamaToolStripMenuItem1
+            // 
+            this.konaklamaToolStripMenuItem1.Enabled = false;
+            this.konaklamaToolStripMenuItem1.Name = "konaklamaToolStripMenuItem1";
+            this.konaklamaToolStripMenuItem1.Size = new System.Drawing.Size(238, 26);
+            this.konaklamaToolStripMenuItem1.Text = "Konaklama";
+            // 
+            // uçakVeOtobüsBiletiToolStripMenuItem
+            // 
+            this.uçakVeOtobüsBiletiToolStripMenuItem.Enabled = false;
+            this.uçakVeOtobüsBiletiToolStripMenuItem.Name = "uçakVeOtobüsBiletiToolStripMenuItem";
+            this.uçakVeOtobüsBiletiToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.uçakVeOtobüsBiletiToolStripMenuItem.Text = "Uçak ve Otobüs Bileti";
+            // 
+            // harcamaBeyannamesiToolStripMenuItem
+            // 
+            this.harcamaBeyannamesiToolStripMenuItem.Name = "harcamaBeyannamesiToolStripMenuItem";
+            this.harcamaBeyannamesiToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.harcamaBeyannamesiToolStripMenuItem.Text = "Harcama Beyannamesi";
+            // 
+            // malzemeİstekFormuToolStripMenuItem
+            // 
+            this.malzemeİstekFormuToolStripMenuItem.Name = "malzemeİstekFormuToolStripMenuItem";
+            this.malzemeİstekFormuToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.malzemeİstekFormuToolStripMenuItem.Text = "Malzeme İstek Formu";
+            this.malzemeİstekFormuToolStripMenuItem.Click += new System.EventHandler(this.malzemeİstekFormuToolStripMenuItem_Click);
+            // 
+            // PnlBildirim
+            // 
+            this.PnlBildirim.Controls.Add(this.webContent);
+            this.PnlBildirim.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlBildirim.Location = new System.Drawing.Point(957, 28);
+            this.PnlBildirim.Name = "PnlBildirim";
+            this.PnlBildirim.Size = new System.Drawing.Size(265, 656);
+            this.PnlBildirim.TabIndex = 98;
+            // 
+            // webContent
+            // 
+            this.webContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webContent.Location = new System.Drawing.Point(0, 0);
+            this.webContent.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webContent.Name = "webContent";
+            this.webContent.Size = new System.Drawing.Size(265, 656);
+            this.webContent.TabIndex = 668;
             // 
             // FrmAnaSayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(1099, 688);
+            this.ClientSize = new System.Drawing.Size(1222, 713);
+            this.Controls.Add(this.PnlBildirim);
             this.Controls.Add(this.toolStrip1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabAnasayfa);
@@ -1572,6 +1695,7 @@ namespace UserInterface.STS
             this.contextTreeView.ResumeLayout(false);
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
+            this.PnlBildirim.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1645,5 +1769,17 @@ namespace UserInterface.STS
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem konaklamaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem uçakOtobüsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton6;
+        private System.Windows.Forms.ToolStripMenuItem YurtIci;
+        private System.Windows.Forms.ToolStripMenuItem SehirIcı;
+        private System.Windows.Forms.ToolStripMenuItem Izin;
+        private System.Windows.Forms.ToolStripMenuItem konaklamaToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem uçakVeOtobüsBiletiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem harcamaBeyannamesiToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem malzemeİstekFormuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem duyuruToolStripMenuItem;
+        public System.Windows.Forms.Button BtnBildirim;
+        public System.Windows.Forms.Panel PnlBildirim;
+        public System.Windows.Forms.WebBrowser webContent;
     }
 }

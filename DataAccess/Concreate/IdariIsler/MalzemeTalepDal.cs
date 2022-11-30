@@ -74,7 +74,10 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TALEBI_OLUSTURAN"].ToString(),
                         dataReader["BOLUM"].ToString(),
                         dataReader["SAT_BILGISI"].ConInt(),
-                        dataReader["MASRAF_YERI"].ToString()));
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["ISLEM_DURUMU"].ToString(),
+                        dataReader["RED_GEREKCESI"].ToString(),
+                        dataReader["DEPO_DURUM"].ToString()));
                 }
                 dataReader.Close();
                 return malzemeTaleps;
@@ -84,10 +87,129 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<MalzemeTalep>();
             }
         }
-
-        public string Update(MalzemeTalep entity)
+        public List<MalzemeTalep> GetListPersonel(string masrafYeriSorumlusu,string kategori)
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<MalzemeTalep> malzemeTaleps = new List<MalzemeTalep>();
+                dataReader = sqlServices.StoreReader("MalzemeTalepPersonel", new SqlParameter("@masrafYeriSorumlusu", masrafYeriSorumlusu),
+                    new SqlParameter("@kategori", kategori));
+                while (dataReader.Read())
+                {
+                    malzemeTaleps.Add(new MalzemeTalep(
+                        dataReader["ID"].ConInt(),
+                        dataReader["MALZEME_KATEGORISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TALEBI_OLUSTURAN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["SAT_BILGISI"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["ISLEM_DURUMU"].ToString(),
+                        dataReader["RED_GEREKCESI"].ToString(),
+                        dataReader["DEPO_DURUM"].ToString()));
+                }
+                dataReader.Close();
+                return malzemeTaleps;
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
+        public List<MalzemeTalep> GetListMasrafYeri()
+        {
+            try
+            {
+                List<MalzemeTalep> masrafYeriSorumlusu = new List<MalzemeTalep>();
+                dataReader = sqlServices.StoreReader("MalzemeTalepMasrafYeriSorumlusu");
+                while (dataReader.Read())
+                {
+                    masrafYeriSorumlusu.Add(new MalzemeTalep(dataReader["MALZEME_KATEGORISI"].ToString(), dataReader["TALEBI_OLUSTURAN"].ToString(), dataReader["BOLUM"].ToString(), dataReader["MASRAF_YERI"].ToString(),0));
+                }
+                dataReader.Close();
+                return masrafYeriSorumlusu;
+            }
+            catch (Exception)
+            {
+
+                return new List<MalzemeTalep>();
+            }
+            
+
+        }
+
+        public List<MalzemeTalep> GetListIslemDurumu(string islemAdimi)
+        {
+            try
+            {
+                List<MalzemeTalep> malzemeTaleps = new List<MalzemeTalep>();
+                dataReader = sqlServices.StoreReader("MalzemeTalepGetList", new SqlParameter("@islemDurumu", islemAdimi));
+                while (dataReader.Read())
+                {
+                    malzemeTaleps.Add(new MalzemeTalep(
+                        dataReader["ID"].ConInt(),
+                        dataReader["MALZEME_KATEGORISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TALEBI_OLUSTURAN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["SAT_BILGISI"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["ISLEM_DURUMU"].ToString(),
+                        dataReader["RED_GEREKCESI"].ToString(),
+                        dataReader["DEPO_DURUM"].ToString()));
+                }
+                dataReader.Close();
+                return malzemeTaleps;
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
+        public int GetToplam(string masrafYeriSorumlusu, string kategori)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeTalepMasrafYeriPersonel", new SqlParameter("@masrafYeriSorumlusu", masrafYeriSorumlusu),
+                    new SqlParameter("@kategori", kategori));
+                int toplam = 0;
+                while (dataReader.Read())
+                {
+                    toplam = dataReader["TOPLAM_ADET"].ConInt();
+                }
+                dataReader.Close();
+                return toplam;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+        public string Update(int id, string islemDurumu, string redGerekcesi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeTalep",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@islemDurumu", islemDurumu),
+                    new SqlParameter("@redGerekcesi", redGerekcesi));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static MalzemeTalepDal GetInstance()
         {

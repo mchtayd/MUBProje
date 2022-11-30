@@ -581,8 +581,8 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show(formno + " Nolu Konaklama Talebini Reddetmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                Konaklama konaklama = new Konaklama("REDDEDİLDİ");
-                string mesaj = konaklamaManager.OnayGuncelle(konaklama, onayid);
+                
+                string mesaj = konaklamaManager.OnayGuncelle("REDDEDİLDİ", onayid);
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -711,8 +711,8 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                Konaklama konaklama2 = new Konaklama("ONAYLANMADI");
-                string mesaj2 = konaklamaManager.OnayGuncelle(konaklama2, guncelleid);
+                
+                string mesaj2 = konaklamaManager.OnayGuncelle("ONAYLANMADI", guncelleid);
                 if (mesaj2 != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);

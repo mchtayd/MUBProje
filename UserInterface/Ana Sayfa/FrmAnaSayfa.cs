@@ -104,6 +104,22 @@ namespace UserInterface.STS
                 sayfalar.Visible = false;
 
             }
+
+
+            //bildirim paneli kapalı
+            PnlBildirim.Size = new Size(0,0);
+            tabAnasayfa.Size = new Size(1600, 955);
+
+
+            FrmBildirimler Go = new FrmBildirimler();
+            //Go.infos = infos;
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageBildirimler", "BİLDİRİM", Go);
+            Go.Show();
+
+
         }
 
         void Basliklar(int authId)
@@ -121,7 +137,7 @@ namespace UserInterface.STS
 
             foreach (MenuBaslik item in menuBasliks)
             {
-                if (donguDeger==sayac)
+                if (donguDeger == sayac)
                 {
                     break;
                 }
@@ -130,7 +146,7 @@ namespace UserInterface.STS
                     menuBasliksFilter.Add(item);
                     sayac++;
                 }
-                
+
             }
 
             menuBasliks = menuBasliksFilter;
@@ -145,7 +161,7 @@ namespace UserInterface.STS
             int id = 0;
             foreach (MenuBaslik item in menuBasliks)
             {
-                if (item.BaslikId==0)
+                if (item.BaslikId == 0)
                 {
                     TreeMenu.Nodes.Add(item.Baslik);
                     id = item.Id;
@@ -164,7 +180,7 @@ namespace UserInterface.STS
                         }
                     }
                 }
-                
+
             }
 
             index = 0;
@@ -177,13 +193,13 @@ namespace UserInterface.STS
                 TreeMenu.Nodes[0].BackColor = Color.CadetBlue;
                 menuBasliks2 = menuManager.GetListAlt(item.Id);
                 List<MenuBaslik> menuBasliks = new List<MenuBaslik>();
-                
+
                 for (int i = 0; i < menuBasliks2.Count(); i++)
                 {
                     sayac = 0;
                     foreach (var dizi in array)
                     {
-                        if (sayac==donguDeger)
+                        if (sayac == donguDeger)
                         {
                             break;
                         }
@@ -205,7 +221,7 @@ namespace UserInterface.STS
                     TreeMenu.Nodes[0].Nodes[index].Nodes.Add(item2.Baslik);
                     menuBasliks4 = menuManager.GetListAlt(item2.Id);
                     int dongu = menuBasliks4.Count();
-                    if (menuBasliks4.Count!=0)
+                    if (menuBasliks4.Count != 0)
                     {
                         for (int i = 0; i < dongu; i++)
                         {
@@ -1136,7 +1152,7 @@ namespace UserInterface.STS
             }
             if (control != 9)
             {
-                if (!array.Contains("155")) 
+                if (!array.Contains("155"))
                 {
                     treeView2.Nodes["RAPORLAMALAR"].Nodes["R VERI IZLEME"].Remove();
                     atla = 15;
@@ -1375,13 +1391,13 @@ namespace UserInterface.STS
         }
         private void button2_Click(object sender, EventArgs e) //BtnGit
         {
-            if (TxtKomut.Text=="")
+            if (TxtKomut.Text == "")
             {
                 //MessageBox.Show("Lütfen öncelikle Komut bilgisini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TreeMenu.Nodes[0].Remove();
                 TreeMenu.Nodes[0].Remove();
                 Basliklar(authId);
-                
+
             }
             menuBasliksVeriGiris.Clear();
             menuBasliksVeriIzleme.Clear();
@@ -1562,6 +1578,9 @@ namespace UserInterface.STS
 
         private void tabAnasayfa_SelectedIndexChanged(object sender, EventArgs e)
         {
+            PnlBildirim.Size = new Size(0, 0);
+            tabAnasayfa.Size = new Size(1600, 955);
+
             int index = tabAnasayfa.SelectedIndex;
             if (index == -1)
             {
@@ -1936,7 +1955,7 @@ namespace UserInterface.STS
                     var form = (FrmIscilikIzleme)Application.OpenForms["FrmIscilikIzleme"];
                     if (form != null)
                     {
-                        form.Yenileneckler(); 
+                        form.Yenileneckler();
                     }
                 }
                 if (baslik == "DEVAM EDEN ARIZALAR (ATÖLYE)")
@@ -2036,8 +2055,16 @@ namespace UserInterface.STS
                         form.DataDisplay();
                     }
                 }
+                if (baslik == "MİF ONAY")
+                {
+                    var form = (FrmMifOnay)Application.OpenForms["FrmMifOnay"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
             }
-            
+
         }
 
         private void oRGANİZSAYONToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2079,7 +2106,9 @@ namespace UserInterface.STS
         private void TreeMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             ////////////////////////////////////////////////BAKIM ONARIM/////////////////////////////////////////////////////////////////////
-
+            ///
+            PnlBildirim.Size = new Size(0, 0);
+            tabAnasayfa.Size = new Size(1600, 955);
 
             if (e.Node.Text == "Bildirim Aç/Kapat")
             {
@@ -2308,7 +2337,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageBolgeKayitIzleme", "BÖLGE KAYITLARI", Go);
                 Go.Show();
             }
-            
+
             if (e.Node.Text == "Atölye Açık Bildirimler")
             {
                 FrmBOAtolyeDevamEdenler Go = new FrmBOAtolyeDevamEdenler();
@@ -2590,7 +2619,6 @@ namespace UserInterface.STS
             if (e.Node.Text == "Şehir İçi Görev")
             {
                 FrmSehirIcıGorev Go = new FrmSehirIcıGorev();
-
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.infos = infos;
                 Go.TopLevel = false;
@@ -2612,7 +2640,6 @@ namespace UserInterface.STS
             if (e.Node.Text == "İzin")
             {
                 FrmIzin Go = new FrmIzin();
-
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.infos = infos;
                 Go.TopLevel = false;
@@ -2945,6 +2972,27 @@ namespace UserInterface.STS
                 OpenTabPage("PageMifIzleme", "MİF İZLEME", Go);
                 Go.Show();
             }
+            if (e.Node.Text == "Haftalık Kontrol Formu")
+            {
+                FrmHaftalikControl Go = new FrmHaftalikControl();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageHaftalikControl", "HAFTALIK KONTROL FORMU", Go);
+                Go.Show();
+            }
+            if (e.Node.Text == "Depo Kontrol")
+            {
+                FrmDepoKontrol Go = new FrmDepoKontrol();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageDepoKontrol", "DESTEK DEPO KONTROL", Go);
+                Go.Show();
+            }
+
 
             /////////////////////////////////////////////////DÖKÜMAN YÖNETİM SİSTEMİ/////////////////////////////////////////////////////////
 
@@ -3086,6 +3134,16 @@ namespace UserInterface.STS
                 Go.AutoScroll = true;
                 OpenTabPage("PageDesteDepoMalzemeKayit", "DESTEK DEPO MALZEME KAYIT", Go);
                 //Go.infos = infos;
+                Go.Show();
+            }
+            if (e.Node.Text == "Destek Depo Stok Giriş/Çıkış")
+            {
+                FrmDDStokGirisCikis Go = new FrmDDStokGirisCikis();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageDepoMlzHazirlama", "DESTEK DEPO MALZEME HAZIRLAMA", Go);
+                Go.infos = infos;
                 Go.Show();
             }
 
@@ -3360,7 +3418,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageArizaKayitlari", "ARIZA KAYITLARI", Go);
                 Go.Show();
             }
-            if (e.Node.Name == "Bildirim Onayi") 
+            if (e.Node.Name == "Bildirim Onayi")
             {
                 FrmBildirimOnayi Go = new FrmBildirimOnayi();
                 //Go.infos = infos;
@@ -3454,7 +3512,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageArizaAcmaAtolyeGuncelle", "ARIZA GÜNCELLEME (ATÖLYE)", Go);
                 Go.Show();
             }
-            if (e.Node.Name == "BolgeKayit") 
+            if (e.Node.Name == "BolgeKayit")
             {
                 FrmBolgeler Go = new FrmBolgeler();
                 //Go.infos = infos;
@@ -4302,7 +4360,7 @@ namespace UserInterface.STS
                 Go.AutoScroll = true;
                 OpenTabPage("PageButceKayit", "BÜTÇE KAYIT", Go);
                 //Go.infos = infos;
-                Go.Show(); 
+                Go.Show();
             }
             if (e.Node.Name == "SiparisOlustur")
             {
@@ -4607,6 +4665,101 @@ namespace UserInterface.STS
             Go.AutoScroll = true;
             OpenTabPage("PageUcakOtobusOnay", "UÇAK/OTOBÜS ONAY", Go);
             Go.Show();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void YurtIci_Click(object sender, EventArgs e)
+        {
+            FrmYurtİciGorev Go = new FrmYurtİciGorev();
+            Go.infos = infos;
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageYurtIcıGorev", "YURT İÇİ GÖREV", Go);
+            Go.Show();
+
+        }
+
+        private void SehirIcı_Click(object sender, EventArgs e)
+        {
+            FrmSehirIcıGorev Go = new FrmSehirIcıGorev();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.infos = infos;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageSehirIcıGorev", "ŞEHİR İÇİ GÖREV", Go);
+            Go.Show();
+        }
+
+        private void Izin_Click(object sender, EventArgs e)
+        {
+            FrmIzin Go = new FrmIzin();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.infos = infos;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageIzin", "PERSONEL İZİN", Go);
+            Go.Show();
+        }
+
+        private void malzemeİstekFormuToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGiysiTalep Go = new FrmGiysiTalep();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.infos = infos;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageTalep", "MİF", Go);
+            Go.Show();
+        }
+
+        private void duyuruToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDuyuru frmDuyuru = new FrmDuyuru();
+            frmDuyuru.ShowDialog();
+        }
+
+        private void BtnBildirim_Click(object sender, EventArgs e)
+        {
+            int genislik = tabAnasayfa.Size.Width;
+            if (genislik == 1600)
+            {
+                PnlBildirim.Size = new Size(300, 955);
+                tabAnasayfa.Size = new Size(1275, 955);
+            }
+            else
+            {
+                PnlBildirim.Size = new Size(0, 0);
+                tabAnasayfa.Size = new Size(1600, 955);
+            }
+        }
+
+        private void tabAnasayfa_MouseClick(object sender, MouseEventArgs e)
+        {
+            PnlBildirim.Size = new Size(0, 0);
+            tabAnasayfa.Size = new Size(1600, 955);
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
+        {
+            PnlBildirim.Size = new Size(0, 0);
+            tabAnasayfa.Size = new Size(1600, 955);
+        }
+
+        private void tabAnasayfa_Click(object sender, EventArgs e)
+        {
+            PnlBildirim.Size = new Size(0, 0);
+            tabAnasayfa.Size = new Size(1600, 955);
+        }
+
+        private void toolStrip1_Click(object sender, EventArgs e)
+        {
+            PnlBildirim.Size = new Size(0, 0);
+            tabAnasayfa.Size = new Size(1600, 955);
         }
 
         private void konaklamalarımToolStripMenuItem_Click(object sender, EventArgs e)

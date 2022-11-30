@@ -52,7 +52,7 @@ namespace UserInterface.IdariIsler
             this.groupBox1.Controls.Add(this.DtgList);
             this.groupBox1.Location = new System.Drawing.Point(12, 42);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1402, 652);
+            this.groupBox1.Size = new System.Drawing.Size(1485, 652);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MALZEME TALEP LİSTESİ";
@@ -69,7 +69,7 @@ namespace UserInterface.IdariIsler
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.Size = new System.Drawing.Size(1396, 633);
+            this.DtgList.Size = new System.Drawing.Size(1479, 633);
             this.DtgList.TabIndex = 0;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
@@ -133,7 +133,7 @@ namespace UserInterface.IdariIsler
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1426, 27);
+            this.panel1.Size = new System.Drawing.Size(1509, 27);
             this.panel1.TabIndex = 320;
             // 
             // BtnCancel
@@ -163,7 +163,7 @@ namespace UserInterface.IdariIsler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1426, 806);
+            this.ClientSize = new System.Drawing.Size(1509, 806);
             this.Controls.Add(this.webContent);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.BtnSatOlustur);

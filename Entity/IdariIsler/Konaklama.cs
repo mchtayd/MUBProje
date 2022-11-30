@@ -97,10 +97,6 @@ namespace Entity.IdariIsler
             this.gerekce = gerekce;
         }
 
-        public Konaklama(string onay)
-        {
-            this.Onay = onay;
-        }
 
     }
 }

@@ -123,11 +123,11 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
-        public string OnayGuncelle(Konaklama entity, int id)
+        public string OnayGuncelle(string onay, int id)
         {
             try
             {
-                return konaklamaDal.OnayGuncelle(entity, id);
+                return konaklamaDal.OnayGuncelle(onay, id);
             }
             catch (Exception ex)
             {

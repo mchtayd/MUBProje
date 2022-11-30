@@ -18,6 +18,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Windows.Forms.DataVisualization.Charting;
+using Tulpep.NotificationWindow;
+using UserInterface.STS;
+using System.Media;
+//WMPLib.WindowsMediaPlayer Player;
 
 namespace UserInterface.Ana_Sayfa
 {
@@ -436,6 +440,65 @@ namespace UserInterface.Ana_Sayfa
             }
             return donem;
         }
-        
+        static void Ses()
+        {
+            WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
+
+            wplayer.URL = @"C:\Users\MAYıldırım\Desktop\Crystal_Drop.mp3";
+            wplayer.controls.play();
+
+        }
+        public static void Bildirim(string title, string content, Image ımage)
+        {
+            Ses();
+            PopupNotifier popup = new PopupNotifier();
+            popup.Image = ımage;
+            //popup.Image = ımageList1.Images["okey.png"];
+            popup.Size = new Size(500, 150);
+            popup.BodyColor = Color.FromArgb(40, 167, 69);
+            popup.TitleText = title;
+            popup.TitleColor = Color.White;
+            popup.TitleFont = new Font("Century Gothic", 15, FontStyle.Bold);
+
+            popup.ContentText = content;
+            popup.ContentColor = Color.White;
+            popup.ContentFont = new Font("Century Gothic", 12);
+            popup.Popup();
+
+
+            popup.Click += Popup_Click;
+
+            popup.Disappear += Popup_Disappear;
+
+        }
+
+        static void PanelEdit()
+        {
+            StringBuilder strB = new StringBuilder();
+
+            strB.Append("<center><h2 class='headings'>Addresses</h2>");
+            strB.Append("<table border='2' cellpadding='3'>");
+            strB.Append("<td width='300px'>" + "DENEME<br>DENEME2" + "</td><tr>");
+            strB.Append("</tr>");
+            strB.Append("</table></center><br/>");
+
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            frmAnaSayfa.webContent.DocumentText = strB.ToString();
+        }
+
+        private static void Popup_Disappear(object sender, EventArgs e)
+        {
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            string sayi = frmAnaSayfa.BtnBildirim.Text;
+            int yeniSayi = sayi.ConInt();
+            yeniSayi++;
+            frmAnaSayfa.BtnBildirim.Text = yeniSayi.ToString();
+            PanelEdit();
+        }
+
+        private static void Popup_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("deneme");
+        }
     }
 }

@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -22,7 +23,7 @@ namespace UserInterface.BakımOnarım
     public partial class FrmBolgeler : Form
     {
         public bool buton = false;
-        string il, comboAd, dosyaYolu, kaynakdosyaismi, alinandosya;
+        string il, comboAd, dosyaYolu="", kaynakdosyaismi, alinandosya;
         public string siparisNo = "";
         int id;
         List<Bolge> bolges = new List<Bolge>();
@@ -86,6 +87,15 @@ namespace UserInterface.BakımOnarım
             }
             BtnCancel.Visible = true;
             CmbIslemTuru.SelectedIndex = 0;
+
+            //DateTimeFormatInfo dfi = DateTimeFormatInfo.CurrentInfo;
+            //Calendar cal = dfi.Calendar;
+            //label5.Text = cal.GetWeekOfYear(DateTime.Now, dfi.CalendarWeekRule, dfi.FirstDayOfWeek).ToString();
+
+            CultureInfo ciCurr = CultureInfo.CurrentCulture;
+            int weekNum = ciCurr.Calendar.GetWeekOfYear(DateTime.Now, CalendarWeekRule.FirstFourDayWeek, DayOfWeek.Monday);
+            label5.Text = weekNum.ToString();
+
         }
         void MasrafYeriSorumlusu()
         {
@@ -269,8 +279,8 @@ namespace UserInterface.BakımOnarım
                 CmbBolgeAdi.Visible = true;
                 BtnGuncelle.Visible = true;
                 BtnKaydet.Visible = false;
-                DtGarantİBasTarihi.Enabled = false;
-                DtGarantİBitTarihi.Enabled = false;
+                DtGarantİBasTarihi.Enabled = true;
+                DtGarantİBitTarihi.Enabled = true;
             }
         }
         
@@ -457,7 +467,7 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri güncellemek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                BolgeKayit bolgeKayit = new BolgeKayit(id, TxtBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text);
+                BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value);
 
                 string mesaj = bolgeKayitManager.Update(bolgeKayit);
                 if (mesaj != "OK")
