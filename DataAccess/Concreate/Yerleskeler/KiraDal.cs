@@ -82,7 +82,7 @@ namespace DataAccess.Concreate.Yerleskeler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

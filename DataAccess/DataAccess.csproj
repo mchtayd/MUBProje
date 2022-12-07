@@ -83,6 +83,7 @@
     <Compile Include="AtolyeRaporDal.cs" />
     <Compile Include="ComboDal.cs" />
     <Compile Include="Concreate\AnaSayfa\DuyuruDal.cs" />
+    <Compile Include="Concreate\AnaSayfa\LogDal.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuDal.cs" />
     <Compile Include="Concreate\AnaSayfa\RjButton.cs">
       <SubType>Component</SubType>
@@ -109,6 +110,7 @@
     <Compile Include="Concreate\BakimOnarim\ServisFormuDal.cs" />
     <Compile Include="Concreate\BakimOnarim\SFYedekParcaDal.cs" />
     <Compile Include="Concreate\Butce\AvansDal.cs" />
+    <Compile Include="Concreate\Butce\ButceDal.cs" />
     <Compile Include="Concreate\Butce\IsAvansTalepDal.cs" />
     <Compile Include="Concreate\Butce\KasaDal.cs" />
     <Compile Include="Concreate\Butce\KasaDurumDal.cs" />
@@ -146,6 +148,7 @@
     <Compile Include="Concreate\IdariIsler\CokluAracDal.cs" />
     <Compile Include="Concreate\IdariIsler\DVKayitDal.cs" />
     <Compile Include="Concreate\IdariIsler\EvrakKayitDal.cs" />
+    <Compile Include="Concreate\IdariIsler\GorevlendirmeDal.cs" />
     <Compile Include="Concreate\IdariIsler\IdariIslerLogDal.cs" />
     <Compile Include="Concreate\IdariIsler\IstenAyrilisDal.cs" />
     <Compile Include="Concreate\IdariIsler\IzinDal.cs" />

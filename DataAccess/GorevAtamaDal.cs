@@ -113,7 +113,7 @@ namespace DataAccess
                 dataReader.Close();
                 return gorevAtamas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<GorevAtama>();
             }
@@ -148,7 +148,7 @@ namespace DataAccess
                 dataReader.Close();
                 return gorevAtamas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<GorevAtama>();
             }
@@ -195,7 +195,7 @@ namespace DataAccess
                 dataReader.Close();
                 return gorevAtamas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<GorevAtama>();
             }
@@ -230,7 +230,7 @@ namespace DataAccess
                 dataReader.Close();
                 return gorevAtamas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<GorevAtama>();
             }

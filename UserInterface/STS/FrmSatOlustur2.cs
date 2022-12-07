@@ -1,5 +1,6 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.Depo;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
@@ -8,6 +9,7 @@ using DataAccess.Concreate;
 using DataAccess.Concreate.Depo;
 using DataAccess.Concreate.STS;
 using Entity;
+using Entity.BakimOnarim;
 using Entity.Depo;
 using Entity.Gecic_Kabul_Ambar;
 using Entity.IdariIsler;
@@ -49,6 +51,7 @@ namespace UserInterface.STS
         KimyasalUrunlerManager kimyasalUrunlerManager;
         AracZimmetiManager aracZimmetiManager;
         SiparislerManager siparislerManager;
+        BolgeKayitManager bolgeKayitManager;
 
         List<MalzemeKayit> malzemeKayits;
         List<MalzemeKayit> malzemesFiltered;
@@ -99,6 +102,7 @@ namespace UserInterface.STS
             kimyasalUrunlerManager = KimyasalUrunlerManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
             siparislerManager = SiparislerManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -190,9 +194,9 @@ namespace UserInterface.STS
         }
         void UsBolgeleri()
         {
-            Usbolgesi.DataSource = satTalebiDoldurManager.GetList();
+            Usbolgesi.DataSource = bolgeKayitManager.GetList();
             Usbolgesi.ValueMember = "Id";
-            Usbolgesi.DisplayMember = "Usbolgesi";
+            Usbolgesi.DisplayMember = "BolgeAdi";
             Usbolgesi.SelectedValue = "";
         }
         void AbfFormNoList()
@@ -681,8 +685,9 @@ namespace UserInterface.STS
             {
                 return;
             }
-            SatTalebiDoldur satTalebiDoldur = satTalebiDoldurManager.Get(Usbolgesi.Text);
-            TxtProje.Text = satTalebiDoldur.Proje;
+            string proje = bolgeKayitManager.BolgeProjeList(Usbolgesi.Text);
+            //SatTalebiDoldur satTalebiDoldur = satTalebiDoldurManager.Get(Usbolgesi.Text);
+            TxtProje.Text = proje;
         }
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)

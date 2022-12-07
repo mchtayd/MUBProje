@@ -76,7 +76,7 @@ namespace DataAccess.Concreate.IdariIsler
                 return konaklamaKirilims;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<KonaklamaKirilim>();
             }

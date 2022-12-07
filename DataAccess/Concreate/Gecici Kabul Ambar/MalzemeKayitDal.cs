@@ -214,7 +214,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return malzemeKayits;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<MalzemeKayit>();
             }
@@ -248,7 +248,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return malzemeKayits;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<MalzemeKayit>();
             }
@@ -282,7 +282,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return malzemeKayits;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<MalzemeKayit>();
             }

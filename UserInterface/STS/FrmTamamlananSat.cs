@@ -117,14 +117,14 @@ namespace UserInterface.STS
             DtgTamamlananSatlar.Columns["Id"].Visible = false;
             DtgTamamlananSatlar.Columns["Satno"].HeaderText = "SAT_NO";
             DtgTamamlananSatlar.Columns["Formno"].HeaderText = "İŞ AKIŞ NO";
-            DtgTamamlananSatlar.Columns["Masrafyeri"].HeaderText = "MASRAF YERİ NO";
+            DtgTamamlananSatlar.Columns["Masrafyeri"].Visible = false;
             DtgTamamlananSatlar.Columns["Talepeden"].HeaderText = "TALEP EDEN";
-            DtgTamamlananSatlar.Columns["Bolum"].HeaderText = "BÖLÜM";
-            DtgTamamlananSatlar.Columns["Usbolgesi"].HeaderText = "ÜS BÖLGESİ";
+            DtgTamamlananSatlar.Columns["Bolum"].Visible = false;
+            DtgTamamlananSatlar.Columns["Usbolgesi"].HeaderText = "ÜS BÖLGESİ ADI";
             DtgTamamlananSatlar.Columns["Abfform"].HeaderText = "ABF FORM NO";
-            DtgTamamlananSatlar.Columns["Istenentarih"].HeaderText = "İSTENEN TARİH";
+            DtgTamamlananSatlar.Columns["Istenentarih"].Visible = false;
             DtgTamamlananSatlar.Columns["Tamamlanantarih"].HeaderText = "TAMAMLANAN TARİH";
-            DtgTamamlananSatlar.Columns["Gerekce"].HeaderText = "GEREKÇE";
+            DtgTamamlananSatlar.Columns["Gerekce"].Visible = false;
             DtgTamamlananSatlar.Columns["Butcekodukalemi"].HeaderText = "BÜTÇE KODU KALEMİ";
             DtgTamamlananSatlar.Columns["Satbirim"].HeaderText = "SAT BİRİM";
             DtgTamamlananSatlar.Columns["Harcamaturu"].HeaderText = "HARCAMA TÜRÜ";
@@ -133,7 +133,7 @@ namespace UserInterface.STS
             DtgTamamlananSatlar.Columns["Belgetarihi"].HeaderText = "BELGE TARİHİ";
             DtgTamamlananSatlar.Columns["Faturaedilecekfirma"].HeaderText = "FATURA EDİLECEK FİRMA";
             DtgTamamlananSatlar.Columns["Ilgilikisi"].HeaderText = "İLGİLİ KİŞİ";
-            DtgTamamlananSatlar.Columns["Masrafyerino"].HeaderText = "i.K MASRAF YERİ NO";
+            DtgTamamlananSatlar.Columns["Masrafyerino"].HeaderText = "İ.K MASRAF YERİ NO";
             DtgTamamlananSatlar.Columns["Harcanantutar"].HeaderText = "HARCANAN TUTAR";
             DtgTamamlananSatlar.Columns["Dosyayolu"].Visible = false;
             DtgTamamlananSatlar.Columns["Siparisno"].Visible = false;
@@ -141,7 +141,43 @@ namespace UserInterface.STS
             DtgTamamlananSatlar.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
             DtgTamamlananSatlar.Columns["Donem"].DisplayIndex = 3;
             DtgTamamlananSatlar.Columns["Donem"].HeaderText = "DÖNEM";
-            DtgTamamlananSatlar.Columns["Proje"].HeaderText = "PROJE";
+            DtgTamamlananSatlar.Columns["Proje"].HeaderText = "BÜTÇELENECEK PROJE NO";
+            DtgTamamlananSatlar.Columns["Gecensure"].HeaderText = "GEÇEN SÜRE";
+            DtgTamamlananSatlar.Columns["UsProjeNo"].HeaderText = "Ü.B PRJ. NO";
+            DtgTamamlananSatlar.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
+
+
+            DtgTamamlananSatlar.Columns["Gecensure"].DisplayIndex = 2;
+            DtgTamamlananSatlar.Columns["UsProjeNo"].DisplayIndex = 9;
+            DtgTamamlananSatlar.Columns["GarantiDurumu"].DisplayIndex = 10;
+            //DtgTamamlananSatlar.Columns["Proje"].DisplayIndex = 7;
+            //DtgTamamlananSatlar.Columns["Satno"].DisplayIndex = "SAT_NO";
+            //DtgTamamlananSatlar.Columns["Formno"].DisplayIndex = "İŞ AKIŞ NO";
+            //DtgTamamlananSatlar.Columns["Masrafyeri"].DisplayIndex = "MASRAF YERİ NO";
+            //DtgTamamlananSatlar.Columns["Talepeden"].DisplayIndex = "TALEP EDEN";
+            //DtgTamamlananSatlar.Columns["Bolum"].DisplayIndex = "BÖLÜM";
+            //DtgTamamlananSatlar.Columns["Usbolgesi"].DisplayIndex = "ÜS BÖLGESİ";
+            //DtgTamamlananSatlar.Columns["Abfform"].DisplayIndex = "ABF FORM NO";
+            //DtgTamamlananSatlar.Columns["Istenentarih"].DisplayIndex = "İSTENEN TARİH";
+            //DtgTamamlananSatlar.Columns["Tamamlanantarih"].DisplayIndex = "TAMAMLANAN TARİH";
+            //DtgTamamlananSatlar.Columns["Gerekce"].DisplayIndex = "GEREKÇE";
+            //DtgTamamlananSatlar.Columns["Butcekodukalemi"].DisplayIndex = "BÜTÇE KODU KALEMİ";
+            //DtgTamamlananSatlar.Columns["Satbirim"].DisplayIndex = "SAT BİRİM";
+            //DtgTamamlananSatlar.Columns["Harcamaturu"].DisplayIndex = "HARCAMA TÜRÜ";
+            //DtgTamamlananSatlar.Columns["Belgeturu"].DisplayIndex = "BELGE TÜRÜ";
+            //DtgTamamlananSatlar.Columns["Belgenumarasi"].DisplayIndex = "BELGE NUMARASI";
+            //DtgTamamlananSatlar.Columns["Belgetarihi"].DisplayIndex = "BELGE TARİHİ";
+            //DtgTamamlananSatlar.Columns["Faturaedilecekfirma"].DisplayIndex = "FATURA EDİLECEK FİRMA";
+            //DtgTamamlananSatlar.Columns["Ilgilikisi"].DisplayIndex = "İLGİLİ KİŞİ";
+            //DtgTamamlananSatlar.Columns["Masrafyerino"].DisplayIndex = "i.K MASRAF YERİ NO";
+            //DtgTamamlananSatlar.Columns["Harcanantutar"].DisplayIndex = "HARCANAN TUTAR";
+            //DtgTamamlananSatlar.Columns["Dosyayolu"].DisplayIndex = false;
+            //DtgTamamlananSatlar.Columns["Siparisno"].DisplayIndex = false;
+            //DtgTamamlananSatlar.Columns["Ucteklif"].DisplayIndex = false;
+            //DtgTamamlananSatlar.Columns["IslemAdimi"].DisplayIndex = "BULUNDUĞU İŞLEM ADIMI";
+            //DtgTamamlananSatlar.Columns["Donem"].DisplayIndex = 3;
+            //DtgTamamlananSatlar.Columns["Donem"].DisplayIndex = "DÖNEM";
+            //DtgTamamlananSatlar.Columns["Proje"].DisplayIndex = "PROJE";
 
         }
         void PanelGenislet()
@@ -181,8 +217,10 @@ namespace UserInterface.STS
             harcananTutar = DtgTamamlananSatlar.CurrentRow.Cells["Harcanantutar"].Value.ConDouble();
             satOlusturmaTuru = DtgTamamlananSatlar.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             tamamlananMalzemes = tamamlananMalzemeManager.GetList(siparisNo);
+            TxtGerekce.Text= DtgTamamlananSatlar.CurrentRow.Cells["Gerekce"].Value.ToString();
             //geneltoplam = DtgTamamlananSatlar.CurrentRow.Cells["Harcanantutar"].Value.ConDouble();
             geneltoplam = tamamlanans.FirstOrDefault(x => x.Siparisno == siparisNo).Harcanantutar;
+
             WebBrowser();
             IslemAdimlari();
 
@@ -297,7 +335,9 @@ namespace UserInterface.STS
                             item.Cell("T").Value.ToString(),
                             item.Cell("K").Value.ToString(),
                             item.Cell("U").Value.ToString(),
-                            item.Cell("AA").Value.ToString());
+                            item.Cell("AA").Value.ToString(),
+                            "",
+                            "");
                         list.Add(tamamlanan);
 
                         if (outDate.ToString()== "1.01.0001 00:00:00")

@@ -107,6 +107,7 @@ namespace DataAccess.Concreate
             return personelDal;
         }
         public object[] Login(string sicilno, string sifre)
+        
         {
             try
             {
@@ -134,7 +135,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return infos;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 dataReader.Close();
                 return null;

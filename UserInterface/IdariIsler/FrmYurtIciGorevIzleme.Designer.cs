@@ -30,8 +30,10 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtAkısNo = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -52,6 +54,9 @@ namespace UserInterface.IdariIsler
             this.DtgIslemAdimlari = new ADGV.AdvancedDataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.label5 = new System.Windows.Forms.Label();
+            this.ChkTumunuGoster = new System.Windows.Forms.CheckBox();
+            this.CmbYillar = new System.Windows.Forms.ComboBox();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -69,6 +74,29 @@ namespace UserInterface.IdariIsler
             this.TxtIsAkisNoTamamlanan = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.aaa = new System.Windows.Forms.TabPage();
+            this.tabControl3 = new System.Windows.Forms.TabControl();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.webBrowser3 = new System.Windows.Forms.WebBrowser();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.DtgGorevlendirmeDevamEden = new ADGV.AdvancedDataGridView();
+            this.LblGorevlendirmeDevam = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label12 = new System.Windows.Forms.Label();
+            this.ChkTumunuGosterGorev = new System.Windows.Forms.CheckBox();
+            this.CmbYillarGorevlendirme = new System.Windows.Forms.ComboBox();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.webBrowser4 = new System.Windows.Forms.WebBrowser();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.DtgGorevlendirmeTamamlanan = new ADGV.AdvancedDataGridView();
+            this.LblGorevlendirmeTamalanan = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dataBinder3 = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinder4 = new System.Windows.Forms.BindingSource(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -87,6 +115,20 @@ namespace UserInterface.IdariIsler
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
+            this.tabControl2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.aaa.SuspendLayout();
+            this.tabControl3.SuspendLayout();
+            this.tabPage5.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGorevlendirmeDevamEden)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGorevlendirmeTamamlanan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder4)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -129,7 +171,7 @@ namespace UserInterface.IdariIsler
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(108, 652);
+            this.TxtTop.Location = new System.Drawing.Point(104, 530);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 333;
@@ -139,7 +181,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(8, 652);
+            this.label31.Location = new System.Drawing.Point(4, 530);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 332;
@@ -149,8 +191,8 @@ namespace UserInterface.IdariIsler
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -162,7 +204,7 @@ namespace UserInterface.IdariIsler
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgList.Size = new System.Drawing.Size(1538, 581);
+            this.DtgList.Size = new System.Drawing.Size(1523, 464);
             this.DtgList.TabIndex = 3;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
@@ -176,7 +218,7 @@ namespace UserInterface.IdariIsler
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1557, 27);
+            this.panel1.Size = new System.Drawing.Size(1575, 27);
             this.panel1.TabIndex = 338;
             // 
             // BtnCancel
@@ -211,10 +253,10 @@ namespace UserInterface.IdariIsler
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(0, 33);
+            this.tabControl1.Location = new System.Drawing.Point(6, 8);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1557, 887);
+            this.tabControl1.Size = new System.Drawing.Size(1557, 848);
             this.tabControl1.TabIndex = 339;
             // 
             // tabPage1
@@ -231,7 +273,7 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1549, 861);
+            this.tabPage1.Size = new System.Drawing.Size(1549, 822);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "DEVAM EDEN GÖREVLER";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -239,9 +281,9 @@ namespace UserInterface.IdariIsler
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.webBrowser1);
-            this.groupBox2.Location = new System.Drawing.Point(703, 682);
+            this.groupBox2.Location = new System.Drawing.Point(700, 554);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(686, 170);
+            this.groupBox2.Size = new System.Drawing.Size(686, 244);
             this.groupBox2.TabIndex = 339;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "EKLER:";
@@ -252,15 +294,15 @@ namespace UserInterface.IdariIsler
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(680, 151);
+            this.webBrowser1.Size = new System.Drawing.Size(680, 225);
             this.webBrowser1.TabIndex = 0;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgIslemAdimlari);
-            this.groupBox1.Location = new System.Drawing.Point(11, 682);
+            this.groupBox1.Location = new System.Drawing.Point(8, 554);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(686, 170);
+            this.groupBox1.Size = new System.Drawing.Size(686, 247);
             this.groupBox1.TabIndex = 338;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "İŞLEM ADIMLARI";
@@ -275,7 +317,7 @@ namespace UserInterface.IdariIsler
             this.DtgIslemAdimlari.Location = new System.Drawing.Point(3, 16);
             this.DtgIslemAdimlari.Name = "DtgIslemAdimlari";
             this.DtgIslemAdimlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgIslemAdimlari.Size = new System.Drawing.Size(680, 151);
+            this.DtgIslemAdimlari.Size = new System.Drawing.Size(680, 228);
             this.DtgIslemAdimlari.TabIndex = 0;
             this.DtgIslemAdimlari.TimeFilter = false;
             // 
@@ -284,11 +326,14 @@ namespace UserInterface.IdariIsler
             this.panel2.Controls.Add(this.DtgList);
             this.panel2.Location = new System.Drawing.Point(8, 59);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1538, 581);
+            this.panel2.Size = new System.Drawing.Size(1523, 464);
             this.panel2.TabIndex = 331;
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.ChkTumunuGoster);
+            this.tabPage2.Controls.Add(this.CmbYillar);
             this.tabPage2.Controls.Add(this.label3);
             this.tabPage2.Controls.Add(this.LblGenelTop);
             this.tabPage2.Controls.Add(this.groupBox3);
@@ -303,16 +348,50 @@ namespace UserInterface.IdariIsler
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1549, 861);
+            this.tabPage2.Size = new System.Drawing.Size(1549, 822);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "TAMAMLANAN GÖREVLER";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(879, 25);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(31, 15);
+            this.label5.TabIndex = 540;
+            this.label5.Text = "YIL:";
+            // 
+            // ChkTumunuGoster
+            // 
+            this.ChkTumunuGoster.AutoSize = true;
+            this.ChkTumunuGoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkTumunuGoster.Location = new System.Drawing.Point(1060, 23);
+            this.ChkTumunuGoster.Name = "ChkTumunuGoster";
+            this.ChkTumunuGoster.Size = new System.Drawing.Size(146, 19);
+            this.ChkTumunuGoster.TabIndex = 539;
+            this.ChkTumunuGoster.Text = "TÜMÜNÜ GÖSTER";
+            this.ChkTumunuGoster.UseVisualStyleBackColor = true;
+            this.ChkTumunuGoster.CheckedChanged += new System.EventHandler(this.ChkTumunuGoster_CheckedChanged);
+            // 
+            // CmbYillar
+            // 
+            this.CmbYillar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbYillar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbYillar.FormattingEnabled = true;
+            this.CmbYillar.Location = new System.Drawing.Point(916, 21);
+            this.CmbYillar.Name = "CmbYillar";
+            this.CmbYillar.Size = new System.Drawing.Size(121, 23);
+            this.CmbYillar.TabIndex = 538;
+            this.CmbYillar.SelectedIndexChanged += new System.EventHandler(this.CmbYillar_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(153, 658);
+            this.label3.Location = new System.Drawing.Point(153, 544);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(101, 15);
             this.label3.TabIndex = 350;
@@ -322,7 +401,7 @@ namespace UserInterface.IdariIsler
             // 
             this.LblGenelTop.AutoSize = true;
             this.LblGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGenelTop.Location = new System.Drawing.Point(260, 658);
+            this.LblGenelTop.Location = new System.Drawing.Point(260, 544);
             this.LblGenelTop.Name = "LblGenelTop";
             this.LblGenelTop.Size = new System.Drawing.Size(34, 15);
             this.LblGenelTop.TabIndex = 351;
@@ -331,9 +410,9 @@ namespace UserInterface.IdariIsler
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webBrowser2);
-            this.groupBox3.Location = new System.Drawing.Point(698, 685);
+            this.groupBox3.Location = new System.Drawing.Point(698, 567);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(686, 170);
+            this.groupBox3.Size = new System.Drawing.Size(686, 227);
             this.groupBox3.TabIndex = 341;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "GÖREV DOSYASI";
@@ -344,15 +423,15 @@ namespace UserInterface.IdariIsler
             this.webBrowser2.Location = new System.Drawing.Point(3, 16);
             this.webBrowser2.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser2.Name = "webBrowser2";
-            this.webBrowser2.Size = new System.Drawing.Size(680, 151);
+            this.webBrowser2.Size = new System.Drawing.Size(680, 208);
             this.webBrowser2.TabIndex = 0;
             // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.DtgIslemAdimlariTamamlanan);
-            this.groupBox4.Location = new System.Drawing.Point(6, 685);
+            this.groupBox4.Location = new System.Drawing.Point(6, 567);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(686, 170);
+            this.groupBox4.Size = new System.Drawing.Size(686, 227);
             this.groupBox4.TabIndex = 340;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "İŞLEM ADIMLARI";
@@ -367,24 +446,24 @@ namespace UserInterface.IdariIsler
             this.DtgIslemAdimlariTamamlanan.Location = new System.Drawing.Point(3, 16);
             this.DtgIslemAdimlariTamamlanan.Name = "DtgIslemAdimlariTamamlanan";
             this.DtgIslemAdimlariTamamlanan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgIslemAdimlariTamamlanan.Size = new System.Drawing.Size(680, 151);
+            this.DtgIslemAdimlariTamamlanan.Size = new System.Drawing.Size(680, 208);
             this.DtgIslemAdimlariTamamlanan.TabIndex = 0;
             this.DtgIslemAdimlariTamamlanan.TimeFilter = false;
             // 
             // panel3
             // 
             this.panel3.Controls.Add(this.DtgTamamlanan);
-            this.panel3.Location = new System.Drawing.Point(0, 58);
+            this.panel3.Location = new System.Drawing.Point(6, 53);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1547, 585);
+            this.panel3.Size = new System.Drawing.Size(1537, 484);
             this.panel3.TabIndex = 338;
             // 
             // DtgTamamlanan
             // 
             this.DtgTamamlanan.AllowUserToAddRows = false;
             this.DtgTamamlanan.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTamamlanan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTamamlanan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgTamamlanan.AutoGenerateContextFilters = true;
             this.DtgTamamlanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTamamlanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -396,7 +475,7 @@ namespace UserInterface.IdariIsler
             this.DtgTamamlanan.Name = "DtgTamamlanan";
             this.DtgTamamlanan.ReadOnly = true;
             this.DtgTamamlanan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgTamamlanan.Size = new System.Drawing.Size(1547, 585);
+            this.DtgTamamlanan.Size = new System.Drawing.Size(1537, 484);
             this.DtgTamamlanan.TabIndex = 3;
             this.DtgTamamlanan.TimeFilter = false;
             this.DtgTamamlanan.SortStringChanged += new System.EventHandler(this.DtgTamamlanan_SortStringChanged);
@@ -421,7 +500,7 @@ namespace UserInterface.IdariIsler
             // 
             this.TxtTop2.AutoSize = true;
             this.TxtTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop2.Location = new System.Drawing.Point(106, 658);
+            this.TxtTop2.Location = new System.Drawing.Point(106, 544);
             this.TxtTop2.Name = "TxtTop2";
             this.TxtTop2.Size = new System.Drawing.Size(21, 15);
             this.TxtTop2.TabIndex = 333;
@@ -441,7 +520,7 @@ namespace UserInterface.IdariIsler
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(6, 658);
+            this.label8.Location = new System.Drawing.Point(6, 544);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(94, 15);
             this.label8.TabIndex = 332;
@@ -473,13 +552,261 @@ namespace UserInterface.IdariIsler
             this.label9.TabIndex = 335;
             this.label9.Text = "PERSONEL İSMİ İLE ARAMA:";
             // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage3);
+            this.tabControl2.Controls.Add(this.aaa);
+            this.tabControl2.Location = new System.Drawing.Point(0, 31);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(1575, 890);
+            this.tabControl2.TabIndex = 341;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.tabControl1);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1567, 864);
+            this.tabPage3.TabIndex = 0;
+            this.tabPage3.Text = "YURT İÇİ GÖREV";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // aaa
+            // 
+            this.aaa.Controls.Add(this.tabControl3);
+            this.aaa.Location = new System.Drawing.Point(4, 22);
+            this.aaa.Name = "aaa";
+            this.aaa.Padding = new System.Windows.Forms.Padding(3);
+            this.aaa.Size = new System.Drawing.Size(1567, 864);
+            this.aaa.TabIndex = 1;
+            this.aaa.Text = "GÖREVLENDİRME";
+            this.aaa.UseVisualStyleBackColor = true;
+            // 
+            // tabControl3
+            // 
+            this.tabControl3.Controls.Add(this.tabPage5);
+            this.tabControl3.Controls.Add(this.tabPage6);
+            this.tabControl3.Location = new System.Drawing.Point(5, 8);
+            this.tabControl3.Name = "tabControl3";
+            this.tabControl3.SelectedIndex = 0;
+            this.tabControl3.Size = new System.Drawing.Size(1557, 848);
+            this.tabControl3.TabIndex = 340;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.groupBox5);
+            this.tabPage5.Controls.Add(this.panel4);
+            this.tabPage5.Controls.Add(this.LblGorevlendirmeDevam);
+            this.tabPage5.Controls.Add(this.label10);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1549, 822);
+            this.tabPage5.TabIndex = 0;
+            this.tabPage5.Text = "DEVAM EDEN GÖREVLER";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.webBrowser3);
+            this.groupBox5.Location = new System.Drawing.Point(11, 559);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(686, 244);
+            this.groupBox5.TabIndex = 339;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "EKLER:";
+            // 
+            // webBrowser3
+            // 
+            this.webBrowser3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser3.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser3.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser3.Name = "webBrowser3";
+            this.webBrowser3.Size = new System.Drawing.Size(680, 225);
+            this.webBrowser3.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.DtgGorevlendirmeDevamEden);
+            this.panel4.Location = new System.Drawing.Point(6, 11);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1523, 498);
+            this.panel4.TabIndex = 331;
+            // 
+            // DtgGorevlendirmeDevamEden
+            // 
+            this.DtgGorevlendirmeDevamEden.AllowUserToAddRows = false;
+            this.DtgGorevlendirmeDevamEden.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgGorevlendirmeDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.DtgGorevlendirmeDevamEden.AutoGenerateContextFilters = true;
+            this.DtgGorevlendirmeDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgGorevlendirmeDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgGorevlendirmeDevamEden.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgGorevlendirmeDevamEden.DateWithTime = false;
+            this.DtgGorevlendirmeDevamEden.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgGorevlendirmeDevamEden.Location = new System.Drawing.Point(0, 0);
+            this.DtgGorevlendirmeDevamEden.MultiSelect = false;
+            this.DtgGorevlendirmeDevamEden.Name = "DtgGorevlendirmeDevamEden";
+            this.DtgGorevlendirmeDevamEden.ReadOnly = true;
+            this.DtgGorevlendirmeDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DtgGorevlendirmeDevamEden.Size = new System.Drawing.Size(1523, 498);
+            this.DtgGorevlendirmeDevamEden.TabIndex = 3;
+            this.DtgGorevlendirmeDevamEden.TimeFilter = false;
+            this.DtgGorevlendirmeDevamEden.SortStringChanged += new System.EventHandler(this.DtgGorevlendirmeDevamEden_SortStringChanged);
+            this.DtgGorevlendirmeDevamEden.FilterStringChanged += new System.EventHandler(this.DtgGorevlendirmeDevamEden_FilterStringChanged);
+            this.DtgGorevlendirmeDevamEden.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgGorevlendirmeDevamEden_CellMouseClick);
+            // 
+            // LblGorevlendirmeDevam
+            // 
+            this.LblGorevlendirmeDevam.AutoSize = true;
+            this.LblGorevlendirmeDevam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGorevlendirmeDevam.Location = new System.Drawing.Point(107, 530);
+            this.LblGorevlendirmeDevam.Name = "LblGorevlendirmeDevam";
+            this.LblGorevlendirmeDevam.Size = new System.Drawing.Size(21, 15);
+            this.LblGorevlendirmeDevam.TabIndex = 333;
+            this.LblGorevlendirmeDevam.Text = "00";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(7, 530);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 15);
+            this.label10.TabIndex = 332;
+            this.label10.Text = "Toplam Kayıt:";
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.label12);
+            this.tabPage6.Controls.Add(this.ChkTumunuGosterGorev);
+            this.tabPage6.Controls.Add(this.CmbYillarGorevlendirme);
+            this.tabPage6.Controls.Add(this.groupBox7);
+            this.tabPage6.Controls.Add(this.panel5);
+            this.tabPage6.Controls.Add(this.LblGorevlendirmeTamalanan);
+            this.tabPage6.Controls.Add(this.label17);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1549, 822);
+            this.tabPage6.TabIndex = 1;
+            this.tabPage6.Text = "TAMAMLANAN GÖREVLER";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label12
+            // 
+            this.label12.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(19, 19);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(31, 15);
+            this.label12.TabIndex = 540;
+            this.label12.Text = "YIL:";
+            // 
+            // ChkTumunuGosterGorev
+            // 
+            this.ChkTumunuGosterGorev.AutoSize = true;
+            this.ChkTumunuGosterGorev.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkTumunuGosterGorev.Location = new System.Drawing.Point(200, 17);
+            this.ChkTumunuGosterGorev.Name = "ChkTumunuGosterGorev";
+            this.ChkTumunuGosterGorev.Size = new System.Drawing.Size(146, 19);
+            this.ChkTumunuGosterGorev.TabIndex = 539;
+            this.ChkTumunuGosterGorev.Text = "TÜMÜNÜ GÖSTER";
+            this.ChkTumunuGosterGorev.UseVisualStyleBackColor = true;
+            this.ChkTumunuGosterGorev.CheckedChanged += new System.EventHandler(this.ChkTumunuGosterGorev_CheckedChanged);
+            // 
+            // CmbYillarGorevlendirme
+            // 
+            this.CmbYillarGorevlendirme.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbYillarGorevlendirme.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbYillarGorevlendirme.FormattingEnabled = true;
+            this.CmbYillarGorevlendirme.Location = new System.Drawing.Point(56, 15);
+            this.CmbYillarGorevlendirme.Name = "CmbYillarGorevlendirme";
+            this.CmbYillarGorevlendirme.Size = new System.Drawing.Size(121, 23);
+            this.CmbYillarGorevlendirme.TabIndex = 538;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.webBrowser4);
+            this.groupBox7.Location = new System.Drawing.Point(9, 572);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(686, 227);
+            this.groupBox7.TabIndex = 341;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "EKLER:";
+            // 
+            // webBrowser4
+            // 
+            this.webBrowser4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser4.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser4.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser4.Name = "webBrowser4";
+            this.webBrowser4.Size = new System.Drawing.Size(680, 208);
+            this.webBrowser4.TabIndex = 0;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.DtgGorevlendirmeTamamlanan);
+            this.panel5.Location = new System.Drawing.Point(6, 53);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(1537, 484);
+            this.panel5.TabIndex = 338;
+            // 
+            // DtgGorevlendirmeTamamlanan
+            // 
+            this.DtgGorevlendirmeTamamlanan.AllowUserToAddRows = false;
+            this.DtgGorevlendirmeTamamlanan.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgGorevlendirmeTamamlanan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            this.DtgGorevlendirmeTamamlanan.AutoGenerateContextFilters = true;
+            this.DtgGorevlendirmeTamamlanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgGorevlendirmeTamamlanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgGorevlendirmeTamamlanan.ContextMenuStrip = this.contextMenuStrip2;
+            this.DtgGorevlendirmeTamamlanan.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgGorevlendirmeTamamlanan.DateWithTime = false;
+            this.DtgGorevlendirmeTamamlanan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgGorevlendirmeTamamlanan.Location = new System.Drawing.Point(0, 0);
+            this.DtgGorevlendirmeTamamlanan.Name = "DtgGorevlendirmeTamamlanan";
+            this.DtgGorevlendirmeTamamlanan.ReadOnly = true;
+            this.DtgGorevlendirmeTamamlanan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgGorevlendirmeTamamlanan.Size = new System.Drawing.Size(1537, 484);
+            this.DtgGorevlendirmeTamamlanan.TabIndex = 3;
+            this.DtgGorevlendirmeTamamlanan.TimeFilter = false;
+            this.DtgGorevlendirmeTamamlanan.SortStringChanged += new System.EventHandler(this.DtgGorevlendirmeTamamlanan_SortStringChanged);
+            this.DtgGorevlendirmeTamamlanan.FilterStringChanged += new System.EventHandler(this.DtgGorevlendirmeTamamlanan_FilterStringChanged);
+            this.DtgGorevlendirmeTamamlanan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgGorevlendirmeTamamlanan_CellMouseClick);
+            // 
+            // LblGorevlendirmeTamalanan
+            // 
+            this.LblGorevlendirmeTamalanan.AutoSize = true;
+            this.LblGorevlendirmeTamalanan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGorevlendirmeTamalanan.Location = new System.Drawing.Point(106, 544);
+            this.LblGorevlendirmeTamalanan.Name = "LblGorevlendirmeTamalanan";
+            this.LblGorevlendirmeTamalanan.Size = new System.Drawing.Size(21, 15);
+            this.LblGorevlendirmeTamalanan.TabIndex = 333;
+            this.LblGorevlendirmeTamalanan.Text = "00";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(6, 544);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(94, 15);
+            this.label17.TabIndex = 332;
+            this.label17.Text = "Toplam Kayıt:";
+            // 
             // FrmYurtIciGorevIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.ClientSize = new System.Drawing.Size(1575, 921);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.tabControl1);
+            this.Controls.Add(this.tabControl2);
             this.Controls.Add(this.panel1);
             this.Name = "FrmYurtIciGorevIzleme";
             this.Text = "YurtIciGorevIzleme";
@@ -504,6 +831,22 @@ namespace UserInterface.IdariIsler
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.aaa.ResumeLayout(false);
+            this.tabControl3.ResumeLayout(false);
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGorevlendirmeDevamEden)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            this.panel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGorevlendirmeTamamlanan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder4)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -547,5 +890,31 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.ToolStripMenuItem konaklamaDetayıToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblGenelTop;
+        private System.Windows.Forms.CheckBox ChkTumunuGoster;
+        private System.Windows.Forms.ComboBox CmbYillar;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.TabPage aaa;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabControl tabControl3;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.WebBrowser webBrowser3;
+        private System.Windows.Forms.Panel panel4;
+        private ADGV.AdvancedDataGridView DtgGorevlendirmeDevamEden;
+        private System.Windows.Forms.Label LblGorevlendirmeDevam;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.CheckBox ChkTumunuGosterGorev;
+        private System.Windows.Forms.ComboBox CmbYillarGorevlendirme;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private System.Windows.Forms.WebBrowser webBrowser4;
+        private System.Windows.Forms.Panel panel5;
+        private ADGV.AdvancedDataGridView DtgGorevlendirmeTamamlanan;
+        private System.Windows.Forms.Label LblGorevlendirmeTamalanan;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.BindingSource dataBinder3;
+        private System.Windows.Forms.BindingSource dataBinder4;
     }
 }

@@ -162,7 +162,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return duranVarlikKayits;
             }
-            catch (Exception EX)
+            catch (Exception)
             {
                 return new List<DuranVarlikKayit>();
             }

@@ -52,7 +52,7 @@ namespace Business.Concreate.STS
             {
                 return reddedilenMalzemeDal.GetList(siparisno);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<ReddedilenMalzeme>();
             }

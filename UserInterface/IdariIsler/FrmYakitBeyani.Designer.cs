@@ -102,6 +102,7 @@ namespace UserInterface.IdariIsler
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
+            this.ChkAyrilanPersonel = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -311,6 +312,7 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ChkAyrilanPersonel);
             this.tabPage1.Controls.Add(this.TxtAlimTuru);
             this.tabPage1.Controls.Add(this.TxtPlaka);
             this.tabPage1.Controls.Add(this.TxtAciklama);
@@ -901,6 +903,17 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
+            // ChkAyrilanPersonel
+            // 
+            this.ChkAyrilanPersonel.AutoSize = true;
+            this.ChkAyrilanPersonel.Location = new System.Drawing.Point(400, 288);
+            this.ChkAyrilanPersonel.Name = "ChkAyrilanPersonel";
+            this.ChkAyrilanPersonel.Size = new System.Drawing.Size(133, 17);
+            this.ChkAyrilanPersonel.TabIndex = 353;
+            this.ChkAyrilanPersonel.Text = "AYRILAN PERSONEL";
+            this.ChkAyrilanPersonel.UseVisualStyleBackColor = true;
+            this.ChkAyrilanPersonel.CheckedChanged += new System.EventHandler(this.ChkAyrilanPersonel_CheckedChanged);
+            // 
             // FrmYakitBeyani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -996,5 +1009,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.ComboBox TxtPlaka;
         private System.Windows.Forms.ComboBox TxtAlimTuru;
         private System.Windows.Forms.ComboBox TxtAlimTuruGun;
+        private System.Windows.Forms.CheckBox ChkAyrilanPersonel;
     }
 }

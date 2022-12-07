@@ -13,7 +13,6 @@ namespace Business.Concreate.STS
     {
         static SatMailManager satMailManager;
         SatMailDal satMailDal;
-        string controlText;
 
         private SatMailManager()
         {

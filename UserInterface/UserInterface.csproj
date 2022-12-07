@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>456</ApplicationRevision>
+    <ApplicationRevision>461</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -517,6 +517,18 @@
     </Compile>
     <Compile Include="Butce\FrmButceKayit.Designer.cs">
       <DependentUpon>FrmButceKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmButceKayit2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmButceKayit2.Designer.cs">
+      <DependentUpon>FrmButceKayit2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmGenelButceIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmGenelButceIzleme.Designer.cs">
+      <DependentUpon>FrmGenelButceIzleme.cs</DependentUpon>
     </Compile>
     <Compile Include="Butce\FrmIsAvansTalep.cs">
       <SubType>Form</SubType>
@@ -1120,6 +1132,12 @@
     <Compile Include="STS\FrmSatBaslatmaOnayi.Designer.cs">
       <DependentUpon>FrmSatBaslatmaOnayi.cs</DependentUpon>
     </Compile>
+    <Compile Include="STS\FrmSatControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatControl.Designer.cs">
+      <DependentUpon>FrmSatControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="STS\FrmSatDosyaYoluDuzelt.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1149,6 +1167,12 @@
     </Compile>
     <Compile Include="STS\FrmSatOlusturAbf.Designer.cs">
       <DependentUpon>FrmSatOlusturAbf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatTalebi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatTalebi.Designer.cs">
+      <DependentUpon>FrmSatTalebi.cs</DependentUpon>
     </Compile>
     <Compile Include="STS\FrmTamamlananSat.cs">
       <SubType>Form</SubType>
@@ -1443,6 +1467,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Butce\FrmButceKayit.resx">
       <DependentUpon>FrmButceKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmButceKayit2.resx">
+      <DependentUpon>FrmButceKayit2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmGenelButceIzleme.resx">
+      <DependentUpon>FrmGenelButceIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Butce\FrmIsAvansTalep.resx">
       <DependentUpon>FrmIsAvansTalep.cs</DependentUpon>
@@ -1754,6 +1784,9 @@
     <EmbeddedResource Include="STS\FrmSatBaslatmaOnayi.resx">
       <DependentUpon>FrmSatBaslatmaOnayi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatControl.resx">
+      <DependentUpon>FrmSatControl.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmSatDosyaYoluDuzelt.resx">
       <DependentUpon>FrmSatDosyaYoluDuzelt.cs</DependentUpon>
     </EmbeddedResource>
@@ -1768,6 +1801,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmSatOlusturAbf.resx">
       <DependentUpon>FrmSatOlusturAbf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatTalebi.resx">
+      <DependentUpon>FrmSatTalebi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmTamamlananSat.resx">
       <DependentUpon>FrmTamamlananSat.cs</DependentUpon>

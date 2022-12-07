@@ -48,6 +48,7 @@ namespace UserInterface.Ana_Sayfa
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.button1 = new System.Windows.Forms.Button();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -72,11 +73,11 @@ namespace UserInterface.Ana_Sayfa
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(75, 45);
+            this.label2.Location = new System.Drawing.Point(80, 45);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 37);
+            this.label2.Size = new System.Drawing.Size(36, 37);
             this.label2.TabIndex = 3;
-            this.label2.Text = "10";
+            this.label2.Text = "0";
             // 
             // label1
             // 
@@ -103,11 +104,11 @@ namespace UserInterface.Ana_Sayfa
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(72, 50);
+            this.label5.Location = new System.Drawing.Point(89, 45);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(53, 37);
+            this.label5.Size = new System.Drawing.Size(36, 37);
             this.label5.TabIndex = 5;
-            this.label5.Text = "10";
+            this.label5.Text = "0";
             // 
             // label6
             // 
@@ -134,11 +135,11 @@ namespace UserInterface.Ana_Sayfa
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.White;
-            this.label3.Location = new System.Drawing.Point(75, 45);
+            this.label3.Location = new System.Drawing.Point(85, 45);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(53, 37);
+            this.label3.Size = new System.Drawing.Size(36, 37);
             this.label3.TabIndex = 3;
-            this.label3.Text = "10";
+            this.label3.Text = "0";
             // 
             // label4
             // 
@@ -221,6 +222,7 @@ namespace UserInterface.Ana_Sayfa
             this.button1.TabIndex = 47;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // ımageList1
@@ -230,11 +232,22 @@ namespace UserInterface.Ana_Sayfa
             this.ımageList1.Images.SetKeyName(0, "okey.png");
             this.ımageList1.Images.SetKeyName(1, "ok.png");
             // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(129, 298);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 48;
+            this.label7.Text = "label7";
+            this.label7.Visible = false;
+            // 
             // FrmBildirimler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1522, 738);
+            this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.groupBox2);
@@ -257,6 +270,7 @@ namespace UserInterface.Ana_Sayfa
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -279,5 +293,6 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.NotifyIcon notifyIcon1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.Label label7;
     }
 }

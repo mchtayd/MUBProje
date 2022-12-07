@@ -12,7 +12,6 @@ namespace Business.Concreate.IdarıIsler
     {
         static DVKayitManager kayitManager;
         DVKayitDal kayitDal;
-        string controlText;
 
         private DVKayitManager()
         {

@@ -117,6 +117,44 @@ namespace DataAccess.Concreate.BakimOnarim
                 return null;
             }
         }
+        public string BolgeProjeList(string bolgeAdi)
+        {
+            try
+            {
+                string proje = "";
+                dataReader = sqlServices.StoreReader("BolgeProjeBilgisiList", new SqlParameter("@bolgeAdi", bolgeAdi));
+                while (dataReader.Read())
+                {
+                    proje = dataReader["PROJE"].ToString();
+                }
+                dataReader.Close();
+                return proje;
+
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+        public string BolgeGarantiDurumList(string bolgeAdi)
+        {
+            try
+            {
+                string proje = "";
+                dataReader = sqlServices.StoreReader("BolgeGarantiDurumList", new SqlParameter("@bolgeAdi", bolgeAdi));
+                while (dataReader.Read())
+                {
+                    proje = dataReader["PROJE"].ToString();
+                }
+                dataReader.Close();
+                return proje;
+
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
 
         public List<BolgeKayit> GetList()
         {
@@ -153,6 +191,25 @@ namespace DataAccess.Concreate.BakimOnarim
                 return bolgeKayits;
             }
             catch (Exception)
+            {
+                return new List<BolgeKayit>();
+            }
+        }
+        public List<BolgeKayit> GetListBolgeKomutanlik(string il)
+        {
+            try
+            {
+                List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
+                dataReader = sqlServices.StoreReader("BolgeKomutanlikList", new SqlParameter("@il", il));
+                while (dataReader.Read())
+                {
+                    bolgeKayits.Add(new BolgeKayit(
+                        dataReader["BAGLI_OLDUGU_TUGAY"].ToString()));
+                }
+                dataReader.Close();
+                return bolgeKayits;
+            }
+            catch (Exception ex)
             {
                 return new List<BolgeKayit>();
             }

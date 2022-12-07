@@ -109,7 +109,7 @@ namespace DataAccess.Concreate
                 return gorevAtamaPersonels;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 dataReader.Close();
                 return new List<GorevAtamaPersonel>();
@@ -138,7 +138,7 @@ namespace DataAccess.Concreate
                 return gorevAtamaPersonels;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 dataReader.Close();
                 return new List<GorevAtamaPersonel>();
@@ -197,7 +197,7 @@ namespace DataAccess.Concreate
                 return gorevAtamaPersonels;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<GorevAtamaPersonel>();
             }

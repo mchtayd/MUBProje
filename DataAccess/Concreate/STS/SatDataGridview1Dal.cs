@@ -317,7 +317,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -363,7 +363,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -612,7 +612,7 @@ namespace DataAccess.Concreate
                 dataReader = sqlServices.StoreReader("SatOnaylananTeklifGuncelle", new SqlParameter("@siparisno", siparisno), new SqlParameter("@onaylananteklif", onaylananTeklif));
                 dataReader.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -624,7 +624,7 @@ namespace DataAccess.Concreate
                 dataReader = sqlServices.StoreReader("SatTeklifDurum", new SqlParameter("@siparisno", siparisno));
                 dataReader.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -638,7 +638,7 @@ namespace DataAccess.Concreate
                     new SqlParameter("@redNedeni", redNedeni));
                 dataReader.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -650,7 +650,7 @@ namespace DataAccess.Concreate
                 dataReader = sqlServices.StoreReader("SatDurumGnlMdr", new SqlParameter("@siparisno", siparisno));
                 dataReader.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -662,7 +662,7 @@ namespace DataAccess.Concreate
                 dataReader = sqlServices.StoreReader("SatFirmaBilgiGuncelle", new SqlParameter("@siparisno", siparisno));
                 dataReader.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
@@ -791,7 +791,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -848,7 +848,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -904,7 +904,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -961,7 +961,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -1018,7 +1018,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -1075,7 +1075,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -1132,7 +1132,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -1189,7 +1189,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }
@@ -1246,7 +1246,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satDatas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatDataGridview1>();
             }

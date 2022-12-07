@@ -13,7 +13,6 @@ namespace Business.Concreate.IdarıIsler
     {
         static ZimmetAktarimManager zimmetAktarimManager;
         ZimmetAktarimDal zimmetAktarimDal;
-        string controlText;
 
         private ZimmetAktarimManager()
         {

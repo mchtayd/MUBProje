@@ -269,7 +269,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

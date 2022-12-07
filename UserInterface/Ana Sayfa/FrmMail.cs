@@ -123,7 +123,7 @@ namespace UserInterface.Ana_Sayfa
                 }
                 client.Send(mailMessage);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // MessageBox.Show(ex.Message);
             }

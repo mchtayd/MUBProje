@@ -61,7 +61,7 @@ namespace DataAccess.Concreate.STS
                 return tamamlanans;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 dataReader.Close();
                 return new List<SatRapor>();
@@ -92,7 +92,7 @@ namespace DataAccess.Concreate.STS
                 return tamamlanans;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatRapor>();
             }

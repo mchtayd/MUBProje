@@ -206,7 +206,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return sicilNos;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return new List<PersonelKayit>();
             }
@@ -425,7 +425,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return personels;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<PersonelKayit>();
             }

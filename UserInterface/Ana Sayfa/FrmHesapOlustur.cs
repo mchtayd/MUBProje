@@ -139,7 +139,7 @@ namespace UserInterface.Ana_Sayfa
                     MessageBox.Show("Şifre kısmını boş bıraktığınız için 123456 standart şifresi tanımlanacaktır.", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     sifre = "123456";
                 }
-                int index = 0;
+                //int index = 0;
                 
                 string izinIdleri = "";
                 foreach (string item in ChcListBoxYetkiler.CheckedItems)
@@ -250,7 +250,6 @@ namespace UserInterface.Ana_Sayfa
                 }
             }
         }
-        bool start2 = false;
         private void ChcListBoxYetkiler_ItemCheck(object sender, ItemCheckEventArgs e)
         {
 

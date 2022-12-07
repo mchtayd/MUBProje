@@ -149,7 +149,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return performans;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<IscilikPerformans>();
             }
@@ -196,7 +196,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return performans;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<IscilikPerformans>();
             }

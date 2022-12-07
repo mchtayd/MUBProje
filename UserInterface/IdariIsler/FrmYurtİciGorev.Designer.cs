@@ -29,6 +29,7 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYurtİciGorev));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnKaydet = new System.Windows.Forms.Button();
@@ -220,6 +221,30 @@ namespace UserInterface.IdariIsler
             this.TxtGorevinKonusuGun = new System.Windows.Forms.TextBox();
             this.label64 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.LblIsAkis = new System.Windows.Forms.Label();
+            this.label101 = new System.Windows.Forms.Label();
+            this.BtnKaydett = new System.Windows.Forms.Button();
+            this.DtBitTarihi = new System.Windows.Forms.DateTimePicker();
+            this.DtBasTarihi = new System.Windows.Forms.DateTimePicker();
+            this.label99 = new System.Windows.Forms.Label();
+            this.label98 = new System.Windows.Forms.Label();
+            this.TxtGorevlendirmeNedeni = new System.Windows.Forms.RichTextBox();
+            this.label97 = new System.Windows.Forms.Label();
+            this.CmbPlaka = new System.Windows.Forms.ComboBox();
+            this.CmbBolgeKomutanlik = new System.Windows.Forms.ComboBox();
+            this.label94 = new System.Windows.Forms.Label();
+            this.CmbIlce = new System.Windows.Forms.ComboBox();
+            this.CmbIl = new System.Windows.Forms.ComboBox();
+            this.label95 = new System.Windows.Forms.Label();
+            this.label96 = new System.Windows.Forms.Label();
+            this.label93 = new System.Windows.Forms.Label();
+            this.LblTc = new System.Windows.Forms.Label();
+            this.LblUnvan = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.CmbPersonelAdi = new System.Windows.Forms.ComboBox();
+            this.label88 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
@@ -233,6 +258,7 @@ namespace UserInterface.IdariIsler
             this.groupBox4.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            this.tabPage3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -240,6 +266,7 @@ namespace UserInterface.IdariIsler
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -2177,6 +2204,258 @@ namespace UserInterface.IdariIsler
             this.label42.TabIndex = 13;
             this.label42.Text = "İŞ AKIŞ NO:";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.LblIsAkis);
+            this.tabPage3.Controls.Add(this.label101);
+            this.tabPage3.Controls.Add(this.BtnKaydett);
+            this.tabPage3.Controls.Add(this.DtBitTarihi);
+            this.tabPage3.Controls.Add(this.DtBasTarihi);
+            this.tabPage3.Controls.Add(this.label99);
+            this.tabPage3.Controls.Add(this.label98);
+            this.tabPage3.Controls.Add(this.TxtGorevlendirmeNedeni);
+            this.tabPage3.Controls.Add(this.label97);
+            this.tabPage3.Controls.Add(this.CmbPlaka);
+            this.tabPage3.Controls.Add(this.CmbBolgeKomutanlik);
+            this.tabPage3.Controls.Add(this.label94);
+            this.tabPage3.Controls.Add(this.CmbIlce);
+            this.tabPage3.Controls.Add(this.CmbIl);
+            this.tabPage3.Controls.Add(this.label95);
+            this.tabPage3.Controls.Add(this.label96);
+            this.tabPage3.Controls.Add(this.label93);
+            this.tabPage3.Controls.Add(this.LblTc);
+            this.tabPage3.Controls.Add(this.LblUnvan);
+            this.tabPage3.Controls.Add(this.label90);
+            this.tabPage3.Controls.Add(this.label89);
+            this.tabPage3.Controls.Add(this.CmbPersonelAdi);
+            this.tabPage3.Controls.Add(this.label88);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1549, 863);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "GÖREVLENDİRME";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // LblIsAkis
+            // 
+            this.LblIsAkis.AutoSize = true;
+            this.LblIsAkis.Location = new System.Drawing.Point(179, 40);
+            this.LblIsAkis.Name = "LblIsAkis";
+            this.LblIsAkis.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkis.TabIndex = 357;
+            this.LblIsAkis.Text = "00";
+            // 
+            // label101
+            // 
+            this.label101.AutoSize = true;
+            this.label101.Location = new System.Drawing.Point(108, 40);
+            this.label101.Name = "label101";
+            this.label101.Size = new System.Drawing.Size(66, 13);
+            this.label101.TabIndex = 356;
+            this.label101.Text = "İŞ AKIŞ NO:";
+            // 
+            // BtnKaydett
+            // 
+            this.BtnKaydett.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydett.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydett.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydett.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydett.Image")));
+            this.BtnKaydett.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydett.Location = new System.Drawing.Point(180, 452);
+            this.BtnKaydett.Name = "BtnKaydett";
+            this.BtnKaydett.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydett.TabIndex = 355;
+            this.BtnKaydett.Text = "     KAYDET";
+            this.BtnKaydett.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydett.UseVisualStyleBackColor = false;
+            this.BtnKaydett.Click += new System.EventHandler(this.BtnKaydett_Click);
+            // 
+            // DtBitTarihi
+            // 
+            this.DtBitTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtBitTarihi.Location = new System.Drawing.Point(180, 406);
+            this.DtBitTarihi.Name = "DtBitTarihi";
+            this.DtBitTarihi.Size = new System.Drawing.Size(208, 20);
+            this.DtBitTarihi.TabIndex = 170;
+            // 
+            // DtBasTarihi
+            // 
+            this.DtBasTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtBasTarihi.Location = new System.Drawing.Point(180, 372);
+            this.DtBasTarihi.Name = "DtBasTarihi";
+            this.DtBasTarihi.Size = new System.Drawing.Size(208, 20);
+            this.DtBasTarihi.TabIndex = 169;
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label99.Location = new System.Drawing.Point(94, 409);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(80, 15);
+            this.label99.TabIndex = 168;
+            this.label99.Text = "BİTİŞ TARİHİ:";
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label98.Location = new System.Drawing.Point(66, 375);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(108, 15);
+            this.label98.TabIndex = 167;
+            this.label98.Text = "BAŞLANIÇ TARİHİ:";
+            // 
+            // TxtGorevlendirmeNedeni
+            // 
+            this.TxtGorevlendirmeNedeni.Location = new System.Drawing.Point(180, 302);
+            this.TxtGorevlendirmeNedeni.Name = "TxtGorevlendirmeNedeni";
+            this.TxtGorevlendirmeNedeni.Size = new System.Drawing.Size(392, 56);
+            this.TxtGorevlendirmeNedeni.TabIndex = 166;
+            this.TxtGorevlendirmeNedeni.Text = "";
+            // 
+            // label97
+            // 
+            this.label97.AutoSize = true;
+            this.label97.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label97.Location = new System.Drawing.Point(9, 302);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(165, 15);
+            this.label97.TabIndex = 165;
+            this.label97.Text = "GÖREVLENDİRME NEDENİ:";
+            // 
+            // CmbPlaka
+            // 
+            this.CmbPlaka.FormattingEnabled = true;
+            this.CmbPlaka.Location = new System.Drawing.Point(180, 267);
+            this.CmbPlaka.Name = "CmbPlaka";
+            this.CmbPlaka.Size = new System.Drawing.Size(258, 21);
+            this.CmbPlaka.TabIndex = 164;
+            // 
+            // CmbBolgeKomutanlik
+            // 
+            this.CmbBolgeKomutanlik.FormattingEnabled = true;
+            this.CmbBolgeKomutanlik.Location = new System.Drawing.Point(180, 232);
+            this.CmbBolgeKomutanlik.Name = "CmbBolgeKomutanlik";
+            this.CmbBolgeKomutanlik.Size = new System.Drawing.Size(392, 21);
+            this.CmbBolgeKomutanlik.TabIndex = 163;
+            // 
+            // label94
+            // 
+            this.label94.AutoSize = true;
+            this.label94.Location = new System.Drawing.Point(73, 236);
+            this.label94.Name = "label94";
+            this.label94.Size = new System.Drawing.Size(101, 13);
+            this.label94.TabIndex = 162;
+            this.label94.Text = "KOMUTANLIKLAR:";
+            // 
+            // CmbIlce
+            // 
+            this.CmbIlce.FormattingEnabled = true;
+            this.CmbIlce.Location = new System.Drawing.Point(180, 197);
+            this.CmbIlce.Name = "CmbIlce";
+            this.CmbIlce.Size = new System.Drawing.Size(258, 21);
+            this.CmbIlce.TabIndex = 161;
+            // 
+            // CmbIl
+            // 
+            this.CmbIl.FormattingEnabled = true;
+            this.CmbIl.Location = new System.Drawing.Point(180, 162);
+            this.CmbIl.Name = "CmbIl";
+            this.CmbIl.Size = new System.Drawing.Size(258, 21);
+            this.CmbIl.TabIndex = 160;
+            this.CmbIl.SelectedValueChanged += new System.EventHandler(this.CmbIl_SelectedValueChanged);
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(141, 201);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(33, 13);
+            this.label95.TabIndex = 159;
+            this.label95.Text = "İLÇE:";
+            // 
+            // label96
+            // 
+            this.label96.AutoSize = true;
+            this.label96.Location = new System.Drawing.Point(155, 166);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(19, 13);
+            this.label96.TabIndex = 158;
+            this.label96.Text = "İL:";
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label93.Location = new System.Drawing.Point(127, 270);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(47, 15);
+            this.label93.TabIndex = 20;
+            this.label93.Text = "PLAKA:";
+            // 
+            // LblTc
+            // 
+            this.LblTc.AutoSize = true;
+            this.LblTc.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTc.Location = new System.Drawing.Point(180, 133);
+            this.LblTc.Name = "LblTc";
+            this.LblTc.Size = new System.Drawing.Size(21, 15);
+            this.LblTc.TabIndex = 19;
+            this.LblTc.Text = "00";
+            // 
+            // LblUnvan
+            // 
+            this.LblUnvan.AutoSize = true;
+            this.LblUnvan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblUnvan.Location = new System.Drawing.Point(180, 104);
+            this.LblUnvan.Name = "LblUnvan";
+            this.LblUnvan.Size = new System.Drawing.Size(21, 15);
+            this.LblUnvan.TabIndex = 18;
+            this.LblUnvan.Text = "00";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label90.Location = new System.Drawing.Point(149, 133);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(25, 15);
+            this.label90.TabIndex = 17;
+            this.label90.Text = "TC:";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label89.Location = new System.Drawing.Point(120, 104);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(54, 15);
+            this.label89.TabIndex = 16;
+            this.label89.Text = "ÜNVANI:";
+            // 
+            // CmbPersonelAdi
+            // 
+            this.CmbPersonelAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbPersonelAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbPersonelAdi.FormattingEnabled = true;
+            this.CmbPersonelAdi.Location = new System.Drawing.Point(180, 67);
+            this.CmbPersonelAdi.Name = "CmbPersonelAdi";
+            this.CmbPersonelAdi.Size = new System.Drawing.Size(258, 23);
+            this.CmbPersonelAdi.TabIndex = 15;
+            this.CmbPersonelAdi.SelectedIndexChanged += new System.EventHandler(this.CmbPersonelAdi_SelectedIndexChanged);
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label88.Location = new System.Drawing.Point(105, 71);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(69, 15);
+            this.label88.TabIndex = 14;
+            this.label88.Text = "AD SOYAD:";
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
@@ -2186,7 +2465,6 @@ namespace UserInterface.IdariIsler
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1557, 27);
             this.panel1.TabIndex = 317;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
             // button5
             // 
@@ -2234,6 +2512,8 @@ namespace UserInterface.IdariIsler
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -2433,5 +2713,29 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtGunlukToplamGun;
         private System.Windows.Forms.Label label87;
         private System.Windows.Forms.TextBox TxtGunlukToplam;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Label label90;
+        private System.Windows.Forms.Label label89;
+        private System.Windows.Forms.ComboBox CmbPersonelAdi;
+        private System.Windows.Forms.Label label88;
+        private System.Windows.Forms.Label LblTc;
+        private System.Windows.Forms.Label LblUnvan;
+        private System.Windows.Forms.Label label93;
+        private System.Windows.Forms.Label label94;
+        private System.Windows.Forms.ComboBox CmbIlce;
+        private System.Windows.Forms.ComboBox CmbIl;
+        private System.Windows.Forms.Label label95;
+        private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.ComboBox CmbBolgeKomutanlik;
+        private System.Windows.Forms.ComboBox CmbPlaka;
+        private System.Windows.Forms.RichTextBox TxtGorevlendirmeNedeni;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.Label label98;
+        private System.Windows.Forms.DateTimePicker DtBitTarihi;
+        private System.Windows.Forms.DateTimePicker DtBasTarihi;
+        private System.Windows.Forms.Button BtnKaydett;
+        private System.Windows.Forms.Label LblIsAkis;
+        private System.Windows.Forms.Label label101;
     }
 }

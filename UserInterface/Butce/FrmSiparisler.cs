@@ -54,9 +54,10 @@ namespace UserInterface.Butce
             Toplamlar2();
             MevcutKadro();
             Toplamlar2();
+            ToplamlarArac();
             SiparisDoldurNereden();
             SiparisDoldurNereye();
-            TOPA.Text = siparislerManager.ToplamArac().ToString();
+            //TOPA.Text = siparislerManager.ToplamArac().ToString();
             start = true;
         }
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -561,6 +562,8 @@ namespace UserInterface.Butce
         {
             dataBinder.Filter = DtgMevcutKadro.FilterString;
             Toplamlar();
+            Toplamlar2();
+            ToplamlarArac();
         }
 
         private void DtgMevcutKadro_SortStringChanged(object sender, EventArgs e)
@@ -926,6 +929,19 @@ namespace UserInterface.Butce
             }
             TOPP.Text = toplamPersonel.ToString();
         }
+        void ToplamlarArac()
+        {
+            double toplamArac = 0;
+            for (int i = 0; i < DtgMevcutKadro.Rows.Count; ++i)
+            {
+                if (DtgMevcutKadro.Rows[i].Cells[2].Value.ToString() != "N/A2021N/A10P0A")
+                {
+                    toplamArac += Convert.ToDouble(DtgMevcutKadro.Rows[i].Cells["Toplamarac"].Value);
+                }
+            }
+            TOPA.Text = toplamArac.ToString();
+        }
+
 
         private void BtnSiparisOlustur_Click(object sender, EventArgs e)
         {

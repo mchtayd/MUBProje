@@ -50,10 +50,12 @@ namespace DataAccess.Concreate.STS
                     new SqlParameter("@ucteklif", entity.Ucteklif),
                     new SqlParameter("@islemAdimi", entity.IslemAdimi),
                     new SqlParameter("@donem", entity.Donem),
-                    new SqlParameter("@satOlusturaTuru",entity.SatOlusturmaTuru),
-                    new SqlParameter("@proje",entity.Proje),
-                    new SqlParameter("@satinAlinanFirma",entity.SatinAlinanFirma),
-                    new SqlParameter("@harcamaYapan",entity.HarcamaYapan));
+                    new SqlParameter("@satOlusturaTuru", entity.SatOlusturmaTuru),
+                    new SqlParameter("@proje", entity.Proje),
+                    new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma),
+                    new SqlParameter("@harcamaYapan", entity.HarcamaYapan),
+                    new SqlParameter("@usProjeNo", entity.UsProjeNo),
+                    new SqlParameter("@garantiDurumu", entity.GarantiDurumu));
 
 
                 dataReader.Close();
@@ -94,6 +96,13 @@ namespace DataAccess.Concreate.STS
                 dataReader = sqlServices.StoreReader("SatTamamlananlarListele",new SqlParameter("@yil", yil),new SqlParameter("@yildanFalza", yildanfalza.ToString()));
                 while (dataReader.Read())
                 {
+                    DateTime startDate = dataReader["ISTENEN_TARIH"].ConDate();
+                    TimeSpan gecenSure = dataReader["TAMAMLANAN_TARIH"].ConDate() - startDate;
+                    int gun = gecenSure.TotalDays.ConInt();
+
+                    string sure = gun.ToString() + " Gün";
+
+
                     tamamlanans.Add(new Tamamlanan(
                         dataReader["ID"].ConInt(),
                         dataReader["SAT_FORM_NO"].ConInt(),
@@ -124,13 +133,16 @@ namespace DataAccess.Concreate.STS
                         dataReader["SAT_OLUSTURMA_TURU"].ToString(),
                         dataReader["PROJE"].ToString(),
                         dataReader["SATIN_ALINAN_FIRMA"].ToString(),
-                        dataReader["HARCAMA_YAPAN"].ToString()));
+                        dataReader["HARCAMA_YAPAN"].ToString(),
+                        sure,
+                        dataReader["US_PROJE_NO"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Tamamlanan>();
             }
@@ -149,7 +161,7 @@ namespace DataAccess.Concreate.STS
                 return yillar;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<string>();
             }
@@ -162,6 +174,12 @@ namespace DataAccess.Concreate.STS
                 dataReader = sqlServices.StoreReader("SatTamamlananlarDirektorluk");
                 while (dataReader.Read())
                 {
+                    DateTime startDate = dataReader["ISTENEN_TARIH"].ConDate();
+                    TimeSpan gecenSure = dataReader["TAMAMLANAN_TARIH"].ConDate() - startDate;
+                    int gun = gecenSure.TotalDays.ConInt();
+
+                    string sure = gun.ToString() + " Gün";
+
                     tamamlanans.Add(new Tamamlanan(
                         dataReader["ID"].ConInt(),
                         dataReader["SAT_FORM_NO"].ConInt(),
@@ -192,13 +210,16 @@ namespace DataAccess.Concreate.STS
                         dataReader["SAT_OLUSTURMA_TURU"].ToString(),
                         dataReader["PROJE"].ToString(),
                         dataReader["SATIN_ALINAN_FIRMA"].ToString(),
-                        dataReader["HARCAMA_YAPAN"].ToString()));
+                        dataReader["HARCAMA_YAPAN"].ToString(),
+                        sure,
+                        dataReader["US_PROJE_NO"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Tamamlanan>();
             }
@@ -227,6 +248,12 @@ namespace DataAccess.Concreate.STS
                 dataReader = sqlServices.StoreReader("SatTamamlananTumu", new SqlParameter("@isAkisNo", isAkisNo));
                 while (dataReader.Read())
                 {
+                    DateTime startDate = dataReader["ISTENEN_TARIH"].ConDate();
+                    TimeSpan gecenSure = dataReader["TAMAMLANAN_TARIH"].ConDate() - startDate;
+                    int gun = gecenSure.TotalDays.ConInt();
+
+                    string sure = gun.ToString() + " Gün";
+
                     tamamlanans.Add(new Tamamlanan(
                         dataReader["ID"].ConInt(),
                         dataReader["SAT_FORM_NO"].ConInt(),
@@ -257,13 +284,16 @@ namespace DataAccess.Concreate.STS
                         dataReader["SAT_OLUSTURMA_TURU"].ToString(),
                         dataReader["PROJE"].ToString(),
                         dataReader["SATIN_ALINAN_FIRMA"].ToString(),
-                        dataReader["HARCAMA_YAPAN"].ToString()));
+                        dataReader["HARCAMA_YAPAN"].ToString(),
+                        sure,
+                        dataReader["US_PROJE_NO"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Tamamlanan>();
             }

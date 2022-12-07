@@ -416,6 +416,7 @@ namespace UserInterface.STS
             this.malzemeİstekFormuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.PnlBildirim = new System.Windows.Forms.Panel();
             this.webContent = new System.Windows.Forms.WebBrowser();
+            this.envanterArızaKayıtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1591,7 +1592,8 @@ namespace UserInterface.STS
             this.konaklamaToolStripMenuItem1,
             this.uçakVeOtobüsBiletiToolStripMenuItem,
             this.harcamaBeyannamesiToolStripMenuItem,
-            this.malzemeİstekFormuToolStripMenuItem});
+            this.malzemeİstekFormuToolStripMenuItem,
+            this.envanterArızaKayıtToolStripMenuItem});
             this.toolStripDropDownButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton6.Image")));
             this.toolStripDropDownButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton6.Name = "toolStripDropDownButton6";
@@ -1663,6 +1665,14 @@ namespace UserInterface.STS
             this.webContent.Name = "webContent";
             this.webContent.Size = new System.Drawing.Size(265, 656);
             this.webContent.TabIndex = 668;
+            this.webContent.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webContent_DocumentCompleted);
+            // 
+            // envanterArızaKayıtToolStripMenuItem
+            // 
+            this.envanterArızaKayıtToolStripMenuItem.Name = "envanterArızaKayıtToolStripMenuItem";
+            this.envanterArızaKayıtToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.envanterArızaKayıtToolStripMenuItem.Text = "Envanter Arıza Kayıt";
+            this.envanterArızaKayıtToolStripMenuItem.Click += new System.EventHandler(this.envanterArızaKayıtToolStripMenuItem_Click);
             // 
             // FrmAnaSayfa
             // 
@@ -1781,5 +1791,6 @@ namespace UserInterface.STS
         public System.Windows.Forms.Button BtnBildirim;
         public System.Windows.Forms.Panel PnlBildirim;
         public System.Windows.Forms.WebBrowser webContent;
+        private System.Windows.Forms.ToolStripMenuItem envanterArızaKayıtToolStripMenuItem;
     }
 }

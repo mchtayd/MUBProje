@@ -33,7 +33,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satNo;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return 0;
             }

@@ -95,7 +95,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -130,7 +130,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -165,7 +165,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -252,7 +252,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return malzemes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Malzeme>();
             }
@@ -288,7 +288,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -323,7 +323,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return malzemes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Malzeme>();
             }
@@ -360,7 +360,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return malzemes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Malzeme>();
             }

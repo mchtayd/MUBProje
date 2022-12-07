@@ -15,7 +15,6 @@ namespace DataAccess.Concreate
         static SatTalebiDoldurDal satMalListDal;
         SqlServices sqlServices;
         SqlDataReader dataReader;
-        bool result;
         private SatTalebiDoldurDal()
         {
             sqlServices = SqlDatabase.GetInstance();
@@ -61,7 +60,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -80,7 +79,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satTalebiDoldurs;
             }
-            catch(Exception ex)
+            catch(Exception)
             {
                 return new List<SatTalebiDoldur>();
             }
@@ -100,7 +99,7 @@ namespace DataAccess.Concreate
                 dataReader.Close();
                 return satTalebiDoldurs;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SatTalebiDoldur>();
             }

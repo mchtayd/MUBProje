@@ -103,7 +103,7 @@ namespace DataAccess.Concreate.Yerleskeler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -166,7 +166,7 @@ namespace DataAccess.Concreate.Yerleskeler
                 dataReader.Close();
                 return yerleskes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Yerleske>();
             }

@@ -11,9 +11,9 @@ namespace Business.Concreate.STS
 {
     public class TekliflerOnaylananManager : IRepository<TekliflerOnaylanan>
     {
-        static TekliflerOnaylananManager tekliflerOnaylananManager;
-        TekilflerOnaylananDal tekliflerDal;
-        string controlText;
+        //static TekliflerOnaylananManager tekliflerOnaylananManager;
+        //TekilflerOnaylananDal tekliflerDal;
+        //string controlText;
         public string Add(TekliflerOnaylanan entity)
         {
             throw new NotImplementedException();

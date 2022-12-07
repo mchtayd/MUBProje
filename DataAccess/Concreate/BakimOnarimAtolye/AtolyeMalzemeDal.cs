@@ -76,7 +76,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyeMalzemes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
@@ -104,7 +104,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyeMalzemes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -132,7 +132,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyeMalzemes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<AtolyeMalzeme>();
             }

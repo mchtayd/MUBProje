@@ -110,7 +110,7 @@ namespace DataAccess.Concreate.Depo
                 dataReader.Close();
                 return depoKayits;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<DepoKayitLokasyon>();
             }

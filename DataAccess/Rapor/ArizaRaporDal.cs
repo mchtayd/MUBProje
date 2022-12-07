@@ -69,7 +69,7 @@ namespace DataAccess.Rapor
                 return arizaRapors;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return new List<ArizaRapor>();

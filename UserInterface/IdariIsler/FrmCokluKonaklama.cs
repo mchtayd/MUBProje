@@ -71,7 +71,7 @@ namespace UserInterface.IdariIsler
                     }
                 }
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }

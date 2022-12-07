@@ -97,7 +97,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return pyps;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Pyp>();
             }

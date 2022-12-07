@@ -72,15 +72,30 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<YurtIciGorev> GetList(string durum)
+        public List<YurtIciGorev> GetList(string durum, int yil)
         {
             try
             {
-                return yurtIciGorevDal.GetList(durum);
+                if (yil == 0)
+                {
+                    return yurtIciGorevDal.GetList(durum, "");
+                }
+                return yurtIciGorevDal.GetList(durum, yil.ToString());
             }
             catch (Exception)
             {
                 return new List<YurtIciGorev>();
+            }
+        }
+        public List<string> Yillar()
+        {
+            try
+            {
+                return yurtIciGorevDal.Yillar();
+            }
+            catch (Exception)
+            {
+                return new List<string>();
             }
         }
 

@@ -57,7 +57,7 @@ namespace Business.Concreate.BakimOnarimAtolye
             {
                 return atolyeMalzemeDal.AtolyeBakimOnarimMalzeme();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

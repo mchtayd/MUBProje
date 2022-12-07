@@ -13,7 +13,6 @@ namespace Business.Concreate.BakimOnarim
     {
         static IscilikDestekTabloManager destekTabloManager;
         IscilikDestekTabloDal destekTabloDal;
-        string controlText;
 
         private IscilikDestekTabloManager()
         {

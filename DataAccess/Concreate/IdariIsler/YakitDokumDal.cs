@@ -213,7 +213,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return yakitDokums;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<YakitDokum>();
             }
@@ -247,7 +247,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return yakitDokums;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<YakitDokum>();
             }
@@ -308,7 +308,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return yakitDokums;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<YakitDokum>();
             }
@@ -337,7 +337,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return yakitDokums;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<YakitDokum>();
             }

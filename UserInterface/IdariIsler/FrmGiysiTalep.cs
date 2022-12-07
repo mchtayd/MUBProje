@@ -398,7 +398,7 @@ namespace UserInterface.IdariIsler
                 }
                 client.Send(mailMessage);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //  MessageBox.Show(ex.Message);
             }

@@ -153,7 +153,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return servisFormus;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<ServisFormu>();
             }

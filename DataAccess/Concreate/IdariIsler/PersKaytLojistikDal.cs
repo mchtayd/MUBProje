@@ -48,7 +48,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return persKayts;
             }
-            catch(Exception EX)
+            catch(Exception)
             {
                 return new List<PersKaytLojistik>();
             }

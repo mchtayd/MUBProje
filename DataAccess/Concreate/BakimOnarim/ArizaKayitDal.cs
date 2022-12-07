@@ -347,12 +347,12 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public List<ArizaKayit> GetList()
+        public List<ArizaKayit> GetList(string bolgeAdi)
         {
             try
             {
                 List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
-                dataReader = sqlServices.StoreReader("BakimOnarimArizaKayitList");
+                dataReader = sqlServices.StoreReader("BakimOnarimArizaKayitList",new SqlParameter("@usBolgesiAdi", bolgeAdi));
                 while (dataReader.Read())
                 {
                     arizaKayits.Add(new ArizaKayit(

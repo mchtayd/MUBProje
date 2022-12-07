@@ -102,8 +102,6 @@ namespace UserInterface.STS
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.TxtGerekce = new System.Windows.Forms.RichTextBox();
             this.iii = new System.Windows.Forms.GroupBox();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.label88 = new System.Windows.Forms.Label();
             this.groupBox2.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -112,7 +110,6 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatOlusturan)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.iii.SuspendLayout();
-            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -848,32 +845,12 @@ namespace UserInterface.STS
             this.iii.TabStop = false;
             this.iii.Text = "GEREKÇE";
             // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.label88);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 27);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1557, 897);
-            this.panel2.TabIndex = 33;
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label88.Location = new System.Drawing.Point(50, 34);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(281, 18);
-            this.label88.TabIndex = 0;
-            this.label88.Text = "BU SAYFA KULLANIMDA DEĞİLDİR!";
-            // 
             // FrmSatOnOnay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.iii);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox1);
@@ -896,8 +873,6 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatOlusturan)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.iii.ResumeLayout(false);
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -975,7 +950,5 @@ namespace UserInterface.STS
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.RichTextBox TxtGerekce;
         private System.Windows.Forms.GroupBox iii;
-        private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label label88;
     }
 }

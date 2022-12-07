@@ -26,7 +26,8 @@ namespace UserInterface.IdariIsler
         YakitManager yakitManager;
         IdariIslerLogManager logManager;
         AracZimmetiManager aracZimmetiManager;
-        string dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun;
+        IstenAyrilisManager ıstenAyrilisManager;
+        //string dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun;
         bool dosyaControl = false;
         public object[] infos;
         int id;
@@ -40,6 +41,7 @@ namespace UserInterface.IdariIsler
             yakitManager = YakitManager.GetInstance();
             logManager = IdariIslerLogManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
+            ıstenAyrilisManager = IstenAyrilisManager.GetInstance();
         }
 
         private void FrmYakitBeyani_Load(object sender, EventArgs e)
@@ -82,6 +84,14 @@ namespace UserInterface.IdariIsler
             CmbPersonelGun.DisplayMember = "Adsoyad";
             CmbPersonelGun.SelectedValue = "";
         }
+        void PersonellerAyrilan()
+        {
+            CmbPersonel.DataSource = ıstenAyrilisManager.GetList();
+            CmbPersonel.ValueMember = "Id";
+            CmbPersonel.DisplayMember = "Adsoyad";
+            CmbPersonel.SelectedValue = "";
+        }
+
         private void BtnCancel_Click(object sender, EventArgs e)
         {
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)System.Windows.Forms.Application.OpenForms["FrmAnasayfa"];
@@ -276,6 +286,19 @@ namespace UserInterface.IdariIsler
                 TemizleGun();
             }
         }
+
+        private void ChkAyrilanPersonel_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkAyrilanPersonel.Checked == true)
+            {
+                PersonellerAyrilan();
+            }
+            else
+            {
+                Personeller();
+            }
+        }
+
         void TemizleGun()
         {
             TxtIsAkisNo.Clear(); TxtPlakaGun.Clear(); TxtKmGun.Clear(); TxtLitreGun.Clear(); CmbYakitTuruGun.Text = "";

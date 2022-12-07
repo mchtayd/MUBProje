@@ -44,7 +44,7 @@ namespace DataAccess
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -70,7 +70,7 @@ namespace DataAccess
                 dataReader.Close();
                 return ısAkisNos;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<IsAkisNo>();
             }

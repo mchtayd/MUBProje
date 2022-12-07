@@ -1,4 +1,6 @@
-﻿using DataAccess.Concreate;
+﻿using Business.Concreate.AnaSayfa;
+using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,14 +18,53 @@ namespace UserInterface.Ana_Sayfa
 {
     public partial class FrmBildirimler : Form
     {
+        public object[] infos;
+        LogManager logManager;
+        string dosyaYolu = @"Z:\DTS\info\ou\notification.txt";
         public FrmBildirimler()
         {
             InitializeComponent();
+            logManager = LogManager.GetInstance();
         }
 
         private void FrmBildirimler_Load(object sender, EventArgs e)
         {
+            DosyaControl();
+        }
 
+        public void DosyaControl()
+        {
+            string icerik = File.ReadAllText(dosyaYolu);
+            if (icerik=="")
+            {
+                return;
+            }
+            string[] array = icerik.Split('\n');
+            for (int i = 0; i < array.Length; i++)
+            {
+                string[] arrayIcerik = array[i].ToString().Split(' ');
+                string[] arrayIdler = arrayIcerik[arrayIcerik.Length - 1].ToString().Split(';');
+                for (int j = 0; j < arrayIdler.Length; j++)
+                {
+                    if (infos[0].ConInt() == arrayIdler[j].ConInt())
+                    {
+                        string bildirimMetin = "";
+                        string baslik = arrayIcerik[0] + " " + arrayIcerik[1] + " " + arrayIcerik[2];
+
+                        for (int k = 3; k < arrayIcerik.Length; k++)
+                        {
+                            if (arrayIcerik.Length-1 == k)
+                            {
+                                continue;
+                            }
+                            bildirimMetin += arrayIcerik[k] + " ";
+                        }
+
+                        FrmHelper.Bildirim(baslik, "\n" + bildirimMetin, ımageList1.Images["okey.png"], infos[1].ToString(), arrayIcerik[arrayIcerik.Length - 1]);
+
+                    }
+                }
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -51,10 +92,46 @@ namespace UserInterface.Ana_Sayfa
             notifyIcon1.ShowBalloonTip(100);
         }
 
+        
+
         private void button1_Click(object sender, EventArgs e)
         {
+            string[] array = new string[8];
 
-            FrmHelper.Bildirim("DTS BİLGİ(Saha Bildirim Güncelleme)", "Mücahit AYDEMİR\n\n220546 Form numaralı Stine Tepe Üs Bölgesi \nDRAGONEYE B/O \n700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!", ımageList1.Images["okey.png"]);
+            array[0] = "Saha Bildirim Güncelleme"; // Bildirim Başlık
+            array[1] = "Mücahit AYDEMİR"; // Bildirim Sahibi Personel
+            array[2] = "220546"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "Form numaralı"; // Bildirim türü
+            array[4] = "Stine Tepe Üs Bölgesi"; // İÇERİK
+            array[5] = "DRAGONEYE B/O arızasını";
+            array[6] = "700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!";
+            array[7] = "25"; // ilgili id
+
+
+            string txtMetin = array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5]+ " " + array[6] + " " + array[7];
+            string bildirimMetin = array[1] + " " + array[2] + " " + array[3] + "\n" + array[4] + "\n" + array[5] + "\n" + array[6];
+
+
+            FrmHelper.TxtBildirimEdit(txtMetin);
+            StreamWriter streamWriter = new StreamWriter(dosyaYolu, true);
+            streamWriter.WriteLine(txtMetin);
+            streamWriter.Close();
+
+            //label7.Text = File.ReadAllText(dosyaYolu);
+
+            //FrmHelper.Bildirim(array[0], "\n" + bildirimMetin, ımageList1.Images["okey.png"], infos[1].ToString(), array[7]);
+
+
+            Log log = new Log(array[0], bildirimMetin, DateTime.Now, infos[1].ToString(), array[array.Length - 1]);
+            string mesaj = logManager.Add(log);
+
+            if (mesaj!="OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DosyaControl();
 
             //PopupNotifier popup = new PopupNotifier();
 

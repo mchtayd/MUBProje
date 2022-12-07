@@ -93,7 +93,7 @@ namespace DataAccess.Concreate.Depo
                 dataReader.Close();
                 return malzemeKayits;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<DestekDepoKimyasalUrunler>();
             }

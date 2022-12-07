@@ -19,8 +19,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
         List<Malzeme> malzemes;
         List<Malzeme> malzemesFiltired;
 
-        List<MalzemeStok> malzemeStoks;
-        List<MalzemeStok> malzemeStokssFiltired;
+        //List<MalzemeStok> malzemeStoks;
+        //List<MalzemeStok> malzemeStokssFiltired;
 
         MalzemeManager malzemeManage;
         MalzemeKayitManager kayitManager;

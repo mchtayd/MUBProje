@@ -1,10 +1,12 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
 using Entity;
+using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using Entity.STS;
 using Microsoft.Office.Interop.Word;
@@ -36,6 +38,11 @@ namespace UserInterface.IdariIsler
         IsAkisNoManager isAkisNoManager;
         PersonelKayitManager kayitManager;
         ComboManager comboManager;
+        TedarikciFirmaManager tedarikciFirmaManager;
+        BolgeKayitManager bolgeKayitManager;
+        AracZimmetiManager aracZimmetiManager;
+        GorevlendirmeManager gorevlendirmeManager;
+
         string satno, siparis, usamirbolum, usamirisim, islemadimi, dosya, dosyaGun, siparisNo, masrafyerino, talepeden, bolum, projekodu, gerekce, harcamaturu, faturafirma, ilgilikisi, masrafyeri, donem, yeniad;
         int sayi, id, yurticiid, satNo;
         bool start = false, start2 = true, start3 = false, start4 = true;
@@ -61,6 +68,10 @@ namespace UserInterface.IdariIsler
             isAkisNoManager = IsAkisNoManager.GetInstance();
             kayitManager = PersonelKayitManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            tedarikciFirmaManager = TedarikciFirmaManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
+            aracZimmetiManager = AracZimmetiManager.GetInstance();
+            gorevlendirmeManager = GorevlendirmeManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -94,10 +105,14 @@ namespace UserInterface.IdariIsler
         private void FrmYurtİciGorev_Load(object sender, EventArgs e)
         {
             IsAkisNo();
+            IsAkisNoGorevlendirme();
             Personeller1();
             Personeller2();
             ComboProje();
             ComboProje2();
+            PersonellerGorevlendirme();
+            CmbIlYükle();
+            Plaka();
             //Siparisler();
             //Siparis();
             SatDoldur();
@@ -134,12 +149,25 @@ namespace UserInterface.IdariIsler
             //Siparis();
             SatDoldur();
         }
+        void CmbIlYükle()
+        {
+            CmbIl.DataSource = tedarikciFirmaManager.Iller();
+            CmbIl.SelectedIndex = -1;
+            CmbIlce.Text = "";
+        }
         void Personeller1()
         {
             CmbAdSoyad.DataSource = kayitManager.PersonelAdSoyad();
             CmbAdSoyad.ValueMember = "Id";
             CmbAdSoyad.DisplayMember = "Adsoyad";
             CmbAdSoyad.SelectedValue = -1;
+        }
+        void PersonellerGorevlendirme()
+        {
+            CmbPersonelAdi.DataSource = kayitManager.PersonelAdSoyad();
+            CmbPersonelAdi.ValueMember = "Id";
+            CmbPersonelAdi.DisplayMember = "Adsoyad";
+            CmbPersonelAdi.SelectedValue = -1;
         }
         void Personeller2()
         {
@@ -167,6 +195,12 @@ namespace UserInterface.IdariIsler
             isAkisNoManager.Update();
             IsAkisNo isAkis = isAkisNoManager.Get();
             LblIsAkisNo.Text = isAkis.Id.ToString();
+        }
+        void IsAkisNoGorevlendirme()
+        {
+            isAkisNoManager.Update();
+            IsAkisNo isAkis = isAkisNoManager.Get();
+            LblIsAkis.Text = isAkis.Id.ToString();
         }
         /*void Siparisler()
         {
@@ -512,17 +546,6 @@ namespace UserInterface.IdariIsler
             }
 
             File.Copy(kaynak + "MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01)2.docx", yol + "MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01)2.docx");
-
-
-            /*var dosyalar = new DirectoryInfo(kaynak).GetFiles("*.docx");
-
-
-
-            foreach (FileInfo item in dosyalar)
-            {
-                item.CopyTo(yol + item.Name);
-            }*/
-
             taslakYolu = yol + "MP-FR-155 DTS_YURT İÇİ GÖREV FORMU REV (01)2.docx";
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -1364,11 +1387,196 @@ namespace UserInterface.IdariIsler
         {
             TxtGunlukToplam.Text = GunlukToplam();
         }
-
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        string GorevlendirmeControl()
         {
+            if (CmbPersonelAdi.Text=="")
+            {
+                return "Lütfen Personel Adı bilgisini doldurunuz!";
+            }
+            if (CmbIl.Text == "")
+            {
+                return "Lütfen İl bilgisini doldurunuz!";
+            }
+            if (CmbIlce.Text == "")
+            {
+                return "Lütfen İlçe bilgisini doldurunuz!";
+            }
+            if (CmbBolgeKomutanlik.Text == "")
+            {
+                return "Lütfen Komutanlıklar bilgisini doldurunuz!";
+            }
+            if (TxtGorevlendirmeNedeni.Text == "")
+            {
+                return "Lütfen Görevlendirme Nedeni bilgisini doldurunuz!";
+            }
+            return "OK";
+        }
+        void CreateFileGorevlendirme()
+        {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\İDARİ İŞLER\";
+            string anadosya = @"Z:\DTS\İDARİ İŞLER\GÖREVLENDİRME\";
+
+            /*string root = @"D:\DTS";
+            string subdir = @"D:\DTS\İDARİ İŞLER\";
+            string anadosya = @"D:\DTS\İDARİ İŞLER\YURT İÇİ GÖREV\";*/
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+            if (!Directory.Exists(anadosya))
+            {
+                Directory.CreateDirectory(anadosya);
+            }
+
+            dosya = anadosya + LblIsAkis.Text + "\\";
+            Directory.CreateDirectory(dosya);
 
         }
+
+        void TaslakKopyalaGorevlendirme()
+        {
+            string root = @"C:\DTS";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(yol))
+            {
+                Directory.CreateDirectory(yol);
+            }
+
+            File.Copy(kaynak + "MP-FR-172 GÖREVLENDİRME BELGESİ REV (00).docx", yol + "MP-FR-172 GÖREVLENDİRME BELGESİ REV (00).docx");
+            taslakYolu = yol + "MP-FR-172 GÖREVLENDİRME BELGESİ REV (00).docx";
+        }
+
+        void CreateWordGorevlendirme()
+        {
+            Application wApp = new Application();
+            Documents wDocs = wApp.Documents;
+            object filePath = taslakYolu;
+            
+
+            Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
+            wDoc.Activate();
+
+            Bookmarks wBookmarks = wDoc.Bookmarks;
+            wBookmarks["Tarih"].Range.Text = DateTime.Now.ToString("d");
+            wBookmarks["AdSoyad"].Range.Text = CmbPersonelAdi.Text;
+            wBookmarks["Unvani"].Range.Text = LblUnvan.Text;
+            wBookmarks["Tc"].Range.Text = LblTc.Text;
+            wBookmarks["Il"].Range.Text = CmbIl.Text;
+            wBookmarks["Ilce"].Range.Text = CmbIlce.Text;
+            wBookmarks["Tugay"].Range.Text = CmbBolgeKomutanlik.Text;
+            wBookmarks["Plaka"].Range.Text = CmbPlaka.Text;
+            wBookmarks["GorevlendirmeNedeni"].Range.Text = TxtGorevlendirmeNedeni.Text;
+            wBookmarks["BasTarihi"].Range.Text = DtBasTarihi.Value.ToString("d");
+            wBookmarks["BitTarihi"].Range.Text = DtBitTarihi.Value.ToString("d");
+            
+
+            wDoc.SaveAs2(dosya + LblIsAkis.Text + ".docx");
+            wDoc.Close();
+            wApp.Quit(false);
+        }
+
+        private void BtnKaydett_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                
+                CreateFileGorevlendirme();
+                TaslakKopyalaGorevlendirme();
+
+                Gorevlendirme gorevlendirme = new Gorevlendirme(LblIsAkis.Text.ConInt(), CmbPersonelAdi.Text, LblUnvan.Text, LblTc.Text, CmbIl.Text, CmbIlce.Text, CmbBolgeKomutanlik.Text, CmbPlaka.Text, TxtGorevlendirmeNedeni.Text, DtBasTarihi.Value, DtBitTarihi.Value, dosya, "DEVAM EDIYOR");
+
+                string mesaj = gorevlendirmeManager.Add(gorevlendirme);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                
+                CreateWordGorevlendirme();
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    Directory.Delete(yol, true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    File.Delete(taslakYolu);
+                }
+                TemizleGorevlendirme();
+                IsAkisNoGorevlendirme();
+            }
+            
+        }
+        void TemizleGorevlendirme()
+        {
+            CmbPersonelAdi.SelectedIndex = -1; LblUnvan.Text = "00"; LblTc.Text = "00"; CmbIl.SelectedIndex = -1; CmbIlce.SelectedIndex = -1; CmbBolgeKomutanlik.SelectedIndex = -1; CmbPlaka.Text = ""; TxtGorevlendirmeNedeni.Clear();
+        }
+
+        private void CmbPersonelAdi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            PersonelKayit personelKayit = kayitManager.Get(0, CmbPersonelAdi.Text);
+            if (personelKayit==null)
+            {
+                return;
+            }
+            LblUnvan.Text = personelKayit.Isunvani;
+            LblTc.Text = personelKayit.Tc;
+
+            AracZimmeti aracZimmeti = aracZimmetiManager.GetAdSoyad(CmbPersonelAdi.Text);
+            if (aracZimmeti==null)
+            {
+                CmbPlaka.Text = "";
+                return;
+            }
+            else
+            {
+                CmbPlaka.Text = aracZimmeti.Plaka;
+            }
+
+        }
+        void Plaka()
+        {
+            CmbPlaka.DataSource = aracZimmetiManager.GetList();
+            CmbPlaka.ValueMember = "Id";
+            CmbPlaka.DisplayMember = "Plaka";
+            CmbPlaka.SelectedValue = -1;
+        }
+        string il;
+        List<BolgeKayit> bolgeKayits;
+        private void CmbIl_SelectedValueChanged(object sender, EventArgs e)
+        {
+            il = CmbIl.Text;
+            CmbIlceYükle();
+
+            bolgeKayits = bolgeKayitManager.GetListBolgeKomutanlik(il);
+            CmbBolgeKomutanlik.DataSource = bolgeKayits;
+            CmbBolgeKomutanlik.ValueMember = "Id";
+            CmbBolgeKomutanlik.DisplayMember = "Tugay";
+            CmbBolgeKomutanlik.SelectedValue = -1;
+
+        }
+        void CmbIlceYükle()
+        {
+            if (start==false)
+            {
+                return;
+            }
+            CmbIlce.DataSource = tedarikciFirmaManager.Ilceler(il);
+            CmbIlce.SelectedIndex = -1;
+            CmbIlce.Text = "";
+        }
+
 
         private void TxtIaseGunTlGun_TextChanged(object sender, EventArgs e)
         {

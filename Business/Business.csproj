@@ -54,6 +54,7 @@
     <Compile Include="AmbarVeriManager.cs" />
     <Compile Include="AtolyeRaporManager.cs" />
     <Compile Include="ComboManager.cs" />
+    <Compile Include="Concreate\AnaSayfa\LogManager.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeManager.cs" />
@@ -77,6 +78,7 @@
     <Compile Include="Concreate\BakimOnarim\ServisFormuManager.cs" />
     <Compile Include="Concreate\BakimOnarim\SFYedekParcaManager.cs" />
     <Compile Include="Concreate\Butce\AvansManager.cs" />
+    <Compile Include="Concreate\Butce\ButceManager.cs" />
     <Compile Include="Concreate\Butce\IsAvansTalepManager.cs" />
     <Compile Include="Concreate\Butce\KasaDurumManager.cs" />
     <Compile Include="Concreate\Butce\KasaManager.cs" />
@@ -115,6 +117,7 @@
     <Compile Include="Concreate\IdarıIsler\DVKayitManager.cs" />
     <Compile Include="Concreate\IdarıIsler\DvNoManager.cs" />
     <Compile Include="Concreate\IdarıIsler\EvrakKayitManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\GorevlendirmeManager.cs" />
     <Compile Include="Concreate\IdarıIsler\IdariIslerManager.cs" />
     <Compile Include="Concreate\IdarıIsler\Irepository.cs" />
     <Compile Include="Concreate\IdarıIsler\IstenAyrilisManager.cs" />

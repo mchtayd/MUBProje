@@ -22,8 +22,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
     {
         List<Malzeme> malzemes;
         List<Malzeme> malzemes2;
-        List<MalzemeKayit> malzemeKayits;
-        List<MalzemeKayit> malzemeKayits2;
         List<Barkod> barkodList = new List<Barkod>();
 
         MalzemeManager malzemeManager;
@@ -210,7 +208,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return;
             }
@@ -236,7 +234,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 //e.Graphics.DrawImage(graphics,);
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
             }
@@ -383,7 +381,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     images.Add(PctBarcode.Image);
 
                 }
-                catch (Exception ex)
+                catch (Exception)
                 {
                     return;
                 }

@@ -114,7 +114,7 @@ namespace Business.Concreate.STS
             {
                 return tedarikciFirmaDal.SuppliersNameMail();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<TedarikciFirma>();
             }

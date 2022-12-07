@@ -1,4 +1,5 @@
 ﻿using Business.Concreate;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
@@ -40,6 +41,8 @@ namespace UserInterface.STS
         TeklifiAlinanManager teklifiAlinanManager;
         SatOnayTarihiManager satOnayTarihiManager;
         PersonelKayitManager personelKayitManager;
+        BolgeKayitManager bolgeKayitManager;
+
         public object[] infos;
         public object[] infos1;
         public object[] infos2;
@@ -314,6 +317,7 @@ namespace UserInterface.STS
             teklifiAlinanManager = TeklifiAlinanManager.GetInstance();
             satOnayTarihiManager = SatOnayTarihiManager.GetInstance();
             personelKayitManager = PersonelKayitManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void FrmSatOnay_Load(object sender, EventArgs e)
@@ -1554,8 +1558,17 @@ namespace UserInterface.STS
                     harcamaYapan = "TURGUT AYDIN";
                 }
                 toplam = LblToplam.Text.ConDouble();
+
+                string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
+                string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
+
+                if (usBolgesiProje == "")
+                {
+
+                }
+
                 Tamamlanan tamamlanan = new Tamamlanan(satNo.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, tamamlanantarih, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
-                    faturafirma, ilgilikisi, masrafyerino, toplam, hedefdosya, siparisNo, ucteklif, islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan);
+                    faturafirma, ilgilikisi, masrafyerino, toplam, hedefdosya, siparisNo, ucteklif, islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu);
                 string control = tamamlananManager.Add(tamamlanan);
 
                 if (control != "OK")

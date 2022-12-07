@@ -18,10 +18,15 @@ namespace UserInterface.IdariIsler
     {
         YurtIciGorevManager yurtIciGorevManager;
         IdariIslerLogManager logManager;
+        GorevlendirmeManager gorevlendirmeManager;
         List<YurtIciGorev> yurtIciGorevs;
         List<YurtIciGorev> yurtIciGorevsFiltired;
         List<YurtIciGorev> yurtIciGorevsT;
         List<YurtIciGorev> yurtIciGorevsFiltiredT;
+        List<Gorevlendirme> gorevlendirmes;
+        List<Gorevlendirme> gorevlendirmesFiltired;
+        List<Gorevlendirme> gorevlendirmesT;
+        List<Gorevlendirme> gorevlendirmesFiltiredT;
         int outValue = 0;
         string dosyayolu,sayfa, dosyayolutamamlanan, sayfatamamlanan;
         int id, idtamamlanan;
@@ -30,6 +35,7 @@ namespace UserInterface.IdariIsler
             InitializeComponent();
             yurtIciGorevManager = YurtIciGorevManager.GetInstance();
             logManager = IdariIslerLogManager.GetInstance();
+            gorevlendirmeManager = GorevlendirmeManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -46,15 +52,37 @@ namespace UserInterface.IdariIsler
 
         private void YurtIciGorevIzleme_Load(object sender, EventArgs e)
         {
+            Yillar();
+            YillarGorevlendirme();
             DataDisplay();
-            DataDisplayTamamlanan();
             Toplamlar();
+            DataDisplayTamamlanan();
+            DataDisplayGorevlendirme();
+            DataDisplayGorevlendirmeTamamlanan();
+            start = false;
         }
         public void YenilecekVeriler()
         {
+            Yillar();
+            YillarGorevlendirme();
             DataDisplay();
             DataDisplayTamamlanan();
             Toplamlar();
+            DataDisplayGorevlendirme();
+            DataDisplayGorevlendirmeTamamlanan();
+
+        }
+        void Yillar()
+        {
+            CmbYillar.DataSource = yurtIciGorevManager.Yillar();
+            int index = CmbYillar.Items.Count.ConInt() - 1;
+            CmbYillar.SelectedIndex = index;
+        }
+        void YillarGorevlendirme()
+        {
+            CmbYillarGorevlendirme.DataSource = gorevlendirmeManager.Yillar();
+            int index = CmbYillarGorevlendirme.Items.Count.ConInt() - 1;
+            CmbYillarGorevlendirme.SelectedIndex = index;
         }
         void Toplamlar()
         {
@@ -65,9 +93,75 @@ namespace UserInterface.IdariIsler
             }
             LblGenelTop.Text = toplam.ToString("C2");
         }
+        
+
+        void DataDisplayGorevlendirme()
+        {
+            gorevlendirmes = gorevlendirmeManager.GetList("DEVAM EDIYOR", 1990);
+            gorevlendirmesFiltired = gorevlendirmes;
+            dataBinder3.DataSource = gorevlendirmes.ToDataTable();
+            DtgGorevlendirmeDevamEden.DataSource = dataBinder3;
+            LblGorevlendirmeDevam.Text = DtgGorevlendirmeDevamEden.RowCount.ToString();
+
+            DtgGorevlendirmeDevamEden.Columns["Id"].Visible = false;
+            DtgGorevlendirmeDevamEden.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
+            DtgGorevlendirmeDevamEden.Columns["AdSoyad"].HeaderText = "PERSONEL ADI";
+            DtgGorevlendirmeDevamEden.Columns["Unvani"].HeaderText = "ÜNVANI";
+            DtgGorevlendirmeDevamEden.Columns["Tc"].HeaderText = "TC";
+            DtgGorevlendirmeDevamEden.Columns["Il"].HeaderText = "İL";
+            DtgGorevlendirmeDevamEden.Columns["Ilce"].HeaderText = "İLÇE";
+            DtgGorevlendirmeDevamEden.Columns["Tugay"].HeaderText = "KOMUTANLIK";
+            DtgGorevlendirmeDevamEden.Columns["Plaka"].HeaderText = "PLAKA";
+            DtgGorevlendirmeDevamEden.Columns["GorevlendirmeNedeni"].HeaderText = "GÖREVLENDİRME NEDENİ";
+            DtgGorevlendirmeDevamEden.Columns["BasTarihi"].HeaderText = "BAŞLAMA TARİHİ";
+            DtgGorevlendirmeDevamEden.Columns["BitTarihi"].HeaderText = "BİTİŞ TARİHİ";
+            DtgGorevlendirmeDevamEden.Columns["DosyaYolu"].Visible = false;
+            DtgGorevlendirmeDevamEden.Columns["Durum"].Visible = false;
+            DtgGorevlendirmeDevamEden.Columns["KalanSure"].HeaderText = "KALAN SÜRE";
+
+            DtgGorevlendirmeDevamEden.Columns["KalanSure"].DisplayIndex = 2;
+
+        }
+        void DataDisplayGorevlendirmeTamamlanan()
+        {
+            if (ChkTumunuGosterGorev.Checked == true)
+            {
+                gorevlendirmesT = gorevlendirmeManager.GetList("BİTTİ", 0);
+            }
+            if (CmbYillarGorevlendirme.Text == "2021")
+            {
+                gorevlendirmesT = gorevlendirmeManager.GetList("BİTTİ", 1990);
+            }
+            else
+            {
+                gorevlendirmesT = gorevlendirmeManager.GetList("BİTTİ", CmbYillarGorevlendirme.Text.ConInt());
+            }
+
+            gorevlendirmesFiltiredT = gorevlendirmesT;
+            dataBinder4.DataSource = gorevlendirmesT.ToDataTable();
+            DtgGorevlendirmeTamamlanan.DataSource = dataBinder4;
+            LblGorevlendirmeTamalanan.Text = DtgGorevlendirmeTamamlanan.RowCount.ToString();
+
+            DtgGorevlendirmeTamamlanan.Columns["Id"].Visible = false;
+            DtgGorevlendirmeTamamlanan.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
+            DtgGorevlendirmeTamamlanan.Columns["AdSoyad"].HeaderText = "PERSONEL ADI";
+            DtgGorevlendirmeTamamlanan.Columns["Unvani"].HeaderText = "ÜNVANI";
+            DtgGorevlendirmeTamamlanan.Columns["Tc"].HeaderText = "TC";
+            DtgGorevlendirmeTamamlanan.Columns["Il"].HeaderText = "İL";
+            DtgGorevlendirmeTamamlanan.Columns["Ilce"].HeaderText = "İLÇE";
+            DtgGorevlendirmeTamamlanan.Columns["Tugay"].HeaderText = "KOMUTANLIK";
+            DtgGorevlendirmeTamamlanan.Columns["Plaka"].HeaderText = "PLAKA";
+            DtgGorevlendirmeTamamlanan.Columns["GorevlendirmeNedeni"].HeaderText = "GÖREVLENDİRME NEDENİ";
+            DtgGorevlendirmeTamamlanan.Columns["BasTarihi"].HeaderText = "BAŞLAMA TARİHİ";
+            DtgGorevlendirmeTamamlanan.Columns["BitTarihi"].HeaderText = "BİTİŞ TARİHİ";
+            DtgGorevlendirmeTamamlanan.Columns["DosyaYolu"].Visible = false;
+            DtgGorevlendirmeTamamlanan.Columns["Durum"].Visible = false;
+            DtgGorevlendirmeTamamlanan.Columns["KalanSure"].Visible = false;
+
+        }
         void DataDisplay()
         {
-            yurtIciGorevs = yurtIciGorevManager.GetList("1.ADIM:GÖREV OLUŞTURULDU");
+            yurtIciGorevs = yurtIciGorevManager.GetList("1.ADIM:GÖREV OLUŞTURULDU", 0);
             yurtIciGorevsFiltired = yurtIciGorevs;
             dataBinder.DataSource = yurtIciGorevs.ToDataTable();
             DtgList.DataSource = dataBinder;
@@ -118,7 +212,20 @@ namespace UserInterface.IdariIsler
         }
         void DataDisplayTamamlanan()
         {
-            yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR");
+
+            if (ChkTumunuGoster.Checked == true)
+            {
+                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", 0);
+            }
+            if (CmbYillar.Text == "2021")
+            {
+                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", 1990);
+            }
+            else
+            {
+                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", CmbYillar.Text.ConInt());
+            }
+
             yurtIciGorevsFiltiredT = yurtIciGorevsT;
             dataBinder2.DataSource = yurtIciGorevsT.ToDataTable();
             DtgTamamlanan.DataSource = dataBinder2;
@@ -168,6 +275,74 @@ namespace UserInterface.IdariIsler
             DtgTamamlanan.Columns["Dosyayolu"].Visible = false;
             DtgTamamlanan.Columns["KalanSure"].Visible = false;
             DtgTamamlanan.Columns["Sayfa"].Visible = false;
+            Toplamlar();
+        }
+        void DataDisplayTamamlananGorevlendirme()
+        {
+
+            if (ChkTumunuGoster.Checked == true)
+            {
+                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", 0);
+            }
+            if (CmbYillar.Text == "2021")
+            {
+                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", 1990);
+            }
+            else
+            {
+                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", CmbYillar.Text.ConInt());
+            }
+
+            yurtIciGorevsFiltiredT = yurtIciGorevsT;
+            dataBinder2.DataSource = yurtIciGorevsT.ToDataTable();
+            DtgTamamlanan.DataSource = dataBinder2;
+            TxtTop2.Text = DtgTamamlanan.RowCount.ToString();
+
+            DtgTamamlanan.Columns["Id"].Visible = false;
+            DtgTamamlanan.Columns["Isakisno"].HeaderText = "İŞ AKIŞ NO";
+            DtgTamamlanan.Columns["Gorevemrino"].HeaderText = "GÖREV EMRİ NO";
+            DtgTamamlanan.Columns["Gorevinkonusu"].HeaderText = "GÖREVİN KONUSU";
+            DtgTamamlanan.Columns["Proje"].HeaderText = "PROJE";
+            DtgTamamlanan.Columns["Gidilecekyer"].HeaderText = "GİDİLECEK YER";
+            DtgTamamlanan.Columns["Baslamatarihi"].HeaderText = "BAŞLAMA TARİHİ";
+            DtgTamamlanan.Columns["Bitistarihi"].HeaderText = "BİTİŞ TARİHİ";
+            DtgTamamlanan.Columns["Toplamsure"].HeaderText = "TOPLAM SÜRE";
+            DtgTamamlanan.Columns["Butcekodu"].HeaderText = "BÜTÇE KODU";
+            DtgTamamlanan.Columns["Siparisno"].HeaderText = "SİPARİŞ NO";
+            DtgTamamlanan.Columns["Adsoyad"].HeaderText = "AD SOYAD";
+            DtgTamamlanan.Columns["Masrafyerino"].HeaderText = "MASRAF YERİ NO";
+            DtgTamamlanan.Columns["Masrafyeri"].HeaderText = "MASRAF YERİ";
+            DtgTamamlanan.Columns["Ulasimgidis"].HeaderText = "ULAŞIM GİDİŞ";
+            DtgTamamlanan.Columns["Ulasimgorevyeri"].HeaderText = "GÖREV YERİ";
+            DtgTamamlanan.Columns["Ulasimdonus"].HeaderText = "ULAŞIM DÖNÜŞ";
+            DtgTamamlanan.Columns["Konaklamagun"].HeaderText = "KONAKLAMA GÜN";
+            DtgTamamlanan.Columns["Konaklamaguntl"].HeaderText = "KONAKLAMA GÜN/TL";
+            DtgTamamlanan.Columns["Konaklamatoplam"].HeaderText = "KONAKLAMA TOPLAM";
+            DtgTamamlanan.Columns["Kiralamagun"].HeaderText = "ARAÇ KİRALAMA GÜN";
+            DtgTamamlanan.Columns["Kiralamaguntl"].HeaderText = "ARAÇ KİRALAMA GÜN/TL";
+            DtgTamamlanan.Columns["Kiralamayakit"].HeaderText = "ARAÇ KİRALAMA YAKIT";
+            DtgTamamlanan.Columns["Kiralamatoplam"].HeaderText = "ARAÇ KİRALAMA TOPLAM";
+            DtgTamamlanan.Columns["Seyahatavansgun"].HeaderText = "SEYAHAT İŞ AVANSI GÜN";
+            DtgTamamlanan.Columns["Seyahatguntl"].HeaderText = "SEYAHAT İŞ AVANSI GÜN/TL";
+            DtgTamamlanan.Columns["Seyahattoplam"].HeaderText = "SEYAHAT İŞ AVANSI TOPLAM";
+            DtgTamamlanan.Columns["Ucakbileti"].HeaderText = "UÇAK BİLETİ";
+            DtgTamamlanan.Columns["Otobusbileti"].HeaderText = "OTOBÜS BİLETİ";
+            DtgTamamlanan.Columns["Geneltoplam"].HeaderText = "GENEL TOPLAM";
+            DtgTamamlanan.Columns["Plaka"].HeaderText = "PLAKA";
+            DtgTamamlanan.Columns["Cikiskm"].HeaderText = "ÇIKIŞ KİLOMETRESİ";
+            DtgTamamlanan.Columns["Donuskm"].HeaderText = "DÖNÜŞ KİLOMETRESİ";
+            DtgTamamlanan.Columns["Toplamkm"].HeaderText = "TOPLAM KİLOMETRE";
+            DtgTamamlanan.Columns["Geneltoplam"].HeaderText = "GENEL TOPLAM";
+            DtgTamamlanan.Columns["Islemadimi"].HeaderText = "İŞLEM ADIMI";
+            DtgTamamlanan.Columns["Unvani"].HeaderText = "ÜNVANI";
+            DtgTamamlanan.Columns["KonaklamaTuru"].HeaderText = "KONAKLAMA TÜRÜ";
+            DtgTamamlanan.Columns["Islemadimi"].Visible = false;
+            DtgTamamlanan.Columns["KonaklamaTuru"].DisplayIndex = 20;
+            DtgTamamlanan.Columns["Unvani"].DisplayIndex = 13;
+            DtgTamamlanan.Columns["Dosyayolu"].Visible = false;
+            DtgTamamlanan.Columns["KalanSure"].Visible = false;
+            DtgTamamlanan.Columns["Sayfa"].Visible = false;
+            Toplamlar();
         }
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)
@@ -329,7 +504,107 @@ namespace UserInterface.IdariIsler
             frmKonaklama.ShowDialog();
         }
 
-        string konaklamaTuru;int isAkisNo;
+        string konaklamaTuru;
+        bool start = true;
+        private void CmbYillar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+            if (CmbYillar.SelectedIndex == -1)
+            {
+                return;
+            }
+            DataDisplayTamamlanan();
+            Toplamlar();
+        }
+
+        private void ChkTumunuGoster_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkTumunuGoster.Checked == true)
+            {
+                CmbYillar.SelectedIndex = -1;
+                DataDisplayTamamlanan();
+            }
+            else
+            {
+                Yillar();
+                DataDisplayTamamlanan();
+            }
+        }
+        string gorevlendirmeDosyaYolu = "";
+        private void DtgGorevlendirmeDevamEden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgGorevlendirmeDevamEden.RowCount==0)
+            {
+                return;
+            }
+            gorevlendirmeDosyaYolu = DtgGorevlendirmeDevamEden.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            try
+            {
+                webBrowser3.Navigate(gorevlendirmeDosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void DtgGorevlendirmeDevamEden_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder3.Filter = DtgGorevlendirmeDevamEden.FilterString;
+            LblGorevlendirmeDevam.Text = DtgGorevlendirmeDevamEden.RowCount.ToString();
+        }
+
+        private void DtgGorevlendirmeDevamEden_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder3.Sort = DtgGorevlendirmeDevamEden.SortString;
+        }
+
+        private void DtgGorevlendirmeTamamlanan_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgGorevlendirmeTamamlanan.RowCount == 0)
+            {
+                return;
+            }
+            gorevlendirmeDosyaYolu = DtgGorevlendirmeTamamlanan.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            try
+            {
+                webBrowser4.Navigate(gorevlendirmeDosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void DtgGorevlendirmeTamamlanan_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder4.Filter = DtgGorevlendirmeTamamlanan.FilterString;
+            LblGorevlendirmeTamalanan.Text = DtgGorevlendirmeTamamlanan.RowCount.ToString();
+        }
+
+        private void DtgGorevlendirmeTamamlanan_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder4.Sort = DtgGorevlendirmeTamamlanan.SortString;
+        }
+
+        private void ChkTumunuGosterGorev_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkTumunuGosterGorev.Checked == true)
+            {
+                CmbYillarGorevlendirme.SelectedIndex = -1;
+                DataDisplayGorevlendirmeTamamlanan();
+            }
+            else
+            {
+                YillarGorevlendirme();
+                DataDisplayGorevlendirmeTamamlanan();
+            }
+        }
+
+        int isAkisNo;
         private void DtgTamamlanan_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgTamamlanan.CurrentRow == null)

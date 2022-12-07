@@ -68,6 +68,28 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public string BolgeProjeList(string bolgeAdi)
+        {
+            try
+            {
+                return bolgeKayitDal.BolgeProjeList(bolgeAdi);
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
+        public string BolgeGarantiDurumList(string bolgeAdi)
+        {
+            try
+            {
+                return bolgeKayitDal.BolgeGarantiDurumList(bolgeAdi);
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
 
         public List<BolgeKayit> GetList()
         {
@@ -80,7 +102,17 @@ namespace Business.Concreate.BakimOnarim
                 return new List<BolgeKayit>();
             }
         }
-        
+        public List<BolgeKayit> GetListBolgeKomutanlik(string il)
+        {
+            try
+            {
+                return bolgeKayitDal.GetListBolgeKomutanlik(il);
+            }
+            catch (Exception)
+            {
+                return new List<BolgeKayit>();
+            }
+        }
         public string Update(BolgeKayit entity)
         {
             try

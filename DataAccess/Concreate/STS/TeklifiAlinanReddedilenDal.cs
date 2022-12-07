@@ -12,13 +12,13 @@ namespace DataAccess.Concreate.STS
 {
     public class TeklifiAlinanReddedilenDal //: IRepository<TeklifiAlinanReddedilen>
     {
-        static TeklifiAlinanReddedilenDal teklifiAlDal;
-        SqlServices sqlServices;
-        SqlDataReader dataReader;
-        private TeklifiAlinanReddedilenDal()
-        {
-            sqlServices = SqlDatabase.GetInstance();
-        }
+        //static TeklifiAlinanReddedilenDal teklifiAlDal;
+        //SqlServices sqlServices;
+        //SqlDataReader dataReader;
+        //private TeklifiAlinanReddedilenDal()
+        //{
+        //    sqlServices = SqlDatabase.GetInstance();
+        //}
         public string Add(TeklifiAlinanReddedilen entity)
         {
             throw new NotImplementedException();

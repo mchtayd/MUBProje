@@ -216,13 +216,40 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
-
-        public List<YurtIciGorev> GetList(string durum)
+        public List<string> Yillar()
         {
             try
             {
+                List<string> yillar = new List<string>();
+                dataReader = sqlServices.StoreReader("YurtIciGorevYıllar");
+                while (dataReader.Read())
+                {
+                    yillar.Add(dataReader[0].ToString());
+                }
+                dataReader.Close();
+                return yillar;
+
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
+        public List<YurtIciGorev> GetList(string durum, string yil)
+        {
+            try
+            {
+                int yildanfalza;
+                if (yil == "1990")
+                {
+                    yildanfalza = 2022;
+                }
+                else
+                {
+                    yildanfalza = yil.ConInt() + 1;
+                }
                 List<YurtIciGorev> yurtIcis = new List<YurtIciGorev>();
-                dataReader = sqlServices.StoreReader("YurtIciGorevList", new SqlParameter("@durum", durum));
+                dataReader = sqlServices.StoreReader("YurtIciGorevList", new SqlParameter("@durum", durum), new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yildanfalza.ToString()));
                 while (dataReader.Read())
                 {
                     yurtIcis.Add(new YurtIciGorev(
@@ -338,7 +365,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return yurtIcis;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<YurtIciGorev>();
             }

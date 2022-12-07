@@ -117,7 +117,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return ıscilikDestekIsciliks;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 dataReader.Close();
                 return new List<IscilikDestekIscilik>();
@@ -141,7 +141,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return ıscilikDestekIsciliks;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<IscilikDestekTablo>();
             }
@@ -163,7 +163,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return ıscilikDestekIsciliks;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<IscilikDestekTabloArac>();
             }

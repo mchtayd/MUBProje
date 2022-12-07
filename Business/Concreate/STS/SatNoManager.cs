@@ -13,7 +13,6 @@ namespace Business.Concreate
     {
         static SatNoManager satNoManager;
         SatNoDal satNoDal;
-        string controlText;
 
         private SatNoManager()
         {
@@ -32,7 +31,7 @@ namespace Business.Concreate
                 }*/
                 return satNoDal.Add(entity);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return -1;
             }

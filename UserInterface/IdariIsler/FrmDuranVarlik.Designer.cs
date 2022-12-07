@@ -35,6 +35,9 @@ namespace UserInterface.EgitimDok
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.asdadasd = new System.Windows.Forms.GroupBox();
+            this.BtnDvDurumuEkle = new System.Windows.Forms.Button();
+            this.BtnDvGrubuEkle = new System.Windows.Forms.Button();
+            this.BtnButceKoduEkle = new System.Windows.Forms.Button();
             this.TxtSatNo = new System.Windows.Forms.TextBox();
             this.TxtTanim = new System.Windows.Forms.TextBox();
             this.LblAdet = new System.Windows.Forms.Label();
@@ -134,9 +137,42 @@ namespace UserInterface.EgitimDok
             this.label41 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
-            this.BtnButceKoduEkle = new System.Windows.Forms.Button();
-            this.BtnDvGrubuEkle = new System.Windows.Forms.Button();
-            this.BtnDvDurumuEkle = new System.Windows.Forms.Button();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.label45 = new System.Windows.Forms.Label();
+            this.comboBox4 = new System.Windows.Forms.ComboBox();
+            this.label46 = new System.Windows.Forms.Label();
+            this.comboBox5 = new System.Windows.Forms.ComboBox();
+            this.comboBox6 = new System.Windows.Forms.ComboBox();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.comboBox7 = new System.Windows.Forms.ComboBox();
+            this.label54 = new System.Windows.Forms.Label();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.label55 = new System.Windows.Forms.Label();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.groupBox5.SuspendLayout();
             this.asdadasd.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
@@ -147,6 +183,7 @@ namespace UserInterface.EgitimDok
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBoxGun)).BeginInit();
+            this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
             // BtnDosyaEkle
@@ -244,6 +281,52 @@ namespace UserInterface.EgitimDok
             this.asdadasd.TabIndex = 138;
             this.asdadasd.TabStop = false;
             this.asdadasd.Text = "DURAN VARLIK BİLGİLER";
+            // 
+            // BtnDvDurumuEkle
+            // 
+            this.BtnDvDurumuEkle.AccessibleDescription = "";
+            this.BtnDvDurumuEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnDvDurumuEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDvDurumuEkle.BackgroundImage")));
+            this.BtnDvDurumuEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDvDurumuEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDvDurumuEkle.Location = new System.Drawing.Point(315, 150);
+            this.BtnDvDurumuEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDvDurumuEkle.Name = "BtnDvDurumuEkle";
+            this.BtnDvDurumuEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnDvDurumuEkle.TabIndex = 399;
+            this.BtnDvDurumuEkle.Tag = "admin";
+            this.BtnDvDurumuEkle.UseVisualStyleBackColor = false;
+            // 
+            // BtnDvGrubuEkle
+            // 
+            this.BtnDvGrubuEkle.AccessibleDescription = "";
+            this.BtnDvGrubuEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnDvGrubuEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDvGrubuEkle.BackgroundImage")));
+            this.BtnDvGrubuEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnDvGrubuEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDvGrubuEkle.Location = new System.Drawing.Point(315, 121);
+            this.BtnDvGrubuEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnDvGrubuEkle.Name = "BtnDvGrubuEkle";
+            this.BtnDvGrubuEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnDvGrubuEkle.TabIndex = 398;
+            this.BtnDvGrubuEkle.Tag = "admin";
+            this.BtnDvGrubuEkle.UseVisualStyleBackColor = false;
+            // 
+            // BtnButceKoduEkle
+            // 
+            this.BtnButceKoduEkle.AccessibleDescription = "";
+            this.BtnButceKoduEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnButceKoduEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnButceKoduEkle.BackgroundImage")));
+            this.BtnButceKoduEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnButceKoduEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnButceKoduEkle.Location = new System.Drawing.Point(315, 68);
+            this.BtnButceKoduEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnButceKoduEkle.Name = "BtnButceKoduEkle";
+            this.BtnButceKoduEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnButceKoduEkle.TabIndex = 397;
+            this.BtnButceKoduEkle.Tag = "admin";
+            this.BtnButceKoduEkle.UseVisualStyleBackColor = false;
+            this.BtnButceKoduEkle.Click += new System.EventHandler(this.BtnButceKoduEkle_Click);
             // 
             // TxtSatNo
             // 
@@ -739,6 +822,7 @@ namespace UserInterface.EgitimDok
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(0, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -1351,51 +1435,414 @@ namespace UserInterface.EgitimDok
             // 
             this.openFileDialog3.FileName = "openFileDialog3";
             // 
-            // BtnButceKoduEkle
+            // tabPage3
             // 
-            this.BtnButceKoduEkle.AccessibleDescription = "";
-            this.BtnButceKoduEkle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnButceKoduEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnButceKoduEkle.BackgroundImage")));
-            this.BtnButceKoduEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnButceKoduEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnButceKoduEkle.Location = new System.Drawing.Point(315, 68);
-            this.BtnButceKoduEkle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnButceKoduEkle.Name = "BtnButceKoduEkle";
-            this.BtnButceKoduEkle.Size = new System.Drawing.Size(34, 29);
-            this.BtnButceKoduEkle.TabIndex = 397;
-            this.BtnButceKoduEkle.Tag = "admin";
-            this.BtnButceKoduEkle.UseVisualStyleBackColor = false;
-            this.BtnButceKoduEkle.Click += new System.EventHandler(this.BtnButceKoduEkle_Click);
+            this.tabPage3.Controls.Add(this.richTextBox1);
+            this.tabPage3.Controls.Add(this.label55);
+            this.tabPage3.Controls.Add(this.textBox7);
+            this.tabPage3.Controls.Add(this.comboBox7);
+            this.tabPage3.Controls.Add(this.label54);
+            this.tabPage3.Controls.Add(this.label53);
+            this.tabPage3.Controls.Add(this.label52);
+            this.tabPage3.Controls.Add(this.label51);
+            this.tabPage3.Controls.Add(this.label50);
+            this.tabPage3.Controls.Add(this.label49);
+            this.tabPage3.Controls.Add(this.comboBox3);
+            this.tabPage3.Controls.Add(this.label43);
+            this.tabPage3.Controls.Add(this.textBox6);
+            this.tabPage3.Controls.Add(this.label45);
+            this.tabPage3.Controls.Add(this.comboBox4);
+            this.tabPage3.Controls.Add(this.label46);
+            this.tabPage3.Controls.Add(this.comboBox5);
+            this.tabPage3.Controls.Add(this.comboBox6);
+            this.tabPage3.Controls.Add(this.label47);
+            this.tabPage3.Controls.Add(this.label48);
+            this.tabPage3.Controls.Add(this.comboBox1);
+            this.tabPage3.Controls.Add(this.label5);
+            this.tabPage3.Controls.Add(this.textBox2);
+            this.tabPage3.Controls.Add(this.textBox3);
+            this.tabPage3.Controls.Add(this.textBox4);
+            this.tabPage3.Controls.Add(this.label6);
+            this.tabPage3.Controls.Add(this.label12);
+            this.tabPage3.Controls.Add(this.comboBox2);
+            this.tabPage3.Controls.Add(this.textBox5);
+            this.tabPage3.Controls.Add(this.label13);
+            this.tabPage3.Controls.Add(this.label14);
+            this.tabPage3.Controls.Add(this.label37);
+            this.tabPage3.Controls.Add(this.button2);
+            this.tabPage3.Controls.Add(this.textBox1);
+            this.tabPage3.Controls.Add(this.label4);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1549, 864);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "DV SAYIM";
+            this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // BtnDvGrubuEkle
+            // button2
             // 
-            this.BtnDvGrubuEkle.AccessibleDescription = "";
-            this.BtnDvGrubuEkle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnDvGrubuEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDvGrubuEkle.BackgroundImage")));
-            this.BtnDvGrubuEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnDvGrubuEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDvGrubuEkle.Location = new System.Drawing.Point(315, 121);
-            this.BtnDvGrubuEkle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnDvGrubuEkle.Name = "BtnDvGrubuEkle";
-            this.BtnDvGrubuEkle.Size = new System.Drawing.Size(34, 29);
-            this.BtnDvGrubuEkle.TabIndex = 398;
-            this.BtnDvGrubuEkle.Tag = "admin";
-            this.BtnDvGrubuEkle.UseVisualStyleBackColor = false;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.Location = new System.Drawing.Point(248, 20);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 28);
+            this.button2.TabIndex = 402;
+            this.button2.Text = "Bul";
+            this.button2.UseVisualStyleBackColor = true;
             // 
-            // BtnDvDurumuEkle
+            // textBox1
             // 
-            this.BtnDvDurumuEkle.AccessibleDescription = "";
-            this.BtnDvDurumuEkle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnDvDurumuEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDvDurumuEkle.BackgroundImage")));
-            this.BtnDvDurumuEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnDvDurumuEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDvDurumuEkle.Location = new System.Drawing.Point(315, 150);
-            this.BtnDvDurumuEkle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnDvDurumuEkle.Name = "BtnDvDurumuEkle";
-            this.BtnDvDurumuEkle.Size = new System.Drawing.Size(34, 29);
-            this.BtnDvDurumuEkle.TabIndex = 399;
-            this.BtnDvDurumuEkle.Tag = "admin";
-            this.BtnDvDurumuEkle.UseVisualStyleBackColor = false;
+            this.textBox1.Location = new System.Drawing.Point(129, 25);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(113, 20);
+            this.textBox1.TabIndex = 401;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(38, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 13);
+            this.label4.TabIndex = 400;
+            this.label4.Text = "DV ETİKET NO:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "DEMİRBAŞ",
+            "KÜÇÜK DEMİRBAŞ",
+            "BİLGİ TEKNOLOJİLERİ"});
+            this.comboBox1.Location = new System.Drawing.Point(129, 189);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(194, 21);
+            this.comboBox1.TabIndex = 414;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(63, 193);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 13);
+            this.label5.TabIndex = 413;
+            this.label5.Text = "DV TÜRÜ:";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(128, 269);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(194, 20);
+            this.textBox2.TabIndex = 412;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(128, 242);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(194, 20);
+            this.textBox3.TabIndex = 411;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(129, 321);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(194, 20);
+            this.textBox4.TabIndex = 410;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(68, 325);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(54, 13);
+            this.label6.TabIndex = 409;
+            this.label6.Text = "SERİ NO:";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(74, 273);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(48, 13);
+            this.label12.TabIndex = 408;
+            this.label12.Text = "MARKA:";
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(129, 215);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(194, 21);
+            this.comboBox2.TabIndex = 407;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(128, 295);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(194, 20);
+            this.textBox5.TabIndex = 406;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(60, 219);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(62, 13);
+            this.label13.TabIndex = 403;
+            this.label13.Text = "DV TANIM:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(71, 246);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(51, 13);
+            this.label14.TabIndex = 404;
+            this.label14.Text = "MİKTAR:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(74, 299);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(48, 13);
+            this.label37.TabIndex = 405;
+            this.label37.Text = "MODEL:";
+            // 
+            // comboBox3
+            // 
+            this.comboBox3.FormattingEnabled = true;
+            this.comboBox3.Items.AddRange(new object[] {
+            "FAAL",
+            "HURDA",
+            "ZAYİ (KAYIP)"});
+            this.comboBox3.Location = new System.Drawing.Point(129, 162);
+            this.comboBox3.Name = "comboBox3";
+            this.comboBox3.Size = new System.Drawing.Size(194, 21);
+            this.comboBox3.TabIndex = 424;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Location = new System.Drawing.Point(46, 166);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(77, 13);
+            this.label43.TabIndex = 423;
+            this.label43.Text = "DV DURUMU:";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(129, 109);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(194, 20);
+            this.textBox6.TabIndex = 422;
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Location = new System.Drawing.Point(57, 113);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(66, 13);
+            this.label45.TabIndex = 421;
+            this.label45.Text = "İŞ AKIŞ NO:";
+            // 
+            // comboBox4
+            // 
+            this.comboBox4.FormattingEnabled = true;
+            this.comboBox4.Items.AddRange(new object[] {
+            "ALARM SİSTEMİ",
+            "ALUMİNYUM DOĞRAMA",
+            "ARAÇ ARAZİ",
+            "ARAÇ BİNEK",
+            "ARAÇ KAMYONET",
+            "ASPRATOR",
+            "ATEŞ ÖLÇER",
+            "AVADANLIK",
+            "BEYAZ EŞYA",
+            "BİLGİSAYAR DİZÜSTÜ",
+            "BİLGİSAYAR MASAÜSTÜ",
+            "DİSK TAŞINABİLİR",
+            "ECZA DOLABI",
+            "YAZICI",
+            "FİBER CİHAZI",
+            "GSM HAT",
+            "GÜÇ KAYNAĞI",
+            "UPS",
+            "HAVYA",
+            "ISIMA SOĞUTMA",
+            "İNTERNET EKİPMANLARI",
+            "KABLO",
+            "KAMERA",
+            "KAYNAK MAKİNEESİ",
+            "KİŞİSEL KORUYUU DONANIM",
+            "KOMPLRASÖR",
+            "KÜLLÜK",
+            "LAZER CİHAZI",
+            "MATGAP",
+            "MOBİLYA MEFRUŞAT",
+            "MERDİVEN",
+            "MONİTÖR",
+            "ÖLÇÜ ALETİ",
+            "PARMAK İZİ OKUYUCU",
+            "PROJEKSİYON",
+            "PVS KAYNAK MAKİNESİ",
+            "RAF",
+            "SES SİTEMİ",
+            "SİNYA GÜÇLENDİRİCİ",
+            "SWITHC",
+            "IP TELEFON",
+            "TELSİZ",
+            "TERMOMETRE",
+            "TESTERE",
+            "TURNİKE GİRİŞ KARTI",
+            "UYKU TULUMU",
+            "YANGIN TÜPÜ",
+            "YAZI TAHTASI",
+            "YEMEK KARTI"});
+            this.comboBox4.Location = new System.Drawing.Point(129, 135);
+            this.comboBox4.Name = "comboBox4";
+            this.comboBox4.Size = new System.Drawing.Size(194, 21);
+            this.comboBox4.TabIndex = 420;
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Location = new System.Drawing.Point(56, 139);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(67, 13);
+            this.label46.TabIndex = 419;
+            this.label46.Text = "DV GRUBU:";
+            // 
+            // comboBox5
+            // 
+            this.comboBox5.FormattingEnabled = true;
+            this.comboBox5.Items.AddRange(new object[] {
+            "BM03-KÜÇÜK DEMİRBAŞ",
+            "BM04-DEMİRBAŞ"});
+            this.comboBox5.Location = new System.Drawing.Point(129, 81);
+            this.comboBox5.Name = "comboBox5";
+            this.comboBox5.Size = new System.Drawing.Size(194, 21);
+            this.comboBox5.TabIndex = 418;
+            // 
+            // comboBox6
+            // 
+            this.comboBox6.FormattingEnabled = true;
+            this.comboBox6.Items.AddRange(new object[] {
+            "ASELSAN",
+            "BAŞARAN"});
+            this.comboBox6.Location = new System.Drawing.Point(129, 54);
+            this.comboBox6.Name = "comboBox6";
+            this.comboBox6.Size = new System.Drawing.Size(194, 21);
+            this.comboBox6.TabIndex = 417;
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Location = new System.Drawing.Point(60, 58);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(63, 13);
+            this.label47.TabIndex = 415;
+            this.label47.Text = "DV SAHİBİ:";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Location = new System.Drawing.Point(40, 85);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(83, 13);
+            this.label48.TabIndex = 416;
+            this.label48.Text = "BÜTÇE  KODU:";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Location = new System.Drawing.Point(401, 57);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(82, 13);
+            this.label49.TabIndex = 425;
+            this.label49.Text = "SAYIM TARİHİ:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Location = new System.Drawing.Point(360, 84);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(123, 13);
+            this.label50.TabIndex = 426;
+            this.label50.Text = "SAYIM YAPILDIĞI YER:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Location = new System.Drawing.Point(398, 138);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(85, 13);
+            this.label51.TabIndex = 427;
+            this.label51.Text = "SAYIMI YAPAN:";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(489, 57);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(19, 13);
+            this.label52.TabIndex = 428;
+            this.label52.Text = "00";
+            this.label52.Click += new System.EventHandler(this.label52_Click);
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Location = new System.Drawing.Point(489, 139);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(19, 13);
+            this.label53.TabIndex = 429;
+            this.label53.Text = "00";
+            // 
+            // comboBox7
+            // 
+            this.comboBox7.FormattingEnabled = true;
+            this.comboBox7.Items.AddRange(new object[] {
+            "FAAL",
+            "HURDA",
+            "ZAYİ (KAYIP)"});
+            this.comboBox7.Location = new System.Drawing.Point(492, 108);
+            this.comboBox7.Name = "comboBox7";
+            this.comboBox7.Size = new System.Drawing.Size(194, 21);
+            this.comboBox7.TabIndex = 431;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Location = new System.Drawing.Point(406, 112);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(77, 13);
+            this.label54.TabIndex = 430;
+            this.label54.Text = "DV DURUMU:";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(492, 81);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(194, 20);
+            this.textBox7.TabIndex = 432;
+            // 
+            // label55
+            // 
+            this.label55.AutoSize = true;
+            this.label55.Location = new System.Drawing.Point(420, 170);
+            this.label55.Name = "label55";
+            this.label55.Size = new System.Drawing.Size(63, 13);
+            this.label55.TabIndex = 433;
+            this.label55.Text = "AÇIKLAMA:";
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(492, 162);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(387, 97);
+            this.richTextBox1.TabIndex = 434;
+            this.richTextBox1.Text = "";
             // 
             // DuranVarlik
             // 
@@ -1422,6 +1869,8 @@ namespace UserInterface.EgitimDok
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBoxGun)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1535,5 +1984,41 @@ namespace UserInterface.EgitimDok
         private System.Windows.Forms.Button BtnButceKoduEkle;
         private System.Windows.Forms.Button BtnDvDurumuEkle;
         private System.Windows.Forms.Button BtnDvGrubuEkle;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.ComboBox comboBox4;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.ComboBox comboBox5;
+        private System.Windows.Forms.ComboBox comboBox6;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.Label label51;
+        private System.Windows.Forms.Label label50;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.ComboBox comboBox7;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.Label label55;
     }
 }

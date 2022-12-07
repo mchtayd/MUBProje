@@ -96,7 +96,7 @@ namespace DataAccess.Concreate.Depo
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -120,7 +120,7 @@ namespace DataAccess.Concreate.Depo
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -144,7 +144,7 @@ namespace DataAccess.Concreate.Depo
                 dataReader.Close();
                 return malzemeKayits;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<DestekDepoKirtasiye>();
             }

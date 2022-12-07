@@ -128,7 +128,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -173,7 +173,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return konaklamas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Konaklama>();
             }
@@ -217,7 +217,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return konaklamas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Konaklama>();
             }

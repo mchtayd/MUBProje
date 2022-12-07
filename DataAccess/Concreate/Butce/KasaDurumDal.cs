@@ -47,7 +47,7 @@ namespace DataAccess.Concreate.Butce
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }

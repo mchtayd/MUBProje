@@ -2577,7 +2577,7 @@ namespace UserInterface.STS
                 }
                 client.Send(mailMessage);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // MessageBox.Show(ex.Message);
             }
@@ -2626,7 +2626,7 @@ namespace UserInterface.STS
                 }
                 client.Send(mailMessage);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 // MessageBox.Show(ex.Message);
             }

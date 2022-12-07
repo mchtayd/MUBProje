@@ -89,7 +89,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -227,7 +227,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return sehiriciGorevs;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SehiriciGorev>();
             }
@@ -261,7 +261,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return sehiriciGorevs;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SehiriciGorev>();
             }
@@ -363,7 +363,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return sehiriciGorevs;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<SehiriciGorev>();
             }

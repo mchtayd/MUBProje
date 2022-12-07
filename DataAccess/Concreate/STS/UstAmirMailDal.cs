@@ -45,7 +45,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -69,7 +69,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return ustAmirMails;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<UstAmirMail>();
             }

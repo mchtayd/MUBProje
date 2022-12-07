@@ -21,6 +21,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 using Tulpep.NotificationWindow;
 using UserInterface.STS;
 using System.Media;
+using Entity.AnaSayfa;
 //WMPLib.WindowsMediaPlayer Player;
 
 namespace UserInterface.Ana_Sayfa
@@ -28,7 +29,8 @@ namespace UserInterface.Ana_Sayfa
     public partial class FrmHelper : Form
     {
         IsAkisNoManager isAkisNoManager;
-        
+        static List<Log> logs = new List<Log>();
+
         public FrmHelper()
         {
             InitializeComponent();
@@ -345,11 +347,11 @@ namespace UserInterface.Ana_Sayfa
                         continue;
                     }
                     //Use the first row to add columns to DataTable.
-                  
+
                     if (firstRow)
                     {
                         foreach (IXLCell cell in row.Cells())
-                        {                           
+                        {
                             if (!string.IsNullOrEmpty(cell.Value.ToString()))
                             {
                                 dt.Columns.Add(cell.Value.ToString());
@@ -366,12 +368,12 @@ namespace UserInterface.Ana_Sayfa
                         int i = 0;
                         DataRow toInsert = dt.NewRow();
                         foreach (IXLCell cell in row.Cells())
-                        {                           
+                        {
                             try
                             {
                                 toInsert[i] = cell.Value.ToString();
                             }
-                            catch (Exception ex)
+                            catch (Exception)
                             {
 
                             }
@@ -448,9 +450,15 @@ namespace UserInterface.Ana_Sayfa
             wplayer.controls.play();
 
         }
-        public static void Bildirim(string title, string content, Image ımage)
+
+        static string panelTitle = "", panelContent = "", panelKullanici = "", panelSorumluId = "";
+        public static void Bildirim(string title, string content, Image ımage, string kullanici, string sorumluId)
         {
             Ses();
+            panelTitle = title;
+            panelContent = content;
+            panelKullanici = kullanici;
+            panelSorumluId = sorumluId;
             PopupNotifier popup = new PopupNotifier();
             popup.Image = ımage;
             //popup.Image = ımageList1.Images["okey.png"];
@@ -465,40 +473,152 @@ namespace UserInterface.Ana_Sayfa
             popup.ContentFont = new Font("Century Gothic", 12);
             popup.Popup();
 
-
             popup.Click += Popup_Click;
 
             popup.Disappear += Popup_Disappear;
 
         }
-
-        static void PanelEdit()
+        public static void PanelClickEdit(string icerik)
         {
-            StringBuilder strB = new StringBuilder();
-
-            strB.Append("<center><h2 class='headings'>Addresses</h2>");
-            strB.Append("<table border='2' cellpadding='3'>");
-            strB.Append("<td width='300px'>" + "DENEME<br>DENEME2" + "</td><tr>");
-            strB.Append("</tr>");
-            strB.Append("</table></center><br/>");
+            List<Log> logs2 = new List<Log>();
+            logs2 = logs;
 
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
-            frmAnaSayfa.webContent.DocumentText = strB.ToString();
+
+            StringBuilder strB = new StringBuilder();
+
+            for (int i = 0; i < logs.Count; i++)
+            {
+                string yeniIcrerik = "";
+                string gelenicerik = logs[i].Icerik.ToString();
+                string[] array = gelenicerik.Split('\n');
+
+                for (int j = 0; j < array.Length; j++)
+                {
+                    yeniIcrerik = yeniIcrerik + " " + array[j].ToString();
+                }
+
+                if (yeniIcrerik.Trim() == icerik.Trim())
+                {
+                    logs2.Remove(logs2[i]);
+                    i--;
+                    if (logs.Count == 0)
+                    {
+                        break;
+                    }
+                }
+            }
+
+            if (logs2.Count != 0)
+            {
+                strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
+                strB.Append("<a href='#'>TEMİZLE</a>");
+
+                for (int i = 0; i < logs2.Count; i++)
+                {
+                    strB.Append("<table border='2' cellpadding='3'>");
+                    strB.Append("<td width='320px'><h3 class='headings'>" + logs2[i].Baslik + "</h3>" + "<a id='1' href='#'>" + logs2[i].Icerik + "</a>" + "<br>" + "(" + DateTime.Now.ToString("g") + ")" +
+                        "</td>");
+                    strB.Append("</table></center><br/>");
+
+                    frmAnaSayfa.webContent.DocumentText = strB.ToString();
+                }
+            }
+
+            else
+            {
+                strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
+                strB.Append("<a href='#'>TEMİZLE</a></center>");
+                frmAnaSayfa.webContent.DocumentText = strB.ToString();
+
+            }
+            frmAnaSayfa.BtnBildirim.Text = logs2.Count.ToString();
+
+        }
+        static void PanelEdit()
+        {
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+
+            StringBuilder strB = new StringBuilder();
+            
+            strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
+            strB.Append("<a href='#'>TEMİZLE</a>");
+            for (int i = 0; i < logs.Count; i++)
+            {
+                strB.Append("<table border='2' cellpadding='3' style='background:rgb(40, 167, 69);'>");
+                strB.Append("<td width='320px'><h3 class='headings'>" + logs[i].Baslik + "</h3>" + "<a href='#'>" + logs[i].Icerik + "</a>" + "<br>" + "(" + DateTime.Now.ToString("g") + ")" +
+                    "</td>");
+                strB.Append("</table></center><br/>");
+
+
+                frmAnaSayfa.webContent.DocumentText = strB.ToString();
+            }
         }
 
+        static bool bildirimClick = false;
+        static List<string> benzersizs = new List<string>();
         private static void Popup_Disappear(object sender, EventArgs e)
         {
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
             string sayi = frmAnaSayfa.BtnBildirim.Text;
-            int yeniSayi = sayi.ConInt();
-            yeniSayi++;
-            frmAnaSayfa.BtnBildirim.Text = yeniSayi.ToString();
-            PanelEdit();
+
+            if (sayi == "0")
+            {
+                logs.Clear();
+            }
+
+            //benzersiz = Guid.NewGuid().ToString();
+            //benzersizs.Add(benzersiz);
+
+            Log log = new Log(panelTitle, panelContent, DateTime.Now, panelKullanici, panelSorumluId);
+            logs.Add(log);
+
+            if (bildirimClick == false)
+            {
+                int yeniSayi = sayi.ConInt();
+                yeniSayi++;
+                frmAnaSayfa.BtnBildirim.Text = yeniSayi.ToString();
+                PanelEdit();
+            }
+            else
+            {
+                bildirimClick = false;
+            }
+
         }
 
         private static void Popup_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("deneme");
+            FrmBildirimPanel frmBildirimPanel = new FrmBildirimPanel();
+            frmBildirimPanel.ShowDialog();
+            bildirimClick = true;
         }
+
+        public static string TxtBildirimEdit(string bildirim)
+        {
+            //string metin = "Saha Bildirim Güncelleme" + "\nMücahit AYDEMİR 220546 Form numaralı\nStine Tepe Üs Bölgesi\nDRAGONEYE B/O arızasını\n700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!\n45;26;33\n\n";
+            string editBildirim = "";
+            string[] array = bildirim.Split(' ');
+
+            for (int i = 0; i < array.Length; i++)
+            {
+
+                if (i==0)
+                {
+                    editBildirim = "Bildirim Başlık: "+ array[0].ToString();
+                }
+                if (i == 1)
+                {
+                    editBildirim += "\nBildirim Sahibi: " + array[1].ToString();
+                }
+                if (i == 2)
+                {
+                    editBildirim += "\nBildirim Sahibi: " + array[0].ToString();
+                }
+            }
+
+            return "OK";
+        }
+
     }
 }

@@ -110,7 +110,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -145,7 +145,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return siparislers;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Siparisler>();
             }
@@ -251,7 +251,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return personel;
             }
-            catch(Exception EX)
+            catch(Exception)
             {
                 return -1;
             }
@@ -269,7 +269,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return personel;
             }
-            catch (Exception EX)
+            catch (Exception)
             {
                 return -1;
             }

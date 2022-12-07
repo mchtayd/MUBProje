@@ -137,7 +137,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return aracKms;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<AracKm>();
             }

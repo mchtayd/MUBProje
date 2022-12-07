@@ -13,7 +13,6 @@ namespace Business.Concreate.IdarıIsler
     {
         static KonaklamaGecmisManager konaklamaGecmisManager;
         KonaklamaGecmisDal konaklamaGecmisDal;
-        string controlText;
 
         private KonaklamaGecmisManager()
         {

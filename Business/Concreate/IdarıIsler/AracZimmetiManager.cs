@@ -59,7 +59,17 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
-
+        public AracZimmeti GetAdSoyad(string adSoyad)
+        {
+            try
+            {
+                return aracZimmetDal.GetAdSoyad(adSoyad);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public List<AracZimmeti> GetList()
         {
             try

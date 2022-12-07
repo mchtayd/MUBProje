@@ -127,7 +127,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return reddedilenlers;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new List<Reddedilenler>();
             }
@@ -144,7 +144,7 @@ namespace DataAccess.Concreate.STS
                 dataReader = sqlServices.StoreReader("SatDurumOnOnay", new SqlParameter("@siparis", siparisno));
                 dataReader.Close();
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 throw;
             }

@@ -13,7 +13,6 @@ namespace Business.Concreate.Depo
     {
         static DestekDepoMalzemeKayitManager malzemeKayitManager;
         DestekDepoMalzemeKayitDal malzemeKayitDal;
-        string controlText;
 
         private DestekDepoMalzemeKayitManager()
         {

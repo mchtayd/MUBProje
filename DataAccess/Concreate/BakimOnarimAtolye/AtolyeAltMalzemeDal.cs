@@ -76,7 +76,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 return atolyeAltMalzemes;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<AtolyeAltMalzeme>();
             }

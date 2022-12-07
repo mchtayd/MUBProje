@@ -111,7 +111,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception EX)
+            catch (Exception)
             {
                 return null;
             }

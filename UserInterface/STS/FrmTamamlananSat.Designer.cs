@@ -157,6 +157,7 @@ namespace UserInterface.STS
             this.label1 = new System.Windows.Forms.Label();
             this.CmbYillar = new System.Windows.Forms.ComboBox();
             this.ChkTumunuGoster = new System.Windows.Forms.CheckBox();
+            this.TxtGerekce = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
@@ -1253,8 +1254,8 @@ namespace UserInterface.STS
             // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Location = new System.Drawing.Point(1080, 542);
             this.tabControl1.Name = "tabControl1";
@@ -1327,11 +1328,12 @@ namespace UserInterface.STS
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Size = new System.Drawing.Size(464, 344);
             this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "FİRMA DÜZENLE";
+            this.tabPage3.Text = "GEREKÇE";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.TxtGerekce);
             this.groupBox3.Controls.Add(this.CmbProjeKodu);
             this.groupBox3.Controls.Add(this.BtnSatiGuncelle);
             this.groupBox3.Controls.Add(this.label150);
@@ -1467,6 +1469,14 @@ namespace UserInterface.STS
             this.ChkTumunuGoster.Text = "TÜMÜNÜ GÖSTER";
             this.ChkTumunuGoster.UseVisualStyleBackColor = true;
             this.ChkTumunuGoster.CheckedChanged += new System.EventHandler(this.ChkTumunuGoster_CheckedChanged);
+            // 
+            // TxtGerekce
+            // 
+            this.TxtGerekce.Location = new System.Drawing.Point(0, 0);
+            this.TxtGerekce.Name = "TxtGerekce";
+            this.TxtGerekce.Size = new System.Drawing.Size(440, 306);
+            this.TxtGerekce.TabIndex = 578;
+            this.TxtGerekce.Text = "";
             // 
             // FrmTamamlananSat
             // 
@@ -1643,5 +1653,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox CmbYillar;
         private System.Windows.Forms.CheckBox ChkTumunuGoster;
+        private System.Windows.Forms.RichTextBox TxtGerekce;
     }
 }

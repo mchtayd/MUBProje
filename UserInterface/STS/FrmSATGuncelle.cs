@@ -170,7 +170,7 @@ namespace UserInterface.STS
         }
         void DataDisplayDTG()
         {
-            malzemeKayits = malzemeKayitManager.GetList();
+            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
             malzemesFiltered = malzemeKayits;
             dataBinder.DataSource = malzemeKayits.ToDataTable();
             DtgStokList.DataSource = dataBinder;
@@ -4299,7 +4299,17 @@ namespace UserInterface.STS
             LblMasrafYeriNo.Text = DtgReddedilenSat.CurrentRow.Cells["Masrafyeri"].Value.ToString();
             LblMasrafYeri.Text = DtgReddedilenSat.CurrentRow.Cells["Bolum"].Value.ToString();
             LblAdSoyad.Text = DtgReddedilenSat.CurrentRow.Cells["Talepeden"].Value.ToString();
-            CmbUsBolgesi.Text = DtgReddedilenSat.CurrentRow.Cells["Usbolgesi"].Value.ToString();
+            string usBolgesi = DtgReddedilenSat.CurrentRow.Cells["Usbolgesi"].Value.ToString();
+            if (usBolgesi=="YOK" || usBolgesi == "")
+            {
+                CmbUsBolgesi.SelectedIndex = -1;
+                CmbAbfFormno.Text = "";
+                TxtProje.Clear();
+            }
+            else
+            {
+                CmbUsBolgesi.Text = usBolgesi;
+            }
             CmbAbfFormno.Text = DtgReddedilenSat.CurrentRow.Cells["Abfformno"].Value.ToString();
             istenenTarih.Value = DtgReddedilenSat.CurrentRow.Cells["Tarih"].Value.ConDate();
             CmbDonem.Text = DtgReddedilenSat.CurrentRow.Cells["Donem"].Value.ToString();
@@ -4325,6 +4335,13 @@ namespace UserInterface.STS
             mailDurumu= DtgReddedilenSat.CurrentRow.Cells["MailDurumu"].Value.ToString();
             mailSiniri= DtgReddedilenSat.CurrentRow.Cells["MailSiniri"].Value.ToString();
             webBrowser6.Navigate(dosyaYoluGuncelle);
+            if (CmbAdSoyad.Text=="")
+            {
+                CmbSiparisNo.Clear();
+                TxtGorevi.Clear();
+                TxtMasrafyeriNo.Clear();
+                TxtMasrafYeri.Clear();
+            }
         }
         void Personeller()
         {
@@ -4366,6 +4383,10 @@ namespace UserInterface.STS
             CmbAbfFormno.Text = "";
             AbfFormNoListGuncelle();
             SatTalebiDoldur satTalebiDoldur = satTalebiDoldurManager.Get(CmbUsBolgesi.Text);
+            if (satTalebiDoldur==null)
+            {
+                return;
+            }
             TxtProje.Text = satTalebiDoldur.Proje;
         }
         void AbfFormNoListGuncelle()

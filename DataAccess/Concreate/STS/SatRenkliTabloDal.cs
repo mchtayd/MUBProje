@@ -70,7 +70,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return sats;
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 return new List<SatRenkliTablo>();
             }

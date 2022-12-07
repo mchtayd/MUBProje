@@ -64,7 +64,7 @@ namespace DataAccess
                 dataReader.Close();
                 return versionBilgis;
             }
-            catch (Exception EX)
+            catch (Exception)
             {
                 return new List<VersionBilgi>();
             }

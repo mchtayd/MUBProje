@@ -101,7 +101,45 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public AracZimmeti GetAdSoyad(string adSoyad)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AracZimmetiList", new SqlParameter("@adSoyad", adSoyad));
+                AracZimmeti item = null;
+                while (dataReader.Read())
+                {
+                    item = new AracZimmeti(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["PLAKA"].ToString(),
+                        dataReader["MARKA"].ToString(),
+                        dataReader["MODEL"].ToString(),
+                        dataReader["MOTOR_NO"].ToString(),
+                        dataReader["SASE_NO"].ToString(),
+                        dataReader["MULKIYET_BILGILERI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["PROJE_TAHSIS_TARIHI"].ConDate(),
+                        dataReader["PERSONEL_AD"].ToString(),
+                        dataReader["SICIL_NO"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["MASRAF_YER_SOR"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["AKTARIM_TARIHI"].ConDate(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["KM"].ConInt());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
             {
                 return null;
             }

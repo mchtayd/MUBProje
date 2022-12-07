@@ -1,5 +1,6 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.Butce;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
@@ -44,6 +45,7 @@ namespace UserInterface.STS
         TedarikciFirmaManager tedarikciFirmaManager;
         TeklifFirmalarManager teklifFirmalarManager;
         KasaDurumManager kasaDurumManager;
+        BolgeKayitManager bolgeKayitManager;
 
         List<string> supplierNames;
         public object[] infos;
@@ -462,6 +464,7 @@ namespace UserInterface.STS
             tedarikciFirmaManager = TedarikciFirmaManager.GetInstance();
             teklifFirmalarManager = TeklifFirmalarManager.GetInstance();
             kasaDurumManager = KasaDurumManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -1428,9 +1431,19 @@ namespace UserInterface.STS
                 //    MessageBox.Show("Lütfen SAT İşlemini Bitirmeden Önce Firmadan Gelen Fatura Bilgilerini Dosyaya Ekleyiniz.,","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 //    return;
                 //}
+
                 tamamlanantarih = DateTime.Now;
-                Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(),formno,masrafyeri,talepeden,bolum,usbolgesi,abfformno,istenentarih, tamamlanantarih,gerekce,butcekodukalemi,satbirim,harcamaturu,CmbBelgeTuru.Text,TxtBelgeNumarasi.Text,DtBelgeTarihi.Value,
-                    faturafirma,ilgilikisi,masrafyerino,toplam,dosyayolu,siparisNo,ucteklif, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, CmbHarcamaYapan.Text);
+
+                string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
+                string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
+                if (usBolgesiProje=="")
+                {
+
+                }
+
+
+                Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, tamamlanantarih, gerekce, butcekodukalemi, satbirim, harcamaturu, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value,
+                    faturafirma, ilgilikisi, masrafyerino, toplam, dosyayolu, siparisNo, ucteklif, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, CmbHarcamaYapan.Text, usBolgesiProje, garantiDurumu);
                 string control = tamamlananManager.Add(tamamlanan);
                 if (control == "OK")
                 {

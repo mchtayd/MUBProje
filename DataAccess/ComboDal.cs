@@ -104,10 +104,9 @@ namespace DataAccess
                 dataReader.Close();
                 return combos;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-
-                throw;
+                return new List<Combo>();
             }
         }
 

@@ -224,7 +224,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Atolye>();
             }
@@ -244,7 +244,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Atolye>();
             }
@@ -334,7 +334,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyes1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Atolye>();
             }
@@ -392,7 +392,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyes1;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<Atolye>();
             }

@@ -79,7 +79,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return malzemes;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<ReddedilenMalzeme>();
             }

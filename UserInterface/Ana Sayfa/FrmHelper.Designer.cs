@@ -29,10 +29,13 @@ namespace UserInterface.Ana_Sayfa
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
             System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmHelper));
             this.chart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.chart)).BeginInit();
             this.SuspendLayout();
             // 
@@ -58,6 +61,12 @@ namespace UserInterface.Ana_Sayfa
             this.chart.TabIndex = 0;
             this.chart.Text = "chart1";
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "broom.png");
+            // 
             // FrmHelper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -75,5 +84,6 @@ namespace UserInterface.Ana_Sayfa
         #endregion
 
         private System.Windows.Forms.DataVisualization.Charting.Chart chart;
+        private System.Windows.Forms.ImageList ımageList1;
     }
 }

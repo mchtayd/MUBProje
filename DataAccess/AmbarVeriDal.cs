@@ -56,7 +56,7 @@ namespace DataAccess
                 dataReader.Close();
                 return ambarVeris;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<AmbarVeri>();
             }
@@ -82,7 +82,7 @@ namespace DataAccess
                 dataReader.Close();
                 return ambarVeris;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<AmbarVeri>();
             }

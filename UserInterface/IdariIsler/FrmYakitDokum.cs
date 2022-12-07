@@ -492,8 +492,6 @@ namespace UserInterface.IdariIsler
 
             DtgTTList.DataSource = null;
             DtgTTList.DataSource = table;
-
-
            
             /*
             IXLWorkbook workbook = new XLWorkbook(TxtDosyaYolu.Text);

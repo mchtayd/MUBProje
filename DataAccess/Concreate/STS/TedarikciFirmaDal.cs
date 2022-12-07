@@ -88,7 +88,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return firmas;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<TedarikciFirma>();
             }
@@ -126,7 +126,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return ilceler;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 return new List<string>();
@@ -172,7 +172,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return list;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<TedarikciFirma>();
             }

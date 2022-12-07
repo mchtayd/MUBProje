@@ -114,7 +114,7 @@ namespace DataAccess.Concreate.STS
                 dataReader.Close();
                 return teklifs;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<TeklifAlinan>();
             }

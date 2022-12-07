@@ -104,15 +104,14 @@ namespace UserInterface.STS
                 sayfalar.Visible = false;
 
             }
-
-
+            PanelEditClear();
             //bildirim paneli kapalı
             PnlBildirim.Size = new Size(0,0);
             tabAnasayfa.Size = new Size(1600, 955);
 
 
             FrmBildirimler Go = new FrmBildirimler();
-            //Go.infos = infos;
+            Go.infos = infos;
             Go.FormBorderStyle = FormBorderStyle.None;
             Go.TopLevel = false;
             Go.AutoScroll = true;
@@ -371,8 +370,8 @@ namespace UserInterface.STS
             }*/
 
 
-            //treeView2.Nodes["BUTCE"].Remove();
-            //string izin_idleri = "59;60;61";
+            treeView2.Nodes["BUTCE"].Remove();
+            string izin_idleri = "59;60;61";
             string[] array = izinIdleri.Split(';');
             #region Baslıklar
 
@@ -2370,9 +2369,18 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
+
             /////////////////////////////////////////////////SATIN ALMA////////////////////////////////////////////////////////////////////////
             if (e.Node.Text == "SAT Oluştur")
             {
+                //FrmSatTalebi Go = new FrmSatTalebi();
+                //Go.infos = infos;
+                //Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.TopLevel = false;
+                //Go.AutoScroll = true;
+                //OpenTabPage("PageSatTalebi", "SAT OLUŞTUR", Go);
+                //Go.Show();
+
                 FrmSatOlustur2 Go = new FrmSatOlustur2();
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
@@ -2401,8 +2409,16 @@ namespace UserInterface.STS
                 OpenTabPage("PageSatOnay", "SAT ONAY", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "SatOnOnay")
+            if (e.Node.Text == "SAT Ön Onay")
             {
+                FrmSatControl Go = new FrmSatControl();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageSatOnOnay", "SAT KONTROL", Go);
+                Go.Show();
+
                 /*FrmSatOnOnay Go = new FrmSatOnOnay();
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
@@ -2553,34 +2569,34 @@ namespace UserInterface.STS
                 OpenTabPage("PageAyrilanListesi", "PERSONEL LİSTESİ (AYRILAN)", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "Duran Varlık Kayıt")
+            if (e.Node.Text == "Demirbaş Kayıt")
             {
                 DuranVarlik Go = new DuranVarlik();
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageDuranVarlik", "DURAN VARLIK KAYIT", Go);
+                OpenTabPage("PageDuranVarlik", "DEMİRBAŞ KAYIT", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "Duran Varlık Aktarım")
+            if (e.Node.Text == "Zimmet Aktarım")
             {
                 FrmDuranVarlikAktarim Go = new FrmDuranVarlikAktarim();
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageDuranVarlikAktarim", "DURAN VARLIK AKTARIM", Go);
+                OpenTabPage("PageDuranVarlikAktarim", "ZİMMET AKTARIM", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "Duran Varlık Takip İzleme")
+            if (e.Node.Text == "Demirbaş İzleme")
             {
                 FrmDuranVarlikTakip Go = new FrmDuranVarlikTakip();
 
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageDuranVarlikTakip", "DURAN VARLIK TAKİP", Go);
+                OpenTabPage("PageDuranVarlikTakip", "DEMİRBAŞ İZLEME", Go);
                 Go.Show();
             }
 
@@ -2768,7 +2784,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageBakimKayit", "ARAÇ BAKIM KAYIT", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "DV Zimmet Takip")
+            if (e.Node.Text == "Zimmet Takip")
             {
                 //frmWait.Show();
                 FrmDVZimmetTakibi Go = new FrmDVZimmetTakibi();
@@ -2776,7 +2792,7 @@ namespace UserInterface.STS
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageZimmetTakibi", "DV ZİMMET TAKİP", Go);
+                OpenTabPage("PageZimmetTakibi", "ZİMMET TAKİP", Go);
                 Go.Show();
                 //frmWait.Close();
             }
@@ -2791,26 +2807,25 @@ namespace UserInterface.STS
                 OpenTabPage("PageBakimKayitIzleme", "ARAÇ BAKIM ONARIM İZLEME", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "Duran Varlık Arıza Kayıt")
+            if (e.Node.Text == "Envanter Arıza Kayıt")
             {
                 FrmDuranVarlikArizaKayit Go = new FrmDuranVarlikArizaKayit();
                 Go.FormBorderStyle = FormBorderStyle.None;
-
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageDuranVarlikArizaKayit", "DURAN VARLIK ARIZA KAYIT", Go);
+                OpenTabPage("PageDuranVarlikArizaKayit", "ENVANTER ARIZA KAYIT", Go);
                 Go.Show();
             }
-            /*if (e.Node.Text == "DV Kalibrasyon Kayit")
+            if (e.Node.Text == "Kalibrasyon Kayit")
             {
                 FrmDvKalibrasyonKayit Go = new FrmDvKalibrasyonKayit();
                 Go.FormBorderStyle = FormBorderStyle.None;
 
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageDvKalibrasyonKayit", "DURAN VARLIK KALİBRASYON KAYIT", Go);
+                OpenTabPage("PageDvKalibrasyonKayit", "KALİBRASYON KAYIT", Go);
                 Go.Show();
-            }*/
+            }
             if (e.Node.Text == "Ziyaretçi Kayıt")
             {
                 FrmZiyaretciKayit Go = new FrmZiyaretciKayit();
@@ -3242,7 +3257,7 @@ namespace UserInterface.STS
 
             if (e.Node.Text == "Bütçe Kayıt")
             {
-                FrmButceKayit Go = new FrmButceKayit();
+                FrmButceKayit2 Go = new FrmButceKayit2();
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3291,6 +3306,26 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageKasaIzleme", "PROJE KASA İZLEME", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+            if (e.Node.Text == "Bütçe İzleme")
+            {
+                FrmButceler Go = new FrmButceler();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageButceIzleme", "BÜTÇE İZLEME", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+            if (e.Node.Text == "Genel Bütçe İzleme")
+            {
+                FrmGenelButceIzleme Go = new FrmGenelButceIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageGenelButce", "GENEL BÜTÇE İZLEME", Go);
                 //Go.infos = infos;
                 Go.Show();
             }
@@ -3758,7 +3793,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageAyrilanListesi", "PERSONEL LİSTESİ (AYRILAN)", Go);
                 Go.Show();
             }
-            if (e.Node.Name == "DuranVarlikKayit")
+            if (e.Node.Name == "Demirbaş Kayıt")
             {
                 DuranVarlik Go = new DuranVarlik();
                 Go.infos = infos;
@@ -3768,7 +3803,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageDuranVarlik", "DURAN VARLIK KAYIT", Go);
                 Go.Show();
             }
-            if (e.Node.Name == "DuranVarlikAkarma")
+            if (e.Node.Name == "Zimmet Aktarım")
             {
                 FrmDuranVarlikAktarim Go = new FrmDuranVarlikAktarim();
                 Go.infos = infos;
@@ -4761,6 +4796,23 @@ namespace UserInterface.STS
             PnlBildirim.Size = new Size(0, 0);
             tabAnasayfa.Size = new Size(1600, 955);
         }
+        
+        private void webContent_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
+        {
+            for (int i = 0; i < webContent.Document.Links.Count; i++)
+            {
+
+                webContent.Document.Links[i].Click -= new HtmlElementEventHandler(this.LinkClick);
+                webContent.Document.Links[i].Click += new HtmlElementEventHandler(this.LinkClick);
+                
+            }
+
+            //for (int i = 0; i < webContent.Document.All.Count; i++)
+            //{
+            //    webContent.Document.All[i].Click += new HtmlElementEventHandler(this.ButtonClick);
+            //}
+
+        }
 
         private void konaklamalarımToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -4768,6 +4820,117 @@ namespace UserInterface.STS
             frmKonaklamalarim.infos = infos;
             frmKonaklamalarim.ShowDialog();
         }
+        public bool pencerekontrol = false;
+        string dosyaYolu = @"C:\Users\MAYıldırım\Desktop\Yeni Metin Belgesi (2).txt";
+        private void LinkClick(object sender, EventArgs e)
+        {
+            HtmlElement element = ((HtmlElement)sender);
+            string id = element.Id;
+            string href = element.GetAttribute("href");
+            string metin = element.InnerText;
+
+            if (metin==null)
+            {
+                return;
+            }
+
+            string[] array = metin.Split(' ');
+
+            if (array[0] == "TEMİZLE")
+            {
+                webContent.Navigate("");
+                PanelEditClear();
+            }
+            if (array[0] != "TEMİZLE")
+            {
+                FrmBildirimPanel frmBildirimPanel = new FrmBildirimPanel();
+                frmBildirimPanel.icerik = metin;
+                frmBildirimPanel.ShowDialog();
+            }
+
+            DosyaSatirSil(metin);
+
+        }
+        string bildirimMetin = "";
+        void DosyaSatirSil(string tiklananMetin)
+        {
+
+            // TÜM TXT DOSYASININ İÇİNDEKİLERİ BUL VE TIKLANANA ERİŞ
+            string icerik = File.ReadAllText(dosyaYolu);
+            if (icerik == "")
+            {
+                return;
+            }
+            string[] array = icerik.Split('\n');
+            for (int i = 0; i < array.Length; i++)
+            {
+                string[] arrayIcerik = array[i].ToString().Split(' ');
+                bildirimMetin = "";
+                for (int k = 3; k < arrayIcerik.Length; k++)
+                {
+                    if (arrayIcerik.Length - 1 == k)
+                    {
+                        continue;
+                    }
+                    bildirimMetin += arrayIcerik[k]+ " ";
+                }
+
+                if (tiklananMetin == bildirimMetin)
+                {
+                    array[i] = "";
+                }
+            }
+
+            // TXT İÇERİĞİNİ SİL VE TIKLANANI SİL GERİ KALANLARI TEKRAR YAZ
+
+            TextWriter tw = new StreamWriter(dosyaYolu);
+            tw.Write("");
+            tw.Close();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == "")
+                {
+                    return;
+                }
+
+                string txtMetin = array[i];
+
+                StreamWriter streamWriter = new StreamWriter(dosyaYolu, true);
+                streamWriter.WriteLine(txtMetin);
+                streamWriter.Close();
+            }
+
+
+        }
+
+
+
+        private void envanterArızaKayıtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDuranVarlikArizaKayit Go = new FrmDuranVarlikArizaKayit();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageDuranVarlikArizaKayit", "ENVANTER ARIZA KAYIT", Go);
+            Go.Show();
+        }
+
+        public void PanelEditClear()
+        {
+            StringBuilder strB = new StringBuilder();
+            strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
+            strB.Append("<a href='#'>TEMİZLE</a></center>");
+            webContent.DocumentText = strB.ToString();
+            BtnBildirim.Text = "0";
+        }
+
+        //private void ButtonClick(object sender, EventArgs e)
+        //{
+        //    HtmlElement element = ((HtmlElement)sender);
+        //    string metin = element.InnerText;
+
+        //}
 
         private void FrmAnaSayfa_SizeChanged(object sender, EventArgs e)
         {

@@ -201,6 +201,11 @@ namespace UserInterface.EgitimDok
             frmButceKoduKalemi.ShowDialog();
         }
 
+        private void label52_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void TxtAdet_TextChanged(object sender, EventArgs e)
         {
             dvEtiketNos.Clear();

@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="AmbarVeri.cs" />
     <Compile Include="AnaSayfa\Duyuru.cs" />
+    <Compile Include="AnaSayfa\Log.cs" />
     <Compile Include="AnaSayfa\Menu.cs" />
     <Compile Include="AtolyeRapor.cs" />
     <Compile Include="BakimOnarimAtolye\Atolye.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="BakimOnarim\ServisFormu.cs" />
     <Compile Include="BakimOnarim\SFYedekPaca.cs" />
     <Compile Include="Butce\Avans.cs" />
+    <Compile Include="Butce\ButceKayit.cs" />
     <Compile Include="Butce\IsAvansTalep.cs" />
     <Compile Include="Butce\Kasa.cs" />
     <Compile Include="Butce\KasaDurum.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="IdariIsler\DuranVarlikSonuc.cs" />
     <Compile Include="IdariIsler\DvNo.cs" />
     <Compile Include="IdariIsler\EvrakKayit.cs" />
+    <Compile Include="IdariIsler\Gorevlendirme.cs" />
     <Compile Include="IdariIsler\IdariIslerLog.cs" />
     <Compile Include="IdariIsler\Izin.cs" />
     <Compile Include="IdariIsler\Konaklama.cs" />

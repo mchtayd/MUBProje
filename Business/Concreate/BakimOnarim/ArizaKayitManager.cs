@@ -60,11 +60,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public List<ArizaKayit> GetList()
+        public List<ArizaKayit> GetList(string bolgeAdi="")
         {
             try
             {
-                return arizaKayitDal.GetList();
+                return arizaKayitDal.GetList(bolgeAdi);
             }
             catch (Exception)
             {

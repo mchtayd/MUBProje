@@ -34,7 +34,7 @@ namespace Business.Concreate.Butce
             {
                 return kasaDurumDal.Get(id);
             }
-            catch (Exception EX)
+            catch (Exception)
             {
                 return null;
             }

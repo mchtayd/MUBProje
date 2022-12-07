@@ -103,5 +103,10 @@ namespace Entity.BakimOnarim
             this.garantiBaslama = garantiBaslama;
             this.garantiBitis = garantiBitis;
         }
+
+        public BolgeKayit(string tugay)
+        {
+            this.tugay = tugay;
+        }
     }
 }

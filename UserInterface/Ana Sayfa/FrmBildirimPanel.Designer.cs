@@ -29,40 +29,26 @@ namespace UserInterface.Ana_Sayfa
         /// </summary>
         private void InitializeComponent()
         {
-            this.BtnCancel = new System.Windows.Forms.Button();
             this.SuspendLayout();
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnCancel.ForeColor = System.Drawing.Color.DarkRed;
-            this.BtnCancel.Location = new System.Drawing.Point(286, 6);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(35, 23);
-            this.BtnCancel.TabIndex = 2;
-            this.BtnCancel.Text = "X";
-            this.BtnCancel.UseVisualStyleBackColor = false;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // FrmBildirimPanel
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.CadetBlue;
-            this.ClientSize = new System.Drawing.Size(326, 1100);
-            this.Controls.Add(this.BtnCancel);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.BackColor = System.Drawing.Color.White;
+            this.ClientSize = new System.Drawing.Size(1041, 690);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmBildirimPanel";
-            this.Text = "FrmBildirimPanel";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Bildirim";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmBildirimPanel_FormClosing);
             this.Load += new System.EventHandler(this.FrmBildirimPanel_Load);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BtnCancel;
     }
 }
