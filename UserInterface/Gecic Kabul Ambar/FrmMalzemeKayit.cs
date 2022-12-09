@@ -1,9 +1,11 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using Entity.Gecic_Kabul_Ambar;
 using System;
 using System.Collections.Generic;
@@ -29,6 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         PersonelKayitManager personelKayitManager;
         MalzemeStokManager malzemeStokManager;
         MalzemeManager malzemeManager;
+        BildirimYetkiManager bildirimYetkiManager;
 
         int id, kaydedildi = 0;
         string dosyayolu, fotoyolu, kaynakdosyaismi1, yeniad, deneme, foto;
@@ -52,6 +55,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             personelKayitManager = PersonelKayitManager.GetInstance();
             malzemeStokManager = MalzemeStokManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -250,6 +254,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 }
                 fotoControl = false;
                 dosyaControl = false;
+                mesaj = BildirimKayit();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
             }
@@ -284,6 +293,32 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 }
             }*/
             #endregion
+        }
+
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Depo Malzeme Kayıt"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtStn.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "stok numaralı"; // Bildirim türü
+            array[4] = TxtTanim.Text + " adlı malzemenin"; // İÇERİK
+            array[5] = "malzeme kayıt işlemlerini gerçekleştirmiştir!";
+            array[6] = "";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)

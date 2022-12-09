@@ -1,8 +1,10 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.IdarıIsler;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,8 @@ namespace UserInterface.IdariIsler
         IdariIslerLogManager logManager;
         AracZimmetiManager aracZimmetiManager;
         IstenAyrilisManager ıstenAyrilisManager;
+        BildirimYetkiManager bildirimYetkiManager;
+
         //string dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun;
         bool dosyaControl = false;
         public object[] infos;
@@ -42,6 +46,7 @@ namespace UserInterface.IdariIsler
             logManager = IdariIslerLogManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
             ıstenAyrilisManager = IstenAyrilisManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmYakitBeyani_Load(object sender, EventArgs e)
@@ -196,13 +201,42 @@ namespace UserInterface.IdariIsler
                     return;
                 }
                 CreateLog();
+                mesaj = BildirimKayit();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 dosyaControl = false;
                 Temizle();
             }
         }
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
 
+            array[0] = "Yakıt Beyanı"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = TxtPlaka.Text + " plakalı araç için"; // İÇERİK
+            array[5] = TxtTarih.Value.ToString("d") + " tarihine ait "+ CmbPersonel.Text + " adlı personel";
+            array[6] = "tarafından alınan yakıt beyanı kaydı oluşturulmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
 
 
 

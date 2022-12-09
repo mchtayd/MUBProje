@@ -50,6 +50,11 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.Visible = false;
             }
         }
+        public void Yenilenecekler()
+        {
+            DataDisplayDevamEden();
+            DataDisplayTamamlanan();
+        }
         void DataDisplayDevamEden()
         {
             dtfsDevamEden = dtfManager.GetList("DEVAM EDEN");

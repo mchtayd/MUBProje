@@ -1,9 +1,11 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using System;
 using System.Collections.Generic;
@@ -15,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
@@ -26,6 +29,9 @@ namespace UserInterface.BakımOnarım
         AltYukleniciManager altYukleniciManager;
         ServisFormuManager servisFormuManager;
         SFYedekParcaManager sFYedekParcaManager;
+        BildirimYetkiManager bildirimYetkiManager;
+
+        public object[] infos;
 
         bool dosyaEkle = false;
         string dosyaYolu = "", siparisNo = "", isAkisNo, kaynakdosyaismi, alinandosya;
@@ -38,6 +44,7 @@ namespace UserInterface.BakımOnarım
             satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
             servisFormuManager = ServisFormuManager.GetInstance();
             sFYedekParcaManager = SFYedekParcaManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmServisFormuKayit_Load(object sender, EventArgs e)
@@ -123,6 +130,7 @@ namespace UserInterface.BakımOnarım
             MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
         }
+        
 
         private void CmbIslemTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -225,6 +233,31 @@ namespace UserInterface.BakımOnarım
             CmbFirma.SelectedValue = "";
 
         }
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Servis Formu Kayıt"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbBolgeAdi.Text + " Üs bölgesi için"; // İÇERİK
+            array[5] = DtgServisTarihi.Value.ToString("d") + " servis tarihli";
+            array[6] = "kaydı oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
@@ -263,6 +296,11 @@ namespace UserInterface.BakımOnarım
                     sayac++;
                 }
                 IsAkisNo();
+                mesaj = BildirimKayit();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 dosyaEkle = false;
                 Temizle();

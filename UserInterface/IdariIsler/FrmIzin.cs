@@ -1,8 +1,10 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.IdariIsler;
 using Microsoft.Office.Interop.Word;
 using System;
@@ -15,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 using Application = Microsoft.Office.Interop.Word.Application;
 
@@ -28,6 +31,8 @@ namespace UserInterface.IdariIsler
         IdariIslerLogManager logManager;
         IsAkisNoManager isAkisNoManager;
         PersonelKayitManager kayitManager;
+        BildirimYetkiManager bildirimYetkiManager;
+
         List<string> fileNames = new List<string>();
         List<string> fileNamesGun = new List<string>();
         bool start = true, start2 = true, start3 = true, start4 = true;
@@ -43,6 +48,7 @@ namespace UserInterface.IdariIsler
             logManager = IdariIslerLogManager.GetInstance();
             isAkisNoManager = IsAkisNoManager.GetInstance();
             kayitManager = PersonelKayitManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -194,12 +200,69 @@ namespace UserInterface.IdariIsler
                     return;
                 }
                 CreateLog();
+                mesaj = BildirimKayit();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 BtnDosyaEkle.BackColor = Color.Transparent;
             }
 
         }
+
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Personel İzin"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbPersonel.Text + " isimli personel için"; // İÇERİK
+            array[5] = DtBasTarihi.Value.ToString("d") + " tarihinden " + DtBitTarihi.Value.ToString("d") + " tarihine kadar";
+            array[6] = CmbIzınTuru.Text + " kaydı oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+        string BildirimKayitGuncelle()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Personel İzin Güncelleme"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtIzinGuncelle.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbAd.Text + " isimli personel için"; // İÇERİK
+            array[5] = DtTarihBaslama.Value.ToString("d") + " tarihinden " + DtTarihBitis.Value.ToString("d") + " tarihine kadar olan";
+            array[6] = CmbTuru.Text + " kaydı güncelledi!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
         void CreateDirectory()
         {
             /*string root = @"Z:\DTS";
@@ -525,6 +588,11 @@ namespace UserInterface.IdariIsler
                     return;
                 }
                 CreateLogGuncelle();
+                mesaj = BildirimKayitGuncelle();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleGuncelle();
                 BtnDosyaEkleGun.BackColor = Color.Transparent;

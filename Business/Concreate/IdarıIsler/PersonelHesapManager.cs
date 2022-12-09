@@ -43,12 +43,37 @@ namespace Business.Concreate.IdarıIsler
 
         public List<PersonelHesap> GetList()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return personelHesapDal.GetList();
+            }
+            catch (Exception)
+            {
+                return new List<PersonelHesap>();
+            }
         }
 
-        public string Update(PersonelHesap entity)
+        public string Update(int personelId, string durum, DateTime girisBilgisi)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return personelHesapDal.Update(personelId, durum, girisBilgisi);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdatePasif(int personelId, string durum, DateTime sonGorulme, int toplamSure)
+        {
+            try
+            {
+                return personelHesapDal.UpdatePasif(personelId, durum, sonGorulme, toplamSure);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static PersonelHesapManager GetInstance()
         {

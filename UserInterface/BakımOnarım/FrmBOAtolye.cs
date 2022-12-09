@@ -1,5 +1,6 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
@@ -7,6 +8,7 @@ using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.BakimOnarimAtolye;
 using Entity.Gecic_Kabul_Ambar;
@@ -39,6 +41,7 @@ namespace UserInterface.BakımOnarım
         SiparisPersonelManager siparisPersonelManager;
         MalzemeKayitManager malzemeKayitManager;
         ComboManager comboManager;
+        BildirimYetkiManager bildirimYetkiManager;
 
         List<AtolyeMalzeme> atolyeMalzemes;
 
@@ -68,6 +71,7 @@ namespace UserInterface.BakımOnarım
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmBOAtolye_Load(object sender, EventArgs e)
@@ -83,6 +87,7 @@ namespace UserInterface.BakımOnarım
             IcSiparisNo();
             AtolyeKategoriOto();
             AtolyeKategorManuel();
+            
             start = false;
         }
         void Don()
@@ -493,7 +498,14 @@ namespace UserInterface.BakımOnarım
                 }
                 //IscilikGir();
 
+                string mesaj = Bildirim();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                 BtnKaydet.Enabled = true;
                 BtnTemizle.Enabled = true;
                 BtnCancel.Enabled = true;
@@ -505,6 +517,45 @@ namespace UserInterface.BakımOnarım
                 DosyaYollari.Clear();
                 IcSiparisNo();
             }
+        }
+        string Bildirim()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Atölye Sipariş Açma"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+
+            if (IcSiparisler[0].ToString() != null)
+            {
+                array[2] = IcSiparisler[0].ToString();
+            }
+            else
+            {
+                array[2] = LblIcSiparisNo.Text;
+            }
+            array[3] = "Sipariş numaralı"; // Bildirim türü
+            if (TxtBolgeAdi.Text=="")
+            {
+                array[4] = "Bölge Bilgisi Olmayan";
+            }
+            else
+            {
+                array[4] = TxtBolgeAdi.Text;
+            }
+            array[5] = TxtKategori.Text + " arızasının";
+            array[6] = "Atölye kaydını Otomatik Kayıt yaparak oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
@@ -715,6 +766,12 @@ namespace UserInterface.BakımOnarım
                 }
                 //IscilikGir();
 
+                string mesaj2 = BildirimManuel();
+                if (mesaj2 != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BtnKaydet.Enabled = true;
                 BtnTemizle.Enabled = true;
@@ -736,6 +793,39 @@ namespace UserInterface.BakımOnarım
                 Don();
             }
         }
+
+        string BildirimManuel()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Atölye Sipariş Açma"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            if (IcSiparisler[0].ToString()!=null)
+            {
+                array[2] = IcSiparisler[0].ToString();
+            }
+            else
+            {
+                array[2] = LblIcSiparisManuel.Text;
+            }
+            array[3] = "Sipariş numaralı"; // Bildirim türü
+            array[4] = "Bölge Bilgisi Olmayan"; // Bölge
+            array[5] = CmbAtolyeKategoriManuel.Text + " arızasının";
+            array[6] = "Atölye kaydını Manuel Kayıt yaparak oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
         public void Kategori()
         {
             CmbKategori.DataSource = comboManager.GetList("ABF KATEGORİ");

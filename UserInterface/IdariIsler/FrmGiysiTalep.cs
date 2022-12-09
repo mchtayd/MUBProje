@@ -1,8 +1,10 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.Depo;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using DataAccess.Concreate.Depo;
+using Entity.AnaSayfa;
 using Entity.Depo;
 using Entity.IdariIsler;
 using System;
@@ -16,6 +18,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.Depo;
 using UserInterface.STS;
 
@@ -34,6 +37,7 @@ namespace UserInterface.IdariIsler
         KKDManager kKDManager;
         TemizlikUrunleriManager temizlikUrunleriManager;
         MalzemeTalepManager malzemeTalepManager;
+        BildirimYetkiManager bildirimYetkiManager;
 
         public object[] infos;
         bool start = true;
@@ -53,6 +57,7 @@ namespace UserInterface.IdariIsler
             kKDManager = KKDManager.GetInstance();
             temizlikUrunleriManager = TemizlikUrunleriManager.GetInstance();
             malzemeTalepManager = MalzemeTalepManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmGiysiTalep_Load(object sender, EventArgs e)
@@ -327,11 +332,41 @@ namespace UserInterface.IdariIsler
 
                 //PersonelMail();
                 //MailSendMetotPersonel();
-
+                string mesaj = BildirimKayit();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 DtgList.Rows.Clear();
             }
+        }
+
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "MİF Kayıt"; // Bildirim Başlık
+            array[1] = LblAdSoyad.Text; // Bildirim Sahibi Personel
+            array[2] = "isimli personel"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "Malzeme isteğinde bulunmuştur."; // Bildirim türü
+            array[4] = ""; // İÇERİK
+            array[5] = "";
+            array[6] = "";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
         }
 
         private void DtgList_CellContentClick(object sender, DataGridViewCellEventArgs e)

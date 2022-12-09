@@ -390,6 +390,7 @@ namespace UserInterface.STS
             this.devamDevamsızlıkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organizasyonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.duyuruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bildirimYetkiDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.şifremiDeğitirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -414,9 +415,17 @@ namespace UserInterface.STS
             this.uçakVeOtobüsBiletiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.harcamaBeyannamesiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.malzemeİstekFormuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PnlBildirim = new System.Windows.Forms.Panel();
-            this.webContent = new System.Windows.Forms.WebBrowser();
             this.envanterArızaKayıtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.webContent = new System.Windows.Forms.WebBrowser();
+            this.PnlBildirim = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DtgPersonelList = new System.Windows.Forms.DataGridView();
+            this.PersonelAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Durum = new System.Windows.Forms.DataGridViewImageColumn();
+            this.ImagesLogin = new System.Windows.Forms.ImageList(this.components);
+            this.timerOnline = new System.Windows.Forms.Timer(this.components);
+            this.TimerFileRead = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -424,6 +433,9 @@ namespace UserInterface.STS
             this.contextTreeView.SuspendLayout();
             this.toolStrip1.SuspendLayout();
             this.PnlBildirim.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgPersonelList)).BeginInit();
             this.SuspendLayout();
             // 
             // LblTarih
@@ -1376,7 +1388,8 @@ namespace UserInterface.STS
             this.onayEkranlarıToolStripMenuItem,
             this.devamDevamsızlıkToolStripMenuItem,
             this.organizasyonToolStripMenuItem,
-            this.duyuruToolStripMenuItem});
+            this.duyuruToolStripMenuItem,
+            this.bildirimYetkiDüzenleToolStripMenuItem});
             this.sayfalar.Image = ((System.Drawing.Image)(resources.GetObject("sayfalar.Image")));
             this.sayfalar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.sayfalar.Name = "sayfalar";
@@ -1450,6 +1463,13 @@ namespace UserInterface.STS
             this.duyuruToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.duyuruToolStripMenuItem.Text = "Duyuru";
             this.duyuruToolStripMenuItem.Click += new System.EventHandler(this.duyuruToolStripMenuItem_Click);
+            // 
+            // bildirimYetkiDüzenleToolStripMenuItem
+            // 
+            this.bildirimYetkiDüzenleToolStripMenuItem.Name = "bildirimYetkiDüzenleToolStripMenuItem";
+            this.bildirimYetkiDüzenleToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
+            this.bildirimYetkiDüzenleToolStripMenuItem.Text = "Bildirim Yetki Düzenle";
+            this.bildirimYetkiDüzenleToolStripMenuItem.Click += new System.EventHandler(this.bildirimYetkiDüzenleToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -1648,31 +1668,107 @@ namespace UserInterface.STS
             this.malzemeİstekFormuToolStripMenuItem.Text = "Malzeme İstek Formu";
             this.malzemeİstekFormuToolStripMenuItem.Click += new System.EventHandler(this.malzemeİstekFormuToolStripMenuItem_Click);
             // 
-            // PnlBildirim
-            // 
-            this.PnlBildirim.Controls.Add(this.webContent);
-            this.PnlBildirim.Dock = System.Windows.Forms.DockStyle.Right;
-            this.PnlBildirim.Location = new System.Drawing.Point(957, 28);
-            this.PnlBildirim.Name = "PnlBildirim";
-            this.PnlBildirim.Size = new System.Drawing.Size(265, 656);
-            this.PnlBildirim.TabIndex = 98;
-            // 
-            // webContent
-            // 
-            this.webContent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webContent.Location = new System.Drawing.Point(0, 0);
-            this.webContent.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webContent.Name = "webContent";
-            this.webContent.Size = new System.Drawing.Size(265, 656);
-            this.webContent.TabIndex = 668;
-            this.webContent.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webContent_DocumentCompleted);
-            // 
             // envanterArızaKayıtToolStripMenuItem
             // 
             this.envanterArızaKayıtToolStripMenuItem.Name = "envanterArızaKayıtToolStripMenuItem";
             this.envanterArızaKayıtToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
             this.envanterArızaKayıtToolStripMenuItem.Text = "Envanter Arıza Kayıt";
             this.envanterArızaKayıtToolStripMenuItem.Click += new System.EventHandler(this.envanterArızaKayıtToolStripMenuItem_Click);
+            // 
+            // webContent
+            // 
+            this.webContent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webContent.Location = new System.Drawing.Point(3, 3);
+            this.webContent.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webContent.Name = "webContent";
+            this.webContent.Size = new System.Drawing.Size(251, 622);
+            this.webContent.TabIndex = 668;
+            this.webContent.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.webContent_DocumentCompleted);
+            // 
+            // PnlBildirim
+            // 
+            this.PnlBildirim.Controls.Add(this.tabPage1);
+            this.PnlBildirim.Controls.Add(this.tabPage2);
+            this.PnlBildirim.Dock = System.Windows.Forms.DockStyle.Right;
+            this.PnlBildirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.PnlBildirim.Location = new System.Drawing.Point(957, 28);
+            this.PnlBildirim.Name = "PnlBildirim";
+            this.PnlBildirim.SelectedIndex = 0;
+            this.PnlBildirim.Size = new System.Drawing.Size(265, 656);
+            this.PnlBildirim.TabIndex = 99;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.webContent);
+            this.tabPage1.Location = new System.Drawing.Point(4, 24);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(257, 628);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Bildirimler";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.DtgPersonelList);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(257, 628);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Çevrimiçi";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // DtgPersonelList
+            // 
+            this.DtgPersonelList.AllowUserToAddRows = false;
+            this.DtgPersonelList.AllowUserToDeleteRows = false;
+            this.DtgPersonelList.BackgroundColor = System.Drawing.Color.White;
+            this.DtgPersonelList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgPersonelList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.PersonelAd,
+            this.Durum});
+            this.DtgPersonelList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgPersonelList.Location = new System.Drawing.Point(3, 3);
+            this.DtgPersonelList.MultiSelect = false;
+            this.DtgPersonelList.Name = "DtgPersonelList";
+            this.DtgPersonelList.ReadOnly = true;
+            this.DtgPersonelList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgPersonelList.Size = new System.Drawing.Size(251, 622);
+            this.DtgPersonelList.TabIndex = 0;
+            // 
+            // PersonelAd
+            // 
+            this.PersonelAd.HeaderText = "Personel Adı";
+            this.PersonelAd.Name = "PersonelAd";
+            this.PersonelAd.ReadOnly = true;
+            this.PersonelAd.Width = 145;
+            // 
+            // Durum
+            // 
+            this.Durum.HeaderText = "Durum";
+            this.Durum.Name = "Durum";
+            this.Durum.ReadOnly = true;
+            this.Durum.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Durum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Durum.Width = 60;
+            // 
+            // ImagesLogin
+            // 
+            this.ImagesLogin.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ImagesLogin.ImageStream")));
+            this.ImagesLogin.TransparentColor = System.Drawing.Color.Transparent;
+            this.ImagesLogin.Images.SetKeyName(0, "icons8-green-circle-16.png");
+            this.ImagesLogin.Images.SetKeyName(1, "icons8-red-circle-16.png");
+            // 
+            // timerOnline
+            // 
+            this.timerOnline.Interval = 60000;
+            this.timerOnline.Tick += new System.EventHandler(this.timerOnline_Tick);
+            // 
+            // TimerFileRead
+            // 
+            this.TimerFileRead.Interval = 3000;
+            this.TimerFileRead.Tick += new System.EventHandler(this.TimerFileRead_Tick);
             // 
             // FrmAnaSayfa
             // 
@@ -1706,6 +1802,9 @@ namespace UserInterface.STS
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.PnlBildirim.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgPersonelList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1789,8 +1888,17 @@ namespace UserInterface.STS
         private System.Windows.Forms.ToolStripMenuItem malzemeİstekFormuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem duyuruToolStripMenuItem;
         public System.Windows.Forms.Button BtnBildirim;
-        public System.Windows.Forms.Panel PnlBildirim;
         public System.Windows.Forms.WebBrowser webContent;
         private System.Windows.Forms.ToolStripMenuItem envanterArızaKayıtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bildirimYetkiDüzenleToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        public System.Windows.Forms.TabControl PnlBildirim;
+        private System.Windows.Forms.DataGridView DtgPersonelList;
+        private System.Windows.Forms.ImageList ImagesLogin;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonelAd;
+        private System.Windows.Forms.DataGridViewImageColumn Durum;
+        private System.Windows.Forms.Timer timerOnline;
+        private System.Windows.Forms.Timer TimerFileRead;
     }
 }

@@ -1,7 +1,9 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -27,6 +29,8 @@ namespace UserInterface.IdariIsler
         SiparisPersonelManager siparisPersonelManager;
         ZimmetAktarimManager zimmetAktarimManager;
         ComboManager comboManager;
+        BildirimYetkiManager bildirimYetkiManager;
+
         List<string> fileNames = new List<string>();
         public object[] infos;
         string dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun, comboAd;
@@ -43,6 +47,7 @@ namespace UserInterface.IdariIsler
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
             zimmetAktarimManager = ZimmetAktarimManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -153,11 +158,67 @@ namespace UserInterface.IdariIsler
                 aracKadroArttir = false;
 
                 CreateLog();
+                string mesaj2 = BildirimKayit();
+                if (mesaj2!="OK")
+                {
+                    MessageBox.Show(mesaj2, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 dosyaekle = false;
                 Temizle();
             }
         }
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Araç Kayıt"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtPlaka.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "Plakalı"; // Bildirim türü
+            array[4] = TxtMarkasi.Text + TxtTicariAdi.Text + " Markalı"; // İÇERİK
+            array[5] = "aracın "+ DtProjeTahsisTarihi.Value.ToString("d") + " tarihinden itibaren";
+            array[6] = "projeye tahsisi yapmıştır!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+        string BildirimKayitKapat()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Araç Projeden Çıkış"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtPlaka.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "Plakalı"; // Bildirim türü
+            array[4] = TxtMarkasi.Text + TxtTicariAdi.Text + " Markalı"; // İÇERİK
+            array[5] = "aracın " + DtProjeCikisTarihiC.Text + " tarihinden itibaren";
+            array[6] = "projeden çıkışı yapmıştır!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
         void CreateDirectory()
         {
             string root = @"Z:\DTS";
@@ -450,6 +511,11 @@ namespace UserInterface.IdariIsler
                 }
                 siparislerManager.AracSiparisAzalt(CmbSiparisNoC.Text);
                 CreateLogKapatma();
+                string mesaj2 = BildirimKayitKapat();
+                if (mesaj2 != "OK")
+                {
+                    MessageBox.Show(mesaj2, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleC();
             }

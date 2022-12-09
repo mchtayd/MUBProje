@@ -1,6 +1,8 @@
-﻿using Business.Concreate.IdarıIsler;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -11,6 +13,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.IdariIsler
@@ -23,6 +26,9 @@ namespace UserInterface.IdariIsler
         SiparisPersonelManager siparisPersonelManager;
         CokluAracManager cokluAracManager;
         IstenAyrilisManager ıstenAyrilisManager;
+        BildirimYetkiManager bildirimYetkiManager;
+
+        public object[] infos;
 
         string siparisNo = "";
         int id;
@@ -35,6 +41,7 @@ namespace UserInterface.IdariIsler
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
             cokluAracManager = CokluAracManager.GetInstance();
             ıstenAyrilisManager = IstenAyrilisManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmAracKm_Load(object sender, EventArgs e)
@@ -53,7 +60,7 @@ namespace UserInterface.IdariIsler
                 frmAnaSayfa.tabAnasayfa.Visible = false;
             }
         }
-
+        DateTime projeyeGirisTarihi;
         private void BtnBulT_Click(object sender, EventArgs e)
         {
             if (TxtPlaka.Text == "")
@@ -70,11 +77,13 @@ namespace UserInterface.IdariIsler
                 Temizle();
                 return;
             }
+
             Temizle();
             id = arac.Id;
-            TxtPlaka.Text = arac.Plaka;
+            TxtPlaka.Text = arac.Plaka.ToUpper();
             TxtSiparisNo.Text = arac.Siparisno;
             TxtMulkiyetBilgileri.Text = arac.MulkiyetBilgileri;
+            projeyeGirisTarihi = arac.ProjeTahsisTarihi;
             if (aracZimmeti == null)
             {
                 TxtAdSoyad.Text = "";
@@ -122,7 +131,7 @@ namespace UserInterface.IdariIsler
         {
             TxtPlaka.Clear(); TxtSiparisNo.Clear(); TxtKmBaslangic.Clear(); TxtAdSoyad.Clear(); CmbSiparisNo.Clear(); TxtGorevi.Clear(); TxtMasrafyeriNo.Clear(); TxtMasrafYeri.Clear(); TxtMasrafYeriSorumlusu.Clear(); TxtMulkiyetBilgileri.Clear(); TxtAciklama.Clear(); TxtKmBitis.Clear();
         }
-
+        string donem = "";
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
             if (RdbEvet.Checked == true && DtgAracList.RowCount==1)
@@ -141,7 +150,7 @@ namespace UserInterface.IdariIsler
                     cokluAracManager.Add(cokluArac);
                 }
 
-                TarihBul();
+                //TarihBul();
                 if (TxtPlaka.Text == "")
                 {
                     MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -167,8 +176,10 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show("Lütfen Öncelikle Dönem Yıl Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 KmFarkBulCoklu();
-                string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
+
+                donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 string mesaj = "";
 
                 AracKm aracKm = new AracKm(TxtPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, DtgBitisTarihi.Value, TxtKmBitis.Text.ConInt() ,LblToplamKm.Text.ConInt(), sabitKm, fark, siparisNo);
@@ -188,7 +199,7 @@ namespace UserInterface.IdariIsler
 
             else
             {
-                TarihBul();
+                //TarihBul();
                 if (TxtPlaka.Text == "")
                 {
                     MessageBox.Show("Lütfen Öncelikle Kayıtlı Bir Plaka Bilgisi Yazınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -231,8 +242,41 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
             }
+
+            string mesaj2 = Bildirim();
+            if (mesaj2 != "OK")
+            {
+                MessageBox.Show(mesaj2, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
-        int bitisKm=0, toplamYapilanKm=0, sabitKm=3500, fark=0, mevcutKm=0;
+
+        string Bildirim()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Araç Km Kayıt"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtPlaka.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "Plakalı"; // Bildirim türü
+            array[4] = TxtAdSoyad.Text; // İÇERİK
+            array[5] = "personeline ait aracın";
+            array[6] = donem + " Dönemi Km kaydını oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
+        int toplamYapilanKm = 0, sabitKm = 3500, fark = 0;
 
         private void TxtSiparisNo_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -303,10 +347,13 @@ namespace UserInterface.IdariIsler
         {
             if (DtBaslamaTarihi.Value.Day.ToString() != "1")
             {
-                if (DtgAracList.RowCount==0)
+                if (projeyeGirisTarihi.Day.ToString()=="1")
                 {
-                    MessageBox.Show("Öncelikle ayın ilk gününden kayıt başlatınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (DtgAracList.RowCount == 0)
+                    {
+                        MessageBox.Show("Öncelikle ayın ilk gününden kayıt başlatınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
 
@@ -372,12 +419,11 @@ namespace UserInterface.IdariIsler
             }
         }
 
-        DateTime aysonu;
 
-        void TarihBul()
-        {
-            aysonu = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1).AddDays(-1);
-        }
+        //void TarihBul()
+        //{
+        //    aysonu = new DateTime(DateTime.Now.Year, DateTime.Now.Month + 1, 1).AddDays(-1);
+        //}
         void KmFarkBul()
         {
 

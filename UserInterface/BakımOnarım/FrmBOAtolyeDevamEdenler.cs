@@ -400,6 +400,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             FrmBOAtolyeGuncelleme frmBOAtolyeGuncelleme = new FrmBOAtolyeGuncelleme();
+            frmBOAtolyeGuncelleme.infos = infos;
             frmBOAtolyeGuncelleme.BtnCancel.Visible = false;
             frmBOAtolyeGuncelleme.TxtIcSiparisNo.Text = icSiparisNo;
             frmBOAtolyeGuncelleme.personelAd = infos[1].ToString();

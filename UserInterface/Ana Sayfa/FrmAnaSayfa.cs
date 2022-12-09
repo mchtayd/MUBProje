@@ -7,6 +7,7 @@ using DataAccess.Concreate;
 using DataAccess.Concreate.IdariIsler;
 using Entity;
 using Entity.AnaSayfa;
+using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -43,6 +44,9 @@ namespace UserInterface.STS
         VersionManager versionManager;
         TamamlananManager tamamlananManager;
         MenuManager menuManager;
+        PersonelHesapManager personelHesapManager;
+        LogManager logManager;
+
         FrmWait frmWait = new FrmWait();
         List<MenuBaslik> menuBasliks;
         List<MenuBaslik> menuBasliksFilter;
@@ -51,6 +55,7 @@ namespace UserInterface.STS
         List<MenuBaslik> menuBasliks2 = new List<MenuBaslik>();
         List<MenuBaslik> menuBasliks3 = new List<MenuBaslik>();
         List<MenuBaslik> menuBasliks4 = new List<MenuBaslik>();
+        List<PersonelHesap> personelHesaps;
         public object[] infos;
         public object[] infos1;
         int control = 0;
@@ -70,6 +75,8 @@ namespace UserInterface.STS
             tamamlananManager = TamamlananManager.GetInstance();
             satDataGridview1Manager = SatDataGridview1Manager.GetInstance();
             menuManager = MenuManager.GetInstance();
+            personelHesapManager = PersonelHesapManager.GetInstance();
+            logManager = LogManager.GetInstance();
         }
 
         private void AnaSayfa_Load(object sender, EventArgs e)
@@ -82,7 +89,6 @@ namespace UserInterface.STS
             //LblTarih.Text = DateTime.Now;
             LblTarih.Text = DateTime.Now.ToLongDateString();
             TimerSaat.Start();
-
             personId = infos[0].ConInt();
             authId = infos[5].ConInt();
             izinIdleri = infos[6].ToString();
@@ -93,6 +99,9 @@ namespace UserInterface.STS
                 button3.Visible = false;
                 BtnDosyaKitle.Visible = false;
             }
+            PersonelDurumAktif();
+            timerOnline.Start();
+            PersonelAktif();
             Basliklar(authId);
             Admin();
             ControlNodes(authId);
@@ -102,13 +111,11 @@ namespace UserInterface.STS
             if (yetkiModu == "KULLANICI")
             {
                 sayfalar.Visible = false;
-
             }
             PanelEditClear();
             //bildirim paneli kapalı
-            PnlBildirim.Size = new Size(0,0);
-            tabAnasayfa.Size = new Size(1600, 955);
-
+            //PnlBildirim.Size = new Size(0,0);
+            //tabAnasayfa.Size = new Size(1600, 955);
 
             FrmBildirimler Go = new FrmBildirimler();
             Go.infos = infos;
@@ -118,7 +125,51 @@ namespace UserInterface.STS
             OpenTabPage("PageBildirimler", "BİLDİRİM", Go);
             Go.Show();
 
+            DosyaControl();
+            TimerFileRead.Start();
+        }
+        DateTime giris = DateTime.Now;
+        public void PersonelDurumAktif()
+        {
+            string mesaj = personelHesapManager.Update(personId, "ÇEVRİM İÇİ", giris);
+            if (mesaj!="OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        public void PersonelDurumPasif()
+        {
+            DateTime cikis= DateTime.Now;
+            TimeSpan toplamSure = cikis - giris;
+            string mesaj = personelHesapManager.UpdatePasif(personId, "ÇEVRİM DIŞI", cikis, toplamSure.Minutes.ConInt());
+            if (mesaj != "OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
+        public void PersonelAktif()
+        {
+            personelHesaps = new List<PersonelHesap>();
+            DtgPersonelList.Rows.Clear();
+            personelHesaps = personelHesapManager.GetList();
+            foreach (PersonelHesap item in personelHesaps)
+            {
+                DtgPersonelList.Rows.Add();
+                int sonSatir = DtgPersonelList.RowCount - 1;
 
+                DtgPersonelList.Rows[sonSatir].Cells["PersonelAd"].Value = item.AdSoyad;
+                if (item.Durum== "ÇEVRİM İÇİ")
+                {
+                    DtgPersonelList.Rows[sonSatir].Cells["Durum"].Value = ImagesLogin.Images[0]; // YEŞİL
+                }
+                else
+                {
+                    DtgPersonelList.Rows[sonSatir].Cells["Durum"].Value = ImagesLogin.Images[1]; // KIRMIZI
+                }
+
+            }
         }
 
         void Basliklar(int authId)
@@ -2062,6 +2113,14 @@ namespace UserInterface.STS
                         form.DataDisplay();
                     }
                 }
+                if (baslik == "DTF İZLEME")
+                {
+                    var form = (FrmDtfIzleme)Application.OpenForms["FrmDtfIzleme"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
+                    }
+                }
             }
 
         }
@@ -2123,7 +2182,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Firma Servis Formu Kayıt")
             {
                 FrmServisFormuKayit Go = new FrmServisFormuKayit();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2232,7 +2291,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Firma Servis Formu Kayıt")
             {
                 FrmServisFormuKayit Go = new FrmServisFormuKayit();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2309,7 +2368,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Atölye Bildirim Güncelle")
             {
                 FrmBOAtolyeGuncelleme Go = new FrmBOAtolyeGuncelleme();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2373,23 +2432,23 @@ namespace UserInterface.STS
             /////////////////////////////////////////////////SATIN ALMA////////////////////////////////////////////////////////////////////////
             if (e.Node.Text == "SAT Oluştur")
             {
-                //FrmSatTalebi Go = new FrmSatTalebi();
-                //Go.infos = infos;
-                //Go.FormBorderStyle = FormBorderStyle.None;
-                //Go.TopLevel = false;
-                //Go.AutoScroll = true;
-                //OpenTabPage("PageSatTalebi", "SAT OLUŞTUR", Go);
-                //Go.Show();
-
-                FrmSatOlustur2 Go = new FrmSatOlustur2();
+                FrmSatTalebi Go = new FrmSatTalebi();
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageSatOlustur2", "SAT OLUŞTUR", Go);
+                OpenTabPage("PageSatTalebi", "SAT OLUŞTUR", Go);
                 Go.Show();
+
+                //FrmSatOlustur2 Go = new FrmSatOlustur2();
+                //Go.infos = infos;
+                //Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.TopLevel = false;
+                //Go.AutoScroll = true;
+                //OpenTabPage("PageSatOlustur2", "SAT OLUŞTUR", Go);
+                //Go.Show();
             }
-            if (e.Node.Text == "Teklif Alınacak SAT")
+            if (e.Node.Text == "SAT Teklif Alınacak")
             {
                 FrmTeklifAlinacakSat Go = new FrmTeklifAlinacakSat();
                 Go.infos = infos;
@@ -2409,14 +2468,14 @@ namespace UserInterface.STS
                 OpenTabPage("PageSatOnay", "SAT ONAY", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "SAT Ön Onay")
+            if (e.Node.Text == "SAT Kontrol")
             {
                 FrmSatControl Go = new FrmSatControl();
                 //Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageSatOnOnay", "SAT KONTROL", Go);
+                OpenTabPage("PageSatKontrol", "SAT KONTROL", Go);
                 Go.Show();
 
                 /*FrmSatOnOnay Go = new FrmSatOnOnay();
@@ -2427,15 +2486,23 @@ namespace UserInterface.STS
                 OpenTabPage("PageSatOnOnay", "SAT ÖN ONAY", Go);
                 Go.Show();*/
             }
-            if (e.Node.Text == "SAT Başlatma Onayı")
+            if (e.Node.Text == "SAT Harcanan Yapılan")
             {
-                FrmSatBaslatmaOnayi Go = new FrmSatBaslatmaOnayi();
+                FrmHarcamasiYapilanSat Go = new FrmHarcamasiYapilanSat();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageHarcamasıYapilan", "HARCAMASI YAPILAN SAT", Go);
+                Go.Show();
+
+                /*FrmSatBaslatmaOnayi Go = new FrmSatBaslatmaOnayi();
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageSatBaslatma", "SAT BAŞLATMA ONAYI", Go);
-                Go.Show();
+                Go.Show();*/
             }
             if (e.Node.Text == "SAT Tamamla")
             {
@@ -2511,7 +2578,7 @@ namespace UserInterface.STS
                 OpenTabPage("PageReddedilen", "REDDEDİLEN SATLAR", Go);
                 Go.Show();
             }
-            if (e.Node.Text == "Teklifsiz SAT")
+            if (e.Node.Text == "SAT Teklifsiz")
             {
                 FrmTeklifsizSat Go = new FrmTeklifsizSat();
                 Go.infos = infos;
@@ -2900,7 +2967,7 @@ namespace UserInterface.STS
             {
                 FrmAracKm Go = new FrmAracKm();
                 Go.FormBorderStyle = FormBorderStyle.None;
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageAracKm", "ARAÇ KM", Go);
@@ -3366,7 +3433,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Firma Servis Formu Kayit")
             {
                 FrmServisFormuKayit Go = new FrmServisFormuKayit();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3540,7 +3607,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Veri Kayit Atolye Izleme")
             {
                 FrmBOAtolyeGuncelleme Go = new FrmBOAtolyeGuncelleme();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3570,7 +3637,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Veri Kayit Atolye Guncelleme")
             {
                 FrmBOAtolyeGuncelleme Go = new FrmBOAtolyeGuncelleme();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -4820,8 +4887,10 @@ namespace UserInterface.STS
             frmKonaklamalarim.infos = infos;
             frmKonaklamalarim.ShowDialog();
         }
+
         public bool pencerekontrol = false;
-        string dosyaYolu = @"C:\Users\MAYıldırım\Desktop\Yeni Metin Belgesi (2).txt";
+        //string dosyaYolu = @"Z:\DTS\info\ou\notification.txt";
+        string yol = @"C:\DTS\Bildirim\notification.txt";
         private void LinkClick(object sender, EventArgs e)
         {
             HtmlElement element = ((HtmlElement)sender);
@@ -4840,23 +4909,89 @@ namespace UserInterface.STS
             {
                 webContent.Navigate("");
                 PanelEditClear();
+                TopluTemizle();
+                TıklananListSil("TÜMÜNÜ SİL");
             }
             if (array[0] != "TEMİZLE")
             {
                 FrmBildirimPanel frmBildirimPanel = new FrmBildirimPanel();
                 frmBildirimPanel.icerik = metin;
                 frmBildirimPanel.ShowDialog();
+                DosyaSatirSil(metin);
+                TıklananListSil(metin);
             }
 
-            DosyaSatirSil(metin);
+        }
+        void TopluTemizle()
+        {
+            if (!File.Exists(yol))
+            {
+                TimerFileRead.Stop();
+                MessageBox.Show("Bildirim okuma dosyası bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string icerik = File.ReadAllText(yol);
+            string[] array = icerik.Split('\n');
+            for (int i = 0; i < array.Length; i++)
+            {
+                string[] arrayIcerik = array[i].ToString().Split(' ');
+                if (arrayIcerik[arrayIcerik.Length - 1].ConInt() == infos[0].ConInt())
+                {
+                    bildirimMetin = "";
+                    for (int k = 3; k < arrayIcerik.Length; k++)
+                    {
+                        if (arrayIcerik.Length - 1 == k)
+                        {
+                            continue;
+                        }
+                        bildirimMetin += arrayIcerik[k] + " ";
+                    }
+                    array[i] = "";
+                }
+            }
+
+            TextWriter tw = new StreamWriter(yol);
+            tw.Write("");
+            tw.Close();
+
+            for (int i = 0; i < array.Length; i++)
+            {
+                if (array[i] == "")
+                {
+                    return;
+                }
+
+                string txtMetin = array[i];
+
+                StreamWriter streamWriter = new StreamWriter(yol, true);
+                streamWriter.WriteLine(txtMetin);
+                streamWriter.Close();
+            }
 
         }
+
+        public void TıklananListSil(string tiklananMetin)
+        {
+            for (int i = 0; i < oncekiBildirimler.Count; i++)
+            {
+                if (oncekiBildirimler[i] == tiklananMetin)
+                {
+                    oncekiBildirimler.RemoveAt(i);
+                }
+                if (tiklananMetin=="TÜMÜNÜ SİL")
+                {
+
+                }
+            }
+        }
+
+
         string bildirimMetin = "";
-        void DosyaSatirSil(string tiklananMetin)
+        public void DosyaSatirSil(string tiklananMetin)
         {
 
             // TÜM TXT DOSYASININ İÇİNDEKİLERİ BUL VE TIKLANANA ERİŞ
-            string icerik = File.ReadAllText(dosyaYolu);
+            string icerik = File.ReadAllText(yol);
             if (icerik == "")
             {
                 return;
@@ -4883,7 +5018,7 @@ namespace UserInterface.STS
 
             // TXT İÇERİĞİNİ SİL VE TIKLANANI SİL GERİ KALANLARI TEKRAR YAZ
 
-            TextWriter tw = new StreamWriter(dosyaYolu);
+            TextWriter tw = new StreamWriter(yol);
             tw.Write("");
             tw.Close();
 
@@ -4896,15 +5031,87 @@ namespace UserInterface.STS
 
                 string txtMetin = array[i];
 
-                StreamWriter streamWriter = new StreamWriter(dosyaYolu, true);
+                StreamWriter streamWriter = new StreamWriter(yol, true);
                 streamWriter.WriteLine(txtMetin);
                 streamWriter.Close();
             }
 
+        }
+        public string LogYaz(string baslik, string icerik, string sorumluId)
+        {
+            Log log = new Log(baslik, icerik, DateTime.Now, infos[1].ToString(), sorumluId);
+            string mesaj = logManager.Add(log);
 
+            if (mesaj != "OK")
+            {
+                return mesaj;
+            }
+
+            return "OK";
         }
 
+        public List<string> oncekiBildirimler = new List<string>();
+        bool metinControl = false;
 
+        public void DosyaControl()
+        {
+            if (!File.Exists(yol))
+            {
+                TimerFileRead.Stop();
+                MessageBox.Show("Bildirim okuma dosyası bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string icerik = File.ReadAllText(yol);
+            metinControl = false;
+            if (icerik == "")
+            {
+                return;
+            }
+
+            string[] array = icerik.Split('\n');
+            for (int i = 0; i < array.Length; i++)
+            {
+                string[] arrayIcerik = array[i].ToString().Split(' ');
+                string[] arrayIdler = arrayIcerik[arrayIcerik.Length - 1].ToString().Split(';');
+                for (int j = 0; j < arrayIdler.Length; j++)
+                {
+                    if (infos[0].ConInt() == arrayIdler[j].ConInt())
+                    {
+                        string bildirimMetin = "";
+                        string baslik = arrayIcerik[0] + " " + arrayIcerik[1] + " " + arrayIcerik[2];
+
+                        for (int k = 3; k < arrayIcerik.Length; k++)
+                        {
+                            if (arrayIcerik.Length - 1 == k)
+                            {
+                                continue;
+                            }
+                            bildirimMetin += arrayIcerik[k] + " ";
+                        }
+
+                        if (oncekiBildirimler != null)
+                        {
+                            foreach (string item in oncekiBildirimler)
+                            {
+                                if (item == bildirimMetin)
+                                {
+                                    metinControl = true;
+                                    return;
+                                }
+                                metinControl = false;
+                            }
+                        }
+
+                        if (metinControl == false)
+                        {
+                            FrmHelper.Bildirim(baslik, "\n" + bildirimMetin, ımageList1.Images["okey.png"], infos[1].ToString(), arrayIcerik[arrayIcerik.Length - 1]);
+                            oncekiBildirimler.Add(bildirimMetin);
+                        }
+                    }
+                }
+            }
+        }
 
         private void envanterArızaKayıtToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -4914,6 +5121,22 @@ namespace UserInterface.STS
             Go.AutoScroll = true;
             OpenTabPage("PageDuranVarlikArizaKayit", "ENVANTER ARIZA KAYIT", Go);
             Go.Show();
+        }
+
+        private void bildirimYetkiDüzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBildirimYetki frmBildirimYetki = new FrmBildirimYetki();
+            frmBildirimYetki.ShowDialog();
+        }
+
+        private void timerOnline_Tick(object sender, EventArgs e)
+        {
+            PersonelAktif();
+        }
+
+        private void TimerFileRead_Tick(object sender, EventArgs e)
+        {
+            DosyaControl();
         }
 
         public void PanelEditClear()
@@ -4981,6 +5204,7 @@ namespace UserInterface.STS
                 }
                 IslemleriSil();
                 controlKapatma = true;
+                PersonelDurumPasif();
                 Application.Exit();
             }
 

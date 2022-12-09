@@ -1,12 +1,15 @@
-﻿using Business.Concreate.IdarıIsler;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using Entity.IdariIsler;
 using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 using Application = Microsoft.Office.Interop.Word.Application;
 
@@ -21,6 +24,7 @@ namespace UserInterface.IdariIsler
         AracZimmetiManager aracZimmetiManager;
         SehiriciGorevManager sehiriciGorevManager;
         ButceKoduManager butceKoduManager;
+        BildirimYetkiManager bildirimYetkiManager;
 
         List<AracZimmeti> aracZimmetis;
         List<AracTalep> aracTaleps;
@@ -42,6 +46,7 @@ namespace UserInterface.IdariIsler
             aracZimmetiManager = AracZimmetiManager.GetInstance();
             sehiriciGorevManager = SehiriciGorevManager.GetInstance();
             butceKoduManager = ButceKoduManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmAracTalep_Load(object sender, EventArgs e)
@@ -107,10 +112,68 @@ namespace UserInterface.IdariIsler
                 CreateWord();
 
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string messege = BildirimKayit();
+                if (messege!="OK")
+                {
+                    MessageBox.Show(messege, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 Temizle();
             }
 
         }
+
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Araç Talep"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbTalepEdenAd.Text + " personel için"; // İÇERİK
+            array[5] = TxtGidilecekYer.Text + "istikametine gitmek üzere";
+            array[6] = CmbPlaka.Text+ " Plakalı araç için araç talep kaydı oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+        string BildirimKayitKapat()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Araç Talep"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = personelAd + " personel için"; // İÇERİK
+            array[5] = gidilecekYer + "istikametine gitmek üzere";
+            array[6] = CmbPlaka.Text + " Plakalı araç için oluşturulan kaydı kapatmıştır!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
         void TaslakKopyala()
         {
             string root = @"C:\DTS";
@@ -128,7 +191,7 @@ namespace UserInterface.IdariIsler
 
             taslakYolu = yol + "MP-FR-091 ARAÇ TALEP FORMU REV (01).docx";
         }
-        static int outValue = 0;
+        //static int outValue = 0;
         void CreateWord()
         {
             string root = @"Z:\DTS";
@@ -326,7 +389,7 @@ namespace UserInterface.IdariIsler
         {
             Temizle();
         }
-
+        string personelAd, plaka, gidilecekYer;
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -340,6 +403,9 @@ namespace UserInterface.IdariIsler
             DtDonusSaati.Value = DtgList.CurrentRow.Cells["BitisTarihiSaati"].Value.ConDate();
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
             dosyaYolu = DtgList.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            personelAd = DtgList.CurrentRow.Cells["PersonelAd"].Value.ToString();
+            plaka = DtgList.CurrentRow.Cells["Plaka"].Value.ToString();
+            gidilecekYer = DtgList.CurrentRow.Cells["GidilecekYer"].Value.ToString();
         }
 
         private void BtnKapat_Click(object sender, EventArgs e)
@@ -375,6 +441,11 @@ namespace UserInterface.IdariIsler
                 //TaslakKopyala();
                 CreateWordKapat();
                 MessageBox.Show("Bilgiler Başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string messege = BildirimKayitKapat();
+                if (messege != "OK")
+                {
+                    MessageBox.Show(messege, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 id = 0;
                 DataDisplay();
                 TxtDonusKm.Clear();

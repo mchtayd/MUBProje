@@ -10,23 +10,18 @@ using System.Windows.Forms;
 
 namespace UserInterface.STS
 {
-    public partial class FrmSatControl : Form
+    public partial class FrmHarcamasiYapilanSat : Form
     {
-        public FrmSatControl()
+        public FrmHarcamasiYapilanSat()
         {
             InitializeComponent();
         }
 
-        private void FrmSatControl_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnCancel_Click(object sender, EventArgs e)
+        private void button5_Click(object sender, EventArgs e)
         {
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
             this.Close();
-            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageSatKontrol"]);
+            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageHarcamasıYapilan"]);
 
             if (frmAnaSayfa.tabAnasayfa.TabPages.Count == 0)
             {

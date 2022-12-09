@@ -124,7 +124,7 @@ namespace UserInterface.STS
             DtgTamamlananSatlar.Columns["Abfform"].HeaderText = "ABF FORM NO";
             DtgTamamlananSatlar.Columns["Istenentarih"].Visible = false;
             DtgTamamlananSatlar.Columns["Tamamlanantarih"].HeaderText = "TAMAMLANAN TARİH";
-            DtgTamamlananSatlar.Columns["Gerekce"].Visible = false;
+            DtgTamamlananSatlar.Columns["Gerekce"].HeaderText = "GEREKÇE";
             DtgTamamlananSatlar.Columns["Butcekodukalemi"].HeaderText = "BÜTÇE KODU KALEMİ";
             DtgTamamlananSatlar.Columns["Satbirim"].HeaderText = "SAT BİRİM";
             DtgTamamlananSatlar.Columns["Harcamaturu"].HeaderText = "HARCAMA TÜRÜ";
@@ -184,18 +184,18 @@ namespace UserInterface.STS
         {
             groupBox2.Visible = true;
             PnlKaydir.Location = new Point(917, 15);
-            PnlTemsili.Location = new Point(751, 871);
+            PnlTemsili.Location = new Point(747, 721);
         }
         void PanelDaralt()
         {
             groupBox2.Visible = true;
             PnlKaydir.Location = new Point(676, 15);
-            PnlTemsili.Location = new Point(521, 867);
+            PnlTemsili.Location = new Point(527, 721);
         }
         void PanelDaraltTemsili()
         {
             groupBox2.Visible = false;
-            PnlTemsili.Location = new Point(10, 548);
+            PnlTemsili.Location = new Point(6, 389);
         }
         string satOlusturmaTuru = "";
         private void DtgTamamlananSatlar_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -1,5 +1,7 @@
-﻿using Business.Concreate.DokumanYonetim;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.DokumanYonetim;
 using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using Entity.DokumanYonetim;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.DokumanYonetim
@@ -20,6 +23,7 @@ namespace UserInterface.DokumanYonetim
     {
         DokumanManager dokumanManager;
         Dokuman dokuman;
+        BildirimYetkiManager bildirimYetkiManager;
         List<Dokuman> dokumens;
         List<Dokuman> dokumensFiltered;
         List<string> fileNames = new List<string>();
@@ -35,6 +39,7 @@ namespace UserInterface.DokumanYonetim
         {
             InitializeComponent();
             dokumanManager = DokumanManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmDokumanEkle_Load(object sender, EventArgs e)
@@ -347,7 +352,12 @@ namespace UserInterface.DokumanYonetim
             dokuman = null;
             dokuman = new Dokuman(CmbDokumanTur.Text, TxtDokumanNumarasi.Text, TxtDokumanTanim.Text, TxtRevizyon.Text, DtOnayTarihi.Value, DtYayinTarihi.Value, subdir + klasoradi, benzersiz);
             string messege = dokumanManager.Add(dokuman);
-            MessageBox.Show(messege);
+            MessageBox.Show(messege, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string bildirim = BildirimKayit();
+            if (bildirim!="OK")
+            {
+                MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             WebBrowserLogin();
             Task.Factory.StartNew(() => MailSendMetot());
             Temizle();
@@ -455,6 +465,32 @@ namespace UserInterface.DokumanYonetim
             fileNames.Remove(fileNames[fileNames.Count - 1]);
 
         }
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Doküman Ekleme"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtDokumanTanim.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "tanımlı dokümanı"; // Bildirim türü
+            array[4] = DtYayinTarihi.Text + " tarihinden itibaren"; // İÇERİK
+            array[5] = "Dokümanlara formlara kaydetmiştir!";
+            array[6] = "";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
         private void webBrowserAddDocument_Navigating(object sender, WebBrowserNavigatingEventArgs e)
         {
             if (webBrowserAddDocument.Url != null)

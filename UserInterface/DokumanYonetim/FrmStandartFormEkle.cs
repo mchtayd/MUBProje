@@ -1,5 +1,7 @@
-﻿using Business.Concreate.DokumanYonetim;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.DokumanYonetim;
 using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using Entity.DokumanYonetim;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.DokumanYonetim
@@ -20,6 +23,8 @@ namespace UserInterface.DokumanYonetim
     {
         FormDocumentManager dokumanManager;
         FormDocument dokuman;
+        BildirimYetkiManager bildirimYetkiManager;
+
         List<FormDocument> dokumens;
         List<FormDocument> dokumensFiltered;
         List<string> fileNames = new List<string>();
@@ -37,6 +42,7 @@ namespace UserInterface.DokumanYonetim
         {
             InitializeComponent();
             dokumanManager = FormDocumentManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         
@@ -451,8 +457,38 @@ namespace UserInterface.DokumanYonetim
             string messege = dokumanManager.Add(dokuman);
             MessageBox.Show(messege);
             WebBrowserLogin();
+            string mesaj = BildirimKayit();
+            if (mesaj!="OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             Task.Factory.StartNew(() => MailSendMetot());
             TemizleKaydet();
+        }
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Standart Form Ekleme"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtDokumanTanim.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "tanımlı standart formu"; // Bildirim türü
+            array[4] = DtYayinTarihi.Text + " tarihinden itibaren"; // İÇERİK
+            array[5] = "Standart formlara kaydetmiştir!";
+            array[6] = "";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
         }
         void TemizleKaydet()
         {

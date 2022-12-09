@@ -22,6 +22,9 @@ using MailMessage = System.Net.Mail.MailMessage;
 using Task = System.Threading.Tasks.Task;
 using Business;
 using Entity;
+using Entity.AnaSayfa;
+using UserInterface.Ana_Sayfa;
+using Business.Concreate.AnaSayfa;
 
 namespace UserInterface.IdariIsler
 {
@@ -40,6 +43,8 @@ namespace UserInterface.IdariIsler
         PersonelKayitManager personelKayitManager;
         IsAkisNoManager isAkisNoManager;
         ComboManager comboManager;
+        BildirimYetkiManager bildirimYetkiManager;
+
         List<UstAmirMail> ustAmirMails;
         List<SehiriciGorev> sehiriciGorevs;
         public FrmSehirIcıGorev()
@@ -54,6 +59,7 @@ namespace UserInterface.IdariIsler
             personelKayitManager = PersonelKayitManager.GetInstance();
             isAkisNoManager = IsAkisNoManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -388,6 +394,11 @@ namespace UserInterface.IdariIsler
                 PersonelMail();
                 Task.Factory.StartNew(() => MailSendMetotPersonel());
 
+                mesaj = BildirimKayit();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 DataDisplayPersonel();
@@ -395,6 +406,57 @@ namespace UserInterface.IdariIsler
 
             }
         }
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Şehir İçi Görev"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = TxtGidilecekYer.Text + " gitmek üzere"; // İÇERİK
+            array[5] = DtBasTarihi.Value.ToString("d") + DtBasSaati.Value.ToString("H") + " tarihinden itibaren";
+            array[6] = "şehir içi görev kaydı oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+        string BildirimKayitTamamla()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Şehir İçi Görev"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtIsAkisNoTamamla.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = TxtGidilecekYerT.Text + " gitmek üzere oluşturulan"; // İÇERİK
+            array[5] = DtBasTarihiTamamlama.Value.ToString("d") + DtBasSaatiTamamlama.Value.ToString("H") + " tarihli kaydı";
+            array[6] = DtBitTarihi.Value.ToString("d") + DtBitSaati.Value.ToString("H") + " tarihi itibari ile kapatmıştır!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
         void PersonelMail()
         {
             PersonelKayit personelKayit = personelKayitManager.PersonelMail(LblAdSoyad.Text);
@@ -588,6 +650,11 @@ namespace UserInterface.IdariIsler
                 CreateLogTamamla();
                 Task.Factory.StartNew(() => MailSendMetotTamamlama());
                 //CreateWord();s
+                mesaj = BildirimKayitTamamla();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleTamamla();
             }

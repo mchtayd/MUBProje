@@ -82,6 +82,7 @@
     <Compile Include="AmbarVeriDal.cs" />
     <Compile Include="AtolyeRaporDal.cs" />
     <Compile Include="ComboDal.cs" />
+    <Compile Include="Concreate\AnaSayfa\BildirimYetkiDal.cs" />
     <Compile Include="Concreate\AnaSayfa\DuyuruDal.cs" />
     <Compile Include="Concreate\AnaSayfa\LogDal.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuDal.cs" />

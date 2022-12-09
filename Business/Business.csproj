@@ -54,6 +54,7 @@
     <Compile Include="AmbarVeriManager.cs" />
     <Compile Include="AtolyeRaporManager.cs" />
     <Compile Include="ComboManager.cs" />
+    <Compile Include="Concreate\AnaSayfa\BildirimYetkiManager.cs" />
     <Compile Include="Concreate\AnaSayfa\LogManager.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeManager.cs" />

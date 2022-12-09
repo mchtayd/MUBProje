@@ -30,15 +30,47 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgTamamlananSatlar = new ADGV.AdvancedDataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.label1 = new System.Windows.Forms.Label();
+            this.CmbYillar = new System.Windows.Forms.ComboBox();
+            this.ChkTumunuGoster = new System.Windows.Forms.CheckBox();
+            this.tabControl2 = new System.Windows.Forms.TabControl();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblGenelTop = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.BtnProjeDuzelt = new System.Windows.Forms.Button();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.PnlTemsili = new System.Windows.Forms.Panel();
+            this.TxtGenelTop = new System.Windows.Forms.TextBox();
+            this.LblGenelToplam = new System.Windows.Forms.Label();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.DtgSatIslemAdimlari = new System.Windows.Forms.DataGridView();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TxtGerekce = new System.Windows.Forms.RichTextBox();
+            this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
+            this.BtnSatiGuncelle = new System.Windows.Forms.Button();
+            this.label150 = new System.Windows.Forms.Label();
+            this.TxtFirma = new System.Windows.Forms.TextBox();
+            this.label151 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.PnlKaydir = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
@@ -130,49 +162,23 @@ namespace UserInterface.STS
             this.stn9 = new System.Windows.Forms.TextBox();
             this.stn7 = new System.Windows.Forms.TextBox();
             this.stn8 = new System.Windows.Forms.TextBox();
-            this.PnlTemsili = new System.Windows.Forms.Panel();
-            this.TxtGenelTop = new System.Windows.Forms.TextBox();
-            this.LblGenelToplam = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.DtgSatIslemAdimlari = new System.Windows.Forms.DataGridView();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.CmbProjeKodu = new System.Windows.Forms.ComboBox();
-            this.BtnSatiGuncelle = new System.Windows.Forms.Button();
-            this.label150 = new System.Windows.Forms.Label();
-            this.TxtFirma = new System.Windows.Forms.TextBox();
-            this.label151 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.LblGenelTop = new System.Windows.Forms.Label();
-            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.BtnGuncelle = new System.Windows.Forms.Button();
-            this.BtnProjeDuzelt = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.CmbYillar = new System.Windows.Forms.ComboBox();
-            this.ChkTumunuGoster = new System.Windows.Forms.CheckBox();
-            this.TxtGerekce = new System.Windows.Forms.RichTextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.tabControl2.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.PnlTemsili.SuspendLayout();
+            this.tabControl1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            this.tabPage3.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.PnlKaydir.SuspendLayout();
             this.PnlGizle.SuspendLayout();
-            this.PnlTemsili.SuspendLayout();
-            this.contextMenuStrip1.SuspendLayout();
-            this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).BeginInit();
-            this.tabPage3.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -182,7 +188,7 @@ namespace UserInterface.STS
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1557, 27);
+            this.panel1.Size = new System.Drawing.Size(1596, 27);
             this.panel1.TabIndex = 48;
             // 
             // BtnCancel
@@ -202,9 +208,9 @@ namespace UserInterface.STS
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgTamamlananSatlar);
-            this.groupBox1.Location = new System.Drawing.Point(10, 85);
+            this.groupBox1.Location = new System.Drawing.Point(13, 18);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1545, 420);
+            this.groupBox1.Size = new System.Drawing.Size(1545, 336);
             this.groupBox1.TabIndex = 305;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "TAMAMLANAN SATLAR";
@@ -213,8 +219,8 @@ namespace UserInterface.STS
             // 
             this.DtgTamamlananSatlar.AllowUserToAddRows = false;
             this.DtgTamamlananSatlar.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTamamlananSatlar.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle16;
             this.DtgTamamlananSatlar.AutoGenerateContextFilters = true;
             this.DtgTamamlananSatlar.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTamamlananSatlar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -225,7 +231,7 @@ namespace UserInterface.STS
             this.DtgTamamlananSatlar.Name = "DtgTamamlananSatlar";
             this.DtgTamamlananSatlar.ReadOnly = true;
             this.DtgTamamlananSatlar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgTamamlananSatlar.Size = new System.Drawing.Size(1539, 401);
+            this.DtgTamamlananSatlar.Size = new System.Drawing.Size(1539, 317);
             this.DtgTamamlananSatlar.TabIndex = 1;
             this.DtgTamamlananSatlar.TimeFilter = false;
             this.DtgTamamlananSatlar.SortStringChanged += new System.EventHandler(this.DtgTamamlananSatlar_SortStringChanged);
@@ -233,15 +239,139 @@ namespace UserInterface.STS
             this.DtgTamamlananSatlar.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgTamamlananSatlar_CellMouseClick);
             this.DtgTamamlananSatlar.KeyDown += new System.Windows.Forms.KeyEventHandler(this.DtgTamamlananSatlar_KeyDown);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.yenileToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(106, 26);
+            // 
+            // yenileToolStripMenuItem
+            // 
+            this.yenileToolStripMenuItem.Name = "yenileToolStripMenuItem";
+            this.yenileToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.yenileToolStripMenuItem.Text = "Yenile";
+            this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
+            // 
+            // openFileDialog1
+            // 
+            this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(19, 46);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(31, 15);
+            this.label1.TabIndex = 533;
+            this.label1.Text = "YIL:";
+            // 
+            // CmbYillar
+            // 
+            this.CmbYillar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbYillar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbYillar.FormattingEnabled = true;
+            this.CmbYillar.Location = new System.Drawing.Point(56, 42);
+            this.CmbYillar.Name = "CmbYillar";
+            this.CmbYillar.Size = new System.Drawing.Size(121, 23);
+            this.CmbYillar.TabIndex = 534;
+            this.CmbYillar.SelectedIndexChanged += new System.EventHandler(this.CmbYillar_SelectedIndexChanged);
+            // 
+            // ChkTumunuGoster
+            // 
+            this.ChkTumunuGoster.AutoSize = true;
+            this.ChkTumunuGoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkTumunuGoster.Location = new System.Drawing.Point(200, 44);
+            this.ChkTumunuGoster.Name = "ChkTumunuGoster";
+            this.ChkTumunuGoster.Size = new System.Drawing.Size(146, 19);
+            this.ChkTumunuGoster.TabIndex = 536;
+            this.ChkTumunuGoster.Text = "TÜMÜNÜ GÖSTER";
+            this.ChkTumunuGoster.UseVisualStyleBackColor = true;
+            this.ChkTumunuGoster.CheckedChanged += new System.EventHandler(this.ChkTumunuGoster_CheckedChanged);
+            // 
+            // tabControl2
+            // 
+            this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Controls.Add(this.tabPage5);
+            this.tabControl2.Controls.Add(this.tabPage6);
+            this.tabControl2.Location = new System.Drawing.Point(6, 79);
+            this.tabControl2.Name = "tabControl2";
+            this.tabControl2.SelectedIndex = 0;
+            this.tabControl2.Size = new System.Drawing.Size(1578, 833);
+            this.tabControl2.TabIndex = 537;
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.BtnProjeDuzelt);
+            this.tabPage4.Controls.Add(this.BtnGuncelle);
+            this.tabPage4.Controls.Add(this.PnlTemsili);
+            this.tabPage4.Controls.Add(this.tabControl1);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.groupBox2);
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.LblGenelTop);
+            this.tabPage4.Controls.Add(this.TxtTop);
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.groupBox1);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1570, 807);
+            this.tabPage4.TabIndex = 0;
+            this.tabPage4.Text = "HAK EDİŞ";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1570, 807);
+            this.tabPage5.TabIndex = 1;
+            this.tabPage5.Text = "SABİT GİDERLER";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1570, 807);
+            this.tabPage6.TabIndex = 2;
+            this.tabPage6.Text = "MAHSUPLAŞMA";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(174, 357);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(101, 15);
+            this.label3.TabIndex = 356;
+            this.label3.Text = "Genel Toplam:";
+            // 
+            // LblGenelTop
+            // 
+            this.LblGenelTop.AutoSize = true;
+            this.LblGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGenelTop.Location = new System.Drawing.Point(281, 357);
+            this.LblGenelTop.Name = "LblGenelTop";
+            this.LblGenelTop.Size = new System.Drawing.Size(34, 15);
+            this.LblGenelTop.TabIndex = 357;
+            this.LblGenelTop.Text = "00  ₺";
+            // 
             // TxtTop
             // 
             this.TxtTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 520);
+            this.TxtTop.Location = new System.Drawing.Point(115, 357);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
-            this.TxtTop.TabIndex = 309;
+            this.TxtTop.TabIndex = 355;
             this.TxtTop.Text = "00";
             // 
             // label5
@@ -249,11 +379,216 @@ namespace UserInterface.STS
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(12, 520);
+            this.label5.Location = new System.Drawing.Point(15, 357);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
-            this.label5.TabIndex = 308;
+            this.label5.TabIndex = 354;
             this.label5.Text = "Toplam Kayıt:";
+            // 
+            // BtnProjeDuzelt
+            // 
+            this.BtnProjeDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnProjeDuzelt.Location = new System.Drawing.Point(1166, 363);
+            this.BtnProjeDuzelt.Name = "BtnProjeDuzelt";
+            this.BtnProjeDuzelt.Size = new System.Drawing.Size(75, 23);
+            this.BtnProjeDuzelt.TabIndex = 538;
+            this.BtnProjeDuzelt.Text = "ProjeDuzelt";
+            this.BtnProjeDuzelt.UseVisualStyleBackColor = true;
+            this.BtnProjeDuzelt.Visible = false;
+            // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Location = new System.Drawing.Point(6, 721);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(123, 41);
+            this.BtnGuncelle.TabIndex = 537;
+            this.BtnGuncelle.Text = "GÜNCELLE";
+            this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Visible = false;
+            // 
+            // PnlTemsili
+            // 
+            this.PnlTemsili.Controls.Add(this.TxtGenelTop);
+            this.PnlTemsili.Controls.Add(this.LblGenelToplam);
+            this.PnlTemsili.Location = new System.Drawing.Point(747, 721);
+            this.PnlTemsili.Name = "PnlTemsili";
+            this.PnlTemsili.Size = new System.Drawing.Size(286, 41);
+            this.PnlTemsili.TabIndex = 536;
+            // 
+            // TxtGenelTop
+            // 
+            this.TxtGenelTop.Location = new System.Drawing.Point(168, 9);
+            this.TxtGenelTop.Name = "TxtGenelTop";
+            this.TxtGenelTop.Size = new System.Drawing.Size(103, 20);
+            this.TxtGenelTop.TabIndex = 514;
+            this.TxtGenelTop.Text = "0.00 ₺";
+            // 
+            // LblGenelToplam
+            // 
+            this.LblGenelToplam.AutoSize = true;
+            this.LblGenelToplam.Location = new System.Drawing.Point(6, 12);
+            this.LblGenelToplam.Name = "LblGenelToplam";
+            this.LblGenelToplam.Size = new System.Drawing.Size(156, 13);
+            this.LblGenelToplam.TabIndex = 526;
+            this.LblGenelToplam.Text = "HARCANAN GENEL TOPLAM:";
+            // 
+            // tabControl1
+            // 
+            this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Location = new System.Drawing.Point(1076, 392);
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            this.tabControl1.Size = new System.Drawing.Size(472, 370);
+            this.tabControl1.TabIndex = 535;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.DtgSatIslemAdimlari);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(464, 344);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "VERİ GEÇMİŞİ";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // DtgSatIslemAdimlari
+            // 
+            this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
+            this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle17;
+            this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgSatIslemAdimlari.Location = new System.Drawing.Point(3, 3);
+            this.DtgSatIslemAdimlari.MultiSelect = false;
+            this.DtgSatIslemAdimlari.Name = "DtgSatIslemAdimlari";
+            this.DtgSatIslemAdimlari.ReadOnly = true;
+            this.DtgSatIslemAdimlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgSatIslemAdimlari.Size = new System.Drawing.Size(458, 338);
+            this.DtgSatIslemAdimlari.TabIndex = 6;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.webBrowser1);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(464, 344);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "EKLER";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 3);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(458, 338);
+            this.webBrowser1.TabIndex = 310;
+            // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.groupBox3);
+            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Size = new System.Drawing.Size(464, 344);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "GEREKÇE";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.TxtGerekce);
+            this.groupBox3.Controls.Add(this.CmbProjeKodu);
+            this.groupBox3.Controls.Add(this.BtnSatiGuncelle);
+            this.groupBox3.Controls.Add(this.label150);
+            this.groupBox3.Controls.Add(this.TxtFirma);
+            this.groupBox3.Controls.Add(this.label151);
+            this.groupBox3.Location = new System.Drawing.Point(8, 13);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(440, 142);
+            this.groupBox3.TabIndex = 579;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";
+            // 
+            // TxtGerekce
+            // 
+            this.TxtGerekce.Location = new System.Drawing.Point(0, 0);
+            this.TxtGerekce.Name = "TxtGerekce";
+            this.TxtGerekce.Size = new System.Drawing.Size(440, 306);
+            this.TxtGerekce.TabIndex = 578;
+            this.TxtGerekce.Text = "";
+            // 
+            // CmbProjeKodu
+            // 
+            this.CmbProjeKodu.FormattingEnabled = true;
+            this.CmbProjeKodu.Location = new System.Drawing.Point(143, 33);
+            this.CmbProjeKodu.Name = "CmbProjeKodu";
+            this.CmbProjeKodu.Size = new System.Drawing.Size(174, 21);
+            this.CmbProjeKodu.TabIndex = 574;
+            // 
+            // BtnSatiGuncelle
+            // 
+            this.BtnSatiGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSatiGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSatiGuncelle.Location = new System.Drawing.Point(143, 86);
+            this.BtnSatiGuncelle.Name = "BtnSatiGuncelle";
+            this.BtnSatiGuncelle.Size = new System.Drawing.Size(111, 25);
+            this.BtnSatiGuncelle.TabIndex = 577;
+            this.BtnSatiGuncelle.Text = "GÜNCELLE";
+            this.BtnSatiGuncelle.UseVisualStyleBackColor = true;
+            // 
+            // label150
+            // 
+            this.label150.AutoSize = true;
+            this.label150.Location = new System.Drawing.Point(18, 37);
+            this.label150.Name = "label150";
+            this.label150.Size = new System.Drawing.Size(119, 13);
+            this.label150.TabIndex = 573;
+            this.label150.Text = "PROJE KODU/PROJE:";
+            // 
+            // TxtFirma
+            // 
+            this.TxtFirma.Location = new System.Drawing.Point(143, 60);
+            this.TxtFirma.Name = "TxtFirma";
+            this.TxtFirma.Size = new System.Drawing.Size(281, 20);
+            this.TxtFirma.TabIndex = 576;
+            // 
+            // label151
+            // 
+            this.label151.AutoSize = true;
+            this.label151.Location = new System.Drawing.Point(94, 64);
+            this.label151.Name = "label151";
+            this.label151.Size = new System.Drawing.Size(43, 13);
+            this.label151.TabIndex = 575;
+            this.label151.Text = "FİRMA:";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1247, 361);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 534;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
             // 
             // groupBox2
             // 
@@ -314,10 +649,10 @@ namespace UserInterface.STS
             this.groupBox2.Controls.Add(this.stn9);
             this.groupBox2.Controls.Add(this.stn7);
             this.groupBox2.Controls.Add(this.stn8);
-            this.groupBox2.Location = new System.Drawing.Point(10, 551);
+            this.groupBox2.Location = new System.Drawing.Point(7, 392);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1064, 314);
-            this.groupBox2.TabIndex = 316;
+            this.groupBox2.TabIndex = 533;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SATIN ALINAN MALZEME LİSTESİ";
             // 
@@ -355,8 +690,6 @@ namespace UserInterface.STS
             this.BT8.Name = "BT8";
             this.BT8.Size = new System.Drawing.Size(103, 21);
             this.BT8.TabIndex = 511;
-            this.BT8.TextChanged += new System.EventHandler(this.BT8_TextChanged);
-            this.BT8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT8_KeyPress);
             // 
             // BT1
             // 
@@ -365,8 +698,6 @@ namespace UserInterface.STS
             this.BT1.Name = "BT1";
             this.BT1.Size = new System.Drawing.Size(103, 21);
             this.BT1.TabIndex = 504;
-            this.BT1.TextChanged += new System.EventHandler(this.BT1_TextChanged);
-            this.BT1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT1_KeyPress);
             // 
             // BT7
             // 
@@ -375,8 +706,6 @@ namespace UserInterface.STS
             this.BT7.Name = "BT7";
             this.BT7.Size = new System.Drawing.Size(103, 21);
             this.BT7.TabIndex = 510;
-            this.BT7.TextChanged += new System.EventHandler(this.BT7_TextChanged);
-            this.BT7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT7_KeyPress);
             // 
             // BT9
             // 
@@ -385,8 +714,6 @@ namespace UserInterface.STS
             this.BT9.Name = "BT9";
             this.BT9.Size = new System.Drawing.Size(103, 21);
             this.BT9.TabIndex = 512;
-            this.BT9.TextChanged += new System.EventHandler(this.BT9_TextChanged);
-            this.BT9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT9_KeyPress);
             // 
             // BT6
             // 
@@ -395,8 +722,6 @@ namespace UserInterface.STS
             this.BT6.Name = "BT6";
             this.BT6.Size = new System.Drawing.Size(103, 21);
             this.BT6.TabIndex = 509;
-            this.BT6.TextChanged += new System.EventHandler(this.BT6_TextChanged);
-            this.BT6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT6_KeyPress);
             // 
             // BT10
             // 
@@ -405,8 +730,6 @@ namespace UserInterface.STS
             this.BT10.Name = "BT10";
             this.BT10.Size = new System.Drawing.Size(103, 21);
             this.BT10.TabIndex = 513;
-            this.BT10.TextChanged += new System.EventHandler(this.BT10_TextChanged);
-            this.BT10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT10_KeyPress);
             // 
             // BT5
             // 
@@ -415,8 +738,6 @@ namespace UserInterface.STS
             this.BT5.Name = "BT5";
             this.BT5.Size = new System.Drawing.Size(103, 21);
             this.BT5.TabIndex = 508;
-            this.BT5.TextChanged += new System.EventHandler(this.BT5_TextChanged);
-            this.BT5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT5_KeyPress);
             // 
             // BT4
             // 
@@ -425,8 +746,6 @@ namespace UserInterface.STS
             this.BT4.Name = "BT4";
             this.BT4.Size = new System.Drawing.Size(103, 21);
             this.BT4.TabIndex = 507;
-            this.BT4.TextChanged += new System.EventHandler(this.BT4_TextChanged);
-            this.BT4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT4_KeyPress);
             // 
             // BT3
             // 
@@ -435,8 +754,6 @@ namespace UserInterface.STS
             this.BT3.Name = "BT3";
             this.BT3.Size = new System.Drawing.Size(103, 21);
             this.BT3.TabIndex = 506;
-            this.BT3.TextChanged += new System.EventHandler(this.BT3_TextChanged);
-            this.BT3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT3_KeyPress);
             // 
             // BT2
             // 
@@ -445,8 +762,6 @@ namespace UserInterface.STS
             this.BT2.Name = "BT2";
             this.BT2.Size = new System.Drawing.Size(103, 21);
             this.BT2.TabIndex = 505;
-            this.BT2.TextChanged += new System.EventHandler(this.BT2_TextChanged);
-            this.BT2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BT2_KeyPress);
             // 
             // PnlGizle
             // 
@@ -503,8 +818,6 @@ namespace UserInterface.STS
             this.BBF1.Name = "BBF1";
             this.BBF1.Size = new System.Drawing.Size(71, 21);
             this.BBF1.TabIndex = 493;
-            this.BBF1.TextChanged += new System.EventHandler(this.BBF1_TextChanged);
-            this.BBF1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF1_KeyPress);
             // 
             // BBF2
             // 
@@ -513,8 +826,6 @@ namespace UserInterface.STS
             this.BBF2.Name = "BBF2";
             this.BBF2.Size = new System.Drawing.Size(71, 21);
             this.BBF2.TabIndex = 494;
-            this.BBF2.TextChanged += new System.EventHandler(this.BBF2_TextChanged);
-            this.BBF2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF2_KeyPress);
             // 
             // BBF3
             // 
@@ -523,8 +834,6 @@ namespace UserInterface.STS
             this.BBF3.Name = "BBF3";
             this.BBF3.Size = new System.Drawing.Size(71, 21);
             this.BBF3.TabIndex = 495;
-            this.BBF3.TextChanged += new System.EventHandler(this.BBF3_TextChanged);
-            this.BBF3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF3_KeyPress);
             // 
             // F1_10
             // 
@@ -533,7 +842,6 @@ namespace UserInterface.STS
             this.F1_10.Name = "F1_10";
             this.F1_10.Size = new System.Drawing.Size(158, 21);
             this.F1_10.TabIndex = 525;
-            this.F1_10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_10_KeyPress);
             // 
             // BBF4
             // 
@@ -542,8 +850,6 @@ namespace UserInterface.STS
             this.BBF4.Name = "BBF4";
             this.BBF4.Size = new System.Drawing.Size(71, 21);
             this.BBF4.TabIndex = 496;
-            this.BBF4.TextChanged += new System.EventHandler(this.BBF4_TextChanged);
-            this.BBF4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF4_KeyPress);
             // 
             // F1_9
             // 
@@ -552,7 +858,6 @@ namespace UserInterface.STS
             this.F1_9.Name = "F1_9";
             this.F1_9.Size = new System.Drawing.Size(158, 21);
             this.F1_9.TabIndex = 524;
-            this.F1_9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_9_KeyPress);
             // 
             // BBF5
             // 
@@ -561,8 +866,6 @@ namespace UserInterface.STS
             this.BBF5.Name = "BBF5";
             this.BBF5.Size = new System.Drawing.Size(71, 21);
             this.BBF5.TabIndex = 497;
-            this.BBF5.TextChanged += new System.EventHandler(this.BBF5_TextChanged);
-            this.BBF5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF5_KeyPress);
             // 
             // F1_8
             // 
@@ -571,7 +874,6 @@ namespace UserInterface.STS
             this.F1_8.Name = "F1_8";
             this.F1_8.Size = new System.Drawing.Size(158, 21);
             this.F1_8.TabIndex = 523;
-            this.F1_8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_8_KeyPress);
             // 
             // BBF6
             // 
@@ -580,8 +882,6 @@ namespace UserInterface.STS
             this.BBF6.Name = "BBF6";
             this.BBF6.Size = new System.Drawing.Size(71, 21);
             this.BBF6.TabIndex = 498;
-            this.BBF6.TextChanged += new System.EventHandler(this.BBF6_TextChanged);
-            this.BBF6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF6_KeyPress);
             // 
             // F1_7
             // 
@@ -590,7 +890,6 @@ namespace UserInterface.STS
             this.F1_7.Name = "F1_7";
             this.F1_7.Size = new System.Drawing.Size(158, 21);
             this.F1_7.TabIndex = 522;
-            this.F1_7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_7_KeyPress);
             // 
             // BBF7
             // 
@@ -599,8 +898,6 @@ namespace UserInterface.STS
             this.BBF7.Name = "BBF7";
             this.BBF7.Size = new System.Drawing.Size(71, 21);
             this.BBF7.TabIndex = 499;
-            this.BBF7.TextChanged += new System.EventHandler(this.BBF7_TextChanged);
-            this.BBF7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF7_KeyPress);
             // 
             // F1_6
             // 
@@ -609,7 +906,6 @@ namespace UserInterface.STS
             this.F1_6.Name = "F1_6";
             this.F1_6.Size = new System.Drawing.Size(158, 21);
             this.F1_6.TabIndex = 521;
-            this.F1_6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_6_KeyPress);
             // 
             // BBF8
             // 
@@ -618,8 +914,6 @@ namespace UserInterface.STS
             this.BBF8.Name = "BBF8";
             this.BBF8.Size = new System.Drawing.Size(71, 21);
             this.BBF8.TabIndex = 500;
-            this.BBF8.TextChanged += new System.EventHandler(this.BBF8_TextChanged);
-            this.BBF8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF8_KeyPress);
             // 
             // F1_5
             // 
@@ -628,7 +922,6 @@ namespace UserInterface.STS
             this.F1_5.Name = "F1_5";
             this.F1_5.Size = new System.Drawing.Size(158, 21);
             this.F1_5.TabIndex = 520;
-            this.F1_5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_5_KeyPress);
             // 
             // BBF9
             // 
@@ -637,8 +930,6 @@ namespace UserInterface.STS
             this.BBF9.Name = "BBF9";
             this.BBF9.Size = new System.Drawing.Size(71, 21);
             this.BBF9.TabIndex = 501;
-            this.BBF9.TextChanged += new System.EventHandler(this.BBF9_TextChanged);
-            this.BBF9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF9_KeyPress);
             // 
             // F1_4
             // 
@@ -647,7 +938,6 @@ namespace UserInterface.STS
             this.F1_4.Name = "F1_4";
             this.F1_4.Size = new System.Drawing.Size(158, 21);
             this.F1_4.TabIndex = 519;
-            this.F1_4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_4_KeyPress);
             // 
             // BBF10
             // 
@@ -656,8 +946,6 @@ namespace UserInterface.STS
             this.BBF10.Name = "BBF10";
             this.BBF10.Size = new System.Drawing.Size(71, 21);
             this.BBF10.TabIndex = 502;
-            this.BBF10.TextChanged += new System.EventHandler(this.BBF10_TextChanged);
-            this.BBF10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.BBF10_KeyPress);
             // 
             // F1_3
             // 
@@ -666,7 +954,6 @@ namespace UserInterface.STS
             this.F1_3.Name = "F1_3";
             this.F1_3.Size = new System.Drawing.Size(158, 21);
             this.F1_3.TabIndex = 518;
-            this.F1_3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_3_KeyPress);
             // 
             // F1_1
             // 
@@ -675,7 +962,6 @@ namespace UserInterface.STS
             this.F1_1.Name = "F1_1";
             this.F1_1.Size = new System.Drawing.Size(158, 21);
             this.F1_1.TabIndex = 516;
-            this.F1_1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_1_KeyPress);
             // 
             // F1_2
             // 
@@ -684,7 +970,6 @@ namespace UserInterface.STS
             this.F1_2.Name = "F1_2";
             this.F1_2.Size = new System.Drawing.Size(158, 21);
             this.F1_2.TabIndex = 517;
-            this.F1_2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.F1_2_KeyPress);
             // 
             // b10
             // 
@@ -693,7 +978,6 @@ namespace UserInterface.STS
             this.b10.Name = "b10";
             this.b10.Size = new System.Drawing.Size(100, 21);
             this.b10.TabIndex = 351;
-            this.b10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b10_KeyPress);
             // 
             // b9
             // 
@@ -702,7 +986,6 @@ namespace UserInterface.STS
             this.b9.Name = "b9";
             this.b9.Size = new System.Drawing.Size(100, 21);
             this.b9.TabIndex = 350;
-            this.b9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b9_KeyPress);
             // 
             // b8
             // 
@@ -711,7 +994,6 @@ namespace UserInterface.STS
             this.b8.Name = "b8";
             this.b8.Size = new System.Drawing.Size(100, 21);
             this.b8.TabIndex = 349;
-            this.b8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b8_KeyPress);
             // 
             // label2
             // 
@@ -730,7 +1012,6 @@ namespace UserInterface.STS
             this.b7.Name = "b7";
             this.b7.Size = new System.Drawing.Size(100, 21);
             this.b7.TabIndex = 348;
-            this.b7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b7_KeyPress);
             // 
             // b6
             // 
@@ -739,7 +1020,6 @@ namespace UserInterface.STS
             this.b6.Name = "b6";
             this.b6.Size = new System.Drawing.Size(100, 21);
             this.b6.TabIndex = 347;
-            this.b6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b6_KeyPress);
             // 
             // b5
             // 
@@ -748,7 +1028,6 @@ namespace UserInterface.STS
             this.b5.Name = "b5";
             this.b5.Size = new System.Drawing.Size(100, 21);
             this.b5.TabIndex = 346;
-            this.b5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b5_KeyPress);
             // 
             // b4
             // 
@@ -757,7 +1036,6 @@ namespace UserInterface.STS
             this.b4.Name = "b4";
             this.b4.Size = new System.Drawing.Size(100, 21);
             this.b4.TabIndex = 345;
-            this.b4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b4_KeyPress);
             // 
             // b3
             // 
@@ -766,7 +1044,6 @@ namespace UserInterface.STS
             this.b3.Name = "b3";
             this.b3.Size = new System.Drawing.Size(100, 21);
             this.b3.TabIndex = 344;
-            this.b3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b3_KeyPress);
             // 
             // b2
             // 
@@ -775,7 +1052,6 @@ namespace UserInterface.STS
             this.b2.Name = "b2";
             this.b2.Size = new System.Drawing.Size(100, 21);
             this.b2.TabIndex = 343;
-            this.b2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b2_KeyPress);
             // 
             // b1
             // 
@@ -784,7 +1060,6 @@ namespace UserInterface.STS
             this.b1.Name = "b1";
             this.b1.Size = new System.Drawing.Size(100, 21);
             this.b1.TabIndex = 342;
-            this.b1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.b1_KeyPress);
             // 
             // m10
             // 
@@ -793,7 +1068,6 @@ namespace UserInterface.STS
             this.m10.Name = "m10";
             this.m10.Size = new System.Drawing.Size(66, 21);
             this.m10.TabIndex = 340;
-            this.m10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m10_KeyPress);
             // 
             // t10
             // 
@@ -802,7 +1076,6 @@ namespace UserInterface.STS
             this.t10.Name = "t10";
             this.t10.Size = new System.Drawing.Size(238, 21);
             this.t10.TabIndex = 339;
-            this.t10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t10_KeyPress);
             // 
             // label45
             // 
@@ -821,7 +1094,6 @@ namespace UserInterface.STS
             this.stn10.Name = "stn10";
             this.stn10.Size = new System.Drawing.Size(169, 21);
             this.stn10.TabIndex = 338;
-            this.stn10.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn10_KeyPress);
             // 
             // label44
             // 
@@ -850,7 +1122,6 @@ namespace UserInterface.STS
             this.m9.Name = "m9";
             this.m9.Size = new System.Drawing.Size(66, 21);
             this.m9.TabIndex = 336;
-            this.m9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m9_KeyPress);
             // 
             // label42
             // 
@@ -869,7 +1140,6 @@ namespace UserInterface.STS
             this.m8.Name = "m8";
             this.m8.Size = new System.Drawing.Size(66, 21);
             this.m8.TabIndex = 335;
-            this.m8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m8_KeyPress);
             // 
             // label41
             // 
@@ -888,7 +1158,6 @@ namespace UserInterface.STS
             this.m7.Name = "m7";
             this.m7.Size = new System.Drawing.Size(66, 21);
             this.m7.TabIndex = 334;
-            this.m7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m7_KeyPress);
             // 
             // m6
             // 
@@ -897,7 +1166,6 @@ namespace UserInterface.STS
             this.m6.Name = "m6";
             this.m6.Size = new System.Drawing.Size(66, 21);
             this.m6.TabIndex = 333;
-            this.m6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m6_KeyPress);
             // 
             // label39
             // 
@@ -916,7 +1184,6 @@ namespace UserInterface.STS
             this.m5.Name = "m5";
             this.m5.Size = new System.Drawing.Size(66, 21);
             this.m5.TabIndex = 332;
-            this.m5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m5_KeyPress);
             // 
             // label38
             // 
@@ -935,7 +1202,6 @@ namespace UserInterface.STS
             this.m4.Name = "m4";
             this.m4.Size = new System.Drawing.Size(66, 21);
             this.m4.TabIndex = 331;
-            this.m4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m4_KeyPress);
             // 
             // label37
             // 
@@ -954,7 +1220,6 @@ namespace UserInterface.STS
             this.m3.Name = "m3";
             this.m3.Size = new System.Drawing.Size(66, 21);
             this.m3.TabIndex = 330;
-            this.m3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m3_KeyPress);
             // 
             // label36
             // 
@@ -973,7 +1238,6 @@ namespace UserInterface.STS
             this.m2.Name = "m2";
             this.m2.Size = new System.Drawing.Size(66, 21);
             this.m2.TabIndex = 329;
-            this.m2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m2_KeyPress);
             // 
             // label35
             // 
@@ -992,7 +1256,6 @@ namespace UserInterface.STS
             this.m1.Name = "m1";
             this.m1.Size = new System.Drawing.Size(66, 21);
             this.m1.TabIndex = 328;
-            this.m1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.m1_KeyPress);
             // 
             // label30
             // 
@@ -1011,7 +1274,6 @@ namespace UserInterface.STS
             this.t9.Name = "t9";
             this.t9.Size = new System.Drawing.Size(238, 21);
             this.t9.TabIndex = 327;
-            this.t9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t9_KeyPress);
             // 
             // label29
             // 
@@ -1030,7 +1292,6 @@ namespace UserInterface.STS
             this.t8.Name = "t8";
             this.t8.Size = new System.Drawing.Size(238, 21);
             this.t8.TabIndex = 326;
-            this.t8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t8_KeyPress);
             // 
             // label25
             // 
@@ -1049,7 +1310,6 @@ namespace UserInterface.STS
             this.t7.Name = "t7";
             this.t7.Size = new System.Drawing.Size(238, 21);
             this.t7.TabIndex = 325;
-            this.t7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t7_KeyPress);
             // 
             // label24
             // 
@@ -1068,7 +1328,6 @@ namespace UserInterface.STS
             this.t6.Name = "t6";
             this.t6.Size = new System.Drawing.Size(238, 21);
             this.t6.TabIndex = 324;
-            this.t6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t6_KeyPress);
             // 
             // stn1
             // 
@@ -1077,7 +1336,6 @@ namespace UserInterface.STS
             this.stn1.Name = "stn1";
             this.stn1.Size = new System.Drawing.Size(169, 21);
             this.stn1.TabIndex = 310;
-            this.stn1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn1_KeyPress);
             // 
             // t5
             // 
@@ -1086,7 +1344,6 @@ namespace UserInterface.STS
             this.t5.Name = "t5";
             this.t5.Size = new System.Drawing.Size(238, 21);
             this.t5.TabIndex = 323;
-            this.t5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t5_KeyPress);
             // 
             // stn2
             // 
@@ -1095,7 +1352,6 @@ namespace UserInterface.STS
             this.stn2.Name = "stn2";
             this.stn2.Size = new System.Drawing.Size(169, 21);
             this.stn2.TabIndex = 311;
-            this.stn2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn2_KeyPress);
             // 
             // t4
             // 
@@ -1104,7 +1360,6 @@ namespace UserInterface.STS
             this.t4.Name = "t4";
             this.t4.Size = new System.Drawing.Size(238, 21);
             this.t4.TabIndex = 322;
-            this.t4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t4_KeyPress);
             // 
             // stn3
             // 
@@ -1113,7 +1368,6 @@ namespace UserInterface.STS
             this.stn3.Name = "stn3";
             this.stn3.Size = new System.Drawing.Size(169, 21);
             this.stn3.TabIndex = 312;
-            this.stn3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn3_KeyPress);
             // 
             // t3
             // 
@@ -1122,7 +1376,6 @@ namespace UserInterface.STS
             this.t3.Name = "t3";
             this.t3.Size = new System.Drawing.Size(238, 21);
             this.t3.TabIndex = 321;
-            this.t3.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t3_KeyPress);
             // 
             // stn4
             // 
@@ -1131,7 +1384,6 @@ namespace UserInterface.STS
             this.stn4.Name = "stn4";
             this.stn4.Size = new System.Drawing.Size(169, 21);
             this.stn4.TabIndex = 313;
-            this.stn4.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn4_KeyPress);
             // 
             // t2
             // 
@@ -1140,7 +1392,6 @@ namespace UserInterface.STS
             this.t2.Name = "t2";
             this.t2.Size = new System.Drawing.Size(238, 21);
             this.t2.TabIndex = 320;
-            this.t2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t2_KeyPress);
             // 
             // stn5
             // 
@@ -1149,7 +1400,6 @@ namespace UserInterface.STS
             this.stn5.Name = "stn5";
             this.stn5.Size = new System.Drawing.Size(169, 21);
             this.stn5.TabIndex = 314;
-            this.stn5.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn5_KeyPress);
             // 
             // t1
             // 
@@ -1158,7 +1408,6 @@ namespace UserInterface.STS
             this.t1.Name = "t1";
             this.t1.Size = new System.Drawing.Size(238, 21);
             this.t1.TabIndex = 319;
-            this.t1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.t1_KeyPress);
             // 
             // stn6
             // 
@@ -1167,7 +1416,6 @@ namespace UserInterface.STS
             this.stn6.Name = "stn6";
             this.stn6.Size = new System.Drawing.Size(169, 21);
             this.stn6.TabIndex = 315;
-            this.stn6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn6_KeyPress);
             // 
             // stn9
             // 
@@ -1176,7 +1424,6 @@ namespace UserInterface.STS
             this.stn9.Name = "stn9";
             this.stn9.Size = new System.Drawing.Size(169, 21);
             this.stn9.TabIndex = 318;
-            this.stn9.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn9_KeyPress);
             // 
             // stn7
             // 
@@ -1185,7 +1432,6 @@ namespace UserInterface.STS
             this.stn7.Name = "stn7";
             this.stn7.Size = new System.Drawing.Size(169, 21);
             this.stn7.TabIndex = 316;
-            this.stn7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn7_KeyPress);
             // 
             // stn8
             // 
@@ -1194,310 +1440,17 @@ namespace UserInterface.STS
             this.stn8.Name = "stn8";
             this.stn8.Size = new System.Drawing.Size(169, 21);
             this.stn8.TabIndex = 317;
-            this.stn8.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.stn8_KeyPress);
-            // 
-            // PnlTemsili
-            // 
-            this.PnlTemsili.Controls.Add(this.TxtGenelTop);
-            this.PnlTemsili.Controls.Add(this.LblGenelToplam);
-            this.PnlTemsili.Location = new System.Drawing.Point(751, 871);
-            this.PnlTemsili.Name = "PnlTemsili";
-            this.PnlTemsili.Size = new System.Drawing.Size(286, 41);
-            this.PnlTemsili.TabIndex = 530;
-            // 
-            // TxtGenelTop
-            // 
-            this.TxtGenelTop.Location = new System.Drawing.Point(168, 9);
-            this.TxtGenelTop.Name = "TxtGenelTop";
-            this.TxtGenelTop.Size = new System.Drawing.Size(103, 20);
-            this.TxtGenelTop.TabIndex = 514;
-            this.TxtGenelTop.Text = "0.00 ₺";
-            this.TxtGenelTop.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtGenelTop_KeyPress);
-            // 
-            // LblGenelToplam
-            // 
-            this.LblGenelToplam.AutoSize = true;
-            this.LblGenelToplam.Location = new System.Drawing.Point(6, 12);
-            this.LblGenelToplam.Name = "LblGenelToplam";
-            this.LblGenelToplam.Size = new System.Drawing.Size(156, 13);
-            this.LblGenelToplam.TabIndex = 526;
-            this.LblGenelToplam.Text = "HARCANAN GENEL TOPLAM:";
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yenileToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(106, 26);
-            // 
-            // yenileToolStripMenuItem
-            // 
-            this.yenileToolStripMenuItem.Name = "yenileToolStripMenuItem";
-            this.yenileToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
-            this.yenileToolStripMenuItem.Text = "Yenile";
-            this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(1251, 511);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 317;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Visible = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // openFileDialog1
-            // 
-            this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // tabControl1
-            // 
-            this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Controls.Add(this.tabPage1);
-            this.tabControl1.Controls.Add(this.tabPage3);
-            this.tabControl1.Location = new System.Drawing.Point(1080, 542);
-            this.tabControl1.Name = "tabControl1";
-            this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(472, 370);
-            this.tabControl1.TabIndex = 318;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.webBrowser1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(464, 344);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "EKLER";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 3);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(458, 338);
-            this.webBrowser1.TabIndex = 310;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.DtgSatIslemAdimlari);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(464, 344);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "VERİ GEÇMİŞİ";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // DtgSatIslemAdimlari
-            // 
-            this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
-            this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgSatIslemAdimlari.Location = new System.Drawing.Point(3, 3);
-            this.DtgSatIslemAdimlari.MultiSelect = false;
-            this.DtgSatIslemAdimlari.Name = "DtgSatIslemAdimlari";
-            this.DtgSatIslemAdimlari.ReadOnly = true;
-            this.DtgSatIslemAdimlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgSatIslemAdimlari.Size = new System.Drawing.Size(458, 338);
-            this.DtgSatIslemAdimlari.TabIndex = 6;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.groupBox3);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(464, 344);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "GEREKÇE";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.TxtGerekce);
-            this.groupBox3.Controls.Add(this.CmbProjeKodu);
-            this.groupBox3.Controls.Add(this.BtnSatiGuncelle);
-            this.groupBox3.Controls.Add(this.label150);
-            this.groupBox3.Controls.Add(this.TxtFirma);
-            this.groupBox3.Controls.Add(this.label151);
-            this.groupBox3.Location = new System.Drawing.Point(8, 13);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(440, 142);
-            this.groupBox3.TabIndex = 579;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";
-            // 
-            // CmbProjeKodu
-            // 
-            this.CmbProjeKodu.FormattingEnabled = true;
-            this.CmbProjeKodu.Location = new System.Drawing.Point(143, 33);
-            this.CmbProjeKodu.Name = "CmbProjeKodu";
-            this.CmbProjeKodu.Size = new System.Drawing.Size(174, 21);
-            this.CmbProjeKodu.TabIndex = 574;
-            // 
-            // BtnSatiGuncelle
-            // 
-            this.BtnSatiGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSatiGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSatiGuncelle.Location = new System.Drawing.Point(143, 86);
-            this.BtnSatiGuncelle.Name = "BtnSatiGuncelle";
-            this.BtnSatiGuncelle.Size = new System.Drawing.Size(111, 25);
-            this.BtnSatiGuncelle.TabIndex = 577;
-            this.BtnSatiGuncelle.Text = "GÜNCELLE";
-            this.BtnSatiGuncelle.UseVisualStyleBackColor = true;
-            this.BtnSatiGuncelle.Click += new System.EventHandler(this.BtnSatiGuncelle_Click);
-            // 
-            // label150
-            // 
-            this.label150.AutoSize = true;
-            this.label150.Location = new System.Drawing.Point(18, 37);
-            this.label150.Name = "label150";
-            this.label150.Size = new System.Drawing.Size(119, 13);
-            this.label150.TabIndex = 573;
-            this.label150.Text = "PROJE KODU/PROJE:";
-            // 
-            // TxtFirma
-            // 
-            this.TxtFirma.Location = new System.Drawing.Point(143, 60);
-            this.TxtFirma.Name = "TxtFirma";
-            this.TxtFirma.Size = new System.Drawing.Size(281, 20);
-            this.TxtFirma.TabIndex = 576;
-            // 
-            // label151
-            // 
-            this.label151.AutoSize = true;
-            this.label151.Location = new System.Drawing.Point(94, 64);
-            this.label151.Name = "label151";
-            this.label151.Size = new System.Drawing.Size(43, 13);
-            this.label151.TabIndex = 575;
-            this.label151.Text = "FİRMA:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(214, 520);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(101, 15);
-            this.label3.TabIndex = 352;
-            this.label3.Text = "Genel Toplam:";
-            // 
-            // LblGenelTop
-            // 
-            this.LblGenelTop.AutoSize = true;
-            this.LblGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGenelTop.Location = new System.Drawing.Point(321, 520);
-            this.LblGenelTop.Name = "LblGenelTop";
-            this.LblGenelTop.Size = new System.Drawing.Size(34, 15);
-            this.LblGenelTop.TabIndex = 353;
-            this.LblGenelTop.Text = "00  ₺";
-            // 
-            // BtnGuncelle
-            // 
-            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(10, 871);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(123, 41);
-            this.BtnGuncelle.TabIndex = 531;
-            this.BtnGuncelle.Text = "GÜNCELLE";
-            this.BtnGuncelle.UseVisualStyleBackColor = true;
-            this.BtnGuncelle.Visible = false;
-            this.BtnGuncelle.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // BtnProjeDuzelt
-            // 
-            this.BtnProjeDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnProjeDuzelt.Location = new System.Drawing.Point(1170, 513);
-            this.BtnProjeDuzelt.Name = "BtnProjeDuzelt";
-            this.BtnProjeDuzelt.Size = new System.Drawing.Size(75, 23);
-            this.BtnProjeDuzelt.TabIndex = 532;
-            this.BtnProjeDuzelt.Text = "ProjeDuzelt";
-            this.BtnProjeDuzelt.UseVisualStyleBackColor = true;
-            this.BtnProjeDuzelt.Visible = false;
-            this.BtnProjeDuzelt.Click += new System.EventHandler(this.BtnProjeDuzelt_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(12, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(31, 15);
-            this.label1.TabIndex = 533;
-            this.label1.Text = "YIL:";
-            // 
-            // CmbYillar
-            // 
-            this.CmbYillar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbYillar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CmbYillar.FormattingEnabled = true;
-            this.CmbYillar.Location = new System.Drawing.Point(49, 43);
-            this.CmbYillar.Name = "CmbYillar";
-            this.CmbYillar.Size = new System.Drawing.Size(121, 23);
-            this.CmbYillar.TabIndex = 534;
-            this.CmbYillar.SelectedIndexChanged += new System.EventHandler(this.CmbYillar_SelectedIndexChanged);
-            // 
-            // ChkTumunuGoster
-            // 
-            this.ChkTumunuGoster.AutoSize = true;
-            this.ChkTumunuGoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.ChkTumunuGoster.Location = new System.Drawing.Point(193, 45);
-            this.ChkTumunuGoster.Name = "ChkTumunuGoster";
-            this.ChkTumunuGoster.Size = new System.Drawing.Size(146, 19);
-            this.ChkTumunuGoster.TabIndex = 536;
-            this.ChkTumunuGoster.Text = "TÜMÜNÜ GÖSTER";
-            this.ChkTumunuGoster.UseVisualStyleBackColor = true;
-            this.ChkTumunuGoster.CheckedChanged += new System.EventHandler(this.ChkTumunuGoster_CheckedChanged);
-            // 
-            // TxtGerekce
-            // 
-            this.TxtGerekce.Location = new System.Drawing.Point(0, 0);
-            this.TxtGerekce.Name = "TxtGerekce";
-            this.TxtGerekce.Size = new System.Drawing.Size(440, 306);
-            this.TxtGerekce.TabIndex = 578;
-            this.TxtGerekce.Text = "";
             // 
             // FrmTamamlananSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.ClientSize = new System.Drawing.Size(1596, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
-            this.Controls.Add(this.ChkTumunuGoster);
             this.Controls.Add(this.CmbYillar);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.BtnProjeDuzelt);
-            this.Controls.Add(this.BtnGuncelle);
-            this.Controls.Add(this.PnlTemsili);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.LblGenelTop);
-            this.Controls.Add(this.tabControl1);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.TxtTop);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.tabControl2);
+            this.Controls.Add(this.ChkTumunuGoster);
             this.Controls.Add(this.panel1);
             this.Name = "FrmTamamlananSat";
             this.Text = "Tamamlanan SAT";
@@ -1505,23 +1458,26 @@ namespace UserInterface.STS
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.tabControl2.ResumeLayout(false);
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.PnlTemsili.ResumeLayout(false);
+            this.PnlTemsili.PerformLayout();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage3.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
             this.PnlKaydir.ResumeLayout(false);
             this.PnlKaydir.PerformLayout();
             this.PnlGizle.ResumeLayout(false);
             this.PnlGizle.PerformLayout();
-            this.PnlTemsili.ResumeLayout(false);
-            this.PnlTemsili.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
-            this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
-            this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).EndInit();
-            this.tabPage3.ResumeLayout(false);
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1533,20 +1489,45 @@ namespace UserInterface.STS
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
         private ADGV.AdvancedDataGridView DtgTamamlananSatlar;
-        private System.Windows.Forms.Label TxtTop;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
+        private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox CmbYillar;
+        private System.Windows.Forms.CheckBox ChkTumunuGoster;
+        private System.Windows.Forms.TabControl tabControl2;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Button BtnProjeDuzelt;
+        private System.Windows.Forms.Button BtnGuncelle;
+        private System.Windows.Forms.Panel PnlTemsili;
+        private System.Windows.Forms.TextBox TxtGenelTop;
+        private System.Windows.Forms.Label LblGenelToplam;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.DataGridView DtgSatIslemAdimlari;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.TabPage tabPage3;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.RichTextBox TxtGerekce;
+        private System.Windows.Forms.ComboBox CmbProjeKodu;
+        private System.Windows.Forms.Button BtnSatiGuncelle;
+        private System.Windows.Forms.Label label150;
+        private System.Windows.Forms.TextBox TxtFirma;
+        private System.Windows.Forms.Label label151;
+        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Panel PnlKaydir;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox BT8;
+        private System.Windows.Forms.TextBox BT1;
         private System.Windows.Forms.TextBox BT7;
         private System.Windows.Forms.TextBox BT9;
         private System.Windows.Forms.TextBox BT6;
         private System.Windows.Forms.TextBox BT10;
         private System.Windows.Forms.TextBox BT5;
         private System.Windows.Forms.TextBox BT4;
-        private System.Windows.Forms.TextBox BT1;
         private System.Windows.Forms.TextBox BT3;
         private System.Windows.Forms.TextBox BT2;
         private System.Windows.Forms.Panel PnlGizle;
@@ -1572,8 +1553,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.TextBox F1_3;
         private System.Windows.Forms.TextBox F1_1;
         private System.Windows.Forms.TextBox F1_2;
-        private System.Windows.Forms.Label LblGenelToplam;
-        private System.Windows.Forms.TextBox TxtGenelTop;
         private System.Windows.Forms.TextBox b10;
         private System.Windows.Forms.TextBox b9;
         private System.Windows.Forms.TextBox b8;
@@ -1629,30 +1608,11 @@ namespace UserInterface.STS
         private System.Windows.Forms.TextBox stn9;
         private System.Windows.Forms.TextBox stn7;
         private System.Windows.Forms.TextBox stn8;
-        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.OpenFileDialog openFileDialog1;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.DataGridView DtgSatIslemAdimlari;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblGenelTop;
-        private System.Windows.Forms.Panel PnlTemsili;
-        private System.Windows.Forms.TabPage tabPage3;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.ComboBox CmbProjeKodu;
-        private System.Windows.Forms.Button BtnSatiGuncelle;
-        private System.Windows.Forms.Label label150;
-        private System.Windows.Forms.TextBox TxtFirma;
-        private System.Windows.Forms.Label label151;
-        private System.Windows.Forms.Button BtnGuncelle;
-        private System.Windows.Forms.Button BtnProjeDuzelt;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox CmbYillar;
-        private System.Windows.Forms.CheckBox ChkTumunuGoster;
-        private System.Windows.Forms.RichTextBox TxtGerekce;
+        private System.Windows.Forms.Label TxtTop;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.TabPage tabPage6;
     }
 }

@@ -1,10 +1,12 @@
 ﻿using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Depo;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.BakimOnarimAtolye;
 using Entity.Depo;
@@ -18,6 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.BakımOnarım;
 using UserInterface.STS;
 
@@ -36,6 +39,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         MalzemeManager malzemeManager;
         BarkodManager barkodManager;
         ArizaKayitManager arizaKayitManager;
+        BildirimYetkiManager bildirimYetkiManager;
 
         List<GorevAtamaPersonel> gorevAtamaPersonels;
         //List<Malzeme> malzemes;
@@ -62,6 +66,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             malzemeManager = MalzemeManager.GetInstance();
             barkodManager = BarkodManager.GetInstance();
             arizaKayitManager = ArizaKayitManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void CmbIslemTuru_SelectedIndexChanged(object sender, EventArgs e)
@@ -1603,6 +1608,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                     }
                 }
+                string mesaj = BildirimKayit();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgileri Başarıyla Kaydedişmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 start = true;
                 LblToplam.Text = "0";
@@ -1611,6 +1621,33 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 start = false;
             }
         }
+
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Depo Stok Giriş/Çıkış"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = "adlı personel tarafından"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "depo ya Stok Giriş/Çıkış"; // Bildirim türü
+            array[4] = "işlemleri gerçekleşmiştir."; // İÇERİK
+            array[5] = "";
+            array[6] = "";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
 
         private void BtnBul_Click(object sender, EventArgs e)
         {

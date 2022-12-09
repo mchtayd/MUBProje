@@ -1,11 +1,13 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using Entity.STS;
@@ -16,6 +18,7 @@ using System.IO;
 using System.Net.Mail;
 using System.Text;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 using Application = Microsoft.Office.Interop.Word.Application;
 
@@ -42,6 +45,7 @@ namespace UserInterface.IdariIsler
         BolgeKayitManager bolgeKayitManager;
         AracZimmetiManager aracZimmetiManager;
         GorevlendirmeManager gorevlendirmeManager;
+        BildirimYetkiManager bildirimYetkiManager;
 
         string satno, siparis, usamirbolum, usamirisim, islemadimi, dosya, dosyaGun, siparisNo, masrafyerino, talepeden, bolum, projekodu, gerekce, harcamaturu, faturafirma, ilgilikisi, masrafyeri, donem, yeniad;
         int sayi, id, yurticiid, satNo;
@@ -72,6 +76,7 @@ namespace UserInterface.IdariIsler
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             aracZimmetiManager = AracZimmetiManager.GetInstance();
             gorevlendirmeManager = GorevlendirmeManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -1236,6 +1241,11 @@ namespace UserInterface.IdariIsler
                     Console.WriteLine(ex.Message);
                     File.Delete(taslakYolu);
                 }
+                mesaj = BildirimKayitGuncelle();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleGuncelle();
             }
@@ -1503,7 +1513,14 @@ namespace UserInterface.IdariIsler
                 }
                 
                 CreateWordGorevlendirme();
+
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string mesaj3 = BildirimGorevlendirme();
+                if (mesaj3!="OK")
+                {
+                    MessageBox.Show(mesaj3, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 try
                 {
                     Directory.Delete(yol, true);
@@ -1577,6 +1594,173 @@ namespace UserInterface.IdariIsler
             CmbIlce.Text = "";
         }
 
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                IsAkisNo();
+                TaslakKopyala();
+                int konaklamagun = 0, seyahatavansgun = 0, kiralamaGun = 0, harcirahGun = 0, iaseGun = 0;
+                if (TxtKonaklamaGun.Text != "")
+                {
+                    konaklamagun = TxtKonaklamaGun.Text.ConInt();
+                }
+                if (TxtKiralamaGun.Text != "")
+                {
+                    kiralamaGun = TxtKiralamaGun.Text.ConInt();
+                }
+                if (TxtSeyahatAvansGun.Text != "")
+                {
+                    seyahatavansgun = TxtSeyahatAvansGun.Text.ConInt();
+                }
+                if (TxtHarcirahGun.Text != "")
+                {
+                    harcirahGun = TxtHarcirahGun.Text.ConInt();
+                }
+                if (TxtIaseGun.Text != "")
+                {
+                    iaseGun = TxtIaseGun.Text.ConInt();
+                }
+                CreateDirectory();
+                islemadimi = "1.ADIM:GÖREV OLUŞTURULDU";
+                YurtIciGorev yurtIciGorev = new YurtIciGorev(LblIsAkisNo.Text.ConInt(), TxtGorevEmriNo.Text, TxtGorevinKonusu.Text, CmbProje.Text, TxtGidilecekYer.Text, DtBaslamaTarihi.Value, DtBitisTarihi.Value, TxtToplamSure.Text, CmbButceKodu.Text, CmbSiparisNo.Text, CmbAdSoyad.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, CmbUlasimGidis.Text, CmbUlasimGorevYeri.Text, CmbUlasimDonus.Text, konaklamagun, TxtKonaklamGunTl.Text.ConDouble(), TxtKonaklamaToplam.Text.ConDouble(), kiralamaGun, TxtKiralamaGunTl.Text.ConDouble(), TxtKiralamaToplam.Text.ConDouble(), seyahatavansgun, TxtSeyahatAvansGunTl.Text.ConDouble(), TxtSeyahatAvansToplam.Text.ConDouble(), harcirahGun, TxtHarcirahGunTl.Text.ConDouble(), TxtGorevHarcirahGunTop.Text.ConDouble(), iaseGun, TxtIaseGunTl.Text.ConDouble(), TxtIaseToplam.Text.ConDouble(), TxtUcak.Text.ConDouble(), TxtOtobus.Text.ConDouble(), TxtGenelToplam.Text.ConDouble(), TxtPlaka.Text, TxtCikisKm.Text.ConDouble(), islemadimi, dosya, konaklamaTuru);
+                string mesaj = yurtIciGorevManager.Add(yurtIciGorev);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                CreateLog();
+                CreateWord();
+                //Task.Factory.StartNew(() => MailSendMetot());
+                System.Threading.Tasks.Task.Factory.StartNew(() => MailSendMetot());
+
+                
+
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                string mesaj2 = BildirimKayit();
+                if (mesaj2 != "OK")
+                {
+                    MessageBox.Show(mesaj2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                try
+                {
+                    Directory.Delete(yol, true);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                    File.Delete(taslakYolu);
+                }
+                Temizle();
+            }
+        }
+        string BildirimGorevlendirme()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Görevlendirme"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkis.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbPersonelAdi.Text + " personel için"; // İÇERİK
+            array[5] = DtBasTarihi.Value.ToString("d")+" tarihinden" + DtBitTarihi.Value.ToString("d") + "tarihine kadar";
+            array[6] = "Görevlendirme kaydı oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Yurt İçi Görev"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbAdSoyad.Text + " personel için"; // İÇERİK
+            array[5] = TxtGidilecekYer.Text + "istikametine gitmek üzere";
+            array[6] = "Yurt içi görev kaydı oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+        string BildirimKayitKapat()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Yurt İçi Görev"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtIsAkisNoTamamla.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbAdSoyadGun.Text + " personel için"; // İÇERİK
+            array[5] = TxtGidilecekYerGun.Text + "istikametine gitmek üzere";
+            array[6] = "oluşturulan Yurt içi görev kaydı kapatmıştır!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
+        string BildirimKayitGuncelle()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Yurt İçi Görev"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtIsAkisNoTamamla.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbAdSoyadGun.Text + " personel için"; // İÇERİK
+            array[5] = TxtGidilecekYerGun.Text + "istikametine gitmek üzere";
+            array[6] = "oluşturulan Yurt içi görev kaydı güncelledi!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
 
         private void TxtIaseGunTlGun_TextChanged(object sender, EventArgs e)
         {
@@ -1635,6 +1819,11 @@ namespace UserInterface.IdariIsler
                 TxtKonaklamaToplamGun.Enabled = true;
                 konaklamaTuru = "TEKLİ KONAKLAMA";
                 System.Threading.Tasks.Task.Factory.StartNew(() => MailSendMetotBitir());
+                string mesaj2 = BildirimKayitKapat();
+                if (mesaj2 != "OK")
+                {
+                    MessageBox.Show(mesaj2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 Directory.Delete(yol, true);
                 TemizleGuncelle();
             }

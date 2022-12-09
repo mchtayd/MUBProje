@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>461</ApplicationRevision>
+    <ApplicationRevision>466</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -151,6 +151,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmBildirimPanel.Designer.cs">
       <DependentUpon>FrmBildirimPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimYetki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimYetki.Designer.cs">
+      <DependentUpon>FrmBildirimYetki.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmButceler.cs">
       <SubType>Form</SubType>
@@ -1114,6 +1120,12 @@
     <Compile Include="STS\FrmDevamEdenSat.Designer.cs">
       <DependentUpon>FrmDevamEdenSat.cs</DependentUpon>
     </Compile>
+    <Compile Include="STS\FrmHarcamasiYapilanSat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmHarcamasiYapilanSat.Designer.cs">
+      <DependentUpon>FrmHarcamasiYapilanSat.cs</DependentUpon>
+    </Compile>
     <Compile Include="STS\FrmReddedilenSatlar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1284,6 +1296,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmBildirimPanel.resx">
       <DependentUpon>FrmBildirimPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmBildirimYetki.resx">
+      <DependentUpon>FrmBildirimYetki.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmButceler.resx">
       <DependentUpon>FrmButceler.cs</DependentUpon>
@@ -1774,6 +1789,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmDevamEdenSat.resx">
       <DependentUpon>FrmDevamEdenSat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmHarcamasiYapilanSat.resx">
+      <DependentUpon>FrmHarcamasiYapilanSat.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmReddedilenSatlar.resx">
       <DependentUpon>FrmReddedilenSatlar.cs</DependentUpon>

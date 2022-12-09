@@ -222,14 +222,14 @@ namespace UserInterface.STS
             this.button14 = new System.Windows.Forms.Button();
             this.button29 = new System.Windows.Forms.Button();
             this.groupBox38 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.label58 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.groupBox37 = new System.Windows.Forms.GroupBox();
             this.webBrowser13 = new System.Windows.Forms.WebBrowser();
             this.groupBox36 = new System.Windows.Forms.GroupBox();
             this.groupBox35 = new System.Windows.Forms.GroupBox();
             this.dataGridView13 = new System.Windows.Forms.DataGridView();
-            this.label58 = new System.Windows.Forms.Label();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -320,6 +320,7 @@ namespace UserInterface.STS
             this.BtnCancel.TabIndex = 1;
             this.BtnCancel.Text = "X";
             this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // tabControl2
             // 
@@ -2321,6 +2322,26 @@ namespace UserInterface.STS
             this.groupBox38.TabStop = false;
             this.groupBox38.Text = "SAT TAMAMLAMA İŞLEMLERİ/KONTROLLER";
             // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.checkBox1.Location = new System.Drawing.Point(9, 114);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(321, 17);
+            this.checkBox1.TabIndex = 52;
+            this.checkBox1.Text = "SAT TAMAMLAMA (KAPATMA) İŞLEMİ UYGUNDUR";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Location = new System.Drawing.Point(6, 23);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(596, 78);
+            this.label58.TabIndex = 51;
+            this.label58.Text = resources.GetString("label58.Text");
+            // 
             // label27
             // 
             this.label27.AutoSize = true;
@@ -2374,26 +2395,6 @@ namespace UserInterface.STS
             this.dataGridView13.Size = new System.Drawing.Size(1457, 349);
             this.dataGridView13.TabIndex = 16;
             // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Location = new System.Drawing.Point(6, 23);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(596, 78);
-            this.label58.TabIndex = 51;
-            this.label58.Text = resources.GetString("label58.Text");
-            // 
-            // checkBox1
-            // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.checkBox1.Location = new System.Drawing.Point(9, 114);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(321, 17);
-            this.checkBox1.TabIndex = 52;
-            this.checkBox1.Text = "SAT TAMAMLAMA (KAPATMA) İŞLEMİ UYGUNDUR";
-            this.checkBox1.UseVisualStyleBackColor = true;
-            // 
             // FrmSatControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2403,6 +2404,7 @@ namespace UserInterface.STS
             this.Controls.Add(this.tabControl2);
             this.Name = "FrmSatControl";
             this.Text = "SATIN ALMA KONTROL";
+            this.Load += new System.EventHandler(this.FrmSatControl_Load);
             this.panel1.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);

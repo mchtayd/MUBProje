@@ -32,6 +32,7 @@ namespace UserInterface.IdariIsler
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYurtİciGorev));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BtnAdd = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.CmbSiparisNo = new System.Windows.Forms.TextBox();
@@ -275,6 +276,7 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnAdd);
             this.tabPage1.Controls.Add(this.BtnKaydet);
             this.tabPage1.Controls.Add(this.groupBox8);
             this.tabPage1.Controls.Add(this.groupBox5);
@@ -288,6 +290,22 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Text = "YURT İÇİ GÖREV OLUŞTUR";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
+            // BtnAdd
+            // 
+            this.BtnAdd.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnAdd.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnAdd.Image = ((System.Drawing.Image)(resources.GetObject("BtnAdd.Image")));
+            this.BtnAdd.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAdd.Location = new System.Drawing.Point(10, 688);
+            this.BtnAdd.Name = "BtnAdd";
+            this.BtnAdd.Size = new System.Drawing.Size(130, 51);
+            this.BtnAdd.TabIndex = 356;
+            this.BtnAdd.Text = "     KAYDET";
+            this.BtnAdd.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAdd.UseVisualStyleBackColor = false;
+            this.BtnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
+            // 
             // BtnKaydet
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -298,6 +316,7 @@ namespace UserInterface.IdariIsler
             this.BtnKaydet.TabIndex = 18;
             this.BtnKaydet.Text = "KAYDET";
             this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Visible = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // groupBox8
@@ -2737,5 +2756,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Button BtnKaydett;
         private System.Windows.Forms.Label LblIsAkis;
         private System.Windows.Forms.Label label101;
+        private System.Windows.Forms.Button BtnAdd;
     }
 }

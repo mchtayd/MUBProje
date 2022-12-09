@@ -40,7 +40,6 @@ namespace UserInterface.STS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -725,9 +724,6 @@ namespace UserInterface.STS
             this.label38 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.DtgReddedilenSat = new ADGV.AdvancedDataGridView();
-            this.tabPage13 = new System.Windows.Forms.TabPage();
-            this.groupBox23 = new System.Windows.Forms.GroupBox();
-            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
             this.dataBinder1 = new System.Windows.Forms.BindingSource(this.components);
             this.productBinder = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -793,9 +789,6 @@ namespace UserInterface.STS
             this.groupBox16.SuspendLayout();
             this.groupBox15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgReddedilenSat)).BeginInit();
-            this.tabPage13.SuspendLayout();
-            this.groupBox23.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
@@ -836,7 +829,6 @@ namespace UserInterface.STS
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Controls.Add(this.tabPage12);
-            this.tabControl1.Controls.Add(this.tabPage13);
             this.tabControl1.Location = new System.Drawing.Point(0, 32);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -7834,46 +7826,6 @@ namespace UserInterface.STS
             this.DtgReddedilenSat.TimeFilter = false;
             this.DtgReddedilenSat.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgReddedilenSat_CellMouseClick);
             // 
-            // tabPage13
-            // 
-            this.tabPage13.Controls.Add(this.groupBox23);
-            this.tabPage13.Location = new System.Drawing.Point(4, 22);
-            this.tabPage13.Name = "tabPage13";
-            this.tabPage13.Size = new System.Drawing.Size(1549, 866);
-            this.tabPage13.TabIndex = 4;
-            this.tabPage13.Text = "TAMAMLANAN SAT GÜNCELLE";
-            this.tabPage13.UseVisualStyleBackColor = true;
-            // 
-            // groupBox23
-            // 
-            this.groupBox23.Controls.Add(this.advancedDataGridView1);
-            this.groupBox23.Location = new System.Drawing.Point(3, 13);
-            this.groupBox23.Name = "groupBox23";
-            this.groupBox23.Size = new System.Drawing.Size(1533, 274);
-            this.groupBox23.TabIndex = 2;
-            this.groupBox23.TabStop = false;
-            this.groupBox23.Text = "SAT TAMAMLAMA";
-            // 
-            // advancedDataGridView1
-            // 
-            this.advancedDataGridView1.AllowUserToAddRows = false;
-            this.advancedDataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle10;
-            this.advancedDataGridView1.AutoGenerateContextFilters = true;
-            this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.advancedDataGridView1.DateWithTime = false;
-            this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.advancedDataGridView1.Name = "advancedDataGridView1";
-            this.advancedDataGridView1.ReadOnly = true;
-            this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.advancedDataGridView1.Size = new System.Drawing.Size(1527, 255);
-            this.advancedDataGridView1.TabIndex = 2;
-            this.advancedDataGridView1.TimeFilter = false;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -7978,9 +7930,6 @@ namespace UserInterface.STS
             this.groupBox16.PerformLayout();
             this.groupBox15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgReddedilenSat)).EndInit();
-            this.tabPage13.ResumeLayout(false);
-            this.groupBox23.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.productBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
@@ -8688,9 +8637,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label155;
         private System.Windows.Forms.Button BtnMailGuncelle;
         private System.Windows.Forms.TextBox CmbMailDurumu;
-        private System.Windows.Forms.TabPage tabPage13;
-        private System.Windows.Forms.GroupBox groupBox23;
-        private ADGV.AdvancedDataGridView advancedDataGridView1;
         private System.Windows.Forms.ComboBox CmbDonemYil;
         private System.Windows.Forms.ComboBox CmbDonem;
         private System.Windows.Forms.Label label122;

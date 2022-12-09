@@ -653,7 +653,6 @@ namespace UserInterface.BakımOnarım
             // 
             // CmbBolgeAdi
             // 
-            this.CmbBolgeAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBolgeAdi.FormattingEnabled = true;
             this.CmbBolgeAdi.Location = new System.Drawing.Point(157, 82);
             this.CmbBolgeAdi.Name = "CmbBolgeAdi";
@@ -2843,7 +2842,6 @@ namespace UserInterface.BakımOnarım
             // 
             // CmbBolgeAdiGun
             // 
-            this.CmbBolgeAdiGun.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBolgeAdiGun.FormattingEnabled = true;
             this.CmbBolgeAdiGun.Location = new System.Drawing.Point(157, 82);
             this.CmbBolgeAdiGun.Name = "CmbBolgeAdiGun";

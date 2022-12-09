@@ -186,6 +186,7 @@ namespace UserInterface.IdariIsler
                 dosyaEkle = false;
             }
         }
+
         void Temizle()
         {
             IsAkisNo();

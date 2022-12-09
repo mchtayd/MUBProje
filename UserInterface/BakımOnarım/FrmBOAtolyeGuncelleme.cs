@@ -1,8 +1,10 @@
 ﻿using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarimAtolye;
 using System;
 using System.Collections.Generic;
@@ -13,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
@@ -25,6 +28,7 @@ namespace UserInterface.BakımOnarım
         AtolyeMalzemeManager atolyeMalzemeManager;
         AtolyeAltMalzemeManager atolyeAltMalzemeManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        BildirimYetkiManager bildirimYetkiManager;
         string icSiparis;
         int id;
 
@@ -33,6 +37,8 @@ namespace UserInterface.BakımOnarım
         List<GorevAtamaPersonel> gorevAtamaPersonels;
 
         List<Atolye> atolyes;
+
+        public object[] infos;
         string bulunduguIslemAdimi, sure, dosyaYolu;
         public string personelAd = "";
         DateTime birOncekiTarih;
@@ -46,12 +52,14 @@ namespace UserInterface.BakımOnarım
             atolyeMalzemeManager = AtolyeMalzemeManager.GetInstance();
             atolyeAltMalzemeManager = AtolyeAltMalzemeManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmBOAtolyeGuncelleme_Load(object sender, EventArgs e)
         {
             IslemAdimlari();
             Personeller();
+            
             CmbGorevAtanacakPersonel.Text = personelAd;
         }
 
@@ -679,6 +687,9 @@ namespace UserInterface.BakımOnarım
                     }
 
                     MalzemeKaydet();
+
+                    
+
                     MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     TemizleGuncelle();
                 }
@@ -690,6 +701,13 @@ namespace UserInterface.BakımOnarım
 
 
             }
+
+            string mesaj3 = Bildirim();
+            if (mesaj3 != "OK")
+            {
+                MessageBox.Show(mesaj3, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
             else
             {
                 MalzemeKaydet();
@@ -697,7 +715,40 @@ namespace UserInterface.BakımOnarım
                 TemizleGuncelle();
             }
 
+            //string mesaj4 = Bildirim();
+            //if (mesaj4 != "OK")
+            //{
+            //    MessageBox.Show(mesaj3, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+
         }
+        string Bildirim()
+        {
+            string infusAd = infos[1].ToString();
+            string[] array = new string[8];
+
+            array[0] = "Atölye Sipariş Güncelleme"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtIcSiparisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "Sipariş numaralı"; // Bildirim türü
+            array[4] = bulunduguIslemAdimi; // İÇERİK
+            array[5] = "işlem adımını";
+            array[6] = birSonrakiIslemAdimi + " adıma güncellenmiştir!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
         void TemizleGuncelle()
         {
             TxtIcSiparisNo.Clear();
@@ -792,6 +843,7 @@ namespace UserInterface.BakımOnarım
                 atolyeAltMalzemeManager.Add(item);
             }
         }
+        string birSonrakiIslemAdimi = "";
         string GorevAtama()
         {
             //icSiparis
@@ -812,7 +864,7 @@ namespace UserInterface.BakımOnarım
             {
                 return kontrol2;
             }
-            string birSonrakiIslemAdimi = CmbIslemAdimi.Text;
+            birSonrakiIslemAdimi = CmbIslemAdimi.Text;
             string gorevAtanacakPersonel = CmbGorevAtanacakPersonel.Text;
             GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", gorevAtanacakPersonel, birSonrakiIslemAdimi, DateTime.Now, "", DateTime.Now.Date);
             string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);

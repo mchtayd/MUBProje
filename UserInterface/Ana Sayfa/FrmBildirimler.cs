@@ -20,52 +20,22 @@ namespace UserInterface.Ana_Sayfa
     {
         public object[] infos;
         LogManager logManager;
+        BildirimYetkiManager bildirimYetkiManager;
+
         string dosyaYolu = @"Z:\DTS\info\ou\notification.txt";
         public FrmBildirimler()
         {
             InitializeComponent();
             logManager = LogManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
         }
 
         private void FrmBildirimler_Load(object sender, EventArgs e)
         {
-            DosyaControl();
+            // DosyaControl();
+            //TimerFileRead.Start();
         }
 
-        public void DosyaControl()
-        {
-            string icerik = File.ReadAllText(dosyaYolu);
-            if (icerik=="")
-            {
-                return;
-            }
-            string[] array = icerik.Split('\n');
-            for (int i = 0; i < array.Length; i++)
-            {
-                string[] arrayIcerik = array[i].ToString().Split(' ');
-                string[] arrayIdler = arrayIcerik[arrayIcerik.Length - 1].ToString().Split(';');
-                for (int j = 0; j < arrayIdler.Length; j++)
-                {
-                    if (infos[0].ConInt() == arrayIdler[j].ConInt())
-                    {
-                        string bildirimMetin = "";
-                        string baslik = arrayIcerik[0] + " " + arrayIcerik[1] + " " + arrayIcerik[2];
-
-                        for (int k = 3; k < arrayIcerik.Length; k++)
-                        {
-                            if (arrayIcerik.Length-1 == k)
-                            {
-                                continue;
-                            }
-                            bildirimMetin += arrayIcerik[k] + " ";
-                        }
-
-                        FrmHelper.Bildirim(baslik, "\n" + bildirimMetin, ımageList1.Images["okey.png"], infos[1].ToString(), arrayIcerik[arrayIcerik.Length - 1]);
-
-                    }
-                }
-            }
-        }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -92,8 +62,6 @@ namespace UserInterface.Ana_Sayfa
             notifyIcon1.ShowBalloonTip(100);
         }
 
-        
-
         private void button1_Click(object sender, EventArgs e)
         {
             string[] array = new string[8];
@@ -105,33 +73,99 @@ namespace UserInterface.Ana_Sayfa
             array[4] = "Stine Tepe Üs Bölgesi"; // İÇERİK
             array[5] = "DRAGONEYE B/O arızasını";
             array[6] = "700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!";
-            array[7] = "25"; // ilgili id
 
-
-            string txtMetin = array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5]+ " " + array[6] + " " + array[7];
-            string bildirimMetin = array[1] + " " + array[2] + " " + array[3] + "\n" + array[4] + "\n" + array[5] + "\n" + array[6];
-
-
-            FrmHelper.TxtBildirimEdit(txtMetin);
-            StreamWriter streamWriter = new StreamWriter(dosyaYolu, true);
-            streamWriter.WriteLine(txtMetin);
-            streamWriter.Close();
-
-            //label7.Text = File.ReadAllText(dosyaYolu);
-
-            //FrmHelper.Bildirim(array[0], "\n" + bildirimMetin, ımageList1.Images["okey.png"], infos[1].ToString(), array[7]);
-
-
-            Log log = new Log(array[0], bildirimMetin, DateTime.Now, infos[1].ToString(), array[array.Length - 1]);
-            string mesaj = logManager.Add(log);
-
-            if (mesaj!="OK")
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
             {
-                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            FrmHelper.BildirimGonder(array, array[7]);
+
+            #region EskiKod
+            /*
+            bool control = false;
+            if (Directory.Exists(dosyaYolu))
+            {
+                MessageBox.Show("Bildirim okuma dosyası bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            DosyaControl();
+            string[] array = new string[8];
+
+            array[0] = "Saha Bildirim Güncelleme"; // Bildirim Başlık
+            array[1] = "Mücahit AYDEMİR"; // Bildirim Sahibi Personel
+            array[2] = "220546"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "Form numaralı"; // Bildirim türü
+            array[4] = "Stine Tepe Üs Bölgesi"; // İÇERİK
+            array[5] = "DRAGONEYE B/O arızasını";
+            array[6] = "700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string txtMetin = array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5] + " " + array[6] + " " + array[7];
+            string bildirimMetin = array[1] + " " + array[2] + " " + array[3] + "\n" + array[4] + "\n" + array[5] + "\n" + array[6];
+
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+
+            string icerik = File.ReadAllText(dosyaYolu);
+            string[] array2 = icerik.Split('\n');
+            for (int i = 0; i < array2.Length; i++)
+            {
+                string metin = array2[i].ToString().Trim();
+                if (metin != txtMetin)
+                {
+                    if (array2.Length==1)
+                    {
+                        control = true;
+                    }
+                    else
+                    {
+                        if (metin!="")
+                        {
+                            control = true;
+                        }
+                        else
+                        {
+                            control = false;
+                        }
+                    }
+                    
+                }
+                if (control==true)
+                {
+                    FrmHelper.TxtBildirimEdit(txtMetin);
+                    StreamWriter streamWriter = new StreamWriter(dosyaYolu, true);
+                    streamWriter.WriteLine(txtMetin);
+                    streamWriter.Close();
+
+                    Log log = new Log(array[0], bildirimMetin, DateTime.Now, infos[1].ToString(), array[array.Length - 1]);
+                    string mesaj = logManager.Add(log);
+
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    frmAnaSayfa.DosyaControl();
+                }
+            }
+
+            control = false;
+
 
             //PopupNotifier popup = new PopupNotifier();
 
@@ -153,6 +187,8 @@ namespace UserInterface.Ana_Sayfa
 
             //popup.Disappear += Popup_Disappear;
 
+            */
+            #endregion
         }
 
 
@@ -169,6 +205,7 @@ namespace UserInterface.Ana_Sayfa
             frmAnaSayfa.PnlBildirim.Size = new Size(0, 0);
             frmAnaSayfa.tabAnasayfa.Size = new Size(1600, 955);
         }
+
     }
 
 }

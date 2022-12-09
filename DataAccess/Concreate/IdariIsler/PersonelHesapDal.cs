@@ -57,12 +57,63 @@ namespace DataAccess.Concreate.IdariIsler
 
         public List<PersonelHesap> GetList()
         {
-            throw new NotImplementedException();
+            try
+            {
+                List<PersonelHesap> personelHesaps = new List<PersonelHesap>();
+                dataReader = sqlServices.StoreReader("AktifPersonellerList");
+                while (dataReader.Read())
+                {
+                    personelHesaps.Add(new PersonelHesap(
+                        dataReader["ID"].ConInt(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["GIRIS_BILGISI"].ConDate(),
+                        dataReader["SON_GORULME"].ConDate(),
+                        dataReader["AKTIFLIK_SURESI"].ConInt()));
+                }
+                dataReader.Close();
+                return personelHesaps;
+            }
+            catch (Exception)
+            {
+                return new List<PersonelHesap>();
+            }
         }
 
-        public string Update(PersonelHesap entity)
+        public string Update(int personelId, string durum, DateTime girisBilgisi)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("LoginUpdateGiris",
+                    new SqlParameter("@personelId", personelId),
+                    new SqlParameter("@durum", durum),
+                    new SqlParameter("@girisBilgisi", girisBilgisi));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdatePasif(int personelId, string durum, DateTime sonGorulme, int toplamSure)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("LoginUpdateCikis",
+                    new SqlParameter("@personelId", personelId),
+                    new SqlParameter("@durum", durum),
+                    new SqlParameter("@sonGorulme", sonGorulme),
+                    new SqlParameter("@aktiflikSuresi", toplamSure));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static PersonelHesapDal GetInstance()
         {

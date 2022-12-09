@@ -22,6 +22,7 @@ using Tulpep.NotificationWindow;
 using UserInterface.STS;
 using System.Media;
 using Entity.AnaSayfa;
+using Business.Concreate.AnaSayfa;
 //WMPLib.WindowsMediaPlayer Player;
 
 namespace UserInterface.Ana_Sayfa
@@ -37,9 +38,7 @@ namespace UserInterface.Ana_Sayfa
             isAkisNoManager = IsAkisNoManager.GetInstance();
         }
         private void FrmHelper_Load(object sender, EventArgs e)
-        {
-            // chart.Series["Series1"].Points.AddY(15);
-            // chart.Series["Series1"].Points.Add(5);           
+        {    
 
         }
 
@@ -446,7 +445,7 @@ namespace UserInterface.Ana_Sayfa
         {
             WMPLib.WindowsMediaPlayer wplayer = new WMPLib.WindowsMediaPlayer();
 
-            wplayer.URL = @"C:\Users\MAYıldırım\Desktop\Crystal_Drop.mp3";
+            wplayer.URL = @"Z:\DTS\info\ou\Crystal_Drop.mp3";
             wplayer.controls.play();
 
         }
@@ -616,6 +615,97 @@ namespace UserInterface.Ana_Sayfa
                     editBildirim += "\nBildirim Sahibi: " + array[0].ToString();
                 }
             }
+            return "OK";
+        }
+
+        //static string dosyaYolu = @"Z:\DTS\info\ou\notification.txt";
+
+        static string kaynak = @"Z:\DTS\info\ou\";
+        static string yol = @"C:\DTS\Bildirim\";
+        static string taslakYolu = "";
+        static void CopyFile()
+        {
+            string root = @"C:\DTS";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(yol))
+            {
+                Directory.CreateDirectory(yol);
+            }
+
+            taslakYolu = yol + "notification.txt";
+
+            if (!File.Exists(taslakYolu))
+            {
+                File.Copy(kaynak + "notification.txt", taslakYolu);
+            }
+            
+        }
+
+        public static string BildirimGonder(string[] array, string bildirimYetki)
+        {
+            bool control = false;
+            CopyFile();
+
+            if (!File.Exists(taslakYolu))
+            {
+                return "Bildirim okuma dosyası bulunamadı!";
+            }
+
+            //array = new string[8];
+
+            //array[0] = "Saha Bildirim Güncelleme"; // Bildirim Başlık
+            //array[1] = "Mücahit AYDEMİR"; // Bildirim Sahibi Personel
+            //array[2] = "220546"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            //array[3] = "Form numaralı"; // Bildirim türü
+            //array[4] = "Stine Tepe Üs Bölgesi"; // İÇERİK
+            //array[5] = "DRAGONEYE B/O arızasını";
+            //array[6] = "700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!";
+
+            string txtMetin = array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5] + " " + array[6] + " " + bildirimYetki;
+            string bildirimMetin = array[1] + " " + array[2] + " " + array[3] + "\n" + array[4] + "\n" + array[5] + "\n" + array[6];
+
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+
+            string icerik = File.ReadAllText(taslakYolu);
+            string[] array2 = icerik.Split('\n');
+            for (int i = 0; i < array2.Length; i++)
+            {
+                string metin = array2[i].ToString().Trim();
+                if (metin != txtMetin)
+                {
+                    if (array2.Length == 1)
+                    {
+                        control = true;
+                    }
+                    else
+                    {
+                        if (metin != "")
+                        {
+                            control = true;
+                        }
+                        else
+                        {
+                            control = false;
+                        }
+                    }
+
+                }
+                if (control == true)
+                {
+                    TxtBildirimEdit(txtMetin);
+                    StreamWriter streamWriter = new StreamWriter(taslakYolu, true);
+                    streamWriter.WriteLine(txtMetin);
+                    streamWriter.Close();
+
+                    frmAnaSayfa.LogYaz(array[0], bildirimMetin, bildirimYetki);
+                    frmAnaSayfa.DosyaControl();
+                }
+            }
+            control = false;
 
             return "OK";
         }

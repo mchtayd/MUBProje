@@ -1,10 +1,12 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
 using Entity.STS;
@@ -34,6 +36,8 @@ namespace UserInterface.BakımOnarım
         IsAkisNoManager isAkisNoManager;
         DtfManager dtfManager;
         DtfMaliyetManager dtfMaliyetManager;
+        BildirimYetkiManager bildirimYetkiManager;
+        BolgeKayitManager bolgeKayitManager;
 
         List<MalzemeKayit> malzemeKayits;
         List<DtfMaliyet> dtfMaliyets;
@@ -56,6 +60,8 @@ namespace UserInterface.BakımOnarım
             isAkisNoManager = IsAkisNoManager.GetInstance();
             dtfManager = DtfManager.GetInstance();
             dtfMaliyetManager = DtfMaliyetManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void FrmDTFOlustur_Load(object sender, EventArgs e)
@@ -106,16 +112,16 @@ namespace UserInterface.BakımOnarım
 
         void UsBolgeleri()
         {
-            CmbBolgeAdi.DataSource = satTalebiDoldurManager.GetList();
+            CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
             CmbBolgeAdi.ValueMember = "Id";
-            CmbBolgeAdi.DisplayMember = "Usbolgesi";
+            CmbBolgeAdi.DisplayMember = "BolgeAdi";
             CmbBolgeAdi.SelectedValue = "";
         }
         void UsBolgeleriGuncelle()
         {
-            CmbBolgeAdiGun.DataSource = satTalebiDoldurManager.GetList();
+            CmbBolgeAdiGun.DataSource = bolgeKayitManager.GetList();
             CmbBolgeAdiGun.ValueMember = "Id";
-            CmbBolgeAdiGun.DisplayMember = "Usbolgesi";
+            CmbBolgeAdiGun.DisplayMember = "BolgeAdi";
             CmbBolgeAdiGun.SelectedValue = "";
         }
         public void ProjeKodu()
@@ -364,11 +370,92 @@ namespace UserInterface.BakımOnarım
                 }
                 TaslakKopyala();
                 CreateWord();
+                mesaj = BildirimKayit();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 Temizle();
             }
         }
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "DTF Kayıt"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbBolgeAdi.Text + " Üs bölgesi için"; // İÇERİK
+            array[5] = CmbAltYukleniciFirma.Text + "firması adına";
+            array[6] = DtgIsinVerildigiTarih.Value.ToString("d") + " tarihli DTF Kaydını oluşturmuştur!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+        string BildirimKayitOnay()
+        {
+            string[] array = new string[8];
+
+            array[0] = "DTF Kontrol ve Onay"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = LblUsBolgesiKO.Text + " Üs bölgesi için"; // İÇERİK
+            array[5] = LblAltYukFirmaKO.Text + " firması adına oluşturulan";
+            array[6] = "DTF kaydının Kontrol ve Onay Aşaması işlemlerini gerçekleştirdi!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+        string BildirimKayitGuncelle()
+        {
+            string[] array = new string[8];
+
+            array[0] = "DTF Güncelleme"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = TxtIsAkisNoGun.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = CmbBolgeAdiGun.Text + " Üs bölgesi için"; // İÇERİK
+            array[5] = CmbAltYukleniciFirmaGun.Text + " firması adına oluşturulan";
+            array[6] = "DTF kaydını güncelledi!";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
+        }
+
         void Hesapla(string birim)
         {
             toplam = x1 + x2 + x3 + x4 + x5 + x6 + x7;
@@ -852,6 +939,11 @@ namespace UserInterface.BakımOnarım
 
                 YaklasikMaliyetKayitGuncelle();
                 CreateWordGuncelle();
+                mesaj = BildirimKayitGuncelle();
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleGuncelle();
             }
@@ -1361,6 +1453,11 @@ namespace UserInterface.BakımOnarım
             }
             YaklasikMaliyetKayit();
             CreateWordKO();
+            mesaj = BildirimKayitOnay();
+            if (mesaj!="OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             TemizleKO();
         }
