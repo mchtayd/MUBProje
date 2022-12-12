@@ -531,7 +531,7 @@ namespace UserInterface.STS
                 SatBaslamaTarihiKayit();
                 if (mesaj != " SAT Ön Onay İşlemi Başarıyla Tamamlandı.")
                 {
-                    MessageBox.Show(mesaj);
+                    MessageBox.Show(mesaj, "Hata");
                     return;
                 }
                 onaydurum = "Onaylandı.";

@@ -33,5 +33,6 @@ namespace UserInterface.STS
                 frmAnaSayfa.tabAnasayfa.Visible = false;
             }
         }
+
     }
 }

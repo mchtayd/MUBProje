@@ -75,6 +75,17 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
+        public string UpdateSonGorulme(int personelId, DateTime sonGorulme, int toplamSure)
+        {
+            try
+            {
+                return personelHesapDal.UpdateSonGorulme(personelId, sonGorulme, toplamSure);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static PersonelHesapManager GetInstance()
         {
             if (personelHesapManager == null)

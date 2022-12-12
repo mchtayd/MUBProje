@@ -87,6 +87,38 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<MalzemeTalep>();
             }
         }
+        public List<MalzemeTalep> GetListSat(string personeAdi)
+        {
+            try
+            {
+                List<MalzemeTalep> malzemeTaleps = new List<MalzemeTalep>();
+                dataReader = sqlServices.StoreReader("MalzemeTalepListSat", new SqlParameter("@masrafYeriSorumlusu", personeAdi));
+                while (dataReader.Read())
+                {
+                    malzemeTaleps.Add(new MalzemeTalep(
+                        dataReader["ID"].ConInt(),
+                        dataReader["MALZEME_KATEGORISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TALEBI_OLUSTURAN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["SAT_BILGISI"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["ISLEM_DURUMU"].ToString(),
+                        dataReader["RED_GEREKCESI"].ToString(),
+                        dataReader["DEPO_DURUM"].ToString()));
+                }
+                dataReader.Close();
+                return malzemeTaleps;
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
         public List<MalzemeTalep> GetListPersonel(string masrafYeriSorumlusu,string kategori)
         {
             try

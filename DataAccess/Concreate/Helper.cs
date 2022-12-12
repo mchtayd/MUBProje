@@ -18,6 +18,7 @@ namespace DataAccess.Concreate
 
         static double outValue = 0;
         static int outValue2 = 0;
+        static string period;
         static DateTime outValue3 = new DateTime(2000, 01, 01);
         public static int ConInt(this object param)
         {
@@ -117,6 +118,71 @@ namespace DataAccess.Concreate
                 .Replace("<", "")
                 .Replace(">", "")
                 .Replace("|", "");
+        }
+        public static string ConPeriod(this DateTime date)
+        {
+            if (date.Month == 1)
+            {
+                period = "OCAK ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 2)
+            {
+                period = "ŞUBAT ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 3)
+            {
+                period = "MART ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 4)
+            {
+                period = "NİSAN ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 5)
+            {
+                period = "MAYIS ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 6)
+            {
+                period = "HAZİRAN ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 7)
+            {
+                period = "TEMMUZ ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 8)
+            {
+                period = "AĞUSTOS ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 9)
+            {
+                period = "EYLÜL ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 10)
+            {
+                period = "EKİM ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month == 11)
+            {
+                period = "KASIM ";
+                return period + date.Year.ToString();
+            }
+            if (date.Month==12)
+            {
+                period = "ARALIK ";
+                return period + date.Year.ToString();
+            }
+
+            return "";
         }
     }
 }

@@ -52,6 +52,7 @@ namespace UserInterface.STS
         AracZimmetiManager aracZimmetiManager;
         SiparislerManager siparislerManager;
         BolgeKayitManager bolgeKayitManager;
+        
 
         List<MalzemeKayit> malzemeKayits;
         List<MalzemeKayit> malzemesFiltered;
@@ -214,6 +215,7 @@ namespace UserInterface.STS
             CmbAdSoyad.DisplayMember = "Adsoyad";
             CmbAdSoyad.SelectedValue = -1;
         }
+
         void YedekParca()
         {
             malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
@@ -766,6 +768,7 @@ namespace UserInterface.STS
                     MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 siparisNo = Guid.NewGuid().ToString();
 
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;

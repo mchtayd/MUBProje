@@ -32,6 +32,7 @@ namespace UserInterface.Ana_Sayfa
 
         private void FrmBildirimler_Load(object sender, EventArgs e)
         {
+            BildirimDosyasiCreate();
             // DosyaControl();
             //TimerFileRead.Start();
         }
@@ -50,6 +51,38 @@ namespace UserInterface.Ana_Sayfa
             {
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
+        }
+        void BildirimDosyasiCreate()
+        {
+            if (File.Exists(dosyaYolu))
+            {
+                string kaynak = @"Z:\DTS\info\ou\";
+                string yol = @"C:\DTS\Bildirim\";
+                string taslakYolu = "";
+                {
+                    string root = @"C:\DTS";
+
+                    if (!Directory.Exists(root))
+                    {
+                        Directory.CreateDirectory(root);
+                    }
+                    if (!Directory.Exists(yol))
+                    {
+                        Directory.CreateDirectory(yol);
+                    }
+
+                    taslakYolu = yol + "notification.txt";
+
+                    if (!File.Exists(taslakYolu))
+                    {
+                        File.Copy(kaynak + "notification.txt", taslakYolu);
+                    }
+                }
+            }
+
+            
+
+            
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)

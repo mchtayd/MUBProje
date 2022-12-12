@@ -115,6 +115,23 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+        public string UpdateSonGorulme(int personelId, DateTime sonGorulme, int toplamSure)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SonGorulmeUpdate",
+                    new SqlParameter("@personelId", personelId),
+                    new SqlParameter("@sonGorulme", sonGorulme),
+                    new SqlParameter("@toplamSure", toplamSure));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static PersonelHesapDal GetInstance()
         {
             if (personelHesapDal == null)

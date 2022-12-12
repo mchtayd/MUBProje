@@ -642,7 +642,6 @@ namespace UserInterface.Ana_Sayfa
             {
                 File.Copy(kaynak + "notification.txt", taslakYolu);
             }
-            
         }
 
         public static string BildirimGonder(string[] array, string bildirimYetki)

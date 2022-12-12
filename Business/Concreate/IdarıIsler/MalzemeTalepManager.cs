@@ -59,6 +59,17 @@ namespace Business.Concreate.IdarıIsler
                 return new List<MalzemeTalep>();
             }
         }
+        public List<MalzemeTalep> GetListSat(string masrafYeriSorumlusu)
+        {
+            try
+            {
+                return malzemeTalepDal.GetListSat(masrafYeriSorumlusu);
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
         public List<MalzemeTalep> GetListPersonel(string masrafYeriSorumlusu,string kategori)
         {
             try

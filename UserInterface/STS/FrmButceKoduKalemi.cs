@@ -19,7 +19,8 @@ namespace UserInterface.STS
 
         private void FrmButceKoduKalemi_Load(object sender, EventArgs e)
         {
-            webBrowser1.Navigate(@"Z:\DTS\SATIN ALMA\Folder\ASL-001_MGÜB_BÜTÇE KALEMLERİ-2021.pdf");
+            webBrowser1.Navigate(@"Z:\DTS\EĞİTİM DOKÜMANTASYON\STANDART FORMLAR\MP-FR-130 MÜB BÜTÇE KALEMLERİ REV (00)\MP-FR-130 MÜB BÜTÇE KALEMLERİ V2.pdf");
+            //webBrowser1.Navigate(@"Z:\DTS\SATIN ALMA\Folder\ASL-001_MGÜB_BÜTÇE KALEMLERİ-2021.pdf");
             //webBrowser1.Navigate(@"C:\STS\ASL-001_MGÜB_BÜTÇE KALEMLERİ-2021.pdf");
         }
     }

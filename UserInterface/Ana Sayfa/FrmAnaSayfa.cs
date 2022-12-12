@@ -8,6 +8,7 @@ using DataAccess.Concreate.IdariIsler;
 using Entity;
 using Entity.AnaSayfa;
 using Entity.IdariIsler;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,9 +18,11 @@ using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
+using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Text;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
 using UserInterface.BakımOnarım;
@@ -59,7 +62,7 @@ namespace UserInterface.STS
         public object[] infos;
         public object[] infos1;
         int control = 0;
-        int atla = 0, atladal = 0, personId, authId, tamamlananSatlar, devamEdenSatlar, reddedilenSatlar;
+        int atla = 0, atladal = 0, personId, authId;
         string izinIdleri, yetkiModu;
 
         int index = 0;
@@ -77,6 +80,12 @@ namespace UserInterface.STS
             menuManager = MenuManager.GetInstance();
             personelHesapManager = PersonelHesapManager.GetInstance();
             logManager = LogManager.GetInstance();
+            SystemEvents.PowerModeChanged += PowerModeChanged;
+        }
+        
+        private void PowerModeChanged(object sender, PowerModeChangedEventArgs e)
+        {
+            // GÜÇ DEĞİŞİKLİĞİ
         }
 
         private void AnaSayfa_Load(object sender, EventArgs e)
@@ -112,6 +121,7 @@ namespace UserInterface.STS
             {
                 sayfalar.Visible = false;
             }
+
             PanelEditClear();
             //bildirim paneli kapalı
             //PnlBildirim.Size = new Size(0,0);
@@ -128,6 +138,7 @@ namespace UserInterface.STS
             DosyaControl();
             TimerFileRead.Start();
         }
+
         DateTime giris = DateTime.Now;
         public void PersonelDurumAktif()
         {
@@ -138,6 +149,7 @@ namespace UserInterface.STS
                 return;
             }
         }
+        
         public void PersonelDurumPasif()
         {
             DateTime cikis= DateTime.Now;
@@ -148,11 +160,20 @@ namespace UserInterface.STS
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
         }
         public void PersonelAktif()
         {
             personelHesaps = new List<PersonelHesap>();
             DtgPersonelList.Rows.Clear();
+            DateTime cikis = DateTime.Now;
+            TimeSpan toplamSure = cikis - giris;
+            string mesaj = personelHesapManager.UpdateSonGorulme(personId, DateTime.Now, toplamSure.Minutes.ConInt());
+            if (mesaj!="OK")
+            {
+                kapatBilgisi = false;
+                Application.Exit();
+            }
             personelHesaps = personelHesapManager.GetList();
             foreach (PersonelHesap item in personelHesaps)
             {
@@ -168,8 +189,8 @@ namespace UserInterface.STS
                 {
                     DtgPersonelList.Rows[sonSatir].Cells["Durum"].Value = ImagesLogin.Images[1]; // KIRMIZI
                 }
-
             }
+
         }
 
         void Basliklar(int authId)
@@ -389,19 +410,19 @@ namespace UserInterface.STS
         }
         private void FrmAnaSayfa_Shown(object sender, EventArgs e)
         {
-            if (personId == 84)
-            {
-                FrmDevam frmDevam = new FrmDevam();
-                frmDevam.FormBorderStyle = FormBorderStyle.None;
-                frmDevam.TopLevel = false;
-                frmDevam.AutoScroll = true;
-                OpenTabPage("PageDevam", "DEVAM/DEVAMSIZLIK", frmDevam);
-                frmDevam.Show();
-                foreach (TabPage item in tabAnasayfa.TabPages)
-                {
-                    item.Controls[0].Size = new Size(tabAnasayfa.Size.Width - 100, tabAnasayfa.Size.Height - 100);
-                }
-            }
+            //if (personId == 84 || personId == 25)
+            //{
+            //    FrmDevam frmDevam = new FrmDevam();
+            //    frmDevam.FormBorderStyle = FormBorderStyle.None;
+            //    frmDevam.TopLevel = false;
+            //    frmDevam.AutoScroll = true;
+            //    OpenTabPage("PageDevam", "DEVAM/DEVAMSIZLIK", frmDevam);
+            //    frmDevam.Show();
+            //    foreach (TabPage item in tabAnasayfa.TabPages)
+            //    {
+            //        item.Controls[0].Size = new Size(tabAnasayfa.Size.Width - 100, tabAnasayfa.Size.Height - 100);
+            //    }
+            //}
         }
         void Admin()
         {
@@ -1545,23 +1566,25 @@ namespace UserInterface.STS
 
         private void VersionEkle_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Yeni Version Çıkarmadan Önce publis çıkarmayı ve onu servere atmayı unutmayın yaptıysanız devam edin, Devam Etmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                //string path = "C:\\Users\\MAYıldırım\\source\\repos\\MUBProje\\UserInterface\\publish\\DTS Version.application";
-                string path = "Z:\\DTS\\DTS Setup\\publish\\DTS.application";
-                string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-                VersionBilgi versionBilgi = new VersionBilgi(version, path);
-                string mesaj = versionManager.Add(versionBilgi);
-                if (mesaj == "OK")
-                {
-                    MessageBox.Show("Yeni Version Bilgisi VERİ TABANINA Yazıldı, Kullanıcılara Bilgi Gidecektir.");
-                }
-                else
-                {
-                    MessageBox.Show(mesaj);
-                }
-            }
+            Application.SetSuspendState(PowerState.Suspend, false, false);
+
+            //DialogResult dr = MessageBox.Show("Yeni Version Çıkarmadan Önce publis çıkarmayı ve onu servere atmayı unutmayın yaptıysanız devam edin, Devam Etmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            //if (dr == DialogResult.Yes)
+            //{
+            //    //string path = "C:\\Users\\MAYıldırım\\source\\repos\\MUBProje\\UserInterface\\publish\\DTS Version.application";
+            //    string path = "Z:\\DTS\\DTS Setup\\publish\\DTS.application";
+            //    string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            //    VersionBilgi versionBilgi = new VersionBilgi(version, path);
+            //    string mesaj = versionManager.Add(versionBilgi);
+            //    if (mesaj == "OK")
+            //    {
+            //        MessageBox.Show("Yeni Version Bilgisi VERİ TABANINA Yazıldı, Kullanıcılara Bilgi Gidecektir.");
+            //    }
+            //    else
+            //    {
+            //        MessageBox.Show(mesaj);
+            //    }
+            //}
         }
 
         private void BtnDosyaKitle_Click(object sender, EventArgs e)
@@ -5139,6 +5162,8 @@ namespace UserInterface.STS
             DosyaControl();
         }
 
+        
+
         public void PanelEditClear()
         {
             StringBuilder strB = new StringBuilder();
@@ -5188,14 +5213,17 @@ namespace UserInterface.STS
         bool controlKapatma = false;
         private void FrmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
         {
+            
             if (controlKapatma == false)
             {
                 if (kapatBilgisi == false)
                 {
                     IslemleriSil();
                     controlKapatma = true;
+                    PersonelDurumPasif();
                     Application.Exit();
                 }
+                
                 DialogResult sonuc = MessageBox.Show("DTS Uygulamanızı Kapatmak İstiyor Musunuz?", "SORU", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (sonuc == DialogResult.No)
                 {
