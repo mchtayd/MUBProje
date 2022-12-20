@@ -43,9 +43,17 @@ namespace Business.Concreate.STS
             throw new NotImplementedException();
         }
 
-        public FiyatTeklifiAl Get(int id)
+        public FiyatTeklifiAl Get(string siparisNo, string stokNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return fiyatTeklifiAlDal.Get(siparisNo, stokNo);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<FiyatTeklifiAl> GetList(string durum, string siparisNo = "")

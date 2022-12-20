@@ -40,6 +40,7 @@ namespace UserInterface.BakımOnarım
         IscilikIscilikManager ıscilikIscilikManager;
         AtolyeManager atolyeManager;
         StokGirisCikisManager stokGirisCikisManager;
+        BolgeKayitManager bolgeKayitManager;
 
         bool start = true, dosyaKontrol = false, kayitKontrol = false;
         public object[] infos;
@@ -78,6 +79,7 @@ namespace UserInterface.BakımOnarım
             atolyeManager = AtolyeManager.GetInstance();
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void FrmArizaAcmaCalisma_Load(object sender, EventArgs e)
@@ -121,6 +123,7 @@ namespace UserInterface.BakımOnarım
             start = false;
             LblArizaBildirimiAlan.Text = infos[1].ToString();
             yetkiModu = infos[11].ToString();
+            tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
         }
         public void Yenilenecekler()
         {
@@ -850,6 +853,10 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             Pyp pyp = pypManager.Get(CmbPypNo.SelectedIndex);
+            if (pyp==null)
+            {
+                return;
+            }
             TxtSorumluPersonel.Text = pyp.SorumluPersonel;
             //TxtSiparisTuru.Text = pyp.SiparisTuru;
             TxtIslemTuru.Text = pyp.IslemTuru;
@@ -1415,16 +1422,16 @@ namespace UserInterface.BakımOnarım
 
         void UsBolgeleri()
         {
-            CmbBolgeAdi.DataSource = satTalebiDoldurManager.GetList();
+            CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
             CmbBolgeAdi.ValueMember = "Id";
-            CmbBolgeAdi.DisplayMember = "Usbolgesi";
+            CmbBolgeAdi.DisplayMember = "BolgeAdi";
             CmbBolgeAdi.SelectedValue = "";
         }
         void UsBolgeleriAK()
         {
-            CmbBolgeAdiAK.DataSource = satTalebiDoldurManager.GetList();
+            CmbBolgeAdiAK.DataSource = bolgeKayitManager.GetList();
             CmbBolgeAdiAK.ValueMember = "Id";
-            CmbBolgeAdiAK.DisplayMember = "Usbolgesi";
+            CmbBolgeAdiAK.DisplayMember = "BolgeAdi";
             CmbBolgeAdiAK.SelectedValue = "";
         }
 

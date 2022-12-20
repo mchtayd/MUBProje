@@ -9,6 +9,7 @@ namespace Entity.STS
     public class TeklifAlinan
     {
         string stokNo, tanim; int miktar; string birim; double bbf, btf; string firma1; double ibf, itf; string firma2; double ubf, utf; string firma3, siparisno;
+        bool secim = true;
 
         public string StokNo { get => stokNo; set => stokNo = value; }
         public string Tanim { get => tanim; set => tanim = value; }
@@ -24,6 +25,7 @@ namespace Entity.STS
         public double Utf { get => utf; set => utf = value; }
         public string Firma3 { get => firma3; set => firma3 = value; }
         public string Siparisno { get => siparisno; set => siparisno = value; }
+        public bool Secim { get => secim; set => secim = value; }
 
         public TeklifAlinan(string stokNo, double bbf, double btf, double ibf, double itf, double ubf, double utf, string siparisno)
         {
@@ -37,16 +39,16 @@ namespace Entity.STS
             this.Siparisno = siparisno;
         }
 
-        public TeklifAlinan(string stokNo, string tanim, int miktar, string birim, string firma1, string firma2, string firma3)
-        {
-            this.StokNo = stokNo;
-            this.Tanim = tanim;
-            this.Miktar = miktar;
-            this.Birim = birim;
-            this.Firma1 = firma1;
-            this.Firma2 = firma2;
-            this.Firma3 = firma3;
-        }
+        //public TeklifAlinan(string stokNo, string tanim, int miktar, string birim, string firma1, string firma2, string firma3)
+        //{
+        //    this.StokNo = stokNo;
+        //    this.Tanim = tanim;
+        //    this.Miktar = miktar;
+        //    this.Birim = birim;
+        //    this.Firma1 = firma1;
+        //    this.Firma2 = firma2;
+        //    this.Firma3 = firma3;
+        //}
 
         public TeklifAlinan(string firma1, string firma2, string firma3, string stokNo)
         {
@@ -72,6 +74,26 @@ namespace Entity.STS
             this.Ubf = ubf;
             this.Utf = utf;
             this.Siparisno = siparisno;
+        }
+
+        public TeklifAlinan(string stokNo, string tanim, int miktar, string birim, double bbf, double btf, string firma1)
+        {
+            this.stokNo = stokNo;
+            this.tanim = tanim;
+            this.miktar = miktar;
+            this.birim = birim;
+            this.bbf = bbf;
+            this.btf = btf;
+            this.firma1 = firma1;
+        }
+
+        public TeklifAlinan(string stokNo, string tanim, int miktar, string birim, string siparisno)
+        {
+            this.stokNo = stokNo;
+            this.tanim = tanim;
+            this.miktar = miktar;
+            this.birim = birim;
+            this.siparisno = siparisno;
         }
 
         public override string ToString()

@@ -347,7 +347,7 @@ namespace UserInterface.IdariIsler
         {
             string[] array = new string[8];
 
-            array[0] = "MİF Kayıt"; // Bildirim Başlık
+            array[0] = "MİF Personel Kayıt"; // Bildirim Başlık
             array[1] = LblAdSoyad.Text; // Bildirim Sahibi Personel
             array[2] = "isimli personel"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
             array[3] = "Malzeme isteğinde bulunmuştur."; // Bildirim türü

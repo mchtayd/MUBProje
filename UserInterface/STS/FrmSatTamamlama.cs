@@ -1443,7 +1443,7 @@ namespace UserInterface.STS
 
 
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, tamamlanantarih, gerekce, butcekodukalemi, satbirim, harcamaturu, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value,
-                    faturafirma, ilgilikisi, masrafyerino, toplam, dosyayolu, siparisNo, ucteklif, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, CmbHarcamaYapan.Text, usBolgesiProje, garantiDurumu);
+                    faturafirma, ilgilikisi, masrafyerino, toplam, dosyayolu, siparisNo, ucteklif, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, CmbHarcamaYapan.Text, usBolgesiProje, garantiDurumu, "");
                 string control = tamamlananManager.Add(tamamlanan);
                 if (control == "OK")
                 {

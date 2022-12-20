@@ -1,10 +1,12 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using Entity.STS;
@@ -18,6 +20,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using ButceKodu = Entity.STS.ButceKodu;
 
 namespace UserInterface.STS
@@ -36,14 +39,17 @@ namespace UserInterface.STS
         SatNoManager satNoManager;
         SatinAlinacakMalManager satinAlinacakMalManager;
         SatIslemAdimlariManager satIslemAdimlariManager;
+        BildirimYetkiManager bildirimYetkiManager;
+        BolgeGarantiManager bolgeGarantiManager;
 
         List<ButceKodu> butceKodus;
         List<ArizaKayit> arizaKayits;
         List<MalzemeTalep> malzemeTaleps;
         List<AbfMalzeme> abfMalzemes;
+        List<AbfMalzeme> abfMalzemesSatinAlma;
 
         bool start = false;
-        string dosyaYolu, isAkisNo, kaynakdosyaismi, alinandosya, siparisNo, isleAdimi, mesaj;
+        string dosyaYolu, kaynakdosyaismi, alinandosya, siparisNo, isleAdimi, mesaj;
         int satNo;
         public FrmSatTalebi()
         {
@@ -59,6 +65,8 @@ namespace UserInterface.STS
             satNoManager = SatNoManager.GetInstance();
             satinAlinacakMalManager = SatinAlinacakMalManager.GetInstance();
             satIslemAdimlariManager = SatIslemAdimlariManager.GetInstance();
+            bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            bolgeGarantiManager = BolgeGarantiManager.GetInstance();
         }
 
         private void FrmSatTalebi_Load(object sender, EventArgs e)
@@ -101,7 +109,7 @@ namespace UserInterface.STS
         void Temizle()
         {
             CmbButceKodu2.SelectedIndex = -1; CmbFirma.SelectedIndex = -1; CmbHarcamaTuru.SelectedIndex = -1; TxtAciklama.Clear();
-            CmbBolgeAdi.SelectedIndex = -1; BildirimFromNo.SelectedIndex = -1; CmbAdSoyad.SelectedIndex = -1;
+            CmbBolgeAdi.SelectedIndex = -1; CmbAdSoyad.SelectedIndex = -1;
             DtgMalzemeList.DataSource = null; DtgMalzemeList.ClearFilter();
             TxtTop.Text = DtgMalzemeList.RowCount.ToString();
             LblSiparisNo.Text = "00";
@@ -112,18 +120,47 @@ namespace UserInterface.STS
             LblBolgeProje.Text = "00";
             LblGarantiDurumu.Text = "00";
             LblGarantiDurumu.Text = "00";
+            LblPdl.Text = "00";
+            webBrowser1.Navigate("");
             TarihDonem();
+            BildirimFromNo.DataSource = null;
+            BildirimFromNo.Text = "";
+            BtnTumuneSatOlustur.Visible = false;
+            BtnDosyaEkle.Enabled = true;
+            TxtAciklama.Enabled = true;
+            CmbBolgeAdi.Enabled = true;
+            BildirimFromNo.Enabled = true;
         }
         private void CmbFaturaFirma_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CmbFaturaFirma.Text == "BAŞARAN İLERİ TEKNOLOJİ")
             {
+                CmbButceKodu2.DataSource = null;
+                if (CmbButceKodu2.Items.Count!=0)
+                {
+                    CmbButceKodu2.Items.Clear();
+                }
+                ButceKoduKalemi2();
                 GrnBasaran.Visible = true;
                 GrbAselsan.Visible = false;
                 TxtAciklama.Enabled = true;
             }
             else
             {
+                if (CmbFaturaFirma.Text== "ASELSAN AŞ. UGES İÇ GÜV.PROG.MDL.")
+                {
+                    CmbButceKodu2.DataSource = null;
+                    CmbButceKodu2.Items.Clear();
+                    CmbButceKodu2.Items.Add("BM14/EKSTRA ALIMLAR");
+                }
+                else
+                {
+                    CmbButceKodu2.DataSource = null;
+                    CmbButceKodu2.Items.Clear();
+                    CmbButceKodu2.Items.Add("BM02/ACİL ONARIM MALZEME ALIMI");
+                    CmbButceKodu2.Items.Add("BM14/EKSTRA ALIMLAR");
+                }
+                
                 GrnBasaran.Visible = false;
                 GrbAselsan.Visible = true;
                 TxtAciklama.Enabled = false;
@@ -171,6 +208,15 @@ namespace UserInterface.STS
             else
             {
                 LblBolgeProje.Text = bolgeKayit.Proje;
+                BolgeGaranti bolgeGaranti =  bolgeGarantiManager.Get(bolgeKayit.SiparisNo);
+                if (bolgeGaranti!=null)
+                {
+                    LblPdl.Text = bolgeGaranti.GarantiPaketi;
+                }
+                else
+                {
+                    LblPdl.Text = bolgeKayit.Proje;
+                }
                 arizaKayits = arizaKayitManager.GetList(CmbBolgeAdi.Text);
             }
             FormNoFill();
@@ -178,10 +224,12 @@ namespace UserInterface.STS
 
         void FormNoFill()
         {
+            start = false;
             BildirimFromNo.DataSource = arizaKayits;
-            CmbButceKodu2.ValueMember = "Id";
-            CmbButceKodu2.DisplayMember = "AbfFormNo";
-            CmbButceKodu2.SelectedValue = 0;
+            BildirimFromNo.ValueMember = "Id";
+            BildirimFromNo.DisplayMember = "AbfFormNo";
+            BildirimFromNo.SelectedValue = -1;
+            start = true;
         }
 
         private void BildirimFromNo_SelectedIndexChanged(object sender, EventArgs e)
@@ -202,7 +250,7 @@ namespace UserInterface.STS
             LblGarantiDurumu.Text = arizaKayit.GarantiDurumu;
             TxtAciklama.Text = arizaKayit.TespitEdilenAriza;
 
-            abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+            abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id, "SAT BEKLİYOR");
             AbfMalzemeFill();
         }
         void TarihDonem()
@@ -245,6 +293,8 @@ namespace UserInterface.STS
             {
                 return;
             }
+
+
             malzemeTaleps = malzemeTalepManager.GetListSat(CmbAdSoyad.Text);
             dataBinder.DataSource = malzemeTaleps.ToDataTable();
             DtgMalzemeList.DataSource = dataBinder;
@@ -283,6 +333,11 @@ namespace UserInterface.STS
             DtgMalzemeList.Columns["SokulenMiktar"].HeaderText = "MİKTAR";
             DtgMalzemeList.Columns["SokulenBirim"].HeaderText = "BİRİM";
             DtgMalzemeList.Columns["SokulenCalismaSaati"].Visible = false;
+            DtgMalzemeList.Columns["SokulenSeriNo"].Visible = false;
+            DtgMalzemeList.Columns["AbfNo"].Visible = false;
+            DtgMalzemeList.Columns["AbTarihSaat"].Visible = false;
+            DtgMalzemeList.Columns["TemineAtilamTarihi"].Visible = false;
+            DtgMalzemeList.Columns["MalzemeDurumu"].Visible = false;
             DtgMalzemeList.Columns["SokulenRevizyon"].Visible = false;
             DtgMalzemeList.Columns["CalismaDurumu"].Visible = false;
             DtgMalzemeList.Columns["FizikselDurum"].Visible = false;
@@ -294,6 +349,7 @@ namespace UserInterface.STS
             DtgMalzemeList.Columns["TakilanBirim"].Visible = false;
             DtgMalzemeList.Columns["TakilanCalismaSaati"].Visible = false;
             DtgMalzemeList.Columns["TakilanRevizyon"].Visible = false;
+            DtgMalzemeList.Columns["TeminDurumu"].Visible = false;
 
             TxtTop.Text = DtgMalzemeList.RowCount.ToString();
         }
@@ -315,8 +371,6 @@ namespace UserInterface.STS
             string root = @"Z:\DTS";
             string subdir = @"Z:\DTS\SATIN ALMA\SAT DOSYALARI\";
 
-            isAkisNo = LblIsAkisNo.Text;
-
             if (!Directory.Exists(root))
             {
                 Directory.CreateDirectory(root);
@@ -325,8 +379,12 @@ namespace UserInterface.STS
             {
                 Directory.CreateDirectory(subdir);
             }
-            dosyaYolu = subdir + isAkisNo;
-            Directory.CreateDirectory(subdir + isAkisNo);
+            dosyaYolu = subdir + LblIsAkisNo.Text;
+
+            if (!Directory.Exists(dosyaYolu))
+            {
+                Directory.CreateDirectory(dosyaYolu);
+            }
 
             //Directory.CreateDirectory(subdir + isAkisNo);
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -350,6 +408,185 @@ namespace UserInterface.STS
                 webBrowser1.Navigate(dosyaYolu);
             }
         }
+
+        private void BtnKontrol_Click(object sender, EventArgs e)
+        {
+            BtnTumuneSatOlustur.Visible = true;
+            BtnDosyaEkle.Enabled = false;
+            TxtAciklama.Enabled = false;
+            CmbBolgeAdi.Enabled = false;
+            BildirimFromNo.Enabled = false;
+            TeminSatinAlmaDisplay();
+        }
+        void TeminSatinAlmaDisplay()
+        {
+            abfMalzemesSatinAlma = abfMalzemeManager.TeminGetList("SAT İŞLEMLERİNİ BEKLİYOR");
+            dataBinder.DataSource = abfMalzemesSatinAlma.ToDataTable();
+            DtgMalzemeList.DataSource = dataBinder;
+
+            DtgMalzemeList.Columns["Id"].Visible = false;
+            DtgMalzemeList.Columns["BenzersizId"].Visible = false;
+            DtgMalzemeList.Columns["SokulenStokNo"].HeaderText = "STOK NO";
+            DtgMalzemeList.Columns["SokulenTanim"].HeaderText = "TANIM";
+            DtgMalzemeList.Columns["SokulenSeriNo"].Visible = false;
+            DtgMalzemeList.Columns["SokulenMiktar"].HeaderText = "MİKTAR";
+            DtgMalzemeList.Columns["SokulenBirim"].HeaderText = "BİRİM";
+            DtgMalzemeList.Columns["SokulenCalismaSaati"].Visible = false;
+            DtgMalzemeList.Columns["SokulenRevizyon"].Visible = false;
+            DtgMalzemeList.Columns["CalismaDurumu"].Visible = false;
+            DtgMalzemeList.Columns["FizikselDurum"].Visible = false;
+            DtgMalzemeList.Columns["YapilacakIslem"].Visible = false;
+            DtgMalzemeList.Columns["TakilanStokNo"].Visible = false;
+            DtgMalzemeList.Columns["TakilanTanim"].Visible = false;
+            DtgMalzemeList.Columns["TakilanSeriNo"].Visible = false;
+            DtgMalzemeList.Columns["TakilanMiktar"].Visible = false;
+            DtgMalzemeList.Columns["TakilanBirim"].Visible = false;
+            DtgMalzemeList.Columns["TakilanCalismaSaati"].Visible = false;
+            DtgMalzemeList.Columns["TakilanRevizyon"].Visible = false;
+            DtgMalzemeList.Columns["TeminDurumu"].Visible = false;
+            DtgMalzemeList.Columns["AbfNo"].HeaderText = "ABF NO";
+            DtgMalzemeList.Columns["AbTarihSaat"].Visible = false;
+            DtgMalzemeList.Columns["TemineAtilamTarihi"].Visible = false;
+            DtgMalzemeList.Columns["MalzemeDurumu"].Visible = false;
+
+            TxtTop.Text = DtgMalzemeList.RowCount.ToString();
+
+        }
+
+        private void BtnTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+        void OtoDosyaYoluOlustur()
+        {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\SATIN ALMA\SAT DOSYALARI\";
+
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+
+            dosyaYolu = subdir + satNo;
+
+            if (!Directory.Exists(dosyaYolu))
+            {
+                Directory.CreateDirectory(dosyaYolu);
+            }
+            
+        }
+
+        List<int> abfss = new List<int>();
+        private void BtnTumuneSatOlustur_Click(object sender, EventArgs e)
+        {
+            if (DtgMalzemeList.RowCount==0)
+            {
+                MessageBox.Show("Sat oluşturmak için malzeme bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbButceKodu2.Text=="")
+            {
+                MessageBox.Show("Lütfen öncelikle Bütçe Kodu seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbFirma.Text == "")
+            {
+                MessageBox.Show("Lütfen öncelikle Satın Alma Yapacak Birim seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbHarcamaTuru.Text == "")
+            {
+                MessageBox.Show("Lütfen öncelikle Harcama Türü seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istiyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                int sayac = 0;
+                abfss = new List<int>();
+
+                foreach (DataGridViewRow item in DtgMalzemeList.Rows)
+                {
+                    abfss.Add(item.Cells["AbfNo"].Value.ConInt());
+                    abfss.Sort();
+                    if (abfss.Count > 1)
+                    {
+                        if (abfss[sayac - 1].ConInt() == abfss[sayac].ConInt())
+                        {
+                            abfss.RemoveAt(sayac);
+                        }
+                        sayac++;
+                    }
+                }
+
+                for (int i = 0; i < abfss.Count; i++)
+                {
+                    IsAkisNo();
+                    siparisNo = Guid.NewGuid().ToString();
+                    isleAdimi = "TEKLİF";
+                    satNo = satNoManager.Add(new SatNo(siparisNo));
+
+                    int abfNo = abfss[i];
+
+                    ArizaKayit arizaKayit = arizaKayitManager.Get(abfNo);
+                    string bolgeAdi = arizaKayit.BolgeAdi;
+                    string aciklama = arizaKayit.TespitEdilenAriza;
+                    string bolgeProje = arizaKayit.Proje;
+
+                    OtoDosyaYoluOlustur();
+
+                    SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(),
+                        infos[2].ToString(), bolgeAdi, abfNo.ToString(), LblSatOlusturmaTarihi.Text.ConDate(), aciklama, siparisNo, "", "", "", "", "",
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, LblDonem.Text, "ASELSAN", bolgeProje, "-");
+
+                    mesaj = satDataGridview1Manager.Add(satDataGridview1);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    foreach (DataGridViewRow item in DtgMalzemeList.Rows)
+                    {
+                        if (abfss[i].ConInt() == item.Cells["AbfNo"].Value.ConInt())
+                        {
+                            SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), siparisNo);
+
+                            satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
+
+                            abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString());
+                        }
+                    }
+
+                    SatDataGridview1 dataGridview1 = new SatDataGridview1(satNo, CmbButceKodu2.Text, CmbFirma.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo, 1, string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, isleAdimi);
+                    mesaj = satDataGridview1Manager.Update(dataGridview1);
+
+                    if (mesaj != " SAT Ön Onay İşlemi Başarıyla Tamamlandı.")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    satDataGridview1Manager.DurumGuncelleOnay(siparisNo);
+
+                    SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, "SATIN ALMA TALEBİ OLUŞTURULDU.", infos[1].ToString(), DateTime.Now);
+                    satIslemAdimlariManager.Add(satIslem);
+                }
+
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+                IsAkisNo();
+                CmbFaturaFirma.SelectedIndex = -1;
+            }
+
+
+        }
+
         string SatControl()
         {
             if (CmbButceKodu2.Text=="")
@@ -419,7 +656,7 @@ namespace UserInterface.STS
                 else
                 {
                     SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(),
-                        infos[2].ToString(), "YOK", "0", LblSatTarihi.Text.ConDate(), TxtAciklama.Text, siparisNo, "", "", "", "", "",
+                        infos[2].ToString(), "YOK", "0", LblSatTarihi.Text.ConDate(), TxtAciklama.Text, siparisNo, CmbAdSoyad.Text, LblSiparisNo.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text,
                   string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, LblDonemBasaran.Text, "BAŞARAN", "ASL-001/MUB", "-");
 
                     mesaj = satDataGridview1Manager.Add(satDataGridview1);
@@ -438,31 +675,59 @@ namespace UserInterface.STS
 
                     foreach (DataGridViewRow item in DtgMalzemeList.Rows)
                     {
-                        malzemeTalepManager.Update(item.Cells["Id"].ConInt(), "SAT OLUŞTURULDU, TEDARİK AŞAMASINDA");
+                        malzemeTalepManager.Update(item.Cells[0].Value.ConInt(), "SAT OLUŞTURULDU, TEDARİK AŞAMASINDA");
                     }
 
                 }
 
-                SatDataGridview1 dataGridview1 = new SatDataGridview1(satNo, CmbButceKodu2.Text, CmbFirma.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo, 1, dosyaYolu, isleAdimi);
+                SatDataGridview1 dataGridview1 = new SatDataGridview1(satNo, CmbButceKodu2.Text, CmbFirma.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo, 1, string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, isleAdimi);
                 mesaj = satDataGridview1Manager.Update(dataGridview1);
 
-                if (mesaj != "OK")
+                if (mesaj != " SAT Ön Onay İşlemi Başarıyla Tamamlandı.")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
                 satDataGridview1Manager.DurumGuncelleOnay(siparisNo);
 
                 SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, "SATIN ALMA TALEBİ OLUŞTURULDU.", infos[1].ToString(), DateTime.Now);
                 satIslemAdimlariManager.Add(satIslem);
-
+                string bildirim = BildirimKayit();
+                if (bildirim!="OK")
+                {
+                    MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 CmbFaturaFirma.SelectedIndex = -1;
                 Temizle();
 
             }
+        }
+        string BildirimKayit()
+        {
+            string[] array = new string[8];
+
+            array[0] = "Sat Talebi Kayıt"; // Bildirim Başlık
+            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            array[2] = LblIsAkisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            array[3] = "iş akış numaralı"; // Bildirim türü
+            array[4] = "Sat Kaydını oluşturmuştur!"; // İÇERİK
+            array[5] = "";
+            array[6] = "";
+
+            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            if (bildirimYetki == null)
+            {
+                array[7] = infos[0].ToString();
+            }
+            else
+            {
+                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            }
+
+            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return mesaj;
         }
         string AselsanSatMalzemeKayit()
         {
@@ -473,6 +738,7 @@ namespace UserInterface.STS
 
                  mesaj = satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
 
+
                 if (mesaj!="OK")
                 {
                     return mesaj;
@@ -481,6 +747,20 @@ namespace UserInterface.STS
 
             return "OK";
         }
+        string AselsanSatMalzemeOtoKayit()
+        {
+            int sayac = 0;
+            foreach (DataGridViewRow item in DtgMalzemeList.Rows)
+            {
+                SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), siparisNo);
+
+                satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
+                sayac++;
+            }
+
+            return "OK";
+        }
+
         string BasaranSatMalzemeKayit()
         {
             string mesaj = "";
@@ -489,6 +769,9 @@ namespace UserInterface.STS
                 SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["StokNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Miktar"].Value.ConInt(), item.Cells["Birim"].Value.ToString(), siparisNo);
 
                 mesaj = satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
+
+                
+
 
                 if (mesaj != "OK")
                 {

@@ -118,6 +118,13 @@ namespace UserInterface.STS
             DtgDevamEden.Columns["SatinAlinanFirma"].Visible = false;
             DtgDevamEden.Columns["MailSiniri"].Visible = false;
             DtgDevamEden.Columns["MailDurumu"].Visible = false;
+            DtgDevamEden.Columns["MlzTeslimAldTarih"].HeaderText = "MLZ. TESLİM ALINMA TARİHİ";
+            DtgDevamEden.Columns["HarcamaYapan"].Visible = false;
+            DtgDevamEden.Columns["AselsanMailGondermeDate"].HeaderText = "ASELSAN MAİL GÖNDERME TARİHİ";
+            DtgDevamEden.Columns["AselsanMailAlmaDate"].HeaderText = "ASELSAN MAİL ALMA TARİHİ";
+            DtgDevamEden.Columns["OdemeMailGondermeDate"].HeaderText = "ÖDEME MAİLİ GÖNDERME TARİHİ";
+            DtgDevamEden.Columns["OdemeMailAlmaDate"].HeaderText = "ÖDEME MAİLİ ALMA TARİHİ";
+            DtgDevamEden.Columns["DepoTeslimTarihi"].HeaderText = "DEPO TESLİM TARİHİ";
         }
 
         private void Temizle()
@@ -563,6 +570,32 @@ namespace UserInterface.STS
                 panel3.Visible = false;
             }
 
+            Teklifler();
+        }
+        void Teklifler()
+        {
+            DtgMalzList.DataSource = fiyatTeklifiAls;
+
+            DtgMalzList.Columns["Id"].Visible = false;
+            DtgMalzList.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgMalzList.Columns["Tanim"].HeaderText = "TANIM";
+            DtgMalzList.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgMalzList.Columns["Birim"].HeaderText = "BİRİM";
+            DtgMalzList.Columns["Firma1"].HeaderText = "FİRMA ADI";
+            DtgMalzList.Columns["Firma2"].Visible = false;
+            DtgMalzList.Columns["Firma3"].Visible = false;
+            DtgMalzList.Columns["Siparisno"].Visible = false;
+            DtgMalzList.Columns["Teklifdurumu"].Visible = false;
+            DtgMalzList.Columns["Bbf"].HeaderText = "BİRİM FİYATI";
+            DtgMalzList.Columns["Btf"].HeaderText = "TOPLAM FİYAT";
+            DtgMalzList.Columns["Ibf"].Visible = false;
+            DtgMalzList.Columns["Itf"].Visible = false;
+            DtgMalzList.Columns["Ubf"].Visible = false;
+            DtgMalzList.Columns["Utf"].Visible = false;
+            DtgMalzList.Columns["Onaylananteklif"].Visible = false;
+
+            LblTop2.Text = DtgMalzList.RowCount.ToString();
+            //Toplamlar();
         }
         void FillTools2()
         {

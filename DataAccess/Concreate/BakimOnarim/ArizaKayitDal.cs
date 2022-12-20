@@ -86,6 +86,22 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+
+        public string ArizaMalzemeDurum(int id, string malzemeDurumu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("ArizaMalzemeDurum",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@malzemeDurumu", malzemeDurumu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string BOEksikEvrakKayit(int id)
         {
             try
@@ -263,7 +279,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["HASAR_KODU"].ToString(),
                         dataReader["NEDEN_KODU"].ToString(),
                         dataReader["EKSIK_EVRAK"].ConInt(),
-                        dataReader["EKIPMAN_NO"].ToString());
+                        dataReader["EKIPMAN_NO"].ToString(),
+                        dataReader["MALZEME_DURUMU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -336,7 +353,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["HASAR_KODU"].ToString(),
                         dataReader["NEDEN_KODU"].ToString(),
                         dataReader["EKSIK_EVRAK"].ConInt(),
-                        dataReader["EKIPMAN_NO"].ToString()));
+                        dataReader["EKIPMAN_NO"].ToString(),
+                        dataReader["MALZEME_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -410,7 +428,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["HASAR_KODU"].ToString(),
                         dataReader["NEDEN_KODU"].ToString(),
                         dataReader["EKSIK_EVRAK"].ConInt(),
-                        dataReader["EKIPMAN_NO"].ToString()));
+                        dataReader["EKIPMAN_NO"].ToString(),
+                        dataReader["MALZEME_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -500,7 +519,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["HASAR_KODU"].ToString(),
                         dataReader["NEDEN_KODU"].ToString(),
                         dataReader["EKSIK_EVRAK"].ConInt(),
-                        dataReader["EKIPMAN_NO"].ToString()));
+                        dataReader["EKIPMAN_NO"].ToString(),
+                        dataReader["MALZEME_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -573,7 +593,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["HASAR_KODU"].ToString(),
                         dataReader["NEDEN_KODU"].ToString(),
                         dataReader["EKSIK_EVRAK"].ConInt(),
-                        dataReader["EKIPMAN_NO"].ToString()));
+                        dataReader["EKIPMAN_NO"].ToString(),
+                        dataReader["MALZEME_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -646,7 +667,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["HASAR_KODU"].ToString(),
                         dataReader["NEDEN_KODU"].ToString(),
                         dataReader["EKSIK_EVRAK"].ConInt(),
-                        dataReader["EKIPMAN_NO"].ToString()));
+                        dataReader["EKIPMAN_NO"].ToString(),
+                        dataReader["MALZEME_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -719,7 +741,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["HASAR_KODU"].ToString(),
                         dataReader["NEDEN_KODU"].ToString(),
                         dataReader["EKSIK_EVRAK"].ConInt(),
-                        dataReader["EKIPMAN_NO"].ToString()));
+                        dataReader["EKIPMAN_NO"].ToString(),
+                        dataReader["MALZEME_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -792,7 +815,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["HASAR_KODU"].ToString(),
                         dataReader["NEDEN_KODU"].ToString(),
                         dataReader["EKSIK_EVRAK"].ConInt(),
-                        dataReader["EKIPMAN_NO"].ToString()));
+                        dataReader["EKIPMAN_NO"].ToString(),
+                        dataReader["MALZEME_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;

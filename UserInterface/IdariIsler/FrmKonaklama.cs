@@ -394,7 +394,7 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            satDataGridview1Manager.TeklifDurum(siparisNo);
+            satDataGridview1Manager.TeklifDurum(siparisNo, dosya, "SAT ONAY BAŞARAN");
             satDataGridview1Manager.DurumGuncelleOnay(siparisNo);
             string yapilanislem = LblIsAkisNo.Text + " Nolu Konaklama Kaydı İçin SAT Oluşturuldu.";
             SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);

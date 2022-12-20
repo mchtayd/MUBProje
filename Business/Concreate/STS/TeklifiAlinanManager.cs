@@ -19,11 +19,11 @@ namespace Business.Concreate.STS
             teklifAlinanDal = TeklifAlinanDal.GetInstance();
         }
 
-        public string Add(TeklifAlinan entity)
+        public string Add(TeklifAlinan entity,string siparisNo)
         {
             try
             {
-                return teklifAlinanDal.Add(entity);
+                return teklifAlinanDal.Add(entity, siparisNo);
             }
             catch (Exception ex)
             {

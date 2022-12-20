@@ -78,11 +78,11 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public BolgeKayit Get(int id)
+        public BolgeKayit Get(int id, string bolgeAdi)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("BolgeGetlist", new SqlParameter("@id", id));
+                dataReader = sqlServices.StoreReader("BolgeGetlist", new SqlParameter("@id", id), new SqlParameter("@bolgeAdi", bolgeAdi));
                 BolgeKayit item = null;
                 while (dataReader.Read())
                 {
@@ -156,12 +156,12 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public List<BolgeKayit> GetList()
+        public List<BolgeKayit> GetList(string personelAdi)
         {
             try
             {
                 List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
-                dataReader = sqlServices.StoreReader("BolgeGetlist");
+                dataReader = sqlServices.StoreReader("BolgeGetlist", new SqlParameter("@personelAdi", personelAdi));
                 while (dataReader.Read())
                 {
                     bolgeKayits.Add(new BolgeKayit(

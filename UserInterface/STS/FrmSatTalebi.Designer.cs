@@ -31,7 +31,7 @@ namespace UserInterface.STS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatTalebi));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbMasYeri = new System.Windows.Forms.ComboBox();
@@ -48,7 +48,9 @@ namespace UserInterface.STS
             this.label18 = new System.Windows.Forms.Label();
             this.CmbButceKodu2 = new System.Windows.Forms.ComboBox();
             this.GrnBasaran = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.LblDonemBasaran = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.LblSatTarihi = new System.Windows.Forms.Label();
             this.LblProje = new System.Windows.Forms.Label();
             this.LblMasrafYeri = new System.Windows.Forms.Label();
@@ -63,6 +65,9 @@ namespace UserInterface.STS
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.GrbAselsan = new System.Windows.Forms.GroupBox();
+            this.BtnKontrol = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LblPdl = new System.Windows.Forms.Label();
             this.LblDonem = new System.Windows.Forms.Label();
             this.LblSatOlusturmaTarihi = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -78,26 +83,27 @@ namespace UserInterface.STS
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DtgMalzemeList = new ADGV.AdvancedDataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.DtgMalzemeList = new ADGV.AdvancedDataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.LblIsAkisNo = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnTemizle = new System.Windows.Forms.Button();
+            this.BtnTumuneSatOlustur = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.GrnBasaran.SuspendLayout();
             this.GrbAselsan.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeList)).BeginInit();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -130,7 +136,6 @@ namespace UserInterface.STS
             this.CmbMasYeri.FormattingEnabled = true;
             this.CmbMasYeri.Items.AddRange(new object[] {
             "2017007-1",
-            "2017008-1",
             "2017008-2",
             "2017000-1"});
             this.CmbMasYeri.Location = new System.Drawing.Point(165, 127);
@@ -144,7 +149,6 @@ namespace UserInterface.STS
             this.CmbIlgiliKisi.FormattingEnabled = true;
             this.CmbIlgiliKisi.Items.AddRange(new object[] {
             "ERKAN İPEK",
-            "UĞUR DURAN",
             "YASEMİN DURAN",
             "RESUL GÜNEŞ"});
             this.CmbIlgiliKisi.Location = new System.Drawing.Point(167, 98);
@@ -158,7 +162,6 @@ namespace UserInterface.STS
             this.CmbFaturaFirma.FormattingEnabled = true;
             this.CmbFaturaFirma.Items.AddRange(new object[] {
             "ASELSAN AŞ. UGES ÜRÜN DES.MDL.",
-            "ASELSAN AŞ. UGES İÇ GÜV.PROG.DİR.",
             "ASELSAN AŞ. UGES İÇ GÜV.PROG.MDL.",
             "BAŞARAN İLERİ TEKNOLOJİ"});
             this.CmbFaturaFirma.Location = new System.Drawing.Point(167, 69);
@@ -284,13 +287,22 @@ namespace UserInterface.STS
             this.GrnBasaran.Controls.Add(this.label56);
             this.GrnBasaran.Controls.Add(this.label58);
             this.GrnBasaran.Controls.Add(this.label59);
-            this.GrnBasaran.Location = new System.Drawing.Point(480, 46);
+            this.GrnBasaran.Location = new System.Drawing.Point(481, 60);
             this.GrnBasaran.Name = "GrnBasaran";
             this.GrnBasaran.Size = new System.Drawing.Size(507, 236);
             this.GrnBasaran.TabIndex = 354;
             this.GrnBasaran.TabStop = false;
             this.GrnBasaran.Text = "TALEP EDEN";
             this.GrnBasaran.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(62, 211);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(87, 13);
+            this.label2.TabIndex = 423;
+            this.label2.Text = "DÖNEM (Ay/Yıl):";
             // 
             // LblDonemBasaran
             // 
@@ -300,6 +312,15 @@ namespace UserInterface.STS
             this.LblDonemBasaran.Size = new System.Drawing.Size(19, 13);
             this.LblDonemBasaran.TabIndex = 425;
             this.LblDonemBasaran.Text = "00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(8, 183);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(141, 13);
+            this.label4.TabIndex = 422;
+            this.label4.Text = "SAT OLUŞTURMA TARİHİ:";
             // 
             // LblSatTarihi
             // 
@@ -421,6 +442,9 @@ namespace UserInterface.STS
             // 
             // GrbAselsan
             // 
+            this.GrbAselsan.Controls.Add(this.BtnKontrol);
+            this.GrbAselsan.Controls.Add(this.label5);
+            this.GrbAselsan.Controls.Add(this.LblPdl);
             this.GrbAselsan.Controls.Add(this.LblDonem);
             this.GrbAselsan.Controls.Add(this.LblSatOlusturmaTarihi);
             this.GrbAselsan.Controls.Add(this.label3);
@@ -433,18 +457,51 @@ namespace UserInterface.STS
             this.GrbAselsan.Controls.Add(this.label13);
             this.GrbAselsan.Controls.Add(this.CmbBolgeAdi);
             this.GrbAselsan.Controls.Add(this.BildirimFromNo);
-            this.GrbAselsan.Location = new System.Drawing.Point(479, 46);
+            this.GrbAselsan.Location = new System.Drawing.Point(480, 60);
             this.GrbAselsan.Name = "GrbAselsan";
-            this.GrbAselsan.Size = new System.Drawing.Size(507, 205);
+            this.GrbAselsan.Size = new System.Drawing.Size(507, 253);
             this.GrbAselsan.TabIndex = 353;
             this.GrbAselsan.TabStop = false;
             this.GrbAselsan.Text = "TALEP EDİLEN YER";
             this.GrbAselsan.Visible = false;
             // 
+            // BtnKontrol
+            // 
+            this.BtnKontrol.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKontrol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKontrol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKontrol.Location = new System.Drawing.Point(159, 16);
+            this.BtnKontrol.Name = "BtnKontrol";
+            this.BtnKontrol.Size = new System.Drawing.Size(129, 39);
+            this.BtnKontrol.TabIndex = 421;
+            this.BtnKontrol.Text = " Arızaları Kontrol Et";
+            this.BtnKontrol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKontrol.UseVisualStyleBackColor = false;
+            this.BtnKontrol.Click += new System.EventHandler(this.BtnKontrol_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(20, 175);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(133, 13);
+            this.label5.TabIndex = 419;
+            this.label5.Text = "ARIZA GARANTİ BİLGİSİ:";
+            // 
+            // LblPdl
+            // 
+            this.LblPdl.AutoSize = true;
+            this.LblPdl.Location = new System.Drawing.Point(159, 148);
+            this.LblPdl.Name = "LblPdl";
+            this.LblPdl.Size = new System.Drawing.Size(19, 13);
+            this.LblPdl.TabIndex = 420;
+            this.LblPdl.Text = "00";
+            // 
             // LblDonem
             // 
             this.LblDonem.AutoSize = true;
-            this.LblDonem.Location = new System.Drawing.Point(163, 172);
+            this.LblDonem.Location = new System.Drawing.Point(159, 229);
             this.LblDonem.Name = "LblDonem";
             this.LblDonem.Size = new System.Drawing.Size(19, 13);
             this.LblDonem.TabIndex = 418;
@@ -453,7 +510,7 @@ namespace UserInterface.STS
             // LblSatOlusturmaTarihi
             // 
             this.LblSatOlusturmaTarihi.AutoSize = true;
-            this.LblSatOlusturmaTarihi.Location = new System.Drawing.Point(163, 144);
+            this.LblSatOlusturmaTarihi.Location = new System.Drawing.Point(159, 202);
             this.LblSatOlusturmaTarihi.Name = "LblSatOlusturmaTarihi";
             this.LblSatOlusturmaTarihi.Size = new System.Drawing.Size(19, 13);
             this.LblSatOlusturmaTarihi.TabIndex = 417;
@@ -462,16 +519,16 @@ namespace UserInterface.STS
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(47, 116);
+            this.label3.Location = new System.Drawing.Point(4, 148);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(110, 13);
+            this.label3.Size = new System.Drawing.Size(149, 13);
             this.label3.TabIndex = 415;
-            this.label3.Text = "GARANTİ DURUMU:";
+            this.label3.Text = "BÖLGE GARANTİ DURUMU:";
             // 
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(72, 88);
+            this.label65.Location = new System.Drawing.Point(68, 121);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(85, 13);
             this.label65.TabIndex = 109;
@@ -480,7 +537,7 @@ namespace UserInterface.STS
             // LblGarantiDurumu
             // 
             this.LblGarantiDurumu.AutoSize = true;
-            this.LblGarantiDurumu.Location = new System.Drawing.Point(163, 116);
+            this.LblGarantiDurumu.Location = new System.Drawing.Point(159, 175);
             this.LblGarantiDurumu.Name = "LblGarantiDurumu";
             this.LblGarantiDurumu.Size = new System.Drawing.Size(19, 13);
             this.LblGarantiDurumu.TabIndex = 416;
@@ -489,7 +546,7 @@ namespace UserInterface.STS
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(70, 172);
+            this.label52.Location = new System.Drawing.Point(66, 229);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(87, 13);
             this.label52.TabIndex = 107;
@@ -498,7 +555,7 @@ namespace UserInterface.STS
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(83, 32);
+            this.label11.Location = new System.Drawing.Point(79, 67);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 13);
             this.label11.TabIndex = 96;
@@ -507,7 +564,7 @@ namespace UserInterface.STS
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(72, 60);
+            this.label12.Location = new System.Drawing.Point(68, 94);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 13);
             this.label12.TabIndex = 97;
@@ -516,7 +573,7 @@ namespace UserInterface.STS
             // LblBolgeProje
             // 
             this.LblBolgeProje.AutoSize = true;
-            this.LblBolgeProje.Location = new System.Drawing.Point(163, 88);
+            this.LblBolgeProje.Location = new System.Drawing.Point(159, 121);
             this.LblBolgeProje.Name = "LblBolgeProje";
             this.LblBolgeProje.Size = new System.Drawing.Size(19, 13);
             this.LblBolgeProje.TabIndex = 414;
@@ -525,7 +582,7 @@ namespace UserInterface.STS
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(16, 144);
+            this.label13.Location = new System.Drawing.Point(12, 202);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 13);
             this.label13.TabIndex = 98;
@@ -535,7 +592,7 @@ namespace UserInterface.STS
             // 
             this.CmbBolgeAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBolgeAdi.FormattingEnabled = true;
-            this.CmbBolgeAdi.Location = new System.Drawing.Point(163, 28);
+            this.CmbBolgeAdi.Location = new System.Drawing.Point(159, 63);
             this.CmbBolgeAdi.Name = "CmbBolgeAdi";
             this.CmbBolgeAdi.Size = new System.Drawing.Size(285, 21);
             this.CmbBolgeAdi.TabIndex = 100;
@@ -544,7 +601,7 @@ namespace UserInterface.STS
             // BildirimFromNo
             // 
             this.BildirimFromNo.FormattingEnabled = true;
-            this.BildirimFromNo.Location = new System.Drawing.Point(163, 56);
+            this.BildirimFromNo.Location = new System.Drawing.Point(159, 90);
             this.BildirimFromNo.Name = "BildirimFromNo";
             this.BildirimFromNo.Size = new System.Drawing.Size(285, 21);
             this.BildirimFromNo.TabIndex = 106;
@@ -557,7 +614,7 @@ namespace UserInterface.STS
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnDosyaEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnDosyaEkle.Image")));
             this.BtnDosyaEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(12, 765);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(12, 787);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(130, 51);
             this.BtnDosyaEkle.TabIndex = 360;
@@ -573,7 +630,7 @@ namespace UserInterface.STS
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 822);
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 844);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 358;
@@ -587,17 +644,41 @@ namespace UserInterface.STS
             this.groupBox2.Controls.Add(this.DtgMalzemeList);
             this.groupBox2.Location = new System.Drawing.Point(12, 319);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(975, 410);
+            this.groupBox2.Size = new System.Drawing.Size(975, 383);
             this.groupBox2.TabIndex = 357;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "MALZEME LİSTESİ";
             // 
+            // DtgMalzemeList
+            // 
+            this.DtgMalzemeList.AllowUserToAddRows = false;
+            this.DtgMalzemeList.AllowUserToDeleteRows = false;
+            this.DtgMalzemeList.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DtgMalzemeList.AutoGenerateContextFilters = true;
+            this.DtgMalzemeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.DtgMalzemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzemeList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgMalzemeList.DateWithTime = false;
+            this.DtgMalzemeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzemeList.Location = new System.Drawing.Point(3, 16);
+            this.DtgMalzemeList.MultiSelect = false;
+            this.DtgMalzemeList.Name = "DtgMalzemeList";
+            this.DtgMalzemeList.ReadOnly = true;
+            this.DtgMalzemeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMalzemeList.Size = new System.Drawing.Size(969, 364);
+            this.DtgMalzemeList.TabIndex = 3;
+            this.DtgMalzemeList.TimeFilter = false;
+            this.DtgMalzemeList.SortStringChanged += new System.EventHandler(this.DtgMalzemeList_SortStringChanged);
+            this.DtgMalzemeList.FilterStringChanged += new System.EventHandler(this.DtgMalzemeList_FilterStringChanged);
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webBrowser1);
-            this.groupBox3.Location = new System.Drawing.Point(148, 760);
+            this.groupBox3.Location = new System.Drawing.Point(148, 730);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(533, 113);
+            this.groupBox3.Size = new System.Drawing.Size(533, 165);
             this.groupBox3.TabIndex = 356;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EKLER:";
@@ -608,7 +689,7 @@ namespace UserInterface.STS
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(527, 94);
+            this.webBrowser1.Size = new System.Drawing.Size(527, 146);
             this.webBrowser1.TabIndex = 0;
             // 
             // label1
@@ -628,53 +709,11 @@ namespace UserInterface.STS
             this.TxtAciklama.TabIndex = 421;
             this.TxtAciklama.Text = "";
             // 
-            // DtgMalzemeList
-            // 
-            this.DtgMalzemeList.AllowUserToAddRows = false;
-            this.DtgMalzemeList.AllowUserToDeleteRows = false;
-            this.DtgMalzemeList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
-            this.DtgMalzemeList.AutoGenerateContextFilters = true;
-            this.DtgMalzemeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            this.DtgMalzemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgMalzemeList.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgMalzemeList.DateWithTime = false;
-            this.DtgMalzemeList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgMalzemeList.Location = new System.Drawing.Point(3, 16);
-            this.DtgMalzemeList.MultiSelect = false;
-            this.DtgMalzemeList.Name = "DtgMalzemeList";
-            this.DtgMalzemeList.ReadOnly = true;
-            this.DtgMalzemeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgMalzemeList.Size = new System.Drawing.Size(969, 391);
-            this.DtgMalzemeList.TabIndex = 3;
-            this.DtgMalzemeList.TimeFilter = false;
-            this.DtgMalzemeList.SortStringChanged += new System.EventHandler(this.DtgMalzemeList_SortStringChanged);
-            this.DtgMalzemeList.FilterStringChanged += new System.EventHandler(this.DtgMalzemeList_FilterStringChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 211);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 13);
-            this.label2.TabIndex = 423;
-            this.label2.Text = "DÖNEM (Ay/Yıl):";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(8, 183);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(141, 13);
-            this.label4.TabIndex = 422;
-            this.label4.Text = "SAT OLUŞTURMA TARİHİ:";
-            // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(15, 734);
+            this.label31.Location = new System.Drawing.Point(15, 705);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 361;
@@ -684,7 +723,7 @@ namespace UserInterface.STS
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(115, 734);
+            this.TxtTop.Location = new System.Drawing.Point(115, 705);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 362;
@@ -712,11 +751,53 @@ namespace UserInterface.STS
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "broom.png");
+            // 
+            // BtnTemizle
+            // 
+            this.BtnTemizle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTemizle.ImageKey = "broom.png";
+            this.BtnTemizle.ImageList = this.ımageList1;
+            this.BtnTemizle.Location = new System.Drawing.Point(12, 730);
+            this.BtnTemizle.Name = "BtnTemizle";
+            this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
+            this.BtnTemizle.TabIndex = 424;
+            this.BtnTemizle.Text = "   TEMİZLE";
+            this.BtnTemizle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTemizle.UseVisualStyleBackColor = false;
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
+            // 
+            // BtnTumuneSatOlustur
+            // 
+            this.BtnTumuneSatOlustur.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTumuneSatOlustur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTumuneSatOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTumuneSatOlustur.Image = ((System.Drawing.Image)(resources.GetObject("BtnTumuneSatOlustur.Image")));
+            this.BtnTumuneSatOlustur.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTumuneSatOlustur.Location = new System.Drawing.Point(703, 762);
+            this.BtnTumuneSatOlustur.Name = "BtnTumuneSatOlustur";
+            this.BtnTumuneSatOlustur.Size = new System.Drawing.Size(130, 51);
+            this.BtnTumuneSatOlustur.TabIndex = 425;
+            this.BtnTumuneSatOlustur.Text = "TÜMÜNE SAT OLUŞTUR";
+            this.BtnTumuneSatOlustur.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTumuneSatOlustur.UseVisualStyleBackColor = false;
+            this.BtnTumuneSatOlustur.Visible = false;
+            this.BtnTumuneSatOlustur.Click += new System.EventHandler(this.BtnTumuneSatOlustur_Click);
+            // 
             // FrmSatTalebi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1561, 903);
+            this.Controls.Add(this.BtnTumuneSatOlustur);
+            this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.LblIsAkisNo);
@@ -752,9 +833,9 @@ namespace UserInterface.STS
             this.GrbAselsan.ResumeLayout(false);
             this.GrbAselsan.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeList)).EndInit();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -821,5 +902,11 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label LblIsAkisNo;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblPdl;
+        private System.Windows.Forms.Button BtnKontrol;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.Button BtnTemizle;
+        private System.Windows.Forms.Button BtnTumuneSatOlustur;
     }
 }

@@ -40,7 +40,6 @@ namespace UserInterface.IdariIsler
             this.TxtSiparisNo = new System.Windows.Forms.TextBox();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.TxtMasrafYeriSorumlusu = new System.Windows.Forms.TextBox();
-            this.TxtAdSoyad = new System.Windows.Forms.TextBox();
             this.TxtMulkiyetBilgileri = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -67,6 +66,13 @@ namespace UserInterface.IdariIsler
             this.LblAciklama = new System.Windows.Forms.Label();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.DtgAracList = new System.Windows.Forms.DataGridView();
+            this.Plaka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BaslangicTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BaslangicKm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BitisTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BitisK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToplamKm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.GrbAracList = new System.Windows.Forms.GroupBox();
             this.label10 = new System.Windows.Forms.Label();
             this.RdbEvet = new System.Windows.Forms.RadioButton();
@@ -75,13 +81,7 @@ namespace UserInterface.IdariIsler
             this.BtnAracEkle = new System.Windows.Forms.Button();
             this.LblTop = new System.Windows.Forms.Label();
             this.LblToplamKm = new System.Windows.Forms.Label();
-            this.Plaka = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BaslangicTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BaslangicKm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BitisTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BitisK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToplamKm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TxtAdSoyad = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAracList)).BeginInit();
@@ -166,8 +166,8 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox8
             // 
-            this.groupBox8.Controls.Add(this.TxtMasrafYeriSorumlusu);
             this.groupBox8.Controls.Add(this.TxtAdSoyad);
+            this.groupBox8.Controls.Add(this.TxtMasrafYeriSorumlusu);
             this.groupBox8.Controls.Add(this.TxtMulkiyetBilgileri);
             this.groupBox8.Controls.Add(this.label2);
             this.groupBox8.Controls.Add(this.label7);
@@ -196,14 +196,6 @@ namespace UserInterface.IdariIsler
             this.TxtMasrafYeriSorumlusu.Size = new System.Drawing.Size(300, 21);
             this.TxtMasrafYeriSorumlusu.TabIndex = 372;
             this.TxtMasrafYeriSorumlusu.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtMasrafYeriSorumlusu_KeyPress);
-            // 
-            // TxtAdSoyad
-            // 
-            this.TxtAdSoyad.Location = new System.Drawing.Point(151, 55);
-            this.TxtAdSoyad.Name = "TxtAdSoyad";
-            this.TxtAdSoyad.Size = new System.Drawing.Size(300, 21);
-            this.TxtAdSoyad.TabIndex = 371;
-            this.TxtAdSoyad.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAdSoyad_KeyPress);
             // 
             // TxtMulkiyetBilgileri
             // 
@@ -474,6 +466,42 @@ namespace UserInterface.IdariIsler
             this.DtgAracList.Size = new System.Drawing.Size(644, 227);
             this.DtgAracList.TabIndex = 426;
             // 
+            // Plaka
+            // 
+            this.Plaka.HeaderText = "PLAKA";
+            this.Plaka.Name = "Plaka";
+            // 
+            // BaslangicTarihi
+            // 
+            this.BaslangicTarihi.HeaderText = "BAŞLANGIÇ TARİHİ";
+            this.BaslangicTarihi.Name = "BaslangicTarihi";
+            // 
+            // BaslangicKm
+            // 
+            this.BaslangicKm.HeaderText = "BAŞLANGIÇ KM";
+            this.BaslangicKm.Name = "BaslangicKm";
+            // 
+            // BitisTarihi
+            // 
+            this.BitisTarihi.HeaderText = "BİTİŞ TARİHİ";
+            this.BitisTarihi.Name = "BitisTarihi";
+            // 
+            // BitisK
+            // 
+            this.BitisK.HeaderText = "BİTİŞ KM";
+            this.BitisK.Name = "BitisK";
+            // 
+            // ToplamKm
+            // 
+            this.ToplamKm.HeaderText = "TOPLAM KM";
+            this.ToplamKm.Name = "ToplamKm";
+            // 
+            // Aciklama
+            // 
+            this.Aciklama.HeaderText = "AÇIKLAMA";
+            this.Aciklama.Name = "Aciklama";
+            this.Aciklama.Visible = false;
+            // 
             // GrbAracList
             // 
             this.GrbAracList.Controls.Add(this.DtgAracList);
@@ -563,41 +591,14 @@ namespace UserInterface.IdariIsler
             this.LblToplamKm.Text = "00";
             this.LblToplamKm.Visible = false;
             // 
-            // Plaka
+            // TxtAdSoyad
             // 
-            this.Plaka.HeaderText = "PLAKA";
-            this.Plaka.Name = "Plaka";
-            // 
-            // BaslangicTarihi
-            // 
-            this.BaslangicTarihi.HeaderText = "BAŞLANGIÇ TARİHİ";
-            this.BaslangicTarihi.Name = "BaslangicTarihi";
-            // 
-            // BaslangicKm
-            // 
-            this.BaslangicKm.HeaderText = "BAŞLANGIÇ KM";
-            this.BaslangicKm.Name = "BaslangicKm";
-            // 
-            // BitisTarihi
-            // 
-            this.BitisTarihi.HeaderText = "BİTİŞ TARİHİ";
-            this.BitisTarihi.Name = "BitisTarihi";
-            // 
-            // BitisK
-            // 
-            this.BitisK.HeaderText = "BİTİŞ KM";
-            this.BitisK.Name = "BitisK";
-            // 
-            // ToplamKm
-            // 
-            this.ToplamKm.HeaderText = "TOPLAM KM";
-            this.ToplamKm.Name = "ToplamKm";
-            // 
-            // Aciklama
-            // 
-            this.Aciklama.HeaderText = "AÇIKLAMA";
-            this.Aciklama.Name = "Aciklama";
-            this.Aciklama.Visible = false;
+            this.TxtAdSoyad.FormattingEnabled = true;
+            this.TxtAdSoyad.Location = new System.Drawing.Point(151, 54);
+            this.TxtAdSoyad.Name = "TxtAdSoyad";
+            this.TxtAdSoyad.Size = new System.Drawing.Size(300, 23);
+            this.TxtAdSoyad.TabIndex = 437;
+            this.TxtAdSoyad.SelectedIndexChanged += new System.EventHandler(this.TxtAdSoyad_SelectedIndexChanged);
             // 
             // FrmAracKm
             // 
@@ -674,7 +675,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtKmBaslangic;
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.TextBox TxtMasrafYeriSorumlusu;
-        private System.Windows.Forms.TextBox TxtAdSoyad;
         private System.Windows.Forms.Button BtnBulT;
         private System.Windows.Forms.TextBox TxtKmBitis;
         private System.Windows.Forms.Label label5;
@@ -699,5 +699,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.DataGridViewTextBoxColumn BitisK;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToplamKm;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aciklama;
+        private System.Windows.Forms.ComboBox TxtAdSoyad;
     }
 }

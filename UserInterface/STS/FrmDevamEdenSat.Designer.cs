@@ -30,9 +30,9 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgDevamEden = new ADGV.AdvancedDataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -111,6 +111,9 @@ namespace UserInterface.STS
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.DtgMalzList = new System.Windows.Forms.DataGridView();
+            this.LblTop2 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -124,6 +127,7 @@ namespace UserInterface.STS
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzList)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -134,7 +138,7 @@ namespace UserInterface.STS
             this.groupBox1.Controls.Add(this.DtgDevamEden);
             this.groupBox1.Location = new System.Drawing.Point(9, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1533, 457);
+            this.groupBox1.Size = new System.Drawing.Size(1536, 457);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DEVAM EDEN SATLAR";
@@ -143,8 +147,8 @@ namespace UserInterface.STS
             // 
             this.DtgDevamEden.AllowUserToAddRows = false;
             this.DtgDevamEden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DtgDevamEden.AutoGenerateContextFilters = true;
             this.DtgDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -155,7 +159,7 @@ namespace UserInterface.STS
             this.DtgDevamEden.Name = "DtgDevamEden";
             this.DtgDevamEden.ReadOnly = true;
             this.DtgDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgDevamEden.Size = new System.Drawing.Size(1527, 438);
+            this.DtgDevamEden.Size = new System.Drawing.Size(1530, 438);
             this.DtgDevamEden.TabIndex = 4;
             this.DtgDevamEden.TimeFilter = false;
             this.DtgDevamEden.SortStringChanged += new System.EventHandler(this.DtgDevamEden_SortStringChanged);
@@ -164,14 +168,12 @@ namespace UserInterface.STS
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Location = new System.Drawing.Point(9, 525);
+            this.tabControl1.Location = new System.Drawing.Point(9, 514);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(882, 383);
+            this.tabControl1.Size = new System.Drawing.Size(881, 383);
             this.tabControl1.TabIndex = 51;
             // 
             // tabPage1
@@ -181,7 +183,7 @@ namespace UserInterface.STS
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(874, 357);
+            this.tabPage1.Size = new System.Drawing.Size(814, 357);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GENEL BİLGİLER";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -199,18 +201,18 @@ namespace UserInterface.STS
             // 
             this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
             this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -219,7 +221,7 @@ namespace UserInterface.STS
             this.DtgSatIslemAdimlari.Name = "DtgSatIslemAdimlari";
             this.DtgSatIslemAdimlari.ReadOnly = true;
             this.DtgSatIslemAdimlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgSatIslemAdimlari.Size = new System.Drawing.Size(868, 351);
+            this.DtgSatIslemAdimlari.Size = new System.Drawing.Size(808, 351);
             this.DtgSatIslemAdimlari.TabIndex = 3;
             // 
             // tabPage2
@@ -229,13 +231,14 @@ namespace UserInterface.STS
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(874, 357);
+            this.tabPage2.Size = new System.Drawing.Size(873, 357);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SATIN ALINACAK MALZEME";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.DtgMalzList);
             this.panel2.Controls.Add(this.dtgTemp);
             this.panel2.Controls.Add(this.b10);
             this.panel2.Controls.Add(this.t1);
@@ -859,7 +862,7 @@ namespace UserInterface.STS
             this.TxtTop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(110, 498);
+            this.TxtTop.Location = new System.Drawing.Point(110, 494);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 305;
@@ -870,7 +873,7 @@ namespace UserInterface.STS
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(10, 498);
+            this.label5.Location = new System.Drawing.Point(10, 494);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 304;
@@ -903,9 +906,9 @@ namespace UserInterface.STS
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webBrowser1);
-            this.groupBox3.Location = new System.Drawing.Point(907, 529);
+            this.groupBox3.Location = new System.Drawing.Point(896, 522);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(632, 379);
+            this.groupBox3.Size = new System.Drawing.Size(646, 373);
             this.groupBox3.TabIndex = 314;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EKLER:";
@@ -916,7 +919,7 @@ namespace UserInterface.STS
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(626, 360);
+            this.webBrowser1.Size = new System.Drawing.Size(640, 354);
             this.webBrowser1.TabIndex = 309;
             // 
             // contextMenuStrip1
@@ -941,13 +944,51 @@ namespace UserInterface.STS
             this.güncelleToolStripMenuItem.Text = "Güncelle";
             this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
             // 
+            // DtgMalzList
+            // 
+            this.DtgMalzList.AllowUserToAddRows = false;
+            this.DtgMalzList.AllowUserToDeleteRows = false;
+            this.DtgMalzList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMalzList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzList.Location = new System.Drawing.Point(0, 0);
+            this.DtgMalzList.Name = "DtgMalzList";
+            this.DtgMalzList.ReadOnly = true;
+            this.DtgMalzList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMalzList.Size = new System.Drawing.Size(874, 357);
+            this.DtgMalzList.TabIndex = 408;
+            // 
+            // LblTop2
+            // 
+            this.LblTop2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.LblTop2.AutoSize = true;
+            this.LblTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTop2.Location = new System.Drawing.Point(112, 900);
+            this.LblTop2.Name = "LblTop2";
+            this.LblTop2.Size = new System.Drawing.Size(21, 15);
+            this.LblTop2.TabIndex = 316;
+            this.LblTop2.Text = "00";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label6.Location = new System.Drawing.Point(12, 900);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(94, 15);
+            this.label6.TabIndex = 315;
+            this.label6.Text = "Toplam Kayıt:";
+            // 
             // FrmDevamEdenSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.LblTop2);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.label5);
@@ -975,6 +1016,7 @@ namespace UserInterface.STS
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1059,5 +1101,8 @@ namespace UserInterface.STS
         private System.Windows.Forms.WebBrowser BrowserLog;
         private System.Windows.Forms.DataGridView dtgTemp;
         private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
+        private System.Windows.Forms.DataGridView DtgMalzList;
+        private System.Windows.Forms.Label LblTop2;
+        private System.Windows.Forms.Label label6;
     }
 }

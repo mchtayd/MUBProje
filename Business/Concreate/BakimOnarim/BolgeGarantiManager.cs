@@ -52,9 +52,16 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public BolgeGaranti Get(int id)
+        public BolgeGaranti Get(string siparisNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return bolgeGarantiDal.Get(siparisNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<BolgeGaranti> GetList(string siparisNo)

@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>469</ApplicationRevision>
+    <ApplicationRevision>474</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -89,6 +89,10 @@
     </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\..\..\..\Desktop\124\kurulum\user\vbdll\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Outlook.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Outlook.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -175,6 +179,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmDevam.Designer.cs">
       <DependentUpon>FrmDevam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDisaAktarExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDisaAktarExcel.Designer.cs">
+      <DependentUpon>FrmDisaAktarExcel.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmDonemDuzlet.cs">
       <SubType>Form</SubType>
@@ -1308,6 +1318,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmDevam.resx">
       <DependentUpon>FrmDevam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmDisaAktarExcel.resx">
+      <DependentUpon>FrmDisaAktarExcel.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmDonemDuzlet.resx">
       <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>

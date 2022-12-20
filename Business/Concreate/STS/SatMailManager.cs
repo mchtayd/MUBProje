@@ -44,6 +44,39 @@ namespace Business.Concreate.STS
                 return new List<SatMail>();
             }
         }
+        public List<SatMail> GetListMailBasaran(string siparisNo)
+        {
+            try
+            {
+                return satMailDal.GetListMailBasaran(siparisNo);
+            }
+            catch (Exception)
+            {
+                return new List<SatMail>();
+            }
+        }
+        public List<SatMail> GetListMailBasaranOdeme(string siparisNo)
+        {
+            try
+            {
+                return satMailDal.GetListMailBasaranOdeme(siparisNo);
+            }
+            catch (Exception)
+            {
+                return new List<SatMail>();
+            }
+        }
+        public List<SatMail> GetListMailAselsanOnay(string siparisNo)
+        {
+            try
+            {
+                return satMailDal.GetListMailAselsanOnay(siparisNo);
+            }
+            catch (Exception)
+            {
+                return new List<SatMail>();
+            }
+        }
 
         public string Update(SatMail entity)
         {

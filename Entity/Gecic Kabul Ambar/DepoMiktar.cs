@@ -95,7 +95,7 @@ namespace Entity.Gecic_Kabul_Ambar
 
         }
 
-        public DepoMiktar(int id, string sonIslemYapan, string aciklama,int rezerveId)
+        public DepoMiktar(int id, string sonIslemYapan, string aciklama, int rezerveId)
         {
             this.id = id;
             this.sonIslemYapan = sonIslemYapan;

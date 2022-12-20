@@ -20,7 +20,7 @@ namespace DataAccess.Concreate.STS
         {
             sqlServices = SqlDatabase.GetInstance();
         }
-        public string Add(TeklifAlinan entity)
+        public string Add(TeklifAlinan entity,string siparisNo)
         {
             try
             {
@@ -38,7 +38,7 @@ namespace DataAccess.Concreate.STS
                     new SqlParameter("@itf",entity.Itf),
                     new SqlParameter("@ubf",entity.Ubf),
                     new SqlParameter("@utf",entity.Utf),
-                    new SqlParameter("@siparisno",entity.Siparisno));
+                    new SqlParameter("@siparisno", siparisNo));
                 dataReader.Close();
                 return "OK";
 
@@ -107,8 +107,8 @@ namespace DataAccess.Concreate.STS
                         dataReader["TANIM"].ToString(),
                         dataReader["MIKTAR"].ConInt(),
                         dataReader["BIRIM"].ToString(),
-                        dataReader["FIRMA1"].ToString(),
-                        dataReader["FIRMA2"].ToString(),
+                        dataReader["FIRMA1"].ConDouble(),
+                        dataReader["FIRMA2"].ConDouble(),
                         dataReader["FIRMA3"].ToString()));
                 }
                 dataReader.Close();

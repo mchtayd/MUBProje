@@ -1830,7 +1830,7 @@ namespace UserInterface.STS
             dosya3 = DtgTeklifAl.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             satno3 = DtgTeklifAl.CurrentRow.Cells["Satno"].Value.ToString();
 
-            teklifiAlinans = teklifiAlinanManager.GetList(benzersiz3);
+            //teklifiAlinans = teklifiAlinanManager.GetList(benzersiz3);
             malzemesayisi = teklifiAlinans.Count;
             TedarikciFirmaName();
             FillTools3();
@@ -4446,7 +4446,7 @@ namespace UserInterface.STS
             {
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
 
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(idRed, LblIsAkisNo2.Text.ConInt(), satnoGuncelle, LblMasrafYeriNo.Text,LblAdSoyad.Text, LblMasrafYeri.Text, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, siparisNoGuncelle, dosyaYoluGuncelle, CmbButceKoduRed.Text, CmbSatBirimRed.Text, CmbHarcamaTuruRed.Text, CmbFaturaFirmaRed.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, ucTeklif, firmaBilgisi, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, belgeTuruGuncelle,belgeNumarasi,belgeTarihi,islemAdimi, donem, satOlusturmaTuruGuncelle, redNedeni,durum,teklifDurumu, TxtProje.Text, TxtFirmaGuncelle.Text, mailSiniri, mailDurumu);
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(idRed, LblIsAkisNo2.Text.ConInt(), satnoGuncelle, LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, siparisNoGuncelle, dosyaYoluGuncelle, CmbButceKoduRed.Text, CmbSatBirimRed.Text, CmbHarcamaTuruRed.Text, CmbFaturaFirmaRed.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, ucTeklif, firmaBilgisi, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, belgeTuruGuncelle, belgeNumarasi, belgeTarihi, islemAdimi, donem, satOlusturmaTuruGuncelle, redNedeni, durum, teklifDurumu, TxtProje.Text, TxtFirmaGuncelle.Text, mailSiniri, mailDurumu, DateTime.Now, "",DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now,"");
 
                 string messege = satDataGridview1Manager.RedUpdate(satDataGridview1);
                 if (messege!="OK")

@@ -57,11 +57,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public BolgeKayit Get(int id)
+        public BolgeKayit Get(int id, string bolgeAdi="")
         {
             try
             {
-                return bolgeKayitDal.Get(id);
+                return bolgeKayitDal.Get(id, bolgeAdi);
             }
             catch (Exception)
             {
@@ -91,11 +91,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public List<BolgeKayit> GetList()
+        public List<BolgeKayit> GetList(string personelAdi="")
         {
             try
             {
-                return bolgeKayitDal.GetList();
+                return bolgeKayitDal.GetList(personelAdi);
             }
             catch (Exception)
             {

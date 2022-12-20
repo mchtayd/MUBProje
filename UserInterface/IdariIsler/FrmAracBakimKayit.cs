@@ -663,7 +663,7 @@ namespace UserInterface.IdariIsler
                 return;
             }
 
-            satDataGridview1Manager.TeklifDurum(siparisNo);
+            satDataGridview1Manager.TeklifDurum(siparisNo, dosya, "SAT ONAY BAŞARAN");
             satDataGridview1Manager.DurumGuncelleOnay(siparisNo);
             string yapilanislem = TxtIsAkisNo.Text + " Nolu Araç Bakım Kayıt İçin SAT Oluşturuldu.";
             SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);

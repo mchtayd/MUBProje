@@ -57,17 +57,17 @@ namespace UserInterface.Ana_Sayfa
             // txtTo
             // 
             this.txtTo.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtTo.Location = new System.Drawing.Point(80, 40);
+            this.txtTo.Location = new System.Drawing.Point(85, 40);
             this.txtTo.Name = "txtTo";
-            this.txtTo.Size = new System.Drawing.Size(569, 23);
+            this.txtTo.Size = new System.Drawing.Size(1128, 23);
             this.txtTo.TabIndex = 1;
             // 
             // txtCc
             // 
             this.txtCc.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtCc.Location = new System.Drawing.Point(80, 66);
+            this.txtCc.Location = new System.Drawing.Point(85, 66);
             this.txtCc.Name = "txtCc";
-            this.txtCc.Size = new System.Drawing.Size(569, 23);
+            this.txtCc.Size = new System.Drawing.Size(1128, 23);
             this.txtCc.TabIndex = 3;
             // 
             // label2
@@ -83,9 +83,9 @@ namespace UserInterface.Ana_Sayfa
             // txtSubject
             // 
             this.txtSubject.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.txtSubject.Location = new System.Drawing.Point(80, 92);
+            this.txtSubject.Location = new System.Drawing.Point(85, 92);
             this.txtSubject.Name = "txtSubject";
-            this.txtSubject.Size = new System.Drawing.Size(569, 23);
+            this.txtSubject.Size = new System.Drawing.Size(1128, 23);
             this.txtSubject.TabIndex = 5;
             // 
             // label3
@@ -143,9 +143,9 @@ namespace UserInterface.Ana_Sayfa
             // DtgForHtml
             // 
             this.DtgForHtml.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgForHtml.Location = new System.Drawing.Point(891, 721);
+            this.DtgForHtml.Location = new System.Drawing.Point(1248, 16);
             this.DtgForHtml.Name = "DtgForHtml";
-            this.DtgForHtml.Size = new System.Drawing.Size(114, 45);
+            this.DtgForHtml.Size = new System.Drawing.Size(22, 18);
             this.DtgForHtml.TabIndex = 665;
             this.DtgForHtml.Visible = false;
             // 
@@ -162,8 +162,8 @@ namespace UserInterface.Ana_Sayfa
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1282, 780);
-            this.Controls.Add(this.webContent);
             this.Controls.Add(this.DtgForHtml);
+            this.Controls.Add(this.webContent);
             this.Controls.Add(this.lblFrom);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnMailGonder);

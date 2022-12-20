@@ -59,11 +59,22 @@ namespace Business.Concreate.BakimOnarim
             throw new NotImplementedException();
         }
 
-        public List<AbfMalzeme> GetList(int benzersizId)
+        public List<AbfMalzeme> GetList(int benzersizId, string teminDurumu="")
         {
             try
             {
-                return abfMalzemeDal.GetList(benzersizId);
+                return abfMalzemeDal.GetList(benzersizId, teminDurumu);
+            }
+            catch (Exception)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
+        public List<AbfMalzeme> TeminGetList(string teminDurumu, int abfNo = 0)
+        {
+            try
+            {
+                return abfMalzemeDal.TeminGetList(teminDurumu, abfNo);
             }
             catch (Exception)
             {
@@ -87,6 +98,17 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return abfMalzemeDal.UpdateTakilan(entity, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string TeminBilgisi(int id, string teminBilgisi, string temineGonderen)
+        {
+            try
+            {
+                return abfMalzemeDal.TeminBilgisi(id, teminBilgisi, temineGonderen);
             }
             catch (Exception ex)
             {

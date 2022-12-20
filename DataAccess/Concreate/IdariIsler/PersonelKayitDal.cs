@@ -412,12 +412,12 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
-        public List<PersonelKayit> PersonelAdSoyad()
+        public List<PersonelKayit> PersonelAdSoyad(string sorumluPersonel)
         {
             try
             {
                 List<PersonelKayit> personels = new List<PersonelKayit>();
-                dataReader = sqlServices.StoreReader("PersonelAdSoyad");
+                dataReader = sqlServices.StoreReader("PersonelAdSoyad", new SqlParameter("@masrafYeriSorumlusu", sorumluPersonel));
                 while (dataReader.Read())
                 {
                     personels.Add(new PersonelKayit(dataReader["ID"].ConInt(), dataReader["AD_SOYAD"].ToString()));

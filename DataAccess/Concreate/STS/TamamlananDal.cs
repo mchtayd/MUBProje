@@ -55,7 +55,8 @@ namespace DataAccess.Concreate.STS
                     new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma),
                     new SqlParameter("@harcamaYapan", entity.HarcamaYapan),
                     new SqlParameter("@usProjeNo", entity.UsProjeNo),
-                    new SqlParameter("@garantiDurumu", entity.GarantiDurumu));
+                    new SqlParameter("@garantiDurumu", entity.GarantiDurumu),
+                    new SqlParameter("@mlzTeslimAldTarih", entity.MlzTeslimAldTarih));
 
 
                 dataReader.Close();
@@ -136,7 +137,8 @@ namespace DataAccess.Concreate.STS
                         dataReader["HARCAMA_YAPAN"].ToString(),
                         sure,
                         dataReader["US_PROJE_NO"].ToString(),
-                        dataReader["GARANTI_DURUMU"].ToString()));
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
@@ -213,7 +215,8 @@ namespace DataAccess.Concreate.STS
                         dataReader["HARCAMA_YAPAN"].ToString(),
                         sure,
                         dataReader["US_PROJE_NO"].ToString(),
-                        dataReader["GARANTI_DURUMU"].ToString()));
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
@@ -287,7 +290,8 @@ namespace DataAccess.Concreate.STS
                         dataReader["HARCAMA_YAPAN"].ToString(),
                         sure,
                         dataReader["US_PROJE_NO"].ToString(),
-                        dataReader["GARANTI_DURUMU"].ToString()));
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;

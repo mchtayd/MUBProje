@@ -875,6 +875,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void BtnListEkle_Click(object sender, EventArgs e)
         {
+            if (CmbIslemTuru.Text=="")
+            {
+                MessageBox.Show("Lütfen öncelikle yapılacak işlem türünü seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             if (CmbIslemTuru.Text == "100-YENİ DEPO GİRİŞİ")
             {
                 if (TxtBirimFiyatManuel.Text == "")
@@ -1426,8 +1431,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             TxtDepodanBildirimeAbfNo.Text = ""; TxtBildirimdenDepoyaFormNo.Text = ""; CmbBildirimdenDepoyaDepoNo.Text = "";
             CmbBildirimdenDepoyaMalzemeYeri.Text = ""; TxtBildirimdenDepoyaDepoAdres.Clear(); TxtDepodanBildirimeDepoAdresi.Clear();
             TxtDepoAdresiCekilen.Clear(); TxtDepoAdresiDusulen.Clear();
-            LblToplam.Text = "0";
-
+            LblToplam.Text = "0"; CmbStokManuel.SelectedIndex = -1; TxtTanim.Clear(); TxtMiktarManuel.Clear(); CmbBirim.SelectedIndex = -1;
+            TxtBirimFiyatManuel.Clear(); AdvMalzemeOnizleme.Rows.Clear();
         }
 
 

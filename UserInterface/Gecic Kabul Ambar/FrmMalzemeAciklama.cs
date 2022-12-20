@@ -30,8 +30,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 MessageBox.Show("Lütfen öncelikle aciklama bilgisini yazınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-            FrmMalzemeHazirlama frmMalzemeHazirlama = new FrmMalzemeHazirlama();
+            FrmMalzemeHazirlama frmMalzemeHazirlama = (FrmMalzemeHazirlama)Application.OpenForms["FrmMalzemeHazirlama"];
             frmMalzemeHazirlama.aciklama = TxtAciklama.Text;
             this.Close();
         }

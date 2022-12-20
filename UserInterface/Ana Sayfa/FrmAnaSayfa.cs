@@ -1566,25 +1566,25 @@ namespace UserInterface.STS
 
         private void VersionEkle_Click(object sender, EventArgs e)
         {
-            Application.SetSuspendState(PowerState.Suspend, false, false);
+            //Application.SetSuspendState(PowerState.Suspend, false, false); // bilgisayarı uyku moduna alır
 
-            //DialogResult dr = MessageBox.Show("Yeni Version Çıkarmadan Önce publis çıkarmayı ve onu servere atmayı unutmayın yaptıysanız devam edin, Devam Etmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            //if (dr == DialogResult.Yes)
-            //{
-            //    //string path = "C:\\Users\\MAYıldırım\\source\\repos\\MUBProje\\UserInterface\\publish\\DTS Version.application";
-            //    string path = "Z:\\DTS\\DTS Setup\\publish\\DTS.application";
-            //    string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
-            //    VersionBilgi versionBilgi = new VersionBilgi(version, path);
-            //    string mesaj = versionManager.Add(versionBilgi);
-            //    if (mesaj == "OK")
-            //    {
-            //        MessageBox.Show("Yeni Version Bilgisi VERİ TABANINA Yazıldı, Kullanıcılara Bilgi Gidecektir.");
-            //    }
-            //    else
-            //    {
-            //        MessageBox.Show(mesaj);
-            //    }
-            //}
+            DialogResult dr = MessageBox.Show("Yeni Version Çıkarmadan Önce publis çıkarmayı ve onu servere atmayı unutmayın yaptıysanız devam edin, Devam Etmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                //string path = "C:\\Users\\MAYıldırım\\source\\repos\\MUBProje\\UserInterface\\publish\\DTS Version.application";
+                string path = "Z:\\DTS\\DTS Setup\\publish\\DTS.application";
+                string version = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+                VersionBilgi versionBilgi = new VersionBilgi(version, path);
+                string mesaj = versionManager.Add(versionBilgi);
+                if (mesaj == "OK")
+                {
+                    MessageBox.Show("Yeni Version Bilgisi VERİ TABANINA Yazıldı, Kullanıcılara Bilgi Gidecektir.");
+                }
+                else
+                {
+                    MessageBox.Show(mesaj);
+                }
+            }
         }
 
         private void BtnDosyaKitle_Click(object sender, EventArgs e)
@@ -2491,10 +2491,11 @@ namespace UserInterface.STS
                 OpenTabPage("PageSatOnay", "SAT ONAY", Go);
                 Go.Show();
             }
+
             if (e.Node.Text == "SAT Kontrol")
             {
                 FrmSatControl Go = new FrmSatControl();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2512,7 +2513,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "SAT Harcanan Yapılan")
             {
                 FrmHarcamasiYapilanSat Go = new FrmHarcamasiYapilanSat();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3220,7 +3221,7 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageMalzemeHazirmala", "MALZEME HAZIRLAMA", Go);
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.Show();
             }
             if (e.Node.Text == "Ambar Veri İzleme")
@@ -5202,6 +5203,12 @@ namespace UserInterface.STS
         private void yAZDIRToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmDevam().Show();
+        }
+
+        private void excelToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmDisaAktarExcel frmDisaAktarExcel = new FrmDisaAktarExcel();
+            frmDisaAktarExcel.ShowDialog();
         }
 
         private void bİLDİRİMLERToolStripMenuItem_Click(object sender, EventArgs e)

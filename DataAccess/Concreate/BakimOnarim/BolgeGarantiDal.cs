@@ -62,9 +62,30 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public BolgeGaranti Get(int id)
+        public BolgeGaranti Get(string siparisNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("BolgeGarantiBilgileriList",new SqlParameter("@siparisNo", siparisNo));
+                BolgeGaranti item = null;
+                while (dataReader.Read())
+                {
+                    item = new BolgeGaranti(
+                        dataReader["ID"].ConInt(),
+                        dataReader["GARANTI_PAKETI"].ToString(),
+                        dataReader["GARANTI_BASLAMA"].ConDate(),
+                        dataReader["GARANTI_BITIS"].ConDate(),
+                        dataReader["TOPLAM_GARANTI_SURESI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString());
+                }
+
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<BolgeGaranti> GetList(string siparisNo)

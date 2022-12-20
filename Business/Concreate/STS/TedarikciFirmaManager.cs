@@ -57,7 +57,7 @@ namespace Business.Concreate.STS
             return null;
         }
 
-        public List<TedarikciFirma> GetList(string benzersiz)
+        public List<TedarikciFirma> GetList(string benzersiz="")
         {
             try
             {

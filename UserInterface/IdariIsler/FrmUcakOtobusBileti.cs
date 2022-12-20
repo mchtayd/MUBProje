@@ -397,7 +397,7 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            satDataGridview1Manager.TeklifDurum(siparisNo);
+            satDataGridview1Manager.TeklifDurum(siparisNo, dosya, "SAT ONAY BAŞARAN");
             satDataGridview1Manager.DurumGuncelleOnay(siparisNo);
             if (biletTuru == "UÇAK BİLETİ")
             {

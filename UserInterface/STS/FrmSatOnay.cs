@@ -55,9 +55,9 @@ namespace UserInterface.STS
         string dosyayolu, rednedeni = "", onaydurum, talepeden, bolum, usbolgesi, abfno, gerekce;
         DateTime istenentarih, belgeTarihi;
         string masrafyerino, yapilanislem, islmeyapan, butcekodukalemi, satbirim, harcamaturu, belgeNumarasi, faturafirma, ilgilikisi;
-        string siparisNo, masrafyeri, abfformno, kaynakdosya, hedefdosya, islemAdimi, durum, teklifDurumu, firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasrafYerNo, satinAlinanFirma;
+        string siparisNo, masrafyeri, abfformno, kaynakdosya, hedefdosya, islemAdimi, durum, teklifDurumu, firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasrafYerNo, satinAlinanFirma, mlzTeslimTarihi;
         int id, ucteklif, formno, satno, satNo, personelId;
-        double toplam, toplam1, toplam2, toplam3, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10 = 0, outValue = 0;
+        double toplam, toplam1, toplam2, toplam3, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10 = 0, outValue = 0, toplamlar;
         DateTime tamamlanantarih;
 
         private void UTop7_TextChanged(object sender, EventArgs e)
@@ -501,6 +501,12 @@ namespace UserInterface.STS
             DtgOnay.Columns["SatinAlinanFirma"].HeaderText = "SATIN ALINAN FİRMA";
             DtgOnay.Columns["MailSiniri"].Visible = false;
             DtgOnay.Columns["MailDurumu"].Visible = false;
+            DtgOnay.Columns["MlzTeslimAldTarih"].Visible = false;
+            DtgOnay.Columns["HarcamaYapan"].Visible = false;
+            DtgOnay.Columns["AselsanMailGondermeDate"].HeaderText = "ASELSAN ONAY MAİLİ GÖNDERME TARİHİ";
+            DtgOnay.Columns["AselsanMailAlmaDate"].HeaderText = "ASELSAN ONAY MAİLİ ALMA TARİHİ";
+            DtgOnay.Columns["OdemeMailGondermeDate"].Visible = false;
+            DtgOnay.Columns["OdemeMailAlmaDate"].Visible = false;
         }
         void Hesapla4()
         {
@@ -717,10 +723,10 @@ namespace UserInterface.STS
             proje = DtgOnay.CurrentRow.Cells["Proje"].Value.ToString();
             teklifdurumu = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
             retNedeni = DtgOnay.CurrentRow.Cells["RedNedeni"].Value.ToString();
-
+            mlzTeslimTarihi = DtgOnay.CurrentRow.Cells["Tarih"].Value.ToString();
             string pageText3;
             TxtRetNedeni.Text = retNedeni;
-            if (TxtRetNedeni.Text!="")
+            if (TxtRetNedeni.Text != "")
             {
                 pageText3 = "RET GEREKÇESİ " + "( * )";
 
@@ -747,7 +753,7 @@ namespace UserInterface.STS
             {
                 if (belgeTuru != "")
                 {
-                    panel2.Visible = true;
+                    panel2.Visible = false;
                     panel4.Visible = false;
                     panel5.Visible = false;
                     TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
@@ -758,21 +764,21 @@ namespace UserInterface.STS
                 {
                     if (satOlusturmaTuru == "BAŞARAN")
                     {
-                        panel4.Visible = true;
+                        panel4.Visible = false;
                         panel2.Visible = false;
                         panel5.Visible = false;
                         TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
                         webBrowser4.Navigate(dosyayolu);
                         return;
                     }
-                    panel2.Visible = true;
+                    panel2.Visible = false;
                     panel4.Visible = false;
                     panel5.Visible = false;
-                    TxtGerekceHarcamasiYapilan.Text= DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+                    TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
                     webBrowser5.Navigate(dosyayolu);
                     return;
                 }
-                panel4.Visible = true;
+                panel4.Visible = false;
                 panel2.Visible = false;
                 panel5.Visible = false;
 
@@ -789,7 +795,48 @@ namespace UserInterface.STS
                 webBrowser3.Navigate(dosyayolu);
             }
 
+            foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
+            {
+                toplamlar = +item.Btf;
+            }
 
+            Teklifler();
+
+        }
+        void Teklifler()
+        {
+            DtgMalzList.DataSource = fiyatTeklifiAls;
+
+            DtgMalzList.Columns["Id"].Visible = false;
+            DtgMalzList.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgMalzList.Columns["Tanim"].HeaderText = "TANIM";
+            DtgMalzList.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgMalzList.Columns["Birim"].HeaderText = "BİRİM";
+            DtgMalzList.Columns["Firma1"].HeaderText = "FİRMA ADI";
+            DtgMalzList.Columns["Firma2"].Visible = false;
+            DtgMalzList.Columns["Firma3"].Visible = false;
+            DtgMalzList.Columns["Siparisno"].Visible = false;
+            DtgMalzList.Columns["Teklifdurumu"].Visible = false;
+            DtgMalzList.Columns["Bbf"].HeaderText = "BİRİM FİYATI";
+            DtgMalzList.Columns["Btf"].HeaderText = "TOPLAM FİYAT";
+            DtgMalzList.Columns["Ibf"].Visible = false;
+            DtgMalzList.Columns["Itf"].Visible = false;
+            DtgMalzList.Columns["Ubf"].Visible = false;
+            DtgMalzList.Columns["Utf"].Visible = false;
+            DtgMalzList.Columns["Onaylananteklif"].Visible = false;
+
+            LblTop2.Text = DtgMalzList.RowCount.ToString();
+            Toplamlar();
+        }
+        void Toplamlar()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgMalzList.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgMalzList.Rows[i].Cells["Btf"].Value);
+
+            }
+            LblGenelTop.Text = toplam.ToString("C2");
         }
 
         private void DtgOnay_FilterStringChanged(object sender, EventArgs e)
@@ -813,7 +860,15 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT işlemini Onaylamak istediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo);
+                if (satOlusturmaTuru == "HARCAMASI YAPILAN")
+                {
+                    satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Harcaması Yapılan Tamamalama", "SAT TAMAMLAMA");
+                }
+                else
+                {
+                    satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Alım Yapılacak Direktörlük", "ALIMI YAPILACAK SAT");
+                }
+                
                 onaydurum = "Onaylandı.";
                 yapilanislem = "SAT TEKLİFİ ONAYLANDI.";
 
@@ -838,7 +893,7 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT için Birinci Teklifi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo);
+                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "", "");
                 satDataGridview1Manager.OnaylananTeklif(siparisNo, 1);
                 onaydurum = "Onaylandı.";
                 yapilanislem = "1. TEKLİF ONAYLANDI.";
@@ -872,7 +927,7 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT için İkinci Teklifi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo);
+                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo,"","");
                 satDataGridview1Manager.OnaylananTeklif(siparisNo, 2);
                 onaydurum = "Onaylandı.";
                 yapilanislem = "2. TEKLİF ONAYLANDI.";
@@ -903,7 +958,7 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT için Üçüncü Teklifi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo);
+                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo,"","");
                 satDataGridview1Manager.OnaylananTeklif(siparisNo, 3);
                 onaydurum = "Onaylandı.";
                 yapilanislem = "3. TEKLİF ONAYLANDI.";
@@ -1545,11 +1600,11 @@ namespace UserInterface.STS
             if (dr == DialogResult.Yes)
             {
                 DosyaAdiDegistir();
-                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo);
+                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo,"","");
 
                 tamamlanantarih = DateTime.Now;
                 islemAdimi = "TAMAMLANAN SATLAR";
-                if (satbirim== "PRJ.DİR.SATIN ALMA")
+                if (satbirim == "PRJ.DİR.SATIN ALMA")
                 {
                     harcamaYapan = "EBRU BAYDAŞ";
                 }
@@ -1568,7 +1623,7 @@ namespace UserInterface.STS
                 }
 
                 Tamamlanan tamamlanan = new Tamamlanan(satNo.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, tamamlanantarih, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
-                    faturafirma, ilgilikisi, masrafyerino, toplam, hedefdosya, siparisNo, ucteklif, islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu);
+                    faturafirma, ilgilikisi, masrafyerino, toplam, hedefdosya, siparisNo, ucteklif, islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, "");
                 string control = tamamlananManager.Add(tamamlanan);
 
                 if (control != "OK")
@@ -2280,6 +2335,133 @@ namespace UserInterface.STS
         private void bb2_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = true;
+        }
+
+        private void BtnRed_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show(satno + " Nolu SAT işlemini Ret Etmek istediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                FrmSatOnOnayRed frmSatOnOnayRed = new FrmSatOnOnayRed();
+                frmSatOnOnayRed.ShowDialog();
+                rednedeni = Properties.Settings.Default.RedNedeni.ToString();
+                if (rednedeni == "" || rednedeni == "sil")
+                {
+                    MessageBox.Show("Lütfen Ret Nedenini Boş Geçmeyiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                satDataGridview1Manager.SatRed(siparisNo, rednedeni);
+                teklifsizSatManager.SatMalzemeDurumGuncelle(siparisNo);
+
+                yapilanislem = "SAT ONAY İŞLEMİ: REDDEDİLDİ";
+                islmeyapan = infos[1].ToString();
+                SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanislem, islmeyapan, DateTime.Now);
+                satIslemAdimlarimanager.Add(satIslem);
+                MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                SatDataGrid1();
+                Temizle();
+                TxtTop.Text = DtgOnay.RowCount.ToString();
+                rednedeni = "";
+                FrmAnaSayfa frmAnaSayfa = new FrmAnaSayfa();
+                frmAnaSayfa.ToplamSayilar();
+            }
+        }
+
+        private void BtnOnay_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen Öncelikle Bir Kayıt Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show(satno + " Nolu SAT için Teklifi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                if (satOlusturmaTuru=="HARCAMASI YAPILAN")
+                {
+                    string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
+                    string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
+
+                    Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
+                        faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi);
+                    string control = tamamlananManager.Add(tamamlanan);
+                    if (control != "OK")
+                    {
+                        MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+
+                    foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
+                    {
+                        TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item.Stokno, item.Tanim, item.Miktar, item.Birim, item.Firma1, item.Bbf,
+                        item.Btf, siparisNo);
+
+                        string mesaj = tamamlananMalzemeManager.Add(tamamlananMalzeme);
+                        if (mesaj != "OK")
+                        {
+                            MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                    }
+
+                    satDataGridview1Manager.Delete(id);
+                    satinAlinacakMalManager.Delete(siparisNo);
+
+                    yapilanislem = "SAT İŞLEMİ TAMAMLANDI.";
+                    SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
+                    satIslemAdimlarimanager.Add(satIslemAdimlari);
+
+
+                }
+                else
+                {
+                    if (faturafirma != "BAŞARAN İLER TEKNOLOJİ")
+                    {
+                        if (satbirim== "BSRN GN.MDL.SATIN ALMA")
+                        {
+                            satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Alım Yapılacak Müdürlük", "ALIMI BEKLEYEN SAT");
+                        }
+                        else
+                        {
+                            satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Alım Yapılacak Direktörlük", "ALIMI BEKLEYEN SAT");
+                        }
+                        
+                    }
+                    else
+                    {
+                        if (satbirim == "BSRN GN.MDL.SATIN ALMA")
+                        {
+                            satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Alım Yapılacak Müdürlük", "ALIMI BEKLEYEN SAT");
+                        }
+                        else
+                        {
+                            satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Alım Yapılacak Direktörlük", "ALIMI BEKLEYEN SAT");
+                        }
+                    }
+                }
+                
+
+                satDataGridview1Manager.OnaylananTeklif(siparisNo, 1);
+                onaydurum = "Onaylandı.";
+                yapilanislem = "TEKLİF ONAYLANDI.";
+                islmeyapan = infos[1].ToString();
+
+                SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanislem, islmeyapan, DateTime.Now);
+                satIslemAdimlarimanager.Add(satIslem);
+
+                MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                onaydurum = "Teklif Onaylanmıştır.";
+                DtgMalzList.DataSource = null;
+                DtgSatIslemAdimlari.DataSource = null;
+                LblGenelTop.Text = "00";
+                LblTop2.Text = "00";
+                TxtRetNedeni.Clear();
+                webBrowser2.Navigate("");
+                MalzemeList();
+                SatDataGrid1();
+                TxtTop.Text = DtgOnay.RowCount.ToString();
+
+            }
         }
 
         private void DtgOnay_KeyDown(object sender, KeyEventArgs e)

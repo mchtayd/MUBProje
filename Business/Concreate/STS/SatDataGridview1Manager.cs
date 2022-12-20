@@ -92,6 +92,62 @@ namespace Business.Concreate
                 return ex.Message;
             }
         }
+        public string AselsanMailGondermeTarihi(DateTime mailTarihi, string siparisno)
+        {
+            try
+            {
+                return satDataGridview1Dal.AselsanMailGondermeTarihi(mailTarihi, siparisno);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string AselsanMailAlmaTarihi(DateTime mailTarihi, string siparisno)
+        {
+            try
+            {
+                return satDataGridview1Dal.AselsanMailAlmaTarihi(mailTarihi, siparisno);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string OdemeMailGondermeTarihi(DateTime mailTarihi, string siparisno)
+        {
+            try
+            {
+                return satDataGridview1Dal.OdemeMailGondermeTarihi(mailTarihi, siparisno);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DepoTeslimTarihi(DateTime teslimTarihi, string siparisno)
+        {
+            try
+            {
+                return satDataGridview1Dal.DepoTeslimTarihi(teslimTarihi, siparisno);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DepoTeslimAl(string abfNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.DepoTeslimAl(abfNo);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string SatFirmaGuncelle(string siparisNo, string proje, string firma)
         {
             try
@@ -158,6 +214,17 @@ namespace Business.Concreate
                 return ex.Message;
             }
         }
+        public string OdemeMailTarihi(string siparisNo, DateTime odemeMailTarihi)
+        {
+            try
+            {
+                return satDataGridview1Dal.OdemeMailTarihi(siparisNo, odemeMailTarihi);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public SatDataGridview1 Get(string isakisno)
         {
@@ -176,6 +243,17 @@ namespace Business.Concreate
             try
             {
                 return satDataGridview1Dal.SatGuncelleGet(siparisNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public SatDataGridview1 DepoGetlist(string abfNo)
+        {
+            try
+            {
+                return satDataGridview1Dal.DepoGetlist(abfNo);
             }
             catch (Exception)
             {
@@ -419,8 +497,7 @@ namespace Business.Concreate
             }
             catch (Exception)
             {
-
-                throw;
+                return;
             }
         }
         public void DurumGuncelleBaslamaOnay(string siparisno)
@@ -431,8 +508,7 @@ namespace Business.Concreate
             }
             catch (Exception)
             {
-
-                throw;
+                return;
             }
         }
         public void TamamlamaDonemGuncelle(string siparisno,string donem)
@@ -443,21 +519,42 @@ namespace Business.Concreate
             }
             catch (Exception)
             {
-
-                throw;
+                return;
             }
         }
 
-        public void DurumGuncelleTamamlama(string siparisno)
+        public void SatDevamEdenFaturaTutariAdd(string siparisno, double faturaTutari, string harcamaYapan, string satinAlinanFirma, string belgeTuru, string belgeNumarası, DateTime belgeTarihi)
         {
             try
             {
-                satDataGridview1Dal.DurumGuncelleTamamlama(siparisno);
+                satDataGridview1Dal.SatDevamEdenFaturaTutariAdd(siparisno, faturaTutari, harcamaYapan, satinAlinanFirma, belgeTuru, belgeNumarası, belgeTarihi);
             }
             catch (Exception)
             {
+                return;
+            }
+        }
 
-                throw;
+        public void DurumGuncelleTamamlama(string siparisno, string durum, string islemAdimi)
+        {
+            try
+            {
+                satDataGridview1Dal.DurumGuncelleTamamlama(siparisno, durum, islemAdimi);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+        public void MalzemeGelisTarihiUpdate(string siparisno, DateTime tarih)
+        {
+            try
+            {
+                satDataGridview1Dal.MalzemeGelisTarihiUpdate(siparisno, tarih);
+            }
+            catch (Exception)
+            {
+                return;
             }
         }
         public void OnaylananTeklif(string siparisno, int onaylananteklif)
@@ -484,11 +581,11 @@ namespace Business.Concreate
                 throw;
             }
         }*/
-        public void TeklifDurum(string siparisno)
+        public void TeklifDurum(string siparisno, string dosyaYolu, string islemAdimi)
         {
             try
             {
-                satDataGridview1Dal.TeklifDurum(siparisno);
+                satDataGridview1Dal.TeklifDurum(siparisno, dosyaYolu, islemAdimi);
             }
             catch (Exception )
             {
@@ -518,11 +615,11 @@ namespace Business.Concreate
                 return ex.Message;
             }
         }
-        public List<SatDataGridview1> TekifDurumListele(string teklifdurumu, string durum, int ucteklif,string firmabilgisi)
+        public List<SatDataGridview1> TekifDurumListele(string teklifdurumu, string durum, int ucteklif,string firmabilgisi, string satBirim="")
         {
             try
             {
-                return satDataGridview1Dal.TekifDurumListele(teklifdurumu, durum, ucteklif,firmabilgisi);
+                return satDataGridview1Dal.TekifDurumListele(teklifdurumu, durum, ucteklif,firmabilgisi, satBirim);
             }
             catch
             {

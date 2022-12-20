@@ -5,6 +5,7 @@ using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using Entity;
 using Entity.BakimOnarim;
+using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,8 +30,11 @@ namespace UserInterface.BakımOnarım
         ArizaKayitManager arizaKayitManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         PersonelKayitManager kayitManager;
+        BolgeKayitManager bolgeKayitManager;
+        BolgeGarantiManager bolgeGarantiManager;
 
         List<string> fileNames = new List<string>();
+        List<PersonelKayit> personelKayits;
 
         string proje, isAkisNo, dosyaYolu, kaynakdosyaismi, alinandosya, siparisNo;
         bool start = true, kayitKontrol = false, dosyaKontrol = false;
@@ -48,13 +52,14 @@ namespace UserInterface.BakımOnarım
             satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             kayitManager = PersonelKayitManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
+            bolgeGarantiManager = BolgeGarantiManager.GetInstance();
 
         }
 
         private void FrmArizaKayitOlusturSaha_Load(object sender, EventArgs e)
         {
             IsAkisNo();
-            CmbProj();
             UsBolgeleri();
             Personeller();
             LblArizaBildirimiAlan.Text = infos[1].ToString();
@@ -83,25 +88,6 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-        void Personeller()
-        {
-            CmbGorevAtanacakPersonel.DataSource = kayitManager.PersonelAdSoyad();
-            CmbGorevAtanacakPersonel.ValueMember = "Id";
-            CmbGorevAtanacakPersonel.DisplayMember = "Adsoyad";
-            CmbGorevAtanacakPersonel.SelectedValue = -1;
-        }
-        void IsAkisNo()
-        {
-            isAkisNoManager.Update();
-            IsAkisNo isAkis = isAkisNoManager.Get();
-            LblIsAkisNo.Text = isAkis.Id.ToString();
-        }
-        int AbfFormNo()
-        {
-            abfFormNoManager.Update();
-            AbfFormNo abfFormNo = abfFormNoManager.Get();
-            return abfFormNo.FormNo;
-        }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
@@ -119,7 +105,7 @@ namespace UserInterface.BakımOnarım
 
                 abfForm = AbfFormNo();
 
-                ArizaKayit arizaKayit = new ArizaKayit(LblIsAkisNo.Text.ConInt(), abfForm, proje, CmbBolgeAdi.Text, LblBolukKomutanı.Text, LblTelefon.Text, LblBirlilkAdresi.Text, LblIl.Text, LblIlce.Text, TxtBildirilenAriza.Text, TxtBirlikPersoneli.Text, TxtBirlikPerRutbesi.Text, TxtBirlikPerGorevi.Text, TxtABTelefon.Text, DateTime.Now, LblArizaBildirimiAlan.Text, CmbBildirimKanali.Text, TxtArizaAciklama.Text, CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, dosyaYolu, siparisNo);
+                ArizaKayit arizaKayit = new ArizaKayit(LblIsAkisNo.Text.ConInt(), abfForm, LblPdl.Text, CmbBolgeAdi.Text, "", "", LblBirlilkAdresi.Text, LblIl.Text, LblIlce.Text, TxtBildirilenAriza.Text, TxtBirlikPersoneli.Text, TxtBirlikPerRutbesi.Text, TxtBirlikPerGorevi.Text, TxtABTelefon.Text, DateTime.Now, LblArizaBildirimiAlan.Text, CmbBildirimKanali.Text, TxtArizaAciklama.Text, CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, dosyaYolu, siparisNo);
 
                 string mesaj = arizaKayitManager.Add(arizaKayit);
                 if (mesaj != "OK")
@@ -134,61 +120,10 @@ namespace UserInterface.BakımOnarım
                 kayitKontrol = true;
             }
         }
-        void Temizle()
+
+        private void BtnTemizle_Click(object sender, EventArgs e)
         {
-            CmbProje.SelectedValue = ""; CmbBolgeAdi.SelectedValue = ""; LblBolukKomutanı.Text = "-"; LblTelefon.Text = "-";
-            LblBirlilkAdresi.Text = "-"; LblIl.Text = "-"; LblIlce.Text = "-"; TxtBildirilenAriza.Clear(); TxtBirlikPersoneli.Clear();
-            TxtBirlikPerRutbesi.Clear(); TxtBirlikPerGorevi.Clear(); TxtABTelefon.Clear(); CmbBildirimKanali.Text = "";
-            TxtArizaAciklama.Clear(); webBrowser1.Navigate("");
-
-        }
-        void GorevAtama()
-        {
-            ArizaKayit arizaKayit = arizaKayitManager.Get(abfForm);
-            id = arizaKayit.Id;
-
-            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM", infos[1].ToString(), "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", DateTime.Now, TxtBildirilenAriza.Text, "00:05:00".ConOnlyTime());
-            gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
-
-            string sure = "0 Gün " + "0 Saat " + "0 Dakika";
-
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", sure, DateTime.Now.Date);
-            gorevAtamaPersonelManager.Update(gorevAtama);
-
-            GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM", CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
-            gorevAtamaPersonelManager.Add(gorevAtamaPersonel4);
-
-        }
-        void CmbProj()
-        {
-            CmbProje.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
-            CmbProje.ValueMember = "Id";
-            CmbProje.DisplayMember = "Baslik";
-            CmbProje.SelectedValue = 0;
-        }
-        void UsBolgeleri()
-        {
-            CmbBolgeAdi.DataSource = satTalebiDoldurManager.GetList();
-            CmbBolgeAdi.ValueMember = "Id";
-            CmbBolgeAdi.DisplayMember = "Usbolgesi";
-            CmbBolgeAdi.SelectedValue = "";
-        }
-
-        private void CmbBolgeAdi_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (start == true)
-            {
-                return;
-            }
-            string bolgeAdi = CmbBolgeAdi.Text;
-            Bolge bolge = bolgeManager.Get(bolgeAdi);
-
-            proje = bolge.Proje;
-            LblBolukKomutanı.Text = bolge.IlgiliPersonel;
-            LblTelefon.Text = bolge.Telefon;
-            LblBirlilkAdresi.Text = bolge.BirlikAdresi;
-            LblIl.Text = bolge.Il;
-            LblIlce.Text = bolge.Ilce;
+            Temizle();
         }
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
@@ -233,6 +168,111 @@ namespace UserInterface.BakımOnarım
                 webBrowser1.Navigate(dosyaYolu);
                 dosyaKontrol = true;
 
+            }
+        }
+
+        void Personeller()
+        {
+            if (infos[0].ConInt() == 25 || infos[0].ConInt() == 84)
+            {
+                personelKayits = kayitManager.PersonelAdSoyad();
+            }
+            else
+            {
+                personelKayits = kayitManager.PersonelAdSoyad(infos[1].ToString());
+                PersonelKayit personelKayit = new PersonelKayit(infos[0].ConInt(), infos[1].ToString(), infos[9].ToString(), infos[4].ToString(), infos[8].ToString(), infos[7].ToString(), infos[10].ToString(), infos[2].ToString(), infos[3].ToString());
+                personelKayits.Add(personelKayit);
+            }
+
+            CmbGorevAtanacakPersonel.DataSource = personelKayits;
+            CmbGorevAtanacakPersonel.ValueMember = "Id";
+            CmbGorevAtanacakPersonel.DisplayMember = "Adsoyad";
+            CmbGorevAtanacakPersonel.SelectedValue = -1;
+        }
+        void IsAkisNo()
+        {
+            isAkisNoManager.Update();
+            IsAkisNo isAkis = isAkisNoManager.Get();
+            LblIsAkisNo.Text = isAkis.Id.ToString();
+        }
+        int AbfFormNo()
+        {
+            abfFormNoManager.Update();
+            AbfFormNo abfFormNo = abfFormNoManager.Get();
+            return abfFormNo.FormNo;
+        }
+
+        void Temizle()
+        {
+            LblProje.Text = "00"; CmbBolgeAdi.SelectedValue = "";
+            LblBirlilkAdresi.Text = "-"; LblIl.Text = "-"; LblIlce.Text = "-"; TxtBildirilenAriza.Clear(); TxtBirlikPersoneli.Clear();
+            TxtBirlikPerRutbesi.Clear(); TxtBirlikPerGorevi.Clear(); TxtABTelefon.Clear(); CmbBildirimKanali.Text = "";
+            TxtArizaAciklama.Clear(); webBrowser1.Navigate("");
+
+        }
+        void GorevAtama()
+        {
+            ArizaKayit arizaKayit = arizaKayitManager.Get(abfForm);
+            id = arizaKayit.Id;
+
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM", infos[1].ToString(), "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", DateTime.Now, TxtBildirilenAriza.Text, "00:05:00".ConOnlyTime());
+            gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+
+            string sure = "0 Gün " + "0 Saat " + "0 Dakika";
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", sure, DateTime.Now.Date);
+            gorevAtamaPersonelManager.Update(gorevAtama);
+
+            GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM", CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
+            gorevAtamaPersonelManager.Add(gorevAtamaPersonel4);
+
+        }
+        //void CmbProj()
+        //{
+        //    CmbProje.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
+        //    CmbProje.ValueMember = "Id";
+        //    CmbProje.DisplayMember = "Baslik";
+        //    CmbProje.SelectedValue = 0;
+        //}
+        void UsBolgeleri()
+        {
+            if (infos[0].ConInt()==25 || infos[0].ConInt() == 84)
+            {
+                CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
+            }
+            else
+            {
+                CmbBolgeAdi.DataSource = bolgeKayitManager.GetList(infos[1].ToString());
+            }
+            
+            CmbBolgeAdi.ValueMember = "Id";
+            CmbBolgeAdi.DisplayMember = "BolgeAdi";
+            CmbBolgeAdi.SelectedValue = "";
+        }
+
+        private void CmbBolgeAdi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+            int id = CmbBolgeAdi.SelectedValue.ConInt();
+            BolgeKayit bolge = bolgeKayitManager.Get(id);
+
+            proje = bolge.Proje;
+            LblProje.Text = proje;
+            LblBirlilkAdresi.Text = bolge.BirlikAdresi;
+            LblIl.Text = bolge.Il;
+            LblIlce.Text = bolge.Ilce;
+
+            BolgeGaranti bolgeGaranti = bolgeGarantiManager.Get(bolge.SiparisNo);
+            if (bolgeGaranti != null)
+            {
+                LblPdl.Text = bolgeGaranti.GarantiPaketi;
+            }
+            else
+            {
+                LblPdl.Text  = bolge.Proje;
             }
         }
     }

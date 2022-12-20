@@ -8,7 +8,7 @@ namespace Entity.BakimOnarim
 {
     public class AbfMalzeme
     {
-        int id, benzersizId; string sokulenStokNo, sokulenTanim, sokulenSeriNo; int sokulenMiktar; string sokulenBirim; double sokulenCalismaSaati; string sokulenRevizyon, calismaDurumu, fizikselDurum, yapilacakIslem, takilanStokNo, takilanTanim, takilanSeriNo; int takilanMiktar; string takilanBirim; double takilanCalismaSaati; string takilanRevizyon;
+        int id, benzersizId; string sokulenStokNo, sokulenTanim, sokulenSeriNo; int sokulenMiktar; string sokulenBirim; double sokulenCalismaSaati; string sokulenRevizyon, calismaDurumu, fizikselDurum, yapilacakIslem, takilanStokNo, takilanTanim, takilanSeriNo; int takilanMiktar; string takilanBirim; double takilanCalismaSaati; string takilanRevizyon, teminDurumu; int abfNo; DateTime abTarihSaat, temineAtilamTarihi; string malzemeDurumu;
 
         public int Id { get => id; set => id = value; }
         public int BenzersizId { get => benzersizId; set => benzersizId = value; }
@@ -29,8 +29,13 @@ namespace Entity.BakimOnarim
         public string TakilanBirim { get => takilanBirim; set => takilanBirim = value; }
         public double TakilanCalismaSaati { get => takilanCalismaSaati; set => takilanCalismaSaati = value; }
         public string TakilanRevizyon { get => takilanRevizyon; set => takilanRevizyon = value; }
+        public string TeminDurumu { get => teminDurumu; set => teminDurumu = value; }
+        public int AbfNo { get => abfNo; set => abfNo = value; }
+        public DateTime AbTarihSaat { get => abTarihSaat; set => abTarihSaat = value; }
+        public DateTime TemineAtilamTarihi { get => temineAtilamTarihi; set => temineAtilamTarihi = value; }
+        public string MalzemeDurumu { get => malzemeDurumu; set => malzemeDurumu = value; }
 
-        public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, double sokulenCalismaSaati, string sokulenRevizyon, string calismaDurumu, string fizikselDurum, string yapilacakIslem, string takilanStokNo, string takilanTanim, string takilanSeriNo, int takilanMiktar, string takilanBirim, double takilanCalismaSaati, string takilanRevizyon)
+        public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, double sokulenCalismaSaati, string sokulenRevizyon, string calismaDurumu, string fizikselDurum, string yapilacakIslem, string takilanStokNo, string takilanTanim, string takilanSeriNo, int takilanMiktar, string takilanBirim, double takilanCalismaSaati, string takilanRevizyon, string teminDurumu)
         {
             this.id = id;
             this.benzersizId = benzersizId;
@@ -51,6 +56,7 @@ namespace Entity.BakimOnarim
             this.takilanBirim = takilanBirim;
             this.takilanCalismaSaati = takilanCalismaSaati;
             this.takilanRevizyon = takilanRevizyon;
+            this.teminDurumu = teminDurumu;
         }
 
         public AbfMalzeme(int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, double sokulenCalismaSaati, string sokulenRevizyon, string calismaDurumu, string fizikselDurum, string yapilacakIslem)
@@ -79,5 +85,21 @@ namespace Entity.BakimOnarim
             this.takilanRevizyon = takilanRevizyon;
         }
 
+        public AbfMalzeme(int id, int benzersizId,string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon, string yapilacakIslem, int abfNo, DateTime abTarihSaat, DateTime temineAtilamTarihi, string malzemeDurumu)
+        {
+            this.id = id;
+            this.benzersizId = benzersizId;
+            this.sokulenStokNo = sokulenStokNo;
+            this.sokulenTanim = sokulenTanim;
+            this.sokulenSeriNo = sokulenSeriNo;
+            this.sokulenMiktar = sokulenMiktar;
+            this.sokulenBirim = sokulenBirim;
+            this.sokulenRevizyon = sokulenRevizyon;
+            this.yapilacakIslem = yapilacakIslem;
+            this.abfNo = abfNo;
+            this.abTarihSaat = abTarihSaat;
+            this.temineAtilamTarihi = temineAtilamTarihi;
+            this.malzemeDurumu = malzemeDurumu;
+        }
     }
 }

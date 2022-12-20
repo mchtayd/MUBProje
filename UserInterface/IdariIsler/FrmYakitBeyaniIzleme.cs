@@ -152,7 +152,7 @@ namespace UserInterface.IdariIsler
             DtgIslemAdimlari.Columns["Islemyapan"].Width = 135;
             DtgIslemAdimlari.Columns["Islem"].Width = 400;
         }
-        double sonucUcluk;
+        
         void Toplamlar()
         {
             double toplam = 0;

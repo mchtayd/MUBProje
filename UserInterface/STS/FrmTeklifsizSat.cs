@@ -68,7 +68,7 @@ namespace UserInterface.STS
         void FillTools()
         {
             int ucteklif = 0;
-            satDatas = satDataGridview1Manager.TekifDurumListele("Alınmadı", "Onaylandı", ucteklif, "BELIRLENMEDI");
+            satDatas = satDataGridview1Manager.TekifDurumListele("Alınmadı", "Onaylandı", ucteklif, "BELIRLENMEDI", "");
             binderSetRequest.DataSource = satDatas.ToDataTable();
             DtgSat.DataSource = binderSetRequest;
             DataDisplay();
@@ -766,7 +766,7 @@ namespace UserInterface.STS
                 mesaj = teklifsizSatManager.Add(item);
             }
 
-            satDataGridview1Manager.TeklifDurum(siparisNo);
+            satDataGridview1Manager.TeklifDurum(siparisNo, dosyayolu, "");
 
             if (mesaj != "OK")
             {

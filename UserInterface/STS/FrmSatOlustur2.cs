@@ -2289,6 +2289,7 @@ namespace UserInterface.STS
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 SatDataGridview1 satData = new SatDataGridview1(CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo,0, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value, isleAdimi, donem);
 
                 string mesaj2= satDataGridview1Manager.TemsiliAgirlama(satData);
@@ -2299,7 +2300,7 @@ namespace UserInterface.STS
                     return;
                 }
 
-                satDataGridview1Manager.TeklifDurum(siparisNo); // ALINDI
+                satDataGridview1Manager.TeklifDurum(siparisNo, dosyaYolu,""); // ALINDI
                 satDataGridview1Manager.DurumGuncelleOnay(siparisNo); // SAT BAŞLATMA ONAYI ONAYLANDI
                 
                 TeklifsizSat teklifsizSat = new TeklifsizSat("", "", 0, "", TxtTutar.Text.ConDouble(), siparisNo);

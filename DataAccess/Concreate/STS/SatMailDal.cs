@@ -70,6 +70,87 @@ namespace DataAccess.Concreate.STS
                 return new List<SatMail>();
             }
         }
+        public List<SatMail> GetListMailBasaran(string siparisNo)
+        {
+            try
+            {
+                List<SatMail> altYuklenicis = new List<SatMail>();
+                dataReader = sqlServices.StoreReader("MailOnizlemeBasaran", new SqlParameter("@siparisNo", siparisNo));
+                while (dataReader.Read())
+                {
+                    altYuklenicis.Add(new SatMail(
+                    dataReader["US_BOLGESI"].ToString(),
+                    dataReader["GEREKCE"].ToString(),
+                    dataReader["SAT_NO"].ConInt(),
+                    dataReader["STN1"].ToString(),
+                    dataReader["T1"].ToString(),
+                    dataReader["M1"].ConInt(),
+                    dataReader["B1"].ToString()));
+                }
+                dataReader.Close();
+                return altYuklenicis;
+            }
+            catch (Exception)
+            {
+                return new List<SatMail>();
+            }
+        }
+        public List<SatMail> GetListMailBasaranOdeme(string siparisNo)
+        {
+            try
+            {
+                List<SatMail> altYuklenicis = new List<SatMail>();
+                dataReader = sqlServices.StoreReader("MailOnIzlemeMalayaTeklif", new SqlParameter("@siparisNo", siparisNo));
+                while (dataReader.Read())
+                {
+                    altYuklenicis.Add(new SatMail(
+                    dataReader["US_BOLGESI"].ToString(),
+                    dataReader["GEREKCE"].ToString(),
+                    dataReader["SAT_NO"].ConInt(),
+                    dataReader["STOK_NO"].ToString(),
+                    dataReader["TANIM"].ToString(),
+                    dataReader["MIKTAR"].ConInt(),
+                    dataReader["BIRIM"].ToString(),
+                    dataReader["FIRMA1"].ToString(),
+                    dataReader["BBF"].ConDouble(),
+                    dataReader["BTF"].ConDouble()));
+                }
+                dataReader.Close();
+                return altYuklenicis;
+            }
+            catch (Exception ex)
+            {
+                return new List<SatMail>();
+            }
+        }
+        public List<SatMail> GetListMailAselsanOnay(string siparisNo)
+        {
+            try
+            {
+                List<SatMail> altYuklenicis = new List<SatMail>();
+                dataReader = sqlServices.StoreReader("MailOnIzlemeAselsanOnay", new SqlParameter("@siparisNo", siparisNo));
+                while (dataReader.Read())
+                {
+                    altYuklenicis.Add(new SatMail(
+                    dataReader["US_BOLGESI"].ToString(),
+                    dataReader["GEREKCE"].ToString(),
+                    dataReader["SAT_NO"].ConInt(),
+                    dataReader["STOK_NO"].ToString(),
+                    dataReader["TANIM"].ToString(),
+                    dataReader["MIKTAR"].ConInt(),
+                    dataReader["BIRIM"].ToString(),
+                    dataReader["FIRMA1"].ToString(),
+                    dataReader["BBF"].ConDouble(),
+                    dataReader["BTF"].ConDouble()));
+                }
+                dataReader.Close();
+                return altYuklenicis;
+            }
+            catch (Exception ex)
+            {
+                return new List<SatMail>();
+            }
+        }
 
         public string Update(SatMail entity)
         {

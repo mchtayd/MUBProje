@@ -27,11 +27,13 @@ namespace UserInterface.IdariIsler
         CokluAracManager cokluAracManager;
         IstenAyrilisManager ıstenAyrilisManager;
         BildirimYetkiManager bildirimYetkiManager;
+        PersonelKayitManager personelKayitManager;
 
         public object[] infos;
 
         string siparisNo = "";
         int id;
+        bool start = false;
         public FrmAracKm()
         {
             InitializeComponent();
@@ -42,11 +44,13 @@ namespace UserInterface.IdariIsler
             cokluAracManager = CokluAracManager.GetInstance();
             ıstenAyrilisManager = IstenAyrilisManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            personelKayitManager = PersonelKayitManager.GetInstance();
         }
 
         private void FrmAracKm_Load(object sender, EventArgs e)
         {
-
+            Personeller();
+            start = true;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -60,6 +64,14 @@ namespace UserInterface.IdariIsler
                 frmAnaSayfa.tabAnasayfa.Visible = false;
             }
         }
+        void Personeller()
+        {
+            TxtAdSoyad.DataSource = personelKayitManager.PersonelAdSoyad();
+            TxtAdSoyad.DisplayMember = "Adsoyad";
+            TxtAdSoyad.ValueMember = "Id";
+            TxtAdSoyad.SelectedIndex = -1;
+        }
+
         DateTime projeyeGirisTarihi;
         private void BtnBulT_Click(object sender, EventArgs e)
         {
@@ -97,7 +109,6 @@ namespace UserInterface.IdariIsler
             else
             {
                 TxtAdSoyad.Text = aracZimmeti.PersonelAd;
-
                 SiparisPersonel siparis = siparisPersonelManager.Get("", TxtAdSoyad.Text);
                 if (siparis==null)
                 {
@@ -119,6 +130,16 @@ namespace UserInterface.IdariIsler
                     }
                 }
 
+                if (TxtAdSoyad.Text == "")
+                {
+                    CmbSiparisNo.Clear();
+                    TxtGorevi.Clear();
+                    TxtMasrafyeriNo.Clear();
+                    TxtMasrafYeri.Clear();
+                    TxtMasrafYeriSorumlusu.Clear();
+                    return;
+                }
+
                 TxtMasrafyeriNo.Text = siparis.Masrafyerino;
                 TxtMasrafYeri.Text = siparis.Masrafyeri;
                 TxtGorevi.Text = siparis.Gorevi;
@@ -129,7 +150,7 @@ namespace UserInterface.IdariIsler
         }
         void Temizle()
         {
-            TxtPlaka.Clear(); TxtSiparisNo.Clear(); TxtKmBaslangic.Clear(); TxtAdSoyad.Clear(); CmbSiparisNo.Clear(); TxtGorevi.Clear(); TxtMasrafyeriNo.Clear(); TxtMasrafYeri.Clear(); TxtMasrafYeriSorumlusu.Clear(); TxtMulkiyetBilgileri.Clear(); TxtAciklama.Clear(); TxtKmBitis.Clear();
+            TxtPlaka.Clear(); TxtSiparisNo.Clear(); TxtKmBaslangic.Clear(); TxtAdSoyad.SelectedIndex = -1; CmbSiparisNo.Clear(); TxtGorevi.Clear(); TxtMasrafyeriNo.Clear(); TxtMasrafYeri.Clear(); TxtMasrafYeriSorumlusu.Clear(); TxtMulkiyetBilgileri.Clear(); TxtAciklama.Clear(); TxtKmBitis.Clear();
         }
         string donem = "";
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -290,7 +311,7 @@ namespace UserInterface.IdariIsler
 
         private void TxtAdSoyad_KeyPress(object sender, KeyPressEventArgs e)
         {
-            e.Handled = true;
+            //e.Handled = true;
         }
 
         private void CmbSiparisNo_KeyPress(object sender, KeyPressEventArgs e)
@@ -417,6 +438,20 @@ namespace UserInterface.IdariIsler
                 LblToplamKm.Visible = false;
                 BtnKaydet.Location = new Point(161, 544);
             }
+        }
+
+        private void TxtAdSoyad_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==false)
+            {
+                return;
+            }
+            PersonelKayit personelKayit = personelKayitManager.Get(0, TxtAdSoyad.Text);
+            CmbSiparisNo.Text = personelKayit.Siparis;
+            TxtGorevi.Text = personelKayit.Isunvani;
+            TxtMasrafyeriNo.Text = personelKayit.Masyerino;
+            TxtMasrafYeri.Text = personelKayit.Masrafyeri;
+            TxtMasrafYeriSorumlusu.Text = personelKayit.MasrafYeriSorumlusu;
         }
 
 

@@ -45,15 +45,68 @@ namespace DataAccess.Concreate.STS
                 return ex.Message;
             }
         }
+        public string TeklifGir(FiyatTeklifiAl entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("FiyatTeklifiGir",
+                    new SqlParameter("@stokNo", entity.Stokno),
+                    new SqlParameter("@tanim", entity.Tanim),
+                    new SqlParameter("@miktar", entity.Miktar),
+                    new SqlParameter("@birim", entity.Birim),
+                    new SqlParameter("@birimFiyat", entity.Firma1),
+                    new SqlParameter("@toplamFiyat", entity.Firma2),
+                    new SqlParameter("@firma", entity.Siparisno));
+
+                dataReader.Close();
+                return "OK";
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public FiyatTeklifiAl Get(int id)
+        public FiyatTeklifiAl Get(string siparisNo, string stokNo)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("FiyatTeklifiAlGet", new SqlParameter("@siparisNo", siparisNo), new SqlParameter("@stokNo", stokNo));
+                FiyatTeklifiAl item = null;
+                while (dataReader.Read())
+                {
+                    item = new FiyatTeklifiAl(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["FIRMA1"].ToString(),
+                        dataReader["BBF"].ConDouble(),
+                        dataReader["BTF"].ConDouble(),
+                        dataReader["FIRMA2"].ToString(),
+                        dataReader["IBF"].ConDouble(),
+                        dataReader["ITF"].ConDouble(),
+                        dataReader["FIRMA3"].ToString(),
+                        dataReader["UBF"].ConDouble(),
+                        dataReader["UTF"].ConDouble(),
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["TeklifDurumu"].ToString(),
+                        dataReader["OnaylananTeklif"].ConInt());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<FiyatTeklifiAl> GetList(string durum, string siparisNo)

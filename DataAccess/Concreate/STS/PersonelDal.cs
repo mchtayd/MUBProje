@@ -115,7 +115,7 @@ namespace DataAccess.Concreate
                 dataReader = sqlServices.StoreReader("PersonelLogin", new SqlParameter("@sicilno", sicilno), new SqlParameter("@sifre", sifre));
                 if (dataReader.Read())
                 {
-                    int id, yetkiId; string isim, bolum, projekodu, masrafYeriNo, izinIdleri, mail, masrafYeriSorumlusu, personelSiparis, unvani, yetkiModu;
+                    int id, yetkiId; string isim, bolum, projekodu, masrafYeriNo, izinIdleri, mail, masrafYeriSorumlusu, personelSiparis, unvani, yetkiModu, sirketMail;
 
                     id = dataReader["ID"].ConInt();
                     isim = dataReader["AD_SOYAD"].ToString();
@@ -129,8 +129,9 @@ namespace DataAccess.Concreate
                     personelSiparis = dataReader["SIPARIS"].ToString();
                     unvani = dataReader["IS_UNVANI"].ToString();
                     yetkiModu = dataReader["YETKI_MODU"].ToString();
+                    sirketMail = dataReader["SIRKET_MAIL"].ToString();
 
-                    infos = new object[] { id, isim, bolum, projekodu, masrafYeriNo, yetkiId, izinIdleri, mail, masrafYeriSorumlusu, personelSiparis, unvani, yetkiModu};
+                    infos = new object[] { id, isim, bolum, projekodu, masrafYeriNo, yetkiId, izinIdleri, mail, masrafYeriSorumlusu, personelSiparis, unvani, yetkiModu, sirketMail };
                 }
                 dataReader.Close();
                 return infos;

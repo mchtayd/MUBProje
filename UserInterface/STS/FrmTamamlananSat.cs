@@ -337,6 +337,7 @@ namespace UserInterface.STS
                             item.Cell("U").Value.ToString(),
                             item.Cell("AA").Value.ToString(),
                             "",
+                            "",
                             "");
                         list.Add(tamamlanan);
 

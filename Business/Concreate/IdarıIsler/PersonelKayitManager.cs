@@ -205,11 +205,11 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
-        public List<PersonelKayit> PersonelAdSoyad()
+        public List<PersonelKayit> PersonelAdSoyad(string sorumluPersonel="")
         {
             try
             {
-                return personelKayitDal.PersonelAdSoyad();
+                return personelKayitDal.PersonelAdSoyad(sorumluPersonel);
             }
             catch (Exception)
             {

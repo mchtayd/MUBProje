@@ -251,6 +251,17 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string ArizaMalzemeDurum(int id,string malzemeDurumu)
+        {
+            try
+            {
+                return arizaKayitDal.ArizaMalzemeDurum(id, malzemeDurumu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string BOEksikEvrakList(int id)
         {
             try

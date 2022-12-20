@@ -76,12 +76,12 @@ namespace DataAccess.Concreate.BakimOnarim
             throw new NotImplementedException();
         }
 
-        public List<AbfMalzeme> GetList(int benzersizId)
+        public List<AbfMalzeme> GetList(int benzersizId, string teminDurumu)
         {
             try
             {
                 List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
-                dataReader = sqlServices.StoreReader("AbfMazlemeList",new SqlParameter("@benzersizId",benzersizId));
+                dataReader = sqlServices.StoreReader("AbfMazlemeList", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@teminDurumu", teminDurumu));
                 while (dataReader.Read())
                 {
                     abfMalzemes.Add(new AbfMalzeme(
@@ -103,7 +103,40 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["TAKILAN_MIKTAR"].ConInt(),
                         dataReader["TAKILAN_BIRIM"].ToString(),
                         dataReader["TAKILAN_CALISMA_SAATI"].ConDouble(),
-                        dataReader["TAKILAN_REVIZYON_NO"].ToString()));
+                        dataReader["TAKILAN_REVIZYON_NO"].ToString(),
+                        dataReader["TEMIN_DURUMU"].ToString()));
+                }
+                dataReader.Close();
+                return abfMalzemes;
+            }
+            catch (Exception)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
+
+        public List<AbfMalzeme> TeminGetList(string teminDurumu, int abfNo)
+        {
+            try
+            {
+                List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                dataReader = sqlServices.StoreReader("DepoTeminGor", new SqlParameter("@teminDurumu", teminDurumu), new SqlParameter("@abfNo", abfNo));
+                while (dataReader.Read())
+                {
+                    abfMalzemes.Add(new AbfMalzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConInt(),
+                        dataReader["SOKULEN_BIRIM"].ToString(),
+                        dataReader["SOKULEN_REVIZYON_NO"].ToString(),
+                        dataReader["YAPILACAK_ISLEM"].ToString(),
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["AB_TARIH_SAAT"].ConDate(),
+                        dataReader["TEMINE_ATILMA_TARIHI"].ConDate(),
+                        dataReader["TEMIN_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;
@@ -149,6 +182,23 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@birim", entity.TakilanBirim),
                     new SqlParameter("@calismaSaati", entity.TakilanCalismaSaati),
                     new SqlParameter("@revizyonNo", entity.TakilanRevizyon));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string TeminBilgisi(int id, string teminBilgisi,string temineGonderen)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AbfMalzemeTemin",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@teminBilgisi", teminBilgisi),
+                    new SqlParameter("@temineGonderen", temineGonderen));
 
                 dataReader.Close();
                 return "OK";

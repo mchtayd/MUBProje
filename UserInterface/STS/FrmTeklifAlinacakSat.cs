@@ -688,7 +688,7 @@ namespace UserInterface.STS
 
                     foreach (TeklifAlinan item in teklifAlinanListe)
                     {
-                        teklifiAlinanManager.Add(item);
+                        teklifiAlinanManager.Add(item, siparisNo);
                     }
                     /*if (satbirim == "BSRN GN.MDL.SATIN ALMA")
                     {
@@ -705,7 +705,7 @@ namespace UserInterface.STS
                         }
                     }*/
 
-                    satDataGridview1Manager.TeklifDurum(siparisNo);
+                    satDataGridview1Manager.TeklifDurum(siparisNo, yol,"");
 
                     yapilanislem = "FİRMALARIN FİYAT TEKLİFLERİ KAYDEDİLDİ.";
 
@@ -867,7 +867,7 @@ namespace UserInterface.STS
         }
         void SatDataGrid1()
         {
-            satDatas = satDataGridview1Manager.TekifDurumListele("Alınmadı", "Onaylandı", ucteklif, "BELIRLENMEDI");
+            satDatas = satDataGridview1Manager.TekifDurumListele("Alınmadı", "Onaylandı", ucteklif, "BELIRLENMEDI", "PRJ.DİR.SATIN ALMA");
             binderSetRequest.DataSource = satDatas.ToDataTable();
             DtgTeklifAl.DataSource = binderSetRequest;
         }
@@ -881,7 +881,7 @@ namespace UserInterface.STS
         }
         void SatListLoad()//Sayfa 3 Soldaki Datagrid
         {
-            satListWaiting = satDataGridview1Manager.TekifDurumListele("Gönderildi", "Onaylandı", ucteklif, "BELIRTILDI");
+            satListWaiting = satDataGridview1Manager.TekifDurumListele("Gönderildi", "Onaylandı", ucteklif, "BELIRTILDI", "");
             binderSatWaiting.DataSource = satListWaiting.ToDataTable();
             DtgSatList.DataSource = binderSatWaiting;
             DataDisplayDtgSatList();
@@ -3300,6 +3300,11 @@ namespace UserInterface.STS
         {
             dataBinder3.Filter = DtgMailList.FilterString;
             TxtGelenMail.Text = DtgMailList.RowCount.ToString();
+        }
+
+        private void DtgTeklifAl_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
 
         private void BtnDosyaMailEkle_Click(object sender, EventArgs e)

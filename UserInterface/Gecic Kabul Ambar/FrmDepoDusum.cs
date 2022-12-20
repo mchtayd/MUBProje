@@ -33,6 +33,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
         int comboId, id = 0;
         bool start = true, firstClick = false, kayitDurumu = false;
 
+        public string stok = "";
+
         public FrmDepoDusum()
         {
             InitializeComponent();
@@ -47,6 +49,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             StokBilgileri();
             TanimBilgileri();
             start = false;
+            if (stok!="")
+            {
+                CmbStokNo.Text = stok;
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

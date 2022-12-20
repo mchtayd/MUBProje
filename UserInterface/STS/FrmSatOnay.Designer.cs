@@ -33,6 +33,7 @@ namespace UserInterface.STS
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatOnay));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgOnay = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -45,6 +46,17 @@ namespace UserInterface.STS
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.BtnRed = new System.Windows.Forms.Button();
+            this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnOnay = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.LblGenelTop = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.LblTop2 = new System.Windows.Forms.Label();
+            this.label78 = new System.Windows.Forms.Label();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.DtgMalzList = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.webBrowser5 = new System.Windows.Forms.WebBrowser();
@@ -65,9 +77,7 @@ namespace UserInterface.STS
             this.Tutar1 = new System.Windows.Forms.TextBox();
             this.Tutar2 = new System.Windows.Forms.TextBox();
             this.Tutar7 = new System.Windows.Forms.TextBox();
-            this.BtnReddet = new System.Windows.Forms.Button();
             this.Tutar6 = new System.Windows.Forms.TextBox();
-            this.BtnOnayla = new System.Windows.Forms.Button();
             this.Tutar3 = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.Tutar8 = new System.Windows.Forms.TextBox();
@@ -129,6 +139,8 @@ namespace UserInterface.STS
             this.label66 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.label68 = new System.Windows.Forms.Label();
+            this.BtnReddet = new System.Windows.Forms.Button();
+            this.BtnOnayla = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.webBrowser3 = new System.Windows.Forms.WebBrowser();
@@ -483,6 +495,9 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).BeginInit();
             this.groupBox2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.panel6.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzList)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -646,6 +661,7 @@ namespace UserInterface.STS
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.panel6);
             this.tabPage4.Controls.Add(this.panel2);
             this.tabPage4.Controls.Add(this.panel4);
             this.tabPage4.Controls.Add(this.panel5);
@@ -656,6 +672,133 @@ namespace UserInterface.STS
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "TEKLİF ONAYLA";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.BtnRed);
+            this.panel6.Controls.Add(this.BtnOnay);
+            this.panel6.Controls.Add(this.LblGenelTop);
+            this.panel6.Controls.Add(this.label80);
+            this.panel6.Controls.Add(this.LblTop2);
+            this.panel6.Controls.Add(this.label78);
+            this.panel6.Controls.Add(this.groupBox11);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(3, 3);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(1531, 516);
+            this.panel6.TabIndex = 1;
+            // 
+            // BtnRed
+            // 
+            this.BtnRed.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnRed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnRed.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnRed.ImageKey = "delete-sign.png";
+            this.BtnRed.ImageList = this.ımageList2;
+            this.BtnRed.Location = new System.Drawing.Point(812, 428);
+            this.BtnRed.Name = "BtnRed";
+            this.BtnRed.Size = new System.Drawing.Size(123, 51);
+            this.BtnRed.TabIndex = 346;
+            this.BtnRed.Text = "    REDDET";
+            this.BtnRed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnRed.UseVisualStyleBackColor = false;
+            this.BtnRed.Click += new System.EventHandler(this.BtnRed_Click);
+            // 
+            // ımageList2
+            // 
+            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
+            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList2.Images.SetKeyName(0, "allokey.ico");
+            this.ımageList2.Images.SetKeyName(1, "delete-sign.png");
+            this.ımageList2.Images.SetKeyName(2, "Icojam-Blue-Bits-Database-check.ico");
+            // 
+            // BtnOnay
+            // 
+            this.BtnOnay.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnOnay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnOnay.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnOnay.ImageKey = "ok.png";
+            this.BtnOnay.ImageList = this.ımageList1;
+            this.BtnOnay.Location = new System.Drawing.Point(683, 428);
+            this.BtnOnay.Name = "BtnOnay";
+            this.BtnOnay.Size = new System.Drawing.Size(123, 51);
+            this.BtnOnay.TabIndex = 345;
+            this.BtnOnay.Text = "  ONAYLA";
+            this.BtnOnay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOnay.UseVisualStyleBackColor = false;
+            this.BtnOnay.Click += new System.EventHandler(this.BtnOnay_Click);
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "okey.png");
+            this.ımageList1.Images.SetKeyName(1, "ok.png");
+            // 
+            // LblGenelTop
+            // 
+            this.LblGenelTop.AutoSize = true;
+            this.LblGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGenelTop.Location = new System.Drawing.Point(262, 433);
+            this.LblGenelTop.Name = "LblGenelTop";
+            this.LblGenelTop.Size = new System.Drawing.Size(21, 15);
+            this.LblGenelTop.TabIndex = 309;
+            this.LblGenelTop.Text = "00";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label80.Location = new System.Drawing.Point(160, 433);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(96, 15);
+            this.label80.TabIndex = 308;
+            this.label80.Text = "Toplam Tutar:";
+            // 
+            // LblTop2
+            // 
+            this.LblTop2.AutoSize = true;
+            this.LblTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTop2.Location = new System.Drawing.Point(116, 433);
+            this.LblTop2.Name = "LblTop2";
+            this.LblTop2.Size = new System.Drawing.Size(21, 15);
+            this.LblTop2.TabIndex = 307;
+            this.LblTop2.Text = "00";
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label78.Location = new System.Drawing.Point(16, 433);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(94, 15);
+            this.label78.TabIndex = 306;
+            this.label78.Text = "Toplam Kayıt:";
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.DtgMalzList);
+            this.groupBox11.Location = new System.Drawing.Point(12, 13);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(925, 412);
+            this.groupBox11.TabIndex = 25;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "FİRMA VE FİYAT BİLGİLERİ";
+            // 
+            // DtgMalzList
+            // 
+            this.DtgMalzList.AllowUserToAddRows = false;
+            this.DtgMalzList.AllowUserToDeleteRows = false;
+            this.DtgMalzList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMalzList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzList.Location = new System.Drawing.Point(3, 16);
+            this.DtgMalzList.Name = "DtgMalzList";
+            this.DtgMalzList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMalzList.Size = new System.Drawing.Size(919, 393);
+            this.DtgMalzList.TabIndex = 1;
             // 
             // panel2
             // 
@@ -771,9 +914,7 @@ namespace UserInterface.STS
             this.panel4.Controls.Add(this.Tutar1);
             this.panel4.Controls.Add(this.Tutar2);
             this.panel4.Controls.Add(this.Tutar7);
-            this.panel4.Controls.Add(this.BtnReddet);
             this.panel4.Controls.Add(this.Tutar6);
-            this.panel4.Controls.Add(this.BtnOnayla);
             this.panel4.Controls.Add(this.Tutar3);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Controls.Add(this.Tutar8);
@@ -835,6 +976,8 @@ namespace UserInterface.STS
             this.panel4.Controls.Add(this.label66);
             this.panel4.Controls.Add(this.label67);
             this.panel4.Controls.Add(this.label68);
+            this.panel4.Controls.Add(this.BtnReddet);
+            this.panel4.Controls.Add(this.BtnOnayla);
             this.panel4.Location = new System.Drawing.Point(6, 8);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1522, 347);
@@ -929,18 +1072,6 @@ namespace UserInterface.STS
             this.Tutar7.TextChanged += new System.EventHandler(this.Tutar7_TextChanged);
             this.Tutar7.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tutar7_KeyPress);
             // 
-            // BtnReddet
-            // 
-            this.BtnReddet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnReddet.Location = new System.Drawing.Point(725, 101);
-            this.BtnReddet.Name = "BtnReddet";
-            this.BtnReddet.Size = new System.Drawing.Size(111, 40);
-            this.BtnReddet.TabIndex = 2;
-            this.BtnReddet.Text = "REDDET";
-            this.BtnReddet.UseVisualStyleBackColor = true;
-            this.BtnReddet.Click += new System.EventHandler(this.BtnReddet_Click);
-            // 
             // Tutar6
             // 
             this.Tutar6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
@@ -950,18 +1081,6 @@ namespace UserInterface.STS
             this.Tutar6.TabIndex = 560;
             this.Tutar6.TextChanged += new System.EventHandler(this.Tutar6_TextChanged);
             this.Tutar6.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tutar6_KeyPress);
-            // 
-            // BtnOnayla
-            // 
-            this.BtnOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnOnayla.Location = new System.Drawing.Point(725, 55);
-            this.BtnOnayla.Name = "BtnOnayla";
-            this.BtnOnayla.Size = new System.Drawing.Size(111, 40);
-            this.BtnOnayla.TabIndex = 1;
-            this.BtnOnayla.Text = "ONAYLA";
-            this.BtnOnayla.UseVisualStyleBackColor = true;
-            this.BtnOnayla.Click += new System.EventHandler(this.BtnOnayla_Click);
             // 
             // Tutar3
             // 
@@ -1532,6 +1651,30 @@ namespace UserInterface.STS
             this.label68.Size = new System.Drawing.Size(14, 15);
             this.label68.TabIndex = 511;
             this.label68.Text = "9";
+            // 
+            // BtnReddet
+            // 
+            this.BtnReddet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnReddet.Location = new System.Drawing.Point(725, 101);
+            this.BtnReddet.Name = "BtnReddet";
+            this.BtnReddet.Size = new System.Drawing.Size(111, 40);
+            this.BtnReddet.TabIndex = 2;
+            this.BtnReddet.Text = "REDDET";
+            this.BtnReddet.UseVisualStyleBackColor = true;
+            this.BtnReddet.Click += new System.EventHandler(this.BtnReddet_Click);
+            // 
+            // BtnOnayla
+            // 
+            this.BtnOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnOnayla.Location = new System.Drawing.Point(725, 55);
+            this.BtnOnayla.Name = "BtnOnayla";
+            this.BtnOnayla.Size = new System.Drawing.Size(111, 40);
+            this.BtnOnayla.TabIndex = 1;
+            this.BtnOnayla.Text = "ONAYLA";
+            this.BtnOnayla.UseVisualStyleBackColor = true;
+            this.BtnOnayla.Click += new System.EventHandler(this.BtnOnayla_Click);
             // 
             // panel5
             // 
@@ -4753,6 +4896,10 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzList)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -5220,5 +5367,16 @@ namespace UserInterface.STS
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.RichTextBox TxtRetNedeni;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.GroupBox groupBox11;
+        private System.Windows.Forms.DataGridView DtgMalzList;
+        private System.Windows.Forms.Label LblGenelTop;
+        private System.Windows.Forms.Label label80;
+        private System.Windows.Forms.Label LblTop2;
+        private System.Windows.Forms.Label label78;
+        private System.Windows.Forms.ImageList ımageList2;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.Button BtnRed;
+        private System.Windows.Forms.Button BtnOnay;
     }
 }

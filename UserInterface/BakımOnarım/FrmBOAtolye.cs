@@ -496,13 +496,14 @@ namespace UserInterface.BakımOnarım
                     id = atolye1.Id;
                     GorevAtama();
                 }
+
                 //IscilikGir();
 
-                string mesaj = Bildirim();
-                if (mesaj!="OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //string mesaj = Bildirim();
+                //if (mesaj!="OK")
+                //{
+                //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -766,11 +767,11 @@ namespace UserInterface.BakımOnarım
                 }
                 //IscilikGir();
 
-                string mesaj2 = BildirimManuel();
-                if (mesaj2 != "OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //string mesaj2 = BildirimManuel();
+                //if (mesaj2 != "OK")
+                //{
+                //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BtnKaydet.Enabled = true;
