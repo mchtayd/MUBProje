@@ -86,7 +86,7 @@ namespace UserInterface.BakımOnarım
             dataBinder.DataSource = atolyes.ToDataTable();
             DtgDevamEden.DataSource = dataBinder;
 
-            DtgDevamEden.Columns["Id"].Visible = false;
+            DtgDevamEden.Columns["Id"].HeaderText = "KİMLİK";
             DtgDevamEden.Columns["AbfNo"].HeaderText = "ÜST TAKIM ABF NO";
             DtgDevamEden.Columns["StokNoUst"].HeaderText = "STOK NO";
             DtgDevamEden.Columns["TanimUst"].HeaderText = "TANIM";
@@ -353,7 +353,6 @@ namespace UserInterface.BakımOnarım
         string sure;
         private void işlemAdımSureleriniDuzeltToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
             id = DtgDevamEden.CurrentRow.Cells["Id"].Value.ConInt();
             gorevAtamaPersonels = gorevAtamaPersonelManager.GorevAtamaGetList(id);
             List<DateTime> times = new List<DateTime>();
@@ -388,7 +387,7 @@ namespace UserInterface.BakımOnarım
         private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmAtolyeDataGuncelle frmAtolyeDataGuncelle = new FrmAtolyeDataGuncelle();
-            frmAtolyeDataGuncelle.icSiparisNo = icSiparisNo;
+            frmAtolyeDataGuncelle.id = id;
             frmAtolyeDataGuncelle.ShowDialog();
         }
 
@@ -402,7 +401,7 @@ namespace UserInterface.BakımOnarım
             FrmBOAtolyeGuncelleme frmBOAtolyeGuncelleme = new FrmBOAtolyeGuncelleme();
             frmBOAtolyeGuncelleme.infos = infos;
             frmBOAtolyeGuncelleme.BtnCancel.Visible = false;
-            frmBOAtolyeGuncelleme.TxtIcSiparisNo.Text = icSiparisNo;
+            frmBOAtolyeGuncelleme.TxtIcSiparisNo.Text = id.ToString();
             frmBOAtolyeGuncelleme.personelAd = infos[1].ToString();
             frmBOAtolyeGuncelleme.BulClick();
             frmBOAtolyeGuncelleme.ShowDialog();
@@ -442,7 +441,12 @@ namespace UserInterface.BakımOnarım
                 }
 
                 string[] array = sure.Split(' ');
+                if (array.Length==2)
+                {
+                    return;
+                }
                 int mevcutDakika = array[4].ConInt();
+                
                 int mevcutSaat = array[2].ConInt();
                 int mevcutGun = array[0].ConInt();
 

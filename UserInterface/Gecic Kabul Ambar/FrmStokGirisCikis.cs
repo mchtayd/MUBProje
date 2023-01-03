@@ -501,7 +501,7 @@ namespace UserInterface.Depo
 
             if (abfFormNo==null)
             {
-                Atolye atolye = atolyeManager.Get(TxtBildirimdenDepoyaFormNo.Text);
+                Atolye atolye = atolyeManager.ArizaGetir(TxtBildirimdenDepoyaFormNo.Text.ConInt());
                 if (atolye==null)
                 {
                     LblBildirimdenDepoyaPersonel.Text = "00";
@@ -535,7 +535,7 @@ namespace UserInterface.Depo
             AbfFormNo abfFormNo = abfFormNoManager.PersonelSicil(TxtDepodanBildirimeAbfNo.Text);
             if (abfFormNo==null)
             {
-                Atolye atolye = atolyeManager.Get(TxtDepodanBildirimeAbfNo.Text);
+                Atolye atolye = atolyeManager.ArizaGetir(TxtDepodanBildirimeAbfNo.Text.ConInt());
                 if (atolye == null)
                 {
                     LblDepodanBildirimePersonel.Text = "00";

@@ -128,7 +128,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             DtgAtolye.DataSource = null;
-            atolyes = atolyeManager.AtolyeIcSiparis(TxtIcSiparisNo.Text);
+            atolyes = atolyeManager.AtolyeIcSiparis(TxtIcSiparisNo.Text.ConInt());
 
 
             foreach (Atolye item in atolyes)
@@ -136,7 +136,7 @@ namespace UserInterface.BakımOnarım
                 siparisNo = item.SiparisNo.ToString();
             }
 
-            Atolye atolye1 = atolyeManager.Get(TxtIcSiparisNo.Text);
+            Atolye atolye1 = atolyeManager.Get(siparisNo);
             if (atolye1 == null)
             {
                 return;
@@ -148,9 +148,16 @@ namespace UserInterface.BakımOnarım
             bulunduguIslemAdimi = atolye1.IslemAdimi;
 
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
-
+            if (gorevAtamaPersonel==null)
+            {
+                birOncekiTarih = DateTime.Now;
+            }
+            else
+            {
+                birOncekiTarih = gorevAtamaPersonel.Tarih;
+            }
             //bulunduguIslemAdimi = gorevAtamaPersonel.IslemAdimi;
-            birOncekiTarih = gorevAtamaPersonel.Tarih;
+            
             LblMevcutIslemAdimi.Text = bulunduguIslemAdimi;
 
             //TimeSpan sonuc = DateTime.Now - birOncekiTarih.AddDays(1);
@@ -176,7 +183,7 @@ namespace UserInterface.BakımOnarım
 
             DtgAtolye.DataSource = atolyeMalzemeManager.AtolyeMalzemeBul(siparisNo);
 
-            DtgAtolye.Columns["Id"].Visible = false;
+            DtgAtolye.Columns["Id"].HeaderText = "KİMLİK";
             DtgAtolye.Columns["FormNo"].HeaderText = "FORM NO";
             DtgAtolye.Columns["StokNo"].HeaderText = "STOK NO";
             DtgAtolye.Columns["Tanim"].HeaderText = "TANIM";
@@ -625,7 +632,11 @@ namespace UserInterface.BakımOnarım
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-
+            DialogResult dr = MessageBox.Show("İşlem adımını güncellemek istediğinze emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr!=DialogResult.Yes)
+            {
+                return;
+            }
 
             /*if (TxtYapilanIslemler.Text=="")
             {
@@ -705,7 +716,10 @@ namespace UserInterface.BakımOnarım
             string mesaj3 = Bildirim();
             if (mesaj3 != "OK")
             {
-                MessageBox.Show(mesaj3, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (mesaj3 != "Server Ayarı Kapalı")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
 
             else
@@ -848,7 +862,9 @@ namespace UserInterface.BakımOnarım
         {
             //icSiparis
 
-            Atolye atolye3 = atolyeManager.Get(icSiparis);
+            //return "OK";
+
+            Atolye atolye3 = atolyeManager.Get(siparisNo);
             if (atolye3 == null)
             {
                 return "Kayıt Bulunamadı!";

@@ -233,7 +233,12 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeListesi.Columns["TakilanBirim"].Visible = false;
             DtgMalzemeListesi.Columns["TakilanCalismaSaati"].Visible = false;
             DtgMalzemeListesi.Columns["TakilanRevizyon"].Visible = false;
-
+            DtgMalzemeListesi.Columns["TeminDurumu"].Visible = false;
+            DtgMalzemeListesi.Columns["AbfNo"].Visible = false;
+            DtgMalzemeListesi.Columns["AbTarihSaat"].Visible = false;
+            DtgMalzemeListesi.Columns["TemineAtilamTarihi"].Visible = false;
+            DtgMalzemeListesi.Columns["MalzemeDurumu"].Visible = false;
+            DtgMalzemeListesi.Columns["MalzemeIslemAdimi"].Visible = false;
         }
         string Konrol()
         {

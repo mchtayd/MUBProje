@@ -446,7 +446,15 @@ namespace UserInterface.IdariIsler
             {
                 return;
             }
+            if (TxtAdSoyad.SelectedIndex==-1)
+            {
+                return;
+            }
             PersonelKayit personelKayit = personelKayitManager.Get(0, TxtAdSoyad.Text);
+            if (personelKayit==null)
+            {
+                return;
+            }
             CmbSiparisNo.Text = personelKayit.Siparis;
             TxtGorevi.Text = personelKayit.Isunvani;
             TxtMasrafyeriNo.Text = personelKayit.Masyerino;

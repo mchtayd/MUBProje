@@ -76,10 +76,9 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return atolyeMalzemes;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-
-                throw;
+                return null;
             }
         }
         public List<AtolyeMalzeme> AtolyeBakimOnarimMalzeme()
@@ -91,6 +90,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 while (dataReader.Read())
                 {
                     atolyeMalzemes.Add(new AtolyeMalzeme(
+                        dataReader["ID"].ConInt(),
                         dataReader["FORM_NO"].ConInt(),
                         dataReader["SOKULEN_STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
@@ -119,6 +119,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 while (dataReader.Read())
                 {
                     atolyeMalzemes.Add(new AtolyeMalzeme(
+                        dataReader["ID"].ConInt(),
                         dataReader["FORM_NO"].ConInt(),
                         dataReader["SOKULEN_STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),

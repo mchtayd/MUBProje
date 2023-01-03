@@ -98,6 +98,12 @@ namespace UserInterface.BakımOnarım
             DtgEklenecekMalzemeler.Columns["TakilanSeriNo"].HeaderText = "TAKILAN SERİ NO";
             DtgEklenecekMalzemeler.Columns["TakilanCalismaSaati"].HeaderText = "TAKILAN ÇALIŞMA SAATİ";
             DtgEklenecekMalzemeler.Columns["TakilanRevizyon"].HeaderText = "TAKILAN REVİZYON";
+            DtgEklenecekMalzemeler.Columns["TeminDurumu"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["AbfNo"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["AbTarihSaat"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["TemineAtilamTarihi"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["MalzemeDurumu"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["MalzemeIslemAdimi"].Visible = false;
         }
         string stokNo, tanim, birim;
         private void DtgList_MouseDoubleClick(object sender, MouseEventArgs e)

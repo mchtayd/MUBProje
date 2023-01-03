@@ -104,7 +104,47 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["TAKILAN_BIRIM"].ToString(),
                         dataReader["TAKILAN_CALISMA_SAATI"].ConDouble(),
                         dataReader["TAKILAN_REVIZYON_NO"].ToString(),
-                        dataReader["TEMIN_DURUMU"].ToString()));
+                        dataReader["TEMIN_DURUMU"].ToString(),
+                        dataReader["MALZEME_ISLEM_ADIMI"].ToString()));
+                }
+                dataReader.Close();
+                return abfMalzemes;
+            }
+            catch (Exception ex)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
+        public List<AbfMalzeme> GetListStok(string stokNo)
+        {
+            try
+            {
+                List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                dataReader = sqlServices.StoreReader("AbfMalzemeStokList", new SqlParameter("@stokNo", stokNo));
+                while (dataReader.Read())
+                {
+                    abfMalzemes.Add(new AbfMalzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConInt(),
+                        dataReader["SOKULEN_BIRIM"].ToString(),
+                        dataReader["SOKULEN_CALISMA_SAATI"].ConDouble(),
+                        dataReader["SOKULEN_REVIZYON_NO"].ToString(),
+                        dataReader["CALISMA_DURUMU"].ToString(),
+                        dataReader["FIZIKSEL_DURUMU"].ToString(),
+                        dataReader["YAPILACAK_ISLEM"].ToString(),
+                        dataReader["TAKILAN_STOK_NO"].ToString(),
+                        dataReader["TAKILAN_TANIM"].ToString(),
+                        dataReader["TAKILAN_SERI_NO"].ToString(),
+                        dataReader["TAKILAN_MIKTAR"].ConInt(),
+                        dataReader["TAKILAN_BIRIM"].ToString(),
+                        dataReader["TAKILAN_CALISMA_SAATI"].ConDouble(),
+                        dataReader["TAKILAN_REVIZYON_NO"].ToString(),
+                        dataReader["TEMIN_DURUMU"].ToString(),
+                        dataReader["MALZEME_ISLEM_ADIMI"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;
@@ -136,12 +176,13 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ABF_FORM_NO"].ConInt(),
                         dataReader["AB_TARIH_SAAT"].ConDate(),
                         dataReader["TEMINE_ATILMA_TARIHI"].ConDate(),
-                        dataReader["TEMIN_DURUMU"].ToString()));
+                        dataReader["TEMIN_DURUMU"].ToString(),
+                        dataReader["MALZEME_ISLEM_ADIMI"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<AbfMalzeme>();
             }
@@ -191,14 +232,15 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public string TeminBilgisi(int id, string teminBilgisi,string temineGonderen)
+        public string TeminBilgisi(int id, string teminBilgisi, string temineGonderen, string malzemeIslemAdimi)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("AbfMalzemeTemin",
                     new SqlParameter("@id", id),
                     new SqlParameter("@teminBilgisi", teminBilgisi),
-                    new SqlParameter("@temineGonderen", temineGonderen));
+                    new SqlParameter("@temineGonderen", temineGonderen),
+                    new SqlParameter("@malzemeIslemAdimi", malzemeIslemAdimi));
 
                 dataReader.Close();
                 return "OK";

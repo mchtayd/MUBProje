@@ -84,11 +84,11 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             }
         }
 
-        public Atolye Get(string icSiparisNo)
+        public Atolye Get(string siparisNo)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("AtolyeListele",new SqlParameter("@icSiparisNo",icSiparisNo));
+                dataReader = sqlServices.StoreReader("AtolyeListele",new SqlParameter("@siparisNo", siparisNo));
                 Atolye item = null;
                 while (dataReader.Read())
                 {
@@ -126,12 +126,12 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             }
         }
 
-        public List<Atolye> AtolyeIcSiparis(string icSiparisNo)
+        public List<Atolye> AtolyeIcSiparis(int id)
         {
             try
             {
                 List<Atolye> atolyes = new List<Atolye>();
-                dataReader = sqlServices.StoreReader("AtolyeListele",new SqlParameter("@icSiparisNo", icSiparisNo));
+                dataReader = sqlServices.StoreReader("AtolyeListeleId", new SqlParameter("@id", id));
                 while (dataReader.Read())
                 {
                     atolyes.Add(new Atolye(
@@ -276,7 +276,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 dataReader.Close();
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }

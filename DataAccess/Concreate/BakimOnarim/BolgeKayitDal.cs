@@ -238,7 +238,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@pypNo", entity.PypNo),
                     new SqlParameter("@proje", entity.Proje),
                     new SqlParameter("@garantiBaslama", entity.GarantiBaslama),
-                    new SqlParameter("@garantiBitis", entity.GarantiBitis));
+                    new SqlParameter("@garantiBitis", entity.GarantiBitis),
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
 
                 dataReader.Close();
                 return "OK";

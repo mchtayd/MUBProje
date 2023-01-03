@@ -3,6 +3,7 @@ using Business.Concreate.AnaSayfa;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using Entity;
 using Entity.AnaSayfa;
 using Entity.IdariIsler;
 using System;
@@ -32,6 +33,7 @@ namespace UserInterface.IdariIsler
         BildirimYetkiManager bildirimYetkiManager;
 
         List<string> fileNames = new List<string>();
+        List<Combo> combos = new List<Combo>();
         public object[] infos;
         string dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun, comboAd;
         int id, idC;
@@ -73,6 +75,7 @@ namespace UserInterface.IdariIsler
             ComboProje();
             ComboProjeGun();
             ComboMulkiyetBilgileri();
+            ComboProjeCikis();
             gec = false;
             mulkiket = false;
         }
@@ -83,19 +86,28 @@ namespace UserInterface.IdariIsler
             CmbMulkiyetBilgileri.DisplayMember = "Baslik";
             CmbMulkiyetBilgileri.SelectedValue = 0;
         }
+        
         public void ComboProje()
         {
-            CmbProje.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
+            combos = comboManager.GetList("SİPARİŞLER PROJE");
+            CmbProje.DataSource = combos;
             CmbProje.ValueMember = "Id";
             CmbProje.DisplayMember = "Baslik";
             CmbProje.SelectedValue = 0;
         }
         public void ComboProjeGun()
         {
-            CmbProjeGun.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
+            CmbProjeGun.DataSource = combos;
             CmbProjeGun.ValueMember = "Id";
             CmbProjeGun.DisplayMember = "Baslik";
             CmbProjeGun.SelectedValue = 0;
+        }
+        public void ComboProjeCikis()
+        {
+            CmbProjeC.DataSource = combos;
+            CmbProjeC.ValueMember = "Id";
+            CmbProjeC.DisplayMember = "Baslik";
+            CmbProjeC.SelectedValue = 0;
         }
         public void YenilecekVeriler()
         {
@@ -106,6 +118,7 @@ namespace UserInterface.IdariIsler
             ComboProje();
             ComboProjeGun();
             ComboMulkiyetBilgileri();
+            ComboProjeCikis();
             mulkiket = false;
             gec = false;
         }
@@ -319,6 +332,7 @@ namespace UserInterface.IdariIsler
                 TemizleGuncelle();
                 return;
             }
+            TxtPlakaGun.Text.ToUpper();
             id = arac.Id;
             DtilkTecilTarihiGun.Value = arac.IlkTescilTarihi;
             DtTecilTarihiGun.Value = arac.TescilTarihi;
@@ -341,7 +355,11 @@ namespace UserInterface.IdariIsler
             TxtProjeCikisNedeni.Text = arac.ProjeCikisNedeni;
             TxtAciklamaGun.Text = arac.Aciklama;
             dosyaYoluGun = arac.DosyaYolu;
-            DtProjeCikisTarihiC.Text = arac.ProjeCikisTarihi;
+            DtProjeCikisTarihi.Text = arac.ProjeCikisTarihi;
+            TxtProjeyeTahsisKmGun.Text = arac.ProjeTahsisTarihi.ToString();
+            TxtProjeCikisKmGun.Text = arac.KmCikis.ToString();
+            TxtProjeCikisNedeni.Text = arac.ProjeCikisNedeni;
+
             webBrowser2.Navigate(dosyaYoluGun);
         }
 
@@ -414,7 +432,7 @@ namespace UserInterface.IdariIsler
         {
             TxtPlakaC.Clear(); TxtMarkasiC.Clear(); TxtTipiC.Clear(); TxtTicariAdiC.Clear(); TxtModeliC.Clear(); TxtSinifiC.Clear();
             TxtCinsiC.Clear(); TxtRengiC.Clear(); TxtMotorNoC.Clear(); TxtSaseNoC.Clear(); CmbYakitCinsiC.Text = ""; CmbMulkiyetBilgileriC.Text = "";
-            CmbProjeC.Text = ""; CmbSiparisNoC.Text = ""; TxtTasitTanimaC.Clear(); TxtArventoIdC.Clear(); DtProjeCikisTarihiC.Clear(); TxAciklamaC.Clear(); TxtProjeCikisNedeniC.Clear(); webBrowser3.Navigate(""); TxtProjeCikisNedeniC.Clear();
+            CmbProjeC.SelectedIndex = -1; CmbSiparisNoC.Text = ""; TxtTasitTanimaC.Clear(); TxtArventoIdC.Clear(); DtProjeCikisTarihiC.Clear(); TxAciklamaC.Clear(); TxtProjeCikisNedeniC.Clear(); webBrowser3.Navigate(""); TxtProjeCikisNedeniC.Clear();
         }
         private void BtnTemizleC_Click(object sender, EventArgs e)
         {
@@ -462,6 +480,7 @@ namespace UserInterface.IdariIsler
                 TemizleGuncelle();
                 return;
             }
+            TxtPlakaC.Text.ToUpper();
             idC = arac.Id;
             DtilkTecilTarihiC.Value = arac.IlkTescilTarihi;
             DtTecilTarihiC.Value = arac.TescilTarihi;
@@ -487,6 +506,7 @@ namespace UserInterface.IdariIsler
             TxtRengiC.Text = arac.Rengi;
             DtProjeCikisTarihiC.Text = arac.ProjeCikisTarihi;
             TxtProjeyeTahsisKmC.Text = arac.KmGiris.ToString();
+
             webBrowser3.Navigate(dosyaYoluC);
 
         }

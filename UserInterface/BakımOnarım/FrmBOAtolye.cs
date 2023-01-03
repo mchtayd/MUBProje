@@ -481,29 +481,32 @@ namespace UserInterface.BakımOnarım
 
                 }
 
-                if (IcSiparisler.Count > 0)
+                if (SiparisNos.Count > 0)
                 {
-                    for (int i = 0; i < IcSiparisler.Count; i++)
+                    for (int i = 0; i < SiparisNos.Count; i++)
                     {
-                        Atolye atolye2 = atolyeManager.Get(IcSiparisler[i].ToString());
+                        Atolye atolye2 = atolyeManager.Get(SiparisNos[i].ToString());
                         id = atolye2.Id;
                         GorevAtama();
                     }
                 }
                 else
                 {
-                    Atolye atolye1 = atolyeManager.Get(LblIcSiparisNo.Text);
+                    Atolye atolye1 = atolyeManager.Get(siparisNo);
                     id = atolye1.Id;
                     GorevAtama();
                 }
 
                 //IscilikGir();
 
-                //string mesaj = Bildirim();
-                //if (mesaj!="OK")
-                //{
-                //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                string mesaj = Bildirim();
+                if (mesaj != "OK")
+                {
+                    if (mesaj != "Server Ayarı Kapalı")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -526,9 +529,9 @@ namespace UserInterface.BakımOnarım
             array[0] = "Atölye Sipariş Açma"; // Bildirim Başlık
             array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
 
-            if (IcSiparisler[0].ToString() != null)
+            if (SiparisNos[0].ToString() != null)
             {
-                array[2] = IcSiparisler[0].ToString();
+                array[2] = SiparisNos[0].ToString();
             }
             else
             {
@@ -710,11 +713,11 @@ namespace UserInterface.BakımOnarım
             if (dr == DialogResult.Yes)
             {
                 CreateFileManuel();
-                if (IcSiparisler.Count > 0)
+                if (SiparisNos.Count > 0)
                 {
                     //EditSiparisNos();
                     
-                    for (int i = 0; i < IcSiparisler.Count; i++)
+                    for (int i = 0; i < SiparisNos.Count; i++)
                     {
                         siparisNo = Guid.NewGuid().ToString();
 
@@ -750,28 +753,31 @@ namespace UserInterface.BakımOnarım
 
                 }
 
-                if (IcSiparisler.Count > 0)
+                if (SiparisNos.Count > 0)
                 {
-                    for (int i = 0; i < IcSiparisler.Count; i++)
+                    for (int i = 0; i < SiparisNos.Count; i++)
                     {
-                        Atolye atolye2 = atolyeManager.Get(IcSiparisler[i].ToString());
+                        Atolye atolye2 = atolyeManager.Get(SiparisNos[i].ToString());
                         id = atolye2.Id;
                         GorevAtamaManuel();
                     }
                 }
                 else
                 {
-                    Atolye atolye1 = atolyeManager.Get(LblIcSiparisNo.Text);
+                    Atolye atolye1 = atolyeManager.Get(siparisNo);
                     id = atolye1.Id;
                     GorevAtamaManuel();
                 }
                 //IscilikGir();
 
-                //string mesaj2 = BildirimManuel();
-                //if (mesaj2 != "OK")
-                //{
-                //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //}
+                string mesaj2 = BildirimManuel();
+                if (mesaj2 != "OK")
+                {
+                    if (mesaj2 != "Server Ayarı Kapalı")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BtnKaydet.Enabled = true;

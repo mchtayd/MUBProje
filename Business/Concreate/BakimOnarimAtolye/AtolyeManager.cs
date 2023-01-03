@@ -54,11 +54,11 @@ namespace Business.Concreate.BakimOnarimAtolye
             }
         }
 
-        public Atolye Get(string icSiparisNo)
+        public Atolye Get(string siparisNo)
         {
             try
             {
-                return atolyeDal.Get(icSiparisNo);
+                return atolyeDal.Get(siparisNo);
             }
             catch (Exception)
             {
@@ -99,11 +99,11 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return new List<Atolye>();
             }
         }
-        public List<Atolye> AtolyeIcSiparis(string icSiparisNo)
+        public List<Atolye> AtolyeIcSiparis(int id)
         {
             try
             {
-                return atolyeDal.AtolyeIcSiparis(icSiparisNo);
+                return atolyeDal.AtolyeIcSiparis(id);
             }
             catch (Exception)
             {

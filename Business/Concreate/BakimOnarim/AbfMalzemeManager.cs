@@ -70,6 +70,17 @@ namespace Business.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
+        public List<AbfMalzeme> GetListStok(string stokNo)
+        {
+            try
+            {
+                return abfMalzemeDal.GetListStok(stokNo);
+            }
+            catch (Exception)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
         public List<AbfMalzeme> TeminGetList(string teminDurumu, int abfNo = 0)
         {
             try
@@ -104,11 +115,11 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public string TeminBilgisi(int id, string teminBilgisi, string temineGonderen)
+        public string TeminBilgisi(int id, string teminBilgisi, string temineGonderen, string malzemeIslemAdimi)
         {
             try
             {
-                return abfMalzemeDal.TeminBilgisi(id, teminBilgisi, temineGonderen);
+                return abfMalzemeDal.TeminBilgisi(id, teminBilgisi, temineGonderen, malzemeIslemAdimi);
             }
             catch (Exception ex)
             {

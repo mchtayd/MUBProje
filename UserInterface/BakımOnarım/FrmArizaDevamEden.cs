@@ -311,6 +311,12 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeListesi.Columns["TakilanBirim"].HeaderText = "TAKILAN BİRİM";
             DtgMalzemeListesi.Columns["TakilanCalismaSaati"].HeaderText = "TAKILAN ÇALIŞMA SAATİ";
             DtgMalzemeListesi.Columns["TakilanRevizyon"].HeaderText = "TAKILAN REVİZYON";
+            DtgMalzemeListesi.Columns["TeminDurumu"].HeaderText = "MALZEME DURUMU";
+            DtgMalzemeListesi.Columns["AbfNo"].Visible = false;
+            DtgMalzemeListesi.Columns["AbTarihSaat"].Visible = false;
+            DtgMalzemeListesi.Columns["TemineAtilamTarihi"].Visible = false;
+            DtgMalzemeListesi.Columns["MalzemeDurumu"].Visible = false;
+            DtgMalzemeListesi.Columns["MalzemeIslemAdimi"].HeaderText = "İŞLEM DURUMU";
 
         }
         void DepoHareketleri()

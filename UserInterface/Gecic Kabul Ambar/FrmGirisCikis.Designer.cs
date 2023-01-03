@@ -117,6 +117,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.Column18 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TeminTuru = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,9 +138,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.BtnKaydet = new System.Windows.Forms.Button();
             this.BtnStokDuzelt = new System.Windows.Forms.Button();
-            this.BtnTemizle = new System.Windows.Forms.Button();
             this.LblToplam = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.TmrBarcode = new System.Windows.Forms.Timer(this.components);
@@ -167,6 +166,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label42 = new System.Windows.Forms.Label();
             this.CmbStokManuel = new System.Windows.Forms.ComboBox();
             this.label43 = new System.Windows.Forms.Label();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnTemizle = new System.Windows.Forms.Button();
+            this.BtnKaydet = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.GrbIslemYapılacakDepo.SuspendLayout();
             this.GrbBildirimdenDepoya.SuspendLayout();
@@ -1044,7 +1046,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox2.Controls.Add(this.DtgList);
             this.groupBox2.Location = new System.Drawing.Point(12, 497);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1422, 292);
+            this.groupBox2.Size = new System.Drawing.Size(1428, 292);
             this.groupBox2.TabIndex = 341;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "STOK GİRİŞ ÇIKIŞ LİSTESİ";
@@ -1057,6 +1059,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column18,
+            this.TeminTuru,
             this.Column13,
             this.Column2,
             this.Column3,
@@ -1080,7 +1083,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
-            this.DtgList.Size = new System.Drawing.Size(1416, 273);
+            this.DtgList.Size = new System.Drawing.Size(1422, 273);
             this.DtgList.TabIndex = 2;
             this.DtgList.TimeFilter = false;
             // 
@@ -1090,6 +1093,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.Column18.MinimumWidth = 22;
             this.Column18.Name = "Column18";
             this.Column18.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // TeminTuru
+            // 
+            this.TeminTuru.HeaderText = "TEMİN TÜRÜ";
+            this.TeminTuru.MinimumWidth = 22;
+            this.TeminTuru.Name = "TeminTuru";
+            this.TeminTuru.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TeminTuru.Visible = false;
             // 
             // Column13
             // 
@@ -1231,23 +1242,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.silToolStripMenuItem.Text = "Sil";
             this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
             // 
-            // BtnKaydet
-            // 
-            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 795);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(103, 43);
-            this.BtnKaydet.TabIndex = 342;
-            this.BtnKaydet.Text = "KAYDET";
-            this.BtnKaydet.UseVisualStyleBackColor = true;
-            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
             // BtnStokDuzelt
             // 
             this.BtnStokDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnStokDuzelt.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnStokDuzelt.Location = new System.Drawing.Point(229, 795);
+            this.BtnStokDuzelt.Location = new System.Drawing.Point(287, 796);
             this.BtnStokDuzelt.Name = "BtnStokDuzelt";
             this.BtnStokDuzelt.Size = new System.Drawing.Size(103, 43);
             this.BtnStokDuzelt.TabIndex = 343;
@@ -1255,18 +1254,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnStokDuzelt.UseVisualStyleBackColor = true;
             this.BtnStokDuzelt.Visible = false;
             this.BtnStokDuzelt.Click += new System.EventHandler(this.BtnStokDuzelt_Click_1);
-            // 
-            // BtnTemizle
-            // 
-            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(120, 795);
-            this.BtnTemizle.Name = "BtnTemizle";
-            this.BtnTemizle.Size = new System.Drawing.Size(103, 43);
-            this.BtnTemizle.TabIndex = 344;
-            this.BtnTemizle.Text = "TEMİZLE";
-            this.BtnTemizle.UseVisualStyleBackColor = true;
-            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
             // 
             // LblToplam
             // 
@@ -1332,9 +1319,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbManuelStok.Controls.Add(this.label42);
             this.GrbManuelStok.Controls.Add(this.CmbStokManuel);
             this.GrbManuelStok.Controls.Add(this.label43);
-            this.GrbManuelStok.Location = new System.Drawing.Point(9, 336);
+            this.GrbManuelStok.Location = new System.Drawing.Point(12, 336);
             this.GrbManuelStok.Name = "GrbManuelStok";
-            this.GrbManuelStok.Size = new System.Drawing.Size(1434, 155);
+            this.GrbManuelStok.Size = new System.Drawing.Size(1428, 155);
             this.GrbManuelStok.TabIndex = 349;
             this.GrbManuelStok.TabStop = false;
             this.GrbManuelStok.Text = "İŞLEM YAPILACAK MALZEME BİLGİSİ";
@@ -1562,20 +1549,59 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label43.TabIndex = 47;
             this.label43.Text = "STOK NO:";
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "broom.png");
+            // 
+            // BtnTemizle
+            // 
+            this.BtnTemizle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTemizle.ImageKey = "broom.png";
+            this.BtnTemizle.ImageList = this.ımageList1;
+            this.BtnTemizle.Location = new System.Drawing.Point(151, 792);
+            this.BtnTemizle.Name = "BtnTemizle";
+            this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
+            this.BtnTemizle.TabIndex = 426;
+            this.BtnTemizle.Text = "   TEMİZLE";
+            this.BtnTemizle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTemizle.UseVisualStyleBackColor = false;
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
+            // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(15, 792);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 425;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click_1);
+            // 
             // FrmGirisCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1446, 850);
+            this.Controls.Add(this.BtnTemizle);
+            this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.GrbManuelStok);
             this.Controls.Add(this.CmbDusumTuru);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.LblToplam);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.GrbIslemYapılacakDepo);
-            this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnStokDuzelt);
-            this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.TxtAciklama);
             this.Controls.Add(this.label38);
@@ -1710,31 +1736,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.GroupBox groupBox2;
         private ADGV.AdvancedDataGridView DtgList;
-        private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Button BtnStokDuzelt;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
         private System.Windows.Forms.Button BtnBul;
-        private System.Windows.Forms.Button BtnTemizle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.Label LblToplam;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Timer TmrBarcode;
@@ -1762,5 +1767,28 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.DataGridViewTextBoxColumn SeriLotNo;
         private System.Windows.Forms.DataGridViewTextBoxColumn Rev;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column18;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TeminTuru;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column15;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column16;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column17;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.Button BtnTemizle;
+        private System.Windows.Forms.Button BtnKaydet;
     }
 }

@@ -75,7 +75,10 @@ namespace UserInterface.BakımOnarım
                 string bildirim = Bildirim();
                 if (bildirim!="OK")
                 {
-                    MessageBox.Show(bildirim, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (bildirim != "Server Ayarı Kapalı")
+                    {
+                        MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
@@ -175,7 +178,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
 
-            atolyes = atolyeManager.AtolyeIcSiparis(TxtIcSiparisNo.Text);
+            atolyes = atolyeManager.AtolyeIcSiparis(TxtIcSiparisNo.Text.ConInt());
             if (atolyes.Count==0)
             {
                 MessageBox.Show("Girmiş Oludğunuz İç Sipariş Numarasına Göre Bir Kayıt Bulunamamıştır!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
@@ -187,7 +190,7 @@ namespace UserInterface.BakımOnarım
                 siparisNo = item.SiparisNo.ToString();
             }
 
-            Atolye atolye = atolyeManager.Get(TxtIcSiparisNo.Text);
+            Atolye atolye = atolyeManager.Get(siparisNo);
             if (atolye==null)
             {
                 MessageBox.Show("Girmiş Oludğunuz İç Sipariş Numarasına Göre Bir Kayıt Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);

@@ -146,11 +146,11 @@ namespace UserInterface.BakımOnarım
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(15, 47);
+            this.label22.Location = new System.Drawing.Point(54, 47);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(84, 13);
+            this.label22.Size = new System.Drawing.Size(45, 13);
             this.label22.TabIndex = 322;
-            this.label22.Text = "İÇ SİPARİŞ NO:";
+            this.label22.Text = "KİMLİK:";
             // 
             // TxtIcSiparisNo
             // 

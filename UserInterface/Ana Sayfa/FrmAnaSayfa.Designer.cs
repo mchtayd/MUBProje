@@ -1344,7 +1344,7 @@ namespace UserInterface.STS
             this.içeAktarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.içeAktarToolStripMenuItem.Name = "içeAktarToolStripMenuItem";
-            this.içeAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.içeAktarToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
             this.içeAktarToolStripMenuItem.Text = "Paylaş";
             // 
             // toolStripMenuItem1
@@ -1360,26 +1360,26 @@ namespace UserInterface.STS
             this.pDFToolStripMenuItem1,
             this.wORDToolStripMenuItem});
             this.dışaAktarToolStripMenuItem.Name = "dışaAktarToolStripMenuItem";
-            this.dışaAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.dışaAktarToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
             this.dışaAktarToolStripMenuItem.Text = "Dışa Aktar";
             // 
             // excelToolStripMenuItem1
             // 
             this.excelToolStripMenuItem1.Name = "excelToolStripMenuItem1";
-            this.excelToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+            this.excelToolStripMenuItem1.Size = new System.Drawing.Size(118, 26);
             this.excelToolStripMenuItem1.Text = "Excel";
             this.excelToolStripMenuItem1.Click += new System.EventHandler(this.excelToolStripMenuItem1_Click);
             // 
             // pDFToolStripMenuItem1
             // 
             this.pDFToolStripMenuItem1.Name = "pDFToolStripMenuItem1";
-            this.pDFToolStripMenuItem1.Size = new System.Drawing.Size(180, 26);
+            this.pDFToolStripMenuItem1.Size = new System.Drawing.Size(118, 26);
             this.pDFToolStripMenuItem1.Text = "PDF";
             // 
             // wORDToolStripMenuItem
             // 
             this.wORDToolStripMenuItem.Name = "wORDToolStripMenuItem";
-            this.wORDToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.wORDToolStripMenuItem.Size = new System.Drawing.Size(118, 26);
             this.wORDToolStripMenuItem.Text = "Word";
             // 
             // sayfalar
@@ -1899,7 +1899,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.ImageList ImagesLogin;
         private System.Windows.Forms.DataGridViewTextBoxColumn PersonelAd;
         private System.Windows.Forms.DataGridViewImageColumn Durum;
-        private System.Windows.Forms.Timer timerOnline;
         private System.Windows.Forms.Timer TimerFileRead;
+        public System.Windows.Forms.Timer timerOnline;
     }
 }

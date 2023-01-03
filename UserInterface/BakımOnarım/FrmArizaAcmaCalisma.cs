@@ -555,7 +555,12 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeList.Columns["TakilanSeriNo"].HeaderText = "TAKILAN SERİ NO";
             DtgMalzemeList.Columns["TakilanCalismaSaati"].HeaderText = "TAKILAN ÇALIŞMA SAATİ";
             DtgMalzemeList.Columns["TakilanRevizyon"].HeaderText = "TAKILAN REVİZYON";
-
+            DtgMalzemeList.Columns["MalzemeIslemAdimi"].Visible = false;
+            DtgMalzemeList.Columns["MalzemeDurumu"].Visible = false;
+            DtgMalzemeList.Columns["TemineAtilamTarihi"].Visible = false;
+            DtgMalzemeList.Columns["AbTarihSaat"].Visible = false;
+            DtgMalzemeList.Columns["AbfNo"].Visible = false;
+            DtgMalzemeList.Columns["TeminDurumu"].Visible = false;
             #region FilTools
 
             /*

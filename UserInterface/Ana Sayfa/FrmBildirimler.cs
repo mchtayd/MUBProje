@@ -80,9 +80,9 @@ namespace UserInterface.Ana_Sayfa
                 }
             }
 
-            
 
-            
+
+
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -110,7 +110,8 @@ namespace UserInterface.Ana_Sayfa
             BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
             if (bildirimYetki == null)
             {
-                array[7] = infos[0].ToString();
+                //array[7] = infos[0].ToString();
+                array[7] = "25;26;27";
             }
             else
             {

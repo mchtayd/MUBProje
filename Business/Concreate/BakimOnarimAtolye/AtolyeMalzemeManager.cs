@@ -71,8 +71,7 @@ namespace Business.Concreate.BakimOnarimAtolye
             }
             catch (Exception)
             {
-
-                throw;
+                return null;
             }
         }
 

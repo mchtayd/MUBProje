@@ -125,6 +125,7 @@ namespace UserInterface.STS
             DtgDevamEden.Columns["OdemeMailGondermeDate"].HeaderText = "ÖDEME MAİLİ GÖNDERME TARİHİ";
             DtgDevamEden.Columns["OdemeMailAlmaDate"].HeaderText = "ÖDEME MAİLİ ALMA TARİHİ";
             DtgDevamEden.Columns["DepoTeslimTarihi"].HeaderText = "DEPO TESLİM TARİHİ";
+            DtgDevamEden.Columns["DepoTeslimBilgisi"].HeaderText = "DEPOYA TESLİM DURUMU";
         }
 
         private void Temizle()

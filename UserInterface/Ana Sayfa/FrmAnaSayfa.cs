@@ -137,6 +137,13 @@ namespace UserInterface.STS
 
             DosyaControl();
             TimerFileRead.Start();
+            ServerAyarlar();
+        }
+        void ServerAyarlar()
+        {
+            FrmServer frmServer = new FrmServer();
+            frmServer.infos = infos;
+            frmServer.AyarControl();
         }
 
         DateTime giris = DateTime.Now;
@@ -2144,6 +2151,15 @@ namespace UserInterface.STS
                         form.Yenilenecekler();
                     }
                 }
+
+                if (baslik == "MALZEME HAZIRLAMA")
+                {
+                    var form = (FrmMalzemeHazirlama)Application.OpenForms["FrmMalzemeHazirlama"];
+                    if (form != null)
+                    {
+                        form.Yenile();
+                    }
+                }
             }
 
         }
@@ -3221,6 +3237,16 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageMalzemeHazirmala", "MALZEME HAZIRLAMA", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+            if (e.Node.Text == "Bölgeden İade Gelen Malzeme")
+            {
+                FrmBolgedenGelecekMlz Go = new FrmBolgedenGelecekMlz();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageGelecekMalzeme", "BÖLGEDEN İADE GELECEK MALZEME", Go);
                 Go.infos = infos;
                 Go.Show();
             }

@@ -1,10 +1,12 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.Butce;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using DataAccess.Concreate.AnaSayfa;
 using Entity;
 using Entity.BakimOnarim;
 using Entity.Butce;
@@ -20,6 +22,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.STS;
 
 namespace UserInterface.Ana_Sayfa
 {
@@ -46,13 +49,14 @@ namespace UserInterface.Ana_Sayfa
         ArizaKayitManager arizaKayitManager;
         IscilikPerformansManager iscilikPerformansManager;
         DtfManager dtfManager;
+        ServerAyarlarManager serverAyarlarManager;
 
         List<string> sqlBasliklar = new List<string>();
         List<IsAkisNo> ısAkisNos = new List<IsAkisNo>();
         List<IsAkisNo> ısAkisNos2 = new List<IsAkisNo>();
 
         public object[] infos;
-        string dosyaYolu;
+        string dosyaYolu, onlineYenileme, bildirimAlma;
         int satNo;
         public FrmServer()
         {
@@ -76,6 +80,7 @@ namespace UserInterface.Ana_Sayfa
             arizaKayitManager = ArizaKayitManager.GetInstance();
             iscilikPerformansManager = IscilikPerformansManager.GetInstance();
             dtfManager = DtfManager.GetInstance();
+            serverAyarlarManager = ServerAyarlarManager.GetInstance();
 
         }
 
@@ -86,7 +91,44 @@ namespace UserInterface.Ana_Sayfa
             {
                 tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
             }
+            AyarControl();
         }
+
+        public void AyarControl()
+        {
+            ServerAyarlar serverAyarlar = serverAyarlarManager.Get(infos[1].ToString());
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            if (serverAyarlar==null)
+            {
+                ChkOnlineRefrec.Checked = false;
+                ChkBildirim.Checked = false;
+                return;
+            }
+            else
+            {
+                if (serverAyarlar.OnlineYenileme=="AKTİF")
+                {
+                    ChkOnlineRefrec.Checked = true;
+                    frmAnaSayfa.timerOnline.Stop();
+                }
+                else
+                {
+                    ChkOnlineRefrec.Checked = false;
+                    frmAnaSayfa.timerOnline.Start();
+                }
+                if (serverAyarlar.BildirimAlma=="AKTİF")
+                {
+                    ChkBildirim.Checked = true;
+                    FrmHelper.serverBildirimAyar = true;
+                }
+                else
+                {
+                    ChkBildirim.Checked = false;
+                    FrmHelper.serverBildirimAyar = false;
+                }
+            }
+        }
+
         void IsAkisNo()
         {
             isAkisNoManager.Update();
@@ -690,6 +732,44 @@ namespace UserInterface.Ana_Sayfa
                 MessageBox.Show("Bilgiler başarıyla güncellendi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DtgList.DataSource = null;
                 IsAkisNo();
+            }
+        }
+         
+        private void BtnUygula_Click(object sender, EventArgs e)
+        {
+            ServerAyarlar serverAyarlar = serverAyarlarManager.Get(infos[1].ToString());
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            if (ChkOnlineRefrec.Checked == true)
+            {
+                onlineYenileme = "AKTİF";
+                frmAnaSayfa.timerOnline.Stop();
+            }
+            else
+            {
+                onlineYenileme = "PASİF";
+                frmAnaSayfa.timerOnline.Start();
+            }
+            if (ChkBildirim.Checked == true)
+            {
+                bildirimAlma = "AKTİF";
+                FrmHelper.serverBildirimAyar = true;
+            }
+            else
+            {
+                bildirimAlma = "PASİF";
+                FrmHelper.serverBildirimAyar = false;
+            }
+
+            if (serverAyarlar==null)
+            {
+                ServerAyarlar serverAyarlar1 = new ServerAyarlar(infos[1].ToString(), onlineYenileme, bildirimAlma);
+                serverAyarlarManager.Add(serverAyarlar1);
+
+            }
+            else
+            {
+                ServerAyarlar serverAyarlar1 = new ServerAyarlar(infos[1].ToString(), onlineYenileme, bildirimAlma);
+                serverAyarlarManager.Update(serverAyarlar1);
             }
         }
     }

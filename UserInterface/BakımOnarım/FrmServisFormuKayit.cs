@@ -299,7 +299,10 @@ namespace UserInterface.BakımOnarım
                 mesaj = BildirimKayit();
                 if (mesaj!="OK")
                 {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (mesaj != "Server Ayarı Kapalı")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 dosyaEkle = false;

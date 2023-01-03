@@ -257,7 +257,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 mesaj = BildirimKayit();
                 if (mesaj!="OK")
                 {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (mesaj != "Server Ayarı Kapalı")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();

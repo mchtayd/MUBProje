@@ -31,11 +31,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMalzemeHazirlama));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnTemin = new System.Windows.Forms.Button();
@@ -73,6 +73,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.ContextMenu = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.stokGirişÇıkışToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.LblDepoAdresi = new System.Windows.Forms.Label();
+            this.BtnMalzemeYeri = new System.Windows.Forms.Button();
+            this.TxtMalzemeYeri = new System.Windows.Forms.ComboBox();
+            this.BtnDepoEkle = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CmbDepoNo = new System.Windows.Forms.ComboBox();
+            this.label7 = new System.Windows.Forms.Label();
             this.BtnTeslimAlSat = new System.Windows.Forms.Button();
             this.LblTop2 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -81,7 +89,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.LblTop3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.DtgStoktaOlmayanAselsan = new ADGV.AdvancedDataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -90,14 +97,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder3 = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder4 = new System.Windows.Forms.BindingSource(this.components);
-            this.BtnMalzemeYeri = new System.Windows.Forms.Button();
-            this.TxtMalzemeYeri = new System.Windows.Forms.ComboBox();
-            this.BtnDepoEkle = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.CmbDepoNo = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.LblDepoAdresi = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -259,8 +258,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.DtgDepoBilgileri.AllowUserToAddRows = false;
             this.DtgDepoBilgileri.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDepoBilgileri.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgDepoBilgileri.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgDepoBilgileri.AutoGenerateContextFilters = true;
             this.DtgDepoBilgileri.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDepoBilgileri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -323,7 +322,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox2.Controls.Add(this.advancedDataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(9, 353);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(955, 217);
+            this.groupBox2.Size = new System.Drawing.Size(1031, 217);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "TALEP EDİLEN MALZEME LİSTESİ";
@@ -338,15 +337,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.MalzemeList.Location = new System.Drawing.Point(3, 16);
             this.MalzemeList.Name = "MalzemeList";
             this.MalzemeList.ReadOnly = true;
-            this.MalzemeList.Size = new System.Drawing.Size(949, 198);
+            this.MalzemeList.Size = new System.Drawing.Size(1025, 198);
             this.MalzemeList.TabIndex = 345;
             // 
             // advancedDataGridView1
             // 
             this.advancedDataGridView1.AllowUserToAddRows = false;
             this.advancedDataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.advancedDataGridView1.AutoGenerateContextFilters = true;
             this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -372,7 +371,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.ReadOnly = true;
             this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.advancedDataGridView1.Size = new System.Drawing.Size(949, 198);
+            this.advancedDataGridView1.Size = new System.Drawing.Size(1025, 198);
             this.advancedDataGridView1.TabIndex = 2;
             this.advancedDataGridView1.TimeFilter = false;
             // 
@@ -502,7 +501,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox1.Controls.Add(this.DtgArizaKayitlari);
             this.groupBox1.Location = new System.Drawing.Point(6, 6);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(958, 311);
+            this.groupBox1.Size = new System.Drawing.Size(1034, 311);
             this.groupBox1.TabIndex = 48;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MALZEME TALEPLERİ";
@@ -511,8 +510,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.DtgArizaKayitlari.AllowUserToAddRows = false;
             this.DtgArizaKayitlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgArizaKayitlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgArizaKayitlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgArizaKayitlari.AutoGenerateContextFilters = true;
             this.DtgArizaKayitlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgArizaKayitlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -525,7 +524,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgArizaKayitlari.Name = "DtgArizaKayitlari";
             this.DtgArizaKayitlari.ReadOnly = true;
             this.DtgArizaKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgArizaKayitlari.Size = new System.Drawing.Size(952, 292);
+            this.DtgArizaKayitlari.Size = new System.Drawing.Size(1028, 292);
             this.DtgArizaKayitlari.TabIndex = 2;
             this.DtgArizaKayitlari.TimeFilter = false;
             this.DtgArizaKayitlari.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgArizaKayitlari_CellMouseClick);
@@ -565,172 +564,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage3.Text = "STOKTA OLMAYAN (SAT)";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // BtnTeslimAlSat
+            // LblDepoAdresi
             // 
-            this.BtnTeslimAlSat.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnTeslimAlSat.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTeslimAlSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTeslimAlSat.Image = ((System.Drawing.Image)(resources.GetObject("BtnTeslimAlSat.Image")));
-            this.BtnTeslimAlSat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTeslimAlSat.Location = new System.Drawing.Point(109, 724);
-            this.BtnTeslimAlSat.Name = "BtnTeslimAlSat";
-            this.BtnTeslimAlSat.Size = new System.Drawing.Size(140, 51);
-            this.BtnTeslimAlSat.TabIndex = 362;
-            this.BtnTeslimAlSat.Text = "   TESLİM AL";
-            this.BtnTeslimAlSat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTeslimAlSat.UseVisualStyleBackColor = false;
-            this.BtnTeslimAlSat.Click += new System.EventHandler(this.BtnTeslimAlSat_Click);
-            // 
-            // LblTop2
-            // 
-            this.LblTop2.AutoSize = true;
-            this.LblTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTop2.Location = new System.Drawing.Point(106, 588);
-            this.LblTop2.Name = "LblTop2";
-            this.LblTop2.Size = new System.Drawing.Size(21, 15);
-            this.LblTop2.TabIndex = 344;
-            this.LblTop2.Text = "00";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(6, 588);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(94, 15);
-            this.label8.TabIndex = 343;
-            this.label8.Text = "Toplam Kayıt:";
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.DtgStoktaOlmayanSat);
-            this.groupBox6.Location = new System.Drawing.Point(6, 6);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1523, 568);
-            this.groupBox6.TabIndex = 51;
-            this.groupBox6.TabStop = false;
-            this.groupBox6.Text = "MALZEME LİSTESİ";
-            // 
-            // DtgStoktaOlmayanSat
-            // 
-            this.DtgStoktaOlmayanSat.AllowUserToAddRows = false;
-            this.DtgStoktaOlmayanSat.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgStoktaOlmayanSat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.DtgStoktaOlmayanSat.AutoGenerateContextFilters = true;
-            this.DtgStoktaOlmayanSat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgStoktaOlmayanSat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgStoktaOlmayanSat.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgStoktaOlmayanSat.DateWithTime = false;
-            this.DtgStoktaOlmayanSat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgStoktaOlmayanSat.Location = new System.Drawing.Point(3, 16);
-            this.DtgStoktaOlmayanSat.MultiSelect = false;
-            this.DtgStoktaOlmayanSat.Name = "DtgStoktaOlmayanSat";
-            this.DtgStoktaOlmayanSat.ReadOnly = true;
-            this.DtgStoktaOlmayanSat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgStoktaOlmayanSat.Size = new System.Drawing.Size(1517, 549);
-            this.DtgStoktaOlmayanSat.TabIndex = 2;
-            this.DtgStoktaOlmayanSat.TimeFilter = false;
-            this.DtgStoktaOlmayanSat.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgStoktaOlmayanSat_CellMouseClick);
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.LblTop3);
-            this.tabPage4.Controls.Add(this.label10);
-            this.tabPage4.Controls.Add(this.button1);
-            this.tabPage4.Controls.Add(this.groupBox3);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1537, 856);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "MALZEME TEMİNİ (ASELSAN)";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // LblTop3
-            // 
-            this.LblTop3.AutoSize = true;
-            this.LblTop3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTop3.Location = new System.Drawing.Point(108, 583);
-            this.LblTop3.Name = "LblTop3";
-            this.LblTop3.Size = new System.Drawing.Size(21, 15);
-            this.LblTop3.TabIndex = 347;
-            this.LblTop3.Text = "00";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(8, 583);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 15);
-            this.label10.TabIndex = 346;
-            this.label10.Text = "Toplam Kayıt:";
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(8, 610);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 39);
-            this.button1.TabIndex = 345;
-            this.button1.Text = "Arızaya Ekle";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.DtgStoktaOlmayanAselsan);
-            this.groupBox3.Location = new System.Drawing.Point(5, 7);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(1524, 568);
-            this.groupBox3.TabIndex = 52;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "MALZEME LİSTESİ";
-            // 
-            // DtgStoktaOlmayanAselsan
-            // 
-            this.DtgStoktaOlmayanAselsan.AllowUserToAddRows = false;
-            this.DtgStoktaOlmayanAselsan.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgStoktaOlmayanAselsan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
-            this.DtgStoktaOlmayanAselsan.AutoGenerateContextFilters = true;
-            this.DtgStoktaOlmayanAselsan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgStoktaOlmayanAselsan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgStoktaOlmayanAselsan.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgStoktaOlmayanAselsan.DateWithTime = false;
-            this.DtgStoktaOlmayanAselsan.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgStoktaOlmayanAselsan.Location = new System.Drawing.Point(3, 16);
-            this.DtgStoktaOlmayanAselsan.MultiSelect = false;
-            this.DtgStoktaOlmayanAselsan.Name = "DtgStoktaOlmayanAselsan";
-            this.DtgStoktaOlmayanAselsan.ReadOnly = true;
-            this.DtgStoktaOlmayanAselsan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgStoktaOlmayanAselsan.Size = new System.Drawing.Size(1518, 549);
-            this.DtgStoktaOlmayanAselsan.TabIndex = 2;
-            this.DtgStoktaOlmayanAselsan.TimeFilter = false;
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Controls.Add(this.BtnCancel);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1557, 27);
-            this.panel1.TabIndex = 313;
-            // 
-            // BtnCancel
-            // 
-            this.BtnCancel.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnCancel.ForeColor = System.Drawing.Color.DarkRed;
-            this.BtnCancel.Location = new System.Drawing.Point(12, 4);
-            this.BtnCancel.Name = "BtnCancel";
-            this.BtnCancel.Size = new System.Drawing.Size(35, 23);
-            this.BtnCancel.TabIndex = 19;
-            this.BtnCancel.Text = "X";
-            this.BtnCancel.UseVisualStyleBackColor = false;
-            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
+            this.LblDepoAdresi.AutoSize = true;
+            this.LblDepoAdresi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblDepoAdresi.Location = new System.Drawing.Point(109, 666);
+            this.LblDepoAdresi.Name = "LblDepoAdresi";
+            this.LblDepoAdresi.Size = new System.Drawing.Size(21, 15);
+            this.LblDepoAdresi.TabIndex = 371;
+            this.LblDepoAdresi.Text = "00";
             // 
             // BtnMalzemeYeri
             // 
@@ -806,15 +648,161 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label7.TabIndex = 363;
             this.label7.Text = "Depo No:";
             // 
-            // LblDepoAdresi
+            // BtnTeslimAlSat
             // 
-            this.LblDepoAdresi.AutoSize = true;
-            this.LblDepoAdresi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblDepoAdresi.Location = new System.Drawing.Point(109, 666);
-            this.LblDepoAdresi.Name = "LblDepoAdresi";
-            this.LblDepoAdresi.Size = new System.Drawing.Size(21, 15);
-            this.LblDepoAdresi.TabIndex = 371;
-            this.LblDepoAdresi.Text = "00";
+            this.BtnTeslimAlSat.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTeslimAlSat.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTeslimAlSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTeslimAlSat.Image = ((System.Drawing.Image)(resources.GetObject("BtnTeslimAlSat.Image")));
+            this.BtnTeslimAlSat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTeslimAlSat.Location = new System.Drawing.Point(109, 724);
+            this.BtnTeslimAlSat.Name = "BtnTeslimAlSat";
+            this.BtnTeslimAlSat.Size = new System.Drawing.Size(140, 51);
+            this.BtnTeslimAlSat.TabIndex = 362;
+            this.BtnTeslimAlSat.Text = "   TESLİM AL";
+            this.BtnTeslimAlSat.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTeslimAlSat.UseVisualStyleBackColor = false;
+            this.BtnTeslimAlSat.Click += new System.EventHandler(this.BtnTeslimAlSat_Click);
+            // 
+            // LblTop2
+            // 
+            this.LblTop2.AutoSize = true;
+            this.LblTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTop2.Location = new System.Drawing.Point(106, 588);
+            this.LblTop2.Name = "LblTop2";
+            this.LblTop2.Size = new System.Drawing.Size(21, 15);
+            this.LblTop2.TabIndex = 344;
+            this.LblTop2.Text = "00";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label8.Location = new System.Drawing.Point(6, 588);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(94, 15);
+            this.label8.TabIndex = 343;
+            this.label8.Text = "Toplam Kayıt:";
+            // 
+            // groupBox6
+            // 
+            this.groupBox6.Controls.Add(this.DtgStoktaOlmayanSat);
+            this.groupBox6.Location = new System.Drawing.Point(6, 6);
+            this.groupBox6.Name = "groupBox6";
+            this.groupBox6.Size = new System.Drawing.Size(1523, 568);
+            this.groupBox6.TabIndex = 51;
+            this.groupBox6.TabStop = false;
+            this.groupBox6.Text = "MALZEME LİSTESİ";
+            // 
+            // DtgStoktaOlmayanSat
+            // 
+            this.DtgStoktaOlmayanSat.AllowUserToAddRows = false;
+            this.DtgStoktaOlmayanSat.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgStoktaOlmayanSat.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DtgStoktaOlmayanSat.AutoGenerateContextFilters = true;
+            this.DtgStoktaOlmayanSat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgStoktaOlmayanSat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgStoktaOlmayanSat.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgStoktaOlmayanSat.DateWithTime = false;
+            this.DtgStoktaOlmayanSat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgStoktaOlmayanSat.Location = new System.Drawing.Point(3, 16);
+            this.DtgStoktaOlmayanSat.MultiSelect = false;
+            this.DtgStoktaOlmayanSat.Name = "DtgStoktaOlmayanSat";
+            this.DtgStoktaOlmayanSat.ReadOnly = true;
+            this.DtgStoktaOlmayanSat.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgStoktaOlmayanSat.Size = new System.Drawing.Size(1517, 549);
+            this.DtgStoktaOlmayanSat.TabIndex = 2;
+            this.DtgStoktaOlmayanSat.TimeFilter = false;
+            this.DtgStoktaOlmayanSat.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgStoktaOlmayanSat_CellMouseClick);
+            // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.LblTop3);
+            this.tabPage4.Controls.Add(this.label10);
+            this.tabPage4.Controls.Add(this.groupBox3);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1537, 856);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "MALZEME TEMİNİ (ASELSAN)";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // LblTop3
+            // 
+            this.LblTop3.AutoSize = true;
+            this.LblTop3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTop3.Location = new System.Drawing.Point(105, 801);
+            this.LblTop3.Name = "LblTop3";
+            this.LblTop3.Size = new System.Drawing.Size(21, 15);
+            this.LblTop3.TabIndex = 347;
+            this.LblTop3.Text = "00";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(5, 801);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 15);
+            this.label10.TabIndex = 346;
+            this.label10.Text = "Toplam Kayıt:";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.DtgStoktaOlmayanAselsan);
+            this.groupBox3.Location = new System.Drawing.Point(5, 7);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(1524, 789);
+            this.groupBox3.TabIndex = 52;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "MALZEME LİSTESİ";
+            // 
+            // DtgStoktaOlmayanAselsan
+            // 
+            this.DtgStoktaOlmayanAselsan.AllowUserToAddRows = false;
+            this.DtgStoktaOlmayanAselsan.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgStoktaOlmayanAselsan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DtgStoktaOlmayanAselsan.AutoGenerateContextFilters = true;
+            this.DtgStoktaOlmayanAselsan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgStoktaOlmayanAselsan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgStoktaOlmayanAselsan.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgStoktaOlmayanAselsan.DateWithTime = false;
+            this.DtgStoktaOlmayanAselsan.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgStoktaOlmayanAselsan.Location = new System.Drawing.Point(3, 16);
+            this.DtgStoktaOlmayanAselsan.MultiSelect = false;
+            this.DtgStoktaOlmayanAselsan.Name = "DtgStoktaOlmayanAselsan";
+            this.DtgStoktaOlmayanAselsan.ReadOnly = true;
+            this.DtgStoktaOlmayanAselsan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgStoktaOlmayanAselsan.Size = new System.Drawing.Size(1518, 770);
+            this.DtgStoktaOlmayanAselsan.TabIndex = 2;
+            this.DtgStoktaOlmayanAselsan.TimeFilter = false;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.LightGray;
+            this.panel1.Controls.Add(this.BtnCancel);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(1557, 27);
+            this.panel1.TabIndex = 313;
+            // 
+            // BtnCancel
+            // 
+            this.BtnCancel.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCancel.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnCancel.ForeColor = System.Drawing.Color.DarkRed;
+            this.BtnCancel.Location = new System.Drawing.Point(12, 4);
+            this.BtnCancel.Name = "BtnCancel";
+            this.BtnCancel.Size = new System.Drawing.Size(35, 23);
+            this.BtnCancel.TabIndex = 19;
+            this.BtnCancel.Text = "X";
+            this.BtnCancel.UseVisualStyleBackColor = false;
+            this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
             // FrmMalzemeHazirlama
             // 
@@ -899,7 +887,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label LblTop3;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox3;
         private ADGV.AdvancedDataGridView DtgStoktaOlmayanAselsan;
         private System.Windows.Forms.BindingSource dataBinder;

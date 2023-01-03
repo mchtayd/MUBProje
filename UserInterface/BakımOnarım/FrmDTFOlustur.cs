@@ -373,7 +373,10 @@ namespace UserInterface.BakımOnarım
                 mesaj = BildirimKayit();
                 if (mesaj!="OK")
                 {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (mesaj != "Server Ayarı Kapalı")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
@@ -942,7 +945,10 @@ namespace UserInterface.BakımOnarım
                 mesaj = BildirimKayitGuncelle();
                 if (mesaj!="OK")
                 {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if (mesaj != "Server Ayarı Kapalı")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
                 }
                 MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleGuncelle();
@@ -1456,7 +1462,10 @@ namespace UserInterface.BakımOnarım
             mesaj = BildirimKayitOnay();
             if (mesaj!="OK")
             {
-                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (mesaj != "Server Ayarı Kapalı")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             TemizleKO();

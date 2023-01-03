@@ -321,6 +321,28 @@ namespace UserInterface.BakımOnarım
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
         {
+            if (CmbIslemTuru.Text=="")
+            {
+                MessageBox.Show("Lütfen İşlem Türü seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbIslemTuru.Text == "YENİ KAYIT")
+            {
+                if (TxtBolgeAdi.Text == "")
+                {
+                    MessageBox.Show("Lütfen Bölge Adı bilgisini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+            else
+            {
+                if (CmbBolgeAdi.Text == "")
+                {
+                    MessageBox.Show("Lütfen Bölge Adı bilgisini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             CreateFile();
             dosyaControl = true;
         }
@@ -398,8 +420,14 @@ namespace UserInterface.BakımOnarım
             {
                 Directory.CreateDirectory(subdir);
             }
-
-            dosyaYolu = subdir + TxtBolgeAdi.Text;
+            if (CmbIslemTuru.Text== "YENİ KAYIT")
+            {
+                dosyaYolu = subdir + TxtBolgeAdi.Text;
+            }
+            else
+            {
+                dosyaYolu = subdir + CmbBolgeAdi.Text;
+            }
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -467,7 +495,7 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri güncellemek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value);
+                BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, dosyaYolu);
 
                 string mesaj = bolgeKayitManager.Update(bolgeKayit);
                 if (mesaj != "OK")
@@ -475,7 +503,7 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                MessageBox.Show("Bilgiler başarıyla güncelkenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bilgiler başarıyla güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
             }
         }

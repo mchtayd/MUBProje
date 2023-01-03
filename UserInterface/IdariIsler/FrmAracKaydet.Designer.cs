@@ -1232,13 +1232,9 @@ namespace UserInterface.IdariIsler
             // 
             // CmbProjeC
             // 
+            this.CmbProjeC.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbProjeC.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbProjeC.FormattingEnabled = true;
-            this.CmbProjeC.Items.AddRange(new object[] {
-            "MÜB",
-            "ÇAKI",
-            "MİRSAD",
-            "ÇAKI"});
             this.CmbProjeC.Location = new System.Drawing.Point(640, 74);
             this.CmbProjeC.Name = "CmbProjeC";
             this.CmbProjeC.Size = new System.Drawing.Size(243, 23);

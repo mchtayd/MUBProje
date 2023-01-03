@@ -89,6 +89,7 @@
     <Compile Include="Concreate\AnaSayfa\RjButton.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Concreate\AnaSayfa\ServerAyarlarDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeDal.cs" />

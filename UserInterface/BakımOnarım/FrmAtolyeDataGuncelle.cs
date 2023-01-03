@@ -33,7 +33,7 @@ namespace UserInterface.BakımOnarım
 
         public string icSiparisNo = "";
         string siparisNo = "", bildirilenAriza, dosyaYolu = "";
-        int id, islemKayitlariId = 0;
+        public int id, islemKayitlariId = 0;
 
 
         public FrmAtolyeDataGuncelle()
@@ -52,7 +52,7 @@ namespace UserInterface.BakımOnarım
         }
         void KayitGetir()
         {
-            atolyes = atolyeManager.AtolyeIcSiparis(icSiparisNo);
+            atolyes = atolyeManager.AtolyeIcSiparis(id);
 
 
             foreach (Atolye item in atolyes)
@@ -60,7 +60,7 @@ namespace UserInterface.BakımOnarım
                 siparisNo = item.SiparisNo.ToString();
             }
 
-            Atolye atolye1 = atolyeManager.Get(icSiparisNo);
+            Atolye atolye1 = atolyeManager.Get(siparisNo);
             if (atolye1 == null)
             {
                 return;

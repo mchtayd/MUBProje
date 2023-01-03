@@ -81,7 +81,7 @@ namespace Entity.BakimOnarim
             this.proje = proje;
         }
 
-        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, string bolgeSorumlusu, string depo, string pypNo, DateTime garantiBaslama, DateTime garantiBitis)
+        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, string bolgeSorumlusu, string depo, string pypNo, DateTime garantiBaslama, DateTime garantiBitis, string dosyaYolu)
         {
             this.id = id;
             this.bolgeAdi = bolgeAdi;
@@ -102,6 +102,7 @@ namespace Entity.BakimOnarim
             this.proje = proje;
             this.garantiBaslama = garantiBaslama;
             this.garantiBitis = garantiBitis;
+            this.dosyaYolu = dosyaYolu;
         }
 
         public BolgeKayit(string tugay)

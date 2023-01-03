@@ -356,7 +356,10 @@ namespace UserInterface.DokumanYonetim
             string bildirim = BildirimKayit();
             if (bildirim!="OK")
             {
-                MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (bildirim != "Server Ayarı Kapalı")
+                {
+                    MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             WebBrowserLogin();
             Task.Factory.StartNew(() => MailSendMetot());

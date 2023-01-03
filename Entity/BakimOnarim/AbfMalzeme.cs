@@ -8,7 +8,7 @@ namespace Entity.BakimOnarim
 {
     public class AbfMalzeme
     {
-        int id, benzersizId; string sokulenStokNo, sokulenTanim, sokulenSeriNo; int sokulenMiktar; string sokulenBirim; double sokulenCalismaSaati; string sokulenRevizyon, calismaDurumu, fizikselDurum, yapilacakIslem, takilanStokNo, takilanTanim, takilanSeriNo; int takilanMiktar; string takilanBirim; double takilanCalismaSaati; string takilanRevizyon, teminDurumu; int abfNo; DateTime abTarihSaat, temineAtilamTarihi; string malzemeDurumu;
+        int id, benzersizId; string sokulenStokNo, sokulenTanim, sokulenSeriNo; int sokulenMiktar; string sokulenBirim; double sokulenCalismaSaati; string sokulenRevizyon, calismaDurumu, fizikselDurum, yapilacakIslem, takilanStokNo, takilanTanim, takilanSeriNo; int takilanMiktar; string takilanBirim; double takilanCalismaSaati; string takilanRevizyon, teminDurumu; int abfNo; DateTime abTarihSaat, temineAtilamTarihi; string malzemeDurumu, malzemeIslemAdimi;
 
         public int Id { get => id; set => id = value; }
         public int BenzersizId { get => benzersizId; set => benzersizId = value; }
@@ -34,8 +34,9 @@ namespace Entity.BakimOnarim
         public DateTime AbTarihSaat { get => abTarihSaat; set => abTarihSaat = value; }
         public DateTime TemineAtilamTarihi { get => temineAtilamTarihi; set => temineAtilamTarihi = value; }
         public string MalzemeDurumu { get => malzemeDurumu; set => malzemeDurumu = value; }
+        public string MalzemeIslemAdimi { get => malzemeIslemAdimi; set => malzemeIslemAdimi = value; }
 
-        public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, double sokulenCalismaSaati, string sokulenRevizyon, string calismaDurumu, string fizikselDurum, string yapilacakIslem, string takilanStokNo, string takilanTanim, string takilanSeriNo, int takilanMiktar, string takilanBirim, double takilanCalismaSaati, string takilanRevizyon, string teminDurumu)
+        public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, double sokulenCalismaSaati, string sokulenRevizyon, string calismaDurumu, string fizikselDurum, string yapilacakIslem, string takilanStokNo, string takilanTanim, string takilanSeriNo, int takilanMiktar, string takilanBirim, double takilanCalismaSaati, string takilanRevizyon, string teminDurumu, string malzemeIslemAdimi)
         {
             this.id = id;
             this.benzersizId = benzersizId;
@@ -57,6 +58,7 @@ namespace Entity.BakimOnarim
             this.takilanCalismaSaati = takilanCalismaSaati;
             this.takilanRevizyon = takilanRevizyon;
             this.teminDurumu = teminDurumu;
+            this.malzemeIslemAdimi = malzemeIslemAdimi;
         }
 
         public AbfMalzeme(int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, double sokulenCalismaSaati, string sokulenRevizyon, string calismaDurumu, string fizikselDurum, string yapilacakIslem)
@@ -85,7 +87,7 @@ namespace Entity.BakimOnarim
             this.takilanRevizyon = takilanRevizyon;
         }
 
-        public AbfMalzeme(int id, int benzersizId,string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon, string yapilacakIslem, int abfNo, DateTime abTarihSaat, DateTime temineAtilamTarihi, string malzemeDurumu)
+        public AbfMalzeme(int id, int benzersizId,string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon, string yapilacakIslem, int abfNo, DateTime abTarihSaat, DateTime temineAtilamTarihi, string malzemeDurumu, string malzemeIslemAdimi)
         {
             this.id = id;
             this.benzersizId = benzersizId;
@@ -100,6 +102,7 @@ namespace Entity.BakimOnarim
             this.abTarihSaat = abTarihSaat;
             this.temineAtilamTarihi = temineAtilamTarihi;
             this.malzemeDurumu = malzemeDurumu;
+            this.malzemeIslemAdimi = malzemeIslemAdimi;
         }
     }
 }

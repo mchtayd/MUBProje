@@ -460,7 +460,10 @@ namespace UserInterface.DokumanYonetim
             string mesaj = BildirimKayit();
             if (mesaj!="OK")
             {
-                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (mesaj != "Server Ayarı Kapalı")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
             Task.Factory.StartNew(() => MailSendMetot());
             TemizleKaydet();

@@ -31,7 +31,7 @@ namespace UserInterface.STS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatTalebi));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbMasYeri = new System.Windows.Forms.ComboBox();
@@ -68,12 +68,10 @@ namespace UserInterface.STS
             this.BtnKontrol = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.LblPdl = new System.Windows.Forms.Label();
-            this.LblDonem = new System.Windows.Forms.Label();
             this.LblSatOlusturmaTarihi = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
             this.LblGarantiDurumu = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.LblBolgeProje = new System.Windows.Forms.Label();
@@ -97,6 +95,8 @@ namespace UserInterface.STS
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.BtnTumuneSatOlustur = new System.Windows.Forms.Button();
+            this.label52 = new System.Windows.Forms.Label();
+            this.LblDonem = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.GrnBasaran.SuspendLayout();
             this.GrbAselsan.SuspendLayout();
@@ -498,15 +498,6 @@ namespace UserInterface.STS
             this.LblPdl.TabIndex = 420;
             this.LblPdl.Text = "00";
             // 
-            // LblDonem
-            // 
-            this.LblDonem.AutoSize = true;
-            this.LblDonem.Location = new System.Drawing.Point(159, 229);
-            this.LblDonem.Name = "LblDonem";
-            this.LblDonem.Size = new System.Drawing.Size(19, 13);
-            this.LblDonem.TabIndex = 418;
-            this.LblDonem.Text = "00";
-            // 
             // LblSatOlusturmaTarihi
             // 
             this.LblSatOlusturmaTarihi.AutoSize = true;
@@ -542,15 +533,6 @@ namespace UserInterface.STS
             this.LblGarantiDurumu.Size = new System.Drawing.Size(19, 13);
             this.LblGarantiDurumu.TabIndex = 416;
             this.LblGarantiDurumu.Text = "00";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(66, 229);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(87, 13);
-            this.label52.TabIndex = 107;
-            this.label52.Text = "DÖNEM (Ay/Yıl):";
             // 
             // label11
             // 
@@ -654,8 +636,8 @@ namespace UserInterface.STS
             this.DtgMalzemeList.AllowUserToAddRows = false;
             this.DtgMalzemeList.AllowUserToDeleteRows = false;
             this.DtgMalzemeList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgMalzemeList.AutoGenerateContextFilters = true;
             this.DtgMalzemeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgMalzemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -781,7 +763,7 @@ namespace UserInterface.STS
             this.BtnTumuneSatOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnTumuneSatOlustur.Image = ((System.Drawing.Image)(resources.GetObject("BtnTumuneSatOlustur.Image")));
             this.BtnTumuneSatOlustur.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTumuneSatOlustur.Location = new System.Drawing.Point(703, 762);
+            this.BtnTumuneSatOlustur.Location = new System.Drawing.Point(12, 844);
             this.BtnTumuneSatOlustur.Name = "BtnTumuneSatOlustur";
             this.BtnTumuneSatOlustur.Size = new System.Drawing.Size(130, 51);
             this.BtnTumuneSatOlustur.TabIndex = 425;
@@ -790,6 +772,24 @@ namespace UserInterface.STS
             this.BtnTumuneSatOlustur.UseVisualStyleBackColor = false;
             this.BtnTumuneSatOlustur.Visible = false;
             this.BtnTumuneSatOlustur.Click += new System.EventHandler(this.BtnTumuneSatOlustur_Click);
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(66, 229);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(87, 13);
+            this.label52.TabIndex = 107;
+            this.label52.Text = "DÖNEM (Ay/Yıl):";
+            // 
+            // LblDonem
+            // 
+            this.LblDonem.AutoSize = true;
+            this.LblDonem.Location = new System.Drawing.Point(159, 229);
+            this.LblDonem.Name = "LblDonem";
+            this.LblDonem.Size = new System.Drawing.Size(19, 13);
+            this.LblDonem.TabIndex = 418;
+            this.LblDonem.Text = "00";
             // 
             // FrmSatTalebi
             // 
@@ -867,12 +867,10 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.GroupBox GrbAselsan;
-        private System.Windows.Forms.Label LblDonem;
         private System.Windows.Forms.Label LblSatOlusturmaTarihi;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label65;
         private System.Windows.Forms.Label LblGarantiDurumu;
-        private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label LblBolgeProje;
@@ -908,5 +906,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.Button BtnTemizle;
         private System.Windows.Forms.Button BtnTumuneSatOlustur;
+        private System.Windows.Forms.Label LblDonem;
+        private System.Windows.Forms.Label label52;
     }
 }

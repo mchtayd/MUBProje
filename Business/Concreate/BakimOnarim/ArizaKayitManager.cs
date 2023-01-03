@@ -59,6 +59,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public ArizaKayit GetId(int id)
+        {
+            try
+            {
+                return arizaKayitDal.GetId(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<ArizaKayit> GetList(string bolgeAdi="")
         {

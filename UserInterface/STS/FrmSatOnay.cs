@@ -2382,6 +2382,8 @@ namespace UserInterface.STS
                     string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
                     string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
 
+                    donem = DateTime.Now.ConPeriod();
+
                     Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
                         faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi);
                     string control = tamamlananManager.Add(tamamlanan);

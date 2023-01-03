@@ -32,14 +32,15 @@ namespace UserInterface.BakımOnarım
 
         List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+        List<AbfMalzeme> abfMalzemesKontrol;
 
         bool start = true;
-        int id, comboId, abfForm, gun, saat, dakika, idParca;
+        int id, comboId, abfForm, gun, saat, dakika, idParca, controlId;
         DateTime birOncekiTarih;
         string sure, dosyaYolu, isAkisNo;
         string personelGorevi, personelBolumu, lojTarihi;
         public object[] infos;
-
+        string control = "OK";
         public FrmArizaDurumGuncelle()
         {
             InitializeComponent();
@@ -111,7 +112,6 @@ namespace UserInterface.BakımOnarım
             CmbPersoneller.DisplayMember = "Adsoyad";
             CmbPersoneller.SelectedValue = -1;
         }
-
         private void BtnBul_Click(object sender, EventArgs e)
         {
             if (TxtAbfNo.Text == "")
@@ -136,7 +136,7 @@ namespace UserInterface.BakımOnarım
             DtgFormBilgileri.Rows[sonSatir].Cells["StokNo"].Value = arizaKayit.StokNo;
             DtgFormBilgileri.Rows[sonSatir].Cells["Tanim"].Value = arizaKayit.Tanim;
             DtgFormBilgileri.Rows[sonSatir].Cells["SeriNo"].Value = arizaKayit.SeriNo;
-
+            controlId = arizaKayit.Id;
             LblMevcutIslemAdimi.Text = arizaKayit.IslemAdimi;
 
             //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage3"]);
@@ -186,7 +186,7 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
-            
+
         }
         void CmbStokNoSokulen()
         {
@@ -457,7 +457,7 @@ namespace UserInterface.BakımOnarım
                 {
                     webBrowser1.Navigate(dosyaYolu);
                 }
-                
+
             }
 
             webBrowser1.Navigate(dosyaYolu);
@@ -615,13 +615,13 @@ namespace UserInterface.BakımOnarım
                 {
                     return "Lütfen Öncelikle SÖKÜLEN MALZEMELER Bilgisini Doldurunuz!";
                 }
-                if (CmbGarantiDurumu.Text=="")
+                if (CmbGarantiDurumu.Text == "")
                 {
                     return "Lütfen GARANTİ DURUMU bilgisini doldurunuz!";
                 }
-                if (CmbGarantiDurumu.Text== "DIŞI")
+                if (CmbGarantiDurumu.Text == "DIŞI")
                 {
-                    if (TxtLojistikSorumlusu.Text=="")
+                    if (TxtLojistikSorumlusu.Text == "")
                     {
                         return "Lütfen LOJİSTİK SORUMLUSU bilgisini doldurunuz!";
                     }
@@ -634,7 +634,7 @@ namespace UserInterface.BakımOnarım
                         return "Lütfen LOJİSTİK SORUMLUSU GÖREVİ bilgisini doldurunuz!";
                     }
                 }
-                if (CmbParcaNo.Text=="")
+                if (CmbParcaNo.Text == "")
                 {
                     return "Lütfen ÜST TAKIM bilgilerini eksiksiz doldurunuz!";
                 }
@@ -651,7 +651,7 @@ namespace UserInterface.BakımOnarım
                     return "Lütfen Öncelikle TAKILAN MALZEMELER Bilgisini Doldurunuz!";
                 }
             }
-            
+
             return "";
         }
         void MalzemeKaydetAK()
@@ -722,10 +722,22 @@ namespace UserInterface.BakımOnarım
 
             arizaKayitManager.SistemCihazBilgileri2(arizaKayit);
         }
+        string DepoIslemleriKontrol()
+        {
+            abfMalzemesKontrol = abfMalzemeManager.GetList(controlId);
 
+            foreach (AbfMalzeme item in abfMalzemesKontrol)
+            {
+                if (item.TeminDurumu != "ARIZAYA GÖNDERİLDİ")
+                {
+                    return "Arıza için gerekli olan tüm malzemelerin hazırlanma işlemleri tamamlanmamıştır!\nLütfen öncelikle malzeme hazırlama işlemlerini tamamlayınız!";
+                }
+            }
+            return "OK";
+        }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            if (AdvPersonel.RowCount==0)
+            if (AdvPersonel.RowCount == 0)
             {
                 MessageBox.Show("Lütfen işlem adımı için geçerli olan işçilik bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -736,19 +748,93 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show(kayitKontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (LblMevcutIslemAdimi.Text == "1000_DEPO STOK KONTROL")
+            {
+                if (CmbIslemAdimi.Text != "1100_MALZEME TEMİNİ (SATIN ALMA)")
+                {
+                    if (CmbIslemAdimi.Text != "1200_MALZEME TEMİNİ (ASELSAN)")
+                    {
+                        if (CmbIslemAdimi.Text != "1300_MALZEME HAZIRLAMA AMBAR")
+                        {
+                            control = DepoIslemleriKontrol();
+                            if (control != "OK")
+                            {
+                                MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            if (LblMevcutIslemAdimi.Text == "1100_MALZEME TEMİNİ (SATIN ALMA)")
+            {
+                if (CmbIslemAdimi.Text != "1000_DEPO STOK KONTROL")
+                {
+                    if (CmbIslemAdimi.Text != "1200_MALZEME TEMİNİ (ASELSAN)")
+                    {
+                        if (CmbIslemAdimi.Text != "1300_MALZEME HAZIRLAMA AMBAR")
+                        {
+                            control = DepoIslemleriKontrol();
+                            if (control != "OK")
+                            {
+                                MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            if (LblMevcutIslemAdimi.Text == "1200_MALZEME TEMİNİ (ASELSAN)")
+            {
+                if (CmbIslemAdimi.Text != "1000_DEPO STOK KONTROL")
+                {
+                    if (CmbIslemAdimi.Text != "1100_MALZEME TEMİNİ (SATIN ALMA)")
+                    {
+                        if (CmbIslemAdimi.Text != "1300_MALZEME HAZIRLAMA AMBAR")
+                        {
+                            control = DepoIslemleriKontrol();
+                            if (control != "OK")
+                            {
+                                MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+            if (LblMevcutIslemAdimi.Text == "1300_MALZEME HAZIRLAMA AMBAR")
+            {
+                if (CmbIslemAdimi.Text != "1000_DEPO STOK KONTROL")
+                {
+                    if (CmbIslemAdimi.Text != "1100_MALZEME TEMİNİ (SATIN ALMA)")
+                    {
+                        if (CmbIslemAdimi.Text != "1200_MALZEME TEMİNİ (ASELSAN)")
+                        {
+                            control = DepoIslemleriKontrol();
+                            if (control != "OK")
+                            {
+                                MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                }
+            }
+
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr != DialogResult.Yes)
             {
                 return;
             }
             abfMalzemes = abfMalzemeManager.GetList(id);
-            if (abfMalzemes==null)
+            if (abfMalzemes == null)
             {
-                MessageBox.Show("Arızaya Ait Sökülen Malzeme Bulunamamıştır!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Arızaya Ait Sökülen Malzeme Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string kontrol = PersonelIscilikleriEkle();
-            if (kontrol!="OK")
+            if (kontrol != "OK")
             {
                 MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -759,7 +845,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
 
             if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
@@ -827,12 +913,12 @@ namespace UserInterface.BakımOnarım
             }
             string messege = GorevAtama();
 
-            if (messege!="OK")
+            if (messege != "OK")
             {
-                MessageBox.Show(messege,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(messege, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+            MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
         }
         string GorevAtama()

@@ -45,12 +45,12 @@ namespace UserInterface.BakımOnarım
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgList = new System.Windows.Forms.DataGridView();
-            this.BtnEkle = new System.Windows.Forms.Button();
             this.BolgeAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Donem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.YolDurumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnEkle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -102,7 +102,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.TxtAciklama.Location = new System.Drawing.Point(103, 179);
             this.TxtAciklama.Name = "TxtAciklama";
-            this.TxtAciklama.Size = new System.Drawing.Size(336, 71);
+            this.TxtAciklama.Size = new System.Drawing.Size(457, 71);
             this.TxtAciklama.TabIndex = 154;
             this.TxtAciklama.Text = "";
             // 
@@ -218,23 +218,12 @@ namespace UserInterface.BakımOnarım
             this.DtgList.Size = new System.Drawing.Size(1050, 193);
             this.DtgList.TabIndex = 0;
             // 
-            // BtnEkle
-            // 
-            this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnEkle.Location = new System.Drawing.Point(103, 260);
-            this.BtnEkle.Name = "BtnEkle";
-            this.BtnEkle.Size = new System.Drawing.Size(81, 28);
-            this.BtnEkle.TabIndex = 337;
-            this.BtnEkle.Text = "EKLE";
-            this.BtnEkle.UseVisualStyleBackColor = true;
-            // 
             // BolgeAdi
             // 
             this.BolgeAdi.HeaderText = "BÖLGE ADI";
             this.BolgeAdi.Name = "BolgeAdi";
             this.BolgeAdi.ReadOnly = true;
-            this.BolgeAdi.Width = 89;
+            this.BolgeAdi.Width = 82;
             // 
             // Donem
             // 
@@ -263,6 +252,17 @@ namespace UserInterface.BakımOnarım
             this.Aciklama.Name = "Aciklama";
             this.Aciklama.ReadOnly = true;
             this.Aciklama.Width = 85;
+            // 
+            // BtnEkle
+            // 
+            this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnEkle.Location = new System.Drawing.Point(103, 260);
+            this.BtnEkle.Name = "BtnEkle";
+            this.BtnEkle.Size = new System.Drawing.Size(81, 28);
+            this.BtnEkle.TabIndex = 337;
+            this.BtnEkle.Text = "EKLE";
+            this.BtnEkle.UseVisualStyleBackColor = true;
             // 
             // FrmYolDurumlari
             // 

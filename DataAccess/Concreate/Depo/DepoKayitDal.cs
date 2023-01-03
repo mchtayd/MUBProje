@@ -88,7 +88,7 @@ namespace DataAccess.Concreate.Depo
                 dataReader.Close();
                 return depoKayits;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<DepoKayit>();
             }

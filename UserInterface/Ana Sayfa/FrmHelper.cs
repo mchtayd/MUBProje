@@ -643,9 +643,14 @@ namespace UserInterface.Ana_Sayfa
                 File.Copy(kaynak + "notification.txt", taslakYolu);
             }
         }
-
+        public static bool serverBildirimAyar = false;
         public static string BildirimGonder(string[] array, string bildirimYetki)
         {
+            return "OK";
+            if (serverBildirimAyar == true)
+            {
+                return "Server Ayarı Kapalı";
+            }
             bool control = false;
             CopyFile();
 
@@ -664,12 +669,21 @@ namespace UserInterface.Ana_Sayfa
             //array[5] = "DRAGONEYE B/O arızasını";
             //array[6] = "700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!";
 
-            string txtMetin = array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5] + " " + array[6] + " " + bildirimYetki;
+            string txtMetin = array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5] + " " + array[6] + "|" + bildirimYetki;
             string bildirimMetin = array[1] + " " + array[2] + " " + array[3] + "\n" + array[4] + "\n" + array[5] + "\n" + array[6];
 
-            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
 
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            
             string icerik = File.ReadAllText(taslakYolu);
+          
+            //Notification notification = new Notification();
+            //List<Notification> list = new List<Notification>();
+            //list.Add(notification);
+            //string jsonValue= JsonConvert.Serialize(list);
+            //var items = JsonConvert.Desearilize<List<Notification>>(jsonValue);
+
+
             string[] array2 = icerik.Split('\n');
             for (int i = 0; i < array2.Length; i++)
             {

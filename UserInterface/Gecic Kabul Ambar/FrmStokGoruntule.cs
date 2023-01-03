@@ -17,7 +17,7 @@ namespace UserInterface.Depo
     public partial class FrmStokGoruntule : Form
     {
         StokGirisCikisManager stokGirisCikisManager;
-        MalzemeKayitManager malzemeKayitManager;
+        //MalzemeKayitManager malzemeKayitManager;
         DepoMiktarManager depoMiktarManager;
         MalzemeManager malzemeManager;
         
@@ -27,7 +27,7 @@ namespace UserInterface.Depo
         {
             InitializeComponent();
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
-            malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            //malzemeKayitManager = MalzemeKayitManager.GetInstance();
             depoMiktarManager = DepoMiktarManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
         }
@@ -97,31 +97,28 @@ namespace UserInterface.Depo
                 return;
             }
 
-            DtgMalzemeBilgisi.DataSource = malzemeKayitManager.GetListMalzemeKayit(TxtStokNo.Text);
+            DtgMalzemeBilgisi.DataSource = malzemeManager.MalzemeGetList(TxtStokNo.Text);
 
             DtgMalzemeBilgisi.Columns["Id"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgMalzemeBilgisi.Columns["StokNo"].HeaderText = "STOK NO";
             DtgMalzemeBilgisi.Columns["Tanim"].HeaderText = "TANIM";
             DtgMalzemeBilgisi.Columns["Birim"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Tedarikcifirma"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Malzemeonarimdurumu"].HeaderText = "ONARIM DURUMU";
-            DtgMalzemeBilgisi.Columns["Malzemeonarımyeri"].HeaderText = "ONARIM YERİ";
-            DtgMalzemeBilgisi.Columns["Malzemeturu"].HeaderText = "PARÇA SINIFI";
-            DtgMalzemeBilgisi.Columns["Malzemetakipdurumu"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Malzemekul"].Visible = false;
+            DtgMalzemeBilgisi.Columns["TedarikciFirma"].Visible = false;
+            DtgMalzemeBilgisi.Columns["OnarimDurumu"].HeaderText = "ONARIM DURUMU";
+            DtgMalzemeBilgisi.Columns["OnarimYeri"].HeaderText = "ONARIM YERİ";
+            DtgMalzemeBilgisi.Columns["ParcaSinifi"].HeaderText = "PARÇA SINIFI";
+            DtgMalzemeBilgisi.Columns["TedarikTuru"].Visible = false;
+            DtgMalzemeBilgisi.Columns["AlternatifParca"].Visible = false;
             DtgMalzemeBilgisi.Columns["Aciklama"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Dosyayolu"].Visible = false;
-            DtgMalzemeBilgisi.Columns["AlternatifMalzeme"].Visible = false;
+            DtgMalzemeBilgisi.Columns["DosyaYolu"].Visible = false;
             DtgMalzemeBilgisi.Columns["SistemStokNo"].Visible = false;
-            DtgMalzemeBilgisi.Columns["SistemTanim"].Visible = false;
-            DtgMalzemeBilgisi.Columns["SistemPersonel"].Visible = false;
-            DtgMalzemeBilgisi.Columns["KayitDurumu"].Visible = false;
-            DtgMalzemeBilgisi.Columns["SeriNo"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Durum"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Revizyon"].Visible = false; 
-            DtgMalzemeBilgisi.Columns["Miktar"].Visible = false;
-            DtgMalzemeBilgisi.Columns["TalepTarihi"].Visible = false;
-            DtgMalzemeBilgisi.Columns["DataTypeValue"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SistemTanimi"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SistemSorumlusu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["IslemYapan"].Visible = false;
+            DtgMalzemeBilgisi.Columns["TakipDurumu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["UstStok"].Visible = false;
+            DtgMalzemeBilgisi.Columns["UstTanim"].Visible = false;
+            DtgMalzemeBilgisi.Columns["BenzersizId"].Visible = false;
             /*DtgMalzemeBilgisi.DataSource = malzemeManager.MalzemeGetList(TxtStokNo.Text);
 
             DtgMalzemeBilgisi.Columns["Id"].Visible = false;

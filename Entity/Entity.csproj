@@ -58,6 +58,7 @@
     <Compile Include="AnaSayfa\Duyuru.cs" />
     <Compile Include="AnaSayfa\Log.cs" />
     <Compile Include="AnaSayfa\Menu.cs" />
+    <Compile Include="AnaSayfa\ServerAyarlar.cs" />
     <Compile Include="AtolyeRapor.cs" />
     <Compile Include="BakimOnarimAtolye\Atolye.cs" />
     <Compile Include="BakimOnarimAtolye\AtolyeAltMalzeme.cs" />

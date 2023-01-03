@@ -350,6 +350,11 @@ namespace UserInterface.STS
             DtgMalzemeList.Columns["TakilanCalismaSaati"].Visible = false;
             DtgMalzemeList.Columns["TakilanRevizyon"].Visible = false;
             DtgMalzemeList.Columns["TeminDurumu"].Visible = false;
+            DtgMalzemeList.Columns["MalzemeIslemAdimi"].Visible = false;
+            DtgMalzemeList.Columns["MalzemeDurumu"].Visible = false;
+            DtgMalzemeList.Columns["TemineAtilamTarihi"].Visible = false;
+            DtgMalzemeList.Columns["AbTarihSaat"].Visible = false;
+            DtgMalzemeList.Columns["AbfNo"].Visible = false;
 
             TxtTop.Text = DtgMalzemeList.RowCount.ToString();
         }
@@ -560,7 +565,7 @@ namespace UserInterface.STS
 
                             satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
 
-                            abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString());
+                            abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), isleAdimi);
                         }
                     }
 

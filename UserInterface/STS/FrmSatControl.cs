@@ -305,15 +305,19 @@ namespace UserInterface.STS
                     satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Sat Onay Başaran", "SAT ONAY BAŞARAN");
                 }
 
+                yapilanislem = "FİRMANIN FİYAT TEKLİFLERİ KAYDEDİLDİ.";
+
                 foreach (DataGridViewRow item in DtgMalzList.Rows)
                 {
                     TeklifAlinan teklifAlinan = new TeklifAlinan(item.Cells["Stn1"].Value.ToString(), item.Cells["T1"].Value.ToString(), item.Cells["M1"].Value.ConInt(), item.Cells["B1"].Value.ToString(), item.Cells["BirimFiyat"].Value.ConDouble(),
                         item.Cells["ToplamFiyat"].Value.ConDouble(), item.Cells["Firma"].Value.ToString());
 
                     teklifiAlinanManager.Add(teklifAlinan, siparisNo);
-                }
 
-                yapilanislem = "FİRMANIN FİYAT TEKLİFLERİ KAYDEDİLDİ.";
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+
+                }
+                
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -323,6 +327,8 @@ namespace UserInterface.STS
                 Temize1();
             }
         }
+
+
 
         private void DtgProjeDirTeklifGir_FilterStringChanged(object sender, EventArgs e)
         {
@@ -481,6 +487,11 @@ namespace UserInterface.STS
                 yapilanislem = "FİYAT TEKLİFİ İÇİN MÜDÜRLÜĞE ONAY MAİLİ GÖNDERİLDİ.";
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
+
+                foreach (DataGridViewRow item in DtgMalzList6.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
 
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Yenile();
@@ -706,15 +717,18 @@ namespace UserInterface.STS
                     satDataGridview1Manager.TeklifDurum(siparisNo, dosyaYolu, "SAT ONAY BAŞARAN");
                 }
 
+                yapilanislem = "FİRMANIN FİYAT TEKLİFLERİ KAYDEDİLDİ.";
+
                 foreach (DataGridViewRow item in DtgMalzList7.Rows)
                 {
                     TeklifAlinan teklifAlinan = new TeklifAlinan(item.Cells["Stn1"].Value.ToString(), item.Cells["T1"].Value.ToString(), item.Cells["M1"].Value.ConInt(), item.Cells["B1"].Value.ToString(), item.Cells["BirimFiyat"].Value.ConDouble(),
                         item.Cells["ToplamFiyat"].Value.ConDouble(), item.Cells["Firma"].Value.ToString());
 
                     teklifiAlinanManager.Add(teklifAlinan, siparisNo);
-                }
 
-                yapilanislem = "FİRMANIN FİYAT TEKLİFLERİ KAYDEDİLDİ.";
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
+                
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -805,6 +819,12 @@ namespace UserInterface.STS
                 satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Fatura Bekleyen SAT", "FATURA BEKLEYEN SAT");
 
                 yapilanislem = "MALZEMENİN FİZİKİ OLARAK ALIMI YAPILDI.";
+
+                foreach (DataGridViewRow item in DtgMalzList2.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -876,6 +896,12 @@ namespace UserInterface.STS
                 satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Fatura Bekleyen SAT", "FATURA BEKLEYEN SAT");
 
                 yapilanislem = "MALZEMENİN FİZİKİ OLARAK ALIMI YAPILDI.";
+
+                foreach (DataGridViewRow item in DtgMalzList8.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -1072,6 +1098,12 @@ namespace UserInterface.STS
 
                 satDataGridview1Manager.SatDevamEdenFaturaTutariAdd(siparisNo, TxtFaturaTutar2.Text.ConDouble(), CmbHarcamaYapan2.Text, TxtFirma2.Text, CmbBelgeTuru2.Text, TxtBelgeNumarasi2.Text, DtBelgeTarihi2.Value);
                 yapilanislem = "FATURA ALINARAK KAYIT YAPILDI.";
+
+                foreach (DataGridViewRow item in DtgMalzList9.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -1169,6 +1201,12 @@ namespace UserInterface.STS
 
                 satDataGridview1Manager.SatDevamEdenFaturaTutariAdd(siparisNo, TxtFaturaTutar.Text.ConDouble(), CmbHarcamaYapan.Text, TxtFirma.Text, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value);
                 yapilanislem = "FATURA ALINARAK KAYIT YAPILDI.";
+
+                foreach (DataGridViewRow item in DtgMalzList5.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -1336,6 +1374,11 @@ namespace UserInterface.STS
                 satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Ödeme Bilgileri Kayıt", "ÖDEME BEKLEYEN SAT");
 
                 yapilanislem = "ÖDEME BİLGİLERİ İÇİN MAİL GÖNDERİLMİŞTİR.";
+                foreach (DataGridViewRow item in DtgMalzList10.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -1413,13 +1456,17 @@ namespace UserInterface.STS
                 {
                     for (int i = 0; i < depoStokId.Count; i++)
                     {
-                        abfMalzemeManager.TeminBilgisi(depoStokId[i].ConInt(), "SAT İŞLEMLERİ TAMAMLANDI", infos[1].ToString());
+                        abfMalzemeManager.TeminBilgisi(depoStokId[i].ConInt(), "SAT İŞLEMLERİ TAMAMLANDI", infos[1].ToString(), "SAT İŞLEMLERİ TAMAMLANDI");
                     }
                 }
 
                 satDataGridview1Manager.DepoTeslimTarihi(DepoTeslimTarihi.Text.ConDate(), siparisNo);
 
                 yapilanislem = "DEPO AKTARIM İŞLEMLERİ TAMAMLANMIŞTIR.";
+                foreach (DataGridViewRow item in DtgMalzList3.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -1656,6 +1703,10 @@ namespace UserInterface.STS
                 
 
                 yapilanislem = "ÖDEME BİLGİLERİNİN YAPILDIĞINA DAİR MAİL EKLENMİŞTİR.";
+                foreach (DataGridViewRow item in DtgMalzList11.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -1802,6 +1853,13 @@ namespace UserInterface.STS
                 satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Aselsan Onay Bekleyen", "ASELSAN ONAYI");
 
                 yapilanislem = "ASELSAN ONAYI İÇİN MAİL OLUŞTURULDU.";
+
+
+                foreach (DataGridViewRow item in DtgMalzList12.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -1959,6 +2017,12 @@ namespace UserInterface.STS
                 satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Sat Onay Başaran", "SAT ONAY BAŞARAN");
 
                 yapilanislem = "ASELSAN ONAYI MAİLİ EKLENDİ.";
+
+                foreach (DataGridViewRow item in DtgMalzList13.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -2201,6 +2265,7 @@ namespace UserInterface.STS
             }
         }
 
+
         private void BtnKayde5_Click(object sender, EventArgs e)
         {
             if (siparisNo == "")
@@ -2225,6 +2290,8 @@ namespace UserInterface.STS
             {
                 string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
                 string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
+
+                donem = DateTime.Now.ConPeriod();
 
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satBirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
                     faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyaYolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamayapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi);
@@ -2252,6 +2319,10 @@ namespace UserInterface.STS
                 satinAlinacakMalManager.Delete(siparisNo);
 
                 yapilanislem = "SAT İŞLEMİ TAMAMLANDI.";
+                foreach (DataGridViewRow item in DtgMalzList4.Rows)
+                {
+                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
+                }
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -2611,7 +2682,7 @@ namespace UserInterface.STS
         }
         void FillDepoMAlzemeTeslim()
         {
-            satDatas4 = satDataGridview1Manager.TekifDurumListele("Alındı", "Ödeme Bilgileri Kayıt", 1, "BELIRLENMEDI");
+            satDatas4 = satDataGridview1Manager.TekifDurumListele("Alındı", "Depo Malzeme Teslim", 1, "BELIRLENMEDI");
             dataBinder4.DataSource = satDatas4.ToDataTable();
             DtgDepoMalzemeTeslim.DataSource = dataBinder4;
 

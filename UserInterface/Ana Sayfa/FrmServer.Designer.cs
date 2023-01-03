@@ -29,6 +29,8 @@ namespace UserInterface.Ana_Sayfa
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmServer));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -39,7 +41,12 @@ namespace UserInterface.Ana_Sayfa
             this.LblIsAkisNo = new System.Windows.Forms.Label();
             this.BtnKontrolEt = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.ChkOnlineRefrec = new System.Windows.Forms.CheckBox();
+            this.ChkBildirim = new System.Windows.Forms.CheckBox();
+            this.BtnUygula = new System.Windows.Forms.Button();
+            this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.SuspendLayout();
@@ -57,6 +64,9 @@ namespace UserInterface.Ana_Sayfa
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnUygula);
+            this.tabPage1.Controls.Add(this.ChkBildirim);
+            this.tabPage1.Controls.Add(this.ChkOnlineRefrec);
             this.tabPage1.Location = new System.Drawing.Point(4, 24);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
@@ -157,6 +167,52 @@ namespace UserInterface.Ana_Sayfa
             this.label1.TabIndex = 0;
             this.label1.Text = "Mevcut İş Akış No:";
             // 
+            // ChkOnlineRefrec
+            // 
+            this.ChkOnlineRefrec.AutoSize = true;
+            this.ChkOnlineRefrec.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkOnlineRefrec.Location = new System.Drawing.Point(22, 20);
+            this.ChkOnlineRefrec.Name = "ChkOnlineRefrec";
+            this.ChkOnlineRefrec.Size = new System.Drawing.Size(260, 19);
+            this.ChkOnlineRefrec.TabIndex = 2;
+            this.ChkOnlineRefrec.Text = "Çevirimiçi Liste Yenilenmesini Kapat";
+            this.ChkOnlineRefrec.UseVisualStyleBackColor = true;
+            // 
+            // ChkBildirim
+            // 
+            this.ChkBildirim.AutoSize = true;
+            this.ChkBildirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkBildirim.Location = new System.Drawing.Point(22, 56);
+            this.ChkBildirim.Name = "ChkBildirim";
+            this.ChkBildirim.Size = new System.Drawing.Size(186, 19);
+            this.ChkBildirim.TabIndex = 3;
+            this.ChkBildirim.Text = "Bildirimleri Alımını Kapat";
+            this.ChkBildirim.UseVisualStyleBackColor = true;
+            // 
+            // BtnUygula
+            // 
+            this.BtnUygula.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnUygula.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnUygula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnUygula.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnUygula.ImageKey = "ok.png";
+            this.BtnUygula.ImageList = this.ımageList2;
+            this.BtnUygula.Location = new System.Drawing.Point(22, 101);
+            this.BtnUygula.Name = "BtnUygula";
+            this.BtnUygula.Size = new System.Drawing.Size(123, 51);
+            this.BtnUygula.TabIndex = 511;
+            this.BtnUygula.Text = "  UYGULA";
+            this.BtnUygula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnUygula.UseVisualStyleBackColor = false;
+            this.BtnUygula.Click += new System.EventHandler(this.BtnUygula_Click);
+            // 
+            // ımageList2
+            // 
+            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
+            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList2.Images.SetKeyName(0, "okey.png");
+            this.ımageList2.Images.SetKeyName(1, "ok.png");
+            // 
             // FrmServer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +227,8 @@ namespace UserInterface.Ana_Sayfa
             this.Text = "Server";
             this.Load += new System.EventHandler(this.FrmServer_Load);
             this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
@@ -190,5 +248,9 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.Button BtnTumunuDuzelt;
         private System.Windows.Forms.Button BtnAtlat;
         private System.Windows.Forms.DataGridView DtgList;
+        private System.Windows.Forms.CheckBox ChkOnlineRefrec;
+        private System.Windows.Forms.CheckBox ChkBildirim;
+        private System.Windows.Forms.Button BtnUygula;
+        private System.Windows.Forms.ImageList ımageList2;
     }
 }
