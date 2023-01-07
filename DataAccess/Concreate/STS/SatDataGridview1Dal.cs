@@ -348,7 +348,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString());
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -412,7 +414,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString());
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -924,7 +928,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -988,7 +994,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1053,7 +1061,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1118,7 +1128,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -1182,7 +1194,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1247,7 +1261,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1312,7 +1328,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1377,7 +1395,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1442,7 +1462,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1507,7 +1529,9 @@ namespace DataAccess.Concreate
                         dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
                         dataReader["ODEME_MAIL_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
-                        dataReader["DEPO_TESLIM_DURUMU"].ToString()));
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
 
                 }
                 dataReader.Close();

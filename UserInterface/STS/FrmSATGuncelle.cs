@@ -4285,7 +4285,7 @@ namespace UserInterface.STS
             }
         }
         string dosyaYoluGuncelle = "", siparisNoGuncelle = "", islemAdimi = "", satOlusturmaTuru = "", durum = "", redNedeni = "", teklifDurumu = "",
-            firmaBilgisi = "", islemAdimiGuncelle = "", satOlusturmaTuruGuncelle = "",belgeTuruGuncelle="",belgeNumarasi="", redDurum ="", mailDurumu="", mailSiniri=""; int satnoGuncelle, personelIdGuncelle, personelId, ucTeklif;
+            firmaBilgisi = "", islemAdimiGuncelle = "", satOlusturmaTuruGuncelle = "", belgeTuruGuncelle = "", belgeNumarasi = "", redDurum = "", mailDurumu = "", mailSiniri = "", depoTeslimBilgisi = "", butceTanim = "", maliyetTuru = ""; int satnoGuncelle, personelIdGuncelle, personelId, ucTeklif;
         DateTime belgeTarihi;
         private void DtgReddedilenSat_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -4334,6 +4334,9 @@ namespace UserInterface.STS
             islemAdimiGuncelle = DtgReddedilenSat.CurrentRow.Cells["IslemAdimi"].Value.ToString();
             mailDurumu= DtgReddedilenSat.CurrentRow.Cells["MailDurumu"].Value.ToString();
             mailSiniri= DtgReddedilenSat.CurrentRow.Cells["MailSiniri"].Value.ToString();
+            depoTeslimBilgisi = DtgReddedilenSat.CurrentRow.Cells["DepoTeslimBilgisi"].Value.ToString();
+            butceTanim = DtgReddedilenSat.CurrentRow.Cells["ButceTanimi"].Value.ToString();
+            maliyetTuru = DtgReddedilenSat.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
             webBrowser6.Navigate(dosyaYoluGuncelle);
             if (CmbAdSoyad.Text=="")
             {
@@ -4446,7 +4449,7 @@ namespace UserInterface.STS
             {
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
 
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(idRed, LblIsAkisNo2.Text.ConInt(), satnoGuncelle, LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, siparisNoGuncelle, dosyaYoluGuncelle, CmbButceKoduRed.Text, CmbSatBirimRed.Text, CmbHarcamaTuruRed.Text, CmbFaturaFirmaRed.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, ucTeklif, firmaBilgisi, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, belgeTuruGuncelle, belgeNumarasi, belgeTarihi, islemAdimi, donem, satOlusturmaTuruGuncelle, redNedeni, durum, teklifDurumu, TxtProje.Text, TxtFirmaGuncelle.Text, mailSiniri, mailDurumu, DateTime.Now, "",DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now,"");
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(idRed, LblIsAkisNo2.Text.ConInt(), satnoGuncelle, LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, siparisNoGuncelle, dosyaYoluGuncelle, CmbButceKoduRed.Text, CmbSatBirimRed.Text, CmbHarcamaTuruRed.Text, CmbFaturaFirmaRed.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, ucTeklif, firmaBilgisi, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, belgeTuruGuncelle, belgeNumarasi, belgeTarihi, islemAdimi, donem, satOlusturmaTuruGuncelle, redNedeni, durum, teklifDurumu, TxtProje.Text, TxtFirmaGuncelle.Text, mailSiniri, mailDurumu, DateTime.Now, "", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, depoTeslimBilgisi, butceTanim, maliyetTuru);
 
                 string messege = satDataGridview1Manager.RedUpdate(satDataGridview1);
                 if (messege!="OK")

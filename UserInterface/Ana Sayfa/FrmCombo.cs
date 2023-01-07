@@ -15,6 +15,7 @@ using UserInterface.Butce;
 using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.IdariIşler;
 using UserInterface.IdariIsler;
+using UserInterface.STS;
 using UserInterface.Yerleskeler;
 
 namespace UserInterface.Ana_Sayfa
@@ -358,6 +359,32 @@ namespace UserInterface.Ana_Sayfa
                 if (form != null)
                 {
                     form.ComboYasamAlani();
+                }
+            }
+
+            if (comboAd == "BUTCE_TANIM")
+            {
+                var form = (FrmHarcamasiYapilanSat)Application.OpenForms["FrmHarcamasiYapilanSat"];
+                if (form != null)
+                {
+                    form.ButceTanim();
+                }
+            }
+
+            if (comboAd == "MALİYET_TURU")
+            {
+                var form = (FrmHarcamasiYapilanSat)Application.OpenForms["FrmHarcamasiYapilanSat"];
+                if (form != null)
+                {
+                    form.MaliyetTuru();
+                }
+            }
+            if (comboAd == "BUTCE_FIRMA")
+            {
+                var form = (FrmButceKoduKalemiDuzenle)Application.OpenForms["FrmButceKoduKalemiDuzenle"];
+                if (form != null)
+                {
+                    form.Firma();
                 }
             }
 

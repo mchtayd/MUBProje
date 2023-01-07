@@ -30,7 +30,7 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBolgeler));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgBolgeler = new ADGV.AdvancedDataGridView();
@@ -47,7 +47,6 @@ namespace UserInterface.BakımOnarım
             this.CmbBolgeAdi = new System.Windows.Forms.ComboBox();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
-            this.BtnKaydet = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
             this.TxtTugay = new System.Windows.Forms.TextBox();
@@ -234,6 +233,7 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -286,8 +286,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgBolgeler.AllowUserToAddRows = false;
             this.DtgBolgeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgBolgeler.AutoGenerateContextFilters = true;
             this.DtgBolgeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgBolgeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -505,22 +505,6 @@ namespace UserInterface.BakımOnarım
             this.BtnDosyaEkle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDosyaEkle.UseVisualStyleBackColor = false;
             this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
-            // 
-            // BtnKaydet
-            // 
-            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
-            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(331, 701);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
-            this.BtnKaydet.TabIndex = 317;
-            this.BtnKaydet.Text = "     KAYDET";
-            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnKaydet.UseVisualStyleBackColor = false;
-            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click_1);
             // 
             // label2
             // 
@@ -1952,6 +1936,22 @@ namespace UserInterface.BakımOnarım
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(331, 701);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 317;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click_1);
+            // 
             // FrmBolgeler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2199,7 +2199,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn Column90;
         private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Button BtnDosyaEkle;
-        private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Button BtnGarantiEdit;
         private System.Windows.Forms.ComboBox CmbBolgeAdi;
         private System.Windows.Forms.ComboBox CmbBolgeSorumlusu;
@@ -2210,5 +2209,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button BtnKaydet;
     }
 }

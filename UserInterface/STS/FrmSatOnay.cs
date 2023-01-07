@@ -670,6 +670,7 @@ namespace UserInterface.STS
             teklifsizSats = teklifsizSatManager.GetList(siparisNo);
             dataBinder.DataSource = teklifsizSats.ToDataTable();
             // DtgMalzemeList.DataSource = dataBinder;
+
         }
 
         void MalzemeList2()
@@ -749,60 +750,82 @@ namespace UserInterface.STS
             FillTools();
             FillTools2();
 
-            if (teklifdurumu == 0)
+            //if (teklifdurumu == 0)
+            //{
+            //    if (belgeTuru != "")
+            //    {
+            //        panel2.Visible = false;
+            //        panel4.Visible = false;
+            //        panel5.Visible = false;
+            //        TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+            //        webBrowser5.Navigate(dosyayolu);
+            //        return;
+            //    }
+            //    if (talepeden == "MURAT DEMİRTAŞ      ")
+            //    {
+            //        if (satOlusturmaTuru == "BAŞARAN")
+            //        {
+            //            panel4.Visible = false;
+            //            panel2.Visible = false;
+            //            panel5.Visible = false;
+            //            TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+            //            webBrowser4.Navigate(dosyayolu);
+            //            return;
+            //        }
+            //        panel2.Visible = false;
+            //        panel4.Visible = false;
+            //        panel5.Visible = false;
+            //        TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+            //        webBrowser5.Navigate(dosyayolu);
+            //        return;
+            //    }
+            //    panel4.Visible = false;
+            //    panel2.Visible = false;
+            //    panel5.Visible = false;
+
+            //    TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+            //    webBrowser4.Navigate(dosyayolu);
+            //}
+            //if (teklifdurumu == 1)
+            //{
+            //    panel5.Visible = true;
+            //    panel4.Visible = false;
+            //    panel2.Visible = false;
+
+            //    TxtGerekce.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
+            //    webBrowser3.Navigate(dosyayolu);
+            //}
+
+            //foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
+            //{
+            //    toplamlar = +item.Btf;
+            //}
+
+            webBrowser2.Navigate(dosyayolu);
+
+            Gerek.Text = gerekce;
+
+            if (satOlusturmaTuru== "HARCAMASI YAPILAN")
             {
-                if (belgeTuru != "")
-                {
-                    panel2.Visible = false;
-                    panel4.Visible = false;
-                    panel5.Visible = false;
-                    TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
-                    webBrowser5.Navigate(dosyayolu);
-                    return;
-                }
-                if (talepeden == "MURAT DEMİRTAŞ      ")
-                {
-                    if (satOlusturmaTuru == "BAŞARAN")
-                    {
-                        panel4.Visible = false;
-                        panel2.Visible = false;
-                        panel5.Visible = false;
-                        TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
-                        webBrowser4.Navigate(dosyayolu);
-                        return;
-                    }
-                    panel2.Visible = false;
-                    panel4.Visible = false;
-                    panel5.Visible = false;
-                    TxtGerekceHarcamasiYapilan.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
-                    webBrowser5.Navigate(dosyayolu);
-                    return;
-                }
-                panel4.Visible = false;
-                panel2.Visible = false;
-                panel5.Visible = false;
+                DtgMalzList.DataSource = teklifsizSats;
+                DtgMalzList.Columns["Id"].Visible = false;
+                DtgMalzList.Columns["Stokno"].Visible = false;
+                DtgMalzList.Columns["Tanim"].Visible = false;
+                DtgMalzList.Columns["Miktar"].Visible = false;
+                DtgMalzList.Columns["Birim"].Visible = false;
+                DtgMalzList.Columns["Siparisno"].Visible = false;
+                DtgMalzList.Columns["Tutar"].HeaderText = "HARCANAN TUTAR";
 
-                TxtGerekceTeklifsiz.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
-                webBrowser4.Navigate(dosyayolu);
+                ToplamlarHarcamasiYapilan();
+                LblTop2.Text = DtgMalzList.RowCount.ToString();
             }
-            if (teklifdurumu == 1)
+            else
             {
-                panel5.Visible = true;
-                panel4.Visible = false;
-                panel2.Visible = false;
-
-                TxtGerekce.Text = DtgOnay.CurrentRow.Cells["Gerekce"].Value.ToString();
-                webBrowser3.Navigate(dosyayolu);
+                Teklifler();
             }
-
-            foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
-            {
-                toplamlar = +item.Btf;
-            }
-
-            Teklifler();
 
         }
+
         void Teklifler()
         {
             DtgMalzList.DataSource = fiyatTeklifiAls;
@@ -837,6 +860,16 @@ namespace UserInterface.STS
 
             }
             LblGenelTop.Text = toplam.ToString("C2");
+        }
+        double hyTop;
+        void ToplamlarHarcamasiYapilan()
+        {
+            for (int i = 0; i < DtgMalzList.Rows.Count; ++i)
+            {
+                hyTop += Convert.ToDouble(DtgMalzList.Rows[i].Cells["Tutar"].Value);
+
+            }
+            LblGenelTop.Text = hyTop.ToString("C2");
         }
 
         private void DtgOnay_FilterStringChanged(object sender, EventArgs e)
@@ -2379,13 +2412,30 @@ namespace UserInterface.STS
             {
                 if (satOlusturmaTuru=="HARCAMASI YAPILAN")
                 {
+
+                    //DosyaAdiDegistir();
+                    satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "", "");
+
+                    tamamlanantarih = DateTime.Now;
+                    islemAdimi = "TAMAMLANAN SATLAR";
+                    if (satbirim == "PRJ.DİR.SATIN ALMA")
+                    {
+                        harcamaYapan = "EBRU BAYDAŞ";
+                    }
+                    if (satbirim == "BSRN GN.MDL.SATIN ALMA")
+                    {
+                        harcamaYapan = "TURGUT AYDIN";
+                    }
+                    toplam = LblToplam.Text.ConDouble();
+
                     string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
                     string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
+
 
                     donem = DateTime.Now.ConPeriod();
 
                     Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
-                        faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi);
+                        faturafirma, ilgilikisi, masrafyerino, hyTop, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi);
                     string control = tamamlananManager.Add(tamamlanan);
                     if (control != "OK")
                     {
@@ -2440,16 +2490,17 @@ namespace UserInterface.STS
                             satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Alım Yapılacak Direktörlük", "ALIMI BEKLEYEN SAT");
                         }
                     }
+
+                    satDataGridview1Manager.OnaylananTeklif(siparisNo, 1);
+                    onaydurum = "Onaylandı.";
+                    yapilanislem = "TEKLİF ONAYLANDI.";
+                    islmeyapan = infos[1].ToString();
+
+                    SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanislem, islmeyapan, DateTime.Now);
+                    satIslemAdimlarimanager.Add(satIslem);
+
                 }
                 
-
-                satDataGridview1Manager.OnaylananTeklif(siparisNo, 1);
-                onaydurum = "Onaylandı.";
-                yapilanislem = "TEKLİF ONAYLANDI.";
-                islmeyapan = infos[1].ToString();
-
-                SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanislem, islmeyapan, DateTime.Now);
-                satIslemAdimlarimanager.Add(satIslem);
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 onaydurum = "Teklif Onaylanmıştır.";

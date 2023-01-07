@@ -667,7 +667,7 @@ namespace UserInterface.IdariIsler
                 siparisNo = Guid.NewGuid().ToString();
                 HarcamaControl();
                 SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, TxtIsAkisNoTamamla.Text.ConInt(), masrafyerino, talepeden, bolum, "YOK", "YOK", DateTime.Now, gerekce, siparisNo, CmbAdSoyadGun.Text, CmbSiparsGun.Text, TxtGoreviGun.Text, TxtMasrafyeriNoGun.Text, TxtMasrafYeriGun.Text,
-                  string.IsNullOrEmpty(dosyaGun) ? "" : dosyaGun, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, TxtFirmalar.Text);
+                  string.IsNullOrEmpty(dosyaGun) ? "" : dosyaGun, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, TxtFirmalar.Text, "", "");
                 string mesaj = satDataGridview1Manager.Add(satDataGridview1);
                 if (mesaj != "OK")
                 {

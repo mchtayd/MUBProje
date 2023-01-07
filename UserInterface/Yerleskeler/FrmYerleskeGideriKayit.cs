@@ -131,8 +131,10 @@ namespace UserInterface.Yerleskeler
                 string gerekce = donem + " DÖNEMİNE AİT "+ CmbYerleskeAdi.Text + " " + CmbGiderTuru.Text + " FATURASIDIR.";
                 isleAdimi = "SAT BAŞLATMA ONAYI";
 
+
+                // bütçe tanım ve maliyet türü yazılacak entitye
                 SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, LblIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(), infos[2].ToString(), "", "", DtgTarih.Value, gerekce, siparisNo, "", "", "", "", "",
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "BAŞARAN", CmbProjeKodu.Text, TxtHizmetAlinanKurum.Text);
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "BAŞARAN", CmbProjeKodu.Text, TxtHizmetAlinanKurum.Text, "", "");
 
 
             }

@@ -8,7 +8,7 @@ namespace Entity
 {
     public class SatDataGridview1
     {
-        int id, personelId; int formno, satno; string masrafyeri, talepeden, bolum, usbolgesi, abfformno, burcekodu, satbirim, harcamaturu, faturafirma, ilgilikisi, masyerino; DateTime tarih; string gerekce, siparisNo, dosyaYolu; int uctekilf; string firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasYerNo, personelMasYeri, belgeTuru, belgeNumarasi; DateTime belgeTarihi; string islemAdimi, donem, satOlusturmaTuru, redNedeni, durum, teklifDurumu, proje, satinAlinanFirma, mailSiniri, mailDurumu; DateTime mlzTeslimAldTarih; string harcamaYapan; DateTime aselsanMailGondermeDate, aselsanMailAlmaDate, odemeMailGondermeDate, odemeMailAlmaDate, depoTeslimTarihi; string depoTeslimBilgisi;
+        int id, personelId; int formno, satno; string masrafyeri, talepeden, bolum, usbolgesi, abfformno, burcekodu, satbirim, harcamaturu, faturafirma, ilgilikisi, masyerino; DateTime tarih; string gerekce, siparisNo, dosyaYolu; int uctekilf; string firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasYerNo, personelMasYeri, belgeTuru, belgeNumarasi; DateTime belgeTarihi; string islemAdimi, donem, satOlusturmaTuru, redNedeni, durum, teklifDurumu, proje, satinAlinanFirma, mailSiniri, mailDurumu; DateTime mlzTeslimAldTarih; string harcamaYapan; DateTime aselsanMailGondermeDate, aselsanMailAlmaDate, odemeMailGondermeDate, odemeMailAlmaDate, depoTeslimTarihi; string depoTeslimBilgisi, butceTanimi, maliyetTuru;
 
         public int Id { get => id; set => id = value; }
         public int Formno { get => formno; set => formno = value; }
@@ -57,6 +57,8 @@ namespace Entity
         public DateTime OdemeMailAlmaDate { get => odemeMailAlmaDate; set => odemeMailAlmaDate = value; }
         public DateTime DepoTeslimTarihi { get => depoTeslimTarihi; set => depoTeslimTarihi = value; }
         public string DepoTeslimBilgisi { get => depoTeslimBilgisi; set => depoTeslimBilgisi = value; }
+        public string ButceTanimi { get => butceTanimi; set => butceTanimi = value; }
+        public string MaliyetTuru { get => maliyetTuru; set => maliyetTuru = value; }
 
         public SatDataGridview1(int id, int formno, int satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, 
             DateTime tarih, string gerekce, string siparisNo, string dosyaYolu, int personelId,string talepEdenPersonel,string personelSiparis, string unvani, 
@@ -91,7 +93,7 @@ namespace Entity
             this.satinAlinanFirma = satinAlinanFirma;
         }
 
-        public SatDataGridview1(int satno,int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string talepEdenPersonel,string personeSiparis,string unvani,string personelMasYerNo, string personelMasYeri, string dosyaYolu, int personelId,string islemAdimi,string donem, string satOlusturmaTuru,string proje, string satinAlinanFirma)
+        public SatDataGridview1(int satno,int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string talepEdenPersonel,string personeSiparis,string unvani,string personelMasYerNo, string personelMasYeri, string dosyaYolu, int personelId,string islemAdimi,string donem, string satOlusturmaTuru,string proje, string satinAlinanFirma, string butceTanimi, string maliyetTuru)
         {
             this.formno = formno;
             this.masrafyeri = masrafyeri;
@@ -115,6 +117,8 @@ namespace Entity
             this.satOlusturmaTuru = satOlusturmaTuru;
             this.proje = proje;
             this.satinAlinanFirma = satinAlinanFirma;
+            this.butceTanimi = butceTanimi;
+            this.maliyetTuru = maliyetTuru;
         }
 
         public SatDataGridview1(int satno, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi,
@@ -133,7 +137,7 @@ namespace Entity
             this.islemAdimi = islemAdimi;
         }
 
-        public SatDataGridview1(int id, int formno, int satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string dosyaYolu, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, int uctekilf,string firmaBilgisi,string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string belgeTuru, string belgeNumarasi, DateTime belgeTarihi, string islemAdimi,string donem, string satOlusturmaTuru, string redNedeni, string durum,string teklifDurumu,string proje, string satinAlinanFirma,string mailSiniri,string mailDurumu, DateTime mlzTeslimAldTarih,string harcamaYapan, DateTime aselsanMailGondermeDate, DateTime aselsanMailAlmaDate, DateTime odemeMailGondermeDate, DateTime odemeMailAlmaDate, DateTime depoTeslimTarihi, string depoTeslimBilgisi)
+        public SatDataGridview1(int id, int formno, int satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string dosyaYolu, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, int uctekilf,string firmaBilgisi,string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string belgeTuru, string belgeNumarasi, DateTime belgeTarihi, string islemAdimi,string donem, string satOlusturmaTuru, string redNedeni, string durum,string teklifDurumu,string proje, string satinAlinanFirma,string mailSiniri,string mailDurumu, DateTime mlzTeslimAldTarih,string harcamaYapan, DateTime aselsanMailGondermeDate, DateTime aselsanMailAlmaDate, DateTime odemeMailGondermeDate, DateTime odemeMailAlmaDate, DateTime depoTeslimTarihi, string depoTeslimBilgisi, string butceTanimi, string maliyetTuru)
         {
             this.Id = id;
             this.Formno = formno;
@@ -181,6 +185,8 @@ namespace Entity
             this.OdemeMailAlmaDate = odemeMailAlmaDate;
             this.depoTeslimTarihi = depoTeslimTarihi;
             this.depoTeslimBilgisi = depoTeslimBilgisi;
+            this.butceTanimi = butceTanimi;
+            this.maliyetTuru = maliyetTuru;
         }
 
         public SatDataGridview1(string usbolgesi, string abfformno, string gerekce)

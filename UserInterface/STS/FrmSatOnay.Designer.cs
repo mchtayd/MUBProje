@@ -487,6 +487,8 @@ namespace UserInterface.STS
             this.label34 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.Gerek = new System.Windows.Forms.RichTextBox();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgOnay)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -513,6 +515,7 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSat)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -675,6 +678,7 @@ namespace UserInterface.STS
             // 
             // panel6
             // 
+            this.panel6.Controls.Add(this.groupBox12);
             this.panel6.Controls.Add(this.BtnRed);
             this.panel6.Controls.Add(this.BtnOnay);
             this.panel6.Controls.Add(this.LblGenelTop);
@@ -4872,6 +4876,25 @@ namespace UserInterface.STS
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
+            // Gerek
+            // 
+            this.Gerek.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Gerek.Location = new System.Drawing.Point(3, 16);
+            this.Gerek.Name = "Gerek";
+            this.Gerek.Size = new System.Drawing.Size(573, 387);
+            this.Gerek.TabIndex = 347;
+            this.Gerek.Text = "";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.Gerek);
+            this.groupBox12.Location = new System.Drawing.Point(943, 16);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Size = new System.Drawing.Size(579, 406);
+            this.groupBox12.TabIndex = 348;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "GEREKÇE";
+            // 
             // FrmSatOnay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4918,6 +4941,7 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSat)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            this.groupBox12.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5378,5 +5402,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.Button BtnRed;
         private System.Windows.Forms.Button BtnOnay;
+        private System.Windows.Forms.GroupBox groupBox12;
+        private System.Windows.Forms.RichTextBox Gerek;
     }
 }

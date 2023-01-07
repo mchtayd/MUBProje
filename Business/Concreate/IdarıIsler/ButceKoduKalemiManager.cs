@@ -39,22 +39,54 @@ namespace Business.Concreate.IdarıIsler
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return butceKoduDal.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public ButceKodu Get(int id)
         {
             throw new NotImplementedException();
         }
+        public ButceKodu ButceKoduComboBilgiList(string baslik)
+        {
+            try
+            {
+                return butceKoduDal.ButceKoduComboBilgiList(baslik);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<ButceKodu> GetList()
         {
-            throw new NotImplementedException();
+            try
+            {
+                return butceKoduDal.GetList();
+            }
+            catch (Exception)
+            {
+                return new List<ButceKodu>();
+            }
         }
 
         public string Update(ButceKodu entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return butceKoduDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         string Complate(ButceKodu butceKodu)
         {
@@ -62,15 +94,15 @@ namespace Business.Concreate.IdarıIsler
             {
                 return "Lütfen BÜTÇE KODU KALEMİ Bilgisini Giriniz.";
             }
-            if (string.IsNullOrEmpty(butceKodu.Aciklama))
-            {
-                return "Lütfen AÇIKLAMA Bilgisini Giriniz.";
-            }
-            if (string.IsNullOrEmpty(butceKodu.GiderKarsilayacakFirma))
-            {
-                return "Lütfen GİDER KARŞILAYACAK FİRMA Bilgisini Giriniz.";
-            }
             return "";
+        }
+        public static ButceKoduKalemiManager GetInstance()
+        {
+            if (butceKoduKalemiManager == null)
+            {
+                butceKoduKalemiManager = new ButceKoduKalemiManager();
+            }
+            return butceKoduKalemiManager;
         }
     }
 }

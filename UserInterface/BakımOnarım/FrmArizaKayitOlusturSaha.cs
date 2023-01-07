@@ -16,6 +16,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
@@ -114,11 +115,24 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
                 GorevAtama();
+
+
+
+
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 Temizle();
                 kayitKontrol = true;
             }
+        }
+        void MailGonder()
+        {
+            FrmMail frmMail = new FrmMail();
+            frmMail.mailbilgi = "Saha Ariza Bildirim";
+            frmMail.usBolgesi = CmbBolgeAdi.Text;
+            frmMail.infos = infos;
+            frmMail.dosyaYolu = dosyaYolu;
+            frmMail.ShowDialog();
         }
 
         private void BtnTemizle_Click(object sender, EventArgs e)

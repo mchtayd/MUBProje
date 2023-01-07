@@ -20,12 +20,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
+using UserInterface.IdariIsler;
 
 namespace UserInterface.STS
 {
     public partial class FrmHarcamasiYapilanSat : Form
     {
-        ButceKoduManager butceKoduManager;
+        ButceKoduKalemiManager butceKoduKalemiManager;
         IsAkisNoManager isAkisNoManager;
         PersonelKayitManager kayitManager;
         SatDataGridview1Manager satDataGridview1Manager;
@@ -33,15 +34,16 @@ namespace UserInterface.STS
         SatIslemAdimlariManager satIslemAdimlariManager;
         SatNoManager satNoManager;
         BildirimYetkiManager bildirimYetkiManager;
+        ComboManager comboManager;
 
         public object[] infos;
-        int index, satNo;
-        string isAkisNoBasaran, dosyaYoluTemsili, kaynakdosyaismi, alinandosya, siparisNo, isleAdimi, islem;
+        int index, satNo, comboId;
+        string isAkisNoBasaran, dosyaYoluTemsili, kaynakdosyaismi, alinandosya, siparisNo, isleAdimi, islem, comboAd;
         bool start, dosyaEkleTemsili = false;
         public FrmHarcamasiYapilanSat()
         {
             InitializeComponent();
-            butceKoduManager = ButceKoduManager.GetInstance();
+            butceKoduKalemiManager = ButceKoduKalemiManager.GetInstance();
             isAkisNoManager = IsAkisNoManager.GetInstance();
             kayitManager = PersonelKayitManager.GetInstance();
             satDataGridview1Manager = SatDataGridview1Manager.GetInstance();
@@ -49,6 +51,7 @@ namespace UserInterface.STS
             satIslemAdimlariManager = SatIslemAdimlariManager.GetInstance();
             satNoManager = SatNoManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            comboManager = ComboManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -68,16 +71,55 @@ namespace UserInterface.STS
             IsAkisNo();
             ButceKoduKalemi();
             Personeller();
+            ButceTanim();
+            MaliyetTuru();
             LblSatTarihi.Text = DateTime.Now.ToString("d");
             start = true;
         }
-        void ButceKoduKalemi()
+        public void ButceKoduKalemi()
         {
-            CmbButceKodu.DataSource = butceKoduManager.GetList();
+            Entity.IdariIsler.ButceKodu butceKodu = butceKoduKalemiManager.ButceKoduComboBilgiList("HARCAMASI YAPILAN SAT");
+            comboId = butceKodu.Id;
+            List<Entity.IdariIsler.ButceKodu> butceKodus = new List<Entity.IdariIsler.ButceKodu>();
+            List<Entity.IdariIsler.ButceKodu> butceKodus2 = new List<Entity.IdariIsler.ButceKodu>();
+            butceKodus = butceKoduKalemiManager.GetList();
+            foreach (Entity.IdariIsler.ButceKodu item in butceKodus)
+            {
+                string[] comboIdler = item.ComboId.Split(';');
+                if (comboIdler.Length==0 || comboIdler.Length == 1)
+                {
+                    continue;
+                }
+                foreach (string item2 in comboIdler)
+                {
+                    if (item2.ConInt() == comboId)
+                    {
+                        butceKodus2.Add(item);
+                    }
+                }
+            }
+
+            CmbButceKodu.DataSource = butceKodus2;
             CmbButceKodu.ValueMember = "Id";
-            CmbButceKodu.DisplayMember = "Butcekodu";
+            CmbButceKodu.DisplayMember = "ButceKoduKalemi";
             CmbButceKodu.SelectedValue = 0;
         }
+
+        public void ButceTanim()
+        {
+            CmbButceTanimi.DataSource = comboManager.GetList("BUTCE_TANIM");
+            CmbButceTanimi.ValueMember = "Id";
+            CmbButceTanimi.DisplayMember = "Baslik";
+            CmbButceTanimi.SelectedValue = 0;
+        }
+        public void MaliyetTuru()
+        {
+            CmbMaliyetTuru.DataSource = comboManager.GetList("MALİYET_TURU");
+            CmbMaliyetTuru.ValueMember = "Id";
+            CmbMaliyetTuru.DisplayMember = "Baslik";
+            CmbMaliyetTuru.SelectedValue = 0;
+        }
+
 
         private void BtnOpenFile_Click(object sender, EventArgs e)
         {
@@ -95,6 +137,167 @@ namespace UserInterface.STS
             index = CmbFaturaFirma.SelectedIndex;
             CmbIlgiliKisi.SelectedIndex = index;
             CmbMasYeri.SelectedIndex = index;
+        }
+
+        private void BtnMaliyetEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "MALİYET_TURU";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void CmbButceTanimi_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbButceTanimi.Text == "DEĞİŞKEN GİDER")
+            {
+                CmbMaliyetTuru.Text = "PROJE MALİYET";
+            }
+            if (CmbButceTanimi.Text == "HAKEDİŞ")
+            {
+                CmbMaliyetTuru.Text = "FİNANSMAN GİDERİ";
+            }
+            if (CmbButceTanimi.Text == "SABİT GİDER")
+            {
+                CmbMaliyetTuru.Text = "SAT GİDERİ";
+            }
+            if (CmbButceTanimi.Text=="")
+            {
+                CmbMaliyetTuru.Text = "";
+            }
+        }
+
+        private void CmbButceKodu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbButceKodu.Text== "BM25/PERSONEL MAAŞ GİDERLERİ")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM45/PERSONEL MAAŞ YANSIMASI")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "PERSONEL SAHA TAZMİNAT GİDERLERİ")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM47/PERSONEL KIDEM GİDERLERİ")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM21/PERSONEL İAŞE GİDERLERİ")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM24/PERSONEL İLETİŞİM GİDERLERİ")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM23/PERSONEL ÖZEL SİGRT. GİDERLERİ")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM26/ARAÇ TAHSİS GİDERLERİ")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM30/AKARYAKIT, ANLAŞMALI PETROL")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM13/AKARYAKIT, TAŞIT TANIMA")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+            if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
+            {
+                CmbButceTanimi.Text = "SABİT GİDER";
+            }
+
+            if (CmbButceKodu.Text == "BM08/KONAKLAMA")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM09/TEMSİL AĞIRLAMA (ASL)")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM10/ARAÇ, VİNÇ VB. KİRALAMA")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM11/YAKIT, DİĞER")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM15/YURT İÇİ SEYAHAT")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM19/KARGO TAŞIMACILIK")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM28/İŞ AVANSLARI")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM39/YURT DIŞI SEYEHAT")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM40/PROJE DIŞI DESTEK ÇALIŞMALARI")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+            if (CmbButceKodu.Text == "BM40/PROJE DIŞI DESTEK ÇALIŞMALARI")
+            {
+                CmbButceTanimi.Text = "HAKEDİŞ";
+            }
+
+            if (CmbButceKodu.Text == "BM16/TEMSİL AĞIRLAMA (BSRN)")
+            {
+                CmbButceTanimi.Text = "DEĞİŞKEN GİDER";
+            }
+
+            if (CmbButceKodu.Text == "")
+            {
+                CmbButceTanimi.Text = "";
+            }
+        }
+
+        private void detayGörToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmButceKoduKalemi frmButceKoduKalemi = new FrmButceKoduKalemi();
+            frmButceKoduKalemi.Show();
+        }
+
+        private void BtnButceDuzenle_Click(object sender, EventArgs e)
+        {
+            FrmButceKoduKalemiDuzenle frmButceKoduKalemi = new FrmButceKoduKalemiDuzenle();
+            frmButceKoduKalemi.PnlKayit.Enabled = false;
+            frmButceKoduKalemi.BtnCancel.Visible = false;
+            frmButceKoduKalemi.BtnKaydet.Enabled = false;
+            frmButceKoduKalemi.BtnSil.Enabled = false;
+            frmButceKoduKalemi.BtnTemizle.Enabled = false;
+            frmButceKoduKalemi.comboId = comboId;
+            frmButceKoduKalemi.ShowDialog();
+        }
+
+        private void BtnButceTanimEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "BUTCE_TANIM";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -116,7 +319,7 @@ namespace UserInterface.STS
             string donem = CmbDonemBasaran.Text + " " + CmbDonemBasaranYil.Text;
             satNo = satNoManager.Add(new SatNo(siparisNo));
             SatDataGridview1 sat = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), LblMasrafYeriNo.Text, CmbAdSoyad.Text, LblMasrafYeri.Text, "YOK", "0", LblSatTarihi.Text.ConDate(), TxtAciklama.Text, siparisNo, CmbAdSoyad.Text, LblSiparisNo.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, donem, "HARCAMASI YAPILAN", LblProje.Text, TxtSatinAlinanFirma.Text);
+                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, donem, "HARCAMASI YAPILAN", LblProje.Text, TxtSatinAlinanFirma.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text);
             string mesaj = satDataGridview1Manager.Add(sat);
             if (mesaj != "OK")
             {

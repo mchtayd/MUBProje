@@ -468,8 +468,8 @@ namespace UserInterface.STS
                         return;
                     }
                 }
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(0,TxtFormNo.Text.ConInt(), MasYeriNo.Text, TalepEden.Text, Bolum.Text, Usbolgesi.Text, BildirimFromNo.Text, istenenTarih.Value, Gerekce.Text, siparisNo,"","","","","",
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(),"","","","","");
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, TxtFormNo.Text.ConInt(), MasYeriNo.Text, TalepEden.Text, Bolum.Text, Usbolgesi.Text, BildirimFromNo.Text, istenenTarih.Value, Gerekce.Text, siparisNo, "", "", "", "", "",
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), "", "", "", "", "", "", "");
 
                 alinandosya = "";
                 yapilanislem = "Satın Alma İşlemi Oluşturuldu, SAT BAŞLATMA ONAYI Aşamasında Beklemede.";

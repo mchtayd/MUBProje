@@ -335,7 +335,7 @@ namespace UserInterface.STS
 
             if (dr == DialogResult.Yes)
             {
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(satno,formNo, masrafyerino, talepden, bolum, usbolgesi, abfformno, tarih, gerekce, siparisNo, "","","","","",dosyayolutam, infos[0].ConInt(),"", donem, "BAŞARAN","","");
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(satno, formNo, masrafyerino, talepden, bolum, usbolgesi, abfformno, tarih, gerekce, siparisNo, "", "", "", "", "", dosyayolutam, infos[0].ConInt(), "", donem, "BAŞARAN", "", "", "", "");
 
                 satDataGridview1Manager.Add(satDataGridview1);
                 MalzemeleriEkle();

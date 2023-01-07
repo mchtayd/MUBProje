@@ -8,19 +8,29 @@ namespace Entity.IdariIsler
 {
     public class ButceKodu
     {
-        int id; bool durum; string butceKoduKalemi, aciklama, giderKarsilayacakFirma, comboId;
+        int id; string butceKoduKalemi, aciklama, giderKarsilayacakFirma, comboId; bool secim = true; string baslik;
 
         public int Id { get => id; set => id = value; }
-        public bool Durum { get => durum; set => durum = value; }
         public string ButceKoduKalemi { get => butceKoduKalemi; set => butceKoduKalemi = value; }
         public string Aciklama { get => aciklama; set => aciklama = value; }
         public string GiderKarsilayacakFirma { get => giderKarsilayacakFirma; set => giderKarsilayacakFirma = value; }
         public string ComboId { get => comboId; set => comboId = value; }
+        public bool Secim { get => secim; set => secim = value; }
+        public string Baslik { get => baslik; set => baslik = value; }
 
-        public ButceKodu(int id, bool durum, string butceKoduKalemi, string aciklama, string giderKarsilayacakFirma, string comboId)
+        public ButceKodu(int id, string butceKoduKalemi, string aciklama, string giderKarsilayacakFirma, string comboId, bool secim)
         {
             this.id = id;
-            this.durum = durum;
+            this.butceKoduKalemi = butceKoduKalemi;
+            this.aciklama = aciklama;
+            this.giderKarsilayacakFirma = giderKarsilayacakFirma;
+            this.comboId = comboId;
+            this.secim = secim;
+        }
+
+        public ButceKodu(int id, string butceKoduKalemi, string aciklama, string giderKarsilayacakFirma, string comboId)
+        {
+            this.id = id;
             this.butceKoduKalemi = butceKoduKalemi;
             this.aciklama = aciklama;
             this.giderKarsilayacakFirma = giderKarsilayacakFirma;
@@ -32,6 +42,12 @@ namespace Entity.IdariIsler
             this.butceKoduKalemi = butceKoduKalemi;
             this.aciklama = aciklama;
             this.giderKarsilayacakFirma = giderKarsilayacakFirma;
+        }
+
+        public ButceKodu(int id, string baslik)
+        {
+            this.id = id;
+            this.baslik = baslik;
         }
     }
 }

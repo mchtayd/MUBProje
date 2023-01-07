@@ -378,8 +378,8 @@ namespace UserInterface.IdariIsler
             satNo = satNoManager.Add(new SatNo(siparisNo));
             Harcama();
 
-            SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, isakisno.ConInt(), infos[4].ToString(),infos[1].ToString(), 
-                infos[2].ToString(),"YOK","YOK",DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya,infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, firmaBilgisi);
+            SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, isakisno.ConInt(), infos[4].ToString(), infos[1].ToString(),
+                infos[2].ToString(), "YOK", "YOK", DateTime.Now, gerekce, siparisNo, personelAd, personelSiparis, personeUnvani, personeMasYerNo, personeMasYeri, dosya, infos[0].ConInt(), "SAT ONAY", donem, "BAŞARAN", proje, firmaBilgisi, "", "");
 
             string mesaj = satDataGridview1Manager.Add(satDataGridview1);
             if (mesaj != "OK")

@@ -60,9 +60,32 @@ namespace DataAccess.Concreate.IdariIsler
                 while (dataReader.Read())
                 {
                     item = new ButceKodu(
+                        dataReader["ID"].ConInt(),
                         dataReader["BUTCE_KODU_KALEMI"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
-                        dataReader["GIDER_KARSILAYACAK_FIRMA"].ToString());
+                        dataReader["GIDER_KARSILAYACAK_FIRMA"].ToString(),
+                        dataReader["COMBO_ID"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public ButceKodu ButceKoduComboBilgiList(string baslik)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("ButceKoduComboIdList", new SqlParameter("@baslik", baslik));
+                ButceKodu item = null;
+                while (dataReader.Read())
+                {
+                    item = new ButceKodu(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BASLIK"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -82,9 +105,11 @@ namespace DataAccess.Concreate.IdariIsler
                 while (dataReader.Read())
                 {
                     butceKodus.Add(new ButceKodu(
+                        dataReader["ID"].ConInt(),
                         dataReader["BUTCE_KODU_KALEMI"].ToString(),
                         dataReader["ACIKLAMA"].ToString(),
-                        dataReader["GIDER_KARSILAYACAK_FIRMA"].ToString()));
+                        dataReader["GIDER_KARSILAYACAK_FIRMA"].ToString(),
+                        dataReader["COMBO_ID"].ToString()));
                 }
                 dataReader.Close();
                 return butceKodus;

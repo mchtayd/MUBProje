@@ -273,10 +273,12 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["YAPILACAK_ISLEM"].ToString(),
                         dataReader["ACIK"].ConInt());
                 }
+
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+
+            catch (Exception)
             {
                 return null;
             }
@@ -425,6 +427,7 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 return ex.Message;
             }
         }
+
         public string ArizaKapat(int id,int durum,DateTime tamamlanmaTarihi)
         {
             try

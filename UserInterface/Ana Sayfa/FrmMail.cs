@@ -1,6 +1,9 @@
 ﻿using Business.Concreate;
+using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
+using DataAccess.Concreate;
 using Entity;
+using Entity.IdariIsler;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
@@ -22,18 +25,22 @@ namespace UserInterface.Ana_Sayfa
         public List<SatMail> satMailList;
         SatDataGridview1Manager satDataGridview1Manager;
         SatMailManager satMailManager;
+        PersonelKayitManager personelKayitManager;
         int rowIndex;
         bool isComplete = false;
         public string mailbilgi, siparisNo;
         public object[] infos;
         string konu;
         public string dosyaYolu;
+        public string usBolgesi = "";
         List<string> dosyalars = new List<string>();
+        List<PersonelKayit> personelKayits = new List<PersonelKayit>();
         public FrmMail()
         {
             InitializeComponent();
             satDataGridview1Manager = SatDataGridview1Manager.GetInstance();
             satMailManager = SatMailManager.GetInstance();
+            personelKayitManager = PersonelKayitManager.GetInstance();
         }
 
         private void FrmMail_Load(object sender, EventArgs e)
@@ -54,17 +61,33 @@ namespace UserInterface.Ana_Sayfa
                 satMailList = satMailManager.GetListMailAselsanOnay(siparisNo);
                 konu = "FİYAT TEKLİFİ ONAYI";
             }
+            if (mailbilgi == "Saha Ariza Bildirim")
+            {
+                //satMailList = satMailManager.GetListMailAselsanOnay(siparisNo);
+                konu = usBolgesi + " ARIZA BİLDİRİMİ";
+            }
 
             if (satMailList.Count == 0)
             {
                 MessageBox.Show("Listede veri bulunmadığı için mail oluşturulamaz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (mailbilgi == "Saha Ariza Bildirim")
+            {
+                lblFrom.Text = infos[12].ToString();
+                txtSubject.Text = konu;
+                txtTo.Text = infos[12].ToString();
+                txtCc.Text = infos[12].ToString();
+            }
+            else
+            {
+                lblFrom.Text = infos[12].ToString();
+                txtSubject.Text = konu;
+                txtTo.Text = infos[12].ToString();
+                txtCc.Text = infos[12].ToString();
+            }
             
-            lblFrom.Text = infos[12].ToString();
-            txtSubject.Text = konu;
-            txtTo.Text = infos[12].ToString();
-            txtCc.Text = infos[12].ToString();
             if (mailbilgi == "Başaran Fiyat Teklifi")
             {
                 SetDatagrid(satMailList);
@@ -82,6 +105,9 @@ namespace UserInterface.Ana_Sayfa
             }
 
         }
+
+        
+
 
         private void BtnMailGonder_Click(object sender, EventArgs e)
         {

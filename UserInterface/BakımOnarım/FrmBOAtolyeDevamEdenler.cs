@@ -113,20 +113,21 @@ namespace UserInterface.BakımOnarım
             DtgDevamEden.Columns["KapatmaTarihi"].Visible = false;
             DtgDevamEden.Columns["DosyaYolu"].Visible = false;
 
-            DtgDevamEden.Columns["Gecensure"].DisplayIndex = 1;
             DtgDevamEden.Columns["IcSiparisNo"].DisplayIndex = 0;
-            DtgDevamEden.Columns["StokNoUst"].DisplayIndex = 2;
-            DtgDevamEden.Columns["TanimUst"].DisplayIndex = 3;
-            DtgDevamEden.Columns["SeriNoUst"].DisplayIndex = 4;
-            DtgDevamEden.Columns["AtolyeKategori"].DisplayIndex = 5;
-            DtgDevamEden.Columns["IslemAdimi"].DisplayIndex = 6;
-            DtgDevamEden.Columns["AbfNo"].DisplayIndex = 7;
-            DtgDevamEden.Columns["BolgeAdi"].DisplayIndex = 8;
-            DtgDevamEden.Columns["BildirilenAriza"].DisplayIndex = 9;
-            DtgDevamEden.Columns["CekildigiTarih"].DisplayIndex = 10;
-            DtgDevamEden.Columns["SiparisAcmaTarihi"].DisplayIndex = 11;
-            DtgDevamEden.Columns["Modifikasyonlar"].DisplayIndex = 12;
-            DtgDevamEden.Columns["Notlar"].DisplayIndex = 13;
+            DtgDevamEden.Columns["Id"].DisplayIndex = 1;
+            DtgDevamEden.Columns["Gecensure"].DisplayIndex = 2;
+            DtgDevamEden.Columns["StokNoUst"].DisplayIndex = 3;
+            DtgDevamEden.Columns["TanimUst"].DisplayIndex = 4;
+            DtgDevamEden.Columns["SeriNoUst"].DisplayIndex = 5;
+            DtgDevamEden.Columns["AtolyeKategori"].DisplayIndex = 6;
+            DtgDevamEden.Columns["IslemAdimi"].DisplayIndex = 7;
+            DtgDevamEden.Columns["AbfNo"].DisplayIndex = 8;
+            DtgDevamEden.Columns["BolgeAdi"].DisplayIndex = 9;
+            DtgDevamEden.Columns["BildirilenAriza"].DisplayIndex = 10;
+            DtgDevamEden.Columns["CekildigiTarih"].DisplayIndex = 11;
+            DtgDevamEden.Columns["SiparisAcmaTarihi"].DisplayIndex = 12;
+            DtgDevamEden.Columns["Modifikasyonlar"].DisplayIndex = 13;
+            DtgDevamEden.Columns["Notlar"].DisplayIndex = 14;
 
 
             //DtgDevamEden.Columns["IcSiparisNo"].DisplayIndex = 0;

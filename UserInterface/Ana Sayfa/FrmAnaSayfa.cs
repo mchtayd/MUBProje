@@ -136,7 +136,7 @@ namespace UserInterface.STS
             Go.Show();
 
             DosyaControl();
-            TimerFileRead.Start();
+            //TimerFileRead.Start();
             ServerAyarlar();
         }
         void ServerAyarlar()
@@ -3446,7 +3446,16 @@ namespace UserInterface.STS
                 //Go.infos = infos;
                 Go.Show();
             }
-
+            if (e.Node.Text == "Bütçe Kodu Düzenle")
+            {
+                FrmButceKoduKalemiDuzenle Go = new FrmButceKoduKalemiDuzenle();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageButceKoduDuzenle", "BÜTÇE KODLARI DÜZENLE", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
 
         }
 
@@ -5105,6 +5114,7 @@ namespace UserInterface.STS
 
         public void DosyaControl()
         {
+            return;
             if (!File.Exists(yol))
             {
                 TimerFileRead.Stop();
