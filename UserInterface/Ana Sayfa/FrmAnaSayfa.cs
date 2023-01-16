@@ -3323,6 +3323,16 @@ namespace UserInterface.STS
                 //Go.infos = infos;
                 Go.Show();
             }
+            if (e.Node.Text == "OTS Bakım Onarım Performans")
+            {
+                OTSBOPerformans Go = new OTSBOPerformans();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageBOPerformans", "OTS B/O PERFORMANS", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
 
             ///////////////////////////////////////////YERLEŞKELER/////////////////////////////////////////////////////////
 

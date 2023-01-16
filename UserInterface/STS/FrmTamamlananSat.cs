@@ -1,9 +1,13 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
+using DataAccess.Concreate.STS;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Entity;
+using Entity.IdariIsler;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
@@ -26,8 +30,14 @@ namespace UserInterface.STS
         TamamlananMalzemeManager tamamlananMalzemeManager;
         SatIslemAdimlariManager satIslemAdimlarimanager;
         SatTalebiDoldurManager satTalebiDoldurManager;
-
+        IsAkisNoManager isAkisNoManager;
         ComboManager comboManager;
+        SatNoManager satNoManager;
+        PersonelKayitManager personelKayitManager;
+        TeklifsizSatManager teklifsizSatManager;
+        SatIslemAdimlariManager satIslemAdimlariManager;
+        IstenAyrilisManager ayrilisManager;
+
         string siparisNo="", dosyayolu, butceKodu;
         int ucteklif;
         double geneltoplam, harcananTutar;
@@ -40,6 +50,12 @@ namespace UserInterface.STS
             satIslemAdimlarimanager = SatIslemAdimlariManager.GetInstance();
             comboManager = ComboManager.GetInstance();
             satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
+            isAkisNoManager = IsAkisNoManager.GetInstance();
+            satNoManager = SatNoManager.GetInstance();
+            personelKayitManager = PersonelKayitManager.GetInstance();
+            teklifsizSatManager = TeklifsizSatManager.GetInstance();
+            satIslemAdimlariManager = SatIslemAdimlariManager.GetInstance();
+            ayrilisManager = IstenAyrilisManager.GetInstance();
         }
 
         private void FrmTamamlananSat_Load(object sender, EventArgs e)
@@ -122,8 +138,8 @@ namespace UserInterface.STS
             DtgTamamlananSatlar.Columns["Bolum"].Visible = false;
             DtgTamamlananSatlar.Columns["Usbolgesi"].HeaderText = "ÜS BÖLGESİ ADI";
             DtgTamamlananSatlar.Columns["Abfform"].HeaderText = "ABF FORM NO";
-            DtgTamamlananSatlar.Columns["Istenentarih"].Visible = false;
-            DtgTamamlananSatlar.Columns["Tamamlanantarih"].HeaderText = "TAMAMLANAN TARİH";
+            DtgTamamlananSatlar.Columns["Istenentarih"].HeaderText = "SAT OLUŞTURMA TARİHİ";
+            DtgTamamlananSatlar.Columns["Tamamlanantarih"].HeaderText = "TAMAMLANMA TARİH";
             DtgTamamlananSatlar.Columns["Gerekce"].HeaderText = "GEREKÇE";
             DtgTamamlananSatlar.Columns["Butcekodukalemi"].HeaderText = "BÜTÇE KODU KALEMİ";
             DtgTamamlananSatlar.Columns["Satbirim"].HeaderText = "SAT BİRİM";
@@ -139,45 +155,72 @@ namespace UserInterface.STS
             DtgTamamlananSatlar.Columns["Siparisno"].Visible = false;
             DtgTamamlananSatlar.Columns["Ucteklif"].Visible = false;
             DtgTamamlananSatlar.Columns["IslemAdimi"].HeaderText = "BULUNDUĞU İŞLEM ADIMI";
-            DtgTamamlananSatlar.Columns["Donem"].DisplayIndex = 3;
+            //DtgTamamlananSatlar.Columns["Donem"].DisplayIndex = 3;
             DtgTamamlananSatlar.Columns["Donem"].HeaderText = "DÖNEM";
-            DtgTamamlananSatlar.Columns["Proje"].HeaderText = "BÜTÇELENECEK PROJE NO";
+            DtgTamamlananSatlar.Columns["Proje"].HeaderText = "BAŞARAN PROJE NO";
             DtgTamamlananSatlar.Columns["Gecensure"].HeaderText = "GEÇEN SÜRE";
             DtgTamamlananSatlar.Columns["UsProjeNo"].HeaderText = "Ü.B PRJ. NO";
             DtgTamamlananSatlar.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
+            DtgTamamlananSatlar.Columns["MlzTeslimAldTarih"].HeaderText = "MALZEMENİN TESLİM ALINDIĞI TARİH";
+            DtgTamamlananSatlar.Columns["OdemeMailGondermeTarihi"].HeaderText = "ÖDEME MAIL GÖNDERME TARİHİ";
+            DtgTamamlananSatlar.Columns["OdemeMailTarihi"].HeaderText = "ÖDEME MAIL GELME TARİHİ";
+            DtgTamamlananSatlar.Columns["AselsanMailGondermeTarihi"].HeaderText = "ASELSAN ONAY MAIL GÖNDERME TARİHİ";
+            DtgTamamlananSatlar.Columns["AselsanMailTarihi"].HeaderText = "ASELSAN ONAY MAIL ALMA TARİHİ";
+            DtgTamamlananSatlar.Columns["DepoTeslimTarihi"].HeaderText = "DEPOYA TESLİM TARİHİ";
+            DtgTamamlananSatlar.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIMI";
+            DtgTamamlananSatlar.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
+            DtgTamamlananSatlar.Columns["FirmayaKesilenFatura"].HeaderText = "FİRMAYA KESİLEN FATURA NO";
+            DtgTamamlananSatlar.Columns["KesilenFaturaTarihi"].HeaderText = "FİRMAYA KESİLEN FATURA TARİHİ";
+            DtgTamamlananSatlar.Columns["ButceGiderTuru"].HeaderText = "BÜTÇE GİDER TÜRÜ";
+            DtgTamamlananSatlar.Columns["SatinAlinanFirma"].HeaderText = "SATIN ALINAN FİRMA";
+            DtgTamamlananSatlar.Columns["HarcamaYapan"].HeaderText = "ÖDEME YAPAN";
+            DtgTamamlananSatlar.Columns["SatOlusturmaTuru"].HeaderText = "SAT OLUŞTURMA TÜRÜ";
 
 
-            DtgTamamlananSatlar.Columns["Gecensure"].DisplayIndex = 2;
-            DtgTamamlananSatlar.Columns["UsProjeNo"].DisplayIndex = 9;
-            DtgTamamlananSatlar.Columns["GarantiDurumu"].DisplayIndex = 10;
-            //DtgTamamlananSatlar.Columns["Proje"].DisplayIndex = 7;
-            //DtgTamamlananSatlar.Columns["Satno"].DisplayIndex = "SAT_NO";
-            //DtgTamamlananSatlar.Columns["Formno"].DisplayIndex = "İŞ AKIŞ NO";
-            //DtgTamamlananSatlar.Columns["Masrafyeri"].DisplayIndex = "MASRAF YERİ NO";
-            //DtgTamamlananSatlar.Columns["Talepeden"].DisplayIndex = "TALEP EDEN";
-            //DtgTamamlananSatlar.Columns["Bolum"].DisplayIndex = "BÖLÜM";
-            //DtgTamamlananSatlar.Columns["Usbolgesi"].DisplayIndex = "ÜS BÖLGESİ";
-            //DtgTamamlananSatlar.Columns["Abfform"].DisplayIndex = "ABF FORM NO";
-            //DtgTamamlananSatlar.Columns["Istenentarih"].DisplayIndex = "İSTENEN TARİH";
-            //DtgTamamlananSatlar.Columns["Tamamlanantarih"].DisplayIndex = "TAMAMLANAN TARİH";
-            //DtgTamamlananSatlar.Columns["Gerekce"].DisplayIndex = "GEREKÇE";
-            //DtgTamamlananSatlar.Columns["Butcekodukalemi"].DisplayIndex = "BÜTÇE KODU KALEMİ";
-            //DtgTamamlananSatlar.Columns["Satbirim"].DisplayIndex = "SAT BİRİM";
-            //DtgTamamlananSatlar.Columns["Harcamaturu"].DisplayIndex = "HARCAMA TÜRÜ";
-            //DtgTamamlananSatlar.Columns["Belgeturu"].DisplayIndex = "BELGE TÜRÜ";
-            //DtgTamamlananSatlar.Columns["Belgenumarasi"].DisplayIndex = "BELGE NUMARASI";
-            //DtgTamamlananSatlar.Columns["Belgetarihi"].DisplayIndex = "BELGE TARİHİ";
-            //DtgTamamlananSatlar.Columns["Faturaedilecekfirma"].DisplayIndex = "FATURA EDİLECEK FİRMA";
-            //DtgTamamlananSatlar.Columns["Ilgilikisi"].DisplayIndex = "İLGİLİ KİŞİ";
-            //DtgTamamlananSatlar.Columns["Masrafyerino"].DisplayIndex = "i.K MASRAF YERİ NO";
-            //DtgTamamlananSatlar.Columns["Harcanantutar"].DisplayIndex = "HARCANAN TUTAR";
-            //DtgTamamlananSatlar.Columns["Dosyayolu"].DisplayIndex = false;
-            //DtgTamamlananSatlar.Columns["Siparisno"].DisplayIndex = false;
-            //DtgTamamlananSatlar.Columns["Ucteklif"].DisplayIndex = false;
-            //DtgTamamlananSatlar.Columns["IslemAdimi"].DisplayIndex = "BULUNDUĞU İŞLEM ADIMI";
-            //DtgTamamlananSatlar.Columns["Donem"].DisplayIndex = 3;
-            //DtgTamamlananSatlar.Columns["Donem"].DisplayIndex = "DÖNEM";
-            //DtgTamamlananSatlar.Columns["Proje"].DisplayIndex = "PROJE";
+            DtgTamamlananSatlar.Columns["Id"].DisplayIndex = 0;
+            DtgTamamlananSatlar.Columns["Donem"].DisplayIndex = 1;
+            DtgTamamlananSatlar.Columns["Istenentarih"].DisplayIndex = 2;
+            DtgTamamlananSatlar.Columns["Tamamlanantarih"].DisplayIndex = 3;
+            DtgTamamlananSatlar.Columns["Gecensure"].DisplayIndex = 4;
+            DtgTamamlananSatlar.Columns["Formno"].DisplayIndex = 5;
+            DtgTamamlananSatlar.Columns["Satno"].DisplayIndex = 6;
+            DtgTamamlananSatlar.Columns["IslemAdimi"].DisplayIndex = 7;
+            DtgTamamlananSatlar.Columns["ButceTanimi"].DisplayIndex = 8;
+            DtgTamamlananSatlar.Columns["Butcekodukalemi"].DisplayIndex = 9;
+            DtgTamamlananSatlar.Columns["ButceGiderTuru"].DisplayIndex = 10;
+            DtgTamamlananSatlar.Columns["Proje"].DisplayIndex = 11;
+            DtgTamamlananSatlar.Columns["Usbolgesi"].DisplayIndex = 12;
+            DtgTamamlananSatlar.Columns["UsProjeNo"].DisplayIndex = 13;
+            DtgTamamlananSatlar.Columns["Abfform"].DisplayIndex = 14;
+            DtgTamamlananSatlar.Columns["GarantiDurumu"].DisplayIndex = 15;
+            DtgTamamlananSatlar.Columns["SatinAlinanFirma"].DisplayIndex = 16;
+            DtgTamamlananSatlar.Columns["Belgeturu"].DisplayIndex = 17;
+            DtgTamamlananSatlar.Columns["Belgenumarasi"].DisplayIndex = 18;
+            DtgTamamlananSatlar.Columns["Belgetarihi"].DisplayIndex = 19;
+            DtgTamamlananSatlar.Columns["Harcanantutar"].DisplayIndex = 20;
+            DtgTamamlananSatlar.Columns["Talepeden"].DisplayIndex = 21;
+            DtgTamamlananSatlar.Columns["Satbirim"].DisplayIndex = 22;
+            DtgTamamlananSatlar.Columns["HarcamaYapan"].DisplayIndex = 23;
+            DtgTamamlananSatlar.Columns["OdemeMailGondermeTarihi"].DisplayIndex = 24;
+            DtgTamamlananSatlar.Columns["OdemeMailTarihi"].DisplayIndex = 25;
+            DtgTamamlananSatlar.Columns["Faturaedilecekfirma"].DisplayIndex = 26;
+            DtgTamamlananSatlar.Columns["Ilgilikisi"].DisplayIndex = 27;
+            DtgTamamlananSatlar.Columns["Masrafyerino"].DisplayIndex = 28;
+            DtgTamamlananSatlar.Columns["FirmayaKesilenFatura"].DisplayIndex = 29;
+            DtgTamamlananSatlar.Columns["KesilenFaturaTarihi"].DisplayIndex = 30;
+            DtgTamamlananSatlar.Columns["MaliyetTuru"].DisplayIndex = 31;
+            DtgTamamlananSatlar.Columns["MlzTeslimAldTarih"].DisplayIndex = 32;
+            DtgTamamlananSatlar.Columns["DepoTeslimTarihi"].DisplayIndex = 33;
+            DtgTamamlananSatlar.Columns["AselsanMailGondermeTarihi"].DisplayIndex = 34;
+            DtgTamamlananSatlar.Columns["AselsanMailTarihi"].DisplayIndex = 35;
+            DtgTamamlananSatlar.Columns["Harcamaturu"].DisplayIndex = 36;
+            DtgTamamlananSatlar.Columns["Gerekce"].Visible = false;
+            DtgTamamlananSatlar.Columns["Masrafyeri"].Visible = false;
+            DtgTamamlananSatlar.Columns["Bolum"].Visible = false;
+            DtgTamamlananSatlar.Columns["Dosyayolu"].Visible = false;
+            DtgTamamlananSatlar.Columns["Siparisno"].Visible = false;
+            DtgTamamlananSatlar.Columns["Ucteklif"].Visible = false;
+
 
         }
         void PanelGenislet()
@@ -336,6 +379,16 @@ namespace UserInterface.STS
                             item.Cell("K").Value.ToString(),
                             item.Cell("U").Value.ToString(),
                             item.Cell("AA").Value.ToString(),
+                            "",
+                            "",
+                            "",
+                            DateTime.Now,
+                            DateTime.Now,
+                            DateTime.Now,
+                            DateTime.Now,
+                            DateTime.Now,
+                            "",
+                            "",
                             "",
                             "",
                             "");
@@ -1063,6 +1116,200 @@ namespace UserInterface.STS
                 Yillar();
                 TamamlananSatlar();
             }
+        }
+        void IsAkisNo()
+        {
+            isAkisNoManager.Update();
+            IsAkisNo isAkis = isAkisNoManager.Get();
+            isAkisNo = isAkis.Id.ToString();
+        }
+        string isAkisNo, dosyaYolu;
+        int satNo;
+        void DosyaOlustur()
+        {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\SATIN ALMA\SAT DOSYALARI\";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+
+            dosyaYolu = subdir + satNo.ToString();
+            Directory.CreateDirectory(dosyaYolu);
+        }
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            int satir = 0;
+            IXLWorkbook workbook = new XLWorkbook(@"C:\Users\MAYıldırım\Desktop\SATIN ALMA TABLOSU_2022_V8_ebru .xlsx");
+            IXLWorksheet worksheet = workbook.Worksheet("SAT DTS VERİ");
+            //IXLWorksheet worksheet2 = workbook.Worksheet("AĞUSTOS");
+            var rows = worksheet.Rows(2, 2110);
+            List<Tamamlanan> list = new List<Tamamlanan>();
+            foreach (IXLRow item in rows)
+            {
+                try
+                {
+                    string isAkis = item.Cell("E").Value.ToString();
+                    DateTime dd = item.Cell("A").Value.ConDate();
+                    string donem = dd.ConPeriod();
+                    if (isAkis == "")
+                    {
+                        IsAkisNo();
+                        siparisNo = Guid.NewGuid().ToString();
+                        satNo = satNoManager.Add(new SatNo(siparisNo));
+                        DosyaOlustur();
+                        PersonelKayit personelKayit = personelKayitManager.Get(0, item.Cell("V").Value.ToString());
+
+                        string sirketBolum, perMasYeri = "";
+
+                        if (personelKayit != null)
+                        {
+                            sirketBolum = personelKayit.Sirketbolum;
+                            perMasYeri = personelKayit.Masrafyeri;
+                        }
+                        else
+                        {
+                            //IstenAyrilis ayrilis = ayrilisManager.Get(item.Cell("V").Value.ToString());
+                            sirketBolum = "";
+                            perMasYeri = "";
+                        }
+
+                        Tamamlanan tamamlanan = new Tamamlanan(
+                            satNo.ToString(),
+                            isAkisNo.ConInt(),
+                            perMasYeri,
+                            item.Cell("V").Value.ToString(),
+                            sirketBolum,
+                            item.Cell("L").Value.ToString(),
+                            item.Cell("M").Value.ToString(),
+                            item.Cell("B").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            "MANUEL KAYIT.",
+                            item.Cell("I").Value.ToString(),
+                            item.Cell("W").Value.ToString(),
+                            "",
+                            item.Cell("R").Value.ToString(),
+                            item.Cell("S").Value.ToString(),
+                            item.Cell("T").Value.ConDate(),
+                            //item.Cell("W").Value.ConTime(), // BELGE TARİHİ
+                            item.Cell("Z").Value.ToString(),
+                            item.Cell("AA").Value.ToString(),
+                            item.Cell("AB").Value.ToString(),
+                            item.Cell("U").Value.ConDouble(),
+                            dosyaYolu,
+                            siparisNo,
+                            0,
+                            item.Cell("G").Value.ToString(),
+                            donem,
+                            "HARCAMASI YAPILAN",
+                            item.Cell("K").Value.ToString(),
+                            item.Cell("Q").Value.ToString(),
+                            item.Cell("X").Value.ToString(),
+                            item.Cell("O").Value.ToString(),
+                            item.Cell("P").Value.ToString(),
+                            item.Cell("C").Value.ToString(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("H").Value.ToString(), //BÜTÇE TANIM
+                            item.Cell("AE").Value.ToString(),// MALİYET TÜRÜ
+                            item.Cell("AC").Value.ToString(),
+                            item.Cell("AD").Value.ToString(),
+                            item.Cell("J").Value.ToString());
+                        list.Add(tamamlanan);
+
+
+                        tamamlananManager.Add(tamamlanan);
+                        satir++;
+
+                        TeklifsizSat teklifsizSat = new TeklifsizSat("", "", 0, "", item.Cell("U").Value.ConDouble(), siparisNo);
+                        teklifsizSatManager.Add(teklifsizSat);
+
+                        SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, "MANUEL KAYIT.",
+                            item.Cell("V").Value.ToString(), DateTime.Now);
+                        satIslemAdimlariManager.Add(satIslem);
+
+                    }
+                    else
+                    {
+                        Tamamlanan tamamlanan1 = tamamlananManager.GetListYedekData(item.Cell("E").Value.ConInt());
+
+                        if (tamamlanan1 == null)
+                        {
+                            MessageBox.Show("Hata");
+                        }
+
+                        DateTime outDate = new DateTime(1900, 12, 31);
+                        Tamamlanan tamamlanan = new Tamamlanan(
+                            item.Cell("F").Value.ToString(),
+                            item.Cell("E").Value.ConInt(),
+                            tamamlanan1.Masrafyeri,
+                            item.Cell("V").Value.ToString(),
+                            tamamlanan1.Bolum,
+                            item.Cell("L").Value.ToString(),
+                            item.Cell("M").Value.ToString(),
+                            item.Cell("B").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            tamamlanan1.Gerekce,
+                            item.Cell("I").Value.ToString(),
+                            item.Cell("W").Value.ToString(),
+                            tamamlanan1.Harcamaturu,
+                            item.Cell("R").Value.ToString(),
+                            item.Cell("S").Value.ToString(),
+                            item.Cell("T").Value.ConDate(),
+                            //item.Cell("W").Value.ConTime(), // BELGE TARİHİ
+                            item.Cell("Z").Value.ToString(),
+                            item.Cell("AA").Value.ToString(),
+                            item.Cell("AB").Value.ToString(),
+                            item.Cell("U").Value.ConDouble(),
+                            tamamlanan1.Dosyayolu,
+                            tamamlanan1.Siparisno,
+                            tamamlanan1.Ucteklif,
+                            item.Cell("G").Value.ToString(),
+                            donem,
+                            tamamlanan1.SatOlusturmaTuru,
+                            item.Cell("K").Value.ToString(),
+                            item.Cell("Q").Value.ToString(),
+                            item.Cell("X").Value.ToString(),
+                            item.Cell("O").Value.ToString(),
+                            item.Cell("P").Value.ToString(),
+                            item.Cell("C").Value.ToString(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("H").Value.ToString(),
+                            item.Cell("AE").Value.ToString(),// MALİYET TÜRÜ
+                            item.Cell("AC").Value.ToString(),
+                            item.Cell("AD").Value.ToString(),
+                            item.Cell("J").Value.ToString());
+                        list.Add(tamamlanan);
+
+
+                        tamamlananManager.Add(tamamlanan);
+                        satir++;
+
+                        tamamlanan1 = null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    int satirdegeri = satir;
+                    string sat = item.Cell("E").Value.ToString();
+                    string a = ex.Message;
+                }
+            }
+            MessageBox.Show("Bitti");
+
+
         }
 
         private void BBF1_TextChanged(object sender, EventArgs e)

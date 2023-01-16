@@ -156,6 +156,7 @@
     <Compile Include="Login.cs" />
     <Compile Include="PersonelIslemleri.cs" />
     <Compile Include="Rapor\ArizaRapor.cs" />
+    <Compile Include="Rapor\OtsPerf.cs" />
     <Compile Include="STS\AltYuklenici.cs" />
     <Compile Include="STS\ButceKodu.cs" />
     <Compile Include="STS\DevamEdenIzleme.cs" />
@@ -194,6 +195,7 @@
     <Compile Include="Yerleskeler\Kira.cs" />
     <Compile Include="Personel.cs" />
     <Compile Include="Yerleskeler\Yerleske.cs" />
+    <Compile Include="Yerleskeler\YerleskeSat.cs" />
     <Compile Include="Yetki.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -207,6 +207,10 @@ namespace Business.Concreate.BakimOnarim
             {
                 return "Lütfen PROJE Bilgisini doldurunuz.";
             }
+            if (string.IsNullOrEmpty(bolgeKayit.TepeSorumlusu))
+            {
+                return "Lütfen Üs Bölgesi Sorumlusu Bilgisini doldurunuz.";
+            }
             return "";
         }
     }

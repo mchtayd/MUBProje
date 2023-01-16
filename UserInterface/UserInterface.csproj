@@ -1106,6 +1106,12 @@
     <Compile Include="RAPORLAMALAR\FrmSatRaporuIzleme.Designer.cs">
       <DependentUpon>FrmSatRaporuIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="RAPORLAMALAR\OTSBOPerformans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\OTSBOPerformans.Designer.cs">
+      <DependentUpon>OTSBOPerformans.cs</DependentUpon>
+    </Compile>
     <Compile Include="STS\FrmAltYukleniciFirma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1796,6 +1802,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="RAPORLAMALAR\FrmSatRaporuIzleme.resx">
       <DependentUpon>FrmSatRaporuIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAPORLAMALAR\OTSBOPerformans.resx">
+      <DependentUpon>OTSBOPerformans.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="STS\FrmAltYukleniciFirma.resx">
       <DependentUpon>FrmAltYukleniciFirma.cs</DependentUpon>

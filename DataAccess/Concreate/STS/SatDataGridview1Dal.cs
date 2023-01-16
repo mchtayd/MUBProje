@@ -25,7 +25,7 @@ namespace DataAccess.Concreate
             {
                 dataReader = sqlServices.StoreReader("SatDataGridKaydet",
                     new SqlParameter("@satno", entity.Satno),
-                    new SqlParameter("@satformno",entity.Formno),
+                    new SqlParameter("@satformno", entity.Formno),
                     new SqlParameter("@masrafyeri", entity.Masrafyeri),
                     new SqlParameter("@talepeden", entity.Talepeden),
                     new SqlParameter("@bolum", entity.Bolum),
@@ -41,11 +41,13 @@ namespace DataAccess.Concreate
                     new SqlParameter("@unvani", entity.Unvani),
                     new SqlParameter("@personelMasYerNo", entity.PersonelMasYerNo),
                     new SqlParameter("@personelMasYeri", entity.PersonelMasYeri),
-                    new SqlParameter("@islemAdimi",entity.IslemAdimi),
-                    new SqlParameter("@donem",entity.Donem),
-                    new SqlParameter("@satOlusturmaTuru",entity.SatOlusturmaTuru),
-                    new SqlParameter("@proje",entity.Proje),
-                    new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma));
+                    new SqlParameter("@islemAdimi", entity.IslemAdimi),
+                    new SqlParameter("@donem", entity.Donem),
+                    new SqlParameter("@satOlusturmaTuru", entity.SatOlusturmaTuru),
+                    new SqlParameter("@proje", entity.Proje),
+                    new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma),
+                    new SqlParameter("@butceTanimi", entity.ButceTanimi),
+                    new SqlParameter("@maliyetTuru", entity.MaliyetTuru));
 
                 dataReader.Close();
                 return "OK";

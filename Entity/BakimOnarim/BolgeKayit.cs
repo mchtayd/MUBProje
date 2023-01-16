@@ -8,7 +8,7 @@ namespace Entity.BakimOnarim
 {
     public class BolgeKayit
     {
-        int id; string bolgeAdi, kodAdi, usBolgesiStok, proje; DateTime kabulTarihi; string guvenlikYazilimi, kesifGozetlemeTuru, yasamAlani, tabur, tugay, il, ilce, birlikAdresi; DateTime garantiBaslama, garantiBitis; string bolgeSorumlusu, depo, pypNo, siparisNo, dosyaYolu;
+        int id; string bolgeAdi, kodAdi, usBolgesiStok, proje; DateTime kabulTarihi; string guvenlikYazilimi, kesifGozetlemeTuru, yasamAlani, tabur, tugay, il, ilce, birlikAdresi; DateTime garantiBaslama, garantiBitis; string bolgeSorumlusu, depo, pypNo, siparisNo, dosyaYolu, tepeSorumlusu;
 
         public int Id { get => id; set => id = value; }
         public string BolgeAdi { get => bolgeAdi; set => bolgeAdi = value; }
@@ -31,8 +31,9 @@ namespace Entity.BakimOnarim
         public string DosyaYolu { get => dosyaYolu; set => dosyaYolu = value; }
         public string PypNo { get => pypNo; set => pypNo = value; }
         public string Proje { get => proje; set => proje = value; }
+        public string TepeSorumlusu { get => tepeSorumlusu; set => tepeSorumlusu = value; }
 
-        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu)
+        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu, string tepeSorumlusu)
         {
             this.id = id;
             this.bolgeAdi = bolgeAdi;
@@ -55,9 +56,10 @@ namespace Entity.BakimOnarim
             this.dosyaYolu = dosyaYolu;
             this.pypNo = pypNo;
             this.proje = proje;
+            this.tepeSorumlusu = tepeSorumlusu;
         }
 
-        public BolgeKayit(string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu)
+        public BolgeKayit(string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu, string tepeSorumlusu)
         {
             this.bolgeAdi = bolgeAdi;
             this.kodAdi = kodAdi;
@@ -79,9 +81,10 @@ namespace Entity.BakimOnarim
             this.dosyaYolu = dosyaYolu;
             this.pypNo = pypNo;
             this.proje = proje;
+            this.tepeSorumlusu = tepeSorumlusu;
         }
 
-        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, string bolgeSorumlusu, string depo, string pypNo, DateTime garantiBaslama, DateTime garantiBitis, string dosyaYolu)
+        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, string bolgeSorumlusu, string depo, string pypNo, DateTime garantiBaslama, DateTime garantiBitis, string dosyaYolu, string tepeSorumlusu)
         {
             this.id = id;
             this.bolgeAdi = bolgeAdi;
@@ -103,6 +106,7 @@ namespace Entity.BakimOnarim
             this.garantiBaslama = garantiBaslama;
             this.garantiBitis = garantiBitis;
             this.dosyaYolu = dosyaYolu;
+            this.tepeSorumlusu = tepeSorumlusu;
         }
 
         public BolgeKayit(string tugay)

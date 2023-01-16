@@ -313,6 +313,11 @@ namespace UserInterface.STS
                 MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
             IsAkisNo();
             siparisNo = Guid.NewGuid().ToString();
             isleAdimi = "SAT ONAY";
@@ -391,7 +396,7 @@ namespace UserInterface.STS
             CmbButceKodu.SelectedIndex = -1; TxtTutar.Clear(); CmbBelgeTuru.SelectedIndex = -1; TxtBelgeNumarasi.Clear(); TxtSatinAlinanFirma.Clear();
             CmbSatBirim.SelectedIndex = -1; CmbHarcamaTuru.SelectedIndex = -1; CmbFaturaFirma.SelectedIndex = -1; TxtAciklama.Clear(); webBrowser2.Navigate("");
             CmbAdSoyad.SelectedIndex = -1; LblSatTarihi.Text = DateTime.Now.ToString("d"); CmbDonemBasaran.SelectedIndex = -1; 
-            CmbDonemBasaranYil.SelectedIndex = -1;
+            CmbDonemBasaranYil.SelectedIndex = -1; CmbButceTanimi.SelectedIndex = -1; CmbMaliyetTuru.SelectedIndex = -1;
         }
 
         private void CmbAdSoyad_SelectedIndexChanged(object sender, EventArgs e)

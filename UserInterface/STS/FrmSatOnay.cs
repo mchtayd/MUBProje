@@ -52,7 +52,7 @@ namespace UserInterface.STS
         List<SatDataGridview1> dataGridview1s;
         List<SatNo> satNos;
 
-        string dosyayolu, rednedeni = "", onaydurum, talepeden, bolum, usbolgesi, abfno, gerekce;
+        string dosyayolu, rednedeni = "", onaydurum, talepeden, bolum, usbolgesi, abfno, gerekce, butceTanimi, maliyetTuru;
         DateTime istenentarih, belgeTarihi;
         string masrafyerino, yapilanislem, islmeyapan, butcekodukalemi, satbirim, harcamaturu, belgeNumarasi, faturafirma, ilgilikisi;
         string siparisNo, masrafyeri, abfformno, kaynakdosya, hedefdosya, islemAdimi, durum, teklifDurumu, firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasrafYerNo, satinAlinanFirma, mlzTeslimTarihi;
@@ -725,6 +725,10 @@ namespace UserInterface.STS
             teklifdurumu = DtgOnay.CurrentRow.Cells["Uctekilf"].Value.ConInt();
             retNedeni = DtgOnay.CurrentRow.Cells["RedNedeni"].Value.ToString();
             mlzTeslimTarihi = DtgOnay.CurrentRow.Cells["Tarih"].Value.ToString();
+            butceTanimi = DtgOnay.CurrentRow.Cells["ButceTanimi"].Value.ToString();
+            maliyetTuru = DtgOnay.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
+
+
             string pageText3;
             TxtRetNedeni.Text = retNedeni;
             if (TxtRetNedeni.Text != "")
@@ -1656,7 +1660,7 @@ namespace UserInterface.STS
                 }
 
                 Tamamlanan tamamlanan = new Tamamlanan(satNo.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, tamamlanantarih, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
-                    faturafirma, ilgilikisi, masrafyerino, toplam, hedefdosya, siparisNo, ucteklif, islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, "");
+                    faturafirma, ilgilikisi, masrafyerino, toplam, hedefdosya, siparisNo, ucteklif, islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, "", DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, butceTanimi, maliyetTuru, "", "", "");
                 string control = tamamlananManager.Add(tamamlanan);
 
                 if (control != "OK")
@@ -2435,7 +2439,7 @@ namespace UserInterface.STS
                     donem = DateTime.Now.ConPeriod();
 
                     Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
-                        faturafirma, ilgilikisi, masrafyerino, hyTop, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi);
+                        faturafirma, ilgilikisi, masrafyerino, hyTop, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, butceTanimi, maliyetTuru,"","", "");
                     string control = tamamlananManager.Add(tamamlanan);
                     if (control != "OK")
                     {

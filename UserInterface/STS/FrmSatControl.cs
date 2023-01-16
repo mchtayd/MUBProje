@@ -1575,7 +1575,7 @@ namespace UserInterface.STS
                 LblMalzemeTalebi.BackColor = Color.Red;
             }
         }
-
+        DateTime odemeMailGondermeTarihi, odemeMailTarihi, aselsanMailGondermeTarihi, aselsanMailTarihi; string butceTanimi, maliyetTuru;
         private void DtgSatTamamla_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgSatTamamla.CurrentRow == null)
@@ -1613,6 +1613,13 @@ namespace UserInterface.STS
             mlzTeslimTarihi = DtgSatTamamla.CurrentRow.Cells["MlzTeslimAldTarih"].Value.ToString();
             harcamayapan = DtgSatTamamla.CurrentRow.Cells["HarcamaYapan"].Value.ToString();
             depoTeslimBilgisi = DtgSatTamamla.CurrentRow.Cells["DepoTeslimBilgisi"].Value.ToString();
+            odemeMailGondermeTarihi = DtgSatTamamla.CurrentRow.Cells["OdemeMailGondermeTarihi"].Value.ConDate();
+            odemeMailTarihi = DtgSatTamamla.CurrentRow.Cells["OdemeMailTarihi"].Value.ConDate();
+            aselsanMailGondermeTarihi = DtgSatTamamla.CurrentRow.Cells["AselsanMailGondermeTarihi"].Value.ConDate();
+            aselsanMailTarihi = DtgSatTamamla.CurrentRow.Cells["AselsanMailTarihi"].Value.ConDate();
+            depoTeslimTarihi = DtgSatTamamla.CurrentRow.Cells["DepoTeslimTarihi"].Value.ConDate();
+            butceTanimi = DtgSatTamamla.CurrentRow.Cells["ButceTanimi"].Value.ToString();
+            maliyetTuru = DtgSatTamamla.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
 
             fiyatTeklifiAls = new List<FiyatTeklifiAl>();
             FillMalzemeList4();
@@ -2294,7 +2301,7 @@ namespace UserInterface.STS
                 donem = DateTime.Now.ConPeriod();
 
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satBirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
-                    faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyaYolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamayapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi);
+                    faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyaYolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamayapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi, odemeMailGondermeTarihi, odemeMailTarihi, aselsanMailGondermeTarihi, aselsanMailTarihi, depoTeslimTarihi, butceTanimi, maliyetTuru, "", "", "");
                 string control = tamamlananManager.Add(tamamlanan);
                 if (control != "OK")
                 {

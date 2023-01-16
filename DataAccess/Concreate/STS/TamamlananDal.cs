@@ -56,7 +56,17 @@ namespace DataAccess.Concreate.STS
                     new SqlParameter("@harcamaYapan", entity.HarcamaYapan),
                     new SqlParameter("@usProjeNo", entity.UsProjeNo),
                     new SqlParameter("@garantiDurumu", entity.GarantiDurumu),
-                    new SqlParameter("@mlzTeslimAldTarih", entity.MlzTeslimAldTarih));
+                    new SqlParameter("@mlzTeslimAldTarih", entity.MlzTeslimAldTarih),
+                    new SqlParameter("@odemeMailGondermeTarihi", entity.OdemeMailGondermeTarihi),
+                    new SqlParameter("@odemeMailTarihi", entity.OdemeMailTarihi),
+                    new SqlParameter("@aselsanMailGondermeTarihi", entity.AselsanMailGondermeTarihi),
+                    new SqlParameter("@aselsanMailTarihi", entity.AselsanMailTarihi),
+                    new SqlParameter("@depoTeslimTarihi", entity.DepoTeslimTarihi),
+                    new SqlParameter("@butceTanimi", entity.ButceTanimi),
+                    new SqlParameter("@maliyetTuru", entity.MaliyetTuru),
+                    new SqlParameter("@firmayaKesilenFatura", entity.FirmayaKesilenFatura),
+                    new SqlParameter("@kesilenFaturaTarihi", entity.KesilenFaturaTarihi),
+                    new SqlParameter("@butceGiderTuru", entity.ButceGiderTuru));
 
 
                 dataReader.Close();
@@ -66,8 +76,8 @@ namespace DataAccess.Concreate.STS
             {
                 return ex.Message;
             }
-                
-          
+
+
         }
 
         public string Delete(int id)
@@ -85,16 +95,16 @@ namespace DataAccess.Concreate.STS
             try
             {
                 int yildanfalza;
-                if (yil=="1990")
+                if (yil == "1990")
                 {
-                    yildanfalza = 2022;
+                    yildanfalza = 2023;
                 }
                 else
                 {
                     yildanfalza = yil.ConInt() + 1;
                 }
                 List<Tamamlanan> tamamlanans = new List<Tamamlanan>();
-                dataReader = sqlServices.StoreReader("SatTamamlananlarListele",new SqlParameter("@yil", yil),new SqlParameter("@yildanFalza", yildanfalza.ToString()));
+                dataReader = sqlServices.StoreReader("SatTamamlananlarListele", new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yildanfalza.ToString()));
                 while (dataReader.Read())
                 {
                     DateTime startDate = dataReader["ISTENEN_TARIH"].ConDate();
@@ -138,13 +148,23 @@ namespace DataAccess.Concreate.STS
                         sure,
                         dataReader["US_PROJE_NO"].ToString(),
                         dataReader["GARANTI_DURUMU"].ToString(),
-                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString()));
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString(),
+                        dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ODEME_MAIL_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_TARIHI"].ConDate(),
+                        dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["FIRMAYA_KESILEN_FATURA"].ToString(),
+                        dataReader["FIRMAYA_KESILEN_FATURA_TARIHI"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<Tamamlanan>();
             }
@@ -216,7 +236,17 @@ namespace DataAccess.Concreate.STS
                         sure,
                         dataReader["US_PROJE_NO"].ToString(),
                         dataReader["GARANTI_DURUMU"].ToString(),
-                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString()));
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString(),
+                        dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ODEME_MAIL_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_TARIHI"].ConDate(),
+                        dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["FIRMAYA_KESILEN_FATURA"].ToString(),
+                        dataReader["FIRMAYA_KESILEN_FATURA_TARIHI"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
@@ -225,6 +255,76 @@ namespace DataAccess.Concreate.STS
             catch (Exception)
             {
                 return new List<Tamamlanan>();
+            }
+        }
+        public Tamamlanan GetListYedekData(int isAkisNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("TamamlananSatlarYedek", new SqlParameter("@isAkisNo", isAkisNo));
+                Tamamlanan item = null;
+                while (dataReader.Read())
+                {
+                    DateTime startDate = dataReader["ISTENEN_TARIH"].ConDate();
+                    TimeSpan gecenSure = dataReader["TAMAMLANAN_TARIH"].ConDate() - startDate;
+                    int gun = gecenSure.TotalDays.ConInt();
+
+                    string sure = gun.ToString() + " Gün";
+
+                    item = new Tamamlanan(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SAT_FORM_NO"].ConInt(),
+                        dataReader["SAT_NO"].ToString(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["TALEP_EDEN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["US_BOLGESI"].ToString(),
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        dataReader["ISTENEN_TARIH"].ConDate(),
+                        dataReader["TAMAMLANAN_TARIH"].ConDate(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        dataReader["SAT_BIRIM"].ToString(),
+                        dataReader["HARCAMA_TURU"].ToString(),
+                        dataReader["FATURA_EDILECEK_FIRMA"].ToString(),
+                        dataReader["ILGILI_KISI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["HARCANAN_TUTAR"].ConDouble(),
+                        dataReader["BELGE_TURU"].ToString(),
+                        dataReader["BELGE_NUMARASI"].ToString(),
+                        dataReader["BELGE_TARIHI"].ConDate(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["UC_TEKLIF"].ConInt(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["SAT_OLUSTURMA_TURU"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["HARCAMA_YAPAN"].ToString(),
+                        sure,
+                        dataReader["US_PROJE_NO"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString(),
+                        dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ODEME_MAIL_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_TARIHI"].ConDate(),
+                        dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString(),
+                        "",
+                        "",
+                        "");
+
+                }
+                dataReader.Close();
+                return item;
+
+            }
+            catch (Exception ex)
+            {
+                return null;
             }
         }
         public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
@@ -291,7 +391,17 @@ namespace DataAccess.Concreate.STS
                         sure,
                         dataReader["US_PROJE_NO"].ToString(),
                         dataReader["GARANTI_DURUMU"].ToString(),
-                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString()));
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ToString(),
+                        dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ODEME_MAIL_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_TARIHI"].ConDate(),
+                        dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["FIRMAYA_KESILEN_FATURA"].ToString(),
+                        dataReader["FIRMAYA_KESILEN_FATURA_TARIHI"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return tamamlanans;
@@ -325,8 +435,8 @@ namespace DataAccess.Concreate.STS
             try
             {
                 dataReader = sqlServices.StoreReader("TamamlananSatFiyatGuncelle",
-                    new SqlParameter("@tutar",tutar),
-                    new SqlParameter("@siparisNo",siparisNo));
+                    new SqlParameter("@tutar", tutar),
+                    new SqlParameter("@siparisNo", siparisNo));
 
                 dataReader.Close();
                 return "OK";

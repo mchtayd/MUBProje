@@ -8,7 +8,7 @@ namespace Entity.STS
 {
     public class Tamamlanan
     {
-        int id, formno; string satno, masrafyeri, talepeden, bolum, usbolgesi, abfform; DateTime istenentarih, tamamlanantarih;string gerekce, butcekodukalemi, satbirim, harcamaturu, faturaedilecekfirma, ilgilikisi, masrafyerino; double harcanantutar; string belgeturu, belgenumarasi;DateTime belgetarihi;string dosyayolu, siparisno; int ucteklif; string islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan; string gecensure, usProjeNo, garantiDurumu, mlzTeslimAldTarih;
+        int id, formno; string satno, masrafyeri, talepeden, bolum, usbolgesi, abfform; DateTime istenentarih, tamamlanantarih;string gerekce, butcekodukalemi, satbirim, harcamaturu, faturaedilecekfirma, ilgilikisi, masrafyerino; double harcanantutar; string belgeturu, belgenumarasi;DateTime belgetarihi;string dosyayolu, siparisno; int ucteklif; string islemAdimi, donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan; string gecensure, usProjeNo, garantiDurumu, mlzTeslimAldTarih; DateTime odemeMailGondermeTarihi, odemeMailTarihi, aselsanMailGondermeTarihi, aselsanMailTarihi, depoTeslimTarihi; string butceTanimi, maliyetTuru, firmayaKesilenFatura, kesilenFaturaTarihi, butceGiderTuru;
 
         public int     Id        { get => id; set => id = value; }
         public int Formno { get => formno; set => formno = value; }
@@ -44,8 +44,18 @@ namespace Entity.STS
         public string UsProjeNo { get => usProjeNo; set => usProjeNo = value; }
         public string GarantiDurumu { get => garantiDurumu; set => garantiDurumu = value; }
         public string MlzTeslimAldTarih { get => mlzTeslimAldTarih; set => mlzTeslimAldTarih = value; }
+        public DateTime OdemeMailGondermeTarihi { get => odemeMailGondermeTarihi; set => odemeMailGondermeTarihi = value; }
+        public DateTime OdemeMailTarihi { get => odemeMailTarihi; set => odemeMailTarihi = value; }
+        public DateTime AselsanMailGondermeTarihi { get => aselsanMailGondermeTarihi; set => aselsanMailGondermeTarihi = value; }
+        public DateTime AselsanMailTarihi { get => aselsanMailTarihi; set => aselsanMailTarihi = value; }
+        public DateTime DepoTeslimTarihi { get => depoTeslimTarihi; set => depoTeslimTarihi = value; }
+        public string ButceTanimi { get => butceTanimi; set => butceTanimi = value; }
+        public string MaliyetTuru { get => maliyetTuru; set => maliyetTuru = value; }
+        public string FirmayaKesilenFatura { get => firmayaKesilenFatura; set => firmayaKesilenFatura = value; }
+        public string KesilenFaturaTarihi { get => kesilenFaturaTarihi; set => kesilenFaturaTarihi = value; }
+        public string ButceGiderTuru { get => butceGiderTuru; set => butceGiderTuru = value; }
 
-        public Tamamlanan(int id, int formno, string satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfform, DateTime istenentarih, DateTime tamamlanantarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, double harcanantutar, string belgeturu, string belgenumarasi, DateTime belgetarihi, string dosyayolu, string siparisno, int ucteklif, string islemAdimi, string donem,string satOlusturmaTuru,string proje,string satinAlinanFirma, string harcamaYapan,string gecenSure,string usProjeNo, string garantiDurumu, string mlzTeslimAldTarih)
+        public Tamamlanan(int id, int formno, string satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfform, DateTime istenentarih, DateTime tamamlanantarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, double harcanantutar, string belgeturu, string belgenumarasi, DateTime belgetarihi, string dosyayolu, string siparisno, int ucteklif, string islemAdimi, string donem,string satOlusturmaTuru, string proje, string satinAlinanFirma, string harcamaYapan, string gecenSure, string usProjeNo, string garantiDurumu, string mlzTeslimAldTarih, DateTime odemeMailGondermeTarihi, DateTime odemeMailTarihi, DateTime aselsanMailGondermeTarihi, DateTime aselsanMailTarihi, DateTime depoTeslimTarihi, string butceTanimi, string maliyetTuru, string firmayaKesilenFatura, string kesilenFaturaTarihi, string butceGiderTuru)
         {
             this.id = id;
             this.formno = formno;
@@ -81,9 +91,19 @@ namespace Entity.STS
             this.usProjeNo = usProjeNo;
             this.garantiDurumu = garantiDurumu;
             this.mlzTeslimAldTarih = mlzTeslimAldTarih;
+            this.odemeMailGondermeTarihi = odemeMailGondermeTarihi;
+            this.odemeMailTarihi = odemeMailTarihi;
+            this.aselsanMailGondermeTarihi = aselsanMailGondermeTarihi;
+            this.aselsanMailTarihi = aselsanMailTarihi;
+            this.depoTeslimTarihi = depoTeslimTarihi;
+            this.butceTanimi = butceTanimi;
+            this.maliyetTuru = maliyetTuru;
+            this.firmayaKesilenFatura = firmayaKesilenFatura;
+            this.kesilenFaturaTarihi = kesilenFaturaTarihi;
+            this.butceGiderTuru = butceGiderTuru;
         }
 
-        public Tamamlanan(string satno, int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfform, DateTime istenentarih, DateTime tamamlanantarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string belgeturu, string belgenumarasi, DateTime belgetarihi, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, double harcanantutar, string dosyayolu, string siparisno, int ucteklif,string islemAdimi,string donem, string satOlusturmaTuru,string proje, string satinAlinanFirma, string harcamaYapan, string usProjeNo, string garantiDurumu, string mlzTeslimAldTarih)
+        public Tamamlanan(string satno, int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfform, DateTime istenentarih, DateTime tamamlanantarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string belgeturu, string belgenumarasi, DateTime belgetarihi, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, double harcanantutar, string dosyayolu, string siparisno, int ucteklif,string islemAdimi,string donem, string satOlusturmaTuru,string proje, string satinAlinanFirma, string harcamaYapan, string usProjeNo, string garantiDurumu, string mlzTeslimAldTarih, DateTime odemeMailGondermeTarihi, DateTime odemeMailTarihi, DateTime aselsanMailGondermeTarihi, DateTime aselsanMailTarihi, DateTime depoTeslimTarihi, string butceTanimi, string maliyetTuru, string firmayaKesilenFatura,string kesilenFaturaTarihi,string butceGiderTuru)
         {
             this.Satno = satno;
             this.formno = formno;
@@ -116,7 +136,17 @@ namespace Entity.STS
             this.harcamaYapan = harcamaYapan;
             this.usProjeNo = usProjeNo;
             this.garantiDurumu = garantiDurumu;
-            this.MlzTeslimAldTarih = mlzTeslimAldTarih;
+            this.mlzTeslimAldTarih = mlzTeslimAldTarih;
+            this.odemeMailGondermeTarihi = odemeMailGondermeTarihi;
+            this.odemeMailTarihi = odemeMailTarihi;
+            this.aselsanMailGondermeTarihi = aselsanMailGondermeTarihi;
+            this.aselsanMailTarihi = aselsanMailTarihi;
+            this.depoTeslimTarihi = depoTeslimTarihi;
+            this.butceTanimi = butceTanimi;
+            this.maliyetTuru = maliyetTuru;
+            this.firmayaKesilenFatura = firmayaKesilenFatura;
+            this.kesilenFaturaTarihi = kesilenFaturaTarihi;
+            this.butceGiderTuru = butceGiderTuru;
         }
     }
 }

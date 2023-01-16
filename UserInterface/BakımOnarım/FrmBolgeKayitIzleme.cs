@@ -75,12 +75,13 @@ namespace UserInterface.BakımOnarım
             DtgBolgeler.Columns["BirlikAdresi"].HeaderText = "BİRLİK ADRESİ";
             DtgBolgeler.Columns["GarantiBaslama"].HeaderText = "GARANTİ BAŞLAMA TARİHİ";
             DtgBolgeler.Columns["GarantiBitis"].HeaderText = "GARANTİ BİTİŞ TARİHİ";
-            DtgBolgeler.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
+            DtgBolgeler.Columns["BolgeSorumlusu"].HeaderText = "SEKTÖR SORUMLUSU";
             DtgBolgeler.Columns["Depo"].HeaderText = "BAĞLI OLDUĞU DEPO";
             DtgBolgeler.Columns["SiparisNo"].Visible = false;
             DtgBolgeler.Columns["DosyaYolu"].Visible = false;
             DtgBolgeler.Columns["PypNo"].HeaderText = "PYP NO";
             DtgBolgeler.Columns["Proje"].HeaderText = "PROJE";
+            DtgBolgeler.Columns["TepeSorumlusu"].HeaderText = "ÜS BÖLGESİ SORUMLUSU";
         }
 
         private void DtgBolgeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

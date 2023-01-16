@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -252,7 +253,15 @@ namespace UserInterface.IdariIsler
                                 }
                                 else
                                 {
-                                    comboIdler = item2 + ";" + comboId + ";";
+                                    if (item2.ConInt() == comboId)
+                                    {
+                                        comboIdler = item2 + ";";
+                                    }
+                                    else
+                                    {
+                                        comboIdler = item2 + ";" + comboId + ";";
+                                        break;
+                                    }
                                 }
                             }
 
@@ -267,15 +276,9 @@ namespace UserInterface.IdariIsler
                     }
 
                     ButceKodu butceKodu3 = new ButceKodu(item.Cells["Id"].Value.ConInt(), item.Cells["ButceKoduKalemi"].Value.ToString(), item.Cells["Aciklama"].Value.ToString(), item.Cells["GiderKarsilayacakFirma"].Value.ToString(), comboIdler.ToString(), item.Cells["Secim"].Value.ConBool());
-                    butceKodus.Add(butceKodu3);
-                    
-                }
+                    butceKoduManager.Update(butceKodu3);
 
-                foreach (ButceKodu item in butceKodus)
-                {
-                    butceKoduManager.Update(item);
                 }
-
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Yenile();
             }

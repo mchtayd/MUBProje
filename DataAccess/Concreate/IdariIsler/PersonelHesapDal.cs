@@ -74,7 +74,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return personelHesaps;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<PersonelHesap>();
             }

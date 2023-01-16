@@ -162,6 +162,13 @@ namespace UserInterface.Yerleskeler
                 MessageBox.Show(control,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
+
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr!=DialogResult.Yes)
+            {
+                return;
+            }
+
             if (CmbYerleskeAdi.Text=="")
             {
                 siparisNo = Guid.NewGuid().ToString();
@@ -281,6 +288,10 @@ namespace UserInterface.Yerleskeler
             {
                 return;
             }
+            Temizle();
+
+            DtgAbonelikler.Rows.Clear();
+
             int id = CmbYerleskeAdi.SelectedValue.ConInt();
             Kira kira = kiraManager.Get(id);
 
@@ -313,8 +324,8 @@ namespace UserInterface.Yerleskeler
                 DtgAbonelikler.Rows[sonSatir].Cells["HizmetAlinanKurum"].Value = item.HizmetAlinanKurum.ToString();
                 DtgAbonelikler.Rows[sonSatir].Cells["AboneTesisatNo"].Value = item.AboneTesisatNo.ToString();
                 DtgAbonelikler.Rows[sonSatir].Cells["AboneTarihi"].Value = item.AboneTarihi.ToString("dd.MM.yyyy");
-
             }
+
         }
 
         private void BtnAboneTuruEkle_Click(object sender, EventArgs e)
@@ -330,7 +341,6 @@ namespace UserInterface.Yerleskeler
             TxtHizmetAlinanKurum.Clear();
             TxtTesisatNumarasi.Clear();
         }
-
         private void BtnEkle_Click(object sender, EventArgs e)
         {
             if (CmbAbonelikTuru.Text=="")

@@ -54,7 +54,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@pypNo", entity.PypNo),
                     new SqlParameter("@siparisNo", entity.SiparisNo),
                     new SqlParameter("@dosyaYolu", entity.DosyaYolu),
-                    new SqlParameter("@proje", entity.Proje));
+                    new SqlParameter("@proje", entity.Proje),
+                    new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu)); ;
 
                 dataReader.Close();
                 return "OK";
@@ -107,7 +108,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["DEPO"].ToString(),
                         dataReader["PYP_NO"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString());
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["TEPE_SORUMLUSU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -185,7 +187,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["DEPO"].ToString(),
                         dataReader["PYP_NO"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString()));
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return bolgeKayits;
@@ -239,7 +242,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@proje", entity.Proje),
                     new SqlParameter("@garantiBaslama", entity.GarantiBaslama),
                     new SqlParameter("@garantiBitis", entity.GarantiBitis),
-                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu),
+                    new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu));
 
                 dataReader.Close();
                 return "OK";

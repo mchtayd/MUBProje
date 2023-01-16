@@ -96,6 +96,7 @@
     <Compile Include="Concreate\Depo\KimyasalUrunlerManager.cs" />
     <Compile Include="Concreate\Depo\KirtasiyeManager.cs" />
     <Compile Include="Concreate\Depo\KKDManager.cs" />
+    <Compile Include="Concreate\Depo\OtsPerfManager.cs" />
     <Compile Include="Concreate\Depo\TemizlikUrunleriManager.cs" />
     <Compile Include="Concreate\DokumanYonetim\DokumanManager.cs" />
     <Compile Include="Concreate\DokumanYonetim\FormDocumentManager.cs" />
@@ -182,6 +183,7 @@
     <Compile Include="Concreate\STS\UstAmirManager.cs" />
     <Compile Include="Concreate\Yerleskeler\KiraManager.cs" />
     <Compile Include="Concreate\Yerleskeler\YerleskeManager.cs" />
+    <Compile Include="Concreate\Yerleskeler\YerleskeSatManager.cs" />
     <Compile Include="IsAkisNoManager.cs" />
     <Compile Include="LoginManager.cs" />
     <Compile Include="PersonelIslemleriManager.cs" />

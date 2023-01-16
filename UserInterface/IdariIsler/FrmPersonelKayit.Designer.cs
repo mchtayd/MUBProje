@@ -133,6 +133,7 @@ namespace UserInterface.IdariIşler
             this.CmbAdSoyad = new System.Windows.Forms.ComboBox();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.BtnBolumDuzeltGuncelle = new System.Windows.Forms.Button();
             this.BtnMasrafYeriDuzeltGun = new System.Windows.Forms.Button();
             this.DtKgbGuncelle = new System.Windows.Forms.DateTimePicker();
             this.label132 = new System.Windows.Forms.Label();
@@ -244,6 +245,7 @@ namespace UserInterface.IdariIşler
             this.webBrowser4 = new System.Windows.Forms.WebBrowser();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.BtnBolumDuzelt = new System.Windows.Forms.Button();
             this.BtnMasrafYeriDuzelt = new System.Windows.Forms.Button();
             this.DtKgb = new System.Windows.Forms.DateTimePicker();
             this.label131 = new System.Windows.Forms.Label();
@@ -355,8 +357,6 @@ namespace UserInterface.IdariIşler
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.BtnBolumDuzelt = new System.Windows.Forms.Button();
-            this.BtnBolumDuzeltGuncelle = new System.Windows.Forms.Button();
             this.tabPage5.SuspendLayout();
             this.panel2.SuspendLayout();
             this.tabPage4.SuspendLayout();
@@ -1442,6 +1442,22 @@ namespace UserInterface.IdariIşler
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ŞİRKET BİLGİLER";
             // 
+            // BtnBolumDuzeltGuncelle
+            // 
+            this.BtnBolumDuzeltGuncelle.AccessibleDescription = "";
+            this.BtnBolumDuzeltGuncelle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBolumDuzeltGuncelle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolumDuzeltGuncelle.BackgroundImage")));
+            this.BtnBolumDuzeltGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBolumDuzeltGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBolumDuzeltGuncelle.Location = new System.Drawing.Point(805, 44);
+            this.BtnBolumDuzeltGuncelle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBolumDuzeltGuncelle.Name = "BtnBolumDuzeltGuncelle";
+            this.BtnBolumDuzeltGuncelle.Size = new System.Drawing.Size(34, 29);
+            this.BtnBolumDuzeltGuncelle.TabIndex = 400;
+            this.BtnBolumDuzeltGuncelle.Tag = "admin";
+            this.BtnBolumDuzeltGuncelle.UseVisualStyleBackColor = false;
+            this.BtnBolumDuzeltGuncelle.Click += new System.EventHandler(this.BtnBolumDuzeltGuncelle_Click);
+            // 
             // BtnMasrafYeriDuzeltGun
             // 
             this.BtnMasrafYeriDuzeltGun.AccessibleDescription = "";
@@ -1583,11 +1599,11 @@ namespace UserInterface.IdariIşler
             // 
             this.CmbBolumG.FormattingEnabled = true;
             this.CmbBolumG.Items.AddRange(new object[] {
-            "SİSTEM TESİS BAKIM ONARIM MÜDÜRLÜĞÜ",
-            "LOJİSTİK DESTEK VE PLANLAMA MÜDÜRLÜĞÜ",
-            "KALİTE MÜHENDİSLİĞİ",
-            "YAZILIM MÜHENDİSLİĞİ",
-            "İDARİ İŞLER ŞEFLİĞİ"});
+            "SİSTEM TESİS BAKIM ONARIM",
+            "LOJİSTİK DESTEK VE PLANLAMA",
+            "FABRİKA DESTEK (MİRSAD)",
+            "FABRİKA DESTEK",
+            "İDARİ İŞLER"});
             this.CmbBolumG.Location = new System.Drawing.Point(537, 70);
             this.CmbBolumG.Name = "CmbBolumG";
             this.CmbBolumG.Size = new System.Drawing.Size(265, 21);
@@ -2580,6 +2596,21 @@ namespace UserInterface.IdariIşler
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ŞİRKET BİLGİLER";
             // 
+            // BtnBolumDuzelt
+            // 
+            this.BtnBolumDuzelt.AccessibleDescription = "";
+            this.BtnBolumDuzelt.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBolumDuzelt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolumDuzelt.BackgroundImage")));
+            this.BtnBolumDuzelt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBolumDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBolumDuzelt.Location = new System.Drawing.Point(832, 14);
+            this.BtnBolumDuzelt.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBolumDuzelt.Name = "BtnBolumDuzelt";
+            this.BtnBolumDuzelt.Size = new System.Drawing.Size(34, 29);
+            this.BtnBolumDuzelt.TabIndex = 399;
+            this.BtnBolumDuzelt.Tag = "admin";
+            this.BtnBolumDuzelt.UseVisualStyleBackColor = false;
+            // 
             // BtnMasrafYeriDuzelt
             // 
             this.BtnMasrafYeriDuzelt.AccessibleDescription = "";
@@ -2731,11 +2762,11 @@ namespace UserInterface.IdariIşler
             // 
             this.CmbBolum.FormattingEnabled = true;
             this.CmbBolum.Items.AddRange(new object[] {
-            "SİSTEM TESİS BAKIM ONARIM MÜDÜRLÜĞÜ",
-            "LOJİSTİK DESTEK VE PLANLAMA MÜDÜRLÜĞÜ",
-            "KALİTE MÜHENDİSLİĞİ",
-            "YAZILIM MÜHENDİSLİĞİ",
-            "İDARİ İŞLER ŞEFLİĞİ"});
+            "SİSTEM TESİS BAKIM ONARIM",
+            "LOJİSTİK DESTEK VE PLANLAMA",
+            "FABRİKA DESTEK (MİRSAD)",
+            "FABRİKA DESTEK",
+            "İDARİ İŞLER"});
             this.CmbBolum.Location = new System.Drawing.Point(593, 43);
             this.CmbBolum.Name = "CmbBolum";
             this.CmbBolum.Size = new System.Drawing.Size(236, 21);
@@ -3654,37 +3685,6 @@ namespace UserInterface.IdariIşler
             this.yenileToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
-            // 
-            // BtnBolumDuzelt
-            // 
-            this.BtnBolumDuzelt.AccessibleDescription = "";
-            this.BtnBolumDuzelt.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnBolumDuzelt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolumDuzelt.BackgroundImage")));
-            this.BtnBolumDuzelt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBolumDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolumDuzelt.Location = new System.Drawing.Point(832, 14);
-            this.BtnBolumDuzelt.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnBolumDuzelt.Name = "BtnBolumDuzelt";
-            this.BtnBolumDuzelt.Size = new System.Drawing.Size(34, 29);
-            this.BtnBolumDuzelt.TabIndex = 399;
-            this.BtnBolumDuzelt.Tag = "admin";
-            this.BtnBolumDuzelt.UseVisualStyleBackColor = false;
-            // 
-            // BtnBolumDuzeltGuncelle
-            // 
-            this.BtnBolumDuzeltGuncelle.AccessibleDescription = "";
-            this.BtnBolumDuzeltGuncelle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnBolumDuzeltGuncelle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolumDuzeltGuncelle.BackgroundImage")));
-            this.BtnBolumDuzeltGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBolumDuzeltGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolumDuzeltGuncelle.Location = new System.Drawing.Point(805, 44);
-            this.BtnBolumDuzeltGuncelle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnBolumDuzeltGuncelle.Name = "BtnBolumDuzeltGuncelle";
-            this.BtnBolumDuzeltGuncelle.Size = new System.Drawing.Size(34, 29);
-            this.BtnBolumDuzeltGuncelle.TabIndex = 400;
-            this.BtnBolumDuzeltGuncelle.Tag = "admin";
-            this.BtnBolumDuzeltGuncelle.UseVisualStyleBackColor = false;
-            this.BtnBolumDuzeltGuncelle.Click += new System.EventHandler(this.BtnBolumDuzeltGuncelle_Click);
             // 
             // FrmPersonelKayit
             // 

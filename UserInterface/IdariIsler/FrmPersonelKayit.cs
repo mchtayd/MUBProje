@@ -337,6 +337,10 @@ namespace UserInterface.IdariIşler
             {
                 CmbBolum2G.DataSource = null;
             }
+            if (bolumidG == 3)
+            {
+                CmbBolum2G.DataSource = null;
+            }
             if (bolumidG == 4)
             {
                 CmbBolum2G.DataSource = personelKayitIdariManager.GetList();
@@ -373,6 +377,10 @@ namespace UserInterface.IdariIşler
                 Bolum2Doldur();
             }
             if (bolumid == 2)
+            {
+                CmbBolum2.DataSource = null;
+            }
+            if (bolumid == 3)
             {
                 CmbBolum2.DataSource = null;
             }
@@ -522,15 +530,15 @@ namespace UserInterface.IdariIşler
                 CmbBolum3G.SelectedValue = 0;
                 return;
             }
-            if (CmbBolum2G.Text == "Sh.Dest.Müh")
-            {
-                CmbBolum3G.DataSource = personelKayitIdariManager.Bolum3SahaDestek();
-                CmbBolum3G.ValueMember = "Id";
-                CmbBolum3G.DisplayMember = "bolum2";
-                CmbBolum3G.SelectedValue = 0;
-                return;
-            }
-            if (CmbBolum2G.Text== "Pln.Anlz.Müh")
+            //if (CmbBolum2G.Text == "Sh.Dest.Müh")
+            //{
+            //    CmbBolum3G.DataSource = personelKayitIdariManager.Bolum3SahaDestek();
+            //    CmbBolum3G.ValueMember = "Id";
+            //    CmbBolum3G.DisplayMember = "bolum2";
+            //    CmbBolum3G.SelectedValue = 0;
+            //    return;
+            //}
+            if (CmbBolum2G.Text== "Planlama Analiz")
             {
                 CmbBolum3G.DataSource = personelKayitIdariManager.Bolum3Gun();
                 CmbBolum3G.ValueMember = "Id";
@@ -563,15 +571,15 @@ namespace UserInterface.IdariIşler
                 CmbBolum3.SelectedValue = 0;
                 return;
             }
-            if (CmbBolum2.Text == "Sh.Dest.Müh")
-            {
-                CmbBolum3.DataSource = personelKayitIdariManager.Bolum3SahaDestek();
-                CmbBolum3.ValueMember = "Id";
-                CmbBolum3.DisplayMember = "bolum2";
-                CmbBolum3.SelectedValue = 0;
-                return;
-            }
-            if (CmbBolum2.Text == "Pln.Anlz.Müh")
+            //if (CmbBolum2.Text == "Saha Destek")
+            //{
+            //    CmbBolum3.DataSource = personelKayitIdariManager.Bolum3SahaDestek();
+            //    CmbBolum3.ValueMember = "Id";
+            //    CmbBolum3.DisplayMember = "bolum2";
+            //    CmbBolum3.SelectedValue = 0;
+            //    return;
+            //}
+            if (CmbBolum2.Text == "Planlama Analiz")
             {
                 CmbBolum3.DataSource = personelKayitIdariManager.Bolum3Gun();
                 CmbBolum3.ValueMember = "Id";

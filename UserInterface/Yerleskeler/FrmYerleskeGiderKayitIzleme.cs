@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Business.Concreate.Yerleskeler;
+using DataAccess.Concreate;
+using Entity.Yerleskeler;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,14 +16,20 @@ namespace UserInterface.Yerleskeler
 {
     public partial class FrmYerleskeGiderKayitIzleme : Form
     {
+        KiraManager kiraManager;
+
+        List<Kira> kiras;
+
+        string siparisNo;
         public FrmYerleskeGiderKayitIzleme()
         {
             InitializeComponent();
+            kiraManager = KiraManager.GetInstance();
         }
 
         private void FrmYerleskeGiderKayitIzleme_Load(object sender, EventArgs e)
         {
-
+            DataDisplay();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -33,6 +42,39 @@ namespace UserInterface.Yerleskeler
             {
                 frmAnaSayfa.tabAnasayfa.Visible = false;
             }
+        }
+        void DataDisplay()
+        {
+            kiras = kiraManager.GetList();
+            dataBinder.DataSource = kiras.ToDataTable();
+            DtgYerkeskeler.DataSource = dataBinder;
+
+            DtgYerkeskeler.Columns["Id"].Visible = false;
+            DtgYerkeskeler.Columns["YerleskeAdi"].HeaderText = "YERLEŞKE ADI";
+            DtgYerkeskeler.Columns["YerleskeAdresi"].HeaderText = "YERLEŞKE ADRESİ";
+            DtgYerkeskeler.Columns["MulkiyetBilgileri"].HeaderText = "MÜLKİYET BİLGİLERİ";
+            DtgYerkeskeler.Columns["AdiSoyadi"].HeaderText = "K.V ADI SOYADI";
+            DtgYerkeskeler.Columns["Tc"].Visible = false;
+            DtgYerkeskeler.Columns["Ikametgah"].Visible = false;
+            DtgYerkeskeler.Columns["Telefon"].HeaderText = "K.V TELEFON";
+            DtgYerkeskeler.Columns["BankaSubesi"].HeaderText = "K.V BANKA ŞUBESİ";
+            DtgYerkeskeler.Columns["IbanNo"].HeaderText = "K.V IBAN";
+            DtgYerkeskeler.Columns["KiraBaslangicTarihi"].Visible = false;
+            DtgYerkeskeler.Columns["KiraTutar"].Visible = false;
+            DtgYerkeskeler.Columns["Depozito"].Visible = false;
+            DtgYerkeskeler.Columns["DosyaYolu"].Visible = false;
+            DtgYerkeskeler.Columns["SiparisNo"].Visible = false;
+        }
+
+        private void DtgYerkeskeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgYerkeskeler.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+
+            siparisNo = DtgYerkeskeler.CurrentRow.Cells["SiparisNo"].Value.ToString();
         }
     }
 }

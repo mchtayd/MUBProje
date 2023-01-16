@@ -30,7 +30,7 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBolgeler));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgBolgeler = new ADGV.AdvancedDataGridView();
@@ -47,6 +47,7 @@ namespace UserInterface.BakımOnarım
             this.CmbBolgeAdi = new System.Windows.Forms.ComboBox();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
+            this.BtnKaydet = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
             this.TxtTugay = new System.Windows.Forms.TextBox();
@@ -233,7 +234,9 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.CmbBolgePersonel = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -269,6 +272,7 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -286,8 +290,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgBolgeler.AllowUserToAddRows = false;
             this.DtgBolgeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgBolgeler.AutoGenerateContextFilters = true;
             this.DtgBolgeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgBolgeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -311,16 +315,16 @@ namespace UserInterface.BakımOnarım
             this.tabControl1.Location = new System.Drawing.Point(12, 42);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1449, 831);
+            this.tabControl1.Size = new System.Drawing.Size(1449, 858);
             this.tabControl1.TabIndex = 308;
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox3);
             this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label8);
             this.tabPage1.Controls.Add(this.BtnTemizle);
             this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.CmbBolgeSorumlusu);
             this.tabPage1.Controls.Add(this.BtnGarantiEdit);
             this.tabPage1.Controls.Add(this.CmbBolgeAdi);
             this.tabPage1.Controls.Add(this.BtnGuncelle);
@@ -350,9 +354,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.Controls.Add(this.label32);
             this.tabPage1.Controls.Add(this.TxtTabur);
             this.tabPage1.Controls.Add(this.label25);
-            this.tabPage1.Controls.Add(this.BtnDepoEkle);
-            this.tabPage1.Controls.Add(this.CmbDepo);
-            this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.BtnPYPEkle);
             this.tabPage1.Controls.Add(this.buton_proje);
             this.tabPage1.Controls.Add(this.CmbPypNo);
@@ -363,7 +364,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.Controls.Add(this.CmbIl);
             this.tabPage1.Controls.Add(this.TxtBirlikAdresi);
             this.tabPage1.Controls.Add(this.TxtBolgeAdi);
-            this.tabPage1.Controls.Add(this.label17);
             this.tabPage1.Controls.Add(this.label15);
             this.tabPage1.Controls.Add(this.label13);
             this.tabPage1.Controls.Add(this.label14);
@@ -374,7 +374,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1441, 805);
+            this.tabPage1.Size = new System.Drawing.Size(1441, 832);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "ÜS BÖLGESİ YENİ KAYIT/DÜZENLE";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -382,7 +382,7 @@ namespace UserInterface.BakımOnarım
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(861, 323);
+            this.label5.Location = new System.Drawing.Point(1170, 644);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(19, 13);
             this.label5.TabIndex = 329;
@@ -392,7 +392,7 @@ namespace UserInterface.BakımOnarım
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(738, 323);
+            this.label8.Location = new System.Drawing.Point(1047, 644);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(120, 13);
             this.label8.TabIndex = 328;
@@ -407,7 +407,7 @@ namespace UserInterface.BakımOnarım
             this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnTemizle.ImageKey = "broom.png";
             this.BtnTemizle.ImageList = this.ımageList1;
-            this.BtnTemizle.Location = new System.Drawing.Point(467, 701);
+            this.BtnTemizle.Location = new System.Drawing.Point(467, 642);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
             this.BtnTemizle.TabIndex = 326;
@@ -425,7 +425,7 @@ namespace UserInterface.BakımOnarım
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.webBrowser1);
-            this.groupBox2.Location = new System.Drawing.Point(195, 587);
+            this.groupBox2.Location = new System.Drawing.Point(195, 528);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(542, 108);
             this.groupBox2.TabIndex = 325;
@@ -445,10 +445,11 @@ namespace UserInterface.BakımOnarım
             // 
             this.CmbBolgeSorumlusu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBolgeSorumlusu.FormattingEnabled = true;
-            this.CmbBolgeSorumlusu.Location = new System.Drawing.Point(195, 557);
+            this.CmbBolgeSorumlusu.Location = new System.Drawing.Point(180, 31);
             this.CmbBolgeSorumlusu.Name = "CmbBolgeSorumlusu";
-            this.CmbBolgeSorumlusu.Size = new System.Drawing.Size(296, 21);
+            this.CmbBolgeSorumlusu.Size = new System.Drawing.Size(296, 23);
             this.CmbBolgeSorumlusu.TabIndex = 324;
+            this.CmbBolgeSorumlusu.SelectedIndexChanged += new System.EventHandler(this.CmbBolgeSorumlusu_SelectedIndexChanged);
             // 
             // BtnGarantiEdit
             // 
@@ -481,7 +482,7 @@ namespace UserInterface.BakımOnarım
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
             this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnGuncelle.Location = new System.Drawing.Point(331, 701);
+            this.BtnGuncelle.Location = new System.Drawing.Point(331, 642);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
             this.BtnGuncelle.TabIndex = 319;
@@ -497,7 +498,7 @@ namespace UserInterface.BakımOnarım
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnDosyaEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnDosyaEkle.Image")));
             this.BtnDosyaEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(195, 701);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(195, 642);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(130, 51);
             this.BtnDosyaEkle.TabIndex = 318;
@@ -505,6 +506,22 @@ namespace UserInterface.BakımOnarım
             this.BtnDosyaEkle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDosyaEkle.UseVisualStyleBackColor = false;
             this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
+            // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(331, 642);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 317;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click_1);
             // 
             // label2
             // 
@@ -740,7 +757,7 @@ namespace UserInterface.BakımOnarım
             this.BtnDepoEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnDepoEkle.BackgroundImage")));
             this.BtnDepoEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnDepoEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDepoEkle.Location = new System.Drawing.Point(376, 525);
+            this.BtnDepoEkle.Location = new System.Drawing.Point(361, 87);
             this.BtnDepoEkle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnDepoEkle.Name = "BtnDepoEkle";
             this.BtnDepoEkle.Size = new System.Drawing.Size(34, 29);
@@ -753,17 +770,17 @@ namespace UserInterface.BakımOnarım
             // 
             this.CmbDepo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDepo.FormattingEnabled = true;
-            this.CmbDepo.Location = new System.Drawing.Point(195, 528);
+            this.CmbDepo.Location = new System.Drawing.Point(180, 90);
             this.CmbDepo.Name = "CmbDepo";
-            this.CmbDepo.Size = new System.Drawing.Size(178, 21);
+            this.CmbDepo.Size = new System.Drawing.Size(178, 23);
             this.CmbDepo.TabIndex = 134;
             // 
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(41, 533);
+            this.label19.Location = new System.Drawing.Point(12, 94);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(148, 13);
+            this.label19.Size = new System.Drawing.Size(162, 15);
             this.label19.TabIndex = 133;
             this.label19.Text = "BAĞLI OLDUĞU ARA DEPO:";
             // 
@@ -868,11 +885,11 @@ namespace UserInterface.BakımOnarım
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(7, 560);
+            this.label17.Location = new System.Drawing.Point(33, 34);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(182, 13);
+            this.label17.Size = new System.Drawing.Size(141, 15);
             this.label17.TabIndex = 16;
-            this.label17.Text = "BÖLGE SORUMLUSU ADI SOYADI:";
+            this.label17.Text = "SEKTÖR SORUMLUSU:";
             // 
             // label15
             // 
@@ -1936,27 +1953,46 @@ namespace UserInterface.BakımOnarım
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // BtnKaydet
+            // groupBox3
             // 
-            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
-            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(331, 701);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
-            this.BtnKaydet.TabIndex = 317;
-            this.BtnKaydet.Text = "     KAYDET";
-            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnKaydet.UseVisualStyleBackColor = false;
-            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click_1);
+            this.groupBox3.Controls.Add(this.CmbBolgePersonel);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.CmbBolgeSorumlusu);
+            this.groupBox3.Controls.Add(this.label17);
+            this.groupBox3.Controls.Add(this.CmbDepo);
+            this.groupBox3.Controls.Add(this.label19);
+            this.groupBox3.Controls.Add(this.BtnDepoEkle);
+            this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.groupBox3.Location = new System.Drawing.Point(513, 25);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(506, 131);
+            this.groupBox3.TabIndex = 330;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "SEKTÖR/BÖLGE BİLGİLERİ";
+            // 
+            // CmbBolgePersonel
+            // 
+            this.CmbBolgePersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbBolgePersonel.FormattingEnabled = true;
+            this.CmbBolgePersonel.Location = new System.Drawing.Point(180, 61);
+            this.CmbBolgePersonel.Name = "CmbBolgePersonel";
+            this.CmbBolgePersonel.Size = new System.Drawing.Size(296, 23);
+            this.CmbBolgePersonel.TabIndex = 326;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(10, 64);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(164, 15);
+            this.label9.TabIndex = 325;
+            this.label9.Text = "ÜS BÖLGESİ SORUMLUSU:";
             // 
             // FrmBolgeler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1475, 885);
+            this.ClientSize = new System.Drawing.Size(1475, 900);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -2003,6 +2039,8 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2210,5 +2248,8 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox CmbBolgePersonel;
+        private System.Windows.Forms.Label label9;
     }
 }

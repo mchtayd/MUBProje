@@ -33,6 +33,7 @@ namespace UserInterface.Yerleskeler
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.GrbKiralik = new System.Windows.Forms.GroupBox();
+            this.TxtTelefonNo = new System.Windows.Forms.MaskedTextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.BtnDosyaEkleKira = new System.Windows.Forms.Button();
@@ -62,6 +63,10 @@ namespace UserInterface.Yerleskeler
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DtgAbonelikler = new System.Windows.Forms.DataGridView();
+            this.AboneTuru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.HizmetAlinanKurum = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AboneTesisatNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AboneTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnEkle = new System.Windows.Forms.Button();
             this.BtnAboneTuruEkle = new System.Windows.Forms.Button();
             this.DtgAboneTarihi = new System.Windows.Forms.DateTimePicker();
@@ -77,12 +82,7 @@ namespace UserInterface.Yerleskeler
             this.TxtYerleskeAdi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.AboneTuru = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.HizmetAlinanKurum = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AboneTesisatNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AboneTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.TxtTelefonNo = new System.Windows.Forms.MaskedTextBox();
             this.CmbYerleskeAdi = new System.Windows.Forms.ComboBox();
             this.label17 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -143,10 +143,18 @@ namespace UserInterface.Yerleskeler
             this.GrbKiralik.Controls.Add(this.label7);
             this.GrbKiralik.Location = new System.Drawing.Point(649, 90);
             this.GrbKiralik.Name = "GrbKiralik";
-            this.GrbKiralik.Size = new System.Drawing.Size(629, 799);
+            this.GrbKiralik.Size = new System.Drawing.Size(629, 762);
             this.GrbKiralik.TabIndex = 403;
             this.GrbKiralik.TabStop = false;
             this.GrbKiralik.Text = "KİRA BİLGİLERİ";
+            // 
+            // TxtTelefonNo
+            // 
+            this.TxtTelefonNo.Location = new System.Drawing.Point(248, 115);
+            this.TxtTelefonNo.Mask = "(999) 000-0000";
+            this.TxtTelefonNo.Name = "TxtTelefonNo";
+            this.TxtTelefonNo.Size = new System.Drawing.Size(286, 21);
+            this.TxtTelefonNo.TabIndex = 423;
             // 
             // groupBox6
             // 
@@ -445,6 +453,30 @@ namespace UserInterface.Yerleskeler
             this.DtgAbonelikler.Size = new System.Drawing.Size(560, 235);
             this.DtgAbonelikler.TabIndex = 0;
             // 
+            // AboneTuru
+            // 
+            this.AboneTuru.HeaderText = "ABONE TÜRÜ";
+            this.AboneTuru.Name = "AboneTuru";
+            this.AboneTuru.ReadOnly = true;
+            // 
+            // HizmetAlinanKurum
+            // 
+            this.HizmetAlinanKurum.HeaderText = "HİZMET ALINAN KURUM";
+            this.HizmetAlinanKurum.Name = "HizmetAlinanKurum";
+            this.HizmetAlinanKurum.ReadOnly = true;
+            // 
+            // AboneTesisatNo
+            // 
+            this.AboneTesisatNo.HeaderText = "ABONE TESİSAT NO";
+            this.AboneTesisatNo.Name = "AboneTesisatNo";
+            this.AboneTesisatNo.ReadOnly = true;
+            // 
+            // AboneTarihi
+            // 
+            this.AboneTarihi.HeaderText = "ABONE TARİHİ";
+            this.AboneTarihi.Name = "AboneTarihi";
+            this.AboneTarihi.ReadOnly = true;
+            // 
             // BtnEkle
             // 
             this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -590,41 +622,9 @@ namespace UserInterface.Yerleskeler
             this.BtnKaydet.UseVisualStyleBackColor = true;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // AboneTuru
-            // 
-            this.AboneTuru.HeaderText = "ABONE TÜRÜ";
-            this.AboneTuru.Name = "AboneTuru";
-            this.AboneTuru.ReadOnly = true;
-            // 
-            // HizmetAlinanKurum
-            // 
-            this.HizmetAlinanKurum.HeaderText = "HİZMET ALINAN KURUM";
-            this.HizmetAlinanKurum.Name = "HizmetAlinanKurum";
-            this.HizmetAlinanKurum.ReadOnly = true;
-            // 
-            // AboneTesisatNo
-            // 
-            this.AboneTesisatNo.HeaderText = "ABONE TESİSAT NO";
-            this.AboneTesisatNo.Name = "AboneTesisatNo";
-            this.AboneTesisatNo.ReadOnly = true;
-            // 
-            // AboneTarihi
-            // 
-            this.AboneTarihi.HeaderText = "ABONE TARİHİ";
-            this.AboneTarihi.Name = "AboneTarihi";
-            this.AboneTarihi.ReadOnly = true;
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // TxtTelefonNo
-            // 
-            this.TxtTelefonNo.Location = new System.Drawing.Point(248, 115);
-            this.TxtTelefonNo.Mask = "(999) 000-0000";
-            this.TxtTelefonNo.Name = "TxtTelefonNo";
-            this.TxtTelefonNo.Size = new System.Drawing.Size(286, 21);
-            this.TxtTelefonNo.TabIndex = 423;
             // 
             // CmbYerleskeAdi
             // 

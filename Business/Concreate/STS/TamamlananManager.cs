@@ -78,6 +78,17 @@ namespace Business.Concreate.STS
                 return new List<Tamamlanan>();
             }
         }
+        public Tamamlanan GetListYedekData(int isAkisNo)
+        {
+            try
+            {
+                return tamamlananDal.GetListYedekData(isAkisNo);
+            }
+            catch
+            {
+                return null;
+            }
+        }
         public List<Tamamlanan> GetListSatTumu(int isAAkisNo)
         {
             try
