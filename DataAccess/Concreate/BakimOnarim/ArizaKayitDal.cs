@@ -290,6 +290,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 return null;
             }
         }
+
         public ArizaKayit GetId(int id)
         {
             try

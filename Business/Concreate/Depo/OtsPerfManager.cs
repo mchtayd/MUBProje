@@ -4,6 +4,7 @@ using DataAccess.Rapor;
 using Entity.Rapor;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -48,6 +49,17 @@ namespace Business.Concreate.Depo
             catch
             {
                 return new List<OtsPerf>();
+            }
+        }
+        public string PersonelSicil(string sicil)
+        {
+            try
+            {
+                return otsPerfDal.PersonelSicil(sicil);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
             }
         }
         public List<OtsPerf> GetListAdimlar(int abfNo)

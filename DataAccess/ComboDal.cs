@@ -109,6 +109,28 @@ namespace DataAccess
                 return new List<Combo>();
             }
         }
+        public List<Combo> GetListProje(string baslik)
+        {
+            try
+            {
+                List<Combo> combos = new List<Combo>();
+                dataReader = sqlServices.StoreReader("ComboProjeList", new SqlParameter("@baslik", baslik));
+                while (dataReader.Read())
+                {
+                    combos.Add(new Combo(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BASLIK"].ToString(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["COMBO_AD"].ToString()));
+                }
+                dataReader.Close();
+                return combos;
+            }
+            catch (Exception)
+            {
+                return new List<Combo>();
+            }
+        }
 
         public string Update(Combo entity,int id)
         {

@@ -86,12 +86,12 @@ namespace DataAccess.Concreate.Butce
             }
         }
 
-        public List<ButceKayit> GetList()
+        public List<ButceKayit> GetList(string yil, string donem)
         {
             try
             {
                 List<ButceKayit> butceKayits = new List<ButceKayit>();
-                dataReader = sqlServices.StoreReader("ButceGetList");
+                dataReader = sqlServices.StoreReader("ButceGetList", new SqlParameter("@yil", yil), new SqlParameter("@donem", donem));
                 while (dataReader.Read())
                 {
                     butceKayits.Add(new ButceKayit(
@@ -112,6 +112,46 @@ namespace DataAccess.Concreate.Butce
             catch (Exception)
             {
                 return new List<ButceKayit>();
+            }
+        }
+        public double SatButceHarcama(string butceKodu,int yil, string donem)
+        {
+            try
+            {
+                double harcama = 0;
+
+                dataReader = sqlServices.StoreReader("ButceKoduGrafikList", new SqlParameter("@butceKodu", butceKodu), new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yil + 1), new SqlParameter("@donem", donem));
+
+                while (dataReader.Read())
+                {
+                    harcama = dataReader["ToplamTutar"].ConDouble();
+                }
+                dataReader.Close();
+                return harcama;
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public double SatButceHarcamaBM46(string butceKodu, int yil, string donem)
+        {
+            try
+            {
+                double harcama = 0;
+
+                dataReader = sqlServices.StoreReader("ButceKoduGrafikListBM46", new SqlParameter("@butceKodu", butceKodu), new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yil + 1), new SqlParameter("@donem", donem));
+
+                while (dataReader.Read())
+                {
+                    harcama = dataReader["ToplamTutar"].ConDouble();
+                }
+                dataReader.Close();
+                return harcama;
+            }
+            catch (Exception)
+            {
+                return 0;
             }
         }
 

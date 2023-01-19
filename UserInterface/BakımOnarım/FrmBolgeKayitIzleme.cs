@@ -82,6 +82,7 @@ namespace UserInterface.BakımOnarım
             DtgBolgeler.Columns["PypNo"].HeaderText = "PYP NO";
             DtgBolgeler.Columns["Proje"].HeaderText = "PROJE";
             DtgBolgeler.Columns["TepeSorumlusu"].HeaderText = "ÜS BÖLGESİ SORUMLUSU";
+            DtgBolgeler.Columns["ProjeSistem"].HeaderText = "PROJE SİSTEM";
         }
 
         private void DtgBolgeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

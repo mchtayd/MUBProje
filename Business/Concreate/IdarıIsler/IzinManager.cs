@@ -73,6 +73,18 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
+        public string IzinOnay(int id, string onayBilgi)
+        {
+            try
+            {
+                return İzinDal.IzinOnay(id, onayBilgi);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public List<Izin> GetList(int isakisno=0)
         {
             try
@@ -84,6 +96,19 @@ namespace Business.Concreate.IdarıIsler
                 return new List<Izin>();
             }
         }
+
+        public List<Izin> GetListOnay()
+        {
+            try
+            {
+                return İzinDal.GetListOnay();
+            }
+            catch (Exception)
+            {
+                return new List<Izin>();
+            }
+        }
+
         public List<Izin> GetListIzinlerim(string personelAd)
         {
             try

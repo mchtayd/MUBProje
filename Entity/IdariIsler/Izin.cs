@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class Izin
     {
-        int id,isakisno; string izinkategori, izinturu, siparisno, adsoyad, unvani,masrafyerino, bolum, ızınnedeni; DateTime bastarihi, bittarihi; string izindurumu, toplamsure, kalanSure,dosyayolu,sayfa;
+        int id,isakisno; string izinkategori, izinturu, siparisno, adsoyad, unvani,masrafyerino, bolum, ızınnedeni; DateTime bastarihi, bittarihi; string izindurumu, toplamsure, kalanSure, dosyayolu, sayfa, siparis, onayDurum;
 
         public int Id { get => id; set => id = value; }
         public int Isakisno { get => isakisno; set => isakisno = value; }
@@ -27,9 +27,11 @@ namespace Entity.IdariIsler
         public string KalanSure { get => kalanSure; set => kalanSure = value; }
         public string Dosyayolu { get => dosyayolu; set => dosyayolu = value; }
         public string Sayfa { get => sayfa; set => sayfa = value; }
+        public string Siparis { get => siparis; set => siparis = value; }
+        public string OnayDurum { get => onayDurum; set => onayDurum = value; }
 
         public Izin(int id, int isakisno, string izinkategori, string izinturu, string siparisno, string adsoyad, string unvani,string masrafyerino, string bolum, string ızınnedeni, DateTime bastarihi, DateTime bittarihi,string izindurumu,string toplamsure,
-            string dosyayolu,string sayfa)
+            string dosyayolu,string sayfa, string siparis, string onayDurum)
         {
             this.id = id;
             this.isakisno = isakisno;
@@ -47,9 +49,11 @@ namespace Entity.IdariIsler
             this.toplamsure = toplamsure;
             this.dosyayolu = dosyayolu;
             this.sayfa = sayfa;
+            this.siparis = siparis;
+            this.onayDurum = onayDurum;
         }
 
-        public Izin(int isakisno, string izinkategori, string izinturu, string siparisno, string adsoyad, string unvani,string masrafyerino, string bolum, string ızınnedeni, DateTime bastarihi, DateTime bittarihi,string toplamsure,string dosyayolu)
+        public Izin(int isakisno, string izinkategori, string izinturu, string siparisno, string adsoyad, string unvani,string masrafyerino, string bolum, string ızınnedeni, DateTime bastarihi, DateTime bittarihi,string toplamsure,string dosyayolu, string siparis)
         {
             this.isakisno = isakisno;
             this.izinkategori = izinkategori;
@@ -64,6 +68,7 @@ namespace Entity.IdariIsler
             this.unvani = unvani;
             this.toplamsure = toplamsure;
             this.dosyayolu = dosyayolu;
+            this.siparis = siparis;
         }
 
         public Izin(string izinturu, string adsoyad, string unvani, DateTime bastarihi, DateTime bittarihi, string toplamsure, string kalanSure)
@@ -75,6 +80,14 @@ namespace Entity.IdariIsler
             this.bittarihi = bittarihi;
             this.toplamsure = toplamsure;
             this.KalanSure = kalanSure;
+        }
+
+        public Izin(string adsoyad, string ızınnedeni, DateTime bastarihi, DateTime bittarihi)
+        {
+            this.adsoyad = adsoyad;
+            this.ızınnedeni = ızınnedeni;
+            this.bastarihi = bastarihi;
+            this.bittarihi = bittarihi;
         }
     }
 }

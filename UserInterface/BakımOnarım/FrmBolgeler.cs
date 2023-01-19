@@ -225,7 +225,8 @@ namespace UserInterface.BakımOnarım
             TxtBolgeAdi.Clear(); TxtKodAdi.Clear(); TxtBolgeStokNo.Clear(); CmbProje.SelectedIndex = -1; CmbYazilimBilgisi.SelectedIndex = -1;
             CmbGozetlemeTuru.SelectedIndex = -1; CmbYasamAlani.SelectedIndex = -1; TxtTabur.Clear(); TxtTugay.Clear(); CmbIl.SelectedIndex = -1;
             CmbIlce.SelectedIndex = -1; TxtBirlikAdresi.Clear(); CmbPypNo.SelectedIndex = -1; CmbDepo.SelectedIndex = -1; CmbBolgeSorumlusu.SelectedIndex = -1;
-            webBrowser1.Navigate(""); CmbBolgeAdi.SelectedIndex = -1;
+            webBrowser1.Navigate(""); CmbBolgeAdi.SelectedIndex = -1; CmbProjeSistem.SelectedIndex = -1;
+            ComboProje();
         }
         
 
@@ -389,6 +390,7 @@ namespace UserInterface.BakımOnarım
             dosyaYolu = bolgeKayit.DosyaYolu;
             siparisNo = bolgeKayit.SiparisNo;
             CmbBolgePersonel.Text = bolgeKayit.TepeSorumlusu;
+            CmbProjeSistem.Text = bolgeKayit.ProjeSistem;
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -425,6 +427,18 @@ namespace UserInterface.BakımOnarım
             CmbBolgePersonel.ValueMember = "Id";
             CmbBolgePersonel.DisplayMember = "Adsoyad";
             CmbBolgePersonel.SelectedValue = -1;
+        }
+
+        private void CmbProjeSistem_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbProjeSistem.SelectedIndex==-1)
+            {
+                return;
+            }
+            CmbProje.DataSource = comboManager.GetListProje(CmbProjeSistem.Text);
+            CmbProje.ValueMember = "Id";
+            CmbProje.DisplayMember = "Baslik";
+            CmbProje.SelectedValue = 0;
         }
 
         void CreateFile()
@@ -495,7 +509,7 @@ namespace UserInterface.BakımOnarım
                 //}
 
                 siparisNo = Guid.NewGuid().ToString();
-                BolgeKayit bolgeKayit = new BolgeKayit(TxtBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, siparisNo, dosyaYolu, CmbBolgePersonel.Text);
+                BolgeKayit bolgeKayit = new BolgeKayit(TxtBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, siparisNo, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text);
 
                 string mesaj = bolgeKayitManager.Add(bolgeKayit);
                 if (mesaj!="OK")
@@ -515,7 +529,7 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri güncellemek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, dosyaYolu, CmbBolgePersonel.Text);
+                BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text);
 
                 string mesaj = bolgeKayitManager.Update(bolgeKayit);
                 if (mesaj != "OK")

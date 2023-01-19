@@ -36,6 +36,24 @@ namespace DataAccess.Rapor
         {
             throw new NotImplementedException();
         }
+        public string PersonelSicil(string sicil)
+        {
+            try
+            {
+                string adSoyad = "";
+                dataReader = sqlServices.StoreReader("BolgeSorumlusuAdList", new SqlParameter("@sicil", sicil));
+                while (dataReader.Read())
+                {
+                    adSoyad = dataReader["AD_SOYAD"].ToString();
+                }
+                dataReader.Close();
+                return adSoyad;
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public List<OtsPerf> GetList(string yil)
         {
@@ -67,7 +85,11 @@ namespace DataAccess.Rapor
                         dataReader["BOLGE_ADI"].ToString(),
                         dataReader["MUDEHALE_TARIH"].ConDate(),
                         dataReader["ONARIM_TAMAM_TARIHI"].ConDate(),
-                        sure));
+                        sure,
+                        dataReader["BOLGE_ILCE"].ToString(),
+                        dataReader["BOLGE_SORUMLU_SICIL"].ToString(),
+                        dataReader["KATEGORI"].ToString(),
+                        dataReader["PROJE"].ToString()));
                 }
 
                 dataReader.Close();
@@ -79,6 +101,7 @@ namespace DataAccess.Rapor
                 return new List<OtsPerf>();
             }
         }
+        //public List<string> 
         public List<OtsPerf> GetListAdimlar(string abfNo)
         {
             try
@@ -125,6 +148,7 @@ namespace DataAccess.Rapor
                 return new List<string>();
             }
         }
+
 
         public string Update(OtsPerf entity)
         {

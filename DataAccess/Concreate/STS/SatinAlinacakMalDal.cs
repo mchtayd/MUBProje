@@ -105,8 +105,34 @@ namespace DataAccess
                 dataReader = sqlServices.StoreReader("MalzemeListele", new SqlParameter("@siparisNo", siparisNo));
                 while (dataReader.Read())
                 {
-                    satins.Add(new SatinAlinacakMalzemeler(dataReader["ID"].ConInt(), dataReader["STN1"].ToString(), dataReader["T1"].ToString(),
-                         dataReader["M1"].ConInt(), dataReader["B1"].ToString())); ;
+                    satins.Add(new SatinAlinacakMalzemeler(dataReader["ID"].ConInt(), 
+                        dataReader["STN1"].ToString(), 
+                        dataReader["T1"].ToString(),
+                        dataReader["M1"].ConInt(), 
+                        dataReader["B1"].ToString())); ;
+                }
+                dataReader.Close();
+                return satins;
+            }
+            catch
+            {
+                return new List<SatinAlinacakMalzemeler>();
+            }
+        }
+
+        public List<SatinAlinacakMalzemeler> GetListOts(string abfNo)
+        {
+            try
+            {
+                List<SatinAlinacakMalzemeler> satins = new List<SatinAlinacakMalzemeler>();
+                dataReader = sqlServices.StoreReader("SatArizaMalzemeList", new SqlParameter("@formNo", abfNo));
+                while (dataReader.Read())
+                {
+                    satins.Add(new SatinAlinacakMalzemeler(dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO_CIKAN"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["BIRIM"].ToString()));
                 }
                 dataReader.Close();
                 return satins;

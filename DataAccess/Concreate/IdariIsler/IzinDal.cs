@@ -26,19 +26,20 @@ namespace DataAccess.Concreate.IdariIsler
             try
             {
                 dataReader = sqlServices.StoreReader("PersonelIzinKaydet",
-                    new SqlParameter("@isakisno",entity.Isakisno),
-                    new SqlParameter("@izinkategori",entity.Izinkategori),
-                    new SqlParameter("@izinturu",entity.Izinturu),
-                    new SqlParameter("@siparisno",entity.Siparisno),
-                    new SqlParameter("@adsoyad",entity.Adsoyad),
-                    new SqlParameter("@masrafyerino",entity.Masrafyerino),
-                    new SqlParameter("@bolum",entity.Bolum),
-                    new SqlParameter("@izinnedeni",entity.Izınnedeni),
-                    new SqlParameter("@bastarihi",entity.Bastarihi),
-                    new SqlParameter("@bittarihi",entity.Bittarihi),
-                    new SqlParameter("@unvani",entity.Unvani),
-                    new SqlParameter("@toplamsure",entity.Toplamsure),
-                    new SqlParameter("@dosyayolu",entity.Dosyayolu));
+                    new SqlParameter("@isakisno", entity.Isakisno),
+                    new SqlParameter("@izinkategori", entity.Izinkategori),
+                    new SqlParameter("@izinturu", entity.Izinturu),
+                    new SqlParameter("@siparisno", entity.Siparisno),
+                    new SqlParameter("@adsoyad", entity.Adsoyad),
+                    new SqlParameter("@masrafyerino", entity.Masrafyerino),
+                    new SqlParameter("@bolum", entity.Bolum),
+                    new SqlParameter("@izinnedeni", entity.Izınnedeni),
+                    new SqlParameter("@bastarihi", entity.Bastarihi),
+                    new SqlParameter("@bittarihi", entity.Bittarihi),
+                    new SqlParameter("@unvani", entity.Unvani),
+                    new SqlParameter("@toplamsure", entity.Toplamsure),
+                    new SqlParameter("@dosyayolu", entity.Dosyayolu),
+                    new SqlParameter("@siparis", entity.Siparis));
                 dataReader.Close();
                 return "OK";
             }
@@ -77,6 +78,21 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+        public string IzinOnay(int id, string onayBilgi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("PersonelIzinOnay",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@onayDurum", onayBilgi));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public Izin Get(int isakisno)
         {
@@ -102,7 +118,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["IZIN_DURUMU"].ToString(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["SAYFA"].ToString());
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["ONAY_DURUM"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -137,7 +155,45 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["IZIN_DURUMU"].ToString(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["SAYFA"].ToString()));
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["ONAY_DURUM"].ToString()));
+                }
+                dataReader.Close();
+                return izins;
+            }
+            catch (Exception)
+            {
+                return new List<Izin>();
+            }
+        }
+        public List<Izin> GetListOnay()
+        {
+            try
+            {
+                List<Izin> izins = new List<Izin>();
+                dataReader = sqlServices.StoreReader("PersonelIzinOnayList");
+                while (dataReader.Read())
+                {
+                    izins.Add(new Izin(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["IZIN_KATEGORI"].ToString(),
+                        dataReader["IZIN_TURU"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["BOLUMU"].ToString(),
+                        dataReader["IZIN_NEDENI"].ToString(),
+                        dataReader["IZIN_BAS_TARIHI"].ConDate(),
+                        dataReader["IZIN_BIT_TARIHI"].ConDate(),
+                        dataReader["IZIN_DURUMU"].ToString(),
+                        dataReader["TOPLAM_SURE"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["ONAY_DURUM"].ToString()));
                 }
                 dataReader.Close();
                 return izins;
@@ -171,7 +227,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["IZIN_DURUMU"].ToString(),
                         dataReader["TOPLAM_SURE"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["SAYFA"].ToString()));
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["ONAY_DURUM"].ToString()));
                 }
                 dataReader.Close();
                 return izins;

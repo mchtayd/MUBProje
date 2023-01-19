@@ -212,5 +212,11 @@ namespace Entity.BakimOnarim
             this.tanim = tanim;
             this.seriNo = seriNo;
         }
+
+        public ArizaKayit(string arizaAciklama, string garantiDurumu)
+        {
+            this.arizaAciklama = arizaAciklama;
+            this.garantiDurumu = garantiDurumu;
+        }
     }
 }

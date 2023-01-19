@@ -1,4 +1,5 @@
 ﻿using DataAccess.Abstract;
+using DataAccess.Concreate;
 using DataAccess.Concreate.Butce;
 using Entity.Butce;
 using System;
@@ -55,15 +56,38 @@ namespace Business.Concreate.Butce
             }
         }
 
-        public List<ButceKayit> GetList()
+        public List<ButceKayit> GetList(string yil, string donem="")
         {
             try
             {
-                return butceDal.GetList();
+                return butceDal.GetList(yil, donem);
             }
             catch (Exception)
             {
                 return new List<ButceKayit>();
+            }
+        }
+
+        public double SatButceHarcama(string butceKodu, string yil, string donem = "")
+        {
+            try
+            {
+                return butceDal.SatButceHarcama(butceKodu, yil.ConInt(), donem);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+        public double SatButceHarcamaBM46(string butceKodu, string yil, string donem = "")
+        {
+            try
+            {
+                return butceDal.SatButceHarcamaBM46(butceKodu, yil.ConInt(), donem);
+            }
+            catch (Exception)
+            {
+                return 0;
             }
         }
 

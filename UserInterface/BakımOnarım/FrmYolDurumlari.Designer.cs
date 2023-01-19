@@ -29,28 +29,31 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYolDurumlari));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.label31 = new System.Windows.Forms.Label();
+            this.LblDonem = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label29 = new System.Windows.Forms.Label();
             this.CmbYolDurumu = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.label26 = new System.Windows.Forms.Label();
             this.CmbBolgeAdi = new System.Windows.Forms.ComboBox();
             this.TxtBolgeAdi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LblTarih = new System.Windows.Forms.Label();
+            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.BtnEkle = new System.Windows.Forms.Button();
             this.DtgList = new System.Windows.Forms.DataGridView();
             this.BolgeAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Donem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Donem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.YolDurumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BtnEkle = new System.Windows.Forms.Button();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -80,14 +83,14 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // label31
+            // LblDonem
             // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(100, 118);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(19, 13);
-            this.label31.TabIndex = 157;
-            this.label31.Text = "00";
+            this.LblDonem.AutoSize = true;
+            this.LblDonem.Location = new System.Drawing.Point(103, 118);
+            this.LblDonem.Name = "LblDonem";
+            this.LblDonem.Size = new System.Drawing.Size(19, 13);
+            this.LblDonem.TabIndex = 157;
+            this.LblDonem.Text = "00";
             // 
             // label30
             // 
@@ -102,7 +105,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.TxtAciklama.Location = new System.Drawing.Point(103, 179);
             this.TxtAciklama.Name = "TxtAciklama";
-            this.TxtAciklama.Size = new System.Drawing.Size(457, 71);
+            this.TxtAciklama.Size = new System.Drawing.Size(457, 77);
             this.TxtAciklama.TabIndex = 154;
             this.TxtAciklama.Text = "";
             // 
@@ -136,14 +139,6 @@ namespace UserInterface.BakımOnarım
             this.label28.Size = new System.Drawing.Size(83, 13);
             this.label28.TabIndex = 151;
             this.label28.Text = "YOL DURUMU:";
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(103, 83);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(139, 20);
-            this.dateTimePicker1.TabIndex = 149;
             // 
             // label26
             // 
@@ -179,25 +174,55 @@ namespace UserInterface.BakımOnarım
             this.label1.TabIndex = 323;
             this.label1.Text = "ÜS BÖLGE ADI:";
             // 
-            // button1
-            // 
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(106, 524);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(113, 36);
-            this.button1.TabIndex = 336;
-            this.button1.Text = "KAYDET";
-            this.button1.UseVisualStyleBackColor = true;
-            // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(103, 306);
+            this.groupBox1.Location = new System.Drawing.Point(103, 295);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1056, 212);
+            this.groupBox1.Size = new System.Drawing.Size(1056, 380);
             this.groupBox1.TabIndex = 335;
             this.groupBox1.TabStop = false;
+            // 
+            // LblTarih
+            // 
+            this.LblTarih.AutoSize = true;
+            this.LblTarih.Location = new System.Drawing.Point(103, 87);
+            this.LblTarih.Name = "LblTarih";
+            this.LblTarih.Size = new System.Drawing.Size(19, 13);
+            this.LblTarih.TabIndex = 338;
+            this.LblTarih.Text = "00";
+            // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(103, 681);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 339;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
+            // 
+            // BtnEkle
+            // 
+            this.BtnEkle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnEkle.Image")));
+            this.BtnEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEkle.Location = new System.Drawing.Point(103, 263);
+            this.BtnEkle.Name = "BtnEkle";
+            this.BtnEkle.Size = new System.Drawing.Size(76, 33);
+            this.BtnEkle.TabIndex = 340;
+            this.BtnEkle.Text = " EKLE";
+            this.BtnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEkle.UseVisualStyleBackColor = false;
+            this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
             // 
             // DtgList
             // 
@@ -207,30 +232,25 @@ namespace UserInterface.BakımOnarım
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.BolgeAdi,
-            this.Donem,
             this.Tarih,
+            this.Donem,
             this.YolDurumu,
-            this.Aciklama});
+            this.Aciklama,
+            this.Remove});
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.Size = new System.Drawing.Size(1050, 193);
-            this.DtgList.TabIndex = 0;
+            this.DtgList.Size = new System.Drawing.Size(1050, 361);
+            this.DtgList.TabIndex = 1;
+            this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
             // 
             // BolgeAdi
             // 
             this.BolgeAdi.HeaderText = "BÖLGE ADI";
             this.BolgeAdi.Name = "BolgeAdi";
             this.BolgeAdi.ReadOnly = true;
-            this.BolgeAdi.Width = 82;
-            // 
-            // Donem
-            // 
-            this.Donem.HeaderText = "DÖNEM";
-            this.Donem.Name = "Donem";
-            this.Donem.ReadOnly = true;
-            this.Donem.Width = 72;
+            this.BolgeAdi.Width = 89;
             // 
             // Tarih
             // 
@@ -239,12 +259,19 @@ namespace UserInterface.BakımOnarım
             this.Tarih.ReadOnly = true;
             this.Tarih.Width = 65;
             // 
+            // Donem
+            // 
+            this.Donem.HeaderText = "DÖNEM";
+            this.Donem.Name = "Donem";
+            this.Donem.ReadOnly = true;
+            this.Donem.Width = 72;
+            // 
             // YolDurumu
             // 
             this.YolDurumu.HeaderText = "YOL DURUMU";
             this.YolDurumu.Name = "YolDurumu";
             this.YolDurumu.ReadOnly = true;
-            this.YolDurumu.Width = 96;
+            this.YolDurumu.Width = 97;
             // 
             // Aciklama
             // 
@@ -253,16 +280,20 @@ namespace UserInterface.BakımOnarım
             this.Aciklama.ReadOnly = true;
             this.Aciklama.Width = 85;
             // 
-            // BtnEkle
+            // Remove
             // 
-            this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnEkle.Location = new System.Drawing.Point(103, 260);
-            this.BtnEkle.Name = "BtnEkle";
-            this.BtnEkle.Size = new System.Drawing.Size(81, 28);
-            this.BtnEkle.TabIndex = 337;
-            this.BtnEkle.Text = "EKLE";
-            this.BtnEkle.UseVisualStyleBackColor = true;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 52;
             // 
             // FrmYolDurumlari
             // 
@@ -270,18 +301,18 @@ namespace UserInterface.BakımOnarım
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1453, 820);
             this.Controls.Add(this.BtnEkle);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnKaydet);
+            this.Controls.Add(this.LblTarih);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.CmbBolgeAdi);
             this.Controls.Add(this.TxtBolgeAdi);
-            this.Controls.Add(this.label31);
+            this.Controls.Add(this.LblDonem);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label30);
             this.Controls.Add(this.TxtAciklama);
             this.Controls.Add(this.label29);
             this.Controls.Add(this.CmbYolDurumu);
             this.Controls.Add(this.label28);
-            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.label26);
             this.Controls.Add(this.panel1);
             this.Name = "FrmYolDurumlari";
@@ -299,25 +330,26 @@ namespace UserInterface.BakımOnarım
 
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label LblDonem;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.RichTextBox TxtAciklama;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.ComboBox CmbYolDurumu;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.ComboBox CmbBolgeAdi;
         private System.Windows.Forms.TextBox TxtBolgeAdi;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.DataGridView DtgList;
+        private System.Windows.Forms.Label LblTarih;
+        private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Button BtnEkle;
+        private System.Windows.Forms.DataGridView DtgList;
         private System.Windows.Forms.DataGridViewTextBoxColumn BolgeAdi;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Donem;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tarih;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Donem;
         private System.Windows.Forms.DataGridViewTextBoxColumn YolDurumu;
         private System.Windows.Forms.DataGridViewTextBoxColumn Aciklama;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

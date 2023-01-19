@@ -53,7 +53,6 @@ namespace UserInterface.Butce
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
-            this.CmbSiparisNo = new System.Windows.Forms.ComboBox();
             this.TxtKisiAdet = new System.Windows.Forms.TextBox();
             this.button3 = new System.Windows.Forms.Button();
             this.LblButceToplamYil = new System.Windows.Forms.Label();
@@ -61,6 +60,7 @@ namespace UserInterface.Butce
             this.LblButceToplamAy = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.CmbSiparisNo = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.panel1.SuspendLayout();
@@ -318,16 +318,6 @@ namespace UserInterface.Butce
             this.label2.TabIndex = 439;
             this.label2.Text = "Sipariş No:";
             // 
-            // CmbSiparisNo
-            // 
-            this.CmbSiparisNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbSiparisNo.FormattingEnabled = true;
-            this.CmbSiparisNo.Location = new System.Drawing.Point(197, 149);
-            this.CmbSiparisNo.Name = "CmbSiparisNo";
-            this.CmbSiparisNo.Size = new System.Drawing.Size(301, 23);
-            this.CmbSiparisNo.TabIndex = 440;
-            this.CmbSiparisNo.SelectedIndexChanged += new System.EventHandler(this.CmbSiparisNo_SelectedIndexChanged);
-            // 
             // TxtKisiAdet
             // 
             this.TxtKisiAdet.Location = new System.Drawing.Point(197, 183);
@@ -389,6 +379,16 @@ namespace UserInterface.Butce
             this.label13.Size = new System.Drawing.Size(143, 15);
             this.label13.TabIndex = 458;
             this.label13.Text = "Toplam Bütçe Tutarı (Ay):";
+            // 
+            // CmbSiparisNo
+            // 
+            this.CmbSiparisNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbSiparisNo.FormattingEnabled = true;
+            this.CmbSiparisNo.Location = new System.Drawing.Point(197, 150);
+            this.CmbSiparisNo.Name = "CmbSiparisNo";
+            this.CmbSiparisNo.Size = new System.Drawing.Size(301, 23);
+            this.CmbSiparisNo.TabIndex = 440;
+            this.CmbSiparisNo.SelectedIndexChanged += new System.EventHandler(this.CmbSiparisNo_SelectedIndexChanged);
             // 
             // FrmButceKayit2
             // 
@@ -459,7 +459,6 @@ namespace UserInterface.Butce
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox CmbSiparisNo;
         private System.Windows.Forms.TextBox TxtKisiAdet;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Label LblButceToplamYil;
@@ -467,5 +466,6 @@ namespace UserInterface.Butce
         private System.Windows.Forms.Label LblButceToplamAy;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.ComboBox CmbSiparisNo;
     }
 }

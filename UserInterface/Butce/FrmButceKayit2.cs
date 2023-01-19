@@ -225,7 +225,7 @@ namespace UserInterface.Butce
                 Temizle();
                 ToplamAy();
                 ToplamYıl();
-                DtgList.Rows.Clear();
+                DtgList.DataSource = null;
 
             }
         }

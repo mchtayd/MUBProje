@@ -429,6 +429,22 @@ namespace DataAccess.Concreate.STS
                 return ex.Message;
             }
         }
+        public string SatGerekceGuncelle(int id, string gerekce)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("TamamlananSatGerekceUpdate",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@gerekce", gerekce));
+                dataReader.Close();
+                return "OK";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string UpdateTutar(double tutar, string siparisNo)
         {

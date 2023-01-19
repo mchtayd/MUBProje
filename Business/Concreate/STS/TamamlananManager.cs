@@ -112,6 +112,17 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
+        public string SatGerekceGuncelle(int id, string gerekce)
+        {
+            try
+            {
+                return tamamlananDal.SatGerekceGuncelle(id, gerekce);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string IsAkisNoDuzelt(int id, int isAkisNo, string dosyaYolu)
         {
             try

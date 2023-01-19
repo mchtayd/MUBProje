@@ -82,6 +82,17 @@ namespace Business
                 return new List<Combo>();
             }
         }
+        public List<Combo> GetListProje(string baslik)
+        {
+            try
+            {
+                return comboDal.GetListProje(baslik);
+            }
+            catch (Exception)
+            {
+                return new List<Combo>();
+            }
+        }
 
         public string Update(Combo entity,int id)
         {

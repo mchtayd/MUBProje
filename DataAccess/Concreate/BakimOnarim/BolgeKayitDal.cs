@@ -55,7 +55,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@siparisNo", entity.SiparisNo),
                     new SqlParameter("@dosyaYolu", entity.DosyaYolu),
                     new SqlParameter("@proje", entity.Proje),
-                    new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu)); ;
+                    new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu),
+                    new SqlParameter("@projeSistem", entity.ProjeSistem));
 
                 dataReader.Close();
                 return "OK";
@@ -109,7 +110,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PYP_NO"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["TEPE_SORUMLUSU"].ToString());
+                        dataReader["TEPE_SORUMLUSU"].ToString(),
+                        dataReader["PROJE_SISTEM"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -188,7 +190,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PYP_NO"].ToString(),
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["TEPE_SORUMLUSU"].ToString()));
+                        dataReader["TEPE_SORUMLUSU"].ToString(),
+                        dataReader["PROJE_SISTEM"].ToString()));
                 }
                 dataReader.Close();
                 return bolgeKayits;
@@ -243,7 +246,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@garantiBaslama", entity.GarantiBaslama),
                     new SqlParameter("@garantiBitis", entity.GarantiBitis),
                     new SqlParameter("@dosyaYolu", entity.DosyaYolu),
-                    new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu));
+                    new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu),
+                    new SqlParameter("@projeSistem", entity.ProjeSistem));
 
                 dataReader.Close();
                 return "OK";

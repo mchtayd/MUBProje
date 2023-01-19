@@ -34,6 +34,9 @@
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detaylıAnalizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tümDetaylıAnalizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.CmbYillar = new System.Windows.Forms.ComboBox();
@@ -42,14 +45,11 @@
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.LblOrtalama = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.detaylıAnalizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tümDetaylıAnalizToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -108,6 +108,26 @@
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detaylıAnalizToolStripMenuItem,
+            this.tümDetaylıAnalizToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 48);
+            // 
+            // detaylıAnalizToolStripMenuItem
+            // 
+            this.detaylıAnalizToolStripMenuItem.Name = "detaylıAnalizToolStripMenuItem";
+            this.detaylıAnalizToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.detaylıAnalizToolStripMenuItem.Text = "Detaylı Analiz";
+            // 
+            // tümDetaylıAnalizToolStripMenuItem
+            // 
+            this.tümDetaylıAnalizToolStripMenuItem.Name = "tümDetaylıAnalizToolStripMenuItem";
+            this.tümDetaylıAnalizToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.tümDetaylıAnalizToolStripMenuItem.Text = "Tüm Detaylı Analiz";
             // 
             // TxtTop
             // 
@@ -183,26 +203,6 @@
             this.label3.TabIndex = 540;
             this.label3.Text = "Ortalama Arıza Giderme Süresi:";
             // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.detaylıAnalizToolStripMenuItem,
-            this.tümDetaylıAnalizToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(173, 48);
-            // 
-            // detaylıAnalizToolStripMenuItem
-            // 
-            this.detaylıAnalizToolStripMenuItem.Name = "detaylıAnalizToolStripMenuItem";
-            this.detaylıAnalizToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.detaylıAnalizToolStripMenuItem.Text = "Detaylı Analiz";
-            // 
-            // tümDetaylıAnalizToolStripMenuItem
-            // 
-            this.tümDetaylıAnalizToolStripMenuItem.Name = "tümDetaylıAnalizToolStripMenuItem";
-            this.tümDetaylıAnalizToolStripMenuItem.Size = new System.Drawing.Size(172, 22);
-            this.tümDetaylıAnalizToolStripMenuItem.Text = "Tüm Detaylı Analiz";
-            // 
             // OTSBOPerformans
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -223,8 +223,8 @@
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

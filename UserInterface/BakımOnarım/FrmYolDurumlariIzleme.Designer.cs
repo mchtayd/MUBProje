@@ -29,26 +29,26 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYolDurumlariIzleme));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DtgDevamEden = new ADGV.AdvancedDataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DtgList = new ADGV.AdvancedDataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.button1 = new System.Windows.Forms.Button();
+            this.CmbBolgeAdi = new System.Windows.Forms.ComboBox();
+            this.DtBasTarihi = new System.Windows.Forms.DateTimePicker();
+            this.DtBitTarihi = new System.Windows.Forms.DateTimePicker();
             this.button2 = new System.Windows.Forms.Button();
+            this.BtnSorgula = new System.Windows.Forms.Button();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -80,7 +80,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBox1.Controls.Add(this.DtgDevamEden);
+            this.groupBox1.Controls.Add(this.DtgList);
             this.groupBox1.Location = new System.Drawing.Point(12, 155);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1472, 599);
@@ -88,67 +88,26 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "YOL DURUMLARI";
             // 
-            // DtgDevamEden
+            // DtgList
             // 
-            this.DtgDevamEden.AllowUserToAddRows = false;
-            this.DtgDevamEden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DtgDevamEden.AutoGenerateContextFilters = true;
-            this.DtgDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgDevamEden.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2,
-            this.Column3,
-            this.Column4});
-            this.DtgDevamEden.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgDevamEden.DateWithTime = false;
-            this.DtgDevamEden.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgDevamEden.Location = new System.Drawing.Point(3, 16);
-            this.DtgDevamEden.MultiSelect = false;
-            this.DtgDevamEden.Name = "DtgDevamEden";
-            this.DtgDevamEden.ReadOnly = true;
-            this.DtgDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgDevamEden.Size = new System.Drawing.Size(1466, 580);
-            this.DtgDevamEden.TabIndex = 4;
-            this.DtgDevamEden.TimeFilter = false;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "ÜS BÖLGESİ";
-            this.Column1.MinimumWidth = 22;
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column1.Width = 96;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "BAĞLI TABUR K.LIĞI";
-            this.Column2.MinimumWidth = 22;
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column2.Width = 124;
-            // 
-            // Column3
-            // 
-            this.Column3.HeaderText = "İLÇE";
-            this.Column3.MinimumWidth = 22;
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column3.Width = 55;
-            // 
-            // Column4
-            // 
-            this.Column4.HeaderText = "İL";
-            this.Column4.MinimumWidth = 22;
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column4.Width = 41;
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DtgList.AutoGenerateContextFilters = true;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgList.DateWithTime = false;
+            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgList.Location = new System.Drawing.Point(3, 16);
+            this.DtgList.MultiSelect = false;
+            this.DtgList.Name = "DtgList";
+            this.DtgList.ReadOnly = true;
+            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgList.Size = new System.Drawing.Size(1466, 580);
+            this.DtgList.TabIndex = 4;
+            this.DtgList.TimeFilter = false;
             // 
             // label1
             // 
@@ -177,40 +136,30 @@ namespace UserInterface.BakımOnarım
             this.label3.TabIndex = 52;
             this.label3.Text = "BİTİŞ TARİHİ:";
             // 
-            // comboBox1
+            // CmbBolgeAdi
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(119, 47);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(165, 21);
-            this.comboBox1.TabIndex = 53;
+            this.CmbBolgeAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbBolgeAdi.FormattingEnabled = true;
+            this.CmbBolgeAdi.Location = new System.Drawing.Point(119, 47);
+            this.CmbBolgeAdi.Name = "CmbBolgeAdi";
+            this.CmbBolgeAdi.Size = new System.Drawing.Size(298, 21);
+            this.CmbBolgeAdi.TabIndex = 53;
             // 
-            // dateTimePicker1
+            // DtBasTarihi
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(119, 76);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(165, 20);
-            this.dateTimePicker1.TabIndex = 54;
+            this.DtBasTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtBasTarihi.Location = new System.Drawing.Point(119, 76);
+            this.DtBasTarihi.Name = "DtBasTarihi";
+            this.DtBasTarihi.Size = new System.Drawing.Size(165, 20);
+            this.DtBasTarihi.TabIndex = 54;
             // 
-            // dateTimePicker2
+            // DtBitTarihi
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(119, 105);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(165, 20);
-            this.dateTimePicker2.TabIndex = 55;
-            // 
-            // button1
-            // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button1.Location = new System.Drawing.Point(299, 92);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 33);
-            this.button1.TabIndex = 56;
-            this.button1.Text = "SORGULA";
-            this.button1.UseVisualStyleBackColor = true;
+            this.DtBitTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtBitTarihi.Location = new System.Drawing.Point(119, 105);
+            this.DtBitTarihi.Name = "DtBitTarihi";
+            this.DtBitTarihi.Size = new System.Drawing.Size(165, 20);
+            this.DtBitTarihi.TabIndex = 55;
             // 
             // button2
             // 
@@ -222,16 +171,32 @@ namespace UserInterface.BakımOnarım
             this.button2.Text = "YAZDIR";
             this.button2.UseVisualStyleBackColor = true;
             // 
+            // BtnSorgula
+            // 
+            this.BtnSorgula.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnSorgula.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSorgula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSorgula.Image = ((System.Drawing.Image)(resources.GetObject("BtnSorgula.Image")));
+            this.BtnSorgula.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSorgula.Location = new System.Drawing.Point(290, 74);
+            this.BtnSorgula.Name = "BtnSorgula";
+            this.BtnSorgula.Size = new System.Drawing.Size(127, 51);
+            this.BtnSorgula.TabIndex = 340;
+            this.BtnSorgula.Text = "   SORGULA";
+            this.BtnSorgula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSorgula.UseVisualStyleBackColor = false;
+            this.BtnSorgula.Click += new System.EventHandler(this.BtnSorgula_Click);
+            // 
             // FrmYolDurumlariIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1496, 805);
+            this.Controls.Add(this.BtnSorgula);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.DtBitTarihi);
+            this.Controls.Add(this.DtBasTarihi);
+            this.Controls.Add(this.CmbBolgeAdi);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
@@ -242,7 +207,8 @@ namespace UserInterface.BakımOnarım
             this.Load += new System.EventHandler(this.FrmYolDurumlariIzleme_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,18 +219,15 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.GroupBox groupBox1;
-        private ADGV.AdvancedDataGridView DtgDevamEden;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private ADGV.AdvancedDataGridView DtgList;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox CmbBolgeAdi;
+        private System.Windows.Forms.DateTimePicker DtBasTarihi;
+        private System.Windows.Forms.DateTimePicker DtBitTarihi;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button BtnSorgula;
+        private System.Windows.Forms.BindingSource dataBinder;
     }
 }

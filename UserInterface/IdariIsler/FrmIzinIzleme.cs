@@ -73,6 +73,8 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["KalanSure"].Visible = false;
             DtgList.Columns["Dosyayolu"].Visible = false;
             DtgList.Columns["Sayfa"].Visible = false;
+            DtgList.Columns["Siparis"].Visible = false;
+            DtgList.Columns["OnayDurum"].HeaderText = "ONAY DURUMU";
 
             TxtTop.Text = DtgList.RowCount.ToString();
         }

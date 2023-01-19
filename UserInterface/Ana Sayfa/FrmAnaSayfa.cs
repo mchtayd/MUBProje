@@ -3058,7 +3058,7 @@ namespace UserInterface.STS
             {
                 FrmYolDurumlari Go = new FrmYolDurumlari();
                 Go.FormBorderStyle = FormBorderStyle.None;
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageYolDurumlari", "BÖLGE YOL DURUMLARI", Go);
@@ -3068,7 +3068,7 @@ namespace UserInterface.STS
             {
                 FrmYolDurumlariIzleme Go = new FrmYolDurumlariIzleme();
                 Go.FormBorderStyle = FormBorderStyle.None;
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageYolDurumlariIzleme", "BÖLGE YOL DURUMLARI İZLEME", Go);
@@ -4713,13 +4713,13 @@ namespace UserInterface.STS
 
         private void onayEkranlarıToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmOnayEkranlari Go = new FrmOnayEkranlari();
-            Go.infos = infos;
-            Go.FormBorderStyle = FormBorderStyle.None;
-            Go.TopLevel = false;
-            Go.AutoScroll = true;
-            OpenTabPage("PageOnayEkranlari", "ONAY EKRANLARI", Go);
-            Go.Show();
+            //FrmOnayEkranlari Go = new FrmOnayEkranlari();
+            //Go.infos = infos;
+            //Go.FormBorderStyle = FormBorderStyle.None;
+            //Go.TopLevel = false;
+            //Go.AutoScroll = true;
+            //OpenTabPage("PageOnayEkranlari", "ONAY EKRANLARI", Go);
+            //Go.Show();
         }
 
         private void toolStripDropDownButton4_Click(object sender, EventArgs e)
@@ -5255,6 +5255,17 @@ namespace UserInterface.STS
         {
             FrmDisaAktarExcel frmDisaAktarExcel = new FrmDisaAktarExcel();
             frmDisaAktarExcel.ShowDialog();
+        }
+
+        private void izinOnayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIzinOnay frmIzinOnay = new FrmIzinOnay();
+            frmIzinOnay.infos = infos;
+            frmIzinOnay.FormBorderStyle = FormBorderStyle.None;
+            frmIzinOnay.TopLevel = false;
+            frmIzinOnay.AutoScroll = true;
+            OpenTabPage("PageIzinOnay", "İZİN ONAY", frmIzinOnay);
+            frmIzinOnay.Show();
         }
 
         private void bİLDİRİMLERToolStripMenuItem_Click(object sender, EventArgs e)

@@ -44,6 +44,7 @@ namespace UserInterface.STS
         BolgeGarantiManager bolgeGarantiManager;
         ButceKoduKalemiManager butceKoduKalemiManager;
         ComboManager comboManager;
+        SatTalebiDoldurManager satTalebiDoldurManager;
 
         List<ArizaKayit> arizaKayits;
         List<MalzemeTalep> malzemeTaleps;
@@ -71,6 +72,7 @@ namespace UserInterface.STS
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
             butceKoduKalemiManager = ButceKoduKalemiManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
         }
 
         private void FrmSatTalebi_Load(object sender, EventArgs e)
@@ -199,6 +201,7 @@ namespace UserInterface.STS
             List<Entity.IdariIsler.ButceKodu> butceKodus = new List<Entity.IdariIsler.ButceKodu>();
             List<Entity.IdariIsler.ButceKodu> butceKodus2 = new List<Entity.IdariIsler.ButceKodu>();
             butceKodus = butceKoduKalemiManager.GetList();
+
             foreach (Entity.IdariIsler.ButceKodu item in butceKodus)
             {
                 string[] comboIdler = item.ComboId.Split(';');
@@ -257,9 +260,18 @@ namespace UserInterface.STS
                 {
                     LblPdl.Text = bolgeKayit.Proje;
                 }
-                arizaKayits = arizaKayitManager.GetList(CmbBolgeAdi.Text);
+
+                AbfFormNoList();
+                //arizaKayits = arizaKayitManager.GetList(CmbBolgeAdi.Text);
             }
-            FormNoFill();
+            //FormNoFill();
+        }
+        void AbfFormNoList()
+        {
+            BildirimFromNo.DataSource = satTalebiDoldurManager.BolgeSatList(CmbBolgeAdi.Text);
+            BildirimFromNo.ValueMember = "Id";
+            BildirimFromNo.DisplayMember = "AbfNo";
+            BildirimFromNo.SelectedValue = "";
         }
 
         void FormNoFill()
@@ -271,9 +283,18 @@ namespace UserInterface.STS
             BildirimFromNo.SelectedValue = -1;
             start = true;
         }
-
+        List<SatinAlinacakMalzemeler> satinAlinacakMalzemelers = new List<SatinAlinacakMalzemeler>();
         private void BildirimFromNo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (start == false)
+            {
+                return;
+            }
+            satinAlinacakMalzemelers = satinAlinacakMalManager.GetListOts(BildirimFromNo.Text);
+
+
+
+            #region GuncelKod
             if (start == false)
             {
                 return;
@@ -292,6 +313,7 @@ namespace UserInterface.STS
 
             abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id, "SAT BEKLİYOR");
             AbfMalzemeFill();
+            #endregion
         }
         void TarihDonem()
         {
@@ -493,6 +515,7 @@ namespace UserInterface.STS
             DtgMalzemeList.Columns["AbTarihSaat"].Visible = false;
             DtgMalzemeList.Columns["TemineAtilamTarihi"].Visible = false;
             DtgMalzemeList.Columns["MalzemeDurumu"].Visible = false;
+            DtgMalzemeList.Columns["MalzemeIslemAdimi"].Visible = false;
 
             TxtTop.Text = DtgMalzemeList.RowCount.ToString();
 

@@ -29,6 +29,7 @@ namespace UserInterface.Butce
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGenelButceIzleme));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -40,39 +41,42 @@ namespace UserInterface.Butce
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.TxtButceBM25 = new System.Windows.Forms.TextBox();
+            this.TxtHarcananBM25 = new System.Windows.Forms.TextBox();
+            this.TxtKalanBM25 = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.CmbButceDonem = new System.Windows.Forms.ComboBox();
-            this.label16 = new System.Windows.Forms.Label();
+            this.TxtKalanBM45 = new System.Windows.Forms.TextBox();
+            this.TxtHarcananBM45 = new System.Windows.Forms.TextBox();
+            this.TxtButceBM45 = new System.Windows.Forms.TextBox();
+            this.TxtKalanBM21 = new System.Windows.Forms.TextBox();
+            this.TxtHarcananBM21 = new System.Windows.Forms.TextBox();
+            this.TxtButceBM21 = new System.Windows.Forms.TextBox();
+            this.TxtKalanBM24 = new System.Windows.Forms.TextBox();
+            this.TxtHarcananBM24 = new System.Windows.Forms.TextBox();
+            this.TxtButceBM24 = new System.Windows.Forms.TextBox();
+            this.TxtKalanBM12 = new System.Windows.Forms.TextBox();
+            this.TxtHarcananBM12 = new System.Windows.Forms.TextBox();
+            this.TxtButceBM12 = new System.Windows.Forms.TextBox();
+            this.TxtKalanBM46 = new System.Windows.Forms.TextBox();
+            this.TxtHarcananBM46 = new System.Windows.Forms.TextBox();
+            this.TxtButceBM46 = new System.Windows.Forms.TextBox();
+            this.TxtKalanBM26 = new System.Windows.Forms.TextBox();
+            this.TxtHarcananBM26 = new System.Windows.Forms.TextBox();
+            this.TxtButceBM26 = new System.Windows.Forms.TextBox();
+            this.TxtKalanBM23 = new System.Windows.Forms.TextBox();
+            this.TxtHarcananBM23 = new System.Windows.Forms.TextBox();
+            this.TxtButceBM23 = new System.Windows.Forms.TextBox();
+            this.BtnHesapla = new System.Windows.Forms.Button();
+            this.label17 = new System.Windows.Forms.Label();
             this.CmbButceYil = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
+            this.CmbButceDonem = new System.Windows.Forms.ComboBox();
+            this.TxtButceGenelTop = new System.Windows.Forms.TextBox();
+            this.TxtHarcananGenelTop = new System.Windows.Forms.TextBox();
+            this.TxtKalanGenelTop = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.BtnGrafikOlsutur = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,7 +84,7 @@ namespace UserInterface.Butce
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(110, 154);
+            this.label1.Location = new System.Drawing.Point(99, 578);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(312, 28);
             this.label1.TabIndex = 0;
@@ -90,7 +94,7 @@ namespace UserInterface.Butce
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(284, 211);
+            this.label2.Location = new System.Drawing.Point(273, 294);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(138, 28);
             this.label2.TabIndex = 1;
@@ -100,7 +104,7 @@ namespace UserInterface.Butce
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(84, 268);
+            this.label3.Location = new System.Drawing.Point(73, 408);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(338, 28);
             this.label3.TabIndex = 3;
@@ -110,7 +114,7 @@ namespace UserInterface.Butce
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(56, 325);
+            this.label4.Location = new System.Drawing.Point(45, 351);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(366, 28);
             this.label4.TabIndex = 2;
@@ -120,7 +124,7 @@ namespace UserInterface.Butce
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(81, 382);
+            this.label5.Location = new System.Drawing.Point(70, 181);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(341, 28);
             this.label5.TabIndex = 7;
@@ -130,7 +134,7 @@ namespace UserInterface.Butce
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(68, 439);
+            this.label6.Location = new System.Drawing.Point(57, 464);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(354, 28);
             this.label6.TabIndex = 6;
@@ -140,7 +144,7 @@ namespace UserInterface.Butce
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(15, 496);
+            this.label7.Location = new System.Drawing.Point(4, 237);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(407, 28);
             this.label7.TabIndex = 5;
@@ -150,7 +154,7 @@ namespace UserInterface.Butce
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(82, 553);
+            this.label8.Location = new System.Drawing.Point(71, 521);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(340, 28);
             this.label8.TabIndex = 4;
@@ -160,7 +164,7 @@ namespace UserInterface.Butce
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(465, 116);
+            this.label9.Location = new System.Drawing.Point(475, 129);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(180, 28);
             this.label9.TabIndex = 8;
@@ -170,7 +174,7 @@ namespace UserInterface.Butce
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(720, 116);
+            this.label10.Location = new System.Drawing.Point(730, 129);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(217, 28);
             this.label10.TabIndex = 9;
@@ -180,44 +184,47 @@ namespace UserInterface.Butce
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label11.Location = new System.Drawing.Point(1020, 116);
+            this.label11.Location = new System.Drawing.Point(1030, 129);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(163, 28);
             this.label11.TabIndex = 10;
             this.label11.Text = "BÜTÇE KALAN";
             // 
-            // textBox1
+            // TxtButceBM25
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox1.Location = new System.Drawing.Point(428, 147);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(255, 45);
-            this.textBox1.TabIndex = 11;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtButceBM25.Enabled = false;
+            this.TxtButceBM25.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceBM25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceBM25.Location = new System.Drawing.Point(438, 173);
+            this.TxtButceBM25.Multiline = true;
+            this.TxtButceBM25.Name = "TxtButceBM25";
+            this.TxtButceBM25.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceBM25.TabIndex = 11;
+            this.TxtButceBM25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox2
+            // TxtHarcananBM25
             // 
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox2.Location = new System.Drawing.Point(701, 147);
-            this.textBox2.Multiline = true;
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(255, 45);
-            this.textBox2.TabIndex = 12;
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtHarcananBM25.Enabled = false;
+            this.TxtHarcananBM25.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananBM25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananBM25.Location = new System.Drawing.Point(711, 173);
+            this.TxtHarcananBM25.Multiline = true;
+            this.TxtHarcananBM25.Name = "TxtHarcananBM25";
+            this.TxtHarcananBM25.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananBM25.TabIndex = 12;
+            this.TxtHarcananBM25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox3
+            // TxtKalanBM25
             // 
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox3.Location = new System.Drawing.Point(974, 147);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(255, 45);
-            this.textBox3.TabIndex = 13;
-            this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtKalanBM25.Enabled = false;
+            this.TxtKalanBM25.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanBM25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanBM25.Location = new System.Drawing.Point(984, 173);
+            this.TxtKalanBM25.Multiline = true;
+            this.TxtKalanBM25.Name = "TxtKalanBM25";
+            this.TxtKalanBM25.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanBM25.TabIndex = 13;
+            this.TxtKalanBM25.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // panel1
             // 
@@ -226,7 +233,7 @@ namespace UserInterface.Butce
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1319, 31);
+            this.panel1.Size = new System.Drawing.Size(1332, 31);
             this.panel1.TabIndex = 456;
             // 
             // BtnCancel
@@ -243,74 +250,287 @@ namespace UserInterface.Butce
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
-            // label12
+            // TxtKalanBM45
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(536, 627);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(38, 28);
-            this.label12.TabIndex = 478;
-            this.label12.Text = "00";
+            this.TxtKalanBM45.Enabled = false;
+            this.TxtKalanBM45.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanBM45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanBM45.Location = new System.Drawing.Point(984, 229);
+            this.TxtKalanBM45.Multiline = true;
+            this.TxtKalanBM45.Name = "TxtKalanBM45";
+            this.TxtKalanBM45.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanBM45.TabIndex = 487;
+            this.TxtKalanBM45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label13
+            // TxtHarcananBM45
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(809, 627);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(38, 28);
-            this.label13.TabIndex = 479;
-            this.label13.Text = "00";
+            this.TxtHarcananBM45.Enabled = false;
+            this.TxtHarcananBM45.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananBM45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananBM45.Location = new System.Drawing.Point(711, 229);
+            this.TxtHarcananBM45.Multiline = true;
+            this.TxtHarcananBM45.Name = "TxtHarcananBM45";
+            this.TxtHarcananBM45.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananBM45.TabIndex = 486;
+            this.TxtHarcananBM45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label14
+            // TxtButceBM45
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(1082, 627);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(38, 28);
-            this.label14.TabIndex = 480;
-            this.label14.Text = "00";
+            this.TxtButceBM45.Enabled = false;
+            this.TxtButceBM45.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceBM45.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceBM45.Location = new System.Drawing.Point(438, 229);
+            this.TxtButceBM45.Multiline = true;
+            this.TxtButceBM45.Name = "TxtButceBM45";
+            this.TxtButceBM45.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceBM45.TabIndex = 485;
+            this.TxtButceBM45.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label15
+            // TxtKalanBM21
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(623, 52);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(85, 15);
-            this.label15.TabIndex = 484;
-            this.label15.Text = "Bütçe Dönem:";
+            this.TxtKalanBM21.Enabled = false;
+            this.TxtKalanBM21.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanBM21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanBM21.Location = new System.Drawing.Point(984, 286);
+            this.TxtKalanBM21.Multiline = true;
+            this.TxtKalanBM21.Name = "TxtKalanBM21";
+            this.TxtKalanBM21.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanBM21.TabIndex = 490;
+            this.TxtKalanBM21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // CmbButceDonem
+            // TxtHarcananBM21
             // 
-            this.CmbButceDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbButceDonem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CmbButceDonem.FormattingEnabled = true;
-            this.CmbButceDonem.Items.AddRange(new object[] {
-            "1. YARI",
-            "2. YARI",
-            "TÜM YIL"});
-            this.CmbButceDonem.Location = new System.Drawing.Point(714, 49);
-            this.CmbButceDonem.Name = "CmbButceDonem";
-            this.CmbButceDonem.Size = new System.Drawing.Size(122, 23);
-            this.CmbButceDonem.TabIndex = 483;
+            this.TxtHarcananBM21.Enabled = false;
+            this.TxtHarcananBM21.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananBM21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananBM21.Location = new System.Drawing.Point(711, 286);
+            this.TxtHarcananBM21.Multiline = true;
+            this.TxtHarcananBM21.Name = "TxtHarcananBM21";
+            this.TxtHarcananBM21.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananBM21.TabIndex = 489;
+            this.TxtHarcananBM21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label16
+            // TxtButceBM21
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(407, 52);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(57, 15);
-            this.label16.TabIndex = 482;
-            this.label16.Text = "Bütçe Yıl:";
+            this.TxtButceBM21.Enabled = false;
+            this.TxtButceBM21.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceBM21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceBM21.Location = new System.Drawing.Point(438, 286);
+            this.TxtButceBM21.Multiline = true;
+            this.TxtButceBM21.Name = "TxtButceBM21";
+            this.TxtButceBM21.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceBM21.TabIndex = 488;
+            this.TxtButceBM21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtKalanBM24
+            // 
+            this.TxtKalanBM24.Enabled = false;
+            this.TxtKalanBM24.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanBM24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanBM24.Location = new System.Drawing.Point(984, 343);
+            this.TxtKalanBM24.Multiline = true;
+            this.TxtKalanBM24.Name = "TxtKalanBM24";
+            this.TxtKalanBM24.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanBM24.TabIndex = 493;
+            this.TxtKalanBM24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtHarcananBM24
+            // 
+            this.TxtHarcananBM24.Enabled = false;
+            this.TxtHarcananBM24.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananBM24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananBM24.Location = new System.Drawing.Point(711, 343);
+            this.TxtHarcananBM24.Multiline = true;
+            this.TxtHarcananBM24.Name = "TxtHarcananBM24";
+            this.TxtHarcananBM24.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananBM24.TabIndex = 492;
+            this.TxtHarcananBM24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtButceBM24
+            // 
+            this.TxtButceBM24.Enabled = false;
+            this.TxtButceBM24.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceBM24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceBM24.Location = new System.Drawing.Point(438, 343);
+            this.TxtButceBM24.Multiline = true;
+            this.TxtButceBM24.Name = "TxtButceBM24";
+            this.TxtButceBM24.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceBM24.TabIndex = 491;
+            this.TxtButceBM24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtKalanBM12
+            // 
+            this.TxtKalanBM12.Enabled = false;
+            this.TxtKalanBM12.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanBM12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanBM12.Location = new System.Drawing.Point(984, 570);
+            this.TxtKalanBM12.Multiline = true;
+            this.TxtKalanBM12.Name = "TxtKalanBM12";
+            this.TxtKalanBM12.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanBM12.TabIndex = 505;
+            this.TxtKalanBM12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtHarcananBM12
+            // 
+            this.TxtHarcananBM12.Enabled = false;
+            this.TxtHarcananBM12.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananBM12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananBM12.Location = new System.Drawing.Point(711, 570);
+            this.TxtHarcananBM12.Multiline = true;
+            this.TxtHarcananBM12.Name = "TxtHarcananBM12";
+            this.TxtHarcananBM12.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananBM12.TabIndex = 504;
+            this.TxtHarcananBM12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtButceBM12
+            // 
+            this.TxtButceBM12.Enabled = false;
+            this.TxtButceBM12.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceBM12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceBM12.Location = new System.Drawing.Point(438, 570);
+            this.TxtButceBM12.Multiline = true;
+            this.TxtButceBM12.Name = "TxtButceBM12";
+            this.TxtButceBM12.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceBM12.TabIndex = 503;
+            this.TxtButceBM12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtKalanBM46
+            // 
+            this.TxtKalanBM46.Enabled = false;
+            this.TxtKalanBM46.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanBM46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanBM46.Location = new System.Drawing.Point(984, 513);
+            this.TxtKalanBM46.Multiline = true;
+            this.TxtKalanBM46.Name = "TxtKalanBM46";
+            this.TxtKalanBM46.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanBM46.TabIndex = 502;
+            this.TxtKalanBM46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtHarcananBM46
+            // 
+            this.TxtHarcananBM46.Enabled = false;
+            this.TxtHarcananBM46.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananBM46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananBM46.Location = new System.Drawing.Point(711, 513);
+            this.TxtHarcananBM46.Multiline = true;
+            this.TxtHarcananBM46.Name = "TxtHarcananBM46";
+            this.TxtHarcananBM46.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananBM46.TabIndex = 501;
+            this.TxtHarcananBM46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtButceBM46
+            // 
+            this.TxtButceBM46.Enabled = false;
+            this.TxtButceBM46.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceBM46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceBM46.Location = new System.Drawing.Point(438, 513);
+            this.TxtButceBM46.Multiline = true;
+            this.TxtButceBM46.Name = "TxtButceBM46";
+            this.TxtButceBM46.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceBM46.TabIndex = 500;
+            this.TxtButceBM46.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtKalanBM26
+            // 
+            this.TxtKalanBM26.Enabled = false;
+            this.TxtKalanBM26.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanBM26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanBM26.Location = new System.Drawing.Point(984, 456);
+            this.TxtKalanBM26.Multiline = true;
+            this.TxtKalanBM26.Name = "TxtKalanBM26";
+            this.TxtKalanBM26.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanBM26.TabIndex = 499;
+            this.TxtKalanBM26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtHarcananBM26
+            // 
+            this.TxtHarcananBM26.Enabled = false;
+            this.TxtHarcananBM26.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananBM26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananBM26.Location = new System.Drawing.Point(711, 456);
+            this.TxtHarcananBM26.Multiline = true;
+            this.TxtHarcananBM26.Name = "TxtHarcananBM26";
+            this.TxtHarcananBM26.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananBM26.TabIndex = 498;
+            this.TxtHarcananBM26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtButceBM26
+            // 
+            this.TxtButceBM26.Enabled = false;
+            this.TxtButceBM26.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceBM26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceBM26.Location = new System.Drawing.Point(438, 456);
+            this.TxtButceBM26.Multiline = true;
+            this.TxtButceBM26.Name = "TxtButceBM26";
+            this.TxtButceBM26.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceBM26.TabIndex = 497;
+            this.TxtButceBM26.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtKalanBM23
+            // 
+            this.TxtKalanBM23.Enabled = false;
+            this.TxtKalanBM23.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanBM23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanBM23.Location = new System.Drawing.Point(984, 400);
+            this.TxtKalanBM23.Multiline = true;
+            this.TxtKalanBM23.Name = "TxtKalanBM23";
+            this.TxtKalanBM23.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanBM23.TabIndex = 496;
+            this.TxtKalanBM23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtHarcananBM23
+            // 
+            this.TxtHarcananBM23.Enabled = false;
+            this.TxtHarcananBM23.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananBM23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananBM23.Location = new System.Drawing.Point(711, 400);
+            this.TxtHarcananBM23.Multiline = true;
+            this.TxtHarcananBM23.Name = "TxtHarcananBM23";
+            this.TxtHarcananBM23.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananBM23.TabIndex = 495;
+            this.TxtHarcananBM23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // TxtButceBM23
+            // 
+            this.TxtButceBM23.Enabled = false;
+            this.TxtButceBM23.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceBM23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceBM23.Location = new System.Drawing.Point(438, 400);
+            this.TxtButceBM23.Multiline = true;
+            this.TxtButceBM23.Name = "TxtButceBM23";
+            this.TxtButceBM23.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceBM23.TabIndex = 494;
+            this.TxtButceBM23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // BtnHesapla
+            // 
+            this.BtnHesapla.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnHesapla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnHesapla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnHesapla.Image = ((System.Drawing.Image)(resources.GetObject("BtnHesapla.Image")));
+            this.BtnHesapla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnHesapla.Location = new System.Drawing.Point(942, 49);
+            this.BtnHesapla.Name = "BtnHesapla";
+            this.BtnHesapla.Size = new System.Drawing.Size(114, 49);
+            this.BtnHesapla.TabIndex = 510;
+            this.BtnHesapla.Text = "  HESAPLA";
+            this.BtnHesapla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnHesapla.UseVisualStyleBackColor = false;
+            this.BtnHesapla.Click += new System.EventHandler(this.BtnHesapla_Click);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(472, 64);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(67, 15);
+            this.label17.TabIndex = 509;
+            this.label17.Text = "Bütçe Yıl:";
             // 
             // CmbButceYil
             // 
             this.CmbButceYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbButceYil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbButceYil.FormattingEnabled = true;
             this.CmbButceYil.Items.AddRange(new object[] {
             "2018",
@@ -326,279 +546,134 @@ namespace UserInterface.Butce
             "2028",
             "2029",
             "2030"});
-            this.CmbButceYil.Location = new System.Drawing.Point(470, 48);
+            this.CmbButceYil.Location = new System.Drawing.Point(545, 61);
             this.CmbButceYil.Name = "CmbButceYil";
-            this.CmbButceYil.Size = new System.Drawing.Size(122, 23);
-            this.CmbButceYil.TabIndex = 481;
+            this.CmbButceYil.Size = new System.Drawing.Size(122, 21);
+            this.CmbButceYil.TabIndex = 508;
             // 
-            // textBox4
+            // label18
             // 
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox4.Location = new System.Drawing.Point(974, 203);
-            this.textBox4.Multiline = true;
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(255, 45);
-            this.textBox4.TabIndex = 487;
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label18.Location = new System.Drawing.Point(693, 64);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(97, 15);
+            this.label18.TabIndex = 507;
+            this.label18.Text = "Bütçe Dönem:";
             // 
-            // textBox5
+            // CmbButceDonem
             // 
-            this.textBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox5.Location = new System.Drawing.Point(701, 203);
-            this.textBox5.Multiline = true;
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(255, 45);
-            this.textBox5.TabIndex = 486;
-            this.textBox5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.CmbButceDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbButceDonem.FormattingEnabled = true;
+            this.CmbButceDonem.Items.AddRange(new object[] {
+            "1. YARI",
+            "2. YARI",
+            "TÜM YIL"});
+            this.CmbButceDonem.Location = new System.Drawing.Point(796, 61);
+            this.CmbButceDonem.Name = "CmbButceDonem";
+            this.CmbButceDonem.Size = new System.Drawing.Size(129, 21);
+            this.CmbButceDonem.TabIndex = 506;
             // 
-            // textBox6
+            // TxtButceGenelTop
             // 
-            this.textBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox6.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox6.Location = new System.Drawing.Point(428, 203);
-            this.textBox6.Multiline = true;
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(255, 45);
-            this.textBox6.TabIndex = 485;
-            this.textBox6.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtButceGenelTop.Enabled = false;
+            this.TxtButceGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtButceGenelTop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtButceGenelTop.Location = new System.Drawing.Point(438, 660);
+            this.TxtButceGenelTop.Multiline = true;
+            this.TxtButceGenelTop.Name = "TxtButceGenelTop";
+            this.TxtButceGenelTop.Size = new System.Drawing.Size(255, 45);
+            this.TxtButceGenelTop.TabIndex = 511;
+            this.TxtButceGenelTop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox7
+            // TxtHarcananGenelTop
             // 
-            this.textBox7.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox7.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox7.Location = new System.Drawing.Point(974, 260);
-            this.textBox7.Multiline = true;
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(255, 45);
-            this.textBox7.TabIndex = 490;
-            this.textBox7.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtHarcananGenelTop.Enabled = false;
+            this.TxtHarcananGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtHarcananGenelTop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtHarcananGenelTop.Location = new System.Drawing.Point(711, 660);
+            this.TxtHarcananGenelTop.Multiline = true;
+            this.TxtHarcananGenelTop.Name = "TxtHarcananGenelTop";
+            this.TxtHarcananGenelTop.Size = new System.Drawing.Size(255, 45);
+            this.TxtHarcananGenelTop.TabIndex = 512;
+            this.TxtHarcananGenelTop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox8
+            // TxtKalanGenelTop
             // 
-            this.textBox8.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox8.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox8.Location = new System.Drawing.Point(701, 260);
-            this.textBox8.Multiline = true;
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(255, 45);
-            this.textBox8.TabIndex = 489;
-            this.textBox8.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.TxtKalanGenelTop.Enabled = false;
+            this.TxtKalanGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 17.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKalanGenelTop.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.TxtKalanGenelTop.Location = new System.Drawing.Point(984, 660);
+            this.TxtKalanGenelTop.Multiline = true;
+            this.TxtKalanGenelTop.Name = "TxtKalanGenelTop";
+            this.TxtKalanGenelTop.Size = new System.Drawing.Size(255, 45);
+            this.TxtKalanGenelTop.TabIndex = 513;
+            this.TxtKalanGenelTop.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textBox9
+            // label12
             // 
-            this.textBox9.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox9.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox9.Location = new System.Drawing.Point(428, 260);
-            this.textBox9.Multiline = true;
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(255, 45);
-            this.textBox9.TabIndex = 488;
-            this.textBox9.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft YaHei", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(225, 668);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(186, 28);
+            this.label12.TabIndex = 514;
+            this.label12.Text = "GENEL TOPLAM:";
             // 
-            // textBox10
+            // BtnGrafikOlsutur
             // 
-            this.textBox10.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox10.Location = new System.Drawing.Point(974, 317);
-            this.textBox10.Multiline = true;
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(255, 45);
-            this.textBox10.TabIndex = 493;
-            this.textBox10.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox11
-            // 
-            this.textBox11.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox11.Location = new System.Drawing.Point(701, 317);
-            this.textBox11.Multiline = true;
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(255, 45);
-            this.textBox11.TabIndex = 492;
-            this.textBox11.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox12
-            // 
-            this.textBox12.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox12.Location = new System.Drawing.Point(428, 317);
-            this.textBox12.Multiline = true;
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(255, 45);
-            this.textBox12.TabIndex = 491;
-            this.textBox12.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox13
-            // 
-            this.textBox13.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox13.Location = new System.Drawing.Point(974, 544);
-            this.textBox13.Multiline = true;
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(255, 45);
-            this.textBox13.TabIndex = 505;
-            this.textBox13.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox14
-            // 
-            this.textBox14.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox14.Location = new System.Drawing.Point(701, 544);
-            this.textBox14.Multiline = true;
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(255, 45);
-            this.textBox14.TabIndex = 504;
-            this.textBox14.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox15.Location = new System.Drawing.Point(428, 544);
-            this.textBox15.Multiline = true;
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(255, 45);
-            this.textBox15.TabIndex = 503;
-            this.textBox15.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox16.Location = new System.Drawing.Point(974, 487);
-            this.textBox16.Multiline = true;
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(255, 45);
-            this.textBox16.TabIndex = 502;
-            this.textBox16.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox17
-            // 
-            this.textBox17.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox17.Location = new System.Drawing.Point(701, 487);
-            this.textBox17.Multiline = true;
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(255, 45);
-            this.textBox17.TabIndex = 501;
-            this.textBox17.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox18
-            // 
-            this.textBox18.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox18.Location = new System.Drawing.Point(428, 487);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(255, 45);
-            this.textBox18.TabIndex = 500;
-            this.textBox18.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox19
-            // 
-            this.textBox19.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox19.Location = new System.Drawing.Point(974, 430);
-            this.textBox19.Multiline = true;
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(255, 45);
-            this.textBox19.TabIndex = 499;
-            this.textBox19.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox20
-            // 
-            this.textBox20.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox20.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox20.Location = new System.Drawing.Point(701, 430);
-            this.textBox20.Multiline = true;
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(255, 45);
-            this.textBox20.TabIndex = 498;
-            this.textBox20.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox21
-            // 
-            this.textBox21.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox21.Location = new System.Drawing.Point(428, 430);
-            this.textBox21.Multiline = true;
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(255, 45);
-            this.textBox21.TabIndex = 497;
-            this.textBox21.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox22
-            // 
-            this.textBox22.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox22.Location = new System.Drawing.Point(974, 374);
-            this.textBox22.Multiline = true;
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(255, 45);
-            this.textBox22.TabIndex = 496;
-            this.textBox22.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold);
-            this.textBox23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox23.Location = new System.Drawing.Point(701, 374);
-            this.textBox23.Multiline = true;
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(255, 45);
-            this.textBox23.TabIndex = 495;
-            this.textBox23.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textBox24
-            // 
-            this.textBox24.Font = new System.Drawing.Font("Microsoft Sans Serif", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.textBox24.Location = new System.Drawing.Point(428, 374);
-            this.textBox24.Multiline = true;
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(255, 45);
-            this.textBox24.TabIndex = 494;
-            this.textBox24.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.BtnGrafikOlsutur.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGrafikOlsutur.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGrafikOlsutur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGrafikOlsutur.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGrafikOlsutur.Location = new System.Drawing.Point(660, 737);
+            this.BtnGrafikOlsutur.Name = "BtnGrafikOlsutur";
+            this.BtnGrafikOlsutur.Size = new System.Drawing.Size(368, 49);
+            this.BtnGrafikOlsutur.TabIndex = 515;
+            this.BtnGrafikOlsutur.Text = "GRAFİK OLUŞTUR";
+            this.BtnGrafikOlsutur.UseVisualStyleBackColor = false;
+            this.BtnGrafikOlsutur.Click += new System.EventHandler(this.BtnGrafikOlsutur_Click);
             // 
             // FrmGenelButceIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1319, 681);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox19);
-            this.Controls.Add(this.textBox20);
-            this.Controls.Add(this.textBox21);
-            this.Controls.Add(this.textBox22);
-            this.Controls.Add(this.textBox23);
-            this.Controls.Add(this.textBox24);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.CmbButceDonem);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.CmbButceYil);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label13);
+            this.ClientSize = new System.Drawing.Size(1332, 816);
+            this.Controls.Add(this.BtnGrafikOlsutur);
             this.Controls.Add(this.label12);
+            this.Controls.Add(this.TxtKalanGenelTop);
+            this.Controls.Add(this.TxtHarcananGenelTop);
+            this.Controls.Add(this.TxtButceGenelTop);
+            this.Controls.Add(this.BtnHesapla);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.CmbButceYil);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.CmbButceDonem);
+            this.Controls.Add(this.TxtKalanBM12);
+            this.Controls.Add(this.TxtHarcananBM12);
+            this.Controls.Add(this.TxtButceBM12);
+            this.Controls.Add(this.TxtKalanBM46);
+            this.Controls.Add(this.TxtHarcananBM46);
+            this.Controls.Add(this.TxtButceBM46);
+            this.Controls.Add(this.TxtKalanBM26);
+            this.Controls.Add(this.TxtHarcananBM26);
+            this.Controls.Add(this.TxtButceBM26);
+            this.Controls.Add(this.TxtKalanBM23);
+            this.Controls.Add(this.TxtHarcananBM23);
+            this.Controls.Add(this.TxtButceBM23);
+            this.Controls.Add(this.TxtKalanBM24);
+            this.Controls.Add(this.TxtHarcananBM24);
+            this.Controls.Add(this.TxtButceBM24);
+            this.Controls.Add(this.TxtKalanBM21);
+            this.Controls.Add(this.TxtHarcananBM21);
+            this.Controls.Add(this.TxtButceBM21);
+            this.Controls.Add(this.TxtKalanBM45);
+            this.Controls.Add(this.TxtHarcananBM45);
+            this.Controls.Add(this.TxtButceBM45);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtKalanBM25);
+            this.Controls.Add(this.TxtHarcananBM25);
+            this.Controls.Add(this.TxtButceBM25);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label9);
@@ -632,38 +707,41 @@ namespace UserInterface.Butce
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox TxtButceBM25;
+        private System.Windows.Forms.TextBox TxtHarcananBM25;
+        private System.Windows.Forms.TextBox TxtKalanBM25;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.ComboBox CmbButceDonem;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox TxtKalanBM45;
+        private System.Windows.Forms.TextBox TxtHarcananBM45;
+        private System.Windows.Forms.TextBox TxtButceBM45;
+        private System.Windows.Forms.TextBox TxtKalanBM21;
+        private System.Windows.Forms.TextBox TxtHarcananBM21;
+        private System.Windows.Forms.TextBox TxtButceBM21;
+        private System.Windows.Forms.TextBox TxtKalanBM24;
+        private System.Windows.Forms.TextBox TxtHarcananBM24;
+        private System.Windows.Forms.TextBox TxtButceBM24;
+        private System.Windows.Forms.TextBox TxtKalanBM12;
+        private System.Windows.Forms.TextBox TxtHarcananBM12;
+        private System.Windows.Forms.TextBox TxtButceBM12;
+        private System.Windows.Forms.TextBox TxtKalanBM46;
+        private System.Windows.Forms.TextBox TxtHarcananBM46;
+        private System.Windows.Forms.TextBox TxtButceBM46;
+        private System.Windows.Forms.TextBox TxtKalanBM26;
+        private System.Windows.Forms.TextBox TxtHarcananBM26;
+        private System.Windows.Forms.TextBox TxtButceBM26;
+        private System.Windows.Forms.TextBox TxtKalanBM23;
+        private System.Windows.Forms.TextBox TxtHarcananBM23;
+        private System.Windows.Forms.TextBox TxtButceBM23;
+        private System.Windows.Forms.Button BtnHesapla;
+        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.ComboBox CmbButceYil;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox24;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.ComboBox CmbButceDonem;
+        private System.Windows.Forms.TextBox TxtButceGenelTop;
+        private System.Windows.Forms.TextBox TxtHarcananGenelTop;
+        private System.Windows.Forms.TextBox TxtKalanGenelTop;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button BtnGrafikOlsutur;
     }
 }
