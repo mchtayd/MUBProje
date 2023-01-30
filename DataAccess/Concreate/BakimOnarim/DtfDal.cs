@@ -263,7 +263,14 @@ namespace DataAccess.Concreate.BakimOnarim
                 Dtf item = null;
                 while (dataReader.Read())
                 {
-                    item = new Dtf(dataReader["Kimlik"].ConInt(), dataReader["BOLGE_ADI"].ToString(), dataReader["GARANTI"].ToString(), dataReader["PROJE"].ToString(), dataReader["KATEGORI"].ToString(), dataReader["TANIM"].ToString(), dataReader["SERI_NO"].ToString(),
+                    item = new Dtf(
+                        dataReader["Kimlik"].ConInt(), 
+                        dataReader["BOLGE_ADI"].ToString(), 
+                        dataReader["GARANTI"].ToString(), 
+                        dataReader["PROJE"].ToString(), 
+                        dataReader["KATEGORI"].ToString(), 
+                        dataReader["TANIM"].ToString(), 
+                        dataReader["SERI_NO"].ToString(),
                         dataReader["ARIZA_BULUNAN"].ToString());
                 }
                 dataReader.Close();

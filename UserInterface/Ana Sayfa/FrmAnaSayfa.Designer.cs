@@ -387,6 +387,7 @@ namespace UserInterface.STS
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.konaklamaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.uçakOtobüsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.izinOnayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.devamDevamsızlıkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.organizasyonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.duyuruToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -426,7 +427,6 @@ namespace UserInterface.STS
             this.ImagesLogin = new System.Windows.Forms.ImageList(this.components);
             this.timerOnline = new System.Windows.Forms.Timer(this.components);
             this.TimerFileRead = new System.Windows.Forms.Timer(this.components);
-            this.izinOnayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1446,6 +1446,13 @@ namespace UserInterface.STS
             this.uçakOtobüsToolStripMenuItem.Text = "Uçak/Otobüs";
             this.uçakOtobüsToolStripMenuItem.Click += new System.EventHandler(this.uçakOtobüsToolStripMenuItem_Click);
             // 
+            // izinOnayToolStripMenuItem
+            // 
+            this.izinOnayToolStripMenuItem.Name = "izinOnayToolStripMenuItem";
+            this.izinOnayToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
+            this.izinOnayToolStripMenuItem.Text = "İzin Onay";
+            this.izinOnayToolStripMenuItem.Click += new System.EventHandler(this.izinOnayToolStripMenuItem_Click);
+            // 
             // devamDevamsızlıkToolStripMenuItem
             // 
             this.devamDevamsızlıkToolStripMenuItem.Name = "devamDevamsızlıkToolStripMenuItem";
@@ -1770,15 +1777,8 @@ namespace UserInterface.STS
             // 
             // TimerFileRead
             // 
-            this.TimerFileRead.Interval = 3000;
+            this.TimerFileRead.Interval = 30000;
             this.TimerFileRead.Tick += new System.EventHandler(this.TimerFileRead_Tick);
-            // 
-            // izinOnayToolStripMenuItem
-            // 
-            this.izinOnayToolStripMenuItem.Name = "izinOnayToolStripMenuItem";
-            this.izinOnayToolStripMenuItem.Size = new System.Drawing.Size(182, 26);
-            this.izinOnayToolStripMenuItem.Text = "İzin Onay";
-            this.izinOnayToolStripMenuItem.Click += new System.EventHandler(this.izinOnayToolStripMenuItem_Click);
             // 
             // FrmAnaSayfa
             // 

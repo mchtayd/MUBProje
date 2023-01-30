@@ -91,6 +91,7 @@
     <Compile Include="BakimOnarim\IscilikDestekTabloArac.cs" />
     <Compile Include="BakimOnarim\IscilikIscilik.cs" />
     <Compile Include="BakimOnarim\IslemAdimlari.cs" />
+    <Compile Include="BakimOnarim\Okf.cs" />
     <Compile Include="BakimOnarim\Pyp.cs" />
     <Compile Include="BakimOnarim\ServisFormu.cs" />
     <Compile Include="BakimOnarim\SFYedekPaca.cs" />

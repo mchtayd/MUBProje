@@ -8,19 +8,13 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace UserInterface.STS
+namespace UserInterface.Ana_Sayfa
 {
-    public partial class FrmSatDuzelt : Form
+    public partial class FrmIsTakip : Form
     {
-        public FrmSatDuzelt()
+        public FrmIsTakip()
         {
             InitializeComponent();
         }
-
-        private void FrmSatDuzelt_Load(object sender, EventArgs e)
-        {
-
-        }
-
     }
 }

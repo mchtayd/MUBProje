@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>487</ApplicationRevision>
+    <ApplicationRevision>495</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -216,6 +216,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmHesapOlustur.Designer.cs">
       <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIsTakip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIsTakip.Designer.cs">
+      <DependentUpon>FrmIsTakip.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmIzlemeAmbar.cs">
       <SubType>Form</SubType>
@@ -498,6 +504,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfIzleme.Designer.cs">
+      <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmOkfOlustrma.cs">
       <SubType>Form</SubType>
@@ -1368,6 +1380,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmHesapOlustur.resx">
       <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIsTakip.resx">
+      <DependentUpon>FrmIsTakip.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmIzlemeAmbar.resx">
       <DependentUpon>FrmIzlemeAmbar.cs</DependentUpon>
     </EmbeddedResource>
@@ -1508,6 +1523,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmOkfIzleme.resx">
+      <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmOkfOlustrma.resx">
       <DependentUpon>FrmOkfOlustrma.cs</DependentUpon>

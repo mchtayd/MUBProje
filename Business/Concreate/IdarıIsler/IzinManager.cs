@@ -50,11 +50,11 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public Izin Get(int isakisno)
+        public Izin Get(int isakisno, string personelAd="")
         {
             try
             {
-                return İzinDal.Get(isakisno);
+                return İzinDal.Get(isakisno, personelAd);
             }
             catch (Exception)
             {

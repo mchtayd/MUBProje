@@ -23,6 +23,7 @@ namespace UserInterface.Ana_Sayfa
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         PersonelKayitManager kayitManager;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
+        List<GorevAtamaPersonel> IsAkisgorevAtamaPersonels;
         GorevAtamaManager gorevAtamaManager;
         IsAkisNoManager isAkisNoManager;
 
@@ -69,8 +70,9 @@ namespace UserInterface.Ana_Sayfa
 
         private void FrmGorevlerim_Load(object sender, EventArgs e)
         {
-            DataDisplay();
+            DataDisplayAriza();
             DataDisplayYoneticiGorevlerim();
+            DataDisplayIsAkis();
 
             pageText1 = "AÇIK ARIZA GÖREVLERİM " + "( " + TxtTop.Text + " )";
             pageText2 = "YÖNETİCİ GÖREVLERİM" + "(" + TxtGenelTop.Text + " )";
@@ -239,9 +241,9 @@ namespace UserInterface.Ana_Sayfa
             
         }
 
-        void DataDisplay()
+        void DataDisplayAriza()
         {
-            gorevAtamaPersonels = gorevAtamaPersonelManager.AtolyeGorevlerimiGor(infos[1].ToString());
+            gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "BAKIM ONARIM");
             DtgGorevlerim.DataSource = gorevAtamaPersonels;
 
             DtgGorevlerim.Columns["Id"].Visible = false;
@@ -250,11 +252,33 @@ namespace UserInterface.Ana_Sayfa
             DtgGorevlerim.Columns["GorevAtanacakPersonel"].HeaderText = "GÖREV ATANAN PERSONEL";
             DtgGorevlerim.Columns["IslemAdimi"].HeaderText = "İŞLEM ADIMI";
             DtgGorevlerim.Columns["Tarih"].HeaderText = "TARİH";
-            DtgGorevlerim.Columns["Sure"].HeaderText = "İŞLEM ADIMI SÜRELERİ";
-            DtgGorevlerim.Columns["YapilanIslem"].HeaderText = "YAPILAN İŞLEM";
+            DtgGorevlerim.Columns["Sure"].HeaderText = "DURUM";
+            DtgGorevlerim.Columns["YapilanIslem"].Visible = false;
+            DtgGorevlerim.Columns["CalismaSuresi"].Visible = false;
             //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
             //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
             TxtTop.Text = DtgGorevlerim.RowCount.ToString();
+
+            /*Toplamlar();
+            ToplamlarIslemAdimSureleri();*/
+        }
+        void DataDisplayIsAkis()
+        {
+            IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "");
+            DtgIsAkisGorev.DataSource = IsAkisgorevAtamaPersonels;
+
+            DtgIsAkisGorev.Columns["Id"].Visible = false;
+            DtgIsAkisGorev.Columns["BenzersizId"].Visible = false;
+            DtgIsAkisGorev.Columns["Departman"].HeaderText = "DEPARTMAN";
+            DtgIsAkisGorev.Columns["GorevAtanacakPersonel"].HeaderText = "GÖREV ATANAN PERSONEL";
+            DtgIsAkisGorev.Columns["IslemAdimi"].HeaderText = "İŞLEM ADIMI";
+            DtgIsAkisGorev.Columns["Tarih"].HeaderText = "TARİH";
+            DtgIsAkisGorev.Columns["Sure"].HeaderText = "DURUM";
+            DtgIsAkisGorev.Columns["YapilanIslem"].Visible = false;
+            DtgIsAkisGorev.Columns["CalismaSuresi"].Visible = false;
+            //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
+            //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
+            TxtTop3.Text = DtgIsAkisGorev.RowCount.ToString();
 
             /*Toplamlar();
             ToplamlarIslemAdimSureleri();*/

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -255,11 +256,6 @@ namespace Entity.IdariIsler
             this.adsoyad = adsoyad;
         }
 
-        public PersonelKayit()
-        {
-
-        }
-
         public PersonelKayit(int id, string adsoyad, string siparis, string masyerino, string masrafYeriSorumlusu, string sirketmail, string gorevi, string sirketbolum, string projeKodu) : this(id, adsoyad)
         {
             this.siparis = siparis;
@@ -269,6 +265,18 @@ namespace Entity.IdariIsler
             this.gorevi = gorevi;
             this.sirketbolum = sirketbolum;
             this.projeKodu = projeKodu;
+        }
+
+        public PersonelKayit(string adsoyad, string sicil, string sirketmail, string sirketcep, string sirketkisakod, string isunvani, string sirketbolum, string fotoyolu)
+        {
+            this.adsoyad= adsoyad;
+            this.sicil= sicil;
+            this.sirketmail=sirketmail;
+            this.sirketcep = sirketcep;
+            this.sirketkisakod = sirketkisakod;
+            this.isunvani = isunvani;
+            this.sirketbolum = sirketbolum;
+            this.fotoyolu = fotoyolu;
         }
     }
 }

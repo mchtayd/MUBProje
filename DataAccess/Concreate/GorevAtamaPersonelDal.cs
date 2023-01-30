@@ -173,13 +173,14 @@ namespace DataAccess.Concreate
                 return new List<GorevAtamaPersonel>();
             }
         }
-        public List<GorevAtamaPersonel> AtolyeGorevlerimiGor(string adSoyad)
+        public List<GorevAtamaPersonel> IsAkisGorevlerim(string adSoyad, string departman)
         {
             try
             {
                 List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
                 dataReader = sqlServices.StoreReader("AtolyeGorevlerimiGor",
-                    new SqlParameter("@adSoyad", adSoyad));
+                    new SqlParameter("@adSoyad", adSoyad),
+                    new SqlParameter("@departman", departman));
                 while (dataReader.Read())
                 {
                     gorevAtamaPersonels.Add(new GorevAtamaPersonel(

@@ -190,7 +190,6 @@ namespace UserInterface.BakımOnarım
         }
         void CmbStokNoSokulen()
         {
-
             malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
             CmbSokulenStokNo.DataSource = malzemeKayits;
             CmbSokulenStokNo.ValueMember = "Id";

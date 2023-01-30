@@ -398,130 +398,6 @@ namespace UserInterface.BakımOnarım
             }
         }
 
-        private void BtnKaydet_Click(object sender, EventArgs e)
-        {
-            #region control
-            if (TxtStokNoUst.Text == "" || DtgMalzemeler.RowCount == 0)
-            {
-                MessageBox.Show("Lütfen Öncelikle Tüm Bilgileri Eksiksiz Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (CmbGorevAtanacakPersonel.Text == "")
-            {
-                MessageBox.Show("Lütfen Öncelikle Görev Atanacak Personel Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (CmbIslemAdimi.Text == "")
-            {
-                MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (CmbAtolyeKategoriOto.Text == "")
-            {
-                MessageBox.Show("Lütfen Öncelikle Atölye Kategori Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            //if (CmbIslemAdimi.Text != "400-BİLDİRİM ve B/O BAŞLAMA ONAYI (MÜHENDİS)")
-            //{
-            //    MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini 400-GÖZ DENETİMİ Olarak Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            #endregion
-            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                BtnKaydet.Enabled = false;
-                BtnTemizle.Enabled = false;
-                BtnCancel.Enabled = false;
-                BtnBul.Enabled = false;
-                CreateFile();
-
-                if (IcSiparisler.Count > 0)
-                {
-                    EditSiparisNos();
-                    for (int i = 0; i < IcSiparisler.Count; i++)
-                    {
-                        siparisNo = Guid.NewGuid().ToString();
-
-
-                        Atolye atolye2 = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, IcSiparisler[i].ToString(), DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
-                            DosyaYollari[i].ToString(), CmbAtolyeKategoriOto.Text);
-
-                        atolyeManager.Add(atolye2);
-
-                        SiparisNos.Add(siparisNo);
-
-                    }
-                }
-                else
-                {
-                    siparisNo = Guid.NewGuid().ToString();
-                    Atolye atolye = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, LblIcSiparisNo.Text, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
-                        dosya, CmbAtolyeKategoriOto.Text);
-
-                    SiparisNos.Add(siparisNo);
-                    atolyeManager.Add(atolye);
-                }
-
-                int sayac = 0;
-                foreach (DataGridViewRow item in DtgMalzemeler.Rows)
-                {
-                    if (item.Cells[10].Value.ConBool())
-                    {
-
-                        AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["FormNo"].Value.ConInt(), item.Cells["StokNo"].Value.ToString(),
-                            item.Cells["Tanim"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durum"].Value.ToString(),
-                            item.Cells["Revizyon"].Value.ToString(), item.Cells["Miktar"].Value.ConDouble(), item.Cells["TalepTarihi"].Value.ConDate(),
-                            SiparisNos[sayac].ToString());
-
-                        atolyeMalzemeManager.Add(atolyeMalzeme);
-                        sayac++;
-                    }
-                    
-
-                }
-
-                if (SiparisNos.Count > 0)
-                {
-                    for (int i = 0; i < SiparisNos.Count; i++)
-                    {
-                        Atolye atolye2 = atolyeManager.Get(SiparisNos[i].ToString());
-                        id = atolye2.Id;
-                        GorevAtama();
-                    }
-                }
-                else
-                {
-                    Atolye atolye1 = atolyeManager.Get(siparisNo);
-                    id = atolye1.Id;
-                    GorevAtama();
-                }
-
-                //IscilikGir();
-
-                string mesaj = Bildirim();
-                if (mesaj != "OK")
-                {
-                    if (mesaj != "Server Ayarı Kapalı")
-                    {
-                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
-
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                BtnKaydet.Enabled = true;
-                BtnTemizle.Enabled = true;
-                BtnCancel.Enabled = true;
-                BtnBul.Enabled = true;
-                Temizle();
-                DtgMalzemeler.DataSource = null;
-                IcSiparisler.Clear();
-                SiparisNos.Clear();
-                DosyaYollari.Clear();
-                IcSiparisNo();
-            }
-        }
         string Bildirim()
         {
             string[] array = new string[8];
@@ -955,6 +831,145 @@ namespace UserInterface.BakımOnarım
         {
             
             
+        }
+
+        private void BtnKaydet_Click(object sender, EventArgs e)
+        {
+            #region control
+            if (TxtStokNoUst.Text == "" || DtgMalzemeler.RowCount == 0)
+            {
+                MessageBox.Show("Lütfen Öncelikle Tüm Bilgileri Eksiksiz Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbGorevAtanacakPersonel.Text == "")
+            {
+                MessageBox.Show("Lütfen Öncelikle Görev Atanacak Personel Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbIslemAdimi.Text == "")
+            {
+                MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (CmbAtolyeKategoriOto.Text == "")
+            {
+                MessageBox.Show("Lütfen Öncelikle Atölye Kategori Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            //if (CmbIslemAdimi.Text != "400-BİLDİRİM ve B/O BAŞLAMA ONAYI (MÜHENDİS)")
+            //{
+            //    MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini 400-GÖZ DENETİMİ Olarak Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            #endregion
+            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                BtnKaydet.Enabled = false;
+                BtnTemizle.Enabled = false;
+                BtnCancel.Enabled = false;
+                BtnBul.Enabled = false;
+                //CreateFile();
+
+                if (IcSiparisler.Count > 0)
+                {
+                    EditSiparisNos();
+                    for (int i = 0; i < IcSiparisler.Count; i++)
+                    {
+                        siparisNo = Guid.NewGuid().ToString();
+
+
+                        Atolye atolye2 = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, IcSiparisler[i].ToString(), DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
+                            DosyaYollari[i].ToString(), CmbAtolyeKategoriOto.Text);
+
+                        atolyeManager.Add(atolye2);
+
+                        SiparisNos.Add(siparisNo);
+
+                    }
+                }
+                else
+                {
+                    siparisNo = Guid.NewGuid().ToString();
+                    Atolye atolye = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, LblIcSiparisNo.Text, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
+                        dosya, CmbAtolyeKategoriOto.Text);
+
+                    SiparisNos.Add(siparisNo);
+                    atolyeManager.Add(atolye);
+                }
+
+                int sayac = 0;
+                foreach (DataGridViewRow item in DtgMalzemeler.Rows)
+                {
+                    if (item.Cells[10].Value.ConBool())
+                    {
+
+                        AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["FormNo"].Value.ConInt(), item.Cells["StokNo"].Value.ToString(),
+                            item.Cells["Tanim"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durum"].Value.ToString(),
+                            item.Cells["Revizyon"].Value.ToString(), item.Cells["Miktar"].Value.ConDouble(), item.Cells["TalepTarihi"].Value.ConDate(),
+                            SiparisNos[sayac].ToString());
+
+                        atolyeMalzemeManager.Add(atolyeMalzeme);
+                        sayac++;
+                    }
+
+
+                }
+
+                if (SiparisNos.Count > 0)
+                {
+                    for (int i = 0; i < SiparisNos.Count; i++)
+                    {
+                        Atolye atolye2 = atolyeManager.Get(SiparisNos[i].ToString());
+                        id = atolye2.Id;
+                        GorevAtama();
+                    }
+                }
+                else
+                {
+                    Atolye atolye1 = atolyeManager.Get(siparisNo);
+                    id = atolye1.Id;
+                    GorevAtama();
+                }
+
+                //IscilikGir();
+
+                string mesaj = Bildirim();
+                if (mesaj != "OK")
+                {
+                    if (mesaj != "Server Ayarı Kapalı")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                BtnKaydet.Enabled = true;
+                BtnTemizle.Enabled = true;
+                BtnCancel.Enabled = true;
+                BtnBul.Enabled = true;
+                Temizle();
+                DtgMalzemeler.DataSource = null;
+                IcSiparisler.Clear();
+                SiparisNos.Clear();
+                DosyaYollari.Clear();
+                IcSiparisNo();
+            }
+        }
+
+        private void BtnTemizle_Click_1(object sender, EventArgs e)
+        {
+            BtnKaydet.Enabled = true;
+            BtnTemizle.Enabled = true;
+            BtnCancel.Enabled = true;
+            BtnBul.Enabled = true;
+            Temizle();
+            DtgMalzemeler.DataSource = null;
+            IcSiparisler.Clear();
+            SiparisNos.Clear();
+            DosyaYollari.Clear();
+            IcSiparisNo();
         }
 
         private void BtnKategoriEkle_Click(object sender, EventArgs e)

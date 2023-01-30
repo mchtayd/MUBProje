@@ -1,5 +1,7 @@
-﻿using Business.Concreate.AnaSayfa;
+﻿using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using DataAccess.Concreate;
+using Entity;
 using Entity.AnaSayfa;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,14 @@ namespace UserInterface.Ana_Sayfa
         public object[] infos;
         LogManager logManager;
         BildirimYetkiManager bildirimYetkiManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        GorevAtamaManager gorevAtamaManager;
+        DuyuruManager duyuruManager;
+        
+        List<GorevAtama> gorevAtamaListYonetici;
+        List<GorevAtamaPersonel> arizaGorevAtamaPersonels;
+        List<GorevAtamaPersonel> gorevAtamaPersonels;
+        List<Duyuru> duyurus;
 
         string dosyaYolu = @"Z:\DTS\info\ou\notification.txt";
         public FrmBildirimler()
@@ -28,15 +38,60 @@ namespace UserInterface.Ana_Sayfa
             InitializeComponent();
             logManager = LogManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
+            gorevAtamaManager = GorevAtamaManager.GetInstance();
+            duyuruManager = DuyuruManager.GetInstance();
         }
 
         private void FrmBildirimler_Load(object sender, EventArgs e)
         {
-            BildirimDosyasiCreate();
+            Gorevler();
+            DuyuruEditList();
+            //BildirimDosyasiCreate();
+
             // DosyaControl();
             //TimerFileRead.Start();
         }
+        void Gorevler()
+        {
+            arizaGorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "BAKIM ONARIM");
+            gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "");
+            gorevAtamaListYonetici = gorevAtamaManager.GetListGorevlerim(infos[1].ToString());
 
+            LblAcikArizaGorevleri.Text = arizaGorevAtamaPersonels.Count.ToString();
+            LbYoneticiGorevleri.Text = gorevAtamaListYonetici.Count.ToString();
+            LblIsAkisGorevleri.Text = gorevAtamaPersonels.Count.ToString();
+        }
+
+        public void DuyuruEditList()
+        {
+            Gorevler();
+            duyurus = duyuruManager.GetList();
+
+            if (duyurus.Count==0)
+            {
+                return;
+            }
+
+            StringBuilder strB = new StringBuilder();
+
+            foreach (Duyuru item in duyurus)
+            {
+                strB.Append("<center><table border='2'  style='background-color:azure;color:black;'>");
+                strB.Append("<td width='750px'><h4 style='color:darkred;height:15px;'>" + item.Konu + "</h4>");
+
+                strB.Append(item.DuyuruMesaj + "<br><br><span style='font-size=11px;'>" + item.DuyuruYapan.ToString() + "<br>" + 
+                    "(" + item.BaslangicTarih.ToString("g") + ")" + "</span></td>");
+                strB.Append("</table></center><br/>");
+
+                //strB.Append("<center><table border='2' cellpadding='3' style='background:rgb(255, 255, 255);'>");
+                //strB.Append("<td width='750px'><h3 class='headings'>" + item.Konu + "</h3>" + "<a href='#'>" + item.DuyuruMesaj + "</a>" + "<br>" + "(" + item.BaslangicTarih.ToString("f") + ")" + "<br>" + item.DuyuruYapan.ToString() + "</td>");
+                //strB.Append("</table></center><br/>");
+
+                //WebDuyuru.DocumentText = strB.ToString();
+            }
+            WebDuyuru.DocumentText = strB.ToString();
+        }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -79,10 +134,6 @@ namespace UserInterface.Ana_Sayfa
                     }
                 }
             }
-
-
-
-
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -95,30 +146,60 @@ namespace UserInterface.Ana_Sayfa
             notifyIcon1.ShowBalloonTip(100);
         }
 
+
         private void button1_Click(object sender, EventArgs e)
         {
-            string[] array = new string[8];
+            string[] array = new string[4];
 
-            array[0] = "Saha Bildirim Güncelleme"; // Bildirim Başlık
-            array[1] = "Mücahit AYDEMİR"; // Bildirim Sahibi Personel
-            array[2] = "220546"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
-            array[3] = "Form numaralı"; // Bildirim türü
-            array[4] = "Stine Tepe Üs Bölgesi"; // İÇERİK
-            array[5] = "DRAGONEYE B/O arızasını";
-            array[6] = "700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!";
+            array[0] = "Saha Bildirim Güncelleme"; // BAŞLIK
+            array[1] = "Mücahit AYDEMİR 200015 Form numaralı Stine Tepe Üs Bölgesi DRAGONEYE B/O arızasını 700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!"; // İÇERİK
+            array[3] = "200015"; // BENZERSİZ_KIMLIK
 
             BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
             if (bildirimYetki == null)
             {
-                //array[7] = infos[0].ToString();
-                array[7] = "25;26;27";
+                array[2] = infos[0].ToString();
+
+                FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+                frmAnaSayfa.LogYaz(array[0], array[1], array[2], array[3]);
+                FrmHelper.Bildirim(array[0], "\n" + array[1], ımageList1.Images["okey.png"], infos[1].ToString(), array[2], array[3]);
             }
             else
             {
-                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+                string[] sorumluIdler = bildirimYetki.SorumluId.Split(';');
+                for (int i = 0; i < sorumluIdler.Length; i++)
+                {
+                    FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+                    frmAnaSayfa.LogYaz(array[0], array[1], sorumluIdler[i], array[3]);
+                }
+
+                FrmHelper.Bildirim(array[0], "\n" + array[1], ımageList1.Images["okey.png"], infos[1].ToString(), infos[0].ToString(), array[3]);
+
             }
 
-            FrmHelper.BildirimGonder(array, array[7]);
+
+            //string[] array = new string[8];
+
+            //array[0] = "Saha Bildirim Güncelleme"; // Bildirim Başlık
+            //array[1] = "Mücahit AYDEMİR"; // Bildirim Sahibi Personel
+            //array[2] = "200015"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            //array[3] = "Form numaralı"; // Bildirim türü
+            //array[4] = "Stine Tepe Üs Bölgesi"; // İÇERİK
+            //array[5] = "DRAGONEYE B/O arızasını";
+            //array[6] = "700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!";
+
+            //BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            //if (bildirimYetki == null)
+            //{
+            //    array[7] = infos[0].ToString();
+            //    //array[7] = "25;26;27";
+            //}
+            //else
+            //{
+            //    array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            //}
+
+            //FrmHelper.BildirimGonder(array, array[7], "200015");
 
             #region EskiKod
             /*
@@ -240,6 +321,10 @@ namespace UserInterface.Ana_Sayfa
             frmAnaSayfa.tabAnasayfa.Size = new Size(1600, 955);
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+        }
     }
 
 }

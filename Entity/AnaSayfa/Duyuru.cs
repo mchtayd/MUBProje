@@ -8,7 +8,7 @@ namespace Entity.AnaSayfa
 {
     public class Duyuru
     {
-        int id; string konu, duyuruMesaj; DateTime baslangicTarih, bitisTarih; string durum;
+        int id; string konu, duyuruMesaj; DateTime baslangicTarih, bitisTarih; string durum, duyuruYapan;
 
         public int Id { get => id; set => id = value; }
         public string Konu { get => konu; set => konu = value; }
@@ -16,8 +16,9 @@ namespace Entity.AnaSayfa
         public DateTime BaslangicTarih { get => baslangicTarih; set => baslangicTarih = value; }
         public DateTime BitisTarih { get => bitisTarih; set => bitisTarih = value; }
         public string Durum { get => durum; set => durum = value; }
+        public string DuyuruYapan { get => duyuruYapan; set => duyuruYapan = value; }
 
-        public Duyuru(int id, string konu, string duyuruMesaj, DateTime baslangicTarih, DateTime bitisTarih, string durum)
+        public Duyuru(int id, string konu, string duyuruMesaj, DateTime baslangicTarih, DateTime bitisTarih, string durum, string duyuruYapan)
         {
             this.id = id;
             this.konu = konu;
@@ -25,15 +26,17 @@ namespace Entity.AnaSayfa
             this.baslangicTarih = baslangicTarih;
             this.bitisTarih = bitisTarih;
             this.durum = durum;
+            this.duyuruYapan = duyuruYapan;
         }
 
-        public Duyuru(string konu, string duyuruMesaj, DateTime baslangicTarih, DateTime bitisTarih, string durum)
+        public Duyuru(string konu, string duyuruMesaj, DateTime baslangicTarih, DateTime bitisTarih, string durum, string duyuruYapan)
         {
             this.konu = konu;
             this.duyuruMesaj = duyuruMesaj;
             this.baslangicTarih = baslangicTarih;
             this.bitisTarih = bitisTarih;
             this.durum = durum;
+            this.duyuruYapan = duyuruYapan;
         }
     }
 }

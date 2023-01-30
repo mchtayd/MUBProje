@@ -235,6 +235,24 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+        public List<string> SirketBolumList()
+        {
+            try
+            {
+                List<string> list = new List<string>();
+                dataReader = sqlServices.StoreReader("SirketBolumList");
+                while (dataReader.Read())
+                {
+                    list.Add(dataReader["SIRKET_BOLUM"].ToString());
+                }
+                dataReader.Close();
+                return list;
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
         public string Update(PersonelKayit entity)
         {
             try
@@ -352,6 +370,25 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
+        public List<PersonelKayit> PersonelBilgiList(string sirketBolum)
+        {
+            try
+            {
+                List<PersonelKayit> personelKayits= new List<PersonelKayit>();
+                dataReader = sqlServices.StoreReader("SirketBolumGetList", new SqlParameter("@sirketBolum", sirketBolum));
+                while (dataReader.Read())
+                {
+                    personelKayits.Add(new PersonelKayit(dataReader["AD_SOYAD"].ToString(), dataReader["SICIL"].ToString(), dataReader["SIRKET_MAIL"].ToString(), dataReader["SIRKETCEP"].ToString(), dataReader["SIRKET_KISAKOD"].ToString(), dataReader["IS_UNVANI"].ToString(), dataReader["SIRKET_BOLUM"].ToString(), dataReader["FotoYolu"].ToString()));
+                }
+                dataReader.Close();
+                return personelKayits;
+            }
+            catch (Exception)
+            {
+                return new List<PersonelKayit>();
+            }
+        }
+
         public PersonelKayit PersonelMailWeb(string adsoyad)
         {
             try

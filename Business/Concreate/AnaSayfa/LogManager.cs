@@ -49,7 +49,7 @@ namespace Business.Concreate.AnaSayfa
             throw new NotImplementedException();
         }
 
-        public List<Log> GetList(string kullaniciId)
+        public List<Log> GetList(int kullaniciId)
         {
             try
             {
@@ -61,9 +61,16 @@ namespace Business.Concreate.AnaSayfa
             }
         }
 
-        public string Update(Log entity)
+        public string Update(string icerik)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return logDal.Update(icerik);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

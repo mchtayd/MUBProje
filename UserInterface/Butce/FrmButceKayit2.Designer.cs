@@ -31,7 +31,6 @@ namespace UserInterface.Butce
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmButceKayit2));
-            this.BtnEkle = new System.Windows.Forms.Button();
             this.LblButceTutariDonem = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
@@ -47,7 +46,6 @@ namespace UserInterface.Butce
             this.CmbButceKodu = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnBolgeEkle = new System.Windows.Forms.Button();
-            this.BtnKaydet = new System.Windows.Forms.Button();
             this.label10 = new System.Windows.Forms.Label();
             this.CmbButceDonem = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -61,22 +59,16 @@ namespace UserInterface.Butce
             this.label13 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.CmbSiparisNo = new System.Windows.Forms.ComboBox();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.BtnTemizle = new System.Windows.Forms.Button();
+            this.BtnEkle = new System.Windows.Forms.Button();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
-            // 
-            // BtnEkle
-            // 
-            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnEkle.Location = new System.Drawing.Point(197, 321);
-            this.BtnEkle.Name = "BtnEkle";
-            this.BtnEkle.Size = new System.Drawing.Size(98, 31);
-            this.BtnEkle.TabIndex = 450;
-            this.BtnEkle.Text = "EKLE";
-            this.BtnEkle.UseVisualStyleBackColor = true;
-            this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
             // 
             // LblButceTutariDonem
             // 
@@ -168,6 +160,8 @@ namespace UserInterface.Butce
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Remove});
             this.DtgList.DateWithTime = false;
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 17);
@@ -178,6 +172,7 @@ namespace UserInterface.Butce
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
             // 
             // label9
             // 
@@ -253,17 +248,6 @@ namespace UserInterface.Butce
             this.BtnBolgeEkle.Tag = "admin";
             this.BtnBolgeEkle.UseVisualStyleBackColor = false;
             // 
-            // BtnKaydet
-            // 
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(22, 640);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(124, 45);
-            this.BtnKaydet.TabIndex = 452;
-            this.BtnKaydet.Text = "KAYDET";
-            this.BtnKaydet.UseVisualStyleBackColor = true;
-            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
             // label10
             // 
             this.label10.AutoSize = true;
@@ -312,6 +296,7 @@ namespace UserInterface.Butce
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.Enabled = false;
             this.label2.Location = new System.Drawing.Point(124, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 15);
@@ -334,6 +319,7 @@ namespace UserInterface.Butce
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.button3.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(503, 144);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
@@ -346,7 +332,7 @@ namespace UserInterface.Butce
             // 
             this.LblButceToplamYil.AutoSize = true;
             this.LblButceToplamYil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblButceToplamYil.Location = new System.Drawing.Point(716, 648);
+            this.LblButceToplamYil.Location = new System.Drawing.Point(1034, 642);
             this.LblButceToplamYil.Name = "LblButceToplamYil";
             this.LblButceToplamYil.Size = new System.Drawing.Size(23, 15);
             this.LblButceToplamYil.TabIndex = 461;
@@ -355,7 +341,7 @@ namespace UserInterface.Butce
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(538, 648);
+            this.label5.Location = new System.Drawing.Point(856, 642);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(172, 15);
             this.label5.TabIndex = 460;
@@ -365,7 +351,7 @@ namespace UserInterface.Butce
             // 
             this.LblButceToplamAy.AutoSize = true;
             this.LblButceToplamAy.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblButceToplamAy.Location = new System.Drawing.Point(345, 646);
+            this.LblButceToplamAy.Location = new System.Drawing.Point(663, 640);
             this.LblButceToplamAy.Name = "LblButceToplamAy";
             this.LblButceToplamAy.Size = new System.Drawing.Size(23, 15);
             this.LblButceToplamAy.TabIndex = 459;
@@ -374,7 +360,7 @@ namespace UserInterface.Butce
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(196, 646);
+            this.label13.Location = new System.Drawing.Point(514, 640);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(143, 15);
             this.label13.TabIndex = 458;
@@ -383,6 +369,7 @@ namespace UserInterface.Butce
             // CmbSiparisNo
             // 
             this.CmbSiparisNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbSiparisNo.Enabled = false;
             this.CmbSiparisNo.FormattingEnabled = true;
             this.CmbSiparisNo.Location = new System.Drawing.Point(197, 150);
             this.CmbSiparisNo.Name = "CmbSiparisNo";
@@ -390,11 +377,80 @@ namespace UserInterface.Butce
             this.CmbSiparisNo.TabIndex = 440;
             this.CmbSiparisNo.SelectedIndexChanged += new System.EventHandler(this.CmbSiparisNo_SelectedIndexChanged);
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "broom.png");
+            // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(26, 640);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 463;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
+            // 
+            // BtnTemizle
+            // 
+            this.BtnTemizle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTemizle.ImageKey = "broom.png";
+            this.BtnTemizle.ImageList = this.ımageList1;
+            this.BtnTemizle.Location = new System.Drawing.Point(162, 640);
+            this.BtnTemizle.Name = "BtnTemizle";
+            this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
+            this.BtnTemizle.TabIndex = 462;
+            this.BtnTemizle.Text = "   TEMİZLE";
+            this.BtnTemizle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTemizle.UseVisualStyleBackColor = false;
+            // 
+            // BtnEkle
+            // 
+            this.BtnEkle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnEkle.Image")));
+            this.BtnEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEkle.Location = new System.Drawing.Point(197, 319);
+            this.BtnEkle.Name = "BtnEkle";
+            this.BtnEkle.Size = new System.Drawing.Size(85, 33);
+            this.BtnEkle.TabIndex = 464;
+            this.BtnEkle.Text = "  EKLE";
+            this.BtnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEkle.UseVisualStyleBackColor = false;
+            this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click_1);
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.MinimumWidth = 22;
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.Visible = false;
+            this.Remove.Width = 75;
+            // 
             // FrmButceKayit2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1497, 849);
+            this.Controls.Add(this.BtnEkle);
+            this.Controls.Add(this.BtnKaydet);
+            this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.LblButceToplamYil);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.LblButceToplamAy);
@@ -404,9 +460,7 @@ namespace UserInterface.Butce
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.CmbButceDonem);
-            this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.BtnBolgeEkle);
-            this.Controls.Add(this.BtnEkle);
             this.Controls.Add(this.LblButceTutariDonem);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label8);
@@ -436,8 +490,6 @@ namespace UserInterface.Butce
         }
 
         #endregion
-
-        private System.Windows.Forms.Button BtnEkle;
         private System.Windows.Forms.Label LblButceTutariDonem;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label8;
@@ -453,7 +505,6 @@ namespace UserInterface.Butce
         private System.Windows.Forms.ComboBox CmbButceKodu;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnBolgeEkle;
-        private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox CmbButceDonem;
         private System.Windows.Forms.Panel panel1;
@@ -467,5 +518,10 @@ namespace UserInterface.Butce
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.ComboBox CmbSiparisNo;
+        private System.Windows.Forms.ImageList ımageList1;
+        public System.Windows.Forms.Button BtnKaydet;
+        public System.Windows.Forms.Button BtnTemizle;
+        private System.Windows.Forms.Button BtnEkle;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

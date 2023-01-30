@@ -450,15 +450,18 @@ namespace UserInterface.Ana_Sayfa
 
         }
 
-        static string panelTitle = "", panelContent = "", panelKullanici = "", panelSorumluId = "";
-        public static void Bildirim(string title, string content, Image ımage, string kullanici, string sorumluId)
+        static string panelTitle = "", panelContent = "", panelKullanici = "", panelSorumluId = "", panelBenzersizKimlik = "";
+        static List<Log> logsList = logs.ToList();
+        public static void Bildirim(string title, string content, Image ımage, string kullanici, string sorumluId, string benzersizKimlik, List<Log> logs = null)
         {
+            PopupNotifier popup = new PopupNotifier();
+
             Ses();
             panelTitle = title;
             panelContent = content;
             panelKullanici = kullanici;
             panelSorumluId = sorumluId;
-            PopupNotifier popup = new PopupNotifier();
+            panelBenzersizKimlik = benzersizKimlik;
             popup.Image = ımage;
             //popup.Image = ımageList1.Images["okey.png"];
             popup.Size = new Size(500, 150);
@@ -472,69 +475,72 @@ namespace UserInterface.Ana_Sayfa
             popup.ContentFont = new Font("Century Gothic", 12);
             popup.Popup();
 
+            logsList = logs;
+
             popup.Click += Popup_Click;
 
             popup.Disappear += Popup_Disappear;
-
         }
         public static void PanelClickEdit(string icerik)
         {
-            List<Log> logs2 = new List<Log>();
-            logs2 = logs;
+            #region EskiKod
+            //List<Log> logs2 = new List<Log>();
+            //logs2 = logs;
 
-            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            //FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
 
-            StringBuilder strB = new StringBuilder();
+            //StringBuilder strB = new StringBuilder();
 
-            for (int i = 0; i < logs.Count; i++)
-            {
-                string yeniIcrerik = "";
-                string gelenicerik = logs[i].Icerik.ToString();
-                string[] array = gelenicerik.Split('\n');
+            //for (int i = 0; i < logs.Count; i++)
+            //{
+            //    string yeniIcrerik = "";
+            //    string gelenicerik = logs[i].Icerik.ToString();
+            //    string[] array = gelenicerik.Split('\n');
 
-                for (int j = 0; j < array.Length; j++)
-                {
-                    yeniIcrerik = yeniIcrerik + " " + array[j].ToString();
-                }
+            //    for (int j = 0; j < array.Length; j++)
+            //    {
+            //        yeniIcrerik = yeniIcrerik + " " + array[j].ToString();
+            //    }
 
-                if (yeniIcrerik.Trim() == icerik.Trim())
-                {
-                    logs2.Remove(logs2[i]);
-                    i--;
-                    if (logs.Count == 0)
-                    {
-                        break;
-                    }
-                }
-            }
+            //    if (yeniIcrerik.Trim() == icerik.Trim())
+            //    {
+            //        logs2.Remove(logs2[i]);
+            //        i--;
+            //        if (logs.Count == 0)
+            //        {
+            //            break;
+            //        }
+            //    }
+            //}
 
-            if (logs2.Count != 0)
-            {
-                strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
-                strB.Append("<a href='#'>TEMİZLE</a>");
+            //if (logs2.Count != 0)
+            //{
+            //    strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
+            //    strB.Append("<a href='#'>TEMİZLE</a>");
 
-                for (int i = 0; i < logs2.Count; i++)
-                {
-                    strB.Append("<table border='2' cellpadding='3'>");
-                    strB.Append("<td width='320px'><h3 class='headings'>" + logs2[i].Baslik + "</h3>" + "<a id='1' href='#'>" + logs2[i].Icerik + "</a>" + "<br>" + "(" + DateTime.Now.ToString("g") + ")" +
-                        "</td>");
-                    strB.Append("</table></center><br/>");
+            //    for (int i = 0; i < logs2.Count; i++)
+            //    {
+            //        strB.Append("<table border='2' cellpadding='3'>");
+            //        strB.Append("<td width='320px'><h3 class='headings'>" + logs2[i].Baslik + "</h3>" + "<a id='1' href='#'>" + logs2[i].Icerik + "</a>" + "<br>" + "(" + DateTime.Now.ToString("g") + ")" +
+            //            "</td>");
+            //        strB.Append("</table></center><br/>");
 
-                    frmAnaSayfa.webContent.DocumentText = strB.ToString();
-                }
-            }
+            //        frmAnaSayfa.webContent.DocumentText = strB.ToString();
+            //    }
+            //}
 
-            else
-            {
-                strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
-                strB.Append("<a href='#'>TEMİZLE</a></center>");
-                frmAnaSayfa.webContent.DocumentText = strB.ToString();
+            //else
+            //{
+            //    strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
+            //    strB.Append("<a href='#'>TEMİZLE</a></center>");
+            //    frmAnaSayfa.webContent.DocumentText = strB.ToString();
 
-            }
-            frmAnaSayfa.BtnBildirim.Text = logs2.Count.ToString();
-
+            //}
+            //frmAnaSayfa.BtnBildirim.Text = logs2.Count.ToString();
+            #endregion
         }
-        static void PanelEdit()
+
+        public static void PanelEdit(List<Log> logs)
         {
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
 
@@ -544,11 +550,9 @@ namespace UserInterface.Ana_Sayfa
             strB.Append("<a href='#'>TEMİZLE</a>");
             for (int i = 0; i < logs.Count; i++)
             {
-                strB.Append("<table border='2' cellpadding='3' style='background:rgb(40, 167, 69);'>");
-                strB.Append("<td width='320px'><h3 class='headings'>" + logs[i].Baslik + "</h3>" + "<a href='#'>" + logs[i].Icerik + "</a>" + "<br>" + "(" + DateTime.Now.ToString("g") + ")" +
-                    "</td>");
+                strB.Append("<table border='2' cellpadding='3' style='background:rgb(240,255,255);'>");
+                strB.Append("<td width='320px'><h3 class='headings'>" + logs[i].Baslik + "</h3>" + "<a href='#'>" + logs[i].Icerik + "</a>" + "<br>" + "(" + logs[i].Tarih.ToString("g") + ")" + "</td>");
                 strB.Append("</table></center><br/>");
-
 
                 frmAnaSayfa.webContent.DocumentText = strB.ToString();
             }
@@ -568,16 +572,13 @@ namespace UserInterface.Ana_Sayfa
 
             //benzersiz = Guid.NewGuid().ToString();
             //benzersizs.Add(benzersiz);
-
-            Log log = new Log(panelTitle, panelContent, DateTime.Now, panelKullanici, panelSorumluId);
-            logs.Add(log);
-
+            
             if (bildirimClick == false)
             {
                 int yeniSayi = sayi.ConInt();
                 yeniSayi++;
                 frmAnaSayfa.BtnBildirim.Text = yeniSayi.ToString();
-                PanelEdit();
+                PanelEdit(logsList);
             }
             else
             {
@@ -644,82 +645,8 @@ namespace UserInterface.Ana_Sayfa
             }
         }
         public static bool serverBildirimAyar = false;
-        public static string BildirimGonder(string[] array, string bildirimYetki)
+        public static string BildirimGonder(string[] array, string bildirimYetki, string benzersizKimlik="")
         {
-            return "OK";
-            if (serverBildirimAyar == true)
-            {
-                return "Server Ayarı Kapalı";
-            }
-            bool control = false;
-            CopyFile();
-
-            if (!File.Exists(taslakYolu))
-            {
-                return "Bildirim okuma dosyası bulunamadı!";
-            }
-
-            //array = new string[8];
-
-            //array[0] = "Saha Bildirim Güncelleme"; // Bildirim Başlık
-            //array[1] = "Mücahit AYDEMİR"; // Bildirim Sahibi Personel
-            //array[2] = "220546"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
-            //array[3] = "Form numaralı"; // Bildirim türü
-            //array[4] = "Stine Tepe Üs Bölgesi"; // İÇERİK
-            //array[5] = "DRAGONEYE B/O arızasını";
-            //array[6] = "700 FABRİKA BAKIM ONARIM adıma güncellenmiştir!";
-
-            string txtMetin = array[0] + " " + array[1] + " " + array[2] + " " + array[3] + " " + array[4] + " " + array[5] + " " + array[6] + "|" + bildirimYetki;
-            string bildirimMetin = array[1] + " " + array[2] + " " + array[3] + "\n" + array[4] + "\n" + array[5] + "\n" + array[6];
-
-
-            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
-            
-            string icerik = File.ReadAllText(taslakYolu);
-          
-            //Notification notification = new Notification();
-            //List<Notification> list = new List<Notification>();
-            //list.Add(notification);
-            //string jsonValue= JsonConvert.Serialize(list);
-            //var items = JsonConvert.Desearilize<List<Notification>>(jsonValue);
-
-
-            string[] array2 = icerik.Split('\n');
-            for (int i = 0; i < array2.Length; i++)
-            {
-                string metin = array2[i].ToString().Trim();
-                if (metin != txtMetin)
-                {
-                    if (array2.Length == 1)
-                    {
-                        control = true;
-                    }
-                    else
-                    {
-                        if (metin != "")
-                        {
-                            control = true;
-                        }
-                        else
-                        {
-                            control = false;
-                        }
-                    }
-
-                }
-                if (control == true)
-                {
-                    TxtBildirimEdit(txtMetin);
-                    StreamWriter streamWriter = new StreamWriter(taslakYolu, true);
-                    streamWriter.WriteLine(txtMetin);
-                    streamWriter.Close();
-
-                    frmAnaSayfa.LogYaz(array[0], bildirimMetin, bildirimYetki);
-                    frmAnaSayfa.DosyaControl();
-                }
-            }
-            control = false;
-
             return "OK";
         }
 

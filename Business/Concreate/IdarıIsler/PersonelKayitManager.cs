@@ -130,6 +130,17 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
+        public List<string> SirketBolumList()
+        {
+            try
+            {
+                return personelKayitDal.SirketBolumList();
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
         public string Update(PersonelKayit entity)
         {
             try
@@ -179,6 +190,18 @@ namespace Business.Concreate.IdarıIsler
             {
 
                 return null;
+            }
+        }
+        public List<PersonelKayit> PersonelBilgiList(string sirketBolum)
+        {
+            try
+            {
+                return personelKayitDal.PersonelBilgiList(sirketBolum);
+            }
+            catch (Exception)
+            {
+
+                return new List<PersonelKayit>();
             }
         }
         public PersonelKayit PersonelMailWeb(string adsoyad)

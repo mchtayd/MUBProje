@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Business.Concreate.AnaSayfa;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,10 +14,12 @@ namespace UserInterface.Ana_Sayfa
 {
     public partial class FrmBildirimPanel : Form
     {
+        LogManager logManager;
         public string icerik = "";
         public FrmBildirimPanel()
         {
             InitializeComponent();
+            logManager = LogManager.GetInstance();
         }
 
         private void FrmBildirimPanel_Load(object sender, EventArgs e)
@@ -26,7 +29,12 @@ namespace UserInterface.Ana_Sayfa
 
         private void FrmBildirimPanel_FormClosing(object sender, FormClosingEventArgs e)
         {
-            FrmHelper.PanelClickEdit(icerik);
+            string mesaj = logManager.Update(icerik);
+            if (mesaj != "OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+                return;
+            }
         }
 
     }

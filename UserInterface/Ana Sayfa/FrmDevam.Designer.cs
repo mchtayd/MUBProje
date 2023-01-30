@@ -74,7 +74,7 @@ namespace UserInterface.Ana_Sayfa
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox1.Controls.Add(this.DtgYurtIciGorev);
-            this.groupBox1.Location = new System.Drawing.Point(12, 237);
+            this.groupBox1.Location = new System.Drawing.Point(15, 33);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1410, 199);
             this.groupBox1.TabIndex = 0;
@@ -111,6 +111,7 @@ namespace UserInterface.Ana_Sayfa
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "YURT DIŞI GÖREVİNDE BULUNAN PERSONEL BİLGİLERİ";
+            this.groupBox2.Visible = false;
             // 
             // DtgYurtDisiGorev
             // 
@@ -170,7 +171,7 @@ namespace UserInterface.Ana_Sayfa
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.groupBox4.Controls.Add(this.DtgIzin);
-            this.groupBox4.Location = new System.Drawing.Point(12, 33);
+            this.groupBox4.Location = new System.Drawing.Point(18, 238);
             this.groupBox4.MinimumSize = new System.Drawing.Size(900, 0);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(1410, 186);

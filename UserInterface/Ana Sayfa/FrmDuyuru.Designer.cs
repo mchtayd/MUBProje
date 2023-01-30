@@ -32,13 +32,14 @@ namespace UserInterface.Ana_Sayfa
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDuyuru));
             this.label1 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.TxtKonu = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.TxtMesaj = new System.Windows.Forms.RichTextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DtBitTarihi = new System.Windows.Forms.DateTimePicker();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
+            this.DtBitSaat = new System.Windows.Forms.DateTimePicker();
             this.SuspendLayout();
             // 
             // label1
@@ -51,13 +52,13 @@ namespace UserInterface.Ana_Sayfa
             this.label1.TabIndex = 0;
             this.label1.Text = "Konu:";
             // 
-            // textBox1
+            // TxtKonu
             // 
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.textBox1.Location = new System.Drawing.Point(136, 32);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(367, 21);
-            this.textBox1.TabIndex = 1;
+            this.TxtKonu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtKonu.Location = new System.Drawing.Point(136, 32);
+            this.TxtKonu.Name = "TxtKonu";
+            this.TxtKonu.Size = new System.Drawing.Size(448, 21);
+            this.TxtKonu.TabIndex = 1;
             // 
             // label2
             // 
@@ -69,33 +70,33 @@ namespace UserInterface.Ana_Sayfa
             this.label2.TabIndex = 2;
             this.label2.Text = "Duyuru Metni:";
             // 
-            // richTextBox1
+            // TxtMesaj
             // 
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox1.Location = new System.Drawing.Point(136, 73);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(367, 104);
-            this.richTextBox1.TabIndex = 3;
-            this.richTextBox1.Text = "";
+            this.TxtMesaj.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtMesaj.Location = new System.Drawing.Point(136, 73);
+            this.TxtMesaj.Name = "TxtMesaj";
+            this.TxtMesaj.Size = new System.Drawing.Size(448, 177);
+            this.TxtMesaj.TabIndex = 3;
+            this.TxtMesaj.Text = "";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(11, 192);
+            this.label3.Location = new System.Drawing.Point(11, 262);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(119, 36);
             this.label3.TabIndex = 4;
             this.label3.Text = "Son Geçerlilik \r\n            Tarihi:";
             // 
-            // dateTimePicker1
+            // DtBitTarihi
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(136, 198);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(107, 21);
-            this.dateTimePicker1.TabIndex = 5;
+            this.DtBitTarihi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtBitTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtBitTarihi.Location = new System.Drawing.Point(136, 268);
+            this.DtBitTarihi.Name = "DtBitTarihi";
+            this.DtBitTarihi.Size = new System.Drawing.Size(107, 21);
+            this.DtBitTarihi.TabIndex = 5;
             // 
             // BtnKaydet
             // 
@@ -104,7 +105,7 @@ namespace UserInterface.Ana_Sayfa
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(373, 192);
+            this.BtnKaydet.Location = new System.Drawing.Point(454, 256);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 318;
@@ -118,17 +119,30 @@ namespace UserInterface.Ana_Sayfa
             this.notifyIcon1.Text = "notifyIcon1";
             this.notifyIcon1.Visible = true;
             // 
+            // DtBitSaat
+            // 
+            this.DtBitSaat.CustomFormat = "HH:mm";
+            this.DtBitSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtBitSaat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtBitSaat.Location = new System.Drawing.Point(249, 268);
+            this.DtBitSaat.Name = "DtBitSaat";
+            this.DtBitSaat.ShowUpDown = true;
+            this.DtBitSaat.Size = new System.Drawing.Size(101, 21);
+            this.DtBitSaat.TabIndex = 367;
+            this.DtBitSaat.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
+            // 
             // FrmDuyuru
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(532, 266);
+            this.ClientSize = new System.Drawing.Size(596, 319);
+            this.Controls.Add(this.DtBitSaat);
             this.Controls.Add(this.BtnKaydet);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.DtBitTarihi);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.TxtMesaj);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.TxtKonu);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
@@ -145,12 +159,13 @@ namespace UserInterface.Ana_Sayfa
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtKonu;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox TxtMesaj;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DtBitTarihi;
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.NotifyIcon notifyIcon1;
+        private System.Windows.Forms.DateTimePicker DtBitSaat;
     }
 }

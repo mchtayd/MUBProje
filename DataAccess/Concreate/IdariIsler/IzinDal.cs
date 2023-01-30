@@ -94,11 +94,11 @@ namespace DataAccess.Concreate.IdariIsler
             }
         }
 
-        public Izin Get(int isakisno)
+        public Izin Get(int isakisno, string personelAd)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("PersonelIzinList",new SqlParameter("@isakisno", isakisno));
+                dataReader = sqlServices.StoreReader("PersonelIzinList", new SqlParameter("@isakisno", isakisno), new SqlParameter("@personelAd", personelAd));
                 Izin item = null;
                 while (dataReader.Read())
                 {
@@ -125,7 +125,7 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }

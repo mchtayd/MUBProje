@@ -39,6 +39,7 @@ namespace UserInterface.STS
             this.DtgTamamlananSatlar = new ADGV.AdvancedDataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -227,6 +228,7 @@ namespace UserInterface.STS
             this.DtgTamamlananSatlar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgTamamlananSatlar.Location = new System.Drawing.Point(3, 16);
             this.DtgTamamlananSatlar.Name = "DtgTamamlananSatlar";
+            this.DtgTamamlananSatlar.ReadOnly = true;
             this.DtgTamamlananSatlar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DtgTamamlananSatlar.Size = new System.Drawing.Size(1539, 317);
             this.DtgTamamlananSatlar.TabIndex = 1;
@@ -239,16 +241,24 @@ namespace UserInterface.STS
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.yenileToolStripMenuItem});
+            this.yenileToolStripMenuItem,
+            this.güncelleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(106, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 48);
             // 
             // yenileToolStripMenuItem
             // 
             this.yenileToolStripMenuItem.Name = "yenileToolStripMenuItem";
-            this.yenileToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            this.yenileToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
+            // 
+            // güncelleToolStripMenuItem
+            // 
+            this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.güncelleToolStripMenuItem.Text = "Güncelle";
+            this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -328,6 +338,7 @@ namespace UserInterface.STS
             this.BtnProjeDuzelt.Text = "ProjeDuzelt";
             this.BtnProjeDuzelt.UseVisualStyleBackColor = true;
             this.BtnProjeDuzelt.Visible = false;
+            this.BtnProjeDuzelt.Click += new System.EventHandler(this.BtnProjeDuzelt_Click_1);
             // 
             // BtnGuncelle
             // 
@@ -1588,5 +1599,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label LblGenelTop;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
     }
 }

@@ -31,7 +31,7 @@ namespace UserInterface.STS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatTalebi));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbMasYeri = new System.Windows.Forms.ComboBox();
@@ -681,8 +681,8 @@ namespace UserInterface.STS
             this.DtgMalzemeList.AllowUserToAddRows = false;
             this.DtgMalzemeList.AllowUserToDeleteRows = false;
             this.DtgMalzemeList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgMalzemeList.AutoGenerateContextFilters = true;
             this.DtgMalzemeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgMalzemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

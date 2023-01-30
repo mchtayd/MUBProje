@@ -38,7 +38,8 @@ namespace DataAccess.Concreate.AnaSayfa
                     new SqlParameter("@icerik", entity.Icerik),
                     new SqlParameter("@tarih", entity.Tarih),
                     new SqlParameter("@kullanici", entity.Kullainici),
-                    new SqlParameter("@sorumluId", entity.SorumluId));
+                    new SqlParameter("@sorumluId", entity.SorumluId),
+                    new SqlParameter("@benzersizKimlik", entity.BenzersizKimlik));
 
                 dataReader.Close();
                 return "OK";
@@ -59,12 +60,11 @@ namespace DataAccess.Concreate.AnaSayfa
             throw new NotImplementedException();
         }
 
-        public List<Log> GetList(string kullaniciId)
+        public List<Log> GetList(int kullaniciId)
         {
             try
             {
                 List<Log> logs = new List<Log>();
-                kullaniciId = "%" + kullaniciId + "%";
                 dataReader = sqlServices.StoreReader("LogList", new SqlParameter("@kullaniciId", kullaniciId));
                 while (dataReader.Read())
                 {
@@ -74,7 +74,9 @@ namespace DataAccess.Concreate.AnaSayfa
                         dataReader["ICERIK"].ToString(),
                         dataReader["TARIH"].ConDate(),
                         dataReader["KULLANICI"].ToString(),
-                        dataReader["SORUMLU_ID"].ToString()));
+                        dataReader["SORUMLU_ID"].ToString(),
+                        dataReader["BENZERSIZ_KIMLIK"].ToString(),
+                        dataReader["DURUM"].ToString()));
                 }
                 dataReader.Close();
                 return logs;
@@ -85,9 +87,17 @@ namespace DataAccess.Concreate.AnaSayfa
             }
         }
 
-        public string Update(Log entity)
+        public string Update(string icerik)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlServices.Stored("LogGet", new SqlParameter("@icerik", icerik));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
     }
 }

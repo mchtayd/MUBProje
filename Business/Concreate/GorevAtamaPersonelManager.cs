@@ -88,17 +88,18 @@ namespace Business.Concreate
                 return new List<GorevAtamaPersonel>();
             }
         }
-        public List<GorevAtamaPersonel> AtolyeGorevlerimiGor(string adSoyad)
+        public List<GorevAtamaPersonel> IsAkisGorevlerimiGor(string adSoyad, string departman)
         {
             try
             {
-                return gorevAtamaPersonelDal.AtolyeGorevlerimiGor(adSoyad);
+                return gorevAtamaPersonelDal.IsAkisGorevlerim(adSoyad, departman);
             }
             catch (Exception)
             {
                 return new List<GorevAtamaPersonel>();
             }
         }
+
 
         public string Update(GorevAtamaPersonel entity,string yapilanIslmeler="")
         {

@@ -53,6 +53,7 @@ namespace UserInterface.Ana_Sayfa
             gelirs.Clear();
             giders.Clear();
             kalans.Clear();
+            butceKayits.Clear();
 
             gelir = 0; giderTutar = 0; kalan = 0;
 
@@ -71,43 +72,118 @@ namespace UserInterface.Ana_Sayfa
                 return;
             }
 
+
             ButceKayit[] butceKayits2 = new ButceKayit[butceKayits.Count];
 
-            for (int i = 0; i < butceKayits.Count; i++)
+            if (CmbButceDonem.Text == "TÜM YIL")
             {
-                if (butceKayits[i].ButceTanim == "BM25/PERS. MAAŞ GİDERLERİ")
+                for (int i = 0; i < butceKayits.Count; i++)
                 {
-                    butceKayits2[0] = butceKayits[i];
-                }
-                if (butceKayits[i].ButceTanim == "BM45/PERSONEL MAAŞ YANSIMASI")
-                {
-                    butceKayits2[1] = butceKayits[i];
-                }
-                if (butceKayits[i].ButceTanim == "BM21/İAŞE")
-                {
-                    butceKayits2[2] = butceKayits[i];
-                }
-                if (butceKayits[i].ButceTanim == "BM24/PERS. İLETİŞİM GİDERLERİ")
-                {
-                    butceKayits2[3] = butceKayits[i];
-                }
-                if (butceKayits[i].ButceTanim == "BM23/ÖZEL SİGRT. GİDERLERİ")
-                {
-                    butceKayits2[4] = butceKayits[i];
-                }
-                if (butceKayits[i].ButceTanim == "BM26/ARAÇ TAHSİS GİDERLERİ")
-                {
-                    butceKayits2[5] = butceKayits[i];
-                }
-                if (butceKayits[i].ButceTanim == "BM46/ARAÇ YAKIT GİDERLERİ")
-                {
-                    butceKayits2[6] = butceKayits[i];
-                }
-                if (butceKayits[i].ButceTanim == "BM12/YERLEŞKE GİDERLERİ")
-                {
-                    butceKayits2[7] = butceKayits[i];
+                    if (butceKayits[i].ButceTanim == "BM25/PERS. MAAŞ GİDERLERİ")
+                    {
+                        butceKayits2[0] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM45/PERSONEL MAAŞ YANSIMASI")
+                    {
+                        butceKayits2[1] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM21/İAŞE")
+                    {
+                        butceKayits2[2] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM24/PERS. İLETİŞİM GİDERLERİ")
+                    {
+                        butceKayits2[3] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM23/ÖZEL SİGRT. GİDERLERİ")
+                    {
+                        butceKayits2[4] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM26/ARAÇ TAHSİS GİDERLERİ")
+                    {
+                        butceKayits2[5] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM46/ARAÇ YAKIT GİDERLERİ")
+                    {
+                        butceKayits2[6] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM12/YERLEŞKE GİDERLERİ")
+                    {
+                        butceKayits2[7] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM25/PERS. MAAŞ GİDERLERİ")
+                    {
+                        butceKayits2[8] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM45/PERSONEL MAAŞ YANSIMASI")
+                    {
+                        butceKayits2[9] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM21/İAŞE")
+                    {
+                        butceKayits2[10] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM24/PERS. İLETİŞİM GİDERLERİ")
+                    {
+                        butceKayits2[11] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM23/ÖZEL SİGRT. GİDERLERİ")
+                    {
+                        butceKayits2[12] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM26/ARAÇ TAHSİS GİDERLERİ")
+                    {
+                        butceKayits2[13] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM46/ARAÇ YAKIT GİDERLERİ")
+                    {
+                        butceKayits2[14] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM12/YERLEŞKE GİDERLERİ")
+                    {
+                        butceKayits2[15] = butceKayits[i];
+                    }
                 }
             }
+            else
+            {
+                for (int i = 0; i < butceKayits.Count; i++)
+                {
+                    if (butceKayits[i].ButceTanim == "BM25/PERS. MAAŞ GİDERLERİ")
+                    {
+                        butceKayits2[0] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM45/PERSONEL MAAŞ YANSIMASI")
+                    {
+                        butceKayits2[1] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM21/İAŞE")
+                    {
+                        butceKayits2[2] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM24/PERS. İLETİŞİM GİDERLERİ")
+                    {
+                        butceKayits2[3] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM23/ÖZEL SİGRT. GİDERLERİ")
+                    {
+                        butceKayits2[4] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM26/ARAÇ TAHSİS GİDERLERİ")
+                    {
+                        butceKayits2[5] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM46/ARAÇ YAKIT GİDERLERİ")
+                    {
+                        butceKayits2[6] = butceKayits[i];
+                    }
+                    if (butceKayits[i].ButceTanim == "BM12/YERLEŞKE GİDERLERİ")
+                    {
+                        butceKayits2[7] = butceKayits[i];
+                    }
+                }
+            }
+            
 
             if (CmbButceDonem.Text == "TÜM YIL")
             {

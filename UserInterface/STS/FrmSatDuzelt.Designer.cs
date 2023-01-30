@@ -29,12 +29,10 @@ namespace UserInterface.STS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatDuzelt));
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.button5 = new System.Windows.Forms.Button();
             this.PnlMalzeme = new System.Windows.Forms.Panel();
             this.LblTopStokList = new System.Windows.Forms.Label();
             this.LblGunelStokAdeti = new System.Windows.Forms.Label();
@@ -143,7 +141,6 @@ namespace UserInterface.STS
             this.label150 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.panel1.SuspendLayout();
             this.PnlMalzeme.SuspendLayout();
             this.GrbStokList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
@@ -153,29 +150,6 @@ namespace UserInterface.STS
             this.tabPage14.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // panel1
-            // 
-            this.panel1.BackColor = System.Drawing.Color.LightGray;
-            this.panel1.Controls.Add(this.button5);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1557, 27);
-            this.panel1.TabIndex = 310;
-            // 
-            // button5
-            // 
-            this.button5.BackColor = System.Drawing.Color.Transparent;
-            this.button5.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button5.ForeColor = System.Drawing.Color.DarkRed;
-            this.button5.Location = new System.Drawing.Point(12, 4);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(35, 23);
-            this.button5.TabIndex = 1;
-            this.button5.Text = "X";
-            this.button5.UseVisualStyleBackColor = false;
             // 
             // PnlMalzeme
             // 
@@ -189,10 +163,11 @@ namespace UserInterface.STS
             this.PnlMalzeme.Controls.Add(this.comboBox3);
             this.PnlMalzeme.Controls.Add(this.LblMalzemeTuru);
             this.PnlMalzeme.Controls.Add(this.tabControl6);
-            this.PnlMalzeme.Location = new System.Drawing.Point(12, 172);
+            this.PnlMalzeme.Location = new System.Drawing.Point(1392, 746);
             this.PnlMalzeme.Name = "PnlMalzeme";
-            this.PnlMalzeme.Size = new System.Drawing.Size(1533, 527);
+            this.PnlMalzeme.Size = new System.Drawing.Size(48, 18);
             this.PnlMalzeme.TabIndex = 348;
+            this.PnlMalzeme.Visible = false;
             // 
             // LblTopStokList
             // 
@@ -230,18 +205,18 @@ namespace UserInterface.STS
             this.advancedDataGridView1.AllowUserToDeleteRows = false;
             this.advancedDataGridView1.AllowUserToResizeColumns = false;
             this.advancedDataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.advancedDataGridView1.AutoGenerateContextFilters = true;
             this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.advancedDataGridView1.DateWithTime = false;
             this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -250,8 +225,8 @@ namespace UserInterface.STS
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.ReadOnly = true;
             this.advancedDataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.advancedDataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.advancedDataGridView1.RowTemplate.Height = 150;
             this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1361,12 +1336,12 @@ namespace UserInterface.STS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1557, 871);
+            this.ClientSize = new System.Drawing.Size(1452, 800);
             this.Controls.Add(this.PnlMalzeme);
-            this.Controls.Add(this.panel1);
             this.Name = "FrmSatDuzelt";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmSatDuzelt";
-            this.panel1.ResumeLayout(false);
+            this.Load += new System.EventHandler(this.FrmSatDuzelt_Load);
             this.PnlMalzeme.ResumeLayout(false);
             this.PnlMalzeme.PerformLayout();
             this.GrbStokList.ResumeLayout(false);
@@ -1383,9 +1358,6 @@ namespace UserInterface.STS
         }
 
         #endregion
-
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel PnlMalzeme;
         private System.Windows.Forms.Label LblTopStokList;
         private System.Windows.Forms.Label LblGunelStokAdeti;

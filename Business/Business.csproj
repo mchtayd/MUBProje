@@ -69,6 +69,7 @@
     <Compile Include="AtolyeRaporManager.cs" />
     <Compile Include="ComboManager.cs" />
     <Compile Include="Concreate\AnaSayfa\BildirimYetkiManager.cs" />
+    <Compile Include="Concreate\AnaSayfa\DuyuruManager.cs" />
     <Compile Include="Concreate\AnaSayfa\LogManager.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuManager.cs" />
     <Compile Include="Concreate\AnaSayfa\ServerAyarlarManager.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Concreate\BakimOnarim\IscilikDestekTabloManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikIscilikManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikPerformansManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\OkfManager.cs" />
     <Compile Include="Concreate\BakimOnarim\PypManager.cs" />
     <Compile Include="Concreate\BakimOnarim\ServisFormuManager.cs" />
     <Compile Include="Concreate\BakimOnarim\SFYedekParcaManager.cs" />

@@ -1143,192 +1143,204 @@ namespace UserInterface.STS
             dosyaYolu = subdir + satNo.ToString();
             Directory.CreateDirectory(dosyaYolu);
         }
+
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmSatDuzelt frmSatDuzelt = new FrmSatDuzelt();
+            frmSatDuzelt.ShowDialog();
+        }
+
+        private void BtnProjeDuzelt_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
-            if (TxtGerekce.Text=="")
-            {
-                MessageBox.Show("Lütfen güncellenecek Gerekçeyi doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (id==0)
-            {
-                MessageBox.Show("Lütfen bir sat seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            string mesaj = tamamlananManager.SatGerekceGuncelle(id, TxtGerekce.Text);
-            if (mesaj!="OK")
-            {
-                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            id = 0;
-            MessageBox.Show("Bilgiler başarıyla güncellenmiştir, sayfayı yenilerseniz bilgiler değişecektir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            TxtGerekce.Clear();
-            #region excelOku
-            //int satir = 0;
-            //IXLWorkbook workbook = new XLWorkbook(@"C:\Users\MAYıldırım\Desktop\SATIN ALMA TABLOSU_2022_V8_ebru .xlsx");
-            //IXLWorksheet worksheet = workbook.Worksheet("SAT DTS VERİ");
-            ////IXLWorksheet worksheet2 = workbook.Worksheet("AĞUSTOS");
-            //var rows = worksheet.Rows(2, 2110);
-            //List<Tamamlanan> list = new List<Tamamlanan>();
-            //foreach (IXLRow item in rows)
+            //if (TxtGerekce.Text=="")
             //{
-            //    try
-            //    {
-            //        string isAkis = item.Cell("E").Value.ToString();
-            //        DateTime dd = item.Cell("A").Value.ConDate();
-            //        string donem = dd.ConPeriod();
-            //        if (isAkis == "")
-            //        {
-            //            IsAkisNo();
-            //            siparisNo = Guid.NewGuid().ToString();
-            //            satNo = satNoManager.Add(new SatNo(siparisNo));
-            //            DosyaOlustur();
-            //            PersonelKayit personelKayit = personelKayitManager.Get(0, item.Cell("V").Value.ToString());
-
-            //            string sirketBolum, perMasYeri = "";
-
-            //            if (personelKayit != null)
-            //            {
-            //                sirketBolum = personelKayit.Sirketbolum;
-            //                perMasYeri = personelKayit.Masrafyeri;
-            //            }
-            //            else
-            //            {
-            //                //IstenAyrilis ayrilis = ayrilisManager.Get(item.Cell("V").Value.ToString());
-            //                sirketBolum = "";
-            //                perMasYeri = "";
-            //            }
-
-            //            Tamamlanan tamamlanan = new Tamamlanan(
-            //                satNo.ToString(),
-            //                isAkisNo.ConInt(),
-            //                perMasYeri,
-            //                item.Cell("V").Value.ToString(),
-            //                sirketBolum,
-            //                item.Cell("L").Value.ToString(),
-            //                item.Cell("M").Value.ToString(),
-            //                item.Cell("B").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                "MANUEL KAYIT.",
-            //                item.Cell("I").Value.ToString(),
-            //                item.Cell("W").Value.ToString(),
-            //                "",
-            //                item.Cell("R").Value.ToString(),
-            //                item.Cell("S").Value.ToString(),
-            //                item.Cell("T").Value.ConDate(),
-            //                //item.Cell("W").Value.ConTime(), // BELGE TARİHİ
-            //                item.Cell("Z").Value.ToString(),
-            //                item.Cell("AA").Value.ToString(),
-            //                item.Cell("AB").Value.ToString(),
-            //                item.Cell("U").Value.ConDouble(),
-            //                dosyaYolu,
-            //                siparisNo,
-            //                0,
-            //                item.Cell("G").Value.ToString(),
-            //                donem,
-            //                "HARCAMASI YAPILAN",
-            //                item.Cell("K").Value.ToString(),
-            //                item.Cell("Q").Value.ToString(),
-            //                item.Cell("X").Value.ToString(),
-            //                item.Cell("O").Value.ToString(),
-            //                item.Cell("P").Value.ToString(),
-            //                item.Cell("C").Value.ToString(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("H").Value.ToString(), //BÜTÇE TANIM
-            //                item.Cell("AE").Value.ToString(),// MALİYET TÜRÜ
-            //                item.Cell("AC").Value.ToString(),
-            //                item.Cell("AD").Value.ToString(),
-            //                item.Cell("J").Value.ToString());
-            //            list.Add(tamamlanan);
-
-
-            //            tamamlananManager.Add(tamamlanan);
-            //            satir++;
-
-            //            TeklifsizSat teklifsizSat = new TeklifsizSat("", "", 0, "", item.Cell("U").Value.ConDouble(), siparisNo);
-            //            teklifsizSatManager.Add(teklifsizSat);
-
-            //            SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, "MANUEL KAYIT.",
-            //                item.Cell("V").Value.ToString(), DateTime.Now);
-            //            satIslemAdimlariManager.Add(satIslem);
-
-            //        }
-            //        else
-            //        {
-            //            Tamamlanan tamamlanan1 = tamamlananManager.GetListYedekData(item.Cell("E").Value.ConInt());
-
-            //            if (tamamlanan1 == null)
-            //            {
-            //                MessageBox.Show("Hata");
-            //            }
-
-            //            DateTime outDate = new DateTime(1900, 12, 31);
-            //            Tamamlanan tamamlanan = new Tamamlanan(
-            //                item.Cell("F").Value.ToString(),
-            //                item.Cell("E").Value.ConInt(),
-            //                tamamlanan1.Masrafyeri,
-            //                item.Cell("V").Value.ToString(),
-            //                tamamlanan1.Bolum,
-            //                item.Cell("L").Value.ToString(),
-            //                item.Cell("M").Value.ToString(),
-            //                item.Cell("B").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                tamamlanan1.Gerekce,
-            //                item.Cell("I").Value.ToString(),
-            //                item.Cell("W").Value.ToString(),
-            //                tamamlanan1.Harcamaturu,
-            //                item.Cell("R").Value.ToString(),
-            //                item.Cell("S").Value.ToString(),
-            //                item.Cell("T").Value.ConDate(),
-            //                //item.Cell("W").Value.ConTime(), // BELGE TARİHİ
-            //                item.Cell("Z").Value.ToString(),
-            //                item.Cell("AA").Value.ToString(),
-            //                item.Cell("AB").Value.ToString(),
-            //                item.Cell("U").Value.ConDouble(),
-            //                tamamlanan1.Dosyayolu,
-            //                tamamlanan1.Siparisno,
-            //                tamamlanan1.Ucteklif,
-            //                item.Cell("G").Value.ToString(),
-            //                donem,
-            //                tamamlanan1.SatOlusturmaTuru,
-            //                item.Cell("K").Value.ToString(),
-            //                item.Cell("Q").Value.ToString(),
-            //                item.Cell("X").Value.ToString(),
-            //                item.Cell("O").Value.ToString(),
-            //                item.Cell("P").Value.ToString(),
-            //                item.Cell("C").Value.ToString(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("C").Value.ConDate(),
-            //                item.Cell("H").Value.ToString(),
-            //                item.Cell("AE").Value.ToString(),// MALİYET TÜRÜ
-            //                item.Cell("AC").Value.ToString(),
-            //                item.Cell("AD").Value.ToString(),
-            //                item.Cell("J").Value.ToString());
-            //            list.Add(tamamlanan);
-
-
-            //            tamamlananManager.Add(tamamlanan);
-            //            satir++;
-
-            //            tamamlanan1 = null;
-            //        }
-            //    }
-            //    catch (Exception ex)
-            //    {
-            //        int satirdegeri = satir;
-            //        string sat = item.Cell("E").Value.ToString();
-            //        string a = ex.Message;
-            //    }
+            //    MessageBox.Show("Lütfen güncellenecek Gerekçeyi doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
             //}
-            //MessageBox.Show("Bitti");
+            //if (id==0)
+            //{
+            //    MessageBox.Show("Lütfen bir sat seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //string mesaj = tamamlananManager.SatGerekceGuncelle(id, TxtGerekce.Text);
+            //if (mesaj!="OK")
+            //{
+            //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //id = 0;
+            //MessageBox.Show("Bilgiler başarıyla güncellenmiştir, sayfayı yenilerseniz bilgiler değişecektir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //TxtGerekce.Clear();
+            #region excelOku
+            int satir = 0;
+            IXLWorkbook workbook = new XLWorkbook(@"C:\Users\MAYıldırım\Desktop\SAT VERİ GİRİŞ DOSYASI_2022.xlsx");
+            IXLWorksheet worksheet = workbook.Worksheet("SAT DTS VERİ");
+            //IXLWorksheet worksheet2 = workbook.Worksheet("AĞUSTOS");
+            var rows = worksheet.Rows(2, 2132);
+            List<Tamamlanan> list = new List<Tamamlanan>();
+            foreach (IXLRow item in rows)
+            {
+                try
+                {
+                    string isAkis = item.Cell("E").Value.ToString();
+                    DateTime dd = item.Cell("A").Value.ConDate();
+                    string donem = dd.ConPeriod();
+                    if (isAkis == "")
+                    {
+                        IsAkisNo();
+                        siparisNo = Guid.NewGuid().ToString();
+                        satNo = satNoManager.Add(new SatNo(siparisNo));
+                        DosyaOlustur();
+                        PersonelKayit personelKayit = personelKayitManager.Get(0, item.Cell("V").Value.ToString());
+
+                        string sirketBolum, perMasYeri = "";
+
+                        if (personelKayit != null)
+                        {
+                            sirketBolum = personelKayit.Sirketbolum;
+                            perMasYeri = personelKayit.Masrafyeri;
+                        }
+                        else
+                        {
+                            //IstenAyrilis ayrilis = ayrilisManager.Get(item.Cell("V").Value.ToString());
+                            sirketBolum = "";
+                            perMasYeri = "";
+                        }
+
+                        Tamamlanan tamamlanan = new Tamamlanan(
+                            satNo.ToString(),
+                            isAkisNo.ConInt(),
+                            perMasYeri,
+                            item.Cell("V").Value.ToString(),
+                            sirketBolum,
+                            item.Cell("L").Value.ToString(),
+                            item.Cell("M").Value.ToString(),
+                            item.Cell("B").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            "MANUEL KAYIT.",
+                            item.Cell("I").Value.ToString(),
+                            item.Cell("W").Value.ToString(),
+                            "",
+                            item.Cell("R").Value.ToString(),
+                            item.Cell("S").Value.ToString(),
+                            item.Cell("T").Value.ConDate(),
+                            //item.Cell("W").Value.ConTime(), // BELGE TARİHİ
+                            item.Cell("Z").Value.ToString(),
+                            item.Cell("AA").Value.ToString(),
+                            item.Cell("AB").Value.ToString(),
+                            item.Cell("U").Value.ConDouble(),
+                            dosyaYolu,
+                            siparisNo,
+                            0,
+                            item.Cell("G").Value.ToString(),
+                            donem,
+                            "HARCAMASI YAPILAN",
+                            item.Cell("K").Value.ToString(),
+                            item.Cell("Q").Value.ToString(),
+                            item.Cell("X").Value.ToString(),
+                            item.Cell("O").Value.ToString(),
+                            item.Cell("P").Value.ToString(),
+                            item.Cell("C").Value.ToString(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("H").Value.ToString(), //BÜTÇE TANIM
+                            item.Cell("AE").Value.ToString(),// MALİYET TÜRÜ
+                            item.Cell("AC").Value.ToString(),
+                            item.Cell("AD").Value.ToString(),
+                            item.Cell("J").Value.ToString());
+                        list.Add(tamamlanan);
+
+
+                        tamamlananManager.Add(tamamlanan);
+                        satir++;
+
+                        TeklifsizSat teklifsizSat = new TeklifsizSat("", "", 0, "", item.Cell("U").Value.ConDouble(), siparisNo);
+                        teklifsizSatManager.Add(teklifsizSat);
+
+                        SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, "MANUEL KAYIT.",
+                            item.Cell("V").Value.ToString(), DateTime.Now);
+                        satIslemAdimlariManager.Add(satIslem);
+
+                    }
+                    else
+                    {
+                        Tamamlanan tamamlanan1 = tamamlananManager.GetListYedekData(item.Cell("E").Value.ConInt());
+
+                        if (tamamlanan1 == null)
+                        {
+                            MessageBox.Show("Hata");
+                        }
+
+                        DateTime outDate = new DateTime(1900, 12, 31);
+                        Tamamlanan tamamlanan = new Tamamlanan(
+                            item.Cell("F").Value.ToString(),
+                            item.Cell("E").Value.ConInt(),
+                            tamamlanan1.Masrafyeri,
+                            item.Cell("V").Value.ToString(),
+                            tamamlanan1.Bolum,
+                            item.Cell("L").Value.ToString(),
+                            item.Cell("M").Value.ToString(),
+                            item.Cell("B").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            tamamlanan1.Gerekce,
+                            item.Cell("I").Value.ToString(),
+                            item.Cell("W").Value.ToString(),
+                            tamamlanan1.Harcamaturu,
+                            item.Cell("R").Value.ToString(),
+                            item.Cell("S").Value.ToString(),
+                            item.Cell("T").Value.ConDate(),
+                            //item.Cell("W").Value.ConTime(), // BELGE TARİHİ
+                            item.Cell("Z").Value.ToString(),
+                            item.Cell("AA").Value.ToString(),
+                            item.Cell("AB").Value.ToString(),
+                            item.Cell("U").Value.ConDouble(),
+                            tamamlanan1.Dosyayolu,
+                            tamamlanan1.Siparisno,
+                            tamamlanan1.Ucteklif,
+                            item.Cell("G").Value.ToString(),
+                            donem,
+                            tamamlanan1.SatOlusturmaTuru,
+                            item.Cell("K").Value.ToString(),
+                            item.Cell("Q").Value.ToString(),
+                            item.Cell("X").Value.ToString(),
+                            item.Cell("O").Value.ToString(),
+                            item.Cell("P").Value.ToString(),
+                            item.Cell("C").Value.ToString(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("C").Value.ConDate(),
+                            item.Cell("H").Value.ToString(),
+                            item.Cell("AE").Value.ToString(),// MALİYET TÜRÜ
+                            item.Cell("AC").Value.ToString(),
+                            item.Cell("AD").Value.ToString(),
+                            item.Cell("J").Value.ToString());
+                        list.Add(tamamlanan);
+
+
+                        tamamlananManager.Add(tamamlanan);
+                        satir++;
+
+                        tamamlanan1 = null;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    int satirdegeri = satir;
+                    string sat = item.Cell("E").Value.ToString();
+                    string a = ex.Message;
+                }
+            }
+            MessageBox.Show("Bitti");
 
             #endregion
         }

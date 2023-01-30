@@ -54,7 +54,7 @@ namespace UserInterface.Ana_Sayfa
             IzinList();
             YurtDisiGorevList();
             AracBakimList();
-            Gorunum();
+            //Gorunum();
         }
         void Gorunum()
         {

@@ -132,11 +132,11 @@ namespace UserInterface.STS
             Go.FormBorderStyle = FormBorderStyle.None;
             Go.TopLevel = false;
             Go.AutoScroll = true;
-            OpenTabPage("PageBildirimler", "BİLDİRİM", Go);
+            OpenTabPage("PageBildirimler", "KONTROL", Go);
             Go.Show();
 
-            DosyaControl();
-            //TimerFileRead.Start();
+            BildirimControl(infos[0].ConInt());
+            TimerFileRead.Start();
             ServerAyarlar();
         }
         void ServerAyarlar()
@@ -2160,6 +2160,14 @@ namespace UserInterface.STS
                         form.Yenile();
                     }
                 }
+                if (baslik == "OKF İZLEME")
+                {
+                    var form = (FrmOkfIzleme)Application.OpenForms["FrmOkfIzleme"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
             }
 
         }
@@ -2352,11 +2360,21 @@ namespace UserInterface.STS
             if (e.Node.Text == "OKF Oluştur")
             {
                 FrmOkfOlustrma Go = new FrmOkfOlustrma();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageOKFOlusturma", "OKF OLUŞTUR", Go);
+                Go.Show();
+            }
+            if (e.Node.Text == "OKF İzleme")
+            {
+                FrmOkfIzleme Go = new FrmOkfIzleme();
+                Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageOKFIzleme", "OKF İZLEME", Go);
                 Go.Show();
             }
             if (e.Node.Text == "DTF Oluştur")
@@ -4891,6 +4909,7 @@ namespace UserInterface.STS
         private void duyuruToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmDuyuru frmDuyuru = new FrmDuyuru();
+            frmDuyuru.infos = infos;
             frmDuyuru.ShowDialog();
         }
 
@@ -4978,16 +4997,16 @@ namespace UserInterface.STS
             {
                 webContent.Navigate("");
                 PanelEditClear();
-                TopluTemizle();
-                TıklananListSil("TÜMÜNÜ SİL");
+                //TopluTemizle();
+                BildirimControl(infos[0].ConInt());
             }
             if (array[0] != "TEMİZLE")
             {
                 FrmBildirimPanel frmBildirimPanel = new FrmBildirimPanel();
                 frmBildirimPanel.icerik = metin;
                 frmBildirimPanel.ShowDialog();
-                DosyaSatirSil(metin);
-                TıklananListSil(metin);
+                //DosyaSatirSil(metin);
+                BildirimControl(infos[0].ConInt());
             }
 
         }
@@ -5041,17 +5060,20 @@ namespace UserInterface.STS
 
         public void TıklananListSil(string tiklananMetin)
         {
-            for (int i = 0; i < oncekiBildirimler.Count; i++)
-            {
-                if (oncekiBildirimler[i] == tiklananMetin)
-                {
-                    oncekiBildirimler.RemoveAt(i);
-                }
-                if (tiklananMetin=="TÜMÜNÜ SİL")
-                {
 
-                }
-            }
+
+
+            //for (int i = 0; i < oncekiBildirimler.Count; i++)
+            //{
+            //    if (oncekiBildirimler[i] == tiklananMetin)
+            //    {
+            //        oncekiBildirimler.RemoveAt(i);
+            //    }
+            //    if (tiklananMetin=="TÜMÜNÜ SİL")
+            //    {
+
+            //    }
+            //}
         }
 
 
@@ -5106,9 +5128,9 @@ namespace UserInterface.STS
             }
 
         }
-        public string LogYaz(string baslik, string icerik, string sorumluId)
+        public string LogYaz(string baslik, string icerik, string sorumluId, string benzersizKimlik)
         {
-            Log log = new Log(baslik, icerik, DateTime.Now, infos[1].ToString(), sorumluId);
+            Log log = new Log(baslik, icerik, DateTime.Now, infos[1].ToString(), sorumluId, benzersizKimlik);
             string mesaj = logManager.Add(log);
 
             if (mesaj != "OK")
@@ -5119,68 +5141,119 @@ namespace UserInterface.STS
             return "OK";
         }
 
-        public List<string> oncekiBildirimler = new List<string>();
-        bool metinControl = false;
-
-        public void DosyaControl()
+        List<Log> controlLogs = new List<Log>();
+        public void BildirimControl(int id)
         {
-            return;
-            if (!File.Exists(yol))
-            {
-                TimerFileRead.Stop();
-                MessageBox.Show("Bildirim okuma dosyası bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            List<Log> logs = new List<Log>();
+            List<Log> logs2 = new List<Log>();
+            logs = logManager.GetList(id);
 
-            string icerik = File.ReadAllText(yol);
-            metinControl = false;
-            if (icerik == "")
+            if (logs.Count == 0)
             {
-                return;
-            }
+                webContent.Navigate("");
+                StringBuilder strB = new StringBuilder();
 
-            string[] array = icerik.Split('\n');
-            for (int i = 0; i < array.Length; i++)
+                strB.Append("<center><h2 class='headings'>" + "DTS Bildirim" + "</h2>");
+                strB.Append("<a href='#'>TEMİZLE</a></center>");
+
+                webContent.DocumentText = strB.ToString();
+            }
+            
+            foreach (Log item in controlLogs)
             {
-                string[] arrayIcerik = array[i].ToString().Split(' ');
-                string[] arrayIdler = arrayIcerik[arrayIcerik.Length - 1].ToString().Split(';');
-                for (int j = 0; j < arrayIdler.Length; j++)
+                foreach (Log item2 in logs)
                 {
-                    if (infos[0].ConInt() == arrayIdler[j].ConInt())
+                    if (item.Icerik!=item2.Icerik)
                     {
-                        string bildirimMetin = "";
-                        string baslik = arrayIcerik[0] + " " + arrayIcerik[1] + " " + arrayIcerik[2];
-
-                        for (int k = 3; k < arrayIcerik.Length; k++)
-                        {
-                            if (arrayIcerik.Length - 1 == k)
-                            {
-                                continue;
-                            }
-                            bildirimMetin += arrayIcerik[k] + " ";
-                        }
-
-                        if (oncekiBildirimler != null)
-                        {
-                            foreach (string item in oncekiBildirimler)
-                            {
-                                if (item == bildirimMetin)
-                                {
-                                    metinControl = true;
-                                    return;
-                                }
-                                metinControl = false;
-                            }
-                        }
-
-                        if (metinControl == false)
-                        {
-                            FrmHelper.Bildirim(baslik, "\n" + bildirimMetin, ımageList1.Images["okey.png"], infos[1].ToString(), arrayIcerik[arrayIcerik.Length - 1]);
-                            oncekiBildirimler.Add(bildirimMetin);
-                        }
+                        return;
                     }
                 }
             }
+
+            foreach (Log item in logs)
+            {
+                FrmHelper.Bildirim(item.Baslik, "\n" + item.Icerik, ımageList1.Images["okey.png"], item.Kullainici, item.SorumluId, item.BenzersizKimlik, logs);
+                controlLogs.Add(item);
+            }
+
+            //if (logs2.Count!=0)
+            //{
+            //    foreach (Log item in logs2)
+            //    {
+            //        FrmHelper.Bildirim(item.Baslik, "\n" + item.Icerik, ımageList1.Images["okey.png"], item.Kullainici, item.SorumluId, item.BenzersizKimlik, logs2);
+            //        controlLogs.Add(item);
+            //    }
+            //}
+
+            //else
+            //{
+            //    foreach (Log item in logs)
+            //    {
+            //        FrmHelper.Bildirim(item.Baslik, "\n" + item.Icerik, ımageList1.Images["okey.png"], item.Kullainici, item.SorumluId, item.BenzersizKimlik, logs);
+            //        controlLogs.Add(item);
+            //    }
+            //}
+
+
+
+
+
+            //if (!File.Exists(yol))
+            //{
+            //    TimerFileRead.Stop();
+            //    MessageBox.Show("Bildirim okuma dosyası bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+
+            //string icerik = File.ReadAllText(yol);
+            //metinControl = false;
+            //if (icerik == "")
+            //{
+            //    return;
+            //}
+
+            //string[] array = icerik.Split('\n');
+            //for (int i = 0; i < array.Length; i++)
+            //{
+            //    string[] arrayIcerik = array[i].ToString().Split(' ');
+            //    string[] arrayIdler = arrayIcerik[arrayIcerik.Length - 1].ToString().Split(';');
+            //    for (int j = 0; j < arrayIdler.Length; j++)
+            //    {
+            //        if (infos[0].ConInt() == arrayIdler[j].ConInt())
+            //        {
+            //            string bildirimMetin = "";
+            //            string baslik = arrayIcerik[0] + " " + arrayIcerik[1] + " " + arrayIcerik[2];
+
+            //            for (int k = 3; k < arrayIcerik.Length; k++)
+            //            {
+            //                if (arrayIcerik.Length - 1 == k)
+            //                {
+            //                    continue;
+            //                }
+            //                bildirimMetin += arrayIcerik[k] + " ";
+            //            }
+
+            //            if (oncekiBildirimler != null)
+            //            {
+            //                foreach (string item in oncekiBildirimler)
+            //                {
+            //                    if (item == bildirimMetin)
+            //                    {
+            //                        metinControl = true;
+            //                        return;
+            //                    }
+            //                    metinControl = false;
+            //                }
+            //            }
+
+            //            if (metinControl == false)
+            //            {
+            //                FrmHelper.Bildirim(baslik, "\n" + bildirimMetin, ımageList1.Images["okey.png"], infos[1].ToString(), arrayIcerik[arrayIcerik.Length - 1]);
+            //                oncekiBildirimler.Add(bildirimMetin);
+            //            }
+            //        }
+            //    }
+            //}
         }
 
         private void envanterArızaKayıtToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5202,11 +5275,13 @@ namespace UserInterface.STS
         private void timerOnline_Tick(object sender, EventArgs e)
         {
             PersonelAktif();
+            FrmBildirimler frmBildirimler = (FrmBildirimler)Application.OpenForms["FrmBildirimler"];
+            frmBildirimler.DuyuruEditList();
         }
 
         private void TimerFileRead_Tick(object sender, EventArgs e)
-        {
-            DosyaControl();
+       {
+            BildirimControl(infos[0].ConInt());
         }
 
         

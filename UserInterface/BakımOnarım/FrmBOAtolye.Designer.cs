@@ -92,8 +92,6 @@ namespace UserInterface.BakımOnarım
             this.DtgCekilmeTarihi = new System.Windows.Forms.DateTimePicker();
             this.LblIcSiparisNo = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
-            this.BtnKaydet = new System.Windows.Forms.Button();
-            this.BtnTemizle = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.DtgMalzemeler = new System.Windows.Forms.DataGridView();
             this.label26 = new System.Windows.Forms.Label();
@@ -102,6 +100,9 @@ namespace UserInterface.BakımOnarım
             this.LblDurumAcik = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.BtnTemizle = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnKaydet = new System.Windows.Forms.Button();
             this.TxtBildirilenAriza = new System.Windows.Forms.RichTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -759,30 +760,6 @@ namespace UserInterface.BakımOnarım
             this.label25.TabIndex = 60;
             this.label25.Text = "Malzemenin Çekildiği Tarih:";
             // 
-            // BtnKaydet
-            // 
-            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 711);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(136, 38);
-            this.BtnKaydet.TabIndex = 68;
-            this.BtnKaydet.Text = "KAYDET";
-            this.BtnKaydet.UseVisualStyleBackColor = true;
-            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
-            // BtnTemizle
-            // 
-            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(154, 711);
-            this.BtnTemizle.Name = "BtnTemizle";
-            this.BtnTemizle.Size = new System.Drawing.Size(136, 38);
-            this.BtnTemizle.TabIndex = 69;
-            this.BtnTemizle.Text = "TEMİZLE";
-            this.BtnTemizle.UseVisualStyleBackColor = true;
-            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.DtgMalzemeler);
@@ -857,6 +834,8 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.BtnTemizle);
+            this.tabPage1.Controls.Add(this.BtnKaydet);
             this.tabPage1.Controls.Add(this.TxtBildirilenAriza);
             this.tabPage1.Controls.Add(this.panel2);
             this.tabPage1.Controls.Add(this.LblToplam);
@@ -864,9 +843,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.Controls.Add(this.label1);
             this.tabPage1.Controls.Add(this.label26);
             this.tabPage1.Controls.Add(this.LblDurumAcik);
-            this.tabPage1.Controls.Add(this.BtnTemizle);
             this.tabPage1.Controls.Add(this.TxtAbfFormNo);
-            this.tabPage1.Controls.Add(this.BtnKaydet);
             this.tabPage1.Controls.Add(this.LblDurumKapali);
             this.tabPage1.Controls.Add(this.groupBox4);
             this.tabPage1.Controls.Add(this.BtnBul);
@@ -880,6 +857,45 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.Text = "OTOMATİK KAYIT";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // BtnTemizle
+            // 
+            this.BtnTemizle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTemizle.ImageKey = "broom.png";
+            this.BtnTemizle.ImageList = this.ımageList1;
+            this.BtnTemizle.Location = new System.Drawing.Point(154, 711);
+            this.BtnTemizle.Name = "BtnTemizle";
+            this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
+            this.BtnTemizle.TabIndex = 328;
+            this.BtnTemizle.Text = "   TEMİZLE";
+            this.BtnTemizle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTemizle.UseVisualStyleBackColor = false;
+            this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click_1);
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "broom.png");
+            // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(18, 711);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 327;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // TxtBildirilenAriza
             // 
@@ -1434,8 +1450,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DateTimePicker DtgCekilmeTarihi;
         private System.Windows.Forms.Label LblIcSiparisNo;
         private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Button BtnKaydet;
-        private System.Windows.Forms.Button BtnTemizle;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.DateTimePicker DtgSiparisTarihi;
         private System.Windows.Forms.Label label20;
@@ -1506,5 +1520,8 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Button CmbAtolyeKategori;
         private System.Windows.Forms.ComboBox CmbAtolyeKategoriManuel;
         private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button BtnTemizle;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.Button BtnKaydet;
     }
 }
