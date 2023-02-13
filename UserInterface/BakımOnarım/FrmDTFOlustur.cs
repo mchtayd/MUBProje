@@ -982,37 +982,37 @@ namespace UserInterface.BakımOnarım
                 List<DtfMaliyet> dtfMaliyets = new List<DtfMaliyet>();
                 if (IsTanimiGun1.Text != "")
                 {
-                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun1.Text, mGun1.Text.ConInt(), bGun1.Text, PbGun1.Text, BTutarGun1.Text.ConDouble(), TTutarGun1.Text.ConDouble());
+                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun1.Text, mGun1.Text.ConInt(), bGun1.Text, PbGun1.Text, BTutarGun1.Text.ConDouble(), TTutarGun1.Text.ConDouble(),"DTF");
                     dtfMaliyets.Add(dtfMaliyet);
                 }
                 if (IsTanimiGun2.Text != "")
                 {
-                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun2.Text, mGun2.Text.ConInt(), bGun2.Text, PbGun2.Text, BTutarGun2.Text.ConDouble(), TTutarGun2.Text.ConDouble());
+                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun2.Text, mGun2.Text.ConInt(), bGun2.Text, PbGun2.Text, BTutarGun2.Text.ConDouble(), TTutarGun2.Text.ConDouble(), "DTF");
                     dtfMaliyets.Add(dtfMaliyet);
                 }
                 if (IsTanimiGun3.Text != "")
                 {
-                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun3.Text, mGun3.Text.ConInt(), bGun3.Text, PbGun3.Text, BTutarGun3.Text.ConDouble(), TTutarGun3.Text.ConDouble());
+                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun3.Text, mGun3.Text.ConInt(), bGun3.Text, PbGun3.Text, BTutarGun3.Text.ConDouble(), TTutarGun3.Text.ConDouble(), "DTF");
                     dtfMaliyets.Add(dtfMaliyet);
                 }
                 if (IsTanimiGun4.Text != "")
                 {
-                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun4.Text, mGun4.Text.ConInt(), bGun4.Text, PbGun4.Text, BTutarGun4.Text.ConDouble(), TTutarGun4.Text.ConDouble());
+                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun4.Text, mGun4.Text.ConInt(), bGun4.Text, PbGun4.Text, BTutarGun4.Text.ConDouble(), TTutarGun4.Text.ConDouble(), "DTF");
                     dtfMaliyets.Add(dtfMaliyet);
                 }
                 if (IsTanimiGun5.Text != "")
                 {
-                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun5.Text, mGun5.Text.ConInt(), bGun5.Text, PbGun5.Text, BTutarGun5.Text.ConDouble(), TTutarGun5.Text.ConDouble());
+                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun5.Text, mGun5.Text.ConInt(), bGun5.Text, PbGun5.Text, BTutarGun5.Text.ConDouble(), TTutarGun5.Text.ConDouble(), "DTF");
                     dtfMaliyets.Add(dtfMaliyet);
                 }
                 if (IsTanimiGun6.Text != "")
                 {
-                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun6.Text, mGun6.Text.ConInt(), bGun6.Text, PbGun6.Text, BTutarGun6.Text.ConDouble(), TTutarGun6.Text.ConDouble());
+                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun6.Text, mGun6.Text.ConInt(), bGun6.Text, PbGun6.Text, BTutarGun6.Text.ConDouble(), TTutarGun6.Text.ConDouble(), "DTF");
                     dtfMaliyets.Add(dtfMaliyet);
                 }
                 if (IsTanimiGun7.Text != "")
                 {
-                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun7.Text, mGun7.Text.ConInt(), bGun7.Text, PbGun7.Text, BTutarGun7.Text.ConDouble(), TTutarGun7.Text.ConDouble());
+                    DtfMaliyet dtfMaliyet = new DtfMaliyet(idGun, IsTanimiGun7.Text, mGun7.Text.ConInt(), bGun7.Text, PbGun7.Text, BTutarGun7.Text.ConDouble(), TTutarGun7.Text.ConDouble(), "DTF");
                     dtfMaliyets.Add(dtfMaliyet);
                 }
 
@@ -1228,7 +1228,7 @@ namespace UserInterface.BakımOnarım
 
         void FillTools()
         {
-            dtfMaliyets = dtfMaliyetManager.GetList(idGun);
+            dtfMaliyets = dtfMaliyetManager.GetList(idGun, "DTF");
             if (dtfMaliyets == null)
             {
                 return;
@@ -1559,37 +1559,37 @@ namespace UserInterface.BakımOnarım
             List<DtfMaliyet> dtfMaliyets = new List<DtfMaliyet>();
             if (IsTanimi1.Text!="")
             {
-                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi1.Text, m1.Text.ConInt(), b1.Text, Pb1.Text, BTutar1.Text.ConDouble(), TTutar1.Text.ConDouble());
+                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi1.Text, m1.Text.ConInt(), b1.Text, Pb1.Text, BTutar1.Text.ConDouble(), TTutar1.Text.ConDouble(), "DTF");
                 dtfMaliyets.Add(dtfMaliyet);
             }
             if (IsTanimi2.Text != "")
             {
-                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi2.Text, m2.Text.ConInt(), b2.Text, Pb2.Text, BTutar2.Text.ConDouble(), TTutar2.Text.ConDouble());
+                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi2.Text, m2.Text.ConInt(), b2.Text, Pb2.Text, BTutar2.Text.ConDouble(), TTutar2.Text.ConDouble(), "DTF");
                 dtfMaliyets.Add(dtfMaliyet);
             }
             if (IsTanimi3.Text != "")
             {
-                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi3.Text, m3.Text.ConInt(), b3.Text, Pb3.Text, BTutar3.Text.ConDouble(), TTutar3.Text.ConDouble());
+                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi3.Text, m3.Text.ConInt(), b3.Text, Pb3.Text, BTutar3.Text.ConDouble(), TTutar3.Text.ConDouble(), "DTF");
                 dtfMaliyets.Add(dtfMaliyet);
             }
             if (IsTanimi4.Text != "")
             {
-                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi4.Text, m4.Text.ConInt(), b4.Text, Pb4.Text, BTutar4.Text.ConDouble(), TTutar4.Text.ConDouble());
+                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi4.Text, m4.Text.ConInt(), b4.Text, Pb4.Text, BTutar4.Text.ConDouble(), TTutar4.Text.ConDouble(), "DTF");
                 dtfMaliyets.Add(dtfMaliyet);
             }
             if (IsTanimi5.Text != "")
             {
-                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi5.Text, m5.Text.ConInt(), b5.Text, Pb5.Text, BTutar5.Text.ConDouble(), TTutar5.Text.ConDouble());
+                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi5.Text, m5.Text.ConInt(), b5.Text, Pb5.Text, BTutar5.Text.ConDouble(), TTutar5.Text.ConDouble(), "DTF");
                 dtfMaliyets.Add(dtfMaliyet);
             }
             if (IsTanimi6.Text != "")
             {
-                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi6.Text, m6.Text.ConInt(), b6.Text, Pb6.Text, BTutar6.Text.ConDouble(), TTutar6.Text.ConDouble());
+                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi6.Text, m6.Text.ConInt(), b6.Text, Pb6.Text, BTutar6.Text.ConDouble(), TTutar6.Text.ConDouble(), "DTF");
                 dtfMaliyets.Add(dtfMaliyet);
             }
             if (IsTanimi7.Text != "")
             {
-                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi7.Text, m7.Text.ConInt(), b7.Text, Pb7.Text, BTutar7.Text.ConDouble(), TTutar7.Text.ConDouble());
+                DtfMaliyet dtfMaliyet = new DtfMaliyet(id, IsTanimi7.Text, m7.Text.ConInt(), b7.Text, Pb7.Text, BTutar7.Text.ConDouble(), TTutar7.Text.ConDouble(), "DTF");
                 dtfMaliyets.Add(dtfMaliyet);
             }
             foreach (DtfMaliyet item in dtfMaliyets)

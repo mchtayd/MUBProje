@@ -97,7 +97,7 @@ namespace UserInterface.BakımOnarım
 
             foreach (Dtf item in dtfsTamamlanan)
             {
-                dtfMaliyets2 = dtfMaliyetManager.GetList(item.Id);
+                dtfMaliyets2 = dtfMaliyetManager.GetList(item.Id, "DTF");
                 ToplamlarList();
                 dtfsTamamlanan[sayac].ToplamTutar = genelToplma;
                 sayac++;
@@ -245,7 +245,7 @@ namespace UserInterface.BakımOnarım
         }
         void FillTools()
         {
-            dtfMaliyets = dtfMaliyetManager.GetList(id);
+            dtfMaliyets = dtfMaliyetManager.GetList(id, "DTF");
             if (dtfMaliyets == null)
             {
                 DtgMaliyet.DataSource = null;

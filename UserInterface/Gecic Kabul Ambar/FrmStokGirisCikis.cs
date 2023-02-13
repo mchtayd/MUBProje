@@ -643,15 +643,17 @@ namespace UserInterface.Depo
 
                         string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen
                         string depoNoCekilen2 = item.Cells["Column7"].Value.ToString(); // çekilen
+                        string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
+                        string cekilenDepoLokasyon = item.Cells["Column9"].Value.ToString(); // çekilen depo lokasyon
 
                         DepoMiktar depo2 = depoMiktarManager.Get(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon);
                         cekilenMiktar = depo2.Miktar - miktar;
 
-                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
+                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
                         depoMiktarManager.Update(depoDusulen);
 
 
-                        DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
+                        DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
                         depoMiktarManager.Update(depoCekilen);
 
                         if (cekilenMiktar==0)
@@ -677,8 +679,9 @@ namespace UserInterface.Depo
                         mevcutMiktar = depo2.Miktar;
                         mevcutMiktar = mevcutMiktar - miktar;
                         string depoNoCekilen = item.Cells["Column7"].Value.ToString(); // çekilen depo
+                        string cekilenDepoLokasyon = item.Cells["Column9"].Value.ToString(); // çekilen depo lokasyon
 
-                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoCekilen, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
+                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoCekilen, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen);
 
                         if (mevcutMiktar == 0)
@@ -704,8 +707,9 @@ namespace UserInterface.Depo
 
                         mevcutMiktar = +miktar;
                         string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen depo
+                        string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
 
-                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
+                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen);
 
 

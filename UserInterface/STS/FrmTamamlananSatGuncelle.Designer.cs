@@ -101,6 +101,7 @@ namespace UserInterface.STS
             this.Controls.Add(this.panel1);
             this.Name = "FrmTamamlananSatGuncelle";
             this.Text = "FrmTamamlananSatGuncelle";
+            this.Load += new System.EventHandler(this.FrmTamamlananSatGuncelle_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).EndInit();

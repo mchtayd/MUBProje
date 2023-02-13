@@ -705,7 +705,7 @@ namespace UserInterface.STS
                         }
                     }*/
 
-                    satDataGridview1Manager.TeklifDurum(siparisNo, yol,"");
+                    satDataGridview1Manager.TeklifDurum(siparisNo, yol, "SAT ONAY BAŞARAN");
 
                     yapilanislem = "FİRMALARIN FİYAT TEKLİFLERİ KAYDEDİLDİ.";
 
@@ -881,7 +881,7 @@ namespace UserInterface.STS
         }
         void SatListLoad()//Sayfa 3 Soldaki Datagrid
         {
-            satListWaiting = satDataGridview1Manager.TekifDurumListele("Gönderildi", "Onaylandı", ucteklif, "BELIRTILDI", "");
+            satListWaiting = satDataGridview1Manager.SatTeklifList();
             binderSatWaiting.DataSource = satListWaiting.ToDataTable();
             DtgSatList.DataSource = binderSatWaiting;
             DataDisplayDtgSatList();
@@ -2482,8 +2482,6 @@ namespace UserInterface.STS
                 fiyatTeklifiAlManager.UpdateTekifDurum(siparisNo);
                 satDataGridview1Manager.SatFirmaBilgisiGuncelle(siparisNo);
 
-                MessageBox.Show("Bilgileri Başarıyla Kaydedildi.");
-
                 islem = "SAT İÇİN ÜÇ FİRMA BELİRLENDİ.";
                 islemyapan = infos[1].ToString();
                 SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, islem, islemyapan, DateTime.Now);
@@ -2497,6 +2495,8 @@ namespace UserInterface.STS
                 malzemesayisi = 0;
                 TedarikciFirmaName();
                 TxtTop.Text = DtgTeklifAl.RowCount.ToString();
+
+                MessageBox.Show("Bilgileri Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 

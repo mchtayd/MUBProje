@@ -637,6 +637,17 @@ namespace Business.Concreate
                 return new List<SatDataGridview1>();
             }
         }
+        public List<SatDataGridview1> SatTeklifList()
+        {
+            try
+            {
+                return satDataGridview1Dal.SatTeklifList();
+            }
+            catch
+            {
+                return new List<SatDataGridview1>();
+            }
+        }
         public List<SatDataGridview1> MailList(string mailDurumu)
         {
             try

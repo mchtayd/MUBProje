@@ -47,11 +47,11 @@ namespace Business.Concreate.BakimOnarim
             throw new NotImplementedException();
         }
 
-        public List<DtfMaliyet> GetList(int benzserizId)
+        public List<DtfMaliyet> GetList(int benzserizId, string sayfa)
         {
             try
             {
-                return dtfMaliyetDal.GetList(benzserizId);
+                return dtfMaliyetDal.GetList(benzserizId, sayfa);
             }
             catch (Exception)
             {

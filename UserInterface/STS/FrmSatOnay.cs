@@ -805,8 +805,6 @@ namespace UserInterface.STS
             //    toplamlar = +item.Btf;
             //}
 
-            webBrowser2.Navigate(dosyayolu);
-
             Gerek.Text = gerekce;
 
             if (satOlusturmaTuru== "HARCAMASI YAPILAN")
@@ -819,38 +817,131 @@ namespace UserInterface.STS
                 DtgMalzList.Columns["Birim"].Visible = false;
                 DtgMalzList.Columns["Siparisno"].Visible = false;
                 DtgMalzList.Columns["Tutar"].HeaderText = "HARCANAN TUTAR";
+                CmbOnaylanacakTeklif.Enabled = false;
+                CmbOnaylanacakTeklif.SelectedIndex = 0;
 
                 ToplamlarHarcamasiYapilan();
                 LblTop2.Text = DtgMalzList.RowCount.ToString();
             }
             else
             {
-                Teklifler();
+                if (ucteklif==0)
+                {
+                    Teklifler();
+                    CmbOnaylanacakTeklif.Enabled = false;
+                    CmbOnaylanacakTeklif.SelectedIndex = 0;
+                }
+                else
+                {
+                    UcTeklif();
+                    CmbOnaylanacakTeklif.Enabled = true;
+                    CmbOnaylanacakTeklif.SelectedIndex = -1;
+                }
+                
+            }
+
+            try
+            {
+                webBrowser2.Navigate(dosyayolu);
+            }
+            catch (Exception)
+            {
+                return;
             }
 
         }
 
         void Teklifler()
         {
+            if (fiyatTeklifiAls.Count!=0)
+            {
+                DtgMalzList.DataSource = fiyatTeklifiAls;
+                DtgMalzList.Columns["Stokno"].Visible = true;
+                DtgMalzList.Columns["Tanim"].Visible = true;
+                DtgMalzList.Columns["Miktar"].Visible = true;
+                DtgMalzList.Columns["Birim"].Visible = true;
+
+                DtgMalzList.Columns["Id"].Visible = false;
+                DtgMalzList.Columns["Stokno"].HeaderText = "STOK NO";
+                DtgMalzList.Columns["Tanim"].HeaderText = "TANIM";
+                DtgMalzList.Columns["Miktar"].HeaderText = "MİKTAR";
+                DtgMalzList.Columns["Birim"].HeaderText = "BİRİM";
+                DtgMalzList.Columns["Firma1"].HeaderText = "FİRMA ADI";
+                DtgMalzList.Columns["Firma2"].Visible = false;
+                DtgMalzList.Columns["Firma3"].Visible = false;
+                DtgMalzList.Columns["Siparisno"].Visible = false;
+                DtgMalzList.Columns["Teklifdurumu"].Visible = false;
+                DtgMalzList.Columns["Bbf"].HeaderText = "BİRİM FİYATI";
+                DtgMalzList.Columns["Btf"].HeaderText = "TOPLAM FİYAT";
+                DtgMalzList.Columns["Ibf"].Visible = false;
+                DtgMalzList.Columns["Itf"].Visible = false;
+                DtgMalzList.Columns["Ubf"].Visible = false;
+                DtgMalzList.Columns["Utf"].Visible = false;
+                DtgMalzList.Columns["Onaylananteklif"].Visible = false;
+                Toplamlar();
+            }
+            else
+            {
+                DtgMalzList.DataSource = teklifsizSats;
+                DtgMalzList.Columns["Id"].Visible = false;
+                DtgMalzList.Columns["Stokno"].HeaderText = "STOK NO";
+                DtgMalzList.Columns["Tanim"].HeaderText = "TANIM";
+                DtgMalzList.Columns["Miktar"].HeaderText = "MİKTAR";
+                DtgMalzList.Columns["Birim"].HeaderText = "BİRİM";
+                DtgMalzList.Columns["Siparisno"].Visible = false;
+                DtgMalzList.Columns["Tutar"].HeaderText = "TUTAR";
+                ToplamlarTeklifsiz();
+            }
+
+            
+
+            LblTop2.Text = DtgMalzList.RowCount.ToString();
+            
+        }
+        void UcTeklif()
+        {
             DtgMalzList.DataSource = fiyatTeklifiAls;
+
+
+            DtgMalzList.Columns["Stokno"].Visible = true;
+            DtgMalzList.Columns["Tanim"].Visible = true;
+            DtgMalzList.Columns["Miktar"].Visible = true;
+            DtgMalzList.Columns["Birim"].Visible = true;
 
             DtgMalzList.Columns["Id"].Visible = false;
             DtgMalzList.Columns["Stokno"].HeaderText = "STOK NO";
             DtgMalzList.Columns["Tanim"].HeaderText = "TANIM";
             DtgMalzList.Columns["Miktar"].HeaderText = "MİKTAR";
             DtgMalzList.Columns["Birim"].HeaderText = "BİRİM";
-            DtgMalzList.Columns["Firma1"].HeaderText = "FİRMA ADI";
-            DtgMalzList.Columns["Firma2"].Visible = false;
-            DtgMalzList.Columns["Firma3"].Visible = false;
+            DtgMalzList.Columns["Firma1"].HeaderText = "1. FİRMA ADI";
+            DtgMalzList.Columns["Firma2"].HeaderText = "2. FİRMA ADI";
+            DtgMalzList.Columns["Firma3"].HeaderText = "3. FİRMA ADI";
             DtgMalzList.Columns["Siparisno"].Visible = false;
             DtgMalzList.Columns["Teklifdurumu"].Visible = false;
-            DtgMalzList.Columns["Bbf"].HeaderText = "BİRİM FİYATI";
-            DtgMalzList.Columns["Btf"].HeaderText = "TOPLAM FİYAT";
-            DtgMalzList.Columns["Ibf"].Visible = false;
-            DtgMalzList.Columns["Itf"].Visible = false;
-            DtgMalzList.Columns["Ubf"].Visible = false;
-            DtgMalzList.Columns["Utf"].Visible = false;
+            DtgMalzList.Columns["Bbf"].HeaderText = "1. BİRİM FİYATI";
+            DtgMalzList.Columns["Btf"].HeaderText = "1. TOPLAM FİYAT";
+            DtgMalzList.Columns["Ibf"].HeaderText = "2. BİRİM FİYATI";
+            DtgMalzList.Columns["Itf"].HeaderText = "2. TOPLAM FİYAT";
+            DtgMalzList.Columns["Ubf"].HeaderText = "3. BİRİM FİYATI";
+            DtgMalzList.Columns["Utf"].HeaderText = "3. TOPLAM FİYAT";
             DtgMalzList.Columns["Onaylananteklif"].Visible = false;
+
+            DtgMalzList.Columns["Stokno"].DisplayIndex = 0;
+            DtgMalzList.Columns["Tanim"].DisplayIndex = 1;
+            DtgMalzList.Columns["Miktar"].DisplayIndex = 2;
+            DtgMalzList.Columns["Birim"].DisplayIndex = 3;
+            DtgMalzList.Columns["Firma1"].DisplayIndex = 4;
+            DtgMalzList.Columns["Firma2"].DisplayIndex = 7;
+            DtgMalzList.Columns["Firma3"].DisplayIndex = 10;
+            DtgMalzList.Columns["Siparisno"].Visible = false;
+            DtgMalzList.Columns["Teklifdurumu"].Visible = false;
+            DtgMalzList.Columns["Bbf"].DisplayIndex = 5;
+            DtgMalzList.Columns["Btf"].DisplayIndex = 6;
+            DtgMalzList.Columns["Ibf"].DisplayIndex = 8;
+            DtgMalzList.Columns["Itf"].DisplayIndex = 9;
+            DtgMalzList.Columns["Ubf"].DisplayIndex = 11;
+            DtgMalzList.Columns["Utf"].DisplayIndex = 12;
+
 
             LblTop2.Text = DtgMalzList.RowCount.ToString();
             Toplamlar();
@@ -861,6 +952,16 @@ namespace UserInterface.STS
             for (int i = 0; i < DtgMalzList.Rows.Count; ++i)
             {
                 toplam += Convert.ToDouble(DtgMalzList.Rows[i].Cells["Btf"].Value);
+
+            }
+            LblGenelTop.Text = toplam.ToString("C2");
+        }
+        void ToplamlarTeklifsiz()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgMalzList.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgMalzList.Rows[i].Cells["Tutar"].Value);
 
             }
             LblGenelTop.Text = toplam.ToString("C2");
@@ -2411,6 +2512,11 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen Öncelikle Bir Kayıt Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (CmbOnaylanacakTeklif.Text=="")
+            {
+                MessageBox.Show("Lütfen öncelikle onayladığınız teklifi seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT için Teklifi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
@@ -2494,8 +2600,8 @@ namespace UserInterface.STS
                             satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Alım Yapılacak Direktörlük", "ALIMI BEKLEYEN SAT");
                         }
                     }
-
-                    satDataGridview1Manager.OnaylananTeklif(siparisNo, 1);
+                    string[] teklif = CmbOnaylanacakTeklif.Text.Split('.');
+                    satDataGridview1Manager.OnaylananTeklif(siparisNo, teklif[0].ConInt());
                     onaydurum = "Onaylandı.";
                     yapilanislem = "TEKLİF ONAYLANDI.";
                     islmeyapan = infos[1].ToString();
@@ -2517,7 +2623,7 @@ namespace UserInterface.STS
                 MalzemeList();
                 SatDataGrid1();
                 TxtTop.Text = DtgOnay.RowCount.ToString();
-
+                CmbOnaylanacakTeklif.SelectedIndex = -1;
             }
         }
 

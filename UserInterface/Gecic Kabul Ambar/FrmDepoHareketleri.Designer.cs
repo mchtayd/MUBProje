@@ -145,6 +145,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.Size = new System.Drawing.Size(1527, 727);
             this.DtgList.TabIndex = 0;
             this.DtgList.TimeFilter = false;
+            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
+            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             // 
             // label31
             // 

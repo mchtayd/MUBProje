@@ -31,7 +31,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@birim", entity.Birim),
                     new SqlParameter("@pBirimi", entity.PBirimi),
                     new SqlParameter("@birimTutar", entity.BirimTutar),
-                    new SqlParameter("@toplamTutar", entity.ToplamTutar));
+                    new SqlParameter("@toplamTutar", entity.ToplamTutar),
+                    new SqlParameter("@sayfa", entity.Sayfa));
 
                 dataReader.Close();
                 return "OK";
@@ -61,12 +62,12 @@ namespace DataAccess.Concreate.BakimOnarim
             throw new NotImplementedException();
         }
 
-        public List<DtfMaliyet> GetList(int benzersizId)
+        public List<DtfMaliyet> GetList(int benzersizId, string sayfa)
         {
             try
             {
                 List<DtfMaliyet> dtfMaliyets = new List<DtfMaliyet>();
-                dataReader = sqlServices.StoreReader("DtfYaklasikMaliyetList", new SqlParameter("@benzersizId", benzersizId));
+                dataReader = sqlServices.StoreReader("DtfYaklasikMaliyetList", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@sayfa", sayfa));
                 while (dataReader.Read())
                 {
                     dtfMaliyets.Add(new DtfMaliyet(
@@ -77,7 +78,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["BIRIM"].ToString(),
                         dataReader["P_BIRIMI"].ToString(),
                         dataReader["BIRIM_TUTAR"].ConDouble(),
-                        dataReader["TOPLAM_TUTAR"].ConDouble()));
+                        dataReader["TOPLAM_TUTAR"].ConDouble(),
+                        dataReader["SAYFA"].ToString()));
                 }
                 dataReader.Close();
                 return dtfMaliyets;

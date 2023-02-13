@@ -31,7 +31,7 @@ namespace UserInterface.IdariIsler
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIzin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnGuncelle = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnTemizle = new System.Windows.Forms.Button();
@@ -40,6 +40,20 @@ namespace UserInterface.IdariIsler
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.DtgList = new System.Windows.Forms.DataGridView();
+            this.IzinKategori = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IzinTuru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AdiSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonelSiparis = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Unvani = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.MasYeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bolumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.IzinNedeni = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BaslamaTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BaslamaSaati = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BitisTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BitisSaati = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TSure = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.CmbDokumanTuru = new System.Windows.Forms.ComboBox();
@@ -115,20 +129,6 @@ namespace UserInterface.IdariIsler
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
-            this.IzinKategori = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IzinTuru = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AdiSoyadi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PersonelSiparis = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Unvani = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.MasYeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Bolumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.IzinNedeni = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BaslamaTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BaslamaSaati = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BitisTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BitisSaati = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TSure = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BtnGuncelle.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -236,7 +236,7 @@ namespace UserInterface.IdariIsler
             this.groupBox5.Controls.Add(this.DtgList);
             this.groupBox5.Location = new System.Drawing.Point(8, 344);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(1313, 249);
+            this.groupBox5.Size = new System.Drawing.Size(1408, 249);
             this.groupBox5.TabIndex = 341;
             this.groupBox5.TabStop = false;
             // 
@@ -265,9 +265,114 @@ namespace UserInterface.IdariIsler
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.Size = new System.Drawing.Size(1307, 230);
+            this.DtgList.Size = new System.Drawing.Size(1402, 230);
             this.DtgList.TabIndex = 1;
             this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
+            // 
+            // IzinKategori
+            // 
+            this.IzinKategori.HeaderText = "İZİN KATEGORİ";
+            this.IzinKategori.Name = "IzinKategori";
+            this.IzinKategori.ReadOnly = true;
+            this.IzinKategori.Width = 102;
+            // 
+            // IzinTuru
+            // 
+            this.IzinTuru.HeaderText = "İZİN TÜRÜ";
+            this.IzinTuru.Name = "IzinTuru";
+            this.IzinTuru.ReadOnly = true;
+            this.IzinTuru.Width = 80;
+            // 
+            // AdiSoyadi
+            // 
+            this.AdiSoyadi.HeaderText = "ADI SOYADI";
+            this.AdiSoyadi.Name = "AdiSoyadi";
+            this.AdiSoyadi.ReadOnly = true;
+            this.AdiSoyadi.Width = 86;
+            // 
+            // PersonelSiparis
+            // 
+            this.PersonelSiparis.HeaderText = "SİPARİS NO";
+            this.PersonelSiparis.Name = "PersonelSiparis";
+            this.PersonelSiparis.ReadOnly = true;
+            this.PersonelSiparis.Width = 86;
+            // 
+            // Unvani
+            // 
+            this.Unvani.HeaderText = "ÜNVANI";
+            this.Unvani.Name = "Unvani";
+            this.Unvani.ReadOnly = true;
+            this.Unvani.Width = 73;
+            // 
+            // MasYeriNo
+            // 
+            this.MasYeriNo.HeaderText = "MASRAF YERİ NO";
+            this.MasYeriNo.Name = "MasYeriNo";
+            this.MasYeriNo.ReadOnly = true;
+            this.MasYeriNo.Width = 98;
+            // 
+            // Bolumu
+            // 
+            this.Bolumu.HeaderText = "BÖLÜMÜ";
+            this.Bolumu.Name = "Bolumu";
+            this.Bolumu.ReadOnly = true;
+            this.Bolumu.Width = 78;
+            // 
+            // IzinNedeni
+            // 
+            this.IzinNedeni.HeaderText = "İZİN NEDENİ";
+            this.IzinNedeni.Name = "IzinNedeni";
+            this.IzinNedeni.ReadOnly = true;
+            this.IzinNedeni.Width = 89;
+            // 
+            // BaslamaTarihi
+            // 
+            this.BaslamaTarihi.HeaderText = "BAŞLAMA TARİHİ";
+            this.BaslamaTarihi.Name = "BaslamaTarihi";
+            this.BaslamaTarihi.ReadOnly = true;
+            this.BaslamaTarihi.Width = 111;
+            // 
+            // BaslamaSaati
+            // 
+            this.BaslamaSaati.HeaderText = "BAŞLAMA SAATİ";
+            this.BaslamaSaati.Name = "BaslamaSaati";
+            this.BaslamaSaati.ReadOnly = true;
+            this.BaslamaSaati.Width = 106;
+            // 
+            // BitisTarihi
+            // 
+            this.BitisTarihi.HeaderText = "BİTİŞ TARİHİ";
+            this.BitisTarihi.Name = "BitisTarihi";
+            this.BitisTarihi.ReadOnly = true;
+            this.BitisTarihi.Width = 90;
+            // 
+            // BitisSaati
+            // 
+            this.BitisSaati.HeaderText = "BİTİŞ SAATİ";
+            this.BitisSaati.Name = "BitisSaati";
+            this.BitisSaati.ReadOnly = true;
+            this.BitisSaati.Width = 86;
+            // 
+            // TSure
+            // 
+            this.TSure.HeaderText = "TOPLAM SURE";
+            this.TSure.Name = "TSure";
+            this.TSure.ReadOnly = true;
+            // 
+            // Remove
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.Name = "Remove";
+            this.Remove.ReadOnly = true;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.UseColumnTextForButtonValue = true;
+            this.Remove.Width = 52;
             // 
             // groupBox3
             // 
@@ -296,7 +401,7 @@ namespace UserInterface.IdariIsler
             "GÜNLÜK İZİN",
             "OFİS PERSONELİ",
             "SAHA PERSONELİ"});
-            this.CmbDokumanTuru.Location = new System.Drawing.Point(572, 26);
+            this.CmbDokumanTuru.Location = new System.Drawing.Point(572, 13);
             this.CmbDokumanTuru.Name = "CmbDokumanTuru";
             this.CmbDokumanTuru.Size = new System.Drawing.Size(227, 21);
             this.CmbDokumanTuru.TabIndex = 18;
@@ -306,7 +411,7 @@ namespace UserInterface.IdariIsler
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(443, 30);
+            this.label20.Location = new System.Drawing.Point(443, 17);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(123, 13);
             this.label20.TabIndex = 17;
@@ -416,7 +521,7 @@ namespace UserInterface.IdariIsler
             this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnEkle.Image")));
             this.BtnEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnEkle.Location = new System.Drawing.Point(138, 197);
+            this.BtnEkle.Location = new System.Drawing.Point(144, 192);
             this.BtnEkle.Name = "BtnEkle";
             this.BtnEkle.Size = new System.Drawing.Size(76, 33);
             this.BtnEkle.TabIndex = 341;
@@ -1029,111 +1134,6 @@ namespace UserInterface.IdariIsler
             // openFileDialog3
             // 
             this.openFileDialog3.FileName = "openFileDialog1";
-            // 
-            // IzinKategori
-            // 
-            this.IzinKategori.HeaderText = "İZİN KATEGORİ";
-            this.IzinKategori.Name = "IzinKategori";
-            this.IzinKategori.ReadOnly = true;
-            this.IzinKategori.Width = 102;
-            // 
-            // IzinTuru
-            // 
-            this.IzinTuru.HeaderText = "İZİN TÜRÜ";
-            this.IzinTuru.Name = "IzinTuru";
-            this.IzinTuru.ReadOnly = true;
-            this.IzinTuru.Width = 80;
-            // 
-            // AdiSoyadi
-            // 
-            this.AdiSoyadi.HeaderText = "ADI SOYADI";
-            this.AdiSoyadi.Name = "AdiSoyadi";
-            this.AdiSoyadi.ReadOnly = true;
-            this.AdiSoyadi.Width = 86;
-            // 
-            // PersonelSiparis
-            // 
-            this.PersonelSiparis.HeaderText = "SİPARİS NO";
-            this.PersonelSiparis.Name = "PersonelSiparis";
-            this.PersonelSiparis.ReadOnly = true;
-            this.PersonelSiparis.Width = 86;
-            // 
-            // Unvani
-            // 
-            this.Unvani.HeaderText = "ÜNVANI";
-            this.Unvani.Name = "Unvani";
-            this.Unvani.ReadOnly = true;
-            this.Unvani.Width = 73;
-            // 
-            // MasYeriNo
-            // 
-            this.MasYeriNo.HeaderText = "MASRAF YERİ NO";
-            this.MasYeriNo.Name = "MasYeriNo";
-            this.MasYeriNo.ReadOnly = true;
-            this.MasYeriNo.Width = 98;
-            // 
-            // Bolumu
-            // 
-            this.Bolumu.HeaderText = "BÖLÜMÜ";
-            this.Bolumu.Name = "Bolumu";
-            this.Bolumu.ReadOnly = true;
-            this.Bolumu.Width = 78;
-            // 
-            // IzinNedeni
-            // 
-            this.IzinNedeni.HeaderText = "İZİN NEDENİ";
-            this.IzinNedeni.Name = "IzinNedeni";
-            this.IzinNedeni.ReadOnly = true;
-            this.IzinNedeni.Width = 89;
-            // 
-            // BaslamaTarihi
-            // 
-            this.BaslamaTarihi.HeaderText = "BAŞLAMA TARİHİ";
-            this.BaslamaTarihi.Name = "BaslamaTarihi";
-            this.BaslamaTarihi.ReadOnly = true;
-            this.BaslamaTarihi.Width = 111;
-            // 
-            // BaslamaSaati
-            // 
-            this.BaslamaSaati.HeaderText = "BAŞLAMA SAATİ";
-            this.BaslamaSaati.Name = "BaslamaSaati";
-            this.BaslamaSaati.ReadOnly = true;
-            this.BaslamaSaati.Width = 106;
-            // 
-            // BitisTarihi
-            // 
-            this.BitisTarihi.HeaderText = "BİTİŞ TARİHİ";
-            this.BitisTarihi.Name = "BitisTarihi";
-            this.BitisTarihi.ReadOnly = true;
-            this.BitisTarihi.Width = 90;
-            // 
-            // BitisSaati
-            // 
-            this.BitisSaati.HeaderText = "BİTİŞ SAATİ";
-            this.BitisSaati.Name = "BitisSaati";
-            this.BitisSaati.ReadOnly = true;
-            this.BitisSaati.Width = 86;
-            // 
-            // TSure
-            // 
-            this.TSure.HeaderText = "TOPLAM SURE";
-            this.TSure.Name = "TSure";
-            this.TSure.ReadOnly = true;
-            // 
-            // Remove
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Remove.HeaderText = "KALDIR";
-            this.Remove.Name = "Remove";
-            this.Remove.ReadOnly = true;
-            this.Remove.Text = "X";
-            this.Remove.ToolTipText = "X";
-            this.Remove.UseColumnTextForButtonValue = true;
-            this.Remove.Width = 52;
             // 
             // FrmIzin
             // 

@@ -2168,6 +2168,14 @@ namespace UserInterface.STS
                         form.DataDisplay();
                     }
                 }
+                if (baslik == "KAYITLI MALZEMELERİ GÖRÜNTÜLE")
+                {
+                    var form = (FrmMalzemeKayitIzleme)Application.OpenForms["FrmMalzemeKayitIzleme"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
             }
 
         }
@@ -2536,15 +2544,15 @@ namespace UserInterface.STS
                 OpenTabPage("PageSatKontrol", "SAT KONTROL", Go);
                 Go.Show();
 
-                /*FrmSatOnOnay Go = new FrmSatOnOnay();
-                Go.infos = infos;
-                Go.FormBorderStyle = FormBorderStyle.None;
-                Go.TopLevel = false;
-                Go.AutoScroll = true;
-                OpenTabPage("PageSatOnOnay", "SAT ÖN ONAY", Go);
-                Go.Show();*/
+                //FrmSatOnOnay Go = new FrmSatOnOnay();
+                //Go.infos = infos;
+                //Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.TopLevel = false;
+                //Go.AutoScroll = true;
+                //OpenTabPage("PageSatOnOnay", "SAT ÖN ONAY", Go);
+                //Go.Show();
             }
-            if (e.Node.Text == "SAT Harcanan Yapılan")
+            if (e.Node.Text == "SAT Harcaması Yapılan")
             {
                 FrmHarcamasiYapilanSat Go = new FrmHarcamasiYapilanSat();
                 Go.infos = infos;
@@ -2554,13 +2562,13 @@ namespace UserInterface.STS
                 OpenTabPage("PageHarcamasıYapilan", "HARCAMASI YAPILAN SAT", Go);
                 Go.Show();
 
-                /*FrmSatBaslatmaOnayi Go = new FrmSatBaslatmaOnayi();
-                Go.infos = infos;
-                Go.FormBorderStyle = FormBorderStyle.None;
-                Go.TopLevel = false;
-                Go.AutoScroll = true;
-                OpenTabPage("PageSatBaslatma", "SAT BAŞLATMA ONAYI", Go);
-                Go.Show();*/
+                //FrmSatBaslatmaOnayi Go = new FrmSatBaslatmaOnayi();
+                //Go.infos = infos;
+                //Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.TopLevel = false;
+                //Go.AutoScroll = true;
+                //OpenTabPage("PageSatBaslatma", "SAT BAŞLATMA ONAYI", Go);
+                //Go.Show();
             }
             if (e.Node.Text == "SAT Tamamla")
             {
@@ -3215,7 +3223,7 @@ namespace UserInterface.STS
             {
                 FrmDepoDusum Go = new FrmDepoDusum();
                 Go.infos = infos;
-                Go.ShowDialog();
+                Go.Show();
             }
             if (e.Node.Text == "Depo Stok Görüntüle İzleme")
             {
@@ -3224,7 +3232,7 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageStokGoruntule", "STOK GÖRÜNTÜLE", Go);
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.Show();
             }
             if (e.Node.Text == "Depo Kayıtlı Malzemeler")
@@ -3234,7 +3242,7 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageKayitliMalzemeler", "KAYITLI MALZEMELERİ GÖRÜNTÜLE", Go);
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.Show();
             }
 
@@ -4402,7 +4410,7 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageStokGoruntule", "STOK GÖRÜNTÜLE", Go);
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.Show();
             }
             if (e.Node.Name == "KayitliMalzemeler")
@@ -5341,6 +5349,12 @@ namespace UserInterface.STS
             frmIzinOnay.AutoScroll = true;
             OpenTabPage("PageIzinOnay", "İZİN ONAY", frmIzinOnay);
             frmIzinOnay.Show();
+        }
+
+        private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEtiketYaz frmEtiketYaz = new FrmEtiketYaz();
+            frmEtiketYaz.ShowDialog();
         }
 
         private void bİLDİRİMLERToolStripMenuItem_Click(object sender, EventArgs e)

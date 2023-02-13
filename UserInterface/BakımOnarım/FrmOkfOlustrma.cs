@@ -287,6 +287,7 @@ namespace UserInterface.BakımOnarım
             {
                 DtgMalzemeList.Rows.RemoveAt(e.RowIndex);
             }
+            Toplamlar();
         }
 
         string TopFiyatHesapla(string a, string b)
@@ -368,7 +369,7 @@ namespace UserInterface.BakımOnarım
 
                 foreach (DataGridViewRow item in DtgMalzemeList.Rows)
                 {
-                    DtfMaliyet dtfMaliyet = new DtfMaliyet(id, item.Cells["StokNo"].Value.ToString() + "|" + item.Cells["Tanimm"].Value.ToString(), item.Cells["Miktar"].Value.ConInt(), item.Cells["Birim"].Value.ToString(), item.Cells["PBirim"].Value.ToString(), item.Cells["BirimTutar"].Value.ConDouble(), item.Cells["ToplamTutar"].Value.ConDouble());
+                    DtfMaliyet dtfMaliyet = new DtfMaliyet(id, item.Cells["StokNo"].Value.ToString() + "|" + item.Cells["Tanimm"].Value.ToString(), item.Cells["Miktar"].Value.ConInt(), item.Cells["Birim"].Value.ToString(), item.Cells["PBirim"].Value.ToString(), item.Cells["BirimTutar"].Value.ConDouble(), item.Cells["ToplamTutar"].Value.ConDouble(), "OKF");
 
                     string mesaj2 = dtfMaliyetManager.Add(dtfMaliyet);
                     if (mesaj2 != "OK")
@@ -438,6 +439,7 @@ namespace UserInterface.BakımOnarım
             wBookmarks["UstTanim"].Range.Text = CmbTanim.Text;
             wBookmarks["UstStok"].Range.Text = TxtStokNo.Text;
             wBookmarks["UstSeri"].Range.Text = TxtSeriNo.Text;
+            wBookmarks["BildirilenAriza"].Range.Text = TxtBildirilenAriza.Text;
             if (RdbKesin.Checked==true)
             {
                 wBookmarks["ArizaNedenKesin"].Range.Text = TxtArizaNedeni.Text;

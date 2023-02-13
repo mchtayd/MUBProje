@@ -170,11 +170,11 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string Update(Malzeme entity)
+        public string Update(Malzeme entity, string eskiStok)
         {
             try
             {
-                return malzemeDal.Update(entity);
+                return malzemeDal.Update(entity, eskiStok);
             }
             catch (Exception ex)
             {

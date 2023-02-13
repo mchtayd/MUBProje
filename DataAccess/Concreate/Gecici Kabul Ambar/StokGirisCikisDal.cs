@@ -52,11 +52,11 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string Delete(int id)
+        public string Delete(string stokNo, string seriNo, string lotNo)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("StokGirisCikisSil",new SqlParameter("@id",id));
+                dataReader = sqlServices.StoreReader("StokGirisCikisSil", new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@lotNo", lotNo));
                 dataReader.Close();
                 return "OK";
             }
@@ -259,6 +259,43 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
+        public List<StokGirisCıkıs> GetListEdit(string stokNo, string seriNo, string lotNo)
+        {
+            try
+            {
+                List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
+                dataReader = sqlServices.StoreReader("StokGirisCikisEditList", new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@lotNo", lotNo));
+                while (dataReader.Read())
+                {
+                    stokGirisCıkıs.Add(new StokGirisCıkıs(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ISLEM_TURU"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["ISLEM_TARIH"].ConDate(),
+                        dataReader["CEKILEN_DEPO"].ToString(),
+                        dataReader["CEKILEN_DEPO_ADRESI"].ToString(),
+                        dataReader["CEKILEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_DEPO"].ToString(),
+                        dataReader["DUSULEN_DEPO_ADRESI"].ToString(),
+                        dataReader["DUSULEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_MIKTAR"].ConInt(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString()));
+                }
+                dataReader.Close();
+                return stokGirisCıkıs;
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
+
         public List<StokGirisCıkıs> AtolyeDepoHareketleri(string abfSiparisNo)
         {
             try
@@ -318,6 +355,29 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@aciklama", entity.Aciklama),
                     new SqlParameter("@serino", entity.Serino),
                     new SqlParameter("@lotno", entity.Lotno),
+                    new SqlParameter("@revizyon", entity.Revizyon));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdateEdit(StokGirisCıkıs entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("StokGirisCikisEdit",
+                    new SqlParameter("@stokNo", entity.Stokno),
+                    new SqlParameter("@islemTarihi", entity.IslemTarihi),
+                    new SqlParameter("@dusulenDepoNo", entity.DusulenDepoNo),
+                    new SqlParameter("@depoAdres", entity.DusulenDepoAdresi),
+                    new SqlParameter("@depoLokasyon", entity.DusulenMalzemeYeri),
+                    new SqlParameter("@miktar", entity.DusulenMiktar),
+                    new SqlParameter("@aciklama", entity.Aciklama),
+                    new SqlParameter("@seriNo", entity.Serino),
+                    new SqlParameter("@lotNo", entity.Lotno),
                     new SqlParameter("@revizyon", entity.Revizyon));
                 dataReader.Close();
                 return "OK";

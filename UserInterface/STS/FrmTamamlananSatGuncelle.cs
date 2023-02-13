@@ -16,5 +16,10 @@ namespace UserInterface.STS
         {
             InitializeComponent();
         }
+
+        private void FrmTamamlananSatGuncelle_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -766,7 +766,7 @@ namespace UserInterface.STS
                 mesaj = teklifsizSatManager.Add(item);
             }
 
-            satDataGridview1Manager.TeklifDurum(siparisNo, dosyayolu, "");
+            satDataGridview1Manager.TeklifDurum(siparisNo, dosyayolu, "SAT ONAY BAŞARAN");
 
             if (mesaj != "OK")
             {

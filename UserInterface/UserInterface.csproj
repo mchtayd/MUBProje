@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>495</ApplicationRevision>
+    <ApplicationRevision>509</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -210,6 +210,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmDuyuru.Designer.cs">
       <DependentUpon>FrmDuyuru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmEtiketYaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmEtiketYaz.Designer.cs">
+      <DependentUpon>FrmEtiketYaz.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmHesapOlustur.cs">
       <SubType>Form</SubType>
@@ -505,6 +511,12 @@
     <Compile Include="Ana Sayfa\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="BakımOnarım\FrmOkfGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfGuncelle.Designer.cs">
+      <DependentUpon>FrmOkfGuncelle.cs</DependentUpon>
+    </Compile>
     <Compile Include="BakımOnarım\FrmOkfIzleme.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -673,6 +685,12 @@
     <Compile Include="Gecic Kabul Ambar\FrmMalzemeAciklama.Designer.cs">
       <DependentUpon>FrmMalzemeAciklama.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeGuncelle.Designer.cs">
+      <DependentUpon>FrmMalzemeGuncelle.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -726,6 +744,12 @@
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayit.Designer.cs">
       <DependentUpon>FrmMalzemeKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmStokMiktarEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmStokMiktarEdit.Designer.cs">
+      <DependentUpon>FrmStokMiktarEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmUstTakimEkle.cs">
       <SubType>Form</SubType>
@@ -1377,6 +1401,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmDuyuru.resx">
       <DependentUpon>FrmDuyuru.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmEtiketYaz.resx">
+      <DependentUpon>FrmEtiketYaz.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmHesapOlustur.resx">
       <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
     </EmbeddedResource>
@@ -1524,6 +1551,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmOkfGuncelle.resx">
+      <DependentUpon>FrmOkfGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmOkfIzleme.resx">
       <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
     </EmbeddedResource>
@@ -1608,6 +1638,9 @@
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeAciklama.resx">
       <DependentUpon>FrmMalzemeAciklama.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeGuncelle.resx">
+      <DependentUpon>FrmMalzemeGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.resx">
       <DependentUpon>FrmMalzemeHazirlama.cs</DependentUpon>
     </EmbeddedResource>
@@ -1634,6 +1667,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeKayit.resx">
       <DependentUpon>FrmMalzemeKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmStokMiktarEdit.resx">
+      <DependentUpon>FrmStokMiktarEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmUstTakimEkle.resx">
       <DependentUpon>FrmUstTakimEkle.cs</DependentUpon>

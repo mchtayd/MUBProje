@@ -317,6 +317,7 @@ namespace UserInterface.STS
             this.BtnCancel = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -343,6 +344,7 @@ namespace UserInterface.STS
             this.groupBox9.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -1591,7 +1593,6 @@ namespace UserInterface.STS
             // 
             // Usbolgesi
             // 
-            this.Usbolgesi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.Usbolgesi.FormattingEnabled = true;
             this.Usbolgesi.Location = new System.Drawing.Point(116, 24);
             this.Usbolgesi.Name = "Usbolgesi";
@@ -3423,6 +3424,7 @@ namespace UserInterface.STS
             this.groupBox9.PerformLayout();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3709,5 +3711,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label82;
         private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.BindingSource dataBinder2;
     }
 }

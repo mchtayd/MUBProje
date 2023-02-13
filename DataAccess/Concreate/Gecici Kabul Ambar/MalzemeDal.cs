@@ -104,7 +104,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
         {
             try
             {
-                dataReader = sqlServices.StoreReader("DepoMalzemeList", new SqlParameter("@id", id));
+                dataReader = sqlServices.StoreReader("DepoMalzemeGetList", new SqlParameter("@id", id));
                 Malzeme item = null;
                 while (dataReader.Read())
                 {
@@ -366,7 +366,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string Update(Malzeme entity)
+        public string Update(Malzeme entity, string eskiStok)
         {
             try
             {
@@ -381,11 +381,12 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@parcaSinifi", entity.ParcaSinifi),
                     new SqlParameter("@alternatifParca", entity.AlternatifParca),
                     new SqlParameter("@aciklama", entity.Aciklama),
-                    new SqlParameter("@dosyaYolu", entity.DosyaYolu),
                     new SqlParameter("@sistemStokNo", entity.SistemStokNo),
                     new SqlParameter("@sistemTanim", entity.SistemTanimi),
                     new SqlParameter("@sistemSorumlusu", entity.SistemSorumlusu),
-                    new SqlParameter("@islemYapan", entity.IslemYapan));
+                    new SqlParameter("@islemYapan", entity.IslemYapan),
+                    new SqlParameter("@eskiStok", eskiStok),
+                    new SqlParameter("@takipDurumu", entity.TakipDurumu));
 
                 dataReader.Close();
                 return "OK";

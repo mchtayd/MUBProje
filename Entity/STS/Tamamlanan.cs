@@ -148,5 +148,32 @@ namespace Entity.STS
             this.kesilenFaturaTarihi = kesilenFaturaTarihi;
             this.butceGiderTuru = butceGiderTuru;
         }
+
+        public Tamamlanan(int id, string usbolgesi, string abfform, DateTime istenentarih, string gerekce, string butcekodukalemi, string satbirim, string harcamaturu, string faturaedilecekfirma, string ilgilikisi, string masrafyerino, string belgeturu, string belgenumarasi, DateTime belgetarihi, string donem, string proje, string satinAlinanFirma, string harcamaYapan, string butceTanimi, string maliyetTuru, string firmayaKesilenFatura, string kesilenFaturaTarihi, string butceGiderTuru)
+        {
+            this.id = id;
+            this.usbolgesi = usbolgesi;
+            this.abfform = abfform;
+            this.istenentarih = istenentarih;
+            this.gerekce = gerekce;
+            this.butcekodukalemi = butcekodukalemi;
+            this.satbirim = satbirim;
+            this.harcamaturu = harcamaturu;
+            this.faturaedilecekfirma = faturaedilecekfirma;
+            this.ilgilikisi = ilgilikisi;
+            this.masrafyerino = masrafyerino;
+            this.belgeturu = belgeturu;
+            this.belgenumarasi = belgenumarasi;
+            this.belgetarihi = belgetarihi;
+            this.donem = donem;
+            this.proje = proje;
+            this.satinAlinanFirma = satinAlinanFirma;
+            this.harcamaYapan = harcamaYapan;
+            this.butceTanimi = butceTanimi;
+            this.maliyetTuru = maliyetTuru;
+            this.firmayaKesilenFatura = firmayaKesilenFatura;
+            this.kesilenFaturaTarihi = kesilenFaturaTarihi;
+            this.butceGiderTuru = butceGiderTuru;
+        }
     }
 }

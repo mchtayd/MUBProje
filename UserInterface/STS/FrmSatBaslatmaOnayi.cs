@@ -518,7 +518,7 @@ namespace UserInterface.STS
                     satIslemAdimlariManager.Add(satIslem);
                 }*/
 
-                islemAdimi = "TEKLİF";
+                islemAdimi = "FİYAT TEKLİFİ AL";
                 dataGridview1 = null;
                 
                 dataGridview1 = new SatDataGridview1(satNo, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, CmbIlgiliKisi.Text, CmbMasYeri.Text, siparisNo, uctekilf, hedefdosya, islemAdimi);

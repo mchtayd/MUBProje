@@ -4,6 +4,7 @@ using DataAccess.Concreate.STS;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -38,7 +39,14 @@ namespace Business.Concreate.STS
 
         public Tamamlanan Get(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return tamamlananDal.Get(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<Tamamlanan> GetList(int yil)
@@ -158,6 +166,8 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
+
+
         public string ProjeDuzelt(string proje, int id)
         {
             try
@@ -169,6 +179,21 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
+
+
+        public string Update(Tamamlanan entity)
+        {
+            try
+            {
+               return tamamlananDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+
         public static TamamlananManager GetInstance()
         {
             if (tamamlananManager == null)

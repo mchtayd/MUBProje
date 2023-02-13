@@ -253,10 +253,23 @@ namespace UserInterface.STS
         }
         void DataDisplay()
         {
-            DtgStokList.Columns["Id"].Visible = false;
-            DtgStokList.Columns["Stokno"].HeaderText = "STOK NO";
-            DtgStokList.Columns["Tanim"].HeaderText = "TANIM";
-            DtgStokList.Columns["Birim"].HeaderText = "BİRİM";
+            if (CmbMalzemeTuru.Text!="KİMYASAL ÜRÜNLER")
+            {
+                DtgStokList.Columns["Id"].Visible = false;
+                DtgStokList.Columns["Dosyayolu"].Visible = false;
+                DtgStokList.Columns["Stokno"].HeaderText = "STOK NO";
+                DtgStokList.Columns["Tanim"].HeaderText = "TANIM";
+                DtgStokList.Columns["Birim"].HeaderText = "BİRİM";
+
+            }
+            else
+            {
+                DtgStokList.Columns["Id"].Visible = false;
+                DtgStokList.Columns["Stokno"].HeaderText = "STOK NO";
+                DtgStokList.Columns["Tanim"].HeaderText = "TANIM";
+                DtgStokList.Columns["Birim"].HeaderText = "BİRİM";
+            }
+            
         }
 
         private void TxtStokArama_TextChanged(object sender, EventArgs e)
@@ -752,16 +765,16 @@ namespace UserInterface.STS
                     MessageBox.Show("Lütfen Öncelikle Dönem Bilgisini Eksiksiz Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (Usbolgesi.Text == "")
-                {
-                    MessageBox.Show("Lütfen Öncelikle Üs Blgesi Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                if (BildirimFromNo.Text == "")
-                {
-                    MessageBox.Show("Lütfen Öncelikle Arıza Bildirim Numarasını Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (Usbolgesi.Text == "")
+                //{
+                //    MessageBox.Show("Lütfen Öncelikle Üs Blgesi Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
+                //if (BildirimFromNo.Text == "")
+                //{
+                //    MessageBox.Show("Lütfen Öncelikle Arıza Bildirim Numarasını Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
                 string control = MalzemeControl();
                 if (control != "OK")
                 {
@@ -1013,8 +1026,8 @@ namespace UserInterface.STS
 
                 destekDepoAmbars = ambarManager.GetList();
                 ambarFiltired = destekDepoAmbars;
-                dataBinder.DataSource = destekDepoAmbars.ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = destekDepoAmbars.ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
                 DataDisplay();
             }
@@ -1023,8 +1036,8 @@ namespace UserInterface.STS
 
                 cayOcagis = cayOcagiManager.GetList();
                 cayOcagiFiltired = cayOcagis;
-                dataBinder.DataSource = cayOcagis.ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = cayOcagis.ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
                 DataDisplay();
             }
@@ -1033,8 +1046,8 @@ namespace UserInterface.STS
 
                 elAletleris = elAletleriManager.GetList();
                 elAletleriFiltired = elAletleris;
-                dataBinder.DataSource = elAletleris.ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = elAletleris.ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
                 DataDisplay();
             }
@@ -1043,8 +1056,8 @@ namespace UserInterface.STS
 
                 destekDepoIs = isGiysiManager.GetList();
                 isgiysiFiltired = destekDepoIs;
-                dataBinder.DataSource = destekDepoIs.ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = destekDepoIs.ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
                 DataDisplay();
             }
@@ -1053,8 +1066,8 @@ namespace UserInterface.STS
 
                 kirtasiyes = kirtasiyeManager.GetList();
                 kirtasiyeFiltired = kirtasiyes;
-                dataBinder.DataSource = kirtasiyes.ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kirtasiyes.ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
                 DataDisplay();
             }
@@ -1063,8 +1076,8 @@ namespace UserInterface.STS
 
                 kKDs = kKDManager.GetList();
                 kkdFiltired = kKDs;
-                dataBinder.DataSource = kKDs.ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kKDs.ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
                 DataDisplay();
             }
@@ -1073,8 +1086,8 @@ namespace UserInterface.STS
 
                 temizlikUrunleris = temizlikUrunleriManager.GetList();
                 temizlikUrunleriFitired = temizlikUrunleris;
-                dataBinder.DataSource = temizlikUrunleris.ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = temizlikUrunleris.ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
                 DataDisplay();
             }
@@ -1083,8 +1096,8 @@ namespace UserInterface.STS
 
                 kimyasalUrunlers = kimyasalUrunlerManager.GetList();
                 kimyasalUrunlersFitired = kimyasalUrunlers;
-                dataBinder.DataSource = kimyasalUrunlers.ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kimyasalUrunlers.ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
                 DataDisplay();
             }
@@ -1098,8 +1111,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(stokno))
                 {
                     ambarFiltired = destekDepoAmbars;
-                    dataBinder.DataSource = destekDepoAmbars.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = destekDepoAmbars.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1107,8 +1120,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = ambarFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = ambarFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 ambarFiltired = destekDepoAmbars;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1117,8 +1130,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(stokno))
                 {
                     cayOcagiFiltired = cayOcagis;
-                    dataBinder.DataSource = cayOcagis.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = cayOcagis.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1126,8 +1139,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = cayOcagiFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = cayOcagiFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 cayOcagiFiltired = cayOcagis;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1136,8 +1149,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(stokno))
                 {
                     elAletleriFiltired = elAletleris;
-                    dataBinder.DataSource = elAletleris.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = elAletleris.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1145,8 +1158,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = elAletleriFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = elAletleriFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 elAletleriFiltired = elAletleris;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1155,8 +1168,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(stokno))
                 {
                     isgiysiFiltired = destekDepoIs;
-                    dataBinder.DataSource = destekDepoIs.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = destekDepoIs.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1164,8 +1177,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = isgiysiFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = isgiysiFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 isgiysiFiltired = destekDepoIs;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1174,8 +1187,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(stokno))
                 {
                     kirtasiyeFiltired = kirtasiyes;
-                    dataBinder.DataSource = kirtasiyes.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = kirtasiyes.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1183,8 +1196,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = kirtasiyeFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kirtasiyeFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 kirtasiyeFiltired = kirtasiyes;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1193,8 +1206,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(stokno))
                 {
                     kkdFiltired = kKDs;
-                    dataBinder.DataSource = kKDs.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = kKDs.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1202,8 +1215,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = kkdFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kkdFiltired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 kkdFiltired = kKDs;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1212,8 +1225,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(stokno))
                 {
                     temizlikUrunleriFitired = temizlikUrunleris;
-                    dataBinder.DataSource = temizlikUrunleris.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = temizlikUrunleris.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1221,8 +1234,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = temizlikUrunleriFitired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = temizlikUrunleriFitired.Where(x => x.Stokno.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 temizlikUrunleriFitired = temizlikUrunleris;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1231,8 +1244,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(stokno))
                 {
                     kimyasalUrunlersFitired = kimyasalUrunlers;
-                    dataBinder.DataSource = kimyasalUrunlers.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = kimyasalUrunlers.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1240,8 +1253,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = kimyasalUrunlersFitired.Where(x => x.StokNo.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kimyasalUrunlersFitired.Where(x => x.StokNo.ToLower().Contains(stokno.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 kimyasalUrunlersFitired = kimyasalUrunlers;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1255,8 +1268,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(tanim))
                 {
                     ambarFiltired = destekDepoAmbars;
-                    dataBinder.DataSource = destekDepoAmbars.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = destekDepoAmbars.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1264,8 +1277,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = ambarFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = ambarFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 ambarFiltired = destekDepoAmbars;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1274,8 +1287,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(tanim))
                 {
                     cayOcagiFiltired = cayOcagis;
-                    dataBinder.DataSource = cayOcagis.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = cayOcagis.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1283,8 +1296,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = cayOcagiFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = cayOcagiFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 cayOcagiFiltired = cayOcagis;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1293,8 +1306,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(tanim))
                 {
                     elAletleriFiltired = elAletleris;
-                    dataBinder.DataSource = elAletleris.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = elAletleris.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1302,8 +1315,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = elAletleriFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = elAletleriFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 elAletleriFiltired = elAletleris;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1312,8 +1325,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(tanim))
                 {
                     isgiysiFiltired = destekDepoIs;
-                    dataBinder.DataSource = destekDepoIs.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = destekDepoIs.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1321,8 +1334,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = isgiysiFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = isgiysiFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 isgiysiFiltired = destekDepoIs;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1331,8 +1344,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(tanim))
                 {
                     kirtasiyeFiltired = kirtasiyes;
-                    dataBinder.DataSource = kirtasiyes.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = kirtasiyes.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1340,8 +1353,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = kirtasiyeFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kirtasiyeFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 kirtasiyeFiltired = kirtasiyes;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1350,8 +1363,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(tanim))
                 {
                     kkdFiltired = kKDs;
-                    dataBinder.DataSource = kKDs.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = kKDs.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1359,8 +1372,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = kkdFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kkdFiltired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 kkdFiltired = kKDs;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1369,8 +1382,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(tanim))
                 {
                     temizlikUrunleriFitired = temizlikUrunleris;
-                    dataBinder.DataSource = temizlikUrunleris.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = temizlikUrunleris.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1378,8 +1391,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = temizlikUrunleriFitired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = temizlikUrunleriFitired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 temizlikUrunleriFitired = temizlikUrunleris;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }
@@ -1388,8 +1401,8 @@ namespace UserInterface.STS
                 if (string.IsNullOrEmpty(tanim))
                 {
                     kimyasalUrunlersFitired = kimyasalUrunlers;
-                    dataBinder.DataSource = kimyasalUrunlers.ToDataTable();
-                    DtgStokList.DataSource = dataBinder;
+                    dataBinder2.DataSource = kimyasalUrunlers.ToDataTable();
+                    DtgStokList.DataSource = dataBinder2;
                     LblTopStokList.Text = DtgStokList.RowCount.ToString();
                     return;
                 }
@@ -1397,8 +1410,8 @@ namespace UserInterface.STS
                 {
                     return;
                 }
-                dataBinder.DataSource = kimyasalUrunlersFitired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
-                DtgStokList.DataSource = dataBinder;
+                dataBinder2.DataSource = kimyasalUrunlersFitired.Where(x => x.Tanim.ToLower().Contains(tanim.ToLower())).ToList().ToDataTable();
+                DtgStokList.DataSource = dataBinder2;
                 kimyasalUrunlersFitired = kimyasalUrunlers;
                 LblTopStokList.Text = DtgStokList.RowCount.ToString();
             }

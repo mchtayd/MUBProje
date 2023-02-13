@@ -115,5 +115,16 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             DataDisplay();
         }
+
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgList.FilterString;
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort= DtgList.SortString;
+        }
     }
 }

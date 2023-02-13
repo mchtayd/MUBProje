@@ -1484,6 +1484,7 @@ namespace UserInterface.STS
             this.groupBox3.TabIndex = 578;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "PROJE VE FİRMA GÜNCELLE";
+            this.groupBox3.Visible = false;
             // 
             // label1
             // 

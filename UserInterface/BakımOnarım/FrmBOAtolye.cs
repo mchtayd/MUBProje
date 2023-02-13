@@ -87,7 +87,8 @@ namespace UserInterface.BakımOnarım
             IcSiparisNo();
             AtolyeKategoriOto();
             AtolyeKategorManuel();
-            
+            CmbIslemAdimi.Text = "400-GÖZ DENETİMİ (TEKNİK SERVİS)";
+            CmbIslemAdimiManuel.Text = "400-GÖZ DENETİMİ (TEKNİK SERVİS)";
             start = false;
         }
         void Don()
@@ -597,7 +598,7 @@ namespace UserInterface.BakımOnarım
                     {
                         siparisNo = Guid.NewGuid().ToString();
 
-                        Atolye atolye2 = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", IcSiparisler[i].ToString(), DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, DosyaYollari[i].ToString(), CmbAtolyeKategoriManuel.Text);
+                        Atolye atolye2 = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", IcSiparisler[i].ToString(), DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, "", CmbAtolyeKategoriManuel.Text);
 
                         atolyeManager.Add(atolye2);
 
@@ -608,7 +609,7 @@ namespace UserInterface.BakımOnarım
                 else
                 {
                     siparisNo = Guid.NewGuid().ToString();
-                    Atolye atolye = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", LblIcSiparisManuel.Text, DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, dosya, CmbAtolyeKategoriManuel.Text);
+                    Atolye atolye = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", LblIcSiparisManuel.Text, DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, "", CmbAtolyeKategoriManuel.Text);
 
                     SiparisNos.Add(siparisNo);
                     atolyeManager.Add(atolye);
@@ -880,7 +881,7 @@ namespace UserInterface.BakımOnarım
 
 
                         Atolye atolye2 = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, IcSiparisler[i].ToString(), DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
-                            DosyaYollari[i].ToString(), CmbAtolyeKategoriOto.Text);
+                            "", CmbAtolyeKategoriOto.Text);
 
                         atolyeManager.Add(atolye2);
 
@@ -892,7 +893,7 @@ namespace UserInterface.BakımOnarım
                 {
                     siparisNo = Guid.NewGuid().ToString();
                     Atolye atolye = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, LblIcSiparisNo.Text, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
-                        dosya, CmbAtolyeKategoriOto.Text);
+                        "", CmbAtolyeKategoriOto.Text);
 
                     SiparisNos.Add(siparisNo);
                     atolyeManager.Add(atolye);
@@ -912,7 +913,6 @@ namespace UserInterface.BakımOnarım
                         atolyeMalzemeManager.Add(atolyeMalzeme);
                         sayac++;
                     }
-
 
                 }
 

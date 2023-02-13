@@ -76,6 +76,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label11 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BtnStokDuzelt = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnTedarikTürüEkle = new System.Windows.Forms.Button();
             this.CmbTedarikTuru = new System.Windows.Forms.ComboBox();
@@ -103,7 +104,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label20 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.BtnStokDuzelt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -247,19 +247,20 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(404, 778);
+            this.BtnGuncelle.Location = new System.Drawing.Point(528, 778);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(118, 32);
             this.BtnGuncelle.TabIndex = 14;
             this.BtnGuncelle.Text = "GÜNCELLE";
             this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Visible = false;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // BtnTemizle
             // 
             this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(651, 778);
+            this.BtnTemizle.Location = new System.Drawing.Point(404, 778);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(118, 32);
             this.BtnTemizle.TabIndex = 16;
@@ -271,12 +272,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSil.Location = new System.Drawing.Point(527, 778);
+            this.BtnSil.Location = new System.Drawing.Point(651, 778);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(118, 32);
             this.BtnSil.TabIndex = 15;
             this.BtnSil.Text = "SİL";
             this.BtnSil.UseVisualStyleBackColor = true;
+            this.BtnSil.Visible = false;
             this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
             // label16
@@ -608,6 +610,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tabPage2.Text = "PARÇA";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // BtnStokDuzelt
+            // 
+            this.BtnStokDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnStokDuzelt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnStokDuzelt.Location = new System.Drawing.Point(1023, 778);
+            this.BtnStokDuzelt.Name = "BtnStokDuzelt";
+            this.BtnStokDuzelt.Size = new System.Drawing.Size(118, 32);
+            this.BtnStokDuzelt.TabIndex = 346;
+            this.BtnStokDuzelt.Text = "Stok Düzelt";
+            this.BtnStokDuzelt.UseVisualStyleBackColor = true;
+            this.BtnStokDuzelt.Visible = false;
+            this.BtnStokDuzelt.Click += new System.EventHandler(this.BtnStokDuzelt_Click);
+            // 
             // button1
             // 
             this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -786,7 +801,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.tanim.Name = "tanim";
             this.tanim.ReadOnly = true;
             this.tanim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.tanim.Width = 123;
+            this.tanim.Width = 124;
             // 
             // label12
             // 
@@ -910,19 +925,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.textBox2.Size = new System.Drawing.Size(154, 21);
             this.textBox2.TabIndex = 4;
             this.textBox2.Visible = false;
-            // 
-            // BtnStokDuzelt
-            // 
-            this.BtnStokDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnStokDuzelt.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnStokDuzelt.Location = new System.Drawing.Point(1023, 778);
-            this.BtnStokDuzelt.Name = "BtnStokDuzelt";
-            this.BtnStokDuzelt.Size = new System.Drawing.Size(118, 32);
-            this.BtnStokDuzelt.TabIndex = 346;
-            this.BtnStokDuzelt.Text = "Stok Düzelt";
-            this.BtnStokDuzelt.UseVisualStyleBackColor = true;
-            this.BtnStokDuzelt.Visible = false;
-            this.BtnStokDuzelt.Click += new System.EventHandler(this.BtnStokDuzelt_Click);
             // 
             // FrmMalzemeKayit
             // 

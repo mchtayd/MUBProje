@@ -117,11 +117,87 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <metadata name="YapilacakIslemler.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Remove.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="YapilacakIslemler.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Remove.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="BtnEkle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAItJREFUSEvt
+        lEsKgDAMBbvT8/rZq8fxWh5E34DZdWGtBNEMDASRPAi8piB4G60cTpndWOR+OvPBi1VaMLMbEezG94Lp
+        JpVhac5NWjBz7h+kakU9H6UtrrWXl+FFyi25Y1Ew5+FMufPh1VNPspGPwVILZnYjgt34XzBVs2Aq4wY9
+        52Ho5KM9DYJKUjoA8t9vC1ea6m0AAAAASUVORK5CYII=
+</value>
+  </data>
+  <metadata name="StokNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Tanimm.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Miktar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Birim.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PBirim.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="BirimTutar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ToplamTutar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Remove2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="StokNo.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Tanimm.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Miktar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Birim.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="PBirim.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="BirimTutar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="ToplamTutar.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="Remove2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="BtnEkleMlz.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAItJREFUSEvt
+        lEsKgDAMBbvT8/rZq8fxWh5E34DZdWGtBNEMDASRPAi8piB4G60cTpndWOR+OvPBi1VaMLMbEezG94Lp
+        JpVhac5NWjBz7h+kakU9H6UtrrWXl+FFyi25Y1Ew5+FMufPh1VNPspGPwVILZnYjgt34XzBVs2Aq4wY9
+        52Ho5KM9DYJKUjoA8t9vC1ea6m0AAAAASUVORK5CYII=
+</value>
+  </data>
   <data name="BtnGuncelle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAA
-        4wAAAOMBD+bfpwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPRSURBVFhHtZdf
+        5AAAAOQBXaJ52AAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAAPRSURBVFhHtZdf
         bFNlGMZfvGAuGOVCIAEvNHqhoDGYXRGJemHwQjEm6hV3znjDjYpXYmIoAXHJCJCg0I0iRZas3aJb05B1
         sWP/MiDIBJe4jckitpuDtWvpn230nMeH00/ac3a6U+r6JL+ec77ved4359/XVsoVbkktxmUHRqWRDGBM
         JkiKLJAZMkSO0/M+fpM1Kla+MCyv4prcwHV5XQ0ZYrH15ADnEgRlkmTmO/KMKuMsXJZvcInhSzLGs6gB
@@ -141,14 +217,27 @@
         Pc5/Rg2J/Au2EbVVM4vNQQAAAABJRU5ErkJggg==
 </value>
   </data>
-  <data name="button1.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnSil.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
-        iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DAAACwwBP0AiyAAAAOlJREFUOE/N0r9twkAYhnHXCSEjwABIKRkBUSSIFWAGkJLBYAeQoAtMECBdCkgT
-        BM/jcNKB/9AhXukn2efvO5/Pl9xlqhhiih1+MccHnlGaFlY4FFijjdz0sIeFn3jFAx5P1wv4zJo+ztJB
-        3Jy3VMfiSexJU8cPfCDfZrrYoJHe/cemUGePvcn4NBC4bGOz9028OEAqiGvtzUzgN5tvhDE3z1xOMELh
-        J7hcV2FzPBbq7KkhTbyJblTRJi5hjbVvOIu/8Q9hEid1yfI6bs78xhAP0hcszFN6kEKeMMAEW3icZ3jH
-        1aN86yTJETO2WzBdCrGtAAAAAElFTkSuQmCC
+        iVBORw0KGgoAAAANSUhEUgAAACoAAAAqCAYAAADFw8lbAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8
+        YQUAAAQcSURBVFhH7ZfvT1NXGMdJfLM/QF/MhPa2g7b3B0od0AJqUpoYDKhQClH7IwKl0ooQbOntVXBW
+        FDemy7JNhW3JNLrpJprNP0ITgWUvtiXyD2wDiRFfaILJ43mup82lvRIop8Yl/SbfpJx7zud8Ofec06cl
+        RRVV1HsmjhMcBk4a48zip2j8bDKJNfTx+yOjSfyb48SDBpPQjsbPRrP4F3387sVxNo4zSxEDJ8pak6D/
+        raUNxyKD4gojskqV2yp3zUci55f7By5CPsaxyEAWxbIRx3EfGM1SE75OXnTOjY/fgxs3ZjdkZCALmcjG
+        Oeh0+UuU6mZaWsPPff74C39AftUTTsF6HT12Aa5dn4beyDm4dOm+2oYsZBL2kiA5H9Hp8peVr1nCSfRW
+        hoWRTeZ4RqfLX2JF3ago1T61f+x6uqPK/ZylkYlssaI+RafbuMr56n+PnrgCndGLII/e3ZCPRD+H3thV
+        sPDV/1A8O1kFx1wkNgmHulK6k6/HRwcvQ5/8PViFmjmKZydecj6MxCbA60vqTr4e44pG4xPAS7UPKJ6d
+        bGLdb6HjX4LncCIzoZL4bkWA1aztG/vkNnQTFi/W/krx7GQRHJOB8FgmqBIdh8uuFog3BiCZupMJkW18
+        hn2+aTigjsE2ZPh7xvDVT1A8O5VZ7Kc7gsOZoMkzP0PS7YWZ1iMQ3+vXDauGJM+wD/bFMdiOjI7gKfio
+        3D5C8exEvrdD+zsGl7WvPjnyE8gkwKynk6zaYZDPTmWFDMB0ayfIDR6QR25mniFjf/uJZaNJ6qZ4duI4
+        vmXPvvCSNqjq0z/mhF0tJBoZe5pDS6Q0PEDx7FRqEnbtdh96khMUTcJqt4H2dav/SFZ/ZOx2H3xiMIs7
+        KZ6djEaJr65vntcNiqYr+4enS3WyoY1sjdyQaGRU1TWTCqrCRvHsVFZm37J9h2ve61dgKPVLzuT4uof2
+        +uBPb7dq/Kx3wIbIgfIGTsI2u2t+q8WymeJZqn0TufcWfaFR6FeurZhc3ZPkCnrzuslKEqvbQOfq6ld+
+        AF/3ObxDF5FJ4Wxl4WsWuvq+APyGWhEy++BoDhiurKwJ2zt4BZCBLIplLywiEtlXUHolyZ5ccbqzbwMa
+        NjzwNRxLfFuYgiQtG+943K9ch9DAV2rIWOPqpxvb0rcB9k1vg8Hhm2ATHI8plr2wMOklxUQbOVBK5DOY
+        aux4e8i0adg7pC+OwbZofLIwBUla2sIkeYasTvAkKCO3csNlGfskgsqbMeTvghUkaZGadEJbmORrWpBc
+        pVj2wiJCW5jka1qQDFMsexlMYrCp7fhLPEx6AdbqJk/fS2RRLHuVllq3kn26gD9J9AKsxXgHk9/0C0Yj
+        /yHFFkYGy/adNtH5e7mtajEf2wTnrMFaWU9xRRVVVFH/b5WUvAbBVlmAe5bB8gAAAABJRU5ErkJggg==
 </value>
   </data>
 </root>

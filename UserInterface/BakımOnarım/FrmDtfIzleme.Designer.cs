@@ -30,9 +30,8 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -60,12 +59,6 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan = new ADGV.AdvancedDataGridView();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderTamamlanan = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.webBrowser3 = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -80,9 +73,6 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderTamamlanan)).BeginInit();
-            this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
-            this.groupBox7.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -121,12 +111,8 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage1
             // 
-            this.tabPage1.Controls.Add(this.groupBox7);
-            this.tabPage1.Controls.Add(this.label6);
             this.tabPage1.Controls.Add(this.groupBox2);
-            this.tabPage1.Controls.Add(this.label5);
             this.tabPage1.Controls.Add(this.label31);
-            this.tabPage1.Controls.Add(this.groupBox6);
             this.tabPage1.Controls.Add(this.TxtTop);
             this.tabPage1.Controls.Add(this.groupBox1);
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
@@ -190,8 +176,8 @@ namespace UserInterface.BakımOnarım
             this.DtgDevamEden.AllowUserToAddRows = false;
             this.DtgDevamEden.AllowUserToDeleteRows = false;
             this.DtgDevamEden.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.DtgDevamEden.AutoGenerateContextFilters = true;
             this.DtgDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -366,8 +352,8 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan.AllowUserToAddRows = false;
             this.DtgTamamlanan.AllowUserToDeleteRows = false;
             this.DtgTamamlanan.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTamamlanan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTamamlanan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
             this.DtgTamamlanan.AutoGenerateContextFilters = true;
             this.DtgTamamlanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTamamlanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -384,78 +370,6 @@ namespace UserInterface.BakımOnarım
             this.DtgTamamlanan.SortStringChanged += new System.EventHandler(this.DtgTamamlanan_SortStringChanged);
             this.DtgTamamlanan.FilterStringChanged += new System.EventHandler(this.DtgTamamlanan_FilterStringChanged);
             this.DtgTamamlanan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgTamamlanan_CellMouseClick);
-            // 
-            // groupBox6
-            // 
-            this.groupBox6.Controls.Add(this.advancedDataGridView1);
-            this.groupBox6.Location = new System.Drawing.Point(9, 6);
-            this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(1518, 516);
-            this.groupBox6.TabIndex = 316;
-            this.groupBox6.TabStop = false;
-            // 
-            // advancedDataGridView1
-            // 
-            this.advancedDataGridView1.AllowUserToAddRows = false;
-            this.advancedDataGridView1.AllowUserToDeleteRows = false;
-            this.advancedDataGridView1.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.advancedDataGridView1.AutoGenerateContextFilters = true;
-            this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView1.Cursor = System.Windows.Forms.Cursors.Default;
-            this.advancedDataGridView1.DateWithTime = false;
-            this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.advancedDataGridView1.Location = new System.Drawing.Point(3, 16);
-            this.advancedDataGridView1.Name = "advancedDataGridView1";
-            this.advancedDataGridView1.ReadOnly = true;
-            this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.advancedDataGridView1.Size = new System.Drawing.Size(1512, 497);
-            this.advancedDataGridView1.TabIndex = 2;
-            this.advancedDataGridView1.TimeFilter = false;
-            this.advancedDataGridView1.SortStringChanged += new System.EventHandler(this.DtgDevamEden_SortStringChanged);
-            this.advancedDataGridView1.FilterStringChanged += new System.EventHandler(this.DtgDevamEden_FilterStringChanged);
-            this.advancedDataGridView1.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgDevamEden_CellMouseClick);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(109, 528);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(21, 15);
-            this.label5.TabIndex = 345;
-            this.label5.Text = "00";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(9, 528);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(94, 15);
-            this.label6.TabIndex = 344;
-            this.label6.Text = "Toplam Kayıt:";
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.webBrowser3);
-            this.groupBox7.Location = new System.Drawing.Point(12, 555);
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.Size = new System.Drawing.Size(856, 180);
-            this.groupBox7.TabIndex = 346;
-            this.groupBox7.TabStop = false;
-            this.groupBox7.Text = "Ekler:";
-            // 
-            // webBrowser3
-            // 
-            this.webBrowser3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser3.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser3.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser3.Name = "webBrowser3";
-            this.webBrowser3.Size = new System.Drawing.Size(850, 161);
-            this.webBrowser3.TabIndex = 0;
             // 
             // FrmDtfIzleme
             // 
@@ -483,9 +397,6 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlanan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderTamamlanan)).EndInit();
-            this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).EndInit();
-            this.groupBox7.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -519,11 +430,5 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblGenelT;
-        private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.WebBrowser webBrowser3;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox6;
-        private ADGV.AdvancedDataGridView advancedDataGridView1;
     }
 }

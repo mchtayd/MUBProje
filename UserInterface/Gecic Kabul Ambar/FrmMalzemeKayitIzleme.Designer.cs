@@ -36,6 +36,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label1 = new System.Windows.Forms.Label();
             this.TxtStokNo = new System.Windows.Forms.TextBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
+            this.Photo = new System.Windows.Forms.DataGridViewImageColumn();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
@@ -44,10 +45,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.TxtTanim = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderGuncel)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -57,7 +61,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1406, 27);
+            this.panel1.Size = new System.Drawing.Size(1500, 27);
             this.panel1.TabIndex = 304;
             // 
             // BtnCancel
@@ -101,24 +105,36 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Photo});
+            this.DtgList.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgList.DateWithTime = false;
             this.DtgList.Location = new System.Drawing.Point(12, 81);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgList.Size = new System.Drawing.Size(1382, 473);
+            this.DtgList.Size = new System.Drawing.Size(1476, 641);
             this.DtgList.TabIndex = 342;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
+            // Photo
+            // 
+            this.Photo.HeaderText = "FOTO";
+            this.Photo.MinimumWidth = 22;
+            this.Photo.Name = "Photo";
+            this.Photo.ReadOnly = true;
+            this.Photo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Photo.Width = 61;
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(9, 566);
+            this.label31.Location = new System.Drawing.Point(9, 737);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 343;
@@ -128,7 +144,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(109, 566);
+            this.TxtTop.Location = new System.Drawing.Point(109, 737);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 344;
@@ -137,7 +153,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(12, 608);
+            this.label14.Location = new System.Drawing.Point(12, 762);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(45, 13);
             this.label14.TabIndex = 346;
@@ -145,7 +161,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // webBrowser1
             // 
-            this.webBrowser1.Location = new System.Drawing.Point(12, 624);
+            this.webBrowser1.Location = new System.Drawing.Point(12, 778);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(23, 23);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(827, 112);
@@ -169,11 +185,25 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label2.TabIndex = 348;
             this.label2.Text = "TANIM İLE ARAMA:";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.güncelleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 26);
+            // 
+            // güncelleToolStripMenuItem
+            // 
+            this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.güncelleToolStripMenuItem.Text = "Güncelle";
+            this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
+            // 
             // FrmMalzemeKayitIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1406, 789);
+            this.ClientSize = new System.Drawing.Size(1500, 898);
             this.Controls.Add(this.TxtTanim);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label14);
@@ -191,6 +221,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderGuncel)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,5 +242,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.TextBox TxtTanim;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.DataGridViewImageColumn Photo;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
     }
 }

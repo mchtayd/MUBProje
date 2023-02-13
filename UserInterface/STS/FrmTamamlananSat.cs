@@ -11,6 +11,7 @@ using Entity.IdariIsler;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -69,7 +70,7 @@ namespace UserInterface.STS
         void Yillar()
         {
             CmbYillar.DataSource = tamamlananManager.Yillar();
-            int index = CmbYillar.Items.Count.ConInt() - 1;
+            int index = 0;
             CmbYillar.SelectedIndex = index;
         }
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -92,7 +93,16 @@ namespace UserInterface.STS
             }
             LblGenelTop.Text = toplam.ToString("C2");
         }
-        void TamamlananSatlar()
+        void Toplamlar2()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgList.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgList.Rows[i].Cells["ToplamFiyat"].Value);
+            }
+            LblGenelTopp.Text = toplam.ToString("C2");
+        }
+        public void TamamlananSatlar()
         {
             if (ChkTumunuGoster.Checked==true)
             {
@@ -260,7 +270,7 @@ namespace UserInterface.STS
             butceKodu = DtgTamamlananSatlar.CurrentRow.Cells["Butcekodukalemi"].Value.ToString();
             harcananTutar = DtgTamamlananSatlar.CurrentRow.Cells["Harcanantutar"].Value.ConDouble();
             satOlusturmaTuru = DtgTamamlananSatlar.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
-            tamamlananMalzemes = tamamlananMalzemeManager.GetList(siparisNo);
+            MalzemeFill(siparisNo);
             TxtGerekce.Text= DtgTamamlananSatlar.CurrentRow.Cells["Gerekce"].Value.ToString();
             //geneltoplam = DtgTamamlananSatlar.CurrentRow.Cells["Harcanantutar"].Value.ConDouble();
             geneltoplam = tamamlanans.FirstOrDefault(x => x.Siparisno == siparisNo).Harcanantutar;
@@ -288,7 +298,48 @@ namespace UserInterface.STS
             TxtGenelTop.Text = geneltoplam.ToString("0.00") + " ₺";
             FillTools();
         }
-        
+        void MalzemeFill(string siparisNo)
+        {
+            tamamlananMalzemes = tamamlananMalzemeManager.GetList(siparisNo);
+            DtgList.DataSource = tamamlananMalzemes;
+            if (satOlusturmaTuru=="HARCAMASI YAPILAN")
+            {
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["Stokno"].Visible = false;
+                DtgList.Columns["Tanim"].Visible = false;
+                DtgList.Columns["Miktar"].Visible = false;
+                DtgList.Columns["Birim"].Visible = false;
+                DtgList.Columns["Firma"].Visible = false;
+                DtgList.Columns["Birimfiyat"].Visible = false;
+                DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
+                DtgList.Columns["Siparisno"].Visible = false;
+            }
+            else
+            {
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["Stokno"].Visible = true;
+                DtgList.Columns["Tanim"].Visible = true;
+                DtgList.Columns["Miktar"].Visible = true;
+                DtgList.Columns["Birim"].Visible = true;
+                DtgList.Columns["Firma"].Visible = false;
+                DtgList.Columns["Birimfiyat"].Visible = true;
+                DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
+                DtgList.Columns["Siparisno"].Visible = false;
+
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["Stokno"].HeaderText = "STOK NO";
+                DtgList.Columns["Tanim"].HeaderText = "TANIM";
+                DtgList.Columns["Miktar"].HeaderText = "MİKTAR";
+                DtgList.Columns["Birim"].HeaderText = "BİRİM";
+                DtgList.Columns["Firma"].Visible = false;
+                DtgList.Columns["Birimfiyat"].HeaderText = "BİRİM FİYAT";
+                DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
+                DtgList.Columns["Siparisno"].Visible = false;
+            }
+            
+            Toplamlar2();
+        }
+
         void IslemAdimlari()
         {
             DtgSatIslemAdimlari.DataSource = satIslemAdimlarimanager.GetList(siparisNo);
@@ -1147,12 +1198,49 @@ namespace UserInterface.STS
         private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmSatDuzelt frmSatDuzelt = new FrmSatDuzelt();
+            frmSatDuzelt.id = id;
             frmSatDuzelt.ShowDialog();
         }
 
         private void BtnProjeDuzelt_Click_1(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Teklifsiz Satta bulunan tamamlanmış satın yeri Tamamlanmış Sat Malzeme yerine alınacaktır!", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                List<Tamamlanan> tamamlanans = new List<Tamamlanan>();
+
+                tamamlanans = tamamlananManager.GetList(0);
+                foreach (Tamamlanan item in tamamlanans)
+                {
+                    List<TamamlananMalzeme> tamamlananMalzemes = new List<TamamlananMalzeme>();
+                    tamamlananMalzemes = tamamlananMalzemeManager.GetList(item.Siparisno);
+                    if (tamamlananMalzemes.Count==0)
+                    {
+                        List<TeklifsizSat> teklifsizSats = new List<TeklifsizSat>();
+                        teklifsizSats = teklifsizSatManager.GetList(item.Siparisno);
+                        if (teklifsizSats.Count != 0)
+                        {
+                            foreach (TeklifsizSat item2 in teklifsizSats)
+                            {
+                                TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item2.Stokno, item2.Tanim, item2.Miktar.ConInt(), item2.Birim, item.SatinAlinanFirma, item2.Tutar, item2.Tutar, item2.Siparisno);
+
+                                tamamlananMalzemeManager.Add(tamamlananMalzeme);
+                            }
+                        }
+                        else
+                        {
+
+                        }
+                        
+                        
+                    }
+                }
+            }
         }
 
         private void button1_Click_1(object sender, EventArgs e)

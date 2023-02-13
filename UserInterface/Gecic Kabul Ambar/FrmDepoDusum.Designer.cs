@@ -29,6 +29,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -50,10 +51,17 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label4 = new System.Windows.Forms.Label();
             this.TxtRevizyon = new System.Windows.Forms.TextBox();
             this.BtnLotAl = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtMiktar = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.LblMiktar = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBarcode)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgYedekParca)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -84,7 +92,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnBarkodOlustur.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBarkodOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBarkodOlustur.Location = new System.Drawing.Point(65, 381);
+            this.BtnBarkodOlustur.Location = new System.Drawing.Point(65, 398);
             this.BtnBarkodOlustur.Name = "BtnBarkodOlustur";
             this.BtnBarkodOlustur.Size = new System.Drawing.Size(126, 35);
             this.BtnBarkodOlustur.TabIndex = 2;
@@ -156,7 +164,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnListeyeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnListeyeEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnListeyeEkle.Location = new System.Drawing.Point(65, 422);
+            this.BtnListeyeEkle.Location = new System.Drawing.Point(65, 439);
             this.BtnListeyeEkle.Name = "BtnListeyeEkle";
             this.BtnListeyeEkle.Size = new System.Drawing.Size(126, 35);
             this.BtnListeyeEkle.TabIndex = 325;
@@ -270,12 +278,65 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnLotAl.Visible = false;
             this.BtnLotAl.Click += new System.EventHandler(this.BtnLotAl_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(20, 375);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(39, 13);
+            this.label2.TabIndex = 332;
+            this.label2.Text = "Miktar:";
+            // 
+            // TxtMiktar
+            // 
+            this.TxtMiktar.Location = new System.Drawing.Point(65, 372);
+            this.TxtMiktar.Name = "TxtMiktar";
+            this.TxtMiktar.Size = new System.Drawing.Size(83, 20);
+            this.TxtMiktar.TabIndex = 333;
+            this.TxtMiktar.Text = "1";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(616, 562);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(51, 15);
+            this.label5.TabIndex = 334;
+            this.label5.Text = "Miktar:";
+            // 
+            // LblMiktar
+            // 
+            this.LblMiktar.AutoSize = true;
+            this.LblMiktar.Location = new System.Drawing.Point(673, 564);
+            this.LblMiktar.Name = "LblMiktar";
+            this.LblMiktar.Size = new System.Drawing.Size(13, 13);
+            this.LblMiktar.TabIndex = 335;
+            this.LblMiktar.Text = "0";
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.silToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(87, 26);
+            // 
+            // silToolStripMenuItem
+            // 
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(86, 22);
+            this.silToolStripMenuItem.Text = "Sil";
+            // 
             // FrmDepoDusum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(774, 605);
             this.ControlBox = false;
+            this.Controls.Add(this.LblMiktar);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.TxtMiktar);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnLotAl);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtRevizyon);
@@ -301,6 +362,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             ((System.ComponentModel.ISupportInitialize)(this.PctBarcode)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgYedekParca)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -326,5 +388,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtRevizyon;
         private System.Windows.Forms.Button BtnLotAl;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtMiktar;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label LblMiktar;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
     }
 }

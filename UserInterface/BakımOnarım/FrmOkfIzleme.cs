@@ -10,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
 {
@@ -82,6 +83,7 @@ namespace UserInterface.BakımOnarım
             }
             dosyaYolu = DtgList.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+
             MalzemeList(id);
             YapilacakIslemlerList(id);
             try
@@ -96,7 +98,7 @@ namespace UserInterface.BakımOnarım
         void MalzemeList(int id)
         {
             DtgMalzemeList.Rows.Clear();
-            dtfMaliyets = dtfMaliyetManager.GetList(id);
+            dtfMaliyets = dtfMaliyetManager.GetList(id, "OKF");
 
             if (dtfMaliyets.Count==0)
             {
@@ -109,13 +111,22 @@ namespace UserInterface.BakımOnarım
                 int sonSatir = DtgMalzemeList.RowCount - 1;
                 string[] isTanim = item.IsTanimi.Split('|');
 
-                DtgMalzemeList.Rows[sonSatir].Cells["StokNo"].Value = isTanim[0];
-                DtgMalzemeList.Rows[sonSatir].Cells["Tanimm"].Value = isTanim[1];
+                if (isTanim.Length==1)
+                {
+                    DtgMalzemeList.Rows[sonSatir].Cells["StokNo"].Value = "N/A";
+                    DtgMalzemeList.Rows[sonSatir].Cells["Tanimm"].Value = isTanim[0];
+                }
+                else
+                {
+                    DtgMalzemeList.Rows[sonSatir].Cells["StokNo"].Value = isTanim[0];
+                    DtgMalzemeList.Rows[sonSatir].Cells["Tanimm"].Value = isTanim[1];
+                }
                 DtgMalzemeList.Rows[sonSatir].Cells["Miktar"].Value = item.Miktar.ToString();
                 DtgMalzemeList.Rows[sonSatir].Cells["Birim"].Value = item.Birim;
                 DtgMalzemeList.Rows[sonSatir].Cells["PBirim"].Value = item.PBirimi;
                 DtgMalzemeList.Rows[sonSatir].Cells["BirimTutar"].Value = item.BirimTutar;
                 DtgMalzemeList.Rows[sonSatir].Cells["ToplamTutar"].Value = item.ToplamTutar;
+
             }
             Toplamlar();
         }
@@ -166,6 +177,29 @@ namespace UserInterface.BakımOnarım
         private void DtgList_SortStringChanged(object sender, EventArgs e)
         {
             dataBinder.Sort=DtgList.SortString;
+        }
+
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmOkfGuncelle frmOkfGuncelle = new FrmOkfGuncelle();
+            frmOkfGuncelle.id = id;
+            frmOkfGuncelle.ShowDialog();
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)System.Windows.Forms.Application.OpenForms["FrmAnasayfa"];
+            this.Close();
+            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageOKFIzleme"]);
+
+            if (frmAnaSayfa.tabAnasayfa.TabPages.Count == 0)
+            {
+                frmAnaSayfa.tabAnasayfa.Visible = false;
+            }
+            else
+            {
+                frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
+            }
         }
     }
 }

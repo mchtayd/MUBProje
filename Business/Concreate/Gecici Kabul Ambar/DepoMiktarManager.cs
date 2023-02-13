@@ -53,6 +53,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public DepoMiktar GetEdit(int id)
+        {
+            try
+            {
+                return depoMiktarDal.GetEdit(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public DepoMiktar StokSeriLotKontrol(string stokNo, string depoNo, string seriNo, string lotNo, string revizyon)
         {
             try

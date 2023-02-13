@@ -38,15 +38,12 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string Delete(int id)
+        public string Delete(string stokNo, string seriNo, string lotNo)
         {
             try
             {
-                if (id < 0)
-                {
-                    return "Lütfen Bir Kayit Seçiniz.";
-                }
-                return stokGirisCikisDal.Delete(id);
+                
+                return stokGirisCikisDal.Delete(stokNo, seriNo, lotNo);
             }
             catch (Exception)
             {
@@ -139,6 +136,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
+        public List<StokGirisCıkıs> GetListEdit(string stokNo, string seriNo, string lotNo)
+        {
+            try
+            {
+                return stokGirisCikisDal.GetListEdit(stokNo, seriNo, lotNo);
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
         public List<StokGirisCıkıs> AtolyeDepoHareketleri(string abfSiparisNo)
         {
             try
@@ -161,6 +169,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                     return controlText;
                 }
                 return stokGirisCikisDal.Update(entity, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdateEdit(StokGirisCıkıs entity)
+        {
+            try
+            {
+                return stokGirisCikisDal.UpdateEdit(entity);
             }
             catch (Exception ex)
             {

@@ -82,7 +82,7 @@ namespace Entity.Gecic_Kabul_Ambar
             this.depoLokasyon = depoLokasyon;
         }
 
-        public DepoMiktar(string stokNo, string depoNo, string seriNo, string lotNo,string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, int miktar)
+        public DepoMiktar(string stokNo, string depoNo, string depoLokasyon ,string seriNo, string lotNo,string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, int miktar)
         {
             this.stokNo = stokNo;
             this.depoNo = depoNo;
@@ -92,6 +92,7 @@ namespace Entity.Gecic_Kabul_Ambar
             this.sonIslemTarihi = sonIslemTarihi;
             this.sonIslemYapan = sonIslemYapan;
             this.miktar = miktar;
+            this.depoLokasyon = depoLokasyon;
 
         }
 

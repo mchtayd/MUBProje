@@ -1,11 +1,13 @@
 ﻿using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
 using Entity.Gecic_Kabul_Ambar;
+using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,6 +20,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
     {
         List<Malzeme> malzemes;
         List<Malzeme> malzemesFiltired;
+        public object[] infos;
 
         //List<MalzemeStok> malzemeStoks;
         //List<MalzemeStok> malzemeStokssFiltired;
@@ -56,7 +59,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-        void DataDisplay()
+        public void DataDisplay()
         {
             malzemes = malzemeManage.GetList();
             malzemesFiltired = malzemes;
@@ -85,6 +88,33 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["SistemStokNo"].HeaderText = "SİSTEM STOK NO";
             DtgList.Columns["SistemTanimi"].HeaderText = "SİSTEM TANIM";
             DtgList.Columns["SistemSorumlusu"].HeaderText = "SİSTEM SORUMLUSU";
+            DtgList.Columns["Photo"].Visible = false;
+
+            //string fileName = "";
+            //int index = 0;
+            //foreach (Malzeme item in malzemes)
+            //{
+            //    DirectoryInfo di = new DirectoryInfo(item.DosyaYolu);
+            //    foreach (FileInfo fi in di.GetFiles())
+            //    {
+            //        if (fi.Name != "." && fi.Name != ".." && fi.Name != "Thumbs.db")
+            //        {
+            //            fileName = fi.Name;
+            //        }
+            //    }
+            //    string foto = item.DosyaYolu + "\\" + fileName;
+
+            //    Image image;
+            //    image = Image.FromFile(foto);
+            //    DtgList.Rows[index].Cells["Photo"].Value = image;
+            //    index++;
+            //    if (index==665)
+            //    {
+
+            //    }
+            //}
+
+
         }
         /*void DataDisplayGuncelStok()
         {
@@ -134,7 +164,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             dataBinder.Sort = DtgList.SortString;
         }
-
+        int id;
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.RowCount==0)
@@ -142,6 +172,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
             dosyaYolu = DtgList.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -172,6 +203,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.DataSource = dataBinder;
             malzemesFiltired = malzemes;
             TxtTop.Text = DtgList.RowCount.ToString();
+        }
+
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMalzemeGuncelle frmMalzemeGuncelle = new FrmMalzemeGuncelle();
+            frmMalzemeGuncelle.id = id;
+            frmMalzemeGuncelle.infos = infos;
+            frmMalzemeGuncelle.ShowDialog();
         }
     }
 }

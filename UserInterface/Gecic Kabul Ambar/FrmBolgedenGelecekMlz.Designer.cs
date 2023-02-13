@@ -29,7 +29,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -66,6 +66,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.button5.TabIndex = 1;
             this.button5.Text = "X";
             this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // groupBox1
             // 
@@ -82,8 +83,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.DtgDevamEden.AllowUserToAddRows = false;
             this.DtgDevamEden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgDevamEden.AutoGenerateContextFilters = true;
             this.DtgDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -151,6 +152,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.Controls.Add(this.panel1);
             this.Name = "FrmBolgedenGelecekMlz";
             this.Text = "FrmBolgedenGelecekMlz";
+            this.Load += new System.EventHandler(this.FrmBolgedenGelecekMlz_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).EndInit();

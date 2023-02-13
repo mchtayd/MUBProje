@@ -186,6 +186,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DialogResult dialogResult = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dialogResult == DialogResult.Yes)
             {
+                if (DtgStokTanim.RowCount==0)
+                {
+                    MessageBox.Show("Lütfen ilgili tabloya üst takım bilgisi ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 if (foto == "")
                 {
                     if (dosyaControl == false)
@@ -615,9 +620,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void yenileToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            CmbStokNo();
-            Temizle();
-            start = false;
+            //CmbStokNo();
+            //Temizle();
+            //start = false;
         }
         string kaynakdosyaismi, alinandosya;
 
@@ -724,7 +729,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             else
             {
-                MessageBox.Show("Lütfen JPEG veya PNG formatında olan bir dosyayı seçiniz.");
+                MessageBox.Show("Lütfen JPEG veya PNG formatında olan bir dosyayı seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
 
         }

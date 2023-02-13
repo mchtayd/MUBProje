@@ -1098,13 +1098,13 @@ namespace UserInterface.STS
             this.StokNo,
             this.Tanim,
             this.Image});
-            this.DtgProducts.Location = new System.Drawing.Point(879, 231);
+            this.DtgProducts.Location = new System.Drawing.Point(1292, 33);
             this.DtgProducts.MultiSelect = false;
             this.DtgProducts.Name = "DtgProducts";
             this.DtgProducts.ReadOnly = true;
             this.DtgProducts.RowHeadersVisible = false;
             this.DtgProducts.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgProducts.Size = new System.Drawing.Size(281, 161);
+            this.DtgProducts.Size = new System.Drawing.Size(43, 44);
             this.DtgProducts.TabIndex = 91;
             this.DtgProducts.Visible = false;
             // 

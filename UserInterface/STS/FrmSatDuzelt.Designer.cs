@@ -29,10 +29,75 @@ namespace UserInterface.STS
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatDuzelt));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.LblSatNo = new System.Windows.Forms.Label();
+            this.LblAdSoyad = new System.Windows.Forms.Label();
+            this.LblIsAkisNo = new System.Windows.Forms.Label();
+            this.label114 = new System.Windows.Forms.Label();
+            this.label117 = new System.Windows.Forms.Label();
+            this.label115 = new System.Windows.Forms.Label();
+            this.label116 = new System.Windows.Forms.Label();
+            this.LblMasrafYeriNo = new System.Windows.Forms.Label();
+            this.LblMasrafYeri = new System.Windows.Forms.Label();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
+            this.CmbDonem = new System.Windows.Forms.ComboBox();
+            this.label52 = new System.Windows.Forms.Label();
+            this.TxtProje = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
+            this.istenenTarih = new System.Windows.Forms.DateTimePicker();
+            this.label123 = new System.Windows.Forms.Label();
+            this.label124 = new System.Windows.Forms.Label();
+            this.CmbAbfFormno = new System.Windows.Forms.ComboBox();
+            this.label125 = new System.Windows.Forms.Label();
+            this.CmbUsBolgesi = new System.Windows.Forms.ComboBox();
+            this.DtgBelgeTarih = new System.Windows.Forms.DateTimePicker();
+            this.TxtBelgeNo = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CmbFBelgeTur = new System.Windows.Forms.ComboBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.DtgList = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.TxtMasYerNo = new System.Windows.Forms.ComboBox();
+            this.TxtIlgiliKisi = new System.Windows.Forms.ComboBox();
+            this.CmbFaturaFirma = new System.Windows.Forms.ComboBox();
+            this.CmbHarcamaTuru = new System.Windows.Forms.ComboBox();
+            this.CmbSatBirim = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.CmbButceKodu = new System.Windows.Forms.ComboBox();
+            this.TxtGerekceBasaran = new System.Windows.Forms.RichTextBox();
+            this.label112 = new System.Windows.Forms.Label();
+            this.LblToplam = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.CmbHarcamaYapan = new System.Windows.Forms.ComboBox();
+            this.TxtSatinAlinanFirma = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.CmbMaliyetTuru = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.CmbButceTanimi = new System.Windows.Forms.ComboBox();
+            this.TxtFirmayaKesilenFatura = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.TxtKesilenFaturaTarihi = new System.Windows.Forms.MaskedTextBox();
+            this.TxtButceGiderTuru = new System.Windows.Forms.TextBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.PnlMalzeme = new System.Windows.Forms.Panel();
             this.LblTopStokList = new System.Windows.Forms.Label();
             this.LblGunelStokAdeti = new System.Windows.Forms.Label();
@@ -141,6 +206,12 @@ namespace UserInterface.STS
             this.label150 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.groupBox16.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.PnlMalzeme.SuspendLayout();
             this.GrbStokList.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView1)).BeginInit();
@@ -150,6 +221,688 @@ namespace UserInterface.STS
             this.tabPage14.SuspendLayout();
             this.groupBox20.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.label1);
+            this.groupBox16.Controls.Add(this.LblSatNo);
+            this.groupBox16.Controls.Add(this.LblAdSoyad);
+            this.groupBox16.Controls.Add(this.LblIsAkisNo);
+            this.groupBox16.Controls.Add(this.label114);
+            this.groupBox16.Controls.Add(this.label117);
+            this.groupBox16.Controls.Add(this.label115);
+            this.groupBox16.Controls.Add(this.label116);
+            this.groupBox16.Controls.Add(this.LblMasrafYeriNo);
+            this.groupBox16.Controls.Add(this.LblMasrafYeri);
+            this.groupBox16.Location = new System.Drawing.Point(12, 12);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(364, 166);
+            this.groupBox16.TabIndex = 349;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "TALEBİ OLUŞTURAN";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(71, 58);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 13);
+            this.label1.TabIndex = 334;
+            this.label1.Text = "SAT NO:";
+            // 
+            // LblSatNo
+            // 
+            this.LblSatNo.AutoSize = true;
+            this.LblSatNo.Location = new System.Drawing.Point(127, 58);
+            this.LblSatNo.Name = "LblSatNo";
+            this.LblSatNo.Size = new System.Drawing.Size(19, 13);
+            this.LblSatNo.TabIndex = 335;
+            this.LblSatNo.Text = "00";
+            // 
+            // LblAdSoyad
+            // 
+            this.LblAdSoyad.AutoSize = true;
+            this.LblAdSoyad.Location = new System.Drawing.Point(127, 136);
+            this.LblAdSoyad.Name = "LblAdSoyad";
+            this.LblAdSoyad.Size = new System.Drawing.Size(19, 13);
+            this.LblAdSoyad.TabIndex = 103;
+            this.LblAdSoyad.Text = "00";
+            // 
+            // LblIsAkisNo
+            // 
+            this.LblIsAkisNo.AutoSize = true;
+            this.LblIsAkisNo.Location = new System.Drawing.Point(127, 32);
+            this.LblIsAkisNo.Name = "LblIsAkisNo";
+            this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNo.TabIndex = 333;
+            this.LblIsAkisNo.Text = "00";
+            // 
+            // label114
+            // 
+            this.label114.AutoSize = true;
+            this.label114.Location = new System.Drawing.Point(73, 109);
+            this.label114.Name = "label114";
+            this.label114.Size = new System.Drawing.Size(48, 13);
+            this.label114.TabIndex = 93;
+            this.label114.Text = "BÖLÜM:";
+            // 
+            // label117
+            // 
+            this.label117.AutoSize = true;
+            this.label117.Location = new System.Drawing.Point(55, 32);
+            this.label117.Name = "label117";
+            this.label117.Size = new System.Drawing.Size(66, 13);
+            this.label117.TabIndex = 332;
+            this.label117.Text = "İŞ AKIŞ NO:";
+            // 
+            // label115
+            // 
+            this.label115.AutoSize = true;
+            this.label115.Location = new System.Drawing.Point(50, 136);
+            this.label115.Name = "label115";
+            this.label115.Size = new System.Drawing.Size(71, 13);
+            this.label115.TabIndex = 92;
+            this.label115.Text = "ADI SOYADI:";
+            // 
+            // label116
+            // 
+            this.label116.AutoSize = true;
+            this.label116.Location = new System.Drawing.Point(20, 82);
+            this.label116.Name = "label116";
+            this.label116.Size = new System.Drawing.Size(101, 13);
+            this.label116.TabIndex = 91;
+            this.label116.Text = "MASRAF YERİ NO:";
+            // 
+            // LblMasrafYeriNo
+            // 
+            this.LblMasrafYeriNo.AutoSize = true;
+            this.LblMasrafYeriNo.Location = new System.Drawing.Point(127, 82);
+            this.LblMasrafYeriNo.Name = "LblMasrafYeriNo";
+            this.LblMasrafYeriNo.Size = new System.Drawing.Size(19, 13);
+            this.LblMasrafYeriNo.TabIndex = 102;
+            this.LblMasrafYeriNo.Text = "00";
+            // 
+            // LblMasrafYeri
+            // 
+            this.LblMasrafYeri.AutoSize = true;
+            this.LblMasrafYeri.Location = new System.Drawing.Point(127, 109);
+            this.LblMasrafYeri.Name = "LblMasrafYeri";
+            this.LblMasrafYeri.Size = new System.Drawing.Size(19, 13);
+            this.LblMasrafYeri.TabIndex = 104;
+            this.LblMasrafYeri.Text = "00";
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.CmbDonemYil);
+            this.groupBox18.Controls.Add(this.CmbDonem);
+            this.groupBox18.Controls.Add(this.label52);
+            this.groupBox18.Controls.Add(this.TxtProje);
+            this.groupBox18.Controls.Add(this.label37);
+            this.groupBox18.Controls.Add(this.istenenTarih);
+            this.groupBox18.Controls.Add(this.label123);
+            this.groupBox18.Controls.Add(this.label124);
+            this.groupBox18.Controls.Add(this.CmbAbfFormno);
+            this.groupBox18.Controls.Add(this.label125);
+            this.groupBox18.Controls.Add(this.CmbUsBolgesi);
+            this.groupBox18.Location = new System.Drawing.Point(382, 12);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(397, 166);
+            this.groupBox18.TabIndex = 350;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "TALEP EDİLEN YER";
+            // 
+            // CmbDonemYil
+            // 
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(227, 137);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonemYil.TabIndex = 416;
+            // 
+            // CmbDonem
+            // 
+            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonem.FormattingEnabled = true;
+            this.CmbDonem.Items.AddRange(new object[] {
+            "OCAK",
+            "ŞUBAT",
+            "MART",
+            "NİSAN",
+            "MAYIS",
+            "HAZİRAN",
+            "TEMMUZ",
+            "AĞUSTOS",
+            "EYLÜL",
+            "EKİM",
+            "KASIM",
+            "ARALIK"});
+            this.CmbDonem.Location = new System.Drawing.Point(116, 137);
+            this.CmbDonem.Name = "CmbDonem";
+            this.CmbDonem.Size = new System.Drawing.Size(105, 21);
+            this.CmbDonem.TabIndex = 415;
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Location = new System.Drawing.Point(20, 140);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(87, 13);
+            this.label52.TabIndex = 414;
+            this.label52.Text = "DÖNEM (Ay/Yıl):";
+            // 
+            // TxtProje
+            // 
+            this.TxtProje.Location = new System.Drawing.Point(116, 82);
+            this.TxtProje.Name = "TxtProje";
+            this.TxtProje.Size = new System.Drawing.Size(275, 20);
+            this.TxtProje.TabIndex = 29;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(65, 86);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(45, 13);
+            this.label37.TabIndex = 28;
+            this.label37.Text = "PROJE:";
+            // 
+            // istenenTarih
+            // 
+            this.istenenTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.istenenTarih.Location = new System.Drawing.Point(116, 109);
+            this.istenenTarih.Name = "istenenTarih";
+            this.istenenTarih.Size = new System.Drawing.Size(105, 20);
+            this.istenenTarih.TabIndex = 101;
+            // 
+            // label123
+            // 
+            this.label123.AutoSize = true;
+            this.label123.Location = new System.Drawing.Point(36, 28);
+            this.label123.Name = "label123";
+            this.label123.Size = new System.Drawing.Size(74, 13);
+            this.label123.TabIndex = 96;
+            this.label123.Text = "ÜS BÖLGESİ:";
+            // 
+            // label124
+            // 
+            this.label124.AutoSize = true;
+            this.label124.Location = new System.Drawing.Point(25, 58);
+            this.label124.Name = "label124";
+            this.label124.Size = new System.Drawing.Size(85, 13);
+            this.label124.TabIndex = 97;
+            this.label124.Text = "ABF/FORM NO:";
+            // 
+            // CmbAbfFormno
+            // 
+            this.CmbAbfFormno.FormattingEnabled = true;
+            this.CmbAbfFormno.Location = new System.Drawing.Point(116, 54);
+            this.CmbAbfFormno.Name = "CmbAbfFormno";
+            this.CmbAbfFormno.Size = new System.Drawing.Size(275, 21);
+            this.CmbAbfFormno.TabIndex = 106;
+            // 
+            // label125
+            // 
+            this.label125.AutoSize = true;
+            this.label125.Location = new System.Drawing.Point(17, 113);
+            this.label125.Name = "label125";
+            this.label125.Size = new System.Drawing.Size(93, 13);
+            this.label125.TabIndex = 98;
+            this.label125.Text = "İSTENEN TARİH:";
+            // 
+            // CmbUsBolgesi
+            // 
+            this.CmbUsBolgesi.FormattingEnabled = true;
+            this.CmbUsBolgesi.Location = new System.Drawing.Point(116, 24);
+            this.CmbUsBolgesi.Name = "CmbUsBolgesi";
+            this.CmbUsBolgesi.Size = new System.Drawing.Size(275, 21);
+            this.CmbUsBolgesi.TabIndex = 100;
+            this.CmbUsBolgesi.SelectedIndexChanged += new System.EventHandler(this.CmbUsBolgesi_SelectedIndexChanged);
+            // 
+            // DtgBelgeTarih
+            // 
+            this.DtgBelgeTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgBelgeTarih.Location = new System.Drawing.Point(961, 287);
+            this.DtgBelgeTarih.Name = "DtgBelgeTarih";
+            this.DtgBelgeTarih.Size = new System.Drawing.Size(98, 20);
+            this.DtgBelgeTarih.TabIndex = 371;
+            // 
+            // TxtBelgeNo
+            // 
+            this.TxtBelgeNo.Location = new System.Drawing.Point(961, 261);
+            this.TxtBelgeNo.Name = "TxtBelgeNo";
+            this.TxtBelgeNo.Size = new System.Drawing.Size(281, 20);
+            this.TxtBelgeNo.TabIndex = 370;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(850, 265);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(105, 13);
+            this.label7.TabIndex = 369;
+            this.label7.Text = "BELGE NUMARASI:";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(871, 291);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(84, 13);
+            this.label4.TabIndex = 368;
+            this.label4.Text = "BELGE TARİHİ:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(876, 239);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.TabIndex = 367;
+            this.label3.Text = "BELGE TÜRÜ:";
+            // 
+            // CmbFBelgeTur
+            // 
+            this.CmbFBelgeTur.FormattingEnabled = true;
+            this.CmbFBelgeTur.Items.AddRange(new object[] {
+            "BİLET",
+            "BİLGİ FİŞİ",
+            "E-FATURA",
+            "FATURA",
+            "FİŞ",
+            "SİPARİŞ FİŞİ",
+            "İŞ EMRİ",
+            "MAAŞ BODROSU",
+            "MAKBUZ",
+            "POLİÇE",
+            "SERVİS FORMU",
+            "SÖZLEŞME",
+            "TUTANAK"});
+            this.CmbFBelgeTur.Location = new System.Drawing.Point(961, 234);
+            this.CmbFBelgeTur.Name = "CmbFBelgeTur";
+            this.CmbFBelgeTur.Size = new System.Drawing.Size(281, 21);
+            this.CmbFBelgeTur.TabIndex = 366;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.DtgList);
+            this.groupBox1.Location = new System.Drawing.Point(19, 527);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(1225, 200);
+            this.groupBox1.TabIndex = 365;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "MALZEME BİLGİLERİ";
+            // 
+            // DtgList
+            // 
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgList.Location = new System.Drawing.Point(3, 16);
+            this.DtgList.Name = "DtgList";
+            this.DtgList.Size = new System.Drawing.Size(1219, 181);
+            this.DtgList.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.webBrowser1);
+            this.groupBox2.Location = new System.Drawing.Point(19, 284);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(760, 218);
+            this.groupBox2.TabIndex = 364;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "EKLER:";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(754, 199);
+            this.webBrowser1.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.TxtMasYerNo);
+            this.groupBox3.Controls.Add(this.TxtIlgiliKisi);
+            this.groupBox3.Controls.Add(this.CmbFaturaFirma);
+            this.groupBox3.Controls.Add(this.CmbHarcamaTuru);
+            this.groupBox3.Controls.Add(this.CmbSatBirim);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label8);
+            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.label10);
+            this.groupBox3.Controls.Add(this.CmbButceKodu);
+            this.groupBox3.Location = new System.Drawing.Point(785, 12);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(491, 216);
+            this.groupBox3.TabIndex = 363;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "SAT BAŞLATMA BİLGİLERİ:";
+            // 
+            // TxtMasYerNo
+            // 
+            this.TxtMasYerNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.TxtMasYerNo.FormattingEnabled = true;
+            this.TxtMasYerNo.Items.AddRange(new object[] {
+            "2017007-1",
+            "2017008-2",
+            "2017000-1"});
+            this.TxtMasYerNo.Location = new System.Drawing.Point(176, 184);
+            this.TxtMasYerNo.Name = "TxtMasYerNo";
+            this.TxtMasYerNo.Size = new System.Drawing.Size(278, 21);
+            this.TxtMasYerNo.TabIndex = 25;
+            // 
+            // TxtIlgiliKisi
+            // 
+            this.TxtIlgiliKisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
+            this.TxtIlgiliKisi.FormattingEnabled = true;
+            this.TxtIlgiliKisi.Items.AddRange(new object[] {
+            "ERKAN İPEK",
+            "YASEMİN YORGUN",
+            "RESUL GÜNEŞ"});
+            this.TxtIlgiliKisi.Location = new System.Drawing.Point(176, 154);
+            this.TxtIlgiliKisi.Name = "TxtIlgiliKisi";
+            this.TxtIlgiliKisi.Size = new System.Drawing.Size(278, 21);
+            this.TxtIlgiliKisi.TabIndex = 24;
+            // 
+            // CmbFaturaFirma
+            // 
+            this.CmbFaturaFirma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbFaturaFirma.FormattingEnabled = true;
+            this.CmbFaturaFirma.Items.AddRange(new object[] {
+            "ASELSAN AŞ. UGES ÜRÜN DES.MDL.",
+            "ASELSAN AŞ. UGES İÇ GÜV.PROG.MDL.",
+            "BAŞARAN İLERİ TEKNOLOJİ"});
+            this.CmbFaturaFirma.Location = new System.Drawing.Point(176, 122);
+            this.CmbFaturaFirma.Name = "CmbFaturaFirma";
+            this.CmbFaturaFirma.Size = new System.Drawing.Size(278, 21);
+            this.CmbFaturaFirma.TabIndex = 23;
+            this.CmbFaturaFirma.SelectedIndexChanged += new System.EventHandler(this.CmbFaturaFirma_SelectedIndexChanged);
+            // 
+            // CmbHarcamaTuru
+            // 
+            this.CmbHarcamaTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbHarcamaTuru.FormattingEnabled = true;
+            this.CmbHarcamaTuru.Items.AddRange(new object[] {
+            "NAKİT",
+            "HAVALE/EFT"});
+            this.CmbHarcamaTuru.Location = new System.Drawing.Point(176, 88);
+            this.CmbHarcamaTuru.Name = "CmbHarcamaTuru";
+            this.CmbHarcamaTuru.Size = new System.Drawing.Size(278, 21);
+            this.CmbHarcamaTuru.TabIndex = 22;
+            // 
+            // CmbSatBirim
+            // 
+            this.CmbSatBirim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbSatBirim.FormattingEnabled = true;
+            this.CmbSatBirim.Items.AddRange(new object[] {
+            "BSRN GN.MDL.SATIN ALMA",
+            "PRJ.DİR.SATIN ALMA"});
+            this.CmbSatBirim.Location = new System.Drawing.Point(176, 54);
+            this.CmbSatBirim.Name = "CmbSatBirim";
+            this.CmbSatBirim.Size = new System.Drawing.Size(278, 21);
+            this.CmbSatBirim.TabIndex = 21;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(69, 187);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(101, 13);
+            this.label2.TabIndex = 19;
+            this.label2.Text = "MASRAF YERİ NO:";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(108, 157);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 13);
+            this.label5.TabIndex = 18;
+            this.label5.Text = "İLGİLİ KİŞİ:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(26, 125);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(144, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "FATURA EDİLECEK FİRMA:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(49, 91);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(121, 13);
+            this.label8.TabIndex = 16;
+            this.label8.Text = "SAT HARCAMA TÜRÜ:";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(11, 57);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(159, 13);
+            this.label9.TabIndex = 15;
+            this.label9.Text = "SATIN ALMA YAPACAK BİRİM:";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(46, 23);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(124, 13);
+            this.label10.TabIndex = 14;
+            this.label10.Text = "BÜTÇE KODU/KALEMİ:";
+            // 
+            // CmbButceKodu
+            // 
+            this.CmbButceKodu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbButceKodu.FormattingEnabled = true;
+            this.CmbButceKodu.Location = new System.Drawing.Point(176, 20);
+            this.CmbButceKodu.Name = "CmbButceKodu";
+            this.CmbButceKodu.Size = new System.Drawing.Size(278, 21);
+            this.CmbButceKodu.TabIndex = 13;
+            // 
+            // TxtGerekceBasaran
+            // 
+            this.TxtGerekceBasaran.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtGerekceBasaran.Location = new System.Drawing.Point(19, 197);
+            this.TxtGerekceBasaran.Name = "TxtGerekceBasaran";
+            this.TxtGerekceBasaran.Size = new System.Drawing.Size(760, 81);
+            this.TxtGerekceBasaran.TabIndex = 362;
+            this.TxtGerekceBasaran.Text = "";
+            // 
+            // label112
+            // 
+            this.label112.AutoSize = true;
+            this.label112.Location = new System.Drawing.Point(19, 181);
+            this.label112.Name = "label112";
+            this.label112.Size = new System.Drawing.Size(61, 13);
+            this.label112.TabIndex = 361;
+            this.label112.Text = "GEREKÇE:";
+            // 
+            // LblToplam
+            // 
+            this.LblToplam.AutoSize = true;
+            this.LblToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblToplam.Location = new System.Drawing.Point(382, 736);
+            this.LblToplam.Name = "LblToplam";
+            this.LblToplam.Size = new System.Drawing.Size(23, 15);
+            this.LblToplam.TabIndex = 373;
+            this.LblToplam.Text = "00";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label12.Location = new System.Drawing.Point(269, 736);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(107, 13);
+            this.label12.TabIndex = 372;
+            this.label12.Text = "TOPLAM TUTAR:";
+            // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
+            this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGuncelle.Location = new System.Drawing.Point(19, 733);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
+            this.BtnGuncelle.TabIndex = 375;
+            this.BtnGuncelle.Text = "  GÜNCELLE";
+            this.BtnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGuncelle.UseVisualStyleBackColor = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(853, 316);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 13);
+            this.label13.TabIndex = 377;
+            this.label13.Text = "HARCAMA YAPAN:";
+            // 
+            // CmbHarcamaYapan
+            // 
+            this.CmbHarcamaYapan.FormattingEnabled = true;
+            this.CmbHarcamaYapan.Items.AddRange(new object[] {
+            "MUHASEBE MÜDÜRLÜĞÜ",
+            "EBRU BAYDAŞ",
+            "GÜLŞAH OTACI"});
+            this.CmbHarcamaYapan.Location = new System.Drawing.Point(961, 313);
+            this.CmbHarcamaYapan.Name = "CmbHarcamaYapan";
+            this.CmbHarcamaYapan.Size = new System.Drawing.Size(281, 21);
+            this.CmbHarcamaYapan.TabIndex = 376;
+            // 
+            // TxtSatinAlinanFirma
+            // 
+            this.TxtSatinAlinanFirma.Location = new System.Drawing.Point(961, 341);
+            this.TxtSatinAlinanFirma.Name = "TxtSatinAlinanFirma";
+            this.TxtSatinAlinanFirma.Size = new System.Drawing.Size(281, 20);
+            this.TxtSatinAlinanFirma.TabIndex = 379;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(835, 345);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(120, 13);
+            this.label14.TabIndex = 378;
+            this.label14.Text = "SATIN ALINAN FİRMA:";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(863, 408);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(90, 13);
+            this.label15.TabIndex = 548;
+            this.label15.Text = "MALİYET TÜRÜ:";
+            // 
+            // CmbMaliyetTuru
+            // 
+            this.CmbMaliyetTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMaliyetTuru.FormattingEnabled = true;
+            this.CmbMaliyetTuru.Location = new System.Drawing.Point(961, 404);
+            this.CmbMaliyetTuru.Name = "CmbMaliyetTuru";
+            this.CmbMaliyetTuru.Size = new System.Drawing.Size(281, 21);
+            this.CmbMaliyetTuru.TabIndex = 547;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(867, 377);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(86, 13);
+            this.label16.TabIndex = 546;
+            this.label16.Text = "BÜTÇE TANIMI:";
+            // 
+            // CmbButceTanimi
+            // 
+            this.CmbButceTanimi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbButceTanimi.FormattingEnabled = true;
+            this.CmbButceTanimi.Location = new System.Drawing.Point(961, 373);
+            this.CmbButceTanimi.Name = "CmbButceTanimi";
+            this.CmbButceTanimi.Size = new System.Drawing.Size(281, 21);
+            this.CmbButceTanimi.TabIndex = 545;
+            this.CmbButceTanimi.SelectedIndexChanged += new System.EventHandler(this.CmbButceTanimi_SelectedIndexChanged);
+            // 
+            // TxtFirmayaKesilenFatura
+            // 
+            this.TxtFirmayaKesilenFatura.Location = new System.Drawing.Point(961, 435);
+            this.TxtFirmayaKesilenFatura.Name = "TxtFirmayaKesilenFatura";
+            this.TxtFirmayaKesilenFatura.Size = new System.Drawing.Size(281, 20);
+            this.TxtFirmayaKesilenFatura.TabIndex = 550;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(786, 439);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(170, 13);
+            this.label17.TabIndex = 549;
+            this.label17.Text = "FİRMAYA KESİLEN FATURA NO:";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(816, 466);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(140, 13);
+            this.label18.TabIndex = 551;
+            this.label18.Text = "KESİLEN FATURA TARİHİ:";
+            // 
+            // TxtKesilenFaturaTarihi
+            // 
+            this.TxtKesilenFaturaTarihi.Location = new System.Drawing.Point(961, 462);
+            this.TxtKesilenFaturaTarihi.Mask = "00/00/0000";
+            this.TxtKesilenFaturaTarihi.Name = "TxtKesilenFaturaTarihi";
+            this.TxtKesilenFaturaTarihi.Size = new System.Drawing.Size(281, 20);
+            this.TxtKesilenFaturaTarihi.TabIndex = 552;
+            this.TxtKesilenFaturaTarihi.ValidatingType = typeof(System.DateTime);
+            // 
+            // TxtButceGiderTuru
+            // 
+            this.TxtButceGiderTuru.Location = new System.Drawing.Point(961, 489);
+            this.TxtButceGiderTuru.Name = "TxtButceGiderTuru";
+            this.TxtButceGiderTuru.Size = new System.Drawing.Size(281, 20);
+            this.TxtButceGiderTuru.TabIndex = 554;
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(839, 492);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(117, 13);
+            this.label19.TabIndex = 553;
+            this.label19.Text = "BÜTÇE GİDER TÜRÜ:";
             // 
             // PnlMalzeme
             // 
@@ -163,9 +916,9 @@ namespace UserInterface.STS
             this.PnlMalzeme.Controls.Add(this.comboBox3);
             this.PnlMalzeme.Controls.Add(this.LblMalzemeTuru);
             this.PnlMalzeme.Controls.Add(this.tabControl6);
-            this.PnlMalzeme.Location = new System.Drawing.Point(1392, 746);
+            this.PnlMalzeme.Location = new System.Drawing.Point(1080, 741);
             this.PnlMalzeme.Name = "PnlMalzeme";
-            this.PnlMalzeme.Size = new System.Drawing.Size(48, 18);
+            this.PnlMalzeme.Size = new System.Drawing.Size(115, 43);
             this.PnlMalzeme.TabIndex = 348;
             this.PnlMalzeme.Visible = false;
             // 
@@ -205,18 +958,18 @@ namespace UserInterface.STS
             this.advancedDataGridView1.AllowUserToDeleteRows = false;
             this.advancedDataGridView1.AllowUserToResizeColumns = false;
             this.advancedDataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
+            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.advancedDataGridView1.AutoGenerateContextFilters = true;
             this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.advancedDataGridView1.DateWithTime = false;
             this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -225,8 +978,8 @@ namespace UserInterface.STS
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.ReadOnly = true;
             this.advancedDataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.advancedDataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.advancedDataGridView1.RowTemplate.Height = 150;
             this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -1336,12 +2089,53 @@ namespace UserInterface.STS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1452, 800);
+            this.ClientSize = new System.Drawing.Size(1298, 801);
+            this.Controls.Add(this.TxtButceGiderTuru);
             this.Controls.Add(this.PnlMalzeme);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.TxtKesilenFaturaTarihi);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.TxtFirmayaKesilenFatura);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.CmbMaliyetTuru);
+            this.Controls.Add(this.label16);
+            this.Controls.Add(this.CmbButceTanimi);
+            this.Controls.Add(this.TxtSatinAlinanFirma);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.CmbHarcamaYapan);
+            this.Controls.Add(this.BtnGuncelle);
+            this.Controls.Add(this.LblToplam);
+            this.Controls.Add(this.label12);
+            this.Controls.Add(this.DtgBelgeTarih);
+            this.Controls.Add(this.TxtBelgeNo);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.CmbFBelgeTur);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.TxtGerekceBasaran);
+            this.Controls.Add(this.label112);
+            this.Controls.Add(this.groupBox18);
+            this.Controls.Add(this.groupBox16);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmSatDuzelt";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmSatDuzelt";
+            this.Text = "SAT DÜZENLE";
             this.Load += new System.EventHandler(this.FrmSatDuzelt_Load);
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
             this.PnlMalzeme.ResumeLayout(false);
             this.PnlMalzeme.PerformLayout();
             this.GrbStokList.ResumeLayout(false);
@@ -1354,10 +2148,76 @@ namespace UserInterface.STS
             this.tabPage14.PerformLayout();
             this.groupBox20.ResumeLayout(false);
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
         #endregion
+        private System.Windows.Forms.GroupBox groupBox16;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label LblSatNo;
+        private System.Windows.Forms.Label LblAdSoyad;
+        private System.Windows.Forms.Label LblIsAkisNo;
+        private System.Windows.Forms.Label label114;
+        private System.Windows.Forms.Label label117;
+        private System.Windows.Forms.Label label115;
+        private System.Windows.Forms.Label label116;
+        private System.Windows.Forms.Label LblMasrafYeriNo;
+        private System.Windows.Forms.Label LblMasrafYeri;
+        private System.Windows.Forms.GroupBox groupBox18;
+        private System.Windows.Forms.ComboBox CmbDonemYil;
+        private System.Windows.Forms.ComboBox CmbDonem;
+        private System.Windows.Forms.Label label52;
+        private System.Windows.Forms.TextBox TxtProje;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.DateTimePicker istenenTarih;
+        private System.Windows.Forms.Label label123;
+        private System.Windows.Forms.Label label124;
+        private System.Windows.Forms.ComboBox CmbAbfFormno;
+        private System.Windows.Forms.Label label125;
+        private System.Windows.Forms.ComboBox CmbUsBolgesi;
+        private System.Windows.Forms.DateTimePicker DtgBelgeTarih;
+        private System.Windows.Forms.TextBox TxtBelgeNo;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ComboBox CmbFBelgeTur;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.DataGridView DtgList;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.ComboBox TxtMasYerNo;
+        private System.Windows.Forms.ComboBox TxtIlgiliKisi;
+        private System.Windows.Forms.ComboBox CmbFaturaFirma;
+        private System.Windows.Forms.ComboBox CmbHarcamaTuru;
+        private System.Windows.Forms.ComboBox CmbSatBirim;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ComboBox CmbButceKodu;
+        private System.Windows.Forms.RichTextBox TxtGerekceBasaran;
+        private System.Windows.Forms.Label label112;
+        private System.Windows.Forms.Label LblToplam;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button BtnGuncelle;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.ComboBox CmbHarcamaYapan;
+        private System.Windows.Forms.TextBox TxtSatinAlinanFirma;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.ComboBox CmbMaliyetTuru;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.ComboBox CmbButceTanimi;
+        private System.Windows.Forms.TextBox TxtFirmayaKesilenFatura;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.MaskedTextBox TxtKesilenFaturaTarihi;
+        private System.Windows.Forms.TextBox TxtButceGiderTuru;
+        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel PnlMalzeme;
         private System.Windows.Forms.Label LblTopStokList;
         private System.Windows.Forms.Label LblGunelStokAdeti;

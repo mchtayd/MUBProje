@@ -95,6 +95,39 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public DepoMiktar GetEdit(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoMiktarGetList", new SqlParameter("@id", id));
+                DepoMiktar item = null;
+                while (dataReader.Read())
+                {
+                    item = new DepoMiktar(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SON_ISLEM_TARIHI"].ConDate(),
+                        dataReader["SON_ISLEM_YAPAN"].ToString(),
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["REZERVE_DURUMU"].ToString(),
+                        dataReader["REZERVE_ID"].ConInt());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public DepoMiktar StokSeriLotKontrol(string stokNo, string depoNo, string seriNo, string lotNo, string revizyon)
         {
             try
@@ -247,7 +280,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@revizyon",entity.Revizyon),
                     new SqlParameter("@sonIslemTarihi", entity.SonIslemTarihi),
                     new SqlParameter("@sonIslemYapan", entity.SonIslemYapan),
-                    new SqlParameter("@miktar", entity.Miktar));
+                    new SqlParameter("@miktar", entity.Miktar),
+                    new SqlParameter("@depoLokasyon", entity.DepoLokasyon));
 
                 dataReader.Close();
                 return "OK";

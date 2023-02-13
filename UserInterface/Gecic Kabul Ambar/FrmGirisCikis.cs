@@ -1464,36 +1464,45 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     if (islemTuru == "101-DEPODAN DEPOYA İADE")
                     {
                         MalzemeHazirlamaControl();
+                        DepoGirisBekleyenKontrol();
                         DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, CmbDepoNoDusulen.Text, seriNo, lotNo, revizyon);
                         if (depoMiktar == null)
                         {
-                            DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
-                            depoMiktarManager.Add(depoMiktar2);
+                            DepoMiktar depoMiktardepo = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
+                            depoMiktarManager.Add(depoMiktardepo);
                         }
 
                         dusulenMiktar = miktar;
 
                         string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen
                         string depoNoCekilen2 = item.Cells["Column7"].Value.ToString(); // çekilen
+                        string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
+                        string cekilenDepoLokasyon = item.Cells["Column9"].Value.ToString(); // çekilen depo lokasyon
 
                         DepoMiktar depo2 = depoMiktarManager.Get(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon);
                         cekilenMiktar = depo2.Miktar - miktar;
 
-                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
-                        depoMiktarManager.Update(depoDusulen);
+                        mevcutMiktar = +miktar;
 
+                        DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
+                        depoMiktarManager.Add(depoMiktar2);
 
-                        DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
+                        //DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
+                        //depoMiktarManager.Update(depoDusulen);
+
+                        DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
                         depoMiktarManager.Update(depoCekilen);
 
                         if (cekilenMiktar == 0)
                         {
                             depoMiktarManager.Delete(depo2.Id);
                         }
-                        if (dusulenMiktar == 0)
-                        {
-                            depoMiktarManager.Delete(depoDusulen.Id);
-                        }
+
+                        //if (dusulenMiktar == 0)
+                        //{
+                        //    depoMiktarManager.Delete(depoDusulen.Id);
+                        //}
+
                         /*DepoMiktar miktar1 = depoMiktarManager.Get(stokNo, depoNoDusulen);
                         mevcutMiktar = miktar1.Miktar;*/
 
@@ -1510,8 +1519,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         mevcutMiktar = depo2.Miktar;
                         mevcutMiktar = mevcutMiktar - miktar;
                         string depoNoCekilen = item.Cells["Column7"].Value.ToString(); // çekilen depo
+                        string cekilenDepoLokasyon = item.Cells["Column9"].Value.ToString(); // çekilen depo lokasyon
 
-                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoCekilen, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
+                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoCekilen, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen);
 
                         if (mevcutMiktar == 0)
@@ -1537,8 +1547,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                         mevcutMiktar = +miktar;
                         string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen depo
+                        string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
 
-                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
+                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen);
 
 
@@ -1622,7 +1633,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 TxtBarkod.Clear();
                 return;
             }
-
+            if (CmbStokNo.Text=="")
+            {
+                MessageBox.Show("Bu malzeme için yeniden barkod oluşturmanız gerekmektedir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                TxtBarkod.Clear();
+                return;
+            }
+            string mesaj = "OK";
             if (CmbStokNo.Text != "00")
             {
                 //sirano++;
@@ -1643,6 +1660,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 else
                 {
                     DtgList.Rows[sonSatir].Cells["Column4"].Value = 1;
+                    mesaj = "Malzeme Seri Numaralıdır!";
                 }
                 DtgList.Rows[sonSatir].Cells["Column5"].Value = LblBirim.Text;
                 DtgList.Rows[sonSatir].Cells["Column6"].Value = DtTarih.Value;
@@ -1651,8 +1669,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 if (CmbIslemTuru.Text == "100-YENİ DEPO GİRİŞİ")
                 {
                     DtgList.Rows[sonSatir].Cells["Column18"].Value = id.ToString();
-                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbDepoNo.Text; // DÜŞÜLEN DEPO
-                    DtgList.Rows[sonSatir].Cells["Column16"].Value = CmbAdres.Text;
+                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbDepoNo.Text.ToUpper(); // DÜŞÜLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column16"].Value = CmbAdres.Text.ToUpper();
                     DtgList.Rows[sonSatir].Cells["Column17"].Value = TxtMalzemeYeri.Text;
                     DtgList.Rows[sonSatir].Cells["Column7"].Value = ""; // ÇEKİLEN DEPO
                     DtgList.Rows[sonSatir].Cells["Column8"].Value = "";
@@ -1665,12 +1683,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 if (CmbIslemTuru.Text == "101-DEPODAN DEPOYA İADE")
                 {
                     DtgList.Rows[sonSatir].Cells["Column18"].Value = id.ToString();
-                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbDepoNoDusulen.Text; // DÜŞÜLEN DEPO
-                    DtgList.Rows[sonSatir].Cells["Column16"].Value = TxtDepoAdresiDusulen.Text;
-                    DtgList.Rows[sonSatir].Cells["Column17"].Value = CmbMalzemeYeriDusulen.Text;
-                    DtgList.Rows[sonSatir].Cells["Column7"].Value = CmbDepoNoCekilen.Text; // ÇEKİLEN DEPO
-                    DtgList.Rows[sonSatir].Cells["Column8"].Value = TxtDepoAdresiCekilen.Text;
-                    DtgList.Rows[sonSatir].Cells["Column9"].Value = CmbMalzemeYeriCekilen.Text;
+                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbDepoNoDusulen.Text.ToUpper(); // DÜŞÜLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column16"].Value = TxtDepoAdresiDusulen.Text.ToUpper();
+                    DtgList.Rows[sonSatir].Cells["Column17"].Value = CmbMalzemeYeriDusulen.Text.ToUpper();
+                    DtgList.Rows[sonSatir].Cells["Column7"].Value = CmbDepoNoCekilen.Text.ToUpper(); // ÇEKİLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column8"].Value = TxtDepoAdresiCekilen.Text.ToUpper();
+                    DtgList.Rows[sonSatir].Cells["Column9"].Value = CmbMalzemeYeriCekilen.Text.ToUpper();
                     //DtgList.Rows[sonSatir].Cells["Column18"].Value = ""; // ABF FORM NO
                     DtgList.Rows[sonSatir].Cells["Column19"].Value = ""; // TALEP EDEN PERSONEL
                 }
@@ -1681,9 +1699,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     DtgList.Rows[sonSatir].Cells["Column15"].Value = TxtDepodanBildirimeAbfNo.Text; ; // DÜŞÜLEN DEPO
                     DtgList.Rows[sonSatir].Cells["Column16"].Value = "";
                     DtgList.Rows[sonSatir].Cells["Column17"].Value = "";
-                    DtgList.Rows[sonSatir].Cells["Column7"].Value = CmbDepodanBildirimeDepoNo.Text; // ÇEKİLEN DEPO
-                    DtgList.Rows[sonSatir].Cells["Column8"].Value = TxtDepodanBildirimeDepoAdresi.Text;
-                    DtgList.Rows[sonSatir].Cells["Column9"].Value = CmbDepodanBildirimeMalzemeYeri.Text;
+                    DtgList.Rows[sonSatir].Cells["Column7"].Value = CmbDepodanBildirimeDepoNo.Text.ToUpper(); // ÇEKİLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column8"].Value = TxtDepodanBildirimeDepoAdresi.Text.ToUpper();
+                    DtgList.Rows[sonSatir].Cells["Column9"].Value = CmbDepodanBildirimeMalzemeYeri.Text.ToUpper();
                     //DtgList.Rows[sonSatir].Cells["Column18"].Value =  // ABF FORM NO
                     DtgList.Rows[sonSatir].Cells["Column19"].Value = LblDepodanBildirimePersonel.Text; // TALEP EDEN PERSONEL
                 }
@@ -1691,9 +1709,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 if (CmbIslemTuru.Text == "201-BİLDİRİMDEN DEPOYA İADE")
                 {
                     DtgList.Rows[sonSatir].Cells["Column18"].Value = id.ToString();
-                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbBildirimdenDepoyaDepoNo.Text; // DÜŞÜLEN DEPO
-                    DtgList.Rows[sonSatir].Cells["Column16"].Value = TxtBildirimdenDepoyaDepoAdres.Text;
-                    DtgList.Rows[sonSatir].Cells["Column17"].Value = CmbBildirimdenDepoyaMalzemeYeri.Text;
+                    DtgList.Rows[sonSatir].Cells["Column15"].Value = CmbBildirimdenDepoyaDepoNo.Text.ToUpper(); // DÜŞÜLEN DEPO
+                    DtgList.Rows[sonSatir].Cells["Column16"].Value = TxtBildirimdenDepoyaDepoAdres.Text.ToUpper();
+                    DtgList.Rows[sonSatir].Cells["Column17"].Value = CmbBildirimdenDepoyaMalzemeYeri.Text.ToUpper();
                     DtgList.Rows[sonSatir].Cells["Column7"].Value = TxtBildirimdenDepoyaFormNo.Text; // ÇEKİLEN DEPO
                     DtgList.Rows[sonSatir].Cells["Column8"].Value = "";
                     DtgList.Rows[sonSatir].Cells["Column9"].Value = "";
@@ -1719,12 +1737,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 DtgList.Rows[sonSatir].Cells["Column11"].Value = LblRevizyon.Text;
                 contextMenuStrip1.Items[0].Enabled = true;
                 Temizle();
-
             }
             Hesapla();
 
             TxtBarkod.Clear();
             TmrBarcode.Stop();
+
+            //if (TxtMiktar.Text=="1" && mesaj!="OK")
+            //{
+            //    MessageBox.Show(mesaj, "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+            //}
+            TxtMiktar.Text = "1";
         }
 
 

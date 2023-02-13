@@ -464,7 +464,7 @@ namespace UserInterface.STS
                 {
                     if (BildirimFromNo.Text == "")
                     {
-                        MessageBox.Show("Lütfen Bildirim Form Numarası Belirtiniz.");
+                        MessageBox.Show("Lütfen Bildirim Form Numarası Belirtiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }

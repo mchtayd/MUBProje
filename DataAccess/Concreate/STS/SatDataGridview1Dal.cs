@@ -1009,6 +1009,73 @@ namespace DataAccess.Concreate
                 return new List<SatDataGridview1>();
             }
         }
+        public List<SatDataGridview1> SatTeklifList()
+        {
+            try
+            {
+                List<SatDataGridview1> satDatas = new List<SatDataGridview1>();
+                dataReader = sqlServices.StoreReader("SatTeklifList");
+                while (dataReader.Read())
+                {
+                    satDatas.Add(new SatDataGridview1(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SAT_FORM_NO"].ConInt(),
+                        dataReader["SAT_NO"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["TALEP_EDEN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["US_BOLGESI"].ToString(),
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        dataReader["ISTENEN_TARIH"].ConDate(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["DosyaYolu"].ToString(),
+                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        dataReader["SAT_BIRIM"].ToString(),
+                        dataReader["HARCAMA_TURU"].ToString(),
+                        dataReader["FATURA_EDILECEK_FIRMA"].ToString(),
+                        dataReader["ILGILI_KISI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["UC_TEKLIF"].ConInt(),
+                        dataReader["FIRMA_BILGISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["PERSONEL_SIPARIS"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["PERSONEL_MAS_YER_NO"].ToString(),
+                        dataReader["PERSONEL_MAS_YERI"].ToString(),
+                        dataReader["BELGE_TURU"].ToString(),
+                        dataReader["BELGE_NUMARASI"].ToString(),
+                        dataReader["BELGE_TARIHI"].ConDate(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["SAT_OLUSTURMA_TURU"].ToString(),
+                        dataReader["RED_NEDENI"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["TEKLIF_DURUM"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString(),
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ConDate(),
+                        dataReader["HARCAMA_YAPAN"].ToString(),
+                        dataReader["ASELSAN_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_TARIHI"].ConDate(),
+                        dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ODEME_MAIL_TARIHI"].ConDate(),
+                        dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString()));
+
+                }
+                dataReader.Close();
+                return satDatas;
+            }
+            catch (Exception)
+            {
+                return new List<SatDataGridview1>();
+            }
+        }
         public List<SatDataGridview1> DevamEdenler()
         {
             try

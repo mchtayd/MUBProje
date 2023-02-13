@@ -184,6 +184,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
         }
         private void BtnPrint_Click(object sender, EventArgs e)
         {
+            if (DtgYedekParca.RowCount==0)
+            {
+                MessageBox.Show("Lütfen öncelikle listeye barkod ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             try
             {
                 
@@ -371,26 +376,32 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             if (PctBarcode.Image != null)
             {
-                try
+                for (int i = 0; i < TxtMiktar.Text.ConInt(); i++)
                 {
-                    Barkod controlListKayitsiz = new Barkod(id, CmbStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, TxtRevizyon.Text, infos[1].ToString(), DateTime.Now, kayitDurumu, infos[1].ToString());
-                    barkodList.Add(controlListKayitsiz);
-                    firstClick = true;
+                    try
+                    {
+                        Barkod controlListKayitsiz = new Barkod(id, CmbStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, TxtRevizyon.Text, infos[1].ToString(), DateTime.Now, kayitDurumu, infos[1].ToString());
+                        barkodList.Add(controlListKayitsiz);
+                        firstClick = true;
 
-                    DataGridViewImageColumn dgvImageColumn = new DataGridViewImageColumn();
-                    dgvImageColumn.HeaderText = "Barkod";
-                    dgvImageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
+                        DataGridViewImageColumn dgvImageColumn = new DataGridViewImageColumn();
+                        dgvImageColumn.HeaderText = "Barkod";
+                        dgvImageColumn.ImageLayout = DataGridViewImageCellLayout.Stretch;
 
-                    //DtgYedekParca.Rows.Add(dgvImageColumn);
-                    DtgYedekParca.Rows.Add(PctBarcode.Image);
+                        //DtgYedekParca.Rows.Add(dgvImageColumn);
+                        DtgYedekParca.Rows.Add(PctBarcode.Image);
 
-                    images.Add(PctBarcode.Image);
+                        images.Add(PctBarcode.Image);
 
+                    }
+                    catch (Exception)
+                    {
+                        return;
+                    }
+
+                    LblMiktar.Text = DtgYedekParca.RowCount.ToString();
                 }
-                catch (Exception)
-                {
-                    return;
-                }
+                
             }
             else
             {
