@@ -4,6 +4,7 @@ using Business.Concreate.STS;
 using Business.Concreate.Yerleskeler;
 using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
+using DocumentFormat.OpenXml.Drawing;
 using Entity;
 using Entity.STS;
 using Entity.Yerleskeler;
@@ -142,6 +143,10 @@ namespace UserInterface.Yerleskeler
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
+            if (CmbYerleskeAdi.SelectedIndex==-1)
+            {
+                return;
+            }
             if (dosyaKontrol == false)
             {
                 MessageBox.Show("Lütfen Öncekle Dosya Ekleme İşlemini Gerçekleştiriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -280,18 +285,24 @@ namespace UserInterface.Yerleskeler
             if (CmbYerleskeAdi.Text=="")
             {
                 MessageBox.Show("Lütfen Öncelikle Yerleşke Adı Bilgisini Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-
+                return;
             }
+
+            TxtAdres.Clear(); TxtHizmetAlinanKurum.Clear(); TxtTesisatNo.Clear();
             Yerleske yerleske = yerleskeManager.YerleskeBiigiCek(CmbYerleskeAdi.Text, CmbGiderTuru.Text);
 
             if (yerleske == null)
             {
-                MessageBox.Show("Abonelik Bilgilerine Ulşılamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                Yerleske yerleske2 = yerleskeManager.YerleskeBiigiCek(CmbYerleskeAdi.Text);
+                TxtAdres.Text = yerleske2.YerleskeAdresi;
             }
-            TxtAdres.Text = yerleske.YerleskeAdresi;
-            TxtHizmetAlinanKurum.Text = yerleske.HizmetAlinanKurum;
-            TxtTesisatNo.Text = yerleske.AboneTesisatNo;
+            else
+            {
+                TxtAdres.Text = yerleske.YerleskeAdresi;
+                TxtHizmetAlinanKurum.Text = yerleske.HizmetAlinanKurum;
+                TxtTesisatNo.Text = yerleske.AboneTesisatNo;
+            }
+            
         }
         string Control()
         {

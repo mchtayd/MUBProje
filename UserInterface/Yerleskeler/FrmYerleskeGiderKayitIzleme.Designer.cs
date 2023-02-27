@@ -31,21 +31,21 @@ namespace UserInterface.Yerleskeler
         {
             this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.advancedDataGridView2 = new ADGV.AdvancedDataGridView();
-            this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DtgYerleskeSat = new ADGV.AdvancedDataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgYerkeskeler = new ADGV.AdvancedDataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.LblToplamKayit = new System.Windows.Forms.Label();
+            this.LblTop = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.GiderTuru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Donem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgYerleskeSat)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgYerkeskeler)).BeginInit();
             this.panel1.SuspendLayout();
@@ -54,7 +54,7 @@ namespace UserInterface.Yerleskeler
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.advancedDataGridView2);
+            this.groupBox2.Controls.Add(this.DtgYerleskeSat);
             this.groupBox2.Location = new System.Drawing.Point(12, 268);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(429, 501);
@@ -62,51 +62,25 @@ namespace UserInterface.Yerleskeler
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ABONE BİLGİLERİ";
             // 
-            // advancedDataGridView2
+            // DtgYerleskeSat
             // 
-            this.advancedDataGridView2.AllowUserToAddRows = false;
-            this.advancedDataGridView2.AllowUserToDeleteRows = false;
-            this.advancedDataGridView2.AutoGenerateContextFilters = true;
-            this.advancedDataGridView2.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.advancedDataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column11,
-            this.Column12,
-            this.Column13});
-            this.advancedDataGridView2.DateWithTime = false;
-            this.advancedDataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.advancedDataGridView2.Location = new System.Drawing.Point(3, 16);
-            this.advancedDataGridView2.Name = "advancedDataGridView2";
-            this.advancedDataGridView2.ReadOnly = true;
-            this.advancedDataGridView2.Size = new System.Drawing.Size(423, 482);
-            this.advancedDataGridView2.TabIndex = 0;
-            this.advancedDataGridView2.TimeFilter = false;
-            // 
-            // Column11
-            // 
-            this.Column11.HeaderText = "GİDER TÜRÜ";
-            this.Column11.MinimumWidth = 22;
-            this.Column11.Name = "Column11";
-            this.Column11.ReadOnly = true;
-            this.Column11.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Column12
-            // 
-            this.Column12.HeaderText = "DÖNEM";
-            this.Column12.MinimumWidth = 22;
-            this.Column12.Name = "Column12";
-            this.Column12.ReadOnly = true;
-            this.Column12.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column12.Width = 72;
-            // 
-            // Column13
-            // 
-            this.Column13.HeaderText = "TUTAR";
-            this.Column13.MinimumWidth = 22;
-            this.Column13.Name = "Column13";
-            this.Column13.ReadOnly = true;
-            this.Column13.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Column13.Width = 69;
+            this.DtgYerleskeSat.AllowUserToAddRows = false;
+            this.DtgYerleskeSat.AllowUserToDeleteRows = false;
+            this.DtgYerleskeSat.AutoGenerateContextFilters = true;
+            this.DtgYerleskeSat.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgYerleskeSat.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgYerleskeSat.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.GiderTuru,
+            this.Donem,
+            this.Tutar});
+            this.DtgYerleskeSat.DateWithTime = false;
+            this.DtgYerleskeSat.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgYerleskeSat.Location = new System.Drawing.Point(3, 16);
+            this.DtgYerleskeSat.Name = "DtgYerleskeSat";
+            this.DtgYerleskeSat.ReadOnly = true;
+            this.DtgYerleskeSat.Size = new System.Drawing.Size(423, 482);
+            this.DtgYerleskeSat.TabIndex = 0;
+            this.DtgYerleskeSat.TimeFilter = false;
             // 
             // groupBox1
             // 
@@ -145,25 +119,25 @@ namespace UserInterface.Yerleskeler
             this.label1.TabIndex = 311;
             this.label1.Text = "Toplam Kayıt:";
             // 
-            // label2
+            // LblToplamKayit
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(112, 783);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 15);
-            this.label2.TabIndex = 312;
-            this.label2.Text = "00";
+            this.LblToplamKayit.AutoSize = true;
+            this.LblToplamKayit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblToplamKayit.Location = new System.Drawing.Point(112, 783);
+            this.LblToplamKayit.Name = "LblToplamKayit";
+            this.LblToplamKayit.Size = new System.Drawing.Size(21, 15);
+            this.LblToplamKayit.TabIndex = 312;
+            this.LblToplamKayit.Text = "00";
             // 
-            // label3
+            // LblTop
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(309, 783);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(21, 15);
-            this.label3.TabIndex = 314;
-            this.label3.Text = "00";
+            this.LblTop.AutoSize = true;
+            this.LblTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTop.Location = new System.Drawing.Point(309, 783);
+            this.LblTop.Name = "LblTop";
+            this.LblTop.Size = new System.Drawing.Size(21, 15);
+            this.LblTop.TabIndex = 314;
+            this.LblTop.Text = "00";
             // 
             // label4
             // 
@@ -199,15 +173,41 @@ namespace UserInterface.Yerleskeler
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // GiderTuru
+            // 
+            this.GiderTuru.HeaderText = "GİDER TÜRÜ";
+            this.GiderTuru.MinimumWidth = 22;
+            this.GiderTuru.Name = "GiderTuru";
+            this.GiderTuru.ReadOnly = true;
+            this.GiderTuru.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Donem
+            // 
+            this.Donem.HeaderText = "DÖNEM";
+            this.Donem.MinimumWidth = 22;
+            this.Donem.Name = "Donem";
+            this.Donem.ReadOnly = true;
+            this.Donem.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Donem.Width = 72;
+            // 
+            // Tutar
+            // 
+            this.Tutar.HeaderText = "TUTAR";
+            this.Tutar.MinimumWidth = 22;
+            this.Tutar.Name = "Tutar";
+            this.Tutar.ReadOnly = true;
+            this.Tutar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Tutar.Width = 69;
+            // 
             // FrmYerleskeGiderKayitIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1453, 817);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.LblTop);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LblToplamKayit);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox2);
@@ -215,7 +215,7 @@ namespace UserInterface.Yerleskeler
             this.Text = "FrmYerleskeGiderKayitIzleme";
             this.Load += new System.EventHandler(this.FrmYerleskeGiderKayitIzleme_Load);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgYerleskeSat)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgYerkeskeler)).EndInit();
             this.panel1.ResumeLayout(false);
@@ -228,18 +228,18 @@ namespace UserInterface.Yerleskeler
         #endregion
 
         private System.Windows.Forms.GroupBox groupBox2;
-        private ADGV.AdvancedDataGridView advancedDataGridView2;
+        private ADGV.AdvancedDataGridView DtgYerleskeSat;
         private System.Windows.Forms.GroupBox groupBox1;
         private ADGV.AdvancedDataGridView DtgYerkeskeler;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column13;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblToplamKayit;
+        private System.Windows.Forms.Label LblTop;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GiderTuru;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Donem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tutar;
     }
 }

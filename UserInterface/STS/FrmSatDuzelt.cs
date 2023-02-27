@@ -91,6 +91,8 @@ namespace UserInterface.STS
             TxtFirmayaKesilenFatura.Text = tamamlanan.FirmayaKesilenFatura;
             TxtKesilenFaturaTarihi.Text = tamamlanan.KesilenFaturaTarihi;
             TxtButceGiderTuru.Text = tamamlanan.ButceGiderTuru;
+            TxtProje.Text = tamamlanan.UsProjeNo;
+            CmbBasaranProje.Text = tamamlanan.Proje;
             string siparisNo = tamamlanan.Siparisno;
             MalzemeFill(siparisNo);
             string dosyaYolu = tamamlanan.Dosyayolu;
@@ -222,7 +224,7 @@ namespace UserInterface.STS
             if (dr==DialogResult.Yes)
             {
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
-                Tamamlanan tamamlanan = new Tamamlanan(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, CmbFBelgeTur.Text, TxtBelgeNo.Text, DtgBelgeTarih.Value, donem, TxtProje.Text, TxtSatinAlinanFirma.Text, CmbHarcamaYapan.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text, TxtFirmayaKesilenFatura.Text, TxtKesilenFaturaTarihi.Text, TxtButceGiderTuru.Text);
+                Tamamlanan tamamlanan = new Tamamlanan(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, CmbFBelgeTur.Text, TxtBelgeNo.Text, DtgBelgeTarih.Value, donem, CmbBasaranProje.Text, TxtSatinAlinanFirma.Text, CmbHarcamaYapan.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text, TxtFirmayaKesilenFatura.Text, TxtKesilenFaturaTarihi.Text, TxtButceGiderTuru.Text);
 
                 string mesaj = tamamlananManager.Update(tamamlanan);
                 if (mesaj!="OK")
@@ -234,7 +236,6 @@ namespace UserInterface.STS
                 frmTamamlananSat.TamamlananSatlar();
 
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
                 this.Close();
             }
         }

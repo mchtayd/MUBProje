@@ -30,11 +30,13 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSehirIcıGorev));
             this.TabControl = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnTemizle = new System.Windows.Forms.Button();
+            this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.LblMasrafYeri = new System.Windows.Forms.Label();
@@ -61,8 +63,16 @@ namespace UserInterface.IdariIsler
             this.TxtGorevKonusu = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.TxtTop = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.DtgList = new ADGV.AdvancedDataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.TxtTopAmir = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.DtgListAmir = new ADGV.AdvancedDataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.BtnDokumanOlustur = new System.Windows.Forms.Button();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.DtBasSaatiTamamlama = new System.Windows.Forms.DateTimePicker();
             this.DtBasTarihiTamamlama = new System.Windows.Forms.DateTimePicker();
@@ -96,11 +106,8 @@ namespace UserInterface.IdariIsler
             this.BtnBulT = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.BtnSil = new System.Windows.Forms.Button();
-            this.BtnTemizleGun = new System.Windows.Forms.Button();
             this.TxtIsAkisNo = new System.Windows.Forms.MaskedTextBox();
             this.BtnBul = new System.Windows.Forms.Button();
-            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.CmbSiparsGun = new System.Windows.Forms.TextBox();
             this.TxtUnvani = new System.Windows.Forms.TextBox();
@@ -131,19 +138,6 @@ namespace UserInterface.IdariIsler
             this.TxtGorevKonusuGun = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.TxtTop = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.BtnGorevReddet = new System.Windows.Forms.Button();
-            this.BtnGorevOnayla = new System.Windows.Forms.Button();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.DtgList = new ADGV.AdvancedDataGridView();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.TxtTopAmir = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.BtnGorevReddetAmir = new System.Windows.Forms.Button();
-            this.BtnGorevOnaylaAmir = new System.Windows.Forms.Button();
-            this.DtgListAmir = new ADGV.AdvancedDataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
@@ -151,21 +145,31 @@ namespace UserInterface.IdariIsler
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.ımageList3 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnReddet = new System.Windows.Forms.Button();
+            this.BtnOnayla = new System.Windows.Forms.Button();
+            this.BtnAmirRed = new System.Windows.Forms.Button();
+            this.BtnAmirOnay = new System.Windows.Forms.Button();
+            this.BtnGorevTamamla = new System.Windows.Forms.Button();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.BtnTemizleGun = new System.Windows.Forms.Button();
+            this.BtnGorevSil = new System.Windows.Forms.Button();
             this.TabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            this.tabPage4.SuspendLayout();
+            this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgListAmir)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox9.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
-            this.tabPage5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgListAmir)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
@@ -175,10 +179,10 @@ namespace UserInterface.IdariIsler
             // TabControl
             // 
             this.TabControl.Controls.Add(this.tabPage1);
-            this.TabControl.Controls.Add(this.tabPage3);
-            this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Controls.Add(this.tabPage4);
             this.TabControl.Controls.Add(this.tabPage5);
+            this.TabControl.Controls.Add(this.tabPage3);
+            this.TabControl.Controls.Add(this.tabPage2);
             this.TabControl.Location = new System.Drawing.Point(0, 33);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
@@ -202,26 +206,41 @@ namespace UserInterface.IdariIsler
             // 
             // BtnTemizle
             // 
+            this.BtnTemizle.BackColor = System.Drawing.Color.CadetBlue;
             this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(199, 355);
+            this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTemizle.ImageKey = "broom.png";
+            this.BtnTemizle.ImageList = this.ımageList1;
+            this.BtnTemizle.Location = new System.Drawing.Point(151, 355);
             this.BtnTemizle.Name = "BtnTemizle";
-            this.BtnTemizle.Size = new System.Drawing.Size(178, 53);
-            this.BtnTemizle.TabIndex = 11;
-            this.BtnTemizle.Text = "TEMİZLE";
-            this.BtnTemizle.UseVisualStyleBackColor = true;
+            this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
+            this.BtnTemizle.TabIndex = 448;
+            this.BtnTemizle.Text = "   TEMİZLE";
+            this.BtnTemizle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTemizle.UseVisualStyleBackColor = false;
             this.BtnTemizle.Click += new System.EventHandler(this.BtnTemizle_Click);
+            // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "broom.png");
             // 
             // BtnKaydet
             // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnKaydet.Location = new System.Drawing.Point(15, 355);
             this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(178, 53);
-            this.BtnKaydet.TabIndex = 10;
-            this.BtnKaydet.Text = "KAYDET";
-            this.BtnKaydet.UseVisualStyleBackColor = true;
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 447;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // groupBox8
@@ -465,9 +484,133 @@ namespace UserInterface.IdariIsler
             this.label37.TabIndex = 13;
             this.label37.Text = "Masraf Yeri No:";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.BtnReddet);
+            this.tabPage4.Controls.Add(this.BtnOnayla);
+            this.tabPage4.Controls.Add(this.TxtTop);
+            this.tabPage4.Controls.Add(this.label5);
+            this.tabPage4.Controls.Add(this.panel2);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1224, 631);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "GÖREV ONAY";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // TxtTop
+            // 
+            this.TxtTop.AutoSize = true;
+            this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtTop.Location = new System.Drawing.Point(106, 340);
+            this.TxtTop.Name = "TxtTop";
+            this.TxtTop.Size = new System.Drawing.Size(21, 15);
+            this.TxtTop.TabIndex = 335;
+            this.TxtTop.Text = "00";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(6, 340);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(94, 15);
+            this.label5.TabIndex = 334;
+            this.label5.Text = "Toplam Kayıt:";
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.DtgList);
+            this.panel2.Location = new System.Drawing.Point(8, 6);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1210, 323);
+            this.panel2.TabIndex = 0;
+            // 
+            // DtgList
+            // 
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DtgList.AutoGenerateContextFilters = true;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgList.DateWithTime = false;
+            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgList.Location = new System.Drawing.Point(0, 0);
+            this.DtgList.Name = "DtgList";
+            this.DtgList.ReadOnly = true;
+            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgList.Size = new System.Drawing.Size(1210, 323);
+            this.DtgList.TabIndex = 4;
+            this.DtgList.TimeFilter = false;
+            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
+            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.BtnAmirRed);
+            this.tabPage5.Controls.Add(this.BtnAmirOnay);
+            this.tabPage5.Controls.Add(this.TxtTopAmir);
+            this.tabPage5.Controls.Add(this.label14);
+            this.tabPage5.Controls.Add(this.DtgListAmir);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1224, 631);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "AMİR GÖREV ONAYI";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // TxtTopAmir
+            // 
+            this.TxtTopAmir.AutoSize = true;
+            this.TxtTopAmir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtTopAmir.Location = new System.Drawing.Point(107, 342);
+            this.TxtTopAmir.Name = "TxtTopAmir";
+            this.TxtTopAmir.Size = new System.Drawing.Size(21, 15);
+            this.TxtTopAmir.TabIndex = 337;
+            this.TxtTopAmir.Text = "00";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.Location = new System.Drawing.Point(7, 342);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(94, 15);
+            this.label14.TabIndex = 336;
+            this.label14.Text = "Toplam Kayıt:";
+            // 
+            // DtgListAmir
+            // 
+            this.DtgListAmir.AllowUserToAddRows = false;
+            this.DtgListAmir.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgListAmir.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            this.DtgListAmir.AutoGenerateContextFilters = true;
+            this.DtgListAmir.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgListAmir.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.DtgListAmir.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgListAmir.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgListAmir.DateWithTime = false;
+            this.DtgListAmir.Location = new System.Drawing.Point(10, 6);
+            this.DtgListAmir.Name = "DtgListAmir";
+            this.DtgListAmir.ReadOnly = true;
+            this.DtgListAmir.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgListAmir.Size = new System.Drawing.Size(1208, 318);
+            this.DtgListAmir.TabIndex = 70;
+            this.DtgListAmir.TimeFilter = false;
+            this.DtgListAmir.SortStringChanged += new System.EventHandler(this.DtgListAmir_SortStringChanged);
+            this.DtgListAmir.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListAmir_CellMouseClick);
+            // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.BtnDokumanOlustur);
+            this.tabPage3.Controls.Add(this.BtnGorevTamamla);
             this.tabPage3.Controls.Add(this.groupBox9);
             this.tabPage3.Controls.Add(this.groupBox7);
             this.tabPage3.Controls.Add(this.TxtIsAkisNoTamamla);
@@ -480,18 +623,6 @@ namespace UserInterface.IdariIsler
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "GÖREV TAMAMLA ";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // BtnDokumanOlustur
-            // 
-            this.BtnDokumanOlustur.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDokumanOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDokumanOlustur.Location = new System.Drawing.Point(24, 366);
-            this.BtnDokumanOlustur.Name = "BtnDokumanOlustur";
-            this.BtnDokumanOlustur.Size = new System.Drawing.Size(178, 53);
-            this.BtnDokumanOlustur.TabIndex = 89;
-            this.BtnDokumanOlustur.Text = "KAYDET";
-            this.BtnDokumanOlustur.UseVisualStyleBackColor = true;
-            this.BtnDokumanOlustur.Click += new System.EventHandler(this.BtnDokumanOlustur_Click);
             // 
             // groupBox9
             // 
@@ -793,11 +924,11 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.BtnSil);
+            this.tabPage2.Controls.Add(this.BtnGorevSil);
             this.tabPage2.Controls.Add(this.BtnTemizleGun);
+            this.tabPage2.Controls.Add(this.BtnGuncelle);
             this.tabPage2.Controls.Add(this.TxtIsAkisNo);
             this.tabPage2.Controls.Add(this.BtnBul);
-            this.tabPage2.Controls.Add(this.BtnGuncelle);
             this.tabPage2.Controls.Add(this.groupBox1);
             this.tabPage2.Controls.Add(this.groupBox2);
             this.tabPage2.Controls.Add(this.label18);
@@ -808,30 +939,6 @@ namespace UserInterface.IdariIsler
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "GÖREV GÜNCELLE";
             this.tabPage2.UseVisualStyleBackColor = true;
-            // 
-            // BtnSil
-            // 
-            this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSil.Location = new System.Drawing.Point(386, 373);
-            this.BtnSil.Name = "BtnSil";
-            this.BtnSil.Size = new System.Drawing.Size(178, 53);
-            this.BtnSil.TabIndex = 84;
-            this.BtnSil.Text = "GÖREVİ SİL";
-            this.BtnSil.UseVisualStyleBackColor = true;
-            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
-            // 
-            // BtnTemizleGun
-            // 
-            this.BtnTemizleGun.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTemizleGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizleGun.Location = new System.Drawing.Point(202, 373);
-            this.BtnTemizleGun.Name = "BtnTemizleGun";
-            this.BtnTemizleGun.Size = new System.Drawing.Size(178, 53);
-            this.BtnTemizleGun.TabIndex = 83;
-            this.BtnTemizleGun.Text = "TEMİZLE";
-            this.BtnTemizleGun.UseVisualStyleBackColor = true;
-            this.BtnTemizleGun.Click += new System.EventHandler(this.BtnTemizleGun_Click);
             // 
             // TxtIsAkisNo
             // 
@@ -846,25 +953,13 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBul.Location = new System.Drawing.Point(215, 11);
+            this.BtnBul.Location = new System.Drawing.Point(206, 11);
             this.BtnBul.Name = "BtnBul";
             this.BtnBul.Size = new System.Drawing.Size(75, 29);
             this.BtnBul.TabIndex = 81;
             this.BtnBul.Text = "Bul";
             this.BtnBul.UseVisualStyleBackColor = true;
             this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
-            // 
-            // BtnGuncelle
-            // 
-            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(18, 373);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(178, 53);
-            this.BtnGuncelle.TabIndex = 80;
-            this.BtnGuncelle.Text = "GÜNCELLE";
-            this.BtnGuncelle.UseVisualStyleBackColor = true;
-            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // groupBox1
             // 
@@ -1147,179 +1242,6 @@ namespace UserInterface.IdariIsler
             this.label18.TabIndex = 75;
             this.label18.Text = "İŞ AKIŞ NO:";
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.TxtTop);
-            this.tabPage4.Controls.Add(this.label5);
-            this.tabPage4.Controls.Add(this.BtnGorevReddet);
-            this.tabPage4.Controls.Add(this.BtnGorevOnayla);
-            this.tabPage4.Controls.Add(this.panel2);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1224, 631);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "GÖREV ONAY";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // TxtTop
-            // 
-            this.TxtTop.AutoSize = true;
-            this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(106, 340);
-            this.TxtTop.Name = "TxtTop";
-            this.TxtTop.Size = new System.Drawing.Size(21, 15);
-            this.TxtTop.TabIndex = 335;
-            this.TxtTop.Text = "00";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(6, 340);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(94, 15);
-            this.label5.TabIndex = 334;
-            this.label5.Text = "Toplam Kayıt:";
-            // 
-            // BtnGorevReddet
-            // 
-            this.BtnGorevReddet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGorevReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevReddet.Location = new System.Drawing.Point(193, 370);
-            this.BtnGorevReddet.Name = "BtnGorevReddet";
-            this.BtnGorevReddet.Size = new System.Drawing.Size(178, 53);
-            this.BtnGorevReddet.TabIndex = 69;
-            this.BtnGorevReddet.Text = "REDDET";
-            this.BtnGorevReddet.UseVisualStyleBackColor = true;
-            this.BtnGorevReddet.Click += new System.EventHandler(this.BtnGorevReddet_Click);
-            // 
-            // BtnGorevOnayla
-            // 
-            this.BtnGorevOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGorevOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevOnayla.Location = new System.Drawing.Point(9, 370);
-            this.BtnGorevOnayla.Name = "BtnGorevOnayla";
-            this.BtnGorevOnayla.Size = new System.Drawing.Size(178, 53);
-            this.BtnGorevOnayla.TabIndex = 68;
-            this.BtnGorevOnayla.Text = "ONAYLA";
-            this.BtnGorevOnayla.UseVisualStyleBackColor = true;
-            this.BtnGorevOnayla.Click += new System.EventHandler(this.BtnGorevOnayla_Click);
-            // 
-            // panel2
-            // 
-            this.panel2.Controls.Add(this.DtgList);
-            this.panel2.Location = new System.Drawing.Point(8, 6);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1210, 323);
-            this.panel2.TabIndex = 0;
-            // 
-            // DtgList
-            // 
-            this.DtgList.AllowUserToAddRows = false;
-            this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DtgList.AutoGenerateContextFilters = true;
-            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgList.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgList.DateWithTime = false;
-            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgList.Location = new System.Drawing.Point(0, 0);
-            this.DtgList.Name = "DtgList";
-            this.DtgList.ReadOnly = true;
-            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1210, 323);
-            this.DtgList.TabIndex = 4;
-            this.DtgList.TimeFilter = false;
-            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
-            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
-            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.TxtTopAmir);
-            this.tabPage5.Controls.Add(this.label14);
-            this.tabPage5.Controls.Add(this.BtnGorevReddetAmir);
-            this.tabPage5.Controls.Add(this.BtnGorevOnaylaAmir);
-            this.tabPage5.Controls.Add(this.DtgListAmir);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1224, 631);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "AMİR GÖREV ONAYI";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // TxtTopAmir
-            // 
-            this.TxtTopAmir.AutoSize = true;
-            this.TxtTopAmir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTopAmir.Location = new System.Drawing.Point(107, 342);
-            this.TxtTopAmir.Name = "TxtTopAmir";
-            this.TxtTopAmir.Size = new System.Drawing.Size(21, 15);
-            this.TxtTopAmir.TabIndex = 337;
-            this.TxtTopAmir.Text = "00";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(7, 342);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(94, 15);
-            this.label14.TabIndex = 336;
-            this.label14.Text = "Toplam Kayıt:";
-            // 
-            // BtnGorevReddetAmir
-            // 
-            this.BtnGorevReddetAmir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGorevReddetAmir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevReddetAmir.Location = new System.Drawing.Point(194, 371);
-            this.BtnGorevReddetAmir.Name = "BtnGorevReddetAmir";
-            this.BtnGorevReddetAmir.Size = new System.Drawing.Size(178, 53);
-            this.BtnGorevReddetAmir.TabIndex = 72;
-            this.BtnGorevReddetAmir.Text = "REDDET";
-            this.BtnGorevReddetAmir.UseVisualStyleBackColor = true;
-            this.BtnGorevReddetAmir.Click += new System.EventHandler(this.BtnGorevReddetAmir_Click);
-            // 
-            // BtnGorevOnaylaAmir
-            // 
-            this.BtnGorevOnaylaAmir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGorevOnaylaAmir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGorevOnaylaAmir.Location = new System.Drawing.Point(10, 371);
-            this.BtnGorevOnaylaAmir.Name = "BtnGorevOnaylaAmir";
-            this.BtnGorevOnaylaAmir.Size = new System.Drawing.Size(178, 53);
-            this.BtnGorevOnaylaAmir.TabIndex = 71;
-            this.BtnGorevOnaylaAmir.Text = "ONAYLA";
-            this.BtnGorevOnaylaAmir.UseVisualStyleBackColor = true;
-            this.BtnGorevOnaylaAmir.Click += new System.EventHandler(this.BtnGorevOnaylaAmir_Click);
-            // 
-            // DtgListAmir
-            // 
-            this.DtgListAmir.AllowUserToAddRows = false;
-            this.DtgListAmir.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgListAmir.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DtgListAmir.AutoGenerateContextFilters = true;
-            this.DtgListAmir.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgListAmir.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.DtgListAmir.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgListAmir.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgListAmir.DateWithTime = false;
-            this.DtgListAmir.Location = new System.Drawing.Point(10, 6);
-            this.DtgListAmir.Name = "DtgListAmir";
-            this.DtgListAmir.ReadOnly = true;
-            this.DtgListAmir.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgListAmir.Size = new System.Drawing.Size(1208, 318);
-            this.DtgListAmir.TabIndex = 70;
-            this.DtgListAmir.TimeFilter = false;
-            this.DtgListAmir.SortStringChanged += new System.EventHandler(this.DtgListAmir_SortStringChanged);
-            this.DtgListAmir.FilterStringChanged += new System.EventHandler(this.BtnTemizle_Click);
-            this.DtgListAmir.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListAmir_CellMouseClick);
-            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.LightGray;
@@ -1358,6 +1280,154 @@ namespace UserInterface.IdariIsler
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
+            // ımageList2
+            // 
+            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
+            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList2.Images.SetKeyName(0, "allokey.ico");
+            this.ımageList2.Images.SetKeyName(1, "delete-sign.png");
+            this.ımageList2.Images.SetKeyName(2, "Icojam-Blue-Bits-Database-check.ico");
+            // 
+            // ımageList3
+            // 
+            this.ımageList3.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList3.ImageStream")));
+            this.ımageList3.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList3.Images.SetKeyName(0, "okey.png");
+            this.ımageList3.Images.SetKeyName(1, "ok.png");
+            // 
+            // BtnReddet
+            // 
+            this.BtnReddet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnReddet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnReddet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnReddet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnReddet.ImageKey = "delete-sign.png";
+            this.BtnReddet.ImageList = this.ımageList2;
+            this.BtnReddet.Location = new System.Drawing.Point(138, 374);
+            this.BtnReddet.Name = "BtnReddet";
+            this.BtnReddet.Size = new System.Drawing.Size(123, 51);
+            this.BtnReddet.TabIndex = 354;
+            this.BtnReddet.Text = "    REDDET";
+            this.BtnReddet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnReddet.UseVisualStyleBackColor = false;
+            this.BtnReddet.Click += new System.EventHandler(this.BtnReddet_Click);
+            // 
+            // BtnOnayla
+            // 
+            this.BtnOnayla.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnOnayla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnOnayla.ImageKey = "ok.png";
+            this.BtnOnayla.ImageList = this.ımageList3;
+            this.BtnOnayla.Location = new System.Drawing.Point(9, 374);
+            this.BtnOnayla.Name = "BtnOnayla";
+            this.BtnOnayla.Size = new System.Drawing.Size(123, 51);
+            this.BtnOnayla.TabIndex = 353;
+            this.BtnOnayla.Text = "  ONAYLA";
+            this.BtnOnayla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOnayla.UseVisualStyleBackColor = false;
+            this.BtnOnayla.Click += new System.EventHandler(this.BtnOnayla_Click);
+            // 
+            // BtnAmirRed
+            // 
+            this.BtnAmirRed.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnAmirRed.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAmirRed.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnAmirRed.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAmirRed.ImageKey = "delete-sign.png";
+            this.BtnAmirRed.ImageList = this.ımageList2;
+            this.BtnAmirRed.Location = new System.Drawing.Point(139, 372);
+            this.BtnAmirRed.Name = "BtnAmirRed";
+            this.BtnAmirRed.Size = new System.Drawing.Size(123, 51);
+            this.BtnAmirRed.TabIndex = 356;
+            this.BtnAmirRed.Text = "    REDDET";
+            this.BtnAmirRed.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAmirRed.UseVisualStyleBackColor = false;
+            this.BtnAmirRed.Click += new System.EventHandler(this.BtnAmirRed_Click);
+            // 
+            // BtnAmirOnay
+            // 
+            this.BtnAmirOnay.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnAmirOnay.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnAmirOnay.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnAmirOnay.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnAmirOnay.ImageKey = "ok.png";
+            this.BtnAmirOnay.ImageList = this.ımageList3;
+            this.BtnAmirOnay.Location = new System.Drawing.Point(10, 372);
+            this.BtnAmirOnay.Name = "BtnAmirOnay";
+            this.BtnAmirOnay.Size = new System.Drawing.Size(123, 51);
+            this.BtnAmirOnay.TabIndex = 355;
+            this.BtnAmirOnay.Text = "  ONAYLA";
+            this.BtnAmirOnay.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnAmirOnay.UseVisualStyleBackColor = false;
+            this.BtnAmirOnay.Click += new System.EventHandler(this.BtnAmirOnay_Click);
+            // 
+            // BtnGorevTamamla
+            // 
+            this.BtnGorevTamamla.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGorevTamamla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGorevTamamla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGorevTamamla.Image = ((System.Drawing.Image)(resources.GetObject("BtnGorevTamamla.Image")));
+            this.BtnGorevTamamla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGorevTamamla.Location = new System.Drawing.Point(24, 368);
+            this.BtnGorevTamamla.Name = "BtnGorevTamamla";
+            this.BtnGorevTamamla.Size = new System.Drawing.Size(130, 51);
+            this.BtnGorevTamamla.TabIndex = 448;
+            this.BtnGorevTamamla.Text = "     KAYDET";
+            this.BtnGorevTamamla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGorevTamamla.UseVisualStyleBackColor = false;
+            this.BtnGorevTamamla.Click += new System.EventHandler(this.BtnGorevTamamla_Click);
+            // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
+            this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGuncelle.Location = new System.Drawing.Point(18, 375);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
+            this.BtnGuncelle.TabIndex = 320;
+            this.BtnGuncelle.Text = "  GÜNCELLE";
+            this.BtnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGuncelle.UseVisualStyleBackColor = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
+            // 
+            // BtnTemizleGun
+            // 
+            this.BtnTemizleGun.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTemizleGun.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTemizleGun.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTemizleGun.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTemizleGun.ImageKey = "broom.png";
+            this.BtnTemizleGun.ImageList = this.ımageList1;
+            this.BtnTemizleGun.Location = new System.Drawing.Point(154, 375);
+            this.BtnTemizleGun.Name = "BtnTemizleGun";
+            this.BtnTemizleGun.Size = new System.Drawing.Size(130, 51);
+            this.BtnTemizleGun.TabIndex = 449;
+            this.BtnTemizleGun.Text = "   TEMİZLE";
+            this.BtnTemizleGun.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTemizleGun.UseVisualStyleBackColor = false;
+            this.BtnTemizleGun.Click += new System.EventHandler(this.BtnTemizleGun_Click_1);
+            // 
+            // BtnGorevSil
+            // 
+            this.BtnGorevSil.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGorevSil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGorevSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGorevSil.Image = ((System.Drawing.Image)(resources.GetObject("BtnGorevSil.Image")));
+            this.BtnGorevSil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGorevSil.Location = new System.Drawing.Point(290, 375);
+            this.BtnGorevSil.Name = "BtnGorevSil";
+            this.BtnGorevSil.Size = new System.Drawing.Size(130, 51);
+            this.BtnGorevSil.TabIndex = 514;
+            this.BtnGorevSil.Text = "   KAYIT SİL";
+            this.BtnGorevSil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGorevSil.UseVisualStyleBackColor = false;
+            this.BtnGorevSil.Click += new System.EventHandler(this.BtnGorevSil_Click);
+            // 
             // FrmSehirIcıGorev
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1377,6 +1447,13 @@ namespace UserInterface.IdariIsler
             this.groupBox8.PerformLayout();
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgListAmir)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox9.ResumeLayout(false);
@@ -1389,13 +1466,6 @@ namespace UserInterface.IdariIsler
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgListAmir)).EndInit();
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
@@ -1408,7 +1478,6 @@ namespace UserInterface.IdariIsler
 
         private System.Windows.Forms.TabControl TabControl;
         private System.Windows.Forms.TabPage tabPage1;
-        private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.Label label63;
         private System.Windows.Forms.Label label56;
@@ -1430,7 +1499,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -1455,8 +1523,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.ComboBox CmbAdSoyadGun;
         private System.Windows.Forms.Button BtnBul;
         private System.Windows.Forms.MaskedTextBox TxtIsAkisNo;
-        private System.Windows.Forms.Button BtnTemizle;
-        private System.Windows.Forms.Button BtnTemizleGun;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DateTimePicker DtBasSaati;
         private System.Windows.Forms.TabPage tabPage3;
@@ -1488,23 +1554,17 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtMasrafYeriT;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Button BtnSil;
         private System.Windows.Forms.DateTimePicker DtBasSaatiGun;
         private System.Windows.Forms.DateTimePicker DtBitSaatiGun;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Label label44;
-        private System.Windows.Forms.Button BtnDokumanOlustur;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.DateTimePicker DtBasSaatiTamamlama;
         private System.Windows.Forms.DateTimePicker DtBasTarihiTamamlama;
         private System.Windows.Forms.TabPage tabPage4;
-        private System.Windows.Forms.Button BtnGorevReddet;
-        private System.Windows.Forms.Button BtnGorevOnayla;
         private System.Windows.Forms.Panel panel2;
         private ADGV.AdvancedDataGridView DtgList;
         private System.Windows.Forms.TabPage tabPage5;
-        private System.Windows.Forms.Button BtnGorevReddetAmir;
-        private System.Windows.Forms.Button BtnGorevOnaylaAmir;
         private ADGV.AdvancedDataGridView DtgListAmir;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label5;
@@ -1525,5 +1585,18 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label LblMasrafYeriNo;
         private System.Windows.Forms.Label LblUnvani;
         private System.Windows.Forms.Label LblSiparisNo;
+        private System.Windows.Forms.Button BtnTemizle;
+        private System.Windows.Forms.ImageList ımageList1;
+        private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.Button BtnReddet;
+        private System.Windows.Forms.ImageList ımageList2;
+        private System.Windows.Forms.Button BtnOnayla;
+        private System.Windows.Forms.ImageList ımageList3;
+        private System.Windows.Forms.Button BtnAmirRed;
+        private System.Windows.Forms.Button BtnAmirOnay;
+        private System.Windows.Forms.Button BtnGorevTamamla;
+        private System.Windows.Forms.Button BtnGuncelle;
+        private System.Windows.Forms.Button BtnTemizleGun;
+        private System.Windows.Forms.Button BtnGorevSil;
     }
 }

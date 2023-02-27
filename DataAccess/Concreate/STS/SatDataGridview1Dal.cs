@@ -817,9 +817,9 @@ namespace DataAccess.Concreate
                     new SqlParameter("@islemAdimi", islemAdimi));
                 dataReader.Close();
             }
-            catch (Exception)
+            catch (Exception ex)
             {
-                return;
+                throw;
             }
         }
         public void SatRed(string siparisno,string redNedeni)

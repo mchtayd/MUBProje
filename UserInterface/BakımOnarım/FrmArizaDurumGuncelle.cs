@@ -151,10 +151,11 @@ namespace UserInterface.BakımOnarım
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
-                GrbMalzemeBilgileri.Visible = false;
+                GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new Point(29, 831);
                 GrbMalzemeBilgileri.Location = new Point(18, 415);
             }
+
             abfForm = arizaKayit.AbfFormNo;
             id = arizaKayit.Id;
 
@@ -614,10 +615,10 @@ namespace UserInterface.BakımOnarım
                 {
                     return "Lütfen Öncelikle SÖKÜLEN MALZEMELER Bilgisini Doldurunuz!";
                 }
-                if (CmbGarantiDurumu.Text == "")
-                {
-                    return "Lütfen GARANTİ DURUMU bilgisini doldurunuz!";
-                }
+                //if (CmbGarantiDurumu.Text == "")
+                //{
+                //    return "Lütfen GARANTİ DURUMU bilgisini doldurunuz!";
+                //}
                 if (CmbGarantiDurumu.Text == "DIŞI")
                 {
                     if (TxtLojistikSorumlusu.Text == "")
@@ -730,6 +731,11 @@ namespace UserInterface.BakımOnarım
                 if (item.TeminDurumu != "ARIZAYA GÖNDERİLDİ")
                 {
                     return "Arıza için gerekli olan tüm malzemelerin hazırlanma işlemleri tamamlanmamıştır!\nLütfen öncelikle malzeme hazırlama işlemlerini tamamlayınız!";
+                    //if (item.TeminDurumu != "REZERVE EDİLDİ")
+                    //{
+                    //    
+                    //}
+
                 }
             }
             return "OK";

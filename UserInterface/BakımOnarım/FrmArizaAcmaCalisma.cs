@@ -495,8 +495,8 @@ namespace UserInterface.BakımOnarım
             }
 
 
-            Bolge bolge = bolgeManager.Get(LblBolgeAdi.Text);
-            if (bolge == null)
+            BolgeKayit bolgeKayit = bolgeKayitManager.Get(0, LblBolgeAdi.Text);
+            if (bolgeKayit == null)
             {
                 LblProje.Text = "";
                 GrnBasTarihi.Text = "";
@@ -504,15 +504,16 @@ namespace UserInterface.BakımOnarım
             }
             else
             {
-                LblProje.Text = bolge.Proje;
-                GrnBasTarihi.Text = bolge.GarantiBaslama;
-                GrnBitTarihi.Text = bolge.GarantiBitis;
-                sorumluPersonel = bolge.IlgiliPersonel;
-                bolgeBirlikAdresi = bolge.BirlikAdresi;
-                bolgeIl = bolge.Il;
-                bolgeIlce = bolge.Ilce;
-                faturaAdresi = bolge.FaturaAdresi;
-                bolgeTelefon = bolge.Telefon;
+                LblProje.Text = bolgeKayit.Proje;
+                GrnBasTarihi.Text = bolgeKayit.GarantiBaslama.ToString("d");
+                GrnBitTarihi.Text = bolgeKayit.GarantiBitis.ToString("d");
+                sorumluPersonel = bolgeKayit.BolgeSorumlusu;
+                bolgeBirlikAdresi = bolgeKayit.BirlikAdresi;
+                bolgeIl = bolgeKayit.Il;
+                bolgeIlce = bolgeKayit.Ilce;
+                faturaAdresi = "";
+                bolgeTelefon = arizaKayit.TelefonNo;
+                CmbPypNo.Text = bolgeKayit.PypNo;
             }
             if (GrnBitTarihi.Text.ConDate() < DateTime.Now)
             {
@@ -956,28 +957,28 @@ namespace UserInterface.BakımOnarım
 
         private string ExcelDoldurCrmNo()
         {
-            string excelFilePath = Path.Combine(dosyaYolu, abfForm + ".xlsx");
-            bool exists = File.Exists(excelFilePath);
-            if (exists == false)
-            {
-                return "Excel Dosyası Bulunamadı!";
-            }
-            IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
-            IXLWorksheet worksheet = xLWorkbook.Worksheet("Sayfa1");
+            //string excelFilePath = Path.Combine(dosyaYolu, abfForm + ".xlsx");
+            //bool exists = File.Exists(excelFilePath);
+            //if (exists == false)
+            //{
+            //    return "Excel Dosyası Bulunamadı!";
+            //}
+            //IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
+            //IXLWorksheet worksheet = xLWorkbook.Worksheet("Sayfa1");
 
-            var range = worksheet.RangeUsed();
-            range.Cell("I9").Value = TxtBildirimNo.Text; // BİLDİRİM NO
-            range.Cell("O9").Value = TxtCsSiparisNo.Text; // SİPARİŞ NO
-            if (TxtCrmNo.Text != "")
-            {
-                range.Cell("O9").Value = "CRM:" + TxtCrmNo.Text; // CRM NO
-            }
-            range.Cell("I18").Value = TxtEkipmanNo.Text; // EKİPMAN NO
+            //var range = worksheet.RangeUsed();
+            //range.Cell("I9").Value = TxtBildirimNo.Text; // BİLDİRİM NO
+            //range.Cell("O9").Value = TxtCsSiparisNo.Text; // SİPARİŞ NO
+            //if (TxtCrmNo.Text != "")
+            //{
+            //    range.Cell("O9").Value = "CRM:" + TxtCrmNo.Text; // CRM NO
+            //}
+            //range.Cell("I18").Value = TxtEkipmanNo.Text; // EKİPMAN NO
 
-            if (dosyaYolu != "")
-            {
-                xLWorkbook.SaveAs(dosyaYolu + bolgeAdi + " " + abfForm + ".xlsx");
-            }
+            //if (dosyaYolu != "")
+            //{
+            //    xLWorkbook.SaveAs(dosyaYolu + bolgeAdi + " " + abfForm + ".xlsx");
+            //}
 
             return "OK";
         }
@@ -1311,14 +1312,14 @@ namespace UserInterface.BakımOnarım
             {
                 return "Lütfen Geçerli Bir Arıza Kaydı Giriniz!";
             }
-            if (CmbGarantiDurumu.Text == "")
-            {
-                return "Lütfen Garanti Durumu Bilgisini Seçiniz!";
-            }
-            if (CmbGarantiDurumu.Text == "")
-            {
-                return "Lütfen Garanti Durumu Bilgisini Seçiniz!";
-            }
+            //if (CmbGarantiDurumu.Text == "")
+            //{
+            //    return "Lütfen Garanti Durumu Bilgisini Seçiniz!";
+            //}
+            //if (CmbGarantiDurumu.Text == "")
+            //{
+            //    return "Lütfen Garanti Durumu Bilgisini Seçiniz!";
+            //}
             if (CmbGarantiDurumu.Text == "DIŞI")
             {
                 if (TxtLojistikSorumlusu.Text == "")
@@ -1484,6 +1485,8 @@ namespace UserInterface.BakımOnarım
                 IsAkisNo();
                 IsAkisNoAK();
                 TemizleKapat();
+
+
             }
 
         }

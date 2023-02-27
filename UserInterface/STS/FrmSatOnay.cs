@@ -807,7 +807,7 @@ namespace UserInterface.STS
 
             Gerek.Text = gerekce;
 
-            if (satOlusturmaTuru== "HARCAMASI YAPILAN")
+            if (satOlusturmaTuru== "HARCAMASI YAPILAN" || satOlusturmaTuru == "YERLEŞKE GİDERİ")
             {
                 DtgMalzList.DataSource = teklifsizSats;
                 DtgMalzList.Columns["Id"].Visible = false;
@@ -969,6 +969,7 @@ namespace UserInterface.STS
         double hyTop;
         void ToplamlarHarcamasiYapilan()
         {
+            hyTop = 0;
             for (int i = 0; i < DtgMalzList.Rows.Count; ++i)
             {
                 hyTop += Convert.ToDouble(DtgMalzList.Rows[i].Cells["Tutar"].Value);

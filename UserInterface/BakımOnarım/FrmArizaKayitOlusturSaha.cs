@@ -114,10 +114,8 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 GorevAtama();
-
-
-
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
@@ -125,6 +123,7 @@ namespace UserInterface.BakımOnarım
                 kayitKontrol = true;
             }
         }
+
         void MailGonder()
         {
             FrmMail frmMail = new FrmMail();
@@ -133,6 +132,9 @@ namespace UserInterface.BakımOnarım
             frmMail.infos = infos;
             frmMail.dosyaYolu = dosyaYolu;
             frmMail.ShowDialog();
+
+
+
         }
 
         private void BtnTemizle_Click(object sender, EventArgs e)
@@ -239,8 +241,9 @@ namespace UserInterface.BakımOnarım
 
             GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM", CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
             gorevAtamaPersonelManager.Add(gorevAtamaPersonel4);
-
+            
         }
+
         //void CmbProj()
         //{
         //    CmbProje.DataSource = comboManager.GetList("SİPARİŞLER PROJE");
@@ -248,9 +251,10 @@ namespace UserInterface.BakımOnarım
         //    CmbProje.DisplayMember = "Baslik";
         //    CmbProje.SelectedValue = 0;
         //}
+
         void UsBolgeleri()
         {
-            if (infos[0].ConInt()==25 || infos[0].ConInt() == 84)
+            if (infos[0].ConInt()==25 || infos[0].ConInt() == 84 || infos[0].ConInt() == 30 || infos[0].ConInt() == 39 || infos[0].ConInt() == 47)
             {
                 CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
             }

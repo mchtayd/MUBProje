@@ -81,13 +81,13 @@ namespace UserInterface
             this.TxtSifremiUnuttum.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TxtSifremiUnuttum.Location = new System.Drawing.Point(115, 198);
             this.TxtSifremiUnuttum.Name = "TxtSifremiUnuttum";
-            this.TxtSifremiUnuttum.Size = new System.Drawing.Size(115, 16);
+            this.TxtSifremiUnuttum.Size = new System.Drawing.Size(114, 16);
             this.TxtSifremiUnuttum.TabIndex = 4;
             this.TxtSifremiUnuttum.Text = "Şifremi Unuttum?";
             // 
             // btnLogin
             // 
-            this.btnLogin.BackColor = System.Drawing.Color.Black;
+            this.btnLogin.BackColor = System.Drawing.Color.CadetBlue;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnLogin.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnLogin.ForeColor = System.Drawing.Color.White;
@@ -131,9 +131,9 @@ namespace UserInterface
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(40, 12);
+            this.pictureBox1.Location = new System.Drawing.Point(40, 25);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(361, 222);
+            this.pictureBox1.Size = new System.Drawing.Size(361, 190);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 14;
             this.pictureBox1.TabStop = false;

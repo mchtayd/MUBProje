@@ -53,7 +53,7 @@ namespace Business.Concreate.Yerleskeler
                 return null;
             }
         }
-        public Yerleske YerleskeBiigiCek(string yerleskeAdi, string aboneTuru)
+        public Yerleske YerleskeBiigiCek(string yerleskeAdi, string aboneTuru="")
         {
             try
             {

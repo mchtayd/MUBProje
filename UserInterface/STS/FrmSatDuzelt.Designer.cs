@@ -206,6 +206,8 @@ namespace UserInterface.STS
             this.label150 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CmbBasaranProje = new System.Windows.Forms.ComboBox();
             this.groupBox16.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -236,7 +238,7 @@ namespace UserInterface.STS
             this.groupBox16.Controls.Add(this.LblMasrafYeri);
             this.groupBox16.Location = new System.Drawing.Point(12, 12);
             this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(364, 166);
+            this.groupBox16.Size = new System.Drawing.Size(364, 175);
             this.groupBox16.TabIndex = 349;
             this.groupBox16.TabStop = false;
             this.groupBox16.Text = "TALEBİ OLUŞTURAN";
@@ -333,6 +335,8 @@ namespace UserInterface.STS
             // 
             // groupBox18
             // 
+            this.groupBox18.Controls.Add(this.label11);
+            this.groupBox18.Controls.Add(this.CmbBasaranProje);
             this.groupBox18.Controls.Add(this.CmbDonemYil);
             this.groupBox18.Controls.Add(this.CmbDonem);
             this.groupBox18.Controls.Add(this.label52);
@@ -346,7 +350,7 @@ namespace UserInterface.STS
             this.groupBox18.Controls.Add(this.CmbUsBolgesi);
             this.groupBox18.Location = new System.Drawing.Point(382, 12);
             this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(397, 166);
+            this.groupBox18.Size = new System.Drawing.Size(397, 194);
             this.groupBox18.TabIndex = 350;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "TALEP EDİLEN YER";
@@ -415,11 +419,11 @@ namespace UserInterface.STS
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(65, 86);
+            this.label37.Location = new System.Drawing.Point(44, 86);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(45, 13);
+            this.label37.Size = new System.Drawing.Size(66, 13);
             this.label37.TabIndex = 28;
-            this.label37.Text = "PROJE:";
+            this.label37.Text = "ÜB. PROJE:";
             // 
             // istenenTarih
             // 
@@ -562,7 +566,7 @@ namespace UserInterface.STS
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.webBrowser1);
-            this.groupBox2.Location = new System.Drawing.Point(19, 284);
+            this.groupBox2.Location = new System.Drawing.Point(19, 299);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(760, 218);
             this.groupBox2.TabIndex = 364;
@@ -729,7 +733,7 @@ namespace UserInterface.STS
             // TxtGerekceBasaran
             // 
             this.TxtGerekceBasaran.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtGerekceBasaran.Location = new System.Drawing.Point(19, 197);
+            this.TxtGerekceBasaran.Location = new System.Drawing.Point(19, 212);
             this.TxtGerekceBasaran.Name = "TxtGerekceBasaran";
             this.TxtGerekceBasaran.Size = new System.Drawing.Size(760, 81);
             this.TxtGerekceBasaran.TabIndex = 362;
@@ -738,7 +742,7 @@ namespace UserInterface.STS
             // label112
             // 
             this.label112.AutoSize = true;
-            this.label112.Location = new System.Drawing.Point(19, 181);
+            this.label112.Location = new System.Drawing.Point(19, 196);
             this.label112.Name = "label112";
             this.label112.Size = new System.Drawing.Size(61, 13);
             this.label112.TabIndex = 361;
@@ -2085,6 +2089,23 @@ namespace UserInterface.STS
             this.comboBox9.Size = new System.Drawing.Size(278, 21);
             this.comboBox9.TabIndex = 8;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 171);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 13);
+            this.label11.TabIndex = 417;
+            this.label11.Text = "BSR.PROJE NO:";
+            // 
+            // CmbBasaranProje
+            // 
+            this.CmbBasaranProje.FormattingEnabled = true;
+            this.CmbBasaranProje.Location = new System.Drawing.Point(116, 167);
+            this.CmbBasaranProje.Name = "CmbBasaranProje";
+            this.CmbBasaranProje.Size = new System.Drawing.Size(275, 21);
+            this.CmbBasaranProje.TabIndex = 418;
+            // 
             // FrmSatDuzelt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2326,5 +2347,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label150;
         private System.Windows.Forms.ComboBox comboBox8;
         private System.Windows.Forms.ComboBox comboBox9;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox CmbBasaranProje;
     }
 }

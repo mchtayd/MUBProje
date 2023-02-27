@@ -31,7 +31,7 @@ namespace UserInterface.IdariIsler
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIzin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnGuncelle = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnTemizle = new System.Windows.Forms.Button();
@@ -361,11 +361,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.Name = "Remove";
             this.Remove.ReadOnly = true;
@@ -437,6 +437,7 @@ namespace UserInterface.IdariIsler
             this.Btn.TabIndex = 14;
             this.Btn.Text = "KAYDET";
             this.Btn.UseVisualStyleBackColor = true;
+            this.Btn.Visible = false;
             this.Btn.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // label13
@@ -680,6 +681,7 @@ namespace UserInterface.IdariIsler
             "EVLİLİK İZNİ",
             "ÖLÜM İZNİ",
             "RAPOR",
+            "GÜNLÜK İZİN",
             "HAFTALIK İZİN"});
             this.CmbIzınTuru.Location = new System.Drawing.Point(144, 68);
             this.CmbIzınTuru.Name = "CmbIzınTuru";

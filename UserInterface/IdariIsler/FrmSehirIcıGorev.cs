@@ -374,38 +374,6 @@ namespace UserInterface.IdariIsler
             wApp.Quit(false);
             MessageBox.Show("bitti");*/
         }
-        private void BtnKaydet_Click(object sender, EventArgs e)
-        {
-            DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
-            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                IsAkisNo();
-                string islemadimi = "1.ADIM: GÖREV OLUŞTURULDU.";
-                SehiriciGorev sehiriciGorev = new SehiriciGorev(LblIsAkisNo.Text.ConInt(), CmbProje.Text, TxtGidilecekYer.Text, TxtGorevKonusu.Text,
-                    basTarihi, LblSiparisNo.Text, LblAdSoyad.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text, islemadimi, id);
-                string mesaj = sehiriciGorevManager.Add(sehiriciGorev);
-                if (mesaj != "OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                CreateLog();
-                PersonelMail();
-                Task.Factory.StartNew(() => MailSendMetotPersonel());
-
-                mesaj = BildirimKayit();
-                if (mesaj!="OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Temizle();
-                DataDisplayPersonel();
-                DataDisplayAmir();
-
-            }
-        }
         string BildirimKayit()
         {
             string[] array = new string[8];
@@ -505,26 +473,7 @@ namespace UserInterface.IdariIsler
         {
             MailSend("ŞEHİR İÇİ GÖREV", "Merhaba; \n\n" + isakisnoamir + " İş Akış Numaralı Görev Reddedilmiştir." + "\n\nİyi Çalışmalar.", new List<string>() { infos[7].ToString() });
         }
-        private void BtnGuncelle_Click(object sender, EventArgs e)
-        {
-            DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                DateTime basTarihi = new DateTime(DtBasGun.Value.Year, DtBasGun.Value.Month, DtBasGun.Value.Day, DtBasSaatiGun.Value.Hour, DtBasSaatiGun.Value.Minute, DtBasSaatiGun.Value.Second);
-                DateTime bitTarihi = new DateTime(DtBitGun.Value.Year, DtBitGun.Value.Month, DtBitGun.Value.Day, DtBitSaatiGun.Value.Hour, DtBitSaatiGun.Value.Minute, DtBitSaatiGun.Value.Second);
 
-                SehiriciGorev sehiriciGorev = new SehiriciGorev(CmbProjeGuncelle.Text, CmbGidilecekYerGun.Text, TxtGorevKonusuGun.Text, basTarihi, bitTarihi, TxtTopSureGun.Text, CmbSiparsGun.Text, CmbAdSoyadGun.Text, TxtUnvani.Text, TxtMasrafYeriNoGun.Text, TxtMasrafYeriGun.Text, islemadimiguncelle);
-                string mesaj = sehiriciGorevManager.Update(sehiriciGorev, TxtIsAkisNo.Text.ConInt());
-                if (mesaj != "OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                CreateLogGuncelle();
-                MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TemizleGuncelle();
-            }
-        }
         void CreateLogGuncelle()
         {
             string sayfa = "ŞEHİR İÇİ GÖREV";
@@ -574,43 +523,15 @@ namespace UserInterface.IdariIsler
             DtBasGun.Value = DateTime.Now; DtBitGun.Value = DateTime.Now; TxtUnvani.Clear();
         }
 
-        private void BtnTemizle_Click(object sender, EventArgs e)
-        {
-            Temizle();
-        }
 
         private void BtnTemizleGun_Click(object sender, EventArgs e)
         {
-            TemizleGuncelle();
+            
         }
 
         private void BtnSil_Click(object sender, EventArgs e)
         {
-            if (!TxtIsAkisNo.MaskFull)
-            {
-                MessageBox.Show("Lütfen Silmek İstediğiniz Görevin İş Akış Numarasını Giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                return;
-            }
-            if (TxtTopSureGun.Text != "Görev Devam Ediyor")
-            {
-                MessageBox.Show("Tamamlanmış Bir Görevin Kaydını Silemezsiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            DialogResult dr = MessageBox.Show(TxtIsAkisNo.Text + " Nolu Görevi Tamamen Silmek İstediğinize Emin Misiniz? Bu İşlem Geri Alınamaz.", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                string mesaj = sehiriciGorevManager.Delete(id);
-                if (mesaj=="OK")
-                {
-                    MessageBox.Show(TxtIsAkisNo.Text + " Nolu Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    TemizleGuncelle();
-                }
-                else
-                {
-                    MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                    return;
-                }
-            }
+            
         }
 
         string Control()
@@ -628,36 +549,7 @@ namespace UserInterface.IdariIsler
 
         private void BtnDokumanOlustur_Click(object sender, EventArgs e)
         {
-            if (control== "4.ADIM:GÖREV TAMAMLANMIŞTIR.")
-            {
-                MessageBox.Show("Bu Görev Zaten Tamamlanmıştır.","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            DialogResult dr = MessageBox.Show("Görevi Tamamlamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                string mesaj = Control();
-                if (mesaj != "OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-                DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
-                SehiriciGorev sehiriciGorev = new SehiriciGorev(TxtIsAkisNoTamamla.Text.ConInt(), bitTarihi, TxtToplamSure.Text);
-                sehiriciGorevManager.GorevTamamla(sehiriciGorev, TxtIsAkisNoTamamla.Text.ConInt());
-                string sehiricigorev = "4.ADIM:GÖREV TAMAMLANMIŞTIR.";
-                sehiriciGorevManager.GorevOnay(sehiricigorev, tamamlamaid);
-                CreateLogTamamla();
-                Task.Factory.StartNew(() => MailSendMetotTamamlama());
-                //CreateWord();s
-                mesaj = BildirimKayitTamamla();
-                if (mesaj!="OK")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-                MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                TemizleTamamla();
-            }
+            
         }
         void CreateLogTamamla()
         {
@@ -692,26 +584,132 @@ namespace UserInterface.IdariIsler
         }
         private void BtnGorevReddet_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void BtnGorevReddetAmir_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgList.SortString;
+        }
+
+        private void BtnKaydet_Click(object sender, EventArgs e)
+        {
+            DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
+            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                IsAkisNo();
+                string islemadimi = "1.ADIM: GÖREV OLUŞTURULDU.";
+                SehiriciGorev sehiriciGorev = new SehiriciGorev(LblIsAkisNo.Text.ConInt(), CmbProje.Text, TxtGidilecekYer.Text, TxtGorevKonusu.Text,
+                    basTarihi, LblSiparisNo.Text, LblAdSoyad.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text, islemadimi, id);
+                string mesaj = sehiriciGorevManager.Add(sehiriciGorev);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                CreateLog();
+                PersonelMail();
+                //Task.Factory.StartNew(() => MailSendMetotPersonel());
+
+                //mesaj = BildirimKayit();
+                //if (mesaj != "OK")
+                //{
+                //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+                DataDisplayPersonel();
+                DataDisplayAmir();
+
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnTemizle_Click(object sender, EventArgs e)
+        {
+            Temizle();
+        }
+
+        private void BtnOnayla_Click(object sender, EventArgs e)
+        {
             if (onayid == 0)
             {
                 MessageBox.Show("Lütfen Öncelikle Bir Görev Kaydı Seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DialogResult dr = MessageBox.Show(isakisno + " Nolu Görevi Reddetmek İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            if (islemadimi != "1.ADIM: GÖREV OLUŞTURULDU.")
             {
-                string sehiricigorev = "GÖREV "+infos[1].ToString()+" TARAFINDAN REDDEDİLDİ";
+                MessageBox.Show(isakisno + " Nolu Kayıt Zaten Tarafınızca Onaylanmıştır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Görevi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string sehiricigorev = "2.ADIM:GÖREV PERSONEL TARAFINDAN ONAYLANDI.";
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayid);
+                MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                UstAmirMail();
+
+                //Task.Factory.StartNew(() => MailSendMetotPersonelOnay());
+                //Task.Factory.StartNew(() => MailSendMetotAmir());
+
+                DataDisplayPersonel();
+                CreateLogPersonelOnay();
+            }
+        }
+
+        private void BtnReddet_Click(object sender, EventArgs e)
+        {
+            if (onayid == 0)
+            {
+                MessageBox.Show("Lütfen Öncelikle Bir Görev Kaydı Seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show(isakisno + " Nolu Görevi Reddetmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string sehiricigorev = "GÖREV " + infos[1].ToString() + " TARAFINDAN REDDEDİLDİ";
                 SehiriciGorev sehiriciGorev = new SehiriciGorev(isakisno, DateTime.Now, "0 Saat");
                 sehiriciGorevManager.GorevTamamla(sehiriciGorev, isakisno);
                 sehiriciGorevManager.GorevOnay(sehiricigorev, onayid);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Task.Factory.StartNew(() => MailSendMetotRet());
+                //Task.Factory.StartNew(() => MailSendMetotRet());
                 DataDisplayPersonel();
                 CreateLogPersonelRed();
             }
         }
 
-        private void BtnGorevReddetAmir_Click(object sender, EventArgs e)
+        private void BtnAmirOnay_Click(object sender, EventArgs e)
+        {
+            if (onayamirid == 0)
+            {
+                MessageBox.Show("Lütfen Öncelikle Bir Görev Kaydı Seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Görevi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string sehiricigorev = "3.ADIM:GÖREV AMİR TARAFINDAN ONAYLANDI";
+                sehiriciGorevManager.GorevOnay(sehiricigorev, onayamirid);
+                MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //Task.Factory.StartNew(() => MailSendMetotOnay());
+                DataDisplayAmir();
+                CreateLogAmirOnay();
+            }
+        }
+
+        private void BtnAmirRed_Click(object sender, EventArgs e)
         {
             if (onayamirid == 0)
             {
@@ -721,20 +719,106 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show(isakisnoamir + " Nolu Görevi Reddetmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                string sehiricigorev = "GÖREV "+infos[1].ToString() +" TARAFINDAN REDDEDİLDİ";
+                string sehiricigorev = "GÖREV " + infos[1].ToString() + " TARAFINDAN REDDEDİLDİ";
                 SehiriciGorev sehiriciGorev = new SehiriciGorev(isakisnoamir, DateTime.Now, "0 Saat");
                 sehiriciGorevManager.GorevTamamla(sehiriciGorev, isakisnoamir);
                 sehiriciGorevManager.GorevOnay(sehiricigorev, onayamirid);
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataDisplayAmir();
                 CreateLogAmirRed();
-                Task.Factory.StartNew(() => MailSendMetotRetAmir());
+                //Task.Factory.StartNew(() => MailSendMetotRetAmir());
             }
         }
 
-        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        private void BtnGorevTamamla_Click(object sender, EventArgs e)
         {
-            dataBinder.Sort = DtgList.SortString;
+            if (control == "4.ADIM:GÖREV TAMAMLANMIŞTIR.")
+            {
+                MessageBox.Show("Bu Görev Zaten Tamamlanmıştır.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Görevi Tamamlamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string mesaj = Control();
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
+                SehiriciGorev sehiriciGorev = new SehiriciGorev(TxtIsAkisNoTamamla.Text.ConInt(), bitTarihi, TxtToplamSure.Text);
+                sehiriciGorevManager.GorevTamamla(sehiriciGorev, TxtIsAkisNoTamamla.Text.ConInt());
+                string sehiricigorev = "4.ADIM:GÖREV TAMAMLANMIŞTIR.";
+                sehiriciGorevManager.GorevOnay(sehiricigorev, tamamlamaid);
+                CreateLogTamamla();
+
+                //Task.Factory.StartNew(() => MailSendMetotTamamlama());
+                //CreateWord();s
+                //mesaj = BildirimKayitTamamla();
+                //if (mesaj != "OK")
+                //{
+                //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
+
+                MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TemizleTamamla();
+            }
+        }
+
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                DateTime basTarihi = new DateTime(DtBasGun.Value.Year, DtBasGun.Value.Month, DtBasGun.Value.Day, DtBasSaatiGun.Value.Hour, DtBasSaatiGun.Value.Minute, DtBasSaatiGun.Value.Second);
+                DateTime bitTarihi = new DateTime(DtBitGun.Value.Year, DtBitGun.Value.Month, DtBitGun.Value.Day, DtBitSaatiGun.Value.Hour, DtBitSaatiGun.Value.Minute, DtBitSaatiGun.Value.Second);
+
+                SehiriciGorev sehiriciGorev = new SehiriciGorev(CmbProjeGuncelle.Text, CmbGidilecekYerGun.Text, TxtGorevKonusuGun.Text, basTarihi, bitTarihi, TxtTopSureGun.Text, CmbSiparsGun.Text, CmbAdSoyadGun.Text, TxtUnvani.Text, TxtMasrafYeriNoGun.Text, TxtMasrafYeriGun.Text, islemadimiguncelle);
+                string mesaj = sehiriciGorevManager.Update(sehiriciGorev, TxtIsAkisNo.Text.ConInt());
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                CreateLogGuncelle();
+                MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                TemizleGuncelle();
+            }
+        }
+
+        private void BtnTemizleGun_Click_1(object sender, EventArgs e)
+        {
+            TemizleGuncelle();
+        }
+
+        private void BtnGorevSil_Click(object sender, EventArgs e)
+        {
+            if (!TxtIsAkisNo.MaskFull)
+            {
+                MessageBox.Show("Lütfen Silmek İstediğiniz Görevin İş Akış Numarasını Giriniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return;
+            }
+            if (TxtTopSureGun.Text != "Görev Devam Ediyor")
+            {
+                MessageBox.Show("Tamamlanmış Bir Görevin Kaydını Silemezsiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show(TxtIsAkisNo.Text + " Nolu Görevi Tamamen Silmek İstediğinize Emin Misiniz? Bu İşlem Geri Alınamaz.", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string mesaj = sehiriciGorevManager.Delete(id);
+                if (mesaj == "OK")
+                {
+                    MessageBox.Show(TxtIsAkisNo.Text + " Nolu Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    TemizleGuncelle();
+                }
+                else
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
         }
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)
@@ -818,21 +902,7 @@ namespace UserInterface.IdariIsler
 
         private void BtnGorevOnaylaAmir_Click(object sender, EventArgs e)
         {
-            if (onayamirid == 0)
-            {
-                MessageBox.Show("Lütfen Öncelikle Bir Görev Kaydı Seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            DialogResult dr = MessageBox.Show("Görevi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
-            {
-                string sehiricigorev = "3.ADIM:GÖREV AMİR TARAFINDAN ONAYLANDI";
-                sehiriciGorevManager.GorevOnay(sehiricigorev, onayamirid);
-                MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                Task.Factory.StartNew(() => MailSendMetotOnay());
-                DataDisplayAmir();
-                CreateLogAmirOnay();
-            }
+            
         }
         
         private void DtgListAmir_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -849,30 +919,7 @@ namespace UserInterface.IdariIsler
 
         private void BtnGorevOnayla_Click(object sender, EventArgs e)
         {
-            if (onayid==0)
-            {
-                MessageBox.Show("Lütfen Öncelikle Bir Görev Kaydı Seçiniz.","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            if (islemadimi != "1.ADIM: GÖREV OLUŞTURULDU.")
-            {
-                MessageBox.Show(isakisno + " Nolu Kayıt Zaten Tarafınızca Onaylanmıştır.","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-                return;
-            }
-            DialogResult dr = MessageBox.Show("Görevi Onaylamak İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
-            {
-                string sehiricigorev = "2.ADIM:GÖREV PERSONEL TARAFINDAN ONAYLANDI.";
-                sehiriciGorevManager.GorevOnay(sehiricigorev, onayid);
-                MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
-                UstAmirMail();
-
-                Task.Factory.StartNew(() => MailSendMetotPersonelOnay());
-                Task.Factory.StartNew(() => MailSendMetotAmir());
-
-                DataDisplayPersonel();
-                CreateLogPersonelOnay();
-            }
+            
         }
         void CreateLogAmirOnay()
         {

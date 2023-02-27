@@ -376,6 +376,7 @@ namespace UserInterface.STS
             DtgMalzemeList.Columns["RedGerekcesi"].Visible = false;
             DtgMalzemeList.Columns["ToplamMiktar"].Visible = false;
             DtgMalzemeList.Columns["DepoDurum"].Visible = false;
+            DtgMalzemeList.Columns["Secim"].HeaderText = "SEÇİM";
 
             TxtTop.Text = DtgMalzemeList.RowCount.ToString();
         }
@@ -624,11 +625,26 @@ namespace UserInterface.STS
                     {
                         if (abfss[i].ConInt() == item.Cells["AbfNo"].Value.ConInt())
                         {
-                            SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), siparisNo);
+                            if (CmbFaturaFirma.Text == "BAŞARAN İLERİ TEKNOLOJİ")
+                            {
+                                if (item.Cells["Secim"].Value.ConBool() == true)
+                                {
+                                    SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), siparisNo);
 
-                            satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
+                                    satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
 
-                            abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), isleAdimi);
+                                    abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), isleAdimi);
+                                }
+                            }
+                            else
+                            {
+                                SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), siparisNo);
+
+                                satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
+
+                                abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), isleAdimi);
+                            }
+                            
                         }
                     }
 
@@ -980,16 +996,16 @@ namespace UserInterface.STS
             string mesaj = "";
             foreach (DataGridViewRow item in DtgMalzemeList.Rows)
             {
-                SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["StokNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Miktar"].Value.ConInt(), item.Cells["Birim"].Value.ToString(), siparisNo);
-
-                mesaj = satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
-
-                
-
-
-                if (mesaj != "OK")
+                if (item.Cells["Secim"].Value.ConBool()==true)
                 {
-                    return mesaj;
+                    SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["StokNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["Miktar"].Value.ConInt(), item.Cells["Birim"].Value.ToString(), siparisNo);
+
+                    mesaj = satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
+
+                    if (mesaj != "OK")
+                    {
+                        return mesaj;
+                    }
                 }
             }
             return "OK";

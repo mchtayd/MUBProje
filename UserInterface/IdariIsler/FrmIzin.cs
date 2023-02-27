@@ -435,6 +435,19 @@ namespace UserInterface.IdariIsler
                 File.Copy(kaynak + "MP-FR-166 HAFTA SONU PERSONEL İZİN FORMU REV (00).docx", yol + "MP-FR-166 HAFTA SONU PERSONEL İZİN FORMU REV (00).docx");
                 taslakYolu = yol + "MP-FR-166 HAFTA SONU PERSONEL İZİN FORMU REV (00).docx";
             }
+
+            if (CmbIzınTuru.Text == "MAZERET İZNİ" || CmbIzınTuru.Text == "DOĞUM İZNİ" || CmbIzınTuru.Text == "EVLİLİK İZNİ" || CmbIzınTuru.Text == "ÖLÜM İZNİ" ||
+                CmbIzınTuru.Text == "GÜNLÜK İZİN")
+            {
+                File.Copy(kaynak + "GÜNLÜK İZİN- MGÜB.docx", yol + "GÜNLÜK İZİN- MGÜB.docx");
+                taslakYolu = yol + "GÜNLÜK İZİN- MGÜB.docx";
+            }
+
+            if (CmbIzınTuru.Text == "YILLIK İZİN")
+            {
+                File.Copy(kaynak + "YILLIK İZİN - MGÜB.docx", yol + "YILLIK İZİN - MGÜB.docx");
+                taslakYolu = yol + "YILLIK İZİN - MGÜB.docx";
+            }
         }
 
         void CreateWordFile()
@@ -460,36 +473,29 @@ namespace UserInterface.IdariIsler
                 wBookmarks["IsAkisNo"].Range.Text = LblIsAkisNo.Text;
                 wBookmarks["DuzenlenmeTarihi"].Range.Text = DateTime.Now.ToString("d");
                 wBookmarks["Bolum"].Range.Text = infos[3].ToString();
-                wBookmarks["IsAkisNo"].Range.Text = LblIsAkisNo.Text;
 
-                //foreach (DataGridViewRow item in DtgList.Rows)
-                //{
-                //    Izin ızin = new Izin(item.Cells["AdiSoyadi"].Value.ToString(), item.Cells["IzinNedeni"].Value.ToString(), item.Cells["BaslamaTarihi"].Value.ConDate(), item.Cells["BitisTarihi"].Value.ConDate());
-
-                //    ızins.Add(ızin);
-                //}
-                if (ızins.Count > 1)
+                if (ızins.Count > 0)
                 {
                     wBookmarks["Personel1"].Range.Text = ızins[0].Adsoyad;
                     wBookmarks["BasTarihi1"].Range.Text = ızins[0].Bastarihi.ToString("d");
                     wBookmarks["BitTarihi1"].Range.Text = ızins[0].Bittarihi.ToString("d");
                     wBookmarks["Aciklama1"].Range.Text = ızins[0].Izınnedeni;
                 }
-                if (ızins.Count > 2)
+                if (ızins.Count > 1)
                 {
                     wBookmarks["Personel2"].Range.Text = ızins[1].Adsoyad;
                     wBookmarks["BasTarihi2"].Range.Text = ızins[1].Bastarihi.ToString("d");
                     wBookmarks["BitTarihi2"].Range.Text = ızins[1].Bittarihi.ToString("d");
                     wBookmarks["Aciklama2"].Range.Text = ızins[1].Izınnedeni;
                 }
-                if (ızins.Count > 3)
+                if (ızins.Count > 2)
                 {
                     wBookmarks["Personel3"].Range.Text = ızins[2].Adsoyad;
                     wBookmarks["BasTarihi3"].Range.Text = ızins[2].Bastarihi.ToString("d");
                     wBookmarks["BitTarihi3"].Range.Text = ızins[2].Bittarihi.ToString("d");
                     wBookmarks["Aciklama3"].Range.Text = ızins[2].Izınnedeni;
                 }
-                if (ızins.Count > 4)
+                if (ızins.Count > 3)
                 {
                     wBookmarks["Personel4"].Range.Text = ızins[3].Adsoyad;
                     wBookmarks["BasTarihi4"].Range.Text = ızins[3].Bastarihi.ToString("d");
@@ -497,21 +503,21 @@ namespace UserInterface.IdariIsler
                     wBookmarks["Aciklama4"].Range.Text = ızins[3].Izınnedeni;
                 }
 
-                if (ızins.Count > 5)
+                if (ızins.Count > 4)
                 {
                     wBookmarks["Personel5"].Range.Text = ızins[4].Adsoyad;
                     wBookmarks["BasTarihi5"].Range.Text = ızins[4].Bastarihi.ToString("d");
                     wBookmarks["BitTarihi5"].Range.Text = ızins[4].Bittarihi.ToString("d");
                     wBookmarks["Aciklama5"].Range.Text = ızins[4].Izınnedeni;
                 }
-                if (ızins.Count > 6)
+                if (ızins.Count > 5)
                 {
                     wBookmarks["Personel6"].Range.Text = ızins[5].Adsoyad;
                     wBookmarks["BasTarihi6"].Range.Text = ızins[5].Bastarihi.ToString("d");
                     wBookmarks["BitTarihi6"].Range.Text = ızins[5].Bittarihi.ToString("d");
                     wBookmarks["Aciklama6"].Range.Text = ızins[5].Izınnedeni;
                 }
-                if (ızins.Count > 7)
+                if (ızins.Count > 6)
                 {
                     wBookmarks["Personel7"].Range.Text = ızins[6].Adsoyad;
                     wBookmarks["BasTarihi7"].Range.Text = ızins[6].Bastarihi.ToString("d");
@@ -530,6 +536,159 @@ namespace UserInterface.IdariIsler
                 ızins.Clear();
             }
 
+            if (CmbIzınTuru.Text == "MAZERET İZNİ" || CmbIzınTuru.Text == "DOĞUM İZNİ" || CmbIzınTuru.Text == "EVLİLİK İZNİ" || CmbIzınTuru.Text == "ÖLÜM İZNİ" || 
+                CmbIzınTuru.Text == "GÜNLÜK İZİN")
+            {
+                Application wApp = new Application();
+                Documents wDocs = wApp.Documents;
+                object filePath = taslakYolu;
+                Document wDoc = wDocs.Open(ref filePath, ReadOnly: false);
+                wDoc.Activate();
+
+                Bookmarks wBookmarks = wDoc.Bookmarks;
+                wBookmarks["AdSoyad"].Range.Text = CmbPersonel.Text;
+                wBookmarks["Departman"].Range.Text =  "MUB " + LblBolum.Text;
+                wBookmarks["Unvan"].Range.Text = LblUnvani.Text;
+
+                TimeSpan toplamSureGun = DtBitTarihi.Value - DtBasTarihi.Value;
+                TimeSpan toplamSureSaat = DtBitSaati.Value - DtBasSaati.Value;
+
+                int saat = toplamSureSaat.Hours;
+                int gunSaat = toplamSureGun.Hours;
+                int gun = toplamSureGun.Days;
+                int dakika = toplamSureSaat.Minutes;
+
+                if (gun == 0)
+                {
+                    toplamSure = saat + " Saat";
+                }
+                if (saat == 0)
+                {
+                    toplamSure = gun + " Gün";
+                }
+                if (saat != 0 && gun != 0)
+                {
+                    toplamSure = gun + " Gün" + saat + " Saat";
+                }
+
+                if (saat == 0 && gun == 0)
+                {
+                    if (gunSaat == 23)
+                    {
+                        toplamSure = "1 Gün";
+                    }
+                    if (dakika == 59)
+                    {
+                        toplamSure = "1 Saat";
+                    }
+                    if (gunSaat == 23 && dakika == 59)
+                    {
+                        toplamSure = "1 Gün 1 Saat";
+                    }
+                    if (toplamSure == "")
+                    {
+                        MessageBox.Show("Girilen tarih aralığı hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+                DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
+                DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
+
+                wBookmarks["İzinCikisTarihi"].Range.Text = basTarihi.ToString("g");
+                wBookmarks["İzinDonusTarihi"].Range.Text = bitTarihi.ToString("g");
+                wBookmarks["IzinSuresi"].Range.Text = toplamSure;
+                wBookmarks["Aciklama"].Range.Text = TxtIzinNedeni.Text;
+                wBookmarks["PersonelAd"].Range.Text = CmbPersonel.Text;
+                if (CmbIzınTuru.Text == "DOĞUM İZNİ")
+                {
+                    wBookmarks["Dogum"].Range.Text = "X";
+                }
+                if (CmbIzınTuru.Text == "EVLİLİK İZNİ")
+                {
+                    wBookmarks["Evlilik"].Range.Text = "X";
+                }
+                if (CmbIzınTuru.Text == "GÜNLÜK İZİN")
+                {
+                    wBookmarks["Gunluk"].Range.Text = "X";
+                }
+                if (CmbIzınTuru.Text == "ÖLÜM İZNİ")
+                {
+                    wBookmarks["Olum"].Range.Text = "X";
+                }
+                if (CmbIzınKategori.Text == "ÜCRETLİ İZİN")
+                {
+                    wBookmarks["Olum"].Range.Text = "X";
+                }
+                if (CmbIzınKategori.Text == "ÜCRETLİ İZİN")
+                {
+                    wBookmarks["Ucretli"].Range.Text = "X";
+                }
+                if (CmbIzınKategori.Text == "ÜCRETSİZ İZİN")
+                {
+                    wBookmarks["Ucretsiz"].Range.Text = "X";
+                }
+
+                wDoc.SaveAs2(dosya + LblIsAkisNo.Text + ".docx");
+                wDoc.Close();
+                wApp.Quit(false);
+            }
+
+            if (CmbIzınTuru.Text == "YILLIK İZİN")
+            {
+                PersonelKayit personelKayit = kayitManager.Get(0, CmbPersonel.Text);
+                Application wApp = new Application();
+                Documents wDocs = wApp.Documents;
+                object filePath = taslakYolu;
+                Document wDoc = wDocs.Open(ref filePath, ReadOnly: false);
+                wDoc.Activate();
+
+                Bookmarks wBookmarks = wDoc.Bookmarks;
+                wBookmarks["Tarih"].Range.Text = DateTime.Now.ToString("d");
+                wBookmarks["Tc"].Range.Text = personelKayit.Tc;
+                wBookmarks["Bolum"].Range.Text = LblBolum.Text;
+                wBookmarks["Yil"].Range.Text = DateTime.Now.ToString("yyyy");
+                wBookmarks["TarihBaslangic"].Range.Text = DtBasTarihi.Value.ToString("d");
+                wBookmarks["TarihBitis"].Range.Text = DtBitTarihi.Value.ToString("d");
+                wBookmarks["AdSoyad"].Range.Text = CmbPersonel.Text;
+                wBookmarks["Unvan"].Range.Text = LblUnvani.Text;
+                wBookmarks["IseGirisTarihi"].Range.Text = personelKayit.Isegiristarihi.ToString("dd.MM") + "." + DateTime.Now.ToString("yyyy");
+                wBookmarks["IzinBasTarihi"].Range.Text = DtBasTarihi.Value.ToString("d");
+                wBookmarks["IzinBitTarihi"].Range.Text = DtBitTarihi.Value.ToString("d");
+                DateTime isBasiTarih = DtBitTarihi.Value.AddDays(1);
+                string isBasiGun = isBasiTarih.ToString("dddd");
+                DateTime isBasi = isBasiTarih;
+                if (isBasiGun=="Cumartesi")
+                {
+                    isBasi = DtBasTarihi.Value.AddDays(2);
+                }
+                if (isBasiGun == "Pazar")
+                {
+                    isBasi = DtBasTarihi.Value.AddDays(3);
+                }
+                wBookmarks["IsBasiYapacagiTarih"].Range.Text = isBasi.ToString("d");
+                TimeSpan timeSpan = DtBitTarihi.Value - DtBasTarihi.Value;
+                wBookmarks["IzınSuresi"].Range.Text = timeSpan.Days.ToString() + " Gün";
+                wBookmarks["YolIzni"].Range.Text = " ";
+                wBookmarks["IzinAdres"].Range.Text = personelKayit.Dogumyeri;
+                wBookmarks["Telefon"].Range.Text = personelKayit.Sirketcep;
+                wBookmarks["Aciklama"].Range.Text = TxtIzinNedeni.Text;
+
+                wDoc.SaveAs2(dosya + LblIsAkisNo.Text + ".docx");
+                wDoc.Close();
+                wApp.Quit(false);
+            }
+
+            try
+            {
+                Directory.Delete(yol, true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                File.Delete(taslakYolu);
+            }
+
         }
         void CreateDirectory()
         {
@@ -545,12 +704,15 @@ namespace UserInterface.IdariIsler
             {
                 Directory.CreateDirectory(subdir);
             }
+
             if (!Directory.Exists(anadosya))
             {
                 Directory.CreateDirectory(anadosya);
             }
+
             dosya = anadosya + LblIsAkisNo.Text + "\\";
             Directory.CreateDirectory(dosya);
+
         }
 
         private void CmbIzınTuru_SelectedIndexChanged(object sender, EventArgs e)
@@ -567,11 +729,11 @@ namespace UserInterface.IdariIsler
 
         private void BtnKaydet_Click_2(object sender, EventArgs e)
         {
-            if (DtgList.RowCount==0)
-            {
-                MessageBox.Show("Lütfen öncelikle tabloya veri ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (DtgList.RowCount==0)
+            //{
+            //    MessageBox.Show("Lütfen öncelikle tabloya veri ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             if (CmbIzınTuru.Text=="RAPOR")
             {
                 if (dosyaControl == false)
@@ -586,9 +748,11 @@ namespace UserInterface.IdariIsler
             CreateDirectory();
             CreateWordFile();
 
+            siparisNo = Guid.NewGuid().ToString();
+
             if (CmbIzınTuru.Text== "HAFTALIK İZİN")
             {
-                siparisNo = Guid.NewGuid().ToString();
+                
                 foreach (DataGridViewRow item in DtgList.Rows)
                 {
                     Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), item.Cells["IzinKategori"].Value.ToString(), item.Cells["IzinTuru"].Value.ToString(), item.Cells["PersonelSiparis"].Value.ToString(), item.Cells["AdiSoyadi"].Value.ToString(), item.Cells["Unvani"].Value.ToString(), item.Cells["MasYeriNo"].Value.ToString(), item.Cells["Bolumu"].Value.ToString(), item.Cells["IzinNedeni"].Value.ToString(), item.Cells["BaslamaTarihi"].Value.ConDate(), item.Cells["BitisTarihi"].Value.ConDate(), item.Cells["TSure"].Value.ToString(), dosya, siparisNo);
@@ -596,12 +760,26 @@ namespace UserInterface.IdariIsler
                     izinManager.Add(ızin);
 
                 }
-                
+            }
+            else
+            {
+                DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
+                DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
+                TimeSpan timeSpan = bitTarihi - basTarihi;
+                string toplamSure = timeSpan.Days + " Gün";
+
+                Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), CmbIzınKategori.Text, CmbIzınTuru.Text, LblSiparisNo.Text, CmbPersonel.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblBolum.Text, TxtIzinNedeni.Text, basTarihi, bitTarihi, toplamSure, dosya, siparisNo);
+
+                izinManager.Add(ızin);
             }
 
             CreateLog();
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
+            DtgList.Rows.Clear();
+            CmbIzınTuru.SelectedIndex = -1;
+            CmbIzınKategori.SelectedIndex = -1;
+            CmbPersonel.SelectedIndex = -1;
 
         }
 
@@ -650,7 +828,6 @@ namespace UserInterface.IdariIsler
             {
                 File.Copy(alinandosya, dosya + "\\" + kaynakdosyaismi);
                 fileNames.Add(alinandosya);
-                BtnDosyaEkle.BackColor = Color.LightGreen;
                 webBrowser1.Navigate(dosya);
                 dosyaControl = true;
             }
@@ -661,11 +838,18 @@ namespace UserInterface.IdariIsler
         {
             if (CmbIzınTuru.Text== "YILLIK İZİN")
             {
-                if (DtgList.RowCount==1)
-                {
-                    return "Yıllık izni her personel kendi doldurabilir!";
-                }
+                return "Yıllık izin toplu olarak girilemez!\nTüm bilgiler doğru seçildiyse tabloya eklemeden kaydedebilirsiniz.";
             }
+            if (CmbIzınTuru.Text == "MAZERET İZNİ" || CmbIzınTuru.Text == "DOĞUM İZNİ" || CmbIzınTuru.Text == "EVLİLİK İZNİ" || CmbIzınTuru.Text == "ÖLÜM İZNİ" ||
+                CmbIzınTuru.Text == "GÜNLÜK İZİN")
+            {
+                return CmbIzınTuru.Text + " toplu olarak girilemez!\nTüm bilgiler doğru seçildiyse tabloya eklemeden kaydedebilirsiniz.";
+            }
+            if (CmbIzınTuru.Text == "RAPOR")
+            {
+                return "Rapor izin toplu olarak girilemez!\nTüm bilgiler doğru seçildiyse tabloya eklemeden kaydedebilirsiniz.";
+            }
+            
             if (CmbIzınKategori.Text=="")
             {
                 return "Lütfen öncelikle İzin Kategori bilgisini doldurunuz!";
@@ -750,6 +934,7 @@ namespace UserInterface.IdariIsler
                     izinsuresi = kalangun.ToString() + " Gün";
                     return;
                 }
+
                 izinsuresi = kalangun.ToString() + " Gün, " + kalansaat.ToString() + " Saat";
             }
 
@@ -772,6 +957,7 @@ namespace UserInterface.IdariIsler
                     TemizleGuncelle();
                     return;
                 }
+
                 dosyagun = ızin.Dosyayolu;
                 CmbKategori.Text = ızin.Izinkategori;
                 CmbTuru.Text = ızin.Izinturu;
@@ -792,15 +978,14 @@ namespace UserInterface.IdariIsler
 
         void Temizle()
         {
-            IsAkisNo(); CmbIzınKategori.Text = ""; CmbIzınTuru.Text = ""; LblSiparisNo.Text = ""; CmbPersonel.Text = ""; LblMasrafYeriNo.Text = "00";
+            IsAkisNo(); CmbIzınKategori.Text = ""; CmbIzınTuru.Text = ""; LblSiparisNo.Text = "00"; CmbPersonel.Text = ""; LblMasrafYeriNo.Text = "00";
             LblBolum.Text = "00"; TxtIzinNedeni.Clear(); LblUnvani.Text = "00"; webBrowser1.Navigate("");
         }
         void TemizleGuncelle()
         {
             TxtIzinGuncelle.Clear(); CmbKategori.Text = ""; CmbTuru.Text = ""; CmbSiparis.Text = ""; CmbAd.Text = ""; TxtMasrafyeri.Text = ""; TxtBolumu.Text = "";
-            TxtNedeni.Text = ""; TxtGoreviGun.Clear(); webBrowser2.Navigate("");
+            TxtNedeni.Text = ""; TxtGoreviGun.Clear(); webBrowser2.Navigate(""); 
         }
-
 
         private void CmbDokumanTuru_SelectedIndexChanged(object sender, EventArgs e)
         {

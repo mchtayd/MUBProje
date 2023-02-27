@@ -59,6 +59,7 @@ namespace DataAccess.Concreate.IdariIsler
         {
             try
             {
+                bool secim = false;
                 List<MalzemeTalep> malzemeTaleps = new List<MalzemeTalep>();
                 dataReader = sqlServices.StoreReader("MalzemeTalepList");
                 while (dataReader.Read())
@@ -77,7 +78,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["MASRAF_YERI"].ToString(),
                         dataReader["ISLEM_DURUMU"].ToString(),
                         dataReader["RED_GEREKCESI"].ToString(),
-                        dataReader["DEPO_DURUM"].ToString()));
+                        dataReader["DEPO_DURUM"].ToString(),
+                        secim=false));
                 }
                 dataReader.Close();
                 return malzemeTaleps;

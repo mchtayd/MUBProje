@@ -1,5 +1,6 @@
 ﻿using Business.Concreate.Yerleskeler;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Presentation;
 using Entity.Yerleskeler;
 using System;
 using System.Collections.Generic;
@@ -17,14 +18,17 @@ namespace UserInterface.Yerleskeler
     public partial class FrmYerleskeGiderKayitIzleme : Form
     {
         KiraManager kiraManager;
+        YerleskeSatManager yerleskeManager;
 
         List<Kira> kiras;
+        List<YerleskeSat> yerleskeSats;
 
-        string siparisNo;
+        string siparisNo, yerleskeAdi;
         public FrmYerleskeGiderKayitIzleme()
         {
             InitializeComponent();
             kiraManager = KiraManager.GetInstance();
+            yerleskeManager = YerleskeSatManager.GetInstance();
         }
 
         private void FrmYerleskeGiderKayitIzleme_Load(object sender, EventArgs e)
@@ -73,8 +77,31 @@ namespace UserInterface.Yerleskeler
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
-
+            yerleskeSats = new List<YerleskeSat>();
             siparisNo = DtgYerkeskeler.CurrentRow.Cells["SiparisNo"].Value.ToString();
+            yerleskeAdi = DtgYerkeskeler.CurrentRow.Cells["YerleskeAdi"].Value.ToString();
+
+            yerleskeSats = yerleskeManager.GetList(yerleskeAdi);
+
+            foreach (YerleskeSat item in yerleskeSats)
+            {
+                DtgYerleskeSat.Rows.Add();
+                int sonSatir = DtgYerleskeSat.RowCount - 1;
+                DtgYerleskeSat.Rows[sonSatir].Cells["GiderTuru"].Value = item.GiderTuru;
+                DtgYerleskeSat.Rows[sonSatir].Cells["Donem"].Value = item.Donem;
+                DtgYerleskeSat.Rows[sonSatir].Cells["Tutar"].Value = item.Tutar;
+            }
+            Toplamlar();
+            LblToplamKayit.Text = DtgYerleskeSat.RowCount.ToString();
+        }
+        void Toplamlar()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgYerleskeSat.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgYerleskeSat.Rows[i].Cells["Tutar"].Value);
+            }
+            LblTop.Text = toplam.ToString("C2");
         }
     }
 }

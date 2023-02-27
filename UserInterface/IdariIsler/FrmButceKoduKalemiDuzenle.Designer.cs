@@ -54,6 +54,7 @@ namespace UserInterface.IdariIsler
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.PnlKayit = new System.Windows.Forms.Panel();
             this.BtnTumunuSec = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -309,6 +310,11 @@ namespace UserInterface.IdariIsler
             this.BtnTumunuSec.UseVisualStyleBackColor = false;
             this.BtnTumunuSec.Click += new System.EventHandler(this.BtnTumunuSec_Click);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 26);
+            // 
             // FrmButceKoduKalemiDuzenle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -365,5 +371,6 @@ namespace UserInterface.IdariIsler
         public System.Windows.Forms.Button BtnTemizle;
         public System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Button BtnTumunuSec;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
     }
 }

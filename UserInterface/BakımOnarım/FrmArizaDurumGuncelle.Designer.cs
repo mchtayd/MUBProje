@@ -145,20 +145,20 @@ namespace UserInterface.BakımOnarım
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.GrbMalzemeBilgileri = new System.Windows.Forms.GroupBox();
-            this.label67 = new System.Windows.Forms.Label();
-            this.CmbGarantiDurumu = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
+            this.LblSaat = new System.Windows.Forms.Label();
+            this.LblTarih = new System.Windows.Forms.Label();
+            this.LblGorevi = new System.Windows.Forms.Label();
+            this.LblRutbe = new System.Windows.Forms.Label();
+            this.LblAd = new System.Windows.Forms.Label();
             this.DtLojistikSaat = new System.Windows.Forms.DateTimePicker();
             this.DtLojistikTarih = new System.Windows.Forms.DateTimePicker();
             this.LblLojistik = new System.Windows.Forms.Label();
             this.TxtLojistikSorGorevi = new System.Windows.Forms.TextBox();
             this.TxtLojistikSorRutbesi = new System.Windows.Forms.TextBox();
             this.TxtLojistikSorumlusu = new System.Windows.Forms.TextBox();
-            this.LblSaat = new System.Windows.Forms.Label();
-            this.LblTarih = new System.Windows.Forms.Label();
-            this.LblGorevi = new System.Windows.Forms.Label();
-            this.LblRutbe = new System.Windows.Forms.Label();
-            this.LblAd = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.CmbGarantiDurumu = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -299,7 +299,7 @@ namespace UserInterface.BakımOnarım
             this.BolgeAdi.Name = "BolgeAdi";
             this.BolgeAdi.ReadOnly = true;
             this.BolgeAdi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.BolgeAdi.Width = 87;
+            this.BolgeAdi.Width = 88;
             // 
             // StokNo
             // 
@@ -308,7 +308,7 @@ namespace UserInterface.BakımOnarım
             this.StokNo.Name = "StokNo";
             this.StokNo.ReadOnly = true;
             this.StokNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.StokNo.Width = 78;
+            this.StokNo.Width = 79;
             // 
             // Tanim
             // 
@@ -344,7 +344,7 @@ namespace UserInterface.BakımOnarım
             this.BolgeSorumlusu.Name = "BolgeSorumlusu";
             this.BolgeSorumlusu.ReadOnly = true;
             this.BolgeSorumlusu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.BolgeSorumlusu.Width = 141;
+            this.BolgeSorumlusu.Width = 142;
             // 
             // LblMevcutIslemAdimi
             // 
@@ -1041,7 +1041,7 @@ namespace UserInterface.BakımOnarım
             this.SokulenStokNo.MinimumWidth = 22;
             this.SokulenStokNo.Name = "SokulenStokNo";
             this.SokulenStokNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.SokulenStokNo.Width = 78;
+            this.SokulenStokNo.Width = 79;
             // 
             // SokulenTanim
             // 
@@ -1380,40 +1380,60 @@ namespace UserInterface.BakımOnarım
             this.GrbMalzemeBilgileri.TabStop = false;
             this.GrbMalzemeBilgileri.Text = "MALZEME BİLGİLERİ";
             // 
-            // label67
+            // LblSaat
             // 
-            this.label67.AutoSize = true;
-            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label67.Location = new System.Drawing.Point(43, 32);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(98, 15);
-            this.label67.TabIndex = 495;
-            this.label67.Text = "Garanti Durumu:";
+            this.LblSaat.AutoSize = true;
+            this.LblSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblSaat.Location = new System.Drawing.Point(1388, 12);
+            this.LblSaat.Name = "LblSaat";
+            this.LblSaat.Size = new System.Drawing.Size(35, 15);
+            this.LblSaat.TabIndex = 507;
+            this.LblSaat.Text = "Saat:";
+            this.LblSaat.Visible = false;
             // 
-            // CmbGarantiDurumu
+            // LblTarih
             // 
-            this.CmbGarantiDurumu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbGarantiDurumu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CmbGarantiDurumu.FormattingEnabled = true;
-            this.CmbGarantiDurumu.Items.AddRange(new object[] {
-            "İÇİ",
-            "DIŞI"});
-            this.CmbGarantiDurumu.Location = new System.Drawing.Point(150, 29);
-            this.CmbGarantiDurumu.Name = "CmbGarantiDurumu";
-            this.CmbGarantiDurumu.Size = new System.Drawing.Size(62, 23);
-            this.CmbGarantiDurumu.TabIndex = 494;
-            this.CmbGarantiDurumu.SelectedIndexChanged += new System.EventHandler(this.CmbGarantiDurumu_SelectedIndexChanged);
+            this.LblTarih.AutoSize = true;
+            this.LblTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTarih.Location = new System.Drawing.Point(1279, 12);
+            this.LblTarih.Name = "LblTarih";
+            this.LblTarih.Size = new System.Drawing.Size(38, 15);
+            this.LblTarih.TabIndex = 506;
+            this.LblTarih.Text = "Tarih:";
+            this.LblTarih.Visible = false;
             // 
-            // label5
+            // LblGorevi
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label5.Location = new System.Drawing.Point(218, 33);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(301, 15);
-            this.label5.TabIndex = 496;
-            this.label5.Text = "Kullanıcı kaynaklı arızalarda GARANİ DIŞI seçilmelidir!";
+            this.LblGorevi.AutoSize = true;
+            this.LblGorevi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGorevi.Location = new System.Drawing.Point(1152, 12);
+            this.LblGorevi.Name = "LblGorevi";
+            this.LblGorevi.Size = new System.Drawing.Size(45, 15);
+            this.LblGorevi.TabIndex = 505;
+            this.LblGorevi.Text = "Görevi:";
+            this.LblGorevi.Visible = false;
+            // 
+            // LblRutbe
+            // 
+            this.LblRutbe.AutoSize = true;
+            this.LblRutbe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblRutbe.Location = new System.Drawing.Point(1007, 12);
+            this.LblRutbe.Name = "LblRutbe";
+            this.LblRutbe.Size = new System.Drawing.Size(52, 15);
+            this.LblRutbe.TabIndex = 504;
+            this.LblRutbe.Text = "Rütbesi:";
+            this.LblRutbe.Visible = false;
+            // 
+            // LblAd
+            // 
+            this.LblAd.AutoSize = true;
+            this.LblAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblAd.Location = new System.Drawing.Point(779, 11);
+            this.LblAd.Name = "LblAd";
+            this.LblAd.Size = new System.Drawing.Size(67, 15);
+            this.LblAd.TabIndex = 503;
+            this.LblAd.Text = "Adı Soyadı:";
+            this.LblAd.Visible = false;
             // 
             // DtLojistikSaat
             // 
@@ -1476,60 +1496,42 @@ namespace UserInterface.BakımOnarım
             this.TxtLojistikSorumlusu.TabIndex = 497;
             this.TxtLojistikSorumlusu.Visible = false;
             // 
-            // LblSaat
+            // label5
             // 
-            this.LblSaat.AutoSize = true;
-            this.LblSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblSaat.Location = new System.Drawing.Point(1388, 12);
-            this.LblSaat.Name = "LblSaat";
-            this.LblSaat.Size = new System.Drawing.Size(35, 15);
-            this.LblSaat.TabIndex = 507;
-            this.LblSaat.Text = "Saat:";
-            this.LblSaat.Visible = false;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label5.Location = new System.Drawing.Point(237, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(301, 15);
+            this.label5.TabIndex = 496;
+            this.label5.Text = "Kullanıcı kaynaklı arızalarda GARANİ DIŞI seçilmelidir!";
             // 
-            // LblTarih
+            // label67
             // 
-            this.LblTarih.AutoSize = true;
-            this.LblTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTarih.Location = new System.Drawing.Point(1279, 12);
-            this.LblTarih.Name = "LblTarih";
-            this.LblTarih.Size = new System.Drawing.Size(38, 15);
-            this.LblTarih.TabIndex = 506;
-            this.LblTarih.Text = "Tarih:";
-            this.LblTarih.Visible = false;
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label67.Location = new System.Drawing.Point(10, 32);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(98, 15);
+            this.label67.TabIndex = 495;
+            this.label67.Text = "Garanti Durumu:";
             // 
-            // LblGorevi
+            // CmbGarantiDurumu
             // 
-            this.LblGorevi.AutoSize = true;
-            this.LblGorevi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGorevi.Location = new System.Drawing.Point(1152, 12);
-            this.LblGorevi.Name = "LblGorevi";
-            this.LblGorevi.Size = new System.Drawing.Size(45, 15);
-            this.LblGorevi.TabIndex = 505;
-            this.LblGorevi.Text = "Görevi:";
-            this.LblGorevi.Visible = false;
-            // 
-            // LblRutbe
-            // 
-            this.LblRutbe.AutoSize = true;
-            this.LblRutbe.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblRutbe.Location = new System.Drawing.Point(1007, 12);
-            this.LblRutbe.Name = "LblRutbe";
-            this.LblRutbe.Size = new System.Drawing.Size(52, 15);
-            this.LblRutbe.TabIndex = 504;
-            this.LblRutbe.Text = "Rütbesi:";
-            this.LblRutbe.Visible = false;
-            // 
-            // LblAd
-            // 
-            this.LblAd.AutoSize = true;
-            this.LblAd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblAd.Location = new System.Drawing.Point(779, 11);
-            this.LblAd.Name = "LblAd";
-            this.LblAd.Size = new System.Drawing.Size(67, 15);
-            this.LblAd.TabIndex = 503;
-            this.LblAd.Text = "Adı Soyadı:";
-            this.LblAd.Visible = false;
+            this.CmbGarantiDurumu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGarantiDurumu.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbGarantiDurumu.FormattingEnabled = true;
+            this.CmbGarantiDurumu.Items.AddRange(new object[] {
+            "İÇİ",
+            "DIŞI",
+            "PDL-5",
+            "PDL-5 OPSİYONEL"});
+            this.CmbGarantiDurumu.Location = new System.Drawing.Point(117, 29);
+            this.CmbGarantiDurumu.Name = "CmbGarantiDurumu";
+            this.CmbGarantiDurumu.Size = new System.Drawing.Size(114, 23);
+            this.CmbGarantiDurumu.TabIndex = 494;
+            this.CmbGarantiDurumu.SelectedIndexChanged += new System.EventHandler(this.CmbGarantiDurumu_SelectedIndexChanged);
             // 
             // FrmArizaDurumGuncelle
             // 

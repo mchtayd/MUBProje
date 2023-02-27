@@ -208,6 +208,8 @@ namespace UserInterface.Ana_Sayfa
             DtgIzin.Columns["Izindurumu"].Visible = false;
             DtgIzin.Columns["Dosyayolu"].Visible = false;
             DtgIzin.Columns["Sayfa"].Visible = false;
+            DtgIzin.Columns["Siparis"].Visible = false;
+            DtgIzin.Columns["OnayDurum"].Visible = false;
 
             DtgIzin.Columns["Adsoyad"].DisplayIndex = 0;
             DtgIzin.Columns["Unvani"].DisplayIndex = 1;
@@ -277,7 +279,7 @@ namespace UserInterface.Ana_Sayfa
             IzinList();
             YurtDisiGorevList();
             AracBakimList();
-            Gorunum();
+            //Gorunum();
         }
     }
 }

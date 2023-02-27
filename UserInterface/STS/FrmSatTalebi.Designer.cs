@@ -31,7 +31,7 @@ namespace UserInterface.STS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatTalebi));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbMasYeri = new System.Windows.Forms.ComboBox();
@@ -236,7 +236,7 @@ namespace UserInterface.STS
             this.BtnButceKodu.BackColor = System.Drawing.Color.White;
             this.BtnButceKodu.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnButceKodu.Image = ((System.Drawing.Image)(resources.GetObject("BtnButceKodu.Image")));
-            this.BtnButceKodu.Location = new System.Drawing.Point(1150, 146);
+            this.BtnButceKodu.Location = new System.Drawing.Point(982, 703);
             this.BtnButceKodu.Name = "BtnButceKodu";
             this.BtnButceKodu.Size = new System.Drawing.Size(24, 21);
             this.BtnButceKodu.TabIndex = 350;
@@ -681,8 +681,8 @@ namespace UserInterface.STS
             this.DtgMalzemeList.AllowUserToAddRows = false;
             this.DtgMalzemeList.AllowUserToDeleteRows = false;
             this.DtgMalzemeList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgMalzemeList.AutoGenerateContextFilters = true;
             this.DtgMalzemeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgMalzemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -692,7 +692,6 @@ namespace UserInterface.STS
             this.DtgMalzemeList.Location = new System.Drawing.Point(3, 16);
             this.DtgMalzemeList.MultiSelect = false;
             this.DtgMalzemeList.Name = "DtgMalzemeList";
-            this.DtgMalzemeList.ReadOnly = true;
             this.DtgMalzemeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgMalzemeList.Size = new System.Drawing.Size(979, 284);
             this.DtgMalzemeList.TabIndex = 3;

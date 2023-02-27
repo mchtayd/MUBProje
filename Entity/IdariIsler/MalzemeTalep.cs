@@ -8,7 +8,7 @@ namespace Entity.IdariIsler
 {
     public class MalzemeTalep
     {
-        int id; string malzemeKategorisi, talepEdenPersonel, tanim, stokNo; int miktar; string birim, talebiOlusturan, bolum; int satBilgisi; string masrafYeri, islemDurumu, redGerekcesi; int toplamMiktar; string depoDurum;
+        int id; string malzemeKategorisi, talepEdenPersonel, tanim, stokNo; int miktar; string birim, talebiOlusturan, bolum; int satBilgisi; string masrafYeri, islemDurumu, redGerekcesi; int toplamMiktar; string depoDurum; bool secim = false;
 
         public int Id { get => id; set => id = value; }
         public string MalzemeKategorisi { get => malzemeKategorisi; set => malzemeKategorisi = value; }
@@ -25,8 +25,9 @@ namespace Entity.IdariIsler
         public string RedGerekcesi { get => redGerekcesi; set => redGerekcesi = value; }
         public int ToplamMiktar { get => toplamMiktar; set => toplamMiktar = value; }
         public string DepoDurum { get => depoDurum; set => depoDurum = value; }
+        public bool Secim { get => secim; set => secim = value; }
 
-        public MalzemeTalep(int id, string malzemeKategorisi, string talepEdenPersonel, string tanim, string stokNo, int miktar, string birim, string talebiOlusturan, string bolum, int satBilgisi, string masrafYeri, string islemDurumu, string redGerekcesi, string depoDurum)
+        public MalzemeTalep(int id, string malzemeKategorisi, string talepEdenPersonel, string tanim, string stokNo, int miktar, string birim, string talebiOlusturan, string bolum, int satBilgisi, string masrafYeri, string islemDurumu, string redGerekcesi, string depoDurum, bool secim=false)
         {
             this.id = id;
             this.malzemeKategorisi = malzemeKategorisi;
@@ -42,6 +43,7 @@ namespace Entity.IdariIsler
             this.islemDurumu = islemDurumu;
             this.redGerekcesi = redGerekcesi;
             this.depoDurum = depoDurum;
+            this.secim=secim;
         }
 
         public MalzemeTalep(string malzemeKategorisi, string talepEdenPersonel, string tanim, string stokNo, int miktar, string birim, string talebiOlusturan, string bolum,string masrafYeri)
