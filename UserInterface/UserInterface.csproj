@@ -1,0 +1,2085 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{53E995DA-7704-4760-8ACD-919DB99CCABA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>UserInterface</RootNamespace>
+    <AssemblyName>DTS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>DTS</ProductName>
+    <PublisherName>Mücahit AYDEMİR</PublisherName>
+    <AutorunEnabled>true</AutorunEnabled>
+    <ApplicationRevision>519</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>DTS-LOGO.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>74ACF07182CD3951E05C2B59BFA31EC2794DD3C2</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>UserInterface_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AdvancedDataGridView, Version=0.1.0.10, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ADGV.0.1.0.10\lib\net40\AdvancedDataGridView.dll</HintPath>
+    </Reference>
+    <Reference Include="AxInterop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\AxInterop.WMPLib.dll</HintPath>
+    </Reference>
+    <Reference Include="ClosedXML, Version=0.95.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.95.4\lib\net46\ClosedXML.dll</HintPath>
+    </Reference>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.7.2.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.7.2\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
+    </Reference>
+    <Reference Include="ExcelNumberFormat, Version=1.0.10.0, Culture=neutral, PublicKeyToken=23c6f5d73be07eca, processorArchitecture=MSIL">
+      <HintPath>..\packages\ExcelNumberFormat.1.0.10\lib\net20\ExcelNumberFormat.dll</HintPath>
+    </Reference>
+    <Reference Include="Interop.WMPLib, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\WMPLib.1.0.0\lib\Interop.WMPLib.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="LiveCharts, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.0.9.7\lib\net45\LiveCharts.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.WinForms, Version=0.9.7.1, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.WinForms.0.9.7.1\lib\net45\LiveCharts.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
+      <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework">
+      <HintPath>..\..\..\..\Desktop\124\kurulum\user\vbdll\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Outlook.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Outlook.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.0.1\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.0.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Tulpep.NotificationWindow, Version=1.1.38.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Tulpep.NotificationWindow.1.1.38\lib\net40\Tulpep.NotificationWindow.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+    <Reference Include="zxing, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.8\lib\net47\zxing.dll</HintPath>
+    </Reference>
+    <Reference Include="zxing.presentation, Version=0.16.8.0, Culture=neutral, PublicKeyToken=4e88037ac681fe60, processorArchitecture=MSIL">
+      <HintPath>..\packages\ZXing.Net.0.16.8\lib\net47\zxing.presentation.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Ana Sayfa\ArsivDosyaFihrist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\ArsivDosyaFihrist.Designer.cs">
+      <DependentUpon>ArsivDosyaFihrist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAtolyeRapor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAtolyeRapor.Designer.cs">
+      <DependentUpon>FrmAtolyeRapor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAtolyeVeri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAtolyeVeri.Designer.cs">
+      <DependentUpon>FrmAtolyeVeri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimler.Designer.cs">
+      <DependentUpon>FrmBildirimler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimPanel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimPanel.Designer.cs">
+      <DependentUpon>FrmBildirimPanel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimYetki.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBildirimYetki.Designer.cs">
+      <DependentUpon>FrmBildirimYetki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmButceler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmButceler.Designer.cs">
+      <DependentUpon>FrmButceler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmCombo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmCombo.Designer.cs">
+      <DependentUpon>FrmCombo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDevam.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDevam.Designer.cs">
+      <DependentUpon>FrmDevam.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDisaAktarExcel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDisaAktarExcel.Designer.cs">
+      <DependentUpon>FrmDisaAktarExcel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDonemDuzlet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDonemDuzlet.Designer.cs">
+      <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDuyuru.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmDuyuru.Designer.cs">
+      <DependentUpon>FrmDuyuru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmEtiketYaz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmEtiketYaz.Designer.cs">
+      <DependentUpon>FrmEtiketYaz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmHesapOlustur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmHesapOlustur.Designer.cs">
+      <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIsTakip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIsTakip.Designer.cs">
+      <DependentUpon>FrmIsTakip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIzlemeAmbar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIzlemeAmbar.Designer.cs">
+      <DependentUpon>FrmIzlemeAmbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmOfisDosyaFihrist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmOfisDosyaFihrist.Designer.cs">
+      <DependentUpon>FrmOfisDosyaFihrist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevAta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevAta.Designer.cs">
+      <DependentUpon>FrmGorevAta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevlerim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevlerim.Designer.cs">
+      <DependentUpon>FrmGorevlerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmHelper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmHelper.Designer.cs">
+      <DependentUpon>FrmHelper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIsAkisiPersonel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIsAkisiPersonel.Designer.cs">
+      <DependentUpon>FrmIsAkisiPersonel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIzinlerim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIzinlerim.Designer.cs">
+      <DependentUpon>FrmIzinlerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmKonaklamalarim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmKonaklamalarim.Designer.cs">
+      <DependentUpon>FrmKonaklamalarim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmMail.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmMail.Designer.cs">
+      <DependentUpon>FrmMail.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmNotification.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmNotification.Designer.cs">
+      <DependentUpon>FrmNotification.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmOnayEkranlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmOnayEkranlari.Designer.cs">
+      <DependentUpon>FrmOnayEkranlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmOrganizasyon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmOrganizasyon.Designer.cs">
+      <DependentUpon>FrmOrganizasyon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSehirIciGorevlerim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSehirIciGorevlerim.Designer.cs">
+      <DependentUpon>FrmSehirIciGorevlerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmServer.Designer.cs">
+      <DependentUpon>FrmServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSifremiDegistir.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSifremiDegistir.Designer.cs">
+      <DependentUpon>FrmSifremiDegistir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmTelefonRehberi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmTelefonRehberi.Designer.cs">
+      <DependentUpon>FrmTelefonRehberi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmWait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmWait.Designer.cs">
+      <DependentUpon>FrmWait.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\Zimmetlerim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\Zimmetlerim.Designer.cs">
+      <DependentUpon>Zimmetlerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitlariKapatilan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitlariKapatilan.Designer.cs">
+      <DependentUpon>FrmArizaKayitlariKapatilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitOlusturSaha.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitOlusturSaha.Designer.cs">
+      <DependentUpon>FrmArizaKayitOlusturSaha.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmDtfIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmDtfIzleme.Designer.cs">
+      <DependentUpon>FrmDtfIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmDTFOlustur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmDTFOlustur.Designer.cs">
+      <DependentUpon>FrmDTFOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmGarantiSureleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmGarantiSureleri.Designer.cs">
+      <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmHaftalikControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmHaftalikControl.Designer.cs">
+      <DependentUpon>FrmHaftalikControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmHaftalikControlIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmHaftalikControlIzleme.Designer.cs">
+      <DependentUpon>FrmHaftalikControlIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmMalzemeDuzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmMalzemeDuzenle.Designer.cs">
+      <DependentUpon>FrmMalzemeDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaAcma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaAcma.Designer.cs">
+      <DependentUpon>FrmArizaAcma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaAcmaCalisma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaAcmaCalisma.Designer.cs">
+      <DependentUpon>FrmArizaAcmaCalisma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaAcmaKapatma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaAcmaKapatma.Designer.cs">
+      <DependentUpon>FrmArizaAcmaKapatma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaDevamEden.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaDevamEden.Designer.cs">
+      <DependentUpon>FrmArizaDevamEden.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaDurumGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaDurumGuncelle.Designer.cs">
+      <DependentUpon>FrmArizaDurumGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitlarics.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaKayitlarics.Designer.cs">
+      <DependentUpon>FrmArizaKayitlarics.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmAtolyeDataGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmAtolyeDataGuncelle.Designer.cs">
+      <DependentUpon>FrmAtolyeDataGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBildirimOnayi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBildirimOnayi.Designer.cs">
+      <DependentUpon>FrmBildirimOnayi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolye.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolye.Designer.cs">
+      <DependentUpon>FrmBOAtolye.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeDevamEdenler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeDevamEdenler.Designer.cs">
+      <DependentUpon>FrmBOAtolyeDevamEdenler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeGuncelleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeGuncelleme.Designer.cs">
+      <DependentUpon>FrmBOAtolyeGuncelleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeKapatma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeKapatma.Designer.cs">
+      <DependentUpon>FrmBOAtolyeKapatma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeTamamlananlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBOAtolyeTamamlananlar.Designer.cs">
+      <DependentUpon>FrmBOAtolyeTamamlananlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBolgeKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBolgeKayitIzleme.Designer.cs">
+      <DependentUpon>FrmBolgeKayitIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBolgeler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmBolgeler.Designer.cs">
+      <DependentUpon>FrmBolgeler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmDepoLokasyonKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmDepoLokasyonKayit.Designer.cs">
+      <DependentUpon>FrmDepoLokasyonKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmDestekIscilikVeriGiris.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmDestekIscilikVeriGiris.Designer.cs">
+      <DependentUpon>FrmDestekIscilikVeriGiris.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmEkipmanBolge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmEkipmanBolge.Designer.cs">
+      <DependentUpon>FrmEkipmanBolge.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmIscilikIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmIscilikIzleme.Designer.cs">
+      <DependentUpon>FrmIscilikIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmMuseriBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmMuseriBilgileri.Designer.cs">
+      <DependentUpon>FrmMuseriBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAdmin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAdmin.Designer.cs">
+      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfGuncelle.Designer.cs">
+      <DependentUpon>FrmOkfGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfIzleme.Designer.cs">
+      <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfOlustrma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfOlustrma.Designer.cs">
+      <DependentUpon>FrmOkfOlustrma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmPyp.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmPyp.Designer.cs">
+      <DependentUpon>FrmPyp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmServisFormuKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmServisFormuKayit.Designer.cs">
+      <DependentUpon>FrmServisFormuKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmServisTalepleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmServisTalepleri.Designer.cs">
+      <DependentUpon>FrmServisTalepleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmServisTalepleriIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmServisTalepleriIzleme.Designer.cs">
+      <DependentUpon>FrmServisTalepleriIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmYolDurumlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmYolDurumlari.Designer.cs">
+      <DependentUpon>FrmYolDurumlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmYolDurumlariIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmYolDurumlariIzleme.Designer.cs">
+      <DependentUpon>FrmYolDurumlariIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmButceKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmButceKayit.Designer.cs">
+      <DependentUpon>FrmButceKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmButceKayit2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmButceKayit2.Designer.cs">
+      <DependentUpon>FrmButceKayit2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmGenelButceGrafik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmGenelButceGrafik.Designer.cs">
+      <DependentUpon>FrmGenelButceGrafik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmGenelButceIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmGenelButceIzleme.Designer.cs">
+      <DependentUpon>FrmGenelButceIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmIsAvansTalep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmIsAvansTalep.Designer.cs">
+      <DependentUpon>FrmIsAvansTalep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmKasa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmKasa.Designer.cs">
+      <DependentUpon>FrmKasa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmKasaIzlemecs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmKasaIzlemecs.Designer.cs">
+      <DependentUpon>FrmKasaIzlemecs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmSiparisler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmSiparisler.Designer.cs">
+      <DependentUpon>FrmSiparisler.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Butce\FrmSiparislerIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Butce\FrmSiparislerIzleme.Designer.cs">
+      <DependentUpon>FrmSiparislerIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmDDMalzemeHazirlama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmDDMalzemeHazirlama.Designer.cs">
+      <DependentUpon>FrmDDMalzemeHazirlama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmDepoKontrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmDepoKontrol.Designer.cs">
+      <DependentUpon>FrmDepoKontrol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmDDStokGirisCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmDDStokGirisCikis.Designer.cs">
+      <DependentUpon>FrmDDStokGirisCikis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmMalzemeKayitDestekDepo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmMalzemeKayitDestekDepo.Designer.cs">
+      <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Depo\FrmPhotoFullScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Depo\FrmPhotoFullScreen.Designer.cs">
+      <DependentUpon>FrmPhotoFullScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Egitim\FrmEgitimPlanıOlustur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Egitim\FrmEgitimPlanıOlustur.Designer.cs">
+      <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmBolgedenGelecekMlz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmBolgedenGelecekMlz.Designer.cs">
+      <DependentUpon>FrmBolgedenGelecekMlz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoDusum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoDusum.Designer.cs">
+      <DependentUpon>FrmDepoDusum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleri.Designer.cs">
+      <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmGirisCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmGirisCikis.Designer.cs">
+      <DependentUpon>FrmGirisCikis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeAciklama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeAciklama.Designer.cs">
+      <DependentUpon>FrmMalzemeAciklama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeGuncelle.Designer.cs">
+      <DependentUpon>FrmMalzemeGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.Designer.cs">
+      <DependentUpon>FrmMalzemeHazirlama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayitIzleme.Designer.cs">
+      <DependentUpon>FrmMalzemeKayitIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmStokGirisCikis.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmStokGirisCikis.Designer.cs">
+      <DependentUpon>FrmStokGirisCikis.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmStokGoruntule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmStokGoruntule.Designer.cs">
+      <DependentUpon>FrmStokGoruntule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DokumanYonetim\FrmDokumanEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DokumanYonetim\FrmDokumanEkle.Designer.cs">
+      <DependentUpon>FrmDokumanEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DokumanYonetim\FrmDokumanSorgula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DokumanYonetim\FrmDokumanSorgula.Designer.cs">
+      <DependentUpon>FrmDokumanSorgula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DokumanYonetim\FrmStandartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DokumanYonetim\FrmStandartForm.Designer.cs">
+      <DependentUpon>FrmStandartForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DokumanYonetim\FrmStandartFormEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DokumanYonetim\FrmStandartFormEkle.Designer.cs">
+      <DependentUpon>FrmStandartFormEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeKayit.Designer.cs">
+      <DependentUpon>FrmMalzemeKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmStokMiktarEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmStokMiktarEdit.Designer.cs">
+      <DependentUpon>FrmStokMiktarEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmUstTakimEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmUstTakimEkle.Designer.cs">
+      <DependentUpon>FrmUstTakimEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracBakimKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracBakimKayitIzleme.Designer.cs">
+      <DependentUpon>FrmAracBakimKayitIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracBakimKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracBakimKayit.Designer.cs">
+      <DependentUpon>FrmAracBakimKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracBakimSAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracBakimSAT.Designer.cs">
+      <DependentUpon>FrmAracBakimSAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKaydet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKaydet.Designer.cs">
+      <DependentUpon>FrmAracKaydet.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKm.Designer.cs">
+      <DependentUpon>FrmAracKm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKmIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKmIzleme.Designer.cs">
+      <DependentUpon>FrmAracKmIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTahsisBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTahsisBilgileri.Designer.cs">
+      <DependentUpon>FrmAracTahsisBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTalep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTalep.Designer.cs">
+      <DependentUpon>FrmAracTalep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTalepIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracTalepIzleme.Designer.cs">
+      <DependentUpon>FrmAracTalepIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracZimmetiLogKayitlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracZimmetiLogKayitlari.Designer.cs">
+      <DependentUpon>FrmAracZimmetiLogKayitlari.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmArsiv.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmArsiv.Designer.cs">
+      <DependentUpon>FrmArsiv.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmArsivIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmArsivIzleme.Designer.cs">
+      <DependentUpon>FrmArsivIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmArsivKontrolFormu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmArsivKontrolFormu.Designer.cs">
+      <DependentUpon>FrmArsivKontrolFormu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmArsivKontrolFormuIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmArsivKontrolFormuIzleme.Designer.cs">
+      <DependentUpon>FrmArsivKontrolFormuIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAylikButcekKapatmaYakit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAylikButcekKapatmaYakit.Designer.cs">
+      <DependentUpon>FrmAylikButcekKapatmaYakit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmBakimKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmBakimKayitIzleme.Designer.cs">
+      <DependentUpon>FrmBakimKayitIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmBolumDuzelt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmBolumDuzelt.Designer.cs">
+      <DependentUpon>FrmBolumDuzelt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmButceKoduKalemiDuzenle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmButceKoduKalemiDuzenle.Designer.cs">
+      <DependentUpon>FrmButceKoduKalemiDuzenle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmCokluArac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmCokluArac.Designer.cs">
+      <DependentUpon>FrmCokluArac.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmCokluKonaklama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmCokluKonaklama.Designer.cs">
+      <DependentUpon>FrmCokluKonaklama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlik.Designer.cs">
+      <DependentUpon>FrmDuranVarlik.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmLogin.Designer.cs">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlikAktarim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlikAktarim.Designer.cs">
+      <DependentUpon>FrmDuranVarlikAktarim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlikArizaKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlikArizaKayit.Designer.cs">
+      <DependentUpon>FrmDuranVarlikArizaKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlikGuncelleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlikGuncelleme.Designer.cs">
+      <DependentUpon>FrmDuranVarlikGuncelleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlikTakip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDuranVarlikTakip.Designer.cs">
+      <DependentUpon>FrmDuranVarlikTakip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDvKalibrasyonKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDvKalibrasyonKayit.Designer.cs">
+      <DependentUpon>FrmDvKalibrasyonKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDVZimmetTakibi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmDVZimmetTakibi.Designer.cs">
+      <DependentUpon>FrmDVZimmetTakibi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmEvrekKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmEvrekKayitIzleme.Designer.cs">
+      <DependentUpon>FrmEvrekKayitIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmGecmisKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmGecmisKayit.Designer.cs">
+      <DependentUpon>FrmGecmisKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmGiysiTalep.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmGiysiTalep.Designer.cs">
+      <DependentUpon>FrmGiysiTalep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmHarcamaBeyannamesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmHarcamaBeyannamesi.Designer.cs">
+      <DependentUpon>FrmHarcamaBeyannamesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmIzin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmIzin.Designer.cs">
+      <DependentUpon>FrmIzin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmIzinIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmIzinIzleme.Designer.cs">
+      <DependentUpon>FrmIzinIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmIzinOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmIzinOnay.Designer.cs">
+      <DependentUpon>FrmIzinOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKalibrasyonTakip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKalibrasyonTakip.Designer.cs">
+      <DependentUpon>FrmKalibrasyonTakip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklama.Designer.cs">
+      <DependentUpon>FrmKonaklama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklamaDetayi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklamaDetayi.Designer.cs">
+      <DependentUpon>FrmKonaklamaDetayi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklamaIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklamaIzleme.Designer.cs">
+      <DependentUpon>FrmKonaklamaIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklamaOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmKonaklamaOnay.Designer.cs">
+      <DependentUpon>FrmKonaklamaOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmMasrafYeri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmMasrafYeri.Designer.cs">
+      <DependentUpon>FrmMasrafYeri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmMifOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmMifOnay.Designer.cs">
+      <DependentUpon>FrmMifOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmOtelEkle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmOtelEkle.Designer.cs">
+      <DependentUpon>FrmOtelEkle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmPersonelKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmPersonelKayit.Designer.cs">
+      <DependentUpon>FrmPersonelKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmPersonelListesi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmPersonelListesi.Designer.cs">
+      <DependentUpon>FrmPersonelListesi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmPersonelListesiAyrilan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmPersonelListesiAyrilan.Designer.cs">
+      <DependentUpon>FrmPersonelListesiAyrilan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmEvrakKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmEvrakKayit.Designer.cs">
+      <DependentUpon>FrmEvrakKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmSehirIciGorevIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmSehirIciGorevIzleme.Designer.cs">
+      <DependentUpon>FrmSehirIciGorevIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmSehirIcıGorev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmSehirIcıGorev.Designer.cs">
+      <DependentUpon>FrmSehirIcıGorev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmSehitİciGorevOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmSehitİciGorevOnay.Designer.cs">
+      <DependentUpon>FrmSehitİciGorevOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmTalepIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmTalepIzleme.Designer.cs">
+      <DependentUpon>FrmTalepIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmUcakOtobusBileti.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmUcakOtobusBileti.Designer.cs">
+      <DependentUpon>FrmUcakOtobusBileti.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmUcakOtobusBiletiIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmUcakOtobusBiletiIzleme.Designer.cs">
+      <DependentUpon>FrmUcakOtobusBiletiIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmUcakOtobusOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmUcakOtobusOnay.Designer.cs">
+      <DependentUpon>FrmUcakOtobusOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitBeyani.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitBeyani.Designer.cs">
+      <DependentUpon>FrmYakitBeyani.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitBeyaniIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitBeyaniIzleme.Designer.cs">
+      <DependentUpon>FrmYakitBeyaniIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitDokum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitDokum.Designer.cs">
+      <DependentUpon>FrmYakitDokum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitDokumIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYakitDokumIzleme.Designer.cs">
+      <DependentUpon>FrmYakitDokumIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciGorevlerim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciGorevlerim.Designer.cs">
+      <DependentUpon>FrmYurtIciGorevlerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciGorevSAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciGorevSAT.Designer.cs">
+      <DependentUpon>FrmYurtIciGorevSAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtİciGorev.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtİciGorev.Designer.cs">
+      <DependentUpon>FrmYurtİciGorev.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciGorevIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciGorevIzleme.Designer.cs">
+      <DependentUpon>FrmYurtIciGorevIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmZiyaretciKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmZiyaretciKayit.Designer.cs">
+      <DependentUpon>FrmZiyaretciKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmZiyaretciKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmZiyaretciKayitIzleme.Designer.cs">
+      <DependentUpon>FrmZiyaretciKayitIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Ana Sayfa\FrmAnaSayfa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAnaSayfa.Designer.cs">
+      <DependentUpon>FrmAnaSayfa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\FrmArizaRaporlama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\FrmArizaRaporlama.Designer.cs">
+      <DependentUpon>FrmArizaRaporlama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\FrmSatRaporu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\FrmSatRaporu.Designer.cs">
+      <DependentUpon>FrmSatRaporu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\FrmSatRaporuIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\FrmSatRaporuIzleme.Designer.cs">
+      <DependentUpon>FrmSatRaporuIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\OTSBOPerformans.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RAPORLAMALAR\OTSBOPerformans.Designer.cs">
+      <DependentUpon>OTSBOPerformans.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmAltYukleniciFirma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmAltYukleniciFirma.Designer.cs">
+      <DependentUpon>FrmAltYukleniciFirma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmAylikButceKapatmaYakit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmAylikButceKapatmaYakit.Designer.cs">
+      <DependentUpon>FrmAylikButceKapatmaYakit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmButceKoduKalemi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmButceKoduKalemi.Designer.cs">
+      <DependentUpon>FrmButceKoduKalemi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmDevamEdenGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmDevamEdenGuncelle.Designer.cs">
+      <DependentUpon>FrmDevamEdenGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmDevamEdenSat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmDevamEdenSat.Designer.cs">
+      <DependentUpon>FrmDevamEdenSat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmHarcamasiYapilanSat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmHarcamasiYapilanSat.Designer.cs">
+      <DependentUpon>FrmHarcamasiYapilanSat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmReddedilenSatlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmReddedilenSatlar.Designer.cs">
+      <DependentUpon>FrmReddedilenSatlar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSAAAT.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSAAAT.Designer.cs">
+      <DependentUpon>FrmSAAAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatBaslatmaOnayi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatBaslatmaOnayi.Designer.cs">
+      <DependentUpon>FrmSatBaslatmaOnayi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatControl.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatControl.Designer.cs">
+      <DependentUpon>FrmSatControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatDosyaYoluDuzelt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatDosyaYoluDuzelt.Designer.cs">
+      <DependentUpon>FrmSatDosyaYoluDuzelt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatDuzelt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatDuzelt.Designer.cs">
+      <DependentUpon>FrmSatDuzelt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSATGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSATGuncelle.Designer.cs">
+      <DependentUpon>FrmSATGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatOlustur2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatOlustur2.Designer.cs">
+      <DependentUpon>FrmSatOlustur2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatOlusturAbf.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatOlusturAbf.Designer.cs">
+      <DependentUpon>FrmSatOlusturAbf.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatTalebi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatTalebi.Designer.cs">
+      <DependentUpon>FrmSatTalebi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmTamamlananSat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmTamamlananSat.Designer.cs">
+      <DependentUpon>FrmTamamlananSat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmTamamlananSatGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmTamamlananSatGuncelle.Designer.cs">
+      <DependentUpon>FrmTamamlananSatGuncelle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmTeklifsizSat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmTeklifsizSat.Designer.cs">
+      <DependentUpon>FrmTeklifsizSat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatOlustur.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatOlustur.Designer.cs">
+      <DependentUpon>FrmSatOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatOnay.Designer.cs">
+      <DependentUpon>FrmSatOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatOnOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatOnOnay.Designer.cs">
+      <DependentUpon>FrmSatOnOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatOnOnayRed.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatOnOnayRed.Designer.cs">
+      <DependentUpon>FrmSatOnOnayRed.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatOnOnayVer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatOnOnayVer.Designer.cs">
+      <DependentUpon>FrmSatOnOnayVer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmSatTamamlama.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmSatTamamlama.Designer.cs">
+      <DependentUpon>FrmSatTamamlama.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmTedarikciFirmaBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmTedarikciFirmaBilgileri.Designer.cs">
+      <DependentUpon>FrmTedarikciFirmaBilgileri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmTeklifAlinacakSat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmTeklifAlinacakSat.Designer.cs">
+      <DependentUpon>FrmTeklifAlinacakSat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="STS\FrmYakitButceKapatma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="STS\FrmYakitButceKapatma.Designer.cs">
+      <DependentUpon>FrmYakitButceKapatma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeGideriKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeGideriKayit.Designer.cs">
+      <DependentUpon>FrmYerleskeGideriKayit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeGiderKayitIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeGiderKayitIzleme.Designer.cs">
+      <DependentUpon>FrmYerleskeGiderKayitIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeIzleme.Designer.cs">
+      <DependentUpon>FrmYerleskeIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Yerleskeler\FrmYerleskeKayit.Designer.cs">
+      <DependentUpon>FrmYerleskeKayit.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Ana Sayfa\ArsivDosyaFihrist.resx">
+      <DependentUpon>ArsivDosyaFihrist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmAtolyeRapor.resx">
+      <DependentUpon>FrmAtolyeRapor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmAtolyeVeri.resx">
+      <DependentUpon>FrmAtolyeVeri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmBildirimler.resx">
+      <DependentUpon>FrmBildirimler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmBildirimPanel.resx">
+      <DependentUpon>FrmBildirimPanel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmBildirimYetki.resx">
+      <DependentUpon>FrmBildirimYetki.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmButceler.resx">
+      <DependentUpon>FrmButceler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmCombo.resx">
+      <DependentUpon>FrmCombo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmDevam.resx">
+      <DependentUpon>FrmDevam.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmDisaAktarExcel.resx">
+      <DependentUpon>FrmDisaAktarExcel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmDonemDuzlet.resx">
+      <DependentUpon>FrmDonemDuzlet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmDuyuru.resx">
+      <DependentUpon>FrmDuyuru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmEtiketYaz.resx">
+      <DependentUpon>FrmEtiketYaz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmHesapOlustur.resx">
+      <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIsTakip.resx">
+      <DependentUpon>FrmIsTakip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIzlemeAmbar.resx">
+      <DependentUpon>FrmIzlemeAmbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmOfisDosyaFihrist.resx">
+      <DependentUpon>FrmOfisDosyaFihrist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmGorevAta.resx">
+      <DependentUpon>FrmGorevAta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmGorevlerim.resx">
+      <DependentUpon>FrmGorevlerim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmHelper.resx">
+      <DependentUpon>FrmHelper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIsAkisiPersonel.resx">
+      <DependentUpon>FrmIsAkisiPersonel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIzinlerim.resx">
+      <DependentUpon>FrmIzinlerim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmKonaklamalarim.resx">
+      <DependentUpon>FrmKonaklamalarim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmMail.resx">
+      <DependentUpon>FrmMail.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmNotification.resx">
+      <DependentUpon>FrmNotification.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmOnayEkranlari.resx">
+      <DependentUpon>FrmOnayEkranlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmOrganizasyon.resx">
+      <DependentUpon>FrmOrganizasyon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmSehirIciGorevlerim.resx">
+      <DependentUpon>FrmSehirIciGorevlerim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmServer.resx">
+      <DependentUpon>FrmServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmSifremiDegistir.resx">
+      <DependentUpon>FrmSifremiDegistir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmTelefonRehberi.resx">
+      <DependentUpon>FrmTelefonRehberi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmWait.resx">
+      <DependentUpon>FrmWait.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\Zimmetlerim.resx">
+      <DependentUpon>Zimmetlerim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaKayitlariKapatilan.resx">
+      <DependentUpon>FrmArizaKayitlariKapatilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaKayitOlusturSaha.resx">
+      <DependentUpon>FrmArizaKayitOlusturSaha.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmDtfIzleme.resx">
+      <DependentUpon>FrmDtfIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmDTFOlustur.resx">
+      <DependentUpon>FrmDTFOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmGarantiSureleri.resx">
+      <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmHaftalikControl.resx">
+      <DependentUpon>FrmHaftalikControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmHaftalikControlIzleme.resx">
+      <DependentUpon>FrmHaftalikControlIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmMalzemeDuzenle.resx">
+      <DependentUpon>FrmMalzemeDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaAcma.resx">
+      <DependentUpon>FrmArizaAcma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaAcmaCalisma.resx">
+      <DependentUpon>FrmArizaAcmaCalisma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaAcmaKapatma.resx">
+      <DependentUpon>FrmArizaAcmaKapatma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaDevamEden.resx">
+      <DependentUpon>FrmArizaDevamEden.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaDurumGuncelle.resx">
+      <DependentUpon>FrmArizaDurumGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaKayitlarics.resx">
+      <DependentUpon>FrmArizaKayitlarics.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmAtolyeDataGuncelle.resx">
+      <DependentUpon>FrmAtolyeDataGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBildirimOnayi.resx">
+      <DependentUpon>FrmBildirimOnayi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBOAtolye.resx">
+      <DependentUpon>FrmBOAtolye.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeDevamEdenler.resx">
+      <DependentUpon>FrmBOAtolyeDevamEdenler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeGuncelleme.resx">
+      <DependentUpon>FrmBOAtolyeGuncelleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeKapatma.resx">
+      <DependentUpon>FrmBOAtolyeKapatma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBOAtolyeTamamlananlar.resx">
+      <DependentUpon>FrmBOAtolyeTamamlananlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBolgeKayitIzleme.resx">
+      <DependentUpon>FrmBolgeKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmBolgeler.resx">
+      <DependentUpon>FrmBolgeler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmDepoLokasyonKayit.resx">
+      <DependentUpon>FrmDepoLokasyonKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmDestekIscilikVeriGiris.resx">
+      <DependentUpon>FrmDestekIscilikVeriGiris.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmEkipmanBolge.resx">
+      <DependentUpon>FrmEkipmanBolge.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmIscilikIzleme.resx">
+      <DependentUpon>FrmIscilikIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmMuseriBilgileri.resx">
+      <DependentUpon>FrmMuseriBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmAdmin.resx">
+      <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmOkfGuncelle.resx">
+      <DependentUpon>FrmOkfGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmOkfIzleme.resx">
+      <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmOkfOlustrma.resx">
+      <DependentUpon>FrmOkfOlustrma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmPyp.resx">
+      <DependentUpon>FrmPyp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmServisFormuKayit.resx">
+      <DependentUpon>FrmServisFormuKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmServisTalepleri.resx">
+      <DependentUpon>FrmServisTalepleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmServisTalepleriIzleme.resx">
+      <DependentUpon>FrmServisTalepleriIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmYolDurumlari.resx">
+      <DependentUpon>FrmYolDurumlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmYolDurumlariIzleme.resx">
+      <DependentUpon>FrmYolDurumlariIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmButceKayit.resx">
+      <DependentUpon>FrmButceKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmButceKayit2.resx">
+      <DependentUpon>FrmButceKayit2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmGenelButceGrafik.resx">
+      <DependentUpon>FrmGenelButceGrafik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmGenelButceIzleme.resx">
+      <DependentUpon>FrmGenelButceIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmIsAvansTalep.resx">
+      <DependentUpon>FrmIsAvansTalep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmKasa.resx">
+      <DependentUpon>FrmKasa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmKasaIzlemecs.resx">
+      <DependentUpon>FrmKasaIzlemecs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmSiparisler.resx">
+      <DependentUpon>FrmSiparisler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Butce\FrmSiparislerIzleme.resx">
+      <DependentUpon>FrmSiparislerIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmDDMalzemeHazirlama.resx">
+      <DependentUpon>FrmDDMalzemeHazirlama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmDepoKontrol.resx">
+      <DependentUpon>FrmDepoKontrol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmDDStokGirisCikis.resx">
+      <DependentUpon>FrmDDStokGirisCikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmMalzemeKayitDestekDepo.resx">
+      <DependentUpon>FrmMalzemeKayitDestekDepo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Depo\FrmPhotoFullScreen.resx">
+      <DependentUpon>FrmPhotoFullScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Egitim\FrmEgitimPlanıOlustur.resx">
+      <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmBolgedenGelecekMlz.resx">
+      <DependentUpon>FrmBolgedenGelecekMlz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoDusum.resx">
+      <DependentUpon>FrmDepoDusum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoHareketleri.resx">
+      <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmGirisCikis.resx">
+      <DependentUpon>FrmGirisCikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeAciklama.resx">
+      <DependentUpon>FrmMalzemeAciklama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeGuncelle.resx">
+      <DependentUpon>FrmMalzemeGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeHazirlama.resx">
+      <DependentUpon>FrmMalzemeHazirlama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeKayitIzleme.resx">
+      <DependentUpon>FrmMalzemeKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmStokGirisCikis.resx">
+      <DependentUpon>FrmStokGirisCikis.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmStokGoruntule.resx">
+      <DependentUpon>FrmStokGoruntule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DokumanYonetim\FrmDokumanEkle.resx">
+      <DependentUpon>FrmDokumanEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DokumanYonetim\FrmDokumanSorgula.resx">
+      <DependentUpon>FrmDokumanSorgula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DokumanYonetim\FrmStandartForm.resx">
+      <DependentUpon>FrmStandartForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DokumanYonetim\FrmStandartFormEkle.resx">
+      <DependentUpon>FrmStandartFormEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeKayit.resx">
+      <DependentUpon>FrmMalzemeKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmStokMiktarEdit.resx">
+      <DependentUpon>FrmStokMiktarEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmUstTakimEkle.resx">
+      <DependentUpon>FrmUstTakimEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracBakimKayitIzleme.resx">
+      <DependentUpon>FrmAracBakimKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracBakimKayit.resx">
+      <DependentUpon>FrmAracBakimKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracBakimSAT.resx">
+      <DependentUpon>FrmAracBakimSAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracKaydet.resx">
+      <DependentUpon>FrmAracKaydet.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracKm.resx">
+      <DependentUpon>FrmAracKm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracKmIzleme.resx">
+      <DependentUpon>FrmAracKmIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracTahsisBilgileri.resx">
+      <DependentUpon>FrmAracTahsisBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracTalep.resx">
+      <DependentUpon>FrmAracTalep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracTalepIzleme.resx">
+      <DependentUpon>FrmAracTalepIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracZimmetiLogKayitlari.resx">
+      <DependentUpon>FrmAracZimmetiLogKayitlari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmArsiv.resx">
+      <DependentUpon>FrmArsiv.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmArsivIzleme.resx">
+      <DependentUpon>FrmArsivIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmArsivKontrolFormu.resx">
+      <DependentUpon>FrmArsivKontrolFormu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmArsivKontrolFormuIzleme.resx">
+      <DependentUpon>FrmArsivKontrolFormuIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAylikButcekKapatmaYakit.resx">
+      <DependentUpon>FrmAylikButcekKapatmaYakit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmBakimKayitIzleme.resx">
+      <DependentUpon>FrmBakimKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmBolumDuzelt.resx">
+      <DependentUpon>FrmBolumDuzelt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmButceKoduKalemiDuzenle.resx">
+      <DependentUpon>FrmButceKoduKalemiDuzenle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmCokluArac.resx">
+      <DependentUpon>FrmCokluArac.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmCokluKonaklama.resx">
+      <DependentUpon>FrmCokluKonaklama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmDuranVarlik.resx">
+      <DependentUpon>FrmDuranVarlik.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmLogin.resx">
+      <DependentUpon>FrmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmDuranVarlikAktarim.resx">
+      <DependentUpon>FrmDuranVarlikAktarim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmDuranVarlikArizaKayit.resx">
+      <DependentUpon>FrmDuranVarlikArizaKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmDuranVarlikGuncelleme.resx">
+      <DependentUpon>FrmDuranVarlikGuncelleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmDuranVarlikTakip.resx">
+      <DependentUpon>FrmDuranVarlikTakip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmDvKalibrasyonKayit.resx">
+      <DependentUpon>FrmDvKalibrasyonKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmDVZimmetTakibi.resx">
+      <DependentUpon>FrmDVZimmetTakibi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmEvrekKayitIzleme.resx">
+      <DependentUpon>FrmEvrekKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmGecmisKayit.resx">
+      <DependentUpon>FrmGecmisKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmGiysiTalep.resx">
+      <DependentUpon>FrmGiysiTalep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmHarcamaBeyannamesi.resx">
+      <DependentUpon>FrmHarcamaBeyannamesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmIzin.resx">
+      <DependentUpon>FrmIzin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmIzinIzleme.resx">
+      <DependentUpon>FrmIzinIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmIzinOnay.resx">
+      <DependentUpon>FrmIzinOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmKalibrasyonTakip.resx">
+      <DependentUpon>FrmKalibrasyonTakip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmKonaklama.resx">
+      <DependentUpon>FrmKonaklama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmKonaklamaDetayi.resx">
+      <DependentUpon>FrmKonaklamaDetayi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmKonaklamaIzleme.resx">
+      <DependentUpon>FrmKonaklamaIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmKonaklamaOnay.resx">
+      <DependentUpon>FrmKonaklamaOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmMasrafYeri.resx">
+      <DependentUpon>FrmMasrafYeri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmMifOnay.resx">
+      <DependentUpon>FrmMifOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmOtelEkle.resx">
+      <DependentUpon>FrmOtelEkle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmPersonelKayit.resx">
+      <DependentUpon>FrmPersonelKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmPersonelListesi.resx">
+      <DependentUpon>FrmPersonelListesi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmPersonelListesiAyrilan.resx">
+      <DependentUpon>FrmPersonelListesiAyrilan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmEvrakKayit.resx">
+      <DependentUpon>FrmEvrakKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmSehirIciGorevIzleme.resx">
+      <DependentUpon>FrmSehirIciGorevIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmSehirIcıGorev.resx">
+      <DependentUpon>FrmSehirIcıGorev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmSehitİciGorevOnay.resx">
+      <DependentUpon>FrmSehitİciGorevOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmTalepIzleme.resx">
+      <DependentUpon>FrmTalepIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmUcakOtobusBileti.resx">
+      <DependentUpon>FrmUcakOtobusBileti.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmUcakOtobusBiletiIzleme.resx">
+      <DependentUpon>FrmUcakOtobusBiletiIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmUcakOtobusOnay.resx">
+      <DependentUpon>FrmUcakOtobusOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYakitBeyani.resx">
+      <DependentUpon>FrmYakitBeyani.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYakitBeyaniIzleme.resx">
+      <DependentUpon>FrmYakitBeyaniIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYakitDokum.resx">
+      <DependentUpon>FrmYakitDokum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYakitDokumIzleme.resx">
+      <DependentUpon>FrmYakitDokumIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYurtIciGorevlerim.resx">
+      <DependentUpon>FrmYurtIciGorevlerim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYurtIciGorevSAT.resx">
+      <DependentUpon>FrmYurtIciGorevSAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYurtİciGorev.resx">
+      <DependentUpon>FrmYurtİciGorev.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYurtIciGorevIzleme.resx">
+      <DependentUpon>FrmYurtIciGorevIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmZiyaretciKayit.resx">
+      <DependentUpon>FrmZiyaretciKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmZiyaretciKayitIzleme.resx">
+      <DependentUpon>FrmZiyaretciKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Ana Sayfa\FrmAnaSayfa.resx">
+      <DependentUpon>FrmAnaSayfa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAPORLAMALAR\FrmArizaRaporlama.resx">
+      <DependentUpon>FrmArizaRaporlama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAPORLAMALAR\FrmSatRaporu.resx">
+      <DependentUpon>FrmSatRaporu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAPORLAMALAR\FrmSatRaporuIzleme.resx">
+      <DependentUpon>FrmSatRaporuIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RAPORLAMALAR\OTSBOPerformans.resx">
+      <DependentUpon>OTSBOPerformans.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmAltYukleniciFirma.resx">
+      <DependentUpon>FrmAltYukleniciFirma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmAylikButceKapatmaYakit.resx">
+      <DependentUpon>FrmAylikButceKapatmaYakit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmButceKoduKalemi.resx">
+      <DependentUpon>FrmButceKoduKalemi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmDevamEdenGuncelle.resx">
+      <DependentUpon>FrmDevamEdenGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmDevamEdenSat.resx">
+      <DependentUpon>FrmDevamEdenSat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmHarcamasiYapilanSat.resx">
+      <DependentUpon>FrmHarcamasiYapilanSat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmReddedilenSatlar.resx">
+      <DependentUpon>FrmReddedilenSatlar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSAAAT.resx">
+      <DependentUpon>FrmSAAAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatBaslatmaOnayi.resx">
+      <DependentUpon>FrmSatBaslatmaOnayi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatControl.resx">
+      <DependentUpon>FrmSatControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatDosyaYoluDuzelt.resx">
+      <DependentUpon>FrmSatDosyaYoluDuzelt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatDuzelt.resx">
+      <DependentUpon>FrmSatDuzelt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSATGuncelle.resx">
+      <DependentUpon>FrmSATGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatOlustur2.resx">
+      <DependentUpon>FrmSatOlustur2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatOlusturAbf.resx">
+      <DependentUpon>FrmSatOlusturAbf.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatTalebi.resx">
+      <DependentUpon>FrmSatTalebi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmTamamlananSat.resx">
+      <DependentUpon>FrmTamamlananSat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmTamamlananSatGuncelle.resx">
+      <DependentUpon>FrmTamamlananSatGuncelle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmTeklifsizSat.resx">
+      <DependentUpon>FrmTeklifsizSat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatOlustur.resx">
+      <DependentUpon>FrmSatOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatOnay.resx">
+      <DependentUpon>FrmSatOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatOnOnay.resx">
+      <DependentUpon>FrmSatOnOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatOnOnayRed.resx">
+      <DependentUpon>FrmSatOnOnayRed.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatOnOnayVer.resx">
+      <DependentUpon>FrmSatOnOnayVer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmSatTamamlama.resx">
+      <DependentUpon>FrmSatTamamlama.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmTedarikciFirmaBilgileri.resx">
+      <DependentUpon>FrmTedarikciFirmaBilgileri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmTeklifAlinacakSat.resx">
+      <DependentUpon>FrmTeklifAlinacakSat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="STS\FrmYakitButceKapatma.resx">
+      <DependentUpon>FrmYakitButceKapatma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yerleskeler\FrmYerleskeGideriKayit.resx">
+      <DependentUpon>FrmYerleskeGideriKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yerleskeler\FrmYerleskeGiderKayitIzleme.resx">
+      <DependentUpon>FrmYerleskeGiderKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yerleskeler\FrmYerleskeIzleme.resx">
+      <DependentUpon>FrmYerleskeIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Yerleskeler\FrmYerleskeKayit.resx">
+      <DependentUpon>FrmYerleskeKayit.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{7cfd9cd8-d824-4a35-ac3a-72d85aee5688}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj">
+      <Project>{57824f74-5960-4566-bfc2-f46bd9ea95a7}</Project>
+      <Name>DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entity\Entity.csproj">
+      <Project>{1a6c04c8-a3a0-4e00-88c3-d297f515e0e1}</Project>
+      <Name>Entity</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="AxAcroPDFLib">
+      <Guid>{05BFD3F1-6319-4F30-B752-C7A22889BCC4}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>aximp</WrapperTool>
+      <Isolated>False</Isolated>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Word">
+      <Guid>{00020905-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>8</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 ve x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 </ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Bildirim.ico">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DTS-LOGO.ico" />
+    <Content Include="Icon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Siparisler\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
