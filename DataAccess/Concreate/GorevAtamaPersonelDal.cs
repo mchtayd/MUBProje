@@ -73,7 +73,8 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["CALISMA_SURESI"].ConOnlyTime());
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        "");
                 }
                 dataReader.Close();
                 return item;
@@ -103,7 +104,8 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["CALISMA_SURESI"].ConOnlyTime()));
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        ""));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
@@ -132,13 +134,14 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["CALISMA_SURESI"].ConOnlyTime()));
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        ""));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 dataReader.Close();
                 return new List<GorevAtamaPersonel>();
@@ -162,13 +165,14 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["CALISMA_SURESI"].ConOnlyTime()));
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        dataReader["ABF_FORM_NO"].ToString()));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<GorevAtamaPersonel>();
             }
@@ -183,7 +187,9 @@ namespace DataAccess.Concreate
                     new SqlParameter("@departman", departman));
                 while (dataReader.Read())
                 {
-                    gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                    if (departman=="BAKIM ONARIM")
+                    {
+                        gorevAtamaPersonels.Add(new GorevAtamaPersonel(
                         dataReader["ID"].ConInt(),
                         dataReader["BENZERSIZ_ID"].ConInt(),
                         dataReader["DEPARTMAN"].ToString(),
@@ -192,13 +198,29 @@ namespace DataAccess.Concreate
                         dataReader["TARIH"].ConDate(),
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["CALISMA_SURESI"].ConOnlyTime()));
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        dataReader["ABF_FORM_NO"].ToString()));
+                    }
+                    else
+                    {
+                        gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["DEPARTMAN"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["SURE"].ToString(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        dataReader["ID"].ToString()));
+                    }
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
 
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<GorevAtamaPersonel>();
             }

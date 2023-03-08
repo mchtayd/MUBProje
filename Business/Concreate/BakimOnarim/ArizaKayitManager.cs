@@ -71,7 +71,7 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public List<ArizaKayit> GetList(string bolgeAdi="")
+        public List<ArizaKayit> GetList(string bolgeAdi= "")
         {
             try
             {
@@ -116,11 +116,11 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public List<ArizaKayit> DevamEdenlerGetList()
+        public List<ArizaKayit> DevamEdenlerGetList(string bolgeSorumlusu, string islemAdimiSorumlusu="")
         {
             try
             {
-                return arizaKayitDal.DevamEdenlerGetList();
+                return arizaKayitDal.DevamEdenlerGetList(bolgeSorumlusu, islemAdimiSorumlusu);
             }
             catch (Exception)
             {

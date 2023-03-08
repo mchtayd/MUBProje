@@ -445,7 +445,7 @@ namespace DataAccess.Concreate.BakimOnarim
             try
             {
                 List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
-                dataReader = sqlServices.StoreReader("BakimOnarimArizaKayitList",new SqlParameter("@usBolgesiAdi", bolgeAdi));
+                dataReader = sqlServices.StoreReader("BakimOnarimArizaKayitList", new SqlParameter("@usBolgesiAdi", bolgeAdi));
                 while (dataReader.Read())
                 {
                     arizaKayits.Add(new ArizaKayit(
@@ -605,12 +605,12 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<ArizaKayit>();
             }
         }
-        public List<ArizaKayit> DevamEdenlerGetList()
+        public List<ArizaKayit> DevamEdenlerGetList(string bolgeSorumlusu, string islemAdimiSorumlusu)
         {
             try
             {
                 List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
-                dataReader = sqlServices.StoreReader("BakimOnarimDevamEdenler");
+                dataReader = sqlServices.StoreReader("BakimOnarimDevamEdenler", new SqlParameter("@personelAd", bolgeSorumlusu), new SqlParameter("@islemAdimiSorumlusu",islemAdimiSorumlusu));
                 while (dataReader.Read())
                 {
                     arizaKayits.Add(new ArizaKayit(

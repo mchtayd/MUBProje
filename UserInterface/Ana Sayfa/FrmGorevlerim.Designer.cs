@@ -30,8 +30,8 @@ namespace UserInterface.Ana_Sayfa
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label31 = new System.Windows.Forms.Label();
@@ -65,6 +65,8 @@ namespace UserInterface.Ana_Sayfa
             this.arızaKapatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.dataBinderAriza = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinderAtolye = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -79,6 +81,8 @@ namespace UserInterface.Ana_Sayfa
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderAriza)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderAtolye)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -140,8 +144,8 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.DtgGorevlerim.AllowUserToAddRows = false;
             this.DtgGorevlerim.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgGorevlerim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgGorevlerim.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgGorevlerim.AutoGenerateContextFilters = true;
             this.DtgGorevlerim.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgGorevlerim.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -156,6 +160,8 @@ namespace UserInterface.Ana_Sayfa
             this.DtgGorevlerim.Size = new System.Drawing.Size(935, 663);
             this.DtgGorevlerim.TabIndex = 3;
             this.DtgGorevlerim.TimeFilter = false;
+            this.DtgGorevlerim.SortStringChanged += new System.EventHandler(this.DtgGorevlerim_SortStringChanged);
+            this.DtgGorevlerim.FilterStringChanged += new System.EventHandler(this.DtgGorevlerim_FilterStringChanged);
             // 
             // tabPage2
             // 
@@ -351,8 +357,8 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.DtgIsAkisGorev.AllowUserToAddRows = false;
             this.DtgIsAkisGorev.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgIsAkisGorev.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgIsAkisGorev.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgIsAkisGorev.AutoGenerateContextFilters = true;
             this.DtgIsAkisGorev.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgIsAkisGorev.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -367,6 +373,8 @@ namespace UserInterface.Ana_Sayfa
             this.DtgIsAkisGorev.Size = new System.Drawing.Size(1091, 663);
             this.DtgIsAkisGorev.TabIndex = 3;
             this.DtgIsAkisGorev.TimeFilter = false;
+            this.DtgIsAkisGorev.SortStringChanged += new System.EventHandler(this.DtgIsAkisGorev_SortStringChanged);
+            this.DtgIsAkisGorev.FilterStringChanged += new System.EventHandler(this.DtgIsAkisGorev_FilterStringChanged);
             this.DtgIsAkisGorev.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.advancedDataGridView1_CellContentClick);
             this.DtgIsAkisGorev.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.advancedDataGridView1_CellMouseClick);
             // 
@@ -376,18 +384,18 @@ namespace UserInterface.Ana_Sayfa
             this.görevAtaToolStripMenuItem,
             this.göreveGitToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(130, 48);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(145, 52);
             // 
             // görevAtaToolStripMenuItem
             // 
             this.görevAtaToolStripMenuItem.Name = "görevAtaToolStripMenuItem";
-            this.görevAtaToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.görevAtaToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.görevAtaToolStripMenuItem.Text = "Görev Ata";
             // 
             // göreveGitToolStripMenuItem
             // 
             this.göreveGitToolStripMenuItem.Name = "göreveGitToolStripMenuItem";
-            this.göreveGitToolStripMenuItem.Size = new System.Drawing.Size(129, 22);
+            this.göreveGitToolStripMenuItem.Size = new System.Drawing.Size(144, 24);
             this.göreveGitToolStripMenuItem.Text = "Göreve Git";
             // 
             // contextMenuStrip1
@@ -397,29 +405,33 @@ namespace UserInterface.Ana_Sayfa
             this.durumGüncelleToolStripMenuItem,
             this.arızaKapatToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(161, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(178, 76);
             // 
             // yönlendirToolStripMenuItem
             // 
             this.yönlendirToolStripMenuItem.Name = "yönlendirToolStripMenuItem";
-            this.yönlendirToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.yönlendirToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
             this.yönlendirToolStripMenuItem.Text = "Sipariş Oluştur";
             // 
             // durumGüncelleToolStripMenuItem
             // 
             this.durumGüncelleToolStripMenuItem.Name = "durumGüncelleToolStripMenuItem";
-            this.durumGüncelleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.durumGüncelleToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
             this.durumGüncelleToolStripMenuItem.Text = "Durum Güncelle";
             // 
             // arızaKapatToolStripMenuItem
             // 
             this.arızaKapatToolStripMenuItem.Name = "arızaKapatToolStripMenuItem";
-            this.arızaKapatToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.arızaKapatToolStripMenuItem.Size = new System.Drawing.Size(177, 24);
             this.arızaKapatToolStripMenuItem.Text = "Arıza Kapat";
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // dataBinderAtolye
+            // 
+            this.dataBinderAtolye.AllowNew = false;
             // 
             // FrmGorevlerim
             // 
@@ -451,6 +463,8 @@ namespace UserInterface.Ana_Sayfa
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderAriza)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderAtolye)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -489,5 +503,7 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Button BtnDosyaEkle;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.BindingSource dataBinderAriza;
+        private System.Windows.Forms.BindingSource dataBinderAtolye;
     }
 }

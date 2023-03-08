@@ -36,6 +36,7 @@ namespace UserInterface.BakımOnarım
 
         string dosyaYolu, abfNo;
         int id, atolyeId;
+        public object[] infos;
 
         public FrmArizaDevamEden()
         {
@@ -73,7 +74,16 @@ namespace UserInterface.BakımOnarım
         }
         void DataDisplay()
         {
-            arizaKayits = arizaKayitManager.DevamEdenlerGetList();
+            if (infos[0].ConInt()==25 || infos[0].ConInt() == 30 || infos[0].ConInt() == 84 || infos[0].ConInt() == 39 || infos[0].ConInt() == 1140 || infos[0].ConInt() == 1139 || infos[0].ConInt() == 54 || infos[0].ConInt() == 47 || infos[0].ConInt() == 57 || infos[0].ConInt() == 65 || infos[0].ConInt() == 1121)
+            {
+                arizaKayits = arizaKayitManager.DevamEdenlerGetList("", infos[1].ToString());
+            }
+
+            else
+            {
+                arizaKayits = arizaKayitManager.DevamEdenlerGetList(infos[1].ToString());
+            }
+
             dataBinder.DataSource = arizaKayits.ToDataTable();
             DtgList.DataSource = dataBinder;
             TxtTop.Text = DtgList.RowCount.ToString();
@@ -448,13 +458,13 @@ namespace UserInterface.BakımOnarım
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)
         {
-            dataBinder.Sort = DtgList.SortString;
+            dataBinder.Filter = DtgList.FilterString;
             TxtTop.Text = DtgList.RowCount.ToString();
         }
 
         private void DtgList_SortStringChanged(object sender, EventArgs e)
         {
-            dataBinder.Filter = DtgList.FilterString;
+            dataBinder.Sort = DtgList.SortString;
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)

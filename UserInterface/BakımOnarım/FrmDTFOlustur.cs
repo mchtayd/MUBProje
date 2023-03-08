@@ -92,6 +92,7 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.Visible = false;
             }
         }
+
         void TalebiOlusturan()
         {
             TalepEden.Text = infos[1].ToString();
@@ -103,6 +104,7 @@ namespace UserInterface.BakımOnarım
             CmbDonemAy.Text = array[0].ToString();
             CmbDonemYil.Text = array[1].ToString();
         }
+
         public void IsAkisNo()
         {
             isAkisNoManager.Update();

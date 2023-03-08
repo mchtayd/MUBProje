@@ -2281,7 +2281,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Açık Bildirimler")
             {
                 FrmArizaDevamEden Go = new FrmArizaDevamEden();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
