@@ -30,8 +30,8 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -60,6 +60,7 @@ namespace UserInterface.BakımOnarım
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.ChkTumunuGor = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -106,9 +107,9 @@ namespace UserInterface.BakımOnarım
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 40);
+            this.groupBox1.Location = new System.Drawing.Point(12, 76);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1531, 429);
+            this.groupBox1.Size = new System.Drawing.Size(1531, 391);
             this.groupBox1.TabIndex = 315;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "AÇIK ARIZALAR";
@@ -118,8 +119,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
             this.DtgList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -130,8 +131,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList.MultiSelect = false;
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1525, 410);
+            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DtgList.Size = new System.Drawing.Size(1525, 372);
             this.DtgList.TabIndex = 2;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
@@ -198,8 +199,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeListesi.AllowUserToAddRows = false;
             this.DtgMalzemeListesi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeListesi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeListesi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgMalzemeListesi.AutoGenerateContextFilters = true;
             this.DtgMalzemeListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -399,11 +400,24 @@ namespace UserInterface.BakımOnarım
             this.LblGenelTop.TabIndex = 451;
             this.LblGenelTop.Text = "00";
             // 
+            // ChkTumunuGor
+            // 
+            this.ChkTumunuGor.AutoSize = true;
+            this.ChkTumunuGor.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkTumunuGor.Location = new System.Drawing.Point(19, 44);
+            this.ChkTumunuGor.Name = "ChkTumunuGor";
+            this.ChkTumunuGor.Size = new System.Drawing.Size(121, 22);
+            this.ChkTumunuGor.TabIndex = 454;
+            this.ChkTumunuGor.Text = "Tümünü Gör";
+            this.ChkTumunuGor.UseVisualStyleBackColor = true;
+            this.ChkTumunuGor.CheckedChanged += new System.EventHandler(this.ChkTumunuGor_CheckedChanged);
+            // 
             // FrmArizaDevamEden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1555, 909);
+            this.Controls.Add(this.ChkTumunuGor);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LblIslemAdimSureleri);
             this.Controls.Add(this.label3);
@@ -468,5 +482,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label LblAtolyeIslemAdimiTop;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LblToplamIsclikAtolye;
+        private System.Windows.Forms.CheckBox ChkTumunuGor;
     }
 }

@@ -448,6 +448,13 @@ namespace UserInterface.BakımOnarım
                 TemizleSiparisOlustur();
                 return;
             }
+
+            if (arizaKayit.IslemAdimi != "400_SİPARİŞ OLUŞTURMA (DTS)")
+            {
+                MessageBox.Show("Bu arıza " + arizaKayit.IslemAdimi + " adımındadır. Bu ekrandan işlem yapabilmek için lütfen arızayı 400_SİPARİŞ OLUŞTURMA (DTS) adımına getiriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             abfNo = TxtAbfFormNo.Text;
             LblBolgeAdi.Text = arizaKayit.BolgeAdi;
             isAkisNo = arizaKayit.IsAkisNo.ToString();
@@ -1031,6 +1038,10 @@ namespace UserInterface.BakımOnarım
             {
                 MessageBox.Show("Girmiş Olduğunuz ABF No Ya Ait Bir Kayıt Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            if (arizaKayit.IslemAdimi != "500_ARIZA BİLDİRİMİ (ASELSAN)")
+            {
+                MessageBox.Show("Bu arıza " + arizaKayit.IslemAdimi + " adımındadır. Bu ekranda işlem yapabilmek için lütfen arızayı ");
             }
             DtgFormBilgileri.Rows.Add();
             int sonSatir = DtgFormBilgileri.RowCount - 1;

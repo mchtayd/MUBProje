@@ -29,7 +29,7 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaDurumGuncelle));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -222,7 +222,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox3.Controls.Add(this.webBrowser1);
             this.groupBox3.Location = new System.Drawing.Point(558, 208);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(389, 100);
+            this.groupBox3.Size = new System.Drawing.Size(389, 161);
             this.groupBox3.TabIndex = 404;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EKLER:";
@@ -233,14 +233,14 @@ namespace UserInterface.BakımOnarım
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(383, 81);
+            this.webBrowser1.Size = new System.Drawing.Size(383, 142);
             this.webBrowser1.TabIndex = 0;
             // 
             // BtnDosyaEkle
             // 
             this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(558, 317);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(557, 378);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(113, 28);
             this.BtnDosyaEkle.TabIndex = 417;
@@ -438,7 +438,7 @@ namespace UserInterface.BakımOnarım
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(680, 317);
+            this.label3.Location = new System.Drawing.Point(679, 378);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(261, 30);
             this.label3.TabIndex = 462;
@@ -555,7 +555,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox6.Location = new System.Drawing.Point(6, 87);
             this.groupBox6.Name = "groupBox6";
-            this.groupBox6.Size = new System.Drawing.Size(553, 130);
+            this.groupBox6.Size = new System.Drawing.Size(553, 189);
             this.groupBox6.TabIndex = 333;
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "Personeller";
@@ -576,7 +576,7 @@ namespace UserInterface.BakımOnarım
             this.AdvPersonel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.AdvPersonel.Location = new System.Drawing.Point(3, 17);
             this.AdvPersonel.Name = "AdvPersonel";
-            this.AdvPersonel.Size = new System.Drawing.Size(547, 110);
+            this.AdvPersonel.Size = new System.Drawing.Size(547, 169);
             this.AdvPersonel.TabIndex = 333;
             this.AdvPersonel.TimeFilter = false;
             this.AdvPersonel.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdvPersonel_CellContentClick);
@@ -608,12 +608,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1350,7 +1350,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox5.Controls.Add(this.DtIscilikSaati);
             this.groupBox5.Location = new System.Drawing.Point(953, 93);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(565, 231);
+            this.groupBox5.Size = new System.Drawing.Size(565, 273);
             this.groupBox5.TabIndex = 492;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "PERSONEL İŞÇİLİK GİRİŞİ";

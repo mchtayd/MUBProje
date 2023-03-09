@@ -314,10 +314,10 @@ namespace Business.Concreate.BakimOnarim
             {
                 return "Lütfen BİLDİRİM KANALI Bilgisini doldurunuz.";
             }
-            if (string.IsNullOrEmpty(arizaKayit.ArizaAciklama))
-            {
-                return "Lütfen ARIZA AÇIKLAMASI Bilgisini doldurunuz.";
-            }
+            //if (string.IsNullOrEmpty(arizaKayit.ArizaAciklama))
+            //{
+            //    return "Lütfen ARIZA AÇIKLAMASI Bilgisini doldurunuz.";
+            //}
             return "";
         }
         public static ArizaKayitManager GetInstance()
