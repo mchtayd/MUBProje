@@ -18,12 +18,15 @@ namespace UserInterface.BakımOnarım
     public partial class FrmMalzemeDuzenle : Form
     {
         MalzemeKayitManager malzemeKayitManager;
+        MalzemeManager malzemeManager;
         AbfMalzemeManager abfMalzemeManager;
         public int benzersizId;
         int deleteId;
 
-        List<MalzemeKayit> malzemeKayits;
-        List<MalzemeKayit> malzemeKayitsFiltired;
+        //List<MalzemeKayit> malzemeKayits;
+        List<Malzeme> malzemes;
+        List<Malzeme> malzemesFiltired;
+        //List<MalzemeKayit> malzemeKayitsFiltired;
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
 
         public FrmMalzemeDuzenle()
@@ -31,6 +34,7 @@ namespace UserInterface.BakımOnarım
             InitializeComponent();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            malzemeManager = MalzemeManager.GetInstance();
         }
 
         private void BtnMalzemeDuzenle_Load(object sender, EventArgs e)
@@ -40,35 +44,32 @@ namespace UserInterface.BakımOnarım
         }
         void MalzemeList()
         {
-            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
-            malzemeKayitsFiltired = malzemeKayits;
-            dataBinder.DataSource = malzemeKayits.ToDataTable();
+            malzemes = malzemeManager.GetList();
+            malzemesFiltired = malzemes;
+            dataBinder.DataSource = malzemes.ToDataTable();
             DtgList.DataSource = dataBinder;
             TxtTop.Text = DtgList.RowCount.ToString();
 
             DtgList.Columns["Id"].Visible = false;
-            DtgList.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgList.Columns["StokNo"].HeaderText = "STOK NO";
             DtgList.Columns["Tanim"].HeaderText = "TANIM";
             DtgList.Columns["Birim"].HeaderText = "BİRİM";
-            DtgList.Columns["Tedarikcifirma"].HeaderText = "TEDARİKÇİ FİRMA";
-            DtgList.Columns["Malzemeonarimdurumu"].HeaderText = "MALZEME ONARIM DURUMU";
-            DtgList.Columns["Malzemeonarımyeri"].HeaderText = "MALZEME ONARIM YERİ";
-            DtgList.Columns["Malzemeturu"].HeaderText = "MALZEME TÜRÜ";
-            DtgList.Columns["Malzemetakipdurumu"].HeaderText = "MALZEME TAKİP DURUMU";
-            DtgList.Columns["Malzemekul"].Visible = false;
+            DtgList.Columns["TedarikciFirma"].HeaderText = "TEDARİKÇİ FİRMA";
+            DtgList.Columns["OnarimDurumu"].HeaderText = "MALZEME ONARIM DURUMU";
+            DtgList.Columns["OnarimYeri"].HeaderText = "MALZEME ONARIM YERİ";
+            DtgList.Columns["TedarikTuru"].HeaderText = "TEDARİK TÜRÜ";
+            DtgList.Columns["ParcaSinifi"].HeaderText = "PARÇA SINIFI";
+            DtgList.Columns["AlternatifParca"].Visible = false;
             DtgList.Columns["Aciklama"].Visible = false;
-            DtgList.Columns["Dosyayolu"].Visible = false;
-            DtgList.Columns["AlternatifMalzeme"].Visible = false;
+            DtgList.Columns["DosyaYolu"].Visible = false;
             DtgList.Columns["SistemStokNo"].Visible = false;
-            DtgList.Columns["SistemTanim"].Visible = false;
-            DtgList.Columns["SistemPersonel"].Visible = false;
-            DtgList.Columns["KayitDurumu"].Visible = false;
-            DtgList.Columns["SeriNo"].Visible = false;
-            DtgList.Columns["Durum"].Visible = false;
-            DtgList.Columns["Revizyon"].Visible = false;
-            DtgList.Columns["Miktar"].Visible = false;
-            DtgList.Columns["TalepTarihi"].Visible = false;
-            DtgList.Columns["DataTypeValue"].Visible = false;
+            DtgList.Columns["SistemTanimi"].Visible = false;
+            DtgList.Columns["SistemSorumlusu"].Visible = false;
+            DtgList.Columns["IslemYapan"].Visible = false;
+            DtgList.Columns["TakipDurumu"].Visible = false;
+            DtgList.Columns["UstStok"].Visible = false;
+            DtgList.Columns["UstTanim"].Visible = false;
+            DtgList.Columns["BenzersizId"].Visible = false;
         }
         void AbfMalzemeDisplay()
         {
@@ -189,8 +190,8 @@ namespace UserInterface.BakımOnarım
             string isim = TxtStokNo.Text;
             if (string.IsNullOrEmpty(isim))
             {
-                malzemeKayitsFiltired = malzemeKayits;
-                dataBinder.DataSource = malzemeKayits.ToDataTable();
+                malzemesFiltired = malzemes;
+                dataBinder.DataSource = malzemes.ToDataTable();
                 DtgList.DataSource = dataBinder;
                 TxtTop.Text = DtgList.RowCount.ToString();
                 return;
@@ -199,9 +200,9 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
-            dataBinder.DataSource = malzemeKayitsFiltired.Where(x => x.Stokno.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
+            dataBinder.DataSource = malzemesFiltired.Where(x => x.StokNo.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
             DtgList.DataSource = dataBinder;
-            malzemeKayitsFiltired = malzemeKayits;
+            malzemesFiltired = malzemes;
             TxtTop.Text = DtgList.RowCount.ToString();
         }
 
@@ -210,8 +211,8 @@ namespace UserInterface.BakımOnarım
             string isim = TxtTanim.Text;
             if (string.IsNullOrEmpty(isim))
             {
-                malzemeKayitsFiltired = malzemeKayits;
-                dataBinder.DataSource = malzemeKayits.ToDataTable();
+                malzemesFiltired = malzemes;
+                dataBinder.DataSource = malzemes.ToDataTable();
                 DtgList.DataSource = dataBinder;
                 TxtTop.Text = DtgList.RowCount.ToString();
                 return;
@@ -220,9 +221,9 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
-            dataBinder.DataSource = malzemeKayitsFiltired.Where(x => x.Tanim.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
+            dataBinder.DataSource = malzemesFiltired.Where(x => x.Tanim.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
             DtgList.DataSource = dataBinder;
-            malzemeKayitsFiltired = malzemeKayits;
+            malzemesFiltired = malzemes;
             TxtTop.Text = DtgList.RowCount.ToString();
         }
     }

@@ -192,7 +192,7 @@ namespace Entity.BakimOnarim
             this.hesaplama = hesaplama;
         }
 
-        public ArizaKayit(int id, string onarimNotu, string teslimEdenPersonel, string teslimAlanPersonel, DateTime teslimTarihi, string nesneTanimi, string hasarKodu, string nedenKodu, int eksikEvrak)
+        public ArizaKayit(int id, string onarimNotu, string teslimEdenPersonel, string teslimAlanPersonel, DateTime teslimTarihi, string nesneTanimi, string hasarKodu, string nedenKodu, int eksikEvrak,string tanim,string stokNo,string seriNo,string kategori,string ilgiliFirma,string bildirimTuru,string pypNo,string sorumluPersonel,string siparisTuru,string islemTuru,string hesaplama,string bildirimNo,string bildirimMailTarihi)
         {
             this.id = id;
             this.onarimNotu = onarimNotu;
@@ -203,6 +203,19 @@ namespace Entity.BakimOnarim
             this.hasarKodu = hasarKodu;
             this.nedenKodu = nedenKodu;
             this.eksikEvrak = eksikEvrak;
+            this.tanim = tanim;
+            this.stokNo = stokNo;
+            this.seriNo = seriNo;
+            this.kategori = kategori;
+            this.ilgiliFirma = ilgiliFirma;
+            this.bildirimTuru = bildirimTuru;
+            this.pypNo = pypNo;
+            this.sorumluPersonel = sorumluPersonel;
+            this.siparisTuru = siparisTuru;
+            this.islemTuru = islemTuru;
+            this.hesaplama = hesaplama;
+            this.bildirimNo = bildirimNo;
+            this.bildirimMailTarihi = bildirimMailTarihi;
         }
 
         public ArizaKayit(int id, string stokNo, string tanim, string seriNo)

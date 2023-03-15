@@ -46,7 +46,7 @@ namespace UserInterface.BakımOnarım
         {
             if (sonIslemAdimi != "1200-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT)")
             {
-                MessageBox.Show("Bu Kayıt 1200-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT) İşlem Adımında Bulunmamaktadır. Sadece Bu İşlem Adımında Kapatma Yapabilirsiniz!", "Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Bu Kayıt 1200-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT) İşlem Adımında Bulunmamaktadır. Sadece Bu İşlem Adımında Kapatma Yapabilirsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             //if (dosyaKontrol==false)
@@ -54,26 +54,26 @@ namespace UserInterface.BakımOnarım
             //    MessageBox.Show("Lütfen Öncelikle Bakım Onarım İzleme Formunu Taratarak Ekleyiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
             //    return;
             //}
-            DialogResult dr = MessageBox.Show(TxtIcSiparisNo.Text + " Nolu Kaydı Kapatmak İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            DialogResult dr = MessageBox.Show(TxtIcSiparisNo.Text + " Nolu Kaydı Kapatmak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
 
                 atolyeManager.ArizaKapat(id, 0, DateTime.Now);
 
                 GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:05:00".ConOnlyTime());
 
-                
+
                 string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "SİPARİŞ KAPATILMIŞTIR");
                 if (kontrol2 != "OK")
                 {
-                    MessageBox.Show(kontrol2,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                    MessageBox.Show(kontrol2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 Temizle();
                 dosyaKontrol = false;
 
                 string bildirim = Bildirim();
-                if (bildirim!="OK")
+                if (bildirim != "OK")
                 {
                     if (bildirim != "Server Ayarı Kapalı")
                     {
@@ -81,7 +81,7 @@ namespace UserInterface.BakımOnarım
                     }
                 }
 
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
@@ -114,7 +114,7 @@ namespace UserInterface.BakımOnarım
 
         void Temizle()
         {
-            TxtIcSiparisNo.Clear(); TxtStokNoUst.Clear(); TxtTanimUst.Clear(); TxtSeriNoUst.Clear(); TxtGarantiDurumuUst.Clear(); LblDurumKapali.Visible = false; 
+            TxtIcSiparisNo.Clear(); TxtStokNoUst.Clear(); TxtTanimUst.Clear(); TxtSeriNoUst.Clear(); TxtGarantiDurumuUst.Clear(); LblDurumKapali.Visible = false;
             LblDurumAcik.Visible = false; LblIslemAdimiAcik.Visible = false; LblIslemAdimiKapali.Visible = false; TxtBildirimNo.Clear(); TxtScrmNo.Clear(); TxtKategori.Clear(); TxtBolgeAdi.Clear(); TxtProje.Clear(); DtgAtolye.DataSource = null; DtgIslemKayitlari.DataSource = null; DtgMalzemeler.DataSource = null; webBrowser1.Navigate("");
         }
 
@@ -179,9 +179,9 @@ namespace UserInterface.BakımOnarım
             }
 
             atolyes = atolyeManager.AtolyeIcSiparis(TxtIcSiparisNo.Text.ConInt());
-            if (atolyes.Count==0)
+            if (atolyes.Count == 0)
             {
-                MessageBox.Show("Girmiş Oludğunuz İç Sipariş Numarasına Göre Bir Kayıt Bulunamamıştır!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Girmiş Oludğunuz İç Sipariş Numarasına Göre Bir Kayıt Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -191,14 +191,28 @@ namespace UserInterface.BakımOnarım
             }
 
             Atolye atolye = atolyeManager.Get(siparisNo);
-            if (atolye==null)
+            if (atolye == null)
             {
                 MessageBox.Show("Girmiş Oludğunuz İç Sipariş Numarasına Göre Bir Kayıt Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             id = atolye.Id;
             abfNo = atolye.AbfNo;
-            Atolye atolye2 = atolyeManager.ArizaGetir(abfNo);
+
+            Atolye atolye2DTS = atolyeManager.ArizaGetirDTS(abfNo);
+            if (atolye2DTS != null)
+            {
+                arizaDurumu = atolye2DTS.ArizaDurum;
+                LblIslemAdimiAcik.Text = atolye2DTS.BulunduguIslemAdimi;
+                LblIslemAdimiKapali.Text = atolye2DTS.BulunduguIslemAdimi;
+            }
+            else
+            {
+                Atolye atolye2 = atolyeManager.ArizaGetir(abfNo);
+                arizaDurumu = atolye2.ArizaDurum;
+                LblIslemAdimiAcik.Text = atolye2.BulunduguIslemAdimi;
+                LblIslemAdimiKapali.Text = atolye2.BulunduguIslemAdimi;
+            }
 
             TxtStokNoUst.Text = atolye.StokNoUst;
             TxtTanimUst.Text = atolye.TanimUst;
@@ -209,15 +223,15 @@ namespace UserInterface.BakımOnarım
             TxtKategori.Text = atolye.Kategori;
             TxtBolgeAdi.Text = atolye.BolgeAdi;
             TxtProje.Text = atolye.Proje;
-            arizaDurumu = atolye2.ArizaDurum;
+
             dosyaYolu = atolye.DosyaYolu;
             webBrowser1.Navigate(dosyaYolu);
 
-            if (arizaDurumu==0)
+            if (arizaDurumu == 0)
             {
                 LblDurumAcik.Visible = false;
                 LblDurumKapali.Visible = true;
-                LblIslemAdimiAcik.Text = atolye2.BulunduguIslemAdimi;
+                
                 LblIslemAdimiKapali.Visible = false;
                 LblIslemAdimiAcik.Visible = true;
             }
@@ -225,7 +239,7 @@ namespace UserInterface.BakımOnarım
             {
                 LblDurumAcik.Visible = true;
                 LblDurumKapali.Visible = false;
-                LblIslemAdimiKapali.Text = atolye2.BulunduguIslemAdimi;
+                
                 LblIslemAdimiKapali.Visible = true;
                 LblIslemAdimiAcik.Visible = false;
             }
@@ -351,6 +365,6 @@ namespace UserInterface.BakımOnarım
             sonIslemAdimi = gorevAtamaPersonels[sonKayit - 1].IslemAdimi;
 
         }
-        
+
     }
 }

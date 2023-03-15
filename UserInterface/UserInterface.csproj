@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>519</ApplicationRevision>
+    <ApplicationRevision>526</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -336,6 +336,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\Zimmetlerim.Designer.cs">
       <DependentUpon>Zimmetlerim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaAciklamaOrnek.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaAciklamaOrnek.Designer.cs">
+      <DependentUpon>FrmArizaAciklamaOrnek.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmArizaKayitlariKapatilan.cs">
       <SubType>Form</SubType>
@@ -786,6 +792,12 @@
     </Compile>
     <Compile Include="IdariIsler\FrmAracKm.Designer.cs">
       <DependentUpon>FrmAracKm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKmGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmAracKmGuncelle.Designer.cs">
+      <DependentUpon>FrmAracKmGuncelle.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmAracKmIzleme.cs">
       <SubType>Form</SubType>
@@ -1464,6 +1476,9 @@
     <EmbeddedResource Include="Ana Sayfa\Zimmetlerim.resx">
       <DependentUpon>Zimmetlerim.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaAciklamaOrnek.resx">
+      <DependentUpon>FrmArizaAciklamaOrnek.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmArizaKayitlariKapatilan.resx">
       <DependentUpon>FrmArizaKayitlariKapatilan.cs</DependentUpon>
     </EmbeddedResource>
@@ -1688,6 +1703,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracKm.resx">
       <DependentUpon>FrmAracKm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmAracKmGuncelle.resx">
+      <DependentUpon>FrmAracKmGuncelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmAracKmIzleme.resx">
       <DependentUpon>FrmAracKmIzleme.cs</DependentUpon>

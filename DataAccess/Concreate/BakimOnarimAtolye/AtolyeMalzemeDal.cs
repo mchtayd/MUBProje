@@ -81,6 +81,33 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 return null;
             }
         }
+        public List<AtolyeMalzeme> GetListDTS(int abfNo)
+        {
+            try
+            {
+                List<AtolyeMalzeme> atolyeMalzemes = new List<AtolyeMalzeme>();
+                dataReader = sqlServices.StoreReader("AtolyeAbfMalzemeBulDTS", new SqlParameter("@abfNo", abfNo));
+                while (dataReader.Read())
+                {
+                    atolyeMalzemes.Add(new AtolyeMalzeme(
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["YAPILACAK_ISLEM"].ToString(),
+                        dataReader["SOKULEN_REVIZYON_NO"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConDouble(),
+                        dataReader["AB_TARIH_SAAT"].ConDate(),
+                        dataReader["SOKULEN_BIRIM"].ToString()));
+                }
+                dataReader.Close();
+                return atolyeMalzemes;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public List<AtolyeMalzeme> AtolyeBakimOnarimMalzeme()
         {
             try

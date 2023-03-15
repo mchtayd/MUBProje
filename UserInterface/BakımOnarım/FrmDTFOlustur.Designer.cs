@@ -614,7 +614,6 @@ namespace UserInterface.BakımOnarım
             // 
             // CmbGarantiDurumu
             // 
-            this.CmbGarantiDurumu.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGarantiDurumu.FormattingEnabled = true;
             this.CmbGarantiDurumu.Items.AddRange(new object[] {
             "GARANTİ İÇİ",

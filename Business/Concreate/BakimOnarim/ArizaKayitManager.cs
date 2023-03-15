@@ -71,7 +71,7 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public List<ArizaKayit> GetList(string bolgeAdi="")
+        public List<ArizaKayit> GetList(string bolgeAdi = "")
         {
             try
             {
@@ -116,11 +116,11 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public List<ArizaKayit> DevamEdenlerGetList()
+        public List<ArizaKayit> DevamEdenlerGetList(string bolgeSorumlusu, string islemAdimiSorumlusu = "")
         {
             try
             {
-                return arizaKayitDal.DevamEdenlerGetList();
+                return arizaKayitDal.DevamEdenlerGetList(bolgeSorumlusu, islemAdimiSorumlusu);
             }
             catch (Exception)
             {
@@ -183,7 +183,7 @@ namespace Business.Concreate.BakimOnarim
         {
             try
             {
-                
+
                 return arizaKayitDal.ArizaSiparisOlustur(entity);
             }
             catch (Exception ex)
@@ -239,12 +239,12 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public string IslemAdimiGuncelle(int id, string islemAdimi,string gorevAtanacakPersonel)
+        public string IslemAdimiGuncelle(int id, string islemAdimi, string gorevAtanacakPersonel)
         {
             try
             {
-                
-                return arizaKayitDal.IslemAdimiGuncelle(id,islemAdimi, gorevAtanacakPersonel);
+
+                return arizaKayitDal.IslemAdimiGuncelle(id, islemAdimi, gorevAtanacakPersonel);
             }
             catch (Exception ex)
             {
@@ -262,7 +262,7 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public string ArizaMalzemeDurum(int id,string malzemeDurumu)
+        public string ArizaMalzemeDurum(int id, string malzemeDurumu)
         {
             try
             {
@@ -314,10 +314,10 @@ namespace Business.Concreate.BakimOnarim
             {
                 return "Lütfen BİLDİRİM KANALI Bilgisini doldurunuz.";
             }
-            if (string.IsNullOrEmpty(arizaKayit.ArizaAciklama))
-            {
-                return "Lütfen ARIZA AÇIKLAMASI Bilgisini doldurunuz.";
-            }
+            //if (string.IsNullOrEmpty(arizaKayit.ArizaAciklama))
+            //{
+            //    return "Lütfen ARIZA AÇIKLAMASI Bilgisini doldurunuz.";
+            //}
             return "";
         }
         public static ArizaKayitManager GetInstance()

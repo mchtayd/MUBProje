@@ -84,7 +84,25 @@ namespace DataAccess.Concreate.IdariIsler
 
         public string Update(CokluArac entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("CokluAracUpdate", 
+                    new SqlParameter("@id",entity.Id),
+                    new SqlParameter("@baslangicKm",entity.BaslangicKm),
+                    new SqlParameter("@bitisKm",entity.BitisKm),
+                    new SqlParameter("@toplamKm",entity.ToplamKm),
+                    new SqlParameter("@aciklama",entity.Aciklama),
+                    new SqlParameter("@baslangicTarihi",entity.BaslangicTarihi),
+                    new SqlParameter("@bitisTarihi",entity.BitisTarihi));
+
+                dataReader.Close();
+                return "OK";
+
+            }
+            catch (Exception)
+            {
+                return "OK";
+            }
         }
         public static CokluAracDal GetInstance()
         {

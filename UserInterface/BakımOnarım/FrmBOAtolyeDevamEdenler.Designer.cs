@@ -62,6 +62,8 @@ namespace UserInterface.BakımOnarım
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.BtnVeriDuzelt = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtSeriNo = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).BeginInit();
@@ -107,9 +109,9 @@ namespace UserInterface.BakımOnarım
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgDevamEden);
-            this.groupBox1.Location = new System.Drawing.Point(12, 36);
+            this.groupBox1.Location = new System.Drawing.Point(12, 91);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1431, 424);
+            this.groupBox1.Size = new System.Drawing.Size(1431, 369);
             this.groupBox1.TabIndex = 319;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DEVAM EDEN ARIZALAR";
@@ -132,7 +134,7 @@ namespace UserInterface.BakımOnarım
             this.DtgDevamEden.Name = "DtgDevamEden";
             this.DtgDevamEden.ReadOnly = true;
             this.DtgDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgDevamEden.Size = new System.Drawing.Size(1425, 405);
+            this.DtgDevamEden.Size = new System.Drawing.Size(1425, 350);
             this.DtgDevamEden.TabIndex = 4;
             this.DtgDevamEden.TimeFilter = false;
             this.DtgDevamEden.SortStringChanged += new System.EventHandler(this.DtgDevamEden_SortStringChanged);
@@ -389,11 +391,31 @@ namespace UserInterface.BakımOnarım
             this.BtnVeriDuzelt.Visible = false;
             this.BtnVeriDuzelt.Click += new System.EventHandler(this.BtnVeriDuzelt_Click);
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(24, 52);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 15);
+            this.label2.TabIndex = 451;
+            this.label2.Text = "Seri No:";
+            // 
+            // TxtSeriNo
+            // 
+            this.TxtSeriNo.Location = new System.Drawing.Point(89, 51);
+            this.TxtSeriNo.Name = "TxtSeriNo";
+            this.TxtSeriNo.Size = new System.Drawing.Size(264, 20);
+            this.TxtSeriNo.TabIndex = 452;
+            this.TxtSeriNo.TextChanged += new System.EventHandler(this.TxtSeriNo_TextChanged);
+            // 
             // FrmBOAtolyeDevamEdenler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 853);
+            this.Controls.Add(this.TxtSeriNo);
+            this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnVeriDuzelt);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.LblIslemAdimSureleri);
@@ -460,5 +482,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem durumGüncelleToolStripMenuItem;
         private System.Windows.Forms.Button BtnVeriDuzelt;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox TxtSeriNo;
     }
 }

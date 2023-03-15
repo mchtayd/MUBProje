@@ -145,6 +145,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public Okf OkfArizaBilgileriDTS(int abfNo)
+        {
+            try
+            {
+                return okfDal.OkfArizaBilgileriDTS(abfNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public static OkfManager GetInstance()
         {
             if (okfManager == null)

@@ -58,7 +58,7 @@ namespace UserInterface.IdariIsler
             ToplamlarSabit();
             ToplamlarFark();
         }
-        void DataDisplay()
+        public void DataDisplay()
         {
             aracKms = aracKmManager.GetList();
             aracKmsFiltired = aracKms;
@@ -201,11 +201,13 @@ namespace UserInterface.IdariIsler
                 frmCokluKm.ShowDialog();
             }
         }
-
+        int id= 0;
+        string plaka = "";
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             siparisNo = DtgList.CurrentRow.Cells["Siparis"].Value.ToString();
-
+            id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+            plaka = DtgList.CurrentRow.Cells["Plaka"].Value.ToString();
             foreach (DataGridViewRow item in DtgList.Rows)
             {
 
@@ -217,6 +219,20 @@ namespace UserInterface.IdariIsler
                 }
             }
 
+        }
+
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id==0)
+            {
+                MessageBox.Show("Lütfen geçerli bir kayıt seçtikten sonra sağ tıklayarak işlem yapınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmAracKmGuncelle frmAracKmGuncelle = new FrmAracKmGuncelle();
+            frmAracKmGuncelle.id=id;
+            frmAracKmGuncelle.siparisNo = siparisNo;
+            frmAracKmGuncelle.plaka= plaka;
+            frmAracKmGuncelle.ShowDialog();
         }
     }
 }

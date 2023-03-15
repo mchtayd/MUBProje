@@ -154,6 +154,34 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
+        public List<AbfMalzeme> DepoyaTeslimEdilecekMalzemeList()
+        {
+            try
+            {
+                List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                dataReader = sqlServices.StoreReader("DepoIadeEdilecekMalzeme");
+                while (dataReader.Read())
+                {
+                    abfMalzemes.Add(new AbfMalzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConInt(),
+                        dataReader["SOKULEN_BIRIM"].ToString(),
+                        dataReader["SOKULEN_REVIZYON_NO"].ToString(),
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["SOKULEN_TESLIM_DURUM"].ToString()));
+                }
+                dataReader.Close();
+                return abfMalzemes;
+            }
+            catch (Exception)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
 
         public List<AbfMalzeme> TeminGetList(string teminDurumu, int abfNo)
         {

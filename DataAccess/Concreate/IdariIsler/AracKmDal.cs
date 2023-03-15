@@ -104,6 +104,43 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
+        public AracKm GetGuncelle(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AracKmGet", new SqlParameter("@id", id));
+                AracKm item = null;
+                while (dataReader.Read())
+                {
+                    item = new AracKm(
+                        dataReader["ID"].ConInt(),
+                        dataReader["PLAKA"].ToString(),
+                        dataReader["ARAC_SIPARIS"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["BASLANGIC_KM"].ConInt(),
+                        dataReader["PERSONEL_AD"].ToString(),
+                        dataReader["PERSONEL_SIPARIS"].ToString(),
+                        dataReader["PERSONEL_UNVANI"].ToString(),
+                        dataReader["PERSONEL_MASRAF_YERI_NO"].ToString(),
+                        dataReader["PERSONEL_MASRAF_YERI"].ToString(),
+                        dataReader["MAS_YER_SORUMLUSU"].ToString(),
+                        dataReader["ARAC_MULKIYET"].ToString(),
+                        dataReader["KM_BITIS_TARIHI"].ConDate(),
+                        dataReader["BITIS_KM"].ConInt(),
+                        dataReader["TOPLAM_YAPILAN_KM"].ConInt(),
+                        dataReader["SABIT_KM"].ConInt(),
+                        dataReader["FARK"].ConInt(),
+                        dataReader["SIPARIS"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<AracKm> GetList()
         {

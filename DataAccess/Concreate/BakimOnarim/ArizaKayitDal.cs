@@ -25,28 +25,28 @@ namespace DataAccess.Concreate.BakimOnarim
             try
             {
                 dataReader = sqlServices.StoreReader("BakimOnarimArizaKayit",
-                    new SqlParameter("@isAkisNo",entity.IsAkisNo),
-                    new SqlParameter("@abfFormNo",entity.AbfFormNo),
-                    new SqlParameter("@proje",entity.Proje),
-                    new SqlParameter("@bolgeAdi",entity.BolgeAdi),
-                    new SqlParameter("@bolukKomutani",entity.BolukKomutani),
-                    new SqlParameter("@telefonNo",entity.TelefonNo),
-                    new SqlParameter("@birlikAdresi",entity.BirlikAdresi),
-                    new SqlParameter("@il",entity.Il),
-                    new SqlParameter("@ilce",entity.Ilce),
-                    new SqlParameter("@bildirilenAriza",entity.BildirilenAriza),
-                    new SqlParameter("@arizayiBildirenPersonel",entity.ArizaiBildirenPersonel),
-                    new SqlParameter("@abRutbesi",entity.AbRutbesi),
-                    new SqlParameter("@abGorevi",entity.AbGorevi),
-                    new SqlParameter("@abTelefon",entity.AbTelefon),
-                    new SqlParameter("@abTarihSaat",entity.AbTarihSaat),
-                    new SqlParameter("@ABAlanPersonel",entity.ABAlanPersonel),
-                    new SqlParameter("@bildirimKanali",entity.BildirimKanali),
-                    new SqlParameter("@arizaAciklama",entity.ArizaAciklama),
-                    new SqlParameter("@gorevAtanacakPersonel",entity.GorevAtanacakPersonel),
-                    new SqlParameter("@islemAdimi",entity.IslemAdimi),
-                    new SqlParameter("@dosyaYolu",entity.DosyaYolu),
-                    new SqlParameter("@siparisNo",entity.SiparisNo));
+                    new SqlParameter("@isAkisNo", entity.IsAkisNo),
+                    new SqlParameter("@abfFormNo", entity.AbfFormNo),
+                    new SqlParameter("@proje", entity.Proje),
+                    new SqlParameter("@bolgeAdi", entity.BolgeAdi),
+                    new SqlParameter("@bolukKomutani", entity.BolukKomutani),
+                    new SqlParameter("@telefonNo", entity.TelefonNo),
+                    new SqlParameter("@birlikAdresi", entity.BirlikAdresi),
+                    new SqlParameter("@il", entity.Il),
+                    new SqlParameter("@ilce", entity.Ilce),
+                    new SqlParameter("@bildirilenAriza", entity.BildirilenAriza),
+                    new SqlParameter("@arizayiBildirenPersonel", entity.ArizaiBildirenPersonel),
+                    new SqlParameter("@abRutbesi", entity.AbRutbesi),
+                    new SqlParameter("@abGorevi", entity.AbGorevi),
+                    new SqlParameter("@abTelefon", entity.AbTelefon),
+                    new SqlParameter("@abTarihSaat", entity.AbTarihSaat),
+                    new SqlParameter("@ABAlanPersonel", entity.ABAlanPersonel),
+                    new SqlParameter("@bildirimKanali", entity.BildirimKanali),
+                    new SqlParameter("@arizaAciklama", entity.ArizaAciklama),
+                    new SqlParameter("@gorevAtanacakPersonel", entity.GorevAtanacakPersonel),
+                    new SqlParameter("@islemAdimi", entity.IslemAdimi),
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu),
+                    new SqlParameter("@siparisNo", entity.SiparisNo));
 
                 dataReader.Close();
                 return "OK";
@@ -56,7 +56,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public string IslemAdimiGuncelle(int id,string islemAdimi,string gorevAtanacakPersonel)
+        public string IslemAdimiGuncelle(int id, string islemAdimi, string gorevAtanacakPersonel)
         {
             try
             {
@@ -124,11 +124,11 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@id", entity.Id),
                     new SqlParameter("@garantiDurumu", entity.GarantiDurumu),
                     new SqlParameter("@lojSorumlusu", entity.LojistikSorumluPersonel),
-                    new SqlParameter("@lojRutbesi",entity.LojRutbesi),
-                    new SqlParameter("@lojGorevi",entity.LojGorevi),
-                    new SqlParameter("@lojTarihi",entity.LojTarihi),
-                    new SqlParameter("@tespitEdilenAriza",entity.TespitEdilenAriza),
-                    new SqlParameter("@acmaOnayiVeren",entity.AcmaOnayiVeren));
+                    new SqlParameter("@lojRutbesi", entity.LojRutbesi),
+                    new SqlParameter("@lojGorevi", entity.LojGorevi),
+                    new SqlParameter("@lojTarihi", entity.LojTarihi),
+                    new SqlParameter("@tespitEdilenAriza", entity.TespitEdilenAriza),
+                    new SqlParameter("@acmaOnayiVeren", entity.AcmaOnayiVeren));
                 dataReader.Close();
                 return "OK";
             }
@@ -164,16 +164,16 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader = sqlServices.StoreReader("BakimOanrimSistemCihazBilgileri",
                     new SqlParameter("@id", entity.Id),
                     new SqlParameter("@stokNo", entity.StokNo),
-                    new SqlParameter("@tanim",entity.Tanim),
+                    new SqlParameter("@tanim", entity.Tanim),
                     new SqlParameter("@seriNo", entity.SeriNo),
                     new SqlParameter("@kategori", entity.Kategori),
                     new SqlParameter("@ilgiliFirma", entity.IlgiliFirma),
                     new SqlParameter("@bildirimTuru", entity.BildirimTuru),
-                    new SqlParameter("@pypNo",entity.PypNo),
-                    new SqlParameter("@sorumluPersonel",entity.SorumluPersonel),
+                    new SqlParameter("@pypNo", entity.PypNo),
+                    new SqlParameter("@sorumluPersonel", entity.SorumluPersonel),
                     new SqlParameter("@siparisTuru", entity.SiparisTuru),
-                    new SqlParameter("@islemTuru",entity.IslemTuru),
-                    new SqlParameter("@hesaplama",entity.Hesaplama));
+                    new SqlParameter("@islemTuru", entity.IslemTuru),
+                    new SqlParameter("@hesaplama", entity.Hesaplama));
 
                 dataReader.Close();
                 return "OK";
@@ -206,7 +206,7 @@ namespace DataAccess.Concreate.BakimOnarim
         {
             try
             {
-                sqlServices.Stored("BakimOnarimArizaKayitDelete",new SqlParameter("@id",id));
+                sqlServices.Stored("BakimOnarimArizaKayitDelete", new SqlParameter("@id", id));
                 return "OK";
 
             }
@@ -220,7 +220,7 @@ namespace DataAccess.Concreate.BakimOnarim
         {
             try
             {
-                dataReader = sqlServices.StoreReader("BakimOnarimArizaKayitList",new SqlParameter("@abfFormNo", abfFormNo));
+                dataReader = sqlServices.StoreReader("BakimOnarimArizaKayitList", new SqlParameter("@abfFormNo", abfFormNo));
                 ArizaKayit item = null;
                 while (dataReader.Read())
                 {
@@ -445,7 +445,7 @@ namespace DataAccess.Concreate.BakimOnarim
             try
             {
                 List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
-                dataReader = sqlServices.StoreReader("BakimOnarimArizaKayitList",new SqlParameter("@usBolgesiAdi", bolgeAdi));
+                dataReader = sqlServices.StoreReader("BakimOnarimArizaKayitList", new SqlParameter("@usBolgesiAdi", bolgeAdi));
                 while (dataReader.Read())
                 {
                     arizaKayits.Add(new ArizaKayit(
@@ -605,12 +605,12 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<ArizaKayit>();
             }
         }
-        public List<ArizaKayit> DevamEdenlerGetList()
+        public List<ArizaKayit> DevamEdenlerGetList(string bolgeSorumlusu, string islemAdimiSorumlusu)
         {
             try
             {
                 List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
-                dataReader = sqlServices.StoreReader("BakimOnarimDevamEdenler");
+                dataReader = sqlServices.StoreReader("BakimOnarimDevamEdenler", new SqlParameter("@personelAd", bolgeSorumlusu), new SqlParameter("@islemAdimiSorumlusu", islemAdimiSorumlusu));
                 while (dataReader.Read())
                 {
                     arizaKayits.Add(new ArizaKayit(
@@ -951,7 +951,20 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@nesneTanimi", entity.NesneTanimi),
                     new SqlParameter("@hasarKodu", entity.HasarKodu),
                     new SqlParameter("@nedenKodu", entity.NedenKodu),
-                    new SqlParameter("@eksikEvrak", entity.EksikEvrak));
+                    new SqlParameter("@eksikEvrak", entity.EksikEvrak),
+                    new SqlParameter("@tanim", entity.Tanim),
+                    new SqlParameter("@stokNo", entity.StokNo),
+                    new SqlParameter("@seriNo", entity.SeriNo),
+                    new SqlParameter("@kategori", entity.Kategori),
+                    new SqlParameter("@ilgiliFirma", entity.IlgiliFirma),
+                    new SqlParameter("@bildirimTuru", entity.BildirimTuru),
+                    new SqlParameter("@pypNo", entity.PypNo),
+                    new SqlParameter("@sorumluPersonel", entity.SorumluPersonel),
+                    new SqlParameter("@siparisTuru", entity.SiparisTuru),
+                    new SqlParameter("@islemTuru", entity.IslemTuru),
+                    new SqlParameter("@hesaplama", entity.Hesaplama),
+                    new SqlParameter("@bildirimNo", entity.BildirimNo),
+                    new SqlParameter("@aselsanMailTarihi", entity.BildirimMailTarihi));
 
                 dataReader.Close();
                 return "OK";

@@ -104,24 +104,44 @@ namespace UserInterface.BakımOnarım
         {
             if (TxtAbfNo.Text.Length >= 6)
             {
-                Okf okf = okfManager.OkfArizaBilgileri(TxtAbfNo.Text.ConInt());
-                if (okf != null)
+                Okf okfDTS = okfManager.OkfArizaBilgileriDTS(TxtAbfNo.Text.ConInt());
+                if (okfDTS!=null)
                 {
-                    CmbBolgeAdi.Text = okf.UsBolgesi;
-                    CmbProjeKodu.Text = okf.ProjeKodu;
-                    TxtStokNo.Text = okf.UstStok;
-                    CmbTanim.Text = okf.UstTanim;
-                    TxtSeriNo.Text = okf.UstSeriNo;
-                    TxtBildirilenAriza.Text = okf.BildirilenAriza.ToUpper();
-                    bildirimNo = okf.BildirimNo;
-                    TxtABTelefon.Text = okf.KomutanTel;
-                    TxtUsBolgesiKomutani.Text = okf.UbKomutani;
-                    DtgArizaTarihi.Value = okf.ArizaTarihi;
-                    il = okf.Il;
-                    ilce=okf.Ilce;
-                    birlikAdresi = okf.BirlikAdresi;
-
+                    CmbBolgeAdi.Text = okfDTS.UsBolgesi;
+                    CmbProjeKodu.Text = okfDTS.ProjeKodu;
+                    TxtStokNo.Text = okfDTS.UstStok;
+                    CmbTanim.Text = okfDTS.UstTanim;
+                    TxtSeriNo.Text = okfDTS.UstSeriNo;
+                    TxtBildirilenAriza.Text = okfDTS.BildirilenAriza.ToUpper();
+                    bildirimNo = okfDTS.BildirimNo;
+                    TxtABTelefon.Text = okfDTS.KomutanTel;
+                    TxtUsBolgesiKomutani.Text = okfDTS.UbKomutani;
+                    DtgArizaTarihi.Value = okfDTS.ArizaTarihi;
+                    il = okfDTS.Il;
+                    ilce = okfDTS.Ilce;
+                    birlikAdresi = okfDTS.BirlikAdresi;
                 }
+                else
+                {
+                    Okf okf = okfManager.OkfArizaBilgileri(TxtAbfNo.Text.ConInt());
+                    if (okf != null)
+                    {
+                        CmbBolgeAdi.Text = okf.UsBolgesi;
+                        CmbProjeKodu.Text = okf.ProjeKodu;
+                        TxtStokNo.Text = okf.UstStok;
+                        CmbTanim.Text = okf.UstTanim;
+                        TxtSeriNo.Text = okf.UstSeriNo;
+                        TxtBildirilenAriza.Text = okf.BildirilenAriza.ToUpper();
+                        bildirimNo = okf.BildirimNo;
+                        TxtABTelefon.Text = okf.KomutanTel;
+                        TxtUsBolgesiKomutani.Text = okf.UbKomutani;
+                        DtgArizaTarihi.Value = okf.ArizaTarihi;
+                        il = okf.Il;
+                        ilce = okf.Ilce;
+                        birlikAdresi = okf.BirlikAdresi;
+                    }
+                }
+                
             }
         }
 

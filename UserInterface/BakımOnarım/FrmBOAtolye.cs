@@ -232,78 +232,151 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Lütfen Öncelikle Abf No Bilgisini Giriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            Atolye atolye = atolyeManager.ArizaGetir(TxtAbfFormNo.Text.ConInt());
-            if (atolye == null)
+            Atolye atolyeDTS = atolyeManager.ArizaGetirDTS(TxtAbfFormNo.Text.ConInt());
+            if (atolyeDTS!=null)
             {
-                MessageBox.Show("Girmiş Oluduğunuz Abf Numarasıya Ait Bir Kayıt Bulunamadı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
-                return;
-            }
-            Temizle();
-            DataDisplay();
-            TxtStokNoUst.Text = atolye.StokNoUst;
-            TxtTanimUst.Text = atolye.TanimUst;
-            TxtSeriNoUst.Text = atolye.SeriNoUst;
-            TxtGarantiDurumuUst.Text = atolye.GarantiDurumu;
-            TxtBildirimNo.Text = atolye.BildirimNo;
-            TxtScrmNo.Text = atolye.CrmNo;
-            TxtKategori.Text = atolye.Kategori;
-            TxtBolgeAdi.Text = atolye.BolgeAdi;
-            TxtProje.Text = atolye.Proje;
-            TxtBildirilenAriza.Text = atolye.BildirilenAriza;
-            arizaDurumu = atolye.ArizaDurum;
-            int adet = 1;
-            if (arizaDurumu == 0)
-            {
-                LblDurumAcik.Visible = false;
-                LblDurumKapali.Visible = true;
-                LblIslemAdimiAcik.Text = atolye.BulunduguIslemAdimi;
-                LblIslemAdimiKapali.Visible = false;
-                LblIslemAdimiAcik.Visible = true;
-
-                if (DtgMalzemeler.RowCount > 1)
+                DataDisplay();
+                TxtStokNoUst.Text = atolyeDTS.StokNoUst;
+                TxtTanimUst.Text = atolyeDTS.TanimUst;
+                TxtSeriNoUst.Text = atolyeDTS.SeriNoUst;
+                TxtGarantiDurumuUst.Text = atolyeDTS.GarantiDurumu;
+                TxtBildirimNo.Text = atolyeDTS.BildirimNo;
+                TxtScrmNo.Text = atolyeDTS.CrmNo;
+                TxtKategori.Text = atolyeDTS.Kategori;
+                TxtBolgeAdi.Text = atolyeDTS.BolgeAdi;
+                TxtProje.Text = atolyeDTS.Proje;
+                TxtBildirilenAriza.Text = atolyeDTS.BildirilenAriza;
+                arizaDurumu = atolyeDTS.ArizaDurum;
+                int adet = 1;
+                if (arizaDurumu == 0)
                 {
+                    LblDurumAcik.Visible = false;
+                    LblDurumKapali.Visible = true;
+                    LblIslemAdimiAcik.Text = atolyeDTS.BulunduguIslemAdimi;
+                    LblIslemAdimiKapali.Visible = false;
+                    LblIslemAdimiAcik.Visible = true;
+
+                    if (DtgMalzemeler.RowCount > 1)
+                    {
 
 
-                    foreach (AtolyeMalzeme item in atolyeMalzemes)
+                        foreach (AtolyeMalzeme item in atolyeMalzemes)
+                        {
+                            LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
+                            icSiparisNo = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text + "/" + adet;
+                            IcSiparisler.Add(icSiparisNo);
+
+                            adet++;
+                        }
+                    }
+                    else
                     {
                         LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
-                        icSiparisNo = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text + "/" + adet;
-                        IcSiparisler.Add(icSiparisNo);
-
-                        adet++;
                     }
+
                 }
                 else
                 {
-                    LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
-                }
+                    LblDurumAcik.Visible = true;
+                    LblDurumKapali.Visible = false;
+                    LblIslemAdimiKapali.Text = atolyeDTS.BulunduguIslemAdimi;
+                    LblIslemAdimiKapali.Visible = true;
+                    LblIslemAdimiAcik.Visible = false;
 
+                    if (DtgMalzemeler.RowCount > 1)
+                    {
+                        foreach (AtolyeMalzeme item in atolyeMalzemes)
+                        {
+                            LblIcSiparisNo.Text = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
+                            icSiparisNo = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text + "/" + adet;
+                            IcSiparisler.Add(icSiparisNo);
+                            adet++;
+
+                        }
+                    }
+                    else
+                    {
+                        LblIcSiparisNo.Text = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
+                    }
+
+                }
             }
             else
             {
-                LblDurumAcik.Visible = true;
-                LblDurumKapali.Visible = false;
-                LblIslemAdimiKapali.Text = atolye.BulunduguIslemAdimi;
-                LblIslemAdimiKapali.Visible = true;
-                LblIslemAdimiAcik.Visible = false;
-
-                if (DtgMalzemeler.RowCount > 1)
+                Atolye atolye = atolyeManager.ArizaGetir(TxtAbfFormNo.Text.ConInt());
+                if (atolye == null)
                 {
-                    foreach (AtolyeMalzeme item in atolyeMalzemes)
-                    {
-                        LblIcSiparisNo.Text = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
-                        icSiparisNo = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text + "/" + adet;
-                        IcSiparisler.Add(icSiparisNo);
-                        adet++;
+                    MessageBox.Show("Girmiş Oluduğunuz Abf Numarasıya Ait Bir Kayıt Bulunamadı.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Temizle();
+                    return;
+                }
+                Temizle();
+                DataDisplay();
+                TxtStokNoUst.Text = atolye.StokNoUst;
+                TxtTanimUst.Text = atolye.TanimUst;
+                TxtSeriNoUst.Text = atolye.SeriNoUst;
+                TxtGarantiDurumuUst.Text = atolye.GarantiDurumu;
+                TxtBildirimNo.Text = atolye.BildirimNo;
+                TxtScrmNo.Text = atolye.CrmNo;
+                TxtKategori.Text = atolye.Kategori;
+                TxtBolgeAdi.Text = atolye.BolgeAdi;
+                TxtProje.Text = atolye.Proje;
+                TxtBildirilenAriza.Text = atolye.BildirilenAriza;
+                arizaDurumu = atolye.ArizaDurum;
+                int adet = 1;
+                if (arizaDurumu == 0)
+                {
+                    LblDurumAcik.Visible = false;
+                    LblDurumKapali.Visible = true;
+                    LblIslemAdimiAcik.Text = atolye.BulunduguIslemAdimi;
+                    LblIslemAdimiKapali.Visible = false;
+                    LblIslemAdimiAcik.Visible = true;
 
+                    if (DtgMalzemeler.RowCount > 1)
+                    {
+
+
+                        foreach (AtolyeMalzeme item in atolyeMalzemes)
+                        {
+                            LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
+                            icSiparisNo = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text + "/" + adet;
+                            IcSiparisler.Add(icSiparisNo);
+
+                            adet++;
+                        }
                     }
+                    else
+                    {
+                        LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
+                    }
+
                 }
                 else
                 {
-                    LblIcSiparisNo.Text = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
-                }
+                    LblDurumAcik.Visible = true;
+                    LblDurumKapali.Visible = false;
+                    LblIslemAdimiKapali.Text = atolye.BulunduguIslemAdimi;
+                    LblIslemAdimiKapali.Visible = true;
+                    LblIslemAdimiAcik.Visible = false;
 
+                    if (DtgMalzemeler.RowCount > 1)
+                    {
+                        foreach (AtolyeMalzeme item in atolyeMalzemes)
+                        {
+                            LblIcSiparisNo.Text = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
+                            icSiparisNo = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text + "/" + adet;
+                            IcSiparisler.Add(icSiparisNo);
+                            adet++;
+
+                        }
+                    }
+                    else
+                    {
+                        LblIcSiparisNo.Text = "221BO" + DateTime.Now.ToString("MM") + TxtAbfFormNo.Text;
+                    }
+
+                }
             }
 
         }
@@ -321,7 +394,12 @@ namespace UserInterface.BakımOnarım
         }
         void DataDisplay()
         {
-            atolyeMalzemes = atolyeMalzemeManager.GetList(TxtAbfFormNo.Text.ConInt());
+            atolyeMalzemes = atolyeMalzemeManager.GetListDTS(TxtAbfFormNo.Text.ConInt());
+            if (atolyeMalzemes.Count==0)
+            {
+                atolyeMalzemes = atolyeMalzemeManager.GetList(TxtAbfFormNo.Text.ConInt());
+            }
+
             DtgMalzemeler.DataSource = atolyeMalzemes.ToDataTable();
             LblToplam.Text = DtgMalzemeler.RowCount.ToString();
 
@@ -346,7 +424,6 @@ namespace UserInterface.BakımOnarım
         {
             Temizle();
         }
-
 
 
         void EditSiparisNos()
@@ -415,7 +492,7 @@ namespace UserInterface.BakımOnarım
                 array[2] = LblIcSiparisNo.Text;
             }
             array[3] = "Sipariş numaralı"; // Bildirim türü
-            if (TxtBolgeAdi.Text=="")
+            if (TxtBolgeAdi.Text == "")
             {
                 array[4] = "Bölge Bilgisi Olmayan";
             }
@@ -545,7 +622,7 @@ namespace UserInterface.BakımOnarım
             {
                 return "Lütfen Öncelikle İşlem Adımı Bilgisini Seçiniz!";
             }
-            if (CmbAtolyeKategoriManuel.Text=="")
+            if (CmbAtolyeKategoriManuel.Text == "")
             {
                 return "Lütfen Öncelikle Atölye Kategori Bilgisini Seçiniz!";
             }
@@ -559,13 +636,13 @@ namespace UserInterface.BakımOnarım
                     kontrol = "";
                     break;
                 }
-                
+
                 kontrol = "hata";
             }
-            if (kontrol=="")
+            if (kontrol == "")
             {
 
-                
+
                 return "OK";
             }
             else
@@ -573,7 +650,7 @@ namespace UserInterface.BakımOnarım
                 return "Lütfen Öncelikle Malzeme Listesinden Malzeme Seçiniz!";
             }
 
-            
+
         }
 
         string malzemeSeriKontrol = "";
@@ -593,7 +670,7 @@ namespace UserInterface.BakımOnarım
                 if (SiparisNos.Count > 0)
                 {
                     //EditSiparisNos();
-                    
+
                     for (int i = 0; i < SiparisNos.Count; i++)
                     {
                         siparisNo = Guid.NewGuid().ToString();
@@ -684,7 +761,7 @@ namespace UserInterface.BakımOnarım
 
             array[0] = "Atölye Sipariş Açma"; // Bildirim Başlık
             array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
-            if (IcSiparisler[0].ToString()!=null)
+            if (IcSiparisler[0].ToString() != null)
             {
                 array[2] = IcSiparisler[0].ToString();
             }
@@ -830,8 +907,8 @@ namespace UserInterface.BakımOnarım
 
         private void DtgStokList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            
-            
+
+
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)

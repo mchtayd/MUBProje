@@ -3,6 +3,7 @@ using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
 using DataAccess.Concreate.BakimOnarimAtolye;
+using DocumentFormat.OpenXml.Presentation;
 using Entity;
 using Entity.BakimOnarimAtolye;
 using Entity.Gecic_Kabul_Ambar;
@@ -32,6 +33,7 @@ namespace UserInterface.BakımOnarım
         List<AtolyeAltMalzeme> atolyeAltMalzemes;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
         List<Atolye> atolyes;
+        List<Atolye> atolyesFiltired;
         string siparisNo, dosyaYolu;
         int abfNo, id;
 
@@ -83,6 +85,7 @@ namespace UserInterface.BakımOnarım
         void DataDisplay()
         {
             atolyes = atolyeManager.GetList(1);
+            atolyesFiltired = atolyes;
             dataBinder.DataSource = atolyes.ToDataTable();
             DtgDevamEden.DataSource = dataBinder;
 
@@ -415,6 +418,28 @@ namespace UserInterface.BakımOnarım
                 atolyeManager.AtolyeVeriDuzelt(item.Cells["SiparisNo"].Value.ToString());
             }
             MessageBox.Show("Bilgiler Başarıyla Güncellendi!");
+        }
+
+        private void TxtSeriNo_TextChanged(object sender, EventArgs e)
+        {
+            string isim = TxtSeriNo.Text;
+            if (string.IsNullOrEmpty(isim))
+            {
+                atolyesFiltired = atolyes;
+                dataBinder.DataSource = atolyes.ToDataTable();
+                DtgDevamEden.DataSource = dataBinder;
+                TxtTop.Text = DtgDevamEden.RowCount.ToString();
+                return;
+            }
+            if (TxtSeriNo.Text.Length < 3)
+            {
+                return;
+            }
+
+            dataBinder.DataSource = atolyesFiltired.Where(x => x.SeriNoUst.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
+            DtgDevamEden.DataSource = dataBinder;
+            atolyesFiltired = atolyes;
+            TxtTop.Text = DtgDevamEden.RowCount.ToString();
         }
 
         string Parser(int seconds)

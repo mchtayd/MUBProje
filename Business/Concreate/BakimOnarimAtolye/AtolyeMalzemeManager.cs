@@ -51,6 +51,17 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return new List<AtolyeMalzeme>();
             }
         }
+        public List<AtolyeMalzeme> GetListDTS(int abfNo)
+        {
+            try
+            {
+                return atolyeMalzemeDal.GetListDTS(abfNo);
+            }
+            catch (Exception)
+            {
+                return new List<AtolyeMalzeme>();
+            }
+        }
         public List<AtolyeMalzeme> AtolyeBakimOnarimMalzeme()
         {
             try

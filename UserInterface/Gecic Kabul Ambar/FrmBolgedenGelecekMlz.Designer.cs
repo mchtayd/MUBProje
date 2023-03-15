@@ -29,19 +29,22 @@ namespace UserInterface.Gecic_Kabul_Ambar
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.DtgDevamEden = new ADGV.AdvancedDataGridView();
+            this.DtgList = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -71,7 +74,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // groupBox1
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox1.Controls.Add(this.DtgDevamEden);
+            this.groupBox1.Controls.Add(this.DtgList);
             this.groupBox1.Location = new System.Drawing.Point(12, 33);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1427, 549);
@@ -79,25 +82,25 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DEPOYA İADE EDİLECEK MALZEMELER";
             // 
-            // DtgDevamEden
+            // DtgList
             // 
-            this.DtgDevamEden.AllowUserToAddRows = false;
-            this.DtgDevamEden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.DtgDevamEden.AutoGenerateContextFilters = true;
-            this.DtgDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgDevamEden.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgDevamEden.DateWithTime = false;
-            this.DtgDevamEden.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgDevamEden.Location = new System.Drawing.Point(3, 16);
-            this.DtgDevamEden.Name = "DtgDevamEden";
-            this.DtgDevamEden.ReadOnly = true;
-            this.DtgDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgDevamEden.Size = new System.Drawing.Size(1421, 530);
-            this.DtgDevamEden.TabIndex = 4;
-            this.DtgDevamEden.TimeFilter = false;
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DtgList.AutoGenerateContextFilters = true;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgList.DateWithTime = false;
+            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgList.Location = new System.Drawing.Point(3, 16);
+            this.DtgList.Name = "DtgList";
+            this.DtgList.ReadOnly = true;
+            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgList.Size = new System.Drawing.Size(1421, 530);
+            this.DtgList.TabIndex = 4;
+            this.DtgList.TimeFilter = false;
             // 
             // TxtTop
             // 
@@ -155,8 +158,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.Load += new System.EventHandler(this.FrmBolgedenGelecekMlz_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.groupBox3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -167,10 +171,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.GroupBox groupBox1;
-        private ADGV.AdvancedDataGridView DtgDevamEden;
+        private ADGV.AdvancedDataGridView DtgList;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.BindingSource dataBinder;
     }
 }

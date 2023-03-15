@@ -76,11 +76,11 @@ namespace UserInterface.BakımOnarım
             this.label100 = new System.Windows.Forms.Label();
             this.BtnBolgeEkle = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -128,7 +128,7 @@ namespace UserInterface.BakımOnarım
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label52.Location = new System.Drawing.Point(775, 526);
+            this.label52.Location = new System.Drawing.Point(778, 535);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(240, 30);
             this.label52.TabIndex = 442;
@@ -552,7 +552,7 @@ namespace UserInterface.BakımOnarım
             this.BtnBolgeEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolgeEkle.BackgroundImage")));
             this.BtnBolgeEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnBolgeEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolgeEkle.Location = new System.Drawing.Point(1023, 80);
+            this.BtnBolgeEkle.Location = new System.Drawing.Point(880, 178);
             this.BtnBolgeEkle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBolgeEkle.Name = "BtnBolgeEkle";
             this.BtnBolgeEkle.Size = new System.Drawing.Size(34, 29);

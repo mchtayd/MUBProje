@@ -46,6 +46,19 @@ namespace Business.Concreate.IdarıIsler
         {
             return aracKmDal.Get(plaka);
         }
+        public AracKm GetGuncelle(int id)
+        {
+            try
+            {
+                return aracKmDal.GetGuncelle(id);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+            
+        }
 
         public List<AracKm> GetList()
         {

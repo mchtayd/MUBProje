@@ -2281,7 +2281,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Açık Bildirimler")
             {
                 FrmArizaDevamEden Go = new FrmArizaDevamEden();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3266,13 +3266,13 @@ namespace UserInterface.STS
                 Go.infos = infos;
                 Go.Show();
             }
-            if (e.Node.Text == "Bölgeden İade Gelen Malzeme")
+            if (e.Node.Text == "Depoya İade Gelecek Malzemeler")
             {
                 FrmBolgedenGelecekMlz Go = new FrmBolgedenGelecekMlz();
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageGelecekMalzeme", "BÖLGEDEN İADE GELECEK MALZEME", Go);
+                OpenTabPage("PageGelecekMalzeme", "DEPOYA İADE GELECEK MALZEMELER", Go);
                 Go.infos = infos;
                 Go.Show();
             }
@@ -5288,7 +5288,7 @@ namespace UserInterface.STS
         }
 
         private void TimerFileRead_Tick(object sender, EventArgs e)
-       {
+        {    
             BildirimControl(infos[0].ConInt());
         }
 

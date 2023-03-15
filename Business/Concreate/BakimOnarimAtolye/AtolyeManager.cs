@@ -76,6 +76,17 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return null;
             }
         }
+        public Atolye ArizaGetirDTS(int abfNo)
+        {
+            try
+            {
+                return atolyeDal.ArizaGetirDTS(abfNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<Atolye> GetList(int durum)
         {

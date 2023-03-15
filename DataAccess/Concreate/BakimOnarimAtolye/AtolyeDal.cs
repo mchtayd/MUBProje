@@ -283,6 +283,38 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 return null;
             }
         }
+        public Atolye ArizaGetirDTS(int abfNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AtolyeAbfBulDTS", new SqlParameter("@abfNo", abfNo));
+                Atolye item = null;
+                while (dataReader.Read())
+                {
+                    item = new Atolye(
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["BILDIRIM_NO"].ToString(),
+                        dataReader["CRM_NO"].ToString(),
+                        dataReader["KATEGORI"].ToString(),
+                        dataReader["BOLGE_ADI"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["TESPIT_EDILEN_ARIZA"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DURUM"].ConInt());
+                }
+
+                dataReader.Close();
+                return item;
+            }
+
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<Atolye> GetList(int durum)
         {

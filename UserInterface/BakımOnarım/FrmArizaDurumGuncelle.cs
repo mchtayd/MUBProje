@@ -29,8 +29,10 @@ namespace UserInterface.BakımOnarım
         AbfMalzemeManager abfMalzemeManager;
         IsAkisNoManager isAkisNoManager;
         IscilikIscilikManager ıscilikIscilikManager;
+        MalzemeManager malzemeManager;
 
         List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
+        List<Malzeme> malzemes = new List<Malzeme>();
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
         List<AbfMalzeme> abfMalzemesKontrol;
 
@@ -52,6 +54,7 @@ namespace UserInterface.BakımOnarım
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             isAkisNoManager = IsAkisNoManager.GetInstance();
             ıscilikIscilikManager = IscilikIscilikManager.GetInstance();
+            malzemeManager = MalzemeManager.GetInstance();
         }
 
         private void FrmArizaDurumGuncelle_Load(object sender, EventArgs e)
@@ -148,12 +151,16 @@ namespace UserInterface.BakımOnarım
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new Point(29, 831);
                 GrbMalzemeBilgileri.Location = new Point(18, 415);
+
+                //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new Point(29, 831);
                 GrbMalzemeBilgileri.Location = new Point(18, 415);
+
+                //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
             }
 
             abfForm = arizaKayit.AbfFormNo;
@@ -191,17 +198,17 @@ namespace UserInterface.BakımOnarım
         }
         void CmbStokNoSokulen()
         {
-            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
-            CmbSokulenStokNo.DataSource = malzemeKayits;
+            malzemes = malzemeManager.GetList();
+            CmbSokulenStokNo.DataSource = malzemes;
             CmbSokulenStokNo.ValueMember = "Id";
-            CmbSokulenStokNo.DisplayMember = "Stokno";
+            CmbSokulenStokNo.DisplayMember = "StokNo";
             CmbSokulenStokNo.SelectedValue = 0;
         }
         void StokNoTakilan()
         {
-            CmbStokNoTakilan.DataSource = malzemeKayitManager.GetListMalzemeKayit();
+            CmbStokNoTakilan.DataSource = malzemes;
             CmbStokNoTakilan.ValueMember = "Id";
-            CmbStokNoTakilan.DisplayMember = "Stokno";
+            CmbStokNoTakilan.DisplayMember = "StokNo";
             CmbStokNoTakilan.SelectedValue = 0;
         }
 
@@ -211,8 +218,11 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
-            comboId = CmbSokulenStokNo.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(comboId);
+
+            //comboId = CmbSokulenStokNo.SelectedValue.ConInt();
+
+            Malzeme malzemeKayit = malzemeManager.Get(CmbSokulenStokNo.Text);
+
             if (malzemeKayit == null)
             {
                 TxtSokulenTanim.Text = "";
@@ -229,9 +239,9 @@ namespace UserInterface.BakımOnarım
             }
             else
             {
-                foreach (MalzemeKayit item in malzemeKayits)
+                foreach (Malzeme item in malzemes)
                 {
-                    if (CmbSokulenStokNo.Text == item.Stokno)
+                    if (CmbSokulenStokNo.Text == item.StokNo)
                     {
                         TxtSokulenTanim.Text = item.Tanim;
                     }
@@ -364,9 +374,9 @@ namespace UserInterface.BakımOnarım
             }
             else
             {
-                foreach (MalzemeKayit item in malzemeKayits)
+                foreach (Malzeme item in malzemes)
                 {
-                    if (CmbStokNoTakilan.Text == item.Stokno)
+                    if (CmbStokNoTakilan.Text == item.StokNo)
                     {
                         TxtTakilanTanim.Text = item.Tanim;
                     }
@@ -380,8 +390,10 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
-            comboId = CmbStokNoTakilan.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(comboId);
+
+            //comboId = CmbStokNoTakilan.SelectedValue.ConInt();
+
+            Malzeme malzemeKayit = malzemeManager.Get(CmbStokNoTakilan.Text);
             if (malzemeKayit == null)
             {
                 TxtTakilanTanim.Text = "";
@@ -724,20 +736,21 @@ namespace UserInterface.BakımOnarım
         }
         string DepoIslemleriKontrol()
         {
-            abfMalzemesKontrol = abfMalzemeManager.GetList(controlId);
+            //abfMalzemesKontrol = abfMalzemeManager.GetList(controlId);
 
-            foreach (AbfMalzeme item in abfMalzemesKontrol)
-            {
-                if (item.TeminDurumu != "ARIZAYA GÖNDERİLDİ")
-                {
-                    return "Arıza için gerekli olan tüm malzemelerin hazırlanma işlemleri tamamlanmamıştır!\nLütfen öncelikle malzeme hazırlama işlemlerini tamamlayınız!";
-                    //if (item.TeminDurumu != "REZERVE EDİLDİ")
-                    //{
-                    //    
-                    //}
+            //foreach (AbfMalzeme item in abfMalzemesKontrol)
+            //{
+            //    if (item.TeminDurumu != "ARIZAYA GÖNDERİLDİ")
+            //    {
+            //        return "Arıza için gerekli olan tüm malzemelerin hazırlanma işlemleri tamamlanmamıştır!\nLütfen öncelikle malzeme hazırlama işlemlerini tamamlayınız!";
+            //        //if (item.TeminDurumu != "REZERVE EDİLDİ")
+            //        //{
+            //        //    
+            //        //}
 
-                }
-            }
+            //    }
+            //}
+
             return "OK";
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -827,6 +840,24 @@ namespace UserInterface.BakımOnarım
                 }
             }
 
+            if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
+            {
+                if (DtgSokulen.RowCount==0)
+                {
+                    MessageBox.Show("Lütfen sökülen malzeme bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
+            if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
+            {
+                if (DtgTakilan.RowCount == 0)
+                {
+                    MessageBox.Show("Lütfen takılan malzeme bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr != DialogResult.Yes)
             {
@@ -854,6 +885,13 @@ namespace UserInterface.BakımOnarım
 
             if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
+                abfMalzemes = abfMalzemeManager.GetList(id);
+
+                if (abfMalzemes.Count != 0)
+                {
+                    abfMalzemeManager.Delete(id);
+                }
+
                 foreach (DataGridViewRow item in DtgSokulen.Rows)
                 {
                     AbfMalzeme abfMalzemeSokulen = new AbfMalzeme(id, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(),
@@ -893,8 +931,7 @@ namespace UserInterface.BakımOnarım
                 {
                     AbfMalzeme abfMalzeme = new AbfMalzeme(takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanTanim"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanMiktar"].Value.ConInt(), takilan.Cells["TakilanBirim"].Value.ToString(), takilan.Cells["TakilanCalismaSaati"].Value.ConDouble(), takilan.Cells["TakilanRevizyon"].Value.ToString());
 
-                    if (abfMalzemes.Any(x => x.SokulenSeriNo.Equals(takilan.Cells["TakilanSeriNo"].Value.ToString())
-                                && x.SokulenStokNo.Equals(takilan.Cells["TakilanStokNo"].Value.ToString())))
+                    if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(takilan.Cells["TakilanStokNo"].Value.ToString())))
                     {
                         updateItems.Add(abfMalzeme);
                     }
@@ -902,6 +939,17 @@ namespace UserInterface.BakımOnarım
                     {
                         addItems.Add(abfMalzeme);
                     }
+
+
+                    //if (abfMalzemes.Any(x => x.SokulenSeriNo.Equals(takilan.Cells["TakilanSeriNo"].Value.ToString())
+                    //            && x.SokulenStokNo.Equals(takilan.Cells["TakilanStokNo"].Value.ToString())))
+                    //{
+                    //    updateItems.Add(abfMalzeme);
+                    //}
+                    //else
+                    //{
+                    //    addItems.Add(abfMalzeme);
+                    //}
                 }
 
                 int index = 0;

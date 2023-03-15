@@ -37,18 +37,21 @@ namespace UserInterface.IdariIsler
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.DtgList = new ADGV.AdvancedDataGridView();
+            this.Detay = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtKm = new System.Windows.Forms.Label();
-            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.Detay = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label3 = new System.Windows.Forms.Label();
             this.LblSabitToplam = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.LblFark = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +108,7 @@ namespace UserInterface.IdariIsler
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Detay});
+            this.DtgList.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgList.DateWithTime = false;
             this.DtgList.Location = new System.Drawing.Point(12, 87);
@@ -118,6 +122,18 @@ namespace UserInterface.IdariIsler
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
+            // 
+            // Detay
+            // 
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            this.Detay.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Detay.HeaderText = "DETAY GÖR";
+            this.Detay.MinimumWidth = 22;
+            this.Detay.Name = "Detay";
+            this.Detay.ReadOnly = true;
+            this.Detay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Detay.Text = "!";
             // 
             // label31
             // 
@@ -159,18 +175,6 @@ namespace UserInterface.IdariIsler
             this.TxtKm.TabIndex = 347;
             this.TxtKm.Text = "00";
             // 
-            // Detay
-            // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            this.Detay.DefaultCellStyle = dataGridViewCellStyle2;
-            this.Detay.HeaderText = "DETAY GÖR";
-            this.Detay.MinimumWidth = 22;
-            this.Detay.Name = "Detay";
-            this.Detay.ReadOnly = true;
-            this.Detay.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Detay.Text = "!";
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -211,6 +215,20 @@ namespace UserInterface.IdariIsler
             this.LblFark.TabIndex = 351;
             this.LblFark.Text = "00";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.güncelleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // güncelleToolStripMenuItem
+            // 
+            this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.güncelleToolStripMenuItem.Text = "Güncelle";
+            this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
+            // 
             // FrmAracKmIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -233,6 +251,7 @@ namespace UserInterface.IdariIsler
             this.Load += new System.EventHandler(this.FrmAracKmIzleme_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -256,5 +275,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label LblSabitToplam;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label LblFark;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
     }
 }

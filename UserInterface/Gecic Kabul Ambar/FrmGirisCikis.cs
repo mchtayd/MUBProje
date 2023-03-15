@@ -1484,11 +1484,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                         mevcutMiktar = +miktar;
 
-                        DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
-                        depoMiktarManager.Add(depoMiktar2);
+                        //DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
+                        //depoMiktarManager.Add(depoMiktar2);
 
-                        //DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
-                        //depoMiktarManager.Update(depoDusulen);
+                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
+                        depoMiktarManager.Update(depoDusulen);
 
                         DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
                         depoMiktarManager.Update(depoCekilen);
@@ -1518,10 +1518,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         DepoMiktar depo2 = depoMiktarManager.Get(stokNo, item.Cells["Column7"].Value.ToString(), seriNo, lotNo, revizyon);
                         mevcutMiktar = depo2.Miktar;
                         mevcutMiktar = mevcutMiktar - miktar;
-                        string depoNoCekilen = item.Cells["Column7"].Value.ToString(); // çekilen depo
+
+                        string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen
+                        string depoNoCekilen2 = item.Cells["Column7"].Value.ToString(); // çekilen
+                        string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
                         string cekilenDepoLokasyon = item.Cells["Column9"].Value.ToString(); // çekilen depo lokasyon
 
-                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoCekilen, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
+
+
+                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen);
 
                         if (mevcutMiktar == 0)
@@ -1629,12 +1634,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
             if (miktarKontrol != "OK")
             {
+                TmrBarcode.Stop();
                 MessageBox.Show(miktarKontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtBarkod.Clear();
                 return;
             }
             if (CmbStokNo.Text=="")
             {
+                TmrBarcode.Stop();
                 MessageBox.Show("Bu malzeme için yeniden barkod oluşturmanız gerekmektedir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 TxtBarkod.Clear();
                 return;
@@ -1768,6 +1775,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void TxtDepodanBildirimeAbfNo_TextChanged(object sender, EventArgs e)
         {
+            int idAtolye = 0;
             if (TxtDepodanBildirimeAbfNo.Text.Length < 6)
             {
                 return;
@@ -1776,18 +1784,29 @@ namespace UserInterface.Gecic_Kabul_Ambar
             ArizaKayit arizaKayit = arizaKayitManager.Get(TxtDepodanBildirimeAbfNo.Text.ConInt());
             if (arizaKayit == null)
             {
-                Atolye atolye = atolyeManager.ArizaGetir(TxtDepodanBildirimeAbfNo.Text.ConInt());
-                if (atolye == null)
+                Atolye atolyeDTS = atolyeManager.ArizaGetirDTS(TxtDepodanBildirimeAbfNo.Text.ConInt());
+
+                if (atolyeDTS != null)
                 {
-                    LblDepodanBildirimePersonel.Text = "00";
-                    return;
+                    idAtolye = atolyeDTS.Id;
                 }
+                else
+                {
+                    Atolye atolye = atolyeManager.ArizaGetir(TxtDepodanBildirimeAbfNo.Text.ConInt());
+                    if (atolye == null)
+                    {
+                        LblDepodanBildirimePersonel.Text = "00";
+                        return;
+                    }
+                    idAtolye = atolye.Id;
+                }
+                
                 if (gorevAtamaPersonels != null)
                 {
                     gorevAtamaPersonels.Clear();
                 }
 
-                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(atolye.Id, "BAKIM ONARIM ATOLYE");
+                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(idAtolye, "BAKIM ONARIM ATOLYE");
                 foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
                 {
                     string islemAdimi = item.IslemAdimi;
@@ -1805,6 +1824,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void TxtBildirimdenDepoyaFormNo_TextChanged(object sender, EventArgs e)
         {
+            int idAtolye = 0;
             if (TxtBildirimdenDepoyaFormNo.Text.Length < 6)
             {
                 return;
@@ -1814,17 +1834,27 @@ namespace UserInterface.Gecic_Kabul_Ambar
             ArizaKayit arizaKayit = arizaKayitManager.Get(TxtBildirimdenDepoyaFormNo.Text.ConInt());
             if (arizaKayit == null)
             {
-                Atolye atolye = atolyeManager.ArizaGetir(TxtBildirimdenDepoyaFormNo.Text.ConInt());
-                if (atolye == null)
+                Atolye atolyeDTS = atolyeManager.ArizaGetirDTS(TxtBildirimdenDepoyaFormNo.Text.ConInt());
+                if (atolyeDTS!=null)
                 {
-                    LblBildirimdenDepoyaPersonel.Text = "00";
-                    return;
+                    idAtolye = atolyeDTS.Id;
                 }
+                else
+                {
+                    Atolye atolye = atolyeManager.ArizaGetir(TxtBildirimdenDepoyaFormNo.Text.ConInt());
+                    if (atolye == null)
+                    {
+                        LblBildirimdenDepoyaPersonel.Text = "00";
+                        return;
+                    }
+                    idAtolye = atolye.Id;
+                }
+                
                 if (gorevAtamaPersonels != null)
                 {
                     gorevAtamaPersonels.Clear();
                 }
-                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(atolye.Id, "BAKIM ONARIM ATOLYE");
+                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(idAtolye, "BAKIM ONARIM ATOLYE");
                 foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
                 {
                     string islemAdimi = item.IslemAdimi;

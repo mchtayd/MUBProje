@@ -55,7 +55,14 @@ namespace Business.Concreate.IdarıIsler
 
         public string Update(CokluArac entity)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return cokluAracDal.Update(entity);
+            }
+            catch (Exception)
+            {
+                return "OK";
+            }
         }
         public static CokluAracManager GetInstance()
         {

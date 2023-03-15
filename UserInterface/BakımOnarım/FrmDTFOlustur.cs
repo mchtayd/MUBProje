@@ -1376,17 +1376,32 @@ namespace UserInterface.BakımOnarım
         {
             if (TxtAbfNo.Text.Length >= 6)
             {
-                Dtf dtf = dtfManager.DtfArizaBilgileri(TxtAbfNo.Text.ConInt());
-                if (dtf!=null)
+                Dtf dtfDTS = dtfManager.DtfArizaBilgileriDTS(TxtAbfNo.Text.ConInt());
+                if (dtfDTS != null)
                 {
-                    CmbBolgeAdi.Text = dtf.UsBolgesi;
-                    CmbProjeKodu.Text = dtf.ProjeKodu;
-                    CmbGarantiDurumu.Text = dtf.GarantiDurumu;
-                    CmbIsKategorisi.Text = dtf.IsKategorisi;
-                    CmbTanim.Text = dtf.Tanim;
-                    TxtSeriNo.Text = dtf.SeriNo;
-                    TxtIsinTanimi.Text = dtf.IsTanimi.ToUpper();
+                    CmbBolgeAdi.Text = dtfDTS.UsBolgesi;
+                    CmbProjeKodu.Text = dtfDTS.ProjeKodu;
+                    CmbGarantiDurumu.Text = dtfDTS.GarantiDurumu;
+                    CmbIsKategorisi.Text = dtfDTS.IsKategorisi;
+                    CmbTanim.Text = dtfDTS.Tanim;
+                    TxtSeriNo.Text = dtfDTS.SeriNo;
+                    TxtIsinTanimi.Text = dtfDTS.IsTanimi.ToUpper();
                 }
+                else
+                {
+                    Dtf dtf = dtfManager.DtfArizaBilgileri(TxtAbfNo.Text.ConInt());
+                    if (dtf != null)
+                    {
+                        CmbBolgeAdi.Text = dtf.UsBolgesi;
+                        CmbProjeKodu.Text = dtf.ProjeKodu;
+                        CmbGarantiDurumu.Text = dtf.GarantiDurumu;
+                        CmbIsKategorisi.Text = dtf.IsKategorisi;
+                        CmbTanim.Text = dtf.Tanim;
+                        TxtSeriNo.Text = dtf.SeriNo;
+                        TxtIsinTanimi.Text = dtf.IsTanimi.ToUpper();
+                    }
+                }
+                
             }
         }
 

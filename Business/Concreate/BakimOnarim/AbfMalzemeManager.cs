@@ -81,6 +81,17 @@ namespace Business.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
+        public List<AbfMalzeme> DepoyaTeslimEdilecekMalzemeList()
+        {
+            try
+            {
+                return abfMalzemeDal.DepoyaTeslimEdilecekMalzemeList();
+            }
+            catch (Exception)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
         public List<AbfMalzeme> TeminGetList(string teminDurumu, int abfNo = 0)
         {
             try
