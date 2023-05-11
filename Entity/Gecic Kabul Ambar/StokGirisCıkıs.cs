@@ -83,8 +83,9 @@ namespace Entity.Gecic_Kabul_Ambar
             this.revizyon = revizyon;
         }
 
-        public StokGirisCıkıs(string stokno, DateTime islemTarihi, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string aciklama, string serino, string lotno, string revizyon)
+        public StokGirisCıkıs(int id,string stokno, DateTime islemTarihi, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string aciklama, string serino, string lotno, string revizyon)
         {
+            this.id=id;
             this.stokno = stokno;
             this.islemTarihi = islemTarihi;
             this.dusulenDepoNo = dusulenDepoNo;

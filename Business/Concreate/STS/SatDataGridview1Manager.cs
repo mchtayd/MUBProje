@@ -147,6 +147,28 @@ namespace Business.Concreate
                 return ex.Message;
             }
         }
+        public string DepoTeslimMif(int satId, int mifId)
+        {
+            try
+            {
+                return satDataGridview1Dal.DepoTeslimAMif(satId, mifId);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MifIdUpdate(int id,int satId)
+        {
+            try
+            {
+                return satDataGridview1Dal.MifIdUpdate(id, satId);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string SatFirmaGuncelle(string siparisNo, string proje, string firma)
         {
@@ -235,6 +257,17 @@ namespace Business.Concreate
             catch (Exception)
             {
                 return null;
+            }
+        }
+        public int MifTalepGet(int mifId)
+        {
+            try
+            {
+                return satDataGridview1Dal.MifTalepGet(mifId);
+            }
+            catch (Exception)
+            {
+                return 0;
             }
         }
 

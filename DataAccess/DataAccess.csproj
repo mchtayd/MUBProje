@@ -47,6 +47,10 @@
     <Reference Include="LiveCharts.Wpf, Version=0.9.7.0, Culture=neutral, PublicKeyToken=0bc1f845d1ebb8df, processorArchitecture=MSIL">
       <HintPath>..\packages\LiveCharts.Wpf.0.9.7\lib\net45\LiveCharts.Wpf.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
     <Reference Include="System" />
@@ -94,6 +98,7 @@
     <Compile Include="Abstract\IRepository.cs" />
     <Compile Include="Abstract\SqlServices.cs" />
     <Compile Include="AmbarVeriDal.cs" />
+    <Compile Include="ArizaIslemAdimiDal.cs" />
     <Compile Include="AtolyeRaporDal.cs" />
     <Compile Include="ComboDal.cs" />
     <Compile Include="Concreate\AnaSayfa\BildirimYetkiDal.cs" />
@@ -153,6 +158,7 @@
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeStokDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisDal.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\UstTakimDal.cs" />
     <Compile Include="Concreate\GorevAtamaPersonelDal.cs" />
     <Compile Include="Concreate\Helper.cs" />
     <Compile Include="Concreate\IdariIsler\AracBakimDal.cs" />
@@ -186,6 +192,7 @@
     <Compile Include="Concreate\IdariIsler\SicilNoDal.cs" />
     <Compile Include="Concreate\IdariIsler\SiparislerDal.cs" />
     <Compile Include="Concreate\IdariIsler\SiparisPersonelDal.cs" />
+    <Compile Include="Concreate\IdariIsler\SirketBolumDal.cs" />
     <Compile Include="Concreate\IdariIsler\StokDal.cs" />
     <Compile Include="Concreate\IdariIsler\UcakOtobusDal.cs" />
     <Compile Include="Concreate\IdariIsler\YakitDal.cs" />

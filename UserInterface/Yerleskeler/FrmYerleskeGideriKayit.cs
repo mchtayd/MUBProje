@@ -20,7 +20,7 @@ namespace UserInterface.Yerleskeler
     {
         bool dosyaKontrol;
         string isAkisNo, dosyaYolu, kaynakdosyaismi, alinandosya, siparisNo, isleAdimi, islem;
-        int satNo, index;
+        int satNo, index, satId;
         public object[] infos;
         List<string> fileNames = new List<string>();
 
@@ -33,6 +33,7 @@ namespace UserInterface.Yerleskeler
         TeklifsizSatManager teklifsizSatManager;
         SatIslemAdimlariManager satIslemAdimlariManager;
         YerleskeSatManager yerleskeSatManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
         public FrmYerleskeGideriKayit()
         {
             InitializeComponent();
@@ -45,6 +46,7 @@ namespace UserInterface.Yerleskeler
             teklifsizSatManager = TeklifsizSatManager.GetInstance();
             satIslemAdimlariManager = SatIslemAdimlariManager.GetInstance();
             yerleskeSatManager = YerleskeSatManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void FrmYerleskeGideriKayit_Load(object sender, EventArgs e)
@@ -169,7 +171,7 @@ namespace UserInterface.Yerleskeler
             isleAdimi = "SAT ONAY";
             string donem = CmbDonemAy.Text + " " + CmbDonemYil.Text;
             satNo = satNoManager.Add(new SatNo(siparisNo));
-            string aciklama = CmbYerleskeAdi.Text + " " + CmbGiderTuru.Text + " GİDERİNE AİT HARCAMA İÇİN SAT OLUŞTURULMUŞTUR.";
+            string aciklama = TxtAciklama.Text;
             SatDataGridview1 sat = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(),
                         infos[2].ToString(), "YOK", "0", DtgTarih.Text.ConDate(), aciklama, siparisNo, "", "", "", "", "",
                   string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "YERLEŞKE GİDERİ", CmbProjeKodu.Text, TxtHizmetAlinanKurum.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text);
@@ -220,18 +222,31 @@ namespace UserInterface.Yerleskeler
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            SatDataGridview1 satDataGridview1 = satDataGridview1Manager.Get(LblIsAkisNo.Text);
+            satId = satDataGridview1.Id;
+            GorevAtama();
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             IsAkisNo();
             Temizle();
             dosyaKontrol = false;
+        }
+        string GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(satId, "SATIN ALMA", "RESUL GÜNEŞ", "SAT ONAYI", DateTime.Now, "", DateTime.Now.Date);
+            string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+
+            if (kontrol != "OK")
+            {
+                return kontrol;
+            }
+            return "OK";
         }
 
         private void BtnDosya_Click(object sender, EventArgs e)
         {
             IsAkisNo();
             string root = @"Z:\DTS";
-            string subdir = @"Z:\DTS\SATIN ALMA\GEÇİCİ SAT DOSYALARI\";
+            string subdir = @"Z:\DTS\SATIN ALMA\SAT DOSYALARI\";
 
             isAkisNo = LblIsAkisNo.Text;
 

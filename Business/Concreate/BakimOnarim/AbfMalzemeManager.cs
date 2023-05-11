@@ -30,6 +30,29 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string AddSokulenTakilan(AbfMalzeme entity)
+        {
+            try
+            {
+                return abfMalzemeDal.AddSokulenTakilan(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string SokulenMalzemeUpdate(string calismaDurumu, string fizikselDurum, string yapilacakIslem, int id)
+        {
+            try
+            {
+                return abfMalzemeDal.SokulenMalzemeUpdate(calismaDurumu, fizikselDurum, yapilacakIslem, id);
+
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Delete(int id)
         {
@@ -56,7 +79,14 @@ namespace Business.Concreate.BakimOnarim
 
         public AbfMalzeme Get(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return abfMalzemeDal.Get(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<AbfMalzeme> GetList(int benzersizId, string teminDurumu="")
@@ -120,6 +150,18 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return abfMalzemeDal.UpdateTakilan(entity, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string MalzemeTeslimBilgisiUpdate(int id)
+        {
+            try
+            {
+                return abfMalzemeDal.MalzemeTeslimBilgisiUpdate(id);
             }
             catch (Exception ex)
             {

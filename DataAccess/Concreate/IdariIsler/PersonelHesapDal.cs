@@ -54,6 +54,30 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
+        public PersonelHesap GetSohbet(string adSoyad)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("PersonelSohbetList", new SqlParameter("@personelAd", adSoyad));
+                PersonelHesap item = null;
+                while (dataReader.Read())
+                {
+                    item = new PersonelHesap(
+                        dataReader["ID"].ConInt(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["GIRIS_BILGISI"].ConDate(),
+                        dataReader["SON_GORULME"].ConDate(),
+                        dataReader["AKTIFLIK_SURESI"].ConInt());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
 
         public List<PersonelHesap> GetList()
         {

@@ -114,6 +114,10 @@ namespace UserInterface.BakımOnarım
                     TxtSeriNo.Text = okfDTS.UstSeriNo;
                     TxtBildirilenAriza.Text = okfDTS.BildirilenAriza.ToUpper();
                     bildirimNo = okfDTS.BildirimNo;
+                    if (bildirimNo==null || bildirimNo== "")
+                    {
+                        bildirimNo = okfDTS.OkfBildirimNo;
+                    }
                     TxtABTelefon.Text = okfDTS.KomutanTel;
                     TxtUsBolgesiKomutani.Text = okfDTS.UbKomutani;
                     DtgArizaTarihi.Value = okfDTS.ArizaTarihi;
@@ -398,6 +402,7 @@ namespace UserInterface.BakımOnarım
                         return;
                     }
                 }
+
                 CreateWord();
                 IsAkisNo();
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -452,14 +457,16 @@ namespace UserInterface.BakımOnarım
             wBookmarks["BildirimNo"].Range.Text = bildirimNo;
             wBookmarks["UsBolgesi"].Range.Text = CmbBolgeAdi.Text;
             wBookmarks["GarantiDurumu"].Range.Text = LblGarantiDurumu.Text;
-            wBookmarks["BirlikAdresi"].Range.Text = birlikAdresi;
-            wBookmarks["Il_Ilce"].Range.Text = il.ToUpper() + "/" + ilce.ToUpper();
+            wBookmarks["BirlikAdresi"].Range.Text = birlikAdresi + " " + il.ToUpper() + "/" + ilce.ToUpper();
             wBookmarks["BolgeKomutan"].Range.Text = TxtUsBolgesiKomutani.Text;
             wBookmarks["BolgeKomutanTel"].Range.Text = TxtABTelefon.Text;
             wBookmarks["UstTanim"].Range.Text = CmbTanim.Text;
             wBookmarks["UstStok"].Range.Text = TxtStokNo.Text;
             wBookmarks["UstSeri"].Range.Text = TxtSeriNo.Text;
             wBookmarks["BildirilenAriza"].Range.Text = TxtBildirilenAriza.Text;
+            wBookmarks["AbfNo"].Range.Text = TxtAbfNo.Text;
+            wBookmarks["Musteri"].Range.Text = CmbMusteriAdi.Text;
+
             if (RdbKesin.Checked==true)
             {
                 wBookmarks["ArizaNedenKesin"].Range.Text = TxtArizaNedeni.Text;
@@ -529,33 +536,33 @@ namespace UserInterface.BakımOnarım
                 string ttutar = toplam.ToString("C2");
                 wBookmarks["Tutar5"].Range.Text = ttutar;
             }
-            if (DtgMalzemeList.RowCount > 5)
-            {
-                wBookmarks["Stok6"].Range.Text = DtgMalzemeList.Rows[5].Cells["StokNo"].Value.ToString();
-                wBookmarks["Tanim6"].Range.Text = DtgMalzemeList.Rows[5].Cells["Tanimm"].Value.ToString();
-                wBookmarks["Miktar6"].Range.Text = DtgMalzemeList.Rows[5].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[5].Cells["Birim"].Value.ToString();
-                double toplam = DtgMalzemeList.Rows[5].Cells["ToplamTutar"].Value.ConDouble();
-                string ttutar = toplam.ToString("C2");
-                wBookmarks["Tutar6"].Range.Text = ttutar;
-            }
-            if (DtgMalzemeList.RowCount > 6)
-            {
-                wBookmarks["Stok7"].Range.Text = DtgMalzemeList.Rows[6].Cells["StokNo"].Value.ToString();
-                wBookmarks["Tanim7"].Range.Text = DtgMalzemeList.Rows[6].Cells["Tanimm"].Value.ToString();
-                wBookmarks["Miktar7"].Range.Text = DtgMalzemeList.Rows[6].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[6].Cells["Birim"].Value.ToString();
-                double toplam = DtgMalzemeList.Rows[6].Cells["ToplamTutar"].Value.ConDouble();
-                string ttutar = toplam.ToString("C2");
-                wBookmarks["Tutar7"].Range.Text = ttutar;
-            }
-            if (DtgMalzemeList.RowCount > 7)
-            {
-                wBookmarks["Stok8"].Range.Text = DtgMalzemeList.Rows[7].Cells["StokNo"].Value.ToString();
-                wBookmarks["Tanim8"].Range.Text = DtgMalzemeList.Rows[7].Cells["Tanimm"].Value.ToString();
-                wBookmarks["Miktar8"].Range.Text = DtgMalzemeList.Rows[7].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[7].Cells["Birim"].Value.ToString();
-                double toplam = DtgMalzemeList.Rows[7].Cells["ToplamTutar"].Value.ConDouble();
-                string ttutar = toplam.ToString("C2");
-                wBookmarks["Tutar8"].Range.Text = ttutar;
-            }
+            //if (DtgMalzemeList.RowCount > 5)
+            //{
+            //    wBookmarks["Stok6"].Range.Text = DtgMalzemeList.Rows[5].Cells["StokNo"].Value.ToString();
+            //    wBookmarks["Tanim6"].Range.Text = DtgMalzemeList.Rows[5].Cells["Tanimm"].Value.ToString();
+            //    wBookmarks["Miktar6"].Range.Text = DtgMalzemeList.Rows[5].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[5].Cells["Birim"].Value.ToString();
+            //    double toplam = DtgMalzemeList.Rows[5].Cells["ToplamTutar"].Value.ConDouble();
+            //    string ttutar = toplam.ToString("C2");
+            //    wBookmarks["Tutar6"].Range.Text = ttutar;
+            //}
+            //if (DtgMalzemeList.RowCount > 6)
+            //{
+            //    wBookmarks["Stok7"].Range.Text = DtgMalzemeList.Rows[6].Cells["StokNo"].Value.ToString();
+            //    wBookmarks["Tanim7"].Range.Text = DtgMalzemeList.Rows[6].Cells["Tanimm"].Value.ToString();
+            //    wBookmarks["Miktar7"].Range.Text = DtgMalzemeList.Rows[6].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[6].Cells["Birim"].Value.ToString();
+            //    double toplam = DtgMalzemeList.Rows[6].Cells["ToplamTutar"].Value.ConDouble();
+            //    string ttutar = toplam.ToString("C2");
+            //    wBookmarks["Tutar7"].Range.Text = ttutar;
+            //}
+            //if (DtgMalzemeList.RowCount > 7)
+            //{
+            //    wBookmarks["Stok8"].Range.Text = DtgMalzemeList.Rows[7].Cells["StokNo"].Value.ToString();
+            //    wBookmarks["Tanim8"].Range.Text = DtgMalzemeList.Rows[7].Cells["Tanimm"].Value.ToString();
+            //    wBookmarks["Miktar8"].Range.Text = DtgMalzemeList.Rows[7].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[7].Cells["Birim"].Value.ToString();
+            //    double toplam = DtgMalzemeList.Rows[7].Cells["ToplamTutar"].Value.ConDouble();
+            //    string ttutar = toplam.ToString("C2");
+            //    wBookmarks["Tutar8"].Range.Text = ttutar;
+            //}
 
             wBookmarks["GenelTop"].Range.Text = TxtGenelTop.Text;
             wBookmarks["GenelOneriler"].Range.Text = TxtGenelOneriler.Text;

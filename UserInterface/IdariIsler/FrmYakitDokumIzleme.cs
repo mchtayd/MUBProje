@@ -96,7 +96,7 @@ namespace UserInterface.IdariIsler
             DtgListTasit.Columns["DefterNo"].Visible = false;
             DtgListTasit.Columns["SiraNo"].Visible = false;
             DtgListTasit.Columns["FisNo"].Visible = false;
-            DtgListTasit.Columns["Personel"].Visible = false;
+            DtgListTasit.Columns["Personel"].HeaderText = "ZİMMETLİ PERSONEL";
             DtgListTasit.Columns["Plaka"].HeaderText = "PLAKA";
             DtgListTasit.Columns["AracSiparisNo"].HeaderText = "ARAÇ SİPARİŞ NO";
             DtgListTasit.Columns["LitreFiyati"].Visible = false;

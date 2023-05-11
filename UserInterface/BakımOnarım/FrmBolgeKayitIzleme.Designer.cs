@@ -106,7 +106,6 @@ namespace UserInterface.BakımOnarım
             this.DtgBolgeler.DateWithTime = false;
             this.DtgBolgeler.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgBolgeler.Location = new System.Drawing.Point(3, 16);
-            this.DtgBolgeler.MultiSelect = false;
             this.DtgBolgeler.Name = "DtgBolgeler";
             this.DtgBolgeler.ReadOnly = true;
             this.DtgBolgeler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;

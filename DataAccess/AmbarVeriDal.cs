@@ -49,8 +49,9 @@ namespace DataAccess
                         dataReader["MALZEME_TEMIN_ASELSAN"].ConInt(),
                         dataReader["MALZEME_TEMIN_SATIN_ALMA"].ConInt(),
                         dataReader["MALZEME_HAZILAMA"].ConInt(),
-                        dataReader["MALZEME_PAKETLEME"].ConInt(),
+                        dataReader["DEPO_STOK_KONTROL"].ConInt(),
                         dataReader["BOLGE_SEVKIYAT"].ConInt(),
+                        dataReader["ANKARA_SEVKIYAT"].ConInt(),
                         dataReader["GENEL_TOPLAM"].ConInt()));
                 }
                 dataReader.Close();
@@ -77,7 +78,19 @@ namespace DataAccess
                         dataReader["BO"].ConInt(),
                         dataReader["GK"].ConInt(),
                         dataReader["KT"].ConInt(),
-                        0));
+                        dataReader["HU"].ConInt(),
+                        dataReader["IMES"].ConInt(),
+                        dataReader["TEKJEN"].ConInt(),
+                        dataReader["TESCOM"].ConInt(),
+                        dataReader["INFORM"].ConInt(),
+                        dataReader["MGM"].ConInt(),
+                        dataReader["BD"].ConInt(),
+                        dataReader["D_BOLGESI"].ConInt(),
+                        dataReader["ATOLYE"].ConInt(),
+                        dataReader["BD2"].ConInt(),
+                        dataReader["SARP"].ConInt(),
+                        dataReader["BD3"].ConInt(),
+                        dataReader["GECICI_KULLANIM"].ConInt()));
                 }
                 dataReader.Close();
                 return ambarVeris;

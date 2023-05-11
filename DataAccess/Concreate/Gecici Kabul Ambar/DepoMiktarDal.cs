@@ -7,6 +7,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UglyToad.PdfPig.Graphics.Operations.General;
 
 namespace DataAccess.Concreate.Gecici_Kabul_Ambar
 {
@@ -128,6 +129,31 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public DepoMiktar GetBarkodLokasyonBul(string stokNo, string seriNo, string revizyon, string takipDurum)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BarkodLokasyonBul", 
+                    new SqlParameter("@stokNo", stokNo), 
+                    new SqlParameter("@seriNo", seriNo), 
+                    new SqlParameter("@revizyon", revizyon),
+                    new SqlParameter("@takipDurum",takipDurum));
+                DepoMiktar item = null;
+                while (dataReader.Read())
+                {
+                    item = new DepoMiktar(
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
         public DepoMiktar StokSeriLotKontrol(string stokNo, string depoNo, string seriNo, string lotNo, string revizyon)
         {
             try
@@ -200,6 +226,39 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return new List<DepoMiktar>();
             }
         }
+        public List<DepoMiktar> GetListTumu()
+        {
+            try
+            {
+                List<DepoMiktar> depoMiktars = new List<DepoMiktar>();
+                dataReader = sqlServices.StoreReader("DepoMiktarTum");
+                while (dataReader.Read())
+                {
+                    depoMiktars.Add(new DepoMiktar(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SON_ISLEM_TARIHI"].ConDate(),
+                        dataReader["SON_ISLEM_YAPAN"].ToString(),
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["REZERVE_DURUMU"].ToString(),
+                         dataReader["REZERVE_ID"].ConInt()));
+                }
+                dataReader.Close();
+                return depoMiktars;
+            }
+            catch (Exception)
+            {
+                return new List<DepoMiktar>();
+            }
+        }
         public List<DepoMiktar> StokKontrol(string stokNo)
         {
             try
@@ -228,7 +287,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 dataReader.Close();
                 return depoMiktars;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<DepoMiktar>();
             }
@@ -268,20 +327,21 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string Update(DepoMiktar entity)
+        public string Update(DepoMiktar entity, string rezerveDurumu)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("DepoMiktarGuncelle",
                     new SqlParameter("@stokNo", entity.StokNo),
-                    new SqlParameter("@depoNo",entity.DepoNo),
-                    new SqlParameter("@seriNo",entity.SeriNo),
-                    new SqlParameter("@lotNo",entity.LotNo),
-                    new SqlParameter("@revizyon",entity.Revizyon),
+                    new SqlParameter("@depoNo", entity.DepoNo),
+                    new SqlParameter("@seriNo", entity.SeriNo),
+                    new SqlParameter("@lotNo", entity.LotNo),
+                    new SqlParameter("@revizyon", entity.Revizyon),
                     new SqlParameter("@sonIslemTarihi", entity.SonIslemTarihi),
                     new SqlParameter("@sonIslemYapan", entity.SonIslemYapan),
                     new SqlParameter("@miktar", entity.Miktar),
-                    new SqlParameter("@depoLokasyon", entity.DepoLokasyon));
+                    new SqlParameter("@depoLokasyon", entity.DepoLokasyon),
+                    new SqlParameter("@rezerveDurum", rezerveDurumu));
 
                 dataReader.Close();
                 return "OK";

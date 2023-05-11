@@ -325,8 +325,10 @@ namespace UserInterface.Ana_Sayfa
         public static DataTable GetDataTableFromExcel(string path, string sheetName)
         {
             //Save the uploaded Excel file.
-
-
+            if (path=="")
+            {
+                return null;
+            }
             DataTable dt = new DataTable();
             //Open the Excel file using ClosedXML.
             using (XLWorkbook workBook = new XLWorkbook(path))
@@ -450,8 +452,10 @@ namespace UserInterface.Ana_Sayfa
 
         }
 
+
         static string panelTitle = "", panelContent = "", panelKullanici = "", panelSorumluId = "", panelBenzersizKimlik = "";
         static List<Log> logsList = logs.ToList();
+
         public static void Bildirim(string title, string content, Image ımage, string kullanici, string sorumluId, string benzersizKimlik, List<Log> logs = null)
         {
             PopupNotifier popup = new PopupNotifier();
@@ -481,6 +485,8 @@ namespace UserInterface.Ana_Sayfa
 
             popup.Disappear += Popup_Disappear;
         }
+
+
         public static void PanelClickEdit(string icerik)
         {
             #region EskiKod

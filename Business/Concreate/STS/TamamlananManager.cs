@@ -166,6 +166,17 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
+        public string DonemEdit(string donem, int id)
+        {
+            try
+            {
+                return tamamlananDal.DonemEdit(donem, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
 
         public string ProjeDuzelt(string proje, int id)

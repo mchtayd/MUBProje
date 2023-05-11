@@ -97,6 +97,13 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Lütfen öncelikle gerekli tüm bilgileri doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
+            if (dosyaYolu==null)
+            {
+                MessageBox.Show("Lütfen öncelikle bir dosya ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
@@ -133,17 +140,49 @@ namespace UserInterface.BakımOnarım
             frmMail.dosyaYolu = dosyaYolu;
             frmMail.ShowDialog();
 
-
-
         }
 
         private void BtnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
         }
+        string DosyaControl()
+        {
+            if (CmbBolgeAdi.Text=="")
+            {
+                return "Lütfen dosya eklemden önce Bölge Adı bilgisini doldurunuz!";
+            }
+            if (TxtBildirilenAriza.Text=="")
+            {
+                return "Lütfen dosya eklemden önce Bildirilen Arıza bilgisini doldurunuz!";
+            }
+            if (TxtBirlikPersoneli.Text=="")
+            {
+                return "Lütfen dosya eklemden önce Birlik Personeli bilgilerini doldurunuz!";
+            }
+            if (TxtBirlikPerRutbesi.Text == "")
+            {
+                return "Lütfen dosya eklemden önce Birlik Personeli bilgilerini doldurunuz!";
+            }
+            if (TxtBirlikPerGorevi.Text == "")
+            {
+                return "Lütfen dosya eklemden önce Birlik Personeli bilgilerini doldurunuz!";
+            }
+            if (CmbBildirimKanali.Text == "")
+            {
+                return "Lütfen dosya eklemden önce Bildirim Kanalı bilgisini doldurunuz!";
+            }
+            return "OK";
+        }
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
         {
+            if (DosyaControl() != "OK")
+            {
+                MessageBox.Show(DosyaControl(), "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             IsAkisNo();
             string root = @"Z:\DTS";
             string subdir = @"Z:\DTS\BAKIM ONARIM\ARIZA\";
@@ -223,7 +262,7 @@ namespace UserInterface.BakımOnarım
             LblProje.Text = "00"; CmbBolgeAdi.SelectedValue = "";
             LblBirlilkAdresi.Text = "-"; LblIl.Text = "-"; LblIlce.Text = "-"; TxtBildirilenAriza.Clear(); TxtBirlikPersoneli.Clear();
             TxtBirlikPerRutbesi.Clear(); TxtBirlikPerGorevi.Clear(); TxtABTelefon.Clear(); CmbBildirimKanali.Text = "";
-            TxtArizaAciklama.Clear(); webBrowser1.Navigate("");
+            TxtArizaAciklama.Clear(); webBrowser1.Navigate(""); LblProje.Text = "00"; LblPdl.Text = "00";
 
         }
         void GorevAtama()

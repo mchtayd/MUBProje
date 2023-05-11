@@ -30,9 +30,9 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgDevamEden = new ADGV.AdvancedDataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -41,6 +41,7 @@ namespace UserInterface.STS
             this.DtgSatIslemAdimlari = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.DtgMalzList = new System.Windows.Forms.DataGridView();
             this.dtgTemp = new System.Windows.Forms.DataGridView();
             this.b10 = new System.Windows.Forms.TextBox();
             this.t1 = new System.Windows.Forms.TextBox();
@@ -111,7 +112,6 @@ namespace UserInterface.STS
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.DtgMalzList = new System.Windows.Forms.DataGridView();
             this.LblTop2 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -121,13 +121,13 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.DtgSatIslemAdimlari)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTemp)).BeginInit();
             this.panel3.SuspendLayout();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzList)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -147,8 +147,8 @@ namespace UserInterface.STS
             // 
             this.DtgDevamEden.AllowUserToAddRows = false;
             this.DtgDevamEden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgDevamEden.AutoGenerateContextFilters = true;
             this.DtgDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -158,7 +158,7 @@ namespace UserInterface.STS
             this.DtgDevamEden.Location = new System.Drawing.Point(3, 16);
             this.DtgDevamEden.Name = "DtgDevamEden";
             this.DtgDevamEden.ReadOnly = true;
-            this.DtgDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgDevamEden.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DtgDevamEden.Size = new System.Drawing.Size(1530, 438);
             this.DtgDevamEden.TabIndex = 4;
             this.DtgDevamEden.TimeFilter = false;
@@ -173,7 +173,7 @@ namespace UserInterface.STS
             this.tabControl1.Location = new System.Drawing.Point(9, 514);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(881, 383);
+            this.tabControl1.Size = new System.Drawing.Size(881, 381);
             this.tabControl1.TabIndex = 51;
             // 
             // tabPage1
@@ -183,7 +183,7 @@ namespace UserInterface.STS
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(814, 357);
+            this.tabPage1.Size = new System.Drawing.Size(873, 355);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GENEL BİLGİLER";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -201,18 +201,18 @@ namespace UserInterface.STS
             // 
             this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
             this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -221,7 +221,7 @@ namespace UserInterface.STS
             this.DtgSatIslemAdimlari.Name = "DtgSatIslemAdimlari";
             this.DtgSatIslemAdimlari.ReadOnly = true;
             this.DtgSatIslemAdimlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgSatIslemAdimlari.Size = new System.Drawing.Size(808, 351);
+            this.DtgSatIslemAdimlari.Size = new System.Drawing.Size(867, 349);
             this.DtgSatIslemAdimlari.TabIndex = 3;
             // 
             // tabPage2
@@ -231,7 +231,7 @@ namespace UserInterface.STS
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(873, 357);
+            this.tabPage2.Size = new System.Drawing.Size(873, 355);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SATIN ALINACAK MALZEME";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -299,6 +299,20 @@ namespace UserInterface.STS
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(874, 357);
             this.panel2.TabIndex = 407;
+            // 
+            // DtgMalzList
+            // 
+            this.DtgMalzList.AllowUserToAddRows = false;
+            this.DtgMalzList.AllowUserToDeleteRows = false;
+            this.DtgMalzList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMalzList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzList.Location = new System.Drawing.Point(0, 0);
+            this.DtgMalzList.Name = "DtgMalzList";
+            this.DtgMalzList.ReadOnly = true;
+            this.DtgMalzList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMalzList.Size = new System.Drawing.Size(874, 357);
+            this.DtgMalzList.TabIndex = 408;
             // 
             // dtgTemp
             // 
@@ -944,20 +958,6 @@ namespace UserInterface.STS
             this.güncelleToolStripMenuItem.Text = "Güncelle";
             this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
             // 
-            // DtgMalzList
-            // 
-            this.DtgMalzList.AllowUserToAddRows = false;
-            this.DtgMalzList.AllowUserToDeleteRows = false;
-            this.DtgMalzList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgMalzList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgMalzList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgMalzList.Location = new System.Drawing.Point(0, 0);
-            this.DtgMalzList.Name = "DtgMalzList";
-            this.DtgMalzList.ReadOnly = true;
-            this.DtgMalzList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgMalzList.Size = new System.Drawing.Size(874, 357);
-            this.DtgMalzList.TabIndex = 408;
-            // 
             // LblTop2
             // 
             this.LblTop2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -1009,6 +1009,7 @@ namespace UserInterface.STS
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dtgTemp)).EndInit();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
@@ -1016,7 +1017,6 @@ namespace UserInterface.STS
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

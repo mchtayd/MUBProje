@@ -112,6 +112,17 @@ namespace Business.Concreate
                 return new List<SatinAlinacakMalzemeler>();
             }
         }
+        public List<SatinAlinacakMalzemeler> GetListDTS(int benzersizId)
+        {
+            try
+            {
+                return satinAlinacakMalDal.GetListDTS(benzersizId);
+            }
+            catch
+            {
+                return new List<SatinAlinacakMalzemeler>();
+            }
+        }
 
         public string Update(SatinAlinacakMalzemeler entity)
         {

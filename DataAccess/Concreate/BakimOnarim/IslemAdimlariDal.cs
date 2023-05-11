@@ -39,7 +39,15 @@ namespace DataAccess.Concreate.BakimOnarim
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlServices.Stored("IslemAdimiDelete", new SqlParameter("@id", id));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public IslemAdimlari Get(int id)

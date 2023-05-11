@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>526</ApplicationRevision>
+    <ApplicationRevision>624</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -98,6 +98,10 @@
     </Reference>
     <Reference Include="MetroFramework">
       <HintPath>..\..\..\..\Desktop\124\kurulum\user\vbdll\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
     </Reference>
     <Reference Include="Microsoft.Office.Interop.Outlook, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Office.Interop.Outlook.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Outlook.dll</HintPath>
@@ -223,6 +227,12 @@
     <Compile Include="Ana Sayfa\FrmHesapOlustur.Designer.cs">
       <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmIslemAdimiSorumlulari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIslemAdimiSorumlulari.Designer.cs">
+      <DependentUpon>FrmIslemAdimiSorumlulari.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmIsTakip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -234,6 +244,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmIzlemeAmbar.Designer.cs">
       <DependentUpon>FrmIzlemeAmbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmMalzemeTaleplerim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmMalzemeTaleplerim.Designer.cs">
+      <DependentUpon>FrmMalzemeTaleplerim.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmOfisDosyaFihrist.cs">
       <SubType>Form</SubType>
@@ -301,6 +317,12 @@
     <Compile Include="Ana Sayfa\FrmOrganizasyon.Designer.cs">
       <DependentUpon>FrmOrganizasyon.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmSahaIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSahaIzleme.Designer.cs">
+      <DependentUpon>FrmSahaIzleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmSehirIciGorevlerim.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,11 +341,23 @@
     <Compile Include="Ana Sayfa\FrmSifremiDegistir.Designer.cs">
       <DependentUpon>FrmSifremiDegistir.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmSohbet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSohbet.Designer.cs">
+      <DependentUpon>FrmSohbet.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmTelefonRehberi.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ana Sayfa\FrmTelefonRehberi.Designer.cs">
       <DependentUpon>FrmTelefonRehberi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmUstTakim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmUstTakim.Designer.cs">
+      <DependentUpon>FrmUstTakim.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmWait.cs">
       <SubType>Form</SubType>
@@ -342,6 +376,12 @@
     </Compile>
     <Compile Include="BakımOnarım\FrmArizaAciklamaOrnek.Designer.cs">
       <DependentUpon>FrmArizaAciklamaOrnek.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmArizaGuncelle.Designer.cs">
+      <DependentUpon>FrmArizaGuncelle.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmArizaKayitlariKapatilan.cs">
       <SubType>Form</SubType>
@@ -384,6 +424,12 @@
     </Compile>
     <Compile Include="BakımOnarım\FrmHaftalikControlIzleme.Designer.cs">
       <DependentUpon>FrmHaftalikControlIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmIslemAdimiEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmIslemAdimiEdit.Designer.cs">
+      <DependentUpon>FrmIslemAdimiEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmMalzemeDuzenle.cs">
       <SubType>Form</SubType>
@@ -559,6 +605,12 @@
     <Compile Include="BakımOnarım\FrmServisTalepleriIzleme.Designer.cs">
       <DependentUpon>FrmServisTalepleriIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="BakımOnarım\FrmSokulenMalzeme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmSokulenMalzeme.Designer.cs">
+      <DependentUpon>FrmSokulenMalzeme.cs</DependentUpon>
+    </Compile>
     <Compile Include="BakımOnarım\FrmYolDurumlari.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -666,6 +718,18 @@
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmBolgedenGelecekMlz.Designer.cs">
       <DependentUpon>FrmBolgedenGelecekMlz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmBolgedenIadeGelenMlz.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmBolgedenIadeGelenMlz.Designer.cs">
+      <DependentUpon>FrmBolgedenIadeGelenMlz.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoAdresKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoAdresKayit.Designer.cs">
+      <DependentUpon>FrmDepoAdresKayit.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmDepoDusum.cs">
       <SubType>Form</SubType>
@@ -871,6 +935,12 @@
     <Compile Include="IdariIsler\FrmBolumDuzelt.Designer.cs">
       <DependentUpon>FrmBolumDuzelt.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmBolumEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmBolumEdit.Designer.cs">
+      <DependentUpon>FrmBolumEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmButceKoduKalemiDuzenle.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -978,6 +1048,12 @@
     </Compile>
     <Compile Include="IdariIsler\FrmIzinOnay.Designer.cs">
       <DependentUpon>FrmIzinOnay.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmIzınGuncelle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmIzınGuncelle.Designer.cs">
+      <DependentUpon>FrmIzınGuncelle.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmKalibrasyonTakip.cs">
       <SubType>Form</SubType>
@@ -1419,11 +1495,17 @@
     <EmbeddedResource Include="Ana Sayfa\FrmHesapOlustur.resx">
       <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIslemAdimiSorumlulari.resx">
+      <DependentUpon>FrmIslemAdimiSorumlulari.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmIsTakip.resx">
       <DependentUpon>FrmIsTakip.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmIzlemeAmbar.resx">
       <DependentUpon>FrmIzlemeAmbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmMalzemeTaleplerim.resx">
+      <DependentUpon>FrmMalzemeTaleplerim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmOfisDosyaFihrist.resx">
       <DependentUpon>FrmOfisDosyaFihrist.cs</DependentUpon>
@@ -1458,6 +1540,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmOrganizasyon.resx">
       <DependentUpon>FrmOrganizasyon.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmSahaIzleme.resx">
+      <DependentUpon>FrmSahaIzleme.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmSehirIciGorevlerim.resx">
       <DependentUpon>FrmSehirIciGorevlerim.cs</DependentUpon>
     </EmbeddedResource>
@@ -1467,8 +1552,14 @@
     <EmbeddedResource Include="Ana Sayfa\FrmSifremiDegistir.resx">
       <DependentUpon>FrmSifremiDegistir.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmSohbet.resx">
+      <DependentUpon>FrmSohbet.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmTelefonRehberi.resx">
       <DependentUpon>FrmTelefonRehberi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmUstTakim.resx">
+      <DependentUpon>FrmUstTakim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmWait.resx">
       <DependentUpon>FrmWait.cs</DependentUpon>
@@ -1478,6 +1569,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmArizaAciklamaOrnek.resx">
       <DependentUpon>FrmArizaAciklamaOrnek.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmArizaGuncelle.resx">
+      <DependentUpon>FrmArizaGuncelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmArizaKayitlariKapatilan.resx">
       <DependentUpon>FrmArizaKayitlariKapatilan.cs</DependentUpon>
@@ -1499,6 +1593,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmHaftalikControlIzleme.resx">
       <DependentUpon>FrmHaftalikControlIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmIslemAdimiEdit.resx">
+      <DependentUpon>FrmIslemAdimiEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmMalzemeDuzenle.resx">
       <DependentUpon>FrmMalzemeDuzenle.cs</DependentUpon>
@@ -1587,6 +1684,9 @@
     <EmbeddedResource Include="BakımOnarım\FrmServisTalepleriIzleme.resx">
       <DependentUpon>FrmServisTalepleriIzleme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmSokulenMalzeme.resx">
+      <DependentUpon>FrmSokulenMalzeme.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmYolDurumlari.resx">
       <DependentUpon>FrmYolDurumlari.cs</DependentUpon>
     </EmbeddedResource>
@@ -1640,6 +1740,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmBolgedenGelecekMlz.resx">
       <DependentUpon>FrmBolgedenGelecekMlz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmBolgedenIadeGelenMlz.resx">
+      <DependentUpon>FrmBolgedenIadeGelenMlz.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoAdresKayit.resx">
+      <DependentUpon>FrmDepoAdresKayit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoDusum.resx">
       <DependentUpon>FrmDepoDusum.cs</DependentUpon>
@@ -1743,6 +1849,9 @@
     <EmbeddedResource Include="IdariIsler\FrmBolumDuzelt.resx">
       <DependentUpon>FrmBolumDuzelt.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmBolumEdit.resx">
+      <DependentUpon>FrmBolumEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmButceKoduKalemiDuzenle.resx">
       <DependentUpon>FrmButceKoduKalemiDuzenle.cs</DependentUpon>
     </EmbeddedResource>
@@ -1796,6 +1905,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmIzinOnay.resx">
       <DependentUpon>FrmIzinOnay.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmIzınGuncelle.resx">
+      <DependentUpon>FrmIzınGuncelle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmKalibrasyonTakip.resx">
       <DependentUpon>FrmKalibrasyonTakip.cs</DependentUpon>

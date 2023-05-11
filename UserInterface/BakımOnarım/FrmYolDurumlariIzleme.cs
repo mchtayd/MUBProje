@@ -49,7 +49,7 @@ namespace UserInterface.BakımOnarım
         }
         void UsBolgeleri()
         {
-            if (infos[0].ConInt() == 25 || infos[0].ConInt() == 84)
+            if (infos[0].ConInt() == 25 || infos[0].ConInt() == 30 || infos[0].ConInt() == 33 || infos[0].ConInt() == 84 || infos[0].ConInt() == 39 || infos[0].ConInt() == 1140 || infos[0].ConInt() == 1139 || infos[0].ConInt() == 54 || infos[0].ConInt() == 47 || infos[0].ConInt() == 57 || infos[0].ConInt() == 65 || infos[0].ConInt() == 1121 || infos[0].ConInt() == 1148)
             {
                 CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
             }
@@ -57,6 +57,7 @@ namespace UserInterface.BakımOnarım
             {
                 CmbBolgeAdi.DataSource = bolgeKayitManager.GetList(infos[1].ToString());
             }
+
             CmbBolgeAdi.ValueMember = "Id";
             CmbBolgeAdi.DisplayMember = "BolgeAdi";
             CmbBolgeAdi.SelectedValue = "";
@@ -82,6 +83,58 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
             DtgList.Columns["KayitYapan"].HeaderText = "KAYIT YAPAN";
 
+            TxtTop.Text= DtgList.RowCount.ToString();
+        }
+
+
+        private void ChkTumBolge_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkTumBolge.Checked==true)
+            {
+                CmbBolgeAdi.SelectedIndex = -1;
+
+                yolDurums = yolDurumManager.GetListTum(DtBasTarihi.Value, DtBitTarihi.Value);
+                dataBinder.DataSource = yolDurums.ToDataTable();
+                DtgList.DataSource = dataBinder;
+
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
+                DtgList.Columns["Tarih"].HeaderText = "TARİH";
+                DtgList.Columns["Donem"].HeaderText = "DÖNEM";
+                DtgList.Columns["YolDurumu"].HeaderText = "YOL DURUMU";
+                DtgList.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
+                DtgList.Columns["KayitYapan"].HeaderText = "KAYIT YAPAN";
+
+            }
+            else
+            {
+                yolDurums = new List<YolDurum>();
+                dataBinder.DataSource = yolDurums;
+                DtgList.DataSource = dataBinder;
+
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
+                DtgList.Columns["Tarih"].HeaderText = "TARİH";
+                DtgList.Columns["Donem"].HeaderText = "DÖNEM";
+                DtgList.Columns["YolDurumu"].HeaderText = "YOL DURUMU";
+                DtgList.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
+                DtgList.Columns["KayitYapan"].HeaderText = "KAYIT YAPAN";
+
+            }
+
+            TxtTop.Text = DtgList.RowCount.ToString();
+
+        }
+
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgList.FilterString;
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgList.SortString;
         }
     }
 }

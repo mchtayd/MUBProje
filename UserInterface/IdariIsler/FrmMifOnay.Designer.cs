@@ -41,10 +41,11 @@ namespace UserInterface.IdariIsler
             this.TxtMiktar = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.BtnOnayla = new System.Windows.Forms.Button();
-            this.BtnTumunuOnayla = new System.Windows.Forms.Button();
-            this.BtnReddet = new System.Windows.Forms.Button();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnTumunuOnayla = new System.Windows.Forms.Button();
             this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnReddet = new System.Windows.Forms.Button();
+            this.BtnGorevAta = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -161,6 +162,13 @@ namespace UserInterface.IdariIsler
             this.BtnOnayla.UseVisualStyleBackColor = false;
             this.BtnOnayla.Click += new System.EventHandler(this.BtnOnayla_Click);
             // 
+            // ımageList1
+            // 
+            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
+            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList1.Images.SetKeyName(0, "okey.png");
+            this.ımageList1.Images.SetKeyName(1, "ok.png");
+            // 
             // BtnTumunuOnayla
             // 
             this.BtnTumunuOnayla.BackColor = System.Drawing.Color.CadetBlue;
@@ -177,6 +185,14 @@ namespace UserInterface.IdariIsler
             this.BtnTumunuOnayla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnTumunuOnayla.UseVisualStyleBackColor = false;
             this.BtnTumunuOnayla.Click += new System.EventHandler(this.BtnTumunuOnayla_Click);
+            // 
+            // ımageList2
+            // 
+            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
+            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList2.Images.SetKeyName(0, "allokey.ico");
+            this.ımageList2.Images.SetKeyName(1, "delete-sign.png");
+            this.ımageList2.Images.SetKeyName(2, "Icojam-Blue-Bits-Database-check.ico");
             // 
             // BtnReddet
             // 
@@ -195,26 +211,23 @@ namespace UserInterface.IdariIsler
             this.BtnReddet.UseVisualStyleBackColor = false;
             this.BtnReddet.Click += new System.EventHandler(this.BtnReddet_Click);
             // 
-            // ımageList1
+            // BtnGorevAta
             // 
-            this.ımageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList1.ImageStream")));
-            this.ımageList1.TransparentColor = System.Drawing.Color.Transparent;
-            this.ımageList1.Images.SetKeyName(0, "okey.png");
-            this.ımageList1.Images.SetKeyName(1, "ok.png");
-            // 
-            // ımageList2
-            // 
-            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
-            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
-            this.ımageList2.Images.SetKeyName(0, "allokey.ico");
-            this.ımageList2.Images.SetKeyName(1, "delete-sign.png");
-            this.ımageList2.Images.SetKeyName(2, "Icojam-Blue-Bits-Database-check.ico");
+            this.BtnGorevAta.Location = new System.Drawing.Point(1045, 698);
+            this.BtnGorevAta.Name = "BtnGorevAta";
+            this.BtnGorevAta.Size = new System.Drawing.Size(123, 23);
+            this.BtnGorevAta.TabIndex = 354;
+            this.BtnGorevAta.Text = "Görev Ata";
+            this.BtnGorevAta.UseVisualStyleBackColor = true;
+            this.BtnGorevAta.Visible = false;
+            this.BtnGorevAta.Click += new System.EventHandler(this.BtnGorevAta_Click);
             // 
             // FrmMifOnay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1505, 806);
+            this.Controls.Add(this.BtnGorevAta);
             this.Controls.Add(this.BtnReddet);
             this.Controls.Add(this.BtnTumunuOnayla);
             this.Controls.Add(this.BtnOnayla);
@@ -252,5 +265,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Button BtnReddet;
         private System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.ImageList ımageList2;
+        private System.Windows.Forms.Button BtnGorevAta;
     }
 }

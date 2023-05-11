@@ -65,6 +65,17 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return null;
             }
         }
+        public Atolye GetControl(string stokNo, string seriNo)
+        {
+            try
+            {
+                return atolyeDal.GetControl(stokNo, seriNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public Atolye ArizaGetir(int abfNo)
         {
             try

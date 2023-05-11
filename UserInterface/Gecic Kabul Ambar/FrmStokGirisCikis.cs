@@ -650,11 +650,11 @@ namespace UserInterface.Depo
                         cekilenMiktar = depo2.Miktar - miktar;
 
                         DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
-                        depoMiktarManager.Update(depoDusulen);
+                        depoMiktarManager.Update(depoDusulen, depo2.RezerveDurumu);
 
 
                         DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
-                        depoMiktarManager.Update(depoCekilen);
+                        depoMiktarManager.Update(depoCekilen, depo2.RezerveDurumu);
 
                         if (cekilenMiktar==0)
                         {
@@ -682,7 +682,7 @@ namespace UserInterface.Depo
                         string cekilenDepoLokasyon = item.Cells["Column9"].Value.ToString(); // çekilen depo lokasyon
 
                         DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoCekilen, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
-                        depoMiktarManager.Update(depoDusulen);
+                        depoMiktarManager.Update(depoDusulen, depo2.RezerveDurumu);
 
                         if (mevcutMiktar == 0)
                         {
@@ -692,7 +692,6 @@ namespace UserInterface.Depo
                         StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs(islemTuru, stokNo, tanim, item.Cells["Column5"].Value.ToString(), item.Cells["Column6"].Value.ConDate(), item.Cells["Column7"].Value.ToString(), item.Cells["Column8"].Value.ToString(), item.Cells["Column9"].Value.ToString(), item.Cells["Column15"].Value.ToString(), "","", miktar, item.Cells["Column19"].Value.ToString(), item.Cells["Column14"].Value.ToString(), item.Cells["Column10"].Value.ToString(), item.Cells["Column12"].Value.ToString(), item.Cells["Column11"].Value.ToString());
 
                         stokGirisCikisManager.Add(stokGirisCıkıs);
-
 
                     }
 
@@ -710,7 +709,7 @@ namespace UserInterface.Depo
                         string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
 
                         DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
-                        depoMiktarManager.Update(depoDusulen);
+                        depoMiktarManager.Update(depoDusulen, depoMiktar.RezerveDurumu);
 
 
                         StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs(islemTuru, stokNo, tanim, item.Cells["Column5"].Value.ToString(), item.Cells["Column6"].Value.ConDate(), item.Cells["Column7"].Value.ToString(), "", "", item.Cells["Column15"].Value.ToString(), item.Cells["Column16"].Value.ToString(), item.Cells["Column17"].Value.ToString(), miktar, item.Cells["Column19"].Value.ToString(), item.Cells["Column14"].Value.ToString(), item.Cells["Column10"].Value.ToString(), item.Cells["Column12"].Value.ToString(), item.Cells["Column11"].Value.ToString());

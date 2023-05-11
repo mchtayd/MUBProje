@@ -94,12 +94,12 @@ namespace DataAccess.Concreate
                 {
                     satTalebiDoldurs.Add(new SatTalebiDoldur(
                         dataReader["BOLGE_ADI"].ToString(), 
-                        dataReader["FORM_NO"].ConInt()));
+                        dataReader["ABF_FORM_NO"].ConInt()));
                 }
                 dataReader.Close();
                 return satTalebiDoldurs;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<SatTalebiDoldur>();
             }

@@ -106,10 +106,7 @@ namespace Business.Concreate.BakimOnarim
             {
                 return "Lütfen SİPARİŞ TÜRÜ Bilgisini doldurunuz.";
             }
-            if (string.IsNullOrEmpty(pyp.IslemTuru))
-            {
-                return "Lütfen İŞLEM TÜRÜ Bilgisini doldurunuz.";
-            }
+            
             if (string.IsNullOrEmpty(pyp.HesaplamaNedeni))
             {
                 return "Lütfen HESAPLAMA NEDENİ Bilgisini doldurunuz.";

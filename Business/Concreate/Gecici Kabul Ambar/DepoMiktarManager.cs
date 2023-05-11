@@ -64,6 +64,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public DepoMiktar GetBarkodLokasyonBul(string stokNo, string seriNo, string revizyon, string takipDurum)
+        {
+            try
+            {
+                return depoMiktarDal.GetBarkodLokasyonBul(stokNo, seriNo, revizyon, takipDurum);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public DepoMiktar StokSeriLotKontrol(string stokNo, string depoNo, string seriNo, string lotNo, string revizyon)
         {
             try
@@ -82,6 +93,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             try
             {
                 return depoMiktarDal.GetList(stokNo,depoNo);
+            }
+            catch (Exception)
+            {
+                return new List<DepoMiktar>();
+            }
+        }
+        public List<DepoMiktar> GetListTumu()
+        {
+            try
+            {
+                return depoMiktarDal.GetListTumu();
             }
             catch (Exception)
             {
@@ -111,11 +133,11 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string Update(DepoMiktar entity)
+        public string Update(DepoMiktar entity, string rezerveDurum)
         {
             try
             {
-                return depoMiktarDal.Update(entity);
+                return depoMiktarDal.Update(entity, rezerveDurum);
             }
             catch (Exception ex)
             {

@@ -43,5 +43,9 @@ namespace Entity.IdariIsler
             this.aktiflikSuresi = aktiflikSuresi;
         }
 
+        public PersonelHesap(string adSoyad)
+        {
+            this.adSoyad = adSoyad;
+        }
     }
 }

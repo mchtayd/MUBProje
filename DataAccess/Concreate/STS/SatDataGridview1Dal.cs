@@ -277,6 +277,34 @@ namespace DataAccess.Concreate
                 return ex.Message;
             }
         }
+        public string DepoTeslimAMif(int id, int mifId)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatTamamlamaDepoTeslimMif", new SqlParameter("@id", id), new SqlParameter("@mifId", mifId));
+                dataReader.Close();
+                return "OK";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MifIdUpdate(int id, int satId)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MifTalepSatIdUpdate", new SqlParameter("@id", id), new SqlParameter("@satId", satId));
+                dataReader.Close();
+                return "OK";
+            }
+
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public SatDataGridview1 Get(string isakisno)
         {
@@ -286,14 +314,80 @@ namespace DataAccess.Concreate
                 SatDataGridview1 item = null;
                 while (dataReader.Read())
                 {
-                    item = new SatDataGridview1(dataReader["SiparisNo"].ToString());
+                    item = new SatDataGridview1(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SAT_FORM_NO"].ConInt(),
+                        dataReader["SAT_NO"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["TALEP_EDEN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["US_BOLGESI"].ToString(),
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        dataReader["ISTENEN_TARIH"].ConDate(),
+                        dataReader["GEREKCE"].ToString(),
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["DosyaYolu"].ToString(),
+                        dataReader["BUTCE_KODU_KALEMI"].ToString(),
+                        dataReader["SAT_BIRIM"].ToString(),
+                        dataReader["HARCAMA_TURU"].ToString(),
+                        dataReader["FATURA_EDILECEK_FIRMA"].ToString(),
+                        dataReader["ILGILI_KISI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["UC_TEKLIF"].ConInt(),
+                        dataReader["FIRMA_BILGISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["PERSONEL_SIPARIS"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["PERSONEL_MAS_YER_NO"].ToString(),
+                        dataReader["PERSONEL_MAS_YERI"].ToString(),
+                        dataReader["BELGE_TURU"].ToString(),
+                        dataReader["BELGE_NUMARASI"].ToString(),
+                        dataReader["BELGE_TARIHI"].ConDate(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["SAT_OLUSTURMA_TURU"].ToString(),
+                        dataReader["RED_NEDENI"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["TEKLIF_DURUM"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["MAIL_SINIRI"].ToString(),
+                        dataReader["MAIL_DURUMU"].ToString(),
+                        dataReader["MALZEMENIN_TESLIM_ALINDIGI_TARIH"].ConDate(),
+                        dataReader["HARCAMA_YAPAN"].ToString(),
+                        dataReader["ASELSAN_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ASELSAN_MAIL_TARIHI"].ConDate(),
+                        dataReader["ODEME_MAIL_GONDERME_TARIHI"].ConDate(),
+                        dataReader["ODEME_MAIL_TARIHI"].ConDate(),
+                        dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
+                        dataReader["DEPO_TESLIM_DURUMU"].ToString(),
+                        dataReader["BUTCE_TANIMI"].ToString(),
+                        dataReader["MALIYET_TURU"].ToString());
                 }
                 dataReader.Close();
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
+            }
+        }
+        public int MifTalepGet(int mifId)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MifTalepGetSat", new SqlParameter("@mifId", mifId));
+                int id = 0;
+                while (dataReader.Read())
+                {
+                    id = dataReader["SAT_BILGISI"].ConInt();
+                }
+                dataReader.Close();
+                return id;
+            }
+            catch (Exception)
+            {
+                return 0;
             }
         }
         public SatDataGridview1 SatGuncelleGet(string siparisNo)
@@ -645,7 +739,7 @@ namespace DataAccess.Concreate
                 dataReader = sqlServices.StoreReader("DevamEdenSatGuncelle",
                     new SqlParameter("@id", entity.Id),
                     new SqlParameter("@usBolgesi", entity.Usbolgesi),
-                    new SqlParameter("@formNo", entity.Formno),
+                    new SqlParameter("@formNo", entity.Abfformno),
                     new SqlParameter("@istenenTarih", entity.Tarih),
                     new SqlParameter("@gerekce", entity.Gerekce),
                     new SqlParameter("@talepEdenPersonel", entity.TalepEdenPersonel),

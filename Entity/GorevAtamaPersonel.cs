@@ -8,7 +8,7 @@ namespace Entity
 {
     public class GorevAtamaPersonel
     {
-        int id, benzersizId; string departman, gorevAtanacakPersonel, islemAdimi; DateTime tarih; string sure, yapilanIslem;
+        int id, benzersizId; string departman, gorevAtanacakPersonel, islemAdimi; DateTime tarih; string sure, yapilanIslem, abfNo;
 
         public int Id { get => id; set => id = value; }
         public int BenzersizId { get => benzersizId; set => benzersizId = value; }
@@ -19,8 +19,9 @@ namespace Entity
         public string Sure { get => sure; set => sure = value; }
         public string YapilanIslem { get => yapilanIslem; set => yapilanIslem = value; }
         public DateTime CalismaSuresi { get; set; }
+        public string AbfNo { get => abfNo; set => abfNo = value; }
 
-        public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure, string yapilanIslem, DateTime calismaSuresi)
+        public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure, string yapilanIslem, DateTime calismaSuresi, string abfNo)
         {
             this.id = id;
             this.benzersizId = benzersizId;
@@ -31,7 +32,9 @@ namespace Entity
             this.sure = sure;
             this.yapilanIslem = yapilanIslem;
             this.CalismaSuresi = calismaSuresi;
+            this.abfNo = abfNo;
         }
+
         /*public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure, string yapilanIslem, DateTime calismaSuresi)
         {
             this.id = id;

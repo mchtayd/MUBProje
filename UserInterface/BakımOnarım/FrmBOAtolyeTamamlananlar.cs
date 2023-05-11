@@ -95,6 +95,7 @@ namespace UserInterface.BakımOnarım
             DtgTamamlanan.Columns["BulunduguIslemAdimi"].Visible = false;
             DtgTamamlanan.Columns["ArizaDurum"].Visible = false;
             DtgTamamlanan.Columns["DosyaYolu"].Visible = false;
+            DtgTamamlanan.Columns["IslemAdimiSorumlusu"].Visible = false;
 
 
             DtgTamamlanan.Columns["IcSiparisNo"].DisplayIndex = 0;

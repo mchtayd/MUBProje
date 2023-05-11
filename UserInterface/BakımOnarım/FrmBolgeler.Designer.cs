@@ -495,6 +495,7 @@ namespace UserInterface.BakımOnarım
             this.BtnDepoEkle.TabIndex = 135;
             this.BtnDepoEkle.Tag = "admin";
             this.BtnDepoEkle.UseVisualStyleBackColor = false;
+            this.BtnDepoEkle.Visible = false;
             this.BtnDepoEkle.Click += new System.EventHandler(this.BtnDepoEkle_Click);
             // 
             // label5
@@ -575,7 +576,6 @@ namespace UserInterface.BakımOnarım
             // 
             // CmbBolgeAdi
             // 
-            this.CmbBolgeAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBolgeAdi.FormattingEnabled = true;
             this.CmbBolgeAdi.Location = new System.Drawing.Point(195, 82);
             this.CmbBolgeAdi.Name = "CmbBolgeAdi";

@@ -221,7 +221,6 @@ namespace UserInterface.IdariIsler
             Document wDoc = wDocs.Open(ref filePath, ReadOnly: false); // elle müdahele açıldı
             wDoc.Activate();
 
-
             Bookmarks wBookmarks = wDoc.Bookmarks;
             wBookmarks["TalepEdenBolum"].Range.Text = LblMasrafYeri.Text;
             wBookmarks["Tarih"].Range.Text = DateTime.Now.ToString("dd.MM.yyyy");
@@ -239,7 +238,7 @@ namespace UserInterface.IdariIsler
             wBookmarks["AracTeslimEden"].Range.Text = infos[1].ToString();
             wBookmarks["AracTeslimAlan"].Range.Text = CmbTalepEdenAd.Text;
             wBookmarks["DonusKm"].Range.Text = "";
-            wBookmarks["Plaka"].Range.Text = CmbPlaka.Text;//GorevDonusTarihi
+            wBookmarks["Plaka"].Range.Text = CmbPlaka.Text;
             wBookmarks["TarihOnay"].Range.Text = DateTime.Now.ToString("dd.MM.yyyy");
 
 
@@ -451,6 +450,7 @@ namespace UserInterface.IdariIsler
                 TxtDonusKm.Clear();
             }
         }
+
 
         void CreateWordKapat()
         {

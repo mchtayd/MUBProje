@@ -24,9 +24,12 @@ namespace DataAccess.Concreate.Depo
         {
             try
             {
-                dataReader = sqlServices.StoreReader("DepoEkle",
-                    new SqlParameter("@depo",entity.Depo),
-                    new SqlParameter("@aciklama",entity.Aciklama));
+                dataReader = sqlServices.StoreReader("DepoKayitAdd",
+                    new SqlParameter("@depoNo", entity.Depo),
+                    new SqlParameter("@depoAdi", entity.DepoAdi),
+                    new SqlParameter("@il", entity.Il),
+                    new SqlParameter("@ilce", entity.Ilce),
+                    new SqlParameter("@aciklama", entity.Aciklama));
 
                 dataReader.Close();
                 return "OK";
@@ -41,7 +44,7 @@ namespace DataAccess.Concreate.Depo
         {
             try
             {
-                sqlServices.Stored("DepoDelete",new SqlParameter("@id",id));
+                sqlServices.Stored("DepoKayitDelete", new SqlParameter("@id",id));
                 return "OK";
             }
             catch (Exception ex)
@@ -54,14 +57,17 @@ namespace DataAccess.Concreate.Depo
         {
             try
             {
-                dataReader = sqlServices.StoreReader("DepoListeleAdres",new SqlParameter("@id",id));
+                dataReader = sqlServices.StoreReader("DepoKayitGetList", new SqlParameter("@id",id));
                 DepoKayit item = null;
                 while (dataReader.Read())
                 {
                     item = new DepoKayit(
                         dataReader["ID"].ConInt(),
-                        dataReader["DEPO"].ToString(),
-                        dataReader["ACIKLAMA"].ToString());
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DEPO_ADI"].ToString(),
+                        dataReader["IL"].ToString(),
+                        dataReader["ILCE"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -77,13 +83,16 @@ namespace DataAccess.Concreate.Depo
             try
             {
                 List<DepoKayit> depoKayits = new List<DepoKayit>();
-                dataReader = sqlServices.StoreReader("DepoListele");
+                dataReader = sqlServices.StoreReader("DepoKayitGetList");
                 while (dataReader.Read())
                 {
                     depoKayits.Add(new DepoKayit(
                         dataReader["ID"].ConInt(),
-                        dataReader["DEPO"].ToString(),
-                        dataReader["ACIKLAMA"].ToString()));
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DEPO_ADI"].ToString(),
+                        dataReader["IL"].ToString(),
+                        dataReader["ILCE"].ToString()));
                 }
                 dataReader.Close();
                 return depoKayits;
@@ -120,10 +129,13 @@ namespace DataAccess.Concreate.Depo
         {
             try
             {
-                dataReader = sqlServices.StoreReader("DepoGuncelle",
+                dataReader = sqlServices.StoreReader("DepoKayitUpdate",
                     new SqlParameter("@id",entity.Id),
-                    new SqlParameter("@depo",entity.Depo),
-                    new SqlParameter("@aciklama",entity.Aciklama));
+                    new SqlParameter("@depoNo", entity.Depo),
+                    new SqlParameter("@depoAdi", entity.DepoAdi),
+                    new SqlParameter("@il", entity.Il),
+                    new SqlParameter("@ilce", entity.Ilce),
+                    new SqlParameter("@aciklama", entity.Aciklama));
                 dataReader.Close();
                 return "OK";
 

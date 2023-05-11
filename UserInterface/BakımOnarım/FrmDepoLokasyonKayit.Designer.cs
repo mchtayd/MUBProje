@@ -58,9 +58,9 @@ namespace UserInterface.BakımOnarım
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgDepolar);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(6, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(414, 558);
+            this.groupBox1.Size = new System.Drawing.Size(420, 674);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DEPO ADRESİ";
@@ -76,7 +76,7 @@ namespace UserInterface.BakımOnarım
             this.DtgDepolar.Name = "DtgDepolar";
             this.DtgDepolar.ReadOnly = true;
             this.DtgDepolar.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgDepolar.Size = new System.Drawing.Size(408, 539);
+            this.DtgDepolar.Size = new System.Drawing.Size(414, 655);
             this.DtgDepolar.TabIndex = 0;
             this.DtgDepolar.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgDepolar_CellMouseClick);
             // 
@@ -108,46 +108,51 @@ namespace UserInterface.BakımOnarım
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(37, 619);
+            this.label1.Location = new System.Drawing.Point(37, 568);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(40, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "DEPO:";
+            this.label1.Visible = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(14, 648);
+            this.label2.Location = new System.Drawing.Point(14, 597);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(63, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "AÇIKLAMA:";
+            this.label2.Visible = false;
             // 
             // BtnDepoEkle
             // 
             this.BtnDepoEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDepoEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDepoEkle.Location = new System.Drawing.Point(83, 676);
+            this.BtnDepoEkle.Location = new System.Drawing.Point(83, 625);
             this.BtnDepoEkle.Name = "BtnDepoEkle";
             this.BtnDepoEkle.Size = new System.Drawing.Size(74, 27);
             this.BtnDepoEkle.TabIndex = 4;
             this.BtnDepoEkle.Text = "KAYDET";
             this.BtnDepoEkle.UseVisualStyleBackColor = true;
+            this.BtnDepoEkle.Visible = false;
             this.BtnDepoEkle.Click += new System.EventHandler(this.BtnDepoEkle_Click);
             // 
             // TxtDepo
             // 
-            this.TxtDepo.Location = new System.Drawing.Point(83, 615);
+            this.TxtDepo.Location = new System.Drawing.Point(83, 564);
             this.TxtDepo.Name = "TxtDepo";
             this.TxtDepo.Size = new System.Drawing.Size(111, 20);
             this.TxtDepo.TabIndex = 5;
+            this.TxtDepo.Visible = false;
             // 
             // TxtDepoAciklama
             // 
-            this.TxtDepoAciklama.Location = new System.Drawing.Point(83, 644);
+            this.TxtDepoAciklama.Location = new System.Drawing.Point(83, 593);
             this.TxtDepoAciklama.Name = "TxtDepoAciklama";
             this.TxtDepoAciklama.Size = new System.Drawing.Size(340, 20);
             this.TxtDepoAciklama.TabIndex = 6;
+            this.TxtDepoAciklama.Visible = false;
             // 
             // TxtLokasyonAcıklama
             // 
@@ -197,7 +202,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label31.Location = new System.Drawing.Point(15, 582);
+            this.label31.Location = new System.Drawing.Point(6, 688);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(94, 15);
             this.label31.TabIndex = 342;
@@ -207,7 +212,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(115, 582);
+            this.TxtTop.Location = new System.Drawing.Point(106, 688);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 343;
@@ -237,12 +242,13 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnDepoSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDepoSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDepoSil.Location = new System.Drawing.Point(163, 676);
+            this.BtnDepoSil.Location = new System.Drawing.Point(163, 625);
             this.BtnDepoSil.Name = "BtnDepoSil";
             this.BtnDepoSil.Size = new System.Drawing.Size(74, 27);
             this.BtnDepoSil.TabIndex = 346;
             this.BtnDepoSil.Text = "SİL";
             this.BtnDepoSil.UseVisualStyleBackColor = true;
+            this.BtnDepoSil.Visible = false;
             this.BtnDepoSil.Click += new System.EventHandler(this.BtnDepoSil_Click);
             // 
             // BtnLokasyonSil
@@ -262,6 +268,7 @@ namespace UserInterface.BakımOnarım
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 718);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnLokasyonSil);
             this.Controls.Add(this.BtnDepoSil);
             this.Controls.Add(this.label5);
@@ -279,7 +286,6 @@ namespace UserInterface.BakımOnarım
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.MinimizeBox = false;

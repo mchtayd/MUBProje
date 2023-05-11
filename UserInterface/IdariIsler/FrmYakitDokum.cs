@@ -16,6 +16,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
+using Microsoft.Office.Interop.Excel;
+using DataTable = System.Data.DataTable;
+using DocumentFormat.OpenXml.Presentation;
 
 namespace UserInterface.IdariIsler
 {
@@ -26,7 +29,10 @@ namespace UserInterface.IdariIsler
         IsAkisNoManager isAkisNoManager;
         ComboManager comboManager;
         YakitDokumManager yakitDokumManager;
-        List<AracZimmeti> aracZimmetis;
+        AracManager aracManager;
+        IstenAyrilisManager istenAyrilisManager;
+
+        List<Arac> aracs;
         List<string> fileNames = new List<string>();
         double toplam, litreFiyati, alinanLitre = 0;
         public string comboAd;
@@ -40,6 +46,8 @@ namespace UserInterface.IdariIsler
             isAkisNoManager = IsAkisNoManager.GetInstance();
             comboManager = ComboManager.GetInstance();
             yakitDokumManager = YakitDokumManager.GetInstance();
+            aracManager = AracManager.GetInstance();
+            istenAyrilisManager = IstenAyrilisManager.GetInstance();
         }
 
         private void FrmYakitDokum_Load(object sender, EventArgs e)
@@ -102,11 +110,13 @@ namespace UserInterface.IdariIsler
 
         void Plakalar()
         {
-            aracZimmetis = aracZimmetiManager.GetList();
-            CmbPlaka.DataSource = aracZimmetis;
+            aracs = aracManager.GetList();
+
+            CmbPlaka.DataSource = aracs;
             CmbPlaka.ValueMember = "Id";
             CmbPlaka.DisplayMember = "Plaka";
             CmbPlaka.SelectedValue = -1;
+
         }
         /*void PlakalarTasit()
         {
@@ -471,39 +481,76 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show("Lütfen Excel Formatında Bir Dosya Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 ExcelCek();
+                DataTableEdit();
                 ToplamlarTT();
             }
+        }
+
+        void DataTableEdit()
+        {
+            DtgDeneme.Columns.Add("LitreFiyat", "LİTRE FİYAT");
+            int i = 0;
+            foreach (DataGridViewRow item in DtgDeneme.Rows)
+            {
+                double sonuc = item.Cells[10].Value.ConDouble() / item.Cells[9].Value.ConDouble();
+                sonuc = Math.Round(sonuc, 2);
+                double toplamFiyat = item.Cells[10].Value.ConDouble();
+                toplamFiyat = Math.Round(toplamFiyat, 2);
+                DtgDeneme.Rows[i].Cells["LitreFiyat"].Value = sonuc.ToString();
+                DtgDeneme.Rows[i].Cells[10].Value = toplamFiyat.ToString();
+                i++;
+            }
+
+            DtgDeneme.Columns[0].DisplayIndex = 0; // SIRA NO
+            DtgDeneme.Columns[1].DisplayIndex = 1; // TARİH
+            DtgDeneme.Columns[2].DisplayIndex = 2; // PLAKA
+            DtgDeneme.Columns[3].DisplayIndex = 3; // MARKA MODEL
+            DtgDeneme.Columns[4].DisplayIndex = 4; // ARAÇ TÜRÜ
+            DtgDeneme.Columns[5].DisplayIndex = 5; // ARAÇ TİPİ
+            DtgDeneme.Columns[6].DisplayIndex = 6; // PROJE
+            DtgDeneme.Columns[7].DisplayIndex = 7; // PERSONEL AD SOYAD
+            DtgDeneme.Columns[8].DisplayIndex = 8; // FİRMA BİLGİSİ (PO, OPET)
+            DtgDeneme.Columns[9].DisplayIndex = 9; // TOPLAM LİTRE
+            DtgDeneme.Columns[12].DisplayIndex = 10; // LİTRE FİYAT
+            DtgDeneme.Columns[11].Visible = false; // TOPLAM FİYAT İSKONTOLU
+
+            DtgDeneme.Columns[10].DisplayIndex = 11; // TOPLAM FİYAT İSKONTOSUZ
+
+            DtgDeneme.Columns[0].HeaderText = "SIRA NO";
+            DtgDeneme.Columns[1].HeaderText = "TARİH";
+            DtgDeneme.Columns[2].HeaderText = "PLAKA";
+            DtgDeneme.Columns[3].HeaderText = "ARAÇ MARKA MODEL";
+            DtgDeneme.Columns[4].HeaderText = "ARAÇ TÜRÜ";
+            DtgDeneme.Columns[5].HeaderText = "ARAÇ TİPİ";
+            DtgDeneme.Columns[6].HeaderText = "PROJE";
+            DtgDeneme.Columns[7].HeaderText = "PERSONEL ADI";
+            DtgDeneme.Columns[8].HeaderText = "FİRMA BİLGİSİ";
+            DtgDeneme.Columns[9].HeaderText = "TOPLAM ALINAN LİTRE";
+            DtgDeneme.Columns[10].HeaderText = "TOPLAM FİYAT";
 
         }
+
         void ToplamlarTT()
         {
             double toplam = 0;
-            for (int i = 0; i < DtgTTList.Rows.Count; ++i)
+            for (int i = 0; i < DtgDeneme.Rows.Count; ++i)
             {
-                toplam += Convert.ToDouble(DtgTTList.Rows[i].Cells[6].Value);
+                toplam += Convert.ToDouble(DtgDeneme.Rows[i].Cells[10].Value);
             }
+
             LblTTasitTanima.Text = toplam.ToString("C2");
-            LblTopmaSayi.Text = DtgTTList.RowCount.ToString();
+            LblTopmaSayi.Text = DtgDeneme.RowCount.ToString();
         }
+
         void ExcelCek()
         {
-            DataTable table = FrmHelper.GetDataTableFromExcel(TxtDosyaYolu.Text.Replace(" ", ""), "CR_YakitAlimDetayRaporu");
+            DataTable table = FrmHelper.GetDataTableFromExcel(TxtDosyaYolu.Text.Replace(" ", ""), "Plaka Bazlı Detay");
 
-            DtgTTList.DataSource = null;
-            DtgTTList.DataSource = table;
-           
-            /*
-            IXLWorkbook workbook = new XLWorkbook(TxtDosyaYolu.Text);
-            IXLWorksheet worksheet = workbook.Worksheet("CR_YakitAlimDetayRaporu");
+            DtgDeneme.DataSource = null;
+            DtgDeneme.DataSource = table;
 
-            var range = worksheet.RangeUsed();
-            double toplamTutar = 0;
-            foreach (IXLRangeRow row in range.Rows())
-            {
-                toplamTutar += row.Cell("G").Value.ConDouble();
-            }
-            */
         }
 
         void DosyaOlustur()
@@ -540,31 +587,30 @@ namespace UserInterface.IdariIsler
             if (File.Exists(dosyaYolu + "\\" + kaynakdosyaismi))
             //if (false)
             {
-                MessageBox.Show("Belirtilen Klasörde " + kaynakdosyaismi + " Adıyla Zaten Bir Dosya Mevcut!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //MessageBox.Show("Belirtilen Klasörde " + kaynakdosyaismi + " Adıyla Zaten Bir Dosya Mevcut!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                File.Delete(dosyaYolu + "\\" + kaynakdosyaismi);
             }
-            else
-            {
-                File.Copy(alinandosya, dosyaYolu + "\\" + kaynakdosyaismi);
-                fileNames.Add(alinandosya);
-                webBrowser3.Navigate(dosyaYolu);
-                TxtDosyaYolu.Text = alinandosya;
-                dosyaKontrol2 = true;
-            }
+
+            File.Copy(alinandosya, dosyaYolu + "\\" + kaynakdosyaismi);
+            fileNames.Add(alinandosya);
+            webBrowser3.Navigate(dosyaYolu);
+            TxtDosyaYolu.Text = alinandosya;
+            dosyaKontrol2 = true;
         }
 
         private void BtnKaydetTT_Click(object sender, EventArgs e)
         {
-            if (DtgTTList.RowCount==0)
+            if (DtgDeneme.RowCount==0)
             {
                 MessageBox.Show("Lütfen Öncelikle Excel Dosyanızdan Araç Yakıt Verilerini Tabloya Çekiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
-            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstoyr Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istiyor musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
-                foreach (DataGridViewRow item in DtgTTList.Rows)
+                foreach (DataGridViewRow item in DtgDeneme.Rows)
                 {
-                    string donem = FrmHelper.DonemControl(item.Cells[7].Value.ConDate());
+                    string donem = FrmHelper.DonemControl(item.Cells[1].Value.ConDate());
 
                     AracZimmeti aracZimmeti = aracZimmetiManager.Get(item.Cells[2].Value.ToString());
                     string aracSiparisNo = "";
@@ -574,9 +620,23 @@ namespace UserInterface.IdariIsler
                         aracSiparisNo = aracZimmeti.SiparisNo;
                         zimetliPersonel = aracZimmeti.PersonelAd;
                     }
+                    else
+                    {
+                        Arac arac = aracManager.Get(item.Cells[2].Value.ToString());
+                        if (arac!=null)
+                        {
+                            aracSiparisNo = arac.Siparisno;
+                        }
+                        else
+                        {
+                            aracSiparisNo = "";
+                        }
+                        string[] personel = item.Cells[7].Value.ToString().Split('-');
+                        zimetliPersonel = personel[0];
+                    }
 
-                    YakitDokum yakitDokum = new YakitDokum(LblIsAkisNoTasit.Text.ConInt(), "PETROL OFİSİ", donem, item.Cells[7].Value.ConDate(), item.Cells[2].Value.ToString(), aracSiparisNo,
-                        item.Cells[5].Value.ConDouble(), item.Cells[6].Value.ConDouble(), dosyaYolu, zimetliPersonel);
+                    YakitDokum yakitDokum = new YakitDokum(LblIsAkisNoTasit.Text.ConInt(), item.Cells[8].Value.ToString().ToUpper(), donem, item.Cells[1].Value.ConDate(), item.Cells[2].Value.ToString().Trim(), aracSiparisNo,
+                        item.Cells[9].Value.ConDouble(), item.Cells[10].Value.ConDouble(), dosyaYolu, zimetliPersonel.ToUpper());
                     
                     string mesaj = yakitDokumManager.AddTasitTanima(yakitDokum);
                     if (mesaj!="OK")
@@ -585,17 +645,53 @@ namespace UserInterface.IdariIsler
                         return;
                     }
                 }
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
+
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 webBrowser3.Navigate("");
-                DtgTTList.DataSource = null;
-                //DtgTTList.Rows.Clear();
+                DtgDeneme.DataSource = null;
+                //DtgDeneme.Rows.Clear();
                 TxtDosyaYolu.Clear();
                 IsAkisKontrolsuzGuncelle();
                 IsAkisNo();
                 IsAkisNoTasitTanima();
             }
         }
-        
+
+        private void ChkAyrilanArac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkAyrilanArac.Checked == true)
+            {
+                CmbPlaka.DataSource = aracManager.ProjeDisiList();
+                CmbPlaka.ValueMember = "Id";
+                CmbPlaka.DisplayMember = "Plaka";
+                CmbPlaka.SelectedValue = -1;
+                TxtAracSiparisNo.Clear();
+            }
+            else
+            {
+                Plakalar();
+                TxtAracSiparisNo.Clear();
+            }
+        }
+
+        private void ChkAyrilanPersonel_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkAyrilanPersonel.Checked == true)
+            {
+                PersonellerAyrilan();
+            }
+            else
+            {
+                Personeller();
+            }
+        }
+        void PersonellerAyrilan()
+        {
+            CmbPersoneller.DataSource = istenAyrilisManager.GetList();
+            CmbPersoneller.ValueMember = "Id";
+            CmbPersoneller.DisplayMember = "Adsoyad";
+            CmbPersoneller.SelectedValue = "";
+        }
 
         void KalemleriKaydet()
         {

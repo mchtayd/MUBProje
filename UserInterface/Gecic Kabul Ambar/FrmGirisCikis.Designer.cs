@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGirisCikis));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
@@ -78,18 +78,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbDepodanDepoya = new System.Windows.Forms.GroupBox();
             this.CmbMalzemeYeriDusulen = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
-            this.CmbMalzemeYeriCekilen = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.TxtDepoAdresiDusulen = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.CmbDepoNoDusulen = new System.Windows.Forms.ComboBox();
             this.label23 = new System.Windows.Forms.Label();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label36 = new System.Windows.Forms.Label();
+            this.CmbMalzemeYeriCekilen = new System.Windows.Forms.ComboBox();
+            this.label17 = new System.Windows.Forms.Label();
             this.TxtDepoAdresiCekilen = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.CmbDepoNoCekilen = new System.Windows.Forms.ComboBox();
             this.label35 = new System.Windows.Forms.Label();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.label36 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label37 = new System.Windows.Forms.Label();
             this.GrbBarkod = new System.Windows.Forms.GroupBox();
@@ -251,7 +251,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbIslemYapılacakDepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.GrbIslemYapılacakDepo.Location = new System.Drawing.Point(9, 91);
             this.GrbIslemYapılacakDepo.Name = "GrbIslemYapılacakDepo";
-            this.GrbIslemYapılacakDepo.Size = new System.Drawing.Size(1431, 139);
+            this.GrbIslemYapılacakDepo.Size = new System.Drawing.Size(1428, 151);
             this.GrbIslemYapılacakDepo.TabIndex = 334;
             this.GrbIslemYapılacakDepo.TabStop = false;
             this.GrbIslemYapılacakDepo.Text = "YENİ DEPO GİRİŞ";
@@ -270,6 +270,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnMalzemeYeri.TabIndex = 140;
             this.BtnMalzemeYeri.Tag = "admin";
             this.BtnMalzemeYeri.UseVisualStyleBackColor = false;
+            this.BtnMalzemeYeri.Visible = false;
             this.BtnMalzemeYeri.Click += new System.EventHandler(this.BtnMalzemeYeri_Click);
             // 
             // TxtMalzemeYeri
@@ -301,6 +302,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnDepoEkle.TabIndex = 136;
             this.BtnDepoEkle.Tag = "admin";
             this.BtnDepoEkle.UseVisualStyleBackColor = false;
+            this.BtnDepoEkle.Visible = false;
             this.BtnDepoEkle.Click += new System.EventHandler(this.BtnDepoEkle_Click);
             // 
             // label9
@@ -354,7 +356,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbBildirimdenDepoya.Controls.Add(this.panel5);
             this.GrbBildirimdenDepoya.Controls.Add(this.panel7);
             this.GrbBildirimdenDepoya.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbBildirimdenDepoya.Location = new System.Drawing.Point(12, 91);
+            this.GrbBildirimdenDepoya.Location = new System.Drawing.Point(12, 90);
             this.GrbBildirimdenDepoya.Name = "GrbBildirimdenDepoya";
             this.GrbBildirimdenDepoya.Size = new System.Drawing.Size(801, 158);
             this.GrbBildirimdenDepoya.TabIndex = 337;
@@ -493,17 +495,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbDepodanBildirime.Controls.Add(this.TxtDepodanBildirimeAbfNo);
             this.GrbDepodanBildirime.Controls.Add(this.label22);
             this.GrbDepodanBildirime.Controls.Add(this.panel4);
-            this.GrbDepodanBildirime.Controls.Add(this.CmbDepodanBildirimeMalzemeYeri);
-            this.GrbDepodanBildirime.Controls.Add(this.label21);
-            this.GrbDepodanBildirime.Controls.Add(this.TxtDepodanBildirimeDepoAdresi);
-            this.GrbDepodanBildirime.Controls.Add(this.label24);
-            this.GrbDepodanBildirime.Controls.Add(this.CmbDepodanBildirimeDepoNo);
-            this.GrbDepodanBildirime.Controls.Add(this.label25);
-            this.GrbDepodanBildirime.Controls.Add(this.panel6);
             this.GrbDepodanBildirime.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbDepodanBildirime.Location = new System.Drawing.Point(9, 91);
+            this.GrbDepodanBildirime.Location = new System.Drawing.Point(12, 94);
             this.GrbDepodanBildirime.Name = "GrbDepodanBildirime";
-            this.GrbDepodanBildirime.Size = new System.Drawing.Size(801, 158);
+            this.GrbDepodanBildirime.Size = new System.Drawing.Size(709, 158);
             this.GrbDepodanBildirime.TabIndex = 336;
             this.GrbDepodanBildirime.TabStop = false;
             this.GrbDepodanBildirime.Text = "DEPODAN BİLDİRİME İADE";
@@ -512,7 +507,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(450, 66);
+            this.label20.Location = new System.Drawing.Point(57, 73);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(88, 30);
             this.label20.TabIndex = 155;
@@ -521,7 +516,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // LblDepodanBildirimePersonel
             // 
             this.LblDepodanBildirimePersonel.AutoSize = true;
-            this.LblDepodanBildirimePersonel.Location = new System.Drawing.Point(544, 110);
+            this.LblDepodanBildirimePersonel.Location = new System.Drawing.Point(151, 117);
             this.LblDepodanBildirimePersonel.Name = "LblDepodanBildirimePersonel";
             this.LblDepodanBildirimePersonel.Size = new System.Drawing.Size(21, 15);
             this.LblDepodanBildirimePersonel.TabIndex = 154;
@@ -529,7 +524,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // TxtDepodanBildirimeAbfNo
             // 
-            this.TxtDepodanBildirimeAbfNo.Location = new System.Drawing.Point(544, 70);
+            this.TxtDepodanBildirimeAbfNo.Location = new System.Drawing.Point(151, 77);
             this.TxtDepodanBildirimeAbfNo.Name = "TxtDepodanBildirimeAbfNo";
             this.TxtDepodanBildirimeAbfNo.Size = new System.Drawing.Size(224, 21);
             this.TxtDepodanBildirimeAbfNo.TabIndex = 153;
@@ -538,7 +533,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(413, 110);
+            this.label22.Location = new System.Drawing.Point(20, 117);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(125, 15);
             this.label22.TabIndex = 152;
@@ -548,7 +543,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.panel4.BackColor = System.Drawing.Color.PaleGreen;
             this.panel4.Controls.Add(this.label19);
-            this.panel4.Location = new System.Drawing.Point(416, 25);
+            this.panel4.Location = new System.Drawing.Point(23, 32);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(353, 27);
             this.panel4.TabIndex = 2;
@@ -566,62 +561,69 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // CmbDepodanBildirimeMalzemeYeri
             // 
             this.CmbDepodanBildirimeMalzemeYeri.FormattingEnabled = true;
-            this.CmbDepodanBildirimeMalzemeYeri.Location = new System.Drawing.Point(121, 123);
+            this.CmbDepodanBildirimeMalzemeYeri.Location = new System.Drawing.Point(1176, 141);
             this.CmbDepodanBildirimeMalzemeYeri.Name = "CmbDepodanBildirimeMalzemeYeri";
-            this.CmbDepodanBildirimeMalzemeYeri.Size = new System.Drawing.Size(224, 23);
+            this.CmbDepodanBildirimeMalzemeYeri.Size = new System.Drawing.Size(224, 21);
             this.CmbDepodanBildirimeMalzemeYeri.TabIndex = 150;
+            this.CmbDepodanBildirimeMalzemeYeri.Visible = false;
             // 
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(23, 126);
+            this.label21.Location = new System.Drawing.Point(1078, 144);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 15);
+            this.label21.Size = new System.Drawing.Size(73, 13);
             this.label21.TabIndex = 149;
             this.label21.Text = "Malzeme Yeri:";
+            this.label21.Visible = false;
             // 
             // TxtDepodanBildirimeDepoAdresi
             // 
-            this.TxtDepodanBildirimeDepoAdresi.Location = new System.Drawing.Point(121, 97);
+            this.TxtDepodanBildirimeDepoAdresi.Location = new System.Drawing.Point(1176, 115);
             this.TxtDepodanBildirimeDepoAdresi.Name = "TxtDepodanBildirimeDepoAdresi";
-            this.TxtDepodanBildirimeDepoAdresi.Size = new System.Drawing.Size(224, 21);
+            this.TxtDepodanBildirimeDepoAdresi.Size = new System.Drawing.Size(224, 20);
             this.TxtDepodanBildirimeDepoAdresi.TabIndex = 144;
+            this.TxtDepodanBildirimeDepoAdresi.Visible = false;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(30, 100);
+            this.label24.Location = new System.Drawing.Point(1085, 118);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(77, 15);
+            this.label24.Size = new System.Drawing.Size(68, 13);
             this.label24.TabIndex = 143;
             this.label24.Text = "Depo Adresi:";
+            this.label24.Visible = false;
             // 
             // CmbDepodanBildirimeDepoNo
             // 
             this.CmbDepodanBildirimeDepoNo.FormattingEnabled = true;
-            this.CmbDepodanBildirimeDepoNo.Location = new System.Drawing.Point(121, 70);
+            this.CmbDepodanBildirimeDepoNo.Location = new System.Drawing.Point(1176, 88);
             this.CmbDepodanBildirimeDepoNo.Name = "CmbDepodanBildirimeDepoNo";
-            this.CmbDepodanBildirimeDepoNo.Size = new System.Drawing.Size(224, 23);
+            this.CmbDepodanBildirimeDepoNo.Size = new System.Drawing.Size(224, 21);
             this.CmbDepodanBildirimeDepoNo.TabIndex = 141;
+            this.CmbDepodanBildirimeDepoNo.Visible = false;
             this.CmbDepodanBildirimeDepoNo.SelectedIndexChanged += new System.EventHandler(this.CmbDepodanBildirimeDepoNo_SelectedIndexChanged);
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(54, 73);
+            this.label25.Location = new System.Drawing.Point(1109, 91);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(59, 15);
+            this.label25.Size = new System.Drawing.Size(53, 13);
             this.label25.TabIndex = 140;
             this.label25.Text = "Depo No:";
+            this.label25.Visible = false;
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel6.Controls.Add(this.label27);
-            this.panel6.Location = new System.Drawing.Point(26, 25);
+            this.panel6.Location = new System.Drawing.Point(1081, 43);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(353, 27);
             this.panel6.TabIndex = 0;
+            this.panel6.Visible = false;
             // 
             // label27
             // 
@@ -637,21 +639,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.GrbDepodanDepoya.Controls.Add(this.CmbMalzemeYeriDusulen);
             this.GrbDepodanDepoya.Controls.Add(this.label18);
-            this.GrbDepodanDepoya.Controls.Add(this.CmbMalzemeYeriCekilen);
-            this.GrbDepodanDepoya.Controls.Add(this.label17);
             this.GrbDepodanDepoya.Controls.Add(this.TxtDepoAdresiDusulen);
             this.GrbDepodanDepoya.Controls.Add(this.label12);
             this.GrbDepodanDepoya.Controls.Add(this.CmbDepoNoDusulen);
             this.GrbDepodanDepoya.Controls.Add(this.label23);
-            this.GrbDepodanDepoya.Controls.Add(this.TxtDepoAdresiCekilen);
-            this.GrbDepodanDepoya.Controls.Add(this.label26);
-            this.GrbDepodanDepoya.Controls.Add(this.CmbDepoNoCekilen);
-            this.GrbDepodanDepoya.Controls.Add(this.label35);
             this.GrbDepodanDepoya.Controls.Add(this.panel3);
-            this.GrbDepodanDepoya.Controls.Add(this.panel2);
             this.GrbDepodanDepoya.Location = new System.Drawing.Point(12, 97);
             this.GrbDepodanDepoya.Name = "GrbDepodanDepoya";
-            this.GrbDepodanDepoya.Size = new System.Drawing.Size(801, 158);
+            this.GrbDepodanDepoya.Size = new System.Drawing.Size(709, 158);
             this.GrbDepodanDepoya.TabIndex = 335;
             this.GrbDepodanDepoya.TabStop = false;
             this.GrbDepodanDepoya.Text = "DEPODAN DEPOYA İADE";
@@ -660,7 +655,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // CmbMalzemeYeriDusulen
             // 
             this.CmbMalzemeYeriDusulen.FormattingEnabled = true;
-            this.CmbMalzemeYeriDusulen.Location = new System.Drawing.Point(511, 122);
+            this.CmbMalzemeYeriDusulen.Location = new System.Drawing.Point(106, 121);
             this.CmbMalzemeYeriDusulen.Name = "CmbMalzemeYeriDusulen";
             this.CmbMalzemeYeriDusulen.Size = new System.Drawing.Size(224, 21);
             this.CmbMalzemeYeriDusulen.TabIndex = 152;
@@ -668,32 +663,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(413, 126);
+            this.label18.Location = new System.Drawing.Point(8, 125);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(90, 13);
             this.label18.TabIndex = 151;
             this.label18.Text = "MALZEME YERİ:";
             // 
-            // CmbMalzemeYeriCekilen
-            // 
-            this.CmbMalzemeYeriCekilen.FormattingEnabled = true;
-            this.CmbMalzemeYeriCekilen.Location = new System.Drawing.Point(121, 122);
-            this.CmbMalzemeYeriCekilen.Name = "CmbMalzemeYeriCekilen";
-            this.CmbMalzemeYeriCekilen.Size = new System.Drawing.Size(224, 21);
-            this.CmbMalzemeYeriCekilen.TabIndex = 150;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(23, 126);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(90, 13);
-            this.label17.TabIndex = 149;
-            this.label17.Text = "MALZEME YERİ:";
-            // 
             // TxtDepoAdresiDusulen
             // 
-            this.TxtDepoAdresiDusulen.Location = new System.Drawing.Point(511, 96);
+            this.TxtDepoAdresiDusulen.Location = new System.Drawing.Point(106, 95);
             this.TxtDepoAdresiDusulen.Name = "TxtDepoAdresiDusulen";
             this.TxtDepoAdresiDusulen.Size = new System.Drawing.Size(224, 20);
             this.TxtDepoAdresiDusulen.TabIndex = 148;
@@ -701,7 +679,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(420, 100);
+            this.label12.Location = new System.Drawing.Point(15, 99);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(83, 13);
             this.label12.TabIndex = 147;
@@ -710,7 +688,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // CmbDepoNoDusulen
             // 
             this.CmbDepoNoDusulen.FormattingEnabled = true;
-            this.CmbDepoNoDusulen.Location = new System.Drawing.Point(511, 69);
+            this.CmbDepoNoDusulen.Location = new System.Drawing.Point(106, 68);
             this.CmbDepoNoDusulen.Name = "CmbDepoNoDusulen";
             this.CmbDepoNoDusulen.Size = new System.Drawing.Size(224, 21);
             this.CmbDepoNoDusulen.TabIndex = 146;
@@ -719,51 +697,17 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(444, 73);
+            this.label23.Location = new System.Drawing.Point(39, 72);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(59, 13);
             this.label23.TabIndex = 145;
             this.label23.Text = "DEPO NO:";
             // 
-            // TxtDepoAdresiCekilen
-            // 
-            this.TxtDepoAdresiCekilen.Location = new System.Drawing.Point(121, 96);
-            this.TxtDepoAdresiCekilen.Name = "TxtDepoAdresiCekilen";
-            this.TxtDepoAdresiCekilen.Size = new System.Drawing.Size(224, 20);
-            this.TxtDepoAdresiCekilen.TabIndex = 144;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(30, 100);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 13);
-            this.label26.TabIndex = 143;
-            this.label26.Text = "DEPO ADRESİ:";
-            // 
-            // CmbDepoNoCekilen
-            // 
-            this.CmbDepoNoCekilen.FormattingEnabled = true;
-            this.CmbDepoNoCekilen.Location = new System.Drawing.Point(121, 69);
-            this.CmbDepoNoCekilen.Name = "CmbDepoNoCekilen";
-            this.CmbDepoNoCekilen.Size = new System.Drawing.Size(224, 21);
-            this.CmbDepoNoCekilen.TabIndex = 141;
-            this.CmbDepoNoCekilen.SelectedIndexChanged += new System.EventHandler(this.CmbDepoNoCekilen_SelectedIndexChanged);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(54, 73);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(59, 13);
-            this.label35.TabIndex = 140;
-            this.label35.Text = "DEPO NO:";
-            // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.PaleGreen;
             this.panel3.Controls.Add(this.label36);
-            this.panel3.Location = new System.Drawing.Point(411, 25);
+            this.panel3.Location = new System.Drawing.Point(6, 24);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(353, 27);
             this.panel3.TabIndex = 1;
@@ -778,14 +722,72 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label36.TabIndex = 0;
             this.label36.Text = "Düşülen Yer Bilgileri";
             // 
+            // CmbMalzemeYeriCekilen
+            // 
+            this.CmbMalzemeYeriCekilen.FormattingEnabled = true;
+            this.CmbMalzemeYeriCekilen.Location = new System.Drawing.Point(917, 143);
+            this.CmbMalzemeYeriCekilen.Name = "CmbMalzemeYeriCekilen";
+            this.CmbMalzemeYeriCekilen.Size = new System.Drawing.Size(224, 21);
+            this.CmbMalzemeYeriCekilen.TabIndex = 150;
+            this.CmbMalzemeYeriCekilen.Visible = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(819, 147);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(90, 13);
+            this.label17.TabIndex = 149;
+            this.label17.Text = "MALZEME YERİ:";
+            this.label17.Visible = false;
+            // 
+            // TxtDepoAdresiCekilen
+            // 
+            this.TxtDepoAdresiCekilen.Location = new System.Drawing.Point(917, 117);
+            this.TxtDepoAdresiCekilen.Name = "TxtDepoAdresiCekilen";
+            this.TxtDepoAdresiCekilen.Size = new System.Drawing.Size(224, 20);
+            this.TxtDepoAdresiCekilen.TabIndex = 144;
+            this.TxtDepoAdresiCekilen.Visible = false;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(826, 121);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(83, 13);
+            this.label26.TabIndex = 143;
+            this.label26.Text = "DEPO ADRESİ:";
+            this.label26.Visible = false;
+            // 
+            // CmbDepoNoCekilen
+            // 
+            this.CmbDepoNoCekilen.FormattingEnabled = true;
+            this.CmbDepoNoCekilen.Location = new System.Drawing.Point(917, 90);
+            this.CmbDepoNoCekilen.Name = "CmbDepoNoCekilen";
+            this.CmbDepoNoCekilen.Size = new System.Drawing.Size(224, 21);
+            this.CmbDepoNoCekilen.TabIndex = 141;
+            this.CmbDepoNoCekilen.Visible = false;
+            this.CmbDepoNoCekilen.SelectedIndexChanged += new System.EventHandler(this.CmbDepoNoCekilen_SelectedIndexChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(850, 94);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(59, 13);
+            this.label35.TabIndex = 140;
+            this.label35.Text = "DEPO NO:";
+            this.label35.Visible = false;
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.panel2.Controls.Add(this.label37);
-            this.panel2.Location = new System.Drawing.Point(23, 25);
+            this.panel2.Location = new System.Drawing.Point(819, 46);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(353, 27);
             this.panel2.TabIndex = 0;
+            this.panel2.Visible = false;
             // 
             // label37
             // 
@@ -829,7 +831,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.BtnBul.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBul.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnBul.Location = new System.Drawing.Point(486, 17);
+            this.BtnBul.Location = new System.Drawing.Point(469, 17);
             this.BtnBul.Name = "BtnBul";
             this.BtnBul.Size = new System.Drawing.Size(58, 24);
             this.BtnBul.TabIndex = 350;
@@ -863,7 +865,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // TxtBirimFiyat
             // 
             this.TxtBirimFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBirimFiyat.Location = new System.Drawing.Point(378, 55);
+            this.TxtBirimFiyat.Location = new System.Drawing.Point(361, 55);
             this.TxtBirimFiyat.Name = "TxtBirimFiyat";
             this.TxtBirimFiyat.Size = new System.Drawing.Size(102, 21);
             this.TxtBirimFiyat.TabIndex = 333;
@@ -874,7 +876,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.LblBirimFiyat.AutoSize = true;
             this.LblBirimFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblBirimFiyat.Location = new System.Drawing.Point(246, 58);
+            this.LblBirimFiyat.Location = new System.Drawing.Point(229, 58);
             this.LblBirimFiyat.Name = "LblBirimFiyat";
             this.LblBirimFiyat.Size = new System.Drawing.Size(125, 15);
             this.LblBirimFiyat.TabIndex = 332;
@@ -885,7 +887,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(40, 58);
+            this.label16.Location = new System.Drawing.Point(23, 58);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(74, 15);
             this.label16.TabIndex = 347;
@@ -894,7 +896,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // DtTarih
             // 
             this.DtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtTarih.Location = new System.Drawing.Point(120, 55);
+            this.DtTarih.Location = new System.Drawing.Point(103, 55);
             this.DtTarih.Name = "DtTarih";
             this.DtTarih.Size = new System.Drawing.Size(113, 20);
             this.DtTarih.TabIndex = 346;
@@ -925,7 +927,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(70, 82);
+            this.label14.Location = new System.Drawing.Point(53, 82);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(44, 15);
             this.label14.TabIndex = 343;
@@ -933,7 +935,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // TxtMiktar
             // 
-            this.TxtMiktar.Location = new System.Drawing.Point(120, 81);
+            this.TxtMiktar.Location = new System.Drawing.Point(103, 81);
             this.TxtMiktar.Name = "TxtMiktar";
             this.TxtMiktar.Size = new System.Drawing.Size(113, 20);
             this.TxtMiktar.TabIndex = 342;
@@ -1008,7 +1010,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // TxtBarkod
             // 
             this.TxtBarkod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBarkod.Location = new System.Drawing.Point(121, 19);
+            this.TxtBarkod.Location = new System.Drawing.Point(104, 19);
             this.TxtBarkod.Name = "TxtBarkod";
             this.TxtBarkod.Size = new System.Drawing.Size(359, 21);
             this.TxtBarkod.TabIndex = 335;
@@ -1018,7 +1020,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(66, 22);
+            this.label1.Location = new System.Drawing.Point(49, 22);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(49, 15);
             this.label1.TabIndex = 334;
@@ -1041,7 +1043,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbManuelStok.Controls.Add(this.label42);
             this.GrbManuelStok.Controls.Add(this.CmbStokManuel);
             this.GrbManuelStok.Controls.Add(this.label43);
-            this.GrbManuelStok.Location = new System.Drawing.Point(12, 336);
+            this.GrbManuelStok.Location = new System.Drawing.Point(9, 336);
             this.GrbManuelStok.Name = "GrbManuelStok";
             this.GrbManuelStok.Size = new System.Drawing.Size(1428, 155);
             this.GrbManuelStok.TabIndex = 349;
@@ -1105,11 +1107,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1593,25 +1595,39 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1446, 850);
+            this.Controls.Add(this.GrbIslemYapılacakDepo);
             this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.GrbManuelStok);
             this.Controls.Add(this.CmbDusumTuru);
+            this.Controls.Add(this.GrbBildirimdenDepoya);
+            this.Controls.Add(this.CmbDepodanBildirimeMalzemeYeri);
             this.Controls.Add(this.label5);
+            this.Controls.Add(this.label21);
+            this.Controls.Add(this.TxtDepoAdresiCekilen);
             this.Controls.Add(this.LblToplam);
+            this.Controls.Add(this.label26);
+            this.Controls.Add(this.TxtDepodanBildirimeDepoAdresi);
+            this.Controls.Add(this.CmbDepoNoCekilen);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.GrbIslemYapılacakDepo);
+            this.Controls.Add(this.label35);
+            this.Controls.Add(this.label24);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.CmbDepodanBildirimeDepoNo);
             this.Controls.Add(this.BtnStokDuzelt);
+            this.Controls.Add(this.label25);
             this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.panel6);
             this.Controls.Add(this.TxtAciklama);
             this.Controls.Add(this.label38);
             this.Controls.Add(this.GrbBarkod);
             this.Controls.Add(this.GrbDepodanBildirime);
-            this.Controls.Add(this.GrbBildirimdenDepoya);
             this.Controls.Add(this.GrbDepodanDepoya);
             this.Controls.Add(this.CmbIslemTuru);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.CmbMalzemeYeriCekilen);
+            this.Controls.Add(this.label17);
             this.Name = "FrmGirisCikis";
             this.Text = "FrmGirisCikis";
             this.Load += new System.EventHandler(this.FrmGirisCikis_Load);

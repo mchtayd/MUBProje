@@ -133,8 +133,11 @@ namespace UserInterface.IdariIşler
             this.CmbAdSoyad = new System.Windows.Forms.ComboBox();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.BtnBolumDuzeltGuncelle = new System.Windows.Forms.Button();
+            this.CmbBo3 = new System.Windows.Forms.ComboBox();
+            this.CmbBo2 = new System.Windows.Forms.ComboBox();
+            this.BtnBo1 = new System.Windows.Forms.Button();
             this.BtnMasrafYeriDuzeltGun = new System.Windows.Forms.Button();
+            this.CmbBo1 = new System.Windows.Forms.ComboBox();
             this.DtKgbGuncelle = new System.Windows.Forms.DateTimePicker();
             this.label132 = new System.Windows.Forms.Label();
             this.TxtKgbNoGun = new System.Windows.Forms.TextBox();
@@ -245,8 +248,11 @@ namespace UserInterface.IdariIşler
             this.webBrowser4 = new System.Windows.Forms.WebBrowser();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.BtnBolumDuzelt = new System.Windows.Forms.Button();
+            this.CmbB3 = new System.Windows.Forms.ComboBox();
+            this.CmbB2 = new System.Windows.Forms.ComboBox();
+            this.BtnBolum1 = new System.Windows.Forms.Button();
             this.BtnMasrafYeriDuzelt = new System.Windows.Forms.Button();
+            this.CmbB1 = new System.Windows.Forms.ComboBox();
             this.DtKgb = new System.Windows.Forms.DateTimePicker();
             this.label131 = new System.Windows.Forms.Label();
             this.TxtKgbNo = new System.Windows.Forms.TextBox();
@@ -1387,8 +1393,11 @@ namespace UserInterface.IdariIşler
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.BtnBolumDuzeltGuncelle);
+            this.groupBox6.Controls.Add(this.CmbBo3);
+            this.groupBox6.Controls.Add(this.CmbBo2);
+            this.groupBox6.Controls.Add(this.BtnBo1);
             this.groupBox6.Controls.Add(this.BtnMasrafYeriDuzeltGun);
+            this.groupBox6.Controls.Add(this.CmbBo1);
             this.groupBox6.Controls.Add(this.DtKgbGuncelle);
             this.groupBox6.Controls.Add(this.label132);
             this.groupBox6.Controls.Add(this.TxtKgbNoGun);
@@ -1442,21 +1451,38 @@ namespace UserInterface.IdariIşler
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ŞİRKET BİLGİLER";
             // 
-            // BtnBolumDuzeltGuncelle
+            // CmbBo3
             // 
-            this.BtnBolumDuzeltGuncelle.AccessibleDescription = "";
-            this.BtnBolumDuzeltGuncelle.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnBolumDuzeltGuncelle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolumDuzeltGuncelle.BackgroundImage")));
-            this.BtnBolumDuzeltGuncelle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBolumDuzeltGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolumDuzeltGuncelle.Location = new System.Drawing.Point(805, 44);
-            this.BtnBolumDuzeltGuncelle.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnBolumDuzeltGuncelle.Name = "BtnBolumDuzeltGuncelle";
-            this.BtnBolumDuzeltGuncelle.Size = new System.Drawing.Size(34, 29);
-            this.BtnBolumDuzeltGuncelle.TabIndex = 400;
-            this.BtnBolumDuzeltGuncelle.Tag = "admin";
-            this.BtnBolumDuzeltGuncelle.UseVisualStyleBackColor = false;
-            this.BtnBolumDuzeltGuncelle.Click += new System.EventHandler(this.BtnBolumDuzeltGuncelle_Click);
+            this.CmbBo3.FormattingEnabled = true;
+            this.CmbBo3.Location = new System.Drawing.Point(537, 122);
+            this.CmbBo3.Name = "CmbBo3";
+            this.CmbBo3.Size = new System.Drawing.Size(265, 21);
+            this.CmbBo3.TabIndex = 407;
+            // 
+            // CmbBo2
+            // 
+            this.CmbBo2.FormattingEnabled = true;
+            this.CmbBo2.Location = new System.Drawing.Point(537, 96);
+            this.CmbBo2.Name = "CmbBo2";
+            this.CmbBo2.Size = new System.Drawing.Size(265, 21);
+            this.CmbBo2.TabIndex = 406;
+            this.CmbBo2.SelectedIndexChanged += new System.EventHandler(this.CmbBo2_SelectedIndexChanged);
+            // 
+            // BtnBo1
+            // 
+            this.BtnBo1.AccessibleDescription = "";
+            this.BtnBo1.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBo1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBo1.BackgroundImage")));
+            this.BtnBo1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBo1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBo1.Location = new System.Drawing.Point(805, 18);
+            this.BtnBo1.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBo1.Name = "BtnBo1";
+            this.BtnBo1.Size = new System.Drawing.Size(34, 29);
+            this.BtnBo1.TabIndex = 402;
+            this.BtnBo1.Tag = "admin";
+            this.BtnBo1.UseVisualStyleBackColor = false;
+            this.BtnBo1.Click += new System.EventHandler(this.BtnBo1_Click);
             // 
             // BtnMasrafYeriDuzeltGun
             // 
@@ -1473,6 +1499,21 @@ namespace UserInterface.IdariIşler
             this.BtnMasrafYeriDuzeltGun.Tag = "admin";
             this.BtnMasrafYeriDuzeltGun.UseVisualStyleBackColor = false;
             this.BtnMasrafYeriDuzeltGun.Click += new System.EventHandler(this.BtnMasrafYeriDuzelt_Click);
+            // 
+            // CmbBo1
+            // 
+            this.CmbBo1.FormattingEnabled = true;
+            this.CmbBo1.Items.AddRange(new object[] {
+            "SİSTEM TESİS BAKIM ONARIM",
+            "LOJİSTİK DESTEK VE PLANLAMA",
+            "FABRİKA DESTEK (MİRSAD)",
+            "FABRİKA DESTEK",
+            "İDARİ İŞLER"});
+            this.CmbBo1.Location = new System.Drawing.Point(537, 70);
+            this.CmbBo1.Name = "CmbBo1";
+            this.CmbBo1.Size = new System.Drawing.Size(265, 21);
+            this.CmbBo1.TabIndex = 405;
+            this.CmbBo1.SelectedIndexChanged += new System.EventHandler(this.CmbBo1_SelectedIndexChanged);
             // 
             // DtKgbGuncelle
             // 
@@ -1566,6 +1607,7 @@ namespace UserInterface.IdariIşler
             this.CmbBolum3G.Name = "CmbBolum3G";
             this.CmbBolum3G.Size = new System.Drawing.Size(265, 21);
             this.CmbBolum3G.TabIndex = 135;
+            this.CmbBolum3G.Visible = false;
             this.CmbBolum3G.SelectedIndexChanged += new System.EventHandler(this.CmbBolum3G_SelectedIndexChanged);
             // 
             // label110
@@ -1584,6 +1626,7 @@ namespace UserInterface.IdariIşler
             this.CmbBolum2G.Name = "CmbBolum2G";
             this.CmbBolum2G.Size = new System.Drawing.Size(265, 21);
             this.CmbBolum2G.TabIndex = 133;
+            this.CmbBolum2G.Visible = false;
             this.CmbBolum2G.SelectedIndexChanged += new System.EventHandler(this.CmbBolum2G_SelectedIndexChanged);
             // 
             // label119
@@ -1608,6 +1651,7 @@ namespace UserInterface.IdariIşler
             this.CmbBolumG.Name = "CmbBolumG";
             this.CmbBolumG.Size = new System.Drawing.Size(265, 21);
             this.CmbBolumG.TabIndex = 131;
+            this.CmbBolumG.Visible = false;
             this.CmbBolumG.SelectedIndexChanged += new System.EventHandler(this.CmbBolumG_SelectedIndexChanged);
             // 
             // label120
@@ -2543,8 +2587,11 @@ namespace UserInterface.IdariIşler
             // 
             // groupBox4
             // 
-            this.groupBox4.Controls.Add(this.BtnBolumDuzelt);
+            this.groupBox4.Controls.Add(this.CmbB3);
+            this.groupBox4.Controls.Add(this.CmbB2);
+            this.groupBox4.Controls.Add(this.BtnBolum1);
             this.groupBox4.Controls.Add(this.BtnMasrafYeriDuzelt);
+            this.groupBox4.Controls.Add(this.CmbB1);
             this.groupBox4.Controls.Add(this.DtKgb);
             this.groupBox4.Controls.Add(this.label131);
             this.groupBox4.Controls.Add(this.TxtKgbNo);
@@ -2596,20 +2643,38 @@ namespace UserInterface.IdariIşler
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "ŞİRKET BİLGİLER";
             // 
-            // BtnBolumDuzelt
+            // CmbB3
             // 
-            this.BtnBolumDuzelt.AccessibleDescription = "";
-            this.BtnBolumDuzelt.BackColor = System.Drawing.SystemColors.Control;
-            this.BtnBolumDuzelt.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolumDuzelt.BackgroundImage")));
-            this.BtnBolumDuzelt.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.BtnBolumDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBolumDuzelt.Location = new System.Drawing.Point(832, 14);
-            this.BtnBolumDuzelt.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnBolumDuzelt.Name = "BtnBolumDuzelt";
-            this.BtnBolumDuzelt.Size = new System.Drawing.Size(34, 29);
-            this.BtnBolumDuzelt.TabIndex = 399;
-            this.BtnBolumDuzelt.Tag = "admin";
-            this.BtnBolumDuzelt.UseVisualStyleBackColor = false;
+            this.CmbB3.FormattingEnabled = true;
+            this.CmbB3.Location = new System.Drawing.Point(593, 95);
+            this.CmbB3.Name = "CmbB3";
+            this.CmbB3.Size = new System.Drawing.Size(236, 21);
+            this.CmbB3.TabIndex = 404;
+            // 
+            // CmbB2
+            // 
+            this.CmbB2.FormattingEnabled = true;
+            this.CmbB2.Location = new System.Drawing.Point(593, 69);
+            this.CmbB2.Name = "CmbB2";
+            this.CmbB2.Size = new System.Drawing.Size(236, 21);
+            this.CmbB2.TabIndex = 403;
+            this.CmbB2.SelectedIndexChanged += new System.EventHandler(this.CmbB2_SelectedIndexChanged);
+            // 
+            // BtnBolum1
+            // 
+            this.BtnBolum1.AccessibleDescription = "";
+            this.BtnBolum1.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBolum1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBolum1.BackgroundImage")));
+            this.BtnBolum1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBolum1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBolum1.Location = new System.Drawing.Point(832, 17);
+            this.BtnBolum1.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBolum1.Name = "BtnBolum1";
+            this.BtnBolum1.Size = new System.Drawing.Size(34, 29);
+            this.BtnBolum1.TabIndex = 399;
+            this.BtnBolum1.Tag = "admin";
+            this.BtnBolum1.UseVisualStyleBackColor = false;
+            this.BtnBolum1.Click += new System.EventHandler(this.BtnBolum1_Click);
             // 
             // BtnMasrafYeriDuzelt
             // 
@@ -2626,6 +2691,15 @@ namespace UserInterface.IdariIşler
             this.BtnMasrafYeriDuzelt.Tag = "admin";
             this.BtnMasrafYeriDuzelt.UseVisualStyleBackColor = false;
             this.BtnMasrafYeriDuzelt.Click += new System.EventHandler(this.BtnMasrafYeriDuzelt_Click_1);
+            // 
+            // CmbB1
+            // 
+            this.CmbB1.FormattingEnabled = true;
+            this.CmbB1.Location = new System.Drawing.Point(593, 43);
+            this.CmbB1.Name = "CmbB1";
+            this.CmbB1.Size = new System.Drawing.Size(236, 21);
+            this.CmbB1.TabIndex = 402;
+            this.CmbB1.SelectedIndexChanged += new System.EventHandler(this.CmbB1_SelectedIndexChanged);
             // 
             // DtKgb
             // 
@@ -2699,8 +2773,6 @@ namespace UserInterface.IdariIşler
             // CmbDepartman
             // 
             this.CmbDepartman.FormattingEnabled = true;
-            this.CmbDepartman.Items.AddRange(new object[] {
-            "MÜB PROJE DİREKTÖRLÜĞÜ"});
             this.CmbDepartman.Location = new System.Drawing.Point(593, 17);
             this.CmbDepartman.Name = "CmbDepartman";
             this.CmbDepartman.Size = new System.Drawing.Size(236, 21);
@@ -2722,6 +2794,7 @@ namespace UserInterface.IdariIşler
             this.CmbBolum3.Name = "CmbBolum3";
             this.CmbBolum3.Size = new System.Drawing.Size(236, 21);
             this.CmbBolum3.TabIndex = 125;
+            this.CmbBolum3.Visible = false;
             // 
             // label90
             // 
@@ -2739,6 +2812,7 @@ namespace UserInterface.IdariIşler
             this.CmbBolum2.Name = "CmbBolum2";
             this.CmbBolum2.Size = new System.Drawing.Size(236, 21);
             this.CmbBolum2.TabIndex = 123;
+            this.CmbBolum2.Visible = false;
             this.CmbBolum2.SelectedIndexChanged += new System.EventHandler(this.CmbBolum2_SelectedIndexChanged);
             // 
             // label89
@@ -2771,6 +2845,7 @@ namespace UserInterface.IdariIşler
             this.CmbBolum.Name = "CmbBolum";
             this.CmbBolum.Size = new System.Drawing.Size(236, 21);
             this.CmbBolum.TabIndex = 120;
+            this.CmbBolum.Visible = false;
             this.CmbBolum.SelectedIndexChanged += new System.EventHandler(this.CmbBolum_SelectedIndexChanged);
             // 
             // label83
@@ -4073,7 +4148,13 @@ namespace UserInterface.IdariIşler
         private System.Windows.Forms.Label label131;
         private System.Windows.Forms.Button BtnMasrafYeriDuzeltGun;
         private System.Windows.Forms.Button BtnMasrafYeriDuzelt;
-        private System.Windows.Forms.Button BtnBolumDuzelt;
-        private System.Windows.Forms.Button BtnBolumDuzeltGuncelle;
+        private System.Windows.Forms.Button BtnBolum1;
+        private System.Windows.Forms.Button BtnBo1;
+        private System.Windows.Forms.ComboBox CmbB3;
+        private System.Windows.Forms.ComboBox CmbB2;
+        private System.Windows.Forms.ComboBox CmbB1;
+        private System.Windows.Forms.ComboBox CmbBo3;
+        private System.Windows.Forms.ComboBox CmbBo2;
+        private System.Windows.Forms.ComboBox CmbBo1;
     }
 }

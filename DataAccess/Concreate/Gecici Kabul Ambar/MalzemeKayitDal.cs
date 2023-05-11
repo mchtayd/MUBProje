@@ -124,13 +124,14 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 MalzemeKayit item = null;
                 while (dataReader.Read())
                 {
-                    item = new MalzemeKayit(dataReader["ID"].ConInt(),
+                    item = new MalzemeKayit(
+                        dataReader["ID"].ConInt(),
                         dataReader["STOK_NO"].ToString(),
                         dataReader["TANIM"].ToString(),
                         dataReader["BIRIM"].ToString(),
                         dataReader["TEDARIKCI_FIRMA"].ToString(),
-                        dataReader["MALZEME_ONARIM_DURUMU"].ToString(),
-                        dataReader["MALZEME_ONARIM_YERI"].ToString(),
+                        dataReader["ONARIM_DURUMU"].ToString(),
+                        dataReader["ONARIM_YERI"].ToString(),
                         dataReader["MALZEME_TURU"].ToString(),
                         dataReader["MALZEME_TAKIP_DURUMU"].ToString(),
                         dataReader["MALZEMENIN_KUL_UST"].ToString(),
@@ -147,6 +148,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
             catch (Exception)
             {
+                dataReader.Close();
                 return null;
             }
         }

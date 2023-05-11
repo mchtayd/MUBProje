@@ -19,6 +19,7 @@ namespace DataAccess.Concreate.IdariIsler
         {
             sqlServices = SqlDatabase.GetInstance();
         }
+
         public string Add(PersonelKayit entity)
         {
             try
@@ -58,7 +59,16 @@ namespace DataAccess.Concreate.IdariIsler
         }
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlServices.Stored("PersonelDelete", new SqlParameter("@id", id));
+                return "OK";
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public PersonelKayit Get(int id,string personelAd)
@@ -86,9 +96,9 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                return null;//GetMasrafYeriSorumlusuPer
+                return null;
             }
         }
         public List<PersonelKayit> GetMasrafYeriSorumlusuPer(string personelAd)
@@ -276,6 +286,7 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+
         public static PersonelKayitDal GetInstance()
         {
             if (kayitDal == null)
@@ -284,6 +295,7 @@ namespace DataAccess.Concreate.IdariIsler
             }
             return kayitDal;
         }
+
         public object[] GuncellenecekPers(string AdSoyad)
         {
             try

@@ -2,11 +2,13 @@
 using Business.Concreate;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.Depo;
+using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity;
 using Entity.BakimOnarim;
 using Entity.Depo;
+using Entity.IdariIsler;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
@@ -22,6 +24,7 @@ using UserInterface.Ana_Sayfa;
 
 namespace UserInterface.STS
 {
+
     public partial class FrmSatControl : Form
     {
         SatDataGridview1Manager satDataGridview1Manager;
@@ -35,6 +38,9 @@ namespace UserInterface.STS
         TamamlananManager tamamlananManager;
         TamamlananMalzemeManager tamamlananMalzemeManager;
         AbfMalzemeManager abfMalzemeManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        ArizaKayitManager arizaKayitManager;
+        MalzemeTalepManager malzemeTalepManager;
 
         List<SatDataGridview1> satDatas;
         List<SatDataGridview1> satDatas2;
@@ -75,6 +81,9 @@ namespace UserInterface.STS
             tamamlananManager = TamamlananManager.GetInstance();
             tamamlananMalzemeManager = TamamlananMalzemeManager.GetInstance();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
+            arizaKayitManager = ArizaKayitManager.GetInstance();
+            malzemeTalepManager = MalzemeTalepManager.GetInstance();
         }
 
         private void FrmSatControl_Load(object sender, EventArgs e)
@@ -98,10 +107,39 @@ namespace UserInterface.STS
             FillOdemeBilgileriBekleyen();
             FillAselsanOnayMail();
             FillAselsanOnayMailAlma();
+            FillFaturaBekleyenSatDrkt();
+            FillFaturaBekleyenSatMdl();
             LblMailGondermeTarihi.Text = DateTime.Now.ToString("d");
             LblMailTarihi.Text = DateTime.Now.ToString("d");
-            LblOdemeMailGonderme.Text= DateTime.Now.ToString("d");
+            LblOdemeMailGonderme.Text = DateTime.Now.ToString("d");
             DepoTeslimTarihi.Text = DateTime.Now.ToString("d");
+
+            tabPage4.Text = "TEKLİF ALINACAK SAT " + "( " + (LblTop.Text.ConInt() + LblTop11.Text.ConInt() + LblTop13.Text.ConInt()).ToString() + " )";
+            tabPage9.Text = "ASELSAN ONAY ALINACAK SAT " + "( " + (LblTop24.Text.ConInt() + LblTop26.Text.ConInt()).ToString() + " )";
+            tabPage5.Text = "ALIMI YAPILACAK SAT " + "( " + (LblTop3.Text.ConInt() + LblTop16.Text.ConInt()).ToString() + " )";
+            tabPage10.Text = "FATURA BEKLEYEN SAT " + "( " + (LblTop5.Text.ConInt() + LblTop18.Text.ConInt()).ToString() + " )";
+            tabPage13.Text = "ÖDEME BİLGİLERİ " + "( " + (LblTop20.Text.ConInt() + LblTop22.Text.ConInt()).ToString() + " )";
+            tabPage8.Text = "DEPO MALZEME TESLİM " + "( " + LblTop6.Text + " )";
+            tabPage18.Text = "FATURA KESİLECEK SAT " + "( " + (label72.Text.ConInt() + label87.Text.ConInt() + label94.Text.ConInt()).ToString() + " )";
+            tabPage17.Text = "SAT TAMAMLAMA " + "( " + LblTop8.Text + " )";
+
+            TabPage.Text = "PRJ.DİR.TEKLİF İSTENECEK/GİRİLECEK SAT " + "( " + LblTop.Text + " )";
+            tabPage2.Text = "SATIN ALMA MDL. TEKLİF İSTENECEK SAT " + "( " + LblTop11.Text + " )";
+            tabPage1.Text = "SATIN ALMA MDL. TEKLİF GİRİLECK SAT " + "( " + LblTop13.Text + " )";
+
+            tabPage15.Text = "ONAY İSTENECEK SAT " + "( " + LblTop24.Text + " )";
+            tabPage16.Text = "ONAY BEKLEYEN SAT " + "( " + LblTop26.Text + " )";
+
+            tabPage6.Text = "PROJE DİREKTÖRLÜĞÜ " + "( " + LblTop3.Text + " )";
+            tabPage7.Text = "SATIN ALMA MÜDÜRLÜĞÜ " + "( " + LblTop16.Text + " )";
+
+            tabPage11.Text = "PROJE DİREKTÖRLÜĞÜ " + "( " + LblTop5.Text + " )";
+            tabPage12.Text = "SATIN ALMA MÜDÜRLÜĞÜ " + "( " + LblTop18.Text + " )";
+
+            tabPage3.Text = "ÖDEME YAPILACAK SAT " + "( " + LblTop20.Text + " )";
+            tabPage14.Text = "ÖDEME YAPILAN SAT " + "( " + LblTop22.Text + " )";
+
+            //tabControl2.TabPages.Remove(tabControl1.TabPages["tabPage18"]);
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -192,6 +230,9 @@ namespace UserInterface.STS
             DtgProjeDirTeklifGir.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgProjeDirTeklifGir.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgProjeDirTeklifGir.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgProjeDirTeklifGir.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgProjeDirTeklifGir.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgProjeDirTeklifGir.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop.Text = DtgProjeDirTeklifGir.RowCount.ToString();
         }
@@ -201,7 +242,7 @@ namespace UserInterface.STS
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
-        
+
         private void DtgProjeDirTeklifGir_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgProjeDirTeklifGir.CurrentRow == null)
@@ -210,7 +251,7 @@ namespace UserInterface.STS
                 return;
             }
             satinAlinacakMalzemelers = new List<SatinAlinacakMalzemeler>();
-            dosyaYolu = DtgProjeDirTeklifGir.CurrentRow.Cells["DosyaYolu"].Value.ToString(); //
+            dosyaYolu = DtgProjeDirTeklifGir.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             siparisNo = DtgProjeDirTeklifGir.CurrentRow.Cells["SiparisNo"].Value.ToString();
             satinAlinacakMalzemelers = satinAlinacakMalManager.GetList(siparisNo);
             CmbFirma.Text = DtgProjeDirTeklifGir.CurrentRow.Cells["Satbirim"].Value.ToString();
@@ -317,7 +358,7 @@ namespace UserInterface.STS
                     abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
 
                 }
-                
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -406,7 +447,7 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen öncelikle bir SAT seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (dosyaYolu==null)
+            if (dosyaYolu == null)
             {
                 MessageBox.Show("Lütfen öncelikle teklif alınacak malzemeye ait olan ürün görselleri gibi dosyalarınızı ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -434,7 +475,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -478,11 +519,8 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT işlemini Kaydetmek istediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                foreach (SatDataGridview1 item in satDatas6)
-                {
-                    satDataGridview1Manager.DurumGuncelleTamamlama(item.SiparisNo, "Başaran Teklifi Bekliyor", "BAŞARAN TEKLİFİ BEKLİYOR");
-                    satDataGridview1Manager.TeklifDurum(siparisNo, dosyaYolu, "BAŞARAN TEKLİFİ BEKLİYOR");
-                }
+                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Başaran Teklifi Bekliyor", "BAŞARAN TEKLİFİ BEKLİYOR");
+                satDataGridview1Manager.TeklifDurum(siparisNo, dosyaYolu, "BAŞARAN TEKLİFİ BEKLİYOR");
 
                 yapilanislem = "FİYAT TEKLİFİ İÇİN MÜDÜRLÜĞE ONAY MAİLİ GÖNDERİLDİ.";
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
@@ -500,6 +538,7 @@ namespace UserInterface.STS
                 webBrowser4.Navigate("");
                 LblTop12.Text = "00";
                 mailKontrol = true;
+                satDatas6.Clear();
             }
         }
 
@@ -605,11 +644,12 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
                 Directory.CreateDirectory(dosyaYolu);
+
             }
 
             if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -648,7 +688,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -728,7 +768,7 @@ namespace UserInterface.STS
 
                     abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
                 }
-                
+
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
 
@@ -753,7 +793,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -853,7 +893,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -934,7 +974,7 @@ namespace UserInterface.STS
 
             foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
             {
-                toplamlar = +item.Btf;
+                toplamlar += item.Btf;
             }
 
             TxtFaturaTutar.Text = toplamlar.ToString();
@@ -968,7 +1008,7 @@ namespace UserInterface.STS
 
             foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
             {
-                toplamlar = +item.Btf;
+                toplamlar += item.Btf;
             }
 
             TxtFaturaTutar2.Text = toplamlar.ToString();
@@ -997,7 +1037,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -1031,7 +1071,8 @@ namespace UserInterface.STS
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
         }
-
+        int benzersizId = 0;
+        
         private void DtgDepoMalzemeTeslim_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgDepoMalzemeTeslim.CurrentRow == null)
@@ -1047,7 +1088,9 @@ namespace UserInterface.STS
             satno = DtgDepoMalzemeTeslim.CurrentRow.Cells["Satno"].Value.ConInt();
             odemebilgi = DtgDepoMalzemeTeslim.CurrentRow.Cells["OdemeMailAlmaDate"].Value.ConDate();
             abfformno = DtgDepoMalzemeTeslim.CurrentRow.Cells["Abfformno"].Value.ToString();
+            satOlusturmaTuru = DtgDepoMalzemeTeslim.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             CmbNereden.Text = satBirim;
+            satId = DtgDepoMalzemeTeslim.CurrentRow.Cells["Id"].Value.ConInt();
             FillMalzemeList3();
             abfMalzemes = abfMalzemeManager.TeminGetList("SAT İŞLEMLERİNİ BEKLİYOR", abfformno.ConInt());
             CmbDepoBilgi.SelectedIndex = -1;
@@ -1062,7 +1105,7 @@ namespace UserInterface.STS
                 return;
             }
         }
-        
+
 
         private void BtnKaydet9_Click(object sender, EventArgs e)
         {
@@ -1137,7 +1180,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -1256,15 +1299,30 @@ namespace UserInterface.STS
 
             if (CmbDepoBilgi.Text == "DEPO")
             {
-                CmbDepoNo.Items.Clear();
+                if (CmbDepoNo.Items.Count!=0)
+                {
+                    CmbDepoNo.Items.Clear();
+                }
                 CmbDepo();
                 TxtDepoAdres.Clear();
             }
-            else
+            if (CmbDepoBilgi.Text == "OFİS")
             {
                 CmbDepoNo.DataSource = null;
+                CmbDepoNo.Items.Clear();
+                CmbDepoNo.Items.Add("OFİS");
+                CmbDepoNo.SelectedIndex = 0;
+                TxtDepoAdres.Text = "OFİS";
+                CmbDepoNo.Text = "OFİS";
+            }
+            if (CmbDepoBilgi.Text == "DESTEK DEPO")
+            {
+                CmbDepoNo.DataSource = null;
+                CmbDepoNo.Items.Clear();
                 CmbDepoNo.Items.Add("DESTEK DEPO");
                 CmbDepoNo.SelectedIndex = 0;
+                TxtDepoAdres.Text = "DESTEK DEPO";
+                CmbDepoNo.Text = "DESTEK DEPO";
             }
         }
 
@@ -1282,7 +1340,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -1325,7 +1383,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -1451,18 +1509,33 @@ namespace UserInterface.STS
                 {
                     satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Sat Tamamlama", "SAT TAMAMLAMA");
                 }
-
-                if (depoStokId.Count != 0)
+                
+                if (depoStokId!=null)
                 {
                     for (int i = 0; i < depoStokId.Count; i++)
                     {
                         abfMalzemeManager.TeminBilgisi(depoStokId[i].ConInt(), "SAT İŞLEMLERİ TAMAMLANDI", infos[1].ToString(), "SAT İŞLEMLERİ TAMAMLANDI");
+
                     }
+                }
+
+                if (satOlusturmaTuru == "BAŞARAN")
+                {
+                    List<MalzemeTalep> malzemeTaleps = new List<MalzemeTalep>();
+                    malzemeTaleps = malzemeTalepManager.GetSatId(satId);
+                    if (malzemeTaleps.Count != 0)
+                    {
+                        foreach (MalzemeTalep item in malzemeTaleps)
+                        {
+                            malzemeTalepManager.Update(item.Id, "TEDARİK EDİLDİ");
+                        }
+                    }
+                    
                 }
 
                 satDataGridview1Manager.DepoTeslimTarihi(DepoTeslimTarihi.Text.ConDate(), siparisNo);
 
-                yapilanislem = "DEPO AKTARIM İŞLEMLERİ TAMAMLANMIŞTIR.";
+                yapilanislem = "MALZEME AKTARIM İŞLEMLERİ TAMAMLANMIŞTIR.";
                 foreach (DataGridViewRow item in DtgMalzList3.Rows)
                 {
                     abfMalzemeManager.TeminBilgisi(item.Cells["Id"].Value.ConInt(), "SAT İŞLEMLERİNİ BEKLİYOR", infos[1].ToString(), yapilanislem);
@@ -1482,7 +1555,7 @@ namespace UserInterface.STS
                 DtgMalzList3.DataSource = null;
             }
         }
-        
+
 
         private void DtgOdemeYapilan_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -1510,9 +1583,10 @@ namespace UserInterface.STS
             }
         }
 
-        
+
         private void CmbDepoNo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
             if (start == false)
             {
                 return;
@@ -1528,17 +1602,19 @@ namespace UserInterface.STS
                 }
                 else
                 {
-                    TxtDepoAdres.Text = depoKayit.Aciklama;
+                    TxtDepoAdres.Text = depoKayit.DepoAdi;
                 }
             }
             else
             {
                 TxtDepoAdres.Text = "DESTEK DEPO";
             }
-
+            
             if (CmbDepoNo.Text == "1150")
             {
-                if (abfMalzemes.Count!=0)
+                ArizaKayit arizaKayit = arizaKayitManager.Get(abfformno.ConInt());
+                abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+                if (abfMalzemes.Count != 0)
                 {
                     foreach (AbfMalzeme item in abfMalzemes)
                     {
@@ -1551,7 +1627,7 @@ namespace UserInterface.STS
 
                         }
                     }
-                    if (depoStokId.Count!=0)
+                    if (depoStokId.Count != 0)
                     {
                         LblMalzemeTalebi.Text = "Malzeme Talepleri Bulundu!";
                         LblMalzemeTalebi.BackColor = Color.LightGreen;
@@ -1561,7 +1637,7 @@ namespace UserInterface.STS
                         LblMalzemeTalebi.Text = "Malzeme Talepleri Bulunamadı!";
                         LblMalzemeTalebi.BackColor = Color.Red;
                     }
-                    
+
                 }
                 else
                 {
@@ -1613,10 +1689,10 @@ namespace UserInterface.STS
             mlzTeslimTarihi = DtgSatTamamla.CurrentRow.Cells["MlzTeslimAldTarih"].Value.ToString();
             harcamayapan = DtgSatTamamla.CurrentRow.Cells["HarcamaYapan"].Value.ToString();
             depoTeslimBilgisi = DtgSatTamamla.CurrentRow.Cells["DepoTeslimBilgisi"].Value.ToString();
-            odemeMailGondermeTarihi = DtgSatTamamla.CurrentRow.Cells["OdemeMailGondermeTarihi"].Value.ConDate();
-            odemeMailTarihi = DtgSatTamamla.CurrentRow.Cells["OdemeMailTarihi"].Value.ConDate();
-            aselsanMailGondermeTarihi = DtgSatTamamla.CurrentRow.Cells["AselsanMailGondermeTarihi"].Value.ConDate();
-            aselsanMailTarihi = DtgSatTamamla.CurrentRow.Cells["AselsanMailTarihi"].Value.ConDate();
+            odemeMailGondermeTarihi = DtgSatTamamla.CurrentRow.Cells["OdemeMailGondermeDate"].Value.ConDate();
+            odemeMailTarihi = DtgSatTamamla.CurrentRow.Cells["OdemeMailAlmaDate"].Value.ConDate();
+            aselsanMailGondermeTarihi = DtgSatTamamla.CurrentRow.Cells["AselsanMailGondermeDate"].Value.ConDate();
+            aselsanMailTarihi = DtgSatTamamla.CurrentRow.Cells["AselsanMailAlmaDate"].Value.ConDate();
             depoTeslimTarihi = DtgSatTamamla.CurrentRow.Cells["DepoTeslimTarihi"].Value.ConDate();
             butceTanimi = DtgSatTamamla.CurrentRow.Cells["ButceTanimi"].Value.ToString();
             maliyetTuru = DtgSatTamamla.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
@@ -1652,7 +1728,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -1689,7 +1765,7 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (dosyaKontrol==false)
+            if (dosyaKontrol == false)
             {
                 MessageBox.Show("Lütfen öncelikle ödeme mailini ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1697,17 +1773,19 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT işlemini Kaydetmek istediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                if (depoTeslimTarihi == "1900-01-01".ConDate())
-                {
-                    satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Ödeme Bilgileri Kayıt", "DEPO MALZEME TESLİM");
-                }
-                else
-                {
-                    satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Sat Tamamlama", "SAT TAMAMLAMA");
-                }
+                satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Depo Malzeme Teslim", "DEPO MALZEME TESLİM");
+
+                //if (depoTeslimTarihi == "1900-01-01".ConDate())
+                //{
+                //    satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Ödeme Bilgileri Kayıt", "DEPO MALZEME TESLİM");
+                //}
+                //else
+                //{
+                //    satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "Sat Tamamlama", "SAT TAMAMLAMA");
+                //}
 
                 satDataGridview1Manager.OdemeMailTarihi(siparisNo, DtgMailTarihi.Value);
-                
+
 
                 yapilanislem = "ÖDEME BİLGİLERİNİN YAPILDIĞINA DAİR MAİL EKLENMİŞTİR.";
                 foreach (DataGridViewRow item in DtgMalzList11.Rows)
@@ -1807,7 +1885,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -1838,13 +1916,13 @@ namespace UserInterface.STS
 
         private void BtnKaydet12_Click(object sender, EventArgs e)
         {
-            if (mailKontrol==false)
+            if (mailKontrol == false)
             {
                 MessageBox.Show("Lütfen öncelikle mail gönderme işlemini gerçekleştiriniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            if (siparisNo=="")
+            if (siparisNo == "")
             {
                 if (mailKontrol == false)
                 {
@@ -1896,7 +1974,7 @@ namespace UserInterface.STS
             frmMail.ShowDialog();
             mailKontrol = true;
         }
-
+        int satId = 0;
         private void DtgAselsanOnay_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgAselsanOnay.CurrentRow == null)
@@ -1910,6 +1988,7 @@ namespace UserInterface.STS
             isAkisNo = DtgAselsanOnay.CurrentRow.Cells["Formno"].Value.ToString();
             satBirim = DtgAselsanOnay.CurrentRow.Cells["Satbirim"].Value.ToString();
             satno = DtgAselsanOnay.CurrentRow.Cells["Satno"].Value.ConInt();
+            satId = DtgAselsanOnay.CurrentRow.Cells["Id"].Value.ConInt();
             FillMalzemeList11();
             try
             {
@@ -1970,7 +2049,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -2032,6 +2111,7 @@ namespace UserInterface.STS
 
                 SatIslemAdimlari satIslemAdimlari = new SatIslemAdimlari(siparisNo, yapilanislem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslemAdimlari);
+                GorevAtama();
 
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Yenile();
@@ -2041,6 +2121,17 @@ namespace UserInterface.STS
                 LblGenelTop10.Text = "00";
                 siparisNo = "";
             }
+        }
+        string GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(satId, "SATIN ALMA", "RESUL GÜNEŞ", "SAT ONAYI", DateTime.Now, "", DateTime.Now.Date);
+            string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+
+            if (kontrol != "OK")
+            {
+                return kontrol;
+            }
+            return "OK";
         }
 
         void FillMalzemeList2()
@@ -2243,7 +2334,7 @@ namespace UserInterface.STS
                 Directory.CreateDirectory(subdir);
             }
 
-            dosyaYolu = subdir + satno;
+            dosyaYolu = subdir + isAkisNo;
 
             if (!Directory.Exists(dosyaYolu))
             {
@@ -2298,7 +2389,7 @@ namespace UserInterface.STS
                 string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
                 string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
 
-                donem = DateTime.Now.ConPeriod();
+                //donem = DateTime.Now.ConPeriod();
 
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satBirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
                     faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyaYolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamayapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi, odemeMailGondermeTarihi, odemeMailTarihi, aselsanMailGondermeTarihi, aselsanMailTarihi, depoTeslimTarihi, butceTanimi, maliyetTuru, "", "", "");
@@ -2570,6 +2661,9 @@ namespace UserInterface.STS
             DtgAlimYapliacalSat.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgAlimYapliacalSat.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgAlimYapliacalSat.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgAlimYapliacalSat.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgAlimYapliacalSat.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgAlimYapliacalSat.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
 
             LblTop3.Text = DtgAlimYapliacalSat.RowCount.ToString();
@@ -2628,6 +2722,9 @@ namespace UserInterface.STS
             DtgFaturaBekleyenSatProje.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgFaturaBekleyenSatProje.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgFaturaBekleyenSatProje.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgFaturaBekleyenSatProje.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgFaturaBekleyenSatProje.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgFaturaBekleyenSatProje.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop5.Text = DtgFaturaBekleyenSatProje.RowCount.ToString();
         }
@@ -2684,6 +2781,9 @@ namespace UserInterface.STS
             DtgFaturaBekleyenSatMdl.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgFaturaBekleyenSatMdl.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgFaturaBekleyenSatMdl.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgFaturaBekleyenSatMdl.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgFaturaBekleyenSatMdl.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgFaturaBekleyenSatMdl.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop18.Text = DtgFaturaBekleyenSatMdl.RowCount.ToString();
         }
@@ -2742,6 +2842,9 @@ namespace UserInterface.STS
             DtgDepoMalzemeTeslim.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgDepoMalzemeTeslim.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgDepoMalzemeTeslim.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgDepoMalzemeTeslim.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgDepoMalzemeTeslim.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgDepoMalzemeTeslim.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop6.Text = DtgDepoMalzemeTeslim.RowCount.ToString();
         }
@@ -2784,7 +2887,7 @@ namespace UserInterface.STS
             DtgSatTamamla.Columns["SatOlusturmaTuru"].Visible = false;
             DtgSatTamamla.Columns["RedNedeni"].Visible = false;
             DtgSatTamamla.Columns["TeklifDurumu"].Visible = false;
-            DtgSatTamamla.Columns["SatinAlinanFirma"].Visible = false;
+            DtgSatTamamla.Columns["SatinAlinanFirma"].HeaderText = "SATIN ALINAN FİRMA";
             DtgSatTamamla.Columns["MailSiniri"].Visible = false;
             DtgSatTamamla.Columns["MailDurumu"].Visible = false;
             DtgSatTamamla.Columns["Durum"].Visible = false;
@@ -2798,6 +2901,9 @@ namespace UserInterface.STS
             DtgSatTamamla.Columns["MlzTeslimAldTarih"].HeaderText = "MALZEME TESLİM ALINMA TARİHİ";
             DtgSatTamamla.Columns["HarcamaYapan"].Visible = false;
             DtgSatTamamla.Columns["DepoTeslimTarihi"].HeaderText = "DEPO TESLİM TARİHİ";
+            DtgSatTamamla.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgSatTamamla.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgSatTamamla.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
 
             LblTop8.Text = DtgSatTamamla.RowCount.ToString();
@@ -2858,6 +2964,9 @@ namespace UserInterface.STS
             DtgMdlTeklifMail.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgMdlTeklifMail.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgMdlTeklifMail.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgMdlTeklifMail.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgMdlTeklifMail.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgMdlTeklifMail.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop11.Text = DtgMdlTeklifMail.RowCount.ToString();
         }
@@ -2918,6 +3027,9 @@ namespace UserInterface.STS
             DtgMdlTeklifMailBekleyen.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgMdlTeklifMailBekleyen.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgMdlTeklifMailBekleyen.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgMdlTeklifMailBekleyen.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgMdlTeklifMailBekleyen.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgMdlTeklifMailBekleyen.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop13.Text = DtgMdlTeklifMailBekleyen.RowCount.ToString();
         }
@@ -2976,6 +3088,9 @@ namespace UserInterface.STS
             DtgAlimYapliacalSatMdl.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgAlimYapliacalSatMdl.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgAlimYapliacalSatMdl.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgAlimYapliacalSatMdl.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgAlimYapliacalSatMdl.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgAlimYapliacalSatMdl.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop16.Text = DtgAlimYapliacalSatMdl.RowCount.ToString();
         }
@@ -3034,6 +3149,9 @@ namespace UserInterface.STS
             DtgOdemeYapilacak.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgOdemeYapilacak.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgOdemeYapilacak.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgOdemeYapilacak.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgOdemeYapilacak.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgOdemeYapilacak.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop20.Text = DtgOdemeYapilacak.RowCount.ToString();
         }
@@ -3093,6 +3211,9 @@ namespace UserInterface.STS
             DtgOdemeYapilan.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgOdemeYapilan.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgOdemeYapilan.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgOdemeYapilan.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgOdemeYapilan.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgOdemeYapilan.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop22.Text = DtgOdemeYapilan.RowCount.ToString();
         }
@@ -3152,6 +3273,9 @@ namespace UserInterface.STS
             DtgAselsanOnayIste.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgAselsanOnayIste.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgAselsanOnayIste.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgAselsanOnayIste.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgAselsanOnayIste.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgAselsanOnayIste.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop24.Text = DtgAselsanOnayIste.RowCount.ToString();
         }
@@ -3210,6 +3334,9 @@ namespace UserInterface.STS
             DtgAselsanOnay.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgAselsanOnay.Columns["OdemeMailAlmaDate"].Visible = false;
             DtgAselsanOnay.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgAselsanOnay.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgAselsanOnay.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgAselsanOnay.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
 
             LblTop26.Text = DtgAselsanOnay.RowCount.ToString();
         }

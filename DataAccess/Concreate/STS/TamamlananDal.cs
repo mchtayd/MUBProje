@@ -539,6 +539,23 @@ namespace DataAccess.Concreate.STS
                 return ex.Message;
             }
         }
+
+        public string DonemEdit(string donem, int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("TamamlananSatDonemDuzelt",
+                    new SqlParameter("@donem", donem),
+                    new SqlParameter("@id", id));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string ProjeDuzelt(string proje, int id)
         {
             try

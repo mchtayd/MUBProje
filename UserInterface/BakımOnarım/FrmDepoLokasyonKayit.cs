@@ -34,8 +34,17 @@ namespace UserInterface.BakımOnarım
             TxtTop.Text = DtgDepolar.RowCount.ToString();
 
             DtgDepolar.Columns["Id"].Visible = false;
-            DtgDepolar.Columns["Depo"].HeaderText = "DEPO";
+            DtgDepolar.Columns["Depo"].HeaderText = "DEPO NO";
             DtgDepolar.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
+            DtgDepolar.Columns["DepoAdi"].HeaderText = "DEPO ADI";
+            DtgDepolar.Columns["Il"].HeaderText = "İL";
+            DtgDepolar.Columns["Ilce"].HeaderText = "İLÇE";
+
+            DtgDepolar.Columns["Depo"].DisplayIndex = 0;
+            DtgDepolar.Columns["DepoAdi"].DisplayIndex = 1;
+            DtgDepolar.Columns["Il"].DisplayIndex = 2;
+            DtgDepolar.Columns["Ilce"].DisplayIndex = 3;
+            DtgDepolar.Columns["Aciklama"].DisplayIndex = 4;
 
         }
 
@@ -79,7 +88,7 @@ namespace UserInterface.BakımOnarım
                     DialogResult dr = MessageBox.Show(TxtDepo.Text + " isimli depo " + item.Depo.ToString() + " depo adıyla değiştirilecek! Lokasyon bilgileri aynı kalacak.\nOnaylıyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (dr == DialogResult.Yes)
                     {
-                        DepoKayit depoKayit2 = new DepoKayit(depoId,TxtDepo.Text, TxtDepoAciklama.Text);
+                        DepoKayit depoKayit2 = new DepoKayit(depoId,TxtDepo.Text, TxtDepoAciklama.Text,"","","");
                         string mesaj = depoKayitManagercs.Update(depoKayit2);
                         if (mesaj!="OK")
                         {
@@ -94,7 +103,7 @@ namespace UserInterface.BakımOnarım
                 }
             }
 
-            DepoKayit depoKayit = new DepoKayit(TxtDepo.Text, TxtDepoAciklama.Text);
+            DepoKayit depoKayit = new DepoKayit(TxtDepo.Text, TxtDepoAciklama.Text,"","","");
             DialogResult dr2 = MessageBox.Show(TxtDepo.Text + " isimli depo kaydedilecek!\nOnaylıyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr2 == DialogResult.Yes)
             {

@@ -1,5 +1,6 @@
 ﻿using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Presentation;
 using Entity.BakimOnarim;
 using System;
 using System.Collections.Generic;
@@ -54,14 +55,14 @@ namespace UserInterface.BakımOnarım
             TxtTop.Text = DtgArizaKayitlari.RowCount.ToString();
 
             DtgArizaKayitlari.Columns["Id"].Visible = false;
-            DtgArizaKayitlari.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
+            DtgArizaKayitlari.Columns["IsAkisNo"].Visible = false;
             DtgArizaKayitlari.Columns["AbfFormNo"].HeaderText = "ABF FORM NO";
             DtgArizaKayitlari.Columns["Proje"].HeaderText = "PROJE";
             DtgArizaKayitlari.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
             DtgArizaKayitlari.Columns["BolukKomutani"].Visible = false;
             DtgArizaKayitlari.Columns["BirlikAdresi"].Visible = false;
-            DtgArizaKayitlari.Columns["Il"].Visible = false;
-            DtgArizaKayitlari.Columns["Ilce"].Visible = false;
+            DtgArizaKayitlari.Columns["Il"].HeaderText = "İL";
+            DtgArizaKayitlari.Columns["Ilce"].HeaderText = "İLÇE";
             DtgArizaKayitlari.Columns["BildirilenAriza"].HeaderText = "BİLDİRİLEN ARIZA";
             DtgArizaKayitlari.Columns["ArizaiBildirenPersonel"].HeaderText = "ARIZAYI BİLDİREN BİRLİK PERSONELİ";
             DtgArizaKayitlari.Columns["AbRutbesi"].HeaderText = "ARIZAYI BİLDİREN RÜTBESİ";
@@ -116,6 +117,44 @@ namespace UserInterface.BakımOnarım
             DtgArizaKayitlari.Columns["NedenKodu"].Visible = false;
             DtgArizaKayitlari.Columns["EksikEvrak"].Visible = false;
             DtgArizaKayitlari.Columns["EkipmanNo"].Visible = false;
+            DtgArizaKayitlari.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
+            DtgArizaKayitlari.Columns["MalzemeDurum"].Visible = false;
+
+            DtgArizaKayitlari.Columns["BildirimTuru"].DisplayIndex = 0;
+            DtgArizaKayitlari.Columns["GecenSure"].DisplayIndex = 1;
+            DtgArizaKayitlari.Columns["AbfFormNo"].DisplayIndex = 2;
+            DtgArizaKayitlari.Columns["IsAkisNo"].DisplayIndex=3;
+            DtgArizaKayitlari.Columns["BildirimNo"].DisplayIndex = 4;
+            DtgArizaKayitlari.Columns["Kategori"].DisplayIndex = 5;
+            DtgArizaKayitlari.Columns["BolgeAdi"].DisplayIndex = 6;
+            DtgArizaKayitlari.Columns["Il"].DisplayIndex = 7;
+            DtgArizaKayitlari.Columns["Ilce"].DisplayIndex = 8;
+            DtgArizaKayitlari.Columns["IslemAdimi"].DisplayIndex = 9;
+            DtgArizaKayitlari.Columns["Proje"].DisplayIndex = 10;
+            DtgArizaKayitlari.Columns["StokNo"].DisplayIndex = 11;
+            DtgArizaKayitlari.Columns["Tanim"].DisplayIndex = 12;
+            DtgArizaKayitlari.Columns["SeriNo"].DisplayIndex = 13;
+            DtgArizaKayitlari.Columns["GorevAtanacakPersonel"].DisplayIndex = 14;
+            DtgArizaKayitlari.Columns["TespitEdilenAriza"].DisplayIndex = 15;
+            DtgArizaKayitlari.Columns["GarantiDurumu"].DisplayIndex = 16;
+            DtgArizaKayitlari.Columns["IlgiliFirma"].DisplayIndex = 17;
+            DtgArizaKayitlari.Columns["BildirimMailTarihi"].DisplayIndex = 18;
+            DtgArizaKayitlari.Columns["BildirilenAriza"].DisplayIndex = 19;
+            DtgArizaKayitlari.Columns["ArizaiBildirenPersonel"].DisplayIndex = 20;
+            DtgArizaKayitlari.Columns["AbRutbesi"].DisplayIndex = 21;
+            DtgArizaKayitlari.Columns["AbGorevi"].DisplayIndex = 22;
+            DtgArizaKayitlari.Columns["AbTelefon"].DisplayIndex = 23;
+            DtgArizaKayitlari.Columns["AbTarihSaat"].DisplayIndex = 24;
+            DtgArizaKayitlari.Columns["ABAlanPersonel"].DisplayIndex = 25;
+            DtgArizaKayitlari.Columns["BildirimKanali"].DisplayIndex = 26;
+            DtgArizaKayitlari.Columns["LojistikSorumluPersonel"].DisplayIndex = 27;
+            DtgArizaKayitlari.Columns["LojRutbesi"].DisplayIndex = 28;
+            DtgArizaKayitlari.Columns["LojGorevi"].DisplayIndex = 29;
+            DtgArizaKayitlari.Columns["LojTarihi"].DisplayIndex = 30;
+            DtgArizaKayitlari.Columns["AcmaOnayiVeren"].DisplayIndex = 31;
+            DtgArizaKayitlari.Columns["PypNo"].DisplayIndex = 32;
+            DtgArizaKayitlari.Columns["MalzemeDurum"].DisplayIndex = 33;
+
 
         }
 

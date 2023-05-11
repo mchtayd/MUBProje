@@ -30,13 +30,15 @@ namespace UserInterface.Depo
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmStokGoruntule));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgDepoBilgileri = new ADGV.AdvancedDataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.BtnSearch = new System.Windows.Forms.Button();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -49,15 +51,15 @@ namespace UserInterface.Depo
             this.BirimFiyat = new System.Windows.Forms.Label();
             this.TxtBarkod = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnSorgula = new System.Windows.Forms.Button();
+            this.BtnTumunuGor = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoBilgileri)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeBilgisi)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -114,6 +116,20 @@ namespace UserInterface.Depo
             this.DtgDepoBilgileri.FilterStringChanged += new System.EventHandler(this.DtgDepoBilgileri_FilterStringChanged);
             this.DtgDepoBilgileri.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgDepoBilgileri_CellMouseClick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.düzenleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 26);
+            // 
+            // düzenleToolStripMenuItem
+            // 
+            this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.düzenleToolStripMenuItem.Text = "Düzenle";
+            this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
+            // 
             // TxtTop
             // 
             this.TxtTop.AutoSize = true;
@@ -133,18 +149,6 @@ namespace UserInterface.Depo
             this.label1.Size = new System.Drawing.Size(116, 20);
             this.label1.TabIndex = 313;
             this.label1.Text = "Toplam Kayıt:";
-            // 
-            // BtnSearch
-            // 
-            this.BtnSearch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSearch.Location = new System.Drawing.Point(312, 39);
-            this.BtnSearch.Name = "BtnSearch";
-            this.BtnSearch.Size = new System.Drawing.Size(95, 34);
-            this.BtnSearch.TabIndex = 317;
-            this.BtnSearch.Text = "SORGULA";
-            this.BtnSearch.UseVisualStyleBackColor = true;
-            this.BtnSearch.Click += new System.EventHandler(this.BtnSearch_Click);
             // 
             // label4
             // 
@@ -240,7 +244,7 @@ namespace UserInterface.Depo
             // 
             // TxtBarkod
             // 
-            this.TxtBarkod.Location = new System.Drawing.Point(482, 47);
+            this.TxtBarkod.Location = new System.Drawing.Point(642, 48);
             this.TxtBarkod.Name = "TxtBarkod";
             this.TxtBarkod.Size = new System.Drawing.Size(303, 20);
             this.TxtBarkod.TabIndex = 326;
@@ -249,31 +253,51 @@ namespace UserInterface.Depo
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(420, 48);
+            this.label2.Location = new System.Drawing.Point(580, 49);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(56, 15);
             this.label2.TabIndex = 325;
             this.label2.Text = "Barkod:";
             // 
-            // contextMenuStrip1
+            // BtnSorgula
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.düzenleToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 26);
+            this.BtnSorgula.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnSorgula.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSorgula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSorgula.Image = ((System.Drawing.Image)(resources.GetObject("BtnSorgula.Image")));
+            this.BtnSorgula.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSorgula.Location = new System.Drawing.Point(312, 33);
+            this.BtnSorgula.Name = "BtnSorgula";
+            this.BtnSorgula.Size = new System.Drawing.Size(127, 51);
+            this.BtnSorgula.TabIndex = 341;
+            this.BtnSorgula.Text = "   SORGULA";
+            this.BtnSorgula.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSorgula.UseVisualStyleBackColor = false;
+            this.BtnSorgula.Click += new System.EventHandler(this.BtnSorgula_Click);
             // 
-            // düzenleToolStripMenuItem
+            // BtnTumunuGor
             // 
-            this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
-            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.düzenleToolStripMenuItem.Text = "Düzenle";
-            this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
+            this.BtnTumunuGor.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTumunuGor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTumunuGor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTumunuGor.Image = ((System.Drawing.Image)(resources.GetObject("BtnTumunuGor.Image")));
+            this.BtnTumunuGor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTumunuGor.Location = new System.Drawing.Point(445, 33);
+            this.BtnTumunuGor.Name = "BtnTumunuGor";
+            this.BtnTumunuGor.Size = new System.Drawing.Size(127, 51);
+            this.BtnTumunuGor.TabIndex = 342;
+            this.BtnTumunuGor.Text = "   TÜMÜNÜ \r\n       GÖR";
+            this.BtnTumunuGor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTumunuGor.UseVisualStyleBackColor = false;
+            this.BtnTumunuGor.Click += new System.EventHandler(this.BtnTumunuGor_Click);
             // 
             // FrmStokGoruntule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 888);
+            this.Controls.Add(this.BtnTumunuGor);
+            this.Controls.Add(this.BtnSorgula);
             this.Controls.Add(this.TxtBarkod);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BirimFiyat);
@@ -283,7 +307,6 @@ namespace UserInterface.Depo
             this.Controls.Add(this.TxtStokNo);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.BtnSearch);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
@@ -294,10 +317,10 @@ namespace UserInterface.Depo
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoBilgileri)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeBilgisi)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -311,7 +334,6 @@ namespace UserInterface.Depo
         private ADGV.AdvancedDataGridView DtgDepoBilgileri;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button BtnSearch;
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -326,5 +348,7 @@ namespace UserInterface.Depo
         private System.Windows.Forms.DataGridViewImageColumn Photo;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem düzenleToolStripMenuItem;
+        private System.Windows.Forms.Button BtnSorgula;
+        private System.Windows.Forms.Button BtnTumunuGor;
     }
 }

@@ -39,7 +39,6 @@ namespace UserInterface.BakımOnarım
             DtgPYP.Columns["PypNo"].HeaderText = "PYP NO";
             DtgPYP.Columns["SorumluPersonel"].HeaderText = "SORUMLU PERSONEL";
             DtgPYP.Columns["SiparisTuru"].HeaderText = "SİPARİŞ TÜRÜ";
-            DtgPYP.Columns["IslemTuru"].HeaderText = "İŞLEM TÜRÜ";
             DtgPYP.Columns["HesaplamaNedeni"].HeaderText = "HESAPLAMA NEDENİ";
         }
 
@@ -53,9 +52,8 @@ namespace UserInterface.BakımOnarım
             id = DtgPYP.CurrentRow.Cells["Id"].Value.ConInt();
             TxtPypNo.Text = DtgPYP.CurrentRow.Cells["PypNo"].Value.ToString();
             TxtSorumluPersonel.Text= DtgPYP.CurrentRow.Cells["SorumluPersonel"].Value.ToString();
-            CmbSiparisTuru.Text= DtgPYP.CurrentRow.Cells["SiparisTuru"].Value.ToString();
-            CmbIslemTuru.Text = DtgPYP.CurrentRow.Cells["IslemTuru"].Value.ToString();
             CmbHesaplamaNedeni.Text= DtgPYP.CurrentRow.Cells["HesaplamaNedeni"].Value.ToString();
+            CmbSiparisTuru.Text= DtgPYP.CurrentRow.Cells["SiparisTuru"].Value.ToString();
         }
 
         private void BtnTemizle_Click(object sender, EventArgs e)
@@ -64,7 +62,7 @@ namespace UserInterface.BakımOnarım
         }
         void Temizle()
         {
-            TxtPypNo.Clear(); TxtSorumluPersonel.Clear(); CmbSiparisTuru.Text = ""; CmbIslemTuru.Text = ""; CmbHesaplamaNedeni.Text = "";
+            TxtPypNo.Clear(); TxtSorumluPersonel.Clear(); CmbSiparisTuru.Text = ""; CmbHesaplamaNedeni.Text = "";
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -72,7 +70,7 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr ==DialogResult.Yes)
             {
-                Pyp pyp = new Pyp(TxtPypNo.Text, TxtSorumluPersonel.Text, CmbSiparisTuru.Text, CmbIslemTuru.Text, CmbHesaplamaNedeni.Text);
+                Pyp pyp = new Pyp(TxtPypNo.Text, TxtSorumluPersonel.Text, CmbSiparisTuru.Text, CmbHesaplamaNedeni.Text);
                 string mesaj = pypManager.Add(pyp);
                 if (mesaj!="OK")
                 {
@@ -93,7 +91,7 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                Pyp pyp = new Pyp(id,TxtPypNo.Text, TxtSorumluPersonel.Text, CmbSiparisTuru.Text, CmbIslemTuru.Text, CmbHesaplamaNedeni.Text);
+                Pyp pyp = new Pyp(id,TxtPypNo.Text, TxtSorumluPersonel.Text, CmbSiparisTuru.Text, CmbHesaplamaNedeni.Text);
                 string mesaj = pypManager.Update(pyp);
                 if (mesaj != "OK")
                 {

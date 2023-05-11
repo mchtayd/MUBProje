@@ -155,10 +155,17 @@ namespace UserInterface.IdariIsler
             {
                 donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 string mesaj = "";
+                if (DtgAracList.RowCount!=0)
+                {
+                    AracKm aracKm = new AracKm(id, LblPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, DtgBitisTarihi.Value, TxtKmBitis.Text.ConInt(), LblToplamKm.Text.ConInt(), LblFark.Text.ConInt(), TxtFark.Text.ConInt(), siparisNo);
 
-                AracKm aracKm = new AracKm(id, LblPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, DtgBitisTarihi.Value, TxtKmBitis.Text.ConInt(), LblToplamKm.Text.ConInt(), LblFark.Text.ConInt(), TxtFark.Text.ConInt(), siparisNo);
-
-                mesaj = aracKmManager.Update(aracKm);
+                    mesaj = aracKmManager.Update(aracKm);
+                }
+                else
+                {
+                    AracKm aracKm = new AracKm(id, LblPlaka.Text, TxtSiparisNo.Text, DtBaslamaTarihi.Value, donem, TxtKmBaslangic.Text.ConInt(), TxtAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, TxtMasrafYeriSorumlusu.Text, TxtMulkiyetBilgileri.Text, DtgBitisTarihi.Value, TxtKmBitis.Text.ConInt(), TxtToplamKm.Text.ConInt(), LblFark.Text.ConInt(), TxtFark.Text.ConInt(), siparisNo);
+                    mesaj = aracKmManager.Update(aracKm);
+                }
 
                 if (mesaj != "OK")
                 {

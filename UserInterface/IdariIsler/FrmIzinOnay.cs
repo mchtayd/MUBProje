@@ -1,4 +1,5 @@
-﻿using Business.Concreate.AnaSayfa;
+﻿using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Presentation;
@@ -15,14 +16,18 @@ namespace UserInterface.IdariIsler
     {
         IzinManager izinManager;
         IdariIslerLogManager logManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
         List<Izin> ızins;
-        int id = 0, isAkisNo;
+        int id = 0, isAkisNo, gun, saat, dakika;
         public object[] infos;
+        string sure = "";
+        DateTime birOncekiTarih;
         public FrmIzinOnay()
         {
             InitializeComponent();
             izinManager = IzinManager.GetInstance();
             logManager = IdariIslerLogManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void FrmIzinOnay_Load(object sender, EventArgs e)
@@ -125,9 +130,48 @@ namespace UserInterface.IdariIsler
                 return;
             }
             CreateLog();
+            GorevAtama();
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             id = 0;
             DataDisplay();
+        }
+
+        private void BtnGorevAta_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in DtgList.Rows)
+            {
+                if (item.Cells["OnayDurum"].Value.ToString()=="ONAYLANMADI")
+                {
+                    GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(item.Cells["Id"].Value.ConInt(), "İZİN", "RESUL GÜNEŞ", "İZİN ONAYI", DateTime.Now, "", DateTime.Now.Date);
+                    gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+                }
+            }
+            MessageBox.Show("Tamamlandı");
+
+
+        }
+
+        void GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "İZİN");
+
+            birOncekiTarih = gorevAtamaPersonel.Tarih;
+
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
+            {
+                saat = 0;
+            }
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "İZİN", "İZİN ONAYI", sure, "00:02:00".ConOnlyTime());
+            gorevAtamaPersonelManager.Update(gorevAtama, "İZİN TALEBİ ONAYLANDI");
         }
 
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -180,9 +224,11 @@ namespace UserInterface.IdariIsler
 
             foreach (DataGridViewRow item in DtgList.Rows)
             {
-                izinManager.IzinOnay(item.Cells["Id"].Value.ConInt(), "ONAYLANDI");
+                id = item.Cells["Id"].Value.ConInt();
+                izinManager.IzinOnay(id, "ONAYLANDI");
                 isAkisNo = item.Cells["Isakisno"].Value.ConInt();
                 CreateLogTumunuOnayla();
+                GorevAtama();
             }
 
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

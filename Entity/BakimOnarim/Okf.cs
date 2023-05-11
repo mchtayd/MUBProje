@@ -8,7 +8,7 @@ namespace Entity.BakimOnarim
 {
     public class Okf
     {
-        int id, isAkisNo; string kayitYapan; DateTime kayitTarihi; string abfNo; DateTime arizaTarihi; string usBolgesi, projeKodu, garantiDurumu, ubKomutani, komutanTel, birlikAdresi, il, ilce, ustStok, ustTanim, ustSeriNo, bildirilenAriza, arizaDurum, arizaNedeni, genelOneriler; double toplamTutar; string dosyaYolu, yapilacakIslemler, bildirimNo;
+        int id, isAkisNo; string kayitYapan; DateTime kayitTarihi; string abfNo; DateTime arizaTarihi; string usBolgesi, projeKodu, garantiDurumu, ubKomutani, komutanTel, birlikAdresi, il, ilce, ustStok, ustTanim, ustSeriNo, bildirilenAriza, arizaDurum, arizaNedeni, genelOneriler; double toplamTutar; string dosyaYolu, yapilacakIslemler, bildirimNo, okfBildirimNo;
 
         public int Id { get => id; set => id = value; }
         public int IsAkisNo { get => isAkisNo; set => isAkisNo = value; }
@@ -35,6 +35,7 @@ namespace Entity.BakimOnarim
         public string DosyaYolu { get => dosyaYolu; set => dosyaYolu = value; }
         public string YapilacakIslemler { get => yapilacakIslemler; set => yapilacakIslemler = value; }
         public string BildirimNo { get => bildirimNo; set => bildirimNo = value; }
+        public string OkfBildirimNo { get => okfBildirimNo; set => okfBildirimNo = value; }
 
         public Okf(int id, int isAkisNo, string kayitYapan, DateTime kayitTarihi, string abfNo, DateTime arizaTarihi, string usBolgesi, string projeKodu, string garantiDurumu, string ubKomutani, string komutanTel, string birlikAdresi, string il, string ilce, string ustStok, string ustTanim, string ustSeriNo, string bildirilenAriza, string arizaDurum, string arizaNedeni, string genelOneriler, double toplamTutar, string dosyaYolu, string bildirimNo)
         {
@@ -91,7 +92,7 @@ namespace Entity.BakimOnarim
             this.bildirimNo = bildirimNo;
         }
 
-        public Okf(int id, DateTime arizaTarihi, string usBolgesi, string projeKodu, string ubKomutani, string komutanTel, string birlikAdresi, string il, string ilce, string ustStok, string ustTanim, string ustSeriNo, string bildirilenAriza, string bildirimNo)
+        public Okf(int id, DateTime arizaTarihi, string usBolgesi, string projeKodu, string ubKomutani, string komutanTel, string birlikAdresi, string il, string ilce, string ustStok, string ustTanim, string ustSeriNo, string bildirilenAriza, string bildirimNo,string okfBildirimNo)
         {
             this.id = id;
             this.arizaTarihi = arizaTarihi;
@@ -107,6 +108,7 @@ namespace Entity.BakimOnarim
             this.ustSeriNo = ustSeriNo;
             this.bildirilenAriza = bildirilenAriza;
             this.bildirimNo = bildirimNo;
+            this.okfBildirimNo = okfBildirimNo;
         }
 
         public Okf(int id, string yapilacakIslemler)

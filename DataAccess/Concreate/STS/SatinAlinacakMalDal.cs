@@ -143,6 +143,30 @@ namespace DataAccess
             }
         }
 
+        public List<SatinAlinacakMalzemeler> GetListDTS(int benzersizId)
+        {
+            try
+            {
+                List<SatinAlinacakMalzemeler> satins = new List<SatinAlinacakMalzemeler>();
+                dataReader = sqlServices.StoreReader("SatArizaMalzemeListele", new SqlParameter("@benzersizId", benzersizId));
+                while (dataReader.Read())
+                {
+                    satins.Add(new SatinAlinacakMalzemeler(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConInt(),
+                        dataReader["SOKULEN_BIRIM"].ToString()));
+                }
+                dataReader.Close();
+                return satins;
+            }
+            catch
+            {
+                return new List<SatinAlinacakMalzemeler>();
+            }
+        }
+
         public string Update(SatinAlinacakMalzemeler entity)
         {
             throw new NotImplementedException();

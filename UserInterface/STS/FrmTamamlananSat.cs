@@ -301,43 +301,58 @@ namespace UserInterface.STS
         void MalzemeFill(string siparisNo)
         {
             tamamlananMalzemes = tamamlananMalzemeManager.GetList(siparisNo);
-            DtgList.DataSource = tamamlananMalzemes;
-            if (satOlusturmaTuru=="HARCAMASI YAPILAN")
+            if (tamamlananMalzemes.Count==0)
             {
+                DtgList.DataSource = teklifsizSatManager.GetList(siparisNo);
                 DtgList.Columns["Id"].Visible = false;
                 DtgList.Columns["Stokno"].Visible = false;
                 DtgList.Columns["Tanim"].Visible = false;
                 DtgList.Columns["Miktar"].Visible = false;
                 DtgList.Columns["Birim"].Visible = false;
-                DtgList.Columns["Firma"].Visible = false;
-                DtgList.Columns["Birimfiyat"].Visible = false;
-                DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
                 DtgList.Columns["Siparisno"].Visible = false;
+                DtgList.Columns["Tutar"].HeaderText = "TOPLAM FİYAT";
             }
             else
             {
-                DtgList.Columns["Id"].Visible = false;
-                DtgList.Columns["Stokno"].Visible = true;
-                DtgList.Columns["Tanim"].Visible = true;
-                DtgList.Columns["Miktar"].Visible = true;
-                DtgList.Columns["Birim"].Visible = true;
-                DtgList.Columns["Firma"].Visible = false;
-                DtgList.Columns["Birimfiyat"].Visible = true;
-                DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
-                DtgList.Columns["Siparisno"].Visible = false;
+                DtgList.DataSource = tamamlananMalzemes;
+                if (satOlusturmaTuru == "HARCAMASI YAPILAN")
+                {
+                    DtgList.Columns["Id"].Visible = false;
+                    DtgList.Columns["Stokno"].Visible = false;
+                    DtgList.Columns["Tanim"].Visible = false;
+                    DtgList.Columns["Miktar"].Visible = false;
+                    DtgList.Columns["Birim"].Visible = false;
+                    DtgList.Columns["Firma"].Visible = false;
+                    DtgList.Columns["Birimfiyat"].Visible = false;
+                    DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
+                    DtgList.Columns["Siparisno"].Visible = false;
+                }
+                else
+                {
+                    DtgList.Columns["Id"].Visible = false;
+                    DtgList.Columns["Stokno"].Visible = true;
+                    DtgList.Columns["Tanim"].Visible = true;
+                    DtgList.Columns["Miktar"].Visible = true;
+                    DtgList.Columns["Birim"].Visible = true;
+                    DtgList.Columns["Firma"].Visible = false;
+                    DtgList.Columns["Birimfiyat"].Visible = true;
+                    DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
+                    DtgList.Columns["Siparisno"].Visible = false;
 
-                DtgList.Columns["Id"].Visible = false;
-                DtgList.Columns["Stokno"].HeaderText = "STOK NO";
-                DtgList.Columns["Tanim"].HeaderText = "TANIM";
-                DtgList.Columns["Miktar"].HeaderText = "MİKTAR";
-                DtgList.Columns["Birim"].HeaderText = "BİRİM";
-                DtgList.Columns["Firma"].Visible = false;
-                DtgList.Columns["Birimfiyat"].HeaderText = "BİRİM FİYAT";
-                DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
-                DtgList.Columns["Siparisno"].Visible = false;
+                    DtgList.Columns["Id"].Visible = false;
+                    DtgList.Columns["Stokno"].HeaderText = "STOK NO";
+                    DtgList.Columns["Tanim"].HeaderText = "TANIM";
+                    DtgList.Columns["Miktar"].HeaderText = "MİKTAR";
+                    DtgList.Columns["Birim"].HeaderText = "BİRİM";
+                    DtgList.Columns["Firma"].Visible = false;
+                    DtgList.Columns["Birimfiyat"].HeaderText = "BİRİM FİYAT";
+                    DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
+                    DtgList.Columns["Siparisno"].Visible = false;
+                }
+
+                Toplamlar2();
             }
             
-            Toplamlar2();
         }
 
         void IslemAdimlari()
@@ -1241,6 +1256,25 @@ namespace UserInterface.STS
                     }
                 }
             }
+        }
+
+        private void BtnDonemDuzelt_Click(object sender, EventArgs e)
+        {
+            string donem = "";
+            List<Tamamlanan> tamamlanans = new List<Tamamlanan>();
+            tamamlanans = tamamlananManager.GetList(2023);
+            foreach (Tamamlanan item in tamamlanans)
+            {
+                if (item.Donem=="NİSAN 2023")
+                {
+                    donem = item.Belgetarihi.ConPeriod();
+
+                    tamamlananManager.DonemEdit(donem, item.Id);
+                }
+            }
+            string bitti = "";
+
+            
         }
 
         private void button1_Click_1(object sender, EventArgs e)

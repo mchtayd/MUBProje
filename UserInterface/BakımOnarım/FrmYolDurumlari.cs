@@ -1,6 +1,7 @@
 ﻿using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
 using Entity.BakimOnarim;
+using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,6 +20,8 @@ namespace UserInterface.BakımOnarım
         BolgeKayitManager bolgeKayitManager;
         YolDurumManager yolDurumManager;
         public object[] infos;
+        List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
+        List<BolgeKayit> bolgeKayitsEklenen = new List<BolgeKayit>();
         public FrmYolDurumlari()
         {
             InitializeComponent();
@@ -52,14 +55,17 @@ namespace UserInterface.BakımOnarım
 
         void UsBolgeleri()
         {
-            if (infos[0].ConInt() == 25 || infos[0].ConInt() == 84)
+            if (infos[0].ConInt() == 25 || infos[0].ConInt() == 30 || infos[0].ConInt() == 33 || infos[0].ConInt() == 84 || infos[0].ConInt() == 39 || infos[0].ConInt() == 1140 || infos[0].ConInt() == 1139 || infos[0].ConInt() == 47 || infos[0].ConInt() == 57 || infos[0].ConInt() == 65 || infos[0].ConInt() == 1121 || infos[0].ConInt() == 1148)
             {
-                CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
+                bolgeKayits = bolgeKayitManager.GetList();
+                CmbBolgeAdi.DataSource = bolgeKayits;
             }
             else
             {
-                CmbBolgeAdi.DataSource = bolgeKayitManager.GetList(infos[1].ToString());
+                bolgeKayits = bolgeKayitManager.GetList(infos[1].ToString());
+                CmbBolgeAdi.DataSource = bolgeKayits;
             }
+
             CmbBolgeAdi.ValueMember = "Id";
             CmbBolgeAdi.DisplayMember = "BolgeAdi";
             CmbBolgeAdi.SelectedValue = "";
@@ -70,6 +76,12 @@ namespace UserInterface.BakımOnarım
             if (DtgList.RowCount==0)
             {
                 MessageBox.Show("Lütfen listeye veri ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string bolgeKontrol = BolgeKontrol();
+            if (bolgeKontrol!="OK")
+            {
+                MessageBox.Show(bolgeKontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -88,13 +100,26 @@ namespace UserInterface.BakımOnarım
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
         }
+        string BolgeKontrol()
+        {
+            List<BolgeKayit> bolgeEksikler = new List<BolgeKayit>();
+
+            bolgeEksikler = bolgeKayits.Where(x => !bolgeKayitsEklenen.Select(y => y.BolgeAdi).Contains(x.BolgeAdi)).ToList();
+            if (bolgeEksikler.Count!=0)
+            {
+                return bolgeEksikler[0].BolgeAdi + " isimli bölgenin yol durumu bilgisi girilmemiştir!\nLütfen tüm bölgelerinizin yol durumu bilgilerini eksiksiz giriniz!";
+            }
+
+            return "OK";
+        }
         void Temizle()
         {
             CmbBolgeAdi.SelectedIndex = -1; CmbYolDurumu.SelectedIndex= -1; TxtAciklama.Clear(); DtgList.Rows.Clear();
         }
-
+        
         private void BtnEkle_Click(object sender, EventArgs e)
         {
+
             if (CmbYolDurumu.Text == "KAPALI" || CmbYolDurumu.Text == "KISMİ")
             {
                 if (TxtAciklama.Text == "")
@@ -125,8 +150,13 @@ namespace UserInterface.BakımOnarım
             c.DefaultCellStyle.ForeColor = Color.Red;
             c.DefaultCellStyle.BackColor = Color.Gainsboro;
 
+            BolgeKayit bolgeKayit = new BolgeKayit(CmbBolgeAdi.ValueMember.ConInt(), CmbBolgeAdi.Text);
+            bolgeKayitsEklenen.Add(bolgeKayit);
+
             CmbBolgeAdi.SelectedIndex = -1;
             CmbYolDurumu.SelectedIndex= -1;
+
+            
 
         }
         string Control()
@@ -149,6 +179,7 @@ namespace UserInterface.BakımOnarım
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 DtgList.Rows.RemoveAt(e.RowIndex);
+                bolgeKayitsEklenen.RemoveAt(e.RowIndex);
             }
         }
     }

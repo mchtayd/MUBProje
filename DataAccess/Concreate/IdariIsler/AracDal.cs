@@ -231,7 +231,7 @@ namespace DataAccess.Concreate.IdariIsler
             try
             {
                 dataReader = sqlServices.StoreReader("AracGuncelle",
-                    new SqlParameter("@id",id),
+                    new SqlParameter("@id", id),
                     new SqlParameter("@plaka", entity.Plaka),
                     new SqlParameter("@ilkteciltarihi", entity.IlkTescilTarihi),
                     new SqlParameter("@teciltarihi", entity.TescilTarihi),
@@ -251,12 +251,13 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@tasittanima", entity.TasitTanima),
                     new SqlParameter("@arventoid", entity.Arventoid),
                     new SqlParameter("@projetahsistarihi", entity.ProjeTahsisTarihi),
-                    new SqlParameter("@projecikistarihi",entity.ProjeCikisTarihi),
-                    new SqlParameter("@projecikisnedeni",entity.ProjeCikisNedeni),
+                    new SqlParameter("@projecikistarihi", entity.ProjeCikisTarihi),
+                    new SqlParameter("@projecikisnedeni", entity.ProjeCikisNedeni),
                     new SqlParameter("@dosyayolu", entity.DosyaYolu),
                     new SqlParameter("@aciklama", entity.Aciklama),
                     new SqlParameter("@kmGiris", entity.KmGiris),
-                    new SqlParameter("@kmCikis",entity.KmCikis));
+                    new SqlParameter("@kmCikis", entity.KmCikis),
+                    new SqlParameter("@durum", entity.Durum));
                 dataReader.Close();
                 return "OK";
             }

@@ -118,34 +118,34 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="openFileDialog1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
+    <value>20, 9</value>
   </metadata>
   <metadata name="openFileDialog2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>157, 17</value>
+    <value>160, 9</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="BtnSatKatEkle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAFBJREFUOE/VjNsKACAIxfz0/rwYGEiYdoGgwXkQ3GSTojsCseqOIjbwLsLD+GQj
+        DgAACw4BQL7hQQAAAFBJREFUOE/VjNsKACAIxfz0/rwYGEiYdoGgwXkQ3GSTojsCseqOIjbwLsLD+GQj
         YSB65F6WZ5EpntyXRiKZhYFPZfCkvlQGT2RLMlzJcCGLNMKOV7lCnEzWAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="BtnSatEkle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAFBJREFUOE/VjNsKACAIxfz0/rwYGEiYdoGgwXkQ3GSTojsCseqOIjbwLsLD+GQj
+        DgAACw4BQL7hQQAAAFBJREFUOE/VjNsKACAIxfz0/rwYGEiYdoGgwXkQ3GSTojsCseqOIjbwLsLD+GQj
         YSB65F6WZ5EpntyXRiKZhYFPZfCkvlQGT2RLMlzJcCGLNMKOV7lCnEzWAAAAAElFTkSuQmCC
 </value>
   </data>
   <data name="BtnProjeEkle.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        EgAACxIB0t1+/AAAAFBJREFUOE/VjNsKACAIxfz0/rwYGEiYdoGgwXkQ3GSTojsCseqOIjbwLsLD+GQj
+        DgAACw4BQL7hQQAAAFBJREFUOE/VjNsKACAIxfz0/rwYGEiYdoGgwXkQ3GSTojsCseqOIjbwLsLD+GQj
         YSB65F6WZ5EpntyXRiKZhYFPZfCkvlQGT2RLMlzJcCGLNMKOV7lCnEzWAAAAAElFTkSuQmCC
 </value>
   </data>
-  <data name="BtnBolumDuzeltGuncelle.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnBo1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAA1tJREFUWEe9lg216kAMhLGABSzUAhawsBawgIVawAIWagELWOidL7vTl1vaUs47
@@ -190,7 +190,7 @@
 talep formları, talimatlar vb. evrakların ıslak imzalı taranmış belgeleri ve özlülük dosyasında
 bulunması gereken tüm evraklar bu alana eklenecektir.</value>
   </data>
-  <data name="BtnBolumDuzelt.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+  <data name="BtnBolum1.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAO
         vAAADrwBlbxySQAAA1tJREFUWEe9lg216kAMhLGABSzUAhawsBawgIVawAIWagELWOidL7vTl1vaUs47
@@ -231,12 +231,12 @@ bulunması gereken tüm evraklar bu alana eklenecektir.</value>
 </value>
   </data>
   <metadata name="contextMenuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>408, 17</value>
+    <value>411, 9</value>
   </metadata>
   <metadata name="dataBinder.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>297, 17</value>
+    <value>300, 9</value>
   </metadata>
   <metadata name="$this.TrayHeight" type="System.Int32, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>46</value>
+    <value>37</value>
   </metadata>
 </root>

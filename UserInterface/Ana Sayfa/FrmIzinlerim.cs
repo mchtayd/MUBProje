@@ -1,5 +1,9 @@
-﻿using Business.Concreate.IdarıIsler;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.IdarıIsler;
+using DataAccess;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using Entity;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -17,11 +21,13 @@ namespace UserInterface.Ana_Sayfa
     {
         List<Izin> ızins;
         IzinManager İzinManager;
+        IdariIslerLogManager logManager;
         public object[] infos;
         public FrmIzinlerim()
         {
             InitializeComponent();
             İzinManager = IzinManager.GetInstance();
+            logManager = IdariIslerLogManager.GetInstance();
         }
 
         private void FrmIzinlerim_Load(object sender, EventArgs e)
@@ -52,6 +58,8 @@ namespace UserInterface.Ana_Sayfa
             DtgList.Columns["KalanSure"].Visible = false;
             DtgList.Columns["Dosyayolu"].Visible = false;
             DtgList.Columns["Sayfa"].Visible = false;
+            DtgList.Columns["Siparis"].Visible = false;
+            DtgList.Columns["OnayDurum"].HeaderText = "ONAY DURUMU";
 
             TxtTop.Text = DtgList.RowCount.ToString();
             Toplamlar();
@@ -78,6 +86,42 @@ namespace UserInterface.Ana_Sayfa
         private void DtgList_SortStringChanged(object sender, EventArgs e)
         {
             dataBinder.Sort = DtgList.SortString;
+        }
+        string dosyayolu, sayfa, isAkisNo;
+        int id;
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgList.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            sayfa = DtgList.CurrentRow.Cells["Sayfa"].Value.ToString();
+            id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+            dosyayolu = DtgList.CurrentRow.Cells["Dosyayolu"].Value.ToString();
+            isAkisNo = DtgList.CurrentRow.Cells["Isakisno"].Value.ToString();
+            IslemAdimlariDisplay();
+            try
+            {
+                webBrowser1.Navigate(dosyayolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+        void IslemAdimlariDisplay()
+        {
+            DtgIslemAdimlari.DataSource = logManager.GetList(sayfa, id);
+            DtgIslemAdimlari.Columns["Id"].Visible = false;
+            DtgIslemAdimlari.Columns["Sayfa"].Visible = false;
+            DtgIslemAdimlari.Columns["Benzersizid"].Visible = false;
+            DtgIslemAdimlari.Columns["Islem"].HeaderText = "YAPILAN İŞLEM";
+            DtgIslemAdimlari.Columns["Islemyapan"].HeaderText = "İŞLEM YAPAN";
+            DtgIslemAdimlari.Columns["Tarih"].HeaderText = "TARİH";
+            DtgIslemAdimlari.Columns["Tarih"].Width = 100;
+            DtgIslemAdimlari.Columns["Islemyapan"].Width = 135;
+            DtgIslemAdimlari.Columns["Islem"].Width = 400;
         }
     }
 }

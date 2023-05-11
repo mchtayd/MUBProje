@@ -86,6 +86,31 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<YolDurum>();
             }
         }
+        public List<YolDurum> GetListTum(DateTime basTarihi, DateTime bitTarihi)
+        {
+            try
+            {
+                List<YolDurum> yolDurums = new List<YolDurum>();
+                dataReader = sqlServices.StoreReader("BolgeYolDurumuListTum", new SqlParameter("@basTarihi", basTarihi), new SqlParameter("@bitTarihi", bitTarihi));
+                while (dataReader.Read())
+                {
+                    yolDurums.Add(new YolDurum(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BOLGE_ADI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["YOL_DURUMU"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["KAYIT_YAPAN"].ToString()));
+                }
+                dataReader.Close();
+                return yolDurums;
+            }
+            catch (Exception)
+            {
+                return new List<YolDurum>();
+            }
+        }
 
         public string Update(YolDurum entity)
         {

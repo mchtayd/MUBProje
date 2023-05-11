@@ -120,6 +120,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+        public string MazlemeUstTakimEkle(int id)
+        {
+            try
+            {
+                return malzemeDal.MazlemeUstTakimEkle(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public List<Malzeme> GetList()
         {
@@ -131,6 +142,30 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             {
 
                 return new List<Malzeme>();
+            }
+        }
+        public List<Malzeme> UstTakimGetList()
+        {
+            try
+            {
+                return malzemeDal.UstTakimGetList();
+            }
+            catch (Exception)
+            {
+
+                return new List<Malzeme>();
+            }
+        }
+        public Malzeme MalzemeBul(string stokNo)
+        {
+            try
+            {
+                return malzemeDal.MalzemeBul(stokNo);
+            }
+            catch (Exception)
+            {
+
+                return null;
             }
         }
         public List<Malzeme> MalzemeStokDuzeltList()

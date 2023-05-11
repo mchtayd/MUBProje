@@ -30,8 +30,8 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIzin));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.BtnGuncelle = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.BtnTemizle = new System.Windows.Forms.Button();
@@ -129,6 +129,7 @@ namespace UserInterface.IdariIsler
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
+            this.label29 = new System.Windows.Forms.Label();
             this.BtnGuncelle.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -153,6 +154,7 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.label29);
             this.tabPage1.Controls.Add(this.BtnTemizle);
             this.tabPage1.Controls.Add(this.BtnDosyaEkle);
             this.tabPage1.Controls.Add(this.BtnKaydet);
@@ -361,11 +363,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.Name = "Remove";
             this.Remove.ReadOnly = true;
@@ -401,7 +403,7 @@ namespace UserInterface.IdariIsler
             "GÜNLÜK İZİN",
             "OFİS PERSONELİ",
             "SAHA PERSONELİ"});
-            this.CmbDokumanTuru.Location = new System.Drawing.Point(572, 13);
+            this.CmbDokumanTuru.Location = new System.Drawing.Point(1319, 90);
             this.CmbDokumanTuru.Name = "CmbDokumanTuru";
             this.CmbDokumanTuru.Size = new System.Drawing.Size(227, 21);
             this.CmbDokumanTuru.TabIndex = 18;
@@ -411,7 +413,7 @@ namespace UserInterface.IdariIsler
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(443, 17);
+            this.label20.Location = new System.Drawing.Point(1190, 94);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(123, 13);
             this.label20.TabIndex = 17;
@@ -1137,6 +1139,17 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog3.FileName = "openFileDialog1";
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label29.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.label29.Location = new System.Drawing.Point(422, 44);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(681, 39);
+            this.label29.TabIndex = 347;
+            this.label29.Text = resources.GetString("label29.Text");
+            // 
             // FrmIzin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1265,5 +1278,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.DataGridViewTextBoxColumn BitisSaati;
         private System.Windows.Forms.DataGridViewTextBoxColumn TSure;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.Label label29;
     }
 }

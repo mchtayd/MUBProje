@@ -4,6 +4,7 @@ using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
+using DocumentFormat.OpenXml.Presentation;
 using Entity;
 using Entity.IdariIsler;
 using Entity.STS;
@@ -42,6 +43,7 @@ namespace UserInterface.STS
         SatOnayTarihiManager satOnayTarihiManager;
         PersonelKayitManager personelKayitManager;
         BolgeKayitManager bolgeKayitManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
 
         public object[] infos;
         public object[] infos1;
@@ -318,6 +320,7 @@ namespace UserInterface.STS
             satOnayTarihiManager = SatOnayTarihiManager.GetInstance();
             personelKayitManager = PersonelKayitManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void FrmSatOnay_Load(object sender, EventArgs e)
@@ -507,6 +510,10 @@ namespace UserInterface.STS
             DtgOnay.Columns["AselsanMailAlmaDate"].HeaderText = "ASELSAN ONAY MAİLİ ALMA TARİHİ";
             DtgOnay.Columns["OdemeMailGondermeDate"].Visible = false;
             DtgOnay.Columns["OdemeMailAlmaDate"].Visible = false;
+            DtgOnay.Columns["DepoTeslimTarihi"].Visible = false;
+            DtgOnay.Columns["DepoTeslimBilgisi"].HeaderText = "SÖKÜLEN CİHAZ TESLİM BİLGİSİ";
+            DtgOnay.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgOnay.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
         }
         void Hesapla4()
         {
@@ -683,7 +690,7 @@ namespace UserInterface.STS
         {
             if (DtgOnay.CurrentRow == null)
             {
-                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             IslemAdimlari();
@@ -727,7 +734,6 @@ namespace UserInterface.STS
             mlzTeslimTarihi = DtgOnay.CurrentRow.Cells["Tarih"].Value.ToString();
             butceTanimi = DtgOnay.CurrentRow.Cells["ButceTanimi"].Value.ToString();
             maliyetTuru = DtgOnay.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
-
 
             string pageText3;
             TxtRetNedeni.Text = retNedeni;
@@ -834,8 +840,8 @@ namespace UserInterface.STS
                 else
                 {
                     UcTeklif();
-                    CmbOnaylanacakTeklif.Enabled = true;
-                    CmbOnaylanacakTeklif.SelectedIndex = -1;
+                    CmbOnaylanacakTeklif.Enabled = false;
+                    CmbOnaylanacakTeklif.SelectedIndex = 0;
                 }
                 
             }
@@ -914,16 +920,16 @@ namespace UserInterface.STS
             DtgMalzList.Columns["Miktar"].HeaderText = "MİKTAR";
             DtgMalzList.Columns["Birim"].HeaderText = "BİRİM";
             DtgMalzList.Columns["Firma1"].HeaderText = "1. FİRMA ADI";
-            DtgMalzList.Columns["Firma2"].HeaderText = "2. FİRMA ADI";
-            DtgMalzList.Columns["Firma3"].HeaderText = "3. FİRMA ADI";
+            DtgMalzList.Columns["Firma2"].Visible = false;
+            DtgMalzList.Columns["Firma3"].Visible = false;
             DtgMalzList.Columns["Siparisno"].Visible = false;
             DtgMalzList.Columns["Teklifdurumu"].Visible = false;
             DtgMalzList.Columns["Bbf"].HeaderText = "1. BİRİM FİYATI";
             DtgMalzList.Columns["Btf"].HeaderText = "1. TOPLAM FİYAT";
-            DtgMalzList.Columns["Ibf"].HeaderText = "2. BİRİM FİYATI";
-            DtgMalzList.Columns["Itf"].HeaderText = "2. TOPLAM FİYAT";
-            DtgMalzList.Columns["Ubf"].HeaderText = "3. BİRİM FİYATI";
-            DtgMalzList.Columns["Utf"].HeaderText = "3. TOPLAM FİYAT";
+            DtgMalzList.Columns["Ibf"].Visible = false;
+            DtgMalzList.Columns["Itf"].Visible = false;
+            DtgMalzList.Columns["Ubf"].Visible = false;
+            DtgMalzList.Columns["Utf"].Visible = false;
             DtgMalzList.Columns["Onaylananteklif"].Visible = false;
 
             DtgMalzList.Columns["Stokno"].DisplayIndex = 0;
@@ -2496,6 +2502,7 @@ namespace UserInterface.STS
                 islmeyapan = infos[1].ToString();
                 SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanislem, islmeyapan, DateTime.Now);
                 satIslemAdimlarimanager.Add(satIslem);
+                GorevAtamaRed();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SatDataGrid1();
                 Temizle();
@@ -2521,9 +2528,8 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT için Teklifi Onaylamak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                if (satOlusturmaTuru=="HARCAMASI YAPILAN")
+                if (satOlusturmaTuru=="HARCAMASI YAPILAN" || satOlusturmaTuru == "YERLEŞKE GİDERİ")
                 {
-
                     //DosyaAdiDegistir();
                     satDataGridview1Manager.DurumGuncelleTamamlama(siparisNo, "", "");
 
@@ -2543,7 +2549,7 @@ namespace UserInterface.STS
                     string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
 
 
-                    donem = DateTime.Now.ConPeriod();
+                    //donem = DateTime.Now.ConPeriod();
 
                     Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
                         faturafirma, ilgilikisi, masrafyerino, hyTop, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, butceTanimi, maliyetTuru,"","", "");
@@ -2553,19 +2559,37 @@ namespace UserInterface.STS
                         MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-
-                    foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
+                    if (fiyatTeklifiAls.Count==0)
                     {
-                        TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item.Stokno, item.Tanim, item.Miktar, item.Birim, item.Firma1, item.Bbf,
-                        item.Btf, siparisNo);
-
-                        string mesaj = tamamlananMalzemeManager.Add(tamamlananMalzeme);
-                        if (mesaj != "OK")
+                        foreach (TeklifsizSat item in teklifsizSats)
                         {
-                            MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                            return;
+                            TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item.Stokno, item.Tanim, item.Miktar.ConInt(), item.Birim, satinAlinanFirma, item.Tutar,
+                            item.Tutar, siparisNo);
+
+                            string mesaj = tamamlananMalzemeManager.Add(tamamlananMalzeme);
+                            if (mesaj != "OK")
+                            {
+                                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
                         }
                     }
+                    else
+                    {
+                        foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
+                        {
+                            TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item.Stokno, item.Tanim, item.Miktar, item.Birim, item.Firma1, item.Bbf,
+                            item.Btf, siparisNo);
+
+                            string mesaj = tamamlananMalzemeManager.Add(tamamlananMalzeme);
+                            if (mesaj != "OK")
+                            {
+                                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+                    }
+                    
 
                     satDataGridview1Manager.Delete(id);
                     satinAlinacakMalManager.Delete(siparisNo);
@@ -2611,8 +2635,8 @@ namespace UserInterface.STS
                     satIslemAdimlarimanager.Add(satIslem);
 
                 }
-                
 
+                GorevAtama();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedildi.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 onaydurum = "Teklif Onaylanmıştır.";
                 DtgMalzList.DataSource = null;
@@ -2620,12 +2644,85 @@ namespace UserInterface.STS
                 LblGenelTop.Text = "00";
                 LblTop2.Text = "00";
                 TxtRetNedeni.Clear();
-                webBrowser2.Navigate("");
                 MalzemeList();
                 SatDataGrid1();
                 TxtTop.Text = DtgOnay.RowCount.ToString();
                 CmbOnaylanacakTeklif.SelectedIndex = -1;
+                id = 0;
+                try
+                {
+                    webBrowser2.Navigate("");
+
+                }
+                catch (Exception)
+                {
+                    return;
+                }
             }
+        }
+
+        private void BtnGorevAta_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in DtgOnay.Rows)
+            {
+                GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(item.Cells["Id"].Value.ConInt(), "SATIN ALMA", "RESUL GÜNEŞ", "SAT ONAYI", DateTime.Now, "", DateTime.Now.Date);
+                gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+            }
+
+            MessageBox.Show("Tamamlandı");
+        }
+
+        DateTime birOncekiTarih;
+        int gun, saat, dakika; string sure;
+        void GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "SATIN ALMA");
+            if (gorevAtamaPersonel==null)
+            {
+                return;
+            }
+
+            birOncekiTarih = gorevAtamaPersonel.Tarih;
+
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
+            {
+                saat = 0;
+            }
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "İZİN", "SAT ONAYI", sure, "00:02:00".ConOnlyTime());
+            gorevAtamaPersonelManager.Update(gorevAtama, "SAT ONAYLANDI");
+
+        }
+        void GorevAtamaRed()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "SATIN ALMA");
+
+            birOncekiTarih = gorevAtamaPersonel.Tarih;
+
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
+            {
+                saat = 0;
+            }
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "İZİN", "SAT ONAYI", sure, "00:02:00".ConOnlyTime());
+            gorevAtamaPersonelManager.Update(gorevAtama, "SAT REDDEDİLDİ");
+
         }
 
         private void DtgOnay_KeyDown(object sender, KeyEventArgs e)

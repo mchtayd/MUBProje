@@ -74,6 +74,8 @@ namespace UserInterface.IdariIsler
             DtgList.Columns["IslemDurumu"].HeaderText = "İŞLEM DURUMU";
             DtgList.Columns["RedGerekcesi"].Visible = false;
             DtgList.Columns["Secim"].Visible = false;
+            DtgList.Columns["ToplamMiktar"].Visible = false;
+            DtgList.Columns["DepoDurum"].Visible = false;
 
             DtgList.Columns["Bolum"].DisplayIndex = 0;
             DtgList.Columns["MasrafYeri"].DisplayIndex = 1;

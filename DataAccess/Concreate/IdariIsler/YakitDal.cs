@@ -113,12 +113,21 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
-        public List<Yakit> GetList(int isakisno)
+        public List<Yakit> GetList(int isakisno, string yil)
         {
             try
             {
+                int yildanfalza;
+                if (yil == "1990")
+                {
+                    yildanfalza = 2022;
+                }
+                else
+                {
+                    yildanfalza = yil.ConInt() + 1;
+                }
                 List<Yakit> yakits = new List<Yakit>();
-                dataReader = sqlServices.StoreReader("YakitBeyanList", new SqlParameter("@isakisno", isakisno));
+                dataReader = sqlServices.StoreReader("YakitBeyanList", new SqlParameter("@isakisno", isakisno), new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yildanfalza));
                 while (dataReader.Read())
                 {
                     yakits.Add(new Yakit(dataReader["ID"].ConInt(),
@@ -147,6 +156,27 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<Yakit>();
             }
         }
+
+        public List<string> Yillar()
+        {
+            try
+            {
+                List<string> yillar = new List<string>();
+                dataReader = sqlServices.StoreReader("YakitBeyanTarihler");
+                while (dataReader.Read())
+                {
+                    yillar.Add(dataReader[0].ToString());
+                }
+                dataReader.Close();
+                return yillar;
+
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
+
         public List<Yakit> YakitKontrolBeyan(string donem)
         {
             try

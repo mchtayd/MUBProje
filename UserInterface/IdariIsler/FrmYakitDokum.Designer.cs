@@ -29,9 +29,9 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYakitDokum));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -133,11 +133,25 @@ namespace UserInterface.IdariIsler
             this.BtnKaydetTT = new System.Windows.Forms.Button();
             this.label21 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.DtgDeneme = new ADGV.AdvancedDataGridView();
             this.DtgTTList = new ADGV.AdvancedDataGridView();
+            this.Tarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Plaka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AracMarka = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AracTuru = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AracTipi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Proje = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PersonelAd = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FirmaBilgisi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LitreTop = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToplamIskontosuz = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TutarIskontolu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BtnDosyaSec = new System.Windows.Forms.Button();
             this.TxtDosyaYolu = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.ChkAyrilanArac = new System.Windows.Forms.CheckBox();
+            this.ChkAyrilanPersonel = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -151,6 +165,7 @@ namespace UserInterface.IdariIsler
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgDeneme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTTList)).BeginInit();
             this.SuspendLayout();
             // 
@@ -191,6 +206,8 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ChkAyrilanPersonel);
+            this.tabPage1.Controls.Add(this.ChkAyrilanArac);
             this.tabPage1.Controls.Add(this.label19);
             this.tabPage1.Controls.Add(this.ToplamLitre);
             this.tabPage1.Controls.Add(this.label14);
@@ -420,7 +437,7 @@ namespace UserInterface.IdariIsler
             this.PersonelList.MinimumWidth = 22;
             this.PersonelList.Name = "PersonelList";
             this.PersonelList.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.PersonelList.Width = 141;
+            this.PersonelList.Width = 142;
             // 
             // PlakaList
             // 
@@ -451,7 +468,7 @@ namespace UserInterface.IdariIsler
             this.AlinanLitreList.MinimumWidth = 22;
             this.AlinanLitreList.Name = "AlinanLitreList";
             this.AlinanLitreList.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.AlinanLitreList.Width = 96;
+            this.AlinanLitreList.Width = 97;
             // 
             // ToplamTutarList
             // 
@@ -463,11 +480,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle9;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -499,7 +516,7 @@ namespace UserInterface.IdariIsler
             // 
             this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(477, 160);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(591, 160);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(136, 39);
             this.BtnDosyaEkle.TabIndex = 456;
@@ -510,7 +527,7 @@ namespace UserInterface.IdariIsler
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.webBrowser1);
-            this.groupBox1.Location = new System.Drawing.Point(477, 37);
+            this.groupBox1.Location = new System.Drawing.Point(591, 37);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(522, 117);
             this.groupBox1.TabIndex = 455;
@@ -904,11 +921,11 @@ namespace UserInterface.IdariIsler
             // 
             // RemoveList
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Red;
+            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle10;
             this.RemoveList.HeaderText = "KALDIR";
             this.RemoveList.MinimumWidth = 22;
             this.RemoveList.Name = "RemoveList";
@@ -1176,7 +1193,7 @@ namespace UserInterface.IdariIsler
             // 
             this.LblTopmaSayi.AutoSize = true;
             this.LblTopmaSayi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTopmaSayi.Location = new System.Drawing.Point(393, 755);
+            this.LblTopmaSayi.Location = new System.Drawing.Point(115, 755);
             this.LblTopmaSayi.Name = "LblTopmaSayi";
             this.LblTopmaSayi.Size = new System.Drawing.Size(21, 15);
             this.LblTopmaSayi.TabIndex = 512;
@@ -1196,7 +1213,7 @@ namespace UserInterface.IdariIsler
             // 
             this.LblTTasitTanima.AutoSize = true;
             this.LblTTasitTanima.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTTasitTanima.Location = new System.Drawing.Point(115, 755);
+            this.LblTTasitTanima.Location = new System.Drawing.Point(393, 755);
             this.LblTTasitTanima.Name = "LblTTasitTanima";
             this.LblTTasitTanima.Size = new System.Drawing.Size(21, 15);
             this.LblTTasitTanima.TabIndex = 510;
@@ -1225,6 +1242,7 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.DtgDeneme);
             this.groupBox5.Controls.Add(this.DtgTTList);
             this.groupBox5.Location = new System.Drawing.Point(9, 200);
             this.groupBox5.Name = "groupBox5";
@@ -1233,6 +1251,21 @@ namespace UserInterface.IdariIsler
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "LİSTE";
             // 
+            // DtgDeneme
+            // 
+            this.DtgDeneme.AllowUserToAddRows = false;
+            this.DtgDeneme.AllowUserToDeleteRows = false;
+            this.DtgDeneme.AutoGenerateContextFilters = true;
+            this.DtgDeneme.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgDeneme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgDeneme.DateWithTime = false;
+            this.DtgDeneme.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgDeneme.Location = new System.Drawing.Point(3, 16);
+            this.DtgDeneme.Name = "DtgDeneme";
+            this.DtgDeneme.Size = new System.Drawing.Size(1415, 523);
+            this.DtgDeneme.TabIndex = 335;
+            this.DtgDeneme.TimeFilter = false;
+            // 
             // DtgTTList
             // 
             this.DtgTTList.AllowUserToAddRows = false;
@@ -1240,6 +1273,18 @@ namespace UserInterface.IdariIsler
             this.DtgTTList.AutoGenerateContextFilters = true;
             this.DtgTTList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTTList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgTTList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Tarih,
+            this.Plaka,
+            this.AracMarka,
+            this.AracTuru,
+            this.AracTipi,
+            this.Proje,
+            this.PersonelAd,
+            this.FirmaBilgisi,
+            this.LitreTop,
+            this.ToplamIskontosuz,
+            this.TutarIskontolu});
             this.DtgTTList.DateWithTime = false;
             this.DtgTTList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgTTList.Location = new System.Drawing.Point(3, 16);
@@ -1247,6 +1292,94 @@ namespace UserInterface.IdariIsler
             this.DtgTTList.Size = new System.Drawing.Size(1415, 523);
             this.DtgTTList.TabIndex = 334;
             this.DtgTTList.TimeFilter = false;
+            // 
+            // Tarih
+            // 
+            this.Tarih.HeaderText = "TARİH";
+            this.Tarih.MinimumWidth = 22;
+            this.Tarih.Name = "Tarih";
+            this.Tarih.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Tarih.Width = 65;
+            // 
+            // Plaka
+            // 
+            this.Plaka.HeaderText = "PLAKA";
+            this.Plaka.MinimumWidth = 22;
+            this.Plaka.Name = "Plaka";
+            this.Plaka.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Plaka.Width = 66;
+            // 
+            // AracMarka
+            // 
+            this.AracMarka.HeaderText = "ARAÇ MARKA/MODEL";
+            this.AracMarka.MinimumWidth = 22;
+            this.AracMarka.Name = "AracMarka";
+            this.AracMarka.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.AracMarka.Width = 133;
+            // 
+            // AracTuru
+            // 
+            this.AracTuru.HeaderText = "ARAÇ TÜRÜ";
+            this.AracTuru.MinimumWidth = 22;
+            this.AracTuru.Name = "AracTuru";
+            this.AracTuru.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.AracTuru.Width = 88;
+            // 
+            // AracTipi
+            // 
+            this.AracTipi.HeaderText = "ARAÇ TİPİ";
+            this.AracTipi.MinimumWidth = 22;
+            this.AracTipi.Name = "AracTipi";
+            this.AracTipi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.AracTipi.Width = 78;
+            // 
+            // Proje
+            // 
+            this.Proje.HeaderText = "PROJE";
+            this.Proje.MinimumWidth = 22;
+            this.Proje.Name = "Proje";
+            this.Proje.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Proje.Width = 67;
+            // 
+            // PersonelAd
+            // 
+            this.PersonelAd.HeaderText = "PERSONEL ADI";
+            this.PersonelAd.MinimumWidth = 22;
+            this.PersonelAd.Name = "PersonelAd";
+            this.PersonelAd.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.PersonelAd.Width = 102;
+            // 
+            // FirmaBilgisi
+            // 
+            this.FirmaBilgisi.HeaderText = "FİRMA BİLGİSİ";
+            this.FirmaBilgisi.MinimumWidth = 22;
+            this.FirmaBilgisi.Name = "FirmaBilgisi";
+            this.FirmaBilgisi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.FirmaBilgisi.Width = 97;
+            // 
+            // LitreTop
+            // 
+            this.LitreTop.HeaderText = "TOPLAM LİTRE";
+            this.LitreTop.MinimumWidth = 22;
+            this.LitreTop.Name = "LitreTop";
+            this.LitreTop.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.LitreTop.Width = 101;
+            // 
+            // ToplamIskontosuz
+            // 
+            this.ToplamIskontosuz.HeaderText = "TOPLAM TUTAR (İSKONTOSUZ)";
+            this.ToplamIskontosuz.MinimumWidth = 22;
+            this.ToplamIskontosuz.Name = "ToplamIskontosuz";
+            this.ToplamIskontosuz.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.ToplamIskontosuz.Width = 178;
+            // 
+            // TutarIskontolu
+            // 
+            this.TutarIskontolu.HeaderText = "TOPLAM TUTAR (İSKONTOLU)";
+            this.TutarIskontolu.MinimumWidth = 22;
+            this.TutarIskontolu.Name = "TutarIskontolu";
+            this.TutarIskontolu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TutarIskontolu.Width = 170;
             // 
             // BtnDosyaSec
             // 
@@ -1280,6 +1413,28 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // ChkAyrilanArac
+            // 
+            this.ChkAyrilanArac.AutoSize = true;
+            this.ChkAyrilanArac.Location = new System.Drawing.Point(307, 203);
+            this.ChkAyrilanArac.Name = "ChkAyrilanArac";
+            this.ChkAyrilanArac.Size = new System.Drawing.Size(104, 17);
+            this.ChkAyrilanArac.TabIndex = 471;
+            this.ChkAyrilanArac.Text = "AYRILAN ARAÇ";
+            this.ChkAyrilanArac.UseVisualStyleBackColor = true;
+            this.ChkAyrilanArac.CheckedChanged += new System.EventHandler(this.ChkAyrilanArac_CheckedChanged);
+            // 
+            // ChkAyrilanPersonel
+            // 
+            this.ChkAyrilanPersonel.AutoSize = true;
+            this.ChkAyrilanPersonel.Location = new System.Drawing.Point(393, 175);
+            this.ChkAyrilanPersonel.Name = "ChkAyrilanPersonel";
+            this.ChkAyrilanPersonel.Size = new System.Drawing.Size(133, 17);
+            this.ChkAyrilanPersonel.TabIndex = 472;
+            this.ChkAyrilanPersonel.Text = "AYRILAN PERSONEL";
+            this.ChkAyrilanPersonel.UseVisualStyleBackColor = true;
+            this.ChkAyrilanPersonel.CheckedChanged += new System.EventHandler(this.ChkAyrilanPersonel_CheckedChanged);
+            // 
             // FrmYakitDokum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1306,6 +1461,7 @@ namespace UserInterface.IdariIsler
             this.tabPage3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgDeneme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTTList)).EndInit();
             this.ResumeLayout(false);
 
@@ -1419,5 +1575,19 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label LblIsAkisNoTasit;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.WebBrowser webBrowser3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Tarih;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Plaka;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AracMarka;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AracTuru;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AracTipi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Proje;
+        private System.Windows.Forms.DataGridViewTextBoxColumn PersonelAd;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FirmaBilgisi;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LitreTop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ToplamIskontosuz;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TutarIskontolu;
+        private ADGV.AdvancedDataGridView DtgDeneme;
+        private System.Windows.Forms.CheckBox ChkAyrilanArac;
+        private System.Windows.Forms.CheckBox ChkAyrilanPersonel;
     }
 }

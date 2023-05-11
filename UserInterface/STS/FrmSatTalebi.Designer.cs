@@ -314,13 +314,12 @@ namespace UserInterface.STS
             this.GrnBasaran.Controls.Add(this.label56);
             this.GrnBasaran.Controls.Add(this.label58);
             this.GrnBasaran.Controls.Add(this.label59);
-            this.GrnBasaran.Location = new System.Drawing.Point(499, 60);
+            this.GrnBasaran.Location = new System.Drawing.Point(1012, 68);
             this.GrnBasaran.Name = "GrnBasaran";
-            this.GrnBasaran.Size = new System.Drawing.Size(507, 236);
+            this.GrnBasaran.Size = new System.Drawing.Size(507, 253);
             this.GrnBasaran.TabIndex = 354;
             this.GrnBasaran.TabStop = false;
             this.GrnBasaran.Text = "TALEP EDEN";
-            this.GrnBasaran.Visible = false;
             // 
             // label2
             // 
@@ -469,7 +468,6 @@ namespace UserInterface.STS
             // 
             // GrbAselsan
             // 
-            this.GrbAselsan.Controls.Add(this.BtnKontrol);
             this.GrbAselsan.Controls.Add(this.label5);
             this.GrbAselsan.Controls.Add(this.LblPdl);
             this.GrbAselsan.Controls.Add(this.LblDonem);
@@ -484,13 +482,12 @@ namespace UserInterface.STS
             this.GrbAselsan.Controls.Add(this.label13);
             this.GrbAselsan.Controls.Add(this.CmbBolgeAdi);
             this.GrbAselsan.Controls.Add(this.BildirimFromNo);
-            this.GrbAselsan.Location = new System.Drawing.Point(502, 60);
+            this.GrbAselsan.Location = new System.Drawing.Point(499, 68);
             this.GrbAselsan.Name = "GrbAselsan";
             this.GrbAselsan.Size = new System.Drawing.Size(507, 253);
             this.GrbAselsan.TabIndex = 353;
             this.GrbAselsan.TabStop = false;
             this.GrbAselsan.Text = "TALEP EDİLEN YER";
-            this.GrbAselsan.Visible = false;
             // 
             // BtnKontrol
             // 
@@ -498,19 +495,20 @@ namespace UserInterface.STS
             this.BtnKontrol.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKontrol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKontrol.Location = new System.Drawing.Point(159, 16);
+            this.BtnKontrol.Location = new System.Drawing.Point(1384, 33);
             this.BtnKontrol.Name = "BtnKontrol";
             this.BtnKontrol.Size = new System.Drawing.Size(129, 39);
             this.BtnKontrol.TabIndex = 421;
             this.BtnKontrol.Text = " Arızaları Kontrol Et";
             this.BtnKontrol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnKontrol.UseVisualStyleBackColor = false;
+            this.BtnKontrol.Visible = false;
             this.BtnKontrol.Click += new System.EventHandler(this.BtnKontrol_Click);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(20, 175);
+            this.label5.Location = new System.Drawing.Point(21, 132);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(133, 13);
             this.label5.TabIndex = 419;
@@ -519,7 +517,7 @@ namespace UserInterface.STS
             // LblPdl
             // 
             this.LblPdl.AutoSize = true;
-            this.LblPdl.Location = new System.Drawing.Point(159, 148);
+            this.LblPdl.Location = new System.Drawing.Point(160, 78);
             this.LblPdl.Name = "LblPdl";
             this.LblPdl.Size = new System.Drawing.Size(19, 13);
             this.LblPdl.TabIndex = 420;
@@ -528,7 +526,7 @@ namespace UserInterface.STS
             // LblDonem
             // 
             this.LblDonem.AutoSize = true;
-            this.LblDonem.Location = new System.Drawing.Point(159, 229);
+            this.LblDonem.Location = new System.Drawing.Point(160, 186);
             this.LblDonem.Name = "LblDonem";
             this.LblDonem.Size = new System.Drawing.Size(19, 13);
             this.LblDonem.TabIndex = 418;
@@ -537,7 +535,7 @@ namespace UserInterface.STS
             // LblSatOlusturmaTarihi
             // 
             this.LblSatOlusturmaTarihi.AutoSize = true;
-            this.LblSatOlusturmaTarihi.Location = new System.Drawing.Point(159, 202);
+            this.LblSatOlusturmaTarihi.Location = new System.Drawing.Point(160, 159);
             this.LblSatOlusturmaTarihi.Name = "LblSatOlusturmaTarihi";
             this.LblSatOlusturmaTarihi.Size = new System.Drawing.Size(19, 13);
             this.LblSatOlusturmaTarihi.TabIndex = 417;
@@ -546,7 +544,7 @@ namespace UserInterface.STS
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 148);
+            this.label3.Location = new System.Drawing.Point(5, 105);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(149, 13);
             this.label3.TabIndex = 415;
@@ -555,7 +553,7 @@ namespace UserInterface.STS
             // label65
             // 
             this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(68, 121);
+            this.label65.Location = new System.Drawing.Point(69, 78);
             this.label65.Name = "label65";
             this.label65.Size = new System.Drawing.Size(85, 13);
             this.label65.TabIndex = 109;
@@ -564,7 +562,7 @@ namespace UserInterface.STS
             // LblGarantiDurumu
             // 
             this.LblGarantiDurumu.AutoSize = true;
-            this.LblGarantiDurumu.Location = new System.Drawing.Point(159, 175);
+            this.LblGarantiDurumu.Location = new System.Drawing.Point(160, 132);
             this.LblGarantiDurumu.Name = "LblGarantiDurumu";
             this.LblGarantiDurumu.Size = new System.Drawing.Size(19, 13);
             this.LblGarantiDurumu.TabIndex = 416;
@@ -573,7 +571,7 @@ namespace UserInterface.STS
             // label52
             // 
             this.label52.AutoSize = true;
-            this.label52.Location = new System.Drawing.Point(66, 229);
+            this.label52.Location = new System.Drawing.Point(67, 186);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(87, 13);
             this.label52.TabIndex = 107;
@@ -582,7 +580,7 @@ namespace UserInterface.STS
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(79, 67);
+            this.label11.Location = new System.Drawing.Point(80, 24);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(74, 13);
             this.label11.TabIndex = 96;
@@ -591,7 +589,7 @@ namespace UserInterface.STS
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(68, 94);
+            this.label12.Location = new System.Drawing.Point(69, 51);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(85, 13);
             this.label12.TabIndex = 97;
@@ -600,7 +598,7 @@ namespace UserInterface.STS
             // LblBolgeProje
             // 
             this.LblBolgeProje.AutoSize = true;
-            this.LblBolgeProje.Location = new System.Drawing.Point(159, 121);
+            this.LblBolgeProje.Location = new System.Drawing.Point(160, 105);
             this.LblBolgeProje.Name = "LblBolgeProje";
             this.LblBolgeProje.Size = new System.Drawing.Size(19, 13);
             this.LblBolgeProje.TabIndex = 414;
@@ -609,7 +607,7 @@ namespace UserInterface.STS
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 202);
+            this.label13.Location = new System.Drawing.Point(13, 159);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(141, 13);
             this.label13.TabIndex = 98;
@@ -619,7 +617,7 @@ namespace UserInterface.STS
             // 
             this.CmbBolgeAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBolgeAdi.FormattingEnabled = true;
-            this.CmbBolgeAdi.Location = new System.Drawing.Point(159, 63);
+            this.CmbBolgeAdi.Location = new System.Drawing.Point(160, 20);
             this.CmbBolgeAdi.Name = "CmbBolgeAdi";
             this.CmbBolgeAdi.Size = new System.Drawing.Size(285, 21);
             this.CmbBolgeAdi.TabIndex = 100;
@@ -628,7 +626,7 @@ namespace UserInterface.STS
             // BildirimFromNo
             // 
             this.BildirimFromNo.FormattingEnabled = true;
-            this.BildirimFromNo.Location = new System.Drawing.Point(159, 90);
+            this.BildirimFromNo.Location = new System.Drawing.Point(160, 47);
             this.BildirimFromNo.Name = "BildirimFromNo";
             this.BildirimFromNo.Size = new System.Drawing.Size(285, 21);
             this.BildirimFromNo.TabIndex = 106;
@@ -671,7 +669,7 @@ namespace UserInterface.STS
             this.groupBox2.Controls.Add(this.DtgMalzemeList);
             this.groupBox2.Location = new System.Drawing.Point(24, 399);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(985, 303);
+            this.groupBox2.Size = new System.Drawing.Size(1495, 303);
             this.groupBox2.TabIndex = 357;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "MALZEME LİSTESİ";
@@ -693,7 +691,7 @@ namespace UserInterface.STS
             this.DtgMalzemeList.MultiSelect = false;
             this.DtgMalzemeList.Name = "DtgMalzemeList";
             this.DtgMalzemeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgMalzemeList.Size = new System.Drawing.Size(979, 284);
+            this.DtgMalzemeList.Size = new System.Drawing.Size(1489, 284);
             this.DtgMalzemeList.TabIndex = 3;
             this.DtgMalzemeList.TimeFilter = false;
             this.DtgMalzemeList.SortStringChanged += new System.EventHandler(this.DtgMalzemeList_SortStringChanged);
@@ -807,7 +805,7 @@ namespace UserInterface.STS
             this.BtnTumuneSatOlustur.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnTumuneSatOlustur.Image = ((System.Drawing.Image)(resources.GetObject("BtnTumuneSatOlustur.Image")));
             this.BtnTumuneSatOlustur.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTumuneSatOlustur.Location = new System.Drawing.Point(24, 844);
+            this.BtnTumuneSatOlustur.Location = new System.Drawing.Point(708, 746);
             this.BtnTumuneSatOlustur.Name = "BtnTumuneSatOlustur";
             this.BtnTumuneSatOlustur.Size = new System.Drawing.Size(130, 51);
             this.BtnTumuneSatOlustur.TabIndex = 425;
@@ -905,6 +903,7 @@ namespace UserInterface.STS
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1561, 903);
+            this.Controls.Add(this.BtnKontrol);
             this.Controls.Add(this.BtnMaliyetEkle);
             this.Controls.Add(this.BtnButceTanimEkle);
             this.Controls.Add(this.label9);

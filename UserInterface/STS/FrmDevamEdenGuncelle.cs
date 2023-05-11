@@ -15,6 +15,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.BakımOnarım;
 
 namespace UserInterface.STS
 {
@@ -255,23 +256,16 @@ namespace UserInterface.STS
             DtgList.Columns["SiparisNo"].Visible = false;
         }
 
-        private void FrmDevamEdenGuncelle_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            FrmDevamEdenSat frmDevamEdenSat = new FrmDevamEdenSat();
-            frmDevamEdenSat.DataDisplay();
-
-        }
-
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bilgileri güncellemek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            if (dr == DialogResult.Yes)
             {
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 SatDataGridview1 satDataGridview1 = new SatDataGridview1(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, donem, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value, TxtSatinAlinanFirma.Text);
 
                 string mesaj = satDataGridview1Manager.DevamEdenSatGuncelle(satDataGridview1);
-                if (mesaj!="OK")
+                if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -285,7 +279,7 @@ namespace UserInterface.STS
                         satinAlinacakMalManager.DevamEdenSatGuncelle(satinAlinacakMalzemeler);
                     }
                 }
-                if (teklifsizSats.Count!=0)
+                if (teklifsizSats.Count != 0)
                 {
                     if (teklifsizSats[0].Stokno == "")
                     {
@@ -316,13 +310,27 @@ namespace UserInterface.STS
                 }
 
                 string yapilanIslem = "SAT BİLGİLERİ GÜNCELLENMİŞTİR.";
-                
+
                 SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanIslem, infos[1].ToString(), DateTime.Now);
                 satIslemAdimlariManager.Add(satIslem);
 
                 MessageBox.Show("Bilgiler Başarıyla Güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                FrmDevamEdenSat frmDevamEden = (FrmDevamEdenSat)Application.OpenForms["FrmDevamEdenSat"];
+                if (frmDevamEden != null)
+                {
+                    frmDevamEden.YenilecekVeri();
+                }
+                this.Close();
+
             }
+        }
+
+        private void FrmDevamEdenGuncelle_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            FrmDevamEdenSat frmDevamEdenSat = new FrmDevamEdenSat();
+            frmDevamEdenSat.DataDisplay();
+
         }
 
         

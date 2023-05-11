@@ -37,13 +37,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -54,7 +51,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1451, 27);
+            this.panel1.Size = new System.Drawing.Size(1503, 27);
             this.panel1.TabIndex = 307;
             // 
             // button5
@@ -77,7 +74,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox1.Controls.Add(this.DtgList);
             this.groupBox1.Location = new System.Drawing.Point(12, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1427, 549);
+            this.groupBox1.Size = new System.Drawing.Size(1479, 709);
             this.groupBox1.TabIndex = 308;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DEPOYA İADE EDİLECEK MALZEMELER";
@@ -98,16 +95,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1421, 530);
+            this.DtgList.Size = new System.Drawing.Size(1473, 690);
             this.DtgList.TabIndex = 4;
             this.DtgList.TimeFilter = false;
+            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
+            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             // 
             // TxtTop
             // 
             this.TxtTop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(115, 588);
+            this.TxtTop.Location = new System.Drawing.Point(112, 760);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 310;
@@ -118,37 +117,17 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(15, 588);
+            this.label5.Location = new System.Drawing.Point(12, 760);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 309;
             this.label5.Text = "Toplam Kayıt:";
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.webBrowser1);
-            this.groupBox3.Location = new System.Drawing.Point(15, 618);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(646, 167);
-            this.groupBox3.TabIndex = 315;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "EKLER:";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(640, 148);
-            this.webBrowser1.TabIndex = 309;
-            // 
             // FrmBolgedenGelecekMlz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1451, 797);
-            this.Controls.Add(this.groupBox3);
+            this.ClientSize = new System.Drawing.Size(1503, 797);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
@@ -159,7 +138,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -174,8 +152,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private ADGV.AdvancedDataGridView DtgList;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.BindingSource dataBinder;
     }
 }

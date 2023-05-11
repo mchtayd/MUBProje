@@ -30,6 +30,9 @@ namespace UserInterface.Ana_Sayfa
         List<GorevAtama> gorevAtamaListYonetici;
         List<GorevAtamaPersonel> arizaGorevAtamaPersonels;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
+        List<GorevAtamaPersonel> arizaGorevAtamaAtolyePersonels;
+        List<GorevAtamaPersonel> satinAlmaGorevs;
+        List<GorevAtamaPersonel> mifGorevs;
         List<Duyuru> duyurus;
 
         string dosyaYolu = @"Z:\DTS\info\ou\notification.txt";
@@ -47,15 +50,36 @@ namespace UserInterface.Ana_Sayfa
         {
             Gorevler();
             DuyuruEditList();
+
             //BildirimDosyasiCreate();
 
             // DosyaControl();
             //TimerFileRead.Start();
         }
-        void Gorevler()
+        public void Gorevler()
         {
             arizaGorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "BAKIM ONARIM");
-            gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "");
+            arizaGorevAtamaAtolyePersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "BAKIM ONARIM ATÖLYE");
+            foreach (GorevAtamaPersonel item in arizaGorevAtamaAtolyePersonels)
+            {
+                arizaGorevAtamaPersonels.Add(item);
+            }
+
+            gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "İZİN");
+            satinAlmaGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "SATIN ALMA");
+
+            foreach (GorevAtamaPersonel item in satinAlmaGorevs)
+            {
+                gorevAtamaPersonels.Add(item);
+            }
+
+            mifGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "MİF");
+
+            foreach (GorevAtamaPersonel item in mifGorevs)
+            {
+                gorevAtamaPersonels.Add(item);
+            }
+
             gorevAtamaListYonetici = gorevAtamaManager.GetListGorevlerim(infos[1].ToString());
 
             LblAcikArizaGorevleri.Text = arizaGorevAtamaPersonels.Count.ToString();

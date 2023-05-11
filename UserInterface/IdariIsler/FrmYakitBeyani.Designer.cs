@@ -50,6 +50,8 @@ namespace UserInterface.IdariIsler
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ChkAyrilanArac = new System.Windows.Forms.CheckBox();
+            this.ChkAyrilanPersonel = new System.Windows.Forms.CheckBox();
             this.TxtAlimTuru = new System.Windows.Forms.ComboBox();
             this.TxtPlaka = new System.Windows.Forms.ComboBox();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
@@ -102,7 +104,6 @@ namespace UserInterface.IdariIsler
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.ChkAyrilanPersonel = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -312,6 +313,7 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.ChkAyrilanArac);
             this.tabPage1.Controls.Add(this.ChkAyrilanPersonel);
             this.tabPage1.Controls.Add(this.TxtAlimTuru);
             this.tabPage1.Controls.Add(this.TxtPlaka);
@@ -353,6 +355,28 @@ namespace UserInterface.IdariIsler
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "KAYDET";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ChkAyrilanArac
+            // 
+            this.ChkAyrilanArac.AutoSize = true;
+            this.ChkAyrilanArac.Location = new System.Drawing.Point(401, 48);
+            this.ChkAyrilanArac.Name = "ChkAyrilanArac";
+            this.ChkAyrilanArac.Size = new System.Drawing.Size(104, 17);
+            this.ChkAyrilanArac.TabIndex = 354;
+            this.ChkAyrilanArac.Text = "AYRILAN ARAÇ";
+            this.ChkAyrilanArac.UseVisualStyleBackColor = true;
+            this.ChkAyrilanArac.CheckedChanged += new System.EventHandler(this.ChkAyrilanArac_CheckedChanged);
+            // 
+            // ChkAyrilanPersonel
+            // 
+            this.ChkAyrilanPersonel.AutoSize = true;
+            this.ChkAyrilanPersonel.Location = new System.Drawing.Point(400, 288);
+            this.ChkAyrilanPersonel.Name = "ChkAyrilanPersonel";
+            this.ChkAyrilanPersonel.Size = new System.Drawing.Size(133, 17);
+            this.ChkAyrilanPersonel.TabIndex = 353;
+            this.ChkAyrilanPersonel.Text = "AYRILAN PERSONEL";
+            this.ChkAyrilanPersonel.UseVisualStyleBackColor = true;
+            this.ChkAyrilanPersonel.CheckedChanged += new System.EventHandler(this.ChkAyrilanPersonel_CheckedChanged);
             // 
             // TxtAlimTuru
             // 
@@ -903,17 +927,6 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog2.FileName = "openFileDialog2";
             // 
-            // ChkAyrilanPersonel
-            // 
-            this.ChkAyrilanPersonel.AutoSize = true;
-            this.ChkAyrilanPersonel.Location = new System.Drawing.Point(400, 288);
-            this.ChkAyrilanPersonel.Name = "ChkAyrilanPersonel";
-            this.ChkAyrilanPersonel.Size = new System.Drawing.Size(133, 17);
-            this.ChkAyrilanPersonel.TabIndex = 353;
-            this.ChkAyrilanPersonel.Text = "AYRILAN PERSONEL";
-            this.ChkAyrilanPersonel.UseVisualStyleBackColor = true;
-            this.ChkAyrilanPersonel.CheckedChanged += new System.EventHandler(this.ChkAyrilanPersonel_CheckedChanged);
-            // 
             // FrmYakitBeyani
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1010,5 +1023,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.ComboBox TxtAlimTuru;
         private System.Windows.Forms.ComboBox TxtAlimTuruGun;
         private System.Windows.Forms.CheckBox ChkAyrilanPersonel;
+        private System.Windows.Forms.CheckBox ChkAyrilanArac;
     }
 }

@@ -29,9 +29,9 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmOkfOlustrma));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -42,6 +42,7 @@ namespace UserInterface.BakımOnarım
             this.label5 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtABTelefon = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.TxtUsBolgesiKomutani = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -65,6 +66,14 @@ namespace UserInterface.BakımOnarım
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.DtgMalzemeList = new System.Windows.Forms.DataGridView();
+            this.StokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tanimm = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Miktar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Birim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.PBirim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BirimTutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ToplamTutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove2 = new System.Windows.Forms.DataGridViewButtonColumn();
             this.BtnEkleMlz = new System.Windows.Forms.Button();
             this.CmbStokNo = new System.Windows.Forms.ComboBox();
             this.label21 = new System.Windows.Forms.Label();
@@ -101,15 +110,8 @@ namespace UserInterface.BakımOnarım
             this.TxtArizaNedeni = new System.Windows.Forms.RichTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.TxtABTelefon = new System.Windows.Forms.TextBox();
-            this.StokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tanimm = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Miktar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Birim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.PBirim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BirimTutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ToplamTutar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove2 = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.CmbMusteriAdi = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -214,6 +216,8 @@ namespace UserInterface.BakımOnarım
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CmbMusteriAdi);
+            this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.TxtABTelefon);
             this.groupBox1.Controls.Add(this.label14);
             this.groupBox1.Controls.Add(this.TxtUsBolgesiKomutani);
@@ -242,6 +246,13 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.TabIndex = 417;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ARIZA BİLGİLERİ";
+            // 
+            // TxtABTelefon
+            // 
+            this.TxtABTelefon.Location = new System.Drawing.Point(157, 186);
+            this.TxtABTelefon.Name = "TxtABTelefon";
+            this.TxtABTelefon.Size = new System.Drawing.Size(296, 20);
+            this.TxtABTelefon.TabIndex = 443;
             // 
             // label14
             // 
@@ -501,6 +512,70 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeList.Size = new System.Drawing.Size(1225, 196);
             this.DtgMalzemeList.TabIndex = 532;
             this.DtgMalzemeList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgMalzemeList_CellContentClick);
+            // 
+            // StokNo
+            // 
+            this.StokNo.HeaderText = "STOK NO";
+            this.StokNo.Name = "StokNo";
+            this.StokNo.ReadOnly = true;
+            this.StokNo.Width = 74;
+            // 
+            // Tanimm
+            // 
+            this.Tanimm.HeaderText = "TANIM";
+            this.Tanimm.Name = "Tanimm";
+            this.Tanimm.ReadOnly = true;
+            this.Tanimm.Width = 66;
+            // 
+            // Miktar
+            // 
+            this.Miktar.HeaderText = "MİKTAR";
+            this.Miktar.Name = "Miktar";
+            this.Miktar.ReadOnly = true;
+            this.Miktar.Width = 73;
+            // 
+            // Birim
+            // 
+            this.Birim.HeaderText = "BİRİM";
+            this.Birim.Name = "Birim";
+            this.Birim.ReadOnly = true;
+            this.Birim.Width = 62;
+            // 
+            // PBirim
+            // 
+            this.PBirim.HeaderText = "P.BİRİM";
+            this.PBirim.Name = "PBirim";
+            this.PBirim.ReadOnly = true;
+            this.PBirim.Width = 72;
+            // 
+            // BirimTutar
+            // 
+            this.BirimTutar.HeaderText = "BİRİM TUTAR";
+            this.BirimTutar.Name = "BirimTutar";
+            this.BirimTutar.ReadOnly = true;
+            this.BirimTutar.Width = 94;
+            // 
+            // ToplamTutar
+            // 
+            this.ToplamTutar.HeaderText = "TOPLAM TUTAR";
+            this.ToplamTutar.Name = "ToplamTutar";
+            this.ToplamTutar.ReadOnly = true;
+            this.ToplamTutar.Width = 106;
+            // 
+            // Remove2
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove2.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Remove2.HeaderText = "KALDIR";
+            this.Remove2.Name = "Remove2";
+            this.Remove2.ReadOnly = true;
+            this.Remove2.Text = "X";
+            this.Remove2.ToolTipText = "X";
+            this.Remove2.UseColumnTextForButtonValue = true;
+            this.Remove2.Width = 52;
             // 
             // BtnEkleMlz
             // 
@@ -895,76 +970,26 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // TxtABTelefon
+            // CmbMusteriAdi
             // 
-            this.TxtABTelefon.Location = new System.Drawing.Point(157, 186);
-            this.TxtABTelefon.Name = "TxtABTelefon";
-            this.TxtABTelefon.Size = new System.Drawing.Size(296, 20);
-            this.TxtABTelefon.TabIndex = 443;
+            this.CmbMusteriAdi.FormattingEnabled = true;
+            this.CmbMusteriAdi.Items.AddRange(new object[] {
+            "K.K.K.",
+            "J.G.K.",
+            "S.G.K."});
+            this.CmbMusteriAdi.Location = new System.Drawing.Point(352, 108);
+            this.CmbMusteriAdi.Name = "CmbMusteriAdi";
+            this.CmbMusteriAdi.Size = new System.Drawing.Size(101, 21);
+            this.CmbMusteriAdi.TabIndex = 445;
             // 
-            // StokNo
+            // label9
             // 
-            this.StokNo.HeaderText = "STOK NO";
-            this.StokNo.Name = "StokNo";
-            this.StokNo.ReadOnly = true;
-            this.StokNo.Width = 80;
-            // 
-            // Tanimm
-            // 
-            this.Tanimm.HeaderText = "TANIM";
-            this.Tanimm.Name = "Tanimm";
-            this.Tanimm.ReadOnly = true;
-            this.Tanimm.Width = 66;
-            // 
-            // Miktar
-            // 
-            this.Miktar.HeaderText = "MİKTAR";
-            this.Miktar.Name = "Miktar";
-            this.Miktar.ReadOnly = true;
-            this.Miktar.Width = 73;
-            // 
-            // Birim
-            // 
-            this.Birim.HeaderText = "BİRİM";
-            this.Birim.Name = "Birim";
-            this.Birim.ReadOnly = true;
-            this.Birim.Width = 62;
-            // 
-            // PBirim
-            // 
-            this.PBirim.HeaderText = "P.BİRİM";
-            this.PBirim.Name = "PBirim";
-            this.PBirim.ReadOnly = true;
-            this.PBirim.Width = 72;
-            // 
-            // BirimTutar
-            // 
-            this.BirimTutar.HeaderText = "BİRİM TUTAR";
-            this.BirimTutar.Name = "BirimTutar";
-            this.BirimTutar.ReadOnly = true;
-            this.BirimTutar.Width = 102;
-            // 
-            // ToplamTutar
-            // 
-            this.ToplamTutar.HeaderText = "TOPLAM TUTAR";
-            this.ToplamTutar.Name = "ToplamTutar";
-            this.ToplamTutar.ReadOnly = true;
-            this.ToplamTutar.Width = 106;
-            // 
-            // Remove2
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove2.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Remove2.HeaderText = "KALDIR";
-            this.Remove2.Name = "Remove2";
-            this.Remove2.ReadOnly = true;
-            this.Remove2.Text = "X";
-            this.Remove2.ToolTipText = "X";
-            this.Remove2.UseColumnTextForButtonValue = true;
-            this.Remove2.Width = 52;
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(287, 112);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 13);
+            this.label9.TabIndex = 444;
+            this.label9.Text = "MÜŞTERİ:";
             // 
             // FrmOkfOlustrma
             // 
@@ -1077,5 +1102,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn BirimTutar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ToplamTutar;
         private System.Windows.Forms.DataGridViewButtonColumn Remove2;
+        private System.Windows.Forms.ComboBox CmbMusteriAdi;
+        private System.Windows.Forms.Label label9;
     }
 }

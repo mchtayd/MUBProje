@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using DataAccess.Concreate.IdariIsler;
+using DataAccess.Concreate.STS;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -59,17 +60,33 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<Yakit> GetList(int isAkisNo=0)
+        public List<Yakit> GetList(int yil, int isAkisNo=0)
         {
             try
             {
-                return yakitDal.GetList(isAkisNo);
+                if (yil == 0)
+                {
+                    return yakitDal.GetList(isAkisNo, "");
+                }
+                return yakitDal.GetList(isAkisNo, yil.ToString());
             }
             catch (Exception)
             {
                 return new List<Yakit>();
             }
         }
+        public List<string> Yillar()
+        {
+            try
+            {
+                return yakitDal.Yillar();
+            }
+            catch
+            {
+                return new List<string>();
+            }
+        }
+
         public string IsAkisNoDuzelt(int id, int isAkisNo)
         {
             try

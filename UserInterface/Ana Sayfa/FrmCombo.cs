@@ -387,6 +387,14 @@ namespace UserInterface.Ana_Sayfa
                     form.Firma();
                 }
             }
+            if (comboAd == "ISLEM_TURU")
+            {
+                var form = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
+                if (form != null)
+                {
+                    form.Yenilenecekler();
+                }
+            }
 
         }
     }

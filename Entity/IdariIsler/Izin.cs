@@ -89,5 +89,15 @@ namespace Entity.IdariIsler
             this.bastarihi = bastarihi;
             this.bittarihi = bittarihi;
         }
+
+        public Izin(int id, string adsoyad, string ızınnedeni, DateTime bastarihi, DateTime bittarihi, string toplamsure)
+        {
+            this.id = id;
+            this.adsoyad = adsoyad;
+            this.ızınnedeni = ızınnedeni;
+            this.bastarihi = bastarihi;
+            this.bittarihi = bittarihi;
+            this.toplamsure=toplamsure;
+        }
     }
 }

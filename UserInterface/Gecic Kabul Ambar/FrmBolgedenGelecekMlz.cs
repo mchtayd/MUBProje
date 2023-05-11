@@ -70,7 +70,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["SokulenRevizyon"].HeaderText = "REVİZYON";
             DtgList.Columns["CalismaDurumu"].Visible = false;
             DtgList.Columns["FizikselDurum"].Visible = false;
-            DtgList.Columns["YapilacakIslem"].Visible = false;
             DtgList.Columns["TakilanStokNo"].Visible = false;
             //DtgList.Columns["Malzemekul"].HeaderText = "MALZEMENİN KULLANILDIĞI ÜST TAKIM STOK NO";
             DtgList.Columns["TakilanTanim"].Visible = false;
@@ -80,14 +79,41 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["TakilanCalismaSaati"].Visible = false;
             DtgList.Columns["TakilanRevizyon"].Visible = false;
             DtgList.Columns["TeminDurumu"].Visible = false;
-            DtgList.Columns["AbfNo"].Visible = false;
+            DtgList.Columns["AbfNo"].HeaderText = "ABF NO";
             DtgList.Columns["AbTarihSaat"].Visible = false;
             DtgList.Columns["TemineAtilamTarihi"].Visible = false;
             DtgList.Columns["MalzemeDurumu"].Visible = false;
             DtgList.Columns["MalzemeIslemAdimi"].Visible = false;
             DtgList.Columns["SokulenTeslimDurum"].HeaderText = "MALZEME TESLİM DURUMU";
+            DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
+            DtgList.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
+            DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
+
+
+            DtgList.Columns["AbfNo"].DisplayIndex = 0;
+            DtgList.Columns["SokulenStokNo"].DisplayIndex = 1;
+            DtgList.Columns["SokulenTanim"].DisplayIndex = 2;
+            DtgList.Columns["SokulenSeriNo"].DisplayIndex = 3;
+            DtgList.Columns["SokulenMiktar"].DisplayIndex = 4;
+            DtgList.Columns["SokulenBirim"].DisplayIndex = 5;
+            DtgList.Columns["SokulenRevizyon"].DisplayIndex = 6;
+            DtgList.Columns["BolgeAdi"].DisplayIndex = 7;
+            DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 8;
+            DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 9;
+            DtgList.Columns["YapilacakIslem"].DisplayIndex = 10;
 
             TxtTop.Text= DtgList.RowCount.ToString();
+        }
+
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgList.FilterString;
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort= DtgList.SortString;
         }
     }
 }

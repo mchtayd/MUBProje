@@ -4,6 +4,8 @@ using Business.Concreate.Depo;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.EMMA;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using System;
@@ -18,6 +20,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
+using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
@@ -225,7 +228,7 @@ namespace UserInterface.BakımOnarım
             TxtBolgeAdi.Clear(); TxtKodAdi.Clear(); TxtBolgeStokNo.Clear(); CmbProje.SelectedIndex = -1; CmbYazilimBilgisi.SelectedIndex = -1;
             CmbGozetlemeTuru.SelectedIndex = -1; CmbYasamAlani.SelectedIndex = -1; TxtTabur.Clear(); TxtTugay.Clear(); CmbIl.SelectedIndex = -1;
             CmbIlce.SelectedIndex = -1; TxtBirlikAdresi.Clear(); CmbPypNo.SelectedIndex = -1; CmbDepo.SelectedIndex = -1; CmbBolgeSorumlusu.SelectedIndex = -1;
-            webBrowser1.Navigate(""); CmbBolgeAdi.SelectedIndex = -1; CmbProjeSistem.SelectedIndex = -1;
+            webBrowser1.Navigate(""); CmbBolgeAdi.Text = "";
             ComboProje();
         }
         
@@ -259,8 +262,7 @@ namespace UserInterface.BakımOnarım
 
         private void BtnDepoEkle_Click(object sender, EventArgs e)
         {
-            FrmDepoLokasyonKayit frmDepoLokasyonKayit = new FrmDepoLokasyonKayit();
-            frmDepoLokasyonKayit.ShowDialog();
+
         }
 
         
@@ -351,7 +353,7 @@ namespace UserInterface.BakımOnarım
             CreateFile();
             dosyaControl = true;
         }
-
+        string bolgeAdi = "";
         private void CmbBolgeAdi_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start != false)
@@ -369,7 +371,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Bölge kaydına ulaşılamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            bolgeAdi = CmbBolgeAdi.Text;
             TxtKodAdi.Text = bolgeKayit.KodAdi;
             TxtBolgeStokNo.Text = bolgeKayit.UsBolgesiStok;
             CmbProje.Text = bolgeKayit.Proje;
@@ -412,6 +414,7 @@ namespace UserInterface.BakımOnarım
         private void BtnTemizle_Click(object sender, EventArgs e)
         {
             Temizle();
+            CmbProjeSistem.SelectedIndex = -1;
         }
 
         private void CmbBolgeSorumlusu_SelectedIndexChanged(object sender, EventArgs e)
@@ -431,14 +434,33 @@ namespace UserInterface.BakımOnarım
 
         private void CmbProjeSistem_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CmbProjeSistem.SelectedIndex==-1)
-            {
-                return;
-            }
-            CmbProje.DataSource = comboManager.GetListProje(CmbProjeSistem.Text);
-            CmbProje.ValueMember = "Id";
-            CmbProje.DisplayMember = "Baslik";
-            CmbProje.SelectedValue = 0;
+            //if (CmbProjeSistem.SelectedIndex==-1)
+            //{
+            //    return;
+            //}
+            //if (CmbBolgeAdi.Text=="")
+            //{
+            //    return;
+            //}
+
+            //CmbProje.DataSource = comboManager.GetListProje(CmbProjeSistem.Text);
+            //CmbProje.ValueMember = "Id";
+            //CmbProje.DisplayMember = "Baslik";
+            //CmbProje.SelectedValue = 0;
+
+            //if (CmbIslemTuru.Text == "GÜNCELLE")
+            //{
+            //    CmbBolgeAdi.DataSource = bolgeKayitManager.GetListProje(CmbProjeSistem.Text);
+            //    CmbBolgeAdi.ValueMember = "Id";
+            //    CmbBolgeAdi.DisplayMember = "BolgeAdi";
+            //    CmbBolgeAdi.SelectedValue = -1;
+            //}
+            //else
+            //{
+            //    BolgeBilgileri();
+            //}
+
+            //Temizle();
         }
 
         void CreateFile()
@@ -522,6 +544,7 @@ namespace UserInterface.BakımOnarım
                 BolgeBilgileri();
                 BolgeBilgileriEkipman();
                 Temizle();
+                CmbProjeSistem.SelectedIndex = -1;
             }
         }
         private void BtnGuncelle_Click_1(object sender, EventArgs e)
@@ -529,6 +552,12 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri güncellemek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+
+                if (bolgeAdi != CmbBolgeAdi.Text)
+                {
+                    bolgeKayitManager.UpdateBolgeAdi(bolgeAdi, CmbBolgeAdi.Text);
+                }
+
                 BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text);
 
                 string mesaj = bolgeKayitManager.Update(bolgeKayit);
@@ -537,8 +566,10 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                BolgeBilgileri();
                 MessageBox.Show("Bilgiler başarıyla güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
+                CmbProjeSistem.SelectedIndex = -1;
             }
         }
     }

@@ -30,13 +30,13 @@ namespace UserInterface.IdariIsler
         AracZimmetiManager aracZimmetiManager;
         IstenAyrilisManager ıstenAyrilisManager;
         BildirimYetkiManager bildirimYetkiManager;
+        AracManager aracManager;
 
         //string dosyaYolu, kaynakdosyaismi, alinandosya, dosyaYoluGun;
         bool dosyaControl = false;
         public object[] infos;
         int id;
         List<string> fileNames = new List<string>();
-        List<AracZimmeti> aracZimmetis;
         public FrmYakitBeyani()
         {
             InitializeComponent();
@@ -47,6 +47,7 @@ namespace UserInterface.IdariIsler
             aracZimmetiManager = AracZimmetiManager.GetInstance();
             ıstenAyrilisManager = IstenAyrilisManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            aracManager = AracManager.GetInstance();
         }
 
         private void FrmYakitBeyani_Load(object sender, EventArgs e)
@@ -58,8 +59,7 @@ namespace UserInterface.IdariIsler
         }
         void Plakalar()
         {
-            aracZimmetis = aracZimmetiManager.GetList();
-            TxtPlaka.DataSource = aracZimmetis;
+            TxtPlaka.DataSource = aracManager.GetList();
             TxtPlaka.ValueMember = "Id";
             TxtPlaka.DisplayMember = "Plaka";
             TxtPlaka.SelectedValue = -1;
@@ -391,6 +391,21 @@ namespace UserInterface.IdariIsler
                 webBrowser1.Navigate(dosyaYolu);
                 dosyaControl = true;
             }*/
+        }
+
+        private void ChkAyrilanArac_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkAyrilanArac.Checked==true)
+            {
+                TxtPlaka.DataSource = aracManager.ProjeDisiList();
+                TxtPlaka.ValueMember = "Id";
+                TxtPlaka.DisplayMember = "Plaka";
+                TxtPlaka.SelectedValue = -1;
+            }
+            else
+            {
+                Plakalar();
+            }
         }
     }
 }

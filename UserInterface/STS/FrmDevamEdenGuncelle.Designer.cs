@@ -84,7 +84,6 @@ namespace UserInterface.STS
             this.webBrowser6 = new System.Windows.Forms.WebBrowser();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgList = new System.Windows.Forms.DataGridView();
-            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.DtBelgeTarihi = new System.Windows.Forms.DateTimePicker();
             this.TxtBelgeNumarasi = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -93,6 +92,7 @@ namespace UserInterface.STS
             this.CmbBelgeTuru = new System.Windows.Forms.ComboBox();
             this.TxtSatinAlinanFirma = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.groupBox16.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox17.SuspendLayout();
@@ -665,7 +665,7 @@ namespace UserInterface.STS
             this.groupBox1.Controls.Add(this.DtgList);
             this.groupBox1.Location = new System.Drawing.Point(15, 527);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1412, 259);
+            this.groupBox1.Size = new System.Drawing.Size(1412, 251);
             this.groupBox1.TabIndex = 352;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MALZEME BİLGİLERİ";
@@ -679,20 +679,8 @@ namespace UserInterface.STS
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
-            this.DtgList.Size = new System.Drawing.Size(1406, 240);
+            this.DtgList.Size = new System.Drawing.Size(1406, 232);
             this.DtgList.TabIndex = 0;
-            // 
-            // BtnGuncelle
-            // 
-            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(18, 789);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(103, 40);
-            this.BtnGuncelle.TabIndex = 353;
-            this.BtnGuncelle.Text = "Güncelle";
-            this.BtnGuncelle.UseVisualStyleBackColor = true;
-            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // DtBelgeTarihi
             // 
@@ -774,11 +762,28 @@ namespace UserInterface.STS
             this.label2.TabIndex = 360;
             this.label2.Text = "SATIN ALINAN FİRMA:";
             // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
+            this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGuncelle.Location = new System.Drawing.Point(18, 782);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
+            this.BtnGuncelle.TabIndex = 376;
+            this.BtnGuncelle.Text = "  GÜNCELLE";
+            this.BtnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGuncelle.UseVisualStyleBackColor = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
+            // 
             // FrmDevamEdenGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1434, 835);
+            this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.TxtSatinAlinanFirma);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.DtBelgeTarihi);
@@ -787,7 +792,6 @@ namespace UserInterface.STS
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.CmbBelgeTuru);
-            this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox19);
             this.Controls.Add(this.groupBox20);
@@ -876,7 +880,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.WebBrowser webBrowser6;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.DataGridView DtgList;
-        private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.DateTimePicker DtBelgeTarihi;
         private System.Windows.Forms.TextBox TxtBelgeNumarasi;
         private System.Windows.Forms.Label label7;
@@ -885,5 +888,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.ComboBox CmbBelgeTuru;
         private System.Windows.Forms.TextBox TxtSatinAlinanFirma;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button BtnGuncelle;
     }
 }

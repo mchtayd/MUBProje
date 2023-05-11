@@ -394,7 +394,7 @@ namespace UserInterface.Ana_Sayfa
                 strB.AppendLine("<br><br>");
             }
             strB.AppendLine("<br><br>İyi Çalışmalar.");
-            strB.AppendLine("<br><br><br><br><p style='color:red'>Bu mail MARG tarafından otomatik oluşturulmuştur!</p>");
+            strB.AppendLine("<br><br><br><br><p style='color:red'>Bu mail DTS tarafından otomatik oluşturulmuştur!</p>");
             strB.AppendLine("</body></html>");
             return strB.ToString();
 
@@ -511,7 +511,7 @@ namespace UserInterface.Ana_Sayfa
                 strB.AppendLine("<br><br>");
             }
             strB.AppendLine("<br><br>İyi Çalışmalar.");
-            strB.AppendLine("<br><br><br><br><p style='color:red'>Bu mail MARG tarafından otomatik oluşturulmuştur!</p>");
+            strB.AppendLine("<br><br><br><br><p style='color:red'>Bu mail DTS tarafından otomatik oluşturulmuştur!</p>");
             strB.AppendLine("</body></html>");
             return strB.ToString();
 
@@ -571,7 +571,7 @@ namespace UserInterface.Ana_Sayfa
                 strB.AppendLine("<br><br>");
             }
             strB.AppendLine("<br><br>İyi Çalışmalar.");
-            strB.AppendLine("<br><br><br><br><p style='color:red'>Bu mail MARG tarafından otomatik oluşturulmuştur!</p>");
+            strB.AppendLine("<br><br><br><br><p style='color:red'>Bu mail DTS tarafından otomatik oluşturulmuştur!</p>");
             strB.AppendLine("</body></html>");
             return strB.ToString();
 

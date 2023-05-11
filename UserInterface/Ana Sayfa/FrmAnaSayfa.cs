@@ -36,6 +36,7 @@ using UserInterface.IdariIşler;
 using UserInterface.IdariIsler;
 using UserInterface.RAPORLAMALAR;
 using UserInterface.Yerleskeler;
+using System.Diagnostics;
 
 namespace UserInterface.STS
 {
@@ -70,7 +71,6 @@ namespace UserInterface.STS
 
         public FrmAnaSayfa()
         {
-
             InitializeComponent();
             satinAlinacakMalManager = SatinAlinacakMalManager.GetInstance();
             versionManager = VersionManager.GetInstance();
@@ -169,6 +169,7 @@ namespace UserInterface.STS
             }
             
         }
+        List<PersonelHesap> personelHesapsGenel = new List<PersonelHesap>();
         public void PersonelAktif()
         {
             personelHesaps = new List<PersonelHesap>();
@@ -181,7 +182,9 @@ namespace UserInterface.STS
                 kapatBilgisi = false;
                 Application.Exit();
             }
+
             personelHesaps = personelHesapManager.GetList();
+            personelHesapsGenel = personelHesaps;
             foreach (PersonelHesap item in personelHesaps)
             {
                 DtgPersonelList.Rows.Add();
@@ -196,6 +199,7 @@ namespace UserInterface.STS
                 {
                     DtgPersonelList.Rows[sonSatir].Cells["Durum"].Value = ImagesLogin.Images[1]; // KIRMIZI
                 }
+
             }
 
         }
@@ -2102,7 +2106,7 @@ namespace UserInterface.STS
                         form.DataDisplay();
                     }
                 }
-                if (baslik == "Açık Bildirimler")
+                if (baslik == "ARIZA KAYITLARI")
                 {
                     var form = (FrmArizaDevamEden)Application.OpenForms["FrmArizaDevamEden"];
                     if (form != null)
@@ -2110,7 +2114,7 @@ namespace UserInterface.STS
                         form.Yenilenecekler();
                     }
                 }
-                if (baslik == "Arıza Kayıtları")
+                if (baslik == "ARIZA KAYITLARI")
                 {
                     var form = (FrmArizaKayitlarics)Application.OpenForms["FrmArizaKayitlarics"];
                     if (form != null)
@@ -2176,6 +2180,24 @@ namespace UserInterface.STS
                         form.DataDisplay();
                     }
                 }
+
+                if (baslik == "KONTROL")
+                {
+                    var form = (FrmBildirimler)Application.OpenForms["FrmBildirimler"];
+                    if (form != null)
+                    {
+                        form.DuyuruEditList();
+                    }
+                }
+
+                //if (baslik == "KONTROL")
+                //{
+                //    var form = (FrmArizaDevamEden)Application.OpenForms["FrmArizaDevamEden"];
+                //    if (form != null)
+                //    {
+                //        form.DuyuruEditList();
+                //    }
+                //}
             }
 
         }
@@ -2222,6 +2244,7 @@ namespace UserInterface.STS
             ///
             PnlBildirim.Size = new Size(0, 0);
             tabAnasayfa.Size = new Size(1600, 955);
+
 
             if (e.Node.Text == "Bildirim Aç/Kapat")
             {
@@ -2303,7 +2326,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Kapatılan Bildirimler")
             {
                 FrmArizaKayitlariKapatilan Go = new FrmArizaKayitlariKapatilan();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2800,6 +2823,7 @@ namespace UserInterface.STS
             {
                 FrmIzinIzleme Go = new FrmIzinIzleme();
                 Go.FormBorderStyle = FormBorderStyle.None;
+                Go.infos = infos;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageIzinIzleme", "PERSONEL İZİN GÖRÜNTÜLE", Go);
@@ -3266,16 +3290,39 @@ namespace UserInterface.STS
                 Go.infos = infos;
                 Go.Show();
             }
-            if (e.Node.Text == "Depoya İade Gelecek Malzemeler")
+            if (e.Node.Text == "Depoya İade Edilecek Malzemeler")
             {
                 FrmBolgedenGelecekMlz Go = new FrmBolgedenGelecekMlz();
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageGelecekMalzeme", "DEPOYA İADE GELECEK MALZEMELER", Go);
+                OpenTabPage("PageGelecekMalzeme", "DEPOYA İADE EDİLECEK MALZEMELER", Go);
                 Go.infos = infos;
                 Go.Show();
             }
+
+            if (e.Node.Text == "Bölgeden İade Gelen Malzeme")
+            {
+                FrmBolgedenIadeGelenMlz Go = new FrmBolgedenIadeGelenMlz();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageGelenMalzeme", "BÖLGEDEN İADE GELEN MALZEMELER", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Depo Bilgileri Kayıt")
+            {
+                FrmDepoAdresKayit Go = new FrmDepoAdresKayit();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageDepolar", "DEPO BİLGİLERİ KAYIT", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+
             if (e.Node.Text == "Ambar Veri İzleme")
             {
                 FrmIzlemeAmbar Go = new FrmIzlemeAmbar();
@@ -4807,11 +4854,15 @@ namespace UserInterface.STS
             frmServer.infos = infos;
             frmServer.ShowDialog();
         }
-
+        string izlemeTıklanan = "";
         private void ambarVeriİzlemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
+            frmSahaIzleme.Show();
             FrmIzlemeAmbar frmIzlemeAmbar = new FrmIzlemeAmbar();
-            frmIzlemeAmbar.ShowDialog();
+            frmIzlemeAmbar.Show();
+            timerIzlemeChc.Start();
+            izlemeTıklanan = "FrmIzlemeAmbar";
         }
 
         private void atölyeVeriİzlemeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5284,15 +5335,16 @@ namespace UserInterface.STS
         {
             PersonelAktif();
             FrmBildirimler frmBildirimler = (FrmBildirimler)Application.OpenForms["FrmBildirimler"];
-            frmBildirimler.DuyuruEditList();
+            if (frmBildirimler!=null)
+            {
+                frmBildirimler.DuyuruEditList();
+            }
         }
 
         private void TimerFileRead_Tick(object sender, EventArgs e)
         {    
             BildirimControl(infos[0].ConInt());
         }
-
-        
 
         public void PanelEditClear()
         {
@@ -5351,17 +5403,247 @@ namespace UserInterface.STS
             frmIzinOnay.Show();
         }
 
+        public List<PersonelHesap> personelHesapsControl = new List<PersonelHesap>();
+        bool listeControl = false;
+
+        private void DtgPersonelList_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            
+            if (DtgPersonelList.CurrentRow == null)
+            {
+                MessageBox.Show("Listede bir personel kaydı bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string isim = DtgPersonelList.CurrentRow.Cells["PersonelAd"].Value.ToString();
+
+            if (personelHesapsControl.Count==0)
+            {
+                PersonelHesap personelHesap1 = new PersonelHesap(isim);
+                personelHesapsControl.Add(personelHesap1);
+
+                DtgSohbet.Rows.Add();
+                int sonSatir = DtgSohbet.RowCount - 1;
+                DtgSohbet.Rows[sonSatir].Cells["Ad"].Value = isim;
+
+                PersonelHesap personelHesap = personelHesapManager.GetSohbet(isim);
+
+                if (personelHesap.Durum == "ÇEVRİM İÇİ")
+                {
+                    DtgSohbet.Rows[sonSatir].Cells["SonGorulme"].Value = "Çevrimiçi";
+                }
+                else
+                {
+                    DtgSohbet.Rows[sonSatir].Cells["SonGorulme"].Value = personelHesap.SonGorulme.ToString("G");
+                }
+
+                FrmSohbet frmSohbet1 = new FrmSohbet();
+                frmSohbet1.WindowState = FormWindowState.Minimized;
+                frmSohbet1.Show();
+                frmSohbet1.WindowState = FormWindowState.Normal;
+                frmSohbet1.Text = isim;
+                frmSohbet1.Show();
+            }
+            else
+            {
+                bool control = false;
+                foreach (PersonelHesap item in personelHesapsControl)
+                {
+                    if (item.AdSoyad == isim)
+                    {
+                        FrmSohbet frmSohbet = (FrmSohbet)Application.OpenForms["FrmSohbet"];
+                        if (frmSohbet==null)
+                        {
+                            return;
+                        }
+                        frmSohbet.WindowState = FormWindowState.Minimized;
+                        frmSohbet.Show();
+                        frmSohbet.WindowState = FormWindowState.Normal;
+                        frmSohbet.Text = isim;
+                        frmSohbet.Show();
+                        control = true;
+                        break;
+                    }
+                }
+
+                if (control==true)
+                {
+                    return;
+                }
+
+                PersonelHesap personelHesap1 = new PersonelHesap(isim);
+                personelHesapsControl.Add(personelHesap1);
+
+                DtgSohbet.Rows.Add();
+                int sonSatir = DtgSohbet.RowCount - 1;
+                DtgSohbet.Rows[sonSatir].Cells["Ad"].Value = isim;
+
+                PersonelHesap personelHesap = personelHesapManager.GetSohbet(isim);
+
+                if (personelHesap.Durum == "ÇEVRİM İÇİ")
+                {
+                    DtgSohbet.Rows[sonSatir].Cells["SonGorulme"].Value = "Çevrimiçi";
+                }
+                else
+                {
+                    DtgSohbet.Rows[sonSatir].Cells["SonGorulme"].Value = personelHesap.SonGorulme.ToString("G");
+                }
+
+                FrmSohbet frmSohbet1 = new FrmSohbet();
+                frmSohbet1.WindowState = FormWindowState.Minimized;
+                frmSohbet1.Show();
+                frmSohbet1.WindowState = FormWindowState.Normal;
+                frmSohbet1.Text = isim;
+                frmSohbet1.Show();
+            }
+        }
+
+        private void silToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (silinecekIsim == "")
+            {
+                MessageBox.Show("Lütfen silinecek sohbeti seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            frmAnaSayfa.personelHesapsControl.RemoveAt(silinecekIndex);
+            DtgSohbet.Rows.RemoveAt(silinecekIndex);
+
+            silinecekIsim = "";
+
+        }
+        string silinecekIsim = "";
+        int silinecekIndex = 0;
+        private void DtgSohbet_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgSohbet.CurrentRow == null)
+            {
+                MessageBox.Show("Listede bir personel kaydı bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            silinecekIsim = DtgSohbet.CurrentRow.Cells["Ad"].Value.ToString();
+            silinecekIndex = DtgSohbet.CurrentRow.Index;
+
+        }
+
+        private void DtgSohbet_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int deger = 0;
+            if (DtgSohbet.CurrentRow == null)
+            {
+                MessageBox.Show("Listede bir personel kaydı bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            string isim = DtgSohbet.CurrentRow.Cells["Ad"].Value.ToString();
+
+            FrmSohbet frmSohbet = (FrmSohbet)Application.OpenForms["FrmSohbet"];
+            if (frmSohbet!=null)
+            {
+                frmSohbet.WindowState = FormWindowState.Minimized;
+                frmSohbet.Show();
+                frmSohbet.WindowState = FormWindowState.Normal;
+                frmSohbet.Text = isim;
+                frmSohbet.Show();
+            }
+            else
+            {
+                //foreach (DataGridViewRow item in DtgSohbet.Rows)
+                //{
+                //    if (item.Cells["Ad"].Value.ToString() == isim)
+                //    {
+                //        DtgSohbet.Rows.RemoveAt(deger);
+                //        FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+                //        frmAnaSayfa.personelHesapsControl.RemoveAt(silinecekIndex);
+                //    }
+                //    deger++;
+                //}
+            }
+        }
+
+        private void duyuruYayınlaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDuyuru frmDuyuru = new FrmDuyuru();
+            frmDuyuru.infos = infos;
+            frmDuyuru.ShowDialog();
+        }
+
+        private void malzemeTaleplerimToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMalzemeTaleplerim frmMalzemeTaleplerim = new FrmMalzemeTaleplerim();
+            frmMalzemeTaleplerim.infos = infos;
+            frmMalzemeTaleplerim.ShowDialog();
+        }
+
+        private void işlemAdımlarıDüzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIslemAdimiEdit frmIslemAdimiEdit = new FrmIslemAdimiEdit();
+            frmIslemAdimiEdit.ShowDialog();
+        }
+
+        private void sahaBakımOnarımToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIzlemeAmbar frmIzlemeAmbar = new FrmIzlemeAmbar();
+            frmIzlemeAmbar.Show();
+            FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
+            frmSahaIzleme.Show();
+            timerIzlemeChc.Start();
+            izlemeTıklanan = "FrmSahaIzleme";
+        }
+
+        private void timerIzlemeChc_Tick(object sender, EventArgs e)
+        {
+            if (izlemeTıklanan == "FrmSahaIzleme")
+            {
+                FrmIzlemeAmbar ambar = (FrmIzlemeAmbar)Application.OpenForms["FrmIzlemeAmbar"];
+                if (ambar == null)
+                {
+                    return;
+                }
+                ambar.WindowState = FormWindowState.Maximized;
+                ambar.Show();
+                FrmSahaIzleme frmSohbet = (FrmSahaIzleme)Application.OpenForms["FrmSahaIzleme"];
+                if (frmSohbet == null)
+                {
+                    return;
+                }
+                frmSohbet.WindowState = FormWindowState.Minimized;
+                frmSohbet.Show();
+                izlemeTıklanan = "FrmIzlemeAmbar";
+            }
+            else
+            {
+                FrmSahaIzleme frmSohbet = (FrmSahaIzleme)Application.OpenForms["FrmSahaIzleme"];
+                if (frmSohbet == null)
+                {
+                    return;
+                }
+                frmSohbet.WindowState = FormWindowState.Maximized;
+                frmSohbet.Show();
+                FrmIzlemeAmbar ambar = (FrmIzlemeAmbar)Application.OpenForms["FrmIzlemeAmbar"];
+                if (ambar == null)
+                {
+                    return;
+                }
+                ambar.WindowState = FormWindowState.Minimized;
+                ambar.Show();
+                izlemeTıklanan = "FrmSahaIzleme";
+            }
+            
+        }
+
+        private void görevliPersonellerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmEtiketYaz frmEtiketYaz = new FrmEtiketYaz();
             frmEtiketYaz.ShowDialog();
         }
 
-        private void bİLDİRİMLERToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmNotification frmNotification = new FrmNotification();
-            frmNotification.ShowDialog();
-        }
 
         bool controlKapatma = false;
         private void FrmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
@@ -5377,7 +5659,7 @@ namespace UserInterface.STS
                     Application.Exit();
                 }
                 
-                DialogResult sonuc = MessageBox.Show("DTS Uygulamanızı Kapatmak İstiyor Musunuz?", "SORU", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                DialogResult sonuc = MessageBox.Show("DTS Uygulamanızı kapatmak istiyor musunuz?", "SORU", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (sonuc == DialogResult.No)
                 {
                     e.Cancel = true;

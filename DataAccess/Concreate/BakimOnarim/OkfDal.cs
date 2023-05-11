@@ -256,6 +256,7 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["TANIM"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["ARIZA_BULUNAN"].ToString(),
+                        dataReader["BILDIRIM_NO"].ToString(),
                         dataReader["BILDIRIM_NO"].ToString());
                 }
                 dataReader.Close();
@@ -280,7 +281,7 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["AB_TARIH_SAAT"].ConDate(),
                         dataReader["BOLGE_ADI"].ToString(),
                         dataReader["GARANTI_PAKETI"].ToString(),
-                        dataReader["BOLGE_SORUMLUSU"].ToString(),
+                        dataReader["ARIZAYI_BILDIREN_PERSONEL"].ToString(),
                         dataReader["AB_TELEFON"].ToString(),
                         dataReader["BIRLIK_ADRESI"].ToString(),
                         dataReader["IL"].ToString(),
@@ -289,7 +290,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["TANIM"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["TESPIT_EDILEN_ARIZA"].ToString(),
-                        dataReader["BILDIRIM_NO"].ToString());
+                        dataReader["BILDIRIM_NO"].ToString(),
+                        dataReader["OKF_BILDIRIM_NO"].ToString());
                 }
                 dataReader.Close();
                 return item;

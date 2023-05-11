@@ -67,7 +67,7 @@ namespace DataAccess.Abstract
             {
                 command.Parameters.AddRange(parameters);     
             }
-            SqlDataReader dataReader = command.ExecuteReader();             //sql deki kodu çalıştır ve çıktısını oku değerleri datareder değişkenine ay
+            SqlDataReader dataReader = command.ExecuteReader();             //sql deki kodu çalıştır ve çıktısını oku değerleri datareder değişkenine al
             return dataReader;
         }
 

@@ -142,6 +142,7 @@ namespace UserInterface.Ana_Sayfa
                 MessageBox.Show("Lütfen Bir Tablo Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             DosyaYeriSec();
 
             IXLWorkbook workBook = new XLWorkbook();

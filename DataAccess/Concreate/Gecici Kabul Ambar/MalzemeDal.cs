@@ -100,6 +100,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+
         public Malzeme Get2(int id)
         {
             try
@@ -186,12 +187,27 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+
         public string MalzemeTanimDuzelt(string tanim, int id)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("MalzemeTanimDuzelt",
                     new SqlParameter("@tanim", tanim),
+                    new SqlParameter("@id", id));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MazlemeUstTakimEkle(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeUstTakimAdd",
                     new SqlParameter("@id", id));
                 dataReader.Close();
                 return "OK";
@@ -228,6 +244,77 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             {
                 List<Malzeme> malzemes = new List<Malzeme>();
                 dataReader = sqlServices.StoreReader("DepoMalzemeList");
+                while (dataReader.Read())
+                {
+                    malzemes.Add(new Malzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TEDARIKCI_FIRMA"].ToString(),
+                        dataReader["ONARIM_DURUMU"].ToString(),
+                        dataReader["ONARIM_YERI"].ToString(),
+                        dataReader["TEDARIK_TURU"].ToString(),
+                        dataReader["PARCA_SINIFI"].ToString(),
+                        dataReader["ALTRNATIF_PARCA"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString(),
+                        dataReader["KAYIT_YAPAN"].ToString(),
+                        dataReader["TAKIP_DURUMU"].ToString()));
+                }
+                dataReader.Close();
+                return malzemes;
+            }
+            catch (Exception)
+            {
+                return new List<Malzeme>();
+            }
+        }
+        public Malzeme MalzemeBul(string stokNo)
+        {
+            try
+            {
+                Malzeme item = null;
+                dataReader = sqlServices.StoreReader("MalzemelerList", new SqlParameter("@stokno", stokNo));
+                while (dataReader.Read())
+                {
+                    item = new Malzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TEDARIKCI_FIRMA"].ToString(),
+                        dataReader["ONARIM_DURUMU"].ToString(),
+                        dataReader["ONARIM_YERI"].ToString(),
+                        dataReader["TEDARIK_TURU"].ToString(),
+                        dataReader["PARCA_SINIFI"].ToString(),
+                        dataReader["ALTRNATIF_PARCA"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SISTEM_STOK_NO"].ToString(),
+                        dataReader["SISTEM_TANIM"].ToString(),
+                        dataReader["SISTEM_SORUMLUSU"].ToString(),
+                        dataReader["KAYIT_YAPAN"].ToString(),
+                        dataReader["TAKIP_DURUMU"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public List<Malzeme> UstTakimGetList()
+        {
+            try
+            {
+                List<Malzeme> malzemes = new List<Malzeme>();
+                dataReader = sqlServices.StoreReader("MalzemeUstTakimGor");
                 while (dataReader.Read())
                 {
                     malzemes.Add(new Malzeme(

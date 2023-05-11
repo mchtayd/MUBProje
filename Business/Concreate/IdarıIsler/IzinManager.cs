@@ -38,11 +38,11 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public string Delete(int isakisno)
+        public string Delete(int id)
         {
             try
             {
-                return İzinDal.Delete(isakisno);
+                return İzinDal.Delete(id);
             }
             catch (Exception ex)
             {
@@ -55,6 +55,17 @@ namespace Business.Concreate.IdarıIsler
             try
             {
                 return İzinDal.Get(isakisno, personelAd);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public Izin GetId(int id)
+        {
+            try
+            {
+                return İzinDal.GetId(id);
             }
             catch (Exception)
             {
@@ -90,6 +101,28 @@ namespace Business.Concreate.IdarıIsler
             try
             {
                 return İzinDal.GetList(isakisno);
+            }
+            catch (Exception)
+            {
+                return new List<Izin>();
+            }
+        }
+        public List<Izin> GetListPersonel(string personelAdi)
+        {
+            try
+            {
+                return İzinDal.GetListPersonel(personelAdi);
+            }
+            catch (Exception)
+            {
+                return new List<Izin>();
+            }
+        }
+        public List<Izin> GetListTarih(DateTime baslamaTarihi, DateTime bitisTarihi)
+        {
+            try
+            {
+                return İzinDal.GetListTarih(baslamaTarihi, bitisTarihi);
             }
             catch (Exception)
             {
@@ -142,6 +175,30 @@ namespace Business.Concreate.IdarıIsler
                     return controlText;
                 }
                 return İzinDal.Update(entity, isakisno);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdateToplamSure(int id, string toplamSure)
+        {
+            try
+            {
+                
+                return İzinDal.UpdateToplamSure(id, toplamSure);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdateIzin(Izin entity)
+        {
+            try
+            {
+
+                return İzinDal.UpdateIzin(entity);
             }
             catch (Exception ex)
             {

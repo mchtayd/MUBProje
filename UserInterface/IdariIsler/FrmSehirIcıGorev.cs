@@ -25,6 +25,7 @@ using Entity;
 using Entity.AnaSayfa;
 using UserInterface.Ana_Sayfa;
 using Business.Concreate.AnaSayfa;
+using Business.Concreate;
 
 namespace UserInterface.IdariIsler
 {
@@ -44,6 +45,7 @@ namespace UserInterface.IdariIsler
         IsAkisNoManager isAkisNoManager;
         ComboManager comboManager;
         BildirimYetkiManager bildirimYetkiManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
 
         List<UstAmirMail> ustAmirMails;
         List<SehiriciGorev> sehiriciGorevs;
@@ -60,6 +62,7 @@ namespace UserInterface.IdariIsler
             isAkisNoManager = IsAkisNoManager.GetInstance();
             comboManager = ComboManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -136,6 +139,7 @@ namespace UserInterface.IdariIsler
             CmbProjeGuncelle.DisplayMember = "Baslik";
             CmbProjeGuncelle.SelectedValue = 0;
         }
+        string amirAd = "";
         void UstAmirMail()
         {
             UstAmirMail ustAmirMail = ustAmirManager.Get(personeladsoyad);
@@ -143,7 +147,8 @@ namespace UserInterface.IdariIsler
             ustAmirMails = ustAmirManager.GetList(id);
             if (ustAmirMails.Count > 0)
             {
-                amirmail = ustAmirMails[0].Oficemail; // HATA YOK
+                amirmail = ustAmirMails[0].Oficemail;
+                amirAd = ustAmirMails[0].Adsoyad;
             }
         }
         void Personeller1()
@@ -666,7 +671,20 @@ namespace UserInterface.IdariIsler
 
                 DataDisplayPersonel();
                 CreateLogPersonelOnay();
+                GorevAtama();
             }
+        }
+
+        string GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(onayid, "SEHİR İÇİ GÖREV", amirAd, "ŞEHİR İÇİ GÖREV ONAYI", DateTime.Now, "", DateTime.Now.Date);
+            string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+
+            if (kontrol != "OK")
+            {
+                return kontrol;
+            }
+            return "OK";
         }
 
         private void BtnReddet_Click(object sender, EventArgs e)

@@ -102,6 +102,18 @@ namespace Business.Concreate.BakimOnarim
                 return new List<BolgeKayit>();
             }
         }
+        public List<BolgeKayit> GetListProje(string proje)
+        {
+            try
+            {
+                return bolgeKayitDal.GetListProje(proje);
+            }
+            catch (Exception)
+            {
+                return new List<BolgeKayit>();
+            }
+        }
+
         public List<BolgeKayit> GetListBolgeKomutanlik(string il)
         {
             try
@@ -123,6 +135,18 @@ namespace Business.Concreate.BakimOnarim
                     return controlText;
                 }
                 return bolgeKayitDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string UpdateBolgeAdi(string eskiBolgeAdi, string yeniBolgeAdi)
+        {
+            try
+            {
+                return bolgeKayitDal.UpdateBolgeAdi(eskiBolgeAdi, yeniBolgeAdi);
             }
             catch (Exception ex)
             {

@@ -560,7 +560,7 @@ namespace UserInterface.Ana_Sayfa
                     if (item.TabloAd == "YAKIT_BEYANI")
                     {
                         List<Yakit> yakits = new List<Yakit>();
-                        yakits = yakitManager.GetList(item.Id);
+                        yakits = yakitManager.GetList(0,item.Id);
                         foreach (Yakit yakit in yakits)
                         {
                             isAkisNoManager.UpdateKontrolsuz();

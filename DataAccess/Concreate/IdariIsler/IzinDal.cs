@@ -49,11 +49,11 @@ namespace DataAccess.Concreate.IdariIsler
             }
         }
 
-        public string Delete(int isakisno)
+        public string Delete(int id)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("PersonelIzinSil", new SqlParameter("@isakisno",isakisno));
+                dataReader = sqlServices.StoreReader("PersonelIzinSil", new SqlParameter("@id", id));
                 dataReader.Close();
                 return "OK";
             }
@@ -125,6 +125,43 @@ namespace DataAccess.Concreate.IdariIsler
                 dataReader.Close();
                 return item;
             }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public Izin GetId(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("IzinGetList", new SqlParameter("@id", id));
+                Izin item = null;
+                while (dataReader.Read())
+                {
+                    item = new Izin(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["IZIN_KATEGORI"].ToString(),
+                        dataReader["IZIN_TURU"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["BOLUMU"].ToString(),
+                        dataReader["IZIN_NEDENI"].ToString(),
+                        dataReader["IZIN_BAS_TARIHI"].ConDate(),
+                        dataReader["IZIN_BIT_TARIHI"].ConDate(),
+                        dataReader["IZIN_DURUMU"].ToString(),
+                        dataReader["TOPLAM_SURE"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["ONAY_DURUM"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
             catch (Exception)
             {
                 return null;
@@ -167,6 +204,81 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<Izin>();
             }
         }
+
+        public List<Izin> GetListPersonel(string personelAd)
+        {
+            try
+            {
+                List<Izin> izins = new List<Izin>();
+                dataReader = sqlServices.StoreReader("PersonelIzinGet", new SqlParameter("@personelAd", personelAd));
+                while (dataReader.Read())
+                {
+                    izins.Add(new Izin(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["IZIN_KATEGORI"].ToString(),
+                        dataReader["IZIN_TURU"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["IS_UNVANI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["SIRKET_BOLUM"].ToString(),
+                        dataReader["IZIN_NEDENI"].ToString(),
+                        dataReader["IZIN_BAS_TARIHI"].ConDate(),
+                        dataReader["IZIN_BIT_TARIHI"].ConDate(),
+                        dataReader["IZIN_DURUMU"].ToString(),
+                        dataReader["TOPLAM_SURE"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["ONAY_DURUM"].ToString()));
+                }
+                dataReader.Close();
+                return izins;
+            }
+            catch (Exception ex)
+            {
+                return new List<Izin>();
+            }
+        }
+
+        public List<Izin> GetListTarih(DateTime baslamaTarihi, DateTime bitisTarihi)
+        {
+            try
+            {
+                List<Izin> izins = new List<Izin>();
+                dataReader = sqlServices.StoreReader("IzinTarihList", new SqlParameter("@basTarihi", baslamaTarihi), new SqlParameter("@bitTarihi", bitisTarihi));
+                while (dataReader.Read())
+                {
+                    izins.Add(new Izin(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["IZIN_KATEGORI"].ToString(),
+                        dataReader["IZIN_TURU"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["AD_SOYAD"].ToString(),
+                        dataReader["UNVANI"].ToString(),
+                        dataReader["MASRAF_YERI_NO"].ToString(),
+                        dataReader["BOLUMU"].ToString(),
+                        dataReader["IZIN_NEDENI"].ToString(),
+                        dataReader["IZIN_BAS_TARIHI"].ConDate(),
+                        dataReader["IZIN_BIT_TARIHI"].ConDate(),
+                        dataReader["IZIN_DURUMU"].ToString(),
+                        dataReader["TOPLAM_SURE"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["SIPARIS"].ToString(),
+                        dataReader["ONAY_DURUM"].ToString()));
+                }
+                dataReader.Close();
+                return izins;
+            }
+            catch (Exception)
+            {
+                return new List<Izin>();
+            }
+        }
+
         public List<Izin> GetListOnay()
         {
             try
@@ -282,6 +394,39 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@unvani",entity.Unvani),
                     new SqlParameter("@toplamsure",entity.Toplamsure),
                     new SqlParameter("@dosyayolu", entity.Dosyayolu));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdateToplamSure(int id, string toplamSure)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("IzinToplamSureEdit",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@toplamSure", toplamSure));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string UpdateIzin(Izin entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("IzinGuncelle",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@izinNedeni", entity.Izınnedeni),
+                    new SqlParameter("@izinBasTarihi", entity.Bastarihi),
+                    new SqlParameter("@izinBitisTarihi", entity.Bittarihi),
+                    new SqlParameter("@toplamSure",entity.Toplamsure));
                 dataReader.Close();
                 return "OK";
             }

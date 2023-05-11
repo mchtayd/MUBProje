@@ -28,7 +28,6 @@ namespace UserInterface
            // MessageBox.Show(Application.ExecutablePath);
         }
         private void btnLogin_Click(object sender, EventArgs e)
-        
         {
             //KİTLEME
             /*string folderPath = "C:\\Users\\MAYıldırım\\Desktop\\C# Notes\\Secret\\Locker";
@@ -67,6 +66,7 @@ namespace UserInterface
                 MessageBox.Show("Hatalı Sicil Numarası Veya Şifre Girdiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+
             MessageBox.Show("Sayın " + infos[1] + " Hoşgeldiniz.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 

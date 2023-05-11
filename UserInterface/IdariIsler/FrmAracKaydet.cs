@@ -66,7 +66,7 @@ namespace UserInterface.IdariIsler
 
         private void FrmAracKaydet_Load(object sender, EventArgs e)
         {
-            if (infos[1].ToString() != "RESUL GÜNEŞ")
+            if (infos[1].ToString() != "RESUL GÜNEŞ" || infos[11].ToString() != "ADMİN" || infos[11].ToString() != "YÖNETİCİ")
             {
                 BtnMulkiyetEkle.Visible = false;
             }
@@ -359,12 +359,41 @@ namespace UserInterface.IdariIsler
             TxtProjeyeTahsisKmGun.Text = arac.ProjeTahsisTarihi.ToString();
             TxtProjeCikisKmGun.Text = arac.KmCikis.ToString();
             TxtProjeCikisNedeni.Text = arac.ProjeCikisNedeni;
+            if (arac.Durum== "PROJE İÇİ")
+            {
+                RdbProjeIci.Checked = true;
+                RdbProjeDisi.Checked = false;
+            }
+            else
+            {
+                RdbProjeDisi.Checked = true;
+                RdbProjeIci.Checked = false;
+            }
 
             webBrowser2.Navigate(dosyaYoluGun);
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
+            if (RdbProjeDisi.Checked == true)
+            {
+                if (TxtProjeCikisKmGun.Text == "0")
+                {
+                    MessageBox.Show("Lütfen Proje Çıkış Km Bilgisini Boş Geçmeyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (TxtProjeCikisNedeni.Text == "0")
+                {
+                    MessageBox.Show("Lütfen Projeden Çıkış Nedeni Bilgisini Boş Geçmeyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (DtProjeCikisTarihi.Text == "  .  .")
+                {
+                    MessageBox.Show("Lütfen Projeden Çıkış Tarihi Bilgisini Boş Geçmeyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+
             DialogResult dr = MessageBox.Show("Bilgileri Güncellemek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
@@ -376,7 +405,18 @@ namespace UserInterface.IdariIsler
                         return;
                     }
                 }
-                Arac arac = new Arac(TxtPlakaGun.Text, DtilkTecilTarihiGun.Value, DtTecilTarihiGun.Value, TxtMarkasiGun.Text, TxtTipiGun.Text, TxtTicariAdiGun.Text, TxtModeliGun.Text, TxtSinifiGun.Text, TxtCinsiGun.Text, TxtRengiGun.Text, TxtMotorNoGun.Text, TxtSaseNoGun.Text, CmbYakitCinsiGun.Text, CmbMulkiyetBilgileriGun.Text, CmbProjeGun.Text, CmbSiparisNoGun.Text, TxtTasitTanimaGun.Text, TxtArventoIdGun.Text, DtProjeTahsisTarihiGun.Value, TxtProjeyeTahsisKmGun.Text.ConInt(), TxtProjeCikisKmGun.Text.ConInt(), DtProjeCikisTarihi.Text.ToString(), TxtProjeCikisNedeni.Text, dosyaYoluGun, TxtAciklamaGun.Text);
+                string durum = "";
+                if (RdbProjeIci.Checked==true)
+                {
+                    durum = "PROJE İÇİ";
+                }
+
+                else
+                {
+                    durum = "PROJE DIŞI";
+                }
+
+                Arac arac = new Arac(TxtPlakaGun.Text, DtilkTecilTarihiGun.Value, DtTecilTarihiGun.Value, TxtMarkasiGun.Text, TxtTipiGun.Text, TxtTicariAdiGun.Text, TxtModeliGun.Text, TxtSinifiGun.Text, TxtCinsiGun.Text, TxtRengiGun.Text, TxtMotorNoGun.Text, TxtSaseNoGun.Text, CmbYakitCinsiGun.Text, CmbMulkiyetBilgileriGun.Text, CmbProjeGun.Text, CmbSiparisNoGun.Text, TxtTasitTanimaGun.Text, TxtArventoIdGun.Text, DtProjeTahsisTarihiGun.Value, TxtProjeyeTahsisKmGun.Text.ConInt(), TxtProjeCikisKmGun.Text.ConInt(), DtProjeCikisTarihi.Text.ToString(), TxtProjeCikisNedeni.Text, dosyaYoluGun, TxtAciklamaGun.Text, durum);
 
                 string mesaj = aracManager.Update(arac, id);
                 if (mesaj != "OK")
@@ -626,6 +666,10 @@ namespace UserInterface.IdariIsler
 
         private void CmbSiparisNoGun_SelectedIndexChanged(object sender, EventArgs e)
         {
+            SiparisKontrol();
+        }
+        void SiparisKontrol()
+        {
             if (gec == true)
             {
                 return;
@@ -645,6 +689,13 @@ namespace UserInterface.IdariIsler
                 return;
             }
             aracKadroArttir = true;
+        }
+
+        private void RdbProjeIci_CheckedChanged(object sender, EventArgs e)
+        {
+            DtProjeCikisTarihi.Clear();
+            TxtProjeCikisNedeni.Clear();
+            TxtProjeCikisKmGun.Text = "0";
         }
 
         private void BtnMulkiyetEkle_Click(object sender, EventArgs e)

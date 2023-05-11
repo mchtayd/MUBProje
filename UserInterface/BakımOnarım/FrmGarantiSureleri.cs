@@ -43,7 +43,7 @@ namespace UserInterface.BakımOnarım
         }
         void DataDisplay()
         {
-            bolgeGarantis = bolgeGarantiManager.GetList(siparisNo);
+            bolgeGarantis = bolgeGarantiManager.GetListTumu(siparisNo);
 
             if (bolgeGarantis.Count==0)
             {

@@ -20,6 +20,7 @@ namespace DataAccess.Concreate
         static int outValue2 = 0;
         static string period;
         static DateTime outValue3 = new DateTime(2000, 01, 01);
+
         public static int ConInt(this object param)
         {
             return Convert.ToInt32(param);

@@ -1,5 +1,7 @@
-﻿using Business.Concreate.IdarıIsler;
+﻿using Business.Concreate;
+using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
+using Entity;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -21,6 +23,7 @@ namespace UserInterface.IdariIsler
 
         SehiriciGorevManager sehiriciGorevManager;
         IdariIslerLogManager logManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
 
         List<SehiriciGorev> sehiriciGorevs;
 
@@ -31,6 +34,7 @@ namespace UserInterface.IdariIsler
             InitializeComponent();
             sehiriciGorevManager = SehiriciGorevManager.GetInstance();
             logManager = IdariIslerLogManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void FrmSehitİciGorevOnay_Load(object sender, EventArgs e)
@@ -95,8 +99,10 @@ namespace UserInterface.IdariIsler
                 Task.Factory.StartNew(() => MailSendMetotOnay());
                 CreateLogAmirOnay();
                 SehirIciGorevAmir();
+                GorevAtama();
                 id = 0;
             }
+
             void CreateLogAmirOnay()
             {
                 string sayfa = "ŞEHİR İÇİ GÖREV";
@@ -108,6 +114,57 @@ namespace UserInterface.IdariIsler
                 logManager.Add(log);
             }
         }
+        DateTime birOncekiTarih;
+        int gun, saat, dakika;
+        string sure;
+
+        void GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "ŞEHİR İÇİ GÖREV");
+
+            birOncekiTarih = gorevAtamaPersonel.Tarih;
+
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
+            {
+                saat = 0;
+            }
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "ŞEHİR İÇİ GÖREV", "ŞEHİR İÇİ GÖREV ONAYI", sure, "00:02:00".ConOnlyTime());
+            gorevAtamaPersonelManager.Update(gorevAtama, "GÖREV ONAYLANDI");
+        }
+
+        void GorevAtamaRed()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "ŞEHİR İÇİ GÖREV");
+
+            birOncekiTarih = gorevAtamaPersonel.Tarih;
+
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
+            {
+                saat = 0;
+            }
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "ŞEHİR İÇİ GÖREV", "ŞEHİR İÇİ GÖREV ONAYI", sure, "00:02:00".ConOnlyTime());
+            gorevAtamaPersonelManager.Update(gorevAtama, "GÖREV REDDEDİLDİ");
+        }
+
+
         public void MailSend(string subject, string body, List<string> receivers, List<string> attachments = null)
         {
             try
@@ -172,9 +229,12 @@ namespace UserInterface.IdariIsler
                     string sehiricigorev = "3.ADIM:GÖREV AMİR TARAFINDAN ONAYLANDI";
                     sehiriciGorevManager.GorevOnay(sehiricigorev, item.Cells["Id"].Value.ConInt());
                     CreateLogAmirOnay(item.Cells["Isakisno"].Value.ConInt());
+                    id = item.Cells["Id"].Value.ConInt();
+                    GorevAtama();
                 }
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SehirIciGorevAmir();
+                id = 0;
             }
         }
         void CreateLogAmirOnay(int isAkisNo)
@@ -205,7 +265,8 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("İşlem Başarıyla Gerçekleşmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SehirIciGorevAmir();
                 CreateLogAmirRed();
-                Task.Factory.StartNew(() => MailSendMetotRetAmir());
+                GorevAtamaRed();
+                //Task.Factory.StartNew(() => MailSendMetotRetAmir());
                 id = 0;
             }
         }

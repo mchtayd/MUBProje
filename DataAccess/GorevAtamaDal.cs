@@ -230,7 +230,7 @@ namespace DataAccess
                 dataReader.Close();
                 return gorevAtamas;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<GorevAtama>();
             }

@@ -59,6 +59,39 @@ namespace Business.Concreate.IdarıIsler
                 return new List<MalzemeTalep>();
             }
         }
+        public List<MalzemeTalep> GetListTalepEden(string talepEden)
+        {
+            try
+            {
+                return malzemeTalepDal.GetListTalepEden(talepEden);
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
+        public MalzemeTalep Get()
+        {
+            try
+            {
+                return malzemeTalepDal.Get();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public List<MalzemeTalep> GetSatId(int satId)
+        {
+            try
+            {
+                return malzemeTalepDal.GetSatId(satId);
+            }
+            catch (Exception)
+            {
+                return new List<MalzemeTalep>();
+            }
+        }
         public List<MalzemeTalep> GetListSat(string masrafYeriSorumlusu)
         {
             try
@@ -106,11 +139,11 @@ namespace Business.Concreate.IdarıIsler
         }
         
 
-        public string Update(int id, string islemDurumu, string redGerekcesi="")
+        public string Update(int id, string islemDurumu, string redGerekcesi="", int satId=0)
         {
             try
             {
-                return malzemeTalepDal.Update(id, islemDurumu, redGerekcesi);
+                return malzemeTalepDal.Update(id, islemDurumu, redGerekcesi, satId);
             }
             catch (Exception ex)
             {

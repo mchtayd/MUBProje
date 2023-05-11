@@ -29,6 +29,7 @@ namespace UserInterface.STS
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -76,6 +77,8 @@ namespace UserInterface.STS
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LblUymayanBildirimYok = new System.Windows.Forms.Label();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgUymayanlar)).BeginInit();
@@ -91,6 +94,8 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.AdtgUymayan)).BeginInit();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.AdtgUymayan2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -534,6 +539,8 @@ namespace UserInterface.STS
             this.AdtgUymayan.Size = new System.Drawing.Size(711, 608);
             this.AdtgUymayan.TabIndex = 4;
             this.AdtgUymayan.TimeFilter = false;
+            this.AdtgUymayan.SortStringChanged += new System.EventHandler(this.AdtgUymayan_SortStringChanged);
+            this.AdtgUymayan.FilterStringChanged += new System.EventHandler(this.AdtgUymayan_FilterStringChanged);
             // 
             // groupBox6
             // 
@@ -566,6 +573,8 @@ namespace UserInterface.STS
             this.AdtgUymayan2.Size = new System.Drawing.Size(740, 611);
             this.AdtgUymayan2.TabIndex = 4;
             this.AdtgUymayan2.TimeFilter = false;
+            this.AdtgUymayan2.SortStringChanged += new System.EventHandler(this.AdtgUymayan2_SortStringChanged);
+            this.AdtgUymayan2.FilterStringChanged += new System.EventHandler(this.AdtgUymayan2_FilterStringChanged);
             // 
             // LblBeyanEksik
             // 
@@ -652,6 +661,8 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.AdtgUymayan)).EndInit();
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.AdtgUymayan2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -699,5 +710,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LblUymayanBildirimYok;
+        private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.BindingSource dataBinder2;
     }
 }

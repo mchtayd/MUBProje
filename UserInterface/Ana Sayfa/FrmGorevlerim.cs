@@ -24,6 +24,9 @@ namespace UserInterface.Ana_Sayfa
         PersonelKayitManager kayitManager;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
         List<GorevAtamaPersonel> IsAkisgorevAtamaPersonels;
+        List<GorevAtamaPersonel> IsAkisgorevAtamaSatinAlma;
+        List<GorevAtamaPersonel> arizaGorevAtamaAtolyePersonels;
+        List<GorevAtamaPersonel> mifPersonels;
         GorevAtamaManager gorevAtamaManager;
         IsAkisNoManager isAkisNoManager;
 
@@ -65,7 +68,7 @@ namespace UserInterface.Ana_Sayfa
 
         private void advancedDataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            contextMenuStrip2.Show();
+            //contextMenuStrip2.Show();
         }
 
         private void FrmGorevlerim_Load(object sender, EventArgs e)
@@ -86,20 +89,20 @@ namespace UserInterface.Ana_Sayfa
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            if (id==0)
+            if (id == 0)
             {
-                MessageBox.Show("Lütfen Geçerli Bir Kayıt Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen Geçerli Bir Kayıt Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             string kontrol = Kontrol();
 
-            if (kontrol!="OK")
+            if (kontrol != "OK")
             {
-                MessageBox.Show(kontrol,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
             {
                 MailBul();
                 TimeSpan SonucGun = DateTime.Now - bitisTarihi;
@@ -108,13 +111,13 @@ namespace UserInterface.Ana_Sayfa
                 int saat = SonucSaat.TotalHours.ConInt();
 
                 int topsaat = (gun * 24) + saat;
-                if (topsaat==0)
+                if (topsaat == 0)
                 {
                     topsaat = 1;
                 }
 
 
-                GorevAtama gorevAtama = new GorevAtama(id,DateTime.Now, TxtAciklama.Text, topsaat.ToString(), dosyaYolu);
+                GorevAtama gorevAtama = new GorevAtama(id, DateTime.Now, TxtAciklama.Text, topsaat.ToString(), dosyaYolu);
 
                 gorevAtamaManager.Update(gorevAtama);
 
@@ -125,7 +128,7 @@ namespace UserInterface.Ana_Sayfa
                 webBrowser1.Navigate("");
                 DataDisplayYoneticiGorevlerim();
             }
-            
+
         }
 
         void MailBul()
@@ -135,7 +138,7 @@ namespace UserInterface.Ana_Sayfa
         }
         string Kontrol()
         {
-            if (TxtAciklama.Text=="")
+            if (TxtAciklama.Text == "")
             {
                 return "Lütfen Yapılan İşlem Sonuç Kısmını Doldurunuz!";
             }
@@ -154,19 +157,43 @@ namespace UserInterface.Ana_Sayfa
             dataBinder.Sort = DtgYoneticiGorevlerim.SortString;
         }
 
-        string goreviAtayan;
 
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void DtgGorevlerim_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderAriza.Filter = DtgGorevlerim.FilterString;
+            TxtTop.Text = DtgGorevlerim.RowCount.ToString();
+        }
+
+        private void DtgIsAkisGorev_FilterStringChanged_1(object sender, EventArgs e)
+        {
+            dataBinderAtolye.Filter = DtgIsAkisGorev.FilterString;
+            TxtTop3.Text = DtgIsAkisGorev.RowCount.ToString();
+        }
+
+        private void DtgIsAkisGorev_SortStringChanged_1(object sender, EventArgs e)
+        {
+            dataBinderAtolye.Sort = DtgIsAkisGorev.SortString;
+        }
+
+        private void DtgIsAkisGorev_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
         }
 
-        
+        private void DtgGorevlerim_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderAriza.Sort = DtgGorevlerim.SortString;
+        }
+
+        string goreviAtayan;
+
+
+
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
         {
-            if (dosyaYolu=="")
+            if (dosyaYolu == "")
             {
-                
+
                 string root = @"Z:\DTS";
                 string subdir = @"Z:\DTS\ATANAN GÖREVLER\";
 
@@ -203,7 +230,7 @@ namespace UserInterface.Ana_Sayfa
                     File.Copy(alinandosya, dosyaYolu + "\\" + kaynakdosyaismi);
                     webBrowser1.Navigate(dosyaYolu);
                 }
-                
+
             }
             else
             {
@@ -238,13 +265,19 @@ namespace UserInterface.Ana_Sayfa
                 }
                 webBrowser1.Navigate(dosyaYolu);
             }
-            
+
         }
 
         void DataDisplayAriza()
         {
             gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "BAKIM ONARIM");
-            DtgGorevlerim.DataSource = gorevAtamaPersonels;
+            arizaGorevAtamaAtolyePersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "BAKIM ONARIM ATÖLYE");
+            foreach (GorevAtamaPersonel item in arizaGorevAtamaAtolyePersonels)
+            {
+                gorevAtamaPersonels.Add(item);
+            }
+            dataBinderAriza.DataSource = gorevAtamaPersonels.ToDataTable();
+            DtgGorevlerim.DataSource = dataBinderAriza;
 
             DtgGorevlerim.Columns["Id"].Visible = false;
             DtgGorevlerim.Columns["BenzersizId"].Visible = false;
@@ -255,8 +288,11 @@ namespace UserInterface.Ana_Sayfa
             DtgGorevlerim.Columns["Sure"].HeaderText = "DURUM";
             DtgGorevlerim.Columns["YapilanIslem"].Visible = false;
             DtgGorevlerim.Columns["CalismaSuresi"].Visible = false;
+            DtgGorevlerim.Columns["AbfNo"].HeaderText = "ABF NO / KİMLİK";
+
             //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
             //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
+
             TxtTop.Text = DtgGorevlerim.RowCount.ToString();
 
             /*Toplamlar();
@@ -264,8 +300,22 @@ namespace UserInterface.Ana_Sayfa
         }
         void DataDisplayIsAkis()
         {
-            IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "");
-            DtgIsAkisGorev.DataSource = IsAkisgorevAtamaPersonels;
+            IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "İZİN");
+            IsAkisgorevAtamaSatinAlma = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "SATIN ALMA");
+            mifPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "MİF");
+
+            foreach (GorevAtamaPersonel item in IsAkisgorevAtamaSatinAlma)
+            {
+                IsAkisgorevAtamaPersonels.Add(item);
+            }
+
+            foreach (GorevAtamaPersonel item in mifPersonels)
+            {
+                IsAkisgorevAtamaPersonels.Add(item);
+            }
+
+            dataBinderAtolye.DataSource = IsAkisgorevAtamaPersonels.ToDataTable();
+            DtgIsAkisGorev.DataSource = dataBinderAtolye;
 
             DtgIsAkisGorev.Columns["Id"].Visible = false;
             DtgIsAkisGorev.Columns["BenzersizId"].Visible = false;
@@ -276,6 +326,7 @@ namespace UserInterface.Ana_Sayfa
             DtgIsAkisGorev.Columns["Sure"].HeaderText = "DURUM";
             DtgIsAkisGorev.Columns["YapilanIslem"].Visible = false;
             DtgIsAkisGorev.Columns["CalismaSuresi"].Visible = false;
+            DtgIsAkisGorev.Columns["AbfNo"].HeaderText = "İŞ AKIŞ NO / ID";
             //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
             //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
             TxtTop3.Text = DtgIsAkisGorev.RowCount.ToString();
@@ -314,7 +365,7 @@ namespace UserInterface.Ana_Sayfa
         }
         void MailSendMetot()
         {
-            MailSend("YÖNETİCİ GÖREVLERİ", "Merhaba; \n\n" + infos[1].ToString() +" adlı personel atadığınız görevi tamamlayarak DTS ye kaydetmiştir."+ "\n\nİyi Çalışmalar.", new List<string>() { mail });
+            MailSend("YÖNETİCİ GÖREVLERİ", "Merhaba; \n\n" + infos[1].ToString() + " adlı personel atadığınız görevi tamamlayarak DTS ye kaydetmiştir." + "\n\nİyi Çalışmalar.", new List<string>() { mail });
         }
         public void MailSend(string subject, string body, List<string> receivers, List<string> attachments = null)
         {

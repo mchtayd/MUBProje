@@ -35,6 +35,7 @@ namespace UserInterface.STS
         SatNoManager satNoManager;
         BildirimYetkiManager bildirimYetkiManager;
         ComboManager comboManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
 
         public object[] infos;
         int index, satNo, comboId;
@@ -52,6 +53,7 @@ namespace UserInterface.STS
             satNoManager = SatNoManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -357,15 +359,33 @@ namespace UserInterface.STS
             islem = "SATIN ALMA TALEBİ OLUŞTURULDU.";
             SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, islem, infos[1].ToString(), DateTime.Now);
             satIslemAdimlariManager.Add(satIslem);
-            string bildirim = BildirimKayit();
-            if (bildirim != "OK")
-            {
-                MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+
+            //string bildirim = BildirimKayit();
+            //if (bildirim != "OK")
+            //{
+            //    MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //}
+            SatDataGridview1 satDataGridview1 = satDataGridview1Manager.Get(LblIsAkisNo.Text);
+            satId = satDataGridview1.Id;
+            GorevAtama();
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             IsAkisNo();
             Temizle();
+            satId = 0;
         }
+        int satId = 0;
+        string GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(satId, "SATIN ALMA", "RESUL GÜNEŞ", "SAT ONAYI", DateTime.Now, "", DateTime.Now.Date);
+            string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+
+            if (kontrol != "OK")
+            {
+                return kontrol;
+            }
+            return "OK";
+        }
+
         string BildirimKayit()
         {
             string[] array = new string[8];

@@ -59,6 +59,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public ArizaKayit GetBildirimNo(string bildirimNo)
+        {
+            try
+            {
+                return arizaKayitDal.GetBildirimNo(bildirimNo);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public ArizaKayit GetId(int id)
         {
             try
@@ -167,11 +178,11 @@ namespace Business.Concreate.BakimOnarim
         {
             try
             {
-                controlText = Complete(entity);
-                if (controlText != "")
-                {
-                    return controlText;
-                }
+                //controlText = Complete(entity);
+                //if (controlText != "")
+                //{
+                //    return controlText;
+                //}
                 return arizaKayitDal.Update(entity);
             }
             catch (Exception ex)

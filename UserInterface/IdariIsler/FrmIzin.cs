@@ -1,8 +1,10 @@
 ﻿using Business;
+using Business.Concreate;
 using Business.Concreate.AnaSayfa;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using Entity;
 using Entity.AnaSayfa;
 using Entity.IdariIsler;
@@ -15,6 +17,7 @@ using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 using Application = Microsoft.Office.Interop.Word.Application;
+using Color = System.Drawing.Color;
 
 namespace UserInterface.IdariIsler
 {
@@ -27,6 +30,7 @@ namespace UserInterface.IdariIsler
         IsAkisNoManager isAkisNoManager;
         PersonelKayitManager kayitManager;
         BildirimYetkiManager bildirimYetkiManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
 
         List<string> fileNames = new List<string>();
         List<string> fileNamesGun = new List<string>();
@@ -37,6 +41,7 @@ namespace UserInterface.IdariIsler
         string kaynak = @"Z:\DTS\İDARİ İŞLER\WordTaslak\";
         string yol = @"C:\DTS\Taslak\";
         public object[] infos;
+        int gun, izinId = 0;
         public FrmIzin()
         {
             InitializeComponent();
@@ -47,6 +52,7 @@ namespace UserInterface.IdariIsler
             isAkisNoManager = IsAkisNoManager.GetInstance();
             kayitManager = PersonelKayitManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -72,6 +78,7 @@ namespace UserInterface.IdariIsler
             IsAkisNo();
             Personeller1();
             Personeller2();
+            BtnGuncelle.TabPages.Remove(BtnGuncelle.TabPages["tabPage2"]);
             start = false;
             start2 = false;
             start3 = false;
@@ -239,12 +246,16 @@ namespace UserInterface.IdariIsler
         {
             string sayfa = "İZİN";
             Izin gorev = izinManager.Get(LblIsAkisNo.Text.ConInt());
-            int benzersizid = gorev.Id;
-            string islem = "İZİN KAYDI OLUŞTURULDU.";
-            string islemyapan = infos[1].ToString();
-            IdariIslerLog log = new IdariIslerLog(sayfa, benzersizid, islem, islemyapan, DateTime.Now);
-            logManager.Add(log);
+            if (gorev!=null)
+            {
+                int benzersizid = gorev.Id;
+                string islem = "İZİN KAYDI OLUŞTURULDU.";
+                string islemyapan = infos[1].ToString();
+                IdariIslerLog log = new IdariIslerLog(sayfa, benzersizid, islem, islemyapan, DateTime.Now);
+                logManager.Add(log);
+            }
         }
+
         object filePath;
         string izinsuresi;
         void CreateWord()
@@ -318,7 +329,7 @@ namespace UserInterface.IdariIsler
             BtnDosyaEkleGun.BackColor = Color.LightGreen;
             webBrowser2.Navigate(dosyagun);
         }
-
+        int haftasonu = 0;
         private void BtnEkle_Click(object sender, EventArgs e)
         {
             string kontrol = Control();
@@ -348,10 +359,10 @@ namespace UserInterface.IdariIsler
             {
                 toplamSure = gun + " Gün" + saat + " Saat";
             }
-            
+
             if (saat == 0 && gun == 0)
             {
-                if (gunSaat==23)
+                if (gunSaat == 23)
                 {
                     toplamSure = "1 Gün";
                 }
@@ -363,16 +374,20 @@ namespace UserInterface.IdariIsler
                 {
                     toplamSure = "1 Gün 1 Saat";
                 }
-                if (toplamSure=="")
+                if (toplamSure == "")
                 {
                     MessageBox.Show("Girilen tarih aralığı hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
             }
+            if (toplamSure == "0 Gün")
+            {
+                toplamSure = "1 Gün";
+            }
+
 
             DtgList.Rows.Add();
             int sonSatir = DtgList.RowCount - 1;
-
             DtgList.Rows[sonSatir].Cells["IzinKategori"].Value = CmbIzınKategori.Text;
             DtgList.Rows[sonSatir].Cells["IzinTuru"].Value = CmbIzınTuru.Text;
             DtgList.Rows[sonSatir].Cells["AdiSoyadi"].Value = CmbPersonel.Text;
@@ -392,14 +407,15 @@ namespace UserInterface.IdariIsler
             c.DefaultCellStyle.ForeColor = Color.Red;
             c.DefaultCellStyle.BackColor = Color.Gainsboro;
 
-            CmbIzınKategori.SelectedIndex = -1;
+            //CmbIzınKategori.SelectedIndex = -1;
             CmbPersonel.SelectedIndex = -1;
             TxtIzinNedeni.Clear();
-            DtBasTarihi.Value = DateTime.Now;
-            DtBitTarihi.Value = DateTime.Now;
-            DtBasSaati.Value = DateTime.Now;
-            DtBitSaati.Value =DateTime.Now;
+            //DtBasTarihi.Value = DateTime.Now;
+            //DtBitTarihi.Value = DateTime.Now;
+            //DtBasSaati.Value = DateTime.Now;
+            //DtBitSaati.Value =DateTime.Now;
             toplamSure = "";
+            haftasonu = 0;
             dosyaControl = false;
         }
         bool dosyaControl = false;
@@ -449,6 +465,7 @@ namespace UserInterface.IdariIsler
                 taslakYolu = yol + "YILLIK İZİN - MGÜB.docx";
             }
         }
+        DateTime haftasonuControl;
 
         void CreateWordFile()
         {
@@ -555,6 +572,338 @@ namespace UserInterface.IdariIsler
 
                 int saat = toplamSureSaat.Hours;
                 int gunSaat = toplamSureGun.Hours;
+                if (gunSaat == 23)
+                {
+                    gun = toplamSureGun.Days + 1;
+                }
+                else
+                {
+                    gun = toplamSureGun.Days;
+                }
+                int dakika = toplamSureSaat.Minutes;
+
+                if (gun == 0)
+                {
+                    toplamSure = saat + " Saat";
+                }
+                if (saat == 0)
+                {
+                    toplamSure = gun + " Gün";
+                }
+                if (saat != 0 && gun != 0)
+                {
+                    toplamSure = gun + " Gün " + saat + " Saat";
+                }
+
+                if (saat == 0 && gun == 0)
+                {
+                    if (gunSaat == 23)
+                    {
+                        toplamSure = "1 Gün";
+                    }
+                    if (dakika == 59)
+                    {
+                        toplamSure = "1 Saat";
+                    }
+                    if (gunSaat == 23 && dakika == 59)
+                    {
+                        toplamSure = "1 Gün 1 Saat";
+                    }
+                    if (toplamSure == "")
+                    {
+                        MessageBox.Show("Girilen tarih aralığı hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
+                DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
+
+
+                if (DtBitTarihi.Value.Day < DtBasTarihi.Value.Day)
+                {
+                    haftasonuControl = DtBasTarihi.Value;
+
+                    while (DtBitTarihi.Value.Month > haftasonuControl.Month)
+                    {
+                        string haftaninGunu = haftasonuControl.ToString("dddd");
+                        if (haftaninGunu == "Cumartesi" || haftaninGunu == "Pazar")
+                        {
+                            haftasonu++;
+                        }
+                        haftasonuControl = haftasonuControl.AddDays(1);
+                    }
+                }
+                else
+                {
+                    haftasonuControl = DtBasTarihi.Value;
+
+                    while (DtBitTarihi.Value.Day > haftasonuControl.Day)
+                    {
+                        string haftaninGunu = haftasonuControl.ToString("dddd");
+                        if (haftaninGunu == "Cumartesi" || haftaninGunu == "Pazar")
+                        {
+                            haftasonu++;
+                        }
+                        haftasonuControl = haftasonuControl.AddDays(1);
+                    }
+                }
+
+
+                string[] sure = toplamSure.Split(' ');
+                if (haftasonu != 0)
+                {
+                    int sureGun = sure[0].ConInt() - haftasonu;
+                    toplamSure = sureGun + " Gün";
+                }
+
+                haftasonu = 0;
+
+
+                wBookmarks["İzinCikisTarihi"].Range.Text = basTarihi.ToString("g");
+                wBookmarks["İzinDonusTarihi"].Range.Text = bitTarihi.ToString("g");
+                wBookmarks["IzinSuresi"].Range.Text = toplamSure;
+                wBookmarks["Aciklama"].Range.Text = TxtIzinNedeni.Text;
+                wBookmarks["PersonelAd"].Range.Text = CmbPersonel.Text;
+                if (CmbIzınTuru.Text == "DOĞUM İZNİ")
+                {
+                    wBookmarks["Dogum"].Range.Text = "X";
+                }
+                if (CmbIzınTuru.Text == "EVLİLİK İZNİ")
+                {
+                    wBookmarks["Evlilik"].Range.Text = "X";
+                }
+                if (CmbIzınTuru.Text == "GÜNLÜK İZİN")
+                {
+                    wBookmarks["Gunluk"].Range.Text = "X";
+                }
+                if (CmbIzınTuru.Text == "ÖLÜM İZNİ")
+                {
+                    wBookmarks["Olum"].Range.Text = "X";
+                }
+                if (CmbIzınKategori.Text == "ÜCRETLİ İZİN")
+                {
+                    wBookmarks["Ucretli"].Range.Text = "X";
+                }
+                if (CmbIzınKategori.Text == "ÜCRETSİZ İZİN")
+                {
+                    wBookmarks["Ucretsiz"].Range.Text = "X";
+                }
+
+                wDoc.SaveAs2(dosya + LblIsAkisNo.Text + ".docx");
+                wDoc.Close();
+                wApp.Quit(false);
+            }
+
+            if (CmbIzınTuru.Text == "YILLIK İZİN")
+            {
+                TimeSpan toplamSureGun = DtBitTarihi.Value - DtBasTarihi.Value;
+                TimeSpan toplamSureSaat = DtBitSaati.Value - DtBasSaati.Value;
+                
+                int saat = toplamSureSaat.Hours;
+                int gunSaat = toplamSureGun.Hours;
+
+                if (gunSaat==23)
+                {
+                    gun = toplamSureGun.Days + 1;
+                }
+                else
+                {
+                    gun = toplamSureGun.Days;
+                }
+                
+                int dakika = toplamSureSaat.Minutes;
+
+                if (gun == 0)
+                {
+                    toplamSure = saat + " Saat";
+                }
+                if (saat == 0)
+                {
+                    toplamSure = gun + " Gün";
+                }
+                if (saat != 0 && gun != 0)
+                {
+                    toplamSure = gun + " Gün " + saat + " Saat";
+                }
+
+                if (saat == 0 && gun == 0)
+                {
+                    if (gunSaat == 23)
+                    {
+                        toplamSure = "1 Gün";
+                    }
+                    if (dakika == 59)
+                    {
+                        toplamSure = "1 Saat";
+                    }
+                    if (gunSaat == 23 && dakika == 59)
+                    {
+                        toplamSure = "1 Gün 1 Saat";
+                    }
+                    if (toplamSure == "")
+                    {
+                        MessageBox.Show("Girilen tarih aralığı hatalı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+
+                if (DtBitTarihi.Value.Day < DtBasTarihi.Value.Day)
+                {
+                    haftasonuControl = DtBasTarihi.Value;
+
+                    while (DtBitTarihi.Value.Month > haftasonuControl.Month)
+                    {
+                        string haftaninGunu = haftasonuControl.ToString("dddd");
+                        if (haftaninGunu == "Cumartesi" || haftaninGunu == "Pazar")
+                        {
+                            haftasonu++;
+                        }
+                        haftasonuControl = haftasonuControl.AddDays(1);
+                    }
+                }
+                else
+                {
+                    haftasonuControl = DtBasTarihi.Value;
+
+                    while (DtBitTarihi.Value.Day > haftasonuControl.Day)
+                    {
+                        string haftaninGunu = haftasonuControl.ToString("dddd");
+                        if (haftaninGunu == "Cumartesi" || haftaninGunu == "Pazar")
+                        {
+                            haftasonu++;
+                        }
+                        haftasonuControl = haftasonuControl.AddDays(1);
+                    }
+                }
+
+                string[] sure = toplamSure.Split(' ');
+                if (haftasonu != 0)
+                {
+                    int sureGun = sure[0].ConInt() - haftasonu;
+                    toplamSure = sureGun + " Gün";
+                }
+                haftasonu = 0;
+
+                PersonelKayit personelKayit = kayitManager.Get(0, CmbPersonel.Text);
+                Application wApp = new Application();
+                Documents wDocs = wApp.Documents;
+                object filePath = taslakYolu;
+                Document wDoc = wDocs.Open(ref filePath, ReadOnly: false);
+                wDoc.Activate();
+                Bookmarks wBookmarks = wDoc.Bookmarks;
+                wBookmarks["Tarih"].Range.Text = DateTime.Now.ToString("d");
+                wBookmarks["Tc"].Range.Text = personelKayit.Tc;
+                wBookmarks["Bolum"].Range.Text = LblBolum.Text;
+                wBookmarks["Yil"].Range.Text = DateTime.Now.ToString("yyyy");
+                wBookmarks["TarihBaslangic"].Range.Text = DtBasTarihi.Value.ToString("d");
+                wBookmarks["TarihBitis"].Range.Text = DtBitTarihi.Value.ToString("d");
+                wBookmarks["AdSoyad"].Range.Text = CmbPersonel.Text;
+                wBookmarks["Unvan"].Range.Text = LblUnvani.Text;
+                wBookmarks["IseGirisTarihi"].Range.Text = personelKayit.Isegiristarihi.ToString("dd.MM") + "." + DateTime.Now.ToString("yyyy");
+                wBookmarks["IzinBasTarihi"].Range.Text = DtBasTarihi.Value.ToString("d");
+                wBookmarks["IzinBitTarihi"].Range.Text = DtBitTarihi.Value.ToString("d");
+                DateTime isBasiTarih = DtBitTarihi.Value;
+                string isBasiGun = isBasiTarih.ToString("dddd");
+                DateTime isBasi = isBasiTarih;
+                if (isBasiGun=="Cumartesi")
+                {
+                    isBasi = isBasiTarih.AddDays(2);
+                }
+                if (isBasiGun == "Pazar")
+                {
+                    isBasi = isBasiTarih.AddDays(1);
+                }
+
+                wBookmarks["IsBasiYapacagiTarih"].Range.Text = isBasi.ToString("d");
+                wBookmarks["IzınSuresi"].Range.Text = toplamSure;
+                wBookmarks["YolIzni"].Range.Text = " ";
+                wBookmarks["IzinAdres"].Range.Text = personelKayit.Dogumyeri;
+                wBookmarks["Telefon"].Range.Text = personelKayit.Sirketcep;
+                wBookmarks["Aciklama"].Range.Text = TxtIzinNedeni.Text;
+
+                wDoc.SaveAs2(dosya + LblIsAkisNo.Text + ".docx");
+                wDoc.Close();
+                wApp.Quit(false);
+            }
+            
+
+            try
+            {
+                Directory.Delete(yol, true);
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message);
+                File.Delete(taslakYolu);
+            }
+
+        }
+        void CreateDirectory()
+        {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\İDARİ İŞLER\";
+            string anadosya = @"Z:\DTS\İDARİ İŞLER\İZİN\";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+
+            if (!Directory.Exists(anadosya))
+            {
+                Directory.CreateDirectory(anadosya);
+            }
+
+            dosya = anadosya + LblIsAkisNo.Text + "\\";
+            Directory.CreateDirectory(dosya);
+        }
+
+        private void CmbIzınTuru_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (DtgList.RowCount != 0)
+            {
+                if (DtgList.CurrentRow.Cells["IzinTuru"].Value.ToString() != CmbIzınTuru.Text)
+                {
+                    MessageBox.Show("Lütfen ilgili izin türünün kayıtlarını tamamladıktan sonra farklı bir izin türü seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    CmbIzınTuru.Text = DtgList.CurrentRow.Cells["IzinTuru"].Value.ToString();
+                }
+            }
+        }
+        
+
+        private void BtnKaydet_Click_2(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr!=DialogResult.Yes)
+            {
+                return;
+            }
+            //if (DtgList.RowCount==0)
+            //{
+            //    MessageBox.Show("Lütfen öncelikle tabloya veri ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            if (CmbIzınTuru.Text=="RAPOR")
+            {
+                if (dosyaControl == false)
+                {
+                    MessageBox.Show("Lütfen öncelikle Raporu taratarak ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
+                DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
+
+                TimeSpan toplamSureGun = DtBitTarihi.Value - DtBasTarihi.Value;
+                TimeSpan toplamSureSaat = DtBitSaati.Value - DtBasSaati.Value;
+
+                int saat = toplamSureSaat.Hours;
+                int gunSaat = toplamSureGun.Hours;
                 int gun = toplamSureGun.Days;
                 int dakika = toplamSureSaat.Minutes;
 
@@ -591,156 +940,41 @@ namespace UserInterface.IdariIsler
                         return;
                     }
                 }
-
-                DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
-                DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
-
-                wBookmarks["İzinCikisTarihi"].Range.Text = basTarihi.ToString("g");
-                wBookmarks["İzinDonusTarihi"].Range.Text = bitTarihi.ToString("g");
-                wBookmarks["IzinSuresi"].Range.Text = toplamSure;
-                wBookmarks["Aciklama"].Range.Text = TxtIzinNedeni.Text;
-                wBookmarks["PersonelAd"].Range.Text = CmbPersonel.Text;
-                if (CmbIzınTuru.Text == "DOĞUM İZNİ")
+                if (toplamSure == "0 Gün")
                 {
-                    wBookmarks["Dogum"].Range.Text = "X";
-                }
-                if (CmbIzınTuru.Text == "EVLİLİK İZNİ")
-                {
-                    wBookmarks["Evlilik"].Range.Text = "X";
-                }
-                if (CmbIzınTuru.Text == "GÜNLÜK İZİN")
-                {
-                    wBookmarks["Gunluk"].Range.Text = "X";
-                }
-                if (CmbIzınTuru.Text == "ÖLÜM İZNİ")
-                {
-                    wBookmarks["Olum"].Range.Text = "X";
-                }
-                if (CmbIzınKategori.Text == "ÜCRETLİ İZİN")
-                {
-                    wBookmarks["Olum"].Range.Text = "X";
-                }
-                if (CmbIzınKategori.Text == "ÜCRETLİ İZİN")
-                {
-                    wBookmarks["Ucretli"].Range.Text = "X";
-                }
-                if (CmbIzınKategori.Text == "ÜCRETSİZ İZİN")
-                {
-                    wBookmarks["Ucretsiz"].Range.Text = "X";
+                    toplamSure = "1 Gün";
                 }
 
-                wDoc.SaveAs2(dosya + LblIsAkisNo.Text + ".docx");
-                wDoc.Close();
-                wApp.Quit(false);
-            }
 
-            if (CmbIzınTuru.Text == "YILLIK İZİN")
-            {
-                PersonelKayit personelKayit = kayitManager.Get(0, CmbPersonel.Text);
-                Application wApp = new Application();
-                Documents wDocs = wApp.Documents;
-                object filePath = taslakYolu;
-                Document wDoc = wDocs.Open(ref filePath, ReadOnly: false);
-                wDoc.Activate();
+                Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), CmbIzınKategori.Text, CmbIzınTuru.Text, LblSiparisNo.Text, CmbPersonel.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblBolum.Text, TxtIzinNedeni.Text, basTarihi, bitTarihi, toplamSure, dosya, siparisNo);
+                string mesaj = izinManager.Add(ızin);
 
-                Bookmarks wBookmarks = wDoc.Bookmarks;
-                wBookmarks["Tarih"].Range.Text = DateTime.Now.ToString("d");
-                wBookmarks["Tc"].Range.Text = personelKayit.Tc;
-                wBookmarks["Bolum"].Range.Text = LblBolum.Text;
-                wBookmarks["Yil"].Range.Text = DateTime.Now.ToString("yyyy");
-                wBookmarks["TarihBaslangic"].Range.Text = DtBasTarihi.Value.ToString("d");
-                wBookmarks["TarihBitis"].Range.Text = DtBitTarihi.Value.ToString("d");
-                wBookmarks["AdSoyad"].Range.Text = CmbPersonel.Text;
-                wBookmarks["Unvan"].Range.Text = LblUnvani.Text;
-                wBookmarks["IseGirisTarihi"].Range.Text = personelKayit.Isegiristarihi.ToString("dd.MM") + "." + DateTime.Now.ToString("yyyy");
-                wBookmarks["IzinBasTarihi"].Range.Text = DtBasTarihi.Value.ToString("d");
-                wBookmarks["IzinBitTarihi"].Range.Text = DtBitTarihi.Value.ToString("d");
-                DateTime isBasiTarih = DtBitTarihi.Value.AddDays(1);
-                string isBasiGun = isBasiTarih.ToString("dddd");
-                DateTime isBasi = isBasiTarih;
-                if (isBasiGun=="Cumartesi")
+                if (mesaj == "OK")
                 {
-                    isBasi = DtBasTarihi.Value.AddDays(2);
+                    CreateLog();
                 }
-                if (isBasiGun == "Pazar")
+                else
                 {
-                    isBasi = DtBasTarihi.Value.AddDays(3);
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-                wBookmarks["IsBasiYapacagiTarih"].Range.Text = isBasi.ToString("d");
-                TimeSpan timeSpan = DtBitTarihi.Value - DtBasTarihi.Value;
-                wBookmarks["IzınSuresi"].Range.Text = timeSpan.Days.ToString() + " Gün";
-                wBookmarks["YolIzni"].Range.Text = " ";
-                wBookmarks["IzinAdres"].Range.Text = personelKayit.Dogumyeri;
-                wBookmarks["Telefon"].Range.Text = personelKayit.Sirketcep;
-                wBookmarks["Aciklama"].Range.Text = TxtIzinNedeni.Text;
 
-                wDoc.SaveAs2(dosya + LblIsAkisNo.Text + ".docx");
-                wDoc.Close();
-                wApp.Quit(false);
-            }
-
-            try
-            {
-                Directory.Delete(yol, true);
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                File.Delete(taslakYolu);
-            }
-
-        }
-        void CreateDirectory()
-        {
-            string root = @"Z:\DTS";
-            string subdir = @"Z:\DTS\İDARİ İŞLER\";
-            string anadosya = @"Z:\DTS\İDARİ İŞLER\İZİN\";
-
-            if (!Directory.Exists(root))
-            {
-                Directory.CreateDirectory(root);
-            }
-            if (!Directory.Exists(subdir))
-            {
-                Directory.CreateDirectory(subdir);
-            }
-
-            if (!Directory.Exists(anadosya))
-            {
-                Directory.CreateDirectory(anadosya);
-            }
-
-            dosya = anadosya + LblIsAkisNo.Text + "\\";
-            Directory.CreateDirectory(dosya);
-
-        }
-
-        private void CmbIzınTuru_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (DtgList.RowCount != 0)
-            {
-                if (DtgList.CurrentRow.Cells["IzinTuru"].Value.ToString() != CmbIzınTuru.Text)
+                Izin ızin1 = izinManager.Get(LblIsAkisNo.Text.ConInt());
+                izinId = ızin1.Id;
+                if (ızin1 != null)
                 {
-                    MessageBox.Show("Lütfen ilgili izin türünün kayıtlarını tamamladıktan sonra farklı bir izin türü seçiniz!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    CmbIzınTuru.Text = DtgList.CurrentRow.Cells["IzinTuru"].Value.ToString();
+                    GorevAtama();
                 }
-            }
-        }
 
-        private void BtnKaydet_Click_2(object sender, EventArgs e)
-        {
-            //if (DtgList.RowCount==0)
-            //{
-            //    MessageBox.Show("Lütfen öncelikle tabloya veri ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //    return;
-            //}
-            if (CmbIzınTuru.Text=="RAPOR")
-            {
-                if (dosyaControl == false)
-                {
-                    MessageBox.Show("Lütfen öncelikle Raporu taratarak ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                isAkisNoManager.UpdateKontrolsuz();
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
+                DtgList.Rows.Clear();
+                CmbIzınTuru.SelectedIndex = -1;
+                CmbIzınKategori.SelectedIndex = -1;
+                CmbPersonel.SelectedIndex = -1;
+                haftasonu = 0;
+                return;
+
             }
 
             IsAkisNo();
@@ -750,7 +984,7 @@ namespace UserInterface.IdariIsler
 
             siparisNo = Guid.NewGuid().ToString();
 
-            if (CmbIzınTuru.Text== "HAFTALIK İZİN")
+            if (CmbIzınTuru.Text == "HAFTALIK İZİN")
             {
                 
                 foreach (DataGridViewRow item in DtgList.Rows)
@@ -759,28 +993,60 @@ namespace UserInterface.IdariIsler
 
                     izinManager.Add(ızin);
 
+                    Izin ızin1 = izinManager.Get(LblIsAkisNo.Text.ConInt());
+                    izinId = ızin1.Id;
+                    CreateLog();
+                    if (ızin1 != null)
+                    {
+                        GorevAtama();
+                    }
                 }
             }
             else
             {
                 DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
                 DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
-                TimeSpan timeSpan = bitTarihi - basTarihi;
-                string toplamSure = timeSpan.Days + " Gün";
 
                 Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), CmbIzınKategori.Text, CmbIzınTuru.Text, LblSiparisNo.Text, CmbPersonel.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblBolum.Text, TxtIzinNedeni.Text, basTarihi, bitTarihi, toplamSure, dosya, siparisNo);
+                string mesaj = izinManager.Add(ızin);
 
-                izinManager.Add(ızin);
+                if (mesaj=="OK")
+                {
+                    CreateLog();
+                }
+                else
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                Izin ızin1 = izinManager.Get(LblIsAkisNo.Text.ConInt());
+                izinId = ızin1.Id;
+                if (ızin1 != null)
+                {
+                    GorevAtama();
+                }
+
             }
 
-            CreateLog();
+            isAkisNoManager.UpdateKontrolsuz();
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
             DtgList.Rows.Clear();
             CmbIzınTuru.SelectedIndex = -1;
             CmbIzınKategori.SelectedIndex = -1;
             CmbPersonel.SelectedIndex = -1;
+            haftasonu = 0;
+        }
+        string GorevAtama()
+        {   
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(izinId, "İZİN", "RESUL GÜNEŞ", "İZİN ONAYI", DateTime.Now, "", DateTime.Now.Date);
+            string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
 
+            if (kontrol != "OK")
+            {
+                return kontrol;
+            }
+            return "OK";
         }
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
@@ -892,7 +1158,7 @@ namespace UserInterface.IdariIsler
             DialogResult dr = MessageBox.Show(TxtIzinGuncelle.Text + " Nolu Personel İzin Kaydını Silmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
-                string mesaj = izinManager.Delete(TxtIzinGuncelle.Text.ConInt());
+                string mesaj = izinManager.Delete(id);
                 Directory.Delete(dosyagun, true);
                 if (mesaj != "OK")
                 {
@@ -944,6 +1210,7 @@ namespace UserInterface.IdariIsler
             int gun = Sonuc.TotalDays.ConInt();
             izinSuresi = gun.ToString() + " Gün";*/
         }
+        int id;
         private void BtnBul_Click(object sender, EventArgs e)
         {
 
@@ -957,7 +1224,7 @@ namespace UserInterface.IdariIsler
                     TemizleGuncelle();
                     return;
                 }
-
+                id = ızin.Id;
                 dosyagun = ızin.Dosyayolu;
                 CmbKategori.Text = ızin.Izinkategori;
                 CmbTuru.Text = ızin.Izinturu;

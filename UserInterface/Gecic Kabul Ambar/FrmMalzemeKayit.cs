@@ -32,6 +32,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         MalzemeStokManager malzemeStokManager;
         MalzemeManager malzemeManager;
         BildirimYetkiManager bildirimYetkiManager;
+        UstTakimManager ustTakimManager;
 
         int id, kaydedildi = 0;
         string dosyayolu, fotoyolu, kaynakdosyaismi1, yeniad, deneme, foto;
@@ -56,6 +57,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             malzemeStokManager = MalzemeStokManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            ustTakimManager = UstTakimManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -160,17 +162,17 @@ namespace UserInterface.Gecic_Kabul_Ambar
         }
         public void CmbStokNoUst()
         {
-            CmbUstTanim.DataSource = malzemeKayitManager.UstTakimGetList();
+            CmbUstTanim.DataSource = ustTakimManager.GetList();
             CmbUstTanim.ValueMember = "Id";
             CmbUstTanim.DisplayMember = "Tanim";
-            CmbUstTanim.SelectedValue = 0;
+            CmbUstTanim.SelectedValue = -1;
         }
         public void CmbStokNoUst2()
         {
-            CmbMalKulUst.DataSource = malzemeKayitManager.UstTakimGetList();
+            CmbMalKulUst.DataSource = ustTakimManager.GetList();
             CmbMalKulUst.ValueMember = "Id";
             CmbMalKulUst.DisplayMember = "Tanim";
-            CmbMalKulUst.SelectedValue = 0;
+            CmbMalKulUst.SelectedValue = -1;
         }
 
         void Temizle()
@@ -421,14 +423,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return;
             }
+            if (CmbMalKulUst.SelectedIndex==-1)
+            {
+                TxtUstTanim.Clear();
+            }
             id = CmbMalKulUst.SelectedValue.ConInt();
-            MalzemeKayit personelKayit = malzemeKayitManager.Get(id);
-            if (personelKayit == null)
+            UstTakim ustTakim = ustTakimManager.Get(id);
+            if (ustTakim == null)
             {
                 TxtUstTanim.Text = "";
                 return;
             }
-            TxtUstTanim.Text = personelKayit.Stokno;
+            TxtUstTanim.Text = ustTakim.StokNo;
         }
         string dosya = "", stok = "";
         void CreateFile()
@@ -488,14 +494,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return;
             }
+            if (CmbUstTanim.SelectedIndex==-1)
+            {
+                TxtUstStok.Clear();
+            }
             id = CmbUstTanim.SelectedValue.ConInt();
-            MalzemeKayit personelKayit = malzemeKayitManager.Get(id);
-            if (personelKayit == null)
+            UstTakim ustTakim = ustTakimManager.Get(id);
+            if (ustTakim == null)
             {
                 TxtUstStok.Text = "";
                 return;
             }
-            TxtUstStok.Text = personelKayit.Stokno;
+
+            TxtUstStok.Text = ustTakim.StokNo;
 
             index = CmbUstTanim.SelectedIndex;
             CmbMalKulUst.SelectedIndex = index;
@@ -504,8 +515,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void bTN_Click(object sender, EventArgs e)
         {
-            FrmUstTakimEkle frmUstTakimEkle = new FrmUstTakimEkle();
+            FrmUstTakim frmUstTakimEkle = new FrmUstTakim();
             frmUstTakimEkle.ShowDialog();
+            //FrmUstTakimEkle frmUstTakimEkle = new FrmUstTakimEkle();
+            //frmUstTakimEkle.ShowDialog();
         }
         
         private void button1_Click(object sender, EventArgs e)

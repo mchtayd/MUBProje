@@ -16,13 +16,17 @@ namespace UserInterface.Gecic_Kabul_Ambar
     public partial class FrmUstTakimEkle : Form
     {
         MalzemeKayitManager kayitManager;
+        MalzemeManager malzemeManager;
 
-        List<MalzemeKayit> malzemeKayits;
-        List<MalzemeKayit> malzemeKayitsFiltired;
+
+        List<Malzeme> malzemes;
+        List<Malzeme> malzemesFiltired;
+
         public FrmUstTakimEkle()
         {
             InitializeComponent();
             kayitManager = MalzemeKayitManager.GetInstance();
+            malzemeManager = MalzemeManager.GetInstance();
         }
 
         private void FrmUstTakimEkle_Load(object sender, EventArgs e)
@@ -31,40 +35,32 @@ namespace UserInterface.Gecic_Kabul_Ambar
         }
         void DataDisplay()
         {
-            malzemeKayits = kayitManager.GetListMalzemeKayit();
-            malzemeKayitsFiltired = malzemeKayits;
-            dataBinder.DataSource = malzemeKayits.ToDataTable();
+            malzemes = malzemeManager.GetList();
+            malzemesFiltired = malzemes;
+            dataBinder.DataSource = malzemes.ToDataTable();
             DtgList.DataSource = dataBinder;
             TxtTop.Text = DtgList.RowCount.ToString();
 
             DtgList.Columns["Id"].Visible = false;
-            DtgList.Columns["Stokno"].HeaderText = "STOK NO";
+            DtgList.Columns["StokNo"].HeaderText = "STOK NO";
             DtgList.Columns["Tanim"].HeaderText = "TANIM";
             DtgList.Columns["Birim"].Visible = false;
-            DtgList.Columns["Tedarikcifirma"].Visible = false;
-            DtgList.Columns["Malzemeonarimdurumu"].Visible = false;
-            DtgList.Columns["Malzemeonarımyeri"].Visible = false;
-            DtgList.Columns["Malzemeturu"].Visible = false;
-            DtgList.Columns["Malzemetakipdurumu"].Visible = false;
-            //DtgList.Columns["Malzemerevizyon"].Visible = false;
-            //DtgList.Columns["Malzemelot"].HeaderText = "MALZEME LOT NO";
-            DtgList.Columns["Malzemekul"].Visible = false;
+            DtgList.Columns["TedarikciFirma"].Visible = false;
+            DtgList.Columns["OnarimDurumu"].Visible = false;
+            DtgList.Columns["OnarimYeri"].Visible = false;
+            DtgList.Columns["TedarikTuru"].Visible = false;
+            DtgList.Columns["ParcaSinifi"].Visible = false;
+            DtgList.Columns["AlternatifParca"].Visible = false;
             DtgList.Columns["Aciklama"].Visible = false;
-            DtgList.Columns["Dosyayolu"].Visible = false;
-            DtgList.Columns["AlternatifMalzeme"].Visible = false;
+            DtgList.Columns["DosyaYolu"].Visible = false;
             DtgList.Columns["SistemStokNo"].Visible = false;
-            DtgList.Columns["SistemTanim"].Visible = false;
-            DtgList.Columns["SistemPersonel"].Visible = false;
-            DtgList.Columns["DataTypeValue"].Visible = false;
-
-            DtgList.Columns["KayitDurumu"].Visible = false;
-            DtgList.Columns["SeriNo"].Visible = false;
-            DtgList.Columns["Durum"].Visible = false;
-            DtgList.Columns["Revizyon"].Visible = false;
-            DtgList.Columns["Miktar"].Visible = false;
-            DtgList.Columns["TalepTarihi"].Visible = false;
-            DtgList.Columns["SistemStokNo"].Visible = false;
-            DtgList.Columns["SistemTanim"].Visible = false;
+            DtgList.Columns["SistemTanimi"].Visible = false;
+            DtgList.Columns["SistemSorumlusu"].Visible = false;
+            DtgList.Columns["IslemYapan"].Visible = false;
+            DtgList.Columns["TakipDurumu"].Visible = false;
+            DtgList.Columns["UstStok"].Visible = false;
+            DtgList.Columns["UstTanim"].Visible = false;
+            DtgList.Columns["BenzersizId"].Visible = false;
         }
 
         private void TxtStokNo_TextChanged(object sender, EventArgs e)
@@ -72,8 +68,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             string isim = TxtStokNo.Text;
             if (string.IsNullOrEmpty(isim))
             {
-                malzemeKayitsFiltired = malzemeKayits;
-                dataBinder.DataSource = malzemeKayits.ToDataTable();
+                malzemesFiltired = malzemes;
+                dataBinder.DataSource = malzemes.ToDataTable();
                 DtgList.DataSource = dataBinder;
                 TxtTop.Text = DtgList.RowCount.ToString();
                 return;
@@ -82,9 +78,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return;
             }
-            dataBinder.DataSource = malzemeKayitsFiltired.Where(x => x.Stokno.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
+            dataBinder.DataSource = malzemesFiltired.Where(x => x.StokNo.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
             DtgList.DataSource = dataBinder;
-            malzemeKayitsFiltired = malzemeKayits;
+            malzemesFiltired = malzemes;
             TxtTop.Text = DtgList.RowCount.ToString();
         }
 
@@ -93,8 +89,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             string isim = TxtTanim.Text;
             if (string.IsNullOrEmpty(isim))
             {
-                malzemeKayitsFiltired = malzemeKayits;
-                dataBinder.DataSource = malzemeKayits.ToDataTable();
+                malzemesFiltired = malzemes;
+                dataBinder.DataSource = malzemes.ToDataTable();
                 DtgList.DataSource = dataBinder;
                 TxtTop.Text = DtgList.RowCount.ToString();
                 return;
@@ -103,9 +99,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return;
             }
-            dataBinder.DataSource = malzemeKayitsFiltired.Where(x => x.Tanim.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
+            dataBinder.DataSource = malzemesFiltired.Where(x => x.Tanim.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
             DtgList.DataSource = dataBinder;
-            malzemeKayitsFiltired = malzemeKayits;
+            malzemesFiltired = malzemes;
             TxtTop.Text = DtgList.RowCount.ToString();
         }
         string stok = "";
@@ -126,7 +122,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DialogResult dr = MessageBox.Show(stok + " Stok Nolu Malzemeyi Üst Takım Olarak Kaydetmek İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
-                string mesaj = kayitManager.UsTakimGuncelle(id);
+                string mesaj = malzemeManager.MazlemeUstTakimEkle(id);
                 if (mesaj!="OK")
                 {
                     MessageBox.Show(mesaj,"Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);

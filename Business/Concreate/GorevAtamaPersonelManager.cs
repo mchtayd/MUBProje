@@ -41,6 +41,17 @@ namespace Business.Concreate
                 return ex.Message;
             }
         }
+        public string IslemAdimiSorumlusuUpdate(int id, string islemAdimiSorumlusu)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.IslemAdimiSorumlusuUpdate(id, islemAdimiSorumlusu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public GorevAtamaPersonel Get(int benzersiz, string departman)
         {
@@ -71,6 +82,17 @@ namespace Business.Concreate
             try
             {
                 return gorevAtamaPersonelDal.GorevAtamaGetList(benzersizId);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> GorevAtamaAtolyeList()
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.GorevAtamaAtolyeList();
             }
             catch (Exception)
             {

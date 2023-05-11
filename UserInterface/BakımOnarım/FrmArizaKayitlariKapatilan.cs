@@ -34,7 +34,8 @@ namespace UserInterface.BakımOnarım
         List<StokGirisCıkıs> stokGirisCikis;
         List<Atolye> atolyes;
 
-        string dosyaYolu, abfNo;
+        public object[] infos;
+        string dosyaYolu, abfNo, bolgeSorumlusu;
         int id, atolyeId;
 
         public FrmArizaKayitlariKapatilan()
@@ -74,10 +75,27 @@ namespace UserInterface.BakımOnarım
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
             dosyaYolu = DtgList.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             abfNo = DtgList.CurrentRow.Cells["AbfFormNo"].Value.ToString();
+            bolgeSorumlusu = DtgList.CurrentRow.Cells["AcmaOnayiVeren"].Value.ToString();
             IslemAdimlariSureleri();
             MalzemeListesi();
             DepoHareketleri();
             AtolyeKayitlari();
+
+            if (bolgeSorumlusu != infos[1].ToString())
+            {
+                if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+                {
+                    contextMenuStrip1.Items[1].Enabled = true;
+                }
+                else
+                {
+                    contextMenuStrip1.Items[1].Enabled = false;
+                }
+            }
+            else
+            {
+                contextMenuStrip1.Items[1].Enabled = true;
+            }
         }
         void AtolyeKayitlari()
         {
@@ -185,6 +203,9 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeListesi.Columns["TemineAtilamTarihi"].Visible = false;
             DtgMalzemeListesi.Columns["MalzemeDurumu"].Visible = false;
             DtgMalzemeListesi.Columns["MalzemeIslemAdimi"].Visible = false;
+            DtgMalzemeListesi.Columns["SokulenTeslimDurum"].HeaderText = "SÖKÜLEN MALZEME TESLİMİ";
+            DtgMalzemeListesi.Columns["BolgeAdi"].Visible = false;
+            DtgMalzemeListesi.Columns["BolgeSorumlusu"].Visible = false;
 
         }
         void IslemAdimlariSureleri()
@@ -209,9 +230,16 @@ namespace UserInterface.BakımOnarım
                 string value = row.Cells["CalismaSuresi"].Value.ToString();
                 row.Cells["CalismaSuresi"].Value = value.Substring(value.IndexOf(' ') + 1);
             }
-            webBrowser1.Navigate(dosyaYolu);
             Toplamlar();
             ToplamlarIslemAdimSureleri();
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
         void ToplamlarIslemAdimSureleri()
         {
@@ -282,6 +310,14 @@ namespace UserInterface.BakımOnarım
 
         private void FrmArizaKayitlariKapatilan_Load(object sender, EventArgs e)
         {
+            if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            {
+                contextMenuStrip1.Items[0].Enabled = true;
+            }
+            else
+            {
+                contextMenuStrip1.Items[0].Enabled = false;
+            }
             DataDisplay();
         }
 
@@ -376,6 +412,31 @@ namespace UserInterface.BakımOnarım
             }
         }
 
+        private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmArizaGuncelle frmArizaGuncelle = new FrmArizaGuncelle();
+            frmArizaGuncelle.abfNo = abfNo;
+            frmArizaGuncelle.id = id;
+            frmArizaGuncelle.ShowDialog();
+        }
+
+        private void sökülenMalzemeBilgisiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir arıza seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmSokulenMalzeme frmSokulenMalzeme = new FrmSokulenMalzeme();
+            frmSokulenMalzeme.benzersizId = id;
+            frmSokulenMalzeme.ShowDialog();
+        }
+
         public void Yenilenecekler()
         {
             DataDisplay();
@@ -440,23 +501,43 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["HasarKodu"].HeaderText = "HASAR KODU";
             DtgList.Columns["NedenKodu"].HeaderText = "NEDEN KODU";
             DtgList.Columns["EksikEvrak"].Visible = false;
+            DtgList.Columns["GecenSure"].Visible = false;
 
 
-            DtgList.Columns["AbfFormNo"].DisplayIndex = 0;
-            DtgList.Columns["Proje"].DisplayIndex = 1;
-            DtgList.Columns["BolgeAdi"].DisplayIndex = 2;
-            DtgList.Columns["AbTarihSaat"].DisplayIndex = 3;
-            DtgList.Columns["BildirimTuru"].DisplayIndex = 4;
+            DtgList.Columns["BildirimTuru"].DisplayIndex = 0;
+            DtgList.Columns["GecenSure"].DisplayIndex = 1;
+            DtgList.Columns["AbfFormNo"].DisplayIndex = 2;
+            DtgList.Columns["BildirimNo"].DisplayIndex = 3;
+            DtgList.Columns["OkfBildirimNo"].DisplayIndex = 4;
             DtgList.Columns["Kategori"].DisplayIndex = 5;
-            DtgList.Columns["CsSiparisNo"].DisplayIndex = 6;
-            DtgList.Columns["BildirimNo"].DisplayIndex = 7;
-            DtgList.Columns["CrmNo"].DisplayIndex = 8;
-            DtgList.Columns["StokNo"].DisplayIndex = 9;
-            DtgList.Columns["Tanim"].DisplayIndex = 10;
-            DtgList.Columns["SeriNo"].DisplayIndex = 11;
-            DtgList.Columns["GarantiDurumu"].DisplayIndex = 13;
-            DtgList.Columns["IslemAdimi"].DisplayIndex = 14;
-            DtgList.Columns["GorevAtanacakPersonel"].DisplayIndex = 15;
+            DtgList.Columns["BolgeAdi"].DisplayIndex = 6;
+            DtgList.Columns["Il"].DisplayIndex = 7;
+            DtgList.Columns["Ilce"].DisplayIndex = 8;
+            DtgList.Columns["IslemAdimi"].DisplayIndex = 9;
+            DtgList.Columns["Proje"].DisplayIndex = 10;
+            DtgList.Columns["StokNo"].DisplayIndex = 11;
+            DtgList.Columns["Tanim"].DisplayIndex = 12;
+            DtgList.Columns["SeriNo"].DisplayIndex = 13;
+            DtgList.Columns["GorevAtanacakPersonel"].DisplayIndex = 14;
+            DtgList.Columns["TespitEdilenAriza"].DisplayIndex = 15;
+            DtgList.Columns["GarantiDurumu"].DisplayIndex = 16;
+            DtgList.Columns["IlgiliFirma"].DisplayIndex = 17;
+            DtgList.Columns["BildirimMailTarihi"].DisplayIndex = 18;
+            DtgList.Columns["BildirilenAriza"].DisplayIndex = 19;
+            DtgList.Columns["ArizaiBildirenPersonel"].DisplayIndex = 20;
+            DtgList.Columns["AbRutbesi"].DisplayIndex = 21;
+            DtgList.Columns["AbGorevi"].DisplayIndex = 22;
+            DtgList.Columns["AbTelefon"].DisplayIndex = 23;
+            DtgList.Columns["AbTarihSaat"].DisplayIndex = 24;
+            DtgList.Columns["ABAlanPersonel"].DisplayIndex = 25;
+            DtgList.Columns["BildirimKanali"].DisplayIndex = 26;
+            DtgList.Columns["LojistikSorumluPersonel"].DisplayIndex = 27;
+            DtgList.Columns["LojRutbesi"].DisplayIndex = 28;
+            DtgList.Columns["LojGorevi"].DisplayIndex = 29;
+            DtgList.Columns["LojTarihi"].DisplayIndex = 30;
+            DtgList.Columns["AcmaOnayiVeren"].DisplayIndex = 31;
+            DtgList.Columns["PypNo"].DisplayIndex = 32;
+            DtgList.Columns["MalzemeDurum"].DisplayIndex = 33;
         }
     }
 }

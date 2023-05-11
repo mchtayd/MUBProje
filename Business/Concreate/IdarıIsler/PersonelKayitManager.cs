@@ -18,6 +18,7 @@ namespace Business.Concreate.IdarıIsler
         {
             personelKayitDal = PersonelKayitDal.GetInstance();
         }
+
         public string Add(PersonelKayit entity)
         {
             try
@@ -37,7 +38,14 @@ namespace Business.Concreate.IdarıIsler
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return personelKayitDal.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public PersonelKayit Get(int id=0, string personeAd="")

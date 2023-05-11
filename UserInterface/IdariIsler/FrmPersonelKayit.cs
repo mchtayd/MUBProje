@@ -38,10 +38,9 @@ namespace UserInterface.IdariIşler
         PersKaytLojistikManager persKaytLojistikManager;
         List<Siparisler> siparislers;
         List<PersonelKayit> personelKayits;
-        List<PersonelKayit> dokumens;
-        List<PersonelKayit> dokumensFiltered;
         SiparisPersonelManager siparisPersonelManager;
         MasrafYeriManager masrafYeriManager;
+        SirketBolumManager sirketBolumManager;
 
         string[] array;
 
@@ -208,7 +207,9 @@ namespace UserInterface.IdariIşler
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
             comboManager = ComboManager.GetInstance();
             masrafYeriManager = MasrafYeriManager.GetInstance();
+            sirketBolumManager = SirketBolumManager.GetInstance();
         }
+
         private void TxtPersonelDepo_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
@@ -411,51 +412,22 @@ namespace UserInterface.IdariIşler
 
         void BolumOlustur()
         {
-            if (CmbDepartman.Text == "")
-            {
-                MessageBox.Show("Lütfen Öncelikle DEPARTMAN Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (CmbDepartman.Text == "MÜB PROJE DİREKTÖRLÜĞÜ")
             {
                 departman = "MUB Prj.Dir.";
             }
-            if (CmbBolum.Text == "SİSTEM TESİS BAKIM ONARIM MÜDÜRLÜĞÜ")
+            if (CmbB1.Text!="")
             {
-                bolum1 = "Sist.Tes.BO.Mdl.";
+                BOLUM = departman + "/" + CmbB1.Text;
             }
-            if (CmbBolum.Text == "LOJİSTİK DESTEK VE PLANLAMA MÜDÜRLÜĞÜ")
+            if (CmbB2.Text != "")
             {
-                bolum1 = "Loj.Des.Ve Pln.Mdl.";
+                BOLUM = departman + "/" + CmbB1.Text + "/" + CmbB2;
             }
-            if (CmbBolum.Text == "KALİTE MÜHENDİSLİĞİ")
+            if (CmbB3.Text != "")
             {
-                bolum1 = "Kal.Müh.";
+                BOLUM = departman + "/" + CmbB1.Text + "/" + CmbB2 + "/" + CmbB3.Text;
             }
-            if (CmbBolum.Text == "YAZILIM MÜHENDİSLİĞİ")
-            {
-                bolum1 = "Yaz.Müh.";
-            }
-            if (CmbBolum.Text == "İDARİ İŞLER ŞEFLİĞİ")
-            {
-                bolum1 = "İd.İşl.Şefliği";
-            }
-            if (CmbBolum.Text == "")
-            {
-                BOLUM = departman;
-                return;
-            }
-            if (CmbBolum2.Text == "")
-            {
-                BOLUM = departman + "/" + bolum1;
-                return;
-            }
-            if (CmbBolum3.Text == "")
-            {
-                BOLUM = departman + "/" + bolum1 + "/" + CmbBolum2.Text;
-                return;
-            }
-            BOLUM = departman + "/" + bolum1 + "/" + CmbBolum2.Text + "/" + CmbBolum3G.Text;
 
         }
 
@@ -465,61 +437,130 @@ namespace UserInterface.IdariIşler
             frmMasrafYeri.ShowDialog();
         }
 
-        private void BtnBolumDuzeltGuncelle_Click(object sender, EventArgs e)
-        {
-
-        }
-
         void BolumOlusturG()
         {
-            if (CmbDepartmanG.Text == "")
-            {
-                MessageBox.Show("Lütfen Öncelikle DEPARTMAN Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
             if (CmbDepartmanG.Text == "MÜB PROJE DİREKTÖRLÜĞÜ")
             {
                 departman = "MUB Prj.Dir.";
             }
-            if (CmbBolumG.Text == "SİSTEM TESİS BAKIM ONARIM MÜDÜRLÜĞÜ")
+            if (CmbBo1.Text != "")
             {
-                bolum1 = "Sist.Tes.BO.Mdl.";
+                BOLUM = departman + "/" + CmbBo1.Text;
             }
-            if (CmbBolumG.Text == "LOJİSTİK DESTEK VE PLANLAMA MÜDÜRLÜĞÜ")
+            if (CmbBo2.Text != "")
             {
-                bolum1 = "Loj.Des.Ve Pln.Mdl.";
+                BOLUM = departman + "/" + CmbBo1.Text + "/" + CmbBo2;
             }
-            if (CmbBolumG.Text == "KALİTE MÜHENDİSLİĞİ")
+            if (CmbBo3.Text != "")
             {
-                bolum1 = "Kal.Müh.";
+                BOLUM = departman + "/" + CmbBo1.Text + "/" + CmbBo2 + "/" + CmbBo3.Text;
             }
-            if (CmbBolumG.Text == "YAZILIM MÜHENDİSLİĞİ")
-            {
-                bolum1 = "Yaz.Müh.";
-            }
-            if (CmbBolumG.Text == "İDARİ İŞLER ŞEFLİĞİ")
-            {
-                bolum1 = "İd.İşl.Şefliği";
-            }
-            if (CmbBolumG.Text == "")
-            {
-                BOLUM = departman;
-                return;
-            }
-            if (CmbBolum2G.Text == "")
-            {
-                BOLUM = departman + "/" + bolum1;
-                return;
-            }
-            if (CmbBolum3G.Text == "")
-            {
-                BOLUM = departman + "/" + bolum1 + "/" + CmbBolum2G.Text;
-                return;
-            }
-            BOLUM = departman + "/" + bolum1 + "/" + CmbBolum2G.Text + "/" + CmbBolum3G.Text;
 
         }
+
+        private void BtnBolum1_Click(object sender, EventArgs e)
+        {
+            FrmBolumEdit frmBolumEdit = new FrmBolumEdit();
+            frmBolumEdit.ShowDialog();
+        }
+
+        private void BtnBo1_Click(object sender, EventArgs e)
+        {
+            FrmBolumEdit frmBolumEdit = new FrmBolumEdit();
+            frmBolumEdit.ShowDialog();
+        }
+
         bool gec, gecKayit = false;
+
+        private void CmbBo1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+
+            if (CmbBo1.SelectedIndex == -1)
+            {
+                CmbBo2.SelectedIndex = -1;
+                return;
+            }
+
+            List<SirketBolum> sirketBolums = new List<SirketBolum>();
+            sirketBolums = sirketBolumManager.GetList(CmbBo1.Text);
+
+            CmbBo2.DataSource = sirketBolums;
+            CmbBo2.ValueMember = "Id";
+            CmbBo2.DisplayMember = "Bolum";
+            CmbBo2.SelectedValue = 0;
+        }
+
+        private void CmbBo2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+
+            if (CmbBo2.SelectedIndex == -1)
+            {
+                CmbBo3.SelectedIndex = -1;
+                return;
+            }
+
+            List<SirketBolum> sirketBolums = new List<SirketBolum>();
+            sirketBolums = sirketBolumManager.GetList(CmbBo2.Text);
+
+            CmbBo3.DataSource = sirketBolums;
+            CmbBo3.ValueMember = "Id";
+            CmbBo3.DisplayMember = "Bolum";
+            CmbBo3.SelectedValue = 0;
+        }
+
+        private void CmbB2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+
+            if (CmbB2.SelectedIndex == -1)
+            {
+                CmbB3.SelectedIndex = -1;
+                return;
+            }
+
+            List<SirketBolum> sirketBolums = new List<SirketBolum>();
+            sirketBolums = sirketBolumManager.GetList(CmbB2.Text);
+
+            CmbB3.DataSource = sirketBolums;
+            CmbB3.ValueMember = "Id";
+            CmbB3.DisplayMember = "Bolum";
+            CmbB3.SelectedValue = 0;
+        }
+
+        private void CmbB1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==true)
+            {
+                return;
+            }
+
+            if (CmbB1.SelectedIndex==-1)
+            {
+                CmbB2.SelectedIndex = -1;
+                return;
+            }
+
+            List<SirketBolum> sirketBolums = new List<SirketBolum>();
+            sirketBolums = sirketBolumManager.GetList(CmbB1.Text);
+
+            CmbB2.DataSource = sirketBolums;
+            CmbB2.ValueMember = "Id";
+            CmbB2.DisplayMember = "Bolum";
+            CmbB2.SelectedValue = 0;
+
+        }
+
         void Bolum3GDegistir()
         {
             if (CmbBolum2G.Text == "Dest.Hiz.")
@@ -593,8 +634,7 @@ namespace UserInterface.IdariIşler
         {
             string root = @"Z:\DTS";
             string subdir = @"Z:\DTS\İDARİ İŞLER\PERSONELLER\";
-            //root = @"C:\STS";
-            //subdir = @"C:\STS\Personel Dosyaları\";
+
             olusandosyaadi = CmbAdSoyad.Text;
 
             if (!Directory.Exists(root))
@@ -619,8 +659,10 @@ namespace UserInterface.IdariIşler
             }
             dosyaYolu = subdir + olusandosyaadi;
             File.Copy(alinandosya, dosyaYolu + "\\" + kaynakdosyaismi);
-            WebBrowser2();
+            webBrowserG.Navigate(guncellenecekdosya);
         }
+
+
         private void BtnDosyaEkleA_Click(object sender, EventArgs e)
         {
             string root = @"Z:\DTS";
@@ -801,17 +843,14 @@ namespace UserInterface.IdariIşler
                         return;
                     }
                 }
-                personelKayit = null;
 
+                personelKayit = null;
                 int id = CmbAdSoyad.SelectedValue.ConInt();
                 personelKayit = new PersonelKayit(id, CmbAdSoyad.Text, TxtTcG.Text, TxtHesG.Text, TxtSigortaSicil.Text, TxtIkametgahG.Text, CmbKanG.Text,
-                    TxtEsAdG.Text, TxtEsTelefonG.Text, DtDogumTarihiG.Value, CmbMedeniG.Text, CmbEsIsDurumuG.Text, CmbCocukSayisiG.Text, TxtDogumYeriG.Text, TxtOkulG.Text, TxtBolumG.Text, TxtDipG.Text,
-                    CmbSiparisG.Text, CmbSatG.Text, CmbButcekoduG.Text, CmbButceKalemiG.Text, TxtSicilG.Text, CmbMasrafYeriNoG.Text, CmbMastafYeriG.Text, CmbMasrafYeriSorumlusuGun.Text, BOLUM, TxtSirketMailG.Text,
-                    TxtOficeMailG.Text, TxtSirketCepG.Text, TxtSirketKısaKodG.Text, TxtOficeDahiliNoG.Text, CmbIsUnvaniG.Text, DtIseGirisG.Value, askerlikdurumuG, TxtSinifG.Text, TxtRubesiG.Text,
-                    TxtGoreviG.Text, DtBasTarihiG.Text.ToString(), DtBitTarihiG.Text.ToString(), TxtGorevYeriG.Text, DtTecilBitTarihiG.Text.ToString(), TxtTecilSebebiG.Text, TxtMuafNedeniG.Text,CmbProjeKoduGun.Text, TxtKgbNoGun.Text, DtKgbGuncelle.Value);
+                    TxtEsAdG.Text, TxtEsTelefonG.Text, DtDogumTarihiG.Value, CmbMedeniG.Text, CmbEsIsDurumuG.Text, CmbCocukSayisiG.Text, TxtDogumYeriG.Text, TxtOkulG.Text, TxtBolumG.Text, TxtDipG.Text, CmbSiparisG.Text, CmbSatG.Text, CmbButcekoduG.Text, CmbButceKalemiG.Text, TxtSicilG.Text, CmbMasrafYeriNoG.Text, CmbMastafYeriG.Text, CmbMasrafYeriSorumlusuGun.Text, BOLUM, TxtSirketMailG.Text, TxtOficeMailG.Text, TxtSirketCepG.Text, TxtSirketKısaKodG.Text, TxtOficeDahiliNoG.Text, CmbIsUnvaniG.Text, DtIseGirisG.Value, askerlikdurumuG, TxtSinifG.Text, TxtRubesiG.Text, TxtGoreviG.Text, DtBasTarihiG.Text.ToString(), DtBitTarihiG.Text.ToString(), TxtGorevYeriG.Text, DtTecilBitTarihiG.Text.ToString(), TxtTecilSebebiG.Text, TxtMuafNedeniG.Text,CmbProjeKoduGun.Text, TxtKgbNoGun.Text, DtKgbGuncelle.Value);
+
                 CmbMastafYeriG.Text = ""; CmbBolumG.Text = "";
 
-                //personelKayitManager.Update(personelKayit);
                 bool gec = false;
                 string mesaj = personelKayitManager.Update(personelKayit);
                 if (mesaj!="OK")
@@ -917,6 +956,8 @@ namespace UserInterface.IdariIşler
                 return;
             }
             int personId = CmbAdSoyad.SelectedValue.ConInt();
+
+
             PersonelKayit personelKayit = personelKayitManager.Get(personId);
 
             guncellenecekkisiadi = CmbAdSoyad.Text;
@@ -1212,6 +1253,8 @@ namespace UserInterface.IdariIşler
             MasrafYeri();
             MasrafYeriBilgiGuncel();
             MasrafYeriBilgi();
+            SirketBolumler();
+            SirketBolumler1();
             //TOPP.Text = siparislerManager.ToplamPers().ToString();
             Toplamlar2();
             TOPA.Text = siparislerManager.ToplamArac().ToString();
@@ -1232,6 +1275,39 @@ namespace UserInterface.IdariIşler
 
 
         }
+        void SirketBolumler()
+        {
+            List<SirketBolum> sirketBolums = new List<SirketBolum>();
+            sirketBolums = sirketBolumManager.GetList("GENEL");
+
+            CmbDepartman.DataSource = sirketBolums;
+            CmbDepartman.ValueMember = "Id";
+            CmbDepartman.DisplayMember= "Bolum";
+            CmbDepartman.SelectedValue = 0;
+
+            CmbDepartmanG.DataSource = sirketBolums;
+            CmbDepartmanG.ValueMember = "Id";
+            CmbDepartmanG.DisplayMember = "Bolum";
+            CmbDepartmanG.SelectedValue = 0;
+
+        }
+        public void SirketBolumler1()
+        {
+            List<SirketBolum> sirketBolums = new List<SirketBolum>();
+            sirketBolums = sirketBolumManager.GetListBolumNo(1);
+
+            CmbB1.DataSource = sirketBolums;
+            CmbB1.ValueMember = "Id";
+            CmbB1.DisplayMember = "Bolum";
+            CmbB1.SelectedValue = 0;
+
+            CmbBo1.DataSource = sirketBolums;
+            CmbBo1.ValueMember = "Id";
+            CmbBo1.DisplayMember = "Bolum";
+            CmbBo1.SelectedValue = 0;
+
+        }
+
         public void MasrafYeriGuncel()
         {
             CmbMasrafYeriNoG.DataSource = masrafYeriManager.GetList();

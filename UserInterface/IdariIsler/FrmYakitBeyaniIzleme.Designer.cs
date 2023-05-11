@@ -30,7 +30,7 @@ namespace UserInterface.IdariIsler
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -47,6 +47,9 @@ namespace UserInterface.IdariIsler
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
+            this.CmbYillar = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.ChkTumunuGoster = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -122,8 +125,8 @@ namespace UserInterface.IdariIsler
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -217,12 +220,49 @@ namespace UserInterface.IdariIsler
             this.LblGenelTop.TabIndex = 355;
             this.LblGenelTop.Text = "00  ₺";
             // 
+            // CmbYillar
+            // 
+            this.CmbYillar.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbYillar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbYillar.FormattingEnabled = true;
+            this.CmbYillar.Location = new System.Drawing.Point(447, 45);
+            this.CmbYillar.Name = "CmbYillar";
+            this.CmbYillar.Size = new System.Drawing.Size(121, 23);
+            this.CmbYillar.TabIndex = 538;
+            this.CmbYillar.SelectedIndexChanged += new System.EventHandler(this.CmbYillar_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(410, 49);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 15);
+            this.label2.TabIndex = 537;
+            this.label2.Text = "YIL:";
+            // 
+            // ChkTumunuGoster
+            // 
+            this.ChkTumunuGoster.AutoSize = true;
+            this.ChkTumunuGoster.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkTumunuGoster.Location = new System.Drawing.Point(577, 47);
+            this.ChkTumunuGoster.Name = "ChkTumunuGoster";
+            this.ChkTumunuGoster.Size = new System.Drawing.Size(146, 19);
+            this.ChkTumunuGoster.TabIndex = 539;
+            this.ChkTumunuGoster.Text = "TÜMÜNÜ GÖSTER";
+            this.ChkTumunuGoster.UseVisualStyleBackColor = true;
+            this.ChkTumunuGoster.CheckedChanged += new System.EventHandler(this.ChkTumunuGoster_CheckedChanged);
+            // 
             // FrmYakitBeyaniIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.CmbYillar);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.ChkTumunuGoster);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.LblGenelTop);
             this.Controls.Add(this.groupBox2);
@@ -266,5 +306,8 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.ToolStripMenuItem yenileToolStripMenuItem;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblGenelTop;
+        private System.Windows.Forms.ComboBox CmbYillar;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox ChkTumunuGoster;
     }
 }

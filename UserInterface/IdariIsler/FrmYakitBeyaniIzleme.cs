@@ -1,6 +1,8 @@
 ﻿using Business.Concreate.IdarıIsler;
+using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity.IdariIsler;
+using Entity.STS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,6 +24,7 @@ namespace UserInterface.IdariIsler
         YakitManager yakitManager;
         int outValue = 0, id;
         string dosyayolu, sayfa;
+        bool start = true;
         public FrmYakitBeyaniIzleme()
         {
             InitializeComponent();
@@ -43,11 +46,33 @@ namespace UserInterface.IdariIsler
 
         private void FrmYakitBeyaniIzleme_Load(object sender, EventArgs e)
         {
+            Yillar();
             DataDisplay();
+            start = false;
         }
+
+        void Yillar()
+        {
+            CmbYillar.DataSource = yakitManager.Yillar();
+            int index = 0;
+            CmbYillar.SelectedIndex = index;
+        }
+
         public void DataDisplay()
         {
-            yakits = yakitManager.GetList();
+            if (ChkTumunuGoster.Checked == true)
+            {
+                yakits = yakitManager.GetList(0);
+            }
+            if (CmbYillar.Text == "2021")
+            {
+                yakits = yakitManager.GetList(1990);
+            }
+            else
+            {
+                yakits = yakitManager.GetList(CmbYillar.Text.ConInt());
+            }
+            
             yakitsFiltired = yakits;
             dataBinder.DataSource = yakits.ToDataTable();
             DtgList.DataSource = dataBinder;
@@ -139,6 +164,34 @@ namespace UserInterface.IdariIsler
             
             IslemAdimlariDisplay();
         }
+
+        private void CmbYillar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+            if (CmbYillar.SelectedIndex == -1)
+            {
+                return;
+            }
+            DataDisplay();
+        }
+
+        private void ChkTumunuGoster_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkTumunuGoster.Checked == true)
+            {
+                CmbYillar.SelectedIndex = -1;
+                DataDisplay();
+            }
+            else
+            {
+                Yillar();
+                DataDisplay();
+            }
+        }
+
         void IslemAdimlariDisplay()
         {
             DtgIslemAdimlari.DataSource = logManager.GetList(sayfa, id);

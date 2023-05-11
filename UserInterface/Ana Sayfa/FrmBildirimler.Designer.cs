@@ -156,7 +156,7 @@ namespace UserInterface.Ana_Sayfa
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.groupBox1.Location = new System.Drawing.Point(399, 168);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(787, 381);
+            this.groupBox1.Size = new System.Drawing.Size(787, 690);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "GENEL DUYURULAR";
@@ -167,19 +167,20 @@ namespace UserInterface.Ana_Sayfa
             this.WebDuyuru.Location = new System.Drawing.Point(3, 16);
             this.WebDuyuru.MinimumSize = new System.Drawing.Size(20, 20);
             this.WebDuyuru.Name = "WebDuyuru";
-            this.WebDuyuru.Size = new System.Drawing.Size(781, 362);
+            this.WebDuyuru.Size = new System.Drawing.Size(781, 671);
             this.WebDuyuru.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.WebIsler);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(402, 555);
+            this.groupBox2.Location = new System.Drawing.Point(1219, 627);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(787, 303);
+            this.groupBox2.Size = new System.Drawing.Size(182, 42);
             this.groupBox2.TabIndex = 5;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "TAKİP EDİLECEK/TAMAMLANACAK İŞLER";
+            this.groupBox2.Visible = false;
             // 
             // WebIsler
             // 
@@ -187,7 +188,7 @@ namespace UserInterface.Ana_Sayfa
             this.WebIsler.Location = new System.Drawing.Point(3, 16);
             this.WebIsler.MinimumSize = new System.Drawing.Size(20, 20);
             this.WebIsler.Name = "WebIsler";
-            this.WebIsler.Size = new System.Drawing.Size(781, 284);
+            this.WebIsler.Size = new System.Drawing.Size(176, 23);
             this.WebIsler.TabIndex = 1;
             // 
             // panel4

@@ -47,6 +47,11 @@ namespace UserInterface.STS
             this.ChkTumunuGoster = new System.Windows.Forms.CheckBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblGenelTopp = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.DtgList = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.BtnProjeDuzelt = new System.Windows.Forms.Button();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.PnlTemsili = new System.Windows.Forms.Panel();
@@ -161,11 +166,7 @@ namespace UserInterface.STS
             this.LblGenelTop = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.DtgList = new System.Windows.Forms.DataGridView();
-            this.label4 = new System.Windows.Forms.Label();
-            this.LblGenelTopp = new System.Windows.Forms.Label();
+            this.BtnDonemDuzelt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
@@ -173,6 +174,8 @@ namespace UserInterface.STS
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
+            this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.PnlTemsili.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -183,8 +186,6 @@ namespace UserInterface.STS
             this.groupBox2.SuspendLayout();
             this.PnlKaydir.SuspendLayout();
             this.PnlGizle.SuspendLayout();
-            this.groupBox4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -316,6 +317,7 @@ namespace UserInterface.STS
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.BtnDonemDuzelt);
             this.tabPage4.Controls.Add(this.label4);
             this.tabPage4.Controls.Add(this.LblGenelTopp);
             this.tabPage4.Controls.Add(this.groupBox4);
@@ -338,6 +340,60 @@ namespace UserInterface.STS
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "SAT";
             this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(16, 765);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(101, 15);
+            this.label4.TabIndex = 541;
+            this.label4.Text = "Genel Toplam:";
+            // 
+            // LblGenelTopp
+            // 
+            this.LblGenelTopp.AutoSize = true;
+            this.LblGenelTopp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGenelTopp.Location = new System.Drawing.Point(123, 765);
+            this.LblGenelTopp.Name = "LblGenelTopp";
+            this.LblGenelTopp.Size = new System.Drawing.Size(34, 15);
+            this.LblGenelTopp.TabIndex = 542;
+            this.LblGenelTopp.Text = "00  ₺";
+            // 
+            // groupBox4
+            // 
+            this.groupBox4.Controls.Add(this.DtgList);
+            this.groupBox4.Location = new System.Drawing.Point(16, 392);
+            this.groupBox4.Name = "groupBox4";
+            this.groupBox4.Size = new System.Drawing.Size(1054, 366);
+            this.groupBox4.TabIndex = 540;
+            this.groupBox4.TabStop = false;
+            this.groupBox4.Text = "MALZEME BİLGİLERİ";
+            // 
+            // DtgList
+            // 
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgList.Location = new System.Drawing.Point(3, 16);
+            this.DtgList.Name = "DtgList";
+            this.DtgList.Size = new System.Drawing.Size(1048, 347);
+            this.DtgList.TabIndex = 0;
+            // 
+            // button2
+            // 
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Location = new System.Drawing.Point(1085, 363);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 539;
+            this.button2.Text = "MalzemeYeri";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // BtnProjeDuzelt
             // 
@@ -1442,59 +1498,17 @@ namespace UserInterface.STS
             this.label5.TabIndex = 354;
             this.label5.Text = "Toplam Kayıt:";
             // 
-            // button2
+            // BtnDonemDuzelt
             // 
-            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button2.Location = new System.Drawing.Point(1085, 363);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 539;
-            this.button2.Text = "MalzemeYeri";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Visible = false;
-            this.button2.Click += new System.EventHandler(this.button2_Click_1);
-            // 
-            // groupBox4
-            // 
-            this.groupBox4.Controls.Add(this.DtgList);
-            this.groupBox4.Location = new System.Drawing.Point(16, 392);
-            this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(1054, 366);
-            this.groupBox4.TabIndex = 540;
-            this.groupBox4.TabStop = false;
-            this.groupBox4.Text = "MALZEME BİLGİLERİ";
-            // 
-            // DtgList
-            // 
-            this.DtgList.AllowUserToAddRows = false;
-            this.DtgList.AllowUserToDeleteRows = false;
-            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgList.Location = new System.Drawing.Point(3, 16);
-            this.DtgList.Name = "DtgList";
-            this.DtgList.Size = new System.Drawing.Size(1048, 347);
-            this.DtgList.TabIndex = 0;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(16, 765);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(101, 15);
-            this.label4.TabIndex = 541;
-            this.label4.Text = "Genel Toplam:";
-            // 
-            // LblGenelTopp
-            // 
-            this.LblGenelTopp.AutoSize = true;
-            this.LblGenelTopp.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblGenelTopp.Location = new System.Drawing.Point(123, 765);
-            this.LblGenelTopp.Name = "LblGenelTopp";
-            this.LblGenelTopp.Size = new System.Drawing.Size(34, 15);
-            this.LblGenelTopp.TabIndex = 542;
-            this.LblGenelTopp.Text = "00  ₺";
+            this.BtnDonemDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDonemDuzelt.Location = new System.Drawing.Point(980, 362);
+            this.BtnDonemDuzelt.Name = "BtnDonemDuzelt";
+            this.BtnDonemDuzelt.Size = new System.Drawing.Size(99, 23);
+            this.BtnDonemDuzelt.TabIndex = 543;
+            this.BtnDonemDuzelt.Text = "Donem Duzelt";
+            this.BtnDonemDuzelt.UseVisualStyleBackColor = true;
+            this.BtnDonemDuzelt.Visible = false;
+            this.BtnDonemDuzelt.Click += new System.EventHandler(this.BtnDonemDuzelt_Click);
             // 
             // FrmTamamlananSat
             // 
@@ -1518,6 +1532,8 @@ namespace UserInterface.STS
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
+            this.groupBox4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.PnlTemsili.ResumeLayout(false);
             this.PnlTemsili.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -1533,8 +1549,6 @@ namespace UserInterface.STS
             this.PnlKaydir.PerformLayout();
             this.PnlGizle.ResumeLayout(false);
             this.PnlGizle.PerformLayout();
-            this.groupBox4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1675,5 +1689,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.DataGridView DtgList;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label LblGenelTopp;
+        private System.Windows.Forms.Button BtnDonemDuzelt;
     }
 }

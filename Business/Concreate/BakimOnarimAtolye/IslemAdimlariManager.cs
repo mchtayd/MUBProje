@@ -32,7 +32,14 @@ namespace Business.Concreate.BakimOnarimAtolye
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return islemAdimlariDal.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public IslemAdimlari Get(int id)

@@ -115,6 +115,7 @@ namespace UserInterface.BakımOnarım
             DtgDevamEden.Columns["ArizaDurum"].Visible = false;
             DtgDevamEden.Columns["KapatmaTarihi"].Visible = false;
             DtgDevamEden.Columns["DosyaYolu"].Visible = false;
+            DtgDevamEden.Columns["IslemAdimiSorumlusu"].HeaderText = "İŞLEM ADIMI SORUMLUSU";
 
             DtgDevamEden.Columns["IcSiparisNo"].DisplayIndex = 0;
             DtgDevamEden.Columns["Id"].DisplayIndex = 1;
@@ -129,8 +130,9 @@ namespace UserInterface.BakımOnarım
             DtgDevamEden.Columns["BildirilenAriza"].DisplayIndex = 10;
             DtgDevamEden.Columns["CekildigiTarih"].DisplayIndex = 11;
             DtgDevamEden.Columns["SiparisAcmaTarihi"].DisplayIndex = 12;
-            DtgDevamEden.Columns["Modifikasyonlar"].DisplayIndex = 13;
-            DtgDevamEden.Columns["Notlar"].DisplayIndex = 14;
+            DtgDevamEden.Columns["IslemAdimiSorumlusu"].DisplayIndex = 13;
+            DtgDevamEden.Columns["Modifikasyonlar"].DisplayIndex = 14;
+            DtgDevamEden.Columns["Notlar"].DisplayIndex = 15;
 
 
             //DtgDevamEden.Columns["IcSiparisNo"].DisplayIndex = 0;
@@ -440,6 +442,21 @@ namespace UserInterface.BakımOnarım
             DtgDevamEden.DataSource = dataBinder;
             atolyesFiltired = atolyes;
             TxtTop.Text = DtgDevamEden.RowCount.ToString();
+        }
+
+        private void BtnIslemAdimiSorumlu_Click(object sender, EventArgs e)
+        {
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GorevAtamaAtolyeList();
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                gorevAtamaPersonelManager.IslemAdimiSorumlusuUpdate(item.BenzersizId, item.GorevAtanacakPersonel);
+            }
+
+            MessageBox.Show("Bilgiler başarıyla kaydedildi!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
         }
 
         string Parser(int seconds)

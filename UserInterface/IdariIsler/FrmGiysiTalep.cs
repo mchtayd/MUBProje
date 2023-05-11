@@ -1,9 +1,11 @@
 ﻿using Business;
+using Business.Concreate;
 using Business.Concreate.AnaSayfa;
 using Business.Concreate.Depo;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using DataAccess.Concreate.Depo;
+using Entity;
 using Entity.AnaSayfa;
 using Entity.Depo;
 using Entity.IdariIsler;
@@ -38,6 +40,7 @@ namespace UserInterface.IdariIsler
         TemizlikUrunleriManager temizlikUrunleriManager;
         MalzemeTalepManager malzemeTalepManager;
         BildirimYetkiManager bildirimYetkiManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
 
         public object[] infos;
         bool start = true;
@@ -58,6 +61,7 @@ namespace UserInterface.IdariIsler
             temizlikUrunleriManager = TemizlikUrunleriManager.GetInstance();
             malzemeTalepManager = MalzemeTalepManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void FrmGiysiTalep_Load(object sender, EventArgs e)
@@ -312,7 +316,7 @@ namespace UserInterface.IdariIsler
 
             Temizle();
         }
-
+        int talepId = 0;
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
             if (DtgList.Rows.Count==0)
@@ -328,19 +332,34 @@ namespace UserInterface.IdariIsler
                     MalzemeTalep malzemeTalep = new MalzemeTalep(item.Cells["MalzemeKategorisi"].Value.ToString(), item.Cells["TalepEdenPersonel"].Value.ToString(), item.Cells["MalzemeTanimi"].Value.ToString(), item.Cells["StokNo"].Value.ToString(), item.Cells["TalepEdenMiktar"].Value.ConInt(), item.Cells["Birimm"].Value.ToString(), LblAdSoyad.Text, LblMasrafYeri.Text, LblMasrafYeriNo.Text);
 
                     malzemeTalepManager.Add(malzemeTalep);
+                    MalzemeTalep malzemeTalep1 =  malzemeTalepManager.Get();
+
+                    talepId = malzemeTalep1.Id;
+                    GorevAtama();
                 }
 
                 //PersonelMail();
                 //MailSendMetotPersonel();
-                string mesaj = BildirimKayit();
-                if (mesaj!="OK")
-                {
-                    MessageBox.Show(mesaj, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                //string mesaj = BildirimKayit();
+                //if (mesaj!="OK")
+                //{
+                //    MessageBox.Show(mesaj, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //}
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 DtgList.Rows.Clear();
             }
+        }
+        string GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(talepId, "MİF", "RESUL GÜNEŞ", "MİF ONAYI", DateTime.Now, "", DateTime.Now.Date);
+            string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+
+            if (kontrol != "OK")
+            {
+                return kontrol;
+            }
+            return "OK";
         }
 
         string BildirimKayit()

@@ -198,6 +198,8 @@ namespace UserInterface.IdariIsler
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog3 = new System.Windows.Forms.OpenFileDialog();
+            this.RdbProjeIci = new System.Windows.Forms.RadioButton();
+            this.RdbProjeDisi = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -1465,6 +1467,8 @@ namespace UserInterface.IdariIsler
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.RdbProjeDisi);
+            this.groupBox4.Controls.Add(this.RdbProjeIci);
             this.groupBox4.Controls.Add(this.TxtProjeCikisKmGun);
             this.groupBox4.Controls.Add(this.label68);
             this.groupBox4.Controls.Add(this.TxtProjeyeTahsisKmGun);
@@ -2014,6 +2018,29 @@ namespace UserInterface.IdariIsler
             // 
             this.openFileDialog3.FileName = "openFileDialog3";
             // 
+            // RdbProjeIci
+            // 
+            this.RdbProjeIci.AutoSize = true;
+            this.RdbProjeIci.Location = new System.Drawing.Point(943, 50);
+            this.RdbProjeIci.Name = "RdbProjeIci";
+            this.RdbProjeIci.Size = new System.Drawing.Size(82, 20);
+            this.RdbProjeIci.TabIndex = 391;
+            this.RdbProjeIci.TabStop = true;
+            this.RdbProjeIci.Text = "Proje İçi";
+            this.RdbProjeIci.UseVisualStyleBackColor = true;
+            this.RdbProjeIci.CheckedChanged += new System.EventHandler(this.RdbProjeIci_CheckedChanged);
+            // 
+            // RdbProjeDisi
+            // 
+            this.RdbProjeDisi.AutoSize = true;
+            this.RdbProjeDisi.Location = new System.Drawing.Point(943, 79);
+            this.RdbProjeDisi.Name = "RdbProjeDisi";
+            this.RdbProjeDisi.Size = new System.Drawing.Size(93, 20);
+            this.RdbProjeDisi.TabIndex = 392;
+            this.RdbProjeDisi.TabStop = true;
+            this.RdbProjeDisi.Text = "Proje Dışı";
+            this.RdbProjeDisi.UseVisualStyleBackColor = true;
+            // 
             // FrmAracKaydet
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2212,5 +2239,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtProjeyeTahsisKmGun;
         private System.Windows.Forms.Label label69;
         private System.Windows.Forms.Button BtnMulkiyetEkle;
+        private System.Windows.Forms.RadioButton RdbProjeDisi;
+        private System.Windows.Forms.RadioButton RdbProjeIci;
     }
 }

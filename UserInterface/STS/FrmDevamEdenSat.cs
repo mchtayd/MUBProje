@@ -126,6 +126,11 @@ namespace UserInterface.STS
             DtgDevamEden.Columns["OdemeMailAlmaDate"].HeaderText = "ÖDEME MAİLİ ALMA TARİHİ";
             DtgDevamEden.Columns["DepoTeslimTarihi"].HeaderText = "DEPO TESLİM TARİHİ";
             DtgDevamEden.Columns["DepoTeslimBilgisi"].HeaderText = "DEPOYA TESLİM DURUMU";
+            DtgDevamEden.Columns["ButceTanimi"].HeaderText = "BÜTÇE TANIM";
+            DtgDevamEden.Columns["MaliyetTuru"].HeaderText = "MALİYET TÜRÜ";
+
+            DtgDevamEden.Columns["IslemAdimi"].DisplayIndex = 4;
+
         }
 
         private void Temizle()
@@ -575,27 +580,47 @@ namespace UserInterface.STS
         }
         void Teklifler()
         {
-            DtgMalzList.DataSource = fiyatTeklifiAls;
+            if (fiyatTeklifiAls.Count==0)
+            {
+                DtgMalzList.DataSource = satinAlinacakMalzemelers;
 
-            DtgMalzList.Columns["Id"].Visible = false;
-            DtgMalzList.Columns["Stokno"].HeaderText = "STOK NO";
-            DtgMalzList.Columns["Tanim"].HeaderText = "TANIM";
-            DtgMalzList.Columns["Miktar"].HeaderText = "MİKTAR";
-            DtgMalzList.Columns["Birim"].HeaderText = "BİRİM";
-            DtgMalzList.Columns["Firma1"].HeaderText = "FİRMA ADI";
-            DtgMalzList.Columns["Firma2"].Visible = false;
-            DtgMalzList.Columns["Firma3"].Visible = false;
-            DtgMalzList.Columns["Siparisno"].Visible = false;
-            DtgMalzList.Columns["Teklifdurumu"].Visible = false;
-            DtgMalzList.Columns["Bbf"].HeaderText = "BİRİM FİYATI";
-            DtgMalzList.Columns["Btf"].HeaderText = "TOPLAM FİYAT";
-            DtgMalzList.Columns["Ibf"].Visible = false;
-            DtgMalzList.Columns["Itf"].Visible = false;
-            DtgMalzList.Columns["Ubf"].Visible = false;
-            DtgMalzList.Columns["Utf"].Visible = false;
-            DtgMalzList.Columns["Onaylananteklif"].Visible = false;
+                DtgMalzList.Columns["Id"].Visible = false;
+                DtgMalzList.Columns["Stn1"].HeaderText = "STOK NO";
+                DtgMalzList.Columns["T1"].HeaderText = "TANIM";
+                DtgMalzList.Columns["M1"].HeaderText = "MİKTAR";
+                DtgMalzList.Columns["B1"].HeaderText = "BİRİM";
+                DtgMalzList.Columns["SiparisNo"].Visible = false;
+                DtgMalzList.Columns["Firma"].Visible = false;
+                DtgMalzList.Columns["BirimFiyat"].Visible = false;
+                DtgMalzList.Columns["ToplamFiyat"].Visible = false;
+                DtgMalzList.Columns["Secim"].Visible = false;
+            }
 
-            LblTop2.Text = DtgMalzList.RowCount.ToString();
+            else
+            {
+                DtgMalzList.DataSource = fiyatTeklifiAls;
+
+                DtgMalzList.Columns["Id"].Visible = false;
+                DtgMalzList.Columns["Stokno"].HeaderText = "STOK NO";
+                DtgMalzList.Columns["Tanim"].HeaderText = "TANIM";
+                DtgMalzList.Columns["Miktar"].HeaderText = "MİKTAR";
+                DtgMalzList.Columns["Birim"].HeaderText = "BİRİM";
+                DtgMalzList.Columns["Firma1"].HeaderText = "FİRMA ADI";
+                DtgMalzList.Columns["Firma2"].Visible = false;
+                DtgMalzList.Columns["Firma3"].Visible = false;
+                DtgMalzList.Columns["Siparisno"].Visible = false;
+                DtgMalzList.Columns["Teklifdurumu"].Visible = false;
+                DtgMalzList.Columns["Bbf"].HeaderText = "BİRİM FİYATI";
+                DtgMalzList.Columns["Btf"].HeaderText = "TOPLAM FİYAT";
+                DtgMalzList.Columns["Ibf"].Visible = false;
+                DtgMalzList.Columns["Itf"].Visible = false;
+                DtgMalzList.Columns["Ubf"].Visible = false;
+                DtgMalzList.Columns["Utf"].Visible = false;
+                DtgMalzList.Columns["Onaylananteklif"].Visible = false;
+
+                LblTop2.Text = DtgMalzList.RowCount.ToString();
+            }
+            
             //Toplamlar();
         }
         void FillTools2()

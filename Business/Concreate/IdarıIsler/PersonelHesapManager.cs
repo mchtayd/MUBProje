@@ -40,6 +40,17 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
+        public PersonelHesap GetSohbet(string adSoyad)
+        {
+            try
+            {
+                return personelHesapDal.GetSohbet(adSoyad);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<PersonelHesap> GetList()
         {

@@ -606,6 +606,18 @@ namespace UserInterface.BakımOnarım
         }
         string KontrolManuel()
         {
+            foreach (DataGridViewRow item in DtgStokList.Rows)
+            {
+                if (item.Cells["KayitDurumu"].Value.ConBool())
+                {
+                    Atolye atolye3 = atolyeManager.GetControl(item.Cells["Stokno"].Value.ToString(), item.Cells["SeriNo"].Value.ToString());
+                    if (atolye3 != null)
+                    {
+                        return item.Cells["Stokno"].Value.ToString() + " stok numaralı malzeme " + atolye3.Id + " kimlik numaralı kayıtta zaten var!";
+                    }
+                }
+            }
+
             if (TxtTanimUs.Text == "")
             {
                 return "Lütfen Öncelikle Üst Takım Stok No Bilgisini Seçiniz!";
@@ -934,6 +946,19 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Lütfen Öncelikle Atölye Kategori Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            foreach (DataGridViewRow item in DtgMalzemeler.Rows)
+            {
+                if (item.Cells[10].Value.ConBool())
+                {
+                    Atolye atolye3 = atolyeManager.GetControl(item.Cells["StokNo"].Value.ToString(), item.Cells["SeriNo"].Value.ToString());
+                    if (atolye3!=null)
+                    {
+                        MessageBox.Show(item.Cells["StokNo"].Value.ToString() + " stok numaralı malzeme "+ atolye3.Id + " kimlik numaralı kayıtta zaten var!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
+            
             //if (CmbIslemAdimi.Text != "400-BİLDİRİM ve B/O BAŞLAMA ONAYI (MÜHENDİS)")
             //{
             //    MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini 400-GÖZ DENETİMİ Olarak Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -948,6 +973,7 @@ namespace UserInterface.BakımOnarım
                 BtnCancel.Enabled = false;
                 BtnBul.Enabled = false;
                 //CreateFile();
+
 
                 if (IcSiparisler.Count > 0)
                 {
@@ -990,7 +1016,6 @@ namespace UserInterface.BakımOnarım
                         atolyeMalzemeManager.Add(atolyeMalzeme);
                         sayac++;
                     }
-
                 }
 
                 if (SiparisNos.Count > 0)

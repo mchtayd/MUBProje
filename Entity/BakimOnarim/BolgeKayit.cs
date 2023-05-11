@@ -117,5 +117,11 @@ namespace Entity.BakimOnarim
         {
             this.tugay = tugay;
         }
+
+        public BolgeKayit(int id, string bolgeAdi)
+        {
+            this.id = id;
+            this.bolgeAdi = bolgeAdi;
+        }
     }
 }

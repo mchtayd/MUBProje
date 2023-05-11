@@ -95,8 +95,11 @@ namespace UserInterface.STS
                 kontrol = null;
             }
 
-            AdtgUymayan.DataSource = eslesmeyenler; //57
-            AdtgUymayan2.DataSource = eslesmeyenler2; //25
+            dataBinder.DataSource = eslesmeyenler.ToDataTable();
+            dataBinder2.DataSource = eslesmeyenler2.ToDataTable();
+
+            AdtgUymayan.DataSource = dataBinder; //57
+            AdtgUymayan2.DataSource = dataBinder2; //25
 
             foreach (DataGridViewRow itemTT in DtgTT.Rows)
             {
@@ -287,6 +290,28 @@ namespace UserInterface.STS
 
             yakitTasitTanimalar = yakitDokumManager.YakitKontrolTT(donem);
             DtgTT.DataSource = yakitTasitTanimalar;*/
+        }
+
+        private void AdtgUymayan_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = AdtgUymayan.FilterString;
+            LblBeyanEksik.Text = AdtgUymayan.RowCount.ToString();
+        }
+
+        private void AdtgUymayan_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = AdtgUymayan.SortString;
+        }
+
+        private void AdtgUymayan2_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder2.Filter = AdtgUymayan2.FilterString;
+            LblUymayanBildirimYok.Text = AdtgUymayan2.RowCount.ToString();
+        }
+
+        private void AdtgUymayan2_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder2.Sort = AdtgUymayan2.SortString;
         }
     }
 }

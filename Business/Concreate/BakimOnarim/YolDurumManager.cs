@@ -60,6 +60,17 @@ namespace Business.Concreate.BakimOnarim
                 return new List<YolDurum>();
             }
         }
+        public List<YolDurum> GetListTum(DateTime basTarihi, DateTime bitTarihi)
+        {
+            try
+            {
+                return yolDurumDal.GetListTum(basTarihi, bitTarihi);
+            }
+            catch (Exception)
+            {
+                return new List<YolDurum>();
+            }
+        }
 
         public string Update(YolDurum entity)
         {

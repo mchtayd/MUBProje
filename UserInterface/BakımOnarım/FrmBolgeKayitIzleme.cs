@@ -123,7 +123,7 @@ namespace UserInterface.BakımOnarım
 
         void GarantiPaketleriDisplay(string siparisNo)
         {
-            DtgGarantiPaketi.DataSource = bolgeGarantiManager.GetList(siparisNo);
+            DtgGarantiPaketi.DataSource = bolgeGarantiManager.GetListTumu(siparisNo);
 
             DtgGarantiPaketi.Columns["Id"].Visible = false;
             DtgGarantiPaketi.Columns["GarantiPaketi"].HeaderText = "GARANTİ PAKETİ";

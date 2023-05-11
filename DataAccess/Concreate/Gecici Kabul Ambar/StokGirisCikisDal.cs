@@ -369,6 +369,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             try
             {
                 dataReader = sqlServices.StoreReader("StokGirisCikisEdit",
+                    new SqlParameter("@id",entity.Id),
                     new SqlParameter("@stokNo", entity.Stokno),
                     new SqlParameter("@islemTarihi", entity.IslemTarihi),
                     new SqlParameter("@dusulenDepoNo", entity.DusulenDepoNo),

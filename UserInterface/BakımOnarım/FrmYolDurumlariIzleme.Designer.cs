@@ -45,6 +45,9 @@ namespace UserInterface.BakımOnarım
             this.button2 = new System.Windows.Forms.Button();
             this.BtnSorgula = new System.Windows.Forms.Button();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtTop = new System.Windows.Forms.Label();
+            this.ChkTumBolge = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -81,9 +84,9 @@ namespace UserInterface.BakımOnarım
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 155);
+            this.groupBox1.Location = new System.Drawing.Point(12, 140);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1472, 599);
+            this.groupBox1.Size = new System.Drawing.Size(1472, 652);
             this.groupBox1.TabIndex = 49;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "YOL DURUMLARI";
@@ -101,13 +104,14 @@ namespace UserInterface.BakımOnarım
             this.DtgList.DateWithTime = false;
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
-            this.DtgList.MultiSelect = false;
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1466, 580);
+            this.DtgList.Size = new System.Drawing.Size(1466, 633);
             this.DtgList.TabIndex = 4;
             this.DtgList.TimeFilter = false;
+            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
+            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             // 
             // label1
             // 
@@ -164,12 +168,13 @@ namespace UserInterface.BakımOnarım
             // button2
             // 
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.button2.Location = new System.Drawing.Point(12, 762);
+            this.button2.Location = new System.Drawing.Point(1404, 809);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(77, 33);
             this.button2.TabIndex = 57;
             this.button2.Text = "YAZDIR";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
             // 
             // BtnSorgula
             // 
@@ -187,11 +192,46 @@ namespace UserInterface.BakımOnarım
             this.BtnSorgula.UseVisualStyleBackColor = false;
             this.BtnSorgula.Click += new System.EventHandler(this.BtnSorgula_Click);
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(14, 809);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(94, 15);
+            this.label4.TabIndex = 341;
+            this.label4.Text = "Toplam Kayıt:";
+            // 
+            // TxtTop
+            // 
+            this.TxtTop.AutoSize = true;
+            this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtTop.Location = new System.Drawing.Point(114, 811);
+            this.TxtTop.Name = "TxtTop";
+            this.TxtTop.Size = new System.Drawing.Size(21, 15);
+            this.TxtTop.TabIndex = 342;
+            this.TxtTop.Text = "00";
+            // 
+            // ChkTumBolge
+            // 
+            this.ChkTumBolge.AutoSize = true;
+            this.ChkTumBolge.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkTumBolge.Location = new System.Drawing.Point(436, 48);
+            this.ChkTumBolge.Name = "ChkTumBolge";
+            this.ChkTumBolge.Size = new System.Drawing.Size(143, 19);
+            this.ChkTumBolge.TabIndex = 343;
+            this.ChkTumBolge.Text = "Tüm Bölgeleri Gör";
+            this.ChkTumBolge.UseVisualStyleBackColor = true;
+            this.ChkTumBolge.CheckedChanged += new System.EventHandler(this.ChkTumBolge_CheckedChanged);
+            // 
             // FrmYolDurumlariIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1496, 805);
+            this.ClientSize = new System.Drawing.Size(1496, 845);
+            this.Controls.Add(this.ChkTumBolge);
+            this.Controls.Add(this.TxtTop);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnSorgula);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.DtBitTarihi);
@@ -229,5 +269,8 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button BtnSorgula;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label TxtTop;
+        private System.Windows.Forms.CheckBox ChkTumBolge;
     }
 }

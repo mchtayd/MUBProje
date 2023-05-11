@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIzinOnay));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -43,6 +43,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.BtnGorevAta = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -87,8 +88,8 @@
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -191,11 +192,23 @@
             this.TxtTop.TabIndex = 349;
             this.TxtTop.Text = "00";
             // 
+            // BtnGorevAta
+            // 
+            this.BtnGorevAta.Location = new System.Drawing.Point(1267, 629);
+            this.BtnGorevAta.Name = "BtnGorevAta";
+            this.BtnGorevAta.Size = new System.Drawing.Size(123, 23);
+            this.BtnGorevAta.TabIndex = 353;
+            this.BtnGorevAta.Text = "Görev Ata";
+            this.BtnGorevAta.UseVisualStyleBackColor = true;
+            this.BtnGorevAta.Visible = false;
+            this.BtnGorevAta.Click += new System.EventHandler(this.BtnGorevAta_Click);
+            // 
             // FrmIzinOnay
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1405, 815);
+            this.Controls.Add(this.BtnGorevAta);
             this.Controls.Add(this.BtnReddet);
             this.Controls.Add(this.BtnTumunuOnayla);
             this.Controls.Add(this.BtnOnayla);
@@ -229,5 +242,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.Button BtnGorevAta;
     }
 }

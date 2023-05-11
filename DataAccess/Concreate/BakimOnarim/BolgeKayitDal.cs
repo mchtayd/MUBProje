@@ -116,7 +116,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }
@@ -201,6 +201,47 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<BolgeKayit>();
             }
         }
+        public List<BolgeKayit> GetListProje(string projeAdi)
+        {
+            try
+            {
+                List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
+                dataReader = sqlServices.StoreReader("BolgeGetListProje", new SqlParameter("@projeAdi", projeAdi));
+                while (dataReader.Read())
+                {
+                    bolgeKayits.Add(new BolgeKayit(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BOLGE_ADI"].ToString(),
+                        dataReader["KOD_ADI"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["US_BOLGESI_STOK"].ToString(),
+                        dataReader["KABUL_TARIHI"].ConDate(),
+                        dataReader["GUVENLIK_YAZILIMI"].ToString(),
+                        dataReader["KESIF_GOZETLEME_TURU"].ToString(),
+                        dataReader["YASAM_ALANI"].ToString(),
+                        dataReader["BAGLI_OLDUGU_TABUR"].ToString(),
+                        dataReader["BAGLI_OLDUGU_TUGAY"].ToString(),
+                        dataReader["IL"].ToString(),
+                        dataReader["ILCE"].ToString(),
+                        dataReader["BIRLIK_ADRESI"].ToString(),
+                        dataReader["GARANTI_BASLAMA"].ConDate(),
+                        dataReader["GARANTI_BITIS"].ConDate(),
+                        dataReader["BOLGE_SORUMLUSU"].ToString(),
+                        dataReader["DEPO"].ToString(),
+                        dataReader["PYP_NO"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["TEPE_SORUMLUSU"].ToString(),
+                        dataReader["PROJE_SISTEM"].ToString()));
+                }
+                dataReader.Close();
+                return bolgeKayits;
+            }
+            catch (Exception ex)
+            {
+                return new List<BolgeKayit>();
+            }
+        }
         public List<BolgeKayit> GetListBolgeKomutanlik(string il)
         {
             try
@@ -257,6 +298,24 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+
+        public string UpdateBolgeAdi(string eskiBolgeAdi, string yeniBolgeAdi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BolgeAdiUpdate",
+                    new SqlParameter("@eskiBolgeAdi", eskiBolgeAdi),
+                    new SqlParameter("@yeniBolgeAdi", yeniBolgeAdi));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string UpdateSiparisNo(int id, string siparisNo)
         {
             try

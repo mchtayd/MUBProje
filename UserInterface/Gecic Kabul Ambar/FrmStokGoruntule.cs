@@ -96,11 +96,73 @@ namespace UserInterface.Depo
             TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
         }
 
-        private void BtnSearch_Click(object sender, EventArgs e)
+
+        private void DtgMalzemeBilgisi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            if (TxtStokNo.Text=="")
+            //if (DtgMalzemeBilgisi.CurrentRow == null)
+            //{
+            //    MessageBox.Show("Lütfen Öncelikle Bir Stok Bilgisi Giriniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+            //    return;
+            //}
+
+            //stokNo = DtgMalzemeBilgisi.CurrentRow.Cells["Stokno"].Value.ToString();
+            //depoMiktars = depoMiktarManager.GetList(stokNo,"TÜM");
+
+            //dataBinder.DataSource = depoMiktars.ToDataTable();
+            //DtgDepoBilgileri.DataSource = dataBinder;
+            ////TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
+            //Display();
+            //Toplamlar();
+        }
+        void Toplamlar()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgDepoBilgileri.Rows.Count; ++i)
             {
-                MessageBox.Show("Lütfen Stok No Bilgisini Doldurunuz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
+                /*if (DtgDepoBilgileri.Rows[i].Cells[4].Value.ConInt()==0)
+                {
+                    toplam += Convert.ToDouble(DtgDepoBilgileri.Rows[i].Cells[13].Value);
+                }*/
+                toplam += Convert.ToDouble(DtgDepoBilgileri.Rows[i].Cells[5].Value);
+            }
+            LblToplamMiktar.Text = toplam.ToString();
+        }
+
+        private void DtgDepoBilgileri_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgDepoBilgileri.FilterString;
+            TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
+            Toplamlar();
+        }
+
+        private void DtgDepoBilgileri_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgDepoBilgileri.SortString;
+        }
+
+        private void düzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmStokMiktarEdit frmStokMiktarEdit = new FrmStokMiktarEdit();
+            frmStokMiktarEdit.id = id;
+            frmStokMiktarEdit.infos = infos;
+            frmStokMiktarEdit.ShowDialog();
+        }
+
+        private void DtgDepoBilgileri_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgDepoBilgileri.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+            id = DtgDepoBilgileri.CurrentRow.Cells["Id"].Value.ConInt();
+        }
+
+        private void BtnSorgula_Click(object sender, EventArgs e)
+        {
+            if (TxtStokNo.Text == "")
+            {
+                MessageBox.Show("Lütfen Stok No Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -163,93 +225,20 @@ namespace UserInterface.Depo
             Toplamlar();
 
 
-
-
-            /*DtgMalzemeBilgisi.DataSource = malzemeManager.MalzemeGetList(TxtStokNo.Text);
-
-            DtgMalzemeBilgisi.Columns["Id"].Visible = false;
-            DtgMalzemeBilgisi.Columns["StokNo"].HeaderText = "STOK NO";
-            DtgMalzemeBilgisi.Columns["Tanim"].HeaderText = "TANIM";
-            DtgMalzemeBilgisi.Columns["Birim"].Visible = false;
-            DtgMalzemeBilgisi.Columns["TedarikciFirma"].Visible = false;
-            DtgMalzemeBilgisi.Columns["OnarimDurumu"].HeaderText = "ONARIM DURUMU";
-            DtgMalzemeBilgisi.Columns["OnarimYeri"].HeaderText = "ONARIM YERİ";
-            DtgMalzemeBilgisi.Columns["TedarikTuru"].Visible = false;
-            DtgMalzemeBilgisi.Columns["ParcaSinifi"].HeaderText = "PARÇA SINIFI";
-            DtgMalzemeBilgisi.Columns["AlternatifParca"].Visible = false;
-            DtgMalzemeBilgisi.Columns["Aciklama"].Visible = false;
-            DtgMalzemeBilgisi.Columns["DosyaYolu"].Visible = false;
-            DtgMalzemeBilgisi.Columns["SistemSorumlusu"].Visible = false;
-            DtgMalzemeBilgisi.Columns["SistemStokNo"].Visible = false;
-            DtgMalzemeBilgisi.Columns["SistemTanimi"].Visible = false;
-            DtgMalzemeBilgisi.Columns["IslemYapan"].Visible = false;
-            DtgMalzemeBilgisi.Columns["TakipDurumu"].Visible = false;
-            DtgMalzemeBilgisi.Columns["UstStok"].Visible = false;
-            DtgMalzemeBilgisi.Columns["UstTanim"].Visible = false;
-            DtgMalzemeBilgisi.Columns["BenzersizId"].Visible = false;*/
-
             double birimFiyat = stokGirisCikisManager.DepoBirimFiyat(TxtStokNo.Text);
 
             BirimFiyat.Text = birimFiyat.ToString("C2");
         }
 
-        private void DtgMalzemeBilgisi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void BtnTumunuGor_Click(object sender, EventArgs e)
         {
-            //if (DtgMalzemeBilgisi.CurrentRow == null)
-            //{
-            //    MessageBox.Show("Lütfen Öncelikle Bir Stok Bilgisi Giriniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            //    return;
-            //}
-
-            //stokNo = DtgMalzemeBilgisi.CurrentRow.Cells["Stokno"].Value.ToString();
-            //depoMiktars = depoMiktarManager.GetList(stokNo,"TÜM");
-
-            //dataBinder.DataSource = depoMiktars.ToDataTable();
-            //DtgDepoBilgileri.DataSource = dataBinder;
-            ////TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();
-            //Display();
-            //Toplamlar();
-        }
-        void Toplamlar()
-        {
-            double toplam = 0;
-            for (int i = 0; i < DtgDepoBilgileri.Rows.Count; ++i)
-            {
-                /*if (DtgDepoBilgileri.Rows[i].Cells[4].Value.ConInt()==0)
-                {
-                    toplam += Convert.ToDouble(DtgDepoBilgileri.Rows[i].Cells[13].Value);
-                }*/
-                toplam += Convert.ToDouble(DtgDepoBilgileri.Rows[i].Cells[5].Value);
-            }
-            LblToplamMiktar.Text = toplam.ToString();
-        }
-
-        private void DtgDepoBilgileri_FilterStringChanged(object sender, EventArgs e)
-        {
-            dataBinder.Filter = DtgDepoBilgileri.FilterString;
-        }
-
-        private void DtgDepoBilgileri_SortStringChanged(object sender, EventArgs e)
-        {
-            dataBinder.Sort = DtgDepoBilgileri.SortString;
-        }
-
-        private void düzenleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            FrmStokMiktarEdit frmStokMiktarEdit = new FrmStokMiktarEdit();
-            frmStokMiktarEdit.id = id;
-            frmStokMiktarEdit.infos = infos;
-            frmStokMiktarEdit.ShowDialog();
-        }
-
-        private void DtgDepoBilgileri_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            if (DtgDepoBilgileri.CurrentRow == null)
-            {
-                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
-                return;
-            }
-            id = DtgDepoBilgileri.CurrentRow.Cells["Id"].Value.ConInt();
+            TxtStokNo.Clear();
+            DtgMalzemeBilgisi.DataSource = null;
+            depoMiktars = depoMiktarManager.GetListTumu();
+            dataBinder.DataSource = depoMiktars.ToDataTable();
+            DtgDepoBilgileri.DataSource = dataBinder;
+            Display();
+            Toplamlar();
         }
     }
 }

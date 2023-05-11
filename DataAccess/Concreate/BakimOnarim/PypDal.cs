@@ -28,7 +28,6 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@pypNo",entity.PypNo),
                     new SqlParameter("@sorumluPersonel",entity.SorumluPersonel),
                     new SqlParameter("@siparisTuru",entity.SiparisTuru),
-                    new SqlParameter("@islemTuru",entity.IslemTuru),
                     new SqlParameter("@hesaplamaNedeni",entity.HesaplamaNedeni));
 
                 dataReader.Close();
@@ -66,7 +65,6 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PYP_NO"].ToString(),
                         dataReader["SORUMLU_PERSONEL"].ToString(),
                         dataReader["SIPARIS_TURU"].ToString(),
-                        dataReader["ISLEM_TURU"].ToString(),
                         dataReader["HESAPLAMA_NEDENI"].ToString());
                 }
                 dataReader.Close();
@@ -91,7 +89,6 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PYP_NO"].ToString(),
                         dataReader["SORUMLU_PERSONEL"].ToString(),
                         dataReader["SIPARIS_TURU"].ToString(),
-                        dataReader["ISLEM_TURU"].ToString(),
                         dataReader["HESAPLAMA_NEDENI"].ToString()));
                 }
                 dataReader.Close();
@@ -112,7 +109,6 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@pypNo", entity.PypNo),
                     new SqlParameter("@sorumluPersonel", entity.SorumluPersonel),
                     new SqlParameter("@siparisTuru", entity.SiparisTuru),
-                    new SqlParameter("@islemTuru", entity.IslemTuru),
                     new SqlParameter("@hesaplamaNedeni", entity.HesaplamaNedeni));
 
                 dataReader.Close();

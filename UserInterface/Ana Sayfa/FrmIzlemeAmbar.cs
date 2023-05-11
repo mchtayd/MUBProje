@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.STS;
 
 namespace UserInterface.Ana_Sayfa
 {
@@ -25,7 +26,6 @@ namespace UserInterface.Ana_Sayfa
 
         private void FrmIzlemeAmbar_Load(object sender, EventArgs e)
         {
-            LblTarih.Text = DateTime.Now.ToLongDateString();
             TimerSaat.Start();
             DataDisplay();
             timer1.Start();
@@ -37,34 +37,33 @@ namespace UserInterface.Ana_Sayfa
             ambarVerisAselsan = ambarVeriManager.GetListAselsan();
             ambarVeris = ambarVeriManager.GetList();
 
+            LblBakimOnarim.Text = ambarVerisAselsan[0].BakimOnarim.ToString();
+            LblGeciciKabul.Text = ambarVerisAselsan[0].GeciciKabul.ToString();
+            LblKaliteTest.Text = ambarVerisAselsan[0].KaliteTest.ToString();
+            LblUges.Text = ambarVerisAselsan[0].Uges.ToString();
+            LblMgeo.Text = ambarVerisAselsan[0].Mgeo.ToString();
+            LblSst.Text = ambarVerisAselsan[0].Sst.ToString();
+            LblRehis.Text = ambarVerisAselsan[0].Rehis.ToString();
+            LblImes.Text = ambarVerisAselsan[0].Imes.ToString();
+            LblTekjen.Text = ambarVerisAselsan[0].Tekjen.ToString();
+            LblTescom.Text = ambarVerisAselsan[0].Tescom.ToString();
+            LblInform.Text = ambarVerisAselsan[0].Inform.ToString();
+            LblMgm.Text= ambarVerisAselsan[0].Mgm.ToString();
+            LblBd.Text = ambarVerisAselsan[0].Bd.ToString();
+            LblDBolgesi.Text = ambarVerisAselsan[0].DBolgesi.ToString();
+            LblAtolye.Text = ambarVerisAselsan[0].Atolye.ToString();
+            LblBd2.Text = ambarVerisAselsan[0].Bd.ToString();
+            LblSarp.Text = ambarVerisAselsan[0].Sarp.ToString();
+            LblBd3.Text = ambarVerisAselsan[0].Bd2.ToString();
+            LblGeciciKullanim.Text = ambarVerisAselsan[0].GeciciKullanim.ToString();
 
-            LblBakimOnarim.Text = "0";
-            LblGeciciKabul.Text = "0";
-            LblKaliteTest.Text = "0";
-            LblUges.Text = "0";
-            LblMgeo.Text = "0";
-            LblSst.Text = "0";
-            LblRehis.Text = "0";
-            //LblFabrikaBO.Text = "0";
-            LblMalzTeminAselsan.Text = "0";
-            LblMalzemeTeminSat.Text = "0";
-            LblMalzemeHazirlama.Text = "0";
-            LblMalzemePaketleme.Text = "0";
-            LblBolgeSevkiyat.Text = "0";
-
-            //LblBakimOnarim.Text = ambarVerisAselsan[0].BakimOnarim.ToString();
-            //LblGeciciKabul.Text = ambarVerisAselsan[0].GeciciKabul.ToString();
-            //LblKaliteTest.Text = ambarVerisAselsan[0].KaliteTest.ToString();
-            //LblUges.Text = ambarVerisAselsan[0].Uges.ToString();
-            //LblMgeo.Text = ambarVerisAselsan[0].Mgeo.ToString();
-            //LblSst.Text = ambarVerisAselsan[0].Sst.ToString();
-            //LblRehis.Text = ambarVerisAselsan[0].Rehis.ToString();
             //LblFabrikaBO.Text = ambarVeris[0].FabrikaBO.ToString();
-            //LblMalzTeminAselsan.Text = ambarVeris[0].MalzemeTeminAselsan.ToString();
-            //LblMalzemeTeminSat.Text = ambarVeris[0].MalzemeTeminSat.ToString();
-            //LblMalzemeHazirlama.Text = ambarVeris[0].MalzemeHazirlama.ToString();
-            //LblMalzemePaketleme.Text = ambarVeris[0].MalzemePaketleme.ToString();
-            //LblBolgeSevkiyat.Text = ambarVeris[0].BolgeSevkiyat.ToString();
+            LblMalzTeminAselsan.Text = ambarVeris[0].MalzemeTeminAselsan.ToString();
+            LblMalzemeTeminSat.Text = ambarVeris[0].MalzemeTeminSat.ToString();
+            LblMalzemeHazirlama.Text = ambarVeris[0].MalzemeHazirlama.ToString();
+            LblDepoStokControl.Text = ambarVeris[0].DepoStokControl.ToString();
+            LblBolgeSevkiyat.Text = ambarVeris[0].BolgeSevkiyat.ToString();
+            LblSevkiyatAnkara.Text = ambarVeris[0].AnkaraSevkiyat.ToString();
 
             //LblGenelToplam.Text = (ambarVeris[0].GenelTop - ambarVeris[0].FabrikaBO).ToString();
 
@@ -78,6 +77,21 @@ namespace UserInterface.Ana_Sayfa
         private void TimerSaat_Tick(object sender, EventArgs e)
         {
             LblSaat.Text = DateTime.Now.ToString("HH:mm:ss");
+            LblTarih.Text = DateTime.Now.ToLongDateString();
+        }
+
+        private void FrmIzlemeAmbar_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+            TimerSaat.Stop();
+            FrmAnaSayfa anaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnaSayfa"];
+            anaSayfa.timerIzlemeChc.Stop();
+            //FrmSahaIzleme frmSahaIzleme = (FrmSahaIzleme)Application.OpenForms["FrmSahaIzleme"];
+            //if (frmSahaIzleme!=null)
+            //{
+            //    frmSahaIzleme.Close();
+            //}
+            
         }
     }
 }

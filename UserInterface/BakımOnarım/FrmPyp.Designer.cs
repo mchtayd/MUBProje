@@ -30,7 +30,7 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPyp));
             this.panel1 = new System.Windows.Forms.Panel();
             this.DtgPYP = new ADGV.AdvancedDataGridView();
@@ -43,8 +43,6 @@ namespace UserInterface.BakımOnarım
             this.label3 = new System.Windows.Forms.Label();
             this.CmbSiparisTuru = new System.Windows.Forms.ComboBox();
             this.BtnOpenFile = new System.Windows.Forms.Button();
-            this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
-            this.label4 = new System.Windows.Forms.Label();
             this.CmbHesaplamaNedeni = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.BtnTemizle = new System.Windows.Forms.Button();
@@ -69,8 +67,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgPYP.AllowUserToAddRows = false;
             this.DtgPYP.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgPYP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgPYP.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgPYP.AutoGenerateContextFilters = true;
             this.DtgPYP.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgPYP.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -167,27 +165,10 @@ namespace UserInterface.BakımOnarım
             this.BtnOpenFile.TabIndex = 316;
             this.BtnOpenFile.UseVisualStyleBackColor = false;
             // 
-            // CmbIslemTuru
-            // 
-            this.CmbIslemTuru.FormattingEnabled = true;
-            this.CmbIslemTuru.Location = new System.Drawing.Point(200, 366);
-            this.CmbIslemTuru.Name = "CmbIslemTuru";
-            this.CmbIslemTuru.Size = new System.Drawing.Size(249, 21);
-            this.CmbIslemTuru.TabIndex = 318;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(118, 370);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
-            this.label4.TabIndex = 317;
-            this.label4.Text = "İŞLEM TÜRÜ:";
-            // 
             // CmbHesaplamaNedeni
             // 
             this.CmbHesaplamaNedeni.FormattingEnabled = true;
-            this.CmbHesaplamaNedeni.Location = new System.Drawing.Point(200, 393);
+            this.CmbHesaplamaNedeni.Location = new System.Drawing.Point(200, 366);
             this.CmbHesaplamaNedeni.Name = "CmbHesaplamaNedeni";
             this.CmbHesaplamaNedeni.Size = new System.Drawing.Size(249, 21);
             this.CmbHesaplamaNedeni.TabIndex = 320;
@@ -195,7 +176,7 @@ namespace UserInterface.BakımOnarım
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(75, 397);
+            this.label6.Location = new System.Drawing.Point(75, 370);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(119, 13);
             this.label6.TabIndex = 319;
@@ -205,7 +186,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(423, 446);
+            this.BtnTemizle.Location = new System.Drawing.Point(424, 411);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(115, 50);
             this.BtnTemizle.TabIndex = 324;
@@ -217,7 +198,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSil.Location = new System.Drawing.Point(302, 446);
+            this.BtnSil.Location = new System.Drawing.Point(303, 411);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(115, 50);
             this.BtnSil.TabIndex = 323;
@@ -229,7 +210,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(181, 446);
+            this.BtnGuncelle.Location = new System.Drawing.Point(182, 411);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(115, 50);
             this.BtnGuncelle.TabIndex = 322;
@@ -241,7 +222,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(60, 446);
+            this.BtnKaydet.Location = new System.Drawing.Point(61, 411);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(115, 50);
             this.BtnKaydet.TabIndex = 321;
@@ -253,15 +234,13 @@ namespace UserInterface.BakımOnarım
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(617, 536);
+            this.ClientSize = new System.Drawing.Size(617, 482);
             this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.CmbHesaplamaNedeni);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.CmbIslemTuru);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.BtnOpenFile);
             this.Controls.Add(this.CmbSiparisTuru);
             this.Controls.Add(this.label3);
@@ -300,8 +279,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox CmbSiparisTuru;
         private System.Windows.Forms.Button BtnOpenFile;
-        private System.Windows.Forms.ComboBox CmbIslemTuru;
-        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox CmbHesaplamaNedeni;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button BtnTemizle;

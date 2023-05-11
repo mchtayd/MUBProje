@@ -30,8 +30,8 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -64,6 +64,7 @@ namespace UserInterface.BakımOnarım
             this.BtnVeriDuzelt = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtSeriNo = new System.Windows.Forms.TextBox();
+            this.BtnIslemAdimiSorumlu = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDevamEden)).BeginInit();
@@ -120,8 +121,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgDevamEden.AllowUserToAddRows = false;
             this.DtgDevamEden.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgDevamEden.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgDevamEden.AutoGenerateContextFilters = true;
             this.DtgDevamEden.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgDevamEden.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -252,8 +253,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeler.AllowUserToAddRows = false;
             this.DtgMalzemeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgMalzemeler.AutoGenerateContextFilters = true;
             this.DtgMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -409,11 +410,23 @@ namespace UserInterface.BakımOnarım
             this.TxtSeriNo.TabIndex = 452;
             this.TxtSeriNo.TextChanged += new System.EventHandler(this.TxtSeriNo_TextChanged);
             // 
+            // BtnIslemAdimiSorumlu
+            // 
+            this.BtnIslemAdimiSorumlu.Location = new System.Drawing.Point(1274, 466);
+            this.BtnIslemAdimiSorumlu.Name = "BtnIslemAdimiSorumlu";
+            this.BtnIslemAdimiSorumlu.Size = new System.Drawing.Size(75, 23);
+            this.BtnIslemAdimiSorumlu.TabIndex = 453;
+            this.BtnIslemAdimiSorumlu.Text = "IslemAdimiSorDuzelt";
+            this.BtnIslemAdimiSorumlu.UseVisualStyleBackColor = true;
+            this.BtnIslemAdimiSorumlu.Visible = false;
+            this.BtnIslemAdimiSorumlu.Click += new System.EventHandler(this.BtnIslemAdimiSorumlu_Click);
+            // 
             // FrmBOAtolyeDevamEdenler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1455, 853);
+            this.Controls.Add(this.BtnIslemAdimiSorumlu);
             this.Controls.Add(this.TxtSeriNo);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BtnVeriDuzelt);
@@ -484,5 +497,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Button BtnVeriDuzelt;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtSeriNo;
+        private System.Windows.Forms.Button BtnIslemAdimiSorumlu;
     }
 }

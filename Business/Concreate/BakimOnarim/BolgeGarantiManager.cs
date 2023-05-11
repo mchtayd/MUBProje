@@ -75,6 +75,17 @@ namespace Business.Concreate.BakimOnarim
                 return new List<BolgeGaranti>();
             }
         }
+        public List<BolgeGaranti> GetListTumu(string siparisNo)
+        {
+            try
+            {
+                return bolgeGarantiDal.GetListTumu(siparisNo);
+            }
+            catch (Exception)
+            {
+                return new List<BolgeGaranti>();
+            }
+        }
 
         public string Update(BolgeGaranti entity)
         {

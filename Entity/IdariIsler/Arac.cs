@@ -98,7 +98,7 @@ namespace Entity.IdariIsler
             this.kmGiris = kmGiris;
         }
         // güncelle
-        public Arac(string plaka, DateTime ilkTescilTarihi, DateTime tescilTarihi, string markasi, string tipi, string ticariAdi, string modelYili, string aracSinifi, string cinsi, string rengi, string motorNo, string saseNo, string yakitCinsi, string mulkiyetBilgileri, string proje, string siparisno, string tasitTanima, string arventoid, DateTime projeTahsisTarihi, int kmGiris,int kmCikis,string projeCikisTarihi, string projeCikisNedeni, string dosyaYolu,string aciklama)
+        public Arac(string plaka, DateTime ilkTescilTarihi, DateTime tescilTarihi, string markasi, string tipi, string ticariAdi, string modelYili, string aracSinifi, string cinsi, string rengi, string motorNo, string saseNo, string yakitCinsi, string mulkiyetBilgileri, string proje, string siparisno, string tasitTanima, string arventoid, DateTime projeTahsisTarihi, int kmGiris,int kmCikis,string projeCikisTarihi, string projeCikisNedeni, string dosyaYolu,string aciklama, string durum)
         {
             this.plaka = plaka;
             this.ilkTescilTarihi = ilkTescilTarihi;
@@ -125,6 +125,7 @@ namespace Entity.IdariIsler
             this.aciklama = aciklama;
             this.kmGiris = kmGiris;
             this.kmCikis = kmCikis;
+            this.durum = durum;
         }
 
         public Arac(string projeCikisTarihi, string projeCikisNedeni,int kmCikis)

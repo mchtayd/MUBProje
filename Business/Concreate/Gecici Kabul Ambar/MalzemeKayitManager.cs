@@ -90,18 +90,7 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public MalzemeKayit MalzemeBul(string stokNo)
-        {
-            try
-            {
-                return malzemeKayitDal.MalzemeBul(stokNo);
-            }
-            catch (Exception)
-            {
-
-                return null;
-            }
-        }
+        
 
         public List<MalzemeKayit> GetList(string stokNo="")
         {

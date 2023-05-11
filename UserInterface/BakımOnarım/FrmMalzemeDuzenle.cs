@@ -28,6 +28,7 @@ namespace UserInterface.BakımOnarım
         List<Malzeme> malzemesFiltired;
         //List<MalzemeKayit> malzemeKayitsFiltired;
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+        int ilkSayi = 0;
 
         public FrmMalzemeDuzenle()
         {
@@ -49,7 +50,7 @@ namespace UserInterface.BakımOnarım
             dataBinder.DataSource = malzemes.ToDataTable();
             DtgList.DataSource = dataBinder;
             TxtTop.Text = DtgList.RowCount.ToString();
-
+            
             DtgList.Columns["Id"].Visible = false;
             DtgList.Columns["StokNo"].HeaderText = "STOK NO";
             DtgList.Columns["Tanim"].HeaderText = "TANIM";
@@ -74,7 +75,12 @@ namespace UserInterface.BakımOnarım
         void AbfMalzemeDisplay()
         {
             abfMalzemes = abfMalzemeManager.GetList(benzersizId);
+            if (abfMalzemes.Count==0)
+            {
+                return;
+            }
             DtgEklenecekMalzemeler.DataSource = abfMalzemes;
+            ilkSayi = abfMalzemes.Count;
             MalzemeListEdit();
 
         }
@@ -105,6 +111,10 @@ namespace UserInterface.BakımOnarım
             DtgEklenecekMalzemeler.Columns["TemineAtilamTarihi"].Visible = false;
             DtgEklenecekMalzemeler.Columns["MalzemeDurumu"].Visible = false;
             DtgEklenecekMalzemeler.Columns["MalzemeIslemAdimi"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["SokulenTeslimDurum"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["BolgeAdi"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["BolgeSorumlusu"].Visible = false;
+
         }
         string stokNo, tanim, birim;
         private void DtgList_MouseDoubleClick(object sender, MouseEventArgs e)
@@ -112,8 +122,7 @@ namespace UserInterface.BakımOnarım
             stokNo = DtgList.CurrentRow.Cells["Stokno"].Value.ToString();
             tanim = DtgList.CurrentRow.Cells["Tanim"].Value.ToString();
             birim = DtgList.CurrentRow.Cells["Birim"].Value.ToString();
-            AbfMalzeme abfMalzeme = new AbfMalzeme(benzersizId, stokNo, tanim, "", 1, birim, 0, "", "", "", "");
-
+            AbfMalzeme abfMalzeme = new AbfMalzeme(0, benzersizId, stokNo, tanim, "", 1, birim, 0, "", "", "", "", "", "", "", 0, "", 0, "", "", "", "");
 
             abfMalzemes.Add(abfMalzeme);
             DtgEklenecekMalzemeler.DataSource = null;
@@ -124,21 +133,55 @@ namespace UserInterface.BakımOnarım
         private void BtnSiparisKaydet_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istiyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            if (dr == DialogResult.Yes)
             {
                 string mesaj = abfMalzemeManager.Delete(benzersizId);
-                if (mesaj!="OK")
+                if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
+                int index = 0;
                 foreach (DataGridViewRow item in DtgEklenecekMalzemeler.Rows)
                 {
-                    AbfMalzeme abfMalzeme = new AbfMalzeme(benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), 
-                        item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString());
+                    
+                    if (ilkSayi != DtgEklenecekMalzemeler.RowCount)
+                    {
+                        if (index < ilkSayi)
+                        {
+                            AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), item.Cells["TeminDurumu"].Value.ToString(), item.Cells["MalzemeIslemAdimi"].Value.ToString(), item.Cells["SokulenTeslimDurum"].Value.ToString());
 
-                    abfMalzemeManager.AddSokulen(abfMalzeme);
+                            abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
+                        }
+                        else
+                        {
+                            if (ilkSayi==0)
+                            {
+                                AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), "KONTROL EDİLMEDİ", "", "TESLİM EDİLMEDİ");
+
+                                abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
+                            }
+                            else
+                            {
+                                AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), "", "", "", 0, "", 0, "", "KONTROL EDİLMEDİ", "", "TESLİM EDİLMEDİ");
+
+                                abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
+                            }
+                            
+                        }
+                        index++;
+                    }
+                    else
+                    {
+                        AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), item.Cells["TeminDurumu"].Value.ToString(), item.Cells["MalzemeIslemAdimi"].Value.ToString(), item.Cells["SokulenTeslimDurum"].Value.ToString());
+
+                        abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
+                    }
+
                 }
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmArizaAcmaCalisma frmArizaAcmaCalisma = new FrmArizaAcmaCalisma();
@@ -158,7 +201,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             DialogResult dr = MessageBox.Show("Malzeme Kaydını Silmek İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr==DialogResult.Yes)
+            if (dr == DialogResult.Yes)
             {
                 string messega = abfMalzemeManager.DeleteTekMalzemeSil(deleteId);
                 if (messega != "OK")
@@ -168,15 +211,11 @@ namespace UserInterface.BakımOnarım
                 }
                 MessageBox.Show("Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 AbfMalzemeDisplay();
-               
+
             }
 
         }
 
-        private void DtgEklenecekMalzemeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
-        {
-            
-        }
 
         private void FrmMalzemeDuzenle_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -184,6 +223,7 @@ namespace UserInterface.BakımOnarım
             frmArizaAcmaCalisma.id = benzersizId;
             frmArizaAcmaCalisma.FillTools();
         }
+
 
         private void TxtAbfFormNo_TextChanged(object sender, EventArgs e)
         {

@@ -30,9 +30,9 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatOnay));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgOnay = new ADGV.AdvancedDataGridView();
@@ -47,6 +47,8 @@ namespace UserInterface.STS
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.label76 = new System.Windows.Forms.Label();
+            this.CmbOnaylanacakTeklif = new System.Windows.Forms.ComboBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.Gerek = new System.Windows.Forms.RichTextBox();
             this.BtnRed = new System.Windows.Forms.Button();
@@ -489,8 +491,7 @@ namespace UserInterface.STS
             this.label34 = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CmbOnaylanacakTeklif = new System.Windows.Forms.ComboBox();
-            this.label76 = new System.Windows.Forms.Label();
+            this.BtnGorevAta = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgOnay)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -534,8 +535,8 @@ namespace UserInterface.STS
             // 
             this.DtgOnay.AllowUserToAddRows = false;
             this.DtgOnay.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgOnay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgOnay.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgOnay.AutoGenerateContextFilters = true;
             this.DtgOnay.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgOnay.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -612,18 +613,18 @@ namespace UserInterface.STS
             // 
             this.DtgSatIslemAdimlari.AllowUserToAddRows = false;
             this.DtgSatIslemAdimlari.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSatIslemAdimlari.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtgSatIslemAdimlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgSatIslemAdimlari.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgSatIslemAdimlari.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgSatIslemAdimlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgSatIslemAdimlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgSatIslemAdimlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -694,6 +695,29 @@ namespace UserInterface.STS
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1531, 516);
             this.panel6.TabIndex = 1;
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label76.Location = new System.Drawing.Point(402, 433);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(132, 15);
+            this.label76.TabIndex = 350;
+            this.label76.Text = "Onaylanacak Teklif:";
+            // 
+            // CmbOnaylanacakTeklif
+            // 
+            this.CmbOnaylanacakTeklif.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbOnaylanacakTeklif.FormattingEnabled = true;
+            this.CmbOnaylanacakTeklif.Items.AddRange(new object[] {
+            "1. TEKLİF",
+            "2. TEKLİF",
+            "3. TEKLİF"});
+            this.CmbOnaylanacakTeklif.Location = new System.Drawing.Point(540, 430);
+            this.CmbOnaylanacakTeklif.Name = "CmbOnaylanacakTeklif";
+            this.CmbOnaylanacakTeklif.Size = new System.Drawing.Size(121, 21);
+            this.CmbOnaylanacakTeklif.TabIndex = 349;
             // 
             // groupBox12
             // 
@@ -4898,28 +4922,16 @@ namespace UserInterface.STS
             this.yenileToolStripMenuItem.Text = "Yenile";
             this.yenileToolStripMenuItem.Click += new System.EventHandler(this.yenileToolStripMenuItem_Click);
             // 
-            // CmbOnaylanacakTeklif
+            // BtnGorevAta
             // 
-            this.CmbOnaylanacakTeklif.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbOnaylanacakTeklif.FormattingEnabled = true;
-            this.CmbOnaylanacakTeklif.Items.AddRange(new object[] {
-            "1. TEKLİF",
-            "2. TEKLİF",
-            "3. TEKLİF"});
-            this.CmbOnaylanacakTeklif.Location = new System.Drawing.Point(540, 430);
-            this.CmbOnaylanacakTeklif.Name = "CmbOnaylanacakTeklif";
-            this.CmbOnaylanacakTeklif.Size = new System.Drawing.Size(121, 21);
-            this.CmbOnaylanacakTeklif.TabIndex = 349;
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label76.Location = new System.Drawing.Point(402, 433);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(132, 15);
-            this.label76.TabIndex = 350;
-            this.label76.Text = "Onaylanacak Teklif:";
+            this.BtnGorevAta.Location = new System.Drawing.Point(945, 347);
+            this.BtnGorevAta.Name = "BtnGorevAta";
+            this.BtnGorevAta.Size = new System.Drawing.Size(123, 23);
+            this.BtnGorevAta.TabIndex = 354;
+            this.BtnGorevAta.Text = "Görev Ata";
+            this.BtnGorevAta.UseVisualStyleBackColor = true;
+            this.BtnGorevAta.Visible = false;
+            this.BtnGorevAta.Click += new System.EventHandler(this.BtnGorevAta_Click);
             // 
             // FrmSatOnay
             // 
@@ -4927,6 +4939,7 @@ namespace UserInterface.STS
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
             this.ContextMenuStrip = this.contextMenuStrip1;
+            this.Controls.Add(this.BtnGorevAta);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.TxtTop);
@@ -5432,5 +5445,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.RichTextBox Gerek;
         private System.Windows.Forms.Label label76;
         private System.Windows.Forms.ComboBox CmbOnaylanacakTeklif;
+        private System.Windows.Forms.Button BtnGorevAta;
     }
 }

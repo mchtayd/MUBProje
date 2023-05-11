@@ -82,7 +82,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return item;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return null;
             }
@@ -107,7 +107,31 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return bolgeGarantis;
             }
-            catch (Exception)
+            catch (Exception ex)
+            {
+                return new List<BolgeGaranti>();
+            }
+        }
+        public List<BolgeGaranti> GetListTumu(string siparisNo)
+        {
+            try
+            {
+                List<BolgeGaranti> bolgeGarantis = new List<BolgeGaranti>();
+                dataReader = sqlServices.StoreReader("BolgeGarantiBilgisi", new SqlParameter("@siparisNo", siparisNo));
+                while (dataReader.Read())
+                {
+                    bolgeGarantis.Add(new BolgeGaranti(
+                        dataReader["ID"].ConInt(),
+                        dataReader["GARANTI_PAKETI"].ToString(),
+                        dataReader["GARANTI_BASLAMA"].ConDate(),
+                        dataReader["GARANTI_BITIS"].ConDate(),
+                        dataReader["TOPLAM_GARANTI_SURESI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString()));
+                }
+                dataReader.Close();
+                return bolgeGarantis;
+            }
+            catch (Exception ex)
             {
                 return new List<BolgeGaranti>();
             }

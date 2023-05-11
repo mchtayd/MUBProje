@@ -25,7 +25,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         DepoKayitManagercs depoKayitManagercs;
         DepoKayitLokasyonManager depoKayitLokasyonManager;
         List<StokGirisCıkıs> stoks;
-        public int id, ilkMiktar = 0;
+        public int id, ilkMiktar = 0, malzemeId = 0;
         bool start = false;
         public object[] infos;
         public FrmStokMiktarEdit()
@@ -39,6 +39,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void FrmStokMiktarEdit_Load(object sender, EventArgs e)
         {
+            malzemeId = id;
             CmbDepo();
             start = true;
             DatDisplay();
@@ -93,7 +94,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             if (dr==DialogResult.Yes)
             {
                 DepoMiktar depoCekilen = new DepoMiktar(LblStokNo.Text, CmbDepoNo.Text, TxtMalzemeYeri.Text, LblSeriNo.Text, LblLotNo.Text, LblRev.Text, DateTime.Now, infos[1].ToString(), TxtMiktar.Text.ConInt());
-                string mesaj = depoMiktarManager.Update(depoCekilen);
+                string mesaj = depoMiktarManager.Update(depoCekilen, depoCekilen.RezerveDurumu);
 
                 if (mesaj!="OK")
                 {
@@ -101,7 +102,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     return;
                 }
 
-                StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs(LblStokNo.Text, DateTime.Now, CmbDepoNo.Text, CmbAdres.Text, TxtMalzemeYeri.Text, TxtMiktar.Text.ConInt(),"DÜŞÜM BİLGİLERİ GÜNCELLENDİ.", LblSeriNo.Text, LblLotNo.Text, LblRev.Text);
+                StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs(malzemeId, LblStokNo.Text, DateTime.Now, CmbDepoNo.Text, CmbAdres.Text, TxtMalzemeYeri.Text, TxtMiktar.Text.ConInt(),"DÜŞÜM BİLGİLERİ GÜNCELLENDİ.", LblSeriNo.Text, LblLotNo.Text, LblRev.Text);
                 mesaj = stokGirisCikisManager.UpdateEdit(stokGirisCıkıs);
                 if (mesaj!="OK")
                 {
