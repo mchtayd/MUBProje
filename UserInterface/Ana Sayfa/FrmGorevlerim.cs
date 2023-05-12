@@ -30,9 +30,10 @@ namespace UserInterface.Ana_Sayfa
         GorevAtamaManager gorevAtamaManager;
         IsAkisNoManager isAkisNoManager;
 
-        string pageText1 = "", pageText3 = "", pageText2 = "", mail = "", dosyaYolu = "", kaynakdosyaismi = "", alinandosya = "", tamyol = "", isAkisNo = "";
+        string pageText1 = "", pageText3 = "", pageText2 = "", mail = "", dosyaYolu = "", kaynakdosyaismi = "", alinandosya = "", tamyol = "", isAkisNo = "", departman;
         int id;
         public object[] infos;
+        int benzersizId;
         public FrmGorevlerim()
         {
             InitializeComponent();
@@ -175,9 +176,22 @@ namespace UserInterface.Ana_Sayfa
             dataBinderAtolye.Sort = DtgIsAkisGorev.SortString;
         }
 
-        private void DtgIsAkisGorev_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        private void DtgIsAkisGorev_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            if (DtgIsAkisGorev.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            benzersizId = DtgIsAkisGorev.CurrentRow.Cells["BenzersizId"].Value.ConInt();
+            departman = DtgIsAkisGorev.CurrentRow.Cells["Departman"].Value.ToString();
+            string islemAdimi = DtgIsAkisGorev.CurrentRow.Cells["IslemAdimi"].Value.ToString();
+            FrmGorevGor frmGorevGor = new FrmGorevGor();
+            frmGorevGor.gorevAdi = islemAdimi;
+            frmGorevGor.departman = departman;
+            frmGorevGor.benzersizId = benzersizId;
+            frmGorevGor.ShowDialog();
         }
 
         private void DtgGorevlerim_SortStringChanged(object sender, EventArgs e)

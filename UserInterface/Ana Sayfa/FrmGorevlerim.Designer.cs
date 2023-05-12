@@ -374,7 +374,7 @@ namespace UserInterface.Ana_Sayfa
             this.DtgIsAkisGorev.TimeFilter = false;
             this.DtgIsAkisGorev.SortStringChanged += new System.EventHandler(this.DtgIsAkisGorev_SortStringChanged_1);
             this.DtgIsAkisGorev.FilterStringChanged += new System.EventHandler(this.DtgIsAkisGorev_FilterStringChanged_1);
-            this.DtgIsAkisGorev.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgIsAkisGorev_CellMouseClick);
+            this.DtgIsAkisGorev.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgIsAkisGorev_CellMouseDoubleClick);
             // 
             // contextMenuStrip2
             // 

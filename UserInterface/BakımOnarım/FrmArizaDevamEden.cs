@@ -80,8 +80,8 @@ namespace UserInterface.BakımOnarım
         }
         public void Yenilenecekler()
         {
-            TumunuGor();
             DataDisplay();
+            TumunuGor();
         }
         public void DataDisplay()
         {

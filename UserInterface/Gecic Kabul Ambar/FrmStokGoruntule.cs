@@ -1,7 +1,9 @@
-﻿using Business.Concreate.Gecici_Kabul_Ambar;
+﻿using Business.Concreate.BakimOnarim;
+using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Presentation;
+using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
 using System;
 using System.Collections.Generic;
@@ -25,9 +27,12 @@ namespace UserInterface.Depo
         //MalzemeKayitManager malzemeKayitManager;
         DepoMiktarManager depoMiktarManager;
         MalzemeManager malzemeManager;
+        AbfMalzemeManager abfMalzemeManager;
         
         List<DepoMiktar> depoMiktars;
-        string stokNo="";
+        List<AbfMalzeme> abfMalzemes;
+
+        string stokNo ="";
         int id;
         public object[] infos;
         public FrmStokGoruntule()
@@ -37,6 +42,7 @@ namespace UserInterface.Depo
             //malzemeKayitManager = MalzemeKayitManager.GetInstance();
             depoMiktarManager = DepoMiktarManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
+            abfMalzemeManager = AbfMalzemeManager.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -239,6 +245,20 @@ namespace UserInterface.Depo
             DtgDepoBilgileri.DataSource = dataBinder;
             Display();
             Toplamlar();
+        }
+
+        private void rezerveEtToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id==0)
+            {
+                MessageBox.Show("Lütfen bir malzeme seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmRezerveEt frmRezerveEt = new FrmRezerveEt();
+            frmRezerveEt.infos = infos;
+            frmRezerveEt.malzemeId = id;
+            frmRezerveEt.ShowDialog();
+
         }
     }
 }

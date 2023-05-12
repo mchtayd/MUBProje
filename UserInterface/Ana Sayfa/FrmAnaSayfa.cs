@@ -50,6 +50,7 @@ namespace UserInterface.STS
         MenuManager menuManager;
         PersonelHesapManager personelHesapManager;
         LogManager logManager;
+        SohbetManager sohbetManager;
 
         FrmWait frmWait = new FrmWait();
         List<MenuBaslik> menuBasliks;
@@ -80,6 +81,7 @@ namespace UserInterface.STS
             menuManager = MenuManager.GetInstance();
             personelHesapManager = PersonelHesapManager.GetInstance();
             logManager = LogManager.GetInstance();
+            sohbetManager = SohbetManager.GetInstance();
             SystemEvents.PowerModeChanged += PowerModeChanged;
         }
         
@@ -138,6 +140,8 @@ namespace UserInterface.STS
             BildirimControl(infos[0].ConInt());
             TimerFileRead.Start();
             ServerAyarlar();
+            MesajControl();
+            TmMesajControl.Start();
         }
         void ServerAyarlar()
         {
@@ -5438,6 +5442,8 @@ namespace UserInterface.STS
                 }
 
                 FrmSohbet frmSohbet1 = new FrmSohbet();
+                frmSohbet1.infos = infos;
+                frmSohbet1.alan = isim;
                 frmSohbet1.WindowState = FormWindowState.Minimized;
                 frmSohbet1.Show();
                 frmSohbet1.WindowState = FormWindowState.Normal;
@@ -5456,6 +5462,8 @@ namespace UserInterface.STS
                         {
                             return;
                         }
+                        frmSohbet.infos = infos;
+                        frmSohbet.alan = isim;
                         frmSohbet.WindowState = FormWindowState.Minimized;
                         frmSohbet.Show();
                         frmSohbet.WindowState = FormWindowState.Normal;
@@ -5490,6 +5498,8 @@ namespace UserInterface.STS
                 }
 
                 FrmSohbet frmSohbet1 = new FrmSohbet();
+                frmSohbet1.infos = infos;
+                frmSohbet1.alan = isim;
                 frmSohbet1.WindowState = FormWindowState.Minimized;
                 frmSohbet1.Show();
                 frmSohbet1.WindowState = FormWindowState.Normal;
@@ -5543,6 +5553,8 @@ namespace UserInterface.STS
             {
                 frmSohbet.WindowState = FormWindowState.Minimized;
                 frmSohbet.Show();
+                frmSohbet.infos = infos;
+                frmSohbet.alan = isim;
                 frmSohbet.WindowState = FormWindowState.Normal;
                 frmSohbet.Text = isim;
                 frmSohbet.Show();
@@ -5636,6 +5648,73 @@ namespace UserInterface.STS
         private void görevliPersonellerToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DtgSohbet_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            string isim = DtgSohbet.CurrentRow.Cells["Ad"].Value.ToString();
+            FrmSohbet frmSohbet = (FrmSohbet)Application.OpenForms["FrmSohbet"];
+            if (frmSohbet != null)
+            {
+                frmSohbet.infos = infos;
+                frmSohbet.alan = isim;
+                frmSohbet.WindowState = FormWindowState.Minimized;
+                frmSohbet.Show();
+                frmSohbet.WindowState = FormWindowState.Normal;
+                frmSohbet.Text = isim;
+                frmSohbet.Show();
+            }
+            else
+            {
+                FrmSohbet frmSohbet2 = new FrmSohbet();
+                frmSohbet2.infos = infos;
+                frmSohbet2.alan = isim;
+                frmSohbet2.WindowState = FormWindowState.Minimized;
+                frmSohbet2.Show();
+                frmSohbet2.WindowState = FormWindowState.Normal;
+                frmSohbet2.Text = isim;
+                frmSohbet2.Show();
+            }
+        }
+        List<Sohbet> sohbets = new List<Sohbet>();
+        private void TmMesajControl_Tick(object sender, EventArgs e)
+        {
+            //MesajControl();
+        }
+        void MesajControl()
+        {
+            foreach (PersonelHesap item in personelHesaps)
+            {
+                sohbets = sohbetManager.GetList(item.AdSoyad, infos[1].ToString()); // hiç görülmemiş mesajlar
+
+                if (sohbets.Count > 0)
+                {
+                    FrmSohbet frmSohbet = (FrmSohbet)Application.OpenForms["FrmSohbet"];
+                    if (frmSohbet != null)
+                    {
+                        frmSohbet.infos = infos;
+                        frmSohbet.alan = item.AdSoyad;
+                        frmSohbet.WindowState = FormWindowState.Minimized;
+                        frmSohbet.Show();
+                        frmSohbet.WindowState = FormWindowState.Normal;
+                        frmSohbet.Text = item.AdSoyad;
+                        frmSohbet.Show();
+                    }
+                    else
+                    {
+                        FrmSohbet frmSohbet2 = new FrmSohbet();
+                        frmSohbet2.infos = infos;
+                        frmSohbet2.alan = item.AdSoyad;
+                        frmSohbet2.WindowState = FormWindowState.Minimized;
+                        frmSohbet2.Show();
+                        frmSohbet2.WindowState = FormWindowState.Normal;
+                        frmSohbet2.Text = item.AdSoyad;
+                        frmSohbet2.Show();
+                    }
+                }
+
+                sohbets = new List<Sohbet>();
+            }
         }
 
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)

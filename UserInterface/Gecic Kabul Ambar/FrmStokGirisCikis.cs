@@ -660,10 +660,11 @@ namespace UserInterface.Depo
                         {
                             depoMiktarManager.Delete(depo2.Id);
                         }
-                        if (dusulenMiktar == 0)
-                        {
-                            depoMiktarManager.Delete(depoDusulen.Id);
-                        }
+
+                        //if (dusulenMiktar == 0)
+                        //{
+                        //    depoMiktarManager.Delete(depoDusulen.Id);
+                        //}
                         /*DepoMiktar miktar1 = depoMiktarManager.Get(stokNo, depoNoDusulen);
                         mevcutMiktar = miktar1.Miktar;*/
 
@@ -710,7 +711,6 @@ namespace UserInterface.Depo
 
                         DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen, depoMiktar.RezerveDurumu);
-
 
                         StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs(islemTuru, stokNo, tanim, item.Cells["Column5"].Value.ToString(), item.Cells["Column6"].Value.ConDate(), item.Cells["Column7"].Value.ToString(), "", "", item.Cells["Column15"].Value.ToString(), item.Cells["Column16"].Value.ToString(), item.Cells["Column17"].Value.ToString(), miktar, item.Cells["Column19"].Value.ToString(), item.Cells["Column14"].Value.ToString(), item.Cells["Column10"].Value.ToString(), item.Cells["Column12"].Value.ToString(), item.Cells["Column11"].Value.ToString());
 

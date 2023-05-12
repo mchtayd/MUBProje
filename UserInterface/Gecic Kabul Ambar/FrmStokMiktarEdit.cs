@@ -28,6 +28,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         public int id, ilkMiktar = 0, malzemeId = 0;
         bool start = false;
         public object[] infos;
+        string rezerveDurum = "";
         public FrmStokMiktarEdit()
         {
             InitializeComponent();
@@ -58,6 +59,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             LblSeriNo.Text = depoMiktar.SeriNo;
             LblLotNo.Text = depoMiktar.LotNo;
             LblRev.Text = depoMiktar.Revizyon;
+            rezerveDurum = depoMiktar.RezerveDurumu;
         }
         void StokGirisCikis()
         {
@@ -94,7 +96,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             if (dr==DialogResult.Yes)
             {
                 DepoMiktar depoCekilen = new DepoMiktar(LblStokNo.Text, CmbDepoNo.Text, TxtMalzemeYeri.Text, LblSeriNo.Text, LblLotNo.Text, LblRev.Text, DateTime.Now, infos[1].ToString(), TxtMiktar.Text.ConInt());
-                string mesaj = depoMiktarManager.Update(depoCekilen, depoCekilen.RezerveDurumu);
+                string mesaj = depoMiktarManager.Update(depoCekilen, rezerveDurum);
 
                 if (mesaj!="OK")
                 {

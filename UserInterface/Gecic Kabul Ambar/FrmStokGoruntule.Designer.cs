@@ -53,6 +53,7 @@ namespace UserInterface.Depo
             this.label2 = new System.Windows.Forms.Label();
             this.BtnSorgula = new System.Windows.Forms.Button();
             this.BtnTumunuGor = new System.Windows.Forms.Button();
+            this.rezerveEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoBilgileri)).BeginInit();
@@ -119,14 +120,15 @@ namespace UserInterface.Depo
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.düzenleToolStripMenuItem});
+            this.düzenleToolStripMenuItem,
+            this.rezerveEtToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
             // 
             // düzenleToolStripMenuItem
             // 
             this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
-            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(116, 22);
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.düzenleToolStripMenuItem.Text = "Düzenle";
             this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
             // 
@@ -291,6 +293,13 @@ namespace UserInterface.Depo
             this.BtnTumunuGor.UseVisualStyleBackColor = false;
             this.BtnTumunuGor.Click += new System.EventHandler(this.BtnTumunuGor_Click);
             // 
+            // rezerveEtToolStripMenuItem
+            // 
+            this.rezerveEtToolStripMenuItem.Name = "rezerveEtToolStripMenuItem";
+            this.rezerveEtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rezerveEtToolStripMenuItem.Text = "Rezerve Et";
+            this.rezerveEtToolStripMenuItem.Click += new System.EventHandler(this.rezerveEtToolStripMenuItem_Click);
+            // 
             // FrmStokGoruntule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -350,5 +359,6 @@ namespace UserInterface.Depo
         private System.Windows.Forms.ToolStripMenuItem düzenleToolStripMenuItem;
         private System.Windows.Forms.Button BtnSorgula;
         private System.Windows.Forms.Button BtnTumunuGor;
+        private System.Windows.Forms.ToolStripMenuItem rezerveEtToolStripMenuItem;
     }
 }

@@ -443,6 +443,7 @@ namespace UserInterface.STS
             this.timerOnline = new System.Windows.Forms.Timer(this.components);
             this.TimerFileRead = new System.Windows.Forms.Timer(this.components);
             this.timerIzlemeChc = new System.Windows.Forms.Timer(this.components);
+            this.TmMesajControl = new System.Windows.Forms.Timer(this.components);
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -1885,6 +1886,7 @@ namespace UserInterface.STS
             this.DtgSohbet.Size = new System.Drawing.Size(251, 622);
             this.DtgSohbet.TabIndex = 1;
             this.DtgSohbet.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgSohbet_CellMouseClick);
+            this.DtgSohbet.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgSohbet_CellMouseDoubleClick);
             this.DtgSohbet.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.DtgSohbet_MouseDoubleClick);
             // 
             // Ad
@@ -1937,6 +1939,11 @@ namespace UserInterface.STS
             // 
             this.timerIzlemeChc.Interval = 20000;
             this.timerIzlemeChc.Tick += new System.EventHandler(this.timerIzlemeChc_Tick);
+            // 
+            // TmMesajControl
+            // 
+            this.TmMesajControl.Interval = 6000;
+            this.TmMesajControl.Tick += new System.EventHandler(this.TmMesajControl_Tick);
             // 
             // FrmAnaSayfa
             // 
@@ -2088,5 +2095,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.ToolStripMenuItem sahaBakımOnarımToolStripMenuItem;
         public System.Windows.Forms.Timer timerIzlemeChc;
         private System.Windows.Forms.ToolStripMenuItem görevliPersonellerToolStripMenuItem;
+        public System.Windows.Forms.Timer TmMesajControl;
     }
 }

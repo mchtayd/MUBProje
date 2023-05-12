@@ -76,6 +76,7 @@
     <Compile Include="AnaSayfa\Duyuru.cs" />
     <Compile Include="AnaSayfa\Log.cs" />
     <Compile Include="AnaSayfa\Menu.cs" />
+    <Compile Include="AnaSayfa\Sohbet.cs" />
     <Compile Include="AnaSayfa\ServerAyarlar.cs" />
     <Compile Include="ArizaIslemAdimi.cs" />
     <Compile Include="AtolyeRapor.cs" />

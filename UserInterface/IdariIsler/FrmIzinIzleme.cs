@@ -82,6 +82,7 @@ namespace UserInterface.IdariIsler
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
+
         public void DtgIzinList()
         {
             if (infos[11].ToString()=="YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 1139)

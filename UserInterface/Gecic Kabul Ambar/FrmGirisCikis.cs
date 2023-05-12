@@ -1644,10 +1644,52 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 depoBilgileri = depoMiktarManager.GetBarkodLokasyonBul(CmbStokNo.Text, LblSeriLotNo.Text, LblRevizyon.Text, takipdurumu);
                 if (depoBilgileri == null)
                 {
-                    TmrBarcode.Stop();
-                    MessageBox.Show("Bu malzemenin lokasyonu bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    TxtBarkod.Clear();
-                    return;
+                    List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
+                    stokGirisCıkıs = stokGirisCikisManager.GetList(CmbStokNo.Text, LblSeriLotNo.Text);
+                    if (stokGirisCıkıs.Count==0)
+                    {
+                        TmrBarcode.Stop();
+                        MessageBox.Show("Bu malzemenin lokasyonu bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TxtBarkod.Clear();
+                        return;
+                    }
+                    string sonDusulneDepo = stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenDepoNo;
+                    if (sonDusulneDepo=="")
+                    {
+                        TmrBarcode.Stop();
+                        MessageBox.Show("Bu malzemenin lokasyonu bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TxtBarkod.Clear();
+                        return;
+                    }
+                    if (sonDusulneDepo.Length<5)
+                    {
+                        DepoMiktar depoMiktar = new DepoMiktar(stokGirisCıkıs[stokGirisCıkıs.Count - 1].Stokno, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Tanim, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Serino, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Lotno, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Revizyon, stokGirisCıkıs[stokGirisCıkıs.Count - 1].IslemTarihi, infos[1].ToString(), stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenDepoNo, stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenDepoAdresi, stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenMalzemeYeri, stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenMiktar, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Aciklama);
+
+                        depoMiktarManager.Add(depoMiktar);
+
+                        depoBilgileri = depoMiktarManager.GetBarkodLokasyonBul(CmbStokNo.Text, LblSeriLotNo.Text, LblRevizyon.Text, takipdurumu);
+                        if (depoBilgileri==null)
+                        {
+                            DepoMiktar depoMiktar1 = depoMiktarManager.Get(stokGirisCıkıs[stokGirisCıkıs.Count - 1].Stokno, stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenDepoNo, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Serino, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Lotno, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Revizyon);
+
+                            if (depoMiktar1!=null)
+                            {
+                                depoMiktarManager.Delete(depoMiktar1.Id);
+                            }
+
+                            TmrBarcode.Stop();
+                            MessageBox.Show("Bu malzemenin barkod bilgileri hatalıdır!\nBarkodu değiştirdikten sonra tekrar okutunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            TxtBarkod.Clear();
+                            return;
+                        }
+                    }
+                    else
+                    {
+                        TmrBarcode.Stop();
+                        MessageBox.Show("Bu malzemenin lokasyonu bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        TxtBarkod.Clear();
+                        return;
+                    }
                 }
             }
 

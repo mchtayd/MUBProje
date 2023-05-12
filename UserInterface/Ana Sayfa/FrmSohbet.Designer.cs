@@ -28,11 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.TxtMesaj = new System.Windows.Forms.TextBox();
             this.BtnSohbetTemizle = new System.Windows.Forms.Button();
             this.BtnGonder = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.MesajBrowser = new System.Windows.Forms.WebBrowser();
+            this.TmMesajControl = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -85,6 +87,11 @@
             this.MesajBrowser.TabIndex = 0;
             this.MesajBrowser.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.MesajBrowser_DocumentCompleted);
             // 
+            // TmMesajControl
+            // 
+            this.TmMesajControl.Interval = 2000;
+            this.TmMesajControl.Tick += new System.EventHandler(this.TmMesajControl_Tick);
+            // 
             // FrmSohbet
             // 
             this.AcceptButton = this.BtnGonder;
@@ -98,6 +105,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.MaximizeBox = false;
             this.Name = "FrmSohbet";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSohbet_FormClosing);
             this.Load += new System.EventHandler(this.FrmSohbet_Load);
@@ -113,5 +121,6 @@
         private System.Windows.Forms.Button BtnGonder;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.WebBrowser MesajBrowser;
+        public System.Windows.Forms.Timer TmMesajControl;
     }
 }
