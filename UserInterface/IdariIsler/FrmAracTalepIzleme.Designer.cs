@@ -36,12 +36,12 @@ namespace UserInterface.IdariIsler
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.DtgList = new ADGV.AdvancedDataGridView();
-            this.label31 = new System.Windows.Forms.Label();
-            this.TxtTop = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.label31 = new System.Windows.Forms.Label();
+            this.TxtTop = new System.Windows.Forms.Label();
+            this.DtgList = new ADGV.AdvancedDataGridView();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.label1 = new System.Windows.Forms.Label();
@@ -52,9 +52,9 @@ namespace UserInterface.IdariIsler
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            this.tabPage2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListTamamlananlar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -109,40 +109,24 @@ namespace UserInterface.IdariIsler
             this.tabPage1.Text = "DEVAM EDENLER";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
-            // tabPage2
+            // groupBox2
             // 
-            this.tabPage2.Controls.Add(this.groupBox1);
-            this.tabPage2.Controls.Add(this.label1);
-            this.tabPage2.Controls.Add(this.TxtTopTamamlanan);
-            this.tabPage2.Controls.Add(this.DtgListTamamlananlar);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1483, 747);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "TAMAMLANANLAR";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.groupBox2.Controls.Add(this.webBrowser1);
+            this.groupBox2.Location = new System.Drawing.Point(11, 560);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(686, 170);
+            this.groupBox2.TabIndex = 344;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ekler:";
             // 
-            // DtgList
+            // webBrowser1
             // 
-            this.DtgList.AllowUserToAddRows = false;
-            this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
-            this.DtgList.AutoGenerateContextFilters = true;
-            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgList.DateWithTime = false;
-            this.DtgList.Location = new System.Drawing.Point(8, 16);
-            this.DtgList.MultiSelect = false;
-            this.DtgList.Name = "DtgList";
-            this.DtgList.ReadOnly = true;
-            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgList.Size = new System.Drawing.Size(1467, 503);
-            this.DtgList.TabIndex = 321;
-            this.DtgList.TimeFilter = false;
-            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(680, 151);
+            this.webBrowser1.TabIndex = 0;
             // 
             // label31
             // 
@@ -164,24 +148,42 @@ namespace UserInterface.IdariIsler
             this.TxtTop.TabIndex = 343;
             this.TxtTop.Text = "00";
             // 
-            // groupBox2
+            // DtgList
             // 
-            this.groupBox2.Controls.Add(this.webBrowser1);
-            this.groupBox2.Location = new System.Drawing.Point(11, 560);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(686, 170);
-            this.groupBox2.TabIndex = 344;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ekler:";
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.DtgList.AutoGenerateContextFilters = true;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgList.DateWithTime = false;
+            this.DtgList.Location = new System.Drawing.Point(8, 16);
+            this.DtgList.MultiSelect = false;
+            this.DtgList.Name = "DtgList";
+            this.DtgList.ReadOnly = true;
+            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DtgList.Size = new System.Drawing.Size(1467, 503);
+            this.DtgList.TabIndex = 321;
+            this.DtgList.TimeFilter = false;
+            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
+            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
-            // webBrowser1
+            // tabPage2
             // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(680, 151);
-            this.webBrowser1.TabIndex = 0;
+            this.tabPage2.Controls.Add(this.groupBox1);
+            this.tabPage2.Controls.Add(this.label1);
+            this.tabPage2.Controls.Add(this.TxtTopTamamlanan);
+            this.tabPage2.Controls.Add(this.DtgListTamamlananlar);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1483, 747);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "TAMAMLANANLAR";
+            this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
@@ -241,6 +243,8 @@ namespace UserInterface.IdariIsler
             this.DtgListTamamlananlar.Size = new System.Drawing.Size(1467, 503);
             this.DtgListTamamlananlar.TabIndex = 345;
             this.DtgListTamamlananlar.TimeFilter = false;
+            this.DtgListTamamlananlar.SortStringChanged += new System.EventHandler(this.DtgListTamamlananlar_SortStringChanged);
+            this.DtgListTamamlananlar.FilterStringChanged += new System.EventHandler(this.DtgListTamamlananlar_FilterStringChanged);
             this.DtgListTamamlananlar.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListTamamlananlar_CellMouseClick);
             // 
             // FrmAracTalepIzleme
@@ -257,10 +261,10 @@ namespace UserInterface.IdariIsler
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
-            this.groupBox2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgListTamamlananlar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();

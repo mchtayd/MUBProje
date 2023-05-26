@@ -148,7 +148,17 @@ namespace UserInterface.IdariIsler
             }
             MessageBox.Show("Tamamlandı");
 
+        }
 
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgList.FilterString;
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgList.SortString;
         }
 
         void GorevAtama()
@@ -172,6 +182,28 @@ namespace UserInterface.IdariIsler
 
             GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "İZİN", "İZİN ONAYI", sure, "00:02:00".ConOnlyTime());
             gorevAtamaPersonelManager.Update(gorevAtama, "İZİN TALEBİ ONAYLANDI");
+        }
+        void GorevAtamaRed()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "İZİN");
+
+            birOncekiTarih = gorevAtamaPersonel.Tarih;
+
+            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+            gun = sonuc.Days.ConInt();
+            saat = sonuc.Hours.ConInt();
+            if (sonuc.Hours < 1)
+            {
+                saat = 0;
+            }
+
+            dakika = sonuc.Seconds.ConInt() % 60;
+
+            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "İZİN", "İZİN ONAYI", sure, "00:02:00".ConOnlyTime());
+            gorevAtamaPersonelManager.Update(gorevAtama, "İZİN TALEBİ REDDEDİLDİ");
         }
 
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

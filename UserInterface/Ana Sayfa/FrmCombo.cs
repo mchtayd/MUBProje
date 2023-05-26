@@ -240,11 +240,17 @@ namespace UserInterface.Ana_Sayfa
                 {
                     form.Birim();
                 }
+                var form2 = (FrmMalzemeGuncelle)Application.OpenForms["FrmMalzemeGuncelle"];
+                if (form2 != null)
+                {
+                    form2.Birim();
+                }
             }
             if (comboAd == "ONARIM_YERI")
             {
                 var form = (FrmMalzemeKayit)Application.OpenForms["FrmMalzemeKayit"];
                 var form2 = (FrmArizaAcmaCalisma)Application.OpenForms["FrmArizaAcmaCalisma"];
+                var form3 = (FrmMalzemeGuncelle)Application.OpenForms["FrmMalzemeGuncelle"];
 
                 if (form != null)
                 {
@@ -255,6 +261,10 @@ namespace UserInterface.Ana_Sayfa
                 {
                     form2.Yenilenecekler();
                 }
+                if (form3 != null)
+                {
+                    form3.OnarimYeri();
+                }
             }
             if (comboAd == "MALZEME_TURU")
             {
@@ -262,6 +272,11 @@ namespace UserInterface.Ana_Sayfa
                 if (form != null)
                 {
                     form.MalzemeTuru();
+                }
+                var form2 = (FrmMalzemeGuncelle)Application.OpenForms["FrmMalzemeGuncelle"];
+                if (form2 != null)
+                {
+                    form2.MalzemeTuru();
                 }
             }
             if (comboAd == "ABONE_TURU")
@@ -302,6 +317,11 @@ namespace UserInterface.Ana_Sayfa
                 if (form != null)
                 {
                     form.TedarikTuru();
+                }
+                var form2 = (FrmMalzemeGuncelle)Application.OpenForms["FrmMalzemeGuncelle"];
+                if (form2 != null)
+                {
+                    form2.TedarikTuru();
                 }
             }
             if (comboAd == "NESNE_TANIMI")

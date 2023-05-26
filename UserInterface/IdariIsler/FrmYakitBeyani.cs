@@ -407,5 +407,15 @@ namespace UserInterface.IdariIsler
                 Plakalar();
             }
         }
+
+        private void TxtToplamFiyat_TextChanged(object sender, EventArgs e)
+        {
+            LitreFiyatHesapla();
+        }
+        void LitreFiyatHesapla()
+        {
+            double litreFiyat = TxtToplamFiyat.Text.ConDouble() / TxtLitre.Text.ConDouble();
+            TxtLitreFiyati.Text = litreFiyat.ToString();
+        }
     }
 }

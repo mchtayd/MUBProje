@@ -102,7 +102,7 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["Id"].Visible = false;
             DtgList.Columns["IsAkisNo"].Visible = false;
             DtgList.Columns["AbfFormNo"].HeaderText = "ABF FORM NO";
-            DtgList.Columns["Proje"].HeaderText = "PROJE";
+            DtgList.Columns["Proje"].HeaderText = "GARANTİ BİLGİSİ";
             DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
             DtgList.Columns["TelefonNo"].Visible = false;
             DtgList.Columns["BolukKomutani"].Visible = false;
@@ -158,6 +158,7 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["MalzemeDurum"].HeaderText = "MALZEME DURUM";
             DtgList.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
             DtgList.Columns["OkfBildirimNo"].HeaderText = "OKF BİLDİRİM NO";
+            DtgList.Columns["ProjeTanimi"].HeaderText = "PROJE TANIMI";
 
 
             DtgList.Columns["BildirimTuru"].DisplayIndex = 0;
@@ -166,34 +167,35 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["BildirimNo"].DisplayIndex = 3;
             DtgList.Columns["OkfBildirimNo"].DisplayIndex = 4;
             DtgList.Columns["Kategori"].DisplayIndex = 5;
-            DtgList.Columns["BolgeAdi"].DisplayIndex = 6;
-            DtgList.Columns["Il"].DisplayIndex = 7;
-            DtgList.Columns["Ilce"].DisplayIndex = 8;
-            DtgList.Columns["IslemAdimi"].DisplayIndex = 9;
-            DtgList.Columns["Proje"].DisplayIndex = 10;
-            DtgList.Columns["StokNo"].DisplayIndex = 11;
-            DtgList.Columns["Tanim"].DisplayIndex = 12;
-            DtgList.Columns["SeriNo"].DisplayIndex = 13;
-            DtgList.Columns["GorevAtanacakPersonel"].DisplayIndex = 14;
-            DtgList.Columns["TespitEdilenAriza"].DisplayIndex = 15;
-            DtgList.Columns["GarantiDurumu"].DisplayIndex = 16;
-            DtgList.Columns["IlgiliFirma"].DisplayIndex = 17;
-            DtgList.Columns["BildirimMailTarihi"].DisplayIndex = 18;
-            DtgList.Columns["BildirilenAriza"].DisplayIndex = 19;
-            DtgList.Columns["ArizaiBildirenPersonel"].DisplayIndex = 20;
-            DtgList.Columns["AbRutbesi"].DisplayIndex = 21;
-            DtgList.Columns["AbGorevi"].DisplayIndex = 22;
-            DtgList.Columns["AbTelefon"].DisplayIndex = 23;
-            DtgList.Columns["AbTarihSaat"].DisplayIndex = 24;
-            DtgList.Columns["ABAlanPersonel"].DisplayIndex = 25;
-            DtgList.Columns["BildirimKanali"].DisplayIndex = 26;
-            DtgList.Columns["LojistikSorumluPersonel"].DisplayIndex = 27;
-            DtgList.Columns["LojRutbesi"].DisplayIndex = 28;
-            DtgList.Columns["LojGorevi"].DisplayIndex = 29;
-            DtgList.Columns["LojTarihi"].DisplayIndex = 30;
-            DtgList.Columns["AcmaOnayiVeren"].DisplayIndex = 31;
-            DtgList.Columns["PypNo"].DisplayIndex = 32;
-            DtgList.Columns["MalzemeDurum"].DisplayIndex = 33;
+            DtgList.Columns["ProjeTanimi"].DisplayIndex = 6;
+            DtgList.Columns["BolgeAdi"].DisplayIndex = 7;
+            DtgList.Columns["Il"].DisplayIndex = 8;
+            DtgList.Columns["Ilce"].DisplayIndex = 9;
+            DtgList.Columns["IslemAdimi"].DisplayIndex = 10;
+            DtgList.Columns["Proje"].DisplayIndex = 11;
+            DtgList.Columns["StokNo"].DisplayIndex = 12;
+            DtgList.Columns["Tanim"].DisplayIndex = 13;
+            DtgList.Columns["SeriNo"].DisplayIndex = 14;
+            DtgList.Columns["GorevAtanacakPersonel"].DisplayIndex = 15;
+            DtgList.Columns["TespitEdilenAriza"].DisplayIndex = 16;
+            DtgList.Columns["GarantiDurumu"].DisplayIndex = 17;
+            DtgList.Columns["IlgiliFirma"].DisplayIndex = 18;
+            DtgList.Columns["BildirimMailTarihi"].DisplayIndex = 19;
+            DtgList.Columns["BildirilenAriza"].DisplayIndex = 20;
+            DtgList.Columns["ArizaiBildirenPersonel"].DisplayIndex = 21;
+            DtgList.Columns["AbRutbesi"].DisplayIndex = 22;
+            DtgList.Columns["AbGorevi"].DisplayIndex = 23;
+            DtgList.Columns["AbTelefon"].DisplayIndex = 24;
+            DtgList.Columns["AbTarihSaat"].DisplayIndex = 25;
+            DtgList.Columns["ABAlanPersonel"].DisplayIndex = 26;
+            DtgList.Columns["BildirimKanali"].DisplayIndex = 27;
+            DtgList.Columns["LojistikSorumluPersonel"].DisplayIndex = 28;
+            DtgList.Columns["LojRutbesi"].DisplayIndex = 29;
+            DtgList.Columns["LojGorevi"].DisplayIndex = 30;
+            DtgList.Columns["LojTarihi"].DisplayIndex = 31;
+            DtgList.Columns["AcmaOnayiVeren"].DisplayIndex = 32;
+            DtgList.Columns["PypNo"].DisplayIndex = 33;
+            DtgList.Columns["MalzemeDurum"].DisplayIndex = 34;
 
         }
         void IslemAdimlariSureleri()
@@ -500,7 +502,7 @@ namespace UserInterface.BakımOnarım
                 DtgList.Columns["Id"].Visible = false;
                 DtgList.Columns["IsAkisNo"].Visible = false;
                 DtgList.Columns["AbfFormNo"].HeaderText = "ABF FORM NO";
-                DtgList.Columns["Proje"].HeaderText = "PROJE";
+                DtgList.Columns["Proje"].HeaderText = "GARANTİ BİLGİSİ";
                 DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
                 DtgList.Columns["TelefonNo"].Visible = false;
                 DtgList.Columns["BolukKomutani"].Visible = false;
@@ -556,6 +558,7 @@ namespace UserInterface.BakımOnarım
                 DtgList.Columns["MalzemeDurum"].HeaderText = "MALZEME DURUM";
                 DtgList.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
                 DtgList.Columns["OkfBildirimNo"].HeaderText = "OKF BİLDİRİM NO";
+                DtgList.Columns["ProjeTanimi"].HeaderText = "PROJE TANIMI";
 
 
                 DtgList.Columns["BildirimTuru"].DisplayIndex = 0;
@@ -564,34 +567,35 @@ namespace UserInterface.BakımOnarım
                 DtgList.Columns["BildirimNo"].DisplayIndex = 3;
                 DtgList.Columns["OkfBildirimNo"].DisplayIndex = 4;
                 DtgList.Columns["Kategori"].DisplayIndex = 5;
-                DtgList.Columns["BolgeAdi"].DisplayIndex = 6;
-                DtgList.Columns["Il"].DisplayIndex = 7;
-                DtgList.Columns["Ilce"].DisplayIndex = 8;
-                DtgList.Columns["IslemAdimi"].DisplayIndex = 9;
-                DtgList.Columns["Proje"].DisplayIndex = 10;
-                DtgList.Columns["StokNo"].DisplayIndex = 11;
-                DtgList.Columns["Tanim"].DisplayIndex = 12;
-                DtgList.Columns["SeriNo"].DisplayIndex = 13;
-                DtgList.Columns["GorevAtanacakPersonel"].DisplayIndex = 14;
-                DtgList.Columns["TespitEdilenAriza"].DisplayIndex = 15;
-                DtgList.Columns["GarantiDurumu"].DisplayIndex = 16;
-                DtgList.Columns["IlgiliFirma"].DisplayIndex = 17;
-                DtgList.Columns["BildirimMailTarihi"].DisplayIndex = 18;
-                DtgList.Columns["BildirilenAriza"].DisplayIndex = 19;
-                DtgList.Columns["ArizaiBildirenPersonel"].DisplayIndex = 20;
-                DtgList.Columns["AbRutbesi"].DisplayIndex = 21;
-                DtgList.Columns["AbGorevi"].DisplayIndex = 22;
-                DtgList.Columns["AbTelefon"].DisplayIndex = 23;
-                DtgList.Columns["AbTarihSaat"].DisplayIndex = 24;
-                DtgList.Columns["ABAlanPersonel"].DisplayIndex = 25;
-                DtgList.Columns["BildirimKanali"].DisplayIndex = 26;
-                DtgList.Columns["LojistikSorumluPersonel"].DisplayIndex = 27;
-                DtgList.Columns["LojRutbesi"].DisplayIndex = 28;
-                DtgList.Columns["LojGorevi"].DisplayIndex = 29;
-                DtgList.Columns["LojTarihi"].DisplayIndex = 30;
-                DtgList.Columns["AcmaOnayiVeren"].DisplayIndex = 31;
-                DtgList.Columns["PypNo"].DisplayIndex = 32;
-                DtgList.Columns["MalzemeDurum"].DisplayIndex = 33;
+                DtgList.Columns["ProjeTanimi"].DisplayIndex = 6;
+                DtgList.Columns["BolgeAdi"].DisplayIndex = 7;
+                DtgList.Columns["Il"].DisplayIndex = 8;
+                DtgList.Columns["Ilce"].DisplayIndex = 9;
+                DtgList.Columns["IslemAdimi"].DisplayIndex = 10;
+                DtgList.Columns["Proje"].DisplayIndex = 11;
+                DtgList.Columns["StokNo"].DisplayIndex = 12;
+                DtgList.Columns["Tanim"].DisplayIndex = 13;
+                DtgList.Columns["SeriNo"].DisplayIndex = 14;
+                DtgList.Columns["GorevAtanacakPersonel"].DisplayIndex = 15;
+                DtgList.Columns["TespitEdilenAriza"].DisplayIndex = 16;
+                DtgList.Columns["GarantiDurumu"].DisplayIndex = 17;
+                DtgList.Columns["IlgiliFirma"].DisplayIndex = 18;
+                DtgList.Columns["BildirimMailTarihi"].DisplayIndex = 19;
+                DtgList.Columns["BildirilenAriza"].DisplayIndex = 20;
+                DtgList.Columns["ArizaiBildirenPersonel"].DisplayIndex = 21;
+                DtgList.Columns["AbRutbesi"].DisplayIndex = 22;
+                DtgList.Columns["AbGorevi"].DisplayIndex = 23;
+                DtgList.Columns["AbTelefon"].DisplayIndex = 24;
+                DtgList.Columns["AbTarihSaat"].DisplayIndex = 25;
+                DtgList.Columns["ABAlanPersonel"].DisplayIndex = 26;
+                DtgList.Columns["BildirimKanali"].DisplayIndex = 27;
+                DtgList.Columns["LojistikSorumluPersonel"].DisplayIndex = 28;
+                DtgList.Columns["LojRutbesi"].DisplayIndex = 29;
+                DtgList.Columns["LojGorevi"].DisplayIndex = 30;
+                DtgList.Columns["LojTarihi"].DisplayIndex = 31;
+                DtgList.Columns["AcmaOnayiVeren"].DisplayIndex = 32;
+                DtgList.Columns["PypNo"].DisplayIndex = 33;
+                DtgList.Columns["MalzemeDurum"].DisplayIndex = 34;
 
             }
             else

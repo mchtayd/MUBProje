@@ -523,7 +523,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 if (takipdurumu != "LOT NO")
                 {
-
                     rezerveId = depoMiktar.RezerveId;
                     return "REZERVE HATASI";
 

@@ -72,7 +72,6 @@ namespace UserInterface.Ana_Sayfa
                 return;
             }
 
-
             ButceKayit[] butceKayits2 = new ButceKayit[butceKayits.Count];
 
             if (CmbButceDonem.Text == "TÜM YIL")
@@ -611,6 +610,12 @@ namespace UserInterface.Ana_Sayfa
         }
 
         public SeriesCollection SeriesCollection { get; set; }
+
+        private void tabPage1_Click(object sender, EventArgs e)
+        {
+
+        }
+
         public string[] Labels { get; set; }
         public Func<double, string> Values { get; set; }
 

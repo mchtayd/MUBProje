@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>630</ApplicationRevision>
+    <ApplicationRevision>645</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -149,6 +149,18 @@
     <Compile Include="Ana Sayfa\ArsivDosyaFihrist.Designer.cs">
       <DependentUpon>ArsivDosyaFihrist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmAcikArizaGrafikleri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAcikArizaGrafikleri.Designer.cs">
+      <DependentUpon>FrmAcikArizaGrafikleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAltYukIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAltYukIzleme.Designer.cs">
+      <DependentUpon>FrmAltYukIzleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmAtolyeRapor.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -250,6 +262,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmIzlemeAmbar.Designer.cs">
       <DependentUpon>FrmIzlemeAmbar.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIzlemeSure.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIzlemeSure.Designer.cs">
+      <DependentUpon>FrmIzlemeSure.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmMalzemeTaleplerim.cs">
       <SubType>Form</SubType>
@@ -581,6 +599,12 @@
     <Compile Include="BakımOnarım\FrmOkfIzleme.Designer.cs">
       <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="BakımOnarım\FrmOkfKontrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmOkfKontrol.Designer.cs">
+      <DependentUpon>FrmOkfKontrol.cs</DependentUpon>
+    </Compile>
     <Compile Include="BakımOnarım\FrmOkfOlustrma.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -748,6 +772,12 @@
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleri.Designer.cs">
       <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoyaIadeBolge.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoyaIadeBolge.Designer.cs">
+      <DependentUpon>FrmDepoyaIadeBolge.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmGirisCikis.cs">
       <SubType>Form</SubType>
@@ -1468,6 +1498,12 @@
     <EmbeddedResource Include="Ana Sayfa\ArsivDosyaFihrist.resx">
       <DependentUpon>ArsivDosyaFihrist.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmAcikArizaGrafikleri.resx">
+      <DependentUpon>FrmAcikArizaGrafikleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmAltYukIzleme.resx">
+      <DependentUpon>FrmAltYukIzleme.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmAtolyeRapor.resx">
       <DependentUpon>FrmAtolyeRapor.cs</DependentUpon>
     </EmbeddedResource>
@@ -1518,6 +1554,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmIzlemeAmbar.resx">
       <DependentUpon>FrmIzlemeAmbar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIzlemeSure.resx">
+      <DependentUpon>FrmIzlemeSure.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmMalzemeTaleplerim.resx">
       <DependentUpon>FrmMalzemeTaleplerim.cs</DependentUpon>
@@ -1684,6 +1723,9 @@
     <EmbeddedResource Include="BakımOnarım\FrmOkfIzleme.resx">
       <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmOkfKontrol.resx">
+      <DependentUpon>FrmOkfKontrol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmOkfOlustrma.resx">
       <DependentUpon>FrmOkfOlustrma.cs</DependentUpon>
     </EmbeddedResource>
@@ -1767,6 +1809,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoHareketleri.resx">
       <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoyaIadeBolge.resx">
+      <DependentUpon>FrmDepoyaIadeBolge.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmGirisCikis.resx">
       <DependentUpon>FrmGirisCikis.cs</DependentUpon>

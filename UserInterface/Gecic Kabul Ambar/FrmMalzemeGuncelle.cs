@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.Gecic_Kabul_Ambar
@@ -28,9 +29,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
         TeklifFirmalarManager teklifFirmalarManager;
         PersonelKayitManager personelKayitManager;
         MalzemeKayitManager malzemeKayitManager;
+        UstTakimManager ustTakimManager;
         public int id = 0;
         bool start = true;
-        string yeniStok, dosyayolu, fotoyolu, kaynakdosyaismi1, yeniad, eskiStok = "";
+        string yeniStok, dosyayolu, fotoyolu, kaynakdosyaismi1, yeniad, eskiStok, comboAd = "";
         public object[] infos;
         public FrmMalzemeGuncelle()
         {
@@ -40,6 +42,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             teklifFirmalarManager = TeklifFirmalarManager.GetInstance();
             personelKayitManager = PersonelKayitManager.GetInstance();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            ustTakimManager = UstTakimManager.GetInstance();
         }
 
         private void FrmMalzemeGuncelle_Load(object sender, EventArgs e)
@@ -98,19 +101,20 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbAdSoyad.DisplayMember = "Adsoyad";
             CmbAdSoyad.SelectedValue = -1;
         }
-        public void CmbStokNoUst2()
-        {
-            CmbMalKulUst.DataSource = malzemeKayitManager.UstTakimGetList();
-            CmbMalKulUst.ValueMember = "Id";
-            CmbMalKulUst.DisplayMember = "Tanim";
-            CmbMalKulUst.SelectedValue = 0;
-        }
+        
         public void CmbStokNoUst()
         {
-            CmbSistemStokNo.DataSource = malzemeKayitManager.UstTakimGetList();
+            CmbMalKulUst.DataSource = ustTakimManager.GetList();
+            CmbMalKulUst.ValueMember = "Id";
+            CmbMalKulUst.DisplayMember = "Tanim";
+            CmbMalKulUst.SelectedValue = -1;
+        }
+        public void CmbStokNoUst2()
+        {
+            CmbSistemStokNo.DataSource = ustTakimManager.GetList();
             CmbSistemStokNo.ValueMember = "Id";
-            CmbSistemStokNo.DisplayMember = "Stokno";
-            CmbSistemStokNo.SelectedValue = 0;
+            CmbSistemStokNo.DisplayMember = "StokNo";
+            CmbSistemStokNo.SelectedValue = -1;
         }
 
         void MalzemeFill()
@@ -141,8 +145,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             string dosyaYolu = malzeme.DosyaYolu;
 
             string fileName = "";
-
+            
             DirectoryInfo di = new DirectoryInfo(dosyaYolu);
+            
             foreach (FileInfo fi in di.GetFiles())
             {
                 if (fi.Name != "." && fi.Name != ".." && fi.Name != "Thumbs.db")
@@ -173,13 +178,57 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
             id = CmbMalKulUst.SelectedValue.ConInt();
-            MalzemeKayit personelKayit = malzemeKayitManager.Get(id);
-            if (personelKayit == null)
+            UstTakim ustTakim = ustTakimManager.Get(id);
+            if (ustTakim == null)
             {
-                CmbSistemStokNo.Text = "";
+                CmbSistemStokNo.SelectedIndex = -1;
                 return;
             }
-            CmbSistemStokNo.Text = personelKayit.Stokno;
+            CmbSistemStokNo.Text = ustTakim.StokNo;
+        }
+
+        private void BtnTedarilciFirmaEkle_Click(object sender, EventArgs e)
+        {
+            FrmTedarikciFirmaBilgileri frmTedarikciFirmaBilgileri = new FrmTedarikciFirmaBilgileri();
+            frmTedarikciFirmaBilgileri.ShowDialog();
+        }
+
+        private void BtnOnarimYeriEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "ONARIM_YERI";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void BtnTedarikTürüEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "TEDARIK_TURU";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void BtnMalzemeTuruEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "MALZEME_TURU";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void bTN_Click(object sender, EventArgs e)
+        {
+            FrmUstTakim frmUstTakimEkle = new FrmUstTakim();
+            frmUstTakimEkle.ShowDialog();
+        }
+
+        private void BtnBirimEkle_Click(object sender, EventArgs e)
+        {
+            comboAd = "BİRİM";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -217,18 +266,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void CmbSistemStokNo_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //if (start == true)
-            //{
-            //    return;
-            //}
-            //id = CmbSistemStokNo.SelectedValue.ConInt();
-            //MalzemeKayit malzemeKayit = malzemeKayitManager.Get(id);
-            //if (malzemeKayit == null)
-            //{
-            //    CmbMalKulUst.Text = "";
-            //    return;
-            //}
-            //CmbMalKulUst.Text = malzemeKayit.SistemTanim;
+            if (start == true)
+            {
+                return;
+            }
+            id = CmbSistemStokNo.SelectedValue.ConInt();
+            UstTakim ustTakim = ustTakimManager.Get(id);
+            if (ustTakim == null)
+            {
+                CmbMalKulUst.SelectedIndex= -1;
+                return;
+            }
+            CmbMalKulUst.Text = ustTakim.Tanim;
         }
 
 

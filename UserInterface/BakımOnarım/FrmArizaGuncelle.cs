@@ -35,7 +35,7 @@ namespace UserInterface.BakımOnarım
         int arizaId;
         public string abfNo;
         bool start = true;
-        string islemAdimiSorumlusu,dosyaYolu, siparisNo,ekipmanNo, malzemeDurum = "";
+        string islemAdimiSorumlusu,dosyaYolu, siparisNo,ekipmanNo, malzemeDurum, musteri = "";
         int durum, eksikEvrak;
         public FrmArizaGuncelle()
         {
@@ -155,13 +155,14 @@ namespace UserInterface.BakımOnarım
             CmbKategori.DisplayMember = "Baslik";
             CmbKategori.SelectedValue = 0;
         }
-
+        string projeTanim = "";
         private void CmbUsBolgesi_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start == true)
             {
                 return;
             }
+
             int id = CmbUsBolgesi.SelectedValue.ConInt();
             BolgeKayit bolge = bolgeKayitManager.Get(id);
 
@@ -169,7 +170,8 @@ namespace UserInterface.BakımOnarım
             TxtBirlikAdresi.Text = bolge.BirlikAdresi;
             LblIl.Text = bolge.Il;
             LblIlce.Text = bolge.Ilce;
-
+            projeTanim = bolge.ProjeSistem;
+            musteri = bolge.Musteri;
             BolgeGaranti bolgeGaranti = bolgeGarantiManager.Get(bolge.SiparisNo);
             if (bolgeGaranti != null)
             {
@@ -335,7 +337,7 @@ namespace UserInterface.BakımOnarım
 
             DateTime lojTarih = new DateTime(DtLojistikTarih.Value.Year, DtLojistikTarih.Value.Month, DtLojistikTarih.Value.Day, DtLojistikSaat.Value.Hour, DtLojistikSaat.Value.Minute, DtLojistikSaat.Value.Second);
 
-            ArizaKayit arizaKayit = new ArizaKayit(arizaId, LblIsAkisNo.Text.ConInt(), LblAbfNo.Text.ConInt(), LblPdl.Text, CmbUsBolgesi.Text, "", "", TxtBirlikAdresi.Text, LblIl.Text, LblIlce.Text, TxtBildirilenAriza.Text, TxtBirlikPersoneli.Text, TxtBirlikPerRutbesi.Text, TxtBirlikPerGorevi.Text, TxtABTelefon.Text, arizaBildirimTarihi, CmbArizaKayitYapan.Text, CmbBildirimKanali.Text, TxtArizaAciklama.Text, islemAdimiSorumlusu, LblIslemAdimi.Text, dosyaYolu, CmbGarantiDurumu.Text, TxtLojistikSorumlusu.Text, TxtLojistikSorRutbesi.Text, TxtLojistikSorGorevi.Text, lojTarih.ToString("g"), TxtTespitEdilenAriza.Text, CmbArizaKayitYapan.Text, "", TxtBildirimNo.Text, "", DtgMailTarihi.Value.ToString("d"), siparisNo, LbStokNo.Text, CmbParcaNo.Text, TxtSeriNo.Text, CmbKategori.Text, CmbIlgiliFirma.Text, CmbBildirimTuru.Text, CmbPypNo.Text, TxtSorumluPersonel.Text, CmbSiparisTuru.Text, CmbIslemTuru.Text, TxtHesaplama.Text, durum, TxtArizaOnarimNotu.Text, CmbTeslimEden.Text, LblTeslimAlanPersonel.Text, DtTeslimTarihi.Value, CmbNesneTanimi.Text, CmbHasarKodu.Text, CmbNedenKodu.Text, eksikEvrak, ekipmanNo, malzemeDurum, "", TxtOkfBildirimNo.Text);
+            ArizaKayit arizaKayit = new ArizaKayit(arizaId, LblIsAkisNo.Text.ConInt(), LblAbfNo.Text.ConInt(), LblPdl.Text, CmbUsBolgesi.Text, "", "", TxtBirlikAdresi.Text, LblIl.Text, LblIlce.Text, TxtBildirilenAriza.Text, TxtBirlikPersoneli.Text, TxtBirlikPerRutbesi.Text, TxtBirlikPerGorevi.Text, TxtABTelefon.Text, arizaBildirimTarihi, CmbArizaKayitYapan.Text, CmbBildirimKanali.Text, TxtArizaAciklama.Text, islemAdimiSorumlusu, LblIslemAdimi.Text, dosyaYolu, CmbGarantiDurumu.Text, TxtLojistikSorumlusu.Text, TxtLojistikSorRutbesi.Text, TxtLojistikSorGorevi.Text, lojTarih.ToString("g"), TxtTespitEdilenAriza.Text, CmbArizaKayitYapan.Text, "", TxtBildirimNo.Text, "", DtgMailTarihi.Value.ToString("d"), siparisNo, LbStokNo.Text, CmbParcaNo.Text, TxtSeriNo.Text, CmbKategori.Text, CmbIlgiliFirma.Text, CmbBildirimTuru.Text, CmbPypNo.Text, TxtSorumluPersonel.Text, CmbSiparisTuru.Text, CmbIslemTuru.Text, TxtHesaplama.Text, durum, TxtArizaOnarimNotu.Text, CmbTeslimEden.Text, LblTeslimAlanPersonel.Text, DtTeslimTarihi.Value, CmbNesneTanimi.Text, CmbHasarKodu.Text, CmbNedenKodu.Text, eksikEvrak, ekipmanNo, malzemeDurum, "", TxtOkfBildirimNo.Text, projeTanim, musteri);
 
             string mesaj = arizaKayitManager.Update(arizaKayit);
 

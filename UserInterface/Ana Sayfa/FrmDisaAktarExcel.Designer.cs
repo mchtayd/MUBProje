@@ -30,7 +30,7 @@ namespace UserInterface.Ana_Sayfa
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDisaAktarExcel));
             this.label1 = new System.Windows.Forms.Label();
             this.CmbTablo = new System.Windows.Forms.ComboBox();
@@ -65,7 +65,9 @@ namespace UserInterface.Ana_Sayfa
             this.CmbTablo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbTablo.FormattingEnabled = true;
             this.CmbTablo.Items.AddRange(new object[] {
-            "TAMAMLANAN SATLAR"});
+            "TAMAMLANAN SATLAR",
+            "DEPO STOK",
+            "DEPO KAYITLI MALZEMELER"});
             this.CmbTablo.Location = new System.Drawing.Point(120, 32);
             this.CmbTablo.Name = "CmbTablo";
             this.CmbTablo.Size = new System.Drawing.Size(282, 21);
@@ -86,8 +88,8 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;

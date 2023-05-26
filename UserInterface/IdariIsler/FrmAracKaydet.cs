@@ -546,7 +546,7 @@ namespace UserInterface.IdariIsler
             TxtRengiC.Text = arac.Rengi;
             DtProjeCikisTarihiC.Text = arac.ProjeCikisTarihi;
             TxtProjeyeTahsisKmC.Text = arac.KmGiris.ToString();
-
+            dosyaYoluGun = arac.DosyaYolu;
             webBrowser3.Navigate(dosyaYoluC);
 
         }

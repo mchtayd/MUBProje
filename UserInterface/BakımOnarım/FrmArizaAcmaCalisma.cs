@@ -2837,6 +2837,7 @@ namespace UserInterface.BakımOnarım
             }
             return true;
         }
+
         void CreateFile()
         {
             IsAkisNoSiparisOlustur();
@@ -2873,8 +2874,8 @@ namespace UserInterface.BakımOnarım
 
             GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM", CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
             gorevAtamaPersonelManager.Add(gorevAtamaPersonel4);
-
         }
+
         string GorevAtamaSiparisOlustur()
         {
             ArizaKayit arizaKayit = arizaKayitManager.Get(abf);

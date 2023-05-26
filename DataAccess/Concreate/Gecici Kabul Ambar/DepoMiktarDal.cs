@@ -259,6 +259,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return new List<DepoMiktar>();
             }
         }
+
         public List<DepoMiktar> StokKontrol(string stokNo)
         {
             try

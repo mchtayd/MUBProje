@@ -50,11 +50,30 @@ namespace UserInterface.Ana_Sayfa
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label41 = new System.Windows.Forms.Label();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.LblDuyuru = new System.Windows.Forms.Label();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.timer2 = new System.Windows.Forms.Timer(this.components);
+            this.label2 = new System.Windows.Forms.Label();
+            this.LblVersion = new System.Windows.Forms.Label();
+            this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel6.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -62,7 +81,7 @@ namespace UserInterface.Ana_Sayfa
             this.panel1.BackColor = System.Drawing.Color.Tomato;
             this.panel1.Controls.Add(this.LblAcikArizaGorevleri);
             this.panel1.Controls.Add(this.label1);
-            this.panel1.Location = new System.Drawing.Point(482, 50);
+            this.panel1.Location = new System.Drawing.Point(858, 122);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 0;
@@ -93,7 +112,7 @@ namespace UserInterface.Ana_Sayfa
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.LblIsAkisGorevleri);
             this.panel2.Controls.Add(this.label6);
-            this.panel2.Location = new System.Drawing.Point(894, 50);
+            this.panel2.Location = new System.Drawing.Point(446, 122);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 1;
@@ -124,7 +143,7 @@ namespace UserInterface.Ana_Sayfa
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
             this.panel3.Controls.Add(this.LbYoneticiGorevleri);
             this.panel3.Controls.Add(this.label4);
-            this.panel3.Location = new System.Drawing.Point(688, 50);
+            this.panel3.Location = new System.Drawing.Point(652, 122);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 100);
             this.panel3.TabIndex = 2;
@@ -154,12 +173,11 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.groupBox1.Controls.Add(this.WebDuyuru);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(399, 168);
+            this.groupBox1.Location = new System.Drawing.Point(39, 314);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(787, 690);
+            this.groupBox1.Size = new System.Drawing.Size(1433, 544);
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "GENEL DUYURULAR";
             // 
             // WebDuyuru
             // 
@@ -167,14 +185,14 @@ namespace UserInterface.Ana_Sayfa
             this.WebDuyuru.Location = new System.Drawing.Point(3, 16);
             this.WebDuyuru.MinimumSize = new System.Drawing.Size(20, 20);
             this.WebDuyuru.Name = "WebDuyuru";
-            this.WebDuyuru.Size = new System.Drawing.Size(781, 671);
+            this.WebDuyuru.Size = new System.Drawing.Size(1427, 525);
             this.WebDuyuru.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.WebIsler);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox2.Location = new System.Drawing.Point(1219, 627);
+            this.groupBox2.Location = new System.Drawing.Point(1281, 804);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(182, 42);
             this.groupBox2.TabIndex = 5;
@@ -208,7 +226,7 @@ namespace UserInterface.Ana_Sayfa
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(132, 216);
+            this.button1.Location = new System.Drawing.Point(1298, 694);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(212, 49);
             this.button1.TabIndex = 47;
@@ -227,7 +245,7 @@ namespace UserInterface.Ana_Sayfa
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(129, 298);
+            this.label7.Location = new System.Drawing.Point(1295, 776);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 48;
@@ -236,14 +254,149 @@ namespace UserInterface.Ana_Sayfa
             // 
             // timer1
             // 
-            this.timer1.Interval = 300000;
+            this.timer1.Interval = 30000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(39, 59);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(215, 205);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 369;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
+            this.pictureBox3.Location = new System.Drawing.Point(260, 59);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(152, 82);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 370;
+            this.pictureBox3.TabStop = false;
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(260, 147);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(152, 75);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 371;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel5.Location = new System.Drawing.Point(1064, 122);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(200, 100);
+            this.panel5.TabIndex = 6;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
+            this.panel6.Controls.Add(this.LblVersion);
+            this.panel6.Controls.Add(this.label2);
+            this.panel6.Location = new System.Drawing.Point(1270, 122);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(200, 100);
+            this.panel6.TabIndex = 6;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.label41.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label41.ForeColor = System.Drawing.Color.Black;
+            this.label41.Location = new System.Drawing.Point(440, 59);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(1030, 45);
+            this.label41.TabIndex = 373;
+            this.label41.Text = "****MÜB Proje Direktörlüğü/Veri Takip Sistemi 2021-2023****";
+            // 
+            // panel7
+            // 
+            this.panel7.BackColor = System.Drawing.Color.CornflowerBlue;
+            this.panel7.Location = new System.Drawing.Point(260, 237);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(1212, 27);
+            this.panel7.TabIndex = 374;
+            // 
+            // panel8
+            // 
+            this.panel8.BackColor = System.Drawing.Color.Red;
+            this.panel8.Controls.Add(this.LblDuyuru);
+            this.panel8.Location = new System.Drawing.Point(42, 281);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(1430, 43);
+            this.panel8.TabIndex = 375;
+            // 
+            // LblDuyuru
+            // 
+            this.LblDuyuru.AutoSize = true;
+            this.LblDuyuru.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblDuyuru.Location = new System.Drawing.Point(429, 7);
+            this.LblDuyuru.Name = "LblDuyuru";
+            this.LblDuyuru.Size = new System.Drawing.Size(635, 31);
+            this.LblDuyuru.TabIndex = 6;
+            this.LblDuyuru.Text = "**************GENEL DUYURULAR**************";
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.Red;
+            this.panel9.Location = new System.Drawing.Point(42, 862);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(1430, 20);
+            this.panel9.TabIndex = 376;
+            // 
+            // timer2
+            // 
+            this.timer2.Interval = 1000;
+            this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(62, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Versiyon";
+            // 
+            // LblVersion
+            // 
+            this.LblVersion.AutoSize = true;
+            this.LblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblVersion.ForeColor = System.Drawing.Color.Red;
+            this.LblVersion.Location = new System.Drawing.Point(61, 55);
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(77, 24);
+            this.LblVersion.TabIndex = 4;
+            this.LblVersion.Text = "Güncel";
+            // 
+            // timer3
+            // 
+            this.timer3.Interval = 1000;
+            this.timer3.Tick += new System.EventHandler(this.timer3_Tick);
             // 
             // FrmBildirimler
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1522, 870);
+            this.ClientSize = new System.Drawing.Size(1522, 910);
+            this.Controls.Add(this.panel9);
+            this.Controls.Add(this.panel8);
+            this.Controls.Add(this.panel7);
+            this.Controls.Add(this.label41);
+            this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pictureBox3);
+            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel4);
@@ -264,6 +417,13 @@ namespace UserInterface.Ana_Sayfa
             this.panel3.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -290,5 +450,19 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.WebBrowser WebDuyuru;
         private System.Windows.Forms.WebBrowser WebIsler;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pictureBox3;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel5;
+        private System.Windows.Forms.Panel panel6;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label LblDuyuru;
+        private System.Windows.Forms.Panel panel9;
+        private System.Windows.Forms.Timer timer2;
+        private System.Windows.Forms.Label LblVersion;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer3;
     }
 }

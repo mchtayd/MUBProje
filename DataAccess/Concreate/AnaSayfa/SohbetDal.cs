@@ -100,7 +100,7 @@ namespace DataAccess.Concreate.AnaSayfa
                         dataReader["GONDERME_ZAMAN"].ConDate(),
                         dataReader["ALMA_ZAMAN"].ConDate(),
                         dataReader["MESAJ"].ToString(),
-                        "AKTİF"));
+                        dataReader["GORULME_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return sohbets;

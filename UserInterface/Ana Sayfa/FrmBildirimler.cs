@@ -1,20 +1,16 @@
-﻿using Business.Concreate;
+﻿using Business;
+using Business.Concreate;
 using Business.Concreate.AnaSayfa;
-using DataAccess.Concreate;
 using Entity;
 using Entity.AnaSayfa;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.IO;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using Tulpep.NotificationWindow;
 using UserInterface.STS;
+using Path = System.IO.Path;
 
 namespace UserInterface.Ana_Sayfa
 {
@@ -26,6 +22,7 @@ namespace UserInterface.Ana_Sayfa
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         GorevAtamaManager gorevAtamaManager;
         DuyuruManager duyuruManager;
+        VersionManager versionManager;
         
         List<GorevAtama> gorevAtamaListYonetici;
         List<GorevAtamaPersonel> arizaGorevAtamaPersonels;
@@ -36,6 +33,7 @@ namespace UserInterface.Ana_Sayfa
         List<Duyuru> duyurus;
 
         string dosyaYolu = @"Z:\DTS\info\ou\notification.txt";
+        public string version = "";
         public FrmBildirimler()
         {
             InitializeComponent();
@@ -44,13 +42,15 @@ namespace UserInterface.Ana_Sayfa
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             gorevAtamaManager = GorevAtamaManager.GetInstance();
             duyuruManager = DuyuruManager.GetInstance();
+            versionManager = VersionManager.GetInstance();
         }
 
         private void FrmBildirimler_Load(object sender, EventArgs e)
         {
             Gorevler();
             DuyuruEditList();
-
+            timer2.Start();
+            timer1.Start();
             //BildirimDosyasiCreate();
 
             // DosyaControl();
@@ -102,7 +102,7 @@ namespace UserInterface.Ana_Sayfa
             foreach (Duyuru item in duyurus)
             {
                 strB.Append("<center><table border='2'  style='background-color:azure;color:black;'>");
-                strB.Append("<td width='750px'><h4 style='color:darkred;height:15px;'>" + item.Konu + "</h4>");
+                strB.Append("<td width='1300px'><h4 style='color:darkred;height:15px;'>" + item.Konu + "</h4>");
 
                 strB.Append(item.DuyuruMesaj + "<br><br><span style='font-size=11px;'>" + item.DuyuruYapan.ToString() + "<br>" + 
                     "(" + item.BaslangicTarih.ToString("g") + ")" + "</span></td>");
@@ -162,7 +162,7 @@ namespace UserInterface.Ana_Sayfa
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            notifyIcon1.Icon = new System.Drawing.Icon(Path.GetFullPath("Bildirim.ico"));
+            notifyIcon1.Icon = new Icon(Path.GetFullPath("Bildirim.ico"));
             notifyIcon1.Text = "";
             notifyIcon1.Visible = true;
             notifyIcon1.BalloonTipTitle = "DTS";
@@ -347,7 +347,49 @@ namespace UserInterface.Ana_Sayfa
 
         private void timer1_Tick(object sender, EventArgs e)
         {
+            VersionBul();
+        }
+        void VersionBul()
+        {
+            List<VersionBilgi> versionBilgis = new List<VersionBilgi>();
+            versionBilgis = versionManager.GetList();
+            if (versionBilgis.Count == 0)
+            {
+                return;
+            }
+            string yeniversion = versionBilgis[0].VersionNo;
+            string eskiversion = version;
+            if (yeniversion != eskiversion)
+            {
+                LblVersion.Text = "Güncelle!";
+                timer3.Start();
+            }
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            if (LblDuyuru.Visible == false)
+            {
+                LblDuyuru.Visible = true;
+            }
+            else
+            {
+                LblDuyuru.Visible = false;
+            }
             
+        }
+
+        private void timer3_Tick(object sender, EventArgs e)
+        {
+            if (LblVersion.Visible == false)
+            {
+                LblVersion.Visible = true;
+            }
+            else
+            {
+                LblVersion.Visible = false;
+            }
+
         }
     }
 

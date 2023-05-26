@@ -186,11 +186,13 @@ namespace UserInterface.Ana_Sayfa
 
             benzersizId = DtgIsAkisGorev.CurrentRow.Cells["BenzersizId"].Value.ConInt();
             departman = DtgIsAkisGorev.CurrentRow.Cells["Departman"].Value.ToString();
+            int isAkis = DtgIsAkisGorev.CurrentRow.Cells["AbfNo"].Value.ConInt();
             string islemAdimi = DtgIsAkisGorev.CurrentRow.Cells["IslemAdimi"].Value.ToString();
             FrmGorevGor frmGorevGor = new FrmGorevGor();
             frmGorevGor.gorevAdi = islemAdimi;
             frmGorevGor.departman = departman;
             frmGorevGor.benzersizId = benzersizId;
+            frmGorevGor.isAkisNo = isAkis;
             frmGorevGor.ShowDialog();
         }
 

@@ -35,10 +35,11 @@ namespace UserInterface.Ana_Sayfa
         }
         void Mesajlar()
         {
-            sohbetsler = sohbetManager.GetListSohbetler(alan, infos[1].ToString());
-
+            sohbetsler = sohbetManager.GetListSohbetler(infos[1].ToString(), alan);
+            
             foreach (Sohbet item in sohbetsler)
             {
+                StringBuilder strB = new StringBuilder();
 
                 if (item.SohbetDurum != "GÖRÜLDÜ")
                 {
@@ -47,29 +48,27 @@ namespace UserInterface.Ana_Sayfa
 
                 if (item.Gonderen == infos[1].ToString())
                 {
-                    StringBuilder strB = new StringBuilder();
-
+                    string mesaj = item.Mesaj.ToString();
                     strB.Append("<center><table border='2' style='background-color:azure;color:black;'>");
-                    strB.Append("<td width='364px'>" + item.Mesaj + "<span style='font-size=11px;'>" + "<br><br>"
-                             + DateTime.Now.ToString("t") + " " + "✓✓" + "</span></td>");
+                    strB.Append("<td width='364px'>" + mesaj + "<span style='font-size=11px;'>" + "<br><br>"
+                             + item.GondermeZaman.ToString("g") + " " + "✓✓" + "</span></td>");
                     strB.Append("</table></center><br/>");
-
                     MesajBrowser.DocumentText += strB.ToString();
                 }
+
                 else
                 {
-                    StringBuilder strB = new StringBuilder();
-
+                    string mesaj = item.Mesaj.ToString();
                     strB.Append("<center><table border='2' style='background-color:Coral;color:black;'>");
-                    strB.Append("<td width='364px'>" + item.Mesaj + "<span style='font-size=11px;'>" + "<br><br>"
-                             + DateTime.Now.ToString("t") + " " + "✓✓" + "</span></td>");
+                    strB.Append("<td width='364px'>" + mesaj + "<span style='font-size=11px;'>" + "<br><br>"
+                             + item.GondermeZaman.ToString("g") + " " + "✓✓" + "</span></td>");
                     strB.Append("</table></center><br/>");
-
                     MesajBrowser.DocumentText += strB.ToString();
                 }
+
             }
 
-            TmMesajControl.Start();
+            //TmMesajControl.Start();
         }
         private void FrmSohbet_FormClosing(object sender, FormClosingEventArgs e)
         {
@@ -78,26 +77,24 @@ namespace UserInterface.Ana_Sayfa
         
         private void BtnGonder_Click(object sender, EventArgs e)
         {
-            if (TxtMesaj.Text=="")
-            {
-                return;
-            }
-            string sent = TxtMesaj.Text;
+            //if (TxtMesaj.Text == "")
+            //{
+            //    return;
+            //}
+            //string sent = TxtMesaj.Text;
 
             //Sohbet sohbet = new Sohbet(infos[1].ToString(), alan, DateTime.Now, sent);
             //sohbetManager.Add(sohbet);
 
-            StringBuilder strB = new StringBuilder();
+            //StringBuilder strB = new StringBuilder();
 
-            strB.Append("<center><table border='2' style='background-color:azure;color:black;'>");
-            strB.Append("<td width='364px'>" + sent + "<span style='font-size=11px;'>" + "<br><br>"
-                     + DateTime.Now.ToString("t") + " " + "✓" + "</span></td>");
-            strB.Append("</table></center><br/>");
+            //strB.Append("<center><table border='2' style='background-color:azure;color:black;'>");
+            //strB.Append("<td width='364px'>" + sent + "<span style='font-size=11px;'>" + "<br><br>"
+            //         + DateTime.Now.ToString("t") + " " + "✓" + "</span></td>");
+            //strB.Append("</table></center><br/>");
 
-            MesajBrowser.DocumentText += strB.ToString();
-            TxtMesaj.Clear();
-
-
+            //MesajBrowser.DocumentText += strB.ToString();
+            //TxtMesaj.Clear();
 
 
             //string sent = TxtMesaj.Text;
@@ -125,45 +122,44 @@ namespace UserInterface.Ana_Sayfa
 
         private void TmMesajControl_Tick(object sender, EventArgs e)
         {
-            //sohbets.Clear();
-            //sohbets = sohbetManager.GetList(infos[1].ToString(), alan); // hiç görülmemiş mesajlar
-            //if (sohbets.Count==0)
-            //{
-            //    return;
-            //}
+            sohbets.Clear();
+            sohbets = sohbetManager.GetList(alan, infos[1].ToString()); // hiç görülmemiş mesajlar
+            if (sohbets.Count == 0)
+            {
+                return;
+            }
 
-            //foreach (Sohbet item in sohbets)
-            //{
+            foreach (Sohbet item in sohbets)
+            {
 
-            //    if (item.Gonderen == infos[1].ToString())
-            //    {
-            //        StringBuilder strB = new StringBuilder();
+                if (item.Gonderen == infos[1].ToString())
+                {
+                    StringBuilder strB = new StringBuilder();
 
-            //        strB.Append("<center><table border='2' style='background-color:azure;color:black;'>");
-            //        strB.Append("<td width='364px'>" + item.Mesaj + "<span style='font-size=11px;'>" + "<br><br>"
-            //                 + DateTime.Now.ToString("t") + " " + "✓✓" + "</span></td>");
-            //        strB.Append("</table></center><br/>");
+                    strB.Append("<center><table border='2' style='background-color:azure;color:black;'>");
+                    strB.Append("<td width='364px'>" + item.Mesaj + "<span style='font-size=11px;'>" + "<br><br>"
+                             + DateTime.Now.ToString("t") + " " + "✓✓" + "</span></td>");
+                    strB.Append("</table></center><br/>");
 
-            //        MesajBrowser.DocumentText += strB.ToString();
+                    MesajBrowser.DocumentText += strB.ToString();
 
-            //        sohbetManager.UpdateGoruldu(item.Id);
-            //    }
-            //    else
-            //    {
-            //        StringBuilder strB = new StringBuilder();
+                    sohbetManager.UpdateGoruldu(item.Id);
+                }
+                else
+                {
+                    StringBuilder strB = new StringBuilder();
 
-            //        strB.Append("<center><table border='2' style='background-color:Coral;color:black;'>");
-            //        strB.Append("<td width='364px'>" + item.Mesaj + "<span style='font-size=11px;'>" + "<br><br>"
-            //                 + DateTime.Now.ToString("t") + " " + "✓✓" + "</span></td>");
-            //        strB.Append("</table></center><br/>");
+                    strB.Append("<center><table border='2' style='background-color:Coral;color:black;'>");
+                    strB.Append("<td width='364px'>" + item.Mesaj + "<span style='font-size=11px;'>" + "<br><br>"
+                             + DateTime.Now.ToString("t") + " " + "✓✓" + "</span></td>");
+                    strB.Append("</table></center><br/>");
 
-            //        MesajBrowser.DocumentText += strB.ToString();
+                    MesajBrowser.DocumentText += strB.ToString();
 
-            //        sohbetManager.UpdateGoruldu(item.Id);
-            //    }
-                
-            //}
+                    sohbetManager.UpdateGoruldu(item.Id);
+                }
 
+            }
 
         }
     }

@@ -41,6 +41,16 @@ namespace UserInterface.BakımOnarım
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.DtgFormBilgileri = new ADGV.AdvancedDataGridView();
+            this.FormNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BildirimNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.OkfBildirimNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BolgeAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.StokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Tanim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BildirimTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BolgeSorumlusu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TespitEdilenAriza = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LblMevcutIslemAdimi = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.CmbGorevAtanacakPersonel = new System.Windows.Forms.ComboBox();
@@ -155,16 +165,7 @@ namespace UserInterface.BakımOnarım
             this.BtnBulBildirim = new System.Windows.Forms.Button();
             this.TxtBildirimNo = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
-            this.FormNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BildirimNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.OkfBildirimNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BolgeAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.StokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Tanim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BildirimTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.BolgeSorumlusu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TespitEdilenAriza = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ChkKapat = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -305,6 +306,96 @@ namespace UserInterface.BakımOnarım
             this.DtgFormBilgileri.Size = new System.Drawing.Size(932, 98);
             this.DtgFormBilgileri.TabIndex = 333;
             this.DtgFormBilgileri.TimeFilter = false;
+            // 
+            // FormNo
+            // 
+            this.FormNo.HeaderText = "FORM NO";
+            this.FormNo.MinimumWidth = 22;
+            this.FormNo.Name = "FormNo";
+            this.FormNo.ReadOnly = true;
+            this.FormNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.FormNo.Width = 82;
+            // 
+            // BildirimNo
+            // 
+            this.BildirimNo.HeaderText = "BİLDİRİM NO";
+            this.BildirimNo.MinimumWidth = 22;
+            this.BildirimNo.Name = "BildirimNo";
+            this.BildirimNo.ReadOnly = true;
+            this.BildirimNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.BildirimNo.Width = 97;
+            // 
+            // OkfBildirimNo
+            // 
+            this.OkfBildirimNo.HeaderText = "OKF BİLDİRİM NO";
+            this.OkfBildirimNo.MinimumWidth = 22;
+            this.OkfBildirimNo.Name = "OkfBildirimNo";
+            this.OkfBildirimNo.ReadOnly = true;
+            this.OkfBildirimNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.OkfBildirimNo.Width = 106;
+            // 
+            // BolgeAdi
+            // 
+            this.BolgeAdi.HeaderText = "BÖLGE ADI";
+            this.BolgeAdi.MinimumWidth = 22;
+            this.BolgeAdi.Name = "BolgeAdi";
+            this.BolgeAdi.ReadOnly = true;
+            this.BolgeAdi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.BolgeAdi.Width = 88;
+            // 
+            // StokNo
+            // 
+            this.StokNo.HeaderText = "STOK NO";
+            this.StokNo.MinimumWidth = 22;
+            this.StokNo.Name = "StokNo";
+            this.StokNo.ReadOnly = true;
+            this.StokNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.StokNo.Width = 79;
+            // 
+            // Tanim
+            // 
+            this.Tanim.HeaderText = "TANIM";
+            this.Tanim.MinimumWidth = 22;
+            this.Tanim.Name = "Tanim";
+            this.Tanim.ReadOnly = true;
+            this.Tanim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Tanim.Width = 69;
+            // 
+            // SeriNo
+            // 
+            this.SeriNo.HeaderText = "SERİ NO";
+            this.SeriNo.MinimumWidth = 22;
+            this.SeriNo.Name = "SeriNo";
+            this.SeriNo.ReadOnly = true;
+            this.SeriNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.SeriNo.Width = 75;
+            // 
+            // BildirimTarihi
+            // 
+            this.BildirimTarihi.HeaderText = "ARIZA BİLDİRİM TARİHİ";
+            this.BildirimTarihi.MinimumWidth = 22;
+            this.BildirimTarihi.Name = "BildirimTarihi";
+            this.BildirimTarihi.ReadOnly = true;
+            this.BildirimTarihi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.BildirimTarihi.Width = 148;
+            // 
+            // BolgeSorumlusu
+            // 
+            this.BolgeSorumlusu.HeaderText = "BÖLGE SORUMLUSU";
+            this.BolgeSorumlusu.MinimumWidth = 22;
+            this.BolgeSorumlusu.Name = "BolgeSorumlusu";
+            this.BolgeSorumlusu.ReadOnly = true;
+            this.BolgeSorumlusu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.BolgeSorumlusu.Width = 142;
+            // 
+            // TespitEdilenAriza
+            // 
+            this.TespitEdilenAriza.HeaderText = "TESPİT EDİLEN ARIZA";
+            this.TespitEdilenAriza.MinimumWidth = 22;
+            this.TespitEdilenAriza.Name = "TespitEdilenAriza";
+            this.TespitEdilenAriza.ReadOnly = true;
+            this.TespitEdilenAriza.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TespitEdilenAriza.Width = 113;
             // 
             // LblMevcutIslemAdimi
             // 
@@ -1511,95 +1602,17 @@ namespace UserInterface.BakımOnarım
             this.label26.TabIndex = 494;
             this.label26.Text = "Bildirim No:";
             // 
-            // FormNo
+            // ChkKapat
             // 
-            this.FormNo.HeaderText = "FORM NO";
-            this.FormNo.MinimumWidth = 22;
-            this.FormNo.Name = "FormNo";
-            this.FormNo.ReadOnly = true;
-            this.FormNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.FormNo.Width = 89;
-            // 
-            // BildirimNo
-            // 
-            this.BildirimNo.HeaderText = "BİLDİRİM NO";
-            this.BildirimNo.MinimumWidth = 22;
-            this.BildirimNo.Name = "BildirimNo";
-            this.BildirimNo.ReadOnly = true;
-            this.BildirimNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.BildirimNo.Width = 106;
-            // 
-            // OkfBildirimNo
-            // 
-            this.OkfBildirimNo.HeaderText = "OKF BİLDİRİM NO";
-            this.OkfBildirimNo.MinimumWidth = 22;
-            this.OkfBildirimNo.Name = "OkfBildirimNo";
-            this.OkfBildirimNo.ReadOnly = true;
-            this.OkfBildirimNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.OkfBildirimNo.Width = 106;
-            // 
-            // BolgeAdi
-            // 
-            this.BolgeAdi.HeaderText = "BÖLGE ADI";
-            this.BolgeAdi.MinimumWidth = 22;
-            this.BolgeAdi.Name = "BolgeAdi";
-            this.BolgeAdi.ReadOnly = true;
-            this.BolgeAdi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.BolgeAdi.Width = 88;
-            // 
-            // StokNo
-            // 
-            this.StokNo.HeaderText = "STOK NO";
-            this.StokNo.MinimumWidth = 22;
-            this.StokNo.Name = "StokNo";
-            this.StokNo.ReadOnly = true;
-            this.StokNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.StokNo.Width = 79;
-            // 
-            // Tanim
-            // 
-            this.Tanim.HeaderText = "TANIM";
-            this.Tanim.MinimumWidth = 22;
-            this.Tanim.Name = "Tanim";
-            this.Tanim.ReadOnly = true;
-            this.Tanim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Tanim.Width = 69;
-            // 
-            // SeriNo
-            // 
-            this.SeriNo.HeaderText = "SERİ NO";
-            this.SeriNo.MinimumWidth = 22;
-            this.SeriNo.Name = "SeriNo";
-            this.SeriNo.ReadOnly = true;
-            this.SeriNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.SeriNo.Width = 75;
-            // 
-            // BildirimTarihi
-            // 
-            this.BildirimTarihi.HeaderText = "ARIZA BİLDİRİM TARİHİ";
-            this.BildirimTarihi.MinimumWidth = 22;
-            this.BildirimTarihi.Name = "BildirimTarihi";
-            this.BildirimTarihi.ReadOnly = true;
-            this.BildirimTarihi.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.BildirimTarihi.Width = 148;
-            // 
-            // BolgeSorumlusu
-            // 
-            this.BolgeSorumlusu.HeaderText = "BÖLGE SORUMLUSU";
-            this.BolgeSorumlusu.MinimumWidth = 22;
-            this.BolgeSorumlusu.Name = "BolgeSorumlusu";
-            this.BolgeSorumlusu.ReadOnly = true;
-            this.BolgeSorumlusu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.BolgeSorumlusu.Width = 142;
-            // 
-            // TespitEdilenAriza
-            // 
-            this.TespitEdilenAriza.HeaderText = "TESPİT EDİLEN ARIZA";
-            this.TespitEdilenAriza.MinimumWidth = 22;
-            this.TespitEdilenAriza.Name = "TespitEdilenAriza";
-            this.TespitEdilenAriza.ReadOnly = true;
-            this.TespitEdilenAriza.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TespitEdilenAriza.Width = 113;
+            this.ChkKapat.AutoSize = true;
+            this.ChkKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkKapat.Location = new System.Drawing.Point(282, 419);
+            this.ChkKapat.Name = "ChkKapat";
+            this.ChkKapat.Size = new System.Drawing.Size(122, 19);
+            this.ChkKapat.TabIndex = 497;
+            this.ChkKapat.Text = "ARIZAYI KAPAT";
+            this.ChkKapat.UseVisualStyleBackColor = true;
+            this.ChkKapat.Visible = false;
             // 
             // FrmArizaDurumGuncelle
             // 
@@ -1607,6 +1620,7 @@ namespace UserInterface.BakımOnarım
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1527, 908);
+            this.Controls.Add(this.ChkKapat);
             this.Controls.Add(this.BtnBulBildirim);
             this.Controls.Add(this.TxtBildirimNo);
             this.Controls.Add(this.label26);
@@ -1798,5 +1812,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn BildirimTarihi;
         private System.Windows.Forms.DataGridViewTextBoxColumn BolgeSorumlusu;
         private System.Windows.Forms.DataGridViewTextBoxColumn TespitEdilenAriza;
+        private System.Windows.Forms.CheckBox ChkKapat;
     }
 }

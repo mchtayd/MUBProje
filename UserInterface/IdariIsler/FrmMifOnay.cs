@@ -130,7 +130,7 @@ namespace UserInterface.IdariIsler
         int gun, saat, dakika; string sure;
         void GorevAtama()
         {
-            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "İZİN");
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "MİF");
             if (gorevAtamaPersonel==null)
             {
                 return;
@@ -155,7 +155,7 @@ namespace UserInterface.IdariIsler
         }
         void GorevAtamaRed()
         {
-            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "İZİN");
+            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "MİF");
 
             birOncekiTarih = gorevAtamaPersonel.Tarih;
 

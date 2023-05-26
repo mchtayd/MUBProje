@@ -5,6 +5,7 @@ using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Drawing;
 using Entity;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
@@ -72,8 +73,8 @@ namespace UserInterface.BakımOnarım
                 BulClick();
             }
             GrbMalzemeBilgileri.Visible = false;
-            BtnKaydet.Location = new Point(161, 405);
-            GrbMalzemeBilgileri.Location = new Point(118, 460);
+            BtnKaydet.Location = new System.Drawing.Point(161, 405);
+            GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
             start = false;
         }
 
@@ -158,21 +159,21 @@ namespace UserInterface.BakımOnarım
 
             //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage3"]);
             GrbMalzemeBilgileri.Visible = false;
-            BtnKaydet.Location = new Point(161, 405);
-            GrbMalzemeBilgileri.Location = new Point(118, 460);
+            BtnKaydet.Location = new System.Drawing.Point(161, 405);
+            GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
             if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new Point(29, 831);
-                GrbMalzemeBilgileri.Location = new Point(18, 415);
+                BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
 
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new Point(29, 831);
-                GrbMalzemeBilgileri.Location = new Point(18, 415);
+                BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
 
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
             }
@@ -200,6 +201,15 @@ namespace UserInterface.BakımOnarım
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
 
             dosyaYolu = arizaKayit.DosyaYolu;
+
+            if (arizaKayit.IslemAdimi== "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
+            {
+                ChkKapat.Visible = true;
+            }
+            else
+            {
+                ChkKapat.Visible=false;
+            }
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -596,23 +606,32 @@ namespace UserInterface.BakımOnarım
 
             //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage3"]);
             GrbMalzemeBilgileri.Visible = false;
-            BtnKaydet.Location = new Point(161, 405);
-            GrbMalzemeBilgileri.Location = new Point(118, 460);
+            BtnKaydet.Location = new System.Drawing.Point(161, 405);
+            GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
             if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new Point(29, 831);
-                GrbMalzemeBilgileri.Location = new Point(18, 415);
+                BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
 
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new Point(29, 831);
-                GrbMalzemeBilgileri.Location = new Point(18, 415);
+                BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
 
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
+            }
+
+            if (arizaKayit.IslemAdimi == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
+            {
+                ChkKapat.Visible = true;
+            }
+            else
+            {
+                ChkKapat.Visible = false;
             }
 
             abfForm = arizaKayit.AbfFormNo;
@@ -1019,12 +1038,25 @@ namespace UserInterface.BakımOnarım
 
             if (LblMevcutIslemAdimi.Text == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
             {
-                string mesaj = arizaKayitManager.IslemAdimiGuncelle(id, "ONARIM TAMAMLANDI", "");
-                if (mesaj != "OK")
+                if (ChkKapat.Checked == true)
                 {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    string mesaj = arizaKayitManager.IslemAdimiGuncelle(id, "ONARIMI TAMAMLANDI", "");
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
+                else
+                {
+                    string mesaj = arizaKayitManager.IslemAdimiGuncelle(id, CmbIslemAdimi.Text, CmbGorevAtanacakPersonel.Text);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                
             }
             else
             {
@@ -1119,10 +1151,11 @@ namespace UserInterface.BakımOnarım
             }
             MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
+            ChkKapat.Checked = false;
         }
         string GorevAtama()
         {
-            if (LblMevcutIslemAdimi.Text == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
+            if (LblMevcutIslemAdimi.Text == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)" && ChkKapat.Checked==true)
             {
                 GorevAtamaPersonel gorevAtama2 = new GorevAtamaPersonel(id, "BAKIM ONARIM", LblMevcutIslemAdimi.Text, sure, DtIscilikSaati.Value);
                 string kontrol3 = gorevAtamaPersonelManager.Update(gorevAtama2, TxtYapilanIslemler.Text.ToUpper());
@@ -1168,8 +1201,8 @@ namespace UserInterface.BakımOnarım
             TxtLojistikSorRutbesi.Clear();
             CmbGarantiDurumu.SelectedIndex = -1;
             GrbMalzemeBilgileri.Visible = false;
-            BtnKaydet.Location = new Point(161, 405);
-            GrbMalzemeBilgileri.Location = new Point(118, 460);
+            BtnKaydet.Location = new System.Drawing.Point(161, 405);
+            GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
         }
     }
 }

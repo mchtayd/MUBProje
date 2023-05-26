@@ -227,6 +227,7 @@ namespace UserInterface.IdariIsler
             this.TxtToplamFiyat.Name = "TxtToplamFiyat";
             this.TxtToplamFiyat.Size = new System.Drawing.Size(127, 20);
             this.TxtToplamFiyat.TabIndex = 16;
+            this.TxtToplamFiyat.TextChanged += new System.EventHandler(this.TxtToplamFiyat_TextChanged);
             this.TxtToplamFiyat.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtToplamFiyat_KeyPress);
             // 
             // label10

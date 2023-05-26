@@ -945,8 +945,7 @@ namespace UserInterface.IdariIsler
                     toplamSure = "1 Gün";
                 }
 
-
-                Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), CmbIzınKategori.Text, CmbIzınTuru.Text, LblSiparisNo.Text, CmbPersonel.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblBolum.Text, TxtIzinNedeni.Text, basTarihi, bitTarihi, toplamSure, dosya, siparisNo);
+                Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), CmbIzınKategori.Text, CmbIzınTuru.Text, LblSiparisNo.Text, CmbPersonel.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblBolum.Text, TxtIzinNedeni.Text, basTarihi, bitTarihi, toplamSure, dosya, "");
                 string mesaj = izinManager.Add(ızin);
 
                 if (mesaj == "OK")
@@ -977,16 +976,18 @@ namespace UserInterface.IdariIsler
 
             }
 
+            
+
             IsAkisNo();
             TaslakKopyala();
             CreateDirectory();
             CreateWordFile();
 
-            siparisNo = Guid.NewGuid().ToString();
 
             if (CmbIzınTuru.Text == "HAFTALIK İZİN")
             {
-                
+
+                siparisNo = Guid.NewGuid().ToString();
                 foreach (DataGridViewRow item in DtgList.Rows)
                 {
                     Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), item.Cells["IzinKategori"].Value.ToString(), item.Cells["IzinTuru"].Value.ToString(), item.Cells["PersonelSiparis"].Value.ToString(), item.Cells["AdiSoyadi"].Value.ToString(), item.Cells["Unvani"].Value.ToString(), item.Cells["MasYeriNo"].Value.ToString(), item.Cells["Bolumu"].Value.ToString(), item.Cells["IzinNedeni"].Value.ToString(), item.Cells["BaslamaTarihi"].Value.ConDate(), item.Cells["BitisTarihi"].Value.ConDate(), item.Cells["TSure"].Value.ToString(), dosya, siparisNo);
@@ -1007,7 +1008,7 @@ namespace UserInterface.IdariIsler
                 DateTime basTarihi = new DateTime(DtBasTarihi.Value.Year, DtBasTarihi.Value.Month, DtBasTarihi.Value.Day, DtBasSaati.Value.Hour, DtBasSaati.Value.Minute, DtBasSaati.Value.Second);
                 DateTime bitTarihi = new DateTime(DtBitTarihi.Value.Year, DtBitTarihi.Value.Month, DtBitTarihi.Value.Day, DtBitSaati.Value.Hour, DtBitSaati.Value.Minute, DtBitSaati.Value.Second);
 
-                Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), CmbIzınKategori.Text, CmbIzınTuru.Text, LblSiparisNo.Text, CmbPersonel.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblBolum.Text, TxtIzinNedeni.Text, basTarihi, bitTarihi, toplamSure, dosya, siparisNo);
+                Izin ızin = new Izin(LblIsAkisNo.Text.ConInt(), CmbIzınKategori.Text, CmbIzınTuru.Text, LblSiparisNo.Text, CmbPersonel.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblBolum.Text, TxtIzinNedeni.Text, basTarihi, bitTarihi, toplamSure, dosya, "");
                 string mesaj = izinManager.Add(ızin);
 
                 if (mesaj=="OK")

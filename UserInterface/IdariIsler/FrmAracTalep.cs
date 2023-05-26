@@ -119,6 +119,7 @@ namespace UserInterface.IdariIsler
                     MessageBox.Show(messege, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
                 Temizle();
+                DataDisplay();
             }
 
         }
@@ -230,8 +231,8 @@ namespace UserInterface.IdariIsler
             wBookmarks["GidilecekKurum"].Range.Text = TxtGidilecekKurum.Text;
             wBookmarks["GorevCikisTarihi"].Range.Text = DtBaslamaTarihi.Value.ToString("dd.MM.yyyy");
             wBookmarks["GorevDonusTarihi"].Range.Text = DtBitisTarihi.Value.ToString("dd.MM.yyyy");
-            wBookmarks["CikisSaati"].Range.Text = DtgBaslamaSaati.Text;
-            wBookmarks["DonusSaati"].Range.Text = DtgBitisSaati.Text;
+            wBookmarks["CikisSaati"].Range.Text = DtgBaslamaSaati.Value.ToString("t");
+            wBookmarks["DonusSaati"].Range.Text = DtgBitisSaati.Value.ToString("t");
             wBookmarks["MasrafYeriSor"].Range.Text = LblMasrafYeriSorumlusu.Text;
             wBookmarks["GoreveGidenPersonel"].Range.Text = CmbTalepEdenAd.Text;
             wBookmarks["CikisKm"].Range.Text = TxtCikisKm.Text;
@@ -319,7 +320,7 @@ namespace UserInterface.IdariIsler
             DateTime bTarih = DtBaslamaTarihi.Value;
             DateTime kTarih = DtBitisTarihi.Value;
             TimeSpan Sonuc = kTarih - bTarih;
-            int gun = Sonuc.TotalDays.ConInt();
+            int gun = Sonuc.TotalDays.ConInt() + 1;
             if (gun == 0)
             {
                 TxtToplamSure.Text = "1 Gün";

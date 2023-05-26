@@ -56,7 +56,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@dosyaYolu", entity.DosyaYolu),
                     new SqlParameter("@proje", entity.Proje),
                     new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu),
-                    new SqlParameter("@projeSistem", entity.ProjeSistem));
+                    new SqlParameter("@projeSistem", entity.ProjeSistem),
+                    new SqlParameter("@musteri", entity.Musteri));
 
                 dataReader.Close();
                 return "OK";
@@ -111,7 +112,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["TEPE_SORUMLUSU"].ToString(),
-                        dataReader["PROJE_SISTEM"].ToString());
+                        dataReader["PROJE_SISTEM"].ToString(),
+                        dataReader["MUSTERI"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -191,7 +193,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["TEPE_SORUMLUSU"].ToString(),
-                        dataReader["PROJE_SISTEM"].ToString()));
+                        dataReader["PROJE_SISTEM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return bolgeKayits;
@@ -232,7 +235,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["SIPARIS_NO"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["TEPE_SORUMLUSU"].ToString(),
-                        dataReader["PROJE_SISTEM"].ToString()));
+                        dataReader["PROJE_SISTEM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return bolgeKayits;
@@ -288,7 +292,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@garantiBitis", entity.GarantiBitis),
                     new SqlParameter("@dosyaYolu", entity.DosyaYolu),
                     new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu),
-                    new SqlParameter("@projeSistem", entity.ProjeSistem));
+                    new SqlParameter("@projeSistem", entity.ProjeSistem),
+                    new SqlParameter("@musteri", entity.Musteri));
 
                 dataReader.Close();
                 return "OK";

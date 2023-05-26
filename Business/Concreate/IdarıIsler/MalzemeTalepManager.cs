@@ -81,6 +81,17 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
+        public MalzemeTalep GetId(int id)
+        {
+            try
+            {
+                return malzemeTalepDal.GetId(id);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public List<MalzemeTalep> GetSatId(int satId)
         {
             try

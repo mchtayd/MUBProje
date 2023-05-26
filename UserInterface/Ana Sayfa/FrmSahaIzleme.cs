@@ -149,7 +149,7 @@ namespace UserInterface.Ana_Sayfa
             Lbl1400ADBolgesi.Text = arizaIslemAdimi1400.DBolgesi.ToString();
             Lbl1400AToplam.Text = arizaIslemAdimi1400.Toplam.ToString();
 
-            ArizaIslemAdimi arizaIslemAdimi1400B = arizaIslemAdimiManager.Get("1400_SEVKİYAT (BÖLGE)");
+            ArizaIslemAdimi arizaIslemAdimi1400B = arizaIslemAdimiManager.Get("1450_SEVKİYAT (BÖLGE)");
             Lbl1400BSirnak.Text = arizaIslemAdimi1400B.Sirnak.ToString();
             Lbl1400BCukurca.Text = arizaIslemAdimi1400B.Cukurca.ToString();
             Lbl1400BYukseova.Text = arizaIslemAdimi1400B.Yukseova.ToString();

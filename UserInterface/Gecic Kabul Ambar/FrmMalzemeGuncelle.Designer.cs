@@ -64,6 +64,12 @@
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.BtnStokAl = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.BtnTedarilciFirmaEkle = new System.Windows.Forms.Button();
+            this.BtnBirimEkle = new System.Windows.Forms.Button();
+            this.BtnTedarikTürüEkle = new System.Windows.Forms.Button();
+            this.BtnMalzemeTuruEkle = new System.Windows.Forms.Button();
+            this.BtnOnarimYeriEkle = new System.Windows.Forms.Button();
+            this.bTN = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -411,11 +417,113 @@
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // BtnTedarilciFirmaEkle
+            // 
+            this.BtnTedarilciFirmaEkle.AccessibleDescription = "";
+            this.BtnTedarilciFirmaEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnTedarilciFirmaEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTedarilciFirmaEkle.BackgroundImage")));
+            this.BtnTedarilciFirmaEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnTedarilciFirmaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTedarilciFirmaEkle.Location = new System.Drawing.Point(392, 106);
+            this.BtnTedarilciFirmaEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnTedarilciFirmaEkle.Name = "BtnTedarilciFirmaEkle";
+            this.BtnTedarilciFirmaEkle.Size = new System.Drawing.Size(30, 25);
+            this.BtnTedarilciFirmaEkle.TabIndex = 381;
+            this.BtnTedarilciFirmaEkle.Tag = "admin";
+            this.BtnTedarilciFirmaEkle.UseVisualStyleBackColor = false;
+            this.BtnTedarilciFirmaEkle.Click += new System.EventHandler(this.BtnTedarilciFirmaEkle_Click);
+            // 
+            // BtnBirimEkle
+            // 
+            this.BtnBirimEkle.AccessibleDescription = "";
+            this.BtnBirimEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBirimEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBirimEkle.BackgroundImage")));
+            this.BtnBirimEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBirimEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBirimEkle.Location = new System.Drawing.Point(392, 76);
+            this.BtnBirimEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBirimEkle.Name = "BtnBirimEkle";
+            this.BtnBirimEkle.Size = new System.Drawing.Size(30, 25);
+            this.BtnBirimEkle.TabIndex = 380;
+            this.BtnBirimEkle.Tag = "admin";
+            this.BtnBirimEkle.UseVisualStyleBackColor = false;
+            this.BtnBirimEkle.Click += new System.EventHandler(this.BtnBirimEkle_Click);
+            // 
+            // BtnTedarikTürüEkle
+            // 
+            this.BtnTedarikTürüEkle.AccessibleDescription = "";
+            this.BtnTedarikTürüEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnTedarikTürüEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTedarikTürüEkle.BackgroundImage")));
+            this.BtnTedarikTürüEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnTedarikTürüEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTedarikTürüEkle.Location = new System.Drawing.Point(392, 194);
+            this.BtnTedarikTürüEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnTedarikTürüEkle.Name = "BtnTedarikTürüEkle";
+            this.BtnTedarikTürüEkle.Size = new System.Drawing.Size(30, 25);
+            this.BtnTedarikTürüEkle.TabIndex = 384;
+            this.BtnTedarikTürüEkle.Tag = "admin";
+            this.BtnTedarikTürüEkle.UseVisualStyleBackColor = false;
+            this.BtnTedarikTürüEkle.Click += new System.EventHandler(this.BtnTedarikTürüEkle_Click);
+            // 
+            // BtnMalzemeTuruEkle
+            // 
+            this.BtnMalzemeTuruEkle.AccessibleDescription = "";
+            this.BtnMalzemeTuruEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnMalzemeTuruEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnMalzemeTuruEkle.BackgroundImage")));
+            this.BtnMalzemeTuruEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnMalzemeTuruEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnMalzemeTuruEkle.Location = new System.Drawing.Point(392, 224);
+            this.BtnMalzemeTuruEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnMalzemeTuruEkle.Name = "BtnMalzemeTuruEkle";
+            this.BtnMalzemeTuruEkle.Size = new System.Drawing.Size(30, 25);
+            this.BtnMalzemeTuruEkle.TabIndex = 383;
+            this.BtnMalzemeTuruEkle.Tag = "admin";
+            this.BtnMalzemeTuruEkle.UseVisualStyleBackColor = false;
+            this.BtnMalzemeTuruEkle.Click += new System.EventHandler(this.BtnMalzemeTuruEkle_Click);
+            // 
+            // BtnOnarimYeriEkle
+            // 
+            this.BtnOnarimYeriEkle.AccessibleDescription = "";
+            this.BtnOnarimYeriEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnOnarimYeriEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnOnarimYeriEkle.BackgroundImage")));
+            this.BtnOnarimYeriEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnOnarimYeriEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOnarimYeriEkle.Location = new System.Drawing.Point(392, 165);
+            this.BtnOnarimYeriEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnOnarimYeriEkle.Name = "BtnOnarimYeriEkle";
+            this.BtnOnarimYeriEkle.Size = new System.Drawing.Size(30, 25);
+            this.BtnOnarimYeriEkle.TabIndex = 382;
+            this.BtnOnarimYeriEkle.Tag = "admin";
+            this.BtnOnarimYeriEkle.UseVisualStyleBackColor = false;
+            this.BtnOnarimYeriEkle.Click += new System.EventHandler(this.BtnOnarimYeriEkle_Click);
+            // 
+            // bTN
+            // 
+            this.bTN.AccessibleDescription = "";
+            this.bTN.BackColor = System.Drawing.SystemColors.Control;
+            this.bTN.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("bTN.BackgroundImage")));
+            this.bTN.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.bTN.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bTN.Location = new System.Drawing.Point(392, 307);
+            this.bTN.Margin = new System.Windows.Forms.Padding(0);
+            this.bTN.Name = "bTN";
+            this.bTN.Size = new System.Drawing.Size(30, 25);
+            this.bTN.TabIndex = 385;
+            this.bTN.Tag = "admin";
+            this.bTN.UseVisualStyleBackColor = false;
+            this.bTN.Click += new System.EventHandler(this.bTN_Click);
+            // 
             // FrmMalzemeGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 676);
+            this.Controls.Add(this.bTN);
+            this.Controls.Add(this.BtnTedarikTürüEkle);
+            this.Controls.Add(this.BtnMalzemeTuruEkle);
+            this.Controls.Add(this.BtnOnarimYeriEkle);
+            this.Controls.Add(this.BtnTedarilciFirmaEkle);
+            this.Controls.Add(this.BtnBirimEkle);
             this.Controls.Add(this.BtnStokAl);
             this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.CmbSistemStokNo);
@@ -500,5 +608,11 @@
         private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Button BtnStokAl;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.Button BtnTedarilciFirmaEkle;
+        private System.Windows.Forms.Button BtnBirimEkle;
+        private System.Windows.Forms.Button BtnTedarikTürüEkle;
+        private System.Windows.Forms.Button BtnMalzemeTuruEkle;
+        private System.Windows.Forms.Button BtnOnarimYeriEkle;
+        private System.Windows.Forms.Button bTN;
     }
 }

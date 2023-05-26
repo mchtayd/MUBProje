@@ -292,7 +292,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString());
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -377,7 +379,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString());
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -462,7 +466,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString());
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -546,7 +552,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString()));
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -631,7 +639,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString()));
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -732,7 +742,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString()));
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -817,12 +829,14 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString()));
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<ArizaKayit>();
             }
@@ -901,7 +915,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString()));
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -985,7 +1001,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString()));
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1069,7 +1087,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["EKIPMAN_NO"].ToString(),
                         dataReader["MALZEME_DURUMU"].ToString(),
                         gecenSure,
-                        dataReader["OKF_BILDIRIM_NO"].ToString()));
+                        dataReader["OKF_BILDIRIM_NO"].ToString(),
+                        dataReader["PROJE_TANIM"].ToString(),
+                        dataReader["MUSTERI"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;

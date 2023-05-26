@@ -312,7 +312,7 @@ namespace UserInterface.IdariIsler
             DateTime bTarih = DtBaslamaTarihi.Value;
             DateTime kTarih = DtBitisTarihi.Value;
             TimeSpan Sonuc = kTarih - bTarih;
-            int gun = Sonuc.TotalDays.ConInt();
+            int gun = Sonuc.TotalDays.ConInt() + 1;
             TxtToplamSure.Text = gun.ToString() + " Gün";
         }
 
@@ -321,7 +321,7 @@ namespace UserInterface.IdariIsler
             DateTime bTarih = DtBaslamaTarihiGun.Value;
             DateTime kTarih = DtBitisTarihiGun.Value;
             TimeSpan Sonuc = kTarih - bTarih;
-            int gun = Sonuc.TotalDays.ConInt();
+            int gun = Sonuc.TotalDays.ConInt() + 1;
             TxtToplamSureGun.Text = gun.ToString() + " Gün";
         }
         double cikiskm = 0, donuskm = 0, toplamkm = 0;

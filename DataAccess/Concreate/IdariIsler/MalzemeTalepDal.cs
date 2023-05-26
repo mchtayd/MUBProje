@@ -82,6 +82,40 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
+
+        public MalzemeTalep GetId(int id)
+        {
+            try
+            {
+                MalzemeTalep item = null;
+                dataReader = sqlServices.StoreReader("MalzemeTalepGetId", new SqlParameter("@id", id));
+                while (dataReader.Read())
+                {
+                    item = new MalzemeTalep(
+                        dataReader["ID"].ConInt(),
+                        dataReader["MALZEME_KATEGORISI"].ToString(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["TALEBI_OLUSTURAN"].ToString(),
+                        dataReader["BOLUM"].ToString(),
+                        dataReader["SAT_BILGISI"].ConInt(),
+                        dataReader["MASRAF_YERI"].ToString(),
+                        dataReader["ISLEM_DURUMU"].ToString(),
+                        dataReader["RED_GEREKCESI"].ToString(),
+                        dataReader["DEPO_DURUM"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public List<MalzemeTalep> GetSatId(int satId)
         {
             try

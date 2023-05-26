@@ -232,7 +232,7 @@ namespace UserInterface.Ana_Sayfa
         void Temizle()
         {
             CmbPersonel.SelectedIndex = -1; TxtSicilNo.Clear(); TxtSifre.Clear(); CmbYetkiModu.SelectedIndex = -1; PctBox.ImageLocation = "";
-
+            CmbPersonel.Text = "";
             for (int i = 0; i < menuBasliks.Count; i++)
             {
                 ChcListBoxYetkiler.SetItemChecked(i, false);
@@ -315,6 +315,18 @@ namespace UserInterface.Ana_Sayfa
             }
             
             
+        }
+
+        private void CmbYetkiModu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbYetkiModu.Text == "MİSAFİR")
+            {
+                CmbPersonel.DropDownStyle = ComboBoxStyle.DropDown;
+            }
+            else
+            {
+                CmbPersonel.DropDownStyle = ComboBoxStyle.DropDownList;
+            }
         }
 
         private void BtnSifirla_Click(object sender, EventArgs e)

@@ -64,6 +64,11 @@ namespace UserInterface.BakımOnarım
             {
                 foreach (DataGridViewRow item in DtgList.Rows)
                 {
+                    if (item.Cells["IslemAdimi"].Value==null)
+                    {
+                        continue;
+                    }
+
                     IslemAdimlari ıslemAdimlari = new IslemAdimlari(item.Cells["IslemAdimi"].Value.ToString(), item.Cells["Departman"].Value.ToString());
                     islemAdimlariManager.Add(ıslemAdimlari);
                 }
@@ -84,9 +89,16 @@ namespace UserInterface.BakımOnarım
             DtgList.Rows.Add();
             int sonIndex = DtgList.RowCount - 1;
             DtgList.Rows[sonIndex].Cells["Id"].Value = 0;
-            DtgList.Rows[sonIndex].Cells["Departman"].Value = CmbDepartman.Text;
+            if (CmbDepartman.Text== "BAKIM ONARIM (SAHA)")
+            {
+                DtgList.Rows[sonIndex].Cells["Departman"].Value = "BAKIM ONARIM";
+            }
+            else
+            {
+                DtgList.Rows[sonIndex].Cells["Departman"].Value = "BAKIM ONARIM ATOLYE";
+            }
+            
             DtgList.Rows[sonIndex].Cells["IslemAdimi"].Value = TxtIslemAdimi.Text;
-
             TxtTop.Text = DtgList.RowCount.ToString();
         }
     }

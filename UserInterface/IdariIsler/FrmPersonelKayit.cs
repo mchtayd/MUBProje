@@ -422,11 +422,11 @@ namespace UserInterface.IdariIşler
             }
             if (CmbB2.Text != "")
             {
-                BOLUM = departman + "/" + CmbB1.Text + "/" + CmbB2;
+                BOLUM = departman + "/" + CmbB1.Text + "/" + CmbB2.Text;
             }
             if (CmbB3.Text != "")
             {
-                BOLUM = departman + "/" + CmbB1.Text + "/" + CmbB2 + "/" + CmbB3.Text;
+                BOLUM = departman + "/" + CmbB1.Text + "/" + CmbB2.Text + "/" + CmbB3.Text;
             }
 
         }
@@ -449,11 +449,11 @@ namespace UserInterface.IdariIşler
             }
             if (CmbBo2.Text != "")
             {
-                BOLUM = departman + "/" + CmbBo1.Text + "/" + CmbBo2;
+                BOLUM = departman + "/" + CmbBo1.Text + "/" + CmbBo2.Text;
             }
             if (CmbBo3.Text != "")
             {
-                BOLUM = departman + "/" + CmbBo1.Text + "/" + CmbBo2 + "/" + CmbBo3.Text;
+                BOLUM = departman + "/" + CmbBo1.Text + "/" + CmbBo2.Text + "/" + CmbBo3.Text;
             }
 
         }
@@ -1023,6 +1023,7 @@ namespace UserInterface.IdariIşler
             deneme = "\\" + CmbAdSoyad.Text + ".jpg";
             foto = personelKayit.Fotoyolu;
             PcFoto.ImageLocation = foto + deneme;
+
             SirketBolum();
             GuncellenecekWebBrowser();
         }
@@ -1522,6 +1523,7 @@ namespace UserInterface.IdariIşler
             CmbBolum3.SelectedValue = ""; TxtSirketMail.Text = ""; TxtOfficeMail.Text = ""; MsdSırketCepNo.Clear(); MsdKisaKod.Clear(); MsdDahiliNo.Clear();
             CmbIsUnvani.Text = ""; TxtSinif.Clear(); TxtRutbesi.Clear(); TxtGorevi.Clear(); TxtGorevYeri.Clear(); TxtTecilSebebi.Clear();
             TxtMuafNedeni.Clear(); webBrowser4.Navigate(""); PctBox.ImageLocation = ""; CmbProjeKodu.SelectedValue = -1; TxtKgbNo.Clear();
+            CmbB1.Text = ""; CmbB2.Text = ""; CmbB3.Text = "";
         }
         private void TxtPersonelYonetici_TextChanged(object sender, EventArgs e)
         {
@@ -1645,6 +1647,7 @@ namespace UserInterface.IdariIşler
             TxtSinifG.Text = ""; TxtRubesiG.Clear(); TxtGoreviG.Clear(); TxtGorevYeriG.Clear(); TxtTecilSebebiG.Clear(); TxtMuafNedeniG.Clear();
             PcFoto.ImageLocation = ""; webBrowserG.Navigate(""); TxtBulunduguBolum.Clear(); RdbTecilliG.Checked = false; RdbMuafG.Checked = false;
             RdbYaptiG.Checked = false; CmbProjeKoduGun.SelectedValue = -1; TxtKgbNoGun.Clear(); CmbMasrafYeriSorumlusuGun.Text = "";
+            CmbBo1.Text = ""; CmbBo2.Text = ""; CmbBo3.Text = "";
         }
 
         void Temizle()

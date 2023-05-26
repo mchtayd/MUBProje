@@ -142,5 +142,27 @@ namespace UserInterface.IdariIsler
                 return;
             }
         }
+
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Filter = DtgList.FilterString;
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinder.Sort = DtgList.SortString;
+        }
+
+        private void DtgListTamamlananlar_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderTamamlanan.Filter = DtgListTamamlananlar.FilterString;
+            TxtTopTamamlanan.Text = DtgListTamamlananlar.RowCount.ToString();
+        }
+
+        private void DtgListTamamlananlar_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderTamamlanan.Sort = DtgListTamamlananlar.SortString;
+        }
+
     }
 }

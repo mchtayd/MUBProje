@@ -911,7 +911,7 @@ namespace DataAccess.Concreate
                     new SqlParameter("@islemAdimi", islemAdimi));
                 dataReader.Close();
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 throw;
             }
