@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -72,7 +73,7 @@ namespace Entity.BakimOnarim
         public string ProjeTanimi { get => projeTanimi; set => projeTanimi = value; }
         public string Musteri { get => musteri; set => musteri = value; }
 
-        public ArizaKayit(int isAkisNo, int abfFormNo, string proje, string bolgeAdi, string bolukKomutani, string telefonNo, string birlikAdresi, string il, string ilce, string bildirilenAriza, string arizaiBildirenPersonel, string abRutbesi, string abGorevi, string abTelefon, DateTime abTarihSaat, string aBAlanPersonel, string bildirimKanali, string arizaAciklama, string gorevAtanacakPersonel, string islemAdimi, string dosyaYolu,string siparisNo)
+        public ArizaKayit(int isAkisNo, int abfFormNo, string proje, string bolgeAdi, string bolukKomutani, string telefonNo, string birlikAdresi, string il, string ilce, string bildirilenAriza, string arizaiBildirenPersonel, string abRutbesi, string abGorevi, string abTelefon, DateTime abTarihSaat, string aBAlanPersonel, string bildirimKanali, string arizaAciklama, string gorevAtanacakPersonel, string islemAdimi, string dosyaYolu,string siparisNo, string projeTanimi, string muster)
         {
             this.isAkisNo = isAkisNo;
             this.abfFormNo = abfFormNo;
@@ -96,6 +97,8 @@ namespace Entity.BakimOnarim
             this.islemAdimi = islemAdimi;
             this.dosyaYolu = dosyaYolu;
             this.siparisNo = siparisNo;
+            this.projeTanimi = projeTanimi;
+            this.musteri = muster;
         }
 
         public ArizaKayit(int id, int isAkisNo, int abfFormNo, string proje, string bolgeAdi, string bolukKomutani, string telefonNo, string birlikAdresi, string il, string ilce, string bildirilenAriza, string arizaiBildirenPersonel, string abRutbesi, string abGorevi, string abTelefon, DateTime abTarihSaat, string aBAlanPersonel, string bildirimKanali, string arizaAciklama, string gorevAtanacakPersonel, string islemAdimi, string dosyaYolu, string garantiDurumu, string lojistikSorumluPersonel, string lojRutbesi, string lojGorevi, string lojTarihi, string tespitEdilenAriza, string acmaOnayiVeren, string csSiparisNo, string bildirimNo, string crmNo, string bildirimMailTarihi, string siparisNo, string stokNo, string tanim, string seriNo, string kategori, string ilgiliFirma, string bildirimTuru, string pypNo, string sorumluPersonel, string siparisTuru,string islemTuru, string hesaplama, int durum, string onarimNotu, string teslimEdenPersonel, string teslimAlanaPersonel, DateTime teslimTarihi, string nesneTanim, string hasarKodu, string nedenKodu, int eksikEvrak, string ekipmanNo, string malzemeDurum, string gecenSure, string okfBildirimNo, string projeTanimi, string musteri)

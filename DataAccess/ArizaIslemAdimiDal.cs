@@ -47,6 +47,7 @@ namespace DataAccess
                         dataReader["SEMDINLI"].ConInt(),
                         dataReader["DERECIK"].ConInt(),
                         dataReader["D_BOLGESI"].ConInt(),
+                        dataReader["MERKEZ"].ConInt(),
                         dataReader["GENEL_TOPLAM"].ConInt());
                 }
                 dataReader.Close();

@@ -41,9 +41,13 @@ namespace UserInterface.BakımOnarım
         TedarikciFirmaManager tedarikciFirmaManager;
         SiparisPersonelManager siparisPersonelManager;
         PersonelKayitManager personelKayitManager;
+        BolgeNotManager bolgeNotManager;
+        BolgeEnvanterManager bolgeEnvanterManager;
 
         bool start = true;
         bool dosyaControl = false;
+
+        public object[] infos;
         public FrmBolgeler()
         {
             InitializeComponent();
@@ -55,6 +59,8 @@ namespace UserInterface.BakımOnarım
             siparisPersonelManager = SiparisPersonelManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             personelKayitManager = PersonelKayitManager.GetInstance();
+            bolgeNotManager = BolgeNotManager.GetInstance();
+            bolgeEnvanterManager = BolgeEnvanterManager.GetInstance();
         }
 
         private void BtnCancel_Click_1(object sender, EventArgs e)
@@ -228,8 +234,8 @@ namespace UserInterface.BakımOnarım
             TxtBolgeAdi.Clear(); TxtKodAdi.Clear(); TxtBolgeStokNo.Clear(); CmbProje.SelectedIndex = -1; CmbYazilimBilgisi.SelectedIndex = -1;
             CmbGozetlemeTuru.SelectedIndex = -1; CmbYasamAlani.SelectedIndex = -1; TxtTabur.Clear(); TxtTugay.Clear(); CmbIl.SelectedIndex = -1;
             CmbIlce.SelectedIndex = -1; TxtBirlikAdresi.Clear(); CmbPypNo.SelectedIndex = -1; CmbDepo.SelectedIndex = -1; CmbBolgeSorumlusu.SelectedIndex = -1;
-            webBrowser1.Navigate(""); CmbBolgeAdi.Text = "";
-            ComboProje();
+            webBrowser1.Navigate(""); CmbBolgeAdi.Text = ""; CmbMusteri.SelectedIndex = -1; TxtNotlar.Clear(); CmbProjeSistem.SelectedIndex = -1;
+            ComboProje(); DtgList.Rows.Clear();
         }
         
 
@@ -393,6 +399,20 @@ namespace UserInterface.BakımOnarım
             siparisNo = bolgeKayit.SiparisNo;
             CmbBolgePersonel.Text = bolgeKayit.TepeSorumlusu;
             CmbProjeSistem.Text = bolgeKayit.ProjeSistem;
+            CmbMusteri.Text = bolgeKayit.Musteri;
+
+            List<BolgeNot> bolgeNots = new List<BolgeNot>();
+            bolgeNots = bolgeNotManager.GetList(id);
+
+            foreach (BolgeNot item in bolgeNots)
+            {
+                DtgList.Rows.Add();
+                int sonSatir = DtgList.RowCount - 1;
+                DtgList.Rows[sonSatir].Cells["KayitYapan"].Value = item.KayitYapan;
+                DtgList.Rows[sonSatir].Cells["Tarih"].Value = item.Tarih.ToString("g");
+                DtgList.Rows[sonSatir].Cells["Not"].Value = item.Not;
+            }
+
 
             try
             {
@@ -462,6 +482,49 @@ namespace UserInterface.BakımOnarım
             //}
 
             //Temizle();
+        }
+
+        private void BtnEkle_Click(object sender, EventArgs e)
+        {
+            DtgList.Rows.Add();
+            int sonSatir = DtgList.RowCount - 1;
+            DtgList.Rows[sonSatir].Cells["KayitYapan"].Value = infos[1].ToString();
+            DtgList.Rows[sonSatir].Cells["Tarih"].Value = DateTime.Now.ToString("g");
+            DtgList.Rows[sonSatir].Cells["Not"].Value = TxtNotlar.Text;
+            TxtNotlar.Clear();
+
+        }
+
+        private void DtgList_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            var senderGrid = (DataGridView)sender;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                DtgList.Rows.RemoveAt(e.RowIndex);
+            }
+        }
+
+        private void BtnExcelAl_Click(object sender, EventArgs e)
+        {
+            DataTable table = FrmHelper.GetDataTableFromExcel("C:\\Users\\MAYıldırım\\Desktop\\MÜB-4 MUHTEVİYAT LİSTESİ.xlsx", "KARLISIRT Ü.B.");
+
+            DtgDeneme.DataSource = null;
+            DtgDeneme.DataSource = table;
+        }
+
+        private void CmbBolgeAdiEkipman_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==true)
+            {
+                return;
+            }
+            BolgeKayit bolge = bolgeKayitManager.Get(CmbBolgeAdiEkipman.SelectedValue.ConInt());
+            if (bolge!=null)
+            {
+                LblBolgeKonfig.Text = bolge.Proje;
+            }
+
         }
 
         void CreateFile()
@@ -540,6 +603,13 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                int benzersizId = CmbBolgeAdi.SelectedValue.ConInt();
+                foreach (DataGridViewRow item in DtgList.Rows)
+                {
+                    BolgeNot bolgeNot = new BolgeNot(benzersizId, item.Cells["Tarih"].Value.ConDate(), item.Cells["KayitYapan"].Value.ToString(), item.Cells["Not"].Value.ToString());
+                    bolgeNotManager.Add(bolgeNot);
+                }
+                
                 dosyaControl = false;
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BolgeBilgileri();
@@ -562,11 +632,22 @@ namespace UserInterface.BakımOnarım
                 BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text, CmbMusteri.Text);
 
                 string mesaj = bolgeKayitManager.Update(bolgeKayit);
+
+                bolgeNotManager.Delete(id);
+
+                foreach (DataGridViewRow item in DtgList.Rows)
+                {
+                    BolgeNot bolgeNot = new BolgeNot(id, item.Cells["Tarih"].Value.ConDate(), item.Cells["KayitYapan"].Value.ToString(), item.Cells["Not"].Value.ToString());
+                    bolgeNotManager.Add(bolgeNot);
+                }
+
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                
+
                 BolgeBilgileri();
                 MessageBox.Show("Bilgiler başarıyla güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();

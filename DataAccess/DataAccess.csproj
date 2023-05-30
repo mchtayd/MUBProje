@@ -101,6 +101,7 @@
     <Compile Include="ArizaIslemAdimiDal.cs" />
     <Compile Include="AtolyeRaporDal.cs" />
     <Compile Include="ComboDal.cs" />
+    <Compile Include="Concreate\AnaSayfa\ArizaAyDal.cs" />
     <Compile Include="Concreate\AnaSayfa\BildirimYetkiDal.cs" />
     <Compile Include="Concreate\AnaSayfa\DuyuruDal.cs" />
     <Compile Include="Concreate\AnaSayfa\LogDal.cs" />
@@ -118,8 +119,10 @@
     <Compile Include="Concreate\BakimOnarim\ArizaKayitDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\BolgeEnvanterDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeGarantiDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeKayitDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\BolgeNotDal.cs" />
     <Compile Include="Concreate\BakimOnarim\DtfDal.cs" />
     <Compile Include="Concreate\BakimOnarim\DtfMaliyetDal.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDestekIsciliklDal.cs" />

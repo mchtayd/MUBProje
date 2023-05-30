@@ -27,8 +27,9 @@ namespace UserInterface.Ana_Sayfa
         List<int> veriler = new List<int>();
         List<int> veriler2 = new List<int>();
 
-        int sirnakArizaToplam, cukurcaToplam, yukseovaToplam, semdinliToplam, derecikToplam, dBolgesiToplam = 0;
-        int i200, i300, i400, i500, i600, i700, i800, i900, i950, i1000, i1100, i1200, i1300, i1400, i1450, i1500, i1600, i1700, i1800, i1900, i2000, mavi, yesil, gri = 0;
+        int sirnakArizaToplam, cukurcaToplam, yukseovaToplam, semdinliToplam, derecikToplam, merkez, dBolgesiToplam = 0;
+
+        int i200, i300, i400, i500, i600, i700, i800, i900, i950, i1000, i1100, i1200, i1300, i1400, i1450, i1500, i1600, i1700, i1800, i1900, i2000, i2100, mavi, yesil, gri = 0;
 
         public FrmAcikArizaGrafikleri()
         {
@@ -39,9 +40,17 @@ namespace UserInterface.Ana_Sayfa
 
         private void FrmAcikArizaGrafikleri_Load(object sender, EventArgs e)
         {
+            TimerSaat.Start();
             GrafikSektor();
             DataDisplay();
+
         }
+        private void TimerSaat_Tick(object sender, EventArgs e)
+        {
+            LblSaat.Text = DateTime.Now.ToString("HH:mm:ss");
+            LblTarih.Text = DateTime.Now.ToLongDateString();
+        }
+
         void GrafikSektor()
         {
             ıslemAdimlaris = islemAdimlariManager.GetList("BAKIM ONARIM");
@@ -54,6 +63,7 @@ namespace UserInterface.Ana_Sayfa
                 semdinliToplam += arizaIslemAdimi.Semdinli;
                 derecikToplam += arizaIslemAdimi.Derecik;
                 dBolgesiToplam += arizaIslemAdimi.DBolgesi;
+                merkez += arizaIslemAdimi.Merkez;
             }
 
             LblSektorArizaTop.Text = (sirnakArizaToplam + cukurcaToplam + yukseovaToplam + semdinliToplam + derecikToplam + dBolgesiToplam).ToString();
@@ -61,13 +71,14 @@ namespace UserInterface.Ana_Sayfa
             SeriesCollection seriesCollection = new SeriesCollection();
 
             veriler.Add(sirnakArizaToplam);
+            veriler.Add(merkez);
             veriler.Add(cukurcaToplam);
             veriler.Add(yukseovaToplam);
             veriler.Add(semdinliToplam);
             veriler.Add(derecikToplam);
             veriler.Add(dBolgesiToplam);
 
-            for (int i = 0; i < 6; i++)
+            for (int i = 0; i < 7; i++)
             {
                 if (i == 0)
                 {
@@ -75,31 +86,39 @@ namespace UserInterface.Ana_Sayfa
                     seriesCollection.Add(new PieSeries() { Title = "ŞIRNAK", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
+
                 if (i == 1)
+                {
+                    Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "HAKKÂRİ/MERKEZ" + " (" + x.Y.ToString() + ")", x.Participation);
+                    seriesCollection.Add(new PieSeries() { Title = "HAKKÂRİ", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
+                    chart1.Series = seriesCollection;
+                }
+                if (i == 2)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "ÇUKURCA" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "ÇUKURCA", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
-                if (i == 2)
+                
+                if (i == 3)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "YÜKSEKOVA" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "YÜKSEKOVA", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
-                if (i == 3)
+                if (i == 4)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "ŞEMDİNLİ" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "ŞEMDİNLİ", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
-                if (i == 4)
+                if (i == 5)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "DERECİK" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "DERECİK", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
-                if (i == 5)
+                if (i == 6)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "D BÖLGESİ" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "D BÖLGESİ", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
@@ -173,10 +192,13 @@ namespace UserInterface.Ana_Sayfa
             ArizaIslemAdimi arizaIslemAdimi2000 = arizaIslemAdimiManager.Get("2000_ARIZA KAPATMA (DTS)");
             i2000 = arizaIslemAdimi2000.Toplam;
 
+            ArizaIslemAdimi arizaIslemAdimi2100 = arizaIslemAdimiManager.Get("2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)");
+            i2100 = arizaIslemAdimi2000.Toplam;
 
-            mavi = i400.ConInt() + i500.ConInt() + i600.ConInt() + i900.ConInt() + i950.ConInt() + i1000.ConInt() + i1100.ConInt() + i1200.ConInt() + i1300.ConInt() + i1400.ConInt() + i1450.ConInt() + i2000.ConInt();
 
-            yesil = i200.ConInt() + i300.ConInt() + i500.ConInt() + i1700.ConInt() + i1800.ConInt() + i1900.ConInt() + i1500;
+            mavi = i400.ConInt() + i500.ConInt() + i600.ConInt() + i900.ConInt() + i950.ConInt() + i1000.ConInt() + i1100.ConInt() + i1200.ConInt() + i1300.ConInt() + i1400.ConInt() + i1450.ConInt() + i2000.ConInt() + i2100.ConInt();
+
+            yesil = i200.ConInt() + i300.ConInt() + i1700.ConInt() + i1800.ConInt() + i1900.ConInt() + i1500.ConInt();
 
             gri = i700.ConInt() + i800.ConInt() + i1600.ConInt();
 

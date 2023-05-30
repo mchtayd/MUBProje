@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmIzlemeSure));
             this.label40 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
@@ -42,6 +43,8 @@
             this.LblTarih = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.cartesianChart1 = new LiveCharts.WinForms.CartesianChart();
+            this.TimerSaat = new System.Windows.Forms.Timer(this.components);
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -185,6 +188,16 @@
             this.cartesianChart1.TabIndex = 461;
             this.cartesianChart1.Text = "cartesianChart1";
             // 
+            // TimerSaat
+            // 
+            this.TimerSaat.Interval = 1000;
+            this.TimerSaat.Tick += new System.EventHandler(this.TimerSaat_Tick);
+            // 
+            // timer1
+            // 
+            this.timer1.Interval = 20000;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // FrmIzlemeSure
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -205,7 +218,9 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.LblTarih);
             this.Name = "FrmIzlemeSure";
-            this.Text = "FrmIzlemeSure";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Ay Bazlı Açık Arıza Grafikleri";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FrmIzlemeSure_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -232,5 +247,7 @@
         private System.Windows.Forms.Label LblTarih;
         private System.Windows.Forms.Label label30;
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
+        private System.Windows.Forms.Timer TimerSaat;
+        private System.Windows.Forms.Timer timer1;
     }
 }

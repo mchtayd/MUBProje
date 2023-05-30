@@ -73,6 +73,7 @@
     <Compile Include="ArizaIslemAdimiManager.cs" />
     <Compile Include="AtolyeRaporManager.cs" />
     <Compile Include="ComboManager.cs" />
+    <Compile Include="Concreate\AnaSayfa\ArizaAyManager.cs" />
     <Compile Include="Concreate\AnaSayfa\BildirimYetkiManager.cs" />
     <Compile Include="Concreate\AnaSayfa\DuyuruManager.cs" />
     <Compile Include="Concreate\AnaSayfa\LogManager.cs" />
@@ -86,9 +87,11 @@
     <Compile Include="Concreate\BakimOnarim\AbfMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarim\ArizaKayitManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\BolgeEnvanterManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeGarantiManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeKayitManager.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeManager.cs" />
+    <Compile Include="Concreate\BakimOnarim\BolgeNotManager.cs" />
     <Compile Include="Concreate\BakimOnarim\DtfMaliyetManager.cs" />
     <Compile Include="Concreate\BakimOnarim\DtfManager.cs" />
     <Compile Include="Concreate\BakimOnarim\IscilikDesteIscilikManager.cs" />

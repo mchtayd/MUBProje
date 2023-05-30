@@ -159,6 +159,7 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
             DtgList.Columns["OkfBildirimNo"].HeaderText = "OKF BİLDİRİM NO";
             DtgList.Columns["ProjeTanimi"].HeaderText = "PROJE TANIMI";
+            DtgList.Columns["Musteri"].HeaderText = "MÜŞTERİ";
 
 
             DtgList.Columns["BildirimTuru"].DisplayIndex = 0;
@@ -559,6 +560,7 @@ namespace UserInterface.BakımOnarım
                 DtgList.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
                 DtgList.Columns["OkfBildirimNo"].HeaderText = "OKF BİLDİRİM NO";
                 DtgList.Columns["ProjeTanimi"].HeaderText = "PROJE TANIMI";
+                DtgList.Columns["Musteri"].HeaderText = "MÜŞTERİ";
 
 
                 DtgList.Columns["BildirimTuru"].DisplayIndex = 0;

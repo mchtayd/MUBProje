@@ -117,6 +117,39 @@ namespace DataAccess.Concreate
                 return new List<GorevAtamaPersonel>();
             }
         }
+
+        public List<GorevAtamaPersonel> GetDevamEdenler(int benzersiz, string departman)
+        {
+            try
+            {
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                dataReader = sqlServices.StoreReader("GorevAtanaPersonelListDevamEden",
+                    new SqlParameter("@benzersizId", benzersiz), new SqlParameter("@departman", departman));
+                while (dataReader.Read())
+                {
+                    gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["DEPARTMAN"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["SURE"].ToString(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        ""));
+                }
+                dataReader.Close();
+                return gorevAtamaPersonels;
+
+            }
+            catch (Exception)
+            {
+                dataReader.Close();
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+
         public List<GorevAtamaPersonel> GorevAtamaGetList(int benzersizId)
         {
             try
@@ -331,6 +364,8 @@ namespace DataAccess.Concreate
             try
             {
                 dataReader = sqlServices.StoreReader("GorevAtananPersonelSureGuncelle",
+                    new SqlParameter("@id",entity.Id),
+                    new SqlParameter("@personel",entity.GorevAtanacakPersonel),
                     new SqlParameter("@benzersiz", entity.BenzersizId),
                     new SqlParameter("@departman", entity.Departman),
                     new SqlParameter("@islemAdimi", entity.IslemAdimi),

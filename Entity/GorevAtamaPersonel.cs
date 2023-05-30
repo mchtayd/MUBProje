@@ -35,18 +35,6 @@ namespace Entity
             this.abfNo = abfNo;
         }
 
-        /*public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure, string yapilanIslem, DateTime calismaSuresi)
-        {
-            this.id = id;
-            this.benzersizId = benzersizId;
-            this.departman = departman;
-            this.gorevAtanacakPersonel = gorevAtanacakPersonel;
-            this.islemAdimi = islemAdimi;
-            this.tarih = tarih;
-            this.sure = sure;
-            this.yapilanIslem = yapilanIslem;
-            this.CalismaSuresi = calismaSuresi;
-        }*/
 
         public GorevAtamaPersonel(int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string yapilanIslem, DateTime calismaSuresi)
         {
@@ -59,22 +47,16 @@ namespace Entity
             this.CalismaSuresi = calismaSuresi;
         }
 
-        public GorevAtamaPersonel(int benzersizId, string departman, string islemAdimi, string sure, DateTime calismaSuresi)
+        public GorevAtamaPersonel(int id, int benzersizId, string departman, string islemAdimi, string sure, DateTime calismaSuresi, string personel)
         {
             this.benzersizId = benzersizId;
             this.departman = departman;
             this.islemAdimi = islemAdimi;
             this.sure = sure;
             this.CalismaSuresi = calismaSuresi;
+            this.id = id;
+            this.gorevAtanacakPersonel = personel;
         }
 
-        /*public GorevAtamaPersonel(int benzersizId, string departman, string islemAdimi, string sure, DateTime calismaSuresi)
-        {
-            this.benzersizId = benzersizId;
-            this.departman = departman;
-            this.islemAdimi = islemAdimi;
-            this.sure = sure;
-            this.CalismaSuresi = calismaSuresi;
-        }*/
     }
 }

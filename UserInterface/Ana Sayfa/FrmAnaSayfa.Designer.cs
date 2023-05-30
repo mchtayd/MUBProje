@@ -118,6 +118,7 @@ namespace UserInterface.STS
             this.slaytGörünümToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.slaytGörünümToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.slaytGörünümToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton6 = new System.Windows.Forms.ToolStripDropDownButton();
             this.YurtIci = new System.Windows.Forms.ToolStripMenuItem();
             this.SehirIcı = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,7 +146,6 @@ namespace UserInterface.STS
             this.TimerFileRead = new System.Windows.Forms.Timer(this.components);
             this.timerIzlemeChc = new System.Windows.Forms.Timer(this.components);
             this.TmMesajControl = new System.Windows.Forms.Timer(this.components);
-            this.slaytGörünümToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -955,6 +955,7 @@ namespace UserInterface.STS
             this.bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem.Name = "bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem";
             this.bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
             this.bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem.Text = "Bölge Bazlı İşlem Adımı Grafiği";
+            this.bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem.Click += new System.EventHandler(this.bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem_Click);
             // 
             // slaytGörünümToolStripMenuItem1
             // 
@@ -962,6 +963,12 @@ namespace UserInterface.STS
             this.slaytGörünümToolStripMenuItem1.Size = new System.Drawing.Size(301, 26);
             this.slaytGörünümToolStripMenuItem1.Text = "Arıza Süreleri Grafiği";
             this.slaytGörünümToolStripMenuItem1.Click += new System.EventHandler(this.slaytGörünümToolStripMenuItem1_Click);
+            // 
+            // slaytGörünümToolStripMenuItem2
+            // 
+            this.slaytGörünümToolStripMenuItem2.Name = "slaytGörünümToolStripMenuItem2";
+            this.slaytGörünümToolStripMenuItem2.Size = new System.Drawing.Size(301, 26);
+            this.slaytGörünümToolStripMenuItem2.Text = "Slayt Görünüm";
             // 
             // toolStripDropDownButton6
             // 
@@ -1203,12 +1210,6 @@ namespace UserInterface.STS
             // 
             this.TmMesajControl.Interval = 6000;
             this.TmMesajControl.Tick += new System.EventHandler(this.TmMesajControl_Tick);
-            // 
-            // slaytGörünümToolStripMenuItem2
-            // 
-            this.slaytGörünümToolStripMenuItem2.Name = "slaytGörünümToolStripMenuItem2";
-            this.slaytGörünümToolStripMenuItem2.Size = new System.Drawing.Size(301, 26);
-            this.slaytGörünümToolStripMenuItem2.Text = "Slayt Görünüm";
             // 
             // FrmAnaSayfa
             // 

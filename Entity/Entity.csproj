@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="AmbarVeri.cs" />
+    <Compile Include="AnaSayfa\ArizaAy.cs" />
     <Compile Include="AnaSayfa\BildirimYetki.cs" />
     <Compile Include="AnaSayfa\Duyuru.cs" />
     <Compile Include="AnaSayfa\Log.cs" />
@@ -88,8 +89,10 @@
     <Compile Include="BakimOnarim\ArizaKayit.cs" />
     <Compile Include="BakimOnarim\BakimOnarimLog.cs" />
     <Compile Include="BakimOnarim\Bolge.cs" />
+    <Compile Include="BakimOnarim\BolgeEnvanter.cs" />
     <Compile Include="BakimOnarim\BolgeGaranti.cs" />
     <Compile Include="BakimOnarim\BolgeKayit.cs" />
+    <Compile Include="BakimOnarim\BolgeNot.cs" />
     <Compile Include="BakimOnarim\Dtf.cs" />
     <Compile Include="BakimOnarim\DtfMaliyet.cs" />
     <Compile Include="BakimOnarim\IscilikDestekIscilik.cs" />

@@ -1605,7 +1605,7 @@ namespace UserInterface.BakımOnarım
                 //    IsAkisNo();
                 //    return;
                 //}
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 IsAkisNoAK();
                 EksikEvrakList();
@@ -2365,7 +2365,7 @@ namespace UserInterface.BakımOnarım
 
                 abfForm = AbfFormNo();
 
-                ArizaKayit arizaKayit = new ArizaKayit(LblIsAkisNoAK.Text.ConInt(), abfForm, proje, CmbBolgeAdiAK.Text, bolukKomutani, telefon, birlikAdresi, il, ilce, TxtBildirilenArizaAK.Text, TxtPersonelAK.Text, TxtRutbesiAK.Text, TxtGoreviAK.Text, TxtTelefonAK.Text, DateTime.Now, infos[1].ToString(), CmbBildirimKanaliAK.Text, TxtArizaAciklamaAK.Text, "", "ONARIMI TAMAMLANDI", dosyaYolu, siparisNo);
+                ArizaKayit arizaKayit = new ArizaKayit(LblIsAkisNoAK.Text.ConInt(), abfForm, proje, CmbBolgeAdiAK.Text, bolukKomutani, telefon, birlikAdresi, il, ilce, TxtBildirilenArizaAK.Text, TxtPersonelAK.Text, TxtRutbesiAK.Text, TxtGoreviAK.Text, TxtTelefonAK.Text, DateTime.Now, infos[1].ToString(), CmbBildirimKanaliAK.Text, TxtArizaAciklamaAK.Text, "", "ONARIMI TAMAMLANDI", dosyaYolu, siparisNo, "", "");
 
                 string mesaj = arizaKayitManager.Add(arizaKayit);
                 if (mesaj != "OK")
@@ -2428,19 +2428,31 @@ namespace UserInterface.BakımOnarım
         }
         void GorevAtamaAK()
         {
-            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM", infos[1].ToString(), "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", DateTime.Now, TxtBildirilenAriza.Text, "00:05:00".ConOnlyTime());
-            gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+            //int guncellenecekId = 0;
+            //List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            //gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM");
 
-            string sure = "0 Gün " + "0 Saat " + "0 Dakika";
+            //foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            //{
+            //    if (item.IslemAdimi == LblMevcutIslemAdimi.Text)
+            //    {
+            //        guncellenecekId = item.Id;
+            //    }
+            //}
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", sure, DateTime.Now.Date);
-            gorevAtamaPersonelManager.Update(gorevAtama);
+            //GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM", infos[1].ToString(), "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", DateTime.Now, TxtBildirilenAriza.Text, "00:05:00".ConOnlyTime());
+            //gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
 
-            GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM", infos[1].ToString(), "ONARIMI TAMAMLANDI", DateTime.Now, TxtOnarimNotuAK.Text, "00:05:00".ConOnlyTime());
-            gorevAtamaPersonelManager.Add(gorevAtamaPersonel4);
+            //string sure = "0 Gün " + "0 Saat " + "0 Dakika";
 
-            GorevAtamaPersonel gorevAtama5 = new GorevAtamaPersonel(id, "BAKIM ONARIM", "ONARIMI TAMAMLANDI", sure, DateTime.Now.Date);
-            gorevAtamaPersonelManager.Update(gorevAtama5);
+            //GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", sure, DateTime.Now.Date);
+            //gorevAtamaPersonelManager.Update(gorevAtama);
+
+            //GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM", infos[1].ToString(), "ONARIMI TAMAMLANDI", DateTime.Now, TxtOnarimNotuAK.Text, "00:05:00".ConOnlyTime());
+            //gorevAtamaPersonelManager.Add(gorevAtamaPersonel4);
+
+            //GorevAtamaPersonel gorevAtama5 = new GorevAtamaPersonel(id, "BAKIM ONARIM", "ONARIMI TAMAMLANDI", sure, DateTime.Now.Date);
+            //gorevAtamaPersonelManager.Update(gorevAtama5);
 
         }
         string KapatmaKayitAK()
@@ -2751,7 +2763,7 @@ namespace UserInterface.BakımOnarım
 
                 abfForm = AbfFormNo();
 
-                ArizaKayit arizaKayit = new ArizaKayit(LblIsAkisNo.Text.ConInt(), abfForm, proje, CmbBolgeAdi.Text, LblBolukKomutanı.Text, LblTelefon.Text, LblBirlilkAdresi.Text, LblIl.Text, LblIlce.Text, TxtBildirilenAriza.Text, TxtBirlikPersoneli.Text, TxtBirlikPerRutbesi.Text, TxtBirlikPerGorevi.Text, TxtABTelefon.Text, DateTime.Now, LblArizaBildirimiAlan.Text, CmbBildirimKanali.Text, TxtArizaAciklama.Text, CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, dosyaYolu, siparisNo);
+                ArizaKayit arizaKayit = new ArizaKayit(LblIsAkisNo.Text.ConInt(), abfForm, proje, CmbBolgeAdi.Text, LblBolukKomutanı.Text, LblTelefon.Text, LblBirlilkAdresi.Text, LblIl.Text, LblIlce.Text, TxtBildirilenAriza.Text, TxtBirlikPersoneli.Text, TxtBirlikPerRutbesi.Text, TxtBirlikPerGorevi.Text, TxtABTelefon.Text, DateTime.Now, LblArizaBildirimiAlan.Text, CmbBildirimKanali.Text, TxtArizaAciklama.Text, CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, dosyaYolu, siparisNo,"","");
 
                 string mesaj = arizaKayitManager.Add(arizaKayit);
                 if (mesaj != "OK")
@@ -2861,6 +2873,8 @@ namespace UserInterface.BakımOnarım
 
         void GorevAtama()
         {
+            
+
             ArizaKayit arizaKayit = arizaKayitManager.Get(abfForm);
             id = arizaKayit.Id;
 
@@ -2869,7 +2883,18 @@ namespace UserInterface.BakımOnarım
 
             string sure = "0 Gün " + "0 Saat " + "0 Dakika";
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", sure, DateTime.Now.Date);
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM", "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", sure, DateTime.Now.Date, infos[1].ToString());
             gorevAtamaPersonelManager.Update(gorevAtama);
 
             GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM", CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
@@ -2881,7 +2906,19 @@ namespace UserInterface.BakımOnarım
             ArizaKayit arizaKayit = arizaKayitManager.Get(abf);
             id = arizaKayit.Id;
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", LblMevcutIslemAdimi.Text, sure, "00:05:00".ConOnlyTime());
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == LblMevcutIslemAdimi.Text)
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM", LblMevcutIslemAdimi.Text, sure, "00:05:00".ConOnlyTime(), infos[1].ToString());
             string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, TxtIslemAdimiAciklama.Text);
             if (kontrol2 != "OK")
             {
@@ -2907,10 +2944,23 @@ namespace UserInterface.BakımOnarım
         }
         string GorevAtamCrm()
         {
+
             ArizaKayit arizaKayit = arizaKayitManager.Get(abf);
             id = arizaKayit.Id;
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", LblCrmMevcutIslemAdimi.Text, sure, "00:05:00".ConOnlyTime());
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == LblCrmMevcutIslemAdimi.Text)
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM", LblCrmMevcutIslemAdimi.Text, sure, "00:05:00".ConOnlyTime(), infos[1].ToString());
             string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "ASELSAN BİLDİRİMİ YAPILDI.");
             if (kontrol2 != "OK")
             {

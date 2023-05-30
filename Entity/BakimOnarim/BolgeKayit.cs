@@ -86,8 +86,8 @@ namespace Entity.BakimOnarim
             this.pypNo = pypNo;
             this.proje = proje;
             this.tepeSorumlusu = tepeSorumlusu;
-            this.projeSistem= projeSistem;
-            this.musteri=musteri;
+            this.projeSistem = projeSistem;
+            this.musteri = musteri;
         }
 
         public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, string bolgeSorumlusu, string depo, string pypNo, DateTime garantiBaslama, DateTime garantiBitis, string dosyaYolu, string tepeSorumlusu, string projeSistem, string musteri)

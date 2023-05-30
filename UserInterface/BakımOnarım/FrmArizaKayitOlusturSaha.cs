@@ -37,7 +37,7 @@ namespace UserInterface.BakımOnarım
         List<string> fileNames = new List<string>();
         List<PersonelKayit> personelKayits;
 
-        string proje, isAkisNo, dosyaYolu, kaynakdosyaismi, alinandosya, siparisNo;
+        string proje, isAkisNo, dosyaYolu, kaynakdosyaismi, alinandosya, siparisNo, projeTanim, muster;
         bool start = true, kayitKontrol = false, dosyaKontrol = false;
         
         public object[] infos;
@@ -113,7 +113,7 @@ namespace UserInterface.BakımOnarım
 
                 abfForm = AbfFormNo();
 
-                ArizaKayit arizaKayit = new ArizaKayit(LblIsAkisNo.Text.ConInt(), abfForm, LblPdl.Text, CmbBolgeAdi.Text, "", "", LblBirlilkAdresi.Text, LblIl.Text, LblIlce.Text, TxtBildirilenAriza.Text, TxtBirlikPersoneli.Text, TxtBirlikPerRutbesi.Text, TxtBirlikPerGorevi.Text, TxtABTelefon.Text, DateTime.Now, LblArizaBildirimiAlan.Text, CmbBildirimKanali.Text, TxtArizaAciklama.Text, CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, dosyaYolu, siparisNo);
+                ArizaKayit arizaKayit = new ArizaKayit(LblIsAkisNo.Text.ConInt(), abfForm, LblPdl.Text, CmbBolgeAdi.Text, "", "", LblBirlilkAdresi.Text, LblIl.Text, LblIlce.Text, TxtBildirilenAriza.Text, TxtBirlikPersoneli.Text, TxtBirlikPerRutbesi.Text, TxtBirlikPerGorevi.Text, TxtABTelefon.Text, DateTime.Now, LblArizaBildirimiAlan.Text, CmbBildirimKanali.Text, TxtArizaAciklama.Text, CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, dosyaYolu, siparisNo, projeTanim, muster);
 
                 string mesaj = arizaKayitManager.Add(arizaKayit);
                 if (mesaj != "OK")
@@ -275,7 +275,19 @@ namespace UserInterface.BakımOnarım
 
             string sure = "0 Gün " + "0 Saat " + "0 Dakika";
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", sure, DateTime.Now.Date);
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM", "100_ARIZANIN BİLDİRİLMESİ (MÜŞTERİ)", sure, DateTime.Now.Date, infos[1].ToString());
             gorevAtamaPersonelManager.Update(gorevAtama);
 
             GorevAtamaPersonel gorevAtamaPersonel4 = new GorevAtamaPersonel(id, "BAKIM ONARIM", CmbGorevAtanacakPersonel.Text, LblIslemAdimi.Text, DateTime.Now, "", DateTime.Now.Date);
@@ -315,7 +327,8 @@ namespace UserInterface.BakımOnarım
             }
             int id = CmbBolgeAdi.SelectedValue.ConInt();
             BolgeKayit bolge = bolgeKayitManager.Get(id);
-
+            projeTanim = bolge.ProjeSistem;
+            muster = bolge.Musteri;
             proje = bolge.Proje;
             LblProje.Text = proje;
             LblBirlilkAdresi.Text = bolge.BirlikAdresi;

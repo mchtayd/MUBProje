@@ -2503,7 +2503,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Bölge ve Ekipman Kayıt")
             {
                 FrmBolgeler Go = new FrmBolgeler();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3712,7 +3712,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Bildirim Onayi")
             {
                 FrmBildirimOnayi Go = new FrmBildirimOnayi();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -4904,12 +4904,12 @@ namespace UserInterface.STS
         string izlemeTıklanan = "";
         private void ambarVeriİzlemeToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
-            frmSahaIzleme.Show();
+            //FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
+            //frmSahaIzleme.Show();
             FrmIzlemeAmbar frmIzlemeAmbar = new FrmIzlemeAmbar();
             frmIzlemeAmbar.Show();
-            timerIzlemeChc.Start();
-            izlemeTıklanan = "FrmIzlemeAmbar";
+            //timerIzlemeChc.Start();
+            //izlemeTıklanan = "FrmIzlemeAmbar";
         }
 
         private void atölyeVeriİzlemeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5639,12 +5639,12 @@ namespace UserInterface.STS
 
         private void sahaBakımOnarımToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmIzlemeAmbar frmIzlemeAmbar = new FrmIzlemeAmbar();
-            frmIzlemeAmbar.Show();
+            //FrmIzlemeAmbar frmIzlemeAmbar = new FrmIzlemeAmbar();
+            //frmIzlemeAmbar.Show();
             FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
             frmSahaIzleme.Show();
-            timerIzlemeChc.Start();
-            izlemeTıklanan = "FrmSahaIzleme";
+            //timerIzlemeChc.Start();
+            //izlemeTıklanan = "FrmSahaIzleme";
         }
 
         private void timerIzlemeChc_Tick(object sender, EventArgs e)
@@ -5776,6 +5776,11 @@ namespace UserInterface.STS
         {
             FrmIzlemeSure frmIzlemeSure = new FrmIzlemeSure();
             frmIzlemeSure.Show();
+        }
+
+        private void bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
 
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)

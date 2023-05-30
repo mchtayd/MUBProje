@@ -29,7 +29,7 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaDurumGuncelle));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -38,7 +38,6 @@ namespace UserInterface.BakımOnarım
             this.TxtAbfNo = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.BtnDosyaEkle = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.DtgFormBilgileri = new ADGV.AdvancedDataGridView();
             this.FormNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -256,18 +255,6 @@ namespace UserInterface.BakımOnarım
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(383, 148);
             this.webBrowser1.TabIndex = 0;
-            // 
-            // BtnDosyaEkle
-            // 
-            this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(558, 381);
-            this.BtnDosyaEkle.Name = "BtnDosyaEkle";
-            this.BtnDosyaEkle.Size = new System.Drawing.Size(113, 28);
-            this.BtnDosyaEkle.TabIndex = 417;
-            this.BtnDosyaEkle.Text = "DOSYA EKLE";
-            this.BtnDosyaEkle.UseVisualStyleBackColor = true;
-            this.BtnDosyaEkle.Click += new System.EventHandler(this.BtnDosyaEkle_Click);
             // 
             // groupBox8
             // 
@@ -490,7 +477,7 @@ namespace UserInterface.BakımOnarım
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label3.Location = new System.Drawing.Point(680, 381);
+            this.label3.Location = new System.Drawing.Point(562, 381);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(261, 30);
             this.label3.TabIndex = 462;
@@ -649,12 +636,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1213,6 +1200,7 @@ namespace UserInterface.BakımOnarım
             this.TxtSokulenTanim.Name = "TxtSokulenTanim";
             this.TxtSokulenTanim.Size = new System.Drawing.Size(342, 20);
             this.TxtSokulenTanim.TabIndex = 489;
+            this.TxtSokulenTanim.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtSokulenTanim_KeyDown);
             this.TxtSokulenTanim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtSokulenTanim_KeyPress);
             // 
             // CmbFizikselDurumu
@@ -1641,7 +1629,6 @@ namespace UserInterface.BakımOnarım
             this.Controls.Add(this.label13);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.groupBox8);
-            this.Controls.Add(this.BtnDosyaEkle);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.TxtAbfNo);
             this.Controls.Add(this.label1);
@@ -1683,7 +1670,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.WebBrowser webBrowser1;
-        private System.Windows.Forms.Button BtnDosyaEkle;
         private System.Windows.Forms.GroupBox groupBox8;
         private ADGV.AdvancedDataGridView DtgFormBilgileri;
         private System.Windows.Forms.Label LblMevcutIslemAdimi;

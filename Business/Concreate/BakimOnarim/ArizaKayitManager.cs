@@ -19,6 +19,7 @@ namespace Business.Concreate.BakimOnarim
         {
             arizaKayitDal = ArizaKayitDal.GetInstance();
         }
+
         public string Add(ArizaKayit entity)
         {
             try
@@ -243,6 +244,17 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return arizaKayitDal.KapatKayit(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string ArizaDurumUpdate(int id,int durum)
+        {
+            try
+            {
+                return arizaKayitDal.ArizaDurumUpdate(id, durum);
             }
             catch (Exception ex)
             {

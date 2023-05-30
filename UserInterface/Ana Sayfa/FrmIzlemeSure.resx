@@ -30927,4 +30927,10 @@
         wzVcc3P9YK7Ef7Kazf8HmzR9p7O7FDgAAAAASUVORK5CYII=
 </value>
   </data>
+  <metadata name="TimerSaat.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>18, 18</value>
+  </metadata>
+  <metadata name="timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>124, 18</value>
+  </metadata>
 </root>

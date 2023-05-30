@@ -31,6 +31,7 @@ namespace UserInterface.BakımOnarım
         int id, gun, saat, dakika;
         string dosyaYolu, abfNo, sure;
         DateTime birOncekiTarih;
+        public object[] infos;
 
         public FrmBildirimOnayi()
         {
@@ -258,7 +259,19 @@ namespace UserInterface.BakımOnarım
         }
         string GorevAtama()
         {
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM", LblMevcutIslemAdimi.Text, sure, "00:05:00".ConOnlyTime());
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == LblMevcutIslemAdimi.Text)
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM", LblMevcutIslemAdimi.Text, sure, "00:05:00".ConOnlyTime(), infos[1].ToString());
             string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, TxtYapilanIslemler.Text);
             if (kontrol2 != "OK")
             {

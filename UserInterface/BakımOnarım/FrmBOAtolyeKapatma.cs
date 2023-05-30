@@ -58,10 +58,21 @@ namespace UserInterface.BakımOnarım
             if (dr == DialogResult.Yes)
             {
 
+                int guncellenecekId = 0;
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM ATOLYE");
+
+                foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+                {
+                    if (item.IslemAdimi == bulunduguIslemAdimi)
+                    {
+                        guncellenecekId = item.Id;
+                    }
+                }
+
                 atolyeManager.ArizaKapat(id, 0, DateTime.Now);
 
-                GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:05:00".ConOnlyTime());
-
+                GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:05:00".ConOnlyTime(), infos[1].ToString());
 
                 string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "SİPARİŞ KAPATILMIŞTIR");
                 if (kontrol2 != "OK")

@@ -874,7 +874,19 @@ namespace UserInterface.BakımOnarım
             GorevAtamaPersonel gorevAtamaPersonel2 = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
             bulunduguIslemAdimi = gorevAtamaPersonel2.IslemAdimi;
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, DtIscilikSaati.Value);
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM ATOLYE");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == bulunduguIslemAdimi)
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, DtIscilikSaati.Value, infos[1].ToString());
             string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, TxtYapilanIslemler.Text);
             if (kontrol2 != "OK")
             {

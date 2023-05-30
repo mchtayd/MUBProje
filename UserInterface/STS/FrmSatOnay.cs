@@ -2697,7 +2697,19 @@ namespace UserInterface.STS
 
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "İZİN", "SAT ONAYI", sure, "00:02:00".ConOnlyTime());
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "SATIN ALMA");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "SAT ONAYI")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "SATIN ALMA", "SAT ONAYI", sure, "00:02:00".ConOnlyTime(), infos[1].ToString());
             gorevAtamaPersonelManager.Update(gorevAtama, "SAT ONAYLANDI");
 
         }
@@ -2720,7 +2732,19 @@ namespace UserInterface.STS
 
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "İZİN", "SAT ONAYI", sure, "00:02:00".ConOnlyTime());
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "SATIN ALMA");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "SAT ONAYI")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "SATIN ALMA", "SAT ONAYI", sure, "00:02:00".ConOnlyTime(), infos[1].ToString());
             gorevAtamaPersonelManager.Update(gorevAtama, "SAT REDDEDİLDİ");
 
         }

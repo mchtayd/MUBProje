@@ -137,7 +137,19 @@ namespace UserInterface.IdariIsler
 
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "ŞEHİR İÇİ GÖREV", "ŞEHİR İÇİ GÖREV ONAYI", sure, "00:02:00".ConOnlyTime());
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "ŞEHİR İÇİ GÖREV");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "ŞEHİR İÇİ GÖREV ONAYI")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "ŞEHİR İÇİ GÖREV", "ŞEHİR İÇİ GÖREV ONAYI", sure, "00:02:00".ConOnlyTime(), infos[1].ToString());
             gorevAtamaPersonelManager.Update(gorevAtama, "GÖREV ONAYLANDI");
         }
 
@@ -159,8 +171,18 @@ namespace UserInterface.IdariIsler
             dakika = sonuc.Seconds.ConInt() % 60;
 
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "ŞEHİR İÇİ GÖREV");
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "ŞEHİR İÇİ GÖREV", "ŞEHİR İÇİ GÖREV ONAYI", sure, "00:02:00".ConOnlyTime());
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "ŞEHİR İÇİ GÖREV ONAYI")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "ŞEHİR İÇİ GÖREV", "ŞEHİR İÇİ GÖREV ONAYI", sure, "00:02:00".ConOnlyTime(), infos[1].ToString());
             gorevAtamaPersonelManager.Update(gorevAtama, "GÖREV REDDEDİLDİ");
         }
 

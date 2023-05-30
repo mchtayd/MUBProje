@@ -77,6 +77,18 @@ namespace Business.Concreate
                 return new List<GorevAtamaPersonel>();
             }
         }
+
+        public List<GorevAtamaPersonel> GetDevamEdenler(int benzersiz, string departman)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.GetDevamEdenler(benzersiz, departman);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
         public List<GorevAtamaPersonel> GorevAtamaGetList(int benzersizId)
         {
             try

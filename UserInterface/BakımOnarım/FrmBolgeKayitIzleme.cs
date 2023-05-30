@@ -21,6 +21,7 @@ namespace UserInterface.BakımOnarım
         BolgeManager bolgeManager;
         BolgeKayitManager bolgeKayitManager;
         BolgeGarantiManager bolgeGarantiManager;
+        BolgeNotManager bolgeNotManager;
 
         int id;
         string siparisNo, dosyaYolu;
@@ -30,6 +31,7 @@ namespace UserInterface.BakımOnarım
             bolgeManager = BolgeManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
+            bolgeNotManager = BolgeNotManager.GetInstance();
         }
 
         private void FrmBolgeKayitIzleme_Load(object sender, EventArgs e)
@@ -97,6 +99,16 @@ namespace UserInterface.BakımOnarım
             id = DtgBolgeler.CurrentRow.Cells["Id"].Value.ConInt();
             siparisNo = DtgBolgeler.CurrentRow.Cells["SiparisNo"].Value.ToString();
             dosyaYolu = DtgBolgeler.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            List<BolgeNot> bolgeNots = new List<BolgeNot>();
+            bolgeNots = bolgeNotManager.GetList(id);
+
+            DtgList.DataSource = bolgeNots;
+
+            DtgList.Columns["Id"].Visible = false;
+            DtgList.Columns["BenzerisizId"].Visible = false;
+            DtgList.Columns["Tarih"].HeaderText = "TARİH";
+            DtgList.Columns["KayitYapan"].HeaderText = "KAYIT YAPAN";
+            DtgList.Columns["Not"].HeaderText = "NOT";
 
             GarantiPaketleriDisplay(siparisNo);
 
@@ -120,6 +132,11 @@ namespace UserInterface.BakımOnarım
         private void DtgBolgeler_SortStringChanged(object sender, EventArgs e)
         {
             dataBinder.Sort = DtgBolgeler.SortString;
+        }
+
+        private void tabPage4_Click(object sender, EventArgs e)
+        {
+
         }
 
         void GarantiPaketleriDisplay(string siparisNo)

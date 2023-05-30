@@ -849,11 +849,43 @@ namespace UserInterface.BakımOnarım
 
             string sure = "0 Gün " + "0 Saat " + "0 Dakika";
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", "100-TAKIMIN ÇEKİLMESİ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date);
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM ATOLYE");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "100-TAKIMIN ÇEKİLMESİ (AMBAR VERİ KAYIT)")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", "100-TAKIMIN ÇEKİLMESİ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date, infos[1].ToString());
             gorevAtamaPersonelManager.Update(gorevAtama);
-            GorevAtamaPersonel messege2 = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", "200-MODİFİKASYON KONTROLÜ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date);
+
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "200-MODİFİKASYON KONTROLÜ (AMBAR VERİ KAYIT)")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel messege2 = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", "200-MODİFİKASYON KONTROLÜ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date, infos[1].ToString());
             gorevAtamaPersonelManager.Update(messege2);
-            GorevAtamaPersonel messege3 = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", "300-SİPARİŞ OLUŞTURMA (AMBAR VERİ KAYIT)", sure, "00:25:00".ConOnlyTime());
+
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "300-SİPARİŞ OLUŞTURMA (AMBAR VERİ KAYIT)")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel messege3 = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", "300-SİPARİŞ OLUŞTURMA (AMBAR VERİ KAYIT)", sure, "00:25:00".ConOnlyTime(), infos[1].ToString());
             gorevAtamaPersonelManager.Update(messege3);
             return "OK";
         }
@@ -876,11 +908,41 @@ namespace UserInterface.BakımOnarım
 
             string sure = "0 Gün " + "0 Saat " + "0 Dakika";
 
-            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", "100-TAKIMIN ÇEKİLMESİ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date);
+
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM ATOLYE");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "100-TAKIMIN ÇEKİLMESİ (AMBAR VERİ KAYIT)")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", "100-TAKIMIN ÇEKİLMESİ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date, infos[1].ToString());
             gorevAtamaPersonelManager.Update(gorevAtama);
-            GorevAtamaPersonel messege2 = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", "200-MODİFİKASYON KONTROLÜ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date);
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "200-MODİFİKASYON KONTROLÜ (AMBAR VERİ KAYIT)")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            GorevAtamaPersonel messege2 = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", "200-MODİFİKASYON KONTROLÜ (AMBAR VERİ KAYIT)", sure, DateTime.Now.Date, infos[1].ToString());
             gorevAtamaPersonelManager.Update(messege2);
-            GorevAtamaPersonel messege3 = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", "300-SİPARİŞ OLUŞTURMA (AMBAR VERİ KAYIT)", sure, "00:25:00".ConOnlyTime());
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == "300-SİPARİŞ OLUŞTURMA (AMBAR VERİ KAYIT)")
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+            GorevAtamaPersonel messege3 = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", "300-SİPARİŞ OLUŞTURMA (AMBAR VERİ KAYIT)", sure, "00:25:00".ConOnlyTime(), infos[1].ToString());
             gorevAtamaPersonelManager.Update(messege3);
             return "OK";
         }
