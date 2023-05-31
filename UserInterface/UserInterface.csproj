@@ -251,6 +251,12 @@
     <Compile Include="Ana Sayfa\FrmIslemAdimiSorumlulari.Designer.cs">
       <DependentUpon>FrmIslemAdimiSorumlulari.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmIslemAdimlariGrafik.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmIslemAdimlariGrafik.Designer.cs">
+      <DependentUpon>FrmIslemAdimlariGrafik.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmIsTakip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1554,6 +1560,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmIslemAdimiSorumlulari.resx">
       <DependentUpon>FrmIslemAdimiSorumlulari.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmIslemAdimlariGrafik.resx">
+      <DependentUpon>FrmIslemAdimlariGrafik.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmIsTakip.resx">
       <DependentUpon>FrmIsTakip.cs</DependentUpon>

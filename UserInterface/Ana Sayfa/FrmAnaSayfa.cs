@@ -3359,13 +3359,13 @@ namespace UserInterface.STS
                 Go.infos = infos;
                 Go.Show();
             }
-            if (e.Node.Text == "Van Depoya İade Edilecek Malzemeler")
+            if (e.Node.Text == "Malzeme Teslimi")
             {
-                FrmDepoyaIadeBolge Go = new FrmDepoyaIadeBolge();
+                FrmMalzemeTeslim Go = new FrmMalzemeTeslim();
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageDepoIadeEdilecekler", "VAN DEPOYA İADE EDİLECEK MALZEMELER", Go);
+                OpenTabPage("PageMalzemeTeslimi", "MALZEME TESLİMİ", Go);
                 Go.infos = infos;
                 Go.Show();
             }

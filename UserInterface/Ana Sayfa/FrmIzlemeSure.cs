@@ -20,14 +20,12 @@ namespace UserInterface.Ana_Sayfa
         List<string> iller = new List<string>();
         List<string> ilce = new List<string>();
 
+
+        int ocakToplam, subatToplam, martToplam, nisanToplam, mayisToplam, haziranToplam, temmuzToplam, agustosToplam, eylulToplam, ekimToplam, kasimToplam, araliikToplam, genelToplam;
         int sirnakOcak, sirnakSubat, sirnakMart, sirnakNisan, sirnakMayis, sirnakHaziran, sirnakTemmuz, sirnakAgustos, sirnakEylul, sirnakEkim, sirnakKasim, sirnakAralik, sirnakToplam;
         int dBolgesikOcak, dBolgesiSubat, dBolgesiMart, dBolgesiNisan, dBolgesiMayis, dBolgesiHaziran, dBolgesiTemmuz, dBolgesiAgustos, dBolgesiEylul, dBolgesiEkim, dBolgesiKasim, dBolgesiAralik, dBolgesiToplam;
-
-        
-
         int cukurcaOcak, cukurcaSubat, cukurcaMart, cukurcaNisan, cukurcaMayis, cukurcaHaziran, cukurcaTemmuz, cukurcaAgustos, cukurcaEylul, cukurcaEkim, cukurcaKasim, cukurcaAralik, cukurcaToplam;
         int derecikOcak, derecikSubat, derecikMart, derecikNisan, derecikMayis, derecikHaziran, derecikTemmuz, derecikAgustos, derecikEylul, derecikEkim, derecikKasim, derecikAralik, derecikToplam;
-        int merkezOcak, merkezSubat, merkezMart, merkezNisan, merkezMayis, merkezHaziran, merkezTemmuz, merkezAgustos, merkezEylul, merkezEkim, merkezKasim, merkezAralik, merkezToplam;
         int semdinliOcak, semdinliSubat, semdinliMart, semdinliNisan, semdinliMayis, semdinliHaziran, semdinliTemmuz, semdinliAgustos, semdinliEylul, semdinliEkim, semdinliKasim, semdinliAralik, semdinliToplam;
         int yuksekovaOcak, yuksekovaSubat, yuksekovaMart, yuksekovaNisan, yuksekovaMayis, yuksekovaHaziran, yuksekovaTemmuz, yuksekovaAgustos, yuksekovaEylul, yuksekovaEkim, yuksekovaKasim, yuksekovaAralik, yuksekovaToplam;
 
@@ -123,7 +121,7 @@ namespace UserInterface.Ana_Sayfa
                             cukurcaToplam += arizaAy.Toplam;
                             continue;
                         }
-                        if (item2 == "DERECİK")
+                        if (item2 == "DERECİK" || item2 == "MERKEZ")
                         {
                             ArizaAy arizaAy = arizaAyManager.Get("2023", item2, item);
                             derecikOcak += arizaAy.Ocak;
@@ -141,24 +139,7 @@ namespace UserInterface.Ana_Sayfa
                             derecikToplam += arizaAy.Toplam;
                             continue;
                         }
-                        if (item2 == "MERKEZ")
-                        {
-                            ArizaAy arizaAy = arizaAyManager.Get("2023", item2, item);
-                            merkezOcak += arizaAy.Ocak;
-                            merkezSubat += arizaAy.Subat;
-                            merkezMart += arizaAy.Mart;
-                            merkezNisan += arizaAy.Nisan;
-                            merkezMayis += arizaAy.Mayis;
-                            merkezHaziran += arizaAy.Haziran;
-                            merkezTemmuz += arizaAy.Temmuz;
-                            merkezAgustos += arizaAy.Agustos;
-                            merkezEylul += arizaAy.Eylus;
-                            merkezEkim += arizaAy.Ekim;
-                            merkezKasim += arizaAy.Kasim;
-                            merkezAralik += arizaAy.Aralik;
-                            merkezToplam += arizaAy.Toplam;
-                            continue;
-                        }
+
                         if (item2 == "ŞEMDİNLİ")
                         {
                             ArizaAy arizaAy = arizaAyManager.Get("2023", item2, item);
@@ -200,100 +181,65 @@ namespace UserInterface.Ana_Sayfa
                 }
             }
 
+            ocakToplam = sirnakOcak + cukurcaOcak + yuksekovaOcak + semdinliOcak + derecikOcak + dBolgesikOcak;
+            subatToplam = sirnakSubat + cukurcaSubat + yuksekovaSubat + semdinliSubat + derecikSubat + dBolgesiSubat;
+            martToplam = sirnakMart + cukurcaMart + yuksekovaMart + semdinliMart + derecikMart + dBolgesiMart;
+            nisanToplam = sirnakNisan + cukurcaNisan + yuksekovaNisan + semdinliNisan + derecikNisan + dBolgesiNisan;
+            mayisToplam = sirnakMayis + cukurcaMayis + yuksekovaMayis + semdinliMayis + derecikMayis + dBolgesiMayis;
+            haziranToplam = sirnakHaziran + cukurcaHaziran + yuksekovaHaziran + semdinliHaziran + derecikHaziran + dBolgesiHaziran;
+            temmuzToplam = sirnakTemmuz + cukurcaTemmuz + yuksekovaTemmuz + semdinliTemmuz + derecikTemmuz + dBolgesiTemmuz;
+            agustosToplam = sirnakAgustos + cukurcaAgustos + yuksekovaAgustos + semdinliAgustos + derecikAgustos + dBolgesiAgustos;
+            eylulToplam = sirnakEylul + cukurcaEylul + yuksekovaEylul + semdinliEylul + derecikEylul + dBolgesiEylul;
+            ekimToplam = sirnakEkim + cukurcaEkim + yuksekovaEkim + semdinliEkim + derecikEkim + dBolgesiEkim;
+            kasimToplam = sirnakKasim + cukurcaKasim + yuksekovaKasim + semdinliKasim + derecikKasim + dBolgesiKasim;
+            araliikToplam = sirnakAralik + cukurcaAralik + yuksekovaAralik + semdinliAralik + derecikAralik + dBolgesiAralik;
+
             SeriesCollection = new SeriesCollection
             {
                 new StackedColumnSeries
                 {
-                    Title = "OCAK",
-                    Values = new ChartValues<double> { sirnakOcak, cukurcaOcak , yuksekovaOcak, semdinliOcak, derecikOcak , merkezOcak, dBolgesikOcak},
+                    Title = "ŞIRNAK",
+                    Values = new ChartValues<double> { sirnakOcak, sirnakSubat , sirnakMart, sirnakNisan, sirnakMayis, sirnakHaziran, sirnakTemmuz, sirnakAgustos, sirnakEylul, sirnakEkim, sirnakKasim, sirnakAralik},
                     StackMode = StackMode.Values,
                     DataLabels = true,
                     FontSize= 25,
                 },
                 new StackedColumnSeries
                 {
-                    Title = "ŞUBAT",
-                    Values = new ChartValues<double> { sirnakSubat, cukurcaSubat, yuksekovaSubat, semdinliSubat, derecikSubat, merkezSubat, dBolgesiSubat},
+                    Title = "ÇUKURCA",
+                    Values = new ChartValues<double> { cukurcaOcak, cukurcaSubat, cukurcaMart, cukurcaNisan, cukurcaMayis, cukurcaHaziran, cukurcaTemmuz, cukurcaAgustos, cukurcaEylul, cukurcaEkim, cukurcaKasim, cukurcaAralik},
                     StackMode = StackMode.Values,
                     DataLabels = true,
                     FontSize= 25,
                 },
                 new StackedColumnSeries
                 {
-                    Title = "MART",
-                    Values = new ChartValues<double> { sirnakMart, cukurcaMart, yuksekovaMart, semdinliMart, derecikMart, merkezMart, dBolgesiMart},
+                    Title = "YÜKSEKOVA",
+                    Values = new ChartValues<double> { yuksekovaOcak, yuksekovaSubat, yuksekovaMart, yuksekovaNisan, yuksekovaMayis, yuksekovaHaziran, yuksekovaTemmuz, yuksekovaAgustos, yuksekovaEylul, yuksekovaEkim, yuksekovaKasim, yuksekovaAralik},
                     StackMode = StackMode.Values,
                     DataLabels = true,
                     FontSize= 25,
                 },
                 new StackedColumnSeries
                 {
-                    Title = "NİSAN",
-                    Values = new ChartValues<double> { sirnakNisan, cukurcaNisan, yuksekovaNisan, semdinliNisan, derecikNisan, merkezNisan, dBolgesiNisan },
+                    Title = "ŞEMDİNLİ",
+                    Values = new ChartValues<double> { semdinliOcak, semdinliSubat, semdinliMart, semdinliNisan, semdinliMayis, semdinliHaziran, semdinliTemmuz, semdinliAgustos, semdinliEylul, semdinliEkim, semdinliKasim, semdinliAralik },
                     StackMode = StackMode.Values,
                     DataLabels = true,
                     FontSize= 25,
                 },
                 new StackedColumnSeries
                 {
-                    Title = "MAYIS",
-                    Values = new ChartValues<double> { sirnakMayis, cukurcaMayis, yuksekovaMayis, semdinliMayis, derecikMayis, merkezMayis, dBolgesiMayis},
+                    Title = "DERECİK",
+                    Values = new ChartValues<double> { derecikOcak, derecikSubat, derecikMart, derecikNisan, derecikMayis, derecikHaziran, derecikTemmuz, derecikAgustos, derecikEylul, derecikEkim, derecikKasim, derecikAralik},
                     StackMode = StackMode.Values,
                     DataLabels = true,
                     FontSize= 25,
                 },
                 new StackedColumnSeries
                 {
-                    Title = "HAZİRAN",
-                    Values = new ChartValues<double> { sirnakHaziran, cukurcaHaziran, yuksekovaHaziran, semdinliHaziran, derecikHaziran, merkezHaziran, dBolgesiHaziran },
-                    StackMode = StackMode.Values,
-                    DataLabels = true,
-                    FontSize= 25,
-                },
-                new StackedColumnSeries
-                {
-                    Title = "TEMMUZ",
-                    Values = new ChartValues<double> { sirnakTemmuz, cukurcaTemmuz, yuksekovaTemmuz, semdinliTemmuz, derecikTemmuz, merkezTemmuz, dBolgesiTemmuz },
-                    StackMode = StackMode.Values,
-                    DataLabels = true,
-                    FontSize= 25,
-                },
-                new StackedColumnSeries
-                {
-                    Title = "AĞUSTOS",
-                    Values = new ChartValues<double> { sirnakAgustos, cukurcaAgustos, yuksekovaAgustos, semdinliAgustos, derecikAgustos, merkezAgustos, dBolgesiAgustos },
-                    StackMode = StackMode.Values,
-                    DataLabels = true,
-                    FontSize= 25,
-                },
-                new StackedColumnSeries
-                {
-                    Title = "EYLÜL",
-                    Values = new ChartValues<double> { sirnakEylul, cukurcaEylul, yuksekovaEylul, semdinliEylul, derecikEylul, merkezEylul, merkezEylul, dBolgesiEylul },
-                    StackMode = StackMode.Values,
-                    DataLabels = true,
-                    FontSize= 25,
-                },
-                new StackedColumnSeries
-                {
-                    Title = "EKİM",
-                    Values = new ChartValues<double> { sirnakEkim, cukurcaEkim, yuksekovaEkim, semdinliEkim, derecikEkim, merkezEkim, dBolgesiEkim  },
-                    StackMode = StackMode.Values,
-                    DataLabels = true,
-                    FontSize= 25,
-                },
-                new StackedColumnSeries
-                {
-                    Title = "KASIM",
-                    Values = new ChartValues<double> { sirnakKasim, cukurcaKasim, yuksekovaKasim, semdinliKasim, derecikKasim, merkezKasim, dBolgesiKasim },
-                    StackMode = StackMode.Values,
-                    DataLabels = true,
-                    FontSize= 25,
-                },
-                new StackedColumnSeries
-                {
-                    Title = "ARALIK",
-                    Values = new ChartValues<double> { sirnakAralik, cukurcaAralik, yuksekovaAralik, semdinliAralik, derecikAralik, merkezAralik, dBolgesiAralik },
+                    Title = "D BÖLGESİ",
+                    Values = new ChartValues<double> { dBolgesikOcak, dBolgesiSubat, dBolgesiMart, dBolgesiNisan, dBolgesiMayis, dBolgesiHaziran, dBolgesiTemmuz, dBolgesiAgustos, dBolgesiEylul, dBolgesiEkim, dBolgesiKasim, dBolgesiAralik },
                     StackMode = StackMode.Values,
                     DataLabels = true,
                     FontSize= 25,
@@ -312,8 +258,7 @@ namespace UserInterface.Ana_Sayfa
                 FontSize = 25,
             });
 
-            Labels = new[] { "ŞIRNAK\n" + "( " + sirnakToplam.ToString() + " )", "ÇUKURCA\n" + "( " + cukurcaToplam.ToString() + " )", "YÜKSEKOVA\n" + "( " + yuksekovaToplam.ToString() + " )", "ŞEMDİNLİ\n" + "( " + semdinliToplam.ToString() + " )", "DERECİK\n" + "( " + derecikToplam.ToString() + " )", "HAKKARİ/ MERKEZ\n" + "( " + merkezToplam.ToString() + " )", "D BÖLGESİ\n" + "( " + dBolgesiToplam.ToString() + " )" };
-
+            Labels = new[] { "OCAK\n" + "( " + ocakToplam.ToString() + " )", "ŞUBAT\n" + "( " + subatToplam.ToString() + " )", "MART\n" + "( " + martToplam.ToString() + " )", "NİSAN\n" + "( " + nisanToplam.ToString() + " )", "MAYIS\n" + "( " + mayisToplam.ToString() + " )", "HAZİRAN\n" + "( " + haziranToplam.ToString() + " )", "TEMMUZ\n" + "( " + temmuzToplam.ToString() + " )", "AĞUSTOS\n" + "( " + agustosToplam.ToString() + " )", "EYLÜL\n" + "( " + eylulToplam.ToString() + " )", "EKİM\n" + "( " + ekimToplam.ToString() + " )", "KASIM\n" + "( " + kasimToplam.ToString() + " )", "ARALIK\n" + "( " + araliikToplam.ToString() + " )" };
 
             for (int i = 0; i < SeriesCollection.Count; i++)
             {

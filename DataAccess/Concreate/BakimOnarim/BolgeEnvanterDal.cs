@@ -57,11 +57,11 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public string Delete(int id)
+        public string Delete(int bolgeId)
         {
             try
             {
-                sqlServices.Stored("BolgeEnvanterSil", new SqlParameter("@id", id));
+                sqlServices.Stored("BolgeEnvanterSil", new SqlParameter("@bolgeId", bolgeId));
                 return "OK";
             }
             catch (Exception ex)

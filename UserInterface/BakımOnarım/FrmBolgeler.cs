@@ -46,6 +46,7 @@ namespace UserInterface.BakımOnarım
 
         bool start = true;
         bool dosyaControl = false;
+        int bolgeId = 0;
 
         public object[] infos;
         public FrmBolgeler()
@@ -509,8 +510,8 @@ namespace UserInterface.BakımOnarım
         {
             DataTable table = FrmHelper.GetDataTableFromExcel("C:\\Users\\MAYıldırım\\Desktop\\MÜB-4 MUHTEVİYAT LİSTESİ.xlsx", "KARLISIRT Ü.B.");
 
-            DtgDeneme.DataSource = null;
-            DtgDeneme.DataSource = table;
+            DtgEnvanterList.DataSource = null;
+            DtgEnvanterList.DataSource = table;
         }
 
         private void CmbBolgeAdiEkipman_SelectedIndexChanged(object sender, EventArgs e)
@@ -519,11 +520,94 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
+            if (CmbBolgeAdiEkipman.SelectedIndex==-1)
+            {
+                LblBolgeKonfig.Text = "00";
+                DtgEnvanterList.DataSource = null;
+                return;
+            }
             BolgeKayit bolge = bolgeKayitManager.Get(CmbBolgeAdiEkipman.SelectedValue.ConInt());
             if (bolge!=null)
             {
                 LblBolgeKonfig.Text = bolge.Proje;
+                bolgeId = bolge.Id;
+                FillData();
             }
+
+        }
+
+        void FillData()
+        {
+            DtgEnvanterList.DataSource = null;
+            List<BolgeEnvanter> bolgeEnvanters = new List<BolgeEnvanter>();
+            bolgeEnvanters = bolgeEnvanterManager.GetList(bolgeId);
+            DtgEnvanterList.DataSource = bolgeEnvanters;
+
+            DtgEnvanterList.Columns["Id"].Visible = false;
+            DtgEnvanterList.Columns["BolgeId"].Visible = false;
+            DtgEnvanterList.Columns["Kategori"].HeaderText = "KATEGORİ";
+            DtgEnvanterList.Columns["Donanim"].HeaderText = "DONANIM";
+            DtgEnvanterList.Columns["StokNo"].HeaderText = "STOK NO";
+            DtgEnvanterList.Columns["Tanim"].HeaderText = "TANIM";
+            DtgEnvanterList.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgEnvanterList.Columns["Birim"].HeaderText = "BİRİM";
+            DtgEnvanterList.Columns["SeriNo"].HeaderText = "SERİ NO";
+            DtgEnvanterList.Columns["Revizyon"].HeaderText = "REVİZYON";
+            DtgEnvanterList.Columns["Nsn"].HeaderText = "NATO STOK NO";
+            DtgEnvanterList.Columns["GuncellemeTarihi"].HeaderText = "SON GÜNCELLEME TARİHİ";
+            DtgEnvanterList.Columns["MubBilgisi"].Visible = false;
+
+        }
+
+        private void BtnEkipmanKaydet_Click(object sender, EventArgs e)
+        {
+            if (DtgEnvanterList.RowCount==0)
+            {
+                MessageBox.Show("Envanter listesinde veri bulunmamaktadır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr!=DialogResult.Yes)
+            {
+                return;
+            }
+
+            bolgeEnvanterManager.Delete(bolgeId);
+
+            foreach (DataGridViewRow item in DtgEnvanterList.Rows)
+            {
+                BolgeEnvanter bolgeEnvanter = new BolgeEnvanter(bolgeId, item.Cells[0].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
+                            item.Cells[3].Value.ToString(), item.Cells[4].Value.ConInt(), item.Cells[5].Value.ToString(), item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), item.Cells[8].Value.ToString(), DateTime.Now, LblBolgeKonfig.Text);
+
+                bolgeEnvanterManager.Add(bolgeEnvanter);
+            }
+
+
+            #region EXCEL KAYIT
+
+            //List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
+
+            //bolgeKayits = bolgeKayitManager.GetList();
+
+            //foreach (BolgeKayit item2 in bolgeKayits)
+            //{
+            //    if (item2.Proje == "MUB-4")
+            //    {
+            //        foreach (DataGridViewRow item in DtgEnvanterList.Rows)
+            //        {
+            //            BolgeEnvanter bolgeEnvanter = new BolgeEnvanter(item2.Id, item.Cells[0].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
+            //                item.Cells[3].Value.ToString(), item.Cells[4].Value.ConInt(), item.Cells[5].Value.ToString(), item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), item.Cells[8].Value.ToString(), DateTime.Now, item2.Proje);
+
+            //            bolgeEnvanterManager.Add(bolgeEnvanter);
+            //        }
+            //    }
+            //}
+
+            #endregion
+
+            CmbBolgeAdiEkipman.SelectedIndex = -1;
+            MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 

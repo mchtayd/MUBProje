@@ -381,6 +381,51 @@
             this.richTextBox153 = new System.Windows.Forms.RichTextBox();
             this.richTextBox154 = new System.Windows.Forms.RichTextBox();
             this.label56 = new System.Windows.Forms.Label();
+            this.Lbl750DBolgesi = new System.Windows.Forms.Label();
+            this.richTextBox155 = new System.Windows.Forms.RichTextBox();
+            this.Lbl750Toplam = new System.Windows.Forms.Label();
+            this.Lbl750Derecik = new System.Windows.Forms.Label();
+            this.Lbl750Semdinli = new System.Windows.Forms.Label();
+            this.Lbl750Yukseova = new System.Windows.Forms.Label();
+            this.Lbl750Cukurca = new System.Windows.Forms.Label();
+            this.Lbl750Sirnak = new System.Windows.Forms.Label();
+            this.richTextBox156 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox157 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox158 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox159 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox160 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox161 = new System.Windows.Forms.RichTextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.Lbl950DBolgesi = new System.Windows.Forms.Label();
+            this.richTextBox162 = new System.Windows.Forms.RichTextBox();
+            this.Lbl950Derecik = new System.Windows.Forms.Label();
+            this.Lbl950Semdinli = new System.Windows.Forms.Label();
+            this.Lbl950Yukseova = new System.Windows.Forms.Label();
+            this.Lbl950Cukurca = new System.Windows.Forms.Label();
+            this.Lbl950Sirnak = new System.Windows.Forms.Label();
+            this.Lbl950Toplam = new System.Windows.Forms.Label();
+            this.richTextBox163 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox164 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox165 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox166 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox167 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox168 = new System.Windows.Forms.RichTextBox();
+            this.label43 = new System.Windows.Forms.Label();
+            this.Lbl2100DBolgesi = new System.Windows.Forms.Label();
+            this.richTextBox169 = new System.Windows.Forms.RichTextBox();
+            this.Lbl2100Derecik = new System.Windows.Forms.Label();
+            this.Lbl2100Semdinli = new System.Windows.Forms.Label();
+            this.Lbl2100Yukseova = new System.Windows.Forms.Label();
+            this.Lbl2100Cukurca = new System.Windows.Forms.Label();
+            this.Lbl2100Sirnak = new System.Windows.Forms.Label();
+            this.Lbl2100Toplam = new System.Windows.Forms.Label();
+            this.richTextBox170 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox171 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox172 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox173 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox174 = new System.Windows.Forms.RichTextBox();
+            this.richTextBox175 = new System.Windows.Forms.RichTextBox();
+            this.label44 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -394,7 +439,7 @@
             this.label5.BackColor = System.Drawing.Color.YellowGreen;
             this.label5.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label5.ForeColor = System.Drawing.Color.Maroon;
-            this.label5.Location = new System.Drawing.Point(153, 137);
+            this.label5.Location = new System.Drawing.Point(153, 58);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(198, 19);
             this.label5.TabIndex = 156;
@@ -403,7 +448,7 @@
             // pictureBox4
             // 
             this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1602, 738);
+            this.pictureBox4.Location = new System.Drawing.Point(1602, 780);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(205, 97);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -413,7 +458,7 @@
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1291, 711);
+            this.pictureBox3.Location = new System.Drawing.Point(1291, 753);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(245, 147);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -423,7 +468,7 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1291, 11);
+            this.pictureBox2.Location = new System.Drawing.Point(1291, 69);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(184, 149);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -433,7 +478,7 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1042, 710);
+            this.pictureBox1.Location = new System.Drawing.Point(1041, 753);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(162, 149);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -445,7 +490,7 @@
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(1482, 82);
+            this.label4.Location = new System.Drawing.Point(1482, 140);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(272, 45);
             this.label4.TabIndex = 145;
@@ -456,7 +501,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(357, 37);
+            this.label1.Location = new System.Drawing.Point(1096, 6);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(600, 45);
             this.label1.TabIndex = 144;
@@ -468,7 +513,7 @@
             this.label15.BackColor = System.Drawing.Color.YellowGreen;
             this.label15.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label15.ForeColor = System.Drawing.Color.Maroon;
-            this.label15.Location = new System.Drawing.Point(19, 175);
+            this.label15.Location = new System.Drawing.Point(19, 96);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(332, 19);
             this.label15.TabIndex = 173;
@@ -479,7 +524,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.ForeColor = System.Drawing.Color.DarkRed;
-            this.label9.Location = new System.Drawing.Point(889, 97);
+            this.label9.Location = new System.Drawing.Point(887, 14);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(81, 23);
             this.label9.TabIndex = 194;
@@ -490,7 +535,7 @@
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label8.ForeColor = System.Drawing.Color.Black;
-            this.label8.Location = new System.Drawing.Point(704, 98);
+            this.label8.Location = new System.Drawing.Point(702, 15);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(85, 23);
             this.label8.TabIndex = 193;
@@ -501,7 +546,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label7.ForeColor = System.Drawing.Color.Black;
-            this.label7.Location = new System.Drawing.Point(611, 98);
+            this.label7.Location = new System.Drawing.Point(609, 15);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 23);
             this.label7.TabIndex = 192;
@@ -512,7 +557,7 @@
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(542, 98);
+            this.label6.Location = new System.Drawing.Point(540, 15);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(56, 23);
             this.label6.TabIndex = 191;
@@ -523,7 +568,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(435, 98);
+            this.label3.Location = new System.Drawing.Point(433, 15);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(92, 23);
             this.label3.TabIndex = 190;
@@ -534,7 +579,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(353, 98);
+            this.label2.Location = new System.Drawing.Point(351, 15);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(76, 23);
             this.label2.TabIndex = 189;
@@ -546,7 +591,7 @@
             this.label10.BackColor = System.Drawing.Color.Aqua;
             this.label10.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label10.ForeColor = System.Drawing.Color.Maroon;
-            this.label10.Location = new System.Drawing.Point(106, 255);
+            this.label10.Location = new System.Drawing.Point(106, 176);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(245, 19);
             this.label10.TabIndex = 196;
@@ -558,7 +603,7 @@
             this.label11.BackColor = System.Drawing.Color.Aqua;
             this.label11.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label11.ForeColor = System.Drawing.Color.Maroon;
-            this.label11.Location = new System.Drawing.Point(111, 216);
+            this.label11.Location = new System.Drawing.Point(111, 137);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(240, 19);
             this.label11.TabIndex = 195;
@@ -570,7 +615,7 @@
             this.label12.BackColor = System.Drawing.Color.Aqua;
             this.label12.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label12.ForeColor = System.Drawing.Color.Maroon;
-            this.label12.Location = new System.Drawing.Point(49, 411);
+            this.label12.Location = new System.Drawing.Point(48, 373);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(302, 19);
             this.label12.TabIndex = 200;
@@ -582,7 +627,7 @@
             this.label13.BackColor = System.Drawing.Color.DimGray;
             this.label13.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label13.ForeColor = System.Drawing.Color.White;
-            this.label13.Location = new System.Drawing.Point(194, 371);
+            this.label13.Location = new System.Drawing.Point(194, 333);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(157, 19);
             this.label13.TabIndex = 199;
@@ -594,7 +639,7 @@
             this.label14.BackColor = System.Drawing.Color.DimGray;
             this.label14.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label14.ForeColor = System.Drawing.Color.White;
-            this.label14.Location = new System.Drawing.Point(187, 332);
+            this.label14.Location = new System.Drawing.Point(187, 253);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(164, 19);
             this.label14.TabIndex = 198;
@@ -606,7 +651,7 @@
             this.label16.BackColor = System.Drawing.Color.Aqua;
             this.label16.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label16.ForeColor = System.Drawing.Color.Maroon;
-            this.label16.Location = new System.Drawing.Point(102, 294);
+            this.label16.Location = new System.Drawing.Point(102, 215);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(249, 19);
             this.label16.TabIndex = 197;
@@ -618,7 +663,7 @@
             this.label17.BackColor = System.Drawing.Color.YellowGreen;
             this.label17.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label17.ForeColor = System.Drawing.Color.Maroon;
-            this.label17.Location = new System.Drawing.Point(159, 761);
+            this.label17.Location = new System.Drawing.Point(158, 761);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(192, 19);
             this.label17.TabIndex = 208;
@@ -630,7 +675,7 @@
             this.label18.BackColor = System.Drawing.Color.DimGray;
             this.label18.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label18.ForeColor = System.Drawing.Color.White;
-            this.label18.Location = new System.Drawing.Point(126, 722);
+            this.label18.Location = new System.Drawing.Point(125, 722);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(225, 19);
             this.label18.TabIndex = 207;
@@ -642,7 +687,7 @@
             this.label19.BackColor = System.Drawing.Color.YellowGreen;
             this.label19.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label19.ForeColor = System.Drawing.Color.Maroon;
-            this.label19.Location = new System.Drawing.Point(137, 683);
+            this.label19.Location = new System.Drawing.Point(136, 683);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(214, 19);
             this.label19.TabIndex = 206;
@@ -654,7 +699,7 @@
             this.label20.BackColor = System.Drawing.Color.Aqua;
             this.label20.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label20.ForeColor = System.Drawing.Color.Maroon;
-            this.label20.Location = new System.Drawing.Point(156, 606);
+            this.label20.Location = new System.Drawing.Point(155, 606);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(195, 19);
             this.label20.TabIndex = 205;
@@ -666,7 +711,7 @@
             this.label21.BackColor = System.Drawing.Color.Aqua;
             this.label21.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label21.ForeColor = System.Drawing.Color.Maroon;
-            this.label21.Location = new System.Drawing.Point(83, 567);
+            this.label21.Location = new System.Drawing.Point(82, 567);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(268, 19);
             this.label21.TabIndex = 204;
@@ -678,7 +723,7 @@
             this.label22.BackColor = System.Drawing.Color.Aqua;
             this.label22.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label22.ForeColor = System.Drawing.Color.Maroon;
-            this.label22.Location = new System.Drawing.Point(92, 528);
+            this.label22.Location = new System.Drawing.Point(91, 528);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(259, 19);
             this.label22.TabIndex = 203;
@@ -690,7 +735,7 @@
             this.label23.BackColor = System.Drawing.Color.Aqua;
             this.label23.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label23.ForeColor = System.Drawing.Color.Maroon;
-            this.label23.Location = new System.Drawing.Point(76, 489);
+            this.label23.Location = new System.Drawing.Point(75, 489);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(275, 19);
             this.label23.TabIndex = 202;
@@ -702,7 +747,7 @@
             this.label24.BackColor = System.Drawing.Color.Aqua;
             this.label24.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label24.ForeColor = System.Drawing.Color.Maroon;
-            this.label24.Location = new System.Drawing.Point(143, 451);
+            this.label24.Location = new System.Drawing.Point(142, 451);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(208, 19);
             this.label24.TabIndex = 201;
@@ -714,7 +759,7 @@
             this.label26.BackColor = System.Drawing.Color.Aqua;
             this.label26.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label26.ForeColor = System.Drawing.Color.Maroon;
-            this.label26.Location = new System.Drawing.Point(137, 880);
+            this.label26.Location = new System.Drawing.Point(136, 880);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(214, 19);
             this.label26.TabIndex = 211;
@@ -726,7 +771,7 @@
             this.label27.BackColor = System.Drawing.Color.YellowGreen;
             this.label27.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label27.ForeColor = System.Drawing.Color.Maroon;
-            this.label27.Location = new System.Drawing.Point(157, 840);
+            this.label27.Location = new System.Drawing.Point(156, 840);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(194, 19);
             this.label27.TabIndex = 210;
@@ -738,7 +783,7 @@
             this.label28.BackColor = System.Drawing.Color.YellowGreen;
             this.label28.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label28.ForeColor = System.Drawing.Color.Maroon;
-            this.label28.Location = new System.Drawing.Point(233, 800);
+            this.label28.Location = new System.Drawing.Point(232, 800);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(118, 19);
             this.label28.TabIndex = 209;
@@ -747,7 +792,7 @@
             // richTextBox22
             // 
             this.richTextBox22.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox22.Location = new System.Drawing.Point(356, 918);
+            this.richTextBox22.Location = new System.Drawing.Point(356, 954);
             this.richTextBox22.Name = "richTextBox22";
             this.richTextBox22.Size = new System.Drawing.Size(69, 38);
             this.richTextBox22.TabIndex = 254;
@@ -756,7 +801,7 @@
             // richTextBox23
             // 
             this.richTextBox23.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox23.Location = new System.Drawing.Point(357, 870);
+            this.richTextBox23.Location = new System.Drawing.Point(356, 870);
             this.richTextBox23.Name = "richTextBox23";
             this.richTextBox23.Size = new System.Drawing.Size(69, 38);
             this.richTextBox23.TabIndex = 253;
@@ -765,7 +810,7 @@
             // richTextBox24
             // 
             this.richTextBox24.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox24.Location = new System.Drawing.Point(357, 830);
+            this.richTextBox24.Location = new System.Drawing.Point(356, 830);
             this.richTextBox24.Name = "richTextBox24";
             this.richTextBox24.Size = new System.Drawing.Size(69, 38);
             this.richTextBox24.TabIndex = 252;
@@ -774,7 +819,7 @@
             // richTextBox25
             // 
             this.richTextBox25.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox25.Location = new System.Drawing.Point(357, 790);
+            this.richTextBox25.Location = new System.Drawing.Point(356, 790);
             this.richTextBox25.Name = "richTextBox25";
             this.richTextBox25.Size = new System.Drawing.Size(69, 38);
             this.richTextBox25.TabIndex = 251;
@@ -783,7 +828,7 @@
             // richTextBox26
             // 
             this.richTextBox26.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox26.Location = new System.Drawing.Point(357, 751);
+            this.richTextBox26.Location = new System.Drawing.Point(356, 751);
             this.richTextBox26.Name = "richTextBox26";
             this.richTextBox26.Size = new System.Drawing.Size(69, 38);
             this.richTextBox26.TabIndex = 250;
@@ -792,7 +837,7 @@
             // richTextBox27
             // 
             this.richTextBox27.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox27.Location = new System.Drawing.Point(357, 712);
+            this.richTextBox27.Location = new System.Drawing.Point(356, 712);
             this.richTextBox27.Name = "richTextBox27";
             this.richTextBox27.Size = new System.Drawing.Size(69, 38);
             this.richTextBox27.TabIndex = 249;
@@ -801,7 +846,7 @@
             // richTextBox28
             // 
             this.richTextBox28.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox28.Location = new System.Drawing.Point(357, 673);
+            this.richTextBox28.Location = new System.Drawing.Point(356, 673);
             this.richTextBox28.Name = "richTextBox28";
             this.richTextBox28.Size = new System.Drawing.Size(69, 38);
             this.richTextBox28.TabIndex = 248;
@@ -810,7 +855,7 @@
             // richTextBox29
             // 
             this.richTextBox29.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox29.Location = new System.Drawing.Point(357, 634);
+            this.richTextBox29.Location = new System.Drawing.Point(356, 634);
             this.richTextBox29.Name = "richTextBox29";
             this.richTextBox29.Size = new System.Drawing.Size(69, 38);
             this.richTextBox29.TabIndex = 247;
@@ -819,7 +864,7 @@
             // richTextBox30
             // 
             this.richTextBox30.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox30.Location = new System.Drawing.Point(357, 596);
+            this.richTextBox30.Location = new System.Drawing.Point(356, 596);
             this.richTextBox30.Name = "richTextBox30";
             this.richTextBox30.Size = new System.Drawing.Size(69, 38);
             this.richTextBox30.TabIndex = 246;
@@ -828,7 +873,7 @@
             // richTextBox31
             // 
             this.richTextBox31.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox31.Location = new System.Drawing.Point(357, 557);
+            this.richTextBox31.Location = new System.Drawing.Point(356, 557);
             this.richTextBox31.Name = "richTextBox31";
             this.richTextBox31.Size = new System.Drawing.Size(69, 38);
             this.richTextBox31.TabIndex = 245;
@@ -837,7 +882,7 @@
             // richTextBox32
             // 
             this.richTextBox32.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox32.Location = new System.Drawing.Point(357, 518);
+            this.richTextBox32.Location = new System.Drawing.Point(356, 518);
             this.richTextBox32.Name = "richTextBox32";
             this.richTextBox32.Size = new System.Drawing.Size(69, 38);
             this.richTextBox32.TabIndex = 244;
@@ -846,7 +891,7 @@
             // richTextBox33
             // 
             this.richTextBox33.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox33.Location = new System.Drawing.Point(357, 479);
+            this.richTextBox33.Location = new System.Drawing.Point(356, 479);
             this.richTextBox33.Name = "richTextBox33";
             this.richTextBox33.Size = new System.Drawing.Size(69, 38);
             this.richTextBox33.TabIndex = 243;
@@ -855,7 +900,7 @@
             // richTextBox34
             // 
             this.richTextBox34.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox34.Location = new System.Drawing.Point(357, 441);
+            this.richTextBox34.Location = new System.Drawing.Point(356, 441);
             this.richTextBox34.Name = "richTextBox34";
             this.richTextBox34.Size = new System.Drawing.Size(69, 38);
             this.richTextBox34.TabIndex = 242;
@@ -864,7 +909,7 @@
             // richTextBox35
             // 
             this.richTextBox35.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox35.Location = new System.Drawing.Point(357, 401);
+            this.richTextBox35.Location = new System.Drawing.Point(356, 363);
             this.richTextBox35.Name = "richTextBox35";
             this.richTextBox35.Size = new System.Drawing.Size(69, 38);
             this.richTextBox35.TabIndex = 241;
@@ -873,7 +918,7 @@
             // richTextBox36
             // 
             this.richTextBox36.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox36.Location = new System.Drawing.Point(357, 361);
+            this.richTextBox36.Location = new System.Drawing.Point(357, 323);
             this.richTextBox36.Name = "richTextBox36";
             this.richTextBox36.Size = new System.Drawing.Size(69, 38);
             this.richTextBox36.TabIndex = 240;
@@ -882,7 +927,7 @@
             // richTextBox37
             // 
             this.richTextBox37.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox37.Location = new System.Drawing.Point(357, 322);
+            this.richTextBox37.Location = new System.Drawing.Point(357, 243);
             this.richTextBox37.Name = "richTextBox37";
             this.richTextBox37.Size = new System.Drawing.Size(69, 38);
             this.richTextBox37.TabIndex = 239;
@@ -891,7 +936,7 @@
             // richTextBox38
             // 
             this.richTextBox38.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox38.Location = new System.Drawing.Point(357, 284);
+            this.richTextBox38.Location = new System.Drawing.Point(357, 205);
             this.richTextBox38.Name = "richTextBox38";
             this.richTextBox38.Size = new System.Drawing.Size(69, 38);
             this.richTextBox38.TabIndex = 238;
@@ -900,7 +945,7 @@
             // richTextBox39
             // 
             this.richTextBox39.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox39.Location = new System.Drawing.Point(357, 245);
+            this.richTextBox39.Location = new System.Drawing.Point(357, 166);
             this.richTextBox39.Name = "richTextBox39";
             this.richTextBox39.Size = new System.Drawing.Size(69, 38);
             this.richTextBox39.TabIndex = 237;
@@ -909,7 +954,7 @@
             // richTextBox40
             // 
             this.richTextBox40.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox40.Location = new System.Drawing.Point(357, 206);
+            this.richTextBox40.Location = new System.Drawing.Point(357, 127);
             this.richTextBox40.Name = "richTextBox40";
             this.richTextBox40.Size = new System.Drawing.Size(69, 38);
             this.richTextBox40.TabIndex = 236;
@@ -918,7 +963,7 @@
             // richTextBox41
             // 
             this.richTextBox41.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox41.Location = new System.Drawing.Point(357, 165);
+            this.richTextBox41.Location = new System.Drawing.Point(357, 86);
             this.richTextBox41.Name = "richTextBox41";
             this.richTextBox41.Size = new System.Drawing.Size(69, 38);
             this.richTextBox41.TabIndex = 235;
@@ -927,7 +972,7 @@
             // richTextBox42
             // 
             this.richTextBox42.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox42.Location = new System.Drawing.Point(357, 127);
+            this.richTextBox42.Location = new System.Drawing.Point(357, 48);
             this.richTextBox42.Name = "richTextBox42";
             this.richTextBox42.Size = new System.Drawing.Size(69, 38);
             this.richTextBox42.TabIndex = 234;
@@ -936,7 +981,7 @@
             // richTextBox43
             // 
             this.richTextBox43.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox43.Location = new System.Drawing.Point(446, 918);
+            this.richTextBox43.Location = new System.Drawing.Point(446, 954);
             this.richTextBox43.Name = "richTextBox43";
             this.richTextBox43.Size = new System.Drawing.Size(69, 38);
             this.richTextBox43.TabIndex = 275;
@@ -945,7 +990,7 @@
             // richTextBox44
             // 
             this.richTextBox44.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox44.Location = new System.Drawing.Point(447, 870);
+            this.richTextBox44.Location = new System.Drawing.Point(446, 870);
             this.richTextBox44.Name = "richTextBox44";
             this.richTextBox44.Size = new System.Drawing.Size(69, 38);
             this.richTextBox44.TabIndex = 274;
@@ -954,7 +999,7 @@
             // richTextBox45
             // 
             this.richTextBox45.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox45.Location = new System.Drawing.Point(447, 830);
+            this.richTextBox45.Location = new System.Drawing.Point(446, 830);
             this.richTextBox45.Name = "richTextBox45";
             this.richTextBox45.Size = new System.Drawing.Size(69, 38);
             this.richTextBox45.TabIndex = 273;
@@ -963,7 +1008,7 @@
             // richTextBox46
             // 
             this.richTextBox46.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox46.Location = new System.Drawing.Point(447, 790);
+            this.richTextBox46.Location = new System.Drawing.Point(446, 790);
             this.richTextBox46.Name = "richTextBox46";
             this.richTextBox46.Size = new System.Drawing.Size(69, 38);
             this.richTextBox46.TabIndex = 272;
@@ -972,7 +1017,7 @@
             // richTextBox47
             // 
             this.richTextBox47.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox47.Location = new System.Drawing.Point(447, 751);
+            this.richTextBox47.Location = new System.Drawing.Point(446, 751);
             this.richTextBox47.Name = "richTextBox47";
             this.richTextBox47.Size = new System.Drawing.Size(69, 38);
             this.richTextBox47.TabIndex = 271;
@@ -981,7 +1026,7 @@
             // richTextBox48
             // 
             this.richTextBox48.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox48.Location = new System.Drawing.Point(447, 712);
+            this.richTextBox48.Location = new System.Drawing.Point(446, 712);
             this.richTextBox48.Name = "richTextBox48";
             this.richTextBox48.Size = new System.Drawing.Size(69, 38);
             this.richTextBox48.TabIndex = 270;
@@ -990,7 +1035,7 @@
             // richTextBox49
             // 
             this.richTextBox49.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox49.Location = new System.Drawing.Point(447, 673);
+            this.richTextBox49.Location = new System.Drawing.Point(446, 673);
             this.richTextBox49.Name = "richTextBox49";
             this.richTextBox49.Size = new System.Drawing.Size(69, 38);
             this.richTextBox49.TabIndex = 269;
@@ -999,7 +1044,7 @@
             // richTextBox50
             // 
             this.richTextBox50.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox50.Location = new System.Drawing.Point(447, 634);
+            this.richTextBox50.Location = new System.Drawing.Point(446, 634);
             this.richTextBox50.Name = "richTextBox50";
             this.richTextBox50.Size = new System.Drawing.Size(69, 38);
             this.richTextBox50.TabIndex = 268;
@@ -1008,7 +1053,7 @@
             // richTextBox51
             // 
             this.richTextBox51.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox51.Location = new System.Drawing.Point(447, 596);
+            this.richTextBox51.Location = new System.Drawing.Point(446, 596);
             this.richTextBox51.Name = "richTextBox51";
             this.richTextBox51.Size = new System.Drawing.Size(69, 38);
             this.richTextBox51.TabIndex = 267;
@@ -1017,7 +1062,7 @@
             // richTextBox52
             // 
             this.richTextBox52.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox52.Location = new System.Drawing.Point(447, 557);
+            this.richTextBox52.Location = new System.Drawing.Point(446, 557);
             this.richTextBox52.Name = "richTextBox52";
             this.richTextBox52.Size = new System.Drawing.Size(69, 38);
             this.richTextBox52.TabIndex = 266;
@@ -1026,7 +1071,7 @@
             // richTextBox53
             // 
             this.richTextBox53.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox53.Location = new System.Drawing.Point(447, 518);
+            this.richTextBox53.Location = new System.Drawing.Point(446, 518);
             this.richTextBox53.Name = "richTextBox53";
             this.richTextBox53.Size = new System.Drawing.Size(69, 38);
             this.richTextBox53.TabIndex = 265;
@@ -1035,7 +1080,7 @@
             // richTextBox54
             // 
             this.richTextBox54.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox54.Location = new System.Drawing.Point(447, 479);
+            this.richTextBox54.Location = new System.Drawing.Point(446, 479);
             this.richTextBox54.Name = "richTextBox54";
             this.richTextBox54.Size = new System.Drawing.Size(69, 38);
             this.richTextBox54.TabIndex = 264;
@@ -1044,7 +1089,7 @@
             // richTextBox55
             // 
             this.richTextBox55.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox55.Location = new System.Drawing.Point(447, 441);
+            this.richTextBox55.Location = new System.Drawing.Point(446, 441);
             this.richTextBox55.Name = "richTextBox55";
             this.richTextBox55.Size = new System.Drawing.Size(69, 38);
             this.richTextBox55.TabIndex = 263;
@@ -1053,7 +1098,7 @@
             // richTextBox56
             // 
             this.richTextBox56.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox56.Location = new System.Drawing.Point(447, 401);
+            this.richTextBox56.Location = new System.Drawing.Point(446, 363);
             this.richTextBox56.Name = "richTextBox56";
             this.richTextBox56.Size = new System.Drawing.Size(69, 38);
             this.richTextBox56.TabIndex = 262;
@@ -1062,7 +1107,7 @@
             // richTextBox57
             // 
             this.richTextBox57.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox57.Location = new System.Drawing.Point(447, 361);
+            this.richTextBox57.Location = new System.Drawing.Point(447, 323);
             this.richTextBox57.Name = "richTextBox57";
             this.richTextBox57.Size = new System.Drawing.Size(69, 38);
             this.richTextBox57.TabIndex = 261;
@@ -1071,7 +1116,7 @@
             // richTextBox58
             // 
             this.richTextBox58.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox58.Location = new System.Drawing.Point(447, 322);
+            this.richTextBox58.Location = new System.Drawing.Point(447, 243);
             this.richTextBox58.Name = "richTextBox58";
             this.richTextBox58.Size = new System.Drawing.Size(69, 38);
             this.richTextBox58.TabIndex = 260;
@@ -1080,7 +1125,7 @@
             // richTextBox59
             // 
             this.richTextBox59.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox59.Location = new System.Drawing.Point(447, 284);
+            this.richTextBox59.Location = new System.Drawing.Point(447, 205);
             this.richTextBox59.Name = "richTextBox59";
             this.richTextBox59.Size = new System.Drawing.Size(69, 38);
             this.richTextBox59.TabIndex = 259;
@@ -1089,7 +1134,7 @@
             // richTextBox60
             // 
             this.richTextBox60.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox60.Location = new System.Drawing.Point(447, 245);
+            this.richTextBox60.Location = new System.Drawing.Point(447, 166);
             this.richTextBox60.Name = "richTextBox60";
             this.richTextBox60.Size = new System.Drawing.Size(69, 38);
             this.richTextBox60.TabIndex = 258;
@@ -1098,7 +1143,7 @@
             // richTextBox61
             // 
             this.richTextBox61.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox61.Location = new System.Drawing.Point(447, 206);
+            this.richTextBox61.Location = new System.Drawing.Point(447, 127);
             this.richTextBox61.Name = "richTextBox61";
             this.richTextBox61.Size = new System.Drawing.Size(69, 38);
             this.richTextBox61.TabIndex = 257;
@@ -1107,7 +1152,7 @@
             // richTextBox62
             // 
             this.richTextBox62.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox62.Location = new System.Drawing.Point(447, 165);
+            this.richTextBox62.Location = new System.Drawing.Point(447, 86);
             this.richTextBox62.Name = "richTextBox62";
             this.richTextBox62.Size = new System.Drawing.Size(69, 38);
             this.richTextBox62.TabIndex = 256;
@@ -1116,7 +1161,7 @@
             // richTextBox63
             // 
             this.richTextBox63.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox63.Location = new System.Drawing.Point(447, 127);
+            this.richTextBox63.Location = new System.Drawing.Point(447, 48);
             this.richTextBox63.Name = "richTextBox63";
             this.richTextBox63.Size = new System.Drawing.Size(69, 38);
             this.richTextBox63.TabIndex = 255;
@@ -1125,7 +1170,7 @@
             // richTextBox64
             // 
             this.richTextBox64.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox64.Location = new System.Drawing.Point(535, 918);
+            this.richTextBox64.Location = new System.Drawing.Point(535, 954);
             this.richTextBox64.Name = "richTextBox64";
             this.richTextBox64.Size = new System.Drawing.Size(69, 38);
             this.richTextBox64.TabIndex = 296;
@@ -1134,7 +1179,7 @@
             // richTextBox65
             // 
             this.richTextBox65.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox65.Location = new System.Drawing.Point(536, 870);
+            this.richTextBox65.Location = new System.Drawing.Point(535, 870);
             this.richTextBox65.Name = "richTextBox65";
             this.richTextBox65.Size = new System.Drawing.Size(69, 38);
             this.richTextBox65.TabIndex = 295;
@@ -1143,7 +1188,7 @@
             // richTextBox66
             // 
             this.richTextBox66.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox66.Location = new System.Drawing.Point(536, 830);
+            this.richTextBox66.Location = new System.Drawing.Point(535, 830);
             this.richTextBox66.Name = "richTextBox66";
             this.richTextBox66.Size = new System.Drawing.Size(69, 38);
             this.richTextBox66.TabIndex = 294;
@@ -1152,7 +1197,7 @@
             // richTextBox67
             // 
             this.richTextBox67.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox67.Location = new System.Drawing.Point(536, 790);
+            this.richTextBox67.Location = new System.Drawing.Point(535, 790);
             this.richTextBox67.Name = "richTextBox67";
             this.richTextBox67.Size = new System.Drawing.Size(69, 38);
             this.richTextBox67.TabIndex = 293;
@@ -1161,7 +1206,7 @@
             // richTextBox68
             // 
             this.richTextBox68.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox68.Location = new System.Drawing.Point(536, 751);
+            this.richTextBox68.Location = new System.Drawing.Point(535, 751);
             this.richTextBox68.Name = "richTextBox68";
             this.richTextBox68.Size = new System.Drawing.Size(69, 38);
             this.richTextBox68.TabIndex = 292;
@@ -1170,7 +1215,7 @@
             // richTextBox69
             // 
             this.richTextBox69.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox69.Location = new System.Drawing.Point(536, 712);
+            this.richTextBox69.Location = new System.Drawing.Point(535, 712);
             this.richTextBox69.Name = "richTextBox69";
             this.richTextBox69.Size = new System.Drawing.Size(69, 38);
             this.richTextBox69.TabIndex = 291;
@@ -1179,7 +1224,7 @@
             // richTextBox70
             // 
             this.richTextBox70.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox70.Location = new System.Drawing.Point(536, 673);
+            this.richTextBox70.Location = new System.Drawing.Point(535, 673);
             this.richTextBox70.Name = "richTextBox70";
             this.richTextBox70.Size = new System.Drawing.Size(69, 38);
             this.richTextBox70.TabIndex = 290;
@@ -1188,7 +1233,7 @@
             // richTextBox71
             // 
             this.richTextBox71.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox71.Location = new System.Drawing.Point(536, 634);
+            this.richTextBox71.Location = new System.Drawing.Point(535, 634);
             this.richTextBox71.Name = "richTextBox71";
             this.richTextBox71.Size = new System.Drawing.Size(69, 38);
             this.richTextBox71.TabIndex = 289;
@@ -1197,7 +1242,7 @@
             // richTextBox72
             // 
             this.richTextBox72.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox72.Location = new System.Drawing.Point(536, 596);
+            this.richTextBox72.Location = new System.Drawing.Point(535, 596);
             this.richTextBox72.Name = "richTextBox72";
             this.richTextBox72.Size = new System.Drawing.Size(69, 38);
             this.richTextBox72.TabIndex = 288;
@@ -1206,7 +1251,7 @@
             // richTextBox73
             // 
             this.richTextBox73.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox73.Location = new System.Drawing.Point(536, 557);
+            this.richTextBox73.Location = new System.Drawing.Point(535, 557);
             this.richTextBox73.Name = "richTextBox73";
             this.richTextBox73.Size = new System.Drawing.Size(69, 38);
             this.richTextBox73.TabIndex = 287;
@@ -1215,7 +1260,7 @@
             // richTextBox74
             // 
             this.richTextBox74.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox74.Location = new System.Drawing.Point(536, 518);
+            this.richTextBox74.Location = new System.Drawing.Point(535, 518);
             this.richTextBox74.Name = "richTextBox74";
             this.richTextBox74.Size = new System.Drawing.Size(69, 38);
             this.richTextBox74.TabIndex = 286;
@@ -1224,7 +1269,7 @@
             // richTextBox75
             // 
             this.richTextBox75.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox75.Location = new System.Drawing.Point(536, 479);
+            this.richTextBox75.Location = new System.Drawing.Point(535, 479);
             this.richTextBox75.Name = "richTextBox75";
             this.richTextBox75.Size = new System.Drawing.Size(69, 38);
             this.richTextBox75.TabIndex = 285;
@@ -1233,7 +1278,7 @@
             // richTextBox76
             // 
             this.richTextBox76.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox76.Location = new System.Drawing.Point(536, 441);
+            this.richTextBox76.Location = new System.Drawing.Point(535, 441);
             this.richTextBox76.Name = "richTextBox76";
             this.richTextBox76.Size = new System.Drawing.Size(69, 38);
             this.richTextBox76.TabIndex = 284;
@@ -1242,7 +1287,7 @@
             // richTextBox77
             // 
             this.richTextBox77.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox77.Location = new System.Drawing.Point(536, 401);
+            this.richTextBox77.Location = new System.Drawing.Point(535, 363);
             this.richTextBox77.Name = "richTextBox77";
             this.richTextBox77.Size = new System.Drawing.Size(69, 38);
             this.richTextBox77.TabIndex = 283;
@@ -1251,7 +1296,7 @@
             // richTextBox78
             // 
             this.richTextBox78.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox78.Location = new System.Drawing.Point(536, 361);
+            this.richTextBox78.Location = new System.Drawing.Point(536, 323);
             this.richTextBox78.Name = "richTextBox78";
             this.richTextBox78.Size = new System.Drawing.Size(69, 38);
             this.richTextBox78.TabIndex = 282;
@@ -1260,7 +1305,7 @@
             // richTextBox79
             // 
             this.richTextBox79.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox79.Location = new System.Drawing.Point(536, 322);
+            this.richTextBox79.Location = new System.Drawing.Point(536, 243);
             this.richTextBox79.Name = "richTextBox79";
             this.richTextBox79.Size = new System.Drawing.Size(69, 38);
             this.richTextBox79.TabIndex = 281;
@@ -1269,7 +1314,7 @@
             // richTextBox80
             // 
             this.richTextBox80.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox80.Location = new System.Drawing.Point(536, 284);
+            this.richTextBox80.Location = new System.Drawing.Point(536, 205);
             this.richTextBox80.Name = "richTextBox80";
             this.richTextBox80.Size = new System.Drawing.Size(69, 38);
             this.richTextBox80.TabIndex = 280;
@@ -1278,7 +1323,7 @@
             // richTextBox81
             // 
             this.richTextBox81.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox81.Location = new System.Drawing.Point(536, 245);
+            this.richTextBox81.Location = new System.Drawing.Point(536, 166);
             this.richTextBox81.Name = "richTextBox81";
             this.richTextBox81.Size = new System.Drawing.Size(69, 38);
             this.richTextBox81.TabIndex = 279;
@@ -1287,7 +1332,7 @@
             // richTextBox82
             // 
             this.richTextBox82.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox82.Location = new System.Drawing.Point(536, 206);
+            this.richTextBox82.Location = new System.Drawing.Point(536, 127);
             this.richTextBox82.Name = "richTextBox82";
             this.richTextBox82.Size = new System.Drawing.Size(69, 38);
             this.richTextBox82.TabIndex = 278;
@@ -1296,7 +1341,7 @@
             // richTextBox83
             // 
             this.richTextBox83.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox83.Location = new System.Drawing.Point(536, 165);
+            this.richTextBox83.Location = new System.Drawing.Point(536, 86);
             this.richTextBox83.Name = "richTextBox83";
             this.richTextBox83.Size = new System.Drawing.Size(69, 38);
             this.richTextBox83.TabIndex = 277;
@@ -1305,7 +1350,7 @@
             // richTextBox84
             // 
             this.richTextBox84.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox84.Location = new System.Drawing.Point(536, 127);
+            this.richTextBox84.Location = new System.Drawing.Point(536, 48);
             this.richTextBox84.Name = "richTextBox84";
             this.richTextBox84.Size = new System.Drawing.Size(69, 38);
             this.richTextBox84.TabIndex = 276;
@@ -1314,7 +1359,7 @@
             // richTextBox85
             // 
             this.richTextBox85.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox85.Location = new System.Drawing.Point(623, 918);
+            this.richTextBox85.Location = new System.Drawing.Point(623, 954);
             this.richTextBox85.Name = "richTextBox85";
             this.richTextBox85.Size = new System.Drawing.Size(69, 38);
             this.richTextBox85.TabIndex = 317;
@@ -1323,7 +1368,7 @@
             // richTextBox86
             // 
             this.richTextBox86.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox86.Location = new System.Drawing.Point(624, 870);
+            this.richTextBox86.Location = new System.Drawing.Point(623, 870);
             this.richTextBox86.Name = "richTextBox86";
             this.richTextBox86.Size = new System.Drawing.Size(69, 38);
             this.richTextBox86.TabIndex = 316;
@@ -1332,7 +1377,7 @@
             // richTextBox87
             // 
             this.richTextBox87.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox87.Location = new System.Drawing.Point(624, 830);
+            this.richTextBox87.Location = new System.Drawing.Point(623, 830);
             this.richTextBox87.Name = "richTextBox87";
             this.richTextBox87.Size = new System.Drawing.Size(69, 38);
             this.richTextBox87.TabIndex = 315;
@@ -1341,7 +1386,7 @@
             // richTextBox88
             // 
             this.richTextBox88.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox88.Location = new System.Drawing.Point(624, 790);
+            this.richTextBox88.Location = new System.Drawing.Point(623, 790);
             this.richTextBox88.Name = "richTextBox88";
             this.richTextBox88.Size = new System.Drawing.Size(69, 38);
             this.richTextBox88.TabIndex = 314;
@@ -1350,7 +1395,7 @@
             // richTextBox89
             // 
             this.richTextBox89.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox89.Location = new System.Drawing.Point(624, 751);
+            this.richTextBox89.Location = new System.Drawing.Point(623, 751);
             this.richTextBox89.Name = "richTextBox89";
             this.richTextBox89.Size = new System.Drawing.Size(69, 38);
             this.richTextBox89.TabIndex = 313;
@@ -1359,7 +1404,7 @@
             // richTextBox90
             // 
             this.richTextBox90.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox90.Location = new System.Drawing.Point(624, 712);
+            this.richTextBox90.Location = new System.Drawing.Point(623, 712);
             this.richTextBox90.Name = "richTextBox90";
             this.richTextBox90.Size = new System.Drawing.Size(69, 38);
             this.richTextBox90.TabIndex = 312;
@@ -1368,7 +1413,7 @@
             // richTextBox91
             // 
             this.richTextBox91.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox91.Location = new System.Drawing.Point(624, 673);
+            this.richTextBox91.Location = new System.Drawing.Point(623, 673);
             this.richTextBox91.Name = "richTextBox91";
             this.richTextBox91.Size = new System.Drawing.Size(69, 38);
             this.richTextBox91.TabIndex = 311;
@@ -1377,7 +1422,7 @@
             // richTextBox92
             // 
             this.richTextBox92.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox92.Location = new System.Drawing.Point(624, 634);
+            this.richTextBox92.Location = new System.Drawing.Point(623, 634);
             this.richTextBox92.Name = "richTextBox92";
             this.richTextBox92.Size = new System.Drawing.Size(69, 38);
             this.richTextBox92.TabIndex = 310;
@@ -1386,7 +1431,7 @@
             // richTextBox93
             // 
             this.richTextBox93.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox93.Location = new System.Drawing.Point(624, 596);
+            this.richTextBox93.Location = new System.Drawing.Point(623, 596);
             this.richTextBox93.Name = "richTextBox93";
             this.richTextBox93.Size = new System.Drawing.Size(69, 38);
             this.richTextBox93.TabIndex = 309;
@@ -1395,7 +1440,7 @@
             // richTextBox94
             // 
             this.richTextBox94.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox94.Location = new System.Drawing.Point(624, 557);
+            this.richTextBox94.Location = new System.Drawing.Point(623, 557);
             this.richTextBox94.Name = "richTextBox94";
             this.richTextBox94.Size = new System.Drawing.Size(69, 38);
             this.richTextBox94.TabIndex = 308;
@@ -1404,7 +1449,7 @@
             // richTextBox95
             // 
             this.richTextBox95.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox95.Location = new System.Drawing.Point(624, 518);
+            this.richTextBox95.Location = new System.Drawing.Point(623, 518);
             this.richTextBox95.Name = "richTextBox95";
             this.richTextBox95.Size = new System.Drawing.Size(69, 38);
             this.richTextBox95.TabIndex = 307;
@@ -1413,7 +1458,7 @@
             // richTextBox96
             // 
             this.richTextBox96.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox96.Location = new System.Drawing.Point(624, 479);
+            this.richTextBox96.Location = new System.Drawing.Point(623, 479);
             this.richTextBox96.Name = "richTextBox96";
             this.richTextBox96.Size = new System.Drawing.Size(69, 38);
             this.richTextBox96.TabIndex = 306;
@@ -1422,7 +1467,7 @@
             // richTextBox97
             // 
             this.richTextBox97.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox97.Location = new System.Drawing.Point(624, 441);
+            this.richTextBox97.Location = new System.Drawing.Point(623, 441);
             this.richTextBox97.Name = "richTextBox97";
             this.richTextBox97.Size = new System.Drawing.Size(69, 38);
             this.richTextBox97.TabIndex = 305;
@@ -1431,7 +1476,7 @@
             // richTextBox98
             // 
             this.richTextBox98.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox98.Location = new System.Drawing.Point(624, 401);
+            this.richTextBox98.Location = new System.Drawing.Point(623, 363);
             this.richTextBox98.Name = "richTextBox98";
             this.richTextBox98.Size = new System.Drawing.Size(69, 38);
             this.richTextBox98.TabIndex = 304;
@@ -1440,7 +1485,7 @@
             // richTextBox99
             // 
             this.richTextBox99.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox99.Location = new System.Drawing.Point(624, 361);
+            this.richTextBox99.Location = new System.Drawing.Point(624, 323);
             this.richTextBox99.Name = "richTextBox99";
             this.richTextBox99.Size = new System.Drawing.Size(69, 38);
             this.richTextBox99.TabIndex = 303;
@@ -1449,7 +1494,7 @@
             // richTextBox100
             // 
             this.richTextBox100.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox100.Location = new System.Drawing.Point(624, 322);
+            this.richTextBox100.Location = new System.Drawing.Point(624, 243);
             this.richTextBox100.Name = "richTextBox100";
             this.richTextBox100.Size = new System.Drawing.Size(69, 38);
             this.richTextBox100.TabIndex = 302;
@@ -1458,7 +1503,7 @@
             // richTextBox101
             // 
             this.richTextBox101.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox101.Location = new System.Drawing.Point(624, 284);
+            this.richTextBox101.Location = new System.Drawing.Point(624, 205);
             this.richTextBox101.Name = "richTextBox101";
             this.richTextBox101.Size = new System.Drawing.Size(69, 38);
             this.richTextBox101.TabIndex = 301;
@@ -1467,7 +1512,7 @@
             // richTextBox102
             // 
             this.richTextBox102.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox102.Location = new System.Drawing.Point(624, 245);
+            this.richTextBox102.Location = new System.Drawing.Point(624, 166);
             this.richTextBox102.Name = "richTextBox102";
             this.richTextBox102.Size = new System.Drawing.Size(69, 38);
             this.richTextBox102.TabIndex = 300;
@@ -1476,7 +1521,7 @@
             // richTextBox103
             // 
             this.richTextBox103.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox103.Location = new System.Drawing.Point(624, 206);
+            this.richTextBox103.Location = new System.Drawing.Point(624, 127);
             this.richTextBox103.Name = "richTextBox103";
             this.richTextBox103.Size = new System.Drawing.Size(69, 38);
             this.richTextBox103.TabIndex = 299;
@@ -1485,7 +1530,7 @@
             // richTextBox104
             // 
             this.richTextBox104.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox104.Location = new System.Drawing.Point(624, 165);
+            this.richTextBox104.Location = new System.Drawing.Point(624, 86);
             this.richTextBox104.Name = "richTextBox104";
             this.richTextBox104.Size = new System.Drawing.Size(69, 38);
             this.richTextBox104.TabIndex = 298;
@@ -1494,7 +1539,7 @@
             // richTextBox105
             // 
             this.richTextBox105.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox105.Location = new System.Drawing.Point(624, 127);
+            this.richTextBox105.Location = new System.Drawing.Point(624, 48);
             this.richTextBox105.Name = "richTextBox105";
             this.richTextBox105.Size = new System.Drawing.Size(69, 38);
             this.richTextBox105.TabIndex = 297;
@@ -1503,7 +1548,7 @@
             // richTextBox106
             // 
             this.richTextBox106.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox106.Location = new System.Drawing.Point(711, 918);
+            this.richTextBox106.Location = new System.Drawing.Point(711, 954);
             this.richTextBox106.Name = "richTextBox106";
             this.richTextBox106.Size = new System.Drawing.Size(69, 38);
             this.richTextBox106.TabIndex = 338;
@@ -1512,7 +1557,7 @@
             // richTextBox107
             // 
             this.richTextBox107.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox107.Location = new System.Drawing.Point(712, 870);
+            this.richTextBox107.Location = new System.Drawing.Point(711, 870);
             this.richTextBox107.Name = "richTextBox107";
             this.richTextBox107.Size = new System.Drawing.Size(69, 38);
             this.richTextBox107.TabIndex = 337;
@@ -1521,7 +1566,7 @@
             // richTextBox108
             // 
             this.richTextBox108.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox108.Location = new System.Drawing.Point(712, 830);
+            this.richTextBox108.Location = new System.Drawing.Point(711, 830);
             this.richTextBox108.Name = "richTextBox108";
             this.richTextBox108.Size = new System.Drawing.Size(69, 38);
             this.richTextBox108.TabIndex = 336;
@@ -1530,7 +1575,7 @@
             // richTextBox109
             // 
             this.richTextBox109.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox109.Location = new System.Drawing.Point(712, 790);
+            this.richTextBox109.Location = new System.Drawing.Point(711, 790);
             this.richTextBox109.Name = "richTextBox109";
             this.richTextBox109.Size = new System.Drawing.Size(69, 38);
             this.richTextBox109.TabIndex = 335;
@@ -1539,7 +1584,7 @@
             // richTextBox110
             // 
             this.richTextBox110.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox110.Location = new System.Drawing.Point(712, 751);
+            this.richTextBox110.Location = new System.Drawing.Point(711, 751);
             this.richTextBox110.Name = "richTextBox110";
             this.richTextBox110.Size = new System.Drawing.Size(69, 38);
             this.richTextBox110.TabIndex = 334;
@@ -1548,7 +1593,7 @@
             // richTextBox111
             // 
             this.richTextBox111.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox111.Location = new System.Drawing.Point(712, 712);
+            this.richTextBox111.Location = new System.Drawing.Point(711, 712);
             this.richTextBox111.Name = "richTextBox111";
             this.richTextBox111.Size = new System.Drawing.Size(69, 38);
             this.richTextBox111.TabIndex = 333;
@@ -1557,7 +1602,7 @@
             // richTextBox112
             // 
             this.richTextBox112.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox112.Location = new System.Drawing.Point(712, 673);
+            this.richTextBox112.Location = new System.Drawing.Point(711, 673);
             this.richTextBox112.Name = "richTextBox112";
             this.richTextBox112.Size = new System.Drawing.Size(69, 38);
             this.richTextBox112.TabIndex = 332;
@@ -1566,7 +1611,7 @@
             // richTextBox113
             // 
             this.richTextBox113.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox113.Location = new System.Drawing.Point(712, 634);
+            this.richTextBox113.Location = new System.Drawing.Point(711, 634);
             this.richTextBox113.Name = "richTextBox113";
             this.richTextBox113.Size = new System.Drawing.Size(69, 38);
             this.richTextBox113.TabIndex = 331;
@@ -1575,7 +1620,7 @@
             // richTextBox114
             // 
             this.richTextBox114.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox114.Location = new System.Drawing.Point(712, 596);
+            this.richTextBox114.Location = new System.Drawing.Point(711, 596);
             this.richTextBox114.Name = "richTextBox114";
             this.richTextBox114.Size = new System.Drawing.Size(69, 38);
             this.richTextBox114.TabIndex = 330;
@@ -1584,7 +1629,7 @@
             // richTextBox115
             // 
             this.richTextBox115.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox115.Location = new System.Drawing.Point(712, 557);
+            this.richTextBox115.Location = new System.Drawing.Point(711, 557);
             this.richTextBox115.Name = "richTextBox115";
             this.richTextBox115.Size = new System.Drawing.Size(69, 38);
             this.richTextBox115.TabIndex = 329;
@@ -1593,7 +1638,7 @@
             // richTextBox116
             // 
             this.richTextBox116.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox116.Location = new System.Drawing.Point(712, 518);
+            this.richTextBox116.Location = new System.Drawing.Point(711, 518);
             this.richTextBox116.Name = "richTextBox116";
             this.richTextBox116.Size = new System.Drawing.Size(69, 38);
             this.richTextBox116.TabIndex = 328;
@@ -1602,7 +1647,7 @@
             // richTextBox117
             // 
             this.richTextBox117.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox117.Location = new System.Drawing.Point(712, 479);
+            this.richTextBox117.Location = new System.Drawing.Point(711, 479);
             this.richTextBox117.Name = "richTextBox117";
             this.richTextBox117.Size = new System.Drawing.Size(69, 38);
             this.richTextBox117.TabIndex = 327;
@@ -1611,7 +1656,7 @@
             // richTextBox118
             // 
             this.richTextBox118.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox118.Location = new System.Drawing.Point(712, 441);
+            this.richTextBox118.Location = new System.Drawing.Point(711, 441);
             this.richTextBox118.Name = "richTextBox118";
             this.richTextBox118.Size = new System.Drawing.Size(69, 38);
             this.richTextBox118.TabIndex = 326;
@@ -1620,7 +1665,7 @@
             // richTextBox119
             // 
             this.richTextBox119.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox119.Location = new System.Drawing.Point(712, 401);
+            this.richTextBox119.Location = new System.Drawing.Point(711, 363);
             this.richTextBox119.Name = "richTextBox119";
             this.richTextBox119.Size = new System.Drawing.Size(69, 38);
             this.richTextBox119.TabIndex = 325;
@@ -1629,7 +1674,7 @@
             // richTextBox120
             // 
             this.richTextBox120.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox120.Location = new System.Drawing.Point(712, 361);
+            this.richTextBox120.Location = new System.Drawing.Point(712, 324);
             this.richTextBox120.Name = "richTextBox120";
             this.richTextBox120.Size = new System.Drawing.Size(69, 38);
             this.richTextBox120.TabIndex = 324;
@@ -1638,7 +1683,7 @@
             // richTextBox121
             // 
             this.richTextBox121.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox121.Location = new System.Drawing.Point(712, 322);
+            this.richTextBox121.Location = new System.Drawing.Point(712, 243);
             this.richTextBox121.Name = "richTextBox121";
             this.richTextBox121.Size = new System.Drawing.Size(69, 38);
             this.richTextBox121.TabIndex = 323;
@@ -1647,7 +1692,7 @@
             // richTextBox122
             // 
             this.richTextBox122.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox122.Location = new System.Drawing.Point(712, 284);
+            this.richTextBox122.Location = new System.Drawing.Point(712, 205);
             this.richTextBox122.Name = "richTextBox122";
             this.richTextBox122.Size = new System.Drawing.Size(69, 38);
             this.richTextBox122.TabIndex = 322;
@@ -1656,7 +1701,7 @@
             // richTextBox123
             // 
             this.richTextBox123.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox123.Location = new System.Drawing.Point(712, 245);
+            this.richTextBox123.Location = new System.Drawing.Point(712, 166);
             this.richTextBox123.Name = "richTextBox123";
             this.richTextBox123.Size = new System.Drawing.Size(69, 38);
             this.richTextBox123.TabIndex = 321;
@@ -1665,7 +1710,7 @@
             // richTextBox124
             // 
             this.richTextBox124.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox124.Location = new System.Drawing.Point(712, 206);
+            this.richTextBox124.Location = new System.Drawing.Point(712, 127);
             this.richTextBox124.Name = "richTextBox124";
             this.richTextBox124.Size = new System.Drawing.Size(69, 38);
             this.richTextBox124.TabIndex = 320;
@@ -1674,7 +1719,7 @@
             // richTextBox125
             // 
             this.richTextBox125.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox125.Location = new System.Drawing.Point(712, 165);
+            this.richTextBox125.Location = new System.Drawing.Point(712, 86);
             this.richTextBox125.Name = "richTextBox125";
             this.richTextBox125.Size = new System.Drawing.Size(69, 38);
             this.richTextBox125.TabIndex = 319;
@@ -1683,7 +1728,7 @@
             // richTextBox126
             // 
             this.richTextBox126.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox126.Location = new System.Drawing.Point(712, 127);
+            this.richTextBox126.Location = new System.Drawing.Point(712, 48);
             this.richTextBox126.Name = "richTextBox126";
             this.richTextBox126.Size = new System.Drawing.Size(69, 38);
             this.richTextBox126.TabIndex = 318;
@@ -1692,7 +1737,7 @@
             // richTextBox127
             // 
             this.richTextBox127.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox127.Location = new System.Drawing.Point(892, 918);
+            this.richTextBox127.Location = new System.Drawing.Point(892, 954);
             this.richTextBox127.Name = "richTextBox127";
             this.richTextBox127.Size = new System.Drawing.Size(69, 38);
             this.richTextBox127.TabIndex = 359;
@@ -1701,7 +1746,7 @@
             // richTextBox128
             // 
             this.richTextBox128.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox128.Location = new System.Drawing.Point(893, 870);
+            this.richTextBox128.Location = new System.Drawing.Point(892, 870);
             this.richTextBox128.Name = "richTextBox128";
             this.richTextBox128.Size = new System.Drawing.Size(69, 38);
             this.richTextBox128.TabIndex = 358;
@@ -1710,7 +1755,7 @@
             // richTextBox129
             // 
             this.richTextBox129.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox129.Location = new System.Drawing.Point(893, 830);
+            this.richTextBox129.Location = new System.Drawing.Point(892, 830);
             this.richTextBox129.Name = "richTextBox129";
             this.richTextBox129.Size = new System.Drawing.Size(69, 38);
             this.richTextBox129.TabIndex = 357;
@@ -1719,7 +1764,7 @@
             // richTextBox130
             // 
             this.richTextBox130.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox130.Location = new System.Drawing.Point(893, 790);
+            this.richTextBox130.Location = new System.Drawing.Point(892, 790);
             this.richTextBox130.Name = "richTextBox130";
             this.richTextBox130.Size = new System.Drawing.Size(69, 38);
             this.richTextBox130.TabIndex = 356;
@@ -1728,7 +1773,7 @@
             // richTextBox131
             // 
             this.richTextBox131.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox131.Location = new System.Drawing.Point(893, 751);
+            this.richTextBox131.Location = new System.Drawing.Point(892, 751);
             this.richTextBox131.Name = "richTextBox131";
             this.richTextBox131.Size = new System.Drawing.Size(69, 38);
             this.richTextBox131.TabIndex = 355;
@@ -1737,7 +1782,7 @@
             // richTextBox132
             // 
             this.richTextBox132.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox132.Location = new System.Drawing.Point(893, 712);
+            this.richTextBox132.Location = new System.Drawing.Point(892, 712);
             this.richTextBox132.Name = "richTextBox132";
             this.richTextBox132.Size = new System.Drawing.Size(69, 38);
             this.richTextBox132.TabIndex = 354;
@@ -1746,7 +1791,7 @@
             // richTextBox133
             // 
             this.richTextBox133.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox133.Location = new System.Drawing.Point(893, 673);
+            this.richTextBox133.Location = new System.Drawing.Point(892, 673);
             this.richTextBox133.Name = "richTextBox133";
             this.richTextBox133.Size = new System.Drawing.Size(69, 38);
             this.richTextBox133.TabIndex = 353;
@@ -1755,7 +1800,7 @@
             // richTextBox134
             // 
             this.richTextBox134.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox134.Location = new System.Drawing.Point(893, 634);
+            this.richTextBox134.Location = new System.Drawing.Point(892, 634);
             this.richTextBox134.Name = "richTextBox134";
             this.richTextBox134.Size = new System.Drawing.Size(69, 38);
             this.richTextBox134.TabIndex = 352;
@@ -1764,7 +1809,7 @@
             // richTextBox135
             // 
             this.richTextBox135.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox135.Location = new System.Drawing.Point(893, 596);
+            this.richTextBox135.Location = new System.Drawing.Point(892, 596);
             this.richTextBox135.Name = "richTextBox135";
             this.richTextBox135.Size = new System.Drawing.Size(69, 38);
             this.richTextBox135.TabIndex = 351;
@@ -1773,7 +1818,7 @@
             // richTextBox136
             // 
             this.richTextBox136.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox136.Location = new System.Drawing.Point(893, 557);
+            this.richTextBox136.Location = new System.Drawing.Point(892, 557);
             this.richTextBox136.Name = "richTextBox136";
             this.richTextBox136.Size = new System.Drawing.Size(69, 38);
             this.richTextBox136.TabIndex = 350;
@@ -1782,7 +1827,7 @@
             // richTextBox137
             // 
             this.richTextBox137.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox137.Location = new System.Drawing.Point(893, 518);
+            this.richTextBox137.Location = new System.Drawing.Point(892, 518);
             this.richTextBox137.Name = "richTextBox137";
             this.richTextBox137.Size = new System.Drawing.Size(69, 38);
             this.richTextBox137.TabIndex = 349;
@@ -1791,7 +1836,7 @@
             // richTextBox138
             // 
             this.richTextBox138.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox138.Location = new System.Drawing.Point(893, 479);
+            this.richTextBox138.Location = new System.Drawing.Point(892, 479);
             this.richTextBox138.Name = "richTextBox138";
             this.richTextBox138.Size = new System.Drawing.Size(69, 38);
             this.richTextBox138.TabIndex = 348;
@@ -1800,7 +1845,7 @@
             // richTextBox139
             // 
             this.richTextBox139.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox139.Location = new System.Drawing.Point(893, 441);
+            this.richTextBox139.Location = new System.Drawing.Point(892, 441);
             this.richTextBox139.Name = "richTextBox139";
             this.richTextBox139.Size = new System.Drawing.Size(69, 38);
             this.richTextBox139.TabIndex = 347;
@@ -1809,7 +1854,7 @@
             // richTextBox140
             // 
             this.richTextBox140.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox140.Location = new System.Drawing.Point(893, 401);
+            this.richTextBox140.Location = new System.Drawing.Point(892, 363);
             this.richTextBox140.Name = "richTextBox140";
             this.richTextBox140.Size = new System.Drawing.Size(69, 38);
             this.richTextBox140.TabIndex = 346;
@@ -1818,7 +1863,7 @@
             // richTextBox141
             // 
             this.richTextBox141.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox141.Location = new System.Drawing.Point(893, 361);
+            this.richTextBox141.Location = new System.Drawing.Point(892, 323);
             this.richTextBox141.Name = "richTextBox141";
             this.richTextBox141.Size = new System.Drawing.Size(69, 38);
             this.richTextBox141.TabIndex = 345;
@@ -1827,7 +1872,7 @@
             // richTextBox142
             // 
             this.richTextBox142.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox142.Location = new System.Drawing.Point(893, 322);
+            this.richTextBox142.Location = new System.Drawing.Point(892, 243);
             this.richTextBox142.Name = "richTextBox142";
             this.richTextBox142.Size = new System.Drawing.Size(69, 38);
             this.richTextBox142.TabIndex = 344;
@@ -1836,7 +1881,7 @@
             // richTextBox143
             // 
             this.richTextBox143.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox143.Location = new System.Drawing.Point(893, 284);
+            this.richTextBox143.Location = new System.Drawing.Point(892, 205);
             this.richTextBox143.Name = "richTextBox143";
             this.richTextBox143.Size = new System.Drawing.Size(69, 38);
             this.richTextBox143.TabIndex = 343;
@@ -1845,7 +1890,7 @@
             // richTextBox144
             // 
             this.richTextBox144.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox144.Location = new System.Drawing.Point(893, 245);
+            this.richTextBox144.Location = new System.Drawing.Point(892, 166);
             this.richTextBox144.Name = "richTextBox144";
             this.richTextBox144.Size = new System.Drawing.Size(69, 38);
             this.richTextBox144.TabIndex = 342;
@@ -1854,7 +1899,7 @@
             // richTextBox145
             // 
             this.richTextBox145.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox145.Location = new System.Drawing.Point(893, 206);
+            this.richTextBox145.Location = new System.Drawing.Point(892, 127);
             this.richTextBox145.Name = "richTextBox145";
             this.richTextBox145.Size = new System.Drawing.Size(69, 38);
             this.richTextBox145.TabIndex = 341;
@@ -1863,7 +1908,7 @@
             // richTextBox146
             // 
             this.richTextBox146.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox146.Location = new System.Drawing.Point(893, 165);
+            this.richTextBox146.Location = new System.Drawing.Point(892, 86);
             this.richTextBox146.Name = "richTextBox146";
             this.richTextBox146.Size = new System.Drawing.Size(69, 38);
             this.richTextBox146.TabIndex = 340;
@@ -1872,7 +1917,7 @@
             // richTextBox147
             // 
             this.richTextBox147.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox147.Location = new System.Drawing.Point(893, 127);
+            this.richTextBox147.Location = new System.Drawing.Point(892, 48);
             this.richTextBox147.Name = "richTextBox147";
             this.richTextBox147.Size = new System.Drawing.Size(69, 38);
             this.richTextBox147.TabIndex = 339;
@@ -1883,7 +1928,7 @@
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label29.ForeColor = System.Drawing.Color.DarkRed;
-            this.label29.Location = new System.Drawing.Point(269, 926);
+            this.label29.Location = new System.Drawing.Point(269, 962);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(81, 23);
             this.label29.TabIndex = 360;
@@ -1892,7 +1937,7 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(993, 11);
+            this.pictureBox5.Location = new System.Drawing.Point(993, 69);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(292, 148);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -1904,7 +1949,7 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Bahnschrift", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label30.ForeColor = System.Drawing.Color.Orange;
-            this.label30.Location = new System.Drawing.Point(1167, 109);
+            this.label30.Location = new System.Drawing.Point(1167, 167);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(106, 42);
             this.label30.TabIndex = 362;
@@ -1915,7 +1960,7 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(1481, 37);
+            this.label31.Location = new System.Drawing.Point(1481, 95);
             this.label31.Name = "label31";
             this.label31.Size = new System.Drawing.Size(405, 45);
             this.label31.TabIndex = 363;
@@ -1927,7 +1972,7 @@
             this.Lbl200Sirnak.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl200Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl200Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl200Sirnak.Location = new System.Drawing.Point(360, 129);
+            this.Lbl200Sirnak.Location = new System.Drawing.Point(360, 50);
             this.Lbl200Sirnak.Name = "Lbl200Sirnak";
             this.Lbl200Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl200Sirnak.TabIndex = 363;
@@ -1939,7 +1984,7 @@
             this.Lbl200Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl200Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl200Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl200Toplam.Location = new System.Drawing.Point(897, 129);
+            this.Lbl200Toplam.Location = new System.Drawing.Point(896, 50);
             this.Lbl200Toplam.Name = "Lbl200Toplam";
             this.Lbl200Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl200Toplam.TabIndex = 365;
@@ -1950,7 +1995,7 @@
             this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label33.Location = new System.Drawing.Point(1598, 926);
+            this.label33.Location = new System.Drawing.Point(1603, 928);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(60, 20);
             this.label33.TabIndex = 369;
@@ -1961,7 +2006,7 @@
             this.LblSaat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LblSaat.AutoSize = true;
             this.LblSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblSaat.Location = new System.Drawing.Point(1664, 926);
+            this.LblSaat.Location = new System.Drawing.Point(1669, 928);
             this.LblSaat.Name = "LblSaat";
             this.LblSaat.Size = new System.Drawing.Size(27, 20);
             this.LblSaat.TabIndex = 368;
@@ -1972,7 +2017,7 @@
             this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label34.Location = new System.Drawing.Point(1282, 926);
+            this.label34.Location = new System.Drawing.Point(1287, 928);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(68, 20);
             this.label34.TabIndex = 367;
@@ -1983,7 +2028,7 @@
             this.LblTarih.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.LblTarih.AutoSize = true;
             this.LblTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTarih.Location = new System.Drawing.Point(1356, 926);
+            this.LblTarih.Location = new System.Drawing.Point(1361, 928);
             this.LblTarih.Name = "LblTarih";
             this.LblTarih.Size = new System.Drawing.Size(27, 20);
             this.LblTarih.TabIndex = 366;
@@ -1995,11 +2040,11 @@
             this.label25.BackColor = System.Drawing.Color.Aqua;
             this.label25.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label25.ForeColor = System.Drawing.Color.Maroon;
-            this.label25.Location = new System.Drawing.Point(168, 644);
+            this.label25.Location = new System.Drawing.Point(167, 644);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(183, 19);
             this.label25.TabIndex = 370;
-            this.label25.Text = "1400_SEVKİYAT (BÖLGE):";
+            this.label25.Text = "1450_SEVKİYAT (BÖLGE):";
             // 
             // Lbl700Sirnak
             // 
@@ -2007,7 +2052,7 @@
             this.Lbl700Sirnak.BackColor = System.Drawing.Color.DimGray;
             this.Lbl700Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl700Sirnak.ForeColor = System.Drawing.Color.White;
-            this.Lbl700Sirnak.Location = new System.Drawing.Point(360, 324);
+            this.Lbl700Sirnak.Location = new System.Drawing.Point(362, 244);
             this.Lbl700Sirnak.Name = "Lbl700Sirnak";
             this.Lbl700Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl700Sirnak.TabIndex = 371;
@@ -2017,7 +2062,7 @@
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.Aqua;
             this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox1.Location = new System.Drawing.Point(1054, 295);
+            this.richTextBox1.Location = new System.Drawing.Point(1054, 353);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(246, 72);
             this.richTextBox1.TabIndex = 372;
@@ -2027,7 +2072,7 @@
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.YellowGreen;
             this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox2.Location = new System.Drawing.Point(1306, 295);
+            this.richTextBox2.Location = new System.Drawing.Point(1306, 353);
             this.richTextBox2.Name = "richTextBox2";
             this.richTextBox2.Size = new System.Drawing.Size(246, 72);
             this.richTextBox2.TabIndex = 373;
@@ -2038,7 +2083,7 @@
             this.richTextBox3.BackColor = System.Drawing.Color.DimGray;
             this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.richTextBox3.ForeColor = System.Drawing.Color.White;
-            this.richTextBox3.Location = new System.Drawing.Point(1558, 295);
+            this.richTextBox3.Location = new System.Drawing.Point(1558, 353);
             this.richTextBox3.Name = "richTextBox3";
             this.richTextBox3.Size = new System.Drawing.Size(246, 72);
             this.richTextBox3.TabIndex = 374;
@@ -2048,7 +2093,7 @@
             // 
             this.richTextBox4.BackColor = System.Drawing.Color.Aqua;
             this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox4.Location = new System.Drawing.Point(1054, 373);
+            this.richTextBox4.Location = new System.Drawing.Point(1054, 431);
             this.richTextBox4.Name = "richTextBox4";
             this.richTextBox4.Size = new System.Drawing.Size(246, 100);
             this.richTextBox4.TabIndex = 375;
@@ -2058,7 +2103,7 @@
             // 
             this.richTextBox5.BackColor = System.Drawing.Color.YellowGreen;
             this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox5.Location = new System.Drawing.Point(1306, 373);
+            this.richTextBox5.Location = new System.Drawing.Point(1306, 431);
             this.richTextBox5.Name = "richTextBox5";
             this.richTextBox5.Size = new System.Drawing.Size(246, 100);
             this.richTextBox5.TabIndex = 376;
@@ -2069,7 +2114,7 @@
             this.richTextBox6.BackColor = System.Drawing.Color.DimGray;
             this.richTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.richTextBox6.ForeColor = System.Drawing.Color.White;
-            this.richTextBox6.Location = new System.Drawing.Point(1558, 373);
+            this.richTextBox6.Location = new System.Drawing.Point(1558, 431);
             this.richTextBox6.Name = "richTextBox6";
             this.richTextBox6.Size = new System.Drawing.Size(246, 100);
             this.richTextBox6.TabIndex = 377;
@@ -2080,7 +2125,7 @@
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label36.ForeColor = System.Drawing.Color.Red;
-            this.label36.Location = new System.Drawing.Point(1242, 240);
+            this.label36.Location = new System.Drawing.Point(1242, 298);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(383, 45);
             this.label36.TabIndex = 378;
@@ -2089,7 +2134,7 @@
             // richTextBox7
             // 
             this.richTextBox7.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox7.Location = new System.Drawing.Point(1054, 486);
+            this.richTextBox7.Location = new System.Drawing.Point(1054, 544);
             this.richTextBox7.Name = "richTextBox7";
             this.richTextBox7.Size = new System.Drawing.Size(750, 134);
             this.richTextBox7.TabIndex = 379;
@@ -2098,7 +2143,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Location = new System.Drawing.Point(993, 190);
+            this.panel1.Location = new System.Drawing.Point(993, 248);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(919, 19);
             this.panel1.TabIndex = 380;
@@ -2106,7 +2151,7 @@
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.DarkGray;
-            this.panel2.Location = new System.Drawing.Point(993, 649);
+            this.panel2.Location = new System.Drawing.Point(993, 719);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(919, 19);
             this.panel2.TabIndex = 381;
@@ -2117,7 +2162,7 @@
             this.Lbl700Cukurca.BackColor = System.Drawing.Color.DimGray;
             this.Lbl700Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl700Cukurca.ForeColor = System.Drawing.Color.White;
-            this.Lbl700Cukurca.Location = new System.Drawing.Point(453, 324);
+            this.Lbl700Cukurca.Location = new System.Drawing.Point(451, 244);
             this.Lbl700Cukurca.Name = "Lbl700Cukurca";
             this.Lbl700Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl700Cukurca.TabIndex = 382;
@@ -2129,7 +2174,7 @@
             this.Lbl700Yukseova.BackColor = System.Drawing.Color.DimGray;
             this.Lbl700Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl700Yukseova.ForeColor = System.Drawing.Color.White;
-            this.Lbl700Yukseova.Location = new System.Drawing.Point(540, 324);
+            this.Lbl700Yukseova.Location = new System.Drawing.Point(540, 244);
             this.Lbl700Yukseova.Name = "Lbl700Yukseova";
             this.Lbl700Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl700Yukseova.TabIndex = 383;
@@ -2141,7 +2186,7 @@
             this.Lbl700Derecik.BackColor = System.Drawing.Color.DimGray;
             this.Lbl700Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl700Derecik.ForeColor = System.Drawing.Color.White;
-            this.Lbl700Derecik.Location = new System.Drawing.Point(717, 324);
+            this.Lbl700Derecik.Location = new System.Drawing.Point(717, 244);
             this.Lbl700Derecik.Name = "Lbl700Derecik";
             this.Lbl700Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl700Derecik.TabIndex = 385;
@@ -2153,7 +2198,7 @@
             this.Lbl700Semdinli.BackColor = System.Drawing.Color.DimGray;
             this.Lbl700Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl700Semdinli.ForeColor = System.Drawing.Color.White;
-            this.Lbl700Semdinli.Location = new System.Drawing.Point(630, 324);
+            this.Lbl700Semdinli.Location = new System.Drawing.Point(630, 244);
             this.Lbl700Semdinli.Name = "Lbl700Semdinli";
             this.Lbl700Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl700Semdinli.TabIndex = 384;
@@ -2165,7 +2210,7 @@
             this.Lbl800Derecik.BackColor = System.Drawing.Color.DimGray;
             this.Lbl800Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl800Derecik.ForeColor = System.Drawing.Color.White;
-            this.Lbl800Derecik.Location = new System.Drawing.Point(717, 363);
+            this.Lbl800Derecik.Location = new System.Drawing.Point(717, 325);
             this.Lbl800Derecik.Name = "Lbl800Derecik";
             this.Lbl800Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl800Derecik.TabIndex = 390;
@@ -2177,7 +2222,7 @@
             this.Lbl800Semdinli.BackColor = System.Drawing.Color.DimGray;
             this.Lbl800Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl800Semdinli.ForeColor = System.Drawing.Color.White;
-            this.Lbl800Semdinli.Location = new System.Drawing.Point(630, 363);
+            this.Lbl800Semdinli.Location = new System.Drawing.Point(630, 324);
             this.Lbl800Semdinli.Name = "Lbl800Semdinli";
             this.Lbl800Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl800Semdinli.TabIndex = 389;
@@ -2189,7 +2234,7 @@
             this.Lbl800Yukseova.BackColor = System.Drawing.Color.DimGray;
             this.Lbl800Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl800Yukseova.ForeColor = System.Drawing.Color.White;
-            this.Lbl800Yukseova.Location = new System.Drawing.Point(540, 363);
+            this.Lbl800Yukseova.Location = new System.Drawing.Point(540, 324);
             this.Lbl800Yukseova.Name = "Lbl800Yukseova";
             this.Lbl800Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl800Yukseova.TabIndex = 388;
@@ -2201,7 +2246,7 @@
             this.Lbl800Cukurca.BackColor = System.Drawing.Color.DimGray;
             this.Lbl800Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl800Cukurca.ForeColor = System.Drawing.Color.White;
-            this.Lbl800Cukurca.Location = new System.Drawing.Point(453, 363);
+            this.Lbl800Cukurca.Location = new System.Drawing.Point(451, 324);
             this.Lbl800Cukurca.Name = "Lbl800Cukurca";
             this.Lbl800Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl800Cukurca.TabIndex = 387;
@@ -2213,7 +2258,7 @@
             this.Lbl800Sirnak.BackColor = System.Drawing.Color.DimGray;
             this.Lbl800Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl800Sirnak.ForeColor = System.Drawing.Color.White;
-            this.Lbl800Sirnak.Location = new System.Drawing.Point(360, 363);
+            this.Lbl800Sirnak.Location = new System.Drawing.Point(362, 324);
             this.Lbl800Sirnak.Name = "Lbl800Sirnak";
             this.Lbl800Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl800Sirnak.TabIndex = 386;
@@ -2225,7 +2270,7 @@
             this.Lbl200Cukurca.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl200Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl200Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl200Cukurca.Location = new System.Drawing.Point(451, 129);
+            this.Lbl200Cukurca.Location = new System.Drawing.Point(451, 50);
             this.Lbl200Cukurca.Name = "Lbl200Cukurca";
             this.Lbl200Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl200Cukurca.TabIndex = 391;
@@ -2237,7 +2282,7 @@
             this.Lbl200Semdinli.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl200Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl200Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl200Semdinli.Location = new System.Drawing.Point(631, 129);
+            this.Lbl200Semdinli.Location = new System.Drawing.Point(631, 50);
             this.Lbl200Semdinli.Name = "Lbl200Semdinli";
             this.Lbl200Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl200Semdinli.TabIndex = 393;
@@ -2249,7 +2294,7 @@
             this.Lbl200Yukseova.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl200Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl200Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl200Yukseova.Location = new System.Drawing.Point(540, 129);
+            this.Lbl200Yukseova.Location = new System.Drawing.Point(540, 50);
             this.Lbl200Yukseova.Name = "Lbl200Yukseova";
             this.Lbl200Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl200Yukseova.TabIndex = 392;
@@ -2261,7 +2306,7 @@
             this.Lbl200Derecik.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl200Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl200Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl200Derecik.Location = new System.Drawing.Point(716, 129);
+            this.Lbl200Derecik.Location = new System.Drawing.Point(716, 50);
             this.Lbl200Derecik.Name = "Lbl200Derecik";
             this.Lbl200Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl200Derecik.TabIndex = 394;
@@ -2273,7 +2318,7 @@
             this.Lbl300Derecik.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl300Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl300Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl300Derecik.Location = new System.Drawing.Point(717, 167);
+            this.Lbl300Derecik.Location = new System.Drawing.Point(717, 88);
             this.Lbl300Derecik.Name = "Lbl300Derecik";
             this.Lbl300Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl300Derecik.TabIndex = 400;
@@ -2285,7 +2330,7 @@
             this.Lbl300Semdinli.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl300Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl300Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl300Semdinli.Location = new System.Drawing.Point(632, 167);
+            this.Lbl300Semdinli.Location = new System.Drawing.Point(632, 88);
             this.Lbl300Semdinli.Name = "Lbl300Semdinli";
             this.Lbl300Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl300Semdinli.TabIndex = 399;
@@ -2297,7 +2342,7 @@
             this.Lbl300Yukseova.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl300Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl300Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl300Yukseova.Location = new System.Drawing.Point(541, 167);
+            this.Lbl300Yukseova.Location = new System.Drawing.Point(541, 88);
             this.Lbl300Yukseova.Name = "Lbl300Yukseova";
             this.Lbl300Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl300Yukseova.TabIndex = 398;
@@ -2309,7 +2354,7 @@
             this.Lbl300Cukurca.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl300Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl300Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl300Cukurca.Location = new System.Drawing.Point(452, 167);
+            this.Lbl300Cukurca.Location = new System.Drawing.Point(451, 88);
             this.Lbl300Cukurca.Name = "Lbl300Cukurca";
             this.Lbl300Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl300Cukurca.TabIndex = 397;
@@ -2321,7 +2366,7 @@
             this.Lbl300Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl300Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl300Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl300Toplam.Location = new System.Drawing.Point(897, 167);
+            this.Lbl300Toplam.Location = new System.Drawing.Point(896, 88);
             this.Lbl300Toplam.Name = "Lbl300Toplam";
             this.Lbl300Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl300Toplam.TabIndex = 396;
@@ -2333,7 +2378,7 @@
             this.Lbl300Sirnak.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl300Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl300Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl300Sirnak.Location = new System.Drawing.Point(361, 167);
+            this.Lbl300Sirnak.Location = new System.Drawing.Point(361, 88);
             this.Lbl300Sirnak.Name = "Lbl300Sirnak";
             this.Lbl300Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl300Sirnak.TabIndex = 395;
@@ -2345,7 +2390,7 @@
             this.Lbl1500Derecik.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1500Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1500Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1500Derecik.Location = new System.Drawing.Point(715, 675);
+            this.Lbl1500Derecik.Location = new System.Drawing.Point(714, 674);
             this.Lbl1500Derecik.Name = "Lbl1500Derecik";
             this.Lbl1500Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1500Derecik.TabIndex = 406;
@@ -2357,7 +2402,7 @@
             this.Lbl1500Semdinli.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1500Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1500Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1500Semdinli.Location = new System.Drawing.Point(630, 675);
+            this.Lbl1500Semdinli.Location = new System.Drawing.Point(629, 674);
             this.Lbl1500Semdinli.Name = "Lbl1500Semdinli";
             this.Lbl1500Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1500Semdinli.TabIndex = 405;
@@ -2369,7 +2414,7 @@
             this.Lbl1500Yukseova.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1500Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1500Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1500Yukseova.Location = new System.Drawing.Point(539, 675);
+            this.Lbl1500Yukseova.Location = new System.Drawing.Point(538, 674);
             this.Lbl1500Yukseova.Name = "Lbl1500Yukseova";
             this.Lbl1500Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1500Yukseova.TabIndex = 404;
@@ -2381,7 +2426,7 @@
             this.Lbl1500Cukurca.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1500Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1500Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1500Cukurca.Location = new System.Drawing.Point(450, 675);
+            this.Lbl1500Cukurca.Location = new System.Drawing.Point(449, 674);
             this.Lbl1500Cukurca.Name = "Lbl1500Cukurca";
             this.Lbl1500Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1500Cukurca.TabIndex = 403;
@@ -2393,7 +2438,7 @@
             this.Lbl1500Sirnak.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1500Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1500Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1500Sirnak.Location = new System.Drawing.Point(360, 675);
+            this.Lbl1500Sirnak.Location = new System.Drawing.Point(359, 674);
             this.Lbl1500Sirnak.Name = "Lbl1500Sirnak";
             this.Lbl1500Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1500Sirnak.TabIndex = 401;
@@ -2405,7 +2450,7 @@
             this.Lbl1700Derecik.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1700Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1700Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1700Derecik.Location = new System.Drawing.Point(716, 753);
+            this.Lbl1700Derecik.Location = new System.Drawing.Point(715, 753);
             this.Lbl1700Derecik.Name = "Lbl1700Derecik";
             this.Lbl1700Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1700Derecik.TabIndex = 412;
@@ -2417,7 +2462,7 @@
             this.Lbl1700Semdinli.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1700Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1700Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1700Semdinli.Location = new System.Drawing.Point(631, 753);
+            this.Lbl1700Semdinli.Location = new System.Drawing.Point(630, 753);
             this.Lbl1700Semdinli.Name = "Lbl1700Semdinli";
             this.Lbl1700Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1700Semdinli.TabIndex = 411;
@@ -2429,7 +2474,7 @@
             this.Lbl1700Yukseova.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1700Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1700Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1700Yukseova.Location = new System.Drawing.Point(540, 753);
+            this.Lbl1700Yukseova.Location = new System.Drawing.Point(539, 753);
             this.Lbl1700Yukseova.Name = "Lbl1700Yukseova";
             this.Lbl1700Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1700Yukseova.TabIndex = 410;
@@ -2441,7 +2486,7 @@
             this.Lbl1700Cukurca.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1700Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1700Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1700Cukurca.Location = new System.Drawing.Point(451, 753);
+            this.Lbl1700Cukurca.Location = new System.Drawing.Point(450, 753);
             this.Lbl1700Cukurca.Name = "Lbl1700Cukurca";
             this.Lbl1700Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1700Cukurca.TabIndex = 409;
@@ -2453,7 +2498,7 @@
             this.Lbl1700Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl1700Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1700Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1700Toplam.Location = new System.Drawing.Point(897, 753);
+            this.Lbl1700Toplam.Location = new System.Drawing.Point(896, 753);
             this.Lbl1700Toplam.Name = "Lbl1700Toplam";
             this.Lbl1700Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl1700Toplam.TabIndex = 408;
@@ -2465,7 +2510,7 @@
             this.Lbl1700Sirnak.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1700Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1700Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1700Sirnak.Location = new System.Drawing.Point(360, 753);
+            this.Lbl1700Sirnak.Location = new System.Drawing.Point(359, 753);
             this.Lbl1700Sirnak.Name = "Lbl1700Sirnak";
             this.Lbl1700Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1700Sirnak.TabIndex = 407;
@@ -2477,7 +2522,7 @@
             this.Lbl1800Derecik.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1800Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1800Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1800Derecik.Location = new System.Drawing.Point(715, 792);
+            this.Lbl1800Derecik.Location = new System.Drawing.Point(714, 792);
             this.Lbl1800Derecik.Name = "Lbl1800Derecik";
             this.Lbl1800Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1800Derecik.TabIndex = 418;
@@ -2489,7 +2534,7 @@
             this.Lbl1800Semdinli.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1800Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1800Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1800Semdinli.Location = new System.Drawing.Point(630, 792);
+            this.Lbl1800Semdinli.Location = new System.Drawing.Point(629, 792);
             this.Lbl1800Semdinli.Name = "Lbl1800Semdinli";
             this.Lbl1800Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1800Semdinli.TabIndex = 417;
@@ -2501,7 +2546,7 @@
             this.Lbl1800Yukseova.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1800Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1800Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1800Yukseova.Location = new System.Drawing.Point(539, 792);
+            this.Lbl1800Yukseova.Location = new System.Drawing.Point(538, 792);
             this.Lbl1800Yukseova.Name = "Lbl1800Yukseova";
             this.Lbl1800Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1800Yukseova.TabIndex = 416;
@@ -2513,7 +2558,7 @@
             this.Lbl1800Cukurca.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1800Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1800Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1800Cukurca.Location = new System.Drawing.Point(450, 792);
+            this.Lbl1800Cukurca.Location = new System.Drawing.Point(449, 792);
             this.Lbl1800Cukurca.Name = "Lbl1800Cukurca";
             this.Lbl1800Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1800Cukurca.TabIndex = 415;
@@ -2537,7 +2582,7 @@
             this.Lbl1800Sirnak.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1800Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1800Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1800Sirnak.Location = new System.Drawing.Point(359, 792);
+            this.Lbl1800Sirnak.Location = new System.Drawing.Point(358, 792);
             this.Lbl1800Sirnak.Name = "Lbl1800Sirnak";
             this.Lbl1800Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1800Sirnak.TabIndex = 413;
@@ -2549,7 +2594,7 @@
             this.Lbl1900Derecik.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1900Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1900Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1900Derecik.Location = new System.Drawing.Point(716, 832);
+            this.Lbl1900Derecik.Location = new System.Drawing.Point(715, 831);
             this.Lbl1900Derecik.Name = "Lbl1900Derecik";
             this.Lbl1900Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1900Derecik.TabIndex = 424;
@@ -2561,7 +2606,7 @@
             this.Lbl1900Semdinli.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1900Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1900Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1900Semdinli.Location = new System.Drawing.Point(631, 832);
+            this.Lbl1900Semdinli.Location = new System.Drawing.Point(630, 831);
             this.Lbl1900Semdinli.Name = "Lbl1900Semdinli";
             this.Lbl1900Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1900Semdinli.TabIndex = 423;
@@ -2573,7 +2618,7 @@
             this.Lbl1900Yukseova.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1900Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1900Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1900Yukseova.Location = new System.Drawing.Point(540, 832);
+            this.Lbl1900Yukseova.Location = new System.Drawing.Point(539, 831);
             this.Lbl1900Yukseova.Name = "Lbl1900Yukseova";
             this.Lbl1900Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1900Yukseova.TabIndex = 422;
@@ -2585,7 +2630,7 @@
             this.Lbl1900Cukurca.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1900Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1900Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1900Cukurca.Location = new System.Drawing.Point(451, 832);
+            this.Lbl1900Cukurca.Location = new System.Drawing.Point(450, 831);
             this.Lbl1900Cukurca.Name = "Lbl1900Cukurca";
             this.Lbl1900Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1900Cukurca.TabIndex = 421;
@@ -2597,7 +2642,7 @@
             this.Lbl1900Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl1900Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1900Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1900Toplam.Location = new System.Drawing.Point(897, 832);
+            this.Lbl1900Toplam.Location = new System.Drawing.Point(896, 832);
             this.Lbl1900Toplam.Name = "Lbl1900Toplam";
             this.Lbl1900Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl1900Toplam.TabIndex = 420;
@@ -2609,7 +2654,7 @@
             this.Lbl1900Sirnak.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1900Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1900Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1900Sirnak.Location = new System.Drawing.Point(360, 832);
+            this.Lbl1900Sirnak.Location = new System.Drawing.Point(359, 831);
             this.Lbl1900Sirnak.Name = "Lbl1900Sirnak";
             this.Lbl1900Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1900Sirnak.TabIndex = 419;
@@ -2621,7 +2666,7 @@
             this.Lbl500Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl500Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl500Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl500Toplam.Location = new System.Drawing.Point(897, 247);
+            this.Lbl500Toplam.Location = new System.Drawing.Point(896, 168);
             this.Lbl500Toplam.Name = "Lbl500Toplam";
             this.Lbl500Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl500Toplam.TabIndex = 426;
@@ -2633,7 +2678,7 @@
             this.Lbl400Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl400Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl400Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl400Toplam.Location = new System.Drawing.Point(897, 208);
+            this.Lbl400Toplam.Location = new System.Drawing.Point(896, 129);
             this.Lbl400Toplam.Name = "Lbl400Toplam";
             this.Lbl400Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl400Toplam.TabIndex = 425;
@@ -2645,7 +2690,7 @@
             this.Lbl900Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl900Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl900Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl900Toplam.Location = new System.Drawing.Point(897, 403);
+            this.Lbl900Toplam.Location = new System.Drawing.Point(896, 365);
             this.Lbl900Toplam.Name = "Lbl900Toplam";
             this.Lbl900Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl900Toplam.TabIndex = 430;
@@ -2657,7 +2702,7 @@
             this.Lbl800Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl800Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl800Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl800Toplam.Location = new System.Drawing.Point(897, 363);
+            this.Lbl800Toplam.Location = new System.Drawing.Point(896, 325);
             this.Lbl800Toplam.Name = "Lbl800Toplam";
             this.Lbl800Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl800Toplam.TabIndex = 429;
@@ -2669,7 +2714,7 @@
             this.Lbl700Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl700Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl700Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl700Toplam.Location = new System.Drawing.Point(897, 324);
+            this.Lbl700Toplam.Location = new System.Drawing.Point(896, 245);
             this.Lbl700Toplam.Name = "Lbl700Toplam";
             this.Lbl700Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl700Toplam.TabIndex = 428;
@@ -2681,7 +2726,7 @@
             this.Lbl600Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl600Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl600Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl600Toplam.Location = new System.Drawing.Point(897, 286);
+            this.Lbl600Toplam.Location = new System.Drawing.Point(896, 207);
             this.Lbl600Toplam.Name = "Lbl600Toplam";
             this.Lbl600Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl600Toplam.TabIndex = 427;
@@ -2693,7 +2738,7 @@
             this.Lbl1600Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl1600Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1600Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1600Toplam.Location = new System.Drawing.Point(897, 714);
+            this.Lbl1600Toplam.Location = new System.Drawing.Point(896, 714);
             this.Lbl1600Toplam.Name = "Lbl1600Toplam";
             this.Lbl1600Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl1600Toplam.TabIndex = 438;
@@ -2789,7 +2834,7 @@
             this.Lbl2000Toplam.BackColor = System.Drawing.Color.LightYellow;
             this.Lbl2000Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl2000Toplam.ForeColor = System.Drawing.Color.Black;
-            this.Lbl2000Toplam.Location = new System.Drawing.Point(898, 872);
+            this.Lbl2000Toplam.Location = new System.Drawing.Point(896, 872);
             this.Lbl2000Toplam.Name = "Lbl2000Toplam";
             this.Lbl2000Toplam.Size = new System.Drawing.Size(60, 35);
             this.Lbl2000Toplam.TabIndex = 439;
@@ -2801,7 +2846,7 @@
             this.LblGenelToplam.BackColor = System.Drawing.Color.LightYellow;
             this.LblGenelToplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblGenelToplam.ForeColor = System.Drawing.Color.Black;
-            this.LblGenelToplam.Location = new System.Drawing.Point(896, 920);
+            this.LblGenelToplam.Location = new System.Drawing.Point(896, 956);
             this.LblGenelToplam.Name = "LblGenelToplam";
             this.LblGenelToplam.Size = new System.Drawing.Size(60, 35);
             this.LblGenelToplam.TabIndex = 440;
@@ -2813,7 +2858,7 @@
             this.LblToplamDerecik.BackColor = System.Drawing.Color.LightYellow;
             this.LblToplamDerecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblToplamDerecik.ForeColor = System.Drawing.Color.Black;
-            this.LblToplamDerecik.Location = new System.Drawing.Point(716, 920);
+            this.LblToplamDerecik.Location = new System.Drawing.Point(716, 956);
             this.LblToplamDerecik.Name = "LblToplamDerecik";
             this.LblToplamDerecik.Size = new System.Drawing.Size(60, 35);
             this.LblToplamDerecik.TabIndex = 441;
@@ -2825,7 +2870,7 @@
             this.LblToplamSemdinli.BackColor = System.Drawing.Color.LightYellow;
             this.LblToplamSemdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblToplamSemdinli.ForeColor = System.Drawing.Color.Black;
-            this.LblToplamSemdinli.Location = new System.Drawing.Point(628, 920);
+            this.LblToplamSemdinli.Location = new System.Drawing.Point(628, 956);
             this.LblToplamSemdinli.Name = "LblToplamSemdinli";
             this.LblToplamSemdinli.Size = new System.Drawing.Size(60, 35);
             this.LblToplamSemdinli.TabIndex = 442;
@@ -2837,7 +2882,7 @@
             this.LblToplamCukurca.BackColor = System.Drawing.Color.LightYellow;
             this.LblToplamCukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblToplamCukurca.ForeColor = System.Drawing.Color.Black;
-            this.LblToplamCukurca.Location = new System.Drawing.Point(452, 920);
+            this.LblToplamCukurca.Location = new System.Drawing.Point(452, 956);
             this.LblToplamCukurca.Name = "LblToplamCukurca";
             this.LblToplamCukurca.Size = new System.Drawing.Size(60, 35);
             this.LblToplamCukurca.TabIndex = 444;
@@ -2849,7 +2894,7 @@
             this.LblToplamYukseova.BackColor = System.Drawing.Color.LightYellow;
             this.LblToplamYukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblToplamYukseova.ForeColor = System.Drawing.Color.Black;
-            this.LblToplamYukseova.Location = new System.Drawing.Point(540, 920);
+            this.LblToplamYukseova.Location = new System.Drawing.Point(540, 956);
             this.LblToplamYukseova.Name = "LblToplamYukseova";
             this.LblToplamYukseova.Size = new System.Drawing.Size(60, 35);
             this.LblToplamYukseova.TabIndex = 443;
@@ -2861,7 +2906,7 @@
             this.LblToplamSirnak.BackColor = System.Drawing.Color.LightYellow;
             this.LblToplamSirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblToplamSirnak.ForeColor = System.Drawing.Color.Black;
-            this.LblToplamSirnak.Location = new System.Drawing.Point(360, 920);
+            this.LblToplamSirnak.Location = new System.Drawing.Point(360, 956);
             this.LblToplamSirnak.Name = "LblToplamSirnak";
             this.LblToplamSirnak.Size = new System.Drawing.Size(60, 35);
             this.LblToplamSirnak.TabIndex = 445;
@@ -2873,7 +2918,7 @@
             this.Lbl900Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl900Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl900Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl900Derecik.Location = new System.Drawing.Point(717, 403);
+            this.Lbl900Derecik.Location = new System.Drawing.Point(716, 365);
             this.Lbl900Derecik.Name = "Lbl900Derecik";
             this.Lbl900Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl900Derecik.TabIndex = 450;
@@ -2885,7 +2930,7 @@
             this.Lbl900Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl900Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl900Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl900Semdinli.Location = new System.Drawing.Point(632, 403);
+            this.Lbl900Semdinli.Location = new System.Drawing.Point(631, 365);
             this.Lbl900Semdinli.Name = "Lbl900Semdinli";
             this.Lbl900Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl900Semdinli.TabIndex = 449;
@@ -2897,7 +2942,7 @@
             this.Lbl900Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl900Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl900Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl900Yukseova.Location = new System.Drawing.Point(541, 403);
+            this.Lbl900Yukseova.Location = new System.Drawing.Point(540, 365);
             this.Lbl900Yukseova.Name = "Lbl900Yukseova";
             this.Lbl900Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl900Yukseova.TabIndex = 448;
@@ -2909,7 +2954,7 @@
             this.Lbl900Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl900Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl900Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl900Cukurca.Location = new System.Drawing.Point(452, 403);
+            this.Lbl900Cukurca.Location = new System.Drawing.Point(451, 365);
             this.Lbl900Cukurca.Name = "Lbl900Cukurca";
             this.Lbl900Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl900Cukurca.TabIndex = 447;
@@ -2921,7 +2966,7 @@
             this.Lbl900Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl900Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl900Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl900Sirnak.Location = new System.Drawing.Point(362, 403);
+            this.Lbl900Sirnak.Location = new System.Drawing.Point(362, 365);
             this.Lbl900Sirnak.Name = "Lbl900Sirnak";
             this.Lbl900Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl900Sirnak.TabIndex = 446;
@@ -2933,7 +2978,7 @@
             this.Lbl1000Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1000Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1000Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1000Derecik.Location = new System.Drawing.Point(716, 443);
+            this.Lbl1000Derecik.Location = new System.Drawing.Point(715, 443);
             this.Lbl1000Derecik.Name = "Lbl1000Derecik";
             this.Lbl1000Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1000Derecik.TabIndex = 455;
@@ -2945,7 +2990,7 @@
             this.Lbl1000Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1000Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1000Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1000Semdinli.Location = new System.Drawing.Point(631, 443);
+            this.Lbl1000Semdinli.Location = new System.Drawing.Point(630, 443);
             this.Lbl1000Semdinli.Name = "Lbl1000Semdinli";
             this.Lbl1000Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1000Semdinli.TabIndex = 454;
@@ -2957,7 +3002,7 @@
             this.Lbl1000Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1000Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1000Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1000Yukseova.Location = new System.Drawing.Point(540, 443);
+            this.Lbl1000Yukseova.Location = new System.Drawing.Point(539, 443);
             this.Lbl1000Yukseova.Name = "Lbl1000Yukseova";
             this.Lbl1000Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1000Yukseova.TabIndex = 453;
@@ -2969,7 +3014,7 @@
             this.Lbl1000Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1000Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1000Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1000Cukurca.Location = new System.Drawing.Point(451, 443);
+            this.Lbl1000Cukurca.Location = new System.Drawing.Point(450, 443);
             this.Lbl1000Cukurca.Name = "Lbl1000Cukurca";
             this.Lbl1000Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1000Cukurca.TabIndex = 452;
@@ -2981,7 +3026,7 @@
             this.Lbl1000Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1000Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1000Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1000Sirnak.Location = new System.Drawing.Point(361, 443);
+            this.Lbl1000Sirnak.Location = new System.Drawing.Point(360, 443);
             this.Lbl1000Sirnak.Name = "Lbl1000Sirnak";
             this.Lbl1000Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1000Sirnak.TabIndex = 451;
@@ -2993,7 +3038,7 @@
             this.Lbl1100Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1100Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1100Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1100Derecik.Location = new System.Drawing.Point(716, 481);
+            this.Lbl1100Derecik.Location = new System.Drawing.Point(715, 481);
             this.Lbl1100Derecik.Name = "Lbl1100Derecik";
             this.Lbl1100Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1100Derecik.TabIndex = 460;
@@ -3005,7 +3050,7 @@
             this.Lbl1100Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1100Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1100Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1100Semdinli.Location = new System.Drawing.Point(631, 481);
+            this.Lbl1100Semdinli.Location = new System.Drawing.Point(630, 481);
             this.Lbl1100Semdinli.Name = "Lbl1100Semdinli";
             this.Lbl1100Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1100Semdinli.TabIndex = 459;
@@ -3017,7 +3062,7 @@
             this.Lbl1100Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1100Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1100Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1100Yukseova.Location = new System.Drawing.Point(540, 481);
+            this.Lbl1100Yukseova.Location = new System.Drawing.Point(539, 481);
             this.Lbl1100Yukseova.Name = "Lbl1100Yukseova";
             this.Lbl1100Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1100Yukseova.TabIndex = 458;
@@ -3029,7 +3074,7 @@
             this.Lbl1100Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1100Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1100Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1100Cukurca.Location = new System.Drawing.Point(451, 481);
+            this.Lbl1100Cukurca.Location = new System.Drawing.Point(450, 481);
             this.Lbl1100Cukurca.Name = "Lbl1100Cukurca";
             this.Lbl1100Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1100Cukurca.TabIndex = 457;
@@ -3041,7 +3086,7 @@
             this.Lbl1100Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1100Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1100Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1100Sirnak.Location = new System.Drawing.Point(361, 481);
+            this.Lbl1100Sirnak.Location = new System.Drawing.Point(360, 481);
             this.Lbl1100Sirnak.Name = "Lbl1100Sirnak";
             this.Lbl1100Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1100Sirnak.TabIndex = 456;
@@ -3053,7 +3098,7 @@
             this.Lbl1200Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1200Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1200Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1200Derecik.Location = new System.Drawing.Point(716, 520);
+            this.Lbl1200Derecik.Location = new System.Drawing.Point(715, 520);
             this.Lbl1200Derecik.Name = "Lbl1200Derecik";
             this.Lbl1200Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1200Derecik.TabIndex = 465;
@@ -3065,7 +3110,7 @@
             this.Lbl1200Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1200Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1200Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1200Semdinli.Location = new System.Drawing.Point(631, 520);
+            this.Lbl1200Semdinli.Location = new System.Drawing.Point(630, 520);
             this.Lbl1200Semdinli.Name = "Lbl1200Semdinli";
             this.Lbl1200Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1200Semdinli.TabIndex = 464;
@@ -3077,7 +3122,7 @@
             this.Lbl1200Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1200Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1200Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1200Yukseova.Location = new System.Drawing.Point(540, 520);
+            this.Lbl1200Yukseova.Location = new System.Drawing.Point(539, 520);
             this.Lbl1200Yukseova.Name = "Lbl1200Yukseova";
             this.Lbl1200Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1200Yukseova.TabIndex = 463;
@@ -3089,7 +3134,7 @@
             this.Lbl1200Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1200Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1200Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1200Cukurca.Location = new System.Drawing.Point(451, 520);
+            this.Lbl1200Cukurca.Location = new System.Drawing.Point(450, 520);
             this.Lbl1200Cukurca.Name = "Lbl1200Cukurca";
             this.Lbl1200Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1200Cukurca.TabIndex = 462;
@@ -3101,7 +3146,7 @@
             this.Lbl1200Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1200Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1200Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1200Sirnak.Location = new System.Drawing.Point(361, 520);
+            this.Lbl1200Sirnak.Location = new System.Drawing.Point(360, 520);
             this.Lbl1200Sirnak.Name = "Lbl1200Sirnak";
             this.Lbl1200Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1200Sirnak.TabIndex = 461;
@@ -3113,7 +3158,7 @@
             this.Lbl1300Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1300Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1300Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1300Derecik.Location = new System.Drawing.Point(716, 559);
+            this.Lbl1300Derecik.Location = new System.Drawing.Point(715, 559);
             this.Lbl1300Derecik.Name = "Lbl1300Derecik";
             this.Lbl1300Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1300Derecik.TabIndex = 470;
@@ -3125,7 +3170,7 @@
             this.Lbl1300Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1300Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1300Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1300Semdinli.Location = new System.Drawing.Point(631, 559);
+            this.Lbl1300Semdinli.Location = new System.Drawing.Point(630, 559);
             this.Lbl1300Semdinli.Name = "Lbl1300Semdinli";
             this.Lbl1300Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1300Semdinli.TabIndex = 469;
@@ -3137,7 +3182,7 @@
             this.Lbl1300Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1300Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1300Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1300Yukseova.Location = new System.Drawing.Point(540, 559);
+            this.Lbl1300Yukseova.Location = new System.Drawing.Point(539, 559);
             this.Lbl1300Yukseova.Name = "Lbl1300Yukseova";
             this.Lbl1300Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1300Yukseova.TabIndex = 468;
@@ -3149,7 +3194,7 @@
             this.Lbl1300Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1300Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1300Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1300Cukurca.Location = new System.Drawing.Point(451, 559);
+            this.Lbl1300Cukurca.Location = new System.Drawing.Point(450, 559);
             this.Lbl1300Cukurca.Name = "Lbl1300Cukurca";
             this.Lbl1300Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1300Cukurca.TabIndex = 467;
@@ -3161,7 +3206,7 @@
             this.Lbl1300Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1300Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1300Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1300Sirnak.Location = new System.Drawing.Point(361, 559);
+            this.Lbl1300Sirnak.Location = new System.Drawing.Point(360, 559);
             this.Lbl1300Sirnak.Name = "Lbl1300Sirnak";
             this.Lbl1300Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1300Sirnak.TabIndex = 466;
@@ -3173,7 +3218,7 @@
             this.Lbl1400ADerecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400ADerecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400ADerecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400ADerecik.Location = new System.Drawing.Point(716, 598);
+            this.Lbl1400ADerecik.Location = new System.Drawing.Point(715, 598);
             this.Lbl1400ADerecik.Name = "Lbl1400ADerecik";
             this.Lbl1400ADerecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400ADerecik.TabIndex = 475;
@@ -3185,7 +3230,7 @@
             this.Lbl1400ASemdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400ASemdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400ASemdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400ASemdinli.Location = new System.Drawing.Point(631, 598);
+            this.Lbl1400ASemdinli.Location = new System.Drawing.Point(630, 598);
             this.Lbl1400ASemdinli.Name = "Lbl1400ASemdinli";
             this.Lbl1400ASemdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400ASemdinli.TabIndex = 474;
@@ -3197,7 +3242,7 @@
             this.Lbl1400AYukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400AYukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400AYukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400AYukseova.Location = new System.Drawing.Point(540, 598);
+            this.Lbl1400AYukseova.Location = new System.Drawing.Point(539, 598);
             this.Lbl1400AYukseova.Name = "Lbl1400AYukseova";
             this.Lbl1400AYukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400AYukseova.TabIndex = 473;
@@ -3209,7 +3254,7 @@
             this.Lbl1400ACukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400ACukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400ACukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400ACukurca.Location = new System.Drawing.Point(451, 598);
+            this.Lbl1400ACukurca.Location = new System.Drawing.Point(450, 598);
             this.Lbl1400ACukurca.Name = "Lbl1400ACukurca";
             this.Lbl1400ACukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400ACukurca.TabIndex = 472;
@@ -3221,7 +3266,7 @@
             this.Lbl1400ASirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400ASirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400ASirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400ASirnak.Location = new System.Drawing.Point(361, 598);
+            this.Lbl1400ASirnak.Location = new System.Drawing.Point(360, 598);
             this.Lbl1400ASirnak.Name = "Lbl1400ASirnak";
             this.Lbl1400ASirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400ASirnak.TabIndex = 471;
@@ -3233,7 +3278,7 @@
             this.Lbl1400BDerecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400BDerecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400BDerecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400BDerecik.Location = new System.Drawing.Point(716, 636);
+            this.Lbl1400BDerecik.Location = new System.Drawing.Point(715, 636);
             this.Lbl1400BDerecik.Name = "Lbl1400BDerecik";
             this.Lbl1400BDerecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400BDerecik.TabIndex = 480;
@@ -3245,7 +3290,7 @@
             this.Lbl1400BSemdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400BSemdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400BSemdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400BSemdinli.Location = new System.Drawing.Point(631, 636);
+            this.Lbl1400BSemdinli.Location = new System.Drawing.Point(630, 636);
             this.Lbl1400BSemdinli.Name = "Lbl1400BSemdinli";
             this.Lbl1400BSemdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400BSemdinli.TabIndex = 479;
@@ -3257,7 +3302,7 @@
             this.Lbl1400BYukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400BYukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400BYukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400BYukseova.Location = new System.Drawing.Point(540, 636);
+            this.Lbl1400BYukseova.Location = new System.Drawing.Point(539, 636);
             this.Lbl1400BYukseova.Name = "Lbl1400BYukseova";
             this.Lbl1400BYukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400BYukseova.TabIndex = 478;
@@ -3269,7 +3314,7 @@
             this.Lbl1400BCukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400BCukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400BCukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400BCukurca.Location = new System.Drawing.Point(451, 636);
+            this.Lbl1400BCukurca.Location = new System.Drawing.Point(450, 636);
             this.Lbl1400BCukurca.Name = "Lbl1400BCukurca";
             this.Lbl1400BCukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400BCukurca.TabIndex = 477;
@@ -3281,7 +3326,7 @@
             this.Lbl1400BSirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400BSirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400BSirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400BSirnak.Location = new System.Drawing.Point(361, 636);
+            this.Lbl1400BSirnak.Location = new System.Drawing.Point(360, 636);
             this.Lbl1400BSirnak.Name = "Lbl1400BSirnak";
             this.Lbl1400BSirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400BSirnak.TabIndex = 476;
@@ -3293,7 +3338,7 @@
             this.Lbl400Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl400Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl400Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl400Derecik.Location = new System.Drawing.Point(715, 208);
+            this.Lbl400Derecik.Location = new System.Drawing.Point(715, 129);
             this.Lbl400Derecik.Name = "Lbl400Derecik";
             this.Lbl400Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl400Derecik.TabIndex = 485;
@@ -3305,7 +3350,7 @@
             this.Lbl400Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl400Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl400Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl400Semdinli.Location = new System.Drawing.Point(630, 208);
+            this.Lbl400Semdinli.Location = new System.Drawing.Point(630, 129);
             this.Lbl400Semdinli.Name = "Lbl400Semdinli";
             this.Lbl400Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl400Semdinli.TabIndex = 484;
@@ -3317,7 +3362,7 @@
             this.Lbl400Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl400Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl400Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl400Yukseova.Location = new System.Drawing.Point(539, 208);
+            this.Lbl400Yukseova.Location = new System.Drawing.Point(539, 129);
             this.Lbl400Yukseova.Name = "Lbl400Yukseova";
             this.Lbl400Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl400Yukseova.TabIndex = 483;
@@ -3329,7 +3374,7 @@
             this.Lbl400Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl400Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl400Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl400Cukurca.Location = new System.Drawing.Point(450, 208);
+            this.Lbl400Cukurca.Location = new System.Drawing.Point(451, 129);
             this.Lbl400Cukurca.Name = "Lbl400Cukurca";
             this.Lbl400Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl400Cukurca.TabIndex = 482;
@@ -3341,7 +3386,7 @@
             this.Lbl400Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl400Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl400Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl400Sirnak.Location = new System.Drawing.Point(360, 208);
+            this.Lbl400Sirnak.Location = new System.Drawing.Point(360, 129);
             this.Lbl400Sirnak.Name = "Lbl400Sirnak";
             this.Lbl400Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl400Sirnak.TabIndex = 481;
@@ -3353,7 +3398,7 @@
             this.Lbl500Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl500Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl500Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl500Derecik.Location = new System.Drawing.Point(717, 247);
+            this.Lbl500Derecik.Location = new System.Drawing.Point(717, 168);
             this.Lbl500Derecik.Name = "Lbl500Derecik";
             this.Lbl500Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl500Derecik.TabIndex = 490;
@@ -3365,7 +3410,7 @@
             this.Lbl500Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl500Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl500Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl500Semdinli.Location = new System.Drawing.Point(632, 247);
+            this.Lbl500Semdinli.Location = new System.Drawing.Point(632, 168);
             this.Lbl500Semdinli.Name = "Lbl500Semdinli";
             this.Lbl500Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl500Semdinli.TabIndex = 489;
@@ -3377,7 +3422,7 @@
             this.Lbl500Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl500Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl500Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl500Yukseova.Location = new System.Drawing.Point(541, 247);
+            this.Lbl500Yukseova.Location = new System.Drawing.Point(541, 168);
             this.Lbl500Yukseova.Name = "Lbl500Yukseova";
             this.Lbl500Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl500Yukseova.TabIndex = 488;
@@ -3389,7 +3434,7 @@
             this.Lbl500Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl500Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl500Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl500Cukurca.Location = new System.Drawing.Point(452, 247);
+            this.Lbl500Cukurca.Location = new System.Drawing.Point(451, 168);
             this.Lbl500Cukurca.Name = "Lbl500Cukurca";
             this.Lbl500Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl500Cukurca.TabIndex = 487;
@@ -3401,7 +3446,7 @@
             this.Lbl500Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl500Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl500Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl500Sirnak.Location = new System.Drawing.Point(362, 247);
+            this.Lbl500Sirnak.Location = new System.Drawing.Point(362, 168);
             this.Lbl500Sirnak.Name = "Lbl500Sirnak";
             this.Lbl500Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl500Sirnak.TabIndex = 486;
@@ -3413,7 +3458,7 @@
             this.Lbl600Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl600Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl600Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl600Derecik.Location = new System.Drawing.Point(715, 286);
+            this.Lbl600Derecik.Location = new System.Drawing.Point(715, 207);
             this.Lbl600Derecik.Name = "Lbl600Derecik";
             this.Lbl600Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl600Derecik.TabIndex = 495;
@@ -3425,7 +3470,7 @@
             this.Lbl600Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl600Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl600Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl600Semdinli.Location = new System.Drawing.Point(630, 286);
+            this.Lbl600Semdinli.Location = new System.Drawing.Point(630, 207);
             this.Lbl600Semdinli.Name = "Lbl600Semdinli";
             this.Lbl600Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl600Semdinli.TabIndex = 494;
@@ -3437,7 +3482,7 @@
             this.Lbl600Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl600Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl600Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl600Yukseova.Location = new System.Drawing.Point(539, 286);
+            this.Lbl600Yukseova.Location = new System.Drawing.Point(539, 207);
             this.Lbl600Yukseova.Name = "Lbl600Yukseova";
             this.Lbl600Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl600Yukseova.TabIndex = 493;
@@ -3449,7 +3494,7 @@
             this.Lbl600Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl600Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl600Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl600Cukurca.Location = new System.Drawing.Point(450, 286);
+            this.Lbl600Cukurca.Location = new System.Drawing.Point(451, 207);
             this.Lbl600Cukurca.Name = "Lbl600Cukurca";
             this.Lbl600Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl600Cukurca.TabIndex = 492;
@@ -3461,7 +3506,7 @@
             this.Lbl600Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl600Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl600Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl600Sirnak.Location = new System.Drawing.Point(360, 286);
+            this.Lbl600Sirnak.Location = new System.Drawing.Point(362, 207);
             this.Lbl600Sirnak.Name = "Lbl600Sirnak";
             this.Lbl600Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl600Sirnak.TabIndex = 491;
@@ -3473,7 +3518,7 @@
             this.Lbl2000Derecik.BackColor = System.Drawing.Color.Aqua;
             this.Lbl2000Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl2000Derecik.ForeColor = System.Drawing.Color.Black;
-            this.Lbl2000Derecik.Location = new System.Drawing.Point(716, 872);
+            this.Lbl2000Derecik.Location = new System.Drawing.Point(715, 872);
             this.Lbl2000Derecik.Name = "Lbl2000Derecik";
             this.Lbl2000Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl2000Derecik.TabIndex = 500;
@@ -3485,7 +3530,7 @@
             this.Lbl2000Semdinli.BackColor = System.Drawing.Color.Aqua;
             this.Lbl2000Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl2000Semdinli.ForeColor = System.Drawing.Color.Black;
-            this.Lbl2000Semdinli.Location = new System.Drawing.Point(631, 872);
+            this.Lbl2000Semdinli.Location = new System.Drawing.Point(630, 872);
             this.Lbl2000Semdinli.Name = "Lbl2000Semdinli";
             this.Lbl2000Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl2000Semdinli.TabIndex = 499;
@@ -3497,7 +3542,7 @@
             this.Lbl2000Yukseova.BackColor = System.Drawing.Color.Aqua;
             this.Lbl2000Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl2000Yukseova.ForeColor = System.Drawing.Color.Black;
-            this.Lbl2000Yukseova.Location = new System.Drawing.Point(540, 872);
+            this.Lbl2000Yukseova.Location = new System.Drawing.Point(539, 872);
             this.Lbl2000Yukseova.Name = "Lbl2000Yukseova";
             this.Lbl2000Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl2000Yukseova.TabIndex = 498;
@@ -3509,7 +3554,7 @@
             this.Lbl2000Cukurca.BackColor = System.Drawing.Color.Aqua;
             this.Lbl2000Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl2000Cukurca.ForeColor = System.Drawing.Color.Black;
-            this.Lbl2000Cukurca.Location = new System.Drawing.Point(451, 872);
+            this.Lbl2000Cukurca.Location = new System.Drawing.Point(450, 872);
             this.Lbl2000Cukurca.Name = "Lbl2000Cukurca";
             this.Lbl2000Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl2000Cukurca.TabIndex = 497;
@@ -3521,7 +3566,7 @@
             this.Lbl2000Sirnak.BackColor = System.Drawing.Color.Aqua;
             this.Lbl2000Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl2000Sirnak.ForeColor = System.Drawing.Color.Black;
-            this.Lbl2000Sirnak.Location = new System.Drawing.Point(361, 872);
+            this.Lbl2000Sirnak.Location = new System.Drawing.Point(360, 872);
             this.Lbl2000Sirnak.Name = "Lbl2000Sirnak";
             this.Lbl2000Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl2000Sirnak.TabIndex = 496;
@@ -3533,7 +3578,7 @@
             this.Lbl1600Derecik.BackColor = System.Drawing.Color.DimGray;
             this.Lbl1600Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1600Derecik.ForeColor = System.Drawing.Color.White;
-            this.Lbl1600Derecik.Location = new System.Drawing.Point(717, 714);
+            this.Lbl1600Derecik.Location = new System.Drawing.Point(716, 712);
             this.Lbl1600Derecik.Name = "Lbl1600Derecik";
             this.Lbl1600Derecik.Size = new System.Drawing.Size(60, 35);
             this.Lbl1600Derecik.TabIndex = 505;
@@ -3545,7 +3590,7 @@
             this.Lbl1600Semdinli.BackColor = System.Drawing.Color.DimGray;
             this.Lbl1600Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1600Semdinli.ForeColor = System.Drawing.Color.White;
-            this.Lbl1600Semdinli.Location = new System.Drawing.Point(630, 714);
+            this.Lbl1600Semdinli.Location = new System.Drawing.Point(629, 712);
             this.Lbl1600Semdinli.Name = "Lbl1600Semdinli";
             this.Lbl1600Semdinli.Size = new System.Drawing.Size(60, 35);
             this.Lbl1600Semdinli.TabIndex = 504;
@@ -3557,7 +3602,7 @@
             this.Lbl1600Yukseova.BackColor = System.Drawing.Color.DimGray;
             this.Lbl1600Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1600Yukseova.ForeColor = System.Drawing.Color.White;
-            this.Lbl1600Yukseova.Location = new System.Drawing.Point(540, 714);
+            this.Lbl1600Yukseova.Location = new System.Drawing.Point(539, 712);
             this.Lbl1600Yukseova.Name = "Lbl1600Yukseova";
             this.Lbl1600Yukseova.Size = new System.Drawing.Size(60, 35);
             this.Lbl1600Yukseova.TabIndex = 503;
@@ -3569,7 +3614,7 @@
             this.Lbl1600Cukurca.BackColor = System.Drawing.Color.DimGray;
             this.Lbl1600Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1600Cukurca.ForeColor = System.Drawing.Color.White;
-            this.Lbl1600Cukurca.Location = new System.Drawing.Point(453, 714);
+            this.Lbl1600Cukurca.Location = new System.Drawing.Point(452, 712);
             this.Lbl1600Cukurca.Name = "Lbl1600Cukurca";
             this.Lbl1600Cukurca.Size = new System.Drawing.Size(60, 35);
             this.Lbl1600Cukurca.TabIndex = 502;
@@ -3581,7 +3626,7 @@
             this.Lbl1600Sirnak.BackColor = System.Drawing.Color.DimGray;
             this.Lbl1600Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1600Sirnak.ForeColor = System.Drawing.Color.White;
-            this.Lbl1600Sirnak.Location = new System.Drawing.Point(360, 714);
+            this.Lbl1600Sirnak.Location = new System.Drawing.Point(359, 712);
             this.Lbl1600Sirnak.Name = "Lbl1600Sirnak";
             this.Lbl1600Sirnak.Size = new System.Drawing.Size(60, 35);
             this.Lbl1600Sirnak.TabIndex = 501;
@@ -3593,7 +3638,7 @@
             this.LblMaviTop.BackColor = System.Drawing.Color.Aqua;
             this.LblMaviTop.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblMaviTop.ForeColor = System.Drawing.Color.Black;
-            this.LblMaviTop.Location = new System.Drawing.Point(1108, 385);
+            this.LblMaviTop.Location = new System.Drawing.Point(1108, 443);
             this.LblMaviTop.Name = "LblMaviTop";
             this.LblMaviTop.Size = new System.Drawing.Size(132, 77);
             this.LblMaviTop.TabIndex = 506;
@@ -3605,7 +3650,7 @@
             this.LblYesilTop.BackColor = System.Drawing.Color.YellowGreen;
             this.LblYesilTop.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblYesilTop.ForeColor = System.Drawing.Color.Black;
-            this.LblYesilTop.Location = new System.Drawing.Point(1373, 385);
+            this.LblYesilTop.Location = new System.Drawing.Point(1373, 443);
             this.LblYesilTop.Name = "LblYesilTop";
             this.LblYesilTop.Size = new System.Drawing.Size(132, 77);
             this.LblYesilTop.TabIndex = 507;
@@ -3617,7 +3662,7 @@
             this.LblGriTop.BackColor = System.Drawing.Color.DimGray;
             this.LblGriTop.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblGriTop.ForeColor = System.Drawing.Color.White;
-            this.LblGriTop.Location = new System.Drawing.Point(1622, 385);
+            this.LblGriTop.Location = new System.Drawing.Point(1622, 443);
             this.LblGriTop.Name = "LblGriTop";
             this.LblGriTop.Size = new System.Drawing.Size(132, 77);
             this.LblGriTop.TabIndex = 508;
@@ -3629,7 +3674,7 @@
             this.LblTop.BackColor = System.Drawing.Color.LightYellow;
             this.LblTop.Font = new System.Drawing.Font("Bahnschrift", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblTop.ForeColor = System.Drawing.Color.Black;
-            this.LblTop.Location = new System.Drawing.Point(1354, 495);
+            this.LblTop.Location = new System.Drawing.Point(1354, 553);
             this.LblTop.Name = "LblTop";
             this.LblTop.Size = new System.Drawing.Size(198, 115);
             this.LblTop.TabIndex = 509;
@@ -3651,7 +3696,7 @@
             this.Lbl1600DBolgesi.BackColor = System.Drawing.Color.DimGray;
             this.Lbl1600DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1600DBolgesi.ForeColor = System.Drawing.Color.White;
-            this.Lbl1600DBolgesi.Location = new System.Drawing.Point(803, 714);
+            this.Lbl1600DBolgesi.Location = new System.Drawing.Point(802, 712);
             this.Lbl1600DBolgesi.Name = "Lbl1600DBolgesi";
             this.Lbl1600DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1600DBolgesi.TabIndex = 552;
@@ -3663,7 +3708,7 @@
             this.Lbl2000DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl2000DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl2000DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl2000DBolgesi.Location = new System.Drawing.Point(802, 872);
+            this.Lbl2000DBolgesi.Location = new System.Drawing.Point(801, 872);
             this.Lbl2000DBolgesi.Name = "Lbl2000DBolgesi";
             this.Lbl2000DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl2000DBolgesi.TabIndex = 551;
@@ -3675,7 +3720,7 @@
             this.Lbl600DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl600DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl600DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl600DBolgesi.Location = new System.Drawing.Point(801, 286);
+            this.Lbl600DBolgesi.Location = new System.Drawing.Point(802, 207);
             this.Lbl600DBolgesi.Name = "Lbl600DBolgesi";
             this.Lbl600DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl600DBolgesi.TabIndex = 550;
@@ -3687,7 +3732,7 @@
             this.Lbl500DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl500DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl500DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl500DBolgesi.Location = new System.Drawing.Point(803, 247);
+            this.Lbl500DBolgesi.Location = new System.Drawing.Point(802, 168);
             this.Lbl500DBolgesi.Name = "Lbl500DBolgesi";
             this.Lbl500DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl500DBolgesi.TabIndex = 549;
@@ -3699,7 +3744,7 @@
             this.Lbl400DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl400DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl400DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl400DBolgesi.Location = new System.Drawing.Point(801, 208);
+            this.Lbl400DBolgesi.Location = new System.Drawing.Point(802, 129);
             this.Lbl400DBolgesi.Name = "Lbl400DBolgesi";
             this.Lbl400DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl400DBolgesi.TabIndex = 548;
@@ -3711,7 +3756,7 @@
             this.Lbl1400BDBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400BDBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400BDBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400BDBolgesi.Location = new System.Drawing.Point(802, 636);
+            this.Lbl1400BDBolgesi.Location = new System.Drawing.Point(801, 636);
             this.Lbl1400BDBolgesi.Name = "Lbl1400BDBolgesi";
             this.Lbl1400BDBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400BDBolgesi.TabIndex = 547;
@@ -3723,7 +3768,7 @@
             this.Lbl1400ADBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1400ADBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1400ADBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1400ADBolgesi.Location = new System.Drawing.Point(802, 598);
+            this.Lbl1400ADBolgesi.Location = new System.Drawing.Point(801, 598);
             this.Lbl1400ADBolgesi.Name = "Lbl1400ADBolgesi";
             this.Lbl1400ADBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1400ADBolgesi.TabIndex = 546;
@@ -3735,7 +3780,7 @@
             this.Lbl1300DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1300DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1300DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1300DBolgesi.Location = new System.Drawing.Point(802, 559);
+            this.Lbl1300DBolgesi.Location = new System.Drawing.Point(801, 559);
             this.Lbl1300DBolgesi.Name = "Lbl1300DBolgesi";
             this.Lbl1300DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1300DBolgesi.TabIndex = 545;
@@ -3747,7 +3792,7 @@
             this.Lbl1200DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1200DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1200DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1200DBolgesi.Location = new System.Drawing.Point(802, 520);
+            this.Lbl1200DBolgesi.Location = new System.Drawing.Point(801, 520);
             this.Lbl1200DBolgesi.Name = "Lbl1200DBolgesi";
             this.Lbl1200DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1200DBolgesi.TabIndex = 544;
@@ -3759,7 +3804,7 @@
             this.Lbl1100DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1100DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1100DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1100DBolgesi.Location = new System.Drawing.Point(802, 481);
+            this.Lbl1100DBolgesi.Location = new System.Drawing.Point(801, 481);
             this.Lbl1100DBolgesi.Name = "Lbl1100DBolgesi";
             this.Lbl1100DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1100DBolgesi.TabIndex = 543;
@@ -3771,7 +3816,7 @@
             this.Lbl1000DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl1000DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1000DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1000DBolgesi.Location = new System.Drawing.Point(802, 443);
+            this.Lbl1000DBolgesi.Location = new System.Drawing.Point(801, 443);
             this.Lbl1000DBolgesi.Name = "Lbl1000DBolgesi";
             this.Lbl1000DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1000DBolgesi.TabIndex = 542;
@@ -3783,7 +3828,7 @@
             this.Lbl900DBolgesi.BackColor = System.Drawing.Color.Aqua;
             this.Lbl900DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl900DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl900DBolgesi.Location = new System.Drawing.Point(803, 403);
+            this.Lbl900DBolgesi.Location = new System.Drawing.Point(802, 365);
             this.Lbl900DBolgesi.Name = "Lbl900DBolgesi";
             this.Lbl900DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl900DBolgesi.TabIndex = 541;
@@ -3795,7 +3840,7 @@
             this.LblToplamDBolgesi.BackColor = System.Drawing.Color.LightYellow;
             this.LblToplamDBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblToplamDBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.LblToplamDBolgesi.Location = new System.Drawing.Point(802, 920);
+            this.LblToplamDBolgesi.Location = new System.Drawing.Point(802, 956);
             this.LblToplamDBolgesi.Name = "LblToplamDBolgesi";
             this.LblToplamDBolgesi.Size = new System.Drawing.Size(60, 35);
             this.LblToplamDBolgesi.TabIndex = 540;
@@ -3807,7 +3852,7 @@
             this.Lbl1900DBolgesi.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1900DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1900DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1900DBolgesi.Location = new System.Drawing.Point(802, 832);
+            this.Lbl1900DBolgesi.Location = new System.Drawing.Point(801, 831);
             this.Lbl1900DBolgesi.Name = "Lbl1900DBolgesi";
             this.Lbl1900DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1900DBolgesi.TabIndex = 539;
@@ -3819,7 +3864,7 @@
             this.Lbl1800DBolgesi.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1800DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1800DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1800DBolgesi.Location = new System.Drawing.Point(801, 792);
+            this.Lbl1800DBolgesi.Location = new System.Drawing.Point(800, 792);
             this.Lbl1800DBolgesi.Name = "Lbl1800DBolgesi";
             this.Lbl1800DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1800DBolgesi.TabIndex = 538;
@@ -3831,7 +3876,7 @@
             this.Lbl1700DBolgesi.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1700DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1700DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1700DBolgesi.Location = new System.Drawing.Point(802, 753);
+            this.Lbl1700DBolgesi.Location = new System.Drawing.Point(801, 753);
             this.Lbl1700DBolgesi.Name = "Lbl1700DBolgesi";
             this.Lbl1700DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1700DBolgesi.TabIndex = 537;
@@ -3843,7 +3888,7 @@
             this.Lbl1500DBolgesi.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl1500DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl1500DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl1500DBolgesi.Location = new System.Drawing.Point(801, 675);
+            this.Lbl1500DBolgesi.Location = new System.Drawing.Point(800, 674);
             this.Lbl1500DBolgesi.Name = "Lbl1500DBolgesi";
             this.Lbl1500DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl1500DBolgesi.TabIndex = 536;
@@ -3855,7 +3900,7 @@
             this.Lbl300DBolgesi.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl300DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl300DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl300DBolgesi.Location = new System.Drawing.Point(803, 167);
+            this.Lbl300DBolgesi.Location = new System.Drawing.Point(802, 88);
             this.Lbl300DBolgesi.Name = "Lbl300DBolgesi";
             this.Lbl300DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl300DBolgesi.TabIndex = 535;
@@ -3867,7 +3912,7 @@
             this.Lbl200DBolgesi.BackColor = System.Drawing.Color.YellowGreen;
             this.Lbl200DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl200DBolgesi.ForeColor = System.Drawing.Color.Black;
-            this.Lbl200DBolgesi.Location = new System.Drawing.Point(802, 129);
+            this.Lbl200DBolgesi.Location = new System.Drawing.Point(802, 50);
             this.Lbl200DBolgesi.Name = "Lbl200DBolgesi";
             this.Lbl200DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl200DBolgesi.TabIndex = 534;
@@ -3879,7 +3924,7 @@
             this.Lbl800DBolgesi.BackColor = System.Drawing.Color.DimGray;
             this.Lbl800DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl800DBolgesi.ForeColor = System.Drawing.Color.White;
-            this.Lbl800DBolgesi.Location = new System.Drawing.Point(803, 363);
+            this.Lbl800DBolgesi.Location = new System.Drawing.Point(802, 324);
             this.Lbl800DBolgesi.Name = "Lbl800DBolgesi";
             this.Lbl800DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl800DBolgesi.TabIndex = 533;
@@ -3891,7 +3936,7 @@
             this.Lbl700DBolgesi.BackColor = System.Drawing.Color.DimGray;
             this.Lbl700DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.Lbl700DBolgesi.ForeColor = System.Drawing.Color.White;
-            this.Lbl700DBolgesi.Location = new System.Drawing.Point(803, 324);
+            this.Lbl700DBolgesi.Location = new System.Drawing.Point(802, 244);
             this.Lbl700DBolgesi.Name = "Lbl700DBolgesi";
             this.Lbl700DBolgesi.Size = new System.Drawing.Size(60, 35);
             this.Lbl700DBolgesi.TabIndex = 532;
@@ -3900,7 +3945,7 @@
             // richTextBox8
             // 
             this.richTextBox8.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox8.Location = new System.Drawing.Point(797, 918);
+            this.richTextBox8.Location = new System.Drawing.Point(797, 954);
             this.richTextBox8.Name = "richTextBox8";
             this.richTextBox8.Size = new System.Drawing.Size(69, 38);
             this.richTextBox8.TabIndex = 531;
@@ -3909,7 +3954,7 @@
             // richTextBox9
             // 
             this.richTextBox9.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox9.Location = new System.Drawing.Point(798, 870);
+            this.richTextBox9.Location = new System.Drawing.Point(797, 870);
             this.richTextBox9.Name = "richTextBox9";
             this.richTextBox9.Size = new System.Drawing.Size(69, 38);
             this.richTextBox9.TabIndex = 530;
@@ -3918,7 +3963,7 @@
             // richTextBox10
             // 
             this.richTextBox10.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox10.Location = new System.Drawing.Point(798, 830);
+            this.richTextBox10.Location = new System.Drawing.Point(797, 830);
             this.richTextBox10.Name = "richTextBox10";
             this.richTextBox10.Size = new System.Drawing.Size(69, 38);
             this.richTextBox10.TabIndex = 529;
@@ -3927,7 +3972,7 @@
             // richTextBox11
             // 
             this.richTextBox11.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox11.Location = new System.Drawing.Point(798, 790);
+            this.richTextBox11.Location = new System.Drawing.Point(797, 790);
             this.richTextBox11.Name = "richTextBox11";
             this.richTextBox11.Size = new System.Drawing.Size(69, 38);
             this.richTextBox11.TabIndex = 528;
@@ -3936,7 +3981,7 @@
             // richTextBox12
             // 
             this.richTextBox12.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox12.Location = new System.Drawing.Point(798, 751);
+            this.richTextBox12.Location = new System.Drawing.Point(797, 751);
             this.richTextBox12.Name = "richTextBox12";
             this.richTextBox12.Size = new System.Drawing.Size(69, 38);
             this.richTextBox12.TabIndex = 527;
@@ -3945,7 +3990,7 @@
             // richTextBox13
             // 
             this.richTextBox13.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox13.Location = new System.Drawing.Point(798, 712);
+            this.richTextBox13.Location = new System.Drawing.Point(797, 712);
             this.richTextBox13.Name = "richTextBox13";
             this.richTextBox13.Size = new System.Drawing.Size(69, 38);
             this.richTextBox13.TabIndex = 526;
@@ -3954,7 +3999,7 @@
             // richTextBox14
             // 
             this.richTextBox14.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox14.Location = new System.Drawing.Point(798, 673);
+            this.richTextBox14.Location = new System.Drawing.Point(797, 673);
             this.richTextBox14.Name = "richTextBox14";
             this.richTextBox14.Size = new System.Drawing.Size(69, 38);
             this.richTextBox14.TabIndex = 525;
@@ -3963,7 +4008,7 @@
             // richTextBox15
             // 
             this.richTextBox15.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox15.Location = new System.Drawing.Point(798, 634);
+            this.richTextBox15.Location = new System.Drawing.Point(797, 634);
             this.richTextBox15.Name = "richTextBox15";
             this.richTextBox15.Size = new System.Drawing.Size(69, 38);
             this.richTextBox15.TabIndex = 524;
@@ -3972,7 +4017,7 @@
             // richTextBox16
             // 
             this.richTextBox16.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox16.Location = new System.Drawing.Point(798, 596);
+            this.richTextBox16.Location = new System.Drawing.Point(797, 596);
             this.richTextBox16.Name = "richTextBox16";
             this.richTextBox16.Size = new System.Drawing.Size(69, 38);
             this.richTextBox16.TabIndex = 523;
@@ -3981,7 +4026,7 @@
             // richTextBox17
             // 
             this.richTextBox17.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox17.Location = new System.Drawing.Point(798, 557);
+            this.richTextBox17.Location = new System.Drawing.Point(797, 557);
             this.richTextBox17.Name = "richTextBox17";
             this.richTextBox17.Size = new System.Drawing.Size(69, 38);
             this.richTextBox17.TabIndex = 522;
@@ -3990,7 +4035,7 @@
             // richTextBox18
             // 
             this.richTextBox18.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox18.Location = new System.Drawing.Point(798, 518);
+            this.richTextBox18.Location = new System.Drawing.Point(797, 518);
             this.richTextBox18.Name = "richTextBox18";
             this.richTextBox18.Size = new System.Drawing.Size(69, 38);
             this.richTextBox18.TabIndex = 521;
@@ -3999,7 +4044,7 @@
             // richTextBox19
             // 
             this.richTextBox19.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox19.Location = new System.Drawing.Point(798, 479);
+            this.richTextBox19.Location = new System.Drawing.Point(797, 479);
             this.richTextBox19.Name = "richTextBox19";
             this.richTextBox19.Size = new System.Drawing.Size(69, 38);
             this.richTextBox19.TabIndex = 520;
@@ -4008,7 +4053,7 @@
             // richTextBox20
             // 
             this.richTextBox20.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox20.Location = new System.Drawing.Point(798, 441);
+            this.richTextBox20.Location = new System.Drawing.Point(797, 441);
             this.richTextBox20.Name = "richTextBox20";
             this.richTextBox20.Size = new System.Drawing.Size(69, 38);
             this.richTextBox20.TabIndex = 519;
@@ -4017,7 +4062,7 @@
             // richTextBox21
             // 
             this.richTextBox21.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox21.Location = new System.Drawing.Point(798, 401);
+            this.richTextBox21.Location = new System.Drawing.Point(797, 363);
             this.richTextBox21.Name = "richTextBox21";
             this.richTextBox21.Size = new System.Drawing.Size(69, 38);
             this.richTextBox21.TabIndex = 518;
@@ -4026,7 +4071,7 @@
             // richTextBox148
             // 
             this.richTextBox148.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox148.Location = new System.Drawing.Point(798, 361);
+            this.richTextBox148.Location = new System.Drawing.Point(796, 323);
             this.richTextBox148.Name = "richTextBox148";
             this.richTextBox148.Size = new System.Drawing.Size(69, 38);
             this.richTextBox148.TabIndex = 517;
@@ -4035,7 +4080,7 @@
             // richTextBox149
             // 
             this.richTextBox149.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox149.Location = new System.Drawing.Point(798, 322);
+            this.richTextBox149.Location = new System.Drawing.Point(798, 243);
             this.richTextBox149.Name = "richTextBox149";
             this.richTextBox149.Size = new System.Drawing.Size(69, 38);
             this.richTextBox149.TabIndex = 516;
@@ -4044,7 +4089,7 @@
             // richTextBox150
             // 
             this.richTextBox150.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox150.Location = new System.Drawing.Point(798, 284);
+            this.richTextBox150.Location = new System.Drawing.Point(798, 205);
             this.richTextBox150.Name = "richTextBox150";
             this.richTextBox150.Size = new System.Drawing.Size(69, 38);
             this.richTextBox150.TabIndex = 515;
@@ -4053,7 +4098,7 @@
             // richTextBox151
             // 
             this.richTextBox151.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox151.Location = new System.Drawing.Point(798, 245);
+            this.richTextBox151.Location = new System.Drawing.Point(798, 166);
             this.richTextBox151.Name = "richTextBox151";
             this.richTextBox151.Size = new System.Drawing.Size(69, 38);
             this.richTextBox151.TabIndex = 514;
@@ -4062,7 +4107,7 @@
             // richTextBox152
             // 
             this.richTextBox152.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox152.Location = new System.Drawing.Point(798, 206);
+            this.richTextBox152.Location = new System.Drawing.Point(798, 127);
             this.richTextBox152.Name = "richTextBox152";
             this.richTextBox152.Size = new System.Drawing.Size(69, 38);
             this.richTextBox152.TabIndex = 513;
@@ -4071,7 +4116,7 @@
             // richTextBox153
             // 
             this.richTextBox153.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox153.Location = new System.Drawing.Point(798, 165);
+            this.richTextBox153.Location = new System.Drawing.Point(798, 86);
             this.richTextBox153.Name = "richTextBox153";
             this.richTextBox153.Size = new System.Drawing.Size(69, 38);
             this.richTextBox153.TabIndex = 512;
@@ -4080,7 +4125,7 @@
             // richTextBox154
             // 
             this.richTextBox154.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox154.Location = new System.Drawing.Point(798, 127);
+            this.richTextBox154.Location = new System.Drawing.Point(798, 48);
             this.richTextBox154.Name = "richTextBox154";
             this.richTextBox154.Size = new System.Drawing.Size(69, 38);
             this.richTextBox154.TabIndex = 511;
@@ -4091,11 +4136,488 @@
             this.label56.AutoSize = true;
             this.label56.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label56.ForeColor = System.Drawing.Color.Black;
-            this.label56.Location = new System.Drawing.Point(797, 98);
+            this.label56.Location = new System.Drawing.Point(795, 15);
             this.label56.Name = "label56";
             this.label56.Size = new System.Drawing.Size(70, 23);
             this.label56.TabIndex = 510;
             this.label56.Text = "D-BÖL.";
+            // 
+            // Lbl750DBolgesi
+            // 
+            this.Lbl750DBolgesi.AutoSize = true;
+            this.Lbl750DBolgesi.BackColor = System.Drawing.Color.DimGray;
+            this.Lbl750DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl750DBolgesi.ForeColor = System.Drawing.Color.White;
+            this.Lbl750DBolgesi.Location = new System.Drawing.Point(802, 283);
+            this.Lbl750DBolgesi.Name = "Lbl750DBolgesi";
+            this.Lbl750DBolgesi.Size = new System.Drawing.Size(60, 35);
+            this.Lbl750DBolgesi.TabIndex = 959;
+            this.Lbl750DBolgesi.Text = "260";
+            // 
+            // richTextBox155
+            // 
+            this.richTextBox155.BackColor = System.Drawing.Color.DimGray;
+            this.richTextBox155.Location = new System.Drawing.Point(796, 283);
+            this.richTextBox155.Name = "richTextBox155";
+            this.richTextBox155.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox155.TabIndex = 958;
+            this.richTextBox155.Text = "";
+            // 
+            // Lbl750Toplam
+            // 
+            this.Lbl750Toplam.AutoSize = true;
+            this.Lbl750Toplam.BackColor = System.Drawing.Color.LightYellow;
+            this.Lbl750Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl750Toplam.ForeColor = System.Drawing.Color.Black;
+            this.Lbl750Toplam.Location = new System.Drawing.Point(896, 285);
+            this.Lbl750Toplam.Name = "Lbl750Toplam";
+            this.Lbl750Toplam.Size = new System.Drawing.Size(60, 35);
+            this.Lbl750Toplam.TabIndex = 957;
+            this.Lbl750Toplam.Text = "260";
+            // 
+            // Lbl750Derecik
+            // 
+            this.Lbl750Derecik.AutoSize = true;
+            this.Lbl750Derecik.BackColor = System.Drawing.Color.DimGray;
+            this.Lbl750Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl750Derecik.ForeColor = System.Drawing.Color.White;
+            this.Lbl750Derecik.Location = new System.Drawing.Point(716, 285);
+            this.Lbl750Derecik.Name = "Lbl750Derecik";
+            this.Lbl750Derecik.Size = new System.Drawing.Size(60, 35);
+            this.Lbl750Derecik.TabIndex = 956;
+            this.Lbl750Derecik.Text = "260";
+            // 
+            // Lbl750Semdinli
+            // 
+            this.Lbl750Semdinli.AutoSize = true;
+            this.Lbl750Semdinli.BackColor = System.Drawing.Color.DimGray;
+            this.Lbl750Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl750Semdinli.ForeColor = System.Drawing.Color.White;
+            this.Lbl750Semdinli.Location = new System.Drawing.Point(628, 283);
+            this.Lbl750Semdinli.Name = "Lbl750Semdinli";
+            this.Lbl750Semdinli.Size = new System.Drawing.Size(60, 35);
+            this.Lbl750Semdinli.TabIndex = 955;
+            this.Lbl750Semdinli.Text = "260";
+            // 
+            // Lbl750Yukseova
+            // 
+            this.Lbl750Yukseova.AutoSize = true;
+            this.Lbl750Yukseova.BackColor = System.Drawing.Color.DimGray;
+            this.Lbl750Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl750Yukseova.ForeColor = System.Drawing.Color.White;
+            this.Lbl750Yukseova.Location = new System.Drawing.Point(538, 283);
+            this.Lbl750Yukseova.Name = "Lbl750Yukseova";
+            this.Lbl750Yukseova.Size = new System.Drawing.Size(60, 35);
+            this.Lbl750Yukseova.TabIndex = 954;
+            this.Lbl750Yukseova.Text = "260";
+            // 
+            // Lbl750Cukurca
+            // 
+            this.Lbl750Cukurca.AutoSize = true;
+            this.Lbl750Cukurca.BackColor = System.Drawing.Color.DimGray;
+            this.Lbl750Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl750Cukurca.ForeColor = System.Drawing.Color.White;
+            this.Lbl750Cukurca.Location = new System.Drawing.Point(453, 283);
+            this.Lbl750Cukurca.Name = "Lbl750Cukurca";
+            this.Lbl750Cukurca.Size = new System.Drawing.Size(60, 35);
+            this.Lbl750Cukurca.TabIndex = 953;
+            this.Lbl750Cukurca.Text = "260";
+            // 
+            // Lbl750Sirnak
+            // 
+            this.Lbl750Sirnak.AutoSize = true;
+            this.Lbl750Sirnak.BackColor = System.Drawing.Color.DimGray;
+            this.Lbl750Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl750Sirnak.ForeColor = System.Drawing.Color.White;
+            this.Lbl750Sirnak.Location = new System.Drawing.Point(364, 283);
+            this.Lbl750Sirnak.Name = "Lbl750Sirnak";
+            this.Lbl750Sirnak.Size = new System.Drawing.Size(60, 35);
+            this.Lbl750Sirnak.TabIndex = 952;
+            this.Lbl750Sirnak.Text = "260";
+            // 
+            // richTextBox156
+            // 
+            this.richTextBox156.BackColor = System.Drawing.Color.LightYellow;
+            this.richTextBox156.Location = new System.Drawing.Point(892, 283);
+            this.richTextBox156.Name = "richTextBox156";
+            this.richTextBox156.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox156.TabIndex = 951;
+            this.richTextBox156.Text = "";
+            // 
+            // richTextBox157
+            // 
+            this.richTextBox157.BackColor = System.Drawing.Color.DimGray;
+            this.richTextBox157.Location = new System.Drawing.Point(711, 285);
+            this.richTextBox157.Name = "richTextBox157";
+            this.richTextBox157.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox157.TabIndex = 950;
+            this.richTextBox157.Text = "";
+            // 
+            // richTextBox158
+            // 
+            this.richTextBox158.BackColor = System.Drawing.Color.DimGray;
+            this.richTextBox158.Location = new System.Drawing.Point(622, 283);
+            this.richTextBox158.Name = "richTextBox158";
+            this.richTextBox158.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox158.TabIndex = 949;
+            this.richTextBox158.Text = "";
+            // 
+            // richTextBox159
+            // 
+            this.richTextBox159.BackColor = System.Drawing.Color.DimGray;
+            this.richTextBox159.Location = new System.Drawing.Point(534, 283);
+            this.richTextBox159.Name = "richTextBox159";
+            this.richTextBox159.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox159.TabIndex = 948;
+            this.richTextBox159.Text = "";
+            // 
+            // richTextBox160
+            // 
+            this.richTextBox160.BackColor = System.Drawing.Color.DimGray;
+            this.richTextBox160.Location = new System.Drawing.Point(447, 283);
+            this.richTextBox160.Name = "richTextBox160";
+            this.richTextBox160.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox160.TabIndex = 947;
+            this.richTextBox160.Text = "";
+            // 
+            // richTextBox161
+            // 
+            this.richTextBox161.BackColor = System.Drawing.Color.DimGray;
+            this.richTextBox161.Location = new System.Drawing.Point(357, 283);
+            this.richTextBox161.Name = "richTextBox161";
+            this.richTextBox161.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox161.TabIndex = 946;
+            this.richTextBox161.Text = "";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.BackColor = System.Drawing.Color.DimGray;
+            this.label32.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold);
+            this.label32.ForeColor = System.Drawing.Color.White;
+            this.label32.Location = new System.Drawing.Point(104, 290);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(247, 19);
+            this.label32.TabIndex = 945;
+            this.label32.Text = "750_OKF HAZIRLAMA (ASELSAN):";
+            // 
+            // Lbl950DBolgesi
+            // 
+            this.Lbl950DBolgesi.AutoSize = true;
+            this.Lbl950DBolgesi.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl950DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl950DBolgesi.ForeColor = System.Drawing.Color.Black;
+            this.Lbl950DBolgesi.Location = new System.Drawing.Point(802, 404);
+            this.Lbl950DBolgesi.Name = "Lbl950DBolgesi";
+            this.Lbl950DBolgesi.Size = new System.Drawing.Size(60, 35);
+            this.Lbl950DBolgesi.TabIndex = 974;
+            this.Lbl950DBolgesi.Text = "260";
+            // 
+            // richTextBox162
+            // 
+            this.richTextBox162.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox162.Location = new System.Drawing.Point(797, 402);
+            this.richTextBox162.Name = "richTextBox162";
+            this.richTextBox162.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox162.TabIndex = 973;
+            this.richTextBox162.Text = "";
+            // 
+            // Lbl950Derecik
+            // 
+            this.Lbl950Derecik.AutoSize = true;
+            this.Lbl950Derecik.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl950Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl950Derecik.ForeColor = System.Drawing.Color.Black;
+            this.Lbl950Derecik.Location = new System.Drawing.Point(716, 404);
+            this.Lbl950Derecik.Name = "Lbl950Derecik";
+            this.Lbl950Derecik.Size = new System.Drawing.Size(60, 35);
+            this.Lbl950Derecik.TabIndex = 972;
+            this.Lbl950Derecik.Text = "260";
+            // 
+            // Lbl950Semdinli
+            // 
+            this.Lbl950Semdinli.AutoSize = true;
+            this.Lbl950Semdinli.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl950Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl950Semdinli.ForeColor = System.Drawing.Color.Black;
+            this.Lbl950Semdinli.Location = new System.Drawing.Point(631, 404);
+            this.Lbl950Semdinli.Name = "Lbl950Semdinli";
+            this.Lbl950Semdinli.Size = new System.Drawing.Size(60, 35);
+            this.Lbl950Semdinli.TabIndex = 971;
+            this.Lbl950Semdinli.Text = "260";
+            // 
+            // Lbl950Yukseova
+            // 
+            this.Lbl950Yukseova.AutoSize = true;
+            this.Lbl950Yukseova.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl950Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl950Yukseova.ForeColor = System.Drawing.Color.Black;
+            this.Lbl950Yukseova.Location = new System.Drawing.Point(540, 404);
+            this.Lbl950Yukseova.Name = "Lbl950Yukseova";
+            this.Lbl950Yukseova.Size = new System.Drawing.Size(60, 35);
+            this.Lbl950Yukseova.TabIndex = 970;
+            this.Lbl950Yukseova.Text = "260";
+            // 
+            // Lbl950Cukurca
+            // 
+            this.Lbl950Cukurca.AutoSize = true;
+            this.Lbl950Cukurca.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl950Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl950Cukurca.ForeColor = System.Drawing.Color.Black;
+            this.Lbl950Cukurca.Location = new System.Drawing.Point(451, 404);
+            this.Lbl950Cukurca.Name = "Lbl950Cukurca";
+            this.Lbl950Cukurca.Size = new System.Drawing.Size(60, 35);
+            this.Lbl950Cukurca.TabIndex = 969;
+            this.Lbl950Cukurca.Text = "260";
+            // 
+            // Lbl950Sirnak
+            // 
+            this.Lbl950Sirnak.AutoSize = true;
+            this.Lbl950Sirnak.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl950Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl950Sirnak.ForeColor = System.Drawing.Color.Black;
+            this.Lbl950Sirnak.Location = new System.Drawing.Point(361, 404);
+            this.Lbl950Sirnak.Name = "Lbl950Sirnak";
+            this.Lbl950Sirnak.Size = new System.Drawing.Size(60, 35);
+            this.Lbl950Sirnak.TabIndex = 968;
+            this.Lbl950Sirnak.Text = "260";
+            // 
+            // Lbl950Toplam
+            // 
+            this.Lbl950Toplam.AutoSize = true;
+            this.Lbl950Toplam.BackColor = System.Drawing.Color.LightYellow;
+            this.Lbl950Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl950Toplam.ForeColor = System.Drawing.Color.Black;
+            this.Lbl950Toplam.Location = new System.Drawing.Point(896, 404);
+            this.Lbl950Toplam.Name = "Lbl950Toplam";
+            this.Lbl950Toplam.Size = new System.Drawing.Size(60, 35);
+            this.Lbl950Toplam.TabIndex = 967;
+            this.Lbl950Toplam.Text = "260";
+            // 
+            // richTextBox163
+            // 
+            this.richTextBox163.BackColor = System.Drawing.Color.LightYellow;
+            this.richTextBox163.Location = new System.Drawing.Point(892, 402);
+            this.richTextBox163.Name = "richTextBox163";
+            this.richTextBox163.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox163.TabIndex = 966;
+            this.richTextBox163.Text = "";
+            // 
+            // richTextBox164
+            // 
+            this.richTextBox164.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox164.Location = new System.Drawing.Point(711, 402);
+            this.richTextBox164.Name = "richTextBox164";
+            this.richTextBox164.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox164.TabIndex = 965;
+            this.richTextBox164.Text = "";
+            // 
+            // richTextBox165
+            // 
+            this.richTextBox165.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox165.Location = new System.Drawing.Point(623, 402);
+            this.richTextBox165.Name = "richTextBox165";
+            this.richTextBox165.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox165.TabIndex = 964;
+            this.richTextBox165.Text = "";
+            // 
+            // richTextBox166
+            // 
+            this.richTextBox166.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox166.Location = new System.Drawing.Point(535, 402);
+            this.richTextBox166.Name = "richTextBox166";
+            this.richTextBox166.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox166.TabIndex = 963;
+            this.richTextBox166.Text = "";
+            // 
+            // richTextBox167
+            // 
+            this.richTextBox167.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox167.Location = new System.Drawing.Point(446, 402);
+            this.richTextBox167.Name = "richTextBox167";
+            this.richTextBox167.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox167.TabIndex = 962;
+            this.richTextBox167.Text = "";
+            // 
+            // richTextBox168
+            // 
+            this.richTextBox168.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox168.Location = new System.Drawing.Point(356, 402);
+            this.richTextBox168.Name = "richTextBox168";
+            this.richTextBox168.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox168.TabIndex = 961;
+            this.richTextBox168.Text = "";
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.BackColor = System.Drawing.Color.Aqua;
+            this.label43.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label43.ForeColor = System.Drawing.Color.Maroon;
+            this.label43.Location = new System.Drawing.Point(96, 412);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(254, 19);
+            this.label43.TabIndex = 960;
+            this.label43.Text = "950_ATÖLYE BAKIM ONARIM (VAN):";
+            // 
+            // Lbl2100DBolgesi
+            // 
+            this.Lbl2100DBolgesi.AutoSize = true;
+            this.Lbl2100DBolgesi.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl2100DBolgesi.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl2100DBolgesi.ForeColor = System.Drawing.Color.Black;
+            this.Lbl2100DBolgesi.Location = new System.Drawing.Point(801, 911);
+            this.Lbl2100DBolgesi.Name = "Lbl2100DBolgesi";
+            this.Lbl2100DBolgesi.Size = new System.Drawing.Size(60, 35);
+            this.Lbl2100DBolgesi.TabIndex = 989;
+            this.Lbl2100DBolgesi.Text = "260";
+            // 
+            // richTextBox169
+            // 
+            this.richTextBox169.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox169.Location = new System.Drawing.Point(797, 909);
+            this.richTextBox169.Name = "richTextBox169";
+            this.richTextBox169.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox169.TabIndex = 988;
+            this.richTextBox169.Text = "";
+            // 
+            // Lbl2100Derecik
+            // 
+            this.Lbl2100Derecik.AutoSize = true;
+            this.Lbl2100Derecik.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl2100Derecik.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl2100Derecik.ForeColor = System.Drawing.Color.Black;
+            this.Lbl2100Derecik.Location = new System.Drawing.Point(715, 911);
+            this.Lbl2100Derecik.Name = "Lbl2100Derecik";
+            this.Lbl2100Derecik.Size = new System.Drawing.Size(60, 35);
+            this.Lbl2100Derecik.TabIndex = 987;
+            this.Lbl2100Derecik.Text = "260";
+            // 
+            // Lbl2100Semdinli
+            // 
+            this.Lbl2100Semdinli.AutoSize = true;
+            this.Lbl2100Semdinli.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl2100Semdinli.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl2100Semdinli.ForeColor = System.Drawing.Color.Black;
+            this.Lbl2100Semdinli.Location = new System.Drawing.Point(630, 911);
+            this.Lbl2100Semdinli.Name = "Lbl2100Semdinli";
+            this.Lbl2100Semdinli.Size = new System.Drawing.Size(60, 35);
+            this.Lbl2100Semdinli.TabIndex = 986;
+            this.Lbl2100Semdinli.Text = "260";
+            // 
+            // Lbl2100Yukseova
+            // 
+            this.Lbl2100Yukseova.AutoSize = true;
+            this.Lbl2100Yukseova.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl2100Yukseova.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl2100Yukseova.ForeColor = System.Drawing.Color.Black;
+            this.Lbl2100Yukseova.Location = new System.Drawing.Point(539, 911);
+            this.Lbl2100Yukseova.Name = "Lbl2100Yukseova";
+            this.Lbl2100Yukseova.Size = new System.Drawing.Size(60, 35);
+            this.Lbl2100Yukseova.TabIndex = 985;
+            this.Lbl2100Yukseova.Text = "260";
+            // 
+            // Lbl2100Cukurca
+            // 
+            this.Lbl2100Cukurca.AutoSize = true;
+            this.Lbl2100Cukurca.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl2100Cukurca.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl2100Cukurca.ForeColor = System.Drawing.Color.Black;
+            this.Lbl2100Cukurca.Location = new System.Drawing.Point(450, 911);
+            this.Lbl2100Cukurca.Name = "Lbl2100Cukurca";
+            this.Lbl2100Cukurca.Size = new System.Drawing.Size(60, 35);
+            this.Lbl2100Cukurca.TabIndex = 984;
+            this.Lbl2100Cukurca.Text = "260";
+            // 
+            // Lbl2100Sirnak
+            // 
+            this.Lbl2100Sirnak.AutoSize = true;
+            this.Lbl2100Sirnak.BackColor = System.Drawing.Color.Aqua;
+            this.Lbl2100Sirnak.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl2100Sirnak.ForeColor = System.Drawing.Color.Black;
+            this.Lbl2100Sirnak.Location = new System.Drawing.Point(360, 911);
+            this.Lbl2100Sirnak.Name = "Lbl2100Sirnak";
+            this.Lbl2100Sirnak.Size = new System.Drawing.Size(60, 35);
+            this.Lbl2100Sirnak.TabIndex = 983;
+            this.Lbl2100Sirnak.Text = "260";
+            // 
+            // Lbl2100Toplam
+            // 
+            this.Lbl2100Toplam.AutoSize = true;
+            this.Lbl2100Toplam.BackColor = System.Drawing.Color.LightYellow;
+            this.Lbl2100Toplam.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.Lbl2100Toplam.ForeColor = System.Drawing.Color.Black;
+            this.Lbl2100Toplam.Location = new System.Drawing.Point(896, 911);
+            this.Lbl2100Toplam.Name = "Lbl2100Toplam";
+            this.Lbl2100Toplam.Size = new System.Drawing.Size(60, 35);
+            this.Lbl2100Toplam.TabIndex = 982;
+            this.Lbl2100Toplam.Text = "260";
+            // 
+            // richTextBox170
+            // 
+            this.richTextBox170.BackColor = System.Drawing.Color.LightYellow;
+            this.richTextBox170.Location = new System.Drawing.Point(892, 909);
+            this.richTextBox170.Name = "richTextBox170";
+            this.richTextBox170.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox170.TabIndex = 981;
+            this.richTextBox170.Text = "";
+            // 
+            // richTextBox171
+            // 
+            this.richTextBox171.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox171.Location = new System.Drawing.Point(711, 909);
+            this.richTextBox171.Name = "richTextBox171";
+            this.richTextBox171.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox171.TabIndex = 980;
+            this.richTextBox171.Text = "";
+            // 
+            // richTextBox172
+            // 
+            this.richTextBox172.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox172.Location = new System.Drawing.Point(623, 909);
+            this.richTextBox172.Name = "richTextBox172";
+            this.richTextBox172.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox172.TabIndex = 979;
+            this.richTextBox172.Text = "";
+            // 
+            // richTextBox173
+            // 
+            this.richTextBox173.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox173.Location = new System.Drawing.Point(535, 909);
+            this.richTextBox173.Name = "richTextBox173";
+            this.richTextBox173.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox173.TabIndex = 978;
+            this.richTextBox173.Text = "";
+            // 
+            // richTextBox174
+            // 
+            this.richTextBox174.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox174.Location = new System.Drawing.Point(446, 909);
+            this.richTextBox174.Name = "richTextBox174";
+            this.richTextBox174.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox174.TabIndex = 977;
+            this.richTextBox174.Text = "";
+            // 
+            // richTextBox175
+            // 
+            this.richTextBox175.BackColor = System.Drawing.Color.Aqua;
+            this.richTextBox175.Location = new System.Drawing.Point(356, 909);
+            this.richTextBox175.Name = "richTextBox175";
+            this.richTextBox175.Size = new System.Drawing.Size(69, 38);
+            this.richTextBox175.TabIndex = 976;
+            this.richTextBox175.Text = "";
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.Color.Aqua;
+            this.label44.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label44.ForeColor = System.Drawing.Color.Maroon;
+            this.label44.Location = new System.Drawing.Point(28, 919);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(322, 19);
+            this.label44.TabIndex = 975;
+            this.label44.Text = "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN):";
             // 
             // FrmSahaIzleme
             // 
@@ -4103,6 +4625,51 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 996);
+            this.Controls.Add(this.Lbl2100DBolgesi);
+            this.Controls.Add(this.richTextBox169);
+            this.Controls.Add(this.Lbl2100Derecik);
+            this.Controls.Add(this.Lbl2100Semdinli);
+            this.Controls.Add(this.Lbl2100Yukseova);
+            this.Controls.Add(this.Lbl2100Cukurca);
+            this.Controls.Add(this.Lbl2100Sirnak);
+            this.Controls.Add(this.Lbl2100Toplam);
+            this.Controls.Add(this.richTextBox170);
+            this.Controls.Add(this.richTextBox171);
+            this.Controls.Add(this.richTextBox172);
+            this.Controls.Add(this.richTextBox173);
+            this.Controls.Add(this.richTextBox174);
+            this.Controls.Add(this.richTextBox175);
+            this.Controls.Add(this.label44);
+            this.Controls.Add(this.Lbl950DBolgesi);
+            this.Controls.Add(this.richTextBox162);
+            this.Controls.Add(this.Lbl950Derecik);
+            this.Controls.Add(this.Lbl950Semdinli);
+            this.Controls.Add(this.Lbl950Yukseova);
+            this.Controls.Add(this.Lbl950Cukurca);
+            this.Controls.Add(this.Lbl950Sirnak);
+            this.Controls.Add(this.Lbl950Toplam);
+            this.Controls.Add(this.richTextBox163);
+            this.Controls.Add(this.richTextBox164);
+            this.Controls.Add(this.richTextBox165);
+            this.Controls.Add(this.richTextBox166);
+            this.Controls.Add(this.richTextBox167);
+            this.Controls.Add(this.richTextBox168);
+            this.Controls.Add(this.label43);
+            this.Controls.Add(this.Lbl750DBolgesi);
+            this.Controls.Add(this.richTextBox155);
+            this.Controls.Add(this.Lbl750Toplam);
+            this.Controls.Add(this.Lbl750Derecik);
+            this.Controls.Add(this.Lbl750Semdinli);
+            this.Controls.Add(this.Lbl750Yukseova);
+            this.Controls.Add(this.Lbl750Cukurca);
+            this.Controls.Add(this.Lbl750Sirnak);
+            this.Controls.Add(this.richTextBox156);
+            this.Controls.Add(this.richTextBox157);
+            this.Controls.Add(this.richTextBox158);
+            this.Controls.Add(this.richTextBox159);
+            this.Controls.Add(this.richTextBox160);
+            this.Controls.Add(this.richTextBox161);
+            this.Controls.Add(this.label32);
             this.Controls.Add(this.Lbl1600DBolgesi);
             this.Controls.Add(this.Lbl2000DBolgesi);
             this.Controls.Add(this.Lbl600DBolgesi);
@@ -4822,5 +5389,50 @@
         private System.Windows.Forms.RichTextBox richTextBox153;
         private System.Windows.Forms.RichTextBox richTextBox154;
         private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label Lbl750DBolgesi;
+        private System.Windows.Forms.RichTextBox richTextBox155;
+        private System.Windows.Forms.Label Lbl750Toplam;
+        private System.Windows.Forms.Label Lbl750Derecik;
+        private System.Windows.Forms.Label Lbl750Semdinli;
+        private System.Windows.Forms.Label Lbl750Yukseova;
+        private System.Windows.Forms.Label Lbl750Cukurca;
+        private System.Windows.Forms.Label Lbl750Sirnak;
+        private System.Windows.Forms.RichTextBox richTextBox156;
+        private System.Windows.Forms.RichTextBox richTextBox157;
+        private System.Windows.Forms.RichTextBox richTextBox158;
+        private System.Windows.Forms.RichTextBox richTextBox159;
+        private System.Windows.Forms.RichTextBox richTextBox160;
+        private System.Windows.Forms.RichTextBox richTextBox161;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label Lbl950DBolgesi;
+        private System.Windows.Forms.RichTextBox richTextBox162;
+        private System.Windows.Forms.Label Lbl950Derecik;
+        private System.Windows.Forms.Label Lbl950Semdinli;
+        private System.Windows.Forms.Label Lbl950Yukseova;
+        private System.Windows.Forms.Label Lbl950Cukurca;
+        private System.Windows.Forms.Label Lbl950Sirnak;
+        private System.Windows.Forms.Label Lbl950Toplam;
+        private System.Windows.Forms.RichTextBox richTextBox163;
+        private System.Windows.Forms.RichTextBox richTextBox164;
+        private System.Windows.Forms.RichTextBox richTextBox165;
+        private System.Windows.Forms.RichTextBox richTextBox166;
+        private System.Windows.Forms.RichTextBox richTextBox167;
+        private System.Windows.Forms.RichTextBox richTextBox168;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label Lbl2100DBolgesi;
+        private System.Windows.Forms.RichTextBox richTextBox169;
+        private System.Windows.Forms.Label Lbl2100Derecik;
+        private System.Windows.Forms.Label Lbl2100Semdinli;
+        private System.Windows.Forms.Label Lbl2100Yukseova;
+        private System.Windows.Forms.Label Lbl2100Cukurca;
+        private System.Windows.Forms.Label Lbl2100Sirnak;
+        private System.Windows.Forms.Label Lbl2100Toplam;
+        private System.Windows.Forms.RichTextBox richTextBox170;
+        private System.Windows.Forms.RichTextBox richTextBox171;
+        private System.Windows.Forms.RichTextBox richTextBox172;
+        private System.Windows.Forms.RichTextBox richTextBox173;
+        private System.Windows.Forms.RichTextBox richTextBox174;
+        private System.Windows.Forms.RichTextBox richTextBox175;
+        private System.Windows.Forms.Label label44;
     }
 }

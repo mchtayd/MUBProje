@@ -15,6 +15,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DataAccess.Concreate;
+using LiveCharts.Defaults;
 
 namespace UserInterface.Ana_Sayfa
 {
@@ -29,7 +30,7 @@ namespace UserInterface.Ana_Sayfa
 
         int sirnakArizaToplam, cukurcaToplam, yukseovaToplam, semdinliToplam, derecikToplam, merkez, dBolgesiToplam = 0;
 
-        int i200, i300, i400, i500, i600, i700, i800, i900, i950, i1000, i1100, i1200, i1300, i1400, i1450, i1500, i1600, i1700, i1800, i1900, i2000, i2100, mavi, yesil, gri = 0;
+        int i200, i300, i400, i500, i600, i700, i750, i800, i900, i950, i1000, i1100, i1200, i1300, i1400, i1450, i1500, i1600, i1700, i1800, i1900, i2000, i2100, mavi, yesil, gri = 0;
 
         public FrmAcikArizaGrafikleri()
         {
@@ -66,19 +67,18 @@ namespace UserInterface.Ana_Sayfa
                 merkez += arizaIslemAdimi.Merkez;
             }
 
-            LblSektorArizaTop.Text = (sirnakArizaToplam + cukurcaToplam + yukseovaToplam + semdinliToplam + derecikToplam + dBolgesiToplam).ToString();
+            LblSektorArizaTop.Text = (sirnakArizaToplam + cukurcaToplam + yukseovaToplam + semdinliToplam + derecikToplam + dBolgesiToplam + merkez).ToString();
 
             SeriesCollection seriesCollection = new SeriesCollection();
 
             veriler.Add(sirnakArizaToplam);
-            veriler.Add(merkez);
             veriler.Add(cukurcaToplam);
             veriler.Add(yukseovaToplam);
             veriler.Add(semdinliToplam);
-            veriler.Add(derecikToplam);
+            veriler.Add(derecikToplam + merkez);
             veriler.Add(dBolgesiToplam);
 
-            for (int i = 0; i < 7; i++)
+            for (int i = 0; i < 6; i++)
             {
                 if (i == 0)
                 {
@@ -89,36 +89,30 @@ namespace UserInterface.Ana_Sayfa
 
                 if (i == 1)
                 {
-                    Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "HAKKÂRİ/MERKEZ" + " (" + x.Y.ToString() + ")", x.Participation);
-                    seriesCollection.Add(new PieSeries() { Title = "HAKKÂRİ", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
-                    chart1.Series = seriesCollection;
-                }
-                if (i == 2)
-                {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "ÇUKURCA" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "ÇUKURCA", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
                 
-                if (i == 3)
+                if (i == 2)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "YÜKSEKOVA" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "YÜKSEKOVA", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
-                if (i == 4)
+                if (i == 3)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "ŞEMDİNLİ" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "ŞEMDİNLİ", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
-                if (i == 5)
+                if (i == 4)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "DERECİK" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "DERECİK", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
-                if (i == 6)
+                if (i == 5)
                 {
                     Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "D BÖLGESİ" + " (" + x.Y.ToString() + ")", x.Participation);
                     seriesCollection.Add(new PieSeries() { Title = "D BÖLGESİ", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
@@ -146,6 +140,9 @@ namespace UserInterface.Ana_Sayfa
 
             ArizaIslemAdimi arizaIslemAdimi700 = arizaIslemAdimiManager.Get("700_OKF HAZIRLAMA");
             i700 = arizaIslemAdimi700.Toplam;
+
+            ArizaIslemAdimi arizaIslemAdimi750 = arizaIslemAdimiManager.Get("750_OKF HAZIRLAMA (ASELSAN)");
+            i750 = arizaIslemAdimi750.Toplam;
 
             ArizaIslemAdimi arizaIslemAdimi800 = arizaIslemAdimiManager.Get("800_MÜŞTERİ ONAYI");
             i800 = arizaIslemAdimi800.Toplam;
@@ -193,14 +190,14 @@ namespace UserInterface.Ana_Sayfa
             i2000 = arizaIslemAdimi2000.Toplam;
 
             ArizaIslemAdimi arizaIslemAdimi2100 = arizaIslemAdimiManager.Get("2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)");
-            i2100 = arizaIslemAdimi2000.Toplam;
+            i2100 = arizaIslemAdimi2100.Toplam;
 
 
             mavi = i400.ConInt() + i500.ConInt() + i600.ConInt() + i900.ConInt() + i950.ConInt() + i1000.ConInt() + i1100.ConInt() + i1200.ConInt() + i1300.ConInt() + i1400.ConInt() + i1450.ConInt() + i2000.ConInt() + i2100.ConInt();
 
             yesil = i200.ConInt() + i300.ConInt() + i1700.ConInt() + i1800.ConInt() + i1900.ConInt() + i1500.ConInt();
 
-            gri = i700.ConInt() + i800.ConInt() + i1600.ConInt();
+            gri = i700.ConInt() + i750.ConInt() + i800.ConInt() + i1600.ConInt();
 
 
             SeriesCollection seriesCollection = new SeriesCollection();

@@ -39,11 +39,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public string Delete(int id)
+        public string Delete(int bolgeId)
         {
             try
             {
-                return bolgeEnvanterDal.Delete(id);
+                return bolgeEnvanterDal.Delete(bolgeId);
             }
             catch (Exception ex)
             {

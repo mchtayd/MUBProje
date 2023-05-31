@@ -30,9 +30,9 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBolgeler));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgBolgeler = new ADGV.AdvancedDataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -114,7 +114,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.BtnExcelAl = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
-            this.DtgDeneme = new System.Windows.Forms.DataGridView();
+            this.DtgEnvanterList = new System.Windows.Forms.DataGridView();
             this.DtgStokList = new System.Windows.Forms.DataGridView();
             this.Column114 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column115 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -283,7 +283,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgDeneme)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgEnvanterList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgStokList)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage15.SuspendLayout();
@@ -331,8 +331,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgBolgeler.AllowUserToAddRows = false;
             this.DtgBolgeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgBolgeler.AutoGenerateContextFilters = true;
             this.DtgBolgeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgBolgeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -477,11 +477,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle4;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.Name = "Remove";
             this.Remove.ReadOnly = true;
@@ -1247,11 +1247,12 @@ namespace UserInterface.BakımOnarım
             this.BtnExcelAl.TabIndex = 150;
             this.BtnExcelAl.Text = "Excel Çek";
             this.BtnExcelAl.UseVisualStyleBackColor = true;
+            this.BtnExcelAl.Visible = false;
             this.BtnExcelAl.Click += new System.EventHandler(this.BtnExcelAl_Click);
             // 
             // groupBox6
             // 
-            this.groupBox6.Controls.Add(this.DtgDeneme);
+            this.groupBox6.Controls.Add(this.DtgEnvanterList);
             this.groupBox6.Controls.Add(this.DtgStokList);
             this.groupBox6.Location = new System.Drawing.Point(7, 101);
             this.groupBox6.Name = "groupBox6";
@@ -1260,17 +1261,17 @@ namespace UserInterface.BakımOnarım
             this.groupBox6.TabStop = false;
             this.groupBox6.Text = "ENVANTER LİSTESİ";
             // 
-            // DtgDeneme
+            // DtgEnvanterList
             // 
-            this.DtgDeneme.AllowUserToAddRows = false;
-            this.DtgDeneme.AllowUserToDeleteRows = false;
-            this.DtgDeneme.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgDeneme.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgDeneme.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgDeneme.Location = new System.Drawing.Point(3, 16);
-            this.DtgDeneme.Name = "DtgDeneme";
-            this.DtgDeneme.Size = new System.Drawing.Size(1416, 455);
-            this.DtgDeneme.TabIndex = 151;
+            this.DtgEnvanterList.AllowUserToAddRows = false;
+            this.DtgEnvanterList.AllowUserToDeleteRows = false;
+            this.DtgEnvanterList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgEnvanterList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgEnvanterList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgEnvanterList.Location = new System.Drawing.Point(3, 16);
+            this.DtgEnvanterList.Name = "DtgEnvanterList";
+            this.DtgEnvanterList.Size = new System.Drawing.Size(1416, 455);
+            this.DtgEnvanterList.TabIndex = 151;
             // 
             // DtgStokList
             // 
@@ -2384,6 +2385,7 @@ namespace UserInterface.BakımOnarım
             this.BtnEkipmanKaydet.Text = "     KAYDET";
             this.BtnEkipmanKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnEkipmanKaydet.UseVisualStyleBackColor = false;
+            this.BtnEkipmanKaydet.Click += new System.EventHandler(this.BtnEkipmanKaydet_Click);
             // 
             // FrmBolgeler
             // 
@@ -2413,7 +2415,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgDeneme)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgEnvanterList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgStokList)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage15.ResumeLayout(false);
@@ -2686,7 +2688,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn Column111;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column112;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column113;
-        private System.Windows.Forms.DataGridView DtgDeneme;
+        private System.Windows.Forms.DataGridView DtgEnvanterList;
         private System.Windows.Forms.Button BtnEkipmanKaydet;
     }
 }
