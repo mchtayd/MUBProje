@@ -31,7 +31,6 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSahaIzleme));
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -208,7 +207,6 @@
             this.label36 = new System.Windows.Forms.Label();
             this.richTextBox7 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
             this.Lbl700Cukurca = new System.Windows.Forms.Label();
             this.Lbl700Yukseova = new System.Windows.Forms.Label();
             this.Lbl700Derecik = new System.Windows.Forms.Label();
@@ -426,11 +424,15 @@
             this.richTextBox174 = new System.Windows.Forms.RichTextBox();
             this.richTextBox175 = new System.Windows.Forms.RichTextBox();
             this.label44 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.ChrtIslemAdimlari = new LiveCharts.WinForms.CartesianChart();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.chart1 = new LiveCharts.WinForms.PieChart();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.SuspendLayout();
             // 
             // label5
@@ -445,22 +447,12 @@
             this.label5.TabIndex = 156;
             this.label5.Text = "200 ARIZA TESPİTİ (FI/FD):";
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
-            this.pictureBox4.Location = new System.Drawing.Point(1602, 780);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(205, 97);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 149;
-            this.pictureBox4.TabStop = false;
-            // 
             // pictureBox3
             // 
             this.pictureBox3.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox3.Image")));
-            this.pictureBox3.Location = new System.Drawing.Point(1291, 753);
+            this.pictureBox3.Location = new System.Drawing.Point(1767, 5);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(245, 147);
+            this.pictureBox3.Size = new System.Drawing.Size(145, 76);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 148;
             this.pictureBox3.TabStop = false;
@@ -468,9 +460,9 @@
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(1291, 69);
+            this.pictureBox2.Location = new System.Drawing.Point(1209, 6);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(184, 149);
+            this.pictureBox2.Size = new System.Drawing.Size(91, 80);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 147;
             this.pictureBox2.TabStop = false;
@@ -478,9 +470,9 @@
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(1041, 753);
+            this.pictureBox1.Location = new System.Drawing.Point(1661, 6);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 149);
+            this.pictureBox1.Size = new System.Drawing.Size(100, 80);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 146;
             this.pictureBox1.TabStop = false;
@@ -488,22 +480,22 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(1482, 140);
+            this.label4.Location = new System.Drawing.Point(1306, 42);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(272, 45);
+            this.label4.Size = new System.Drawing.Size(237, 39);
             this.label4.TabIndex = 145;
             this.label4.Text = "MÜB ELD OFİSİ";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Font = new System.Drawing.Font("Bahnschrift", 15.75F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.ForeColor = System.Drawing.Color.Red;
-            this.label1.Location = new System.Drawing.Point(1096, 6);
+            this.label1.Location = new System.Drawing.Point(-1, 17);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(600, 45);
+            this.label1.Size = new System.Drawing.Size(346, 25);
             this.label1.TabIndex = 144;
             this.label1.Text = " MÜB AÇIK ARIZA İŞLEM ADIMLARI";
             // 
@@ -1937,9 +1929,9 @@
             // pictureBox5
             // 
             this.pictureBox5.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox5.Image")));
-            this.pictureBox5.Location = new System.Drawing.Point(993, 69);
+            this.pictureBox5.Location = new System.Drawing.Point(979, 6);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(292, 148);
+            this.pictureBox5.Size = new System.Drawing.Size(224, 79);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 361;
             this.pictureBox5.TabStop = false;
@@ -1947,22 +1939,22 @@
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Bahnschrift", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label30.Font = new System.Drawing.Font("Bahnschrift", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label30.ForeColor = System.Drawing.Color.Orange;
-            this.label30.Location = new System.Drawing.Point(1167, 167);
+            this.label30.Location = new System.Drawing.Point(1134, 60);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(106, 42);
+            this.label30.Size = new System.Drawing.Size(57, 23);
             this.label30.TabIndex = 362;
             this.label30.Text = "UGES";
             // 
             // label31
             // 
             this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label31.Font = new System.Drawing.Font("Bahnschrift", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label31.ForeColor = System.Drawing.Color.Black;
-            this.label31.Location = new System.Drawing.Point(1481, 95);
+            this.label31.Location = new System.Drawing.Point(1306, 6);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(405, 45);
+            this.label31.Size = new System.Drawing.Size(351, 39);
             this.label31.TabIndex = 363;
             this.label31.Text = "GÜVENLİK SİSTEMLERİ";
             // 
@@ -1992,10 +1984,10 @@
             // 
             // label33
             // 
-            this.label33.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label33.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label33.AutoSize = true;
             this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label33.Location = new System.Drawing.Point(1603, 928);
+            this.label33.Location = new System.Drawing.Point(1734, 948);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(60, 20);
             this.label33.TabIndex = 369;
@@ -2003,10 +1995,10 @@
             // 
             // LblSaat
             // 
-            this.LblSaat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblSaat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblSaat.AutoSize = true;
             this.LblSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblSaat.Location = new System.Drawing.Point(1669, 928);
+            this.LblSaat.Location = new System.Drawing.Point(1800, 948);
             this.LblSaat.Name = "LblSaat";
             this.LblSaat.Size = new System.Drawing.Size(27, 20);
             this.LblSaat.TabIndex = 368;
@@ -2014,10 +2006,10 @@
             // 
             // label34
             // 
-            this.label34.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label34.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label34.Location = new System.Drawing.Point(1287, 928);
+            this.label34.Location = new System.Drawing.Point(1418, 948);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(68, 20);
             this.label34.TabIndex = 367;
@@ -2025,10 +2017,10 @@
             // 
             // LblTarih
             // 
-            this.LblTarih.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTarih.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblTarih.AutoSize = true;
             this.LblTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTarih.Location = new System.Drawing.Point(1361, 928);
+            this.LblTarih.Location = new System.Drawing.Point(1492, 948);
             this.LblTarih.Name = "LblTarih";
             this.LblTarih.Size = new System.Drawing.Size(27, 20);
             this.LblTarih.TabIndex = 366;
@@ -2061,31 +2053,31 @@
             // richTextBox1
             // 
             this.richTextBox1.BackColor = System.Drawing.Color.Aqua;
-            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox1.Location = new System.Drawing.Point(1054, 353);
+            this.richTextBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.richTextBox1.Location = new System.Drawing.Point(979, 196);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(246, 72);
+            this.richTextBox1.Size = new System.Drawing.Size(169, 51);
             this.richTextBox1.TabIndex = 372;
             this.richTextBox1.Text = " LOJİSTİK DESTEK \n    ve PLANLAMA";
             // 
             // richTextBox2
             // 
             this.richTextBox2.BackColor = System.Drawing.Color.YellowGreen;
-            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox2.Location = new System.Drawing.Point(1306, 353);
+            this.richTextBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.richTextBox2.Location = new System.Drawing.Point(1154, 196);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(246, 72);
+            this.richTextBox2.Size = new System.Drawing.Size(169, 51);
             this.richTextBox2.TabIndex = 373;
             this.richTextBox2.Text = "      SAHA BAKIM \n          ONARIM";
             // 
             // richTextBox3
             // 
             this.richTextBox3.BackColor = System.Drawing.Color.DimGray;
-            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.richTextBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.richTextBox3.ForeColor = System.Drawing.Color.White;
-            this.richTextBox3.Location = new System.Drawing.Point(1558, 353);
+            this.richTextBox3.Location = new System.Drawing.Point(1329, 196);
             this.richTextBox3.Name = "richTextBox3";
-            this.richTextBox3.Size = new System.Drawing.Size(246, 72);
+            this.richTextBox3.Size = new System.Drawing.Size(169, 51);
             this.richTextBox3.TabIndex = 374;
             this.richTextBox3.Text = " ALT YÜK.KONT.ve \n  KOORDİNASYON";
             // 
@@ -2093,9 +2085,9 @@
             // 
             this.richTextBox4.BackColor = System.Drawing.Color.Aqua;
             this.richTextBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox4.Location = new System.Drawing.Point(1054, 431);
+            this.richTextBox4.Location = new System.Drawing.Point(979, 247);
             this.richTextBox4.Name = "richTextBox4";
-            this.richTextBox4.Size = new System.Drawing.Size(246, 100);
+            this.richTextBox4.Size = new System.Drawing.Size(169, 54);
             this.richTextBox4.TabIndex = 375;
             this.richTextBox4.Text = "   ";
             // 
@@ -2103,9 +2095,9 @@
             // 
             this.richTextBox5.BackColor = System.Drawing.Color.YellowGreen;
             this.richTextBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.richTextBox5.Location = new System.Drawing.Point(1306, 431);
+            this.richTextBox5.Location = new System.Drawing.Point(1154, 247);
             this.richTextBox5.Name = "richTextBox5";
-            this.richTextBox5.Size = new System.Drawing.Size(246, 100);
+            this.richTextBox5.Size = new System.Drawing.Size(169, 54);
             this.richTextBox5.TabIndex = 376;
             this.richTextBox5.Text = "";
             // 
@@ -2114,47 +2106,39 @@
             this.richTextBox6.BackColor = System.Drawing.Color.DimGray;
             this.richTextBox6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.richTextBox6.ForeColor = System.Drawing.Color.White;
-            this.richTextBox6.Location = new System.Drawing.Point(1558, 431);
+            this.richTextBox6.Location = new System.Drawing.Point(1329, 247);
             this.richTextBox6.Name = "richTextBox6";
-            this.richTextBox6.Size = new System.Drawing.Size(246, 100);
+            this.richTextBox6.Size = new System.Drawing.Size(169, 54);
             this.richTextBox6.TabIndex = 377;
             this.richTextBox6.Text = "";
             // 
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Bahnschrift", 27.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label36.Font = new System.Drawing.Font("Bahnschrift", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label36.ForeColor = System.Drawing.Color.Red;
-            this.label36.Location = new System.Drawing.Point(1242, 298);
+            this.label36.Location = new System.Drawing.Point(1089, 152);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(383, 45);
+            this.label36.Size = new System.Drawing.Size(303, 35);
             this.label36.TabIndex = 378;
             this.label36.Text = "SORUMLU BÖLÜMLER";
             // 
             // richTextBox7
             // 
             this.richTextBox7.BackColor = System.Drawing.Color.LightYellow;
-            this.richTextBox7.Location = new System.Drawing.Point(1054, 544);
+            this.richTextBox7.Location = new System.Drawing.Point(979, 303);
             this.richTextBox7.Name = "richTextBox7";
-            this.richTextBox7.Size = new System.Drawing.Size(750, 134);
+            this.richTextBox7.Size = new System.Drawing.Size(519, 109);
             this.richTextBox7.TabIndex = 379;
             this.richTextBox7.Text = "";
             // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.DarkGray;
-            this.panel1.Location = new System.Drawing.Point(993, 248);
+            this.panel1.Location = new System.Drawing.Point(979, 92);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(919, 19);
+            this.panel1.Size = new System.Drawing.Size(939, 19);
             this.panel1.TabIndex = 380;
-            // 
-            // panel2
-            // 
-            this.panel2.BackColor = System.Drawing.Color.DarkGray;
-            this.panel2.Location = new System.Drawing.Point(993, 719);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(919, 19);
-            this.panel2.TabIndex = 381;
             // 
             // Lbl700Cukurca
             // 
@@ -3636,11 +3620,11 @@
             // 
             this.LblMaviTop.AutoSize = true;
             this.LblMaviTop.BackColor = System.Drawing.Color.Aqua;
-            this.LblMaviTop.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblMaviTop.Font = new System.Drawing.Font("Bahnschrift", 26.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblMaviTop.ForeColor = System.Drawing.Color.Black;
-            this.LblMaviTop.Location = new System.Drawing.Point(1108, 443);
+            this.LblMaviTop.Location = new System.Drawing.Point(1027, 253);
             this.LblMaviTop.Name = "LblMaviTop";
-            this.LblMaviTop.Size = new System.Drawing.Size(132, 77);
+            this.LblMaviTop.Size = new System.Drawing.Size(72, 42);
             this.LblMaviTop.TabIndex = 506;
             this.LblMaviTop.Text = "260";
             // 
@@ -3648,11 +3632,11 @@
             // 
             this.LblYesilTop.AutoSize = true;
             this.LblYesilTop.BackColor = System.Drawing.Color.YellowGreen;
-            this.LblYesilTop.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblYesilTop.Font = new System.Drawing.Font("Bahnschrift", 26.25F, System.Drawing.FontStyle.Bold);
             this.LblYesilTop.ForeColor = System.Drawing.Color.Black;
-            this.LblYesilTop.Location = new System.Drawing.Point(1373, 443);
+            this.LblYesilTop.Location = new System.Drawing.Point(1202, 253);
             this.LblYesilTop.Name = "LblYesilTop";
-            this.LblYesilTop.Size = new System.Drawing.Size(132, 77);
+            this.LblYesilTop.Size = new System.Drawing.Size(72, 42);
             this.LblYesilTop.TabIndex = 507;
             this.LblYesilTop.Text = "260";
             // 
@@ -3660,11 +3644,11 @@
             // 
             this.LblGriTop.AutoSize = true;
             this.LblGriTop.BackColor = System.Drawing.Color.DimGray;
-            this.LblGriTop.Font = new System.Drawing.Font("Bahnschrift", 48F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGriTop.Font = new System.Drawing.Font("Bahnschrift", 26.25F, System.Drawing.FontStyle.Bold);
             this.LblGriTop.ForeColor = System.Drawing.Color.White;
-            this.LblGriTop.Location = new System.Drawing.Point(1622, 443);
+            this.LblGriTop.Location = new System.Drawing.Point(1382, 253);
             this.LblGriTop.Name = "LblGriTop";
-            this.LblGriTop.Size = new System.Drawing.Size(132, 77);
+            this.LblGriTop.Size = new System.Drawing.Size(72, 42);
             this.LblGriTop.TabIndex = 508;
             this.LblGriTop.Text = "260";
             // 
@@ -3672,11 +3656,11 @@
             // 
             this.LblTop.AutoSize = true;
             this.LblTop.BackColor = System.Drawing.Color.LightYellow;
-            this.LblTop.Font = new System.Drawing.Font("Bahnschrift", 72F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTop.Font = new System.Drawing.Font("Bahnschrift", 60F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblTop.ForeColor = System.Drawing.Color.Black;
-            this.LblTop.Location = new System.Drawing.Point(1354, 553);
+            this.LblTop.Location = new System.Drawing.Point(1158, 310);
             this.LblTop.Name = "LblTop";
-            this.LblTop.Size = new System.Drawing.Size(198, 115);
+            this.LblTop.Size = new System.Drawing.Size(164, 96);
             this.LblTop.TabIndex = 509;
             this.LblTop.Text = "260";
             // 
@@ -4619,12 +4603,52 @@
             this.label44.TabIndex = 975;
             this.label44.Text = "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN):";
             // 
+            // ChrtIslemAdimlari
+            // 
+            this.ChrtIslemAdimlari.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChrtIslemAdimlari.Location = new System.Drawing.Point(974, 522);
+            this.ChrtIslemAdimlari.Name = "ChrtIslemAdimlari";
+            this.ChrtIslemAdimlari.Size = new System.Drawing.Size(939, 385);
+            this.ChrtIslemAdimlari.TabIndex = 990;
+            this.ChrtIslemAdimlari.Text = "cartesianChart1";
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox4.Image")));
+            this.pictureBox4.Location = new System.Drawing.Point(979, 934);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(105, 45);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 991;
+            this.pictureBox4.TabStop = false;
+            // 
+            // panel2
+            // 
+            this.panel2.BackColor = System.Drawing.Color.DarkGray;
+            this.panel2.Location = new System.Drawing.Point(979, 906);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(939, 19);
+            this.panel2.TabIndex = 992;
+            // 
+            // chart1
+            // 
+            this.chart1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.chart1.Location = new System.Drawing.Point(1499, 114);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(419, 394);
+            this.chart1.TabIndex = 993;
+            this.chart1.Text = "pieChart1";
+            // 
             // FrmSahaIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1924, 996);
+            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.pictureBox4);
+            this.Controls.Add(this.ChrtIslemAdimlari);
             this.Controls.Add(this.Lbl2100DBolgesi);
             this.Controls.Add(this.richTextBox169);
             this.Controls.Add(this.Lbl2100Derecik);
@@ -4840,7 +4864,6 @@
             this.Controls.Add(this.Lbl700Semdinli);
             this.Controls.Add(this.Lbl700Yukseova);
             this.Controls.Add(this.Lbl700Cukurca);
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.richTextBox7);
             this.Controls.Add(this.label36);
@@ -4867,7 +4890,6 @@
             this.Controls.Add(this.label29);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.richTextBox127);
-            this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.richTextBox128);
             this.Controls.Add(this.richTextBox129);
             this.Controls.Add(this.richTextBox130);
@@ -5019,19 +5041,16 @@
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label1);
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmSahaIzleme";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Saha Bakım Onarım";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmSahaIzleme_FormClosing);
             this.Load += new System.EventHandler(this.FrmSahaIzleme_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5039,7 +5058,6 @@
 
         #endregion
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -5216,7 +5234,6 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.RichTextBox richTextBox7;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Label Lbl700Cukurca;
         private System.Windows.Forms.Label Lbl700Yukseova;
         private System.Windows.Forms.Label Lbl700Derecik;
@@ -5434,5 +5451,9 @@
         private System.Windows.Forms.RichTextBox richTextBox174;
         private System.Windows.Forms.RichTextBox richTextBox175;
         private System.Windows.Forms.Label label44;
+        private LiveCharts.WinForms.CartesianChart ChrtIslemAdimlari;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.Panel panel2;
+        private LiveCharts.WinForms.PieChart chart1;
     }
 }

@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>653</ApplicationRevision>
+    <ApplicationRevision>656</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -359,6 +359,12 @@
     <Compile Include="Ana Sayfa\FrmSehirIciGorevlerim.Designer.cs">
       <DependentUpon>FrmSehirIciGorevlerim.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmSektorIslemAdimlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSektorIslemAdimlari.Designer.cs">
+      <DependentUpon>FrmSektorIslemAdimlari.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmServer.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +376,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmSifremiDegistir.Designer.cs">
       <DependentUpon>FrmSifremiDegistir.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSlayGorunum.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSlayGorunum.Designer.cs">
+      <DependentUpon>FrmSlayGorunum.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmSohbet.cs">
       <SubType>Form</SubType>
@@ -1615,11 +1627,17 @@
     <EmbeddedResource Include="Ana Sayfa\FrmSehirIciGorevlerim.resx">
       <DependentUpon>FrmSehirIciGorevlerim.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmSektorIslemAdimlari.resx">
+      <DependentUpon>FrmSektorIslemAdimlari.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmServer.resx">
       <DependentUpon>FrmServer.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmSifremiDegistir.resx">
       <DependentUpon>FrmSifremiDegistir.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmSlayGorunum.resx">
+      <DependentUpon>FrmSlayGorunum.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmSohbet.resx">
       <DependentUpon>FrmSohbet.cs</DependentUpon>

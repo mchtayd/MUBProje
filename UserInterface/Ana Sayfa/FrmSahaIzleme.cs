@@ -1,6 +1,8 @@
 ﻿using Business;
 using DataAccess.Concreate;
 using Entity;
+using LiveCharts.Wpf;
+using LiveCharts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -11,16 +13,26 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.STS;
+using Business.Concreate.AnaSayfa;
+using Entity.AnaSayfa;
 
 namespace UserInterface.Ana_Sayfa
 {
     public partial class FrmSahaIzleme : Form
     {
         ArizaIslemAdimiManager arizaIslemAdimiManager;
+        ArizaBildirimTuruManager arizaBildirimTuruManager;
+
+        List<int> veriler = new List<int>();
+
+        public SeriesCollection SeriesCollection { get; set; }
+        public Func<double, string> Values { get; set; }
+
         public FrmSahaIzleme()
         {
             InitializeComponent();
             arizaIslemAdimiManager = ArizaIslemAdimiManager.GetInstance();
+            arizaBildirimTuruManager = ArizaBildirimTuruManager.GetInstance();
         }
 
         private void FrmSahaIzleme_Load(object sender, EventArgs e)
@@ -28,6 +40,7 @@ namespace UserInterface.Ana_Sayfa
             TimerSaat.Start();
             DataDisplay();
             timer1.Start();
+            
         }
 
         void DataDisplay()
@@ -260,6 +273,9 @@ namespace UserInterface.Ana_Sayfa
             LblGriTop.Text = (Lbl700Toplam.Text.ConInt() + Lbl750Toplam.Text.ConInt() + Lbl800Toplam.Text.ConInt() + Lbl1600Toplam.Text.ConInt()).ToString();
 
             LblTop.Text = (LblMaviTop.Text.ConInt() + LblYesilTop.Text.ConInt() + LblGriTop.Text.ConInt()).ToString();
+
+            PastaFill();
+            GrafikFill();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -285,5 +301,159 @@ namespace UserInterface.Ana_Sayfa
             //    frmIzlemeAmbar.Close();
             //}
         }
+        void GrafikFill()
+        {
+            SeriesCollection = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "TOPLAM= ",
+                    Values = new ChartValues<double> { Lbl200Toplam.Text.ConDouble(), Lbl300Toplam.Text.ConDouble(), Lbl400Toplam.Text.ConDouble(), Lbl500Toplam.Text.ConDouble(), Lbl600Toplam.Text.ConDouble(), Lbl700Toplam.Text.ConDouble(), Lbl750Toplam.Text.ConDouble(), Lbl800Toplam.Text.ConDouble(), Lbl900Toplam.Text.ConDouble(), Lbl950Toplam.Text.ConDouble(), Lbl1000Toplam.Text.ConDouble(), Lbl1100Toplam.Text.ConDouble(), Lbl1200Toplam.Text.ConDouble(), Lbl1300Toplam.Text.ConDouble(),Lbl1400AToplam.Text.ConDouble(),Lbl1400BToplam.Text.ConDouble(),Lbl1500Toplam.Text.ConDouble(),Lbl1600Toplam.Text.ConDouble(),Lbl1700Toplam.Text.ConDouble(),Lbl1800Toplam.Text.ConDouble(),Lbl1900Toplam.Text.ConDouble(),Lbl2000Toplam.Text.ConDouble(), Lbl2100Toplam.Text.ConDouble() },
+                    DataLabels = true,
+                    FontSize= 15,
+                }
+            };
+
+            Axis axisX = new Axis()
+            {
+                Separator = new Separator() { Step = 1, IsEnabled = false },
+                Labels = new List<string>()
+            };
+
+            Values = value => value.ToString("C2");
+
+            ChrtIslemAdimlari.Series.Clear();
+            ChrtIslemAdimlari.Series.Add(SeriesCollection[0]);
+
+            ChrtIslemAdimlari.AxisX.Clear();
+
+            axisX.Labels.Add("200");
+            axisX.Labels.Add("300");
+            axisX.Labels.Add("400");
+            axisX.Labels.Add("500");
+            axisX.Labels.Add("600");
+            axisX.Labels.Add("700");
+            axisX.Labels.Add("750");
+            axisX.Labels.Add("800");
+            axisX.Labels.Add("900");
+            axisX.Labels.Add("950");
+            axisX.Labels.Add("1000");
+            axisX.Labels.Add("1100");
+            axisX.Labels.Add("1200");
+            axisX.Labels.Add("1300");
+            axisX.Labels.Add("1400");
+            axisX.Labels.Add("1450");
+            axisX.Labels.Add("1500");
+            axisX.Labels.Add("1600");
+            axisX.Labels.Add("1700");
+            axisX.Labels.Add("1800");
+            axisX.Labels.Add("1900");
+            axisX.Labels.Add("2000");
+            axisX.Labels.Add("2100");
+
+            ChrtIslemAdimlari.AxisX.Add(axisX);
+
+            axisX.FontSize = 14;
+        }
+
+        void PastaFill()
+        {
+            ArizaBildirimTuru arizaBildirimTuru = arizaBildirimTuruManager.Get();
+
+            SeriesCollection seriesCollection = new SeriesCollection();
+
+            veriler.Add(arizaBildirimTuru.Sarf);
+            veriler.Add(arizaBildirimTuru.KismiCalisan);
+            veriler.Add(arizaBildirimTuru.Ekstra);
+            veriler.Add(arizaBildirimTuru.Abf);
+            veriler.Add(arizaBildirimTuru.SahaKabul);
+            veriler.Add(arizaBildirimTuru.AcmaKapat);
+            veriler.Add(arizaBildirimTuru.Diger);
+            veriler.Add(arizaBildirimTuru.Entegrasyon);
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (i == 0)
+                {
+                    if (veriler[i]!=0)
+                    {
+                        Func<ChartPoint, string> func = x => string.Format("{0}", "SRF" + " (" + x.Y.ToString() + ")");
+                        seriesCollection.Add(new PieSeries() { Title = "SARF", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
+                        chart1.Series = seriesCollection;
+                    }
+                    
+                }
+                if (i == 1)
+                {
+                    if (veriler[i] != 0)
+                    {
+                        Func<ChartPoint, string> func = x => string.Format("{0}", "KÇ" + " (" + x.Y.ToString() + ")");
+                        seriesCollection.Add(new PieSeries() { Title = "KISMİ ÇALIŞAN", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
+                        chart1.Series = seriesCollection;
+                    }
+                }
+                if (i == 2)
+                {
+                    if (veriler[i] != 0)
+                    {
+                        Func<ChartPoint, string> func = x => string.Format("{0}", "EKS" + " (" + x.Y.ToString() + ")");
+                        seriesCollection.Add(new PieSeries() { Title = "EKSTRA", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
+                        chart1.Series = seriesCollection;
+                    }
+                    
+                }
+
+                if (i == 3)
+                {
+                    if (veriler[i] != 0)
+                    {
+                        Func<ChartPoint, string> func = x => string.Format("{0}", "ABF" + " (" + x.Y.ToString() + ")");
+                        seriesCollection.Add(new PieSeries() { Title = "ABF", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
+                        chart1.Series = seriesCollection;
+                    }
+                    
+                }
+                if (i == 4)
+                {
+                    if (veriler[i] != 0)
+                    {
+                        Func<ChartPoint, string> func = x => string.Format("{0}", "SHK" + " (" + x.Y.ToString() + ")");
+                        seriesCollection.Add(new PieSeries() { Title = "SAHA KABUL", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
+                        chart1.Series = seriesCollection;
+                    }
+                    
+                }
+                if (i == 5)
+                {
+                    if (veriler[i] != 0)
+                    {
+                        Func<ChartPoint, string> func = x => string.Format("{0}", "AÇK" + " (" + x.Y.ToString() + ")");
+                        seriesCollection.Add(new PieSeries() { Title = "AÇMA KAPATMA", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
+                        chart1.Series = seriesCollection;
+                    }
+                    
+                }
+                if (i == 6)
+                {
+                    if (veriler[i] != 0)
+                    {
+                        Func<ChartPoint, string> func = x => string.Format("{0}", "DĞR" + " (" + x.Y.ToString() + ")");
+                        seriesCollection.Add(new PieSeries() { Title = "DİĞER", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
+                        chart1.Series = seriesCollection;
+                    }
+                }
+
+                if (i == 7)
+                {
+                    if (veriler[i] != 0)
+                    {
+                        Func<ChartPoint, string> func = x => string.Format("{0}", "ENT" + " (" + x.Y.ToString() + ")");
+                        seriesCollection.Add(new PieSeries() { Title = "ENTEGRASYON", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
+                        chart1.Series = seriesCollection;
+                    }
+                }
+            }
+        }
+
     }
 }

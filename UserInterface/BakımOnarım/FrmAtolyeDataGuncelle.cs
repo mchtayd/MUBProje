@@ -175,7 +175,7 @@ namespace UserInterface.BakımOnarım
                 else
                 {
                     atolyeManager.Delete(id,siparisNo);
-                    Directory.Delete(dosyaYolu, true);
+                    //Directory.Delete(dosyaYolu, true);
                 }
 
                 MessageBox.Show("Bilgiler Başarıyla Silinmiştir!","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);

@@ -1162,6 +1162,7 @@ namespace UserInterface.Ana_Sayfa
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmAtolyeVeri";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmAtolyeVeri_FormClosing);
             this.Load += new System.EventHandler(this.FrmAtolyeVeri_Load);
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemAdimi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

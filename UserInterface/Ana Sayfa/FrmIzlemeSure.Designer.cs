@@ -218,9 +218,9 @@
             this.Controls.Add(this.label10);
             this.Controls.Add(this.LblTarih);
             this.Name = "FrmIzlemeSure";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ay Bazlı Açık Arıza Grafikleri";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmIzlemeSure_FormClosing);
             this.Load += new System.EventHandler(this.FrmIzlemeSure_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

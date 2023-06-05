@@ -50,6 +50,31 @@ namespace Business.Concreate.AnaSayfa
             }
         }
 
+        public ArizaAy GetTumTamamlananlar(string yil)
+        {
+            try
+            {
+                return arizaAyDal.GetTumTamamlananlar(yil);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public ArizaAy GetTumDevamEden(string yil)
+        {
+            try
+            {
+                return arizaAyDal.GetTumDevamEden(yil);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
         public List<ArizaAy> GetList()
         {
             throw new NotImplementedException();

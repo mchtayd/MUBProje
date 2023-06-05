@@ -74,6 +74,7 @@
     <Compile Include="AtolyeRaporManager.cs" />
     <Compile Include="ComboManager.cs" />
     <Compile Include="Concreate\AnaSayfa\ArizaAyManager.cs" />
+    <Compile Include="Concreate\AnaSayfa\ArizaBildirimTuruManager.cs" />
     <Compile Include="Concreate\AnaSayfa\BildirimYetkiManager.cs" />
     <Compile Include="Concreate\AnaSayfa\DuyuruManager.cs" />
     <Compile Include="Concreate\AnaSayfa\LogManager.cs" />

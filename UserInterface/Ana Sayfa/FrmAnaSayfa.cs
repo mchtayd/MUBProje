@@ -5651,41 +5651,131 @@ namespace UserInterface.STS
         {
             if (izlemeTıklanan == "FrmSahaIzleme")
             {
-                FrmIzlemeAmbar ambar = (FrmIzlemeAmbar)Application.OpenForms["FrmIzlemeAmbar"];
-                if (ambar == null)
+
+                FrmIslemAdimlariGrafik frmIslemAdimlariGrafik = (FrmIslemAdimlariGrafik)Application.OpenForms["FrmIslemAdimlariGrafik"];
+                if (frmIslemAdimlariGrafik == null)
                 {
                     return;
                 }
-                ambar.WindowState = FormWindowState.Maximized;
-                ambar.Show();
-                FrmSahaIzleme frmSohbet = (FrmSahaIzleme)Application.OpenForms["FrmSahaIzleme"];
-                if (frmSohbet == null)
+                frmIslemAdimlariGrafik.WindowState = FormWindowState.Minimized;
+
+                FrmSahaIzleme frmSahaIzleme = (FrmSahaIzleme)Application.OpenForms["FrmSahaIzleme"];
+                if (frmSahaIzleme == null)
                 {
                     return;
                 }
-                frmSohbet.WindowState = FormWindowState.Minimized;
-                frmSohbet.Show();
-                izlemeTıklanan = "FrmIzlemeAmbar";
+                frmSahaIzleme.WindowState = FormWindowState.Maximized;
+                frmSahaIzleme.Show();
+
+                izlemeTıklanan = "FrmAltYukIzleme";
+                return;
             }
-            else
+
+            if (izlemeTıklanan == "FrmAltYukIzleme")
             {
-                FrmSahaIzleme frmSohbet = (FrmSahaIzleme)Application.OpenForms["FrmSahaIzleme"];
-                if (frmSohbet == null)
+                FrmSahaIzleme frmSahaIzleme = (FrmSahaIzleme)Application.OpenForms["FrmSahaIzleme"];
+                if (frmSahaIzleme == null)
                 {
                     return;
                 }
-                frmSohbet.WindowState = FormWindowState.Maximized;
-                frmSohbet.Show();
-                FrmIzlemeAmbar ambar = (FrmIzlemeAmbar)Application.OpenForms["FrmIzlemeAmbar"];
-                if (ambar == null)
+                frmSahaIzleme.WindowState = FormWindowState.Minimized;
+
+                FrmAltYukIzleme frmAltYukIzleme = (FrmAltYukIzleme)Application.OpenForms["FrmAltYukIzleme"];
+                if (frmSahaIzleme == null)
                 {
                     return;
                 }
-                ambar.WindowState = FormWindowState.Minimized;
-                ambar.Show();
-                izlemeTıklanan = "FrmSahaIzleme";
+                frmAltYukIzleme.WindowState = FormWindowState.Maximized;
+                frmAltYukIzleme.Show();
+
+                izlemeTıklanan = "FrmAcikArizaGrafikleri";
+                return;
             }
-            
+
+            if (izlemeTıklanan == "FrmAcikArizaGrafikleri")
+            {
+                FrmAltYukIzleme frmAltYukIzleme = (FrmAltYukIzleme)Application.OpenForms["FrmAltYukIzleme"];
+                if (frmAltYukIzleme == null)
+                {
+                    return;
+                }
+                frmAltYukIzleme.WindowState = FormWindowState.Minimized;
+
+
+                FrmAcikArizaGrafikleri frmSahaIzleme = (FrmAcikArizaGrafikleri)Application.OpenForms["FrmAcikArizaGrafikleri"];
+                if (frmSahaIzleme == null)
+                {
+                    return;
+                }
+                frmSahaIzleme.WindowState = FormWindowState.Maximized;
+                frmSahaIzleme.Show();
+
+                izlemeTıklanan = "FrmSektorIslemAdimlari";
+                return;
+            }
+
+            if (izlemeTıklanan == "FrmSektorIslemAdimlari")
+            {
+                FrmAcikArizaGrafikleri frmSahaIzleme = (FrmAcikArizaGrafikleri)Application.OpenForms["FrmAcikArizaGrafikleri"];
+                if (frmSahaIzleme == null)
+                {
+                    return;
+                }
+                frmSahaIzleme.WindowState = FormWindowState.Minimized;
+
+                FrmSektorIslemAdimlari frmsektor = (FrmSektorIslemAdimlari)Application.OpenForms["FrmSektorIslemAdimlari"];
+                if (frmsektor == null)
+                {
+                    return;
+                }
+                frmsektor.WindowState = FormWindowState.Maximized;
+                frmsektor.Show();
+
+                izlemeTıklanan = "FrmIzlemeSure";
+                return;
+            }
+
+            if (izlemeTıklanan == "FrmIzlemeSure")
+            {
+                FrmSektorIslemAdimlari frmsektor = (FrmSektorIslemAdimlari)Application.OpenForms["FrmSektorIslemAdimlari"];
+                if (frmsektor == null)
+                {
+                    return;
+                }
+                frmsektor.WindowState = FormWindowState.Minimized;
+
+                FrmIzlemeSure frmSahaIzleme = (FrmIzlemeSure)Application.OpenForms["FrmIzlemeSure"];
+                if (frmSahaIzleme == null)
+                {
+                    return;
+                }
+                frmSahaIzleme.WindowState = FormWindowState.Maximized;
+                frmSahaIzleme.Show();
+
+                izlemeTıklanan = "FrmIslemAdimlariGrafik";
+                return;
+            }
+
+            if (izlemeTıklanan == "FrmIslemAdimlariGrafik")
+            {
+                FrmIzlemeSure frmSahaIzleme = (FrmIzlemeSure)Application.OpenForms["FrmIzlemeSure"];
+                if (frmSahaIzleme == null)
+                {
+                    return;
+                }
+                frmSahaIzleme.WindowState = FormWindowState.Minimized;
+
+                FrmIslemAdimlariGrafik frmIslemAdimlariGrafik = (FrmIslemAdimlariGrafik)Application.OpenForms["FrmIslemAdimlariGrafik"];
+                if (frmIslemAdimlariGrafik == null)
+                {
+                    return;
+                }
+                frmIslemAdimlariGrafik.WindowState = FormWindowState.Maximized;
+                frmIslemAdimlariGrafik.Show();
+
+                izlemeTıklanan = "FrmSahaIzleme";
+                return;
+            }
         }
 
         private void görevliPersonellerToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5780,7 +5870,43 @@ namespace UserInterface.STS
 
         private void bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            FrmSektorIslemAdimlari frmSektorIslemAdimlari = new FrmSektorIslemAdimlari();
+            frmSektorIslemAdimlari.Show();
+        }
 
+        private void slaytGörünümToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmIslemAdimlariGrafik frmIslemAdimlariGrafik = new FrmIslemAdimlariGrafik();
+            frmIslemAdimlariGrafik.Show();
+        }
+
+        private void slaytGörünümToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+
+            FrmIslemAdimlariGrafik frmIslemAdimlariGrafik = new FrmIslemAdimlariGrafik();
+            frmIslemAdimlariGrafik.Show();
+
+            FrmIzlemeSure frmIzlemeSure = new FrmIzlemeSure();
+            frmIzlemeSure.Show();
+
+            FrmSektorIslemAdimlari frmSektorIslemAdimlari = new FrmSektorIslemAdimlari();
+            frmSektorIslemAdimlari.Show();
+
+            FrmAcikArizaGrafikleri frmAcikArizaGrafikleri = new FrmAcikArizaGrafikleri();
+            frmAcikArizaGrafikleri.Show();
+
+            FrmAltYukIzleme frmAltYukIzleme = new FrmAltYukIzleme();
+            frmAltYukIzleme.Show();
+
+            FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
+            frmSahaIzleme.Show();
+
+            timerIzlemeChc.Start();
+
+            izlemeTıklanan = "FrmSahaIzleme";
+
+            //FrmSlayGorunum frmSlayGorunum = new FrmSlayGorunum();
+            //frmSlayGorunum.Show();
         }
 
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)

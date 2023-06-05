@@ -1,6 +1,8 @@
 ﻿using Business;
 using DataAccess.Concreate;
 using Entity;
+using LiveCharts.Wpf;
+using LiveCharts;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -17,6 +19,11 @@ namespace UserInterface.Ana_Sayfa
     public partial class FrmAltYukIzleme : Form
     {
         ArizaIslemAdimiManager arizaIslemAdimiManager;
+        List<int> veriler = new List<int>();
+
+        public SeriesCollection SeriesCollection { get; set; }
+        public Func<double, string> Values { get; set; }
+
         public FrmAltYukIzleme()
         {
             InitializeComponent();
@@ -28,6 +35,7 @@ namespace UserInterface.Ana_Sayfa
             TimerSaat.Start();
             DataDisplay();
             timer1.Start();
+            
         }
 
         private void TimerSaat_Tick(object sender, EventArgs e)
@@ -180,6 +188,10 @@ namespace UserInterface.Ana_Sayfa
             LblGenelToplam.Text = (LblServisPToplam.Text.ConInt() + LblAselsanToplam.Text.ConInt() + LblTekjenToplam.Text.ConInt() + LblTescomToplam.Text.ConInt() + LblIsbirToplam.Text.ConInt() + LblVanTechToplam.Text.ConInt() + LblSarkUpsToplam.Text.ConInt() + LblMakelsanToplam.Text.ConInt() + LblKelesToplam.Text.ConInt() + LblDorceToplam.Text.ConInt() + LblInformToplam.Text.ConInt() + Lbl700Toplam.Text.ConInt() + Lbl750Toplam.Text.ConInt() + Lbl800Toplam.Text.ConInt()).ToString();
 
             LblTop.Text = LblGenelToplam.Text;
+
+            LblUcTop.Text = (Lbl700Toplam.Text.ConInt() + Lbl750Toplam.Text.ConInt() + Lbl800Toplam.Text.ConInt()).ToString();
+
+            GrafikFill();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -194,5 +206,83 @@ namespace UserInterface.Ana_Sayfa
             FrmAnaSayfa anaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnaSayfa"];
             anaSayfa.timerIzlemeChc.Stop();
         }
+
+        void GrafikFill()
+        {
+            SeriesCollection = new SeriesCollection
+            {
+                new ColumnSeries
+                {
+                    Title = "TOPLAM= ",
+                    Values = new ChartValues<double> { Lbl700Toplam.Text.ConDouble(), Lbl750Toplam.Text.ConDouble(), Lbl800Toplam.Text.ConDouble(), LblServisPToplam.Text.ConDouble(), LblAselsanToplam.Text.ConDouble(), LblTekjenToplam.Text.ConDouble(), LblTescomToplam.Text.ConDouble(), LblIsbirToplam.Text.ConDouble(), LblVanTechToplam.Text.ConDouble(), LblSarkUpsToplam.Text.ConDouble(), LblMakelsanToplam.Text.ConDouble(), LblKelesToplam.Text.ConDouble(), LblDorceToplam.Text.ConDouble(), LblInformToplam.Text.ConDouble() },
+                    DataLabels = true,
+                    FontSize= 15,
+                }
+            };
+
+            Axis axisX = new Axis()
+            {
+                Separator = new Separator() { Step = 1, IsEnabled = false },
+                Labels = new List<string>()
+            };
+
+            Values = value => value.ToString("C2");
+
+            ChrtIslemAdimlari.Series.Clear();
+            ChrtIslemAdimlari.Series.Add(SeriesCollection[0]);
+
+            axisX.Labels.Add("700");
+            axisX.Labels.Add("750");
+            axisX.Labels.Add("800");
+            axisX.Labels.Add("SERVİS\nTALEBİ");
+            axisX.Labels.Add("ASELSANNET");
+            axisX.Labels.Add("TEKJEN");
+            axisX.Labels.Add("TESCOM");
+            axisX.Labels.Add("İŞBİR");
+            axisX.Labels.Add("VAN TECH");
+            axisX.Labels.Add("ŞARK UPS");
+            axisX.Labels.Add("MAKELSAN");
+            axisX.Labels.Add("KELEŞ İNŞ");
+            axisX.Labels.Add("DORCE");
+            axisX.Labels.Add("İNFORM");
+
+            ChrtIslemAdimlari.AxisX.Clear();
+            ChrtIslemAdimlari.AxisX.Add(axisX);
+
+            axisX.FontSize = 14;
+
+
+            SeriesCollection seriesCollection = new SeriesCollection();
+
+            veriler.Add(Lbl700Toplam.Text.ConInt());
+            veriler.Add(Lbl750Toplam.Text.ConInt());
+            veriler.Add(Lbl800Toplam.Text.ConInt());
+
+            for (int i = 0; i < 3; i++)
+            {
+                if (i == 0)
+                {
+                    Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "OKF HAZIRLAMA", x.Participation);
+                    seriesCollection.Add(new PieSeries() { Title = "700_OKF HAZIRLAMA", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 12 });
+                    chart1.Series = seriesCollection;
+                }
+
+                if (i == 1)
+                {
+                    Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "OKF HAZIRLAMA(ASL)", x.Participation);
+                    seriesCollection.Add(new PieSeries() { Title = "750_OKF HAZIRLAMA (ASELSAN)", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 12 });
+                    chart1.Series = seriesCollection;
+                }
+
+                if (i == 2)
+                {
+                    Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "MÜŞTERİ ONAYI", x.Participation);
+                    seriesCollection.Add(new PieSeries() { Title = "800_MÜŞTERİ ONAYI", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 12 });
+                    chart1.Series = seriesCollection;
+                }
+            }
+
+        }
+
     }
 }

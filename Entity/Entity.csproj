@@ -73,6 +73,7 @@
   <ItemGroup>
     <Compile Include="AmbarVeri.cs" />
     <Compile Include="AnaSayfa\ArizaAy.cs" />
+    <Compile Include="AnaSayfa\ArizaBildirimTuru.cs" />
     <Compile Include="AnaSayfa\BildirimYetki.cs" />
     <Compile Include="AnaSayfa\Duyuru.cs" />
     <Compile Include="AnaSayfa\Log.cs" />

@@ -20,9 +20,15 @@ namespace UserInterface.Ana_Sayfa
         List<string> iller = new List<string>();
         List<string> ilce = new List<string>();
 
-
         int ocakToplam, subatToplam, martToplam, nisanToplam, mayisToplam, haziranToplam, temmuzToplam, agustosToplam, eylulToplam, ekimToplam, kasimToplam, araliikToplam, genelToplam;
         int sirnakOcak, sirnakSubat, sirnakMart, sirnakNisan, sirnakMayis, sirnakHaziran, sirnakTemmuz, sirnakAgustos, sirnakEylul, sirnakEkim, sirnakKasim, sirnakAralik, sirnakToplam;
+
+        private void FrmIzlemeSure_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TimerSaat.Stop();
+            timer1.Stop();
+        }
+
         int dBolgesikOcak, dBolgesiSubat, dBolgesiMart, dBolgesiNisan, dBolgesiMayis, dBolgesiHaziran, dBolgesiTemmuz, dBolgesiAgustos, dBolgesiEylul, dBolgesiEkim, dBolgesiKasim, dBolgesiAralik, dBolgesiToplam;
         int cukurcaOcak, cukurcaSubat, cukurcaMart, cukurcaNisan, cukurcaMayis, cukurcaHaziran, cukurcaTemmuz, cukurcaAgustos, cukurcaEylul, cukurcaEkim, cukurcaKasim, cukurcaAralik, cukurcaToplam;
         int derecikOcak, derecikSubat, derecikMart, derecikNisan, derecikMayis, derecikHaziran, derecikTemmuz, derecikAgustos, derecikEylul, derecikEkim, derecikKasim, derecikAralik, derecikToplam;
@@ -40,6 +46,7 @@ namespace UserInterface.Ana_Sayfa
         {
             TimerSaat.Start();
             DataDisplay();
+            timer1.Start();
         }
 
         
@@ -51,11 +58,22 @@ namespace UserInterface.Ana_Sayfa
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            //DataDisplay();
+            DataDisplay();
         }
         void DataDisplay()
         {
+            iller.Clear();
+            ilce.Clear();
             iller = arizaAyManager.GetListArizaIlList();
+
+            ocakToplam= subatToplam= martToplam= nisanToplam= mayisToplam= haziranToplam= temmuzToplam= agustosToplam= eylulToplam= ekimToplam= kasimToplam= araliikToplam= genelToplam = 0;
+            sirnakOcak= sirnakSubat= sirnakMart= sirnakNisan= sirnakMayis= sirnakHaziran= sirnakTemmuz= sirnakAgustos= sirnakEylul= sirnakEkim= sirnakKasim= sirnakAralik= sirnakToplam = 0;
+
+            dBolgesikOcak = dBolgesiSubat = dBolgesiMart = dBolgesiNisan = dBolgesiMayis = dBolgesiHaziran = dBolgesiTemmuz = dBolgesiAgustos = dBolgesiEylul = dBolgesiEkim = dBolgesiKasim = dBolgesiAralik = dBolgesiToplam = 0;
+            cukurcaOcak = cukurcaSubat = cukurcaMart = cukurcaNisan = cukurcaMayis = cukurcaHaziran = cukurcaTemmuz = cukurcaAgustos = cukurcaEylul = cukurcaEkim = cukurcaKasim = cukurcaAralik = cukurcaToplam = 0;
+            derecikOcak = derecikSubat = derecikMart = derecikNisan = derecikMayis = derecikHaziran = derecikTemmuz = derecikAgustos = derecikEylul = derecikEkim = derecikKasim = derecikAralik = derecikToplam = 0;
+            semdinliOcak = semdinliSubat = semdinliMart = semdinliNisan = semdinliMayis = semdinliHaziran = semdinliTemmuz = semdinliAgustos = semdinliEylul = semdinliEkim = semdinliKasim = semdinliAralik = semdinliToplam = 0;
+            yuksekovaOcak = yuksekovaSubat = yuksekovaMart = yuksekovaNisan = yuksekovaMayis = yuksekovaHaziran = yuksekovaTemmuz = yuksekovaAgustos = yuksekovaEylul = yuksekovaEkim = yuksekovaKasim = yuksekovaAralik = yuksekovaToplam = 0;
 
             foreach (string item in iller)
             {
@@ -253,12 +271,16 @@ namespace UserInterface.Ana_Sayfa
                 FontSize = 30,
             };
 
+            cartesianChart1.AxisY.Clear();
             cartesianChart1.AxisY.Add(new Axis
             {
                 FontSize = 25,
             });
 
             Labels = new[] { "OCAK\n" + "( " + ocakToplam.ToString() + " )", "ŞUBAT\n" + "( " + subatToplam.ToString() + " )", "MART\n" + "( " + martToplam.ToString() + " )", "NİSAN\n" + "( " + nisanToplam.ToString() + " )", "MAYIS\n" + "( " + mayisToplam.ToString() + " )", "HAZİRAN\n" + "( " + haziranToplam.ToString() + " )", "TEMMUZ\n" + "( " + temmuzToplam.ToString() + " )", "AĞUSTOS\n" + "( " + agustosToplam.ToString() + " )", "EYLÜL\n" + "( " + eylulToplam.ToString() + " )", "EKİM\n" + "( " + ekimToplam.ToString() + " )", "KASIM\n" + "( " + kasimToplam.ToString() + " )", "ARALIK\n" + "( " + araliikToplam.ToString() + " )" };
+
+            cartesianChart1.Series.Clear();
+            cartesianChart1.AxisX.Clear();
 
             for (int i = 0; i < SeriesCollection.Count; i++)
             {
@@ -271,7 +293,6 @@ namespace UserInterface.Ana_Sayfa
             }
 
             cartesianChart1.AxisX.Add(axisX);
-        
     }
 
         public SeriesCollection SeriesCollection { get; set; }

@@ -72,6 +72,71 @@ namespace DataAccess.Concreate.AnaSayfa
             }
         }
 
+        public ArizaAy GetTumTamamlananlar(string yil)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("ArizaAyGrafikleriTumTamamlananlar", new SqlParameter("@yil", yil));
+                ArizaAy arizaAy = null;
+                while (dataReader.Read())
+                {
+                    arizaAy = new ArizaAy(
+                        dataReader["OCAK"].ConInt(),
+                        dataReader["ŞUBAT"].ConInt(),
+                        dataReader["MART"].ConInt(),
+                        dataReader["NİSAN"].ConInt(),
+                        dataReader["MAYIS"].ConInt(),
+                        dataReader["HAZİRAN"].ConInt(),
+                        dataReader["TEMMUZ"].ConInt(),
+                        dataReader["AĞUSTOS"].ConInt(),
+                        dataReader["EYLÜL"].ConInt(),
+                        dataReader["EKİM"].ConInt(),
+                        dataReader["KASIM"].ConInt(),
+                        dataReader["ARALIK"].ConInt(),
+                        dataReader["GENEL_TOPLAM"].ConInt());
+                }
+                dataReader.Close();
+                return arizaAy;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+        public ArizaAy GetTumDevamEden(string yil)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("ArizaAyGrafikleriTumDevamEdenler", new SqlParameter("@yil", yil));
+                ArizaAy arizaAy = null;
+                while (dataReader.Read())
+                {
+                    arizaAy = new ArizaAy(
+                        dataReader["OCAK"].ConInt(),
+                        dataReader["ŞUBAT"].ConInt(),
+                        dataReader["MART"].ConInt(),
+                        dataReader["NİSAN"].ConInt(),
+                        dataReader["MAYIS"].ConInt(),
+                        dataReader["HAZİRAN"].ConInt(),
+                        dataReader["TEMMUZ"].ConInt(),
+                        dataReader["AĞUSTOS"].ConInt(),
+                        dataReader["EYLÜL"].ConInt(),
+                        dataReader["EKİM"].ConInt(),
+                        dataReader["KASIM"].ConInt(),
+                        dataReader["ARALIK"].ConInt(),
+                        dataReader["GENEL_TOPLAM"].ConInt());
+                }
+                dataReader.Close();
+                return arizaAy;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
+
         public List<ArizaAy> GetList()
         {
             throw new NotImplementedException();

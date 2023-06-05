@@ -30,6 +30,18 @@ namespace UserInterface.Ana_Sayfa
 
         int sirnakArizaToplam, cukurcaToplam, yukseovaToplam, semdinliToplam, derecikToplam, merkez, dBolgesiToplam = 0;
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            GrafikSektor();
+            DataDisplay();
+        }
+
+        private void FrmAcikArizaGrafikleri_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            TimerSaat.Stop();
+            timer1.Stop();
+        }
+
         int i200, i300, i400, i500, i600, i700, i750, i800, i900, i950, i1000, i1100, i1200, i1300, i1400, i1450, i1500, i1600, i1700, i1800, i1900, i2000, i2100, mavi, yesil, gri = 0;
 
         public FrmAcikArizaGrafikleri()
@@ -44,6 +56,7 @@ namespace UserInterface.Ana_Sayfa
             TimerSaat.Start();
             GrafikSektor();
             DataDisplay();
+            timer1.Start();
 
         }
         private void TimerSaat_Tick(object sender, EventArgs e)
@@ -54,6 +67,8 @@ namespace UserInterface.Ana_Sayfa
 
         void GrafikSektor()
         {
+            sirnakArizaToplam = cukurcaToplam = yukseovaToplam = semdinliToplam = derecikToplam = merkez = dBolgesiToplam = 0;
+
             ıslemAdimlaris = islemAdimlariManager.GetList("BAKIM ONARIM");
             foreach (IslemAdimlari item in ıslemAdimlaris)
             {
@@ -82,7 +97,7 @@ namespace UserInterface.Ana_Sayfa
             {
                 if (i == 0)
                 {
-                    Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "ŞIRNAK" + " (" + x.Y.ToString() + ")", x.Participation);
+                    Func<ChartPoint, string> func = x => string.Format("{0}\n{1:P}", "ŞIRNAK" + " (" + x.Y.ToString() + ")", x.Participation );
                     seriesCollection.Add(new PieSeries() { Title = "ŞIRNAK", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 20 });
                     chart1.Series = seriesCollection;
                 }
@@ -119,10 +134,13 @@ namespace UserInterface.Ana_Sayfa
                     chart1.Series = seriesCollection;
                 }
             }
+
         }
 
         void DataDisplay()
         {
+            i200 = i300 = i400 = i500 = i600 = i700 = i750 = i800 = i900 = i950 = i1000 = i1100 = i1200 = i1300 = i1400 = i1450 = i1500 = i1600 = i1700 = i1800 = i1900 = i2000 = i2100 = mavi = yesil = gri = 0;
+
             ArizaIslemAdimi arizaIslemAdimi200 = arizaIslemAdimiManager.Get("200_ARIZA TESPİTİ (FI/FD) (SAHA)");
             i200 = arizaIslemAdimi200.Toplam;
 

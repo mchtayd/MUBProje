@@ -227,5 +227,10 @@ namespace UserInterface.Ana_Sayfa
             KategoriGetir();
             AtolyeIslemAdimlari();
         }
+
+        private void FrmAtolyeVeri_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            timer1.Stop();
+        }
     }
 }
