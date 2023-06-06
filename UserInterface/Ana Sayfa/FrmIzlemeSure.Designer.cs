@@ -137,7 +137,7 @@
             // 
             // LblSaat
             // 
-            this.LblSaat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblSaat.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblSaat.AutoSize = true;
             this.LblSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblSaat.Location = new System.Drawing.Point(1773, 960);
@@ -159,7 +159,7 @@
             // 
             // LblTarih
             // 
-            this.LblTarih.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblTarih.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblTarih.AutoSize = true;
             this.LblTarih.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblTarih.Location = new System.Drawing.Point(1465, 960);
@@ -247,7 +247,7 @@
         private System.Windows.Forms.Label LblTarih;
         private System.Windows.Forms.Label label30;
         private LiveCharts.WinForms.CartesianChart cartesianChart1;
-        private System.Windows.Forms.Timer TimerSaat;
-        private System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer TimerSaat;
+        public System.Windows.Forms.Timer timer1;
     }
 }

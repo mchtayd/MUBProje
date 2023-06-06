@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
 
 namespace UserInterface.Ana_Sayfa
@@ -25,12 +26,7 @@ namespace UserInterface.Ana_Sayfa
 
         private void BtnStart_Click(object sender, EventArgs e)
         {
-            if (Control()!="OK")
-            {
-                MessageBox.Show(Control(), "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
+            MessageBox.Show("20 sn içerisinde slayt başlayacaktır.Lütfen bekleyiniz.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             timer1.Start();
 
         }
@@ -75,12 +71,86 @@ namespace UserInterface.Ana_Sayfa
         {
             timer1.Stop();
         }
-
+        int step = 0;
         private void timer1_Tick(object sender, EventArgs e)
         {
-            PnlSlayt.Visible = true;
-            
-            
+            tabPanel.Visible = true;
+
+            FrmIslemAdimlariGrafik frmIslemAdimlariGrafik = new FrmIslemAdimlariGrafik();
+            FrmIzlemeSure frmIzlemeSure = new FrmIzlemeSure();
+            FrmSektorIslemAdimlari frmSektorIslemAdimlari = new FrmSektorIslemAdimlari();
+            FrmAcikArizaGrafikleri frmAcikArizaGrafikleri = new FrmAcikArizaGrafikleri();
+            FrmAltYukIzleme frmAltYukIzleme = new FrmAltYukIzleme();
+            FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
+
+            if (step == 5)
+            {
+                frmIzlemeSure.timer1.Stop();
+                frmIzlemeSure.TimerSaat.Stop();
+                frmIzlemeSure.Close();
+                step++;
+                OpenPage(frmIslemAdimlariGrafik);
+            }
+
+            if (step == 4)
+            {
+                frmSektorIslemAdimlari.timer1.Stop();
+                frmSektorIslemAdimlari.Close();
+                step++;
+                OpenPage(frmIzlemeSure);
+
+            }
+
+            if (step == 3)
+            {
+                frmAcikArizaGrafikleri.timer1.Stop();
+                frmAcikArizaGrafikleri.TimerSaat.Stop();
+                frmAcikArizaGrafikleri.Close();
+                step++;
+                OpenPage(frmSektorIslemAdimlari);
+            }
+
+            if (step == 2)
+            {
+                frmAltYukIzleme.timer1.Stop();
+                frmAltYukIzleme.TimerSaat.Stop();
+                frmAltYukIzleme.Close();
+                step++;
+                OpenPage(frmAcikArizaGrafikleri);
+            }
+
+            if (step == 1)
+            {
+                frmSahaIzleme.timer1.Stop();
+                frmSahaIzleme.TimerSaat.Stop();
+                frmSahaIzleme.Close();
+                step++;
+                OpenPage(frmAltYukIzleme);
+            }
+
+            if (step == 0 || step == 6)
+            {
+                if (step==6)
+                {
+                    frmIslemAdimlariGrafik.timer1.Stop();
+                    frmIslemAdimlariGrafik.TimerSaat.Stop();
+                    frmIslemAdimlariGrafik.Close();
+                }
+                step = 1;
+                OpenPage(frmSahaIzleme);
+            }
+
+        }
+
+        void OpenPage(Form form)
+        {
+            tabPanel.Controls.Clear();
+            form.TopLevel = false;
+            tabPanel.Controls.Add(form);
+            form.Show();
+            form.Dock = DockStyle.Fill;
+            form.BringToFront();
+            form.FormBorderStyle = FormBorderStyle.None;
         }
 
         private void ChkAmbar_CheckedChanged(object sender, EventArgs e)

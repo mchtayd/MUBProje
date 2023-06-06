@@ -643,11 +643,11 @@
             this.label16.BackColor = System.Drawing.Color.Aqua;
             this.label16.Font = new System.Drawing.Font("Bahnschrift", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label16.ForeColor = System.Drawing.Color.Maroon;
-            this.label16.Location = new System.Drawing.Point(102, 215);
+            this.label16.Location = new System.Drawing.Point(116, 215);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(249, 19);
+            this.label16.Size = new System.Drawing.Size(235, 19);
             this.label16.TabIndex = 197;
-            this.label16.Text = "600_BİLDİRİM ONAYI (MÜHENDİS):";
+            this.label16.Text = "600_BİLDİRİM ONAYI (YÖNETİCİ):";
             // 
             // label17
             // 
@@ -5361,8 +5361,6 @@
         private System.Windows.Forms.Label LblYesilTop;
         private System.Windows.Forms.Label LblGriTop;
         private System.Windows.Forms.Label LblTop;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer TimerSaat;
         private System.Windows.Forms.Label Lbl1600DBolgesi;
         private System.Windows.Forms.Label Lbl2000DBolgesi;
         private System.Windows.Forms.Label Lbl600DBolgesi;
@@ -5455,5 +5453,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Panel panel2;
         private LiveCharts.WinForms.PieChart chart1;
+        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer TimerSaat;
     }
 }

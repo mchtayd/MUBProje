@@ -33,6 +33,7 @@ namespace UserInterface.STS
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAnaSayfa));
             this.LblTarih = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
             this.BtnBildirim = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
@@ -177,6 +178,7 @@ namespace UserInterface.STS
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.CadetBlue;
+            this.panel4.Controls.Add(this.button2);
             this.panel4.Controls.Add(this.BtnBildirim);
             this.panel4.Controls.Add(this.panel3);
             this.panel4.Controls.Add(this.panel2);
@@ -190,6 +192,18 @@ namespace UserInterface.STS
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(1222, 29);
             this.panel4.TabIndex = 6;
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.Azure;
+            this.button2.Location = new System.Drawing.Point(146, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 102;
+            this.button2.Text = "Islem Adimi";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click_1);
             // 
             // BtnBildirim
             // 
@@ -1375,5 +1389,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.ToolStripMenuItem bölgeBazlıİşlemAdımıGrafiğiToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem slaytGörünümToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem slaytGörünümToolStripMenuItem2;
+        private System.Windows.Forms.Button button2;
     }
 }

@@ -153,7 +153,7 @@ namespace UserInterface.Ana_Sayfa
             ArizaIslemAdimi arizaIslemAdimi500 = arizaIslemAdimiManager.Get("500_ARIZA BİLDİRİMİ (ASELSAN)");
             i500 = arizaIslemAdimi500.Toplam;
 
-            ArizaIslemAdimi arizaIslemAdimi600 = arizaIslemAdimiManager.Get("600_BİLDİRİM ONAYI (MÜHENDİS)");
+            ArizaIslemAdimi arizaIslemAdimi600 = arizaIslemAdimiManager.Get("600_BİLDİRİM ONAYI (YÖNETİCİ)");
             i600 = arizaIslemAdimi600.Toplam;
 
             ArizaIslemAdimi arizaIslemAdimi700 = arizaIslemAdimiManager.Get("700_OKF HAZIRLAMA");

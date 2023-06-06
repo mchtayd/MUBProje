@@ -203,8 +203,6 @@ namespace UserInterface.Ana_Sayfa
         {
             timer1.Stop();
             TimerSaat.Stop();
-            FrmAnaSayfa anaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnaSayfa"];
-            anaSayfa.timerIzlemeChc.Stop();
         }
 
         void GrafikFill()

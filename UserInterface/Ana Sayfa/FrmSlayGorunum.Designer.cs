@@ -40,7 +40,7 @@
             this.ChkAcikArizaSure = new System.Windows.Forms.CheckBox();
             this.BtnStart = new System.Windows.Forms.Button();
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.PnlSlayt = new System.Windows.Forms.Panel();
+            this.tabPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
             // ChkAmbar
@@ -53,6 +53,7 @@
             this.ChkAmbar.TabIndex = 1;
             this.ChkAmbar.Text = "Ambar Veri İzleme";
             this.ChkAmbar.UseVisualStyleBackColor = true;
+            this.ChkAmbar.Visible = false;
             this.ChkAmbar.CheckedChanged += new System.EventHandler(this.ChkAmbar_CheckedChanged);
             // 
             // ChkAtolye
@@ -65,6 +66,7 @@
             this.ChkAtolye.TabIndex = 2;
             this.ChkAtolye.Text = "Atölye Veri İzleme";
             this.ChkAtolye.UseVisualStyleBackColor = true;
+            this.ChkAtolye.Visible = false;
             // 
             // ChkAcikAriza
             // 
@@ -76,6 +78,7 @@
             this.ChkAcikAriza.TabIndex = 3;
             this.ChkAcikAriza.Text = "Açık Arıza İşlem Adımları";
             this.ChkAcikAriza.UseVisualStyleBackColor = true;
+            this.ChkAcikAriza.Visible = false;
             // 
             // ChkAltYuk
             // 
@@ -87,6 +90,7 @@
             this.ChkAltYuk.TabIndex = 4;
             this.ChkAltYuk.Text = "Alt.Yük.Kont.Kord.";
             this.ChkAltYuk.UseVisualStyleBackColor = true;
+            this.ChkAltYuk.Visible = false;
             // 
             // ChkBolumBazliAcik
             // 
@@ -98,6 +102,7 @@
             this.ChkBolumBazliAcik.TabIndex = 5;
             this.ChkBolumBazliAcik.Text = "Bölüm Bazlı Açık Arıza Grafikleri";
             this.ChkBolumBazliAcik.UseVisualStyleBackColor = true;
+            this.ChkBolumBazliAcik.Visible = false;
             // 
             // ChkBolgeBazli
             // 
@@ -109,6 +114,7 @@
             this.ChkBolgeBazli.TabIndex = 6;
             this.ChkBolgeBazli.Text = "Bölge Bazlı İşlem Adımı Grafiği";
             this.ChkBolgeBazli.UseVisualStyleBackColor = true;
+            this.ChkBolgeBazli.Visible = false;
             // 
             // ChkArizaSure
             // 
@@ -120,6 +126,7 @@
             this.ChkArizaSure.TabIndex = 7;
             this.ChkArizaSure.Text = "Arıza Süreleri Grafiği";
             this.ChkArizaSure.UseVisualStyleBackColor = true;
+            this.ChkArizaSure.Visible = false;
             // 
             // ChkAcikArizaSure
             // 
@@ -131,6 +138,7 @@
             this.ChkAcikArizaSure.TabIndex = 8;
             this.ChkAcikArizaSure.Text = "Açık Arıza Süreleri Grafiği";
             this.ChkAcikArizaSure.UseVisualStyleBackColor = true;
+            this.ChkAcikArizaSure.Visible = false;
             // 
             // BtnStart
             // 
@@ -139,7 +147,7 @@
             this.BtnStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnStart.Image = ((System.Drawing.Image)(resources.GetObject("BtnStart.Image")));
             this.BtnStart.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnStart.Location = new System.Drawing.Point(26, 322);
+            this.BtnStart.Location = new System.Drawing.Point(12, 12);
             this.BtnStart.Name = "BtnStart";
             this.BtnStart.Size = new System.Drawing.Size(130, 66);
             this.BtnStart.TabIndex = 320;
@@ -153,20 +161,21 @@
             this.timer1.Interval = 20000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
-            // PnlSlayt
+            // tabPanel
             // 
-            this.PnlSlayt.Location = new System.Drawing.Point(842, 279);
-            this.PnlSlayt.Name = "PnlSlayt";
-            this.PnlSlayt.Size = new System.Drawing.Size(200, 100);
-            this.PnlSlayt.TabIndex = 321;
-            this.PnlSlayt.Visible = false;
+            this.tabPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabPanel.Location = new System.Drawing.Point(0, 0);
+            this.tabPanel.Name = "tabPanel";
+            this.tabPanel.Size = new System.Drawing.Size(1924, 996);
+            this.tabPanel.TabIndex = 321;
+            this.tabPanel.Visible = false;
             // 
             // FrmSlayGorunum
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1924, 996);
-            this.Controls.Add(this.PnlSlayt);
+            this.Controls.Add(this.tabPanel);
             this.Controls.Add(this.BtnStart);
             this.Controls.Add(this.ChkAcikArizaSure);
             this.Controls.Add(this.ChkArizaSure);
@@ -198,6 +207,6 @@
         private System.Windows.Forms.CheckBox ChkAcikArizaSure;
         private System.Windows.Forms.Button BtnStart;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Panel PnlSlayt;
+        private System.Windows.Forms.Panel tabPanel;
     }
 }

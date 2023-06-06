@@ -3336,7 +3336,6 @@
         private System.Windows.Forms.Label LblToplamDBolgesi;
         private System.Windows.Forms.Label LblAselsanDBolgesi;
         private System.Windows.Forms.Label LblLblServisPDBolgesi;
-        private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.RichTextBox richTextBox8;
         private System.Windows.Forms.RichTextBox richTextBox17;
         private System.Windows.Forms.RichTextBox richTextBox18;
@@ -3348,7 +3347,6 @@
         private System.Windows.Forms.RichTextBox richTextBox153;
         private System.Windows.Forms.RichTextBox richTextBox154;
         private System.Windows.Forms.Label label56;
-        private System.Windows.Forms.Timer TimerSaat;
         private System.Windows.Forms.Label LblTop;
         private System.Windows.Forms.Label LblIsbirDerecik;
         private System.Windows.Forms.Label LblIsbirSemdinli;
@@ -3580,5 +3578,7 @@
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.PictureBox pictureBox8;
         private LiveCharts.WinForms.PieChart chart1;
+        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer TimerSaat;
     }
 }

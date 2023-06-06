@@ -151,6 +151,17 @@ namespace Business.Concreate.BakimOnarim
                 return new List<ArizaKayit>();
             }
         }
+        public List<ArizaKayit> GetListTumu()
+        {
+            try
+            {
+                return arizaKayitDal.GetListTumu();
+            }
+            catch (Exception)
+            {
+                return new List<ArizaKayit>();
+            }
+        }
 
         public List<ArizaKayit> BildirimOnayiList()
         {
@@ -255,6 +266,18 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return arizaKayitDal.ArizaDurumUpdate(id, durum);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string ArizaIslemAdimiUpdate(int id, string islemAdimi)
+        {
+            try
+            {
+                return arizaKayitDal.ArizaIslemAdimiUpdate(id, islemAdimi);
             }
             catch (Exception ex)
             {

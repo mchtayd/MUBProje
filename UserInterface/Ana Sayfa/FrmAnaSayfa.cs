@@ -39,6 +39,10 @@ using UserInterface.Yerleskeler;
 using System.Diagnostics;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using Size = System.Drawing.Size;
+using Entity.BakimOnarim;
+using Business.Concreate.BakimOnarim;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using Color = System.Drawing.Color;
 
 namespace UserInterface.STS
 {
@@ -54,6 +58,8 @@ namespace UserInterface.STS
         LogManager logManager;
         SohbetManager sohbetManager;
         PersonelKayitManager personelKayitManager;
+        ArizaKayitManager arizaKayitManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
 
         FrmWait frmWait = new FrmWait();
         List<MenuBaslik> menuBasliks;
@@ -87,6 +93,8 @@ namespace UserInterface.STS
             sohbetManager = SohbetManager.GetInstance();
             personelKayitManager = PersonelKayitManager.GetInstance();
             SystemEvents.PowerModeChanged += PowerModeChanged;
+            arizaKayitManager = ArizaKayitManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
         
         private void PowerModeChanged(object sender, PowerModeChangedEventArgs e)
@@ -5883,30 +5891,73 @@ namespace UserInterface.STS
         private void slaytGörünümToolStripMenuItem2_Click(object sender, EventArgs e)
         {
 
-            FrmIslemAdimlariGrafik frmIslemAdimlariGrafik = new FrmIslemAdimlariGrafik();
-            frmIslemAdimlariGrafik.Show();
+            FrmSlayGorunum frmSlayGorunum = new FrmSlayGorunum();
+            frmSlayGorunum.Show();
 
-            FrmIzlemeSure frmIzlemeSure = new FrmIzlemeSure();
-            frmIzlemeSure.Show();
+            //FrmIslemAdimlariGrafik frmIslemAdimlariGrafik = new FrmIslemAdimlariGrafik();
+            //frmIslemAdimlariGrafik.Show();
 
-            FrmSektorIslemAdimlari frmSektorIslemAdimlari = new FrmSektorIslemAdimlari();
-            frmSektorIslemAdimlari.Show();
+            //FrmIzlemeSure frmIzlemeSure = new FrmIzlemeSure();
+            //frmIzlemeSure.Show();
 
-            FrmAcikArizaGrafikleri frmAcikArizaGrafikleri = new FrmAcikArizaGrafikleri();
-            frmAcikArizaGrafikleri.Show();
+            //FrmSektorIslemAdimlari frmSektorIslemAdimlari = new FrmSektorIslemAdimlari();
+            //frmSektorIslemAdimlari.Show();
 
-            FrmAltYukIzleme frmAltYukIzleme = new FrmAltYukIzleme();
-            frmAltYukIzleme.Show();
+            //FrmAcikArizaGrafikleri frmAcikArizaGrafikleri = new FrmAcikArizaGrafikleri();
+            //frmAcikArizaGrafikleri.Show();
 
-            FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
-            frmSahaIzleme.Show();
+            //FrmAltYukIzleme frmAltYukIzleme = new FrmAltYukIzleme();
+            //frmAltYukIzleme.Show();
 
-            timerIzlemeChc.Start();
+            //FrmSahaIzleme frmSahaIzleme = new FrmSahaIzleme();
+            //frmSahaIzleme.Show();
 
-            izlemeTıklanan = "FrmSahaIzleme";
+            //timerIzlemeChc.Start();
 
-            //FrmSlayGorunum frmSlayGorunum = new FrmSlayGorunum();
-            //frmSlayGorunum.Show();
+            //izlemeTıklanan = "FrmSahaIzleme";
+
+
+        }
+        
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
+            arizaKayits = arizaKayitManager.GetListTumu();
+
+            foreach (ArizaKayit item in arizaKayits)
+            {
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(item.Id, "BAKIM ONARIM");
+
+                if (item.Durum == 1)
+                {
+                    foreach (GorevAtamaPersonel item2 in gorevAtamaPersonels)
+                    {
+                        if (item2.Sure == "Devam Ediyor")
+                        {
+                            arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, item2.IslemAdimi);
+                        }
+
+                    }
+                }
+
+                else
+                {
+                    if (item.GorevAtanacakPersonel == "ŞERİFE NUR GÜNEŞ")
+                    {
+                        arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)");
+                    }
+                    if (item.GorevAtanacakPersonel=="")
+                    {
+                        arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, "ONARIMI TAMAMLANDI");
+                    }
+                }
+                
+            }
+
+            MessageBox.Show("Bitti");
+
         }
 
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)

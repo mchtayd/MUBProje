@@ -247,7 +247,7 @@
         private System.Windows.Forms.Label LblSaat;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label LblTarih;
-        private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Timer TimerSaat;
+        public System.Windows.Forms.Timer timer1;
+        public System.Windows.Forms.Timer TimerSaat;
     }
 }

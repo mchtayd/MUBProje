@@ -81,7 +81,7 @@ namespace UserInterface.Ana_Sayfa
             Lbl500DBolgesi.Text = arizaIslemAdimi500.DBolgesi.ToString();
             Lbl500Toplam.Text = arizaIslemAdimi500.Toplam.ToString();
 
-            ArizaIslemAdimi arizaIslemAdimi600 = arizaIslemAdimiManager.Get("600_BİLDİRİM ONAYI (MÜHENDİS)");
+            ArizaIslemAdimi arizaIslemAdimi600 = arizaIslemAdimiManager.Get("600_BİLDİRİM ONAYI (YÖNETİCİ)");
             Lbl600Sirnak.Text = arizaIslemAdimi600.Sirnak.ToString();
             Lbl600Cukurca.Text = arizaIslemAdimi600.Cukurca.ToString();
             Lbl600Yukseova.Text = arizaIslemAdimi600.Yukseova.ToString();
@@ -411,7 +411,6 @@ namespace UserInterface.Ana_Sayfa
                         seriesCollection.Add(new PieSeries() { Title = "ABF", Values = new ChartValues<int> { veriler[i] }, DataLabels = true, LabelPoint = func, FontSize = 13 });
                         chart1.Series = seriesCollection;
                     }
-                    
                 }
                 if (i == 4)
                 {

@@ -79,7 +79,7 @@ namespace UserInterface.Ana_Sayfa
             derecik500 = (arizaIslemAdimi500.Derecik + arizaIslemAdimi500.Merkez);
             dBolgesi500 = arizaIslemAdimi500.DBolgesi;
 
-            ArizaIslemAdimi arizaIslemAdimi600 = arizaIslemAdimiManager.Get("600_BİLDİRİM ONAYI (MÜHENDİS)");
+            ArizaIslemAdimi arizaIslemAdimi600 = arizaIslemAdimiManager.Get("600_BİLDİRİM ONAYI (YÖNETİCİ)");
             sirnak600 = arizaIslemAdimi600.Sirnak;
             cukurca600 = arizaIslemAdimi600.Cukurca;
             yukseova600 = arizaIslemAdimi600.Yukseova;
