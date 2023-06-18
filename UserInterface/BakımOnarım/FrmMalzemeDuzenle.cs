@@ -114,6 +114,7 @@ namespace UserInterface.BakımOnarım
             DtgEklenecekMalzemeler.Columns["SokulenTeslimDurum"].Visible = false;
             DtgEklenecekMalzemeler.Columns["BolgeAdi"].Visible = false;
             DtgEklenecekMalzemeler.Columns["BolgeSorumlusu"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
 
         }
         string stokNo, tanim, birim;
@@ -122,7 +123,7 @@ namespace UserInterface.BakımOnarım
             stokNo = DtgList.CurrentRow.Cells["Stokno"].Value.ToString();
             tanim = DtgList.CurrentRow.Cells["Tanim"].Value.ToString();
             birim = DtgList.CurrentRow.Cells["Birim"].Value.ToString();
-            AbfMalzeme abfMalzeme = new AbfMalzeme(0, benzersizId, stokNo, tanim, "", 1, birim, 0, "", "", "", "", "", "", "", 0, "", 0, "", "", "", "");
+            AbfMalzeme abfMalzeme = new AbfMalzeme(0, benzersizId, stokNo, tanim, "", 1, birim, 0, "", "", "", "", "", "", "", 0, "", 0, "", "", "", "", "", "");
 
             abfMalzemes.Add(abfMalzeme);
             DtgEklenecekMalzemeler.DataSource = null;
@@ -150,7 +151,7 @@ namespace UserInterface.BakımOnarım
                         if (index < ilkSayi)
                         {
                             AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
-                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), item.Cells["TeminDurumu"].Value.ToString(), item.Cells["MalzemeIslemAdimi"].Value.ToString(), item.Cells["SokulenTeslimDurum"].Value.ToString());
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), item.Cells["TeminDurumu"].Value.ToString(), item.Cells["MalzemeIslemAdimi"].Value.ToString(), item.Cells["SokulenTeslimDurum"].Value.ToString(), item.Cells["YerineMalzemeTakilma"].Value.ToString(), item.Cells["DosyaYolu"].Value.ToString());
 
                             abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
                         }
@@ -159,7 +160,7 @@ namespace UserInterface.BakımOnarım
                             if (ilkSayi == 0)
                             {
                                 AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
-                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), "KONTROL EDİLMEDİ", "", "TESLİM EDİLMEDİ");
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), "KONTROL EDİLMEDİ", "", "ARA DEPO (İADE)", item.Cells["YerineMalzemeTakilma"].Value.ToString(), "");
 
                                 abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
                             }
@@ -167,7 +168,7 @@ namespace UserInterface.BakımOnarım
                             {
                                 if (item.Cells["SokulenStokNo"].Value == null)
                                 {
-                                    AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, "", "", "", 0, "", 0, "", "", "", "", item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), "KONTROL EDİLMEDİ", "", "TESLİM EDİLMEDİ");
+                                    AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, "", "", "", 0, "", 0, "", "", "", "", item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), "KONTROL EDİLMEDİ", "", "ARA DEPO (İADE)", item.Cells["YerineMalzemeTakilma"].Value.ToString(), "");
 
                                     abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
                                 }
@@ -175,7 +176,7 @@ namespace UserInterface.BakımOnarım
                                 if (item.Cells["TakilanStokNo"].Value == null)
                                 {
                                     AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
-                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), "", "", "", 0, "", 0, "", "KONTROL EDİLMEDİ", "", "TESLİM EDİLMEDİ");
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), "", "", "", 0, "", 0, "", "KONTROL EDİLMEDİ", "", "ARA DEPO (İADE)", item.Cells["YerineMalzemeTakilma"].Value.ToString(), "");
 
                                     abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
                                 }
@@ -183,7 +184,7 @@ namespace UserInterface.BakımOnarım
                                 if (item.Cells["TakilanStokNo"].Value != null && item.Cells["SokulenStokNo"].Value != null)
                                 {
                                     AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
-                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), "KONTROL EDİLMEDİ", "", "TESLİM EDİLMEDİ");
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), "KONTROL EDİLMEDİ", "", "ARA DEPO (İADE)", item.Cells["YerineMalzemeTakilma"].Value.ToString(), "");
 
                                     abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
                                 }
@@ -196,7 +197,7 @@ namespace UserInterface.BakımOnarım
                     else
                     {
                         AbfMalzeme abfMalzeme = new AbfMalzeme(item.Cells["Id"].Value.ConInt(), benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(),
-                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), item.Cells["TeminDurumu"].Value.ToString(), item.Cells["MalzemeIslemAdimi"].Value.ToString(), item.Cells["SokulenTeslimDurum"].Value.ToString());
+                                item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["SokulenCalismaSaati"].Value.ConDouble(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["CalismaDurumu"].Value.ToString(), item.Cells["FizikselDurum"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["TakilanStokNo"].Value.ToString(), item.Cells["TakilanTanim"].Value.ToString(), item.Cells["TakilanSeriNo"].Value.ToString(), item.Cells["TakilanMiktar"].Value.ConInt(), item.Cells["TakilanBirim"].Value.ToString(), item.Cells["TakilanCalismaSaati"].Value.ConDouble(), item.Cells["TakilanRevizyon"].Value.ToString(), item.Cells["TeminDurumu"].Value.ToString(), item.Cells["MalzemeIslemAdimi"].Value.ToString(), item.Cells["SokulenTeslimDurum"].Value.ToString(), item.Cells["YerineMalzemeTakilma"].Value.ToString(), item.Cells["DosyaYolu"].Value.ToString());
 
                         abfMalzemeManager.AddSokulenTakilan(abfMalzeme);
                     }

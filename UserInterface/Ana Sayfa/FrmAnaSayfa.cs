@@ -2223,14 +2223,23 @@ namespace UserInterface.STS
                     }
                 }
 
-                //if (baslik == "KONTROL")
-                //{
-                //    var form = (FrmArizaDevamEden)Application.OpenForms["FrmArizaDevamEden"];
-                //    if (form != null)
-                //    {
-                //        form.DuyuruEditList();
-                //    }
-                //}
+                if (baslik == "ALT TAKIM (MALZEME) TAKİBİ")
+                {
+                    var form = (FrmAltTakimTakipIzleme)Application.OpenForms["FrmAltTakimTakipIzleme"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
+                if (baslik == "MALZEME TESLİM/TESELLÜM")
+                {
+                    var form = (FrmAltTakimTakip)Application.OpenForms["FrmAltTakimTakip"];
+                    if (form != null)
+                    {
+                        form.Yenilenecekler();
+                    }
+                }
+
             }
 
         }
@@ -2463,14 +2472,14 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
-            if (e.Node.Text == "OKF Kontrol")
+            if (e.Node.Text == "DTF Hazırlanacaklar")
             {
-                FrmOkfKontrol Go = new FrmOkfKontrol();
+                FrmDtfHazirlanacaklar Go = new FrmDtfHazirlanacaklar();
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
-                OpenTabPage("PageOkfOlustur", "OKF KONTROL", Go);
+                OpenTabPage("PageDtfHazirlanacaklar", "DTF HAZIRLANCAKLAR", Go);
                 Go.Show();
             }
 
@@ -3374,6 +3383,28 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageMalzemeTeslimi", "MALZEME TESLİMİ", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Alt Takım (Malzeme) Takibi")
+            {
+                FrmAltTakimTakipIzleme Go = new FrmAltTakimTakipIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageAltTakimTakip", "ALT TAKIM (MALZEME) TAKİBİ", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Malzeme Teslim/Tesellüm")
+            {
+                FrmAltTakimTakip Go = new FrmAltTakimTakip();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageTeslimTesellum", "MALZEME TESLİM/TESELLÜM", Go);
                 Go.infos = infos;
                 Go.Show();
             }

@@ -473,6 +473,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
         }
 
+
         private void CmbDepoNoAselsan_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (start == false)

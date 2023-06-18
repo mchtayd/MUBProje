@@ -142,11 +142,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbSistemStokNo.Text = malzeme.SistemStokNo;
             CmbAdSoyad.Text = malzeme.SistemSorumlusu;
             TxtAciklama.Text = malzeme.Aciklama;
-            string dosyaYolu = malzeme.DosyaYolu;
+            dosyayolu = malzeme.DosyaYolu;
 
             string fileName = "";
             
-            DirectoryInfo di = new DirectoryInfo(dosyaYolu);
+            DirectoryInfo di = new DirectoryInfo(dosyayolu);
             
             foreach (FileInfo fi in di.GetFiles())
             {
@@ -155,7 +155,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     fileName = fi.Name;
                 }
             }
-            string foto = dosyaYolu + "\\" + fileName;
+            string foto = dosyayolu + "\\" + fileName;
 
             Image image;
             image = Image.FromFile(foto);
@@ -163,7 +163,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
             try
             {
-                webBrowser1.Navigate(dosyaYolu);
+                webBrowser1.Navigate(dosyayolu);
             }
             catch (Exception)
             {
@@ -221,6 +221,34 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             FrmUstTakim frmUstTakimEkle = new FrmUstTakim();
             frmUstTakimEkle.ShowDialog();
+        }
+
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Malzeme kaydını silmek istediğinize emin misiniz?\nBu işlem geri alınamaz!", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                string mesaj = malzemeManager.Delete(id);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+
+                FrmMalzemeKayitIzleme frmAnaSayfa = (FrmMalzemeKayitIzleme)Application.OpenForms["FrmMalzemeKayitIzleme"];
+                frmAnaSayfa.DataDisplay();
+                MessageBox.Show("Bilgiler başarıyla silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                try
+                {
+                    Directory.Delete(dosyayolu);
+                }
+                catch (Exception)
+                {
+                    this.Close();
+                }
+
+                this.Close();
+
+            }
         }
 
         private void BtnBirimEkle_Click(object sender, EventArgs e)

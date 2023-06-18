@@ -88,6 +88,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public AbfMalzeme GetBul(int benzersizId, string stokNo, string seriNo, string revizyon)
+        {
+            try
+            {
+                return abfMalzemeDal.GetBul(benzersizId, stokNo, seriNo, revizyon);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<AbfMalzeme> GetList(int benzersizId, string teminDurumu="")
         {
@@ -111,17 +122,30 @@ namespace Business.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
-        public List<AbfMalzeme> DepoyaTeslimEdilecekMalzemeList()
+        public List<AbfMalzeme> DepoyaTeslimEdilecekMalzemeList(string teslimDurum)
         {
             try
             {
-                return abfMalzemeDal.DepoyaTeslimEdilecekMalzemeList();
+                return abfMalzemeDal.DepoyaTeslimEdilecekMalzemeList(teslimDurum);
             }
             catch (Exception)
             {
                 return new List<AbfMalzeme>();
             }
         }
+
+        public List<string> MalzemeTeslimTuru()
+        {
+            try
+            {
+                return abfMalzemeDal.MalzemeTeslimTuru();
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
+
         public List<AbfMalzeme> TeminGetList(string teminDurumu, int abfNo = 0)
         {
             try
@@ -157,11 +181,33 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public string MalzemeTeslimBilgisiUpdate(int id)
+        public string MalzemeTeslimBilgisiUpdate(int id, string teslimDurum)
         {
             try
             {
-                return abfMalzemeDal.MalzemeTeslimBilgisiUpdate(id);
+                return abfMalzemeDal.MalzemeTeslimBilgisiUpdate(id, teslimDurum);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string YerineMalzemeTakilma(int id)
+        {
+            try
+            {
+                return abfMalzemeDal.YerineMalzemeTakilma(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string TeslimTesellumDurumUpdate(int id, string tesllimDurum)
+        {
+            try
+            {
+                return abfMalzemeDal.TeslimTesellumDurumUpdate(id, tesllimDurum);
             }
             catch (Exception ex)
             {

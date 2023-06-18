@@ -415,6 +415,14 @@ namespace UserInterface.Ana_Sayfa
                     form.Yenilenecekler();
                 }
             }
+            if (comboAd == "TESLIM_TURU")
+            {
+                var form = (FrmAltTakimTakip)Application.OpenForms["FrmAltTakimTakip"];
+                if (form != null)
+                {
+                    form.CmbProj();
+                }
+            }
 
         }
     }

@@ -44,6 +44,7 @@ namespace UserInterface.BakımOnarım
         BolgeKayitManager bolgeKayitManager;
         UstTakimManager ustTakimManager;
         BolgeGarantiManager bolgeGarantiManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
 
         bool start = true, dosyaKontrol = false, kayitKontrol = false;
         public object[] infos;
@@ -85,6 +86,7 @@ namespace UserInterface.BakımOnarım
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             ustTakimManager = UstTakimManager.GetInstance();
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
         }
 
         private void FrmArizaAcmaCalisma_Load(object sender, EventArgs e)
@@ -2508,6 +2510,13 @@ namespace UserInterface.BakımOnarım
                     item.Cells["SokulenBirim"].Value.ToString(), item.Cells["CalismaSaatiSokulen"].Value.ConDouble(), item.Cells["RevizyonSokulen"].Value.ToString(), item.Cells["CalısmaDurumu"].Value.ToString(), item.Cells["FizikselDurumu"].Value.ToString(), item.Cells["MalzemeYapilacakIslem"].Value.ToString());
 
                 abfMalzemeManager.AddSokulen(abfMalzemeSokulen);
+
+                if (item.Cells["FizikselDurumu"].Value.ToString() == "SÖKÜLDÜ")
+                {
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0);
+                    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+                }
+
             }
 
             abfMalzemes = abfMalzemeManager.GetList(id);

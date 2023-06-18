@@ -87,6 +87,7 @@
     <Compile Include="BakimOnarimAtolye\AtolyeMalzeme.cs" />
     <Compile Include="BakimOnarim\AbfFormNo.cs" />
     <Compile Include="BakimOnarim\AbfMalzeme.cs" />
+    <Compile Include="BakimOnarim\AbfMalzemeIslemKayit.cs" />
     <Compile Include="BakimOnarim\ArizaKayit.cs" />
     <Compile Include="BakimOnarim\BakimOnarimLog.cs" />
     <Compile Include="BakimOnarim\Bolge.cs" />

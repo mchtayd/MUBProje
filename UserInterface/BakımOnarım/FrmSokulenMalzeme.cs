@@ -18,14 +18,18 @@ namespace UserInterface.BakımOnarım
     public partial class FrmSokulenMalzeme : Form
     {
         AbfMalzemeManager abfMalzemeManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
         public int benzersizId = 0;
         int id = 0;
+        public object[] infos;
+        string stokNo, seriNo, revizyon = "";
 
         public FrmSokulenMalzeme()
         {
             InitializeComponent();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
         }
 
         private void FrmSokulenMalzeme_Load(object sender, EventArgs e)
@@ -101,11 +105,19 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
                 string mesaj = abfMalzemeManager.SokulenMalzemeUpdate(CmbCalismaDurumu.Text, CmbFizikselDurumu.Text, CmbYapilanIslem.Text, id);
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(benzersizId, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0);
+                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
                 if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
+                }
+
+                if (CmbFizikselDurumu.Text == "SÖKÜLDÜ")
+                {
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0);
+                    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
                 }
 
                 MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);

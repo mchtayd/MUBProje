@@ -1,9 +1,14 @@
-﻿using Business.Concreate.BakimOnarim;
+﻿using Business;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
-using DocumentFormat.OpenXml.Presentation;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Vml.Spreadsheet;
+using Entity;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
+using Entity.IdariIsler;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,48 +18,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
+using Application = System.Windows.Forms.Application;
 
 namespace UserInterface.Gecic_Kabul_Ambar
 {
-    
-    public partial class FrmBolgedenGelecekMlz : Form
+    public partial class FrmAltTakimTakipIzleme : Form
     {
-
         AbfMalzemeManager abfMalzemeManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
 
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
         public object[] infos;
-        public FrmBolgedenGelecekMlz()
+        string dosyaYolu;
+        int id = 0;
+
+        public FrmAltTakimTakipIzleme()
         {
             InitializeComponent();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
         }
 
-        private void FrmBolgedenGelecekMlz_Load(object sender, EventArgs e)
+        private void FrmAltTakimTakipIzleme_Load(object sender, EventArgs e)
         {
             DataDisplay();
         }
-
-        private void button5_Click(object sender, EventArgs e)
+        public void DataDisplay()
         {
-            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
-            this.Close();
-            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageGelecekMalzeme"]);
+            abfMalzemes = new List<AbfMalzeme>();
+            dataBinder.DataSource = null;
 
-            if (frmAnaSayfa.tabAnasayfa.TabPages.Count == 0)
-            {
-                frmAnaSayfa.tabAnasayfa.Visible = false;
-            }
-            else
-            {
-                frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
-            }
-        }
-
-        void DataDisplay()
-        {
             abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ");
+
             dataBinder.DataSource = abfMalzemes.ToDataTable();
             DtgList.DataSource = dataBinder;
             TxtTop.Text = DtgList.RowCount.ToString();
@@ -71,7 +68,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["CalismaDurumu"].Visible = false;
             DtgList.Columns["FizikselDurum"].Visible = false;
             DtgList.Columns["TakilanStokNo"].Visible = false;
-            //DtgList.Columns["Malzemekul"].HeaderText = "MALZEMENİN KULLANILDIĞI ÜST TAKIM STOK NO";
             DtgList.Columns["TakilanTanim"].Visible = false;
             DtgList.Columns["TakilanSeriNo"].Visible = false;
             DtgList.Columns["TakilanMiktar"].Visible = false;
@@ -89,21 +85,71 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
             DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
             DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
+            DtgList.Columns["DosyaYolu"].Visible = false;
 
-
-            DtgList.Columns["AbfNo"].DisplayIndex = 0;
+            DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 0;
             DtgList.Columns["SokulenStokNo"].DisplayIndex = 1;
             DtgList.Columns["SokulenTanim"].DisplayIndex = 2;
             DtgList.Columns["SokulenSeriNo"].DisplayIndex = 3;
-            DtgList.Columns["SokulenMiktar"].DisplayIndex = 4;
-            DtgList.Columns["SokulenBirim"].DisplayIndex = 5;
-            DtgList.Columns["SokulenRevizyon"].DisplayIndex = 6;
+            DtgList.Columns["SokulenRevizyon"].DisplayIndex = 4;
+            DtgList.Columns["SokulenMiktar"].DisplayIndex = 5;
+            DtgList.Columns["SokulenBirim"].DisplayIndex = 6;
             DtgList.Columns["BolgeAdi"].DisplayIndex = 7;
-            DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 8;
-            DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 9;
-            DtgList.Columns["YapilacakIslem"].DisplayIndex = 10;
+            DtgList.Columns["AbfNo"].DisplayIndex = 8;
+            DtgList.Columns["YapilacakIslem"].DisplayIndex = 9;
+            DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 15;
 
-            TxtTop.Text= DtgList.RowCount.ToString();
+            TxtTop.Text = DtgList.RowCount.ToString();
+        }
+
+        private void BtnCancel_Click(object sender, EventArgs e)
+        {
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            this.Close();
+            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageAltTakimTakip"]);
+
+            if (frmAnaSayfa.tabAnasayfa.TabPages.Count == 0)
+            {
+                frmAnaSayfa.tabAnasayfa.Visible = false;
+            }
+            else
+            {
+                frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
+            }
+        }
+
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgList.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+            dosyaYolu = DtgList.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            DataGecmis();
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        void DataGecmis()
+        {
+            DtgGecmis.DataSource = abfMalzemeIslemKayitManager.GetList(id);
+            DtgGecmis.Columns["Id"].Visible = false;
+            DtgGecmis.Columns["BenzersizId"].Visible = false;
+            DtgGecmis.Columns["Islem"].HeaderText = "İŞLEM";
+            DtgGecmis.Columns["Tarih"].HeaderText = "TARİH";
+            DtgGecmis.Columns["IslemYapan"].HeaderText = "İŞLEM YAPAN";
+            DtgGecmis.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
+
+            LblTop.Text = DtgGecmis.RowCount.ToString();
         }
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)
@@ -114,7 +160,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void DtgList_SortStringChanged(object sender, EventArgs e)
         {
-            dataBinder.Sort= DtgList.SortString;
+            dataBinder.Sort = DtgList.SortString;
         }
     }
 }

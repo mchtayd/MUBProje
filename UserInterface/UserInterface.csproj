@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>657</ApplicationRevision>
+    <ApplicationRevision>673</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -617,11 +617,11 @@
     <Compile Include="BakımOnarım\FrmOkfIzleme.Designer.cs">
       <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
     </Compile>
-    <Compile Include="BakımOnarım\FrmOkfKontrol.cs">
+    <Compile Include="BakımOnarım\FrmDtfHazirlanacaklar.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="BakımOnarım\FrmOkfKontrol.Designer.cs">
-      <DependentUpon>FrmOkfKontrol.cs</DependentUpon>
+    <Compile Include="BakımOnarım\FrmDtfHazirlanacaklar.Designer.cs">
+      <DependentUpon>FrmDtfHazirlanacaklar.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmOkfOlustrma.cs">
       <SubType>Form</SubType>
@@ -760,6 +760,18 @@
     </Compile>
     <Compile Include="Egitim\FrmEgitimPlanıOlustur.Designer.cs">
       <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmAltTakimTakip.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmAltTakimTakip.Designer.cs">
+      <DependentUpon>FrmAltTakimTakip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmAltTakimTakipIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmAltTakimTakipIzleme.Designer.cs">
+      <DependentUpon>FrmAltTakimTakipIzleme.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmBolgedenGelecekMlz.cs">
       <SubType>Form</SubType>
@@ -1756,8 +1768,8 @@
     <EmbeddedResource Include="BakımOnarım\FrmOkfIzleme.resx">
       <DependentUpon>FrmOkfIzleme.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="BakımOnarım\FrmOkfKontrol.resx">
-      <DependentUpon>FrmOkfKontrol.cs</DependentUpon>
+    <EmbeddedResource Include="BakımOnarım\FrmDtfHazirlanacaklar.resx">
+      <DependentUpon>FrmDtfHazirlanacaklar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmOkfOlustrma.resx">
       <DependentUpon>FrmOkfOlustrma.cs</DependentUpon>
@@ -1827,6 +1839,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Egitim\FrmEgitimPlanıOlustur.resx">
       <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmAltTakimTakip.resx">
+      <DependentUpon>FrmAltTakimTakip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmAltTakimTakipIzleme.resx">
+      <DependentUpon>FrmAltTakimTakipIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmBolgedenGelecekMlz.resx">
       <DependentUpon>FrmBolgedenGelecekMlz.cs</DependentUpon>

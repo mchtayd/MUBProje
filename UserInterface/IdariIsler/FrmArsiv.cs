@@ -1,8 +1,10 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using Entity;
+using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,7 @@ namespace UserInterface.IdariIsler
         SatTalebiDoldurManager satTalebiDoldurManager;
         ArsivTutanakManager arsivTutanakManager;
         ComboManager comboManager;
+        BolgeKayitManager bolgeKayitManager;
         List<string> fileNames = new List<string>();
         bool dosyaEkle = false;
         public FrmArsiv()
@@ -34,6 +37,7 @@ namespace UserInterface.IdariIsler
             satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
             arsivTutanakManager = ArsivTutanakManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void FrmArsiv_Load(object sender, EventArgs e)
@@ -77,10 +81,10 @@ namespace UserInterface.IdariIsler
         }
         void UsBolgeleri()
         {
-            Usbolgesi.DataSource = satTalebiDoldurManager.GetList();
+            Usbolgesi.DataSource = bolgeKayitManager.GetList();
             Usbolgesi.ValueMember = "Id";
-            Usbolgesi.DisplayMember = "Usbolgesi";
-            Usbolgesi.SelectedValue = "";
+            Usbolgesi.DisplayMember = "BolgeAdi";
+            Usbolgesi.SelectedValue = -1;
         }
         string dosyaYolu = "", isAkisNo = "", kaynakdosyaismi, alinandosya, comboAd;
 

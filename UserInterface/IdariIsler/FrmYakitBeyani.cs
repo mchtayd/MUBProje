@@ -3,6 +3,7 @@ using Business.Concreate.AnaSayfa;
 using Business.Concreate.IdarıIsler;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml;
 using Entity;
 using Entity.AnaSayfa;
 using Entity.IdariIsler;
@@ -135,24 +136,45 @@ namespace UserInterface.IdariIsler
         void Hesapla()
         {
             double litre, fiyat, toplamfiyat;
-            if (TxtLitre.Text == "")
+            if (TxtLitre.Text == "" || TxtLitre.Text=="NaN" || TxtLitre.Text== "Infinity")
             {
                 litre = 0;
             }
             else
             {
                 litre = TxtLitre.Text.ConDouble();
+                if (litre.ToString()== "NaN" || litre.ToString() == "Infinity")
+                {
+                    litre = 0;
+                }
             }
-            if (TxtLitreFiyati.Text == "")
+            if (TxtLitreFiyati.Text == "" || TxtLitreFiyati.Text == "NaN" || TxtLitreFiyati.Text == "Infinity")
             {
                 fiyat = 0;
             }
             else
             {
                 fiyat = TxtLitreFiyati.Text.ConDouble();
+                if (fiyat.ToString() == "NaN" || fiyat.ToString() == "Infinity")
+                {
+                    fiyat = 0;
+                }
             }
             toplamfiyat = litre * fiyat;
-            TxtToplamFiyat.Text = toplamfiyat.ToString();
+            if (toplamfiyat.ToString() == "NaN" || toplamfiyat.ToString() == "Infinity")
+            {
+                toplamfiyat = 0;
+
+            }
+            if (toplamfiyat==0)
+            {
+                TxtToplamFiyat.Text = "";
+            }
+            else
+            {
+                TxtToplamFiyat.Text = toplamfiyat.ToString();
+            }
+            
         }
 
         private void TxtLitre_TextChanged(object sender, EventArgs e)
@@ -415,7 +437,19 @@ namespace UserInterface.IdariIsler
         void LitreFiyatHesapla()
         {
             double litreFiyat = TxtToplamFiyat.Text.ConDouble() / TxtLitre.Text.ConDouble();
-            TxtLitreFiyati.Text = litreFiyat.ToString();
+            if (litreFiyat.ToString()=="NaN" || litreFiyat.ToString()== "Infinity")
+            {
+                litreFiyat = 0;
+            }
+            if (litreFiyat==0)
+            {
+                TxtLitreFiyati.Text = "";
+            }
+            else
+            {
+                TxtLitreFiyati.Text = litreFiyat.ToString();
+            }
+            
         }
     }
 }

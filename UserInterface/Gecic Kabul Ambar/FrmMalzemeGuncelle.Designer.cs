@@ -70,6 +70,7 @@
             this.BtnMalzemeTuruEkle = new System.Windows.Forms.Button();
             this.BtnOnarimYeriEkle = new System.Windows.Forms.Button();
             this.bTN = new System.Windows.Forms.Button();
+            this.BtnSil = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -513,11 +514,28 @@
             this.bTN.UseVisualStyleBackColor = false;
             this.bTN.Click += new System.EventHandler(this.bTN_Click);
             // 
+            // BtnSil
+            // 
+            this.BtnSil.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSil.Image = ((System.Drawing.Image)(resources.GetObject("BtnSil.Image")));
+            this.BtnSil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSil.Location = new System.Drawing.Point(287, 614);
+            this.BtnSil.Name = "BtnSil";
+            this.BtnSil.Size = new System.Drawing.Size(130, 51);
+            this.BtnSil.TabIndex = 556;
+            this.BtnSil.Text = "          SİL";
+            this.BtnSil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSil.UseVisualStyleBackColor = false;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
+            // 
             // FrmMalzemeGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1009, 676);
+            this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.bTN);
             this.Controls.Add(this.BtnTedarikTürüEkle);
             this.Controls.Add(this.BtnMalzemeTuruEkle);
@@ -614,5 +632,6 @@
         private System.Windows.Forms.Button BtnMalzemeTuruEkle;
         private System.Windows.Forms.Button BtnOnarimYeriEkle;
         private System.Windows.Forms.Button bTN;
+        public System.Windows.Forms.Button BtnSil;
     }
 }

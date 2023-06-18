@@ -41,6 +41,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         ArizaKayitManager arizaKayitManager;
         BildirimYetkiManager bildirimYetkiManager;
         AbfMalzemeManager abfMalzemeManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
 
         List<GorevAtamaPersonel> gorevAtamaPersonels;
         //List<Malzeme> malzemes;
@@ -70,6 +71,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             arizaKayitManager = ArizaKayitManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
         }
 
         private void CmbIslemTuru_SelectedIndexChanged(object sender, EventArgs e)
@@ -1570,7 +1572,46 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         stokGirisCikisManager.Add(stokGirisCıkıs);
 
                     }
+
+                    ArizaKayit arizaKayit = arizaKayitManager.Get(depoAdresi.ConInt());
+                    if (arizaKayit!=null)
+                    {
+                        List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                        abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+                        if (abfMalzemes.Count != 0)
+                        {
+                            foreach (AbfMalzeme item2 in abfMalzemes)
+                            {
+                                if (stokNo == item2.SokulenStokNo)
+                                {
+                                    if (item2.SokulenTeslimDurum == "150 - STOĞA ALINACAK MALZEME")
+                                    {
+                                        abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item2.Id, "MALZEME 1150 DEPO STOKLARINA ALINDI");
+                                        abfMalzemeManager.TeslimTesellumDurumUpdate(item2.Id, "GÖSTERME");
+
+                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
+                                        if (abfMalzemeIslemKayit1 != null)
+                                        {
+                                            TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
+                                            if (gecenSure.Minutes > 0)
+                                            {
+                                                abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.Minutes);
+                                            }
+                                            else
+                                            {
+                                                abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                                            }
+                                        }
+
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    }
+                    
                 }
+
                 string mesaj = BildirimKayit();
                 if (mesaj != "OK")
                 {

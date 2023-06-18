@@ -377,6 +377,7 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeListesi.Columns["SokulenTeslimDurum"].HeaderText = "SÖKÜLEN MALZEME TESLİMİ";
             DtgMalzemeListesi.Columns["BolgeAdi"].Visible = false;
             DtgMalzemeListesi.Columns["BolgeSorumlusu"].Visible = false;
+            DtgMalzemeListesi.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
 
         }
         void DepoHareketleri()
@@ -655,6 +656,7 @@ namespace UserInterface.BakımOnarım
             }
             FrmSokulenMalzeme frmSokulenMalzeme = new FrmSokulenMalzeme();
             frmSokulenMalzeme.benzersizId = id;
+            frmSokulenMalzeme.infos = infos;
             frmSokulenMalzeme.ShowDialog();
         }
 
@@ -689,7 +691,7 @@ namespace UserInterface.BakımOnarım
 
             if (bolgeSorumlusu != infos[1].ToString())
             {
-                if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+                if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39 || infos[1].ToString() == "MUSTAFA UZUN")
                 {
                     contextMenuStrip1.Items[2].Enabled = true;
                 }

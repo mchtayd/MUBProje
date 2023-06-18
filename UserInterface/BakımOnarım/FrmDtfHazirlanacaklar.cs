@@ -11,10 +11,10 @@ using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
 {
-    public partial class FrmOkfKontrol : Form
+    public partial class FrmDtfHazirlanacaklar : Form
     {
         public object[] infos;
-        public FrmOkfKontrol()
+        public FrmDtfHazirlanacaklar()
         {
             InitializeComponent();
         }
@@ -28,7 +28,7 @@ namespace UserInterface.BakımOnarım
         {
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)System.Windows.Forms.Application.OpenForms["FrmAnasayfa"];
             this.Close();
-            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageOkfOlustur"]);
+            frmAnaSayfa.tabAnasayfa.TabPages.Remove(frmAnaSayfa.tabAnasayfa.TabPages["PageDtfHazirlanacaklar"]);
 
             if (frmAnaSayfa.tabAnasayfa.TabPages.Count == 0)
             {

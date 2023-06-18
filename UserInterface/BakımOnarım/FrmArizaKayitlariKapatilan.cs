@@ -434,6 +434,7 @@ namespace UserInterface.BakımOnarım
             }
             FrmSokulenMalzeme frmSokulenMalzeme = new FrmSokulenMalzeme();
             frmSokulenMalzeme.benzersizId = id;
+            frmSokulenMalzeme.infos = infos;
             frmSokulenMalzeme.ShowDialog();
         }
 

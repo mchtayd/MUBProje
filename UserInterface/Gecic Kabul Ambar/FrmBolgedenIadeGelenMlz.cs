@@ -79,7 +79,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         void DataDisplay()
         {
-            abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList();
+            abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ");
             dataBinder.DataSource = abfMalzemes.ToDataTable();
             DtgList.DataSource = dataBinder;
             TxtTop.Text = DtgList.RowCount.ToString();
@@ -112,6 +112,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
             DtgList.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
             DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
+            DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
 
             DtgList.Columns["AbfNo"].DisplayIndex = 0;
             DtgList.Columns["SokulenStokNo"].DisplayIndex = 1;
@@ -227,13 +228,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
             stokGirisCikisManager.Add(stokGirisCıkıs);
 
-            abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId);
+            abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId, "100 - GEÇİCİ KABUL/KONTROL");
+            //abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId, "TESLİM EDİLDİ");
             abfNo = 0;
 
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             CmbDepoNo.Text = "";
             LblDepoAdresi.Text = "00";
             TxtMalzemeYeri.Text = "";
+
             TxtAciklama.Clear();
             DataDisplay();
             stokNo = "";

@@ -1,9 +1,11 @@
 ﻿using Business.Concreate;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
 using Entity;
+using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using Entity.STS;
 using System;
@@ -30,6 +32,7 @@ namespace UserInterface.STS
         FiyatTeklifiAlManager fiyatTeklifiAlManager;
         SatinAlinacakMalManager satinAlinacakMalManager;
         SatIslemAdimlariManager satIslemAdimlariManager;
+        BolgeKayitManager bolgeKayitManager;
 
         List<TeklifsizSat> teklifsizSats;
         List<FiyatTeklifiAl> fiyatTeklifiAls;
@@ -52,6 +55,7 @@ namespace UserInterface.STS
             fiyatTeklifiAlManager = FiyatTeklifiAlManager.GetInstance();
             satinAlinacakMalManager = SatinAlinacakMalManager.GetInstance();
             satIslemAdimlariManager = SatIslemAdimlariManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void FrmDevamEdenGuncelle_Load(object sender, EventArgs e)
@@ -64,10 +68,10 @@ namespace UserInterface.STS
         }
         void UsBolgeleri()
         {
-            CmbUsBolgesi.DataSource = satTalebiDoldurManager.GetList();
+            CmbUsBolgesi.DataSource = bolgeKayitManager.GetList();
             CmbUsBolgesi.ValueMember = "Id";
-            CmbUsBolgesi.DisplayMember = "Usbolgesi";
-            CmbUsBolgesi.SelectedValue = "";
+            CmbUsBolgesi.DisplayMember = "BolgeAdi";
+            CmbUsBolgesi.SelectedValue = 0;
         }
         void Personeller()
         {

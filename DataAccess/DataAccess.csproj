@@ -117,6 +117,7 @@
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeDal.cs" />
     <Compile Include="Concreate\BakimOnarim\AbfFormNoDal.cs" />
     <Compile Include="Concreate\BakimOnarim\AbfMalzemeDal.cs" />
+    <Compile Include="Concreate\BakimOnarim\AbfMalzemeIslemKayitDal.cs" />
     <Compile Include="Concreate\BakimOnarim\ArizaKayitDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BakimOnarimLogDal.cs" />
     <Compile Include="Concreate\BakimOnarim\BolgeDal.cs" />
