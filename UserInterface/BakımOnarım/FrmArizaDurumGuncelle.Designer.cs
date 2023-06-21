@@ -29,7 +29,7 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaDurumGuncelle));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -636,12 +636,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1248,7 +1248,8 @@ namespace UserInterface.BakımOnarım
             this.CmbCalismaDurumu.FormattingEnabled = true;
             this.CmbCalismaDurumu.Items.AddRange(new object[] {
             "KISMİ ÇALIŞAN",
-            "GAYRİ FAAL"});
+            "GAYRİ FAAL",
+            "FAAL"});
             this.CmbCalismaDurumu.Location = new System.Drawing.Point(957, 128);
             this.CmbCalismaDurumu.Name = "CmbCalismaDurumu";
             this.CmbCalismaDurumu.Size = new System.Drawing.Size(114, 21);
@@ -1310,7 +1311,8 @@ namespace UserInterface.BakımOnarım
             this.CmbYapilanIslem.Items.AddRange(new object[] {
             "DEĞİTİRİLECEK (ONARILACAK)",
             "DEĞİTİRİLECEK (HURDA EDİLECEK)",
-            "ONARILACAK"});
+            "ONARILACAK",
+            "BAKIM"});
             this.CmbYapilanIslem.Location = new System.Drawing.Point(1202, 128);
             this.CmbYapilanIslem.Name = "CmbYapilanIslem";
             this.CmbYapilanIslem.Size = new System.Drawing.Size(165, 21);

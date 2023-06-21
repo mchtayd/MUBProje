@@ -479,6 +479,24 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<PersonelKayit>();
             }
         }
+        public List<PersonelKayit> PersonelBolumBazli(string bolum)
+        {
+            try
+            {
+                List<PersonelKayit> personels = new List<PersonelKayit>();
+                dataReader = sqlServices.StoreReader("PersonelListBolum", new SqlParameter("@bolum", bolum));
+                while (dataReader.Read())
+                {
+                    personels.Add(new PersonelKayit(dataReader["ID"].ConInt(), dataReader["AD_SOYAD"].ToString()));
+                }
+                dataReader.Close();
+                return personels;
+            }
+            catch (Exception)
+            {
+                return new List<PersonelKayit>();
+            }
+        }
     }
 
 }

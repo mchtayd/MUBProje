@@ -25,26 +25,27 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             try
             {
                 dataReader = sqlServices.StoreReader("AtolyeKayit",
-                    new SqlParameter("@abfFormNo",entity.AbfNo),
-                    new SqlParameter("@stokNo",entity.SeriNoUst),
-                    new SqlParameter("@tanim",entity.TanimUst),
-                    new SqlParameter("@seriNo",entity.SeriNoUst),
-                    new SqlParameter("@garantiDurumu",entity.GarantiDurumu),
-                    new SqlParameter("@bildirimNo",entity.BildirimNo),
-                    new SqlParameter("@crmNo",entity.CrmNo),
-                    new SqlParameter("@kategori",entity.Kategori),
-                    new SqlParameter("@bolgeAdi",entity.BolgeAdi),
-                    new SqlParameter("@proje",entity.Proje),
-                    new SqlParameter("@bildirilenAriza",entity.BildirilenAriza),
-                    new SqlParameter("@icSiparisNo",entity.IcSiparisNo),
-                    new SqlParameter("@cekilenTarih",entity.CekildigiTarih),
-                    new SqlParameter("@siparisAcmaTarihi",entity.SiparisAcmaTarihi),
-                    new SqlParameter("@modifikasyonlar",entity.Modifikasyonlar),
-                    new SqlParameter("@notlar",entity.Notlar),
-                    new SqlParameter("@islemAdimi",entity.IslemAdimi),
-                    new SqlParameter("@siparisNo",entity.SiparisNo),
-                    new SqlParameter("@dosyaYolu",entity.DosyaYolu),
-                    new SqlParameter("@atolyeKategori", entity.AtolyeKategori));
+                    new SqlParameter("@abfFormNo", entity.AbfNo),
+                    new SqlParameter("@stokNo", entity.StokNoUst),
+                    new SqlParameter("@tanim", entity.TanimUst),
+                    new SqlParameter("@seriNo", entity.SeriNoUst),
+                    new SqlParameter("@garantiDurumu", entity.GarantiDurumu),
+                    new SqlParameter("@bildirimNo", entity.BildirimNo),
+                    new SqlParameter("@crmNo", entity.CrmNo),
+                    new SqlParameter("@kategori", entity.Kategori),
+                    new SqlParameter("@bolgeAdi", entity.BolgeAdi),
+                    new SqlParameter("@proje", entity.Proje),
+                    new SqlParameter("@bildirilenAriza", entity.BildirilenAriza),
+                    new SqlParameter("@icSiparisNo", entity.IcSiparisNo),
+                    new SqlParameter("@cekilenTarih", entity.CekildigiTarih),
+                    new SqlParameter("@siparisAcmaTarihi", entity.SiparisAcmaTarihi),
+                    new SqlParameter("@modifikasyonlar", entity.Modifikasyonlar),
+                    new SqlParameter("@notlar", entity.Notlar),
+                    new SqlParameter("@islemAdimi", entity.IslemAdimi),
+                    new SqlParameter("@siparisNo", entity.SiparisNo),
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu),
+                    new SqlParameter("@atolyeKategori", entity.AtolyeKategori),
+                    new SqlParameter("@malzemeId", entity.MalzemeId));
 
                 dataReader.Close();
                 return "OK";
@@ -116,7 +117,8 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["ATOLYE_KATEGORI"].ToString(),
-                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString());
+                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString(),
+                        dataReader["MALZEME_ID"].ConInt());
                 }
                 dataReader.Close();
                 return item;
@@ -158,7 +160,8 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["ATOLYE_KATEGORI"].ToString(),
-                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString());
+                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString(),
+                        dataReader["MALZEME_ID"].ConInt());
                 }
                 dataReader.Close();
                 return item;
@@ -202,7 +205,8 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["ATOLYE_KATEGORI"].ToString(),
-                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString()));
+                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString(),
+                        dataReader["MALZEME_ID"].ConInt()));
                 }
                 dataReader.Close();
                 return atolyes;
@@ -246,7 +250,8 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["ATOLYE_KATEGORI"].ToString(),
-                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString()));
+                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString(),
+                        dataReader["MALZEME_ID"].ConInt()));
                 }
                 dataReader.Close();
                 return atolyes;
@@ -410,7 +415,8 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["ATOLYE_KATEGORI"].ToString(),
-                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString()));
+                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString(),
+                        dataReader["MALZEME_ID"].ConInt()));
                 }
                 dataReader.Close();
                 return atolyes1;
@@ -469,7 +475,8 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["TAMAMLANMA_TARIHI"].ConDate(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["ATOLYE_KATEGORI"].ToString(),
-                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString()));
+                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString(),
+                        dataReader["MALZEME_ID"].ConInt()));
                 }
                 dataReader.Close();
                 return atolyes1;

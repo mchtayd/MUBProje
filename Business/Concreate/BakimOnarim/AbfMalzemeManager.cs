@@ -122,11 +122,11 @@ namespace Business.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
-        public List<AbfMalzeme> DepoyaTeslimEdilecekMalzemeList(string teslimDurum)
+        public List<AbfMalzeme> DepoyaTeslimEdilecekMalzemeList(string teslimDurum, string fizikselDurum="")
         {
             try
             {
-                return abfMalzemeDal.DepoyaTeslimEdilecekMalzemeList(teslimDurum);
+                return abfMalzemeDal.DepoyaTeslimEdilecekMalzemeList(teslimDurum, fizikselDurum);
             }
             catch (Exception)
             {

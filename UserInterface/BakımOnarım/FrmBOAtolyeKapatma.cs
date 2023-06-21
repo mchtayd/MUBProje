@@ -1,10 +1,12 @@
 ﻿using Business.Concreate;
 using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
 using Entity;
 using Entity.AnaSayfa;
+using Entity.BakimOnarim;
 using Entity.BakimOnarimAtolye;
 using Entity.Gecic_Kabul_Ambar;
 using System;
@@ -30,6 +32,7 @@ namespace UserInterface.BakımOnarım
         AtolyeAltMalzemeManager atolyeAltMalzemeManager;
         StokGirisCikisManager stokGirisCikisManager;
         BildirimYetkiManager bildirimYetkiManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
 
         List<Atolye> atolyes;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
@@ -37,7 +40,7 @@ namespace UserInterface.BakımOnarım
         List<StokGirisCıkıs> stokGirisCikis;
 
         string siparisNo, bulunduguIslemAdimi, sure, kaynakdosyaismi, alinandosya, dosyaYolu;
-        int id, gun, saat, dakika, abfNo, arizaDurumu;
+        int id, gun, saat, dakika, abfNo, arizaDurumu, malzemeId;
         DateTime birOncekiTarih;
         bool dosyaKontrol = false;
 
@@ -49,11 +52,12 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Bu Kayıt 1200-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT) İşlem Adımında Bulunmamaktadır. Sadece Bu İşlem Adımında Kapatma Yapabilirsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            //if (dosyaKontrol==false)
-            //{
-            //    MessageBox.Show("Lütfen Öncelikle Bakım Onarım İzleme Formunu Taratarak Ekleyiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
-            //    return;
-            //}
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
+            if (abfMalzemeIslemKayit.GecenSure==0)
+            {
+                MessageBox.Show("Malzeme depo tarafından henüz teslim alınmadığı için bu işlemi gerçekleştiremezsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             DialogResult dr = MessageBox.Show(TxtIcSiparisNo.Text + " Nolu Kaydı Kapatmak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
@@ -138,6 +142,7 @@ namespace UserInterface.BakımOnarım
             atolyeAltMalzemeManager = AtolyeAltMalzemeManager.GetInstance();
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
         }
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
@@ -209,7 +214,7 @@ namespace UserInterface.BakımOnarım
             }
             id = atolye.Id;
             abfNo = atolye.AbfNo;
-
+            malzemeId = atolye.MalzemeId;
             Atolye atolye2DTS = atolyeManager.ArizaGetirDTS(abfNo);
             if (atolye2DTS != null)
             {

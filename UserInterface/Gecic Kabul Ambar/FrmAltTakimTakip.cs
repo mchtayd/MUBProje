@@ -227,6 +227,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     return "Lütfen Malzeme Teslim Yeri bilgisini doldurunuz!";
                 }
             }
+            if (CmbTeslimTuru.Text== "ATÖLYE BAKIM ONARIMDA")
+            {
+                return "Henüz atölye işlemleri tamamlanmadığı için malzemeyi teslim alamazsınız!";
+            }
             return "OK";
         }
 
@@ -234,9 +238,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             if (teslimTuru == "ARA DEPO (İADE)")
             {
-                return "BÖLGEDEN VAN DEPOYA SEVKİYAT";
+                return "SEVKİYAT ARACI (ARA DEPO - VAN)";
             }
-            if (teslimTuru == "BÖLGEDEN VAN DEPOYA SEVKİYAT")
+            if (teslimTuru == "SEVKİYAT ARACI (ARA DEPO - VAN)")
             {
                 return "100 - GEÇİCİ KABUL/KONTROL";
             }
@@ -250,23 +254,23 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             if (teslimTuru == "200 - FABRİKA BAKIM ONARIMA GİDECEK MALZEME")
             {
-                return "VAN DEPODAN ASELSANA SEVKİYAT";
+                return "SEVKİYAT ARACI (VAN - ASELSAN)";
             }
-            if (teslimTuru == "VAN DEPODAN ASELSANA SEVKİYAT")
+            if (teslimTuru == "SEVKİYAT ARACI (VAN - ASELSAN)")
             {
                 return "ASELSAN BAKIM ONARIMDA";
             }
             if (teslimTuru == "ASELSAN BAKIM ONARIMDA")
             {
-                return "ASELSANDAN VAN DEPOYA SEVKİYAT";
+                return "SEVKİYAT ARACI (ASELSAN - VAN)";
             }
-            if (teslimTuru == "ASELSANDAN VAN DEPOYA SEVKİYAT")
+            if (teslimTuru == "SEVKİYAT ARACI (ASELSAN - VAN)")
             {
                 return "100 - GEÇİCİ KABUL/KONTROL";
             }
             if (teslimTuru == "250 - ALT YÜKLENİCİYE GİDECEK MALZEME")
             {
-                return "ALT YÜKLENİCİ FİRMADA";
+                return "250 - ALT YÜKLENİCİYE GİDECEK MALZEME";
             }
             if (teslimTuru == "ALT YÜKLENİCİ FİRMADA")
             {
@@ -274,9 +278,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             if (teslimTuru == "300 - ATÖLYEYE GİDECEK MALZEME")
             {
-                return "ATÖLYE BAKIM ONARIMDA";
+                return "300 - ATÖLYEYE GİDECEK MALZEME";
             }
-            if (teslimTuru == "ATÖLYE BAKIM ONARIMDA")
+            if (teslimTuru == "ATÖLYE İŞLEMLERİ TAMAMLANDI")
             {
                 return "100 - GEÇİCİ KABUL/KONTROL";
             }
@@ -328,12 +332,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
             foreach (DataGridViewRow item in DtgIslem.Rows)
             {
-                if (item.Cells["TeslimDurum"].Value.ToString()== "ARA DEPO (İADE)")
+                if (CmbTeslimTuru.Text== "ARA DEPO (İADE)")
                 {
-                    abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "BÖLGEDEN VAN DEPOYA SEVKİYAT");
+                    abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (ARA DEPO - VAN)");
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "BÖLGEDEN VAN DEPOYA SEVKİYAT", tarihSaat, infos[1].ToString(), 0);
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (ARA DEPO - VAN)", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "ARA DEPO (İADE)");
@@ -346,13 +350,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "BÖLGEDEN VAN DEPOYA SEVKİYAT")
+                if (CmbTeslimTuru.Text == "SEVKİYAT ARACI (ARA DEPO - VAN)")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
@@ -361,7 +365,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "BÖLGEDEN VAN DEPOYA SEVKİYAT");
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (ARA DEPO - VAN)");
                     if (abfMalzemeIslemKayit1 != null)
                     {
                         TimeSpan gecenSure = tarihSaat - abfMalzemeIslemKayit1.Tarih;
@@ -371,13 +375,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "100 - GEÇİCİ KABUL/KONTROL")
+                if (CmbTeslimTuru.Text == "100 - GEÇİCİ KABUL/KONTROL")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), item.Cells["TeslimDurum"].Value.ToString());
 
@@ -396,13 +400,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "150 - STOĞA ALINACAK MALZEME")
+                if (CmbTeslimTuru.Text == "150 - STOĞA ALINACAK MALZEME")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "150 - STOĞA ALINACAK MALZEME");
 
@@ -421,19 +425,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "200 - FABRİKA BAKIM ONARIMA GİDECEK MALZEME")
+                if (CmbTeslimTuru.Text == "200 - FABRİKA BAKIM ONARIMA GİDECEK MALZEME")
                 {
-                    abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "VAN DEPODAN ASELSANA SEVKİYAT");
+                    abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ASELSAN)");
 
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "VAN DEPODAN ASELSANA SEVKİYAT", tarihSaat, infos[1].ToString(), 0);
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ASELSAN)", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
@@ -446,13 +450,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "VAN DEPODAN ASELSANA SEVKİYAT")
+                if (CmbTeslimTuru.Text == "SEVKİYAT ARACI (VAN - ASELSAN)")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "ASELSAN BAKIM ONARIMDA");
 
@@ -461,7 +465,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "ASELSAN BAKIM ONARIMDA", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "VAN DEPODAN ASELSANA SEVKİYAT");
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ASELSAN)");
                     if (abfMalzemeIslemKayit1 != null)
                     {
                         TimeSpan gecenSure = tarihSaat - abfMalzemeIslemKayit1.Tarih;
@@ -471,19 +475,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "ASELSAN BAKIM ONARIMDA")
+                if (CmbTeslimTuru.Text == "ASELSAN BAKIM ONARIMDA")
                 {
-                    abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "ASELSANDAN VAN DEPOYA SEVKİYAT");
+                    abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (ASELSAN - VAN)");
 
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "ASELSANDAN VAN DEPOYA SEVKİYAT", tarihSaat, infos[1].ToString(), 0);
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (ASELSAN - VAN)", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "ASELSAN BAKIM ONARIMDA");
@@ -496,13 +500,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "ASELSANDAN VAN DEPOYA SEVKİYAT")
+
+                if (CmbTeslimTuru.Text == "SEVKİYAT ARACI (ASELSAN - VAN)")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
@@ -511,7 +516,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "ASELSANDAN VAN DEPOYA SEVKİYAT");
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (ASELSAN - VAN)");
                     if (abfMalzemeIslemKayit1 != null)
                     {
                         TimeSpan gecenSure = tarihSaat - abfMalzemeIslemKayit1.Tarih;
@@ -521,13 +526,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "250 - ALT YÜKLENİCİYE GİDECEK MALZEME")
+
+                if (CmbTeslimTuru.Text == "250 - ALT YÜKLENİCİYE GİDECEK MALZEME")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "250 - ALT YÜKLENİCİYE GİDECEK MALZEME");
 
@@ -546,13 +552,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "ALT YÜKLENİCİ FİRMADA")
+                if (CmbTeslimTuru.Text == "ALT YÜKLENİCİ FİRMADA")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
@@ -571,13 +577,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "300 - ATÖLYEYE GİDECEK MALZEME")
+                if (CmbTeslimTuru.Text == "300 - ATÖLYEYE GİDECEK MALZEME")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "300 - ATÖLYEYE GİDECEK MALZEME");
 
@@ -596,13 +602,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "ATÖLYE BAKIM ONARIMDA")
+                if (CmbTeslimTuru.Text == "ATÖLYE İŞLEMLERİ TAMAMLANDI")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
@@ -611,7 +617,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "ATÖLYE BAKIM ONARIMDA");
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "ATÖLYE İŞLEMLERİ TAMAMLANDI");
                     if (abfMalzemeIslemKayit1 != null)
                     {
                         TimeSpan gecenSure = tarihSaat - abfMalzemeIslemKayit1.Tarih;
@@ -621,13 +627,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "350 - GÜLYAZI ARA DEPOYA GİDECEK MALZEME")
+                if (CmbTeslimTuru.Text == "350 - GÜLYAZI ARA DEPOYA GİDECEK MALZEME")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "GÜLYAZI ARA DEPODA");
 
@@ -646,13 +652,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "400 - SİVRİ ARA DEPOYA GİDECEK MALZEME")
+                if (CmbTeslimTuru.Text == "400 - SİVRİ ARA DEPOYA GİDECEK MALZEME")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "SİVRİ ARA DEPODA");
 
@@ -671,13 +677,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "450 - YEŞİLTAŞ ARA DEPOYA GİDECEK MALZEME")
+                if (CmbTeslimTuru.Text == "450 - YEŞİLTAŞ ARA DEPOYA GİDECEK MALZEME")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "YEŞİLTAŞ ARA DEPODA");
 
@@ -696,13 +702,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "500 - ŞEMDİNLİ ARA DEPOYA GİDECEK MALZEME")
+                if (CmbTeslimTuru.Text == "500 - ŞEMDİNLİ ARA DEPOYA GİDECEK MALZEME")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "ŞEMDİNLİ ARA DEPODA");
 
@@ -721,13 +727,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "550 - DERECİK ARA DEPOYA GİDECEK MALZEME")
+                if (CmbTeslimTuru.Text == "550 - DERECİK ARA DEPOYA GİDECEK MALZEME")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "DERECİK ARA DEPODA");
 
@@ -746,13 +752,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
                 }
 
-                if (item.Cells["TeslimDurum"].Value.ToString() == "950 - TRANSFER DEPO")
+                if (CmbTeslimTuru.Text == "950 - TRANSFER DEPO")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "TRANSFER DEPODA");
 
@@ -771,7 +777,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                         else
                         {
-                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
                     continue;
@@ -787,7 +793,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbMalzemeIadeYeri.SelectedIndex = -1;
             DataDisplay();
             start = false;
-        }
+
+            MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DtgIslem.Rows.Clear();
+            TxtAciklama.Clear();
+            LblTop2.Text = DtgIslem.RowCount.ToString();
+
+;       }
 
         private void CmbTeslimTuru_SelectedIndexChanged(object sender, EventArgs e)
         {

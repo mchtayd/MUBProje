@@ -919,12 +919,15 @@ namespace UserInterface.BakımOnarım
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            if (AdvPersonel.RowCount == 0)
+            if (infos[1].ToString() != "RESUL GÜNEŞ")
             {
-                MessageBox.Show("Lütfen işlem adımı için geçerli olan işçilik bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                if (AdvPersonel.RowCount == 0)
+                {
+                    MessageBox.Show("Lütfen işlem adımı için geçerli olan işçilik bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
-
+            
             if (LblMevcutIslemAdimi.Text != "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
             {
                 string kayitKontrol = KayitKontrol();
@@ -1101,13 +1104,16 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Arızaya Ait Sökülen Malzeme Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            string kontrol = PersonelIscilikleriEkle();
-            if (kontrol != "OK")
+            if (infos[1].ToString() != "RESUL GÜNEŞ")
             {
-                MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                string kontrol = PersonelIscilikleriEkle();
+                if (kontrol != "OK")
+                {
+                    MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
-
+            
             if (LblMevcutIslemAdimi.Text == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
             {
                 if (ChkKapat.Checked == true)

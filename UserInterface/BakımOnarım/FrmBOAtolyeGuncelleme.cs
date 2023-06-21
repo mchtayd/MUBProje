@@ -1,11 +1,14 @@
 ﻿using Business.Concreate;
 using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using Entity;
 using Entity.AnaSayfa;
+using Entity.BakimOnarim;
 using Entity.BakimOnarimAtolye;
+using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,8 +32,10 @@ namespace UserInterface.BakımOnarım
         AtolyeAltMalzemeManager atolyeAltMalzemeManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         BildirimYetkiManager bildirimYetkiManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
+        AbfMalzemeManager abfMalzemeManager;
         string icSiparis;
-        int id;
+        int id, kayitId;
 
         List<AtolyeMalzeme> atolyeMalzemes;
         List<AtolyeAltMalzeme> atolyeAltMalzemes;
@@ -53,6 +58,8 @@ namespace UserInterface.BakımOnarım
             atolyeAltMalzemeManager = AtolyeAltMalzemeManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
+            abfMalzemeManager = AbfMalzemeManager.GetInstance();
         }
 
         private void FrmBOAtolyeGuncelleme_Load(object sender, EventArgs e)
@@ -87,7 +94,15 @@ namespace UserInterface.BakımOnarım
         }
         public void Personeller()
         {
-            CmbGorevAtanacakPersonel.DataSource = kayitManager.PersonelAdSoyad();
+            List<PersonelKayit> personelKayits = new List<PersonelKayit>();
+            List<PersonelKayit> personelKayits2 = new List<PersonelKayit>();
+            personelKayits = kayitManager.PersonelBolumBazli("MUB Prj.Dir./Atölye");
+            personelKayits2 = kayitManager.PersonelBolumBazli("MUB Prj.Dir./MGEO Van BO");
+            foreach (PersonelKayit item in personelKayits2)
+            {
+                personelKayits.Add(item);
+            }
+            CmbGorevAtanacakPersonel.DataSource = personelKayits;
             CmbGorevAtanacakPersonel.ValueMember = "Id";
             CmbGorevAtanacakPersonel.DisplayMember = "Adsoyad";
             CmbGorevAtanacakPersonel.SelectedValue = -1;
@@ -146,7 +161,7 @@ namespace UserInterface.BakımOnarım
             bildirilenAriza = atolye1.BildirilenAriza;
             TxtBildirilenAriza.Text = bildirilenAriza;
             bulunduguIslemAdimi = atolye1.IslemAdimi;
-
+            kayitId = atolye1.MalzemeId;
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
             if (gorevAtamaPersonel==null)
             {
@@ -156,14 +171,10 @@ namespace UserInterface.BakımOnarım
             {
                 birOncekiTarih = gorevAtamaPersonel.Tarih;
             }
-            //bulunduguIslemAdimi = gorevAtamaPersonel.IslemAdimi;
             
             LblMevcutIslemAdimi.Text = bulunduguIslemAdimi;
 
-            //TimeSpan sonuc = DateTime.Now - birOncekiTarih.AddDays(1);
             TimeSpan sonuc = DateTime.Now - birOncekiTarih;
-            //TimeSpan SonucSaat = DateTime.Now - birOncekiTarih;
-            //TimeSpan SonucDakika = DateTime.Now - birOncekiTarih;
 
             gun = sonuc.Days.ConInt();
             saat = sonuc.Hours.ConInt();
@@ -175,11 +186,6 @@ namespace UserInterface.BakımOnarım
             dakika = sonuc.Seconds.ConInt() % 60;
 
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
-            /*string day = sonuc.Days == 0 ? "" : sonuc.Days + " Gün / ";
-            sure = $"{day}{sonuc.Hours} Saat {sonuc.Minutes} Dakika";
-            string myValue=$"{sonuc.tot
-            DateTime dateTime = "19:15:00".ConOnlyTime();*/
-            //SureBul();
 
             DtgAtolye.DataSource = atolyeMalzemeManager.AtolyeMalzemeBul(siparisNo);
 
@@ -196,6 +202,8 @@ namespace UserInterface.BakımOnarım
             DtgAtolye.Columns["SiparisNo"].Visible = false;
 
             IslemAdimlariSureleri();
+
+
         }
         private void DtgAtolye_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -669,6 +677,27 @@ namespace UserInterface.BakımOnarım
                 //}
             }
 
+            if (CmbIslemAdimi.Text == "1100-TESLİMAT")
+            {
+                abfMalzemeManager.MalzemeTeslimBilgisiUpdate(kayitId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0);
+                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
+
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "ATÖLYE BAKIM ONARIMDA");
+                if (abfMalzemeIslemKayit1 != null)
+                {
+                    TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
+                    if (gecenSure.TotalMinutes.ConInt() > 0)
+                    {
+                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt());
+                    }
+                    else
+                    {
+                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
+                    }
+                }
+            }
+
             if (mesaj == "OK")
             {
                 string messege = GorevAtama();
@@ -738,29 +767,29 @@ namespace UserInterface.BakımOnarım
         }
         string Bildirim()
         {
-            string infusAd = infos[1].ToString();
-            string[] array = new string[8];
+            //string infusAd = infos[1].ToString();
+            //string[] array = new string[8];
 
-            array[0] = "Atölye Sipariş Güncelleme"; // Bildirim Başlık
-            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
-            array[2] = TxtIcSiparisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
-            array[3] = "Sipariş numaralı"; // Bildirim türü
-            array[4] = bulunduguIslemAdimi; // İÇERİK
-            array[5] = "işlem adımını";
-            array[6] = birSonrakiIslemAdimi + " adıma güncellenmiştir!";
+            //array[0] = "Atölye Sipariş Güncelleme"; // Bildirim Başlık
+            //array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            //array[2] = TxtIcSiparisNo.Text; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            //array[3] = "Sipariş numaralı"; // Bildirim türü
+            //array[4] = bulunduguIslemAdimi; // İÇERİK
+            //array[5] = "işlem adımını";
+            //array[6] = birSonrakiIslemAdimi + " adıma güncellenmiştir!";
 
-            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
-            if (bildirimYetki == null)
-            {
-                array[7] = infos[0].ToString();
-            }
-            else
-            {
-                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
-            }
+            //BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            //if (bildirimYetki == null)
+            //{
+            //    array[7] = infos[0].ToString();
+            //}
+            //else
+            //{
+            //    array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            //}
 
-            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
-            return mesaj;
+            //string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            return "OK";
         }
 
         void TemizleGuncelle()

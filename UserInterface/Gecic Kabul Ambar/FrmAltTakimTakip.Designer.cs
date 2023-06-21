@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAltTakimTakip));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -148,8 +148,8 @@
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -418,7 +418,7 @@
             this.CmbTeslimTuru.FormattingEnabled = true;
             this.CmbTeslimTuru.Location = new System.Drawing.Point(149, 43);
             this.CmbTeslimTuru.Name = "CmbTeslimTuru";
-            this.CmbTeslimTuru.Size = new System.Drawing.Size(233, 21);
+            this.CmbTeslimTuru.Size = new System.Drawing.Size(322, 21);
             this.CmbTeslimTuru.TabIndex = 452;
             this.CmbTeslimTuru.SelectedIndexChanged += new System.EventHandler(this.CmbTeslimTuru_SelectedIndexChanged);
             // 
@@ -426,7 +426,7 @@
             // 
             this.CmbMalzemeIadeYeri.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbMalzemeIadeYeri.FormattingEnabled = true;
-            this.CmbMalzemeIadeYeri.Location = new System.Drawing.Point(548, 43);
+            this.CmbMalzemeIadeYeri.Location = new System.Drawing.Point(639, 43);
             this.CmbMalzemeIadeYeri.Name = "CmbMalzemeIadeYeri";
             this.CmbMalzemeIadeYeri.Size = new System.Drawing.Size(322, 21);
             this.CmbMalzemeIadeYeri.TabIndex = 454;
@@ -437,7 +437,7 @@
             this.LblIadeYeri.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblIadeYeri.AutoSize = true;
             this.LblIadeYeri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblIadeYeri.Location = new System.Drawing.Point(396, 44);
+            this.LblIadeYeri.Location = new System.Drawing.Point(487, 44);
             this.LblIadeYeri.Name = "LblIadeYeri";
             this.LblIadeYeri.Size = new System.Drawing.Size(146, 15);
             this.LblIadeYeri.TabIndex = 453;
@@ -451,7 +451,7 @@
             this.BtnTeslimTuru.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnTeslimTuru.BackgroundImage")));
             this.BtnTeslimTuru.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnTeslimTuru.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTeslimTuru.Location = new System.Drawing.Point(873, 38);
+            this.BtnTeslimTuru.Location = new System.Drawing.Point(964, 38);
             this.BtnTeslimTuru.Margin = new System.Windows.Forms.Padding(0);
             this.BtnTeslimTuru.Name = "BtnTeslimTuru";
             this.BtnTeslimTuru.Size = new System.Drawing.Size(34, 29);

@@ -31,6 +31,7 @@ namespace UserInterface.BakımOnarım
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBOAtolye));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtAbfFormNo = new System.Windows.Forms.TextBox();
@@ -100,6 +101,8 @@ namespace UserInterface.BakımOnarım
             this.LblDurumAcik = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.DtgList = new ADGV.AdvancedDataGridView();
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BtnKaydet = new System.Windows.Forms.Button();
@@ -149,6 +152,8 @@ namespace UserInterface.BakımOnarım
             this.CmbStokUst = new System.Windows.Forms.TextBox();
             this.label34 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinderOto = new System.Windows.Forms.BindingSource(this.components);
+            this.Secim = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -158,12 +163,15 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.groupBox7.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgStokList)).BeginInit();
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderOto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -592,7 +600,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox4.Controls.Add(this.DtgCekilmeTarihi);
             this.groupBox4.Controls.Add(this.LblIcSiparisNo);
             this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Location = new System.Drawing.Point(22, 328);
+            this.groupBox4.Location = new System.Drawing.Point(12, 369);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(733, 377);
             this.groupBox4.TabIndex = 67;
@@ -783,7 +791,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label26.Location = new System.Drawing.Point(761, 328);
+            this.label26.Location = new System.Drawing.Point(5, 345);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(112, 15);
             this.label26.TabIndex = 71;
@@ -792,7 +800,7 @@ namespace UserInterface.BakımOnarım
             // LblToplam
             // 
             this.LblToplam.AutoSize = true;
-            this.LblToplam.Location = new System.Drawing.Point(879, 328);
+            this.LblToplam.Location = new System.Drawing.Point(123, 345);
             this.LblToplam.Name = "LblToplam";
             this.LblToplam.Size = new System.Drawing.Size(21, 15);
             this.LblToplam.TabIndex = 58;
@@ -834,6 +842,7 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.groupBox7);
             this.tabPage1.Controls.Add(this.BtnTemizle);
             this.tabPage1.Controls.Add(this.BtnKaydet);
             this.tabPage1.Controls.Add(this.TxtBildirilenAriza);
@@ -858,6 +867,38 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.DtgList);
+            this.groupBox7.Location = new System.Drawing.Point(8, 6);
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.Size = new System.Drawing.Size(1545, 336);
+            this.groupBox7.TabIndex = 329;
+            this.groupBox7.TabStop = false;
+            this.groupBox7.Text = "ATÖLYE KAYIT EDİLECEK MALZEMELER";
+            // 
+            // DtgList
+            // 
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.DtgList.AutoGenerateContextFilters = true;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Secim});
+            this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgList.DateWithTime = false;
+            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgList.Location = new System.Drawing.Point(3, 17);
+            this.DtgList.Name = "DtgList";
+            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgList.Size = new System.Drawing.Size(1539, 316);
+            this.DtgList.TabIndex = 5;
+            this.DtgList.TimeFilter = false;
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
+            // 
             // BtnTemizle
             // 
             this.BtnTemizle.BackColor = System.Drawing.Color.CadetBlue;
@@ -866,7 +907,7 @@ namespace UserInterface.BakımOnarım
             this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnTemizle.ImageKey = "broom.png";
             this.BtnTemizle.ImageList = this.ımageList1;
-            this.BtnTemizle.Location = new System.Drawing.Point(154, 711);
+            this.BtnTemizle.Location = new System.Drawing.Point(144, 752);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
             this.BtnTemizle.TabIndex = 328;
@@ -888,7 +929,7 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(18, 711);
+            this.BtnKaydet.Location = new System.Drawing.Point(8, 752);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 327;
@@ -1365,6 +1406,15 @@ namespace UserInterface.BakımOnarım
             this.label34.TabIndex = 54;
             this.label34.Text = "Seri No:";
             // 
+            // Secim
+            // 
+            this.Secim.HeaderText = "SEÇİM";
+            this.Secim.MinimumWidth = 22;
+            this.Secim.Name = "Secim";
+            this.Secim.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Secim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Secim.Width = 70;
+            // 
             // FrmBOAtolye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1390,6 +1440,8 @@ namespace UserInterface.BakımOnarım
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.groupBox7.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1399,6 +1451,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox5.ResumeLayout(false);
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderOto)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1523,5 +1576,9 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Button BtnTemizle;
         private System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.GroupBox groupBox7;
+        private ADGV.AdvancedDataGridView DtgList;
+        private System.Windows.Forms.BindingSource dataBinderOto;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Secim;
     }
 }

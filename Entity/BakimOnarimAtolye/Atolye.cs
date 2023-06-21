@@ -8,7 +8,7 @@ namespace Entity.BakimOnarimAtolye
 {
     public class Atolye
     {
-        int id, abfNo; string stokNoUst, tanimUst, seriNoUst, garantiDurumu, bildirimNo, crmNo, kategori, bolgeAdi, proje, bildirilenAriza, icSiparisNo; DateTime cekildigiTarih, siparisAcmaTarihi; string modifikasyonlar, notlar, islemAdimi, siparisNo, bulunduguIslemAdimi; int arizaDurum; string gecensure; DateTime kapatmaTarihi; string dosyaYolu, atolyeKategori, islemAdimiSorumlusu;
+        int id, abfNo; string stokNoUst, tanimUst, seriNoUst, garantiDurumu, bildirimNo, crmNo, kategori, bolgeAdi, proje, bildirilenAriza, icSiparisNo; DateTime cekildigiTarih, siparisAcmaTarihi; string modifikasyonlar, notlar, islemAdimi, siparisNo, bulunduguIslemAdimi; int arizaDurum; string gecensure; DateTime kapatmaTarihi; string dosyaYolu, atolyeKategori, islemAdimiSorumlusu; int malzemeId;
 
         public int Id { get => id; set => id = value; }
         public int AbfNo { get => abfNo; set => abfNo = value; }
@@ -36,8 +36,9 @@ namespace Entity.BakimOnarimAtolye
         public string DosyaYolu { get => dosyaYolu; set => dosyaYolu = value; }
         public string AtolyeKategori { get => atolyeKategori; set => atolyeKategori = value; }
         public string IslemAdimiSorumlusu { get => islemAdimiSorumlusu; set => islemAdimiSorumlusu = value; }
+        public int MalzemeId { get => malzemeId; set => malzemeId = value; }
 
-        public Atolye(int id, int abfNo, string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza, string icSiparisNo, DateTime cekildigiTarih, DateTime siparisAcmaTarihi, string modifikasyonlar, string notlar, string islemAdimi, string siparisNo, string gecensure,DateTime kapatmaTarihi,string dosyaYolu,string atolyeKategori, string islemAdimiSorumlusu)
+        public Atolye(int id, int abfNo, string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza, string icSiparisNo, DateTime cekildigiTarih, DateTime siparisAcmaTarihi, string modifikasyonlar, string notlar, string islemAdimi, string siparisNo, string gecensure,DateTime kapatmaTarihi,string dosyaYolu,string atolyeKategori, string islemAdimiSorumlusu, int malzemeId)
         {
             this.id = id;
             this.abfNo = abfNo;
@@ -63,10 +64,10 @@ namespace Entity.BakimOnarimAtolye
             this.dosyaYolu = dosyaYolu;
             this.atolyeKategori = atolyeKategori;
             this.islemAdimiSorumlusu = islemAdimiSorumlusu;
-            //this.
+            this.malzemeId = malzemeId;
         }
 
-        public Atolye(int abfNo, string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza, string icSiparisNo, DateTime cekildigiTarih, DateTime siparisAcmaTarihi, string modifikasyonlar, string notlar, string islemAdimi, string siparisNo,string dosyaYolu,string atolyeKategori)
+        public Atolye(int abfNo, string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza, string icSiparisNo, DateTime cekildigiTarih, DateTime siparisAcmaTarihi, string modifikasyonlar, string notlar, string islemAdimi, string siparisNo,string dosyaYolu,string atolyeKategori, int malzemeId)
         {
             this.abfNo = abfNo;
             this.stokNoUst = stokNoUst;
@@ -88,6 +89,7 @@ namespace Entity.BakimOnarimAtolye
             this.siparisNo = siparisNo;
             this.dosyaYolu = dosyaYolu;
             this.atolyeKategori = atolyeKategori;
+            this.malzemeId = malzemeId;
         }
 
         public Atolye(string stokNoUst, string tanimUst, string seriNoUst, string garantiDurumu, string bildirimNo, string crmNo, string kategori, string bolgeAdi, string proje, string bildirilenAriza,string bulunduguIslemAdimi,int arizaDurumu)

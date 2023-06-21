@@ -240,12 +240,12 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
-        public List<AbfMalzeme> DepoyaTeslimEdilecekMalzemeList(string teslimDurum)
+        public List<AbfMalzeme> DepoyaTeslimEdilecekMalzemeList(string teslimDurum, string fizikselDurum)
         {
             try
             {
                 List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
-                dataReader = sqlServices.StoreReader("DepoIadeEdilecekMalzeme", new SqlParameter("@teslimDurum", teslimDurum));
+                dataReader = sqlServices.StoreReader("DepoIadeEdilecekMalzeme", new SqlParameter("@teslimDurum", teslimDurum), new SqlParameter("@fizikselDurum", fizikselDurum));
                 while (dataReader.Read())
                 {
                     abfMalzemes.Add(new AbfMalzeme(
@@ -263,7 +263,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["BOLGE_SORUMLUSU"].ToString(),
                         dataReader["YAPILACAK_ISLEM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString()));
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["FIZIKSEL_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;

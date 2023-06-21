@@ -247,6 +247,17 @@ namespace Business.Concreate.IdarıIsler
                 return new List<PersonelKayit>();
             }
         }
+        public List<PersonelKayit> PersonelBolumBazli(string bolum)
+        {
+            try
+            {
+                return personelKayitDal.PersonelBolumBazli(bolum);
+            }
+            catch (Exception)
+            {
+                return new List<PersonelKayit>();
+            }
+        }
 
         public string PersonelSorumluDegistir(int personelId,int yetkiliId)
         {

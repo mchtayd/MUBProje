@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>673</ApplicationRevision>
+    <ApplicationRevision>674</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -448,6 +448,12 @@
     </Compile>
     <Compile Include="BakımOnarım\FrmDTFOlustur.Designer.cs">
       <DependentUpon>FrmDTFOlustur.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmFabrikaBakimOnarimAselsan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmFabrikaBakimOnarimAselsan.Designer.cs">
+      <DependentUpon>FrmFabrikaBakimOnarimAselsan.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmGarantiSureleri.cs">
       <SubType>Form</SubType>
@@ -1683,6 +1689,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmDTFOlustur.resx">
       <DependentUpon>FrmDTFOlustur.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmFabrikaBakimOnarimAselsan.resx">
+      <DependentUpon>FrmFabrikaBakimOnarimAselsan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmGarantiSureleri.resx">
       <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>

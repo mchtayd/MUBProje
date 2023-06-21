@@ -50,7 +50,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             abfMalzemes = new List<AbfMalzeme>();
             dataBinder.DataSource = null;
 
-            abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ");
+            abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ","TÜMÜ");
 
             dataBinder.DataSource = abfMalzemes.ToDataTable();
             DtgList.DataSource = dataBinder;
@@ -66,7 +66,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["SokulenCalismaSaati"].Visible = false;
             DtgList.Columns["SokulenRevizyon"].HeaderText = "REVİZYON";
             DtgList.Columns["CalismaDurumu"].Visible = false;
-            DtgList.Columns["FizikselDurum"].Visible = false;
+            DtgList.Columns["FizikselDurum"].HeaderText = "MALZEME FİZİKSEL DURUM";
             DtgList.Columns["TakilanStokNo"].Visible = false;
             DtgList.Columns["TakilanTanim"].Visible = false;
             DtgList.Columns["TakilanSeriNo"].Visible = false;
@@ -87,17 +87,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
             DtgList.Columns["DosyaYolu"].Visible = false;
 
-            DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 0;
-            DtgList.Columns["SokulenStokNo"].DisplayIndex = 1;
-            DtgList.Columns["SokulenTanim"].DisplayIndex = 2;
-            DtgList.Columns["SokulenSeriNo"].DisplayIndex = 3;
-            DtgList.Columns["SokulenRevizyon"].DisplayIndex = 4;
-            DtgList.Columns["SokulenMiktar"].DisplayIndex = 5;
-            DtgList.Columns["SokulenBirim"].DisplayIndex = 6;
-            DtgList.Columns["BolgeAdi"].DisplayIndex = 7;
-            DtgList.Columns["AbfNo"].DisplayIndex = 8;
-            DtgList.Columns["YapilacakIslem"].DisplayIndex = 9;
-            DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 15;
+            DtgList.Columns["AbfNo"].DisplayIndex = 0;
+            DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 3;
+            DtgList.Columns["YapilacakIslem"].DisplayIndex = 1;
+            DtgList.Columns["FizikselDurum"].DisplayIndex = 2;
+            DtgList.Columns["SokulenStokNo"].DisplayIndex = 25;
+            DtgList.Columns["SokulenTanim"].DisplayIndex = 17;
+            DtgList.Columns["SokulenSeriNo"].DisplayIndex = 18;
+            DtgList.Columns["SokulenRevizyon"].DisplayIndex = 19;
+            DtgList.Columns["SokulenMiktar"].DisplayIndex = 20;
+            DtgList.Columns["SokulenBirim"].DisplayIndex = 21;
+            DtgList.Columns["BolgeAdi"].DisplayIndex = 22;
+            
+            DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 25;
 
             TxtTop.Text = DtgList.RowCount.ToString();
         }

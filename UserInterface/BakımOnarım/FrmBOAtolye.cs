@@ -42,9 +42,13 @@ namespace UserInterface.BakımOnarım
         MalzemeKayitManager malzemeKayitManager;
         ComboManager comboManager;
         BildirimYetkiManager bildirimYetkiManager;
+        AbfMalzemeManager abfMalzemeManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
+        ArizaKayitManager arizaKayitManager;
+
 
         List<AtolyeMalzeme> atolyeMalzemes;
-
+        List<AbfMalzeme> abfMalzemes;
 
         List<string> IcSiparisler = new List<string>();
         List<string> SiparisNos = new List<string>();
@@ -54,8 +58,8 @@ namespace UserInterface.BakımOnarım
         List<MalzemeKayit> malzemeKayitsSecilenler = new List<MalzemeKayit>();
 
         public object[] infos;
-        int id;
-        string siparisNo = "", dosya, taslakYolu = "", comboAd = "";
+        int kayitId, id, oncekiId;
+        string siparisNo = "", dosya, taslakYolu = "", comboAd, yerineMalzeme, abfNo = "";
         string kaynak = @"Z:\DTS\BAKIM ONARIM ATOLYE\Taslak\";
         string yol = @"C:\DTS\Taslak\";
         bool start = true;
@@ -72,10 +76,14 @@ namespace UserInterface.BakımOnarım
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
             comboManager = ComboManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
+            arizaKayitManager = ArizaKayitManager.GetInstance();
         }
 
         private void FrmBOAtolye_Load(object sender, EventArgs e)
         {
+            DataOtoKayit();
             IslemAdimlari();
             IslemAdimlariManuel();
             Personeller();
@@ -94,6 +102,7 @@ namespace UserInterface.BakımOnarım
         void Don()
         {
             start = true;
+            DataOtoKayit();
             IslemAdimlari();
             IslemAdimlariManuel();
             Personeller();
@@ -124,6 +133,64 @@ namespace UserInterface.BakımOnarım
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
+
+        void DataOtoKayit()
+        {
+            abfMalzemes = new List<AbfMalzeme>();
+            dataBinderOto.DataSource = null;
+
+            abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("300 - ATÖLYEYE GİDECEK MALZEME");
+
+            dataBinderOto.DataSource = abfMalzemes.ToDataTable();
+            DtgList.DataSource = dataBinderOto;
+
+            DtgList.Columns["Id"].Visible = false;
+            DtgList.Columns["BenzersizId"].Visible = false;
+            DtgList.Columns["SokulenStokNo"].HeaderText = "STOK NO";
+            DtgList.Columns["SokulenTanim"].HeaderText = "TANIM";
+            DtgList.Columns["SokulenSeriNo"].HeaderText = "SERİ NO";
+            DtgList.Columns["SokulenMiktar"].HeaderText = "MİKTAR";
+            DtgList.Columns["SokulenBirim"].HeaderText = "BİRİM";
+            DtgList.Columns["SokulenCalismaSaati"].Visible = false;
+            DtgList.Columns["SokulenRevizyon"].HeaderText = "REVİZYON";
+            DtgList.Columns["CalismaDurumu"].Visible = false;
+            DtgList.Columns["FizikselDurum"].Visible = false;
+            DtgList.Columns["TakilanStokNo"].Visible = false;
+            DtgList.Columns["TakilanTanim"].Visible = false;
+            DtgList.Columns["TakilanSeriNo"].Visible = false;
+            DtgList.Columns["TakilanMiktar"].Visible = false;
+            DtgList.Columns["TakilanBirim"].Visible = false;
+            DtgList.Columns["TakilanCalismaSaati"].Visible = false;
+            DtgList.Columns["TakilanRevizyon"].Visible = false;
+            DtgList.Columns["TeminDurumu"].Visible = false;
+            DtgList.Columns["AbfNo"].HeaderText = "ABF NO";
+            DtgList.Columns["AbTarihSaat"].Visible = false;
+            DtgList.Columns["TemineAtilamTarihi"].Visible = false;
+            DtgList.Columns["MalzemeDurumu"].Visible = false;
+            DtgList.Columns["MalzemeIslemAdimi"].Visible = false;
+            DtgList.Columns["SokulenTeslimDurum"].HeaderText = "MALZEME TESLİM DURUMU";
+            DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
+            DtgList.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
+            DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
+            DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
+            DtgList.Columns["DosyaYolu"].Visible = false;
+
+            DtgList.Columns["Secim"].DisplayIndex = 0;
+            DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 1;
+            DtgList.Columns["SokulenStokNo"].DisplayIndex = 2;
+            DtgList.Columns["SokulenTanim"].DisplayIndex = 3;
+            DtgList.Columns["SokulenSeriNo"].DisplayIndex = 4;
+            DtgList.Columns["SokulenRevizyon"].DisplayIndex = 5;
+            DtgList.Columns["SokulenMiktar"].DisplayIndex = 6;
+            DtgList.Columns["SokulenBirim"].DisplayIndex = 7;
+            DtgList.Columns["BolgeAdi"].DisplayIndex = 8;
+            DtgList.Columns["AbfNo"].DisplayIndex = 9;
+            DtgList.Columns["YapilacakIslem"].DisplayIndex = 10;
+            DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 11;
+
+            LblToplam.Text = DtgList.RowCount.ToString();
+        }
+
         void IcSiparisNo()
         {
             LblIcSiparisManuel.Text = "221RWK" + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + DateTime.Now.ToString("yy") + DateTime.Now.ToString("HH");
@@ -158,14 +225,31 @@ namespace UserInterface.BakımOnarım
         }
         void Personeller()
         {
-            CmbGorevAtanacakPersonel.DataSource = kayitManager.PersonelAdSoyad();
+            List<PersonelKayit> personelKayits = new List<PersonelKayit>();
+            List<PersonelKayit> personelKayits2 = new List<PersonelKayit>();
+            personelKayits = kayitManager.PersonelBolumBazli("MUB Prj.Dir./Atölye");
+            personelKayits2 = kayitManager.PersonelBolumBazli("MUB Prj.Dir./MGEO Van BO");
+            foreach (PersonelKayit item in personelKayits2)
+            {
+                personelKayits.Add(item);
+            }
+            CmbGorevAtanacakPersonel.DataSource = personelKayits;
             CmbGorevAtanacakPersonel.ValueMember = "Id";
             CmbGorevAtanacakPersonel.DisplayMember = "Adsoyad";
             CmbGorevAtanacakPersonel.SelectedValue = -1;
         }
+
         void PersonellerManuel()
         {
-            CmbGorevAtanacakPersonelManuel.DataSource = kayitManager.PersonelAdSoyad();
+            List<PersonelKayit> personelKayits = new List<PersonelKayit>();
+            List<PersonelKayit> personelKayits2 = new List<PersonelKayit>();
+            personelKayits = kayitManager.PersonelBolumBazli("MUB Prj.Dir./Atölye");
+            personelKayits2 = kayitManager.PersonelBolumBazli("MUB Prj.Dir./MGEO Van BO");
+            foreach (PersonelKayit item in personelKayits2)
+            {
+                personelKayits.Add(item);
+            }
+            CmbGorevAtanacakPersonelManuel.DataSource = personelKayits;
             CmbGorevAtanacakPersonelManuel.ValueMember = "Id";
             CmbGorevAtanacakPersonelManuel.DisplayMember = "Adsoyad";
             CmbGorevAtanacakPersonelManuel.SelectedValue = -1;
@@ -687,7 +771,7 @@ namespace UserInterface.BakımOnarım
                     {
                         siparisNo = Guid.NewGuid().ToString();
 
-                        Atolye atolye2 = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", IcSiparisler[i].ToString(), DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, "", CmbAtolyeKategoriManuel.Text);
+                        Atolye atolye2 = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", IcSiparisler[i].ToString(), DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, "", CmbAtolyeKategoriManuel.Text, 0);
 
                         atolyeManager.Add(atolye2);
 
@@ -698,7 +782,7 @@ namespace UserInterface.BakımOnarım
                 else
                 {
                     siparisNo = Guid.NewGuid().ToString();
-                    Atolye atolye = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", LblIcSiparisManuel.Text, DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, "", CmbAtolyeKategoriManuel.Text);
+                    Atolye atolye = new Atolye(0, TxtTanimUs.Text, CmbStokUst.Text, TxtSeriUst.Text, CmbGarantiDurumuUst.Text, "", "", CmbKategori.Text, "", "", "", LblIcSiparisManuel.Text, DtgCekilmeTarihiManuel.Value, DtgSiparisTarihiManuel.Value, TxtModifikasyonlarManuel.Text, TxtNotlarManuel.Text, CmbIslemAdimiManuel.Text, siparisNo, "", CmbAtolyeKategoriManuel.Text, 0);
 
                     SiparisNos.Add(siparisNo);
                     atolyeManager.Add(atolye);
@@ -987,47 +1071,65 @@ namespace UserInterface.BakımOnarım
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            #region control
-            if (TxtStokNoUst.Text == "" || DtgMalzemeler.RowCount == 0)
+            if (kayitId == 0)
             {
-                MessageBox.Show("Lütfen Öncelikle Tüm Bilgileri Eksiksiz Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (CmbGorevAtanacakPersonel.Text == "")
+
+            for (int i = 0; i < DtgList.Rows.Count; i++)
             {
-                MessageBox.Show("Lütfen Öncelikle Görev Atanacak Personel Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (CmbIslemAdimi.Text == "")
-            {
-                MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (CmbAtolyeKategoriOto.Text == "")
-            {
-                MessageBox.Show("Lütfen Öncelikle Atölye Kategori Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            foreach (DataGridViewRow item in DtgMalzemeler.Rows)
-            {
-                if (item.Cells[10].Value.ConBool())
+                bool secim = DtgList.CurrentRow.Cells["Secim"].Value.ConBool();
+                if (secim==true)
                 {
-                    Atolye atolye3 = atolyeManager.GetControl(item.Cells["StokNo"].Value.ToString(), item.Cells["SeriNo"].Value.ToString());
-                    if (atolye3!=null)
-                    {
-                        MessageBox.Show(item.Cells["StokNo"].Value.ToString() + " stok numaralı malzeme "+ atolye3.Id + " kimlik numaralı kayıtta zaten var!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
-                    }
+                    break;
                 }
+                if (i == DtgList.Rows.Count-1)
+                {
+                    MessageBox.Show("Lütfen Atölyeye Kayıt edilecek malzeme listesinden bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                continue;
             }
-            
-            //if (CmbIslemAdimi.Text != "400-BİLDİRİM ve B/O BAŞLAMA ONAYI (MÜHENDİS)")
+
+            #region control
+            //if (TxtStokNoUst.Text == "" || DtgMalzemeler.RowCount == 0)
             //{
-            //    MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini 400-GÖZ DENETİMİ Olarak Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    MessageBox.Show("Lütfen Öncelikle Tüm Bilgileri Eksiksiz Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
+            //if (CmbGorevAtanacakPersonel.Text == "")
+            //{
+            //    MessageBox.Show("Lütfen Öncelikle Görev Atanacak Personel Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (CmbIslemAdimi.Text == "")
+            //{
+            //    MessageBox.Show("Lütfen Öncelikle İşlem Adımı Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //if (CmbAtolyeKategoriOto.Text == "")
+            //{
+            //    MessageBox.Show("Lütfen Öncelikle Atölye Kategori Bilgisini Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+            //foreach (DataGridViewRow item in DtgMalzemeler.Rows)
+            //{
+            //    if (item.Cells[10].Value.ConBool())
+            //    {
+            //        Atolye atolye3 = atolyeManager.GetControl(item.Cells["StokNo"].Value.ToString(), item.Cells["SeriNo"].Value.ToString());
+            //        if (atolye3!=null)
+            //        {
+            //            MessageBox.Show(item.Cells["StokNo"].Value.ToString() + " stok numaralı malzeme "+ atolye3.Id + " kimlik numaralı kayıtta zaten var!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //            return;
+            //        }
+            //    }
+            //}
+
+
             #endregion
-            DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istiyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 BtnKaydet.Enabled = false;
@@ -1036,76 +1138,147 @@ namespace UserInterface.BakımOnarım
                 BtnBul.Enabled = false;
                 //CreateFile();
 
-
-                if (IcSiparisler.Count > 0)
+                foreach (DataGridViewRow item in DtgList.Rows)
                 {
-                    EditSiparisNos();
-                    for (int i = 0; i < IcSiparisler.Count; i++)
+                    if (item.Cells["Secim"].Value.ConBool()==true)
                     {
-                        siparisNo = Guid.NewGuid().ToString();
+                        ArizaKayit arizaKayit = arizaKayitManager.Get(item.Cells["AbfNo"].Value.ConInt());
+                        if (arizaKayit != null)
+                        {
+                            siparisNo = Guid.NewGuid().ToString();
+                            string icSiparisNo = "";
+
+                            if (item.Cells["YerineMalzemeTakilma"].Value.ToString() == "TAKILDI")
+                            {
+                                icSiparisNo = "221RWK" + DateTime.Now.ToString("MM") + item.Cells["AbfNo"].Value.ToString();
+                            }
+                            else
+                            {
+                                icSiparisNo = "221BO" + DateTime.Now.ToString("MM") + item.Cells["AbfNo"].Value.ToString();
+                            }
 
 
-                        Atolye atolye2 = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, IcSiparisler[i].ToString(), DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
-                            "", CmbAtolyeKategoriOto.Text);
+                            Atolye atolye2 = new Atolye(abfNo.ConInt(), arizaKayit.StokNo, arizaKayit.Tanim, arizaKayit.SeriNo, arizaKayit.GarantiDurumu, arizaKayit.BildirimNo, "", arizaKayit.Kategori, arizaKayit.BolgeAdi, arizaKayit.Proje, arizaKayit.BildirilenAriza, icSiparisNo, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo, "", CmbAtolyeKategoriOto.Text, kayitId);
 
-                        atolyeManager.Add(atolye2);
+                            atolyeManager.Add(atolye2);
 
-                        SiparisNos.Add(siparisNo);
+                            kayitId = item.Cells["Id"].Value.ConInt();
+                            AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
+                            if (abfMalzemeIslemKayit != null)
+                            {
+                                talepTarihi = abfMalzemeIslemKayit.Tarih;
+                            }
+                            else
+                            {
+                                talepTarihi = DateTime.Now;
+                            }
 
+
+                            AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["AbfNo"].Value.ConInt(), item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["YapilacakIslem"].Value.ToString(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), talepTarihi, siparisNo);
+
+                            atolyeMalzemeManager.Add(atolyeMalzeme);
+                            GorevAtama();
+
+                            abfMalzemeManager.MalzemeTeslimBilgisiUpdate(kayitId, "ATÖLYE BAKIM ONARIMDA");
+                            AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE BAKIM ONARIMDA", DateTime.Now, infos[1].ToString(), 0);
+                            abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
+
+                            //AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
+                            if (abfMalzemeIslemKayit != null)
+                            {
+                                TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit.Tarih;
+                                if (gecenSure.TotalMinutes.ConInt() > 0)
+                                {
+                                    abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit.Id, gecenSure.TotalMinutes.ConInt());
+                                }
+                                else
+                                {
+                                    abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit.Id, 1);
+                                }
+                            }
+
+                            
+
+                        }
                     }
                 }
-                else
-                {
-                    siparisNo = Guid.NewGuid().ToString();
-                    Atolye atolye = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, LblIcSiparisNo.Text, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
-                        "", CmbAtolyeKategoriOto.Text);
 
-                    SiparisNos.Add(siparisNo);
-                    atolyeManager.Add(atolye);
-                }
+                
 
-                int sayac = 0;
-                foreach (DataGridViewRow item in DtgMalzemeler.Rows)
-                {
-                    if (item.Cells[10].Value.ConBool())
-                    {
+                
 
-                        AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["FormNo"].Value.ConInt(), item.Cells["StokNo"].Value.ToString(),
-                            item.Cells["Tanim"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durum"].Value.ToString(),
-                            item.Cells["Revizyon"].Value.ToString(), item.Cells["Miktar"].Value.ConDouble(), item.Cells["TalepTarihi"].Value.ConDate(),
-                            SiparisNos[sayac].ToString());
+                #region EskiKod
+                //if (IcSiparisler.Count > 0)
+                //{
+                //    EditSiparisNos();
+                //    for (int i = 0; i < IcSiparisler.Count; i++)
+                //    {
+                //        siparisNo = Guid.NewGuid().ToString();
 
-                        atolyeMalzemeManager.Add(atolyeMalzeme);
-                        sayac++;
-                    }
-                }
 
-                if (SiparisNos.Count > 0)
-                {
-                    for (int i = 0; i < SiparisNos.Count; i++)
-                    {
-                        Atolye atolye2 = atolyeManager.Get(SiparisNos[i].ToString());
-                        id = atolye2.Id;
-                        GorevAtama();
-                    }
-                }
-                else
-                {
-                    Atolye atolye1 = atolyeManager.Get(siparisNo);
-                    id = atolye1.Id;
-                    GorevAtama();
-                }
+                //        Atolye atolye2 = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, IcSiparisler[i].ToString(), DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
+                //            "", CmbAtolyeKategoriOto.Text);
 
-                //IscilikGir();
+                //        atolyeManager.Add(atolye2);
 
-                string mesaj = Bildirim();
-                if (mesaj != "OK")
-                {
-                    if (mesaj != "Server Ayarı Kapalı")
-                    {
-                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                //        SiparisNos.Add(siparisNo);
+
+                //    }
+                //}
+                //else
+                //{
+                //    siparisNo = Guid.NewGuid().ToString();
+                //    Atolye atolye = new Atolye(TxtAbfFormNo.Text.ConInt(), TxtStokNoUst.Text, TxtTanimUst.Text, TxtSeriNoUst.Text, TxtGarantiDurumuUst.Text, TxtBildirimNo.Text, TxtScrmNo.Text, TxtKategori.Text, TxtBolgeAdi.Text, TxtProje.Text, TxtBildirilenAriza.Text, LblIcSiparisNo.Text, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo,
+                //        "", CmbAtolyeKategoriOto.Text);
+
+                //    SiparisNos.Add(siparisNo);
+                //    atolyeManager.Add(atolye);
+                //}
+
+                //int sayac = 0;
+                //foreach (DataGridViewRow item in DtgMalzemeler.Rows)
+                //{
+                //    if (item.Cells[10].Value.ConBool())
+                //    {
+
+                //        AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["FormNo"].Value.ConInt(), item.Cells["StokNo"].Value.ToString(),
+                //            item.Cells["Tanim"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Durum"].Value.ToString(),
+                //            item.Cells["Revizyon"].Value.ToString(), item.Cells["Miktar"].Value.ConDouble(), item.Cells["TalepTarihi"].Value.ConDate(),
+                //            SiparisNos[sayac].ToString());
+
+                //        atolyeMalzemeManager.Add(atolyeMalzeme);
+                //        sayac++;
+                //    }
+                //}
+
+                //if (SiparisNos.Count > 0)
+                //{
+                //    for (int i = 0; i < SiparisNos.Count; i++)
+                //    {
+                //        Atolye atolye2 = atolyeManager.Get(SiparisNos[i].ToString());
+                //        id = atolye2.Id;
+                //        GorevAtama();
+                //    }
+                //}
+                //else
+                //{
+                //    Atolye atolye1 = atolyeManager.Get(siparisNo);
+                //    id = atolye1.Id;
+                //    GorevAtama();
+                //}
+
+                ////IscilikGir();
+
+                //string mesaj = Bildirim();
+                //if (mesaj != "OK")
+                //{
+                //    if (mesaj != "Server Ayarı Kapalı")
+                //    {
+                //        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
+
+                #endregion
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -1119,6 +1292,8 @@ namespace UserInterface.BakımOnarım
                 SiparisNos.Clear();
                 DosyaYollari.Clear();
                 IcSiparisNo();
+                kayitId = 0;
+                DataOtoKayit();
             }
         }
 
@@ -1134,6 +1309,44 @@ namespace UserInterface.BakımOnarım
             SiparisNos.Clear();
             DosyaYollari.Clear();
             IcSiparisNo();
+        }
+        string stokNo, tanim, seriNo, yapilacakIslem,revizyon; int miktar; DateTime talepTarihi;
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgList.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            kayitId = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+            yerineMalzeme = DtgList.CurrentRow.Cells["YerineMalzemeTakilma"].Value.ToString();
+            abfNo = DtgList.CurrentRow.Cells["AbfNo"].Value.ToString();
+            stokNo = DtgList.CurrentRow.Cells["SokulenStokNo"].Value.ToString();
+            tanim = DtgList.CurrentRow.Cells["SokulenTanim"].Value.ToString();
+            seriNo = DtgList.CurrentRow.Cells["SokulenSeriNo"].Value.ToString();
+            yapilacakIslem = DtgList.CurrentRow.Cells["YapilacakIslem"].Value.ToString();
+            revizyon = DtgList.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
+            miktar = DtgList.CurrentRow.Cells["SokulenMiktar"].Value.ConInt();
+
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
+            if (abfMalzemeIslemKayit!=null)
+            {
+                talepTarihi = abfMalzemeIslemKayit.Tarih;
+            }
+            else
+            {
+                talepTarihi = DateTime.Now;
+            }
+            if (yerineMalzeme=="TAKILDI")
+            {
+                LblIcSiparisNo.Text = "221RWK" + DateTime.Now.ToString("MM") + abfNo;
+            }
+            else
+            {
+                LblIcSiparisNo.Text = "221BO" + DateTime.Now.ToString("MM") + abfNo;
+            }
+
         }
 
         private void BtnKategoriEkle_Click(object sender, EventArgs e)
