@@ -70,12 +70,14 @@
             this.BtnTeslimTuru = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.DtgSaat = new System.Windows.Forms.DateTimePicker();
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslem)).BeginInit();
+            this.panel2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -105,7 +107,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(184, 367);
+            this.label2.Location = new System.Drawing.Point(-134, 24);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(53, 13);
             this.label2.TabIndex = 391;
@@ -169,7 +171,7 @@
             // 
             // TxtAciklama
             // 
-            this.TxtAciklama.Location = new System.Drawing.Point(243, 362);
+            this.TxtAciklama.Location = new System.Drawing.Point(-75, 19);
             this.TxtAciklama.Name = "TxtAciklama";
             this.TxtAciklama.Size = new System.Drawing.Size(576, 51);
             this.TxtAciklama.TabIndex = 394;
@@ -180,7 +182,7 @@
             this.LblTop2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblTop2.AutoSize = true;
             this.LblTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTop2.Location = new System.Drawing.Point(118, 704);
+            this.LblTop2.Location = new System.Drawing.Point(117, 667);
             this.LblTop2.Name = "LblTop2";
             this.LblTop2.Size = new System.Drawing.Size(21, 15);
             this.LblTop2.TabIndex = 401;
@@ -191,7 +193,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(18, 704);
+            this.label3.Location = new System.Drawing.Point(17, 667);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 15);
             this.label3.TabIndex = 400;
@@ -201,7 +203,7 @@
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.DtgIslem);
-            this.groupBox2.Location = new System.Drawing.Point(12, 419);
+            this.groupBox2.Location = new System.Drawing.Point(15, 389);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1479, 272);
             this.groupBox2.TabIndex = 399;
@@ -339,7 +341,7 @@
             this.BtnTeslimAlSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnTeslimAlSat.Image = ((System.Drawing.Image)(resources.GetObject("BtnTeslimAlSat.Image")));
             this.BtnTeslimAlSat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTeslimAlSat.Location = new System.Drawing.Point(243, 734);
+            this.BtnTeslimAlSat.Location = new System.Drawing.Point(21, 702);
             this.BtnTeslimAlSat.Name = "BtnTeslimAlSat";
             this.BtnTeslimAlSat.Size = new System.Drawing.Size(122, 51);
             this.BtnTeslimAlSat.TabIndex = 398;
@@ -355,7 +357,7 @@
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(824, 362);
+            this.BtnKaydet.Location = new System.Drawing.Point(506, 19);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 445;
@@ -367,7 +369,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(960, 367);
+            this.label4.Location = new System.Drawing.Point(642, 24);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(525, 45);
             this.label4.TabIndex = 446;
@@ -377,7 +379,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(202, 706);
+            this.label6.Location = new System.Drawing.Point(201, 669);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 447;
@@ -386,7 +388,7 @@
             // DtgTeslimTarihi
             // 
             this.DtgTeslimTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtgTeslimTarihi.Location = new System.Drawing.Point(243, 704);
+            this.DtgTeslimTarihi.Location = new System.Drawing.Point(242, 667);
             this.DtgTeslimTarihi.Name = "DtgTeslimTarihi";
             this.DtgTeslimTarihi.Size = new System.Drawing.Size(122, 20);
             this.DtgTeslimTarihi.TabIndex = 448;
@@ -395,7 +397,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(371, 734);
+            this.label7.Location = new System.Drawing.Point(161, 708);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(603, 45);
             this.label7.TabIndex = 449;
@@ -465,7 +467,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(371, 706);
+            this.label8.Location = new System.Drawing.Point(370, 669);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 15);
             this.label8.TabIndex = 456;
@@ -476,18 +478,31 @@
             this.DtgSaat.CustomFormat = "HH:mm";
             this.DtgSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DtgSaat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtgSaat.Location = new System.Drawing.Point(412, 703);
+            this.DtgSaat.Location = new System.Drawing.Point(411, 666);
             this.DtgSaat.Name = "DtgSaat";
             this.DtgSaat.ShowUpDown = true;
             this.DtgSaat.Size = new System.Drawing.Size(101, 21);
             this.DtgSaat.TabIndex = 457;
             this.DtgSaat.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
             // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.TxtAciklama);
+            this.panel2.Controls.Add(this.label2);
+            this.panel2.Controls.Add(this.BtnKaydet);
+            this.panel2.Controls.Add(this.label4);
+            this.panel2.Location = new System.Drawing.Point(1274, 40);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(28, 19);
+            this.panel2.TabIndex = 5;
+            this.panel2.Visible = false;
+            // 
             // FrmAltTakimTakip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1503, 797);
+            this.Controls.Add(this.panel2);
             this.Controls.Add(this.DtgSaat);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.BtnTeslimTuru);
@@ -498,14 +513,10 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.DtgTeslimTarihi);
             this.Controls.Add(this.label6);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.LblTop2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BtnTeslimAlSat);
-            this.Controls.Add(this.TxtAciklama);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox1);
@@ -519,6 +530,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslem)).EndInit();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,5 +578,6 @@
         public System.Windows.Forms.ComboBox CmbMalzemeIadeYeri;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker DtgSaat;
+        private System.Windows.Forms.Panel panel2;
     }
 }

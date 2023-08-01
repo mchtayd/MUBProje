@@ -93,6 +93,7 @@ namespace UserInterface.STS
             this.TxtSatinAlinanFirma = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.BtnSil = new System.Windows.Forms.Button();
             this.groupBox16.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox17.SuspendLayout();
@@ -778,11 +779,28 @@ namespace UserInterface.STS
             this.BtnGuncelle.UseVisualStyleBackColor = false;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
+            // BtnSil
+            // 
+            this.BtnSil.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSil.Image = ((System.Drawing.Image)(resources.GetObject("BtnSil.Image")));
+            this.BtnSil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSil.Location = new System.Drawing.Point(154, 784);
+            this.BtnSil.Name = "BtnSil";
+            this.BtnSil.Size = new System.Drawing.Size(130, 51);
+            this.BtnSil.TabIndex = 556;
+            this.BtnSil.Text = "          SİL";
+            this.BtnSil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSil.UseVisualStyleBackColor = false;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
+            // 
             // FrmDevamEdenGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1434, 835);
+            this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.TxtSatinAlinanFirma);
             this.Controls.Add(this.label2);
@@ -889,5 +907,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.TextBox TxtSatinAlinanFirma;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnGuncelle;
+        public System.Windows.Forms.Button BtnSil;
     }
 }

@@ -40,8 +40,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void FrmMalzemeKayitIzleme_Load(object sender, EventArgs e)
         {
+            if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            {
+                contextMenuStrip1.Items[0].Enabled = true;
+            }
+            else
+            {
+                contextMenuStrip1.Items[0].Enabled = false;
+            }
             DataDisplay();
-            //DataDisplayGuncelStok();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

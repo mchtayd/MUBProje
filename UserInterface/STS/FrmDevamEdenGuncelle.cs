@@ -330,6 +330,27 @@ namespace UserInterface.STS
             }
         }
 
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bilgileri silmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                string mesaj = satDataGridview1Manager.Delete(id);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Bilgiler başarıyla silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FrmDevamEdenSat frmDevamEden = (FrmDevamEdenSat)Application.OpenForms["FrmDevamEdenSat"];
+                if (frmDevamEden != null)
+                {
+                    frmDevamEden.YenilecekVeri();
+                }
+                this.Close();
+            }
+        }
+
         private void FrmDevamEdenGuncelle_FormClosing(object sender, FormClosingEventArgs e)
         {
             FrmDevamEdenSat frmDevamEdenSat = new FrmDevamEdenSat();

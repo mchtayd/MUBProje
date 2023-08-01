@@ -30,5 +30,6 @@ namespace Entity
             this.dBolgesi= dBolgesi;
             this.Merkez = merkez;
         }
+
     }
 }

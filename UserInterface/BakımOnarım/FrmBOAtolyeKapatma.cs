@@ -33,6 +33,7 @@ namespace UserInterface.BakımOnarım
         StokGirisCikisManager stokGirisCikisManager;
         BildirimYetkiManager bildirimYetkiManager;
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
+        AbfMalzemeManager abfMalzemeManager;
 
         List<Atolye> atolyes;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
@@ -52,15 +53,35 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Bu Kayıt 1200-SİPARİŞ KAPATMA  (AMBAR VERİ KAYIT) İşlem Adımında Bulunmamaktadır. Sadece Bu İşlem Adımında Kapatma Yapabilirsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
-            if (abfMalzemeIslemKayit.GecenSure==0)
-            {
-                MessageBox.Show("Malzeme depo tarafından henüz teslim alınmadığı için bu işlemi gerçekleştiremezsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
+            //AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
+            //if (abfMalzemeIslemKayit==null)
+            //{
+            //    MessageBox.Show("Malzeme depo tarafından henüz teslim alınmadığı için bu işlemi gerçekleştiremezsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+
             DialogResult dr = MessageBox.Show(TxtIcSiparisNo.Text + " Nolu Kaydı Kapatmak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
+
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0);
+                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA");
+                if (abfMalzemeIslemKayit1 != null)
+                {
+                    TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
+                    if (gecenSure.TotalMinutes.ConInt() > 0)
+                    {
+                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt());
+                    }
+                    else
+                    {
+                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
+                    }
+                }
 
                 int guncellenecekId = 0;
                 List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
@@ -87,14 +108,14 @@ namespace UserInterface.BakımOnarım
                 Temizle();
                 dosyaKontrol = false;
 
-                string bildirim = Bildirim();
-                if (bildirim != "OK")
-                {
-                    if (bildirim != "Server Ayarı Kapalı")
-                    {
-                        MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                //string bildirim = Bildirim();
+                //if (bildirim != "OK")
+                //{
+                //    if (bildirim != "Server Ayarı Kapalı")
+                //    {
+                //        MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
@@ -143,6 +164,7 @@ namespace UserInterface.BakımOnarım
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
             abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
+            abfMalzemeManager = AbfMalzemeManager.GetInstance();
         }
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
@@ -301,7 +323,7 @@ namespace UserInterface.BakımOnarım
         }
         void DepoHareketleri()
         {
-            stokGirisCikis = stokGirisCikisManager.AtolyeDepoHareketleri(TxtIcSiparisNo.Text);
+            stokGirisCikis = stokGirisCikisManager.AtolyeDepoHareketleri(abfNo.ToString());
             DtgDepoHareketleri.DataSource = stokGirisCikis;
 
             DtgDepoHareketleri.Columns["Id"].Visible = false;

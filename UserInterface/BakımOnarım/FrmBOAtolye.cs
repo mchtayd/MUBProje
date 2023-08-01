@@ -1162,6 +1162,8 @@ namespace UserInterface.BakımOnarım
 
                             atolyeManager.Add(atolye2);
 
+                            Atolye atolye = atolyeManager.Get(siparisNo);
+                            id = atolye.Id;
                             kayitId = item.Cells["Id"].Value.ConInt();
                             AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
                             if (abfMalzemeIslemKayit != null)
@@ -1183,17 +1185,17 @@ namespace UserInterface.BakımOnarım
                             AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE BAKIM ONARIMDA", DateTime.Now, infos[1].ToString(), 0);
                             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
 
-                            //AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
-                            if (abfMalzemeIslemKayit != null)
+                            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
+                            if (abfMalzemeIslemKayit1 != null)
                             {
-                                TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit.Tarih;
+                                TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
                                 if (gecenSure.TotalMinutes.ConInt() > 0)
                                 {
-                                    abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit.Id, gecenSure.TotalMinutes.ConInt());
+                                    abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt());
                                 }
                                 else
                                 {
-                                    abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit.Id, 1);
+                                    abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                                 }
                             }
 

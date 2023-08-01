@@ -51,6 +51,19 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 throw;
             }
         }
+        public string DeleteId(int id)
+        {
+            try
+            {
+
+                return stokGirisCikisDal.DeleteId(id);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
+        }
         public string DepoBirimFiyat(double birimFiyat, string stokNo)
         {
             try
@@ -111,7 +124,19 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
-        
+        public StokGirisCıkıs GetId(int id)
+        {
+            try
+            {
+                return stokGirisCikisDal.GetId(id);
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
         public StokGirisCıkıs StokGor(string stokNo)
         {
             try

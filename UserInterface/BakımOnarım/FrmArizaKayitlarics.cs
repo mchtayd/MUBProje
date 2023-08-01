@@ -1,5 +1,6 @@
 ﻿using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Presentation;
 using Entity.BakimOnarim;
 using System;
@@ -19,7 +20,9 @@ namespace UserInterface.BakımOnarım
     {
         ArizaKayitManager arizaKayitManager;
         List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
-
+        int id;
+        string abfNo;
+        public object[] infos;
         string dosyaYolu;
         public FrmArizaKayitlarics()
         {
@@ -29,6 +32,14 @@ namespace UserInterface.BakımOnarım
 
         private void FrmArizaKayitlarics_Load(object sender, EventArgs e)
         {
+            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            {
+                contextMenuStrip2.Items[0].Enabled = true;
+            }
+            else
+            {
+                contextMenuStrip2.Items[0].Enabled = false;
+            }
             ArizaKayitlari();
         }
 
@@ -176,6 +187,8 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             dosyaYolu = DtgArizaKayitlari.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            id = DtgArizaKayitlari.CurrentRow.Cells["Id"].Value.ConInt();
+            abfNo = DtgArizaKayitlari.CurrentRow.Cells["AbfFormNo"].Value.ToString();
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -183,6 +196,23 @@ namespace UserInterface.BakımOnarım
             catch (Exception)
             {
                 return;
+            }
+        }
+
+        private void düzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmArizaGuncelle frmArizaGuncelle = new FrmArizaGuncelle();
+            if (frmArizaGuncelle != null)
+            {
+                frmArizaGuncelle.abfNo = abfNo;
+                frmArizaGuncelle.id = id;
+                frmArizaGuncelle.Show();
+                id = 0;
             }
         }
     }

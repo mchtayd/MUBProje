@@ -2357,7 +2357,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Arıza Kayıtları")
             {
                 FrmArizaKayitlarics Go = new FrmArizaKayitlarics();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3331,7 +3331,7 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageDepoHaraketleri", "DEPO HARKETLERİ", Go);
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.Show();
             }
             if (e.Node.Text == "Malzeme Hazırlama")

@@ -152,9 +152,10 @@ namespace UserInterface.BakımOnarım
 
             TxtTop.Text = DtgDevamEden.RowCount.ToString();
         }
+
         void DepoHareketleri()
         {
-            stokGirisCikis = stokGirisCikisManager.AtolyeDepoHareketleri(icSiparisNo);
+            stokGirisCikis = stokGirisCikisManager.AtolyeDepoHareketleri(abfNo.ToString());
             DtgDepoHareketleri.DataSource = stokGirisCikis;
 
             DtgDepoHareketleri.Columns["Id"].Visible = false;

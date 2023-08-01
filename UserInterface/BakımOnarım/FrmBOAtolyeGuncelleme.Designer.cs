@@ -31,7 +31,7 @@ namespace UserInterface.BakımOnarım
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBOAtolyeGuncelleme));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtIcSiparisNo = new System.Windows.Forms.TextBox();
@@ -135,22 +135,10 @@ namespace UserInterface.BakımOnarım
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.DtgMalzemeler = new ADGV.AdvancedDataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.Dtg = new System.Windows.Forms.DataGridView();
-            this.Column46 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column48 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column49 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column50 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column56 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column57 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column51 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column52 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column55 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column53 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column54 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column58 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tabPage11 = new System.Windows.Forms.TabPage();
             this.DtgIslemAdimlari = new System.Windows.Forms.DataGridView();
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
+            this.DtgDepoHareketleri = new System.Windows.Forms.DataGridView();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
@@ -163,10 +151,10 @@ namespace UserInterface.BakımOnarım
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).BeginInit();
             this.tabPage10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dtg)).BeginInit();
             this.tabPage11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemAdimlari)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgDepoHareketleri)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -1171,8 +1159,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeler.AllowUserToAddRows = false;
             this.DtgMalzemeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgMalzemeler.AutoGenerateContextFilters = true;
             this.DtgMalzemeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1190,7 +1178,7 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage10
             // 
-            this.tabPage10.Controls.Add(this.Dtg);
+            this.tabPage10.Controls.Add(this.DtgDepoHareketleri);
             this.tabPage10.Location = new System.Drawing.Point(4, 22);
             this.tabPage10.Name = "tabPage10";
             this.tabPage10.Padding = new System.Windows.Forms.Padding(3);
@@ -1198,90 +1186,6 @@ namespace UserInterface.BakımOnarım
             this.tabPage10.TabIndex = 2;
             this.tabPage10.Text = "DEPO HAREKETLERİ";
             this.tabPage10.UseVisualStyleBackColor = true;
-            // 
-            // Dtg
-            // 
-            this.Dtg.AllowUserToAddRows = false;
-            this.Dtg.AllowUserToDeleteRows = false;
-            this.Dtg.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dtg.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column46,
-            this.Column48,
-            this.Column49,
-            this.Column50,
-            this.Column56,
-            this.Column57,
-            this.Column51,
-            this.Column52,
-            this.Column55,
-            this.Column53,
-            this.Column54,
-            this.Column58});
-            this.Dtg.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.Dtg.Location = new System.Drawing.Point(3, 3);
-            this.Dtg.Name = "Dtg";
-            this.Dtg.Size = new System.Drawing.Size(1447, 342);
-            this.Dtg.TabIndex = 344;
-            // 
-            // Column46
-            // 
-            this.Column46.HeaderText = "TAKİP NO";
-            this.Column46.Name = "Column46";
-            // 
-            // Column48
-            // 
-            this.Column48.HeaderText = "İŞLEM TÜRÜ";
-            this.Column48.Name = "Column48";
-            // 
-            // Column49
-            // 
-            this.Column49.HeaderText = "STOK NO";
-            this.Column49.Name = "Column49";
-            // 
-            // Column50
-            // 
-            this.Column50.HeaderText = "TANIM";
-            this.Column50.Name = "Column50";
-            // 
-            // Column56
-            // 
-            this.Column56.HeaderText = "MİKTAR";
-            this.Column56.Name = "Column56";
-            // 
-            // Column57
-            // 
-            this.Column57.HeaderText = "BİRİM";
-            this.Column57.Name = "Column57";
-            // 
-            // Column51
-            // 
-            this.Column51.HeaderText = "SERİ NO";
-            this.Column51.Name = "Column51";
-            // 
-            // Column52
-            // 
-            this.Column52.HeaderText = "LOT NO";
-            this.Column52.Name = "Column52";
-            // 
-            // Column55
-            // 
-            this.Column55.HeaderText = "REVİZYON";
-            this.Column55.Name = "Column55";
-            // 
-            // Column53
-            // 
-            this.Column53.HeaderText = "DEPO ADRES NO";
-            this.Column53.Name = "Column53";
-            // 
-            // Column54
-            // 
-            this.Column54.HeaderText = "DEPO YERİ";
-            this.Column54.Name = "Column54";
-            // 
-            // Column58
-            // 
-            this.Column58.HeaderText = "PERSONEL SİCİL";
-            this.Column58.Name = "Column58";
             // 
             // tabPage11
             // 
@@ -1306,8 +1210,21 @@ namespace UserInterface.BakımOnarım
             this.DtgIslemAdimlari.Size = new System.Drawing.Size(1447, 342);
             this.DtgIslemAdimlari.TabIndex = 0;
             // 
+            // DtgDepoHareketleri
+            // 
+            this.DtgDepoHareketleri.AllowUserToAddRows = false;
+            this.DtgDepoHareketleri.AllowUserToDeleteRows = false;
+            this.DtgDepoHareketleri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgDepoHareketleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgDepoHareketleri.Location = new System.Drawing.Point(3, 3);
+            this.DtgDepoHareketleri.Name = "DtgDepoHareketleri";
+            this.DtgDepoHareketleri.ReadOnly = true;
+            this.DtgDepoHareketleri.Size = new System.Drawing.Size(1447, 342);
+            this.DtgDepoHareketleri.TabIndex = 346;
+            // 
             // FrmBOAtolyeGuncelleme
             // 
+            this.AcceptButton = this.BtnBul;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1498, 926);
@@ -1339,10 +1256,10 @@ namespace UserInterface.BakımOnarım
             this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeler)).EndInit();
             this.tabPage10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.Dtg)).EndInit();
             this.tabPage11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemAdimlari)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgDepoHareketleri)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1424,19 +1341,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TabPage tabPage9;
         private ADGV.AdvancedDataGridView DtgMalzemeler;
         private System.Windows.Forms.TabPage tabPage10;
-        private System.Windows.Forms.DataGridView Dtg;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column46;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column48;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column49;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column50;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column56;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column57;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column51;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column52;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column55;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column53;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column54;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column58;
         private System.Windows.Forms.TabPage tabPage11;
         private System.Windows.Forms.DataGridView DtgAtolye;
         private System.Windows.Forms.TextBox Stok8;
@@ -1469,5 +1373,6 @@ namespace UserInterface.BakımOnarım
         public System.Windows.Forms.Button BtnCancel;
         public System.Windows.Forms.TextBox TxtIcSiparisNo;
         public System.Windows.Forms.ComboBox CmbGorevAtanacakPersonel;
+        private System.Windows.Forms.DataGridView DtgDepoHareketleri;
     }
 }

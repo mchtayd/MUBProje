@@ -17,6 +17,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.IdariIsler;
 using UserInterface.STS;
 
@@ -37,8 +38,8 @@ namespace UserInterface.BakımOnarım
         List<Atolye> atolyes;
         public object[] infos;
 
-        string dosyaYolu, abfNo, bolgeSorumlusu;
-        int id, atolyeId;
+        string dosyaYolu, abfNo, bolgeSorumlusu, stok, tanim, miktar, birim;
+        int id, atolyeId, depoId, malzemeId;
 
         public FrmArizaDevamEden()
         {
@@ -52,13 +53,15 @@ namespace UserInterface.BakımOnarım
 
         private void FrmArizaDevamEden_Load(object sender, EventArgs e)
         {
-            if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
             {
                 contextMenuStrip1.Items[1].Enabled = true;
+                contextMenuStrip2.Items[0].Enabled = true;
             }
             else
             {
                 contextMenuStrip1.Items[1].Enabled = false;
+                contextMenuStrip2.Items[0].Enabled = false;
             }
             DataDisplay();
         }
@@ -644,7 +647,60 @@ namespace UserInterface.BakımOnarım
                 frmArizaGuncelle.id = id;
                 frmArizaGuncelle.Show();
             }
+        }
 
+        private void düzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (depoId == 0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmDepoHareketleriEdit frmDepoHareketleriEdit = new FrmDepoHareketleriEdit();
+            frmDepoHareketleriEdit.id = depoId;
+            frmDepoHareketleriEdit.ShowDialog();
+            depoId = 0;
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (malzemeId==0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmMalzemeVeriGecmisi frmMalzemeVeriGecmisi = new FrmMalzemeVeriGecmisi();
+            frmMalzemeVeriGecmisi.benzersizId = malzemeId;
+            frmMalzemeVeriGecmisi.stok = stok;
+            frmMalzemeVeriGecmisi.tanim = tanim;
+            frmMalzemeVeriGecmisi.miktar = miktar;
+            frmMalzemeVeriGecmisi.birim = birim;
+            frmMalzemeVeriGecmisi.ShowDialog();
+            malzemeId = 0;
+        }
+
+        private void DtgMalzemeListesi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(DtgMalzemeListesi.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            malzemeId = DtgMalzemeListesi.CurrentRow.Cells["Id"].Value.ConInt();
+            stok = DtgMalzemeListesi.CurrentRow.Cells["SokulenStokNo"].Value.ToString();
+            tanim = DtgMalzemeListesi.CurrentRow.Cells["SokulenTanim"].Value.ToString();
+            miktar = DtgMalzemeListesi.CurrentRow.Cells["SokulenMiktar"].Value.ToString();
+            birim = DtgMalzemeListesi.CurrentRow.Cells["SokulenBirim"].Value.ToString();
+        }
+
+        private void DtgDepoHareketleri_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgDepoHareketleri.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+            depoId = DtgDepoHareketleri.CurrentRow.Cells["Id"].Value.ConInt();
         }
 
         private void sökülenMalzemeBilgisiToolStripMenuItem_Click(object sender, EventArgs e)

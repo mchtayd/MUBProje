@@ -144,6 +144,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+        public string UpdateDepoStok(DepoMiktar entity)
+        {
+            try
+            {
+                return depoMiktarDal.UpdateDepoStok(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string DepoRezerve(DepoMiktar entity)
         {
             try

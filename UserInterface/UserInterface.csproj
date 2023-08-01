@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>674</ApplicationRevision>
+    <ApplicationRevision>681</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -767,6 +767,12 @@
     <Compile Include="Egitim\FrmEgitimPlanıOlustur.Designer.cs">
       <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>
     </Compile>
+    <Compile Include="Egitim\FrmEğitimEvrakKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Egitim\FrmEğitimEvrakKayit.Designer.cs">
+      <DependentUpon>FrmEğitimEvrakKayit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmAltTakimTakip.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -809,6 +815,12 @@
     <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleri.Designer.cs">
       <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleriEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmDepoHareketleriEdit.Designer.cs">
+      <DependentUpon>FrmDepoHareketleriEdit.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmDepoyaIadeBolge.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -850,6 +862,12 @@
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmMalzemeTeslim.Designer.cs">
       <DependentUpon>FrmMalzemeTeslim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeVeriGecmisi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmMalzemeVeriGecmisi.Designer.cs">
+      <DependentUpon>FrmMalzemeVeriGecmisi.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmRezerveEt.cs">
       <SubType>Form</SubType>
@@ -1849,6 +1867,9 @@
     <EmbeddedResource Include="Egitim\FrmEgitimPlanıOlustur.resx">
       <DependentUpon>FrmEgitimPlanıOlustur.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Egitim\FrmEğitimEvrakKayit.resx">
+      <DependentUpon>FrmEğitimEvrakKayit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmAltTakimTakip.resx">
       <DependentUpon>FrmAltTakimTakip.cs</DependentUpon>
     </EmbeddedResource>
@@ -1870,6 +1891,9 @@
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoHareketleri.resx">
       <DependentUpon>FrmDepoHareketleri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoHareketleriEdit.resx">
+      <DependentUpon>FrmDepoHareketleriEdit.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmDepoyaIadeBolge.resx">
       <DependentUpon>FrmDepoyaIadeBolge.cs</DependentUpon>
     </EmbeddedResource>
@@ -1890,6 +1914,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeTeslim.resx">
       <DependentUpon>FrmMalzemeTeslim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmMalzemeVeriGecmisi.resx">
+      <DependentUpon>FrmMalzemeVeriGecmisi.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmRezerveEt.resx">
       <DependentUpon>FrmRezerveEt.cs</DependentUpon>

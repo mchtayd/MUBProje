@@ -18,6 +18,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
     {
         StokGirisCikisManager stokGirisCikisManager;
         List<StokGirisCıkıs> stokGirisCıkıs;
+        int id = 0;
+        public object[] infos;
+
         public FrmDepoHareketleri()
         {
             InitializeComponent();
@@ -26,7 +29,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void FrmDepoHareketleri_Load(object sender, EventArgs e)
         {
-
+            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            {
+                contextMenuStrip1.Items[0].Enabled = true;
+            }
+            else
+            {
+                contextMenuStrip1.Items[0].Enabled = false;
+            }
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -44,7 +54,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-        void DataDisplay()
+        public void DataDisplay()
         {
             if (TxtStokNo.Text!="" && TxtSeriNo.Text=="")
             {
@@ -125,6 +135,28 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private void DtgList_SortStringChanged(object sender, EventArgs e)
         {
             dataBinder.Sort= DtgList.SortString;
+        }
+
+        private void düzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id==0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmDepoHareketleriEdit frmDepoHareketleriEdit = new FrmDepoHareketleriEdit();
+            frmDepoHareketleriEdit.id = id;
+            frmDepoHareketleriEdit.ShowDialog();
+            id = 0;
+        }
+
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgList.RowCount==0)
+            {
+                return;
+            }
+            id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
         }
     }
 }

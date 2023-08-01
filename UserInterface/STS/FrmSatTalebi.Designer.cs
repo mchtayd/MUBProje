@@ -31,7 +31,7 @@ namespace UserInterface.STS
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatTalebi));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbMasYeri = new System.Windows.Forms.ComboBox();
@@ -51,7 +51,6 @@ namespace UserInterface.STS
             this.detayGörToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.GrnBasaran = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.LblDonemBasaran = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.LblSatTarihi = new System.Windows.Forms.Label();
             this.LblProje = new System.Windows.Forms.Label();
@@ -67,10 +66,8 @@ namespace UserInterface.STS
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.GrbAselsan = new System.Windows.Forms.GroupBox();
-            this.BtnKontrol = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.LblPdl = new System.Windows.Forms.Label();
-            this.LblDonem = new System.Windows.Forms.Label();
             this.LblSatOlusturmaTarihi = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label65 = new System.Windows.Forms.Label();
@@ -82,6 +79,7 @@ namespace UserInterface.STS
             this.label13 = new System.Windows.Forms.Label();
             this.CmbBolgeAdi = new System.Windows.Forms.ComboBox();
             this.BildirimFromNo = new System.Windows.Forms.ComboBox();
+            this.BtnKontrol = new System.Windows.Forms.Button();
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -106,6 +104,11 @@ namespace UserInterface.STS
             this.CmbMaliyetTuru = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.CmbButceTanimi = new System.Windows.Forms.ComboBox();
+            this.CmbDonemYil = new System.Windows.Forms.ComboBox();
+            this.CmbDonem = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.CmbDonemYilT = new System.Windows.Forms.ComboBox();
+            this.CmbDonemT = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.GrnBasaran.SuspendLayout();
@@ -298,8 +301,9 @@ namespace UserInterface.STS
             // 
             // GrnBasaran
             // 
+            this.GrnBasaran.Controls.Add(this.CmbDonemYilT);
+            this.GrnBasaran.Controls.Add(this.CmbDonemT);
             this.GrnBasaran.Controls.Add(this.label2);
-            this.GrnBasaran.Controls.Add(this.LblDonemBasaran);
             this.GrnBasaran.Controls.Add(this.label4);
             this.GrnBasaran.Controls.Add(this.LblSatTarihi);
             this.GrnBasaran.Controls.Add(this.LblProje);
@@ -329,15 +333,6 @@ namespace UserInterface.STS
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 423;
             this.label2.Text = "DÖNEM (Ay/Yıl):";
-            // 
-            // LblDonemBasaran
-            // 
-            this.LblDonemBasaran.AutoSize = true;
-            this.LblDonemBasaran.Location = new System.Drawing.Point(155, 211);
-            this.LblDonemBasaran.Name = "LblDonemBasaran";
-            this.LblDonemBasaran.Size = new System.Drawing.Size(19, 13);
-            this.LblDonemBasaran.TabIndex = 425;
-            this.LblDonemBasaran.Text = "00";
             // 
             // label4
             // 
@@ -468,9 +463,10 @@ namespace UserInterface.STS
             // 
             // GrbAselsan
             // 
+            this.GrbAselsan.Controls.Add(this.CmbDonemYil);
             this.GrbAselsan.Controls.Add(this.label5);
+            this.GrbAselsan.Controls.Add(this.CmbDonem);
             this.GrbAselsan.Controls.Add(this.LblPdl);
-            this.GrbAselsan.Controls.Add(this.LblDonem);
             this.GrbAselsan.Controls.Add(this.LblSatOlusturmaTarihi);
             this.GrbAselsan.Controls.Add(this.label3);
             this.GrbAselsan.Controls.Add(this.label65);
@@ -489,22 +485,6 @@ namespace UserInterface.STS
             this.GrbAselsan.TabStop = false;
             this.GrbAselsan.Text = "TALEP EDİLEN YER";
             // 
-            // BtnKontrol
-            // 
-            this.BtnKontrol.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnKontrol.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKontrol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKontrol.Location = new System.Drawing.Point(1384, 33);
-            this.BtnKontrol.Name = "BtnKontrol";
-            this.BtnKontrol.Size = new System.Drawing.Size(129, 39);
-            this.BtnKontrol.TabIndex = 421;
-            this.BtnKontrol.Text = " Arızaları Kontrol Et";
-            this.BtnKontrol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnKontrol.UseVisualStyleBackColor = false;
-            this.BtnKontrol.Visible = false;
-            this.BtnKontrol.Click += new System.EventHandler(this.BtnKontrol_Click);
-            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -522,15 +502,6 @@ namespace UserInterface.STS
             this.LblPdl.Size = new System.Drawing.Size(19, 13);
             this.LblPdl.TabIndex = 420;
             this.LblPdl.Text = "00";
-            // 
-            // LblDonem
-            // 
-            this.LblDonem.AutoSize = true;
-            this.LblDonem.Location = new System.Drawing.Point(160, 186);
-            this.LblDonem.Name = "LblDonem";
-            this.LblDonem.Size = new System.Drawing.Size(19, 13);
-            this.LblDonem.TabIndex = 418;
-            this.LblDonem.Text = "00";
             // 
             // LblSatOlusturmaTarihi
             // 
@@ -632,6 +603,22 @@ namespace UserInterface.STS
             this.BildirimFromNo.TabIndex = 106;
             this.BildirimFromNo.SelectedIndexChanged += new System.EventHandler(this.BildirimFromNo_SelectedIndexChanged);
             // 
+            // BtnKontrol
+            // 
+            this.BtnKontrol.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKontrol.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKontrol.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKontrol.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKontrol.Location = new System.Drawing.Point(1384, 33);
+            this.BtnKontrol.Name = "BtnKontrol";
+            this.BtnKontrol.Size = new System.Drawing.Size(129, 39);
+            this.BtnKontrol.TabIndex = 421;
+            this.BtnKontrol.Text = " Arızaları Kontrol Et";
+            this.BtnKontrol.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKontrol.UseVisualStyleBackColor = false;
+            this.BtnKontrol.Visible = false;
+            this.BtnKontrol.Click += new System.EventHandler(this.BtnKontrol_Click);
+            // 
             // BtnDosyaEkle
             // 
             this.BtnDosyaEkle.BackColor = System.Drawing.Color.CadetBlue;
@@ -679,8 +666,8 @@ namespace UserInterface.STS
             this.DtgMalzemeList.AllowUserToAddRows = false;
             this.DtgMalzemeList.AllowUserToDeleteRows = false;
             this.DtgMalzemeList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgMalzemeList.AutoGenerateContextFilters = true;
             this.DtgMalzemeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgMalzemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -898,11 +885,111 @@ namespace UserInterface.STS
             this.CmbButceTanimi.TabIndex = 541;
             this.CmbButceTanimi.SelectedIndexChanged += new System.EventHandler(this.CmbButceTanimi_SelectedIndexChanged);
             // 
+            // CmbDonemYil
+            // 
+            this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYil.FormattingEnabled = true;
+            this.CmbDonemYil.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYil.Location = new System.Drawing.Point(293, 180);
+            this.CmbDonemYil.Name = "CmbDonemYil";
+            this.CmbDonemYil.Size = new System.Drawing.Size(122, 21);
+            this.CmbDonemYil.TabIndex = 549;
+            // 
+            // CmbDonem
+            // 
+            this.CmbDonem.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonem.FormattingEnabled = true;
+            this.CmbDonem.Items.AddRange(new object[] {
+            "OCAK",
+            "ŞUBAT",
+            "MART",
+            "NİSAN",
+            "MAYIS",
+            "HAZİRAN",
+            "TEMMUZ",
+            "AĞUSTOS",
+            "EYLÜL",
+            "EKİM",
+            "KASIM",
+            "ARALIK"});
+            this.CmbDonem.Location = new System.Drawing.Point(163, 180);
+            this.CmbDonem.Name = "CmbDonem";
+            this.CmbDonem.Size = new System.Drawing.Size(122, 21);
+            this.CmbDonem.TabIndex = 548;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(1044, 351);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(87, 13);
+            this.label14.TabIndex = 547;
+            this.label14.Text = "DÖNEM (Ay/Yıl):";
+            // 
+            // CmbDonemYilT
+            // 
+            this.CmbDonemYilT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemYilT.FormattingEnabled = true;
+            this.CmbDonemYilT.Items.AddRange(new object[] {
+            "2018",
+            "2019",
+            "2020",
+            "2021",
+            "2022",
+            "2023",
+            "2024",
+            "2025",
+            "2026",
+            "2027",
+            "2028",
+            "2029",
+            "2030"});
+            this.CmbDonemYilT.Location = new System.Drawing.Point(288, 203);
+            this.CmbDonemYilT.Name = "CmbDonemYilT";
+            this.CmbDonemYilT.Size = new System.Drawing.Size(122, 21);
+            this.CmbDonemYilT.TabIndex = 551;
+            // 
+            // CmbDonemT
+            // 
+            this.CmbDonemT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDonemT.FormattingEnabled = true;
+            this.CmbDonemT.Items.AddRange(new object[] {
+            "OCAK",
+            "ŞUBAT",
+            "MART",
+            "NİSAN",
+            "MAYIS",
+            "HAZİRAN",
+            "TEMMUZ",
+            "AĞUSTOS",
+            "EYLÜL",
+            "EKİM",
+            "KASIM",
+            "ARALIK"});
+            this.CmbDonemT.Location = new System.Drawing.Point(158, 203);
+            this.CmbDonemT.Name = "CmbDonemT";
+            this.CmbDonemT.Size = new System.Drawing.Size(122, 21);
+            this.CmbDonemT.TabIndex = 550;
+            // 
             // FrmSatTalebi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1561, 903);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.BtnKontrol);
             this.Controls.Add(this.BtnMaliyetEkle);
             this.Controls.Add(this.BtnButceTanimEkle);
@@ -1005,7 +1092,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label LblMasrafYeriNo;
         private System.Windows.Forms.Label LblUnvani;
         private System.Windows.Forms.Label LblSiparisNo;
-        private System.Windows.Forms.Label LblDonemBasaran;
         private System.Windows.Forms.Label LblSatTarihi;
         private System.Windows.Forms.BindingSource dataBinder;
         private ADGV.AdvancedDataGridView DtgMalzemeList;
@@ -1022,7 +1108,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.Button BtnTemizle;
         private System.Windows.Forms.Button BtnTumuneSatOlustur;
-        private System.Windows.Forms.Label LblDonem;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem detayGörToolStripMenuItem;
@@ -1033,5 +1118,10 @@ namespace UserInterface.STS
         private System.Windows.Forms.ComboBox CmbMaliyetTuru;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.ComboBox CmbButceTanimi;
+        private System.Windows.Forms.ComboBox CmbDonemYil;
+        private System.Windows.Forms.ComboBox CmbDonem;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox CmbDonemYilT;
+        private System.Windows.Forms.ComboBox CmbDonemT;
     }
 }

@@ -65,6 +65,19 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+        public string DeleteId(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoGirisCikisDeleteId", new SqlParameter("@id", id));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string DepoBirimFiyat(double birimFiyat,string stokNo)
         {
             try
@@ -137,7 +150,44 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
-        
+
+        public StokGirisCıkıs GetId(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoGirisCikisGet", new SqlParameter("@id", id));
+                StokGirisCıkıs item = null;
+                while (dataReader.Read())
+                {
+                    item = new StokGirisCıkıs(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ISLEM_TURU"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["ISLEM_TARIH"].ConDate(),
+                        dataReader["CEKILEN_DEPO"].ToString(),
+                        dataReader["CEKILEN_DEPO_ADRESI"].ToString(),
+                        dataReader["CEKILEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_DEPO"].ToString(),
+                        dataReader["DUSULEN_DEPO_ADRESI"].ToString(),
+                        dataReader["DUSULEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_MIKTAR"].ConInt(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public StokGirisCıkıs DepoRafBul(string stokNo,string depoNo)
         {
             try

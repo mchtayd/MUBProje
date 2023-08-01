@@ -111,7 +111,7 @@ namespace DataAccess.Concreate
             {
                 dataReader = sqlServices.StoreReader("SatDataGridSil", new SqlParameter("@id", id));
                 dataReader.Close();
-                return "Masraf Yeri Numarası Başarıyla Silindi.";
+                return "OK";
             }
 
             catch (Exception ex)

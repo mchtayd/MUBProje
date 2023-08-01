@@ -53,7 +53,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
         {
             try
             {
-                sqlServices.Stored("DepoMiktarSil",new SqlParameter("@id",id));
+                sqlServices.Stored("DepoMiktarSil",new SqlParameter("@id", id));
                 return "OK";
             }
             catch (Exception ex)
@@ -352,6 +352,35 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+        public string UpdateDepoStok(DepoMiktar entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoStokUpdate",
+                    new SqlParameter("@id",entity.Id),
+                    new SqlParameter("@stokNo", entity.StokNo),
+                    new SqlParameter("@tanim",entity.Tanim),
+                    new SqlParameter("@seriNo",entity.SeriNo),
+                    new SqlParameter("@lotNo",entity.LotNo),
+                    new SqlParameter("@rev",entity.Revizyon),
+                    new SqlParameter("@islemTarihi",entity.SonIslemTarihi),
+                    new SqlParameter("@depoNo",entity.DepoNo),
+                    new SqlParameter("@depoAdresi",entity.DepoAdresi),
+                    new SqlParameter("@depoLokasyon",entity.DepoLokasyon),
+                    new SqlParameter("@miktar",entity.Miktar),
+                    new SqlParameter("@aciklama",entity.Aciklama),
+                    new SqlParameter("@rezerveDurum",entity.RezerveDurumu),
+                    new SqlParameter("@rezerveId",entity.RezerveId));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string DepoRezerve(DepoMiktar entity)
         {
             try

@@ -76,12 +76,12 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+
         public string AbfKapat(int id)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("BakimOnarimKayitKapat",
-                    new SqlParameter("@id", id));
+                dataReader = sqlServices.StoreReader("BakimOnarimKayitKapat", new SqlParameter("@id", id));
                 dataReader.Close();
                 return "OK";
             }

@@ -1301,7 +1301,7 @@ namespace UserInterface.STS
             {
                 if (CmbDepoNo.Items.Count!=0)
                 {
-                    CmbDepoNo.Items.Clear();
+                    CmbDepoNo.DataSource = null;
                 }
                 CmbDepo();
                 TxtDepoAdres.Clear();
@@ -2376,11 +2376,11 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen öncelikle Sat Kontrol Onayını İşaretleyerek Satı tamamlayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (depoTeslimBilgisi != "TESLIM ALINDI")
-            {
-                MessageBox.Show("Malzeme ilgili depo tarafından henüz teslim alınmamıştır.\nLütfen öncelikle deponun, teslim alma işlemlerinin, tamamlanmasını sağlayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (depoTeslimBilgisi != "TESLIM ALINDI")
+            //{
+            //    MessageBox.Show("Malzeme ilgili depo tarafından henüz teslim alınmamıştır.\nLütfen öncelikle deponun, teslim alma işlemlerinin, tamamlanmasını sağlayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
 
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT işlemini Kaydetmek istediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);

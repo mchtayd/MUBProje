@@ -40,11 +40,14 @@ namespace UserInterface.BakımOnarım
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgArizaKayitlari)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.groupBox2.SuspendLayout();
+            this.contextMenuStrip2.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -90,6 +93,7 @@ namespace UserInterface.BakımOnarım
             this.DtgArizaKayitlari.AutoGenerateContextFilters = true;
             this.DtgArizaKayitlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgArizaKayitlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgArizaKayitlari.ContextMenuStrip = this.contextMenuStrip2;
             this.DtgArizaKayitlari.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgArizaKayitlari.DateWithTime = false;
             this.DtgArizaKayitlari.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -144,6 +148,20 @@ namespace UserInterface.BakımOnarım
             this.webBrowser1.Size = new System.Drawing.Size(820, 164);
             this.webBrowser1.TabIndex = 5;
             // 
+            // contextMenuStrip2
+            // 
+            this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.düzenleToolStripMenuItem});
+            this.contextMenuStrip2.Name = "contextMenuStrip2";
+            this.contextMenuStrip2.Size = new System.Drawing.Size(121, 26);
+            // 
+            // düzenleToolStripMenuItem
+            // 
+            this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.düzenleToolStripMenuItem.Text = "Güncelle";
+            this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
+            // 
             // FrmArizaKayitlarics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -162,6 +180,7 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgArizaKayitlari)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.groupBox2.ResumeLayout(false);
+            this.contextMenuStrip2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +197,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
+        private System.Windows.Forms.ToolStripMenuItem düzenleToolStripMenuItem;
     }
 }

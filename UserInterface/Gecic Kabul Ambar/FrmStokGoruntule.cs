@@ -63,6 +63,14 @@ namespace UserInterface.Depo
 
         private void FrmStokGoruntule_Load(object sender, EventArgs e)
         {
+            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            {
+                contextMenuStrip1.Items[0].Enabled = true;
+            }
+            else
+            {
+                contextMenuStrip1.Items[0].Enabled = false;
+            }
             //Display();
         }
         void Display()
@@ -148,10 +156,16 @@ namespace UserInterface.Depo
 
         private void düzenleToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            if (id==0)
+            {
+                MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             FrmStokMiktarEdit frmStokMiktarEdit = new FrmStokMiktarEdit();
             frmStokMiktarEdit.id = id;
             frmStokMiktarEdit.infos = infos;
             frmStokMiktarEdit.ShowDialog();
+            id = 0;
         }
 
         private void DtgDepoBilgileri_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
