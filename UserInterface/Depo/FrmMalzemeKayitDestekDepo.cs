@@ -31,6 +31,8 @@ namespace UserInterface.Depo
         KKDManager kKDManager;
         TemizlikUrunleriManager temizlikUrunleriManager;
         ComboManager comboManager;
+        DestekDepoElekronikManager destekDepoElekronikManager;
+
         bool start = true;
         bool start2 = false;
 
@@ -54,6 +56,7 @@ namespace UserInterface.Depo
             kKDManager = KKDManager.GetInstance();
             temizlikUrunleriManager = TemizlikUrunleriManager.GetInstance();
             comboManager = ComboManager.GetInstance();
+            destekDepoElekronikManager = DestekDepoElekronikManager.GetInstance();
         }
 
         private void FrmMalzemeKayitDestekDepo_Load(object sender, EventArgs e)
@@ -198,6 +201,19 @@ namespace UserInterface.Depo
                     //MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     //Temizle();
                 }
+
+                if (CmbMalzemeKategorisi.Text == "ELEKTRONİK MALZEME")
+                {
+                    DestekDepoElekronik destekDepoElekronik = new DestekDepoElekronik(CmbStokNo.Text, TxtTanim.Text, TxtBirim.Text, dosyaYolu);
+                    string mesaj = destekDepoElekronikManager.Add(destekDepoElekronik);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    Temizle();
+                }
             }
             
             /*IXLWorkbook workbook = new XLWorkbook(@"C:\Users\MAYıldırım\Desktop\Kopya DESTEK DEPO ÜRÜN KATALOĞU.xlsx");
@@ -269,6 +285,13 @@ namespace UserInterface.Depo
             if (CmbMalzemeKategorisi.Text == "TEMİZLİK ÜRÜNLERİ" && start == false)
             {
                 CmbStokNo.DataSource = temizlikUrunleriManager.GetList();
+                CmbStokNo.ValueMember = "Id";
+                CmbStokNo.DisplayMember = "Stokno";
+                CmbStokNo.SelectedValue = -1;
+            }
+            if (CmbMalzemeKategorisi.Text == "ELEKTRONİK MALZEME" && start == false)
+            {
+                CmbStokNo.DataSource = destekDepoElekronikManager.GetList();
                 CmbStokNo.ValueMember = "Id";
                 CmbStokNo.DisplayMember = "Stokno";
                 CmbStokNo.SelectedValue = -1;
@@ -370,6 +393,17 @@ namespace UserInterface.Depo
                 PctBox.ImageLocation = temizlikUrunleri.DosyaYolu;
                 TxtTanim.Text = temizlikUrunleri.Tanim;
                 TxtBirim.Text = temizlikUrunleri.Birim;
+            }
+            if (CmbMalzemeKategorisi.Text == "ELEKTRONİK MALZEME")
+            {
+                DestekDepoElekronik destekDepoElekronik = destekDepoElekronikManager.Get(CmbStokNo.SelectedValue.ConInt());
+                if (destekDepoElekronik == null)
+                {
+                    return;
+                }
+                PctBox.ImageLocation = destekDepoElekronik.DosyaYolu;
+                TxtTanim.Text = destekDepoElekronik.Tanim;
+                TxtBirim.Text = destekDepoElekronik.Birim;
             }
             if (CmbMalzemeKategorisi.Text == "SARF MALZEME (DEPO)")
             {
@@ -479,6 +513,16 @@ namespace UserInterface.Depo
                     }
                     MessageBox.Show(CmbStokNo.Text + " Stok Nolu Kayıt Başarılya Silinmiştir.");
                 }
+                if (CmbMalzemeKategorisi.Text == "ELEKTRONİK MALZEME")
+                {
+                    string mesaj = destekDepoElekronikManager.Delete(id);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    MessageBox.Show(CmbStokNo.Text + " Stok Nolu Kayıt Başarılya Silinmiştir.");
+                }
                 Temizle();
             }
         }
@@ -569,6 +613,17 @@ namespace UserInterface.Depo
                 {
                     DestekDepoTemizlikUrunleri temizlikUrunleri = new DestekDepoTemizlikUrunleri(CmbStokNo.Text, TxtTanim.Text, TxtBirim.Text, dosyaYolu);
                     string mesaj = temizlikUrunleriManager.Update(temizlikUrunleri, id);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    MessageBox.Show(CmbStokNo.Text + " Stok Nolu Kayıt Başarılya Güncellenmiştir.");
+                }
+                if (CmbMalzemeKategorisi.Text == "ELEKTRONİK MALZEME")
+                {
+                    DestekDepoElekronik destekDepoElekronik = new DestekDepoElekronik(id, CmbStokNo.Text, TxtTanim.Text, TxtBirim.Text, dosyaYolu);
+                    string mesaj = destekDepoElekronikManager.Update(destekDepoElekronik);
                     if (mesaj != "OK")
                     {
                         MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -668,6 +723,14 @@ namespace UserInterface.Depo
                 List<DestekDepoTemizlikUrunleri> destekDepoTemizliks = new List<DestekDepoTemizlikUrunleri>();
                 destekDepoTemizliks = temizlikUrunleriManager.GetList();
                 sonKayitStok = destekDepoTemizliks[destekDepoTemizliks.Count - 1].Stokno.ToString();
+                CmbStokNo.Text = SiradakiStok(sonKayitStok);
+            }
+            if (CmbMalzemeKategorisi.Text == "ELEKTRONİK MALZEME")
+            {
+                Temizle();
+                List<DestekDepoElekronik> destekDepoElekroniks = new List<DestekDepoElekronik>();
+                destekDepoElekroniks = destekDepoElekronikManager.GetList();
+                sonKayitStok = destekDepoElekroniks[destekDepoElekroniks.Count - 1].Stokno.ToString();
                 CmbStokNo.Text = SiradakiStok(sonKayitStok);
             }
             if (CmbMalzemeKategorisi.Text == "SARF MALZEME (DEPO)")

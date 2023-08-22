@@ -363,6 +363,11 @@ namespace UserInterface.Ana_Sayfa
                 {
                     form.IsKategorisi();
                 }
+                var form2 = (FrmDtfHazirlanacaklar)Application.OpenForms["FrmDtfHazirlanacaklar"];
+                if (form2 != null)
+                {
+                    form2.IsKategorisi();
+                }
             }
             if (comboAd == "ATOLYE KATEGORI")
             {

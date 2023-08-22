@@ -149,6 +149,7 @@
     <Compile Include="Concreate\Depo\CayOcagiDal.cs" />
     <Compile Include="Concreate\Depo\DepoKayitDal.cs" />
     <Compile Include="Concreate\Depo\DepoKayitLokasyonDal.cs" />
+    <Compile Include="Concreate\Depo\DestekDepoElekronikDal.cs" />
     <Compile Include="Concreate\Depo\DestekDepoMalzemeKayitDal.cs" />
     <Compile Include="Concreate\Depo\ElAletleriDal.cs" />
     <Compile Include="Concreate\Depo\IsGiysiDal.cs" />

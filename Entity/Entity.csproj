@@ -121,6 +121,7 @@
     <Compile Include="Depo\DestekDepoAmbar.cs" />
     <Compile Include="Depo\DestekDepoCayOcagi.cs" />
     <Compile Include="Depo\DestekDepoElAletleri.cs" />
+    <Compile Include="Depo\DestekDepoElekronik.cs" />
     <Compile Include="Depo\DestekDepoIsGiysi.cs" />
     <Compile Include="Depo\DestekDepoKimyasalUrunler.cs" />
     <Compile Include="Depo\DestekDepoKirtasiye.cs" />

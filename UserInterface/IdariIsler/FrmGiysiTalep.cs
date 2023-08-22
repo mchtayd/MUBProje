@@ -41,6 +41,7 @@ namespace UserInterface.IdariIsler
         MalzemeTalepManager malzemeTalepManager;
         BildirimYetkiManager bildirimYetkiManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        DestekDepoElekronikManager destekDepoElekronikManager;
 
         public object[] infos;
         bool start = true;
@@ -62,6 +63,7 @@ namespace UserInterface.IdariIsler
             malzemeTalepManager = MalzemeTalepManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
+            destekDepoElekronikManager = DestekDepoElekronikManager.GetInstance();
         }
 
         private void FrmGiysiTalep_Load(object sender, EventArgs e)
@@ -182,6 +184,14 @@ namespace UserInterface.IdariIsler
                 CmbTanim.DisplayMember = "Tanim";
                 CmbTanim.SelectedValue = 0;
             }
+
+            if (CmbMalzemeKategorisi.Text == "ELEKTRONİK MALZEME" && start == false)
+            {
+                CmbTanim.DataSource = destekDepoElekronikManager.GetList();
+                CmbTanim.ValueMember = "Id";
+                CmbTanim.DisplayMember = "Tanim";
+                CmbTanim.SelectedValue = 0;
+            }
             //if (CmbMalzemeKategorisi.Text == "SARF MALZEME (DEPO)" && start == false)
             //{
             //    CmbTanim.DataSource = null;
@@ -264,6 +274,15 @@ namespace UserInterface.IdariIsler
                 //CmbStokNo.DisplayMember = "Stokno";
                 //CmbStokNo.SelectedValue = 0;
                 //start = false;
+            }
+
+            if (CmbMalzemeKategorisi.Text == "ELEKTRONİK MALZEME")
+            {
+                DestekDepoElekronik temizlikUrunleri = destekDepoElekronikManager.Get(CmbTanim.SelectedValue.ConInt());
+                TxtStok.Text = temizlikUrunleri.Stokno;
+                Picture.ImageLocation = temizlikUrunleri.DosyaYolu;
+                //TxtMiktar.Text = temizlikUrunleri.Birim;
+                birim = temizlikUrunleri.Birim;
             }
         }
         void Temizle()

@@ -28,7 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDtfHazirlanacaklar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -47,15 +48,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.CmbOnarimYeri = new System.Windows.Forms.ComboBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.TxtIsinTanimi = new System.Windows.Forms.RichTextBox();
+            this.label8 = new System.Windows.Forms.Label();
             this.BtnIsinTanimiEkle = new System.Windows.Forms.Button();
             this.CmbIsKategorisi = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
             this.CmbButceKodu = new System.Windows.Forms.ComboBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.TxtIsinTanimi = new System.Windows.Forms.RichTextBox();
-            this.CmbOnarimYeri = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.DtgIsinVerildigiTarih = new System.Windows.Forms.DateTimePicker();
             this.BtnAltYukFirmaEkle = new System.Windows.Forms.Button();
@@ -65,12 +66,16 @@
             this.CmbAltYukleniciFirma = new System.Windows.Forms.ComboBox();
             this.label12 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
+            this.dataBinderOto = new System.Windows.Forms.BindingSource(this.components);
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblBolgeAdi = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderOto)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -101,9 +106,9 @@
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 37);
+            this.groupBox1.Location = new System.Drawing.Point(12, 47);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1531, 429);
+            this.groupBox1.Size = new System.Drawing.Size(1531, 409);
             this.groupBox1.TabIndex = 446;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DTF HAZIRLANACAKLAR";
@@ -112,8 +117,8 @@
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -124,16 +129,17 @@
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1525, 410);
+            this.DtgList.Size = new System.Drawing.Size(1525, 390);
             this.DtgList.TabIndex = 4;
             this.DtgList.TimeFilter = false;
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // TxtTop
             // 
             this.TxtTop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 469);
+            this.TxtTop.Location = new System.Drawing.Point(112, 464);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 448;
@@ -144,7 +150,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(12, 469);
+            this.label5.Location = new System.Drawing.Point(12, 464);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 447;
@@ -152,6 +158,8 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.LblBolgeAdi);
+            this.groupBox3.Controls.Add(this.label3);
             this.groupBox3.Controls.Add(this.LblKayitTarihi);
             this.groupBox3.Controls.Add(this.CmbDonemYil);
             this.groupBox3.Controls.Add(this.CmbDonemAy);
@@ -161,9 +169,9 @@
             this.groupBox3.Controls.Add(this.LblIsAkisNo);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.label36);
-            this.groupBox3.Location = new System.Drawing.Point(12, 491);
+            this.groupBox3.Location = new System.Drawing.Point(12, 492);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(364, 147);
+            this.groupBox3.Size = new System.Drawing.Size(364, 169);
             this.groupBox3.TabIndex = 449;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TALEBİ OLUŞTURAN";
@@ -286,12 +294,50 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.CmbButceKodu);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(12, 644);
+            this.groupBox2.Location = new System.Drawing.Point(12, 667);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(830, 204);
             this.groupBox2.TabIndex = 450;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "ARIZA BİLGİLERİ";
+            // 
+            // CmbOnarimYeri
+            // 
+            this.CmbOnarimYeri.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbOnarimYeri.FormattingEnabled = true;
+            this.CmbOnarimYeri.Items.AddRange(new object[] {
+            "YERİNDE ONARIM",
+            "FİRMADA ONARIM-İMALAT"});
+            this.CmbOnarimYeri.Location = new System.Drawing.Point(157, 165);
+            this.CmbOnarimYeri.Name = "CmbOnarimYeri";
+            this.CmbOnarimYeri.Size = new System.Drawing.Size(236, 21);
+            this.CmbOnarimYeri.TabIndex = 452;
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(70, 172);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(81, 13);
+            this.label11.TabIndex = 451;
+            this.label11.Text = "ONARIM YERİ:";
+            // 
+            // TxtIsinTanimi
+            // 
+            this.TxtIsinTanimi.Location = new System.Drawing.Point(157, 81);
+            this.TxtIsinTanimi.Name = "TxtIsinTanimi";
+            this.TxtIsinTanimi.Size = new System.Drawing.Size(472, 78);
+            this.TxtIsinTanimi.TabIndex = 432;
+            this.TxtIsinTanimi.Text = "";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(80, 89);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(71, 13);
+            this.label8.TabIndex = 431;
+            this.label8.Text = "İŞİN TANIMI:";
             // 
             // BtnIsinTanimiEkle
             // 
@@ -307,6 +353,7 @@
             this.BtnIsinTanimiEkle.TabIndex = 430;
             this.BtnIsinTanimiEkle.Tag = "admin";
             this.BtnIsinTanimiEkle.UseVisualStyleBackColor = false;
+            this.BtnIsinTanimiEkle.Click += new System.EventHandler(this.BtnIsinTanimiEkle_Click);
             // 
             // CmbIsKategorisi
             // 
@@ -347,44 +394,6 @@
             this.label9.TabIndex = 115;
             this.label9.Text = "HARCAMA KODU KALEMİ:";
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(80, 89);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(71, 13);
-            this.label8.TabIndex = 431;
-            this.label8.Text = "İŞİN TANIMI:";
-            // 
-            // TxtIsinTanimi
-            // 
-            this.TxtIsinTanimi.Location = new System.Drawing.Point(157, 81);
-            this.TxtIsinTanimi.Name = "TxtIsinTanimi";
-            this.TxtIsinTanimi.Size = new System.Drawing.Size(472, 78);
-            this.TxtIsinTanimi.TabIndex = 432;
-            this.TxtIsinTanimi.Text = "";
-            // 
-            // CmbOnarimYeri
-            // 
-            this.CmbOnarimYeri.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbOnarimYeri.FormattingEnabled = true;
-            this.CmbOnarimYeri.Items.AddRange(new object[] {
-            "YERİNDE ONARIM",
-            "FİRMADA ONARIM-İMALAT"});
-            this.CmbOnarimYeri.Location = new System.Drawing.Point(157, 165);
-            this.CmbOnarimYeri.Name = "CmbOnarimYeri";
-            this.CmbOnarimYeri.Size = new System.Drawing.Size(236, 21);
-            this.CmbOnarimYeri.TabIndex = 452;
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(70, 172);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(81, 13);
-            this.label11.TabIndex = 451;
-            this.label11.Text = "ONARIM YERİ:";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.DtgIsinVerildigiTarih);
@@ -394,9 +403,9 @@
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.CmbAltYukleniciFirma);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Location = new System.Drawing.Point(382, 490);
+            this.groupBox4.Location = new System.Drawing.Point(382, 491);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(460, 148);
+            this.groupBox4.Size = new System.Drawing.Size(460, 170);
             this.groupBox4.TabIndex = 451;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "FİRMA BİLGİLERİ";
@@ -423,6 +432,7 @@
             this.BtnAltYukFirmaEkle.TabIndex = 433;
             this.BtnAltYukFirmaEkle.Tag = "admin";
             this.BtnAltYukFirmaEkle.UseVisualStyleBackColor = false;
+            this.BtnAltYukFirmaEkle.Click += new System.EventHandler(this.BtnAltYukFirmaEkle_Click);
             // 
             // label2
             // 
@@ -459,6 +469,7 @@
             this.CmbAltYukleniciFirma.Name = "CmbAltYukleniciFirma";
             this.CmbAltYukleniciFirma.Size = new System.Drawing.Size(236, 21);
             this.CmbAltYukleniciFirma.TabIndex = 423;
+            this.CmbAltYukleniciFirma.SelectedIndexChanged += new System.EventHandler(this.CmbAltYukleniciFirma_SelectedIndexChanged);
             // 
             // label12
             // 
@@ -476,7 +487,7 @@
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 854);
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 874);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 452;
@@ -484,11 +495,29 @@
             this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnKaydet.UseVisualStyleBackColor = false;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 136);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 450;
+            this.label3.Text = "ÜS BÖLGESİ:";
+            // 
+            // LblBolgeAdi
+            // 
+            this.LblBolgeAdi.AutoSize = true;
+            this.LblBolgeAdi.Location = new System.Drawing.Point(113, 136);
+            this.LblBolgeAdi.Name = "LblBolgeAdi";
+            this.LblBolgeAdi.Size = new System.Drawing.Size(19, 13);
+            this.LblBolgeAdi.TabIndex = 451;
+            this.LblBolgeAdi.Text = "00";
+            // 
             // FrmDtfHazirlanacaklar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1555, 909);
+            this.ClientSize = new System.Drawing.Size(1555, 928);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
@@ -509,6 +538,7 @@
             this.groupBox2.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderOto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -551,5 +581,8 @@
         private System.Windows.Forms.ComboBox CmbAltYukleniciFirma;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.BindingSource dataBinderOto;
+        private System.Windows.Forms.Label LblBolgeAdi;
+        private System.Windows.Forms.Label label3;
     }
 }

@@ -117,6 +117,7 @@
     <Compile Include="Concreate\Depo\CayOcagiManager.cs" />
     <Compile Include="Concreate\Depo\DepoKayitLokasyonManager.cs" />
     <Compile Include="Concreate\Depo\DepoKayitManagercs.cs" />
+    <Compile Include="Concreate\Depo\DestekDepoElekronikManager.cs" />
     <Compile Include="Concreate\Depo\DestekDepoMalzemeKayitManager.cs" />
     <Compile Include="Concreate\Depo\ElAletleriManager.cs" />
     <Compile Include="Concreate\Depo\IsGiysiManager.cs" />

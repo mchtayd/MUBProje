@@ -1609,7 +1609,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             }
                         }
                     }
-                    
                 }
 
                 string mesaj = BildirimKayit();
@@ -2102,28 +2101,29 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         string BildirimKayit()
         {
-            string[] array = new string[8];
+            //string[] array = new string[8];
 
-            array[0] = "Depo Stok Giriş/Çıkış"; // Bildirim Başlık
-            array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
-            array[2] = "adlı personel tarafından"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
-            array[3] = "depo ya Stok Giriş/Çıkış"; // Bildirim türü
-            array[4] = "işlemleri gerçekleşmiştir."; // İÇERİK
-            array[5] = "";
-            array[6] = "";
+            //array[0] = "Depo Stok Giriş/Çıkış"; // Bildirim Başlık
+            //array[1] = infos[1].ToString(); // Bildirim Sahibi Personel
+            //array[2] = "adlı personel tarafından"; // ABF, İŞ AKIŞ NO, iç sipaiş no, form no
+            //array[3] = "depo ya Stok Giriş/Çıkış"; // Bildirim türü
+            //array[4] = "işlemleri gerçekleşmiştir."; // İÇERİK
+            //array[5] = "";
+            //array[6] = "";
 
-            BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
-            if (bildirimYetki == null)
-            {
-                array[7] = infos[0].ToString();
-            }
-            else
-            {
-                array[7] = bildirimYetki.SorumluId + infos[0].ToString();
-            }
+            //BildirimYetki bildirimYetki = bildirimYetkiManager.Get(infos[1].ToString());
+            //if (bildirimYetki == null)
+            //{
+            //    array[7] = infos[0].ToString();
+            //}
+            //else
+            //{
+            //    array[7] = bildirimYetki.SorumluId + infos[0].ToString();
+            //}
 
-            string mesaj = FrmHelper.BildirimGonder(array, array[7]);
-            return mesaj;
+            //string mesaj = FrmHelper.BildirimGonder(array, array[7]);
+            //return mesaj;
+            return "OK";
         }
 
 
