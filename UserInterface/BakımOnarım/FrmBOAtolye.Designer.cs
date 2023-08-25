@@ -31,7 +31,7 @@ namespace UserInterface.BakımOnarım
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBOAtolye));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.TxtAbfFormNo = new System.Windows.Forms.TextBox();
@@ -103,12 +103,14 @@ namespace UserInterface.BakımOnarım
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
+            this.Secim = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.TxtBildirilenAriza = new System.Windows.Forms.RichTextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.BtnListeyeEkle = new System.Windows.Forms.Button();
             this.TxtTemizleManuel = new System.Windows.Forms.Button();
             this.BtnKaydetManuel = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -153,7 +155,14 @@ namespace UserInterface.BakımOnarım
             this.label34 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderOto = new System.Windows.Forms.BindingSource(this.components);
-            this.Secim = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.DtgKayitList = new System.Windows.Forms.DataGridView();
+            this.ManuelStokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManuelTanim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManuelSeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManuelRevizyon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManuelMiktar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ManuelTalepTarihi = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -172,6 +181,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderOto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgKayitList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -881,8 +891,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -898,6 +908,15 @@ namespace UserInterface.BakımOnarım
             this.DtgList.TabIndex = 5;
             this.DtgList.TimeFilter = false;
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
+            // 
+            // Secim
+            // 
+            this.Secim.HeaderText = "SEÇİM";
+            this.Secim.MinimumWidth = 22;
+            this.Secim.Name = "Secim";
+            this.Secim.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Secim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Secim.Width = 70;
             // 
             // BtnTemizle
             // 
@@ -957,6 +976,8 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.DtgKayitList);
+            this.tabPage2.Controls.Add(this.BtnListeyeEkle);
             this.tabPage2.Controls.Add(this.TxtTemizleManuel);
             this.tabPage2.Controls.Add(this.BtnKaydetManuel);
             this.tabPage2.Controls.Add(this.groupBox6);
@@ -976,11 +997,22 @@ namespace UserInterface.BakımOnarım
             this.tabPage2.Text = "MANUEL KAYIT";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // BtnListeyeEkle
+            // 
+            this.BtnListeyeEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnListeyeEkle.Location = new System.Drawing.Point(765, 462);
+            this.BtnListeyeEkle.Name = "BtnListeyeEkle";
+            this.BtnListeyeEkle.Size = new System.Drawing.Size(120, 38);
+            this.BtnListeyeEkle.TabIndex = 84;
+            this.BtnListeyeEkle.Text = "Listeye Ekle";
+            this.BtnListeyeEkle.UseVisualStyleBackColor = true;
+            this.BtnListeyeEkle.Click += new System.EventHandler(this.BtnListeyeEkle_Click);
+            // 
             // TxtTemizleManuel
             // 
             this.TxtTemizleManuel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TxtTemizleManuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTemizleManuel.Location = new System.Drawing.Point(150, 520);
+            this.TxtTemizleManuel.Location = new System.Drawing.Point(148, 793);
             this.TxtTemizleManuel.Name = "TxtTemizleManuel";
             this.TxtTemizleManuel.Size = new System.Drawing.Size(136, 38);
             this.TxtTemizleManuel.TabIndex = 83;
@@ -992,7 +1024,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnKaydetManuel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydetManuel.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydetManuel.Location = new System.Drawing.Point(8, 520);
+            this.BtnKaydetManuel.Location = new System.Drawing.Point(6, 793);
             this.BtnKaydetManuel.Name = "BtnKaydetManuel";
             this.BtnKaydetManuel.Size = new System.Drawing.Size(136, 38);
             this.BtnKaydetManuel.TabIndex = 82;
@@ -1190,7 +1222,7 @@ namespace UserInterface.BakımOnarım
             this.panel3.Controls.Add(this.DtgStokList);
             this.panel3.Location = new System.Drawing.Point(766, 57);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(785, 432);
+            this.panel3.Size = new System.Drawing.Size(785, 399);
             this.panel3.TabIndex = 73;
             // 
             // DtgStokList
@@ -1201,7 +1233,7 @@ namespace UserInterface.BakımOnarım
             this.DtgStokList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgStokList.Location = new System.Drawing.Point(0, 0);
             this.DtgStokList.Name = "DtgStokList";
-            this.DtgStokList.Size = new System.Drawing.Size(785, 432);
+            this.DtgStokList.Size = new System.Drawing.Size(785, 399);
             this.DtgStokList.TabIndex = 0;
             this.DtgStokList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgStokList_CellContentClick);
             this.DtgStokList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgStokList_CellMouseClick);
@@ -1406,14 +1438,62 @@ namespace UserInterface.BakımOnarım
             this.label34.TabIndex = 54;
             this.label34.Text = "Seri No:";
             // 
-            // Secim
+            // DtgKayitList
             // 
-            this.Secim.HeaderText = "SEÇİM";
-            this.Secim.MinimumWidth = 22;
-            this.Secim.Name = "Secim";
-            this.Secim.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.Secim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Secim.Width = 70;
+            this.DtgKayitList.AllowUserToAddRows = false;
+            this.DtgKayitList.AllowUserToDeleteRows = false;
+            this.DtgKayitList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgKayitList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ManuelStokNo,
+            this.ManuelTanim,
+            this.ManuelSeriNo,
+            this.ManuelRevizyon,
+            this.ManuelMiktar,
+            this.ManuelTalepTarihi,
+            this.Remove});
+            this.DtgKayitList.Location = new System.Drawing.Point(8, 523);
+            this.DtgKayitList.Name = "DtgKayitList";
+            this.DtgKayitList.Size = new System.Drawing.Size(752, 264);
+            this.DtgKayitList.TabIndex = 85;
+            this.DtgKayitList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgKayitList_CellContentClick);
+            // 
+            // ManuelStokNo
+            // 
+            this.ManuelStokNo.HeaderText = "STOK NO";
+            this.ManuelStokNo.Name = "ManuelStokNo";
+            // 
+            // ManuelTanim
+            // 
+            this.ManuelTanim.HeaderText = "TANIM";
+            this.ManuelTanim.Name = "ManuelTanim";
+            // 
+            // ManuelSeriNo
+            // 
+            this.ManuelSeriNo.HeaderText = "SERİ NO";
+            this.ManuelSeriNo.Name = "ManuelSeriNo";
+            // 
+            // ManuelRevizyon
+            // 
+            this.ManuelRevizyon.HeaderText = "REVİZYON";
+            this.ManuelRevizyon.Name = "ManuelRevizyon";
+            // 
+            // ManuelMiktar
+            // 
+            this.ManuelMiktar.HeaderText = "MİKTAR";
+            this.ManuelMiktar.Name = "ManuelMiktar";
+            // 
+            // ManuelTalepTarihi
+            // 
+            this.ManuelTalepTarihi.HeaderText = "TALEP TARİHİ";
+            this.ManuelTalepTarihi.Name = "ManuelTalepTarihi";
+            // 
+            // Remove
+            // 
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.Name = "Remove";
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.UseColumnTextForButtonValue = true;
             // 
             // FrmBOAtolye
             // 
@@ -1452,6 +1532,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderOto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgKayitList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1580,5 +1661,14 @@ namespace UserInterface.BakımOnarım
         private ADGV.AdvancedDataGridView DtgList;
         private System.Windows.Forms.BindingSource dataBinderOto;
         private System.Windows.Forms.DataGridViewCheckBoxColumn Secim;
+        private System.Windows.Forms.Button BtnListeyeEkle;
+        private System.Windows.Forms.DataGridView DtgKayitList;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManuelStokNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManuelTanim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManuelSeriNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManuelRevizyon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManuelMiktar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ManuelTalepTarihi;
+        private System.Windows.Forms.DataGridViewButtonColumn Remove;
     }
 }

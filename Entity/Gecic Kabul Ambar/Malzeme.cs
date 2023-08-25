@@ -8,7 +8,7 @@ namespace Entity.Gecic_Kabul_Ambar
 {
     public class Malzeme
     {
-        int id; string stokNo, tanim, birim, tedarikciFirma, onarimDurumu, onarimYeri, tedarikTuru, parcaSinifi, alternatifParca, aciklama, dosyaYolu, sistemStokNo, sistemTanimi, sistemSorumlusu, islemYapan, takipDurumu, ustStok, ustTanim; int benzersizId;
+        int id; string stokNo, tanim, birim, tedarikciFirma, onarimDurumu, onarimYeri, tedarikTuru, parcaSinifi, alternatifParca, aciklama, dosyaYolu, sistemStokNo, sistemTanimi, sistemSorumlusu, islemYapan, takipDurumu, ustStok, ustTanim; int benzersizId; bool kayitDurumu; string seriNo, durum, revizyon; int miktar; string talepTarihi;
 
         public int Id { get => id; set => id = value; }
         public string StokNo { get => stokNo; set => stokNo = value; }
@@ -30,6 +30,12 @@ namespace Entity.Gecic_Kabul_Ambar
         public string UstStok { get => ustStok; set => ustStok = value; }
         public string UstTanim { get => ustTanim; set => ustTanim = value; }
         public int BenzersizId { get => benzersizId; set => benzersizId = value; }
+        public bool KayitDurumu { get => kayitDurumu; set => kayitDurumu = value; }
+        public string SeriNo { get => seriNo; set => seriNo = value; }
+        public string Durum { get => durum; set => durum = value; }
+        public string Revizyon { get => revizyon; set => revizyon = value; }
+        public int Miktar { get => miktar; set => miktar = value; }
+        public string TalepTarihi { get => talepTarihi; set => talepTarihi = value; }
 
         public Malzeme(int id, string stokNo, string tanim, string birim, string tedarikciFirma, string onarimDurumu, string onarimYeri, string tedarikTuru, string parcaSinifi, string alternatifParca, string aciklama, string dosyaYolu, string sistemStokNo, string sistemTanimi, string sistemSorumlusu, string islemYapan,
             string takipDurumu)
@@ -90,6 +96,17 @@ namespace Entity.Gecic_Kabul_Ambar
             this.sistemSorumlusu = sistemSorumlusu;
             this.islemYapan = islemYapan;
             this.takipDurumu = takipDurumu;
+        }
+        public Malzeme(bool kayitDurumu, string stokno, string tanim, string seriNo, string durum, string revizyon, int miktar, string talepTarihi)
+        {
+            this.stokNo = stokno;
+            this.tanim = tanim;
+            this.kayitDurumu = kayitDurumu;
+            this.seriNo = seriNo;
+            this.durum = durum;
+            this.revizyon = revizyon;
+            this.miktar = miktar;
+            this.talepTarihi = talepTarihi;
         }
 
         public Malzeme(string ustStok, string ustTanim, int benzersizId)
