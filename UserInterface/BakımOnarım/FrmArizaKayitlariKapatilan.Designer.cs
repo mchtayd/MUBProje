@@ -63,6 +63,8 @@ namespace UserInterface.BakımOnarım
             this.LblIslemAdimSureleri = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -80,6 +82,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -228,6 +231,7 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeListesi.AutoGenerateContextFilters = true;
             this.DtgMalzemeListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzemeListesi.ContextMenuStrip = this.contextMenuStrip3;
             this.DtgMalzemeListesi.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgMalzemeListesi.DateWithTime = false;
             this.DtgMalzemeListesi.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -239,6 +243,7 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeListesi.Size = new System.Drawing.Size(1514, 335);
             this.DtgMalzemeListesi.TabIndex = 3;
             this.DtgMalzemeListesi.TimeFilter = false;
+            this.DtgMalzemeListesi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgMalzemeListesi_CellMouseClick);
             // 
             // tabPage3
             // 
@@ -424,6 +429,20 @@ namespace UserInterface.BakımOnarım
             this.LblGenelTop.TabIndex = 455;
             this.LblGenelTop.Text = "00";
             // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip3.Name = "contextMenuStrip2";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(190, 48);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
+            this.toolStripMenuItem1.Text = "Malzeme Veri Geçmişi";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            // 
             // FrmArizaKayitlariKapatilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -459,6 +478,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -497,5 +517,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sökülenMalzemeBilgisiToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
     }
 }

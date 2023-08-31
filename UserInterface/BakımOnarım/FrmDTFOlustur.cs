@@ -38,6 +38,9 @@ namespace UserInterface.BakımOnarım
         DtfMaliyetManager dtfMaliyetManager;
         BildirimYetkiManager bildirimYetkiManager;
         BolgeKayitManager bolgeKayitManager;
+        AbfMalzemeManager abfMalzemeManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
+        ArizaKayitManager arizaKayitManager;
 
         List<MalzemeKayit> malzemeKayits;
         List<DtfMaliyet> dtfMaliyets;
@@ -62,6 +65,9 @@ namespace UserInterface.BakımOnarım
             dtfMaliyetManager = DtfMaliyetManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
+            abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
+            arizaKayitManager = ArizaKayitManager.GetInstance();
         }
 
         private void FrmDTFOlustur_Load(object sender, EventArgs e)
@@ -1474,17 +1480,52 @@ namespace UserInterface.BakımOnarım
             }
             YaklasikMaliyetKayit();
             CreateWordKO();
-            mesaj = BildirimKayitOnay();
-            if (mesaj!="OK")
-            {
-                if (mesaj != "Server Ayarı Kapalı")
-                {
-                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
-            }
+            MalzemeHareket();
+            //mesaj = BildirimKayitOnay();
+            //if (mesaj!="OK")
+            //{
+            //    if (mesaj != "Server Ayarı Kapalı")
+            //    {
+            //        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             TemizleKO();
         }
+        void MalzemeHareket()
+        {
+            ArizaKayit arizaKayit = arizaKayitManager.Get(LblAbfNoKO.Text.ConInt());
+            List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+            abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+
+            foreach (AbfMalzeme item in abfMalzemes)
+            {
+                if (item.SokulenTeslimDurum== "ALT YÜKLENİCİ FİRMADA" && item.AltYukleniciKayit == "KAYDEDİLDİ")
+                {
+                    abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Id, "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI");
+
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Id, "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0);
+                    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Id, "ALT YÜKLENİCİ FİRMADA");
+                    if (abfMalzemeIslemKayit1 != null)
+                    {
+                        TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
+                        if (gecenSure.TotalMinutes.ConInt() > 0)
+                        {
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt().ConInt());
+                        }
+                        else
+                        {
+                            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
+                        }
+                    }
+                }
+            }
+
+            
+        }
+
         void CreateWordKO()
         {
             Application wApp = new Application();

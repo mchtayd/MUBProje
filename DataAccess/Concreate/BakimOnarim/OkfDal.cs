@@ -156,12 +156,12 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public List<Okf> GetList()
+        public List<Okf> GetList(string durum)
         {
             try
             {
                 List<Okf> okfs = new List<Okf>();
-                dataReader = sqlServices.StoreReader("OkfList");
+                dataReader = sqlServices.StoreReader("OkfDurumList", new SqlParameter("@durum", durum));
                 while (dataReader.Read())
                 {
                     okfs.Add(new Okf(
@@ -227,6 +227,18 @@ namespace DataAccess.Concreate.BakimOnarim
             try
             {
                 sqlServices.Stored("OkfYapilacakIslemlerDelete", new SqlParameter("@benzersizId", benzersizId));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string OkfDurumUpdate(int id,string durum)
+        {
+            try
+            {
+                sqlServices.Stored("OkfDurumUpdate", new SqlParameter("@id", id), new SqlParameter("@durum", durum));
                 return "OK";
             }
             catch (Exception ex)

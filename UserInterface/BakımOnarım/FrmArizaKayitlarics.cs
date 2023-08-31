@@ -32,7 +32,7 @@ namespace UserInterface.BakımOnarım
 
         private void FrmArizaKayitlarics_Load(object sender, EventArgs e)
         {
-            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39 || infos[1].ToString() == "EMEL AYHAN")
             {
                 contextMenuStrip2.Items[0].Enabled = true;
             }
@@ -215,5 +215,6 @@ namespace UserInterface.BakımOnarım
                 id = 0;
             }
         }
+
     }
 }

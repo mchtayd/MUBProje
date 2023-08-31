@@ -103,7 +103,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["MALZEME_ISLEM_ADIMI"].ToString(),
                         dataReader["SOKULEN_TESLIM_DURUM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString());
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ALYUKLENICI_KAYIT"].ToString());
                 }
                 dataReader.Close();
                 return abfMalzeme;
@@ -145,7 +146,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["MALZEME_ISLEM_ADIMI"].ToString(),
                         dataReader["SOKULEN_TESLIM_DURUM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString());
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ALYUKLENICI_KAYIT"].ToString());
                 }
                 dataReader.Close();
                 return abfMalzeme;
@@ -188,7 +190,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["MALZEME_ISLEM_ADIMI"].ToString(),
                         dataReader["SOKULEN_TESLIM_DURUM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString()));
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ALYUKLENICI_KAYIT"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;
@@ -230,7 +233,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["MALZEME_ISLEM_ADIMI"].ToString(),
                         dataReader["SOKULEN_TESLIM_DURUM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString()));
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ALYUKLENICI_KAYIT"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;
@@ -246,6 +250,41 @@ namespace DataAccess.Concreate.BakimOnarim
             {
                 List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
                 dataReader = sqlServices.StoreReader("DepoIadeEdilecekMalzeme", new SqlParameter("@teslimDurum", teslimDurum), new SqlParameter("@fizikselDurum", fizikselDurum));
+                while (dataReader.Read())
+                {
+                    abfMalzemes.Add(new AbfMalzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConInt(),
+                        dataReader["SOKULEN_BIRIM"].ToString(),
+                        dataReader["SOKULEN_REVIZYON_NO"].ToString(),
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["SOKULEN_TESLIM_DURUM"].ToString(),
+                        dataReader["BOLGE_ADI"].ToString(),
+                        dataReader["BOLGE_SORUMLUSU"].ToString(),
+                        dataReader["YAPILACAK_ISLEM"].ToString(),
+                        dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["FIZIKSEL_DURUMU"].ToString()));
+                }
+                dataReader.Close();
+                return abfMalzemes;
+            }
+            catch (Exception ex)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
+
+        public List<AbfMalzeme> DtfKayitList()
+        {
+            try
+            {
+                List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                dataReader = sqlServices.StoreReader("DtfKayitList");
                 while (dataReader.Read())
                 {
                     abfMalzemes.Add(new AbfMalzeme(

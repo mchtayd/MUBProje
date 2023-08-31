@@ -41,6 +41,17 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string DeleteVeriler(int id)
+        {
+            try
+            {
+                return dtfMaliyetDal.DeleteVeriler(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public DtfMaliyet Get(int id)
         {

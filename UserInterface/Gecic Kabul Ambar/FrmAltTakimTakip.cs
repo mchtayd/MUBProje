@@ -281,7 +281,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return "ALT YÜKLENİCİ FİRMADA";
             }
-            if (teslimTuru == "ALT YÜKLENİCİ FİRMADA")
+            if (teslimTuru == "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI")
             {
                 return "100 - GEÇİCİ KABUL/KONTROL";
             }
@@ -698,7 +698,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     continue;
                 }
 
-                if (CmbTeslimTuru.Text == "ALT YÜKLENİCİ FİRMADA")
+                if (CmbTeslimTuru.Text == "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
@@ -707,7 +707,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "ALT YÜKLENİCİ FİRMADA");
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI");
                     if (abfMalzemeIslemKayit1 != null)
                     {
                         TimeSpan gecenSure = tarihSaat - abfMalzemeIslemKayit1.Tarih;
@@ -948,7 +948,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     continue;
                 }
 
-                if (CmbTeslimTuru.Text == "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI")
+                if (CmbTeslimTuru.Text == "SEVKİYAT ARACI (VAN - ARA DEPO)")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI");
 
@@ -957,7 +957,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Cells["Id"].Value.ConInt(), "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI", tarihSaat, infos[1].ToString(), 0);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI");
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)");
                     if (abfMalzemeIslemKayit1 != null)
                     {
                         TimeSpan gecenSure = tarihSaat - abfMalzemeIslemKayit1.Tarih;
@@ -996,6 +996,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private void CmbTeslimTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataDisplay();
+            DtgIslem.Rows.Clear();
             if (CmbTeslimTuru.Text == "100 - GEÇİCİ KABUL/KONTROL")
             {
                 LblIadeYeri.Visible = true;

@@ -296,8 +296,18 @@ namespace UserInterface.BakımOnarım
 
                 MessageBox.Show("Bilgiler başarıyla silinmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmArizaDevamEden frmAnaSayfa = (FrmArizaDevamEden)System.Windows.Forms.Application.OpenForms["FrmArizaDevamEden"];
-                frmAnaSayfa.Yenilenecekler();
-                this.Close();
+                if (frmAnaSayfa!=null)
+                {
+                    frmAnaSayfa.Yenilenecekler();
+                    this.Close();
+                }
+                FrmArizaKayitlariKapatilan frmArizaKayitlariKapatilan = (FrmArizaKayitlariKapatilan)System.Windows.Forms.Application.OpenForms["FrmArizaKayitlariKapatilan"];
+                if (frmArizaKayitlariKapatilan != null)
+                {
+                    frmArizaKayitlariKapatilan.Yenilenecekler();
+                    this.Close();
+                }
+
             }
         }
 

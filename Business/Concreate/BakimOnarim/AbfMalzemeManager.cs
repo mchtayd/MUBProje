@@ -133,6 +133,17 @@ namespace Business.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
+        public List<AbfMalzeme> DtfKayitList()
+        {
+            try
+            {
+                return abfMalzemeDal.DtfKayitList();
+            }
+            catch (Exception)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
 
         public List<string> MalzemeTeslimTuru()
         {

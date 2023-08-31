@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,7 @@ namespace UserInterface.BakımOnarım
         List<DtfMaliyet> dtfMaliyets;
 
         string dosyaYolu;
-        int id;
+        int id, kayitId;
         public FrmDtfIzleme()
         {
             InitializeComponent();
@@ -159,6 +160,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             dosyaYolu = DtgDevamEden.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            kayitId = DtgDevamEden.CurrentRow.Cells["Id"].Value.ConInt();
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -189,6 +191,7 @@ namespace UserInterface.BakımOnarım
             }
             id = DtgTamamlanan.CurrentRow.Cells["Id"].Value.ConInt();
             dosyaYolu = DtgTamamlanan.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            kayitId = id;
             FillTools();
 
             try
@@ -269,6 +272,48 @@ namespace UserInterface.BakımOnarım
         private void DtgTamamlanan_SortStringChanged(object sender, EventArgs e)
         {
             dataBinderTamamlanan.Sort = DtgTamamlanan.SortString;
+        }
+
+        private void silToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (kayitId==0)
+            {
+                MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Kaydı silmek istediğinize emin misiniz?\nBu işlem geri alınamaz!", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                string mesaj = dtfManager.Delete(kayitId);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                mesaj = dtfMaliyetManager.DeleteVeriler(kayitId);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                try
+                {
+                    Directory.Delete(dosyaYolu);
+                }
+                catch (Exception)
+                {
+                    DataDisplayDevamEden();
+                    DataDisplayTamamlanan();
+                    MessageBox.Show("Bilgiler başarıyla silinmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    kayitId = 0;
+                    return;
+                }
+
+                DataDisplayDevamEden();
+                DataDisplayTamamlanan();
+                kayitId = 0;
+                MessageBox.Show("Bilgiler başarıyla silinmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

@@ -56,6 +56,18 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string DeleteVeriler(int id)
+        {
+            try
+            {
+                sqlServices.Stored("DtfMaliyetVeriSil", new SqlParameter("@id", id));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public DtfMaliyet Get(int id)
         {

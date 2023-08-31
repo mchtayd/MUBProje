@@ -3,10 +3,13 @@ using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Entity;
 using Entity.BakimOnarim;
 using Entity.BakimOnarimAtolye;
 using Entity.Gecic_Kabul_Ambar;
+using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -16,6 +19,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
@@ -37,6 +41,8 @@ namespace UserInterface.BakımOnarım
         public object[] infos;
         string dosyaYolu, abfNo, bolgeSorumlusu;
         int id, atolyeId;
+        int malzemeId;
+        string stok, tanim, miktar, birim;
 
         public FrmArizaKayitlariKapatilan()
         {
@@ -372,6 +378,24 @@ namespace UserInterface.BakımOnarım
             }
             LblToplamIsclikAtolye.Text = $"{toplam.Hour}:{toplam.Minute}:{toplam.Second}";
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (malzemeId == 0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmMalzemeVeriGecmisi frmMalzemeVeriGecmisi = new FrmMalzemeVeriGecmisi();
+            frmMalzemeVeriGecmisi.benzersizId = malzemeId;
+            frmMalzemeVeriGecmisi.stok = stok;
+            frmMalzemeVeriGecmisi.tanim = tanim;
+            frmMalzemeVeriGecmisi.miktar = miktar;
+            frmMalzemeVeriGecmisi.birim = birim;
+            frmMalzemeVeriGecmisi.ShowDialog();
+            malzemeId = 0;
+        }
+
         void AtolyeToplamlarIslemAdimSureleri()
         {
             int toplamDakika = 0;
@@ -423,6 +447,20 @@ namespace UserInterface.BakımOnarım
             frmArizaGuncelle.abfNo = abfNo;
             frmArizaGuncelle.id = id;
             frmArizaGuncelle.ShowDialog();
+        }
+        
+        private void DtgMalzemeListesi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgMalzemeListesi.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            malzemeId = DtgMalzemeListesi.CurrentRow.Cells["Id"].Value.ConInt();
+            stok = DtgMalzemeListesi.CurrentRow.Cells["SokulenStokNo"].Value.ToString();
+            tanim = DtgMalzemeListesi.CurrentRow.Cells["SokulenTanim"].Value.ToString();
+            miktar = DtgMalzemeListesi.CurrentRow.Cells["SokulenMiktar"].Value.ToString();
+            birim = DtgMalzemeListesi.CurrentRow.Cells["SokulenBirim"].Value.ToString();
         }
 
         private void sökülenMalzemeBilgisiToolStripMenuItem_Click(object sender, EventArgs e)

@@ -2202,7 +2202,7 @@ namespace UserInterface.STS
                     var form = (FrmOkfIzleme)Application.OpenForms["FrmOkfIzleme"];
                     if (form != null)
                     {
-                        form.DataDisplay();
+                        form.Yenilenecekler();
                     }
                 }
                 if (baslik == "KAYITLI MALZEMELERİ GÖRÜNTÜLE")
@@ -2222,7 +2222,7 @@ namespace UserInterface.STS
                         form.DuyuruEditList();
                     }
                 }
-
+                //
                 if (baslik == "ALT TAKIM (MALZEME) TAKİBİ")
                 {
                     var form = (FrmAltTakimTakipIzleme)Application.OpenForms["FrmAltTakimTakipIzleme"];
@@ -2237,6 +2237,15 @@ namespace UserInterface.STS
                     if (form != null)
                     {
                         form.Yenilenecekler();
+                    }
+                }
+
+                if (baslik == "DTF HAZIRLANCAKLAR")
+                {
+                    var form = (FrmDtfHazirlanacaklar)Application.OpenForms["FrmDtfHazirlanacaklar"];
+                    if (form != null)
+                    {
+                        form.Yenileneceler();
                     }
                 }
 

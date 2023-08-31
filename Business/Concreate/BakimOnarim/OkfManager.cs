@@ -84,11 +84,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public List<Okf> GetList()
+        public List<Okf> GetList(string durum)
         {
             try
             {
-                return okfDal.GetList();
+                return okfDal.GetList(durum);
             }
             catch (Exception)
             {
@@ -111,6 +111,17 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return okfDal.YapilacakIslemlerDelete(benzersizId);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string OkfDurumUpdate(int id,string durum)
+        {
+            try
+            {
+                return okfDal.OkfDurumUpdate(id, durum);
             }
             catch (Exception ex)
             {

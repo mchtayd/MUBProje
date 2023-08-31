@@ -56,7 +56,27 @@ namespace DataAccess.Concreate.BakimOnarim
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlServices.Stored("DtfSil", new SqlParameter("@id", id));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DtfKayitDurum(int id)
+        {
+            try
+            {
+                sqlServices.Stored("DtfAltYukleniciKayit", new SqlParameter("@id", id));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public Dtf Get(int isAkisNo)

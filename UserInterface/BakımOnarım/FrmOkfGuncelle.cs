@@ -362,7 +362,7 @@ namespace UserInterface.BakımOnarım
                 }
 
                 FrmOkfIzleme frmOkfIzleme = (FrmOkfIzleme)System.Windows.Forms.Application.OpenForms["FrmOkfIzleme"];
-                frmOkfIzleme.DataDisplay();
+                frmOkfIzleme.Yenilenecekler();
                 MessageBox.Show("Bilgiler başarıyla silinmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
             }

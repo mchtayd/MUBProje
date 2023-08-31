@@ -38,7 +38,25 @@ namespace Business.Concreate.BakimOnarim
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return dtfDal.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DtfKayitDurum(int id)
+        {
+            try
+            {
+                return dtfDal.DtfKayitDurum(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public Dtf Get(int isAkisNo)

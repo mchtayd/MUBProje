@@ -28,7 +28,6 @@ namespace UserInterface.BakımOnarım
         AtolyeAltMalzemeManager atolyeAltMalzemeManager;
         StokGirisCikisManager stokGirisCikisManager;
 
-
         List<StokGirisCıkıs> stokGirisCikis;
         List<AtolyeAltMalzeme> atolyeAltMalzemes;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
@@ -64,7 +63,7 @@ namespace UserInterface.BakımOnarım
             {
                 contextMenuStrip1.Items[0].Visible = false;
                 contextMenuStrip1.Items[1].Visible = false;
-                contextMenuStrip1.Items[2].Visible = false;
+
             }
             if (infos[0].ConInt() != 25)
             {
@@ -72,7 +71,11 @@ namespace UserInterface.BakımOnarım
                 {
                     if (infos[0].ConInt() != 84)
                     {
-                        contextMenuStrip1.Items[2].Enabled = false;
+                        if (infos[0].ConInt() != 57)
+                        {
+                            contextMenuStrip1.Items[2].Enabled = false;
+                        }
+                        
                     }
                 }
             }

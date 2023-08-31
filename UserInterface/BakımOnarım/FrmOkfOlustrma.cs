@@ -29,12 +29,12 @@ namespace UserInterface.BakımOnarım
         IsAkisNoManager isAkisNoManager;
         DtfManager dtfManager;
         BolgeKayitManager bolgeKayitManager;
-        MalzemeKayitManager malzemeKayitManager;
+        MalzemeManager malzemeManager;
         OkfManager okfManager;
         DtfMaliyetManager dtfMaliyetManager;
 
-        List<MalzemeKayit> malzemeKayits;
-        List<MalzemeKayit> malzemeKayits2;
+        List<Malzeme> malzemeKayits;
+        List<Malzeme> malzemeKayits2;
 
         bool start = false;
         public object[] infos;
@@ -48,7 +48,7 @@ namespace UserInterface.BakımOnarım
             isAkisNoManager = IsAkisNoManager.GetInstance();
             dtfManager = DtfManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
-            malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            malzemeManager = MalzemeManager.GetInstance();
             okfManager = OkfManager.GetInstance();
             dtfMaliyetManager = DtfMaliyetManager.GetInstance();
         }
@@ -93,7 +93,7 @@ namespace UserInterface.BakımOnarım
         }
         void Tanim()
         {
-            malzemeKayits = malzemeKayitManager.GetListMalzemeKayit();
+            malzemeKayits = malzemeManager.GetList();
             CmbTanim.DataSource = malzemeKayits;
             CmbTanim.ValueMember = "Id";
             CmbTanim.DisplayMember = "Tanim";
@@ -105,47 +105,71 @@ namespace UserInterface.BakımOnarım
             if (TxtAbfNo.Text.Length >= 6)
             {
                 Okf okfDTS = okfManager.OkfArizaBilgileriDTS(TxtAbfNo.Text.ConInt());
-                if (okfDTS!=null)
+                if (okfDTS == null)
                 {
-                    CmbBolgeAdi.Text = okfDTS.UsBolgesi;
-                    CmbProjeKodu.Text = okfDTS.ProjeKodu;
-                    TxtStokNo.Text = okfDTS.UstStok;
-                    CmbTanim.Text = okfDTS.UstTanim;
-                    TxtSeriNo.Text = okfDTS.UstSeriNo;
-                    TxtBildirilenAriza.Text = okfDTS.BildirilenAriza.ToUpper();
-                    bildirimNo = okfDTS.BildirimNo;
-                    if (bildirimNo==null || bildirimNo== "")
-                    {
-                        bildirimNo = okfDTS.OkfBildirimNo;
-                    }
-                    TxtABTelefon.Text = okfDTS.KomutanTel;
-                    TxtUsBolgesiKomutani.Text = okfDTS.UbKomutani;
-                    DtgArizaTarihi.Value = okfDTS.ArizaTarihi;
-                    il = okfDTS.Il;
-                    ilce = okfDTS.Ilce;
-                    birlikAdresi = okfDTS.BirlikAdresi;
+                    MessageBox.Show("Bu Abf Numarasına ait kayıt bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Temizle();
+                    return;
                 }
-                else
+                CmbBolgeAdi.Text = okfDTS.UsBolgesi;
+                CmbProjeKodu.Text = okfDTS.ProjeKodu;
+                TxtStokNo.Text = okfDTS.UstStok;
+                CmbTanim.Text = okfDTS.UstTanim;
+                TxtSeriNo.Text = okfDTS.UstSeriNo;
+                TxtBildirilenAriza.Text = okfDTS.BildirilenAriza.ToUpper();
+                bildirimNo = okfDTS.BildirimNo;
+                if (bildirimNo == null || bildirimNo == "")
                 {
-                    Okf okf = okfManager.OkfArizaBilgileri(TxtAbfNo.Text.ConInt());
-                    if (okf != null)
-                    {
-                        CmbBolgeAdi.Text = okf.UsBolgesi;
-                        CmbProjeKodu.Text = okf.ProjeKodu;
-                        TxtStokNo.Text = okf.UstStok;
-                        CmbTanim.Text = okf.UstTanim;
-                        TxtSeriNo.Text = okf.UstSeriNo;
-                        TxtBildirilenAriza.Text = okf.BildirilenAriza.ToUpper();
-                        bildirimNo = okf.BildirimNo;
-                        TxtABTelefon.Text = okf.KomutanTel;
-                        TxtUsBolgesiKomutani.Text = okf.UbKomutani;
-                        DtgArizaTarihi.Value = okf.ArizaTarihi;
-                        il = okf.Il;
-                        ilce = okf.Ilce;
-                        birlikAdresi = okf.BirlikAdresi;
-                    }
+                    bildirimNo = okfDTS.OkfBildirimNo;
                 }
-                
+                TxtABTelefon.Text = okfDTS.KomutanTel;
+                TxtUsBolgesiKomutani.Text = okfDTS.UbKomutani;
+                DtgArizaTarihi.Value = okfDTS.ArizaTarihi;
+                il = okfDTS.Il;
+                ilce = okfDTS.Ilce;
+                birlikAdresi = okfDTS.BirlikAdresi;
+
+                //if (okfDTS!=null)
+                //{
+                //    CmbBolgeAdi.Text = okfDTS.UsBolgesi;
+                //    CmbProjeKodu.Text = okfDTS.ProjeKodu;
+                //    TxtStokNo.Text = okfDTS.UstStok;
+                //    CmbTanim.Text = okfDTS.UstTanim;
+                //    TxtSeriNo.Text = okfDTS.UstSeriNo;
+                //    TxtBildirilenAriza.Text = okfDTS.BildirilenAriza.ToUpper();
+                //    bildirimNo = okfDTS.BildirimNo;
+                //    if (bildirimNo==null || bildirimNo== "")
+                //    {
+                //        bildirimNo = okfDTS.OkfBildirimNo;
+                //    }
+                //    TxtABTelefon.Text = okfDTS.KomutanTel;
+                //    TxtUsBolgesiKomutani.Text = okfDTS.UbKomutani;
+                //    DtgArizaTarihi.Value = okfDTS.ArizaTarihi;
+                //    il = okfDTS.Il;
+                //    ilce = okfDTS.Ilce;
+                //    birlikAdresi = okfDTS.BirlikAdresi;
+                //}
+                //else
+                //{
+                //    Okf okf = okfManager.OkfArizaBilgileri(TxtAbfNo.Text.ConInt());
+                //    if (okf != null)
+                //    {
+                //        CmbBolgeAdi.Text = okf.UsBolgesi;
+                //        CmbProjeKodu.Text = okf.ProjeKodu;
+                //        TxtStokNo.Text = okf.UstStok;
+                //        CmbTanim.Text = okf.UstTanim;
+                //        TxtSeriNo.Text = okf.UstSeriNo;
+                //        TxtBildirilenAriza.Text = okf.BildirilenAriza.ToUpper();
+                //        bildirimNo = okf.BildirimNo;
+                //        TxtABTelefon.Text = okf.KomutanTel;
+                //        TxtUsBolgesiKomutani.Text = okf.UbKomutani;
+                //        DtgArizaTarihi.Value = okf.ArizaTarihi;
+                //        il = okf.Il;
+                //        ilce = okf.Ilce;
+                //        birlikAdresi = okf.BirlikAdresi;
+                //    }
+                //}
+
             }
         }
 
@@ -161,13 +185,13 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             int comboId = CmbTanim.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(comboId);
+            Malzeme malzemeKayit = malzemeManager.Get2(comboId);
             if (malzemeKayit == null)
             {
                 TxtStokNo.Clear();
                 return;
             }
-            TxtStokNo.Text = malzemeKayit.Stokno;
+            TxtStokNo.Text = malzemeKayit.StokNo;
         }
         int sayac = 0;
         private void BtnEkle_Click(object sender, EventArgs e)
@@ -213,10 +237,10 @@ namespace UserInterface.BakımOnarım
         
         void FillMalzeme()
         {
-            malzemeKayits2 = malzemeKayitManager.GetListMalzemeKayit();
+            malzemeKayits2 = malzemeManager.GetList();
             CmbStokNo.DataSource = malzemeKayits2;
             CmbStokNo.ValueMember = "Id";
-            CmbStokNo.DisplayMember = "Stokno";
+            CmbStokNo.DisplayMember = "StokNo";
             CmbStokNo.SelectedValue = 0;
 
         }
@@ -229,9 +253,9 @@ namespace UserInterface.BakımOnarım
             }
             else
             {
-                foreach (MalzemeKayit item in malzemeKayits)
+                foreach (Malzeme item in malzemeKayits)
                 {
-                    if (CmbStokNo.Text == item.Stokno)
+                    if (CmbStokNo.Text == item.StokNo)
                     {
                         TxtTanim.Text = item.Tanim;
                     }
@@ -246,7 +270,7 @@ namespace UserInterface.BakımOnarım
                 return;
             }
             int comboId = CmbStokNo.SelectedValue.ConInt();
-            MalzemeKayit malzemeKayit = malzemeKayitManager.Get(comboId);
+            Malzeme malzemeKayit = malzemeManager.Get2(comboId);
             if (malzemeKayit == null)
             {
                 TxtTanim.Text = "";

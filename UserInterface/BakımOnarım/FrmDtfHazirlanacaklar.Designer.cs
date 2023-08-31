@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDtfHazirlanacaklar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -38,6 +38,8 @@
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.LblBolgeAdi = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.LblKayitTarihi = new System.Windows.Forms.DateTimePicker();
             this.CmbDonemYil = new System.Windows.Forms.ComboBox();
             this.CmbDonemAy = new System.Windows.Forms.ComboBox();
@@ -67,8 +69,6 @@
             this.label12 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.dataBinderOto = new System.Windows.Forms.BindingSource(this.components);
-            this.label3 = new System.Windows.Forms.Label();
-            this.LblBolgeAdi = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -106,9 +106,9 @@
             // 
             this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(12, 47);
+            this.groupBox1.Location = new System.Drawing.Point(15, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1531, 409);
+            this.groupBox1.Size = new System.Drawing.Size(1531, 324);
             this.groupBox1.TabIndex = 446;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DTF HAZIRLANACAKLAR";
@@ -117,8 +117,8 @@
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -129,7 +129,7 @@
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1525, 390);
+            this.DtgList.Size = new System.Drawing.Size(1525, 305);
             this.DtgList.TabIndex = 4;
             this.DtgList.TimeFilter = false;
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
@@ -139,7 +139,7 @@
             this.TxtTop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 464);
+            this.TxtTop.Location = new System.Drawing.Point(116, 364);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 448;
@@ -150,7 +150,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(12, 464);
+            this.label5.Location = new System.Drawing.Point(16, 364);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 447;
@@ -169,12 +169,30 @@
             this.groupBox3.Controls.Add(this.LblIsAkisNo);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.label36);
-            this.groupBox3.Location = new System.Drawing.Point(12, 492);
+            this.groupBox3.Location = new System.Drawing.Point(12, 390);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Size = new System.Drawing.Size(364, 169);
             this.groupBox3.TabIndex = 449;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "TALEBİ OLUŞTURAN";
+            // 
+            // LblBolgeAdi
+            // 
+            this.LblBolgeAdi.AutoSize = true;
+            this.LblBolgeAdi.Location = new System.Drawing.Point(113, 136);
+            this.LblBolgeAdi.Name = "LblBolgeAdi";
+            this.LblBolgeAdi.Size = new System.Drawing.Size(19, 13);
+            this.LblBolgeAdi.TabIndex = 451;
+            this.LblBolgeAdi.Text = "00";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(32, 136);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(74, 13);
+            this.label3.TabIndex = 450;
+            this.label3.Text = "ÜS BÖLGESİ:";
             // 
             // LblKayitTarihi
             // 
@@ -294,7 +312,7 @@
             this.groupBox2.Controls.Add(this.label6);
             this.groupBox2.Controls.Add(this.CmbButceKodu);
             this.groupBox2.Controls.Add(this.label9);
-            this.groupBox2.Location = new System.Drawing.Point(12, 667);
+            this.groupBox2.Location = new System.Drawing.Point(12, 565);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(830, 204);
             this.groupBox2.TabIndex = 450;
@@ -403,7 +421,7 @@
             this.groupBox4.Controls.Add(this.label18);
             this.groupBox4.Controls.Add(this.CmbAltYukleniciFirma);
             this.groupBox4.Controls.Add(this.label12);
-            this.groupBox4.Location = new System.Drawing.Point(382, 491);
+            this.groupBox4.Location = new System.Drawing.Point(382, 389);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(460, 170);
             this.groupBox4.TabIndex = 451;
@@ -487,37 +505,20 @@
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 874);
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 774);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 452;
             this.BtnKaydet.Text = "     KAYDET";
             this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnKaydet.UseVisualStyleBackColor = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(32, 136);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(74, 13);
-            this.label3.TabIndex = 450;
-            this.label3.Text = "ÜS BÖLGESİ:";
-            // 
-            // LblBolgeAdi
-            // 
-            this.LblBolgeAdi.AutoSize = true;
-            this.LblBolgeAdi.Location = new System.Drawing.Point(113, 136);
-            this.LblBolgeAdi.Name = "LblBolgeAdi";
-            this.LblBolgeAdi.Size = new System.Drawing.Size(19, 13);
-            this.LblBolgeAdi.TabIndex = 451;
-            this.LblBolgeAdi.Text = "00";
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
             // FrmDtfHazirlanacaklar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1555, 928);
+            this.ClientSize = new System.Drawing.Size(1555, 833);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox2);
