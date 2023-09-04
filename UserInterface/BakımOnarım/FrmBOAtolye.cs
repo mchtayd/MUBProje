@@ -1208,8 +1208,6 @@ namespace UserInterface.BakımOnarım
                                 }
                             }
 
-
-
                         }
                     }
                 }

@@ -50,7 +50,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             abfMalzemes = new List<AbfMalzeme>();
             dataBinder.DataSource = null;
 
-            abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ","TÜMÜ");
+            abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ");
 
             dataBinder.DataSource = abfMalzemes.ToDataTable();
             DtgList.DataSource = dataBinder;

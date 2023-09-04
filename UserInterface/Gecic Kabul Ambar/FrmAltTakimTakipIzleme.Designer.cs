@@ -102,7 +102,7 @@
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DtgList.Size = new System.Drawing.Size(1457, 423);
             this.DtgList.TabIndex = 4;
             this.DtgList.TimeFilter = false;

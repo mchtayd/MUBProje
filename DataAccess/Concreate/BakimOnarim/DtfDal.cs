@@ -66,11 +66,11 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public string DtfKayitDurum(int id)
+        public string DtfKayitDurum(int id, string firma)
         {
             try
             {
-                sqlServices.Stored("DtfAltYukleniciKayit", new SqlParameter("@id", id));
+                sqlServices.Stored("DtfAltYukleniciKayit", new SqlParameter("@id", id), new SqlParameter("@firma", firma));
                 return "OK";
             }
             catch (Exception ex)

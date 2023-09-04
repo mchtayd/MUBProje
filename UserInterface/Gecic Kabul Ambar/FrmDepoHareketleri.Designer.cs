@@ -39,18 +39,19 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnSearch = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.TxtBarkod = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barkodOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -153,6 +154,21 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.düzenleToolStripMenuItem,
+            this.barkodOluşturToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            // 
+            // düzenleToolStripMenuItem
+            // 
+            this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.düzenleToolStripMenuItem.Text = "Düzenle";
+            this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
+            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -190,19 +206,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label2.TabIndex = 465;
             this.label2.Text = "Barkod:";
             // 
-            // contextMenuStrip1
+            // barkodOluşturToolStripMenuItem
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.düzenleToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(117, 26);
-            // 
-            // düzenleToolStripMenuItem
-            // 
-            this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
-            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.düzenleToolStripMenuItem.Text = "Düzenle";
-            this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
+            this.barkodOluşturToolStripMenuItem.Name = "barkodOluşturToolStripMenuItem";
+            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.barkodOluşturToolStripMenuItem.Text = "Barkod Oluştur";
+            this.barkodOluşturToolStripMenuItem.Click += new System.EventHandler(this.barkodOluşturToolStripMenuItem_Click);
             // 
             // FrmDepoHareketleri
             // 
@@ -226,8 +235,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -251,5 +260,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem düzenleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem barkodOluşturToolStripMenuItem;
     }
 }

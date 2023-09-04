@@ -1500,7 +1500,7 @@ namespace UserInterface.BakımOnarım
 
             foreach (AbfMalzeme item in abfMalzemes)
             {
-                if (item.SokulenTeslimDurum== "ALT YÜKLENİCİ FİRMADA" && item.AltYukleniciKayit == "KAYDEDİLDİ")
+                if (item.SokulenTeslimDurum== "ALT YÜKLENİCİ FİRMADA" && item.AltYukleniciKayit != "")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Id, "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI");
 

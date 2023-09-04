@@ -105,6 +105,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
+                dataReader.Close();
                 return ex.Message; 
             }
         }

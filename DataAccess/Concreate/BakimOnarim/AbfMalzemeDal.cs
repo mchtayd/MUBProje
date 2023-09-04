@@ -157,6 +157,49 @@ namespace DataAccess.Concreate.BakimOnarim
                 return null;
             }
         }
+        public AbfMalzeme GetBulStokGirisCikis(string stokNo, string seriNo, string revizyon)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AbfMalzemeBulStokGirisCikis", new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@revizyon", revizyon));
+                AbfMalzeme abfMalzeme = null;
+                while (dataReader.Read())
+                {
+                    abfMalzeme = new AbfMalzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConInt(),
+                        dataReader["SOKULEN_BIRIM"].ToString(),
+                        dataReader["SOKULEN_CALISMA_SAATI"].ConDouble(),
+                        dataReader["SOKULEN_REVIZYON_NO"].ToString(),
+                        dataReader["CALISMA_DURUMU"].ToString(),
+                        dataReader["FIZIKSEL_DURUMU"].ToString(),
+                        dataReader["YAPILACAK_ISLEM"].ToString(),
+                        dataReader["TAKILAN_STOK_NO"].ToString(),
+                        dataReader["TAKILAN_TANIM"].ToString(),
+                        dataReader["TAKILAN_SERI_NO"].ToString(),
+                        dataReader["TAKILAN_MIKTAR"].ConInt(),
+                        dataReader["TAKILAN_BIRIM"].ToString(),
+                        dataReader["TAKILAN_CALISMA_SAATI"].ConDouble(),
+                        dataReader["TAKILAN_REVIZYON_NO"].ToString(),
+                        dataReader["TEMIN_DURUMU"].ToString(),
+                        dataReader["MALZEME_ISLEM_ADIMI"].ToString(),
+                        dataReader["SOKULEN_TESLIM_DURUM"].ToString(),
+                        dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ALYUKLENICI_KAYIT"].ToString());
+                }
+                dataReader.Close();
+                return abfMalzeme;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<AbfMalzeme> GetList(int benzersizId, string teminDurumu)
         {
@@ -268,7 +311,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["YAPILACAK_ISLEM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["FIZIKSEL_DURUMU"].ToString()));
+                        dataReader["FIZIKSEL_DURUMU"].ToString(),
+                        dataReader["ALYUKLENICI_KAYIT"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;
@@ -303,7 +347,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["YAPILACAK_ISLEM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["FIZIKSEL_DURUMU"].ToString()));
+                        dataReader["FIZIKSEL_DURUMU"].ToString(),
+                        dataReader["ALYUKLENICI_KAYIT"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;

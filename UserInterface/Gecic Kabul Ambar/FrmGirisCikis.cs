@@ -600,13 +600,20 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     return "Malzemenin lokasyon bilgileri bulunamadı!";
                 }
                 string bilgiControl = BilgiControl();
-
+                string abf = "";
                 if (bilgiControl != "OK")
                 {
                     if (bilgiControl == "REZERVE HATASI")
                     {
                         ArizaKayit arizaKayit = arizaKayitManager.GetId(rezerveId);
-                        string abf = arizaKayit.AbfFormNo.ToString();
+                        if (arizaKayit==null)
+                        {
+                            abf = TxtDepodanBildirimeAbfNo.Text;
+                        }
+                        else
+                        {
+                            abf = arizaKayit.AbfFormNo.ToString();
+                        }
 
                         abfMalzemesStoklar = new List<AbfMalzeme>();
 
@@ -1388,6 +1395,32 @@ namespace UserInterface.Gecic_Kabul_Ambar
             LblToplam.Text = "00";
         }
 
+        void ArizaMalzemeTakip()
+        {
+            AbfMalzeme abfMalzeme = abfMalzemeManager.GetBulStokGirisCikis(stokNo, seriNo, revizyon);
+            if (abfMalzeme!=null)
+            {
+                abfMalzemeManager.MalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "MALZEME DEPO STOĞUNA ALINDI.");
+
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "MALZEME DEPO STOĞUNA ALINDI.", DateTime.Now, infos[1].ToString(), 0);
+                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, "150 - STOĞA ALINACAK MALZEME");
+                if (abfMalzemeIslemKayit1 != null)
+                {
+                    TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
+                    if (gecenSure.TotalMinutes.ConInt() > 0)
+                    {
+                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt());
+                    }
+                    else
+                    {
+                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
+                    }
+                }
+            }
+        }
+
         private void BtnKaydet_Click_1(object sender, EventArgs e)
         {
             if (DtgList.RowCount == 0)
@@ -1431,6 +1464,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     if (islemTuru == "100-YENİ DEPO GİRİŞİ")
                     {
                         DepoGirisBekleyenKontrol();
+                        ArizaMalzemeTakip(); // ARIZADAN GELEN MALZEME DEPO STOĞUNA ALINDI BİLGİSİ TUTULDU.
 
                         mevcutMiktar = +miktar;
 
@@ -1454,6 +1488,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         stokGirisCikisManager.Add(stokGirisCıkıs);
 
                         stokGirisCikisManager.DepoBirimFiyat(item.Cells["Column1"].Value.ConDouble(), stokNo);
+
                     }
 
                     if (islemTuru == "101-DEPODAN DEPOYA İADE")

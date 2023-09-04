@@ -33,7 +33,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         int comboId, id = 0;
         bool start = true, firstClick = false, kayitDurumu = false;
 
-        public string stok = "";
+        public string seriNo, revizyon, stok = "";
 
         public FrmDepoDusum()
         {
@@ -52,6 +52,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             if (stok!="")
             {
                 CmbStokNo.Text = stok;
+                TxtSeriNo.Text = seriNo;
+                TxtRevizyon.Text = revizyon;
             }
         }
 

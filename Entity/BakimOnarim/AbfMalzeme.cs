@@ -116,7 +116,7 @@ namespace Entity.BakimOnarim
             this.malzemeIslemAdimi = malzemeIslemAdimi;
         }
 
-        public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon, int abfNo, string sokulenTeslimDurum, string bolgeAdi,string bolgeSorumlusu, string yapilacakIslem, string yerineMalzemeTakilma, string dosyaYolu, string fizikselDurum)
+        public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon, int abfNo, string sokulenTeslimDurum, string bolgeAdi,string bolgeSorumlusu, string yapilacakIslem, string yerineMalzemeTakilma, string dosyaYolu, string fizikselDurum, string altYukleniciKayit)
         {
             this.id = id;
             this.benzersizId = benzersizId;
@@ -134,6 +134,7 @@ namespace Entity.BakimOnarim
             this.yerineMalzemeTakilma = yerineMalzemeTakilma;
             this.dosyaYolu = dosyaYolu;
             this.fizikselDurum = fizikselDurum;
+            this.altYukleniciKayit = altYukleniciKayit;
         }
 
         public AbfMalzeme(string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon)

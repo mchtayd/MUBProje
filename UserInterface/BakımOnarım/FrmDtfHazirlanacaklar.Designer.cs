@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDtfHazirlanacaklar));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -69,6 +69,10 @@
             this.label12 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
             this.dataBinderOto = new System.Windows.Forms.BindingSource(this.components);
+            this.label32 = new System.Windows.Forms.Label();
+            this.CmbDepoAdresi = new System.Windows.Forms.ComboBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.LblDepoNo = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -117,8 +121,8 @@
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -414,8 +418,12 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.LblDepoNo);
             this.groupBox4.Controls.Add(this.DtgIsinVerildigiTarih);
+            this.groupBox4.Controls.Add(this.label32);
             this.groupBox4.Controls.Add(this.BtnAltYukFirmaEkle);
+            this.groupBox4.Controls.Add(this.CmbDepoAdresi);
+            this.groupBox4.Controls.Add(this.label33);
             this.groupBox4.Controls.Add(this.label2);
             this.groupBox4.Controls.Add(this.LblFirmaSorumlusu);
             this.groupBox4.Controls.Add(this.label18);
@@ -514,6 +522,43 @@
             this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(90, 137);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(59, 13);
+            this.label32.TabIndex = 455;
+            this.label32.Text = "DEPO NO:";
+            // 
+            // CmbDepoAdresi
+            // 
+            this.CmbDepoAdresi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDepoAdresi.FormattingEnabled = true;
+            this.CmbDepoAdresi.Location = new System.Drawing.Point(155, 107);
+            this.CmbDepoAdresi.Name = "CmbDepoAdresi";
+            this.CmbDepoAdresi.Size = new System.Drawing.Size(236, 21);
+            this.CmbDepoAdresi.TabIndex = 454;
+            this.CmbDepoAdresi.SelectedIndexChanged += new System.EventHandler(this.CmbDepoAdresi_SelectedIndexChanged);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(41, 112);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(108, 13);
+            this.label33.TabIndex = 453;
+            this.label33.Text = "DÜŞÜLECEK DEPO:";
+            // 
+            // LblDepoNo
+            // 
+            this.LblDepoNo.AutoSize = true;
+            this.LblDepoNo.Location = new System.Drawing.Point(152, 137);
+            this.LblDepoNo.Name = "LblDepoNo";
+            this.LblDepoNo.Size = new System.Drawing.Size(19, 13);
+            this.LblDepoNo.TabIndex = 453;
+            this.LblDepoNo.Text = "00";
+            // 
             // FrmDtfHazirlanacaklar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,5 +630,9 @@
         private System.Windows.Forms.BindingSource dataBinderOto;
         private System.Windows.Forms.Label LblBolgeAdi;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox CmbDepoAdresi;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label LblDepoNo;
     }
 }

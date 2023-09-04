@@ -71,6 +71,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.DtgSaat = new System.Windows.Forms.DateTimePicker();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.barkodOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -78,6 +80,7 @@
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslem)).BeginInit();
             this.panel2.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -155,6 +158,7 @@
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgList.Cursor = System.Windows.Forms.Cursors.Default;
             this.DtgList.DateWithTime = false;
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -167,6 +171,7 @@
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             this.DtgList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseDoubleClick);
             // 
             // TxtAciklama
@@ -497,6 +502,20 @@
             this.panel2.TabIndex = 5;
             this.panel2.Visible = false;
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.barkodOluşturToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 26);
+            // 
+            // barkodOluşturToolStripMenuItem
+            // 
+            this.barkodOluşturToolStripMenuItem.Name = "barkodOluşturToolStripMenuItem";
+            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.barkodOluşturToolStripMenuItem.Text = "Barkod Oluştur";
+            this.barkodOluşturToolStripMenuItem.Click += new System.EventHandler(this.barkodOluşturToolStripMenuItem_Click);
+            // 
             // FrmAltTakimTakip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -532,6 +551,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslem)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -579,5 +599,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DateTimePicker DtgSaat;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem barkodOluşturToolStripMenuItem;
     }
 }

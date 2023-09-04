@@ -35,6 +35,7 @@ namespace UserInterface.Depo
         string stokNo ="";
         int id;
         public object[] infos;
+        string tiklananStok, tiklananSeriNo, tiklananRevizyon;
         public FrmStokGoruntule()
         {
             InitializeComponent();
@@ -176,6 +177,24 @@ namespace UserInterface.Depo
                 return;
             }
             id = DtgDepoBilgileri.CurrentRow.Cells["Id"].Value.ConInt();
+            tiklananStok = DtgDepoBilgileri.CurrentRow.Cells["StokNo"].Value.ToString();
+            tiklananRevizyon = DtgDepoBilgileri.CurrentRow.Cells["Revizyon"].Value.ToString();
+            Malzeme malzeme = malzemeManager.Get(stokNo);
+            if (malzeme!=null)
+            {
+                if (malzeme.TakipDurumu=="LOT NO")
+                {
+                    tiklananSeriNo = DtgDepoBilgileri.CurrentRow.Cells["LotNo"].Value.ToString();
+                }
+                else
+                {
+                    tiklananSeriNo = DtgDepoBilgileri.CurrentRow.Cells["SeriNo"].Value.ToString();
+                }
+            }
+            else
+            {
+                tiklananSeriNo = DtgDepoBilgileri.CurrentRow.Cells["SeriNo"].Value.ToString();
+            }
         }
 
         private void BtnSorgula_Click(object sender, EventArgs e)
@@ -208,6 +227,12 @@ namespace UserInterface.Depo
             DtgMalzemeBilgisi.Columns["UstStok"].Visible = false;
             DtgMalzemeBilgisi.Columns["UstTanim"].Visible = false;
             DtgMalzemeBilgisi.Columns["BenzersizId"].Visible = false;
+            DtgMalzemeBilgisi.Columns["KayitDurumu"].Visible = false;
+            DtgMalzemeBilgisi.Columns["SeriNo"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Revizyon"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Miktar"].Visible = false;
+            DtgMalzemeBilgisi.Columns["TalepTarihi"].Visible = false;
+            DtgMalzemeBilgisi.Columns["Durum"].Visible = false;
 
             string fileName = "";
             int index = 0;
@@ -273,6 +298,22 @@ namespace UserInterface.Depo
             frmRezerveEt.malzemeId = id;
             frmRezerveEt.ShowDialog();
 
+        }
+        
+        private void barkodOluşturToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tiklananStok == "")
+            {
+                MessageBox.Show("Lütfen bir stok seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmDepoDusum frmDepoDusum = new FrmDepoDusum();
+            frmDepoDusum.stok = tiklananStok;
+            frmDepoDusum.seriNo = tiklananSeriNo;
+            frmDepoDusum.revizyon = tiklananRevizyon;
+            frmDepoDusum.infos = infos;
+            frmDepoDusum.Show();
+            tiklananStok = "";
         }
     }
 }

@@ -99,6 +99,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public AbfMalzeme GetBulStokGirisCikis(string stokNo, string seriNo, string revizyon)
+        {
+            try
+            {
+                return abfMalzemeDal.GetBulStokGirisCikis(stokNo, seriNo, revizyon);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<AbfMalzeme> GetList(int benzersizId, string teminDurumu="")
         {

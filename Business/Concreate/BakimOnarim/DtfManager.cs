@@ -47,11 +47,11 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
-        public string DtfKayitDurum(int id)
+        public string DtfKayitDurum(int id, string firma)
         {
             try
             {
-                return dtfDal.DtfKayitDurum(id);
+                return dtfDal.DtfKayitDurum(id, firma);
             }
             catch (Exception ex)
             {

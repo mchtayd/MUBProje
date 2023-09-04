@@ -37,6 +37,7 @@ namespace UserInterface.Depo
             this.DtgDepoBilgileri = new ADGV.AdvancedDataGridView();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rezerveEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
@@ -53,7 +54,7 @@ namespace UserInterface.Depo
             this.label2 = new System.Windows.Forms.Label();
             this.BtnSorgula = new System.Windows.Forms.Button();
             this.BtnTumunuGor = new System.Windows.Forms.Button();
-            this.rezerveEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barkodOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoBilgileri)).BeginInit();
@@ -121,9 +122,10 @@ namespace UserInterface.Depo
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.düzenleToolStripMenuItem,
-            this.rezerveEtToolStripMenuItem});
+            this.rezerveEtToolStripMenuItem,
+            this.barkodOluşturToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
             // 
             // düzenleToolStripMenuItem
             // 
@@ -131,6 +133,13 @@ namespace UserInterface.Depo
             this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.düzenleToolStripMenuItem.Text = "Düzenle";
             this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
+            // 
+            // rezerveEtToolStripMenuItem
+            // 
+            this.rezerveEtToolStripMenuItem.Name = "rezerveEtToolStripMenuItem";
+            this.rezerveEtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rezerveEtToolStripMenuItem.Text = "Rezerve Et";
+            this.rezerveEtToolStripMenuItem.Click += new System.EventHandler(this.rezerveEtToolStripMenuItem_Click);
             // 
             // TxtTop
             // 
@@ -293,12 +302,12 @@ namespace UserInterface.Depo
             this.BtnTumunuGor.UseVisualStyleBackColor = false;
             this.BtnTumunuGor.Click += new System.EventHandler(this.BtnTumunuGor_Click);
             // 
-            // rezerveEtToolStripMenuItem
+            // barkodOluşturToolStripMenuItem
             // 
-            this.rezerveEtToolStripMenuItem.Name = "rezerveEtToolStripMenuItem";
-            this.rezerveEtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.rezerveEtToolStripMenuItem.Text = "Rezerve Et";
-            this.rezerveEtToolStripMenuItem.Click += new System.EventHandler(this.rezerveEtToolStripMenuItem_Click);
+            this.barkodOluşturToolStripMenuItem.Name = "barkodOluşturToolStripMenuItem";
+            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.barkodOluşturToolStripMenuItem.Text = "Barkod Oluştur";
+            this.barkodOluşturToolStripMenuItem.Click += new System.EventHandler(this.barkodOluşturToolStripMenuItem_Click);
             // 
             // FrmStokGoruntule
             // 
@@ -360,5 +369,6 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Button BtnSorgula;
         private System.Windows.Forms.Button BtnTumunuGor;
         private System.Windows.Forms.ToolStripMenuItem rezerveEtToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem barkodOluşturToolStripMenuItem;
     }
 }

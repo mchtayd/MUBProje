@@ -381,6 +381,8 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeListesi.Columns["BolgeAdi"].Visible = false;
             DtgMalzemeListesi.Columns["BolgeSorumlusu"].Visible = false;
             DtgMalzemeListesi.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
+            DtgMalzemeListesi.Columns["DosyaYolu"].Visible = false;
+            DtgMalzemeListesi.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
 
         }
         void DepoHareketleri()

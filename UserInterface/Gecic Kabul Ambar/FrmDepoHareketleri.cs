@@ -20,6 +20,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         List<StokGirisCıkıs> stokGirisCıkıs;
         int id = 0;
         public object[] infos;
+        string tiklananStok, tiklananSeriNo, tiklananRevizyon;
 
         public FrmDepoHareketleri()
         {
@@ -157,6 +158,25 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+            tiklananStok = DtgList.CurrentRow.Cells["Stokno"].Value.ToString();
+            tiklananSeriNo = DtgList.CurrentRow.Cells["Serino"].Value.ToString();
+            tiklananRevizyon = DtgList.CurrentRow.Cells["Revizyon"].Value.ToString();
+        }
+
+        private void barkodOluşturToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tiklananStok == "")
+            {
+                MessageBox.Show("Lütfen bir stok seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmDepoDusum frmDepoDusum = new FrmDepoDusum();
+            frmDepoDusum.stok = tiklananStok;
+            frmDepoDusum.seriNo = tiklananSeriNo;
+            frmDepoDusum.revizyon = tiklananRevizyon;
+            frmDepoDusum.infos = infos;
+            frmDepoDusum.Show();
+            tiklananStok = "";
         }
     }
 }

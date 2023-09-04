@@ -4,6 +4,7 @@ using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Vml.Spreadsheet;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Entity;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
@@ -21,6 +22,7 @@ using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 using Application = System.Windows.Forms.Application;
+using Color = System.Drawing.Color;
 
 namespace UserInterface.Gecic_Kabul_Ambar
 {
@@ -36,8 +38,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         public object[] infos;
         bool start = true;
-        string stokNo, tanim, seriNo, lotNo, revizyon, depoLokasyon, cekilenDepoAdi;
-        int mevcutMiktar, miktar;
+        string stokNo, tanim, seriNo, lotNo, revizyon, depoLokasyon, cekilenDepoAdi, dusulenYer, birim;
+        string takipTuru, tedarikTuru = "";
+        int mevcutMiktar, miktar, dusulenMiktar, cekilenMiktar;
 
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
         public FrmAltTakimTakip()
@@ -146,6 +149,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
             DtgList.Columns["YerineMalzemeTakilma"].Visible = false;
             DtgList.Columns["DosyaYolu"].Visible = false;
+            DtgList.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
 
             DtgList.Columns["SokulenStokNo"].DisplayIndex = 1;
             DtgList.Columns["SokulenTanim"].DisplayIndex = 2;
@@ -172,7 +176,39 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             dataBinder.Sort = DtgList.SortString;
         }
-        string tiklananStok, tiklananTanim, tiklananSeriNo, tiklananRevizyon; int tiklananMiktar;
+        string tiklananStok, tiklananTanim, tiklananSeriNo, tiklananRevizyon;
+
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgList.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            tiklananStok = DtgList.CurrentRow.Cells["SokulenStokNo"].Value.ToString();
+            tiklananTanim = DtgList.CurrentRow.Cells["SokulenTanim"].Value.ToString();
+            tiklananSeriNo = DtgList.CurrentRow.Cells["SokulenSeriNo"].Value.ToString();
+            tiklananRevizyon = DtgList.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
+            tiklananMiktar = DtgList.CurrentRow.Cells["SokulenMiktar"].Value.ConInt();
+        }
+
+        private void barkodOluşturToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tiklananStok == "")
+            {
+                MessageBox.Show("Lütfen bir stok seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmDepoDusum frmDepoDusum = new FrmDepoDusum();
+            frmDepoDusum.stok = tiklananStok;
+            frmDepoDusum.seriNo = tiklananSeriNo;
+            frmDepoDusum.revizyon = tiklananRevizyon;
+            frmDepoDusum.infos = infos;
+            frmDepoDusum.Show();
+            tiklananStok = "";
+        }
+
+        int tiklananMiktar;
         private void DtgList_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -239,6 +275,22 @@ namespace UserInterface.Gecic_Kabul_Ambar
             if (CmbTeslimTuru.Text == "ATÖLYE BAKIM ONARIMDA")
             {
                 return "Henüz atölye işlemleri tamamlanmadığı için malzemeyi teslim alamazsınız!";
+            }
+            if (CmbTeslimTuru.Text == "150 - STOĞA ALINACAK MALZEME")
+            {
+                return "Stoğa alınacak malzemenin işlemleri Stok Giriş Çıkış ekranından 100-YENİ DEPO GİRİŞİ adımları izlenerek yapılmalıdır.";
+            }
+            if (CmbTeslimTuru.Text == "250 - ALT YÜKLENİCİYE GİDECEK MALZEME")
+            {
+                return "Alt Yükleniciye gidecek malzemenin teslim alma işlemleri DTF Hazırlanacaklar sayfası üzerinden yapılmaktadır!";
+            }
+            if (CmbTeslimTuru.Text == "ALT YÜKLENİCİ FİRMADA")
+            {
+                return "Alt Yüklenici Firma işlemleri henüz tamamlanmadığı için malzemeyi teslim alamazsınız!";
+            }
+            if (CmbTeslimTuru.Text == "300 - ATÖLYEYE GİDECEK MALZEME")
+            {
+                return "Atölyeye gidecek malzemenin teslim alma işlemleri Atölye Kayıt sayfasından gerçekleştirilmelidir!";
             }
             return "OK";
         }
@@ -338,6 +390,333 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             LblTop2.Text = DtgIslem.RowCount.ToString();
         }
+
+
+        void MalzemeHazirlamaControl()
+        {
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2500", seriNo, lotNo, revizyon);
+
+            if (depoMiktar != null)
+            {
+                abfMalzemeManager.TeminBilgisi(depoMiktar.Id, dusulenYer + " DEPOYA GÖNDERİLDİ", infos[1].ToString(), "DEPODAN DEPOYA İADE (AMBAR)");
+            }
+
+        }
+        void MalzemeHazirlamaControl2()
+        {
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2600", seriNo, lotNo, revizyon);
+
+            if (depoMiktar != null)
+            {
+                abfMalzemeManager.TeminBilgisi(depoMiktar.Id, dusulenYer + " DEPOYA GÖNDERİLDİ", infos[1].ToString(), "DEPODAN DEPOYA İADE (AMBAR)");
+            }
+
+        }
+        void MalzemeHazirlamaControl3()
+        {
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2700", seriNo, lotNo, revizyon);
+
+            if (depoMiktar != null)
+            {
+                abfMalzemeManager.TeminBilgisi(depoMiktar.Id, dusulenYer + " DEPOYA GÖNDERİLDİ", infos[1].ToString(), "DEPODAN DEPOYA İADE (AMBAR)");
+            }
+
+        }
+
+        //void DepoGirisBekleyenKontrol()
+        //{
+        //    string stokNoDusum = stokNo;
+
+        //    abfMalzemes = abfMalzemeManager.GetListStok(stokNoDusum);
+
+        //    foreach (AbfMalzeme item2 in abfMalzemes)
+        //    {
+        //        if (stokNoDusum == item2.SokulenStokNo)
+        //        {
+        //            if (item2.TeminDurumu != "REZERVE EDİLDİ")
+        //            {
+        //                if (tedarikTuru == "SATIN ALMA")
+        //                {
+        //                    abfMalzemeManager.TeminBilgisi(item2.Id, "STOKTA MEVCUT (SAT)", infos[1].ToString(), item2.MalzemeIslemAdimi);
+        //                }
+        //                else
+        //                {
+        //                    //abfMalzemeManager.TeminBilgisi(item2.Id, "STOKTA MEVCUT (ASELSAN)", infos[1].ToString(), item2.MalzemeIslemAdimi);
+        //                }
+
+        //            }
+        //        }
+        //    }
+        //}
+
+        void AnkarayaDusum()
+        {
+            MalzemeHazirlamaControl();
+            string lokasyon = "";
+            if (seriNo == "N/A")
+            {
+                lokasyon = LokasyonBul(stokNo, lotNo, revizyon, takipTuru);
+            }
+            else
+            {
+                lokasyon = LokasyonBul(stokNo, seriNo, revizyon, takipTuru);
+            }
+
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "3000", seriNo, lotNo, revizyon);
+            if (depoMiktar == null)
+            {
+                DepoMiktar depoMiktardepo = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), "3000", "ASELSAN UGES", "100", miktar, "MALZEME FABRİKA BAKIM ONARIM MAKSATLI ANKARAYA GÖNDERİLMİŞTİR.");
+                depoMiktarManager.Add(depoMiktardepo);
+            }
+
+            dusulenMiktar = miktar;
+            string rezerveDurum = "REZERVE DEĞİL";
+            string depoNoDusulen2 = "3000"; // düşülen
+            string depoNoCekilen2 = lokasyon; // çekilen
+            string dusulenDepoLokasyon = "100"; // düşülen depo lokasyon
+            string cekilenDepoLokasyon = depoLokasyon; // çekilen depo lokasyon
+
+            DepoMiktar depo2 = depoMiktarManager.Get(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon);
+            if (depo2!=null)
+            {
+                cekilenMiktar = depo2.Miktar - miktar;
+                rezerveDurum = depo2.RezerveDurumu;
+            }
+            else
+            {
+                cekilenMiktar = miktar;
+            }
+
+            mevcutMiktar = +miktar;
+
+
+            DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
+            depoMiktarManager.Update(depoDusulen, rezerveDurum);
+
+            DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
+            depoMiktarManager.Update(depoCekilen, rezerveDurum);
+
+
+            if (cekilenMiktar == 0)
+            {
+                depoMiktarManager.Delete(depo2.Id);
+            }
+
+
+            StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("101-DEPODAN DEPOYA İADE", stokNo, tanim, birim, DtgTeslimTarihi.Value, depoNoCekilen2, cekilenDepoAdi, cekilenDepoLokasyon, depoNoDusulen2, "ASELSAN UGES", "100", miktar, infos[1].ToString(), "MALZEME FABRİKA BAKIM ONARIM MAKSATLI ANKARAYA GÖNDERİLMİŞTİR.", seriNo, lotNo, revizyon);
+
+            stokGirisCikisManager.Add(stokGirisCıkıs);
+        }
+        void AtolyeyeDusum()
+        {
+            MalzemeHazirlamaControl3();
+            string lokasyon = "";
+            if (seriNo=="N/A")
+            {
+                lokasyon = LokasyonBul(stokNo, lotNo, revizyon, takipTuru);
+            }
+            else
+            {
+                lokasyon = LokasyonBul(stokNo, seriNo, revizyon, takipTuru);
+            }
+            
+
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2700", seriNo, lotNo, revizyon);
+            if (depoMiktar == null)
+            {
+                DepoMiktar depoMiktardepo = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), "2700", "ATÖLYE BO", "100", miktar, "MALZEME BAKIM ONARIM MAKSATLI ATÖLYEYE GÖNDERİLMİŞTİR.");
+                depoMiktarManager.Add(depoMiktardepo);
+            }
+
+            dusulenMiktar = miktar;
+            string rezerveDurum = "REZERVE DEĞİL";
+            string depoNoDusulen2 = "2700"; // düşülen
+            string depoNoCekilen2 = lokasyon; // çekilen
+            string dusulenDepoLokasyon = "100"; // düşülen depo lokasyon
+            string cekilenDepoLokasyon = depoLokasyon; // çekilen depo lokasyon
+
+            DepoMiktar depo2 = depoMiktarManager.Get(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon);
+            if (depo2 != null)
+            {
+                cekilenMiktar = depo2.Miktar - miktar;
+                rezerveDurum = depo2.RezerveDurumu;
+            }
+            else
+            {
+                cekilenMiktar = miktar;
+            }
+
+            mevcutMiktar = +miktar;
+
+
+            DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
+            depoMiktarManager.Update(depoDusulen, rezerveDurum);
+
+            DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
+            depoMiktarManager.Update(depoCekilen, rezerveDurum);
+
+
+            if (cekilenMiktar == 0)
+            {
+                depoMiktarManager.Delete(depo2.Id);
+            }
+
+
+            StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("101-DEPODAN DEPOYA İADE", stokNo, tanim, birim, DtgTeslimTarihi.Value, depoNoCekilen2, cekilenDepoAdi, cekilenDepoLokasyon, depoNoDusulen2, "ATÖLYE BO", "100", miktar, infos[1].ToString(), "MALZEME BAKIM ONARIM MAKSATLI ATÖLYEYE GÖNDERİLMİŞTİR.", seriNo, lotNo, revizyon);
+
+            stokGirisCikisManager.Add(stokGirisCıkıs);
+        }
+        void AnkaradanDepoyaDusum()
+        {
+            MalzemeHazirlamaControl2();
+            string lokasyon = "";
+            if (seriNo == "N/A")
+            {
+                lokasyon = LokasyonBul(stokNo, lotNo, revizyon, takipTuru);
+            }
+            else
+            {
+                lokasyon = LokasyonBul(stokNo, seriNo, revizyon, takipTuru);
+            }
+
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2600", seriNo, lotNo, revizyon);
+            if (depoMiktar == null)
+            {
+                DepoMiktar depoMiktardepo = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), "2600", "GEÇİCİ KABUL", "100", miktar, "FABRİKA BO DAN GELEN MALZEME TESLİM ALINMIŞTIR.");
+                depoMiktarManager.Add(depoMiktardepo);
+            }
+
+            dusulenMiktar = miktar;
+
+            string depoNoDusulen2 = "2600"; // düşülen
+            string depoNoCekilen2 = lokasyon; // çekilen
+            string dusulenDepoLokasyon = "100"; // düşülen depo lokasyon
+            string cekilenDepoLokasyon = depoLokasyon; // çekilen depo lokasyon
+
+            DepoMiktar depo2 = depoMiktarManager.Get(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon);
+            cekilenMiktar = depo2.Miktar - miktar;
+
+            mevcutMiktar = +miktar;
+
+
+            DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
+            depoMiktarManager.Update(depoDusulen, depo2.RezerveDurumu);
+
+            DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
+            depoMiktarManager.Update(depoCekilen, depo2.RezerveDurumu);
+
+
+            if (cekilenMiktar == 0)
+            {
+                depoMiktarManager.Delete(depo2.Id);
+            }
+
+
+            StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("101-DEPODAN DEPOYA İADE", stokNo, tanim, birim, DtgTeslimTarihi.Value, depoNoCekilen2, cekilenDepoAdi, cekilenDepoLokasyon, depoNoDusulen2, "GEÇİCİ KABUL", "100", miktar, infos[1].ToString(), "ALT YÜKLENİCİDEN GELEN MALZEME TESLİM ALINMIŞTIR.", seriNo, lotNo, revizyon);
+
+            stokGirisCikisManager.Add(stokGirisCıkıs);
+        }
+        void AltYukleniciFirmadamDepoyaDusum()
+        {
+            MalzemeHazirlamaControl2();
+            string lokasyon = "";
+            if (seriNo == "N/A")
+            {
+                lokasyon = LokasyonBul(stokNo, lotNo, revizyon, takipTuru);
+            }
+            else
+            {
+                lokasyon = LokasyonBul(stokNo, seriNo, revizyon, takipTuru);
+            }
+
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2600", seriNo, lotNo, revizyon);
+            if (depoMiktar == null)
+            {
+                DepoMiktar depoMiktardepo = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), "2600", "GEÇİCİ KABUL", "100", miktar, "ALT YÜKLENİCİDEN GELEN MALZEME TESLİM ALINMIŞTIR.");
+                depoMiktarManager.Add(depoMiktardepo);
+            }
+
+            dusulenMiktar = miktar;
+
+            string depoNoDusulen2 = "2600"; // düşülen
+            string depoNoCekilen2 = lokasyon; // çekilen
+            string dusulenDepoLokasyon = "100"; // düşülen depo lokasyon
+            string cekilenDepoLokasyon = depoLokasyon; // çekilen depo lokasyon
+
+            DepoMiktar depo2 = depoMiktarManager.Get(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon);
+            cekilenMiktar = depo2.Miktar - miktar;
+
+            mevcutMiktar = +miktar;
+
+
+            DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
+            depoMiktarManager.Update(depoDusulen, depo2.RezerveDurumu);
+
+            DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
+            depoMiktarManager.Update(depoCekilen, depo2.RezerveDurumu);
+
+
+            if (cekilenMiktar == 0)
+            {
+                depoMiktarManager.Delete(depo2.Id);
+            }
+
+
+            StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("101-DEPODAN DEPOYA İADE", stokNo, tanim, birim, DtgTeslimTarihi.Value, depoNoCekilen2, cekilenDepoAdi, cekilenDepoLokasyon, depoNoDusulen2, "GEÇİCİ KABUL", "100", miktar, infos[1].ToString(), "ALT YÜKLENİCİDEN GELEN MALZEME TESLİM ALINMIŞTIR.", seriNo, lotNo, revizyon);
+
+            stokGirisCikisManager.Add(stokGirisCıkıs);
+        }
+        void AtolyedenDepoyaDusum()
+        {
+            MalzemeHazirlamaControl2();
+            string lokasyon = "";
+            if (seriNo == "N/A")
+            {
+                lokasyon = LokasyonBul(stokNo, lotNo, revizyon, takipTuru);
+            }
+            else
+            {
+                lokasyon = LokasyonBul(stokNo, seriNo, revizyon, takipTuru);
+            }
+
+            DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2600", seriNo, lotNo, revizyon);
+            if (depoMiktar == null)
+            {
+                DepoMiktar depoMiktardepo = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), "2600", "GEÇİCİ KABUL", "100", miktar, "ATÖLYE BO DAN GELEN MALZEME TESLİM ALINMIŞTIR.");
+                depoMiktarManager.Add(depoMiktardepo);
+            }
+
+            dusulenMiktar = miktar;
+
+            string depoNoDusulen2 = "2600"; // düşülen
+            string depoNoCekilen2 = lokasyon; // çekilen
+            string dusulenDepoLokasyon = "100"; // düşülen depo lokasyon
+            string cekilenDepoLokasyon = depoLokasyon; // çekilen depo lokasyon
+
+            DepoMiktar depo2 = depoMiktarManager.Get(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon);
+            cekilenMiktar = depo2.Miktar - miktar;
+
+            mevcutMiktar = +miktar;
+
+
+            DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
+            depoMiktarManager.Update(depoDusulen, depo2.RezerveDurumu);
+
+            DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
+            depoMiktarManager.Update(depoCekilen, depo2.RezerveDurumu);
+
+
+            if (cekilenMiktar == 0)
+            {
+                depoMiktarManager.Delete(depo2.Id);
+            }
+
+
+            StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("101-DEPODAN DEPOYA İADE", stokNo, tanim, birim, DtgTeslimTarihi.Value, depoNoCekilen2, cekilenDepoAdi, cekilenDepoLokasyon, depoNoDusulen2, "GEÇİCİ KABUL", "100", miktar, infos[1].ToString(), "ATÖLYE BO DAN GELEN MALZEME TESLİM ALINMIŞTIR.", seriNo, lotNo, revizyon);
+
+            stokGirisCikisManager.Add(stokGirisCıkıs);
+        }
+
         string LokasyonBul(string stokNo, string seriLotNo, string revizyon, string takipDurumu)
         {
             DepoMiktar depoBilgileri = null;
@@ -381,6 +760,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     return "Bu malzemenin lokasyonu bulunamadı!";
                 }
             }
+
             depoLokasyon = depoBilgileri.DepoLokasyon;
             cekilenDepoAdi = depoBilgileri.DepoAdresi;
             return depoBilgileri.DepoNo;
@@ -427,6 +807,49 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                 if (CmbTeslimTuru.Text == "SEVKİYAT ARACI (ARA DEPO - VAN)")
                 {
+                    stokNo = item.Cells["StokNo"].Value.ToString();
+                    tanim = item.Cells["Tanim"].Value.ToString();
+                    revizyon = item.Cells["Revizyon"].Value.ToString();
+                    birim = item.Cells["Birim"].Value.ToString();
+                    miktar = item.Cells["Miktar"].Value.ConInt();
+
+                    Malzeme malzeme = malzemeManager.Get(stokNo);
+                    if (malzeme == null)
+                    {
+                        MessageBox.Show("Malzeme bilgilerine ulaşılamamıştır!\nLütfen Kayıtlı Malzemeler listesini kontrol ediniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (malzeme.TakipDurumu == "LOT NO")
+                    {
+                        seriNo = "N/A";
+                        lotNo = item.Cells["SeriNo"].Value.ToString();
+                    }
+                    else
+                    {
+                        seriNo = item.Cells["SeriNo"].Value.ToString();
+                        lotNo = "N/A";
+                    }
+
+                    DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2500", seriNo, lotNo, revizyon);
+                    if (depoMiktar == null)
+                    {
+                        DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), "2500", "BAKIM ONARIM (GİDEN)", "100", miktar, "MALZEMENİN MEVCUT ARIZADAN DEPOYA DÜŞÜMÜ YAPILMIŞTIR.");
+                        depoMiktarManager.Add(depoMiktar2);
+                    }
+                    else
+                    {
+                        mevcutMiktar = depoMiktar.Miktar;
+                        mevcutMiktar = +miktar;
+
+                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, "2500", "100", seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
+                        depoMiktarManager.Update(depoDusulen, depoMiktar.RezerveDurumu);
+                    }
+
+                    StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("201-BİLDİRİMDEN DEPOYA İADE", stokNo, tanim, birim, DtgTeslimTarihi.Value, item.Cells["AbfNo"].Value.ToString(), "", "", "2500", "BAKIM ONARIM (GİDEN)", "100", miktar, infos[1].ToString(), "MALZEMENİN MEVCUT ARIZADAN DEPOYA DÜŞÜMÜ YAPILMIŞTIR.", seriNo, lotNo, revizyon);
+
+                    stokGirisCikisManager.Add(stokGirisCıkıs);
+
+
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
@@ -523,6 +946,63 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         stokGirisCikisManager.Add(stokGirisCıkıs);
                     }
 
+                    if (item.Cells["TeslimDurum"].Value.ToString() == "200 - FABRİKA BAKIM ONARIMA GİDECEK MALZEME")
+                    {
+                        stokNo = item.Cells["StokNo"].Value.ToString();
+                        tanim = item.Cells["Tanim"].Value.ToString();
+                        revizyon = item.Cells["Revizyon"].Value.ToString();
+                        miktar = item.Cells["Miktar"].Value.ConInt();
+                        birim = item.Cells["Birim"].Value.ToString();
+                        Malzeme malzeme = malzemeManager.Get(stokNo);
+                        if (malzeme != null)
+                        {
+                            takipTuru = malzeme.TakipDurumu;
+                            tedarikTuru = malzeme.TedarikTuru;
+                            if (takipTuru == "SERİ NO")
+                            {
+                                seriNo = item.Cells["SeriNo"].Value.ToString();
+                                lotNo = "N/A";
+                            }
+                            else
+                            {
+                                seriNo = "N/A";
+                                lotNo = item.Cells["SeriNo"].Value.ToString();
+                            }
+
+                            dusulenYer = "3000";
+                            AnkarayaDusum();
+                        }
+                    }
+
+                    if (item.Cells["TeslimDurum"].Value.ToString() == "300 - ATÖLYEYE GİDECEK MALZEME")
+                    {
+                        stokNo = item.Cells["StokNo"].Value.ToString();
+                        tanim = item.Cells["Tanim"].Value.ToString();
+                        revizyon = item.Cells["Revizyon"].Value.ToString();
+                        miktar = item.Cells["Miktar"].Value.ConInt();
+                        birim = item.Cells["Birim"].Value.ToString();
+                        Malzeme malzeme = malzemeManager.Get(stokNo);
+                        if (malzeme != null)
+                        {
+                            takipTuru = malzeme.TakipDurumu;
+                            tedarikTuru = malzeme.TedarikTuru;
+                            if (takipTuru == "SERİ NO")
+                            {
+                                seriNo = item.Cells["SeriNo"].Value.ToString();
+                                lotNo = "N/A";
+                            }
+                            else
+                            {
+                                seriNo = "N/A";
+                                lotNo = item.Cells["SeriNo"].Value.ToString();
+                            }
+
+                            dusulenYer = "2700";
+                            AtolyeyeDusum();
+                        }
+                    }
+
+
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), item.Cells["TeslimDurum"].Value.ToString());
 
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
@@ -593,6 +1073,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
+
                     continue;
                 }
 
@@ -649,6 +1130,31 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                 if (CmbTeslimTuru.Text == "SEVKİYAT ARACI (ASELSAN - VAN)")
                 {
+                    stokNo = item.Cells["StokNo"].Value.ToString();
+                    tanim = item.Cells["Tanim"].Value.ToString();
+                    revizyon = item.Cells["Revizyon"].Value.ToString();
+                    miktar = item.Cells["Miktar"].Value.ConInt();
+                    birim = item.Cells["Birim"].Value.ToString();
+                    Malzeme malzeme = malzemeManager.Get(stokNo);
+                    if (malzeme != null)
+                    {
+                        takipTuru = malzeme.TakipDurumu;
+                        tedarikTuru = malzeme.TedarikTuru;
+                        if (takipTuru == "SERİ NO")
+                        {
+                            seriNo = item.Cells["SeriNo"].Value.ToString();
+                            lotNo = "N/A";
+                        }
+                        else
+                        {
+                            seriNo = "N/A";
+                            lotNo = item.Cells["SeriNo"].Value.ToString();
+                        }
+
+                        dusulenYer = "2600";
+                        AnkaradanDepoyaDusum();
+                    }
+
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
@@ -700,6 +1206,31 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                 if (CmbTeslimTuru.Text == "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI")
                 {
+                    stokNo = item.Cells["StokNo"].Value.ToString();
+                    tanim = item.Cells["Tanim"].Value.ToString();
+                    revizyon = item.Cells["Revizyon"].Value.ToString();
+                    miktar = item.Cells["Miktar"].Value.ConInt();
+                    birim = item.Cells["Birim"].Value.ToString();
+                    Malzeme malzeme = malzemeManager.Get(stokNo);
+                    if (malzeme != null)
+                    {
+                        takipTuru = malzeme.TakipDurumu;
+                        tedarikTuru = malzeme.TedarikTuru;
+                        if (takipTuru == "SERİ NO")
+                        {
+                            seriNo = item.Cells["SeriNo"].Value.ToString();
+                            lotNo = "N/A";
+                        }
+                        else
+                        {
+                            seriNo = "N/A";
+                            lotNo = item.Cells["SeriNo"].Value.ToString();
+                        }
+
+                        dusulenYer = "2600";
+                        AltYukleniciFirmadamDepoyaDusum();
+                    }
+
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
@@ -750,6 +1281,32 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                 if (CmbTeslimTuru.Text == "ATÖLYE İŞLEMLERİ TAMAMLANDI")
                 {
+
+                    stokNo = item.Cells["StokNo"].Value.ToString();
+                    tanim = item.Cells["Tanim"].Value.ToString();
+                    revizyon = item.Cells["Revizyon"].Value.ToString();
+                    miktar = item.Cells["Miktar"].Value.ConInt();
+                    birim = item.Cells["Birim"].Value.ToString();
+                    Malzeme malzeme = malzemeManager.Get(stokNo);
+                    if (malzeme != null)
+                    {
+                        takipTuru = malzeme.TakipDurumu;
+                        tedarikTuru = malzeme.TedarikTuru;
+                        if (takipTuru == "SERİ NO")
+                        {
+                            seriNo = item.Cells["SeriNo"].Value.ToString();
+                            lotNo = "N/A";
+                        }
+                        else
+                        {
+                            seriNo = "N/A";
+                            lotNo = item.Cells["SeriNo"].Value.ToString();
+                        }
+
+                        dusulenYer = "2600";
+                        AtolyedenDepoyaDusum();
+                    }
+
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
 
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
@@ -1001,12 +1558,13 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 LblIadeYeri.Visible = true;
                 CmbMalzemeIadeYeri.Visible = true;
-
+                BtnTeslimAlSat.Text = " TESLİM ET";
             }
             else
             {
                 LblIadeYeri.Visible = false;
                 CmbMalzemeIadeYeri.Visible = false;
+                BtnTeslimAlSat.Text = " TESLİM AL";
             }
         }
 
