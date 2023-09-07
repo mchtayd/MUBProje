@@ -43,7 +43,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@altYukleniciFirma", entity.AltYukleniciFirma),
                     new SqlParameter("@firmaSorumlusu", entity.FirmaSorumlusu),
                     new SqlParameter("@isinVerildigiTarih", entity.IsinVerildigiTarih),
-                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu),
+                    new SqlParameter("@revizyon", entity.Revizyon));
 
                 dataReader.Close();
                 return "OK";
@@ -110,7 +111,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["IS_BASLAMA_TARIHI"].ConDate(),
                         dataReader["IS_BITIS_TARIHI"].ConDate(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString());
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["REVIZYON"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -152,7 +154,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["IS_BASLAMA_TARIHI"].ConDate(),
                         dataReader["IS_BITIS_TARIHI"].ConDate(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString()));
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["REVIZYON"].ToString()));
                 }
                 dataReader.Close();
                 return dtfs;
@@ -210,7 +213,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["IS_BASLAMA_TARIHI"].ConDate(),
                         dataReader["IS_BITIS_TARIHI"].ConDate(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
-                        dataReader["DOSYA_YOLU"].ToString()));
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["REVIZYON"].ToString()));
                 }
                 dataReader.Close();
                 return dtfs;
@@ -247,7 +251,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@isinVerildigiTarih", entity.IsinVerildigiTarih),
                     new SqlParameter("@isBaslamaTarihi",entity.IsBaslamaTarihi),
                     new SqlParameter("@isBitisTarihi",entity.IsBitisTarihi),
-                    new SqlParameter("@yapilanIslemler",entity.YapilanIslemler));
+                    new SqlParameter("@yapilanIslemler",entity.YapilanIslemler),
+                    new SqlParameter("@revizyon", entity.Revizyon));
 
                 dataReader.Close();
                 return "OK";

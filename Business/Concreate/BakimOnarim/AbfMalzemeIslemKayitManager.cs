@@ -44,11 +44,11 @@ namespace Business.Concreate.BakimOnarim
             throw new NotImplementedException();
         }
 
-        public AbfMalzemeIslemKayit Get(int benzersizId, string islem)
+        public AbfMalzemeIslemKayit Get(int benzersizId, string islem, string stokNo, string seriNo, string revizyon)
         {
             try
             {
-                return abfMalzemeIslemKayitDal.Get(benzersizId, islem);
+                return abfMalzemeIslemKayitDal.Get(benzersizId, islem, stokNo, seriNo, revizyon);
             }
             catch (Exception)
             {
@@ -56,11 +56,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public List<AbfMalzemeIslemKayit> GetList(int benzersizId)
+        public List<AbfMalzemeIslemKayit> GetList(int benzersizId,string malzemeDurumu)
         {
             try
             {
-                return abfMalzemeIslemKayitDal.GetList(benzersizId);
+                return abfMalzemeIslemKayitDal.GetList(benzersizId, malzemeDurumu);
             }
             catch (Exception)
             {
@@ -73,6 +73,17 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return abfMalzemeIslemKayitDal.Update(id, gecenSure);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MalzemeIslemKayitUpdate(int id, string stokNo, string seriNo, string revizyon)
+        {
+            try
+            {
+                return abfMalzemeIslemKayitDal.MalzemeIslemKayitUpdate(id, stokNo, seriNo, revizyon);
             }
             catch (Exception ex)
             {

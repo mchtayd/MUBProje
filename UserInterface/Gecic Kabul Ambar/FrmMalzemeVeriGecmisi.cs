@@ -16,8 +16,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
     public partial class FrmMalzemeVeriGecmisi : Form
     {
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
-        public int benzersizId;
-        public string stok, tanim, birim, miktar;
+        public int benzersizId, takilanmiktar;
+        public string sokulenstok, sokulentanim, sokulenbirim, sokulenmiktar, sokulenSeriNo, sokulenRevizyon, takilanstok, takilantanim, takilanbirim, takilanSeriNo, takilanRevizyon;
         public FrmMalzemeVeriGecmisi()
         {
             InitializeComponent();
@@ -26,19 +26,48 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void FrmMalzemeVeriGecmisi_Load(object sender, EventArgs e)
         {
-            LblStok.Text = stok;
-            LblTanim.Text = tanim;
-            LblMiktar.Text = miktar;
-            LblBirim.Text = birim;
-            DtgGecmis.DataSource = abfMalzemeIslemKayitManager.GetList(benzersizId);
-            DtgGecmis.Columns["Id"].Visible = false;
-            DtgGecmis.Columns["BenzersizId"].Visible = false;
-            DtgGecmis.Columns["Islem"].HeaderText = "İŞLEM";
-            DtgGecmis.Columns["Tarih"].HeaderText = "TARİH";
-            DtgGecmis.Columns["IslemYapan"].HeaderText = "İŞLEM YAPAN";
-            DtgGecmis.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
+            LblStokSokulen.Text = sokulenstok;
+            LblTanimSokulen.Text = sokulentanim;
+            LblMiktarSokulen.Text = sokulenbirim;
+            LblBirimSokulen.Text = sokulenmiktar;
+            LblSeriLotNoSokulen.Text = sokulenSeriNo;
+            LblRevizyonSokulen.Text = sokulenRevizyon;
 
-            LblTop.Text = DtgGecmis.RowCount.ToString();
+            LblStokTakilan.Text = takilanstok;
+            LblTanimTakilan.Text = takilantanim;
+            LblMiktarTakilan.Text = takilanmiktar.ToString();
+            LblBirimTakilan.Text = takilanbirim;
+            LblSeriLotNoTakilan.Text = takilanSeriNo;
+            LblRevizyonTakilan.Text = takilanRevizyon;
+
+            DtgGecmisSokulen.DataSource = abfMalzemeIslemKayitManager.GetList(benzersizId,"SÖKÜLEN");
+            DtgGecmisSokulen.Columns["Id"].Visible = false;
+            DtgGecmisSokulen.Columns["BenzersizId"].Visible = false;
+            DtgGecmisSokulen.Columns["Islem"].HeaderText = "İŞLEM";
+            DtgGecmisSokulen.Columns["Tarih"].HeaderText = "TARİH";
+            DtgGecmisSokulen.Columns["IslemYapan"].HeaderText = "İŞLEM YAPAN";
+            DtgGecmisSokulen.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
+            DtgGecmisSokulen.Columns["StokNo"].Visible = false;
+            DtgGecmisSokulen.Columns["SeriNo"].Visible = false;
+            DtgGecmisSokulen.Columns["Revizyon"].Visible = false;
+            DtgGecmisSokulen.Columns["MalzemeDurumu"].Visible = false;
+
+
+            LblTop.Text = DtgGecmisSokulen.RowCount.ToString();
+
+            DtgGecmisTakilan.DataSource = abfMalzemeIslemKayitManager.GetList(benzersizId, "TAKILAN");
+            DtgGecmisTakilan.Columns["Id"].Visible = false;
+            DtgGecmisTakilan.Columns["BenzersizId"].Visible = false;
+            DtgGecmisTakilan.Columns["Islem"].HeaderText = "İŞLEM";
+            DtgGecmisTakilan.Columns["Tarih"].HeaderText = "TARİH";
+            DtgGecmisTakilan.Columns["IslemYapan"].HeaderText = "İŞLEM YAPAN";
+            DtgGecmisTakilan.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
+            DtgGecmisTakilan.Columns["StokNo"].Visible = false;
+            DtgGecmisTakilan.Columns["SeriNo"].Visible = false;
+            DtgGecmisTakilan.Columns["Revizyon"].Visible = false;
+            DtgGecmisTakilan.Columns["MalzemeDurumu"].Visible = false;
+
+            LblTakilanTop.Text = DtgGecmisTakilan.RowCount.ToString();
         }
     }
 }

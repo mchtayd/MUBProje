@@ -6,6 +6,7 @@ using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Presentation;
 using Entity;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
@@ -171,6 +172,10 @@ namespace UserInterface.BakımOnarım
             GrbMalzemeBilgileri.Visible = false;
             BtnKaydet.Location = new System.Drawing.Point(161, 405);
             GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
+
+            abfForm = arizaKayit.AbfFormNo;
+            id = arizaKayit.Id;
+
             if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
@@ -185,11 +190,23 @@ namespace UserInterface.BakımOnarım
                 BtnKaydet.Location = new System.Drawing.Point(29, 831);
                 GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
 
-                //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
+                List<AbfMalzeme> abfMalzemes = abfMalzemeManager.GetList(id);
+                foreach (AbfMalzeme item in abfMalzemes)
+                {
+                    DtgTakilan.Rows.Add();
+                    int sonSatirr = DtgTakilan.RowCount - 1;
+                    DtgTakilan.Rows[sonSatirr].Cells["TakilanStokNo"].Value = item.TakilanStokNo;
+                    DtgTakilan.Rows[sonSatirr].Cells["TakilanTanim"].Value = item.TakilanTanim;
+                    DtgTakilan.Rows[sonSatirr].Cells["TakilanSeriNo"].Value = item.TakilanSeriNo;
+                    DtgTakilan.Rows[sonSatirr].Cells["TakilanMiktar"].Value = item.TakilanMiktar;
+                    DtgTakilan.Rows[sonSatirr].Cells["TakilanBirim"].Value = item.TakilanBirim;
+                    DtgTakilan.Rows[sonSatirr].Cells["TakilanCalismaSaati"].Value = item.TakilanCalismaSaati;
+                    DtgTakilan.Rows[sonSatirr].Cells["TakilanRevizyon"].Value = item.TakilanRevizyon;
+
+                }
             }
 
-            abfForm = arizaKayit.AbfFormNo;
-            id = arizaKayit.Id;
+            
 
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM");
 
@@ -838,7 +855,7 @@ namespace UserInterface.BakımOnarım
 
                 if (item.Cells["FizikselDurumu"].Value.ToString() == "SÖKÜLDÜ")
                 {
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0);
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
                 }
             }
@@ -1169,7 +1186,7 @@ namespace UserInterface.BakımOnarım
 
                         if (item.Cells["FizikselDurumu"].Value.ToString() == "SÖKÜLDÜ")
                         {
-                            AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0);
+                            AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
                             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
                         }
 
@@ -1203,40 +1220,39 @@ namespace UserInterface.BakımOnarım
                     {
                         if (CmbIslemAdimi.Text != "1000_DEPO STOK KONTROL")
                         {
-                            abfMalzemes = abfMalzemeManager.GetList(id);
+                            //abfMalzemes = abfMalzemeManager.GetList(id);
 
-                            var addItems = new HashSet<AbfMalzeme>();
-                            var updateItems = new HashSet<AbfMalzeme>();
-
-
-                            foreach (DataGridViewRow takilan in DtgTakilan.Rows)
-                            {
-                                AbfMalzeme abfMalzeme = new AbfMalzeme(takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanTanim"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanMiktar"].Value.ConInt(), takilan.Cells["TakilanBirim"].Value.ToString(), takilan.Cells["TakilanCalismaSaati"].Value.ConDouble(), takilan.Cells["TakilanRevizyon"].Value.ToString());
-
-                                if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(takilan.Cells["TakilanStokNo"].Value.ToString())))
-                                {
-                                    updateItems.Add(abfMalzeme);
-                                }
-                                else
-                                {
-                                    addItems.Add(abfMalzeme);
-                                }
+                            //var addItems = new HashSet<AbfMalzeme>();
+                            //var updateItems = new HashSet<AbfMalzeme>();
 
 
-                            }
+                            //foreach (DataGridViewRow takilan in DtgTakilan.Rows)
+                            //{
+                            //    AbfMalzeme abfMalzeme = new AbfMalzeme(takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanTanim"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanMiktar"].Value.ConInt(), takilan.Cells["TakilanBirim"].Value.ToString(), takilan.Cells["TakilanCalismaSaati"].Value.ConDouble(), takilan.Cells["TakilanRevizyon"].Value.ToString());
 
-                            int index = 0;
-                            foreach (AbfMalzeme item in updateItems)
-                            {
-                                int sokulenId = abfMalzemes[index].Id;
-                                abfMalzemeManager.UpdateTakilan(item, sokulenId);
-                                abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
-                                index++;
-                            }
-                            foreach (AbfMalzeme item in addItems)
-                            {
-                                abfMalzemeManager.AddTakilan(item, id);
-                            }
+                            //    if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(takilan.Cells["TakilanStokNo"].Value.ToString())))
+                            //    {
+                            //        updateItems.Add(abfMalzeme);
+                            //    }
+                            //    else
+                            //    {
+                            //        addItems.Add(abfMalzeme);
+                            //    }
+
+                            //}
+
+                            //int index = 0;
+                            //foreach (AbfMalzeme item in updateItems)
+                            //{
+                            //    int sokulenId = abfMalzemes[index].Id;
+                            //    abfMalzemeManager.UpdateTakilan(item, sokulenId);
+                            //    abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
+                            //    index++;
+                            //}
+                            //foreach (AbfMalzeme item in addItems)
+                            //{
+                            //    abfMalzemeManager.AddTakilan(item, id);
+                            //}
                         }
                     }
                 }

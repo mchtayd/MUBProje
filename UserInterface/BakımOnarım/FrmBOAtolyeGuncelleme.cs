@@ -139,6 +139,7 @@ namespace UserInterface.BakımOnarım
             BulClick();
         }
         string siparisNo;
+        string stokNo, seriNo, revizyon;
 
         public void BulClick()
         {
@@ -168,6 +169,9 @@ namespace UserInterface.BakımOnarım
             bulunduguIslemAdimi = atolye1.IslemAdimi;
             kayitId = atolye1.MalzemeId;
             abfNo = atolye1.AbfNo.ToString();
+            //AtolyeMalzeme atolyeMalzeme = atolyeMalzemeManager.Get(stokNo, seriNo, revizyon);
+            
+
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM ATOLYE");
             if (gorevAtamaPersonel==null)
             {
@@ -209,6 +213,10 @@ namespace UserInterface.BakımOnarım
 
             IslemAdimlariSureleri();
             DepoHareketleri();
+
+            stokNo = DtgAtolye.Rows[0].Cells["StokNo"].Value.ToString();
+            seriNo = DtgAtolye.Rows[0].Cells["SeriNo"].Value.ToString();
+            revizyon = DtgAtolye.Rows[0].Cells["Revizyon"].Value.ToString();
 
         }
         void DepoHareketleri()
@@ -731,11 +739,12 @@ namespace UserInterface.BakımOnarım
 
             if (CmbIslemAdimi.Text == "1100-TESLİMAT")
             {
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon);
                 abfMalzemeManager.MalzemeTeslimBilgisiUpdate(kayitId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0);
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
                 abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
 
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "ATÖLYE BAKIM ONARIMDA");
+                
                 if (abfMalzemeIslemKayit1 != null)
                 {
                     TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;

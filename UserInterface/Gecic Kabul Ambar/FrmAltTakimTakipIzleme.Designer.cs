@@ -36,20 +36,20 @@
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.DtgGecmis = new System.Windows.Forms.DataGridView();
             this.LblTop = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.DtgGecmis = new System.Windows.Forms.DataGridView();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgGecmis)).BeginInit();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGecmis)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -132,31 +132,6 @@
             this.label5.TabIndex = 383;
             this.label5.Text = "Toplam Kayıt:";
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.Controls.Add(this.DtgGecmis);
-            this.groupBox2.Location = new System.Drawing.Point(5, 507);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(762, 277);
-            this.groupBox2.TabIndex = 400;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "MALZEME VERİ GEÇMİŞİ";
-            // 
-            // DtgGecmis
-            // 
-            this.DtgGecmis.AllowUserToAddRows = false;
-            this.DtgGecmis.AllowUserToDeleteRows = false;
-            this.DtgGecmis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgGecmis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgGecmis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgGecmis.Location = new System.Drawing.Point(3, 16);
-            this.DtgGecmis.Name = "DtgGecmis";
-            this.DtgGecmis.ReadOnly = true;
-            this.DtgGecmis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgGecmis.Size = new System.Drawing.Size(756, 258);
-            this.DtgGecmis.TabIndex = 4;
-            // 
             // LblTop
             // 
             this.LblTop.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -179,6 +154,40 @@
             this.label2.TabIndex = 401;
             this.label2.Text = "Toplam Kayıt:";
             // 
+            // DtgGecmis
+            // 
+            this.DtgGecmis.AllowUserToAddRows = false;
+            this.DtgGecmis.AllowUserToDeleteRows = false;
+            this.DtgGecmis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgGecmis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgGecmis.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgGecmis.Location = new System.Drawing.Point(3, 16);
+            this.DtgGecmis.Name = "DtgGecmis";
+            this.DtgGecmis.ReadOnly = true;
+            this.DtgGecmis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgGecmis.Size = new System.Drawing.Size(756, 258);
+            this.DtgGecmis.TabIndex = 4;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.groupBox2.Controls.Add(this.DtgGecmis);
+            this.groupBox2.Location = new System.Drawing.Point(5, 507);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(762, 277);
+            this.groupBox2.TabIndex = 400;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "MALZEME VERİ GEÇMİŞİ";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(687, 258);
+            this.webBrowser1.TabIndex = 0;
+            // 
             // groupBox3
             // 
             this.groupBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -189,15 +198,6 @@
             this.groupBox3.TabIndex = 403;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EKLER";
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(687, 258);
-            this.webBrowser1.TabIndex = 0;
             // 
             // FrmAltTakimTakipIzleme
             // 
@@ -218,10 +218,10 @@
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgGecmis)).EndInit();
-            this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgGecmis)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -235,12 +235,12 @@
         private ADGV.AdvancedDataGridView DtgList;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView DtgGecmis;
         private System.Windows.Forms.Label LblTop;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.DataGridView DtgGecmis;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.GroupBox groupBox3;
     }
 }

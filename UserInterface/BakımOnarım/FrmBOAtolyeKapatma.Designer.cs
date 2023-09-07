@@ -80,6 +80,8 @@ namespace UserInterface.BakımOnarım
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
             this.BtnDosyaEkle = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.RdbDepo = new System.Windows.Forms.RadioButton();
+            this.RdbFabrika = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
@@ -537,7 +539,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(16, 667);
+            this.BtnKaydet.Location = new System.Drawing.Point(229, 681);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(124, 37);
             this.BtnKaydet.TabIndex = 440;
@@ -567,7 +569,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnDosyaEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(146, 667);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(359, 681);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(124, 37);
             this.BtnDosyaEkle.TabIndex = 442;
@@ -579,12 +581,40 @@ namespace UserInterface.BakımOnarım
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // RdbDepo
+            // 
+            this.RdbDepo.AutoSize = true;
+            this.RdbDepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.RdbDepo.ForeColor = System.Drawing.Color.Green;
+            this.RdbDepo.Location = new System.Drawing.Point(18, 674);
+            this.RdbDepo.Name = "RdbDepo";
+            this.RdbDepo.Size = new System.Drawing.Size(200, 19);
+            this.RdbDepo.TabIndex = 443;
+            this.RdbDepo.TabStop = true;
+            this.RdbDepo.Text = "DEPO STOĞUNA ALINACAK";
+            this.RdbDepo.UseVisualStyleBackColor = true;
+            // 
+            // RdbFabrika
+            // 
+            this.RdbFabrika.AutoSize = true;
+            this.RdbFabrika.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.RdbFabrika.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.RdbFabrika.Location = new System.Drawing.Point(18, 699);
+            this.RdbFabrika.Name = "RdbFabrika";
+            this.RdbFabrika.Size = new System.Drawing.Size(139, 19);
+            this.RdbFabrika.TabIndex = 444;
+            this.RdbFabrika.TabStop = true;
+            this.RdbFabrika.Text = "FABRİKA ONARIM";
+            this.RdbFabrika.UseVisualStyleBackColor = true;
+            // 
             // FrmBOAtolyeKapatma
             // 
             this.AcceptButton = this.BtnBul;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1451, 745);
+            this.Controls.Add(this.RdbFabrika);
+            this.Controls.Add(this.RdbDepo);
             this.Controls.Add(this.BtnDosyaEkle);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
@@ -671,5 +701,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Button BtnDosyaEkle;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.RadioButton RdbDepo;
+        private System.Windows.Forms.RadioButton RdbFabrika;
     }
 }

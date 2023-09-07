@@ -216,5 +216,22 @@ namespace UserInterface.BakımOnarım
             }
         }
 
+        private void durumGüncelleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            FrmArizaDurumGuncelle Go = (FrmArizaDurumGuncelle)Application.OpenForms["FrmArizaDurumGuncelle"];
+            if (Go == null)
+            {
+                Go = new FrmArizaDurumGuncelle();
+            }
+            Go.rightControl = true;
+            Go.infos = infos;
+            Go.TxtAbfNo.Text = abfNo;
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            frmAnaSayfa.OpenTabPage("PageArizaDurumGuncelle", "ARIZA DURUM GÜNCELLE", Go);
+            Go.Show();
+        }
     }
 }

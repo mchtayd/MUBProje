@@ -128,6 +128,51 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                 return null;
             }
         }
+
+        public Atolye GetStok(string stokNo,string seriNo,string revizyon)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AtolyeListele", new SqlParameter("@siparisNo", stokNo));
+                Atolye item = null;
+                while (dataReader.Read())
+                {
+                    item = new Atolye(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["GARANTI_DURUMU"].ToString(),
+                        dataReader["BILDIRIM_NO"].ToString(),
+                        dataReader["CRM_NO"].ToString(),
+                        dataReader["KATEGORI"].ToString(),
+                        dataReader["BOLGE_ADI"].ToString(),
+                        dataReader["PROJE"].ToString(),
+                        dataReader["BILDIRILEN_ARIZA"].ToString(),
+                        dataReader["IC_SIPARIS_NO"].ToString(),
+                        dataReader["CEKILDIGI_TARIHI"].ConDate(),
+                        dataReader["SIPARIS_ACMA_TARIHI"].ConDate(),
+                        dataReader["MODIFIKASYONLAR"].ToString(),
+                        dataReader["NOTLAR"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        "",
+                        dataReader["TAMAMLANMA_TARIHI"].ConDate(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["ATOLYE_KATEGORI"].ToString(),
+                        dataReader["ISLEM_ADIMI_SORUMLUSU"].ToString(),
+                        dataReader["MALZEME_ID"].ConInt());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public Atolye GetControl(string stokNo, string seriNo)
         {
             try

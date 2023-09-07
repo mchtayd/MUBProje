@@ -8,7 +8,7 @@ namespace Entity.BakimOnarim
 {
     public class Dtf
     {
-        int id, isAkisNo; string adiSoyadi; DateTime kayitTarihi; string donem, butceKodu, abfNo, usBolgesi, projeKodu, garantiDurumu, isKategorisi, isTanimi, stokNo, tanim, seriNo, onarimYeri, altYukleniciFirma, firmaSorumlusu; DateTime isinVerildigiTarih, isBaslamaTarihi, isBitisTarihi; string yapilanIslemler, dosyaYolu; double toplamTutar;
+        int id, isAkisNo; string adiSoyadi; DateTime kayitTarihi; string donem, butceKodu, abfNo, usBolgesi, projeKodu, garantiDurumu, isKategorisi, isTanimi, stokNo, tanim, seriNo, onarimYeri, altYukleniciFirma, firmaSorumlusu; DateTime isinVerildigiTarih, isBaslamaTarihi, isBitisTarihi; string yapilanIslemler, dosyaYolu; double toplamTutar; string revizyon;
 
         public int Id { get => id; set => id = value; }
         public int IsAkisNo { get => isAkisNo; set => isAkisNo = value; }
@@ -34,8 +34,9 @@ namespace Entity.BakimOnarim
         public string SeriNo { get => seriNo; set => seriNo = value; }
         public string DosyaYolu { get => dosyaYolu; set => dosyaYolu = value; }
         public double ToplamTutar { get => toplamTutar; set => toplamTutar = value; }
+        public string Revizyon { get => revizyon; set => revizyon = value; }
 
-        public Dtf(int id, int isAkisNo, string adiSoyadi, DateTime kayitTarihi, string donem, string butceKodu, string abfNo, string usBolgesi, string projeKodu, string garantiDurumu, string isKategorisi, string isTanimi, string stokNo, string tanim, string seriNo, string onarimYeri, string altYukleniciFirma, string firmaSorumlusu, DateTime isinVerildigiTarih, DateTime isBaslamaTarihi, DateTime isBitisTarihi, string yapilanIslemler,string dosyaYolu)
+        public Dtf(int id, int isAkisNo, string adiSoyadi, DateTime kayitTarihi, string donem, string butceKodu, string abfNo, string usBolgesi, string projeKodu, string garantiDurumu, string isKategorisi, string isTanimi, string stokNo, string tanim, string seriNo, string onarimYeri, string altYukleniciFirma, string firmaSorumlusu, DateTime isinVerildigiTarih, DateTime isBaslamaTarihi, DateTime isBitisTarihi, string yapilanIslemler,string dosyaYolu,string revizyon)
         {
             this.id = id;
             this.isAkisNo = isAkisNo;
@@ -60,9 +61,10 @@ namespace Entity.BakimOnarim
             this.yapilanIslemler = yapilanIslemler;
             this.seriNo = seriNo;
             this.dosyaYolu = dosyaYolu;
+            this.revizyon = revizyon;
         }
 
-        public Dtf(int isAkisNo, string adiSoyadi, DateTime kayitTarihi, string donem, string butceKodu, string abfNo, string usBolgesi, string projeKodu, string garantiDurumu, string isKategorisi, string isTanimi, string stokNo, string tanim, string seriNo, string onarimYeri, string altYukleniciFirma, string firmaSorumlusu, DateTime isinVerildigiTarih,string dosyaYolu)
+        public Dtf(int isAkisNo, string adiSoyadi, DateTime kayitTarihi, string donem, string butceKodu, string abfNo, string usBolgesi, string projeKodu, string garantiDurumu, string isKategorisi, string isTanimi, string stokNo, string tanim, string seriNo, string onarimYeri, string altYukleniciFirma, string firmaSorumlusu, DateTime isinVerildigiTarih,string dosyaYolu, string revizyon)
         {
             this.isAkisNo = isAkisNo;
             this.adiSoyadi = adiSoyadi;
@@ -83,6 +85,7 @@ namespace Entity.BakimOnarim
             this.isinVerildigiTarih = isinVerildigiTarih;
             this.seriNo = seriNo;
             this.dosyaYolu = dosyaYolu;
+            this.revizyon = revizyon;
         }
 
         public Dtf(int id, DateTime isBaslamaTarihi, DateTime isBitisTarihi, string yapilanIslemler)

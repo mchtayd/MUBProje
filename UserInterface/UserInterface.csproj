@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>690</ApplicationRevision>
+    <ApplicationRevision>696</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -874,6 +874,12 @@
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmRezerveEt.Designer.cs">
       <DependentUpon>FrmRezerveEt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmSevkiyatlar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmSevkiyatlar.Designer.cs">
+      <DependentUpon>FrmSevkiyatlar.cs</DependentUpon>
     </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmStokGirisCikis.cs">
       <SubType>Form</SubType>
@@ -1920,6 +1926,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmRezerveEt.resx">
       <DependentUpon>FrmRezerveEt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmSevkiyatlar.resx">
+      <DependentUpon>FrmSevkiyatlar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmStokGirisCikis.resx">
       <DependentUpon>FrmStokGirisCikis.cs</DependentUpon>

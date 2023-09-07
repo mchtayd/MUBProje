@@ -2513,7 +2513,7 @@ namespace UserInterface.BakımOnarım
 
                 if (item.Cells["FizikselDurumu"].Value.ToString() == "SÖKÜLDÜ")
                 {
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0);
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
                 }
 

@@ -383,6 +383,9 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeListesi.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
             DtgMalzemeListesi.Columns["DosyaYolu"].Visible = false;
             DtgMalzemeListesi.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
+            DtgMalzemeListesi.Columns["TakilanTeslimDurum"].HeaderText = "TAKILAN MALZEME TESLİMİ";
+
+            DtgMalzemeListesi.Columns["TakilanTeslimDurum"].DisplayIndex = 26;
 
         }
         void DepoHareketleri()
@@ -673,14 +676,22 @@ namespace UserInterface.BakımOnarım
             }
             FrmMalzemeVeriGecmisi frmMalzemeVeriGecmisi = new FrmMalzemeVeriGecmisi();
             frmMalzemeVeriGecmisi.benzersizId = malzemeId;
-            frmMalzemeVeriGecmisi.stok = stok;
-            frmMalzemeVeriGecmisi.tanim = tanim;
-            frmMalzemeVeriGecmisi.miktar = miktar;
-            frmMalzemeVeriGecmisi.birim = birim;
+            frmMalzemeVeriGecmisi.sokulenstok = stok;
+            frmMalzemeVeriGecmisi.sokulentanim = tanim;
+            frmMalzemeVeriGecmisi.sokulenmiktar = miktar;
+            frmMalzemeVeriGecmisi.sokulenbirim = birim;
+            frmMalzemeVeriGecmisi.sokulenSeriNo = sokulenSeriLotNo;
+            frmMalzemeVeriGecmisi.sokulenRevizyon = sokulenRevizyon;
+            frmMalzemeVeriGecmisi.takilanstok = takilanStokNo;
+            frmMalzemeVeriGecmisi.takilanSeriNo = takilanSeriNo;
+            frmMalzemeVeriGecmisi.takilanbirim = takilanBirim;
+            frmMalzemeVeriGecmisi.takilanRevizyon = takilanRevizyon;
+            frmMalzemeVeriGecmisi.takilantanim = takilanTanim;
+            frmMalzemeVeriGecmisi.takilanmiktar = takilanMiktar.ConInt();
             frmMalzemeVeriGecmisi.ShowDialog();
             malzemeId = 0;
         }
-
+        string sokulenSeriLotNo, sokulenRevizyon, takilanStokNo, takilanSeriNo, takilanRevizyon, takilanTanim, takilanBirim; int takilanMiktar;
         private void DtgMalzemeListesi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if(DtgMalzemeListesi.CurrentRow == null)
@@ -693,6 +704,14 @@ namespace UserInterface.BakımOnarım
             tanim = DtgMalzemeListesi.CurrentRow.Cells["SokulenTanim"].Value.ToString();
             miktar = DtgMalzemeListesi.CurrentRow.Cells["SokulenMiktar"].Value.ToString();
             birim = DtgMalzemeListesi.CurrentRow.Cells["SokulenBirim"].Value.ToString();
+            sokulenSeriLotNo = DtgMalzemeListesi.CurrentRow.Cells["SokulenSeriNo"].Value.ToString();
+            sokulenRevizyon = DtgMalzemeListesi.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
+            takilanStokNo = DtgMalzemeListesi.CurrentRow.Cells["TakilanStokNo"].Value.ToString();
+            takilanTanim = DtgMalzemeListesi.CurrentRow.Cells["TakilanTanim"].Value.ToString();
+            takilanBirim = DtgMalzemeListesi.CurrentRow.Cells["TakilanBirim"].Value.ToString();
+            takilanMiktar = DtgMalzemeListesi.CurrentRow.Cells["TakilanMiktar"].Value.ConInt();
+            takilanSeriNo = DtgMalzemeListesi.CurrentRow.Cells["TakilanSeriNo"].Value.ToString();
+            takilanRevizyon = DtgMalzemeListesi.CurrentRow.Cells["TakilanRevizyon"].Value.ToString();
         }
 
         private void DtgDepoHareketleri_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

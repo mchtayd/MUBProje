@@ -3418,6 +3418,17 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
+            if (e.Node.Text == "Sevkiyatlar")
+            {
+                FrmSevkiyatlar Go = new FrmSevkiyatlar();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageSevkiyatlar", "SEVKİYATLAR", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+
             if (e.Node.Text == "Ambar Veri İzleme")
             {
                 FrmIzlemeAmbar Go = new FrmIzlemeAmbar();

@@ -49,9 +49,34 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             throw new NotImplementedException();
         }
 
-        public AtolyeMalzeme Get(int abfNo)
+        public AtolyeMalzeme Get(string stokNo,string seriNo,string revizyon)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("AtolyeMalzemeGet", new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@revizyon", revizyon));
+                AtolyeMalzeme atolyeMalzeme = null;
+                while (dataReader.Read())
+                {
+                    atolyeMalzeme = new AtolyeMalzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["FORM_NO"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["DURUM"].ToString(),
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["MIKTAR"].ConDouble(),
+                        dataReader["TALEP_TARIHI"].ConDate(),
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["TESLIM_DURUMU"].ToString()); 
+                }
+                dataReader.Close();
+                return atolyeMalzeme;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
         }
 
         public List<AtolyeMalzeme> GetList(int abfNo)
@@ -126,7 +151,8 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["REVIZYON"].ToString(),
                         dataReader["MIKTAR"].ConDouble(),
                         dataReader["TALEP_TARIHI"].ConDate(),
-                        dataReader["SIPARIS_NO"].ToString()));
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["TESLIM_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return atolyeMalzemes;
@@ -155,7 +181,8 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
                         dataReader["REVIZYON"].ToString(),
                         dataReader["MIKTAR"].ConDouble(),
                         dataReader["TALEP_TARIHI"].ConDate(),
-                        dataReader["SIPARIS_NO"].ToString()));
+                        dataReader["SIPARIS_NO"].ToString(),
+                        dataReader["TESLIM_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return atolyeMalzemes;
@@ -166,9 +193,17 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             }
         }
 
-        public string Update(AtolyeMalzeme entity)
+        public string Update(int id, string teslimDurumu)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlServices.Stored("AtolyeMalzemeTeslimiupdate", new SqlParameter("@id", id), new SqlParameter("@teslimDurumu", teslimDurumu));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static AtolyeMalzemeDal GetInstance()
         {

@@ -5,6 +5,7 @@ using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Depo;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Wordprocessing;
 using Entity;
 using Entity.AnaSayfa;
 using Entity.BakimOnarim;
@@ -23,6 +24,7 @@ using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
 using UserInterface.BakımOnarım;
 using UserInterface.STS;
+using Color = System.Drawing.Color;
 
 namespace UserInterface.Gecic_Kabul_Ambar
 {
@@ -51,7 +53,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         public object[] infos;
         bool start = true, miktarKontrol = false;
-        string readedBarcode, st = "", takipdurumu, malzemeYeri = "", islemAdimiSorumlusu;
+        string readedBarcode, st = "", takipdurumu, malzemeYeri = "", islemAdimiSorumlusu, birim;
         int miktar, mevcutMiktar, dusulenMiktar, cekilenMiktar, id;
 
         List<Malzeme> malzemes = new List<Malzeme>();
@@ -606,7 +608,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     if (bilgiControl == "REZERVE HATASI")
                     {
                         ArizaKayit arizaKayit = arizaKayitManager.GetId(rezerveId);
-                        if (arizaKayit==null)
+                        if (arizaKayit == null)
                         {
                             abf = TxtDepodanBildirimeAbfNo.Text;
                         }
@@ -651,7 +653,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             }
                         }
 
-                        
+
                     }
                     else
                     {
@@ -1114,7 +1116,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                                 }
                             }
                         }
-                       
+
                     }
                     else
                     {
@@ -1398,14 +1400,16 @@ namespace UserInterface.Gecic_Kabul_Ambar
         void ArizaMalzemeTakip()
         {
             AbfMalzeme abfMalzeme = abfMalzemeManager.GetBulStokGirisCikis(stokNo, seriNo, revizyon);
-            if (abfMalzeme!=null)
+            if (abfMalzeme != null)
             {
                 abfMalzemeManager.MalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "MALZEME DEPO STOĞUNA ALINDI.");
 
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "MALZEME DEPO STOĞUNA ALINDI.", DateTime.Now, infos[1].ToString(), 0);
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, "150 - STOĞA ALINACAK MALZEME", stokNo, seriNo, revizyon);
+
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "MALZEME DEPO STOĞUNA ALINDI.", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
                 abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, "150 - STOĞA ALINACAK MALZEME");
+                
                 if (abfMalzemeIslemKayit1 != null)
                 {
                     TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
@@ -1417,6 +1421,106 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     {
                         abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                     }
+                }
+            }
+
+        }
+
+        void ArizaMalzemeTakipDepodanbildirime(string abfNo)
+        {
+            AbfMalzeme abfMalzeme = abfMalzemeManager.GetBulStokGirisCikis(stokNo, seriNo, revizyon);
+            if (abfMalzeme != null)
+            {
+                abfMalzemeManager.MalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "MALZEMENİN " + abfNo + " FORM NUMARALI FARKLI BİR ARIZAYA DÜŞÜMÜ YAPILMIŞTIR.");
+
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, "150 - STOĞA ALINACAK MALZEME", stokNo, seriNo, revizyon);
+
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "MALZEMENİN " + abfNo + " FORM NUMARALI FARKLI BİR ARIZAYA DÜŞÜMÜ YAPILMIŞTIR.", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
+                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+
+                
+                if (abfMalzemeIslemKayit1 != null)
+                {
+                    TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
+                    if (gecenSure.TotalMinutes.ConInt() > 0)
+                    {
+                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt());
+                    }
+                    else
+                    {
+                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
+                    }
+                }
+            }
+            else
+            {
+                ArizaKayit arizaKayit = arizaKayitManager.Get(abfNo.ConInt());
+                if (arizaKayit==null)
+                {
+                    return;
+                }
+                abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+                
+
+                var addItems = new HashSet<AbfMalzeme>();
+                var updateItems = new HashSet<AbfMalzeme>();
+
+
+                AbfMalzeme abfMalzeme2 = new AbfMalzeme(stokNo, tanim, seriNo, miktar, birim, 0, revizyon);
+
+                if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(stokNo)))
+                {
+                    updateItems.Add(abfMalzeme2);
+                }
+                else
+                {
+                    addItems.Add(abfMalzeme2);
+                }
+
+
+                int index = 0;
+                foreach (AbfMalzeme item in updateItems)
+                {
+                    int sokulenId = abfMalzemes[index].Id;
+                    abfMalzemeManager.UpdateTakilan(item, sokulenId);
+                    abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
+                    index++;
+                }
+                foreach (AbfMalzeme item in addItems)
+                {
+                    abfMalzemeManager.AddTakilan(item, id);
+                }
+
+
+                abfMalzeme = abfMalzemeManager.GetBulStokGirisCikisOlmayan(stokNo, arizaKayit.Id);
+
+                if (abfMalzeme != null)
+                {
+                    abfMalzemeManager.TakilanMalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN");
+
+                    //AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, abfMalzeme.SokulenTeslimDurum, stokNo, seriNo, revizyon);
+
+
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN", DateTime.Now, infos[1].ToString(), 0, "TAKILAN", stokNo, seriNo, revizyon);
+                    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+
+
+                    //foreach (AbfMalzeme item in abfMalzemes)
+                    //{
+                    //    AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, item.SokulenTeslimDurum, item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                    //    if (abfMalzemeIslemKayit2 != null)
+                    //    {
+                    //        TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit2.Tarih;
+                    //        if (gecenSure.TotalMinutes.ConInt() > 0)
+                    //        {
+                    //            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit2.Id, gecenSure.TotalMinutes.ConInt());
+                    //        }
+                    //        else
+                    //        {
+                    //            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit2.Id, 1);
+                    //        }
+                    //    }
+                    //}
                 }
             }
         }
@@ -1442,6 +1546,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     seriNo = item.Cells["Column10"].Value.ToString();
                     lotNo = item.Cells["Column12"].Value.ToString();
                     revizyon = item.Cells["Column11"].Value.ToString();
+                    birim = item.Cells["Column5"].Value.ToString();
 
                     depoNoDusulen = item.Cells["Column15"].Value.ToString(); //  DÜŞÜLEN DEPO
                     depoAdresi = item.Cells["Column16"].Value.ToString();
@@ -1464,7 +1569,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     if (islemTuru == "100-YENİ DEPO GİRİŞİ")
                     {
                         DepoGirisBekleyenKontrol();
-                        ArizaMalzemeTakip(); // ARIZADAN GELEN MALZEME DEPO STOĞUNA ALINDI BİLGİSİ TUTULDU.
+
 
                         mevcutMiktar = +miktar;
 
@@ -1495,6 +1600,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     {
                         MalzemeHazirlamaControl();
                         DepoGirisBekleyenKontrol();
+                        ArizaMalzemeTakip(); // ARIZADAN GELEN MALZEME DEPO STOĞUNA ALINDI BİLGİSİ TUTULDU.
                         DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, CmbDepoNoDusulen.Text, seriNo, lotNo, revizyon);
                         if (depoMiktar == null)
                         {
@@ -1556,12 +1662,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         string cekilenDepoLokasyon = item.Cells["Column9"].Value.ToString(); // çekilen depo lokasyon
 
                         Malzeme malzeme = malzemeManager.Get(stokNo);
-                        if (malzeme==null)
+                        if (malzeme == null)
                         {
                             MessageBox.Show("Malzeme kaydı bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
-
+                        ArizaMalzemeTakipDepodanbildirime(depoNoDusulen2);
                         if (malzeme.TakipDurumu == "LOT NO")
                         {
                             DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
@@ -1609,7 +1715,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     }
 
                     ArizaKayit arizaKayit = arizaKayitManager.Get(depoAdresi.ConInt());
-                    if (arizaKayit!=null)
+                    if (arizaKayit != null)
                     {
                         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
                         abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
@@ -1624,7 +1730,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                                         abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item2.Id, "MALZEME 1150 DEPO STOKLARINA ALINDI");
                                         abfMalzemeManager.TeslimTesellumDurumUpdate(item2.Id, "GÖSTERME");
 
-                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL");
+                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL", item2.SokulenStokNo, item2.SokulenSeriNo, item2.SokulenRevizyon);
                                         if (abfMalzemeIslemKayit1 != null)
                                         {
                                             TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
@@ -1639,21 +1745,21 @@ namespace UserInterface.Gecic_Kabul_Ambar
                                         }
 
                                     }
-                                    
+
                                 }
                             }
                         }
                     }
                 }
 
-                string mesaj = BildirimKayit();
-                if (mesaj != "OK")
-                {
-                    if (mesaj!= "Server Ayarı Kapalı")
-                    {
-                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                }
+                //string mesaj = BildirimKayit();
+                //if (mesaj != "OK")
+                //{
+                //    if (mesaj != "Server Ayarı Kapalı")
+                //    {
+                //        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    }
+                //}
                 MessageBox.Show("Bilgileri Başarıyla Kaydedişmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 start = true;
                 LblToplam.Text = "0";
@@ -1720,7 +1826,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 {
                     List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
                     stokGirisCıkıs = stokGirisCikisManager.GetList(CmbStokNo.Text, LblSeriLotNo.Text);
-                    if (stokGirisCıkıs.Count==0)
+                    if (stokGirisCıkıs.Count == 0)
                     {
                         TmrBarcode.Stop();
                         MessageBox.Show("Bu malzemenin lokasyonu bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1728,25 +1834,25 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         return;
                     }
                     string sonDusulneDepo = stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenDepoNo;
-                    if (sonDusulneDepo=="")
+                    if (sonDusulneDepo == "")
                     {
                         TmrBarcode.Stop();
                         MessageBox.Show("Bu malzemenin lokasyonu bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         TxtBarkod.Clear();
                         return;
                     }
-                    if (sonDusulneDepo.Length<5)
+                    if (sonDusulneDepo.Length < 5)
                     {
                         DepoMiktar depoMiktar = new DepoMiktar(stokGirisCıkıs[stokGirisCıkıs.Count - 1].Stokno, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Tanim, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Serino, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Lotno, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Revizyon, stokGirisCıkıs[stokGirisCıkıs.Count - 1].IslemTarihi, infos[1].ToString(), stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenDepoNo, stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenDepoAdresi, stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenMalzemeYeri, stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenMiktar, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Aciklama);
 
                         depoMiktarManager.Add(depoMiktar);
 
                         depoBilgileri = depoMiktarManager.GetBarkodLokasyonBul(CmbStokNo.Text, LblSeriLotNo.Text, LblRevizyon.Text, takipdurumu);
-                        if (depoBilgileri==null)
+                        if (depoBilgileri == null)
                         {
                             DepoMiktar depoMiktar1 = depoMiktarManager.Get(stokGirisCıkıs[stokGirisCıkıs.Count - 1].Stokno, stokGirisCıkıs[stokGirisCıkıs.Count - 1].DusulenDepoNo, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Serino, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Lotno, stokGirisCıkıs[stokGirisCıkıs.Count - 1].Revizyon);
 
-                            if (depoMiktar1!=null)
+                            if (depoMiktar1 != null)
                             {
                                 depoMiktarManager.Delete(depoMiktar1.Id);
                             }
@@ -1776,7 +1882,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 TxtBarkod.Clear();
                 return;
             }
-            if (CmbStokNo.Text=="")
+            if (CmbStokNo.Text == "")
             {
                 TmrBarcode.Stop();
                 MessageBox.Show("Bu malzeme için yeniden barkod oluşturmanız gerekmektedir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1937,7 +2043,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     }
                     idAtolye = atolye.Id;
                 }
-                
+
                 if (gorevAtamaPersonels != null)
                 {
                     gorevAtamaPersonels.Clear();
@@ -1954,7 +2060,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 }
                 LblDepodanBildirimePersonel.Text = islemAdimiSorumlusu;
 
-                if (LblDepodanBildirimePersonel.Text=="" && atolye!=null)
+                if (LblDepodanBildirimePersonel.Text == "" && atolye != null)
                 {
                     LblDepodanBildirimePersonel.Text = "OTS ARIZASI";
                 }
@@ -1977,7 +2083,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             if (arizaKayit == null)
             {
                 Atolye atolyeDTS = atolyeManager.ArizaGetirDTS(TxtBildirimdenDepoyaFormNo.Text.ConInt());
-                if (atolyeDTS!=null)
+                if (atolyeDTS != null)
                 {
                     idAtolye = atolyeDTS.Id;
                 }
@@ -1991,7 +2097,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     }
                     idAtolye = atolye.Id;
                 }
-                
+
                 if (gorevAtamaPersonels != null)
                 {
                     gorevAtamaPersonels.Clear();
@@ -2052,12 +2158,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 {
                     int abf = dusulenYer.ConInt();
                     ArizaKayit arizaKayit = arizaKayitManager.Get(abf);
-                    if (arizaKayit==null)
+                    if (arizaKayit == null)
                     {
                         return;
                     }
                     abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
-                    
+
 
                     foreach (AbfMalzeme item2 in abfMalzemes)
                     {
@@ -2114,7 +2220,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     {
                         if (item2.TeminDurumu != "REZERVE EDİLDİ")
                         {
-                            if (teminTuru== "SATIN ALMA")
+                            if (teminTuru == "SATIN ALMA")
                             {
                                 abfMalzemeManager.TeminBilgisi(item2.Id, "STOKTA MEVCUT (SAT)", infos[1].ToString(), item2.MalzemeIslemAdimi);
                             }
@@ -2122,7 +2228,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             {
                                 abfMalzemeManager.TeminBilgisi(item2.Id, "STOKTA MEVCUT (ASELSAN)", infos[1].ToString(), item2.MalzemeIslemAdimi);
                             }
-                            
+
                         }
                     }
                 }
@@ -2131,7 +2237,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         string BildirimKayit()

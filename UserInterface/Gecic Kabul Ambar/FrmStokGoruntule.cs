@@ -1,9 +1,11 @@
 ﻿using Business.Concreate.BakimOnarim;
+using Business.Concreate.Depo;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Presentation;
 using Entity.BakimOnarim;
+using Entity.Depo;
 using Entity.Gecic_Kabul_Ambar;
 using System;
 using System.Collections.Generic;
@@ -28,14 +30,16 @@ namespace UserInterface.Depo
         DepoMiktarManager depoMiktarManager;
         MalzemeManager malzemeManager;
         AbfMalzemeManager abfMalzemeManager;
-        
+        DepoKayitManagercs depoKayitManagercs;
+
         List<DepoMiktar> depoMiktars;
         List<AbfMalzeme> abfMalzemes;
 
-        string stokNo ="";
+        string stokNo = "";
         int id;
         public object[] infos;
         string tiklananStok, tiklananSeriNo, tiklananRevizyon;
+        bool start = false;
         public FrmStokGoruntule()
         {
             InitializeComponent();
@@ -44,6 +48,7 @@ namespace UserInterface.Depo
             depoMiktarManager = DepoMiktarManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            depoKayitManagercs = DepoKayitManagercs.GetInstance();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -64,7 +69,7 @@ namespace UserInterface.Depo
 
         private void FrmStokGoruntule_Load(object sender, EventArgs e)
         {
-            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39 || infos[0].ConInt() == 1148)
             {
                 contextMenuStrip1.Items[0].Enabled = true;
             }
@@ -72,19 +77,28 @@ namespace UserInterface.Depo
             {
                 contextMenuStrip1.Items[0].Enabled = false;
             }
-            //Display();
+            DepoFill();
+            start = true;
         }
+        void DepoFill()
+        {
+            CmbDepoNo.DataSource = depoKayitManagercs.GetList();
+            CmbDepoNo.ValueMember = "Id";
+            CmbDepoNo.DisplayMember = "Depo";
+            CmbDepoNo.SelectedValue = 0;
+        }
+
         void Display()
         {
             /*stokGirisCıkıs = stokGirisCikisManager.GetList();
             //stokFiltired = stokGirisCıkıs;
             dataBinder.DataSource = stokGirisCıkıs.ToDataTable();
             DtgDepoBilgileri.DataSource = dataBinder;*/
-            
+
 
             foreach (DataGridViewRow item in DtgDepoBilgileri.Rows)
             {
-                if (item.Cells["Miktar"].Value.ConInt()==0)
+                if (item.Cells["Miktar"].Value.ConInt() == 0)
                 {
                     int selectedIndex = item.Index;
                     DtgDepoBilgileri.Rows.RemoveAt(selectedIndex);
@@ -157,7 +171,7 @@ namespace UserInterface.Depo
 
         private void düzenleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (id==0)
+            if (id == 0)
             {
                 MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -180,9 +194,9 @@ namespace UserInterface.Depo
             tiklananStok = DtgDepoBilgileri.CurrentRow.Cells["StokNo"].Value.ToString();
             tiklananRevizyon = DtgDepoBilgileri.CurrentRow.Cells["Revizyon"].Value.ToString();
             Malzeme malzeme = malzemeManager.Get(stokNo);
-            if (malzeme!=null)
+            if (malzeme != null)
             {
-                if (malzeme.TakipDurumu=="LOT NO")
+                if (malzeme.TakipDurumu == "LOT NO")
                 {
                     tiklananSeriNo = DtgDepoBilgileri.CurrentRow.Cells["LotNo"].Value.ToString();
                 }
@@ -278,6 +292,7 @@ namespace UserInterface.Depo
         private void BtnTumunuGor_Click(object sender, EventArgs e)
         {
             TxtStokNo.Clear();
+            CmbDepoNo.SelectedIndex = -1;
             DtgMalzemeBilgisi.DataSource = null;
             depoMiktars = depoMiktarManager.GetListTumu();
             dataBinder.DataSource = depoMiktars.ToDataTable();
@@ -286,9 +301,33 @@ namespace UserInterface.Depo
             Toplamlar();
         }
 
+        private void CmbDepoNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (CmbDepoNo.SelectedIndex == -1)
+            {
+                return;
+            }
+            if (start==false)
+            {
+                return;
+            }
+            DepoKayit depoKayit = depoKayitManagercs.Get(CmbDepoNo.SelectedValue.ConInt());
+            if (depoKayit != null)
+            {
+                LblDepoAdi.Text = depoKayit.DepoAdi;
+            }
+            TxtStokNo.Clear();
+            DtgMalzemeBilgisi.DataSource = null;
+            depoMiktars = depoMiktarManager.GetList("", CmbDepoNo.Text);
+            dataBinder.DataSource = depoMiktars.ToDataTable();
+            DtgDepoBilgileri.DataSource = dataBinder;
+            Display();
+            Toplamlar();
+        }
+
         private void rezerveEtToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (id==0)
+            if (id == 0)
             {
                 MessageBox.Show("Lütfen bir malzeme seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -299,7 +338,7 @@ namespace UserInterface.Depo
             frmRezerveEt.ShowDialog();
 
         }
-        
+
         private void barkodOluşturToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (tiklananStok == "")

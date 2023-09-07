@@ -38,7 +38,11 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@islem", entity.Islem),
                     new SqlParameter("@tarih", entity.Tarih),
                     new SqlParameter("@islemYapan", entity.IslemYapan),
-                    new SqlParameter("@gecenSure", entity.GecenSure));
+                    new SqlParameter("@gecenSure", entity.GecenSure),
+                    new SqlParameter("@malzemeDurum", entity.MalzemeDurumu),
+                    new SqlParameter("@stokNo", entity.StokNo),
+                    new SqlParameter("@seriNo", entity.SeriNo),
+                    new SqlParameter("@revizyon", entity.Revizyon));
 
                 dataReader.Close();
                 return "OK";
@@ -54,20 +58,25 @@ namespace DataAccess.Concreate.BakimOnarim
             throw new NotImplementedException();
         }
 
-        public AbfMalzemeIslemKayit Get(int benzersizId,string islem)
+        public AbfMalzemeIslemKayit Get(int benzersizId,string islem, string stokNo,string seriNo,string revizyon)
         {
             try
             {
                 AbfMalzemeIslemKayit item = null;
-                dataReader = sqlServices.StoreReader("MalzemeIslemKayitlariGet", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@islem", islem));
+                dataReader = sqlServices.StoreReader("MalzemeIslemKayitlariGet", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@islem", islem), new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@revizyon", revizyon));
                 while (dataReader.Read())
                 {
-                    item = new AbfMalzemeIslemKayit(dataReader["ID"].ConInt(),
+                    item = new AbfMalzemeIslemKayit(
+                        dataReader["ID"].ConInt(),
                         dataReader["BENZERSIZ_ID"].ConInt(),
                         dataReader["ISLEM"].ToString(),
                         dataReader["TARIH"].ConDate(),
                         dataReader["ISLEM_YAPAN"].ToString(),
-                        dataReader["GECEN_SURE"].ConInt());
+                        dataReader["GECEN_SURE"].ConInt(),
+                        dataReader["MALZEME_DURUMU"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -78,12 +87,12 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public List<AbfMalzemeIslemKayit> GetList(int benzersizId)
+        public List<AbfMalzemeIslemKayit> GetList(int benzersizId, string malzemeDurumu)
         {
             try
             {
                 List<AbfMalzemeIslemKayit> abfMalzemeIslemKayits = new List<AbfMalzemeIslemKayit>();
-                dataReader = sqlServices.StoreReader("MalzemeIslemKayitlariGetList", new SqlParameter("@benzersizId", benzersizId));
+                dataReader = sqlServices.StoreReader("MalzemeIslemKayitlariGetList", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@malzemeDurumu", malzemeDurumu));
                 while (dataReader.Read())
                 {
                     abfMalzemeIslemKayits.Add(new AbfMalzemeIslemKayit(
@@ -92,7 +101,11 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ISLEM"].ToString(),
                         dataReader["TARIH"].ConDate(),
                         dataReader["ISLEM_YAPAN"].ToString(),
-                        dataReader["GECEN_SURE"].ConInt()));
+                        dataReader["GECEN_SURE"].ConInt(),
+                        dataReader["MALZEME_DURUMU"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemeIslemKayits;
@@ -109,6 +122,18 @@ namespace DataAccess.Concreate.BakimOnarim
             try
             {
                 sqlServices.Stored("MalzemeIslemKayitlariUpdate", new SqlParameter("@id", id), new SqlParameter("@gecenSure", gecenSure));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string MalzemeIslemKayitUpdate(int id, string stokNo,string seriNo,string revizyon)
+        {
+            try
+            {
+                sqlServices.Stored("MalzemeIslemKayitUpdate", new SqlParameter("@id", id), new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@revizyon", revizyon));
                 return "OK";
             }
             catch (Exception ex)

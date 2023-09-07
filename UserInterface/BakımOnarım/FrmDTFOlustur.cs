@@ -366,7 +366,7 @@ namespace UserInterface.BakımOnarım
 
                 string anadosya = @"Z:\DTS\BAKIM ONARIM\DTF\";
                 dosyaYolu = anadosya + LblIsAkisNo.Text + "\\";
-                Dtf dtf = new Dtf(LblIsAkisNo.Text.ConInt(), TalepEden.Text, LblKayitTarihi.Value, donem, CmbButceKodu.Text, TxtAbfNo.Text, CmbBolgeAdi.Text, CmbProjeKodu.Text, CmbGarantiDurumu.Text, CmbIsKategorisi.Text, TxtIsinTanimi.Text.ToUpper(), LblStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, CmbOnarimYeri.Text, CmbAltYukleniciFirma.Text, LblFirmaSorumlusu.Text, DtgIsinVerildigiTarih.Value, dosyaYolu);
+                Dtf dtf = new Dtf(LblIsAkisNo.Text.ConInt(), TalepEden.Text, LblKayitTarihi.Value, donem, CmbButceKodu.Text, TxtAbfNo.Text, CmbBolgeAdi.Text, CmbProjeKodu.Text, CmbGarantiDurumu.Text, CmbIsKategorisi.Text, TxtIsinTanimi.Text.ToUpper(), LblStokNo.Text, CmbTanim.Text, TxtSeriNo.Text, CmbOnarimYeri.Text, CmbAltYukleniciFirma.Text, LblFirmaSorumlusu.Text, DtgIsinVerildigiTarih.Value, dosyaYolu, revizyon);
 
                 string mesaj = dtfManager.Add(dtf);
                 if (mesaj!="OK")
@@ -563,8 +563,10 @@ namespace UserInterface.BakımOnarım
             TxtIsinTanimiKO.Text = dtf.IsTanimi;
             dosyaYolu = dtf.DosyaYolu;
             isAkisNo = dtf.IsAkisNo;
+            revizyon = dtf.Revizyon;
 
         }
+        string revizyon = "";
         void TemizleKO()
         {
             LblKayitTarihiKO.Text = "00"; LblDonemKO.Text = "00"; LblHarcamaKoduKO.Text = "00"; LblAbfNoKO.Text = "00"; LblUsBolgesiKO.Text = "00"; 
@@ -880,6 +882,7 @@ namespace UserInterface.BakımOnarım
             DtIsBaslamaTarihiGun.Value = dtf.IsBaslamaTarihi;
             DtIsBitisTarihiGun.Value = dtf.IsBitisTarihi;
             TxtYapilanIslemlerGun.Text = dtf.YapilanIslemler;
+            revizyon = dtf.Revizyon;
             FillTools();
 
         }
@@ -936,7 +939,7 @@ namespace UserInterface.BakımOnarım
                 }
                 TaslakKopyala();
                 string donem = CmbDonemAyGun.Text + " " + CmbDonemYilGun.Text;
-                Dtf dtf = new Dtf(idGun, LblIsAkisNoGun.Text.ConInt(), LblAdSoyadGun.Text, LblKayitTarihiGun.Text.ConDate(), donem, CmbHarcamaKoduGun.Text, TxtAbfNoGun.Text, CmbBolgeAdiGun.Text, CmbProjeKoduGun.Text, CmbGarantiDurumuGun.Text, CmbIsKategorisiGun.Text, TxtIsinTanimiGun.Text, LblStokNoGun.Text, CmbTanimGun.Text, TxtSeriNoGun.Text, CmbOnarimYeriGun.Text, CmbAltYukleniciFirmaGun.Text, LblFirmaSorumlusuGun.Text, DtgIsinVerildigiTarihGun.Value, DtIsBaslamaTarihiGun.Value, DtIsBitisTarihiGun.Value, TxtYapilanIslemlerGun.Text, dosyaYolu);
+                Dtf dtf = new Dtf(idGun, LblIsAkisNoGun.Text.ConInt(), LblAdSoyadGun.Text, LblKayitTarihiGun.Text.ConDate(), donem, CmbHarcamaKoduGun.Text, TxtAbfNoGun.Text, CmbBolgeAdiGun.Text, CmbProjeKoduGun.Text, CmbGarantiDurumuGun.Text, CmbIsKategorisiGun.Text, TxtIsinTanimiGun.Text, LblStokNoGun.Text, CmbTanimGun.Text, TxtSeriNoGun.Text, CmbOnarimYeriGun.Text, CmbAltYukleniciFirmaGun.Text, LblFirmaSorumlusuGun.Text, DtgIsinVerildigiTarihGun.Value, DtIsBaslamaTarihiGun.Value, DtIsBitisTarihiGun.Value, TxtYapilanIslemlerGun.Text, dosyaYolu, revizyon);
 
                 mesaj = dtfManager.Update(dtf);
 
@@ -1503,11 +1506,12 @@ namespace UserInterface.BakımOnarım
                 if (item.SokulenTeslimDurum== "ALT YÜKLENİCİ FİRMADA" && item.AltYukleniciKayit != "")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Id, "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI");
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Id, "ALT YÜKLENİCİ FİRMADA", LblStokNoKO.Text, LblSeriNoKO.Text, revizyon);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Id, "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0);
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Id, "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, LblStokNoKO.Text, LblSeriNoKO.Text, revizyon);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Id, "ALT YÜKLENİCİ FİRMADA");
+                    
                     if (abfMalzemeIslemKayit1 != null)
                     {
                         TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;

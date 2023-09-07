@@ -79,7 +79,6 @@ namespace UserInterface.BakımOnarım
             DtgEklenecekMalzemeler.Columns["BolgeSorumlusu"].Visible = false;
 
         }
-
         private void DtgEklenecekMalzemeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgEklenecekMalzemeler.CurrentRow == null)
@@ -92,6 +91,9 @@ namespace UserInterface.BakımOnarım
             CmbCalismaDurumu.Text= DtgEklenecekMalzemeler.CurrentRow.Cells["CalismaDurumu"].Value.ToString();
             CmbFizikselDurumu.Text = DtgEklenecekMalzemeler.CurrentRow.Cells["FizikselDurum"].Value.ToString();
             CmbYapilanIslem.Text = DtgEklenecekMalzemeler.CurrentRow.Cells["YapilacakIslem"].Value.ToString();
+            stokNo = DtgEklenecekMalzemeler.CurrentRow.Cells["SokulenStokNo"].Value.ToString();
+            seriNo = DtgEklenecekMalzemeler.CurrentRow.Cells["SokulenSeriNo"].Value.ToString();
+            revizyon = DtgEklenecekMalzemeler.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -105,7 +107,7 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
                 string mesaj = abfMalzemeManager.SokulenMalzemeUpdate(CmbCalismaDurumu.Text, CmbFizikselDurumu.Text, CmbYapilanIslem.Text, id);
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(benzersizId, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0);
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(benzersizId, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", stokNo, seriNo, revizyon);
                 abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
                 if (mesaj != "OK")
@@ -116,7 +118,7 @@ namespace UserInterface.BakımOnarım
 
                 if (CmbFizikselDurumu.Text == "SÖKÜLDÜ")
                 {
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0);
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", stokNo, seriNo, revizyon);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
                 }
 

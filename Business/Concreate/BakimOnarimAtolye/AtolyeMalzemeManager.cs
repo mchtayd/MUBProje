@@ -35,9 +35,17 @@ namespace Business.Concreate.BakimOnarimAtolye
             throw new NotImplementedException();
         }
 
-        public AtolyeMalzeme Get(int id)
+        public AtolyeMalzeme Get(string stokNo, string seriNo, string revizyon)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return atolyeMalzemeDal.Get(stokNo, seriNo, revizyon);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public List<AtolyeMalzeme> GetList(int abfNo)
@@ -86,9 +94,16 @@ namespace Business.Concreate.BakimOnarimAtolye
             }
         }
 
-        public string Update(AtolyeMalzeme entity)
+        public string Update(int id, string teslimDurumu)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return atolyeMalzemeDal.Update(id, teslimDurumu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
         public static AtolyeMalzemeManager GetInstance()
         {

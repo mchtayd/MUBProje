@@ -41,7 +41,7 @@ namespace UserInterface.BakımOnarım
         List<StokGirisCıkıs> stokGirisCikis;
 
         string siparisNo, bulunduguIslemAdimi, sure, kaynakdosyaismi, alinandosya, dosyaYolu;
-        int id, gun, saat, dakika, abfNo, arizaDurumu, malzemeId;
+        int id, gun, saat, dakika, abfNo, arizaDurumu, malzemeId, kayitId;
         DateTime birOncekiTarih;
         bool dosyaKontrol = false;
 
@@ -60,65 +60,100 @@ namespace UserInterface.BakımOnarım
             //    MessageBox.Show("Malzeme depo tarafından henüz teslim alınmadığı için bu işlemi gerçekleştiremezsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
-
-            DialogResult dr = MessageBox.Show(TxtIcSiparisNo.Text + " Nolu Kaydı Kapatmak İstediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (dr == DialogResult.Yes)
+            if (RdbDepo.Checked == false && RdbFabrika.Checked == false)
             {
-                abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
-
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0);
-                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
-
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA");
-                if (abfMalzemeIslemKayit1 != null)
+                MessageBox.Show("Lütfen malzemenin nereye teslim edileceği bilgisini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if (RdbDepo.Checked == true)
+            {
+                DialogResult dr2 = MessageBox.Show(TxtIcSiparisNo.Text + " nolu kaydı DEPO STOĞUNA ALINACAK malzeme olarak kaydedip kapatmak istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr2 != DialogResult.Yes)
                 {
-                    TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
-                    if (gecenSure.TotalMinutes.ConInt() > 0)
-                    {
-                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt());
-                    }
-                    else
-                    {
-                        abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
-                    }
-                }
-
-                int guncellenecekId = 0;
-                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
-                gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM ATOLYE");
-
-                foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
-                {
-                    if (item.IslemAdimi == bulunduguIslemAdimi)
-                    {
-                        guncellenecekId = item.Id;
-                    }
-                }
-
-                atolyeManager.ArizaKapat(id, 0, DateTime.Now);
-
-                GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:05:00".ConOnlyTime(), infos[1].ToString());
-
-                string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "SİPARİŞ KAPATILMIŞTIR");
-                if (kontrol2 != "OK")
-                {
-                    MessageBox.Show(kontrol2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                Temizle();
-                dosyaKontrol = false;
-
-                //string bildirim = Bildirim();
-                //if (bildirim != "OK")
-                //{
-                //    if (bildirim != "Server Ayarı Kapalı")
-                //    {
-                //        MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    }
-                //}
-
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            if (RdbFabrika.Checked == true)
+            {
+                DialogResult dr2 = MessageBox.Show(TxtIcSiparisNo.Text + " nolu kaydı FABRİKA ONARIM olarak kaydedip kapatmak istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (dr2 != DialogResult.Yes)
+                {
+                    return;
+                }
+            }
+
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon);
+
+            if (abfMalzemeIslemKayit1.MalzemeDurumu == "SÖKÜLEN")
+            {
+                abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
+            }
+            else
+            {
+                abfMalzemeManager.TakilanMalzemeTeslimBilgisiUpdate(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
+            }
+
+
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
+            abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+
+
+            if (abfMalzemeIslemKayit1 != null)
+            {
+                TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
+                if (gecenSure.TotalMinutes.ConInt() > 0)
+                {
+                    abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt());
+                }
+                else
+                {
+                    abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
+                }
+            }
+            if (RdbDepo.Checked==true)
+            {
+                atolyeMalzemeManager.Update(kayitId, "DEPO STOĞUNA ALINACAK");
+            }
+            if (RdbFabrika.Checked==true)
+            {
+                atolyeMalzemeManager.Update(kayitId, "FABRİKA ONARIM");
+            }
+
+            int guncellenecekId = 0;
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM ATOLYE");
+
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (item.IslemAdimi == bulunduguIslemAdimi)
+                {
+                    guncellenecekId = item.Id;
+                }
+            }
+
+            atolyeManager.ArizaKapat(id, 0, DateTime.Now);
+
+            GorevAtamaPersonel gorevAtama = new GorevAtamaPersonel(guncellenecekId, id, "BAKIM ONARIM ATOLYE", bulunduguIslemAdimi, sure, "00:05:00".ConOnlyTime(), infos[1].ToString());
+
+            string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama, "SİPARİŞ KAPATILMIŞTIR");
+            if (kontrol2 != "OK")
+            {
+                MessageBox.Show(kontrol2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Temizle();
+            dosyaKontrol = false;
+
+            //string bildirim = Bildirim();
+            //if (bildirim != "OK")
+            //{
+            //    if (bildirim != "Server Ayarı Kapalı")
+            //    {
+            //        MessageBox.Show(bildirim, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    }
+            //}
+
+            MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
         }
 
@@ -269,7 +304,7 @@ namespace UserInterface.BakımOnarım
             {
                 LblDurumAcik.Visible = false;
                 LblDurumKapali.Visible = true;
-                
+
                 LblIslemAdimiKapali.Visible = false;
                 LblIslemAdimiAcik.Visible = true;
             }
@@ -277,7 +312,7 @@ namespace UserInterface.BakımOnarım
             {
                 LblDurumAcik.Visible = true;
                 LblDurumKapali.Visible = false;
-                
+
                 LblIslemAdimiKapali.Visible = true;
                 LblIslemAdimiAcik.Visible = false;
             }
@@ -303,7 +338,7 @@ namespace UserInterface.BakımOnarım
 
             sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
 
-
+            List<AtolyeMalzeme> atolyeMalzemes = new List<AtolyeMalzeme>();
             DtgAtolye.DataSource = atolyeMalzemeManager.AtolyeMalzemeBul(siparisNo);
 
             DtgAtolye.Columns["Id"].Visible = false;
@@ -316,11 +351,18 @@ namespace UserInterface.BakımOnarım
             DtgAtolye.Columns["Miktar"].HeaderText = "MİKTAR";
             DtgAtolye.Columns["TalepTarihi"].HeaderText = "TALEP TARİHİ";
             DtgAtolye.Columns["SiparisNo"].Visible = false;
+            DtgAtolye.Columns["TeslimDurumu"].Visible = false;
 
             IslemAdimlariSureleri();
             DataDisplayAltMalzeme();
             DepoHareketleri();
+
+            stokNo = DtgAtolye.Rows[0].Cells["StokNo"].Value.ToString();
+            seriNo = DtgAtolye.Rows[0].Cells["SeriNo"].Value.ToString();
+            revizyon = DtgAtolye.Rows[0].Cells["Revizyon"].Value.ToString();
+            kayitId = DtgAtolye.Rows[0].Cells["Id"].Value.ConInt();
         }
+        string stokNo, seriNo, revizyon = "";
         void DepoHareketleri()
         {
             stokGirisCikis = stokGirisCikisManager.AtolyeDepoHareketleri(abfNo.ToString());

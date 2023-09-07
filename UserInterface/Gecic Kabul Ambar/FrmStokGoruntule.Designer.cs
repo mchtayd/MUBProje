@@ -38,6 +38,7 @@ namespace UserInterface.Depo
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.rezerveEtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.barkodOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
@@ -50,11 +51,11 @@ namespace UserInterface.Depo
             this.label3 = new System.Windows.Forms.Label();
             this.LblBirimFiyat = new System.Windows.Forms.Label();
             this.BirimFiyat = new System.Windows.Forms.Label();
-            this.TxtBarkod = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.BtnSorgula = new System.Windows.Forms.Button();
             this.BtnTumunuGor = new System.Windows.Forms.Button();
-            this.barkodOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CmbDepoNo = new System.Windows.Forms.ComboBox();
+            this.LblDepoAdi = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoBilgileri)).BeginInit();
@@ -125,21 +126,28 @@ namespace UserInterface.Depo
             this.rezerveEtToolStripMenuItem,
             this.barkodOluşturToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 70);
             // 
             // düzenleToolStripMenuItem
             // 
             this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
-            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.düzenleToolStripMenuItem.Text = "Düzenle";
             this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
             // 
             // rezerveEtToolStripMenuItem
             // 
             this.rezerveEtToolStripMenuItem.Name = "rezerveEtToolStripMenuItem";
-            this.rezerveEtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.rezerveEtToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
             this.rezerveEtToolStripMenuItem.Text = "Rezerve Et";
             this.rezerveEtToolStripMenuItem.Click += new System.EventHandler(this.rezerveEtToolStripMenuItem_Click);
+            // 
+            // barkodOluşturToolStripMenuItem
+            // 
+            this.barkodOluşturToolStripMenuItem.Name = "barkodOluşturToolStripMenuItem";
+            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.barkodOluşturToolStripMenuItem.Text = "Barkod Oluştur";
+            this.barkodOluşturToolStripMenuItem.Click += new System.EventHandler(this.barkodOluşturToolStripMenuItem_Click);
             // 
             // TxtTop
             // 
@@ -253,22 +261,15 @@ namespace UserInterface.Depo
             this.BirimFiyat.TabIndex = 324;
             this.BirimFiyat.Text = "₺ 0";
             // 
-            // TxtBarkod
-            // 
-            this.TxtBarkod.Location = new System.Drawing.Point(642, 48);
-            this.TxtBarkod.Name = "TxtBarkod";
-            this.TxtBarkod.Size = new System.Drawing.Size(303, 20);
-            this.TxtBarkod.TabIndex = 326;
-            // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label2.Location = new System.Drawing.Point(580, 49);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(56, 15);
+            this.label2.Size = new System.Drawing.Size(67, 15);
             this.label2.TabIndex = 325;
-            this.label2.Text = "Barkod:";
+            this.label2.Text = "Depo No:";
             // 
             // BtnSorgula
             // 
@@ -302,21 +303,35 @@ namespace UserInterface.Depo
             this.BtnTumunuGor.UseVisualStyleBackColor = false;
             this.BtnTumunuGor.Click += new System.EventHandler(this.BtnTumunuGor_Click);
             // 
-            // barkodOluşturToolStripMenuItem
+            // CmbDepoNo
             // 
-            this.barkodOluşturToolStripMenuItem.Name = "barkodOluşturToolStripMenuItem";
-            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.barkodOluşturToolStripMenuItem.Text = "Barkod Oluştur";
-            this.barkodOluşturToolStripMenuItem.Click += new System.EventHandler(this.barkodOluşturToolStripMenuItem_Click);
+            this.CmbDepoNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbDepoNo.FormattingEnabled = true;
+            this.CmbDepoNo.Location = new System.Drawing.Point(653, 49);
+            this.CmbDepoNo.Name = "CmbDepoNo";
+            this.CmbDepoNo.Size = new System.Drawing.Size(121, 21);
+            this.CmbDepoNo.TabIndex = 343;
+            this.CmbDepoNo.SelectedIndexChanged += new System.EventHandler(this.CmbDepoNo_SelectedIndexChanged);
+            // 
+            // LblDepoAdi
+            // 
+            this.LblDepoAdi.AutoSize = true;
+            this.LblDepoAdi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblDepoAdi.Location = new System.Drawing.Point(780, 52);
+            this.LblDepoAdi.Name = "LblDepoAdi";
+            this.LblDepoAdi.Size = new System.Drawing.Size(23, 15);
+            this.LblDepoAdi.TabIndex = 344;
+            this.LblDepoAdi.Text = "00";
             // 
             // FrmStokGoruntule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 888);
+            this.Controls.Add(this.LblDepoAdi);
+            this.Controls.Add(this.CmbDepoNo);
             this.Controls.Add(this.BtnTumunuGor);
             this.Controls.Add(this.BtnSorgula);
-            this.Controls.Add(this.TxtBarkod);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.BirimFiyat);
             this.Controls.Add(this.LblBirimFiyat);
@@ -361,7 +376,6 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label LblBirimFiyat;
         private System.Windows.Forms.Label BirimFiyat;
-        private System.Windows.Forms.TextBox TxtBarkod;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DataGridViewImageColumn Photo;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
@@ -370,5 +384,7 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Button BtnTumunuGor;
         private System.Windows.Forms.ToolStripMenuItem rezerveEtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem barkodOluşturToolStripMenuItem;
+        private System.Windows.Forms.ComboBox CmbDepoNo;
+        private System.Windows.Forms.Label LblDepoAdi;
     }
 }

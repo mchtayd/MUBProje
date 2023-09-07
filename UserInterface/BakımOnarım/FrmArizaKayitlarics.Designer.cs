@@ -42,6 +42,7 @@ namespace UserInterface.BakımOnarım
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.durumGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgArizaKayitlari)).BeginInit();
@@ -112,14 +113,15 @@ namespace UserInterface.BakımOnarım
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.düzenleToolStripMenuItem});
+            this.düzenleToolStripMenuItem,
+            this.durumGüncelleToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(121, 26);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 70);
             // 
             // düzenleToolStripMenuItem
             // 
             this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
-            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(120, 22);
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.düzenleToolStripMenuItem.Text = "Güncelle";
             this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
             // 
@@ -162,6 +164,13 @@ namespace UserInterface.BakımOnarım
             this.webBrowser1.Size = new System.Drawing.Size(820, 164);
             this.webBrowser1.TabIndex = 5;
             // 
+            // durumGüncelleToolStripMenuItem
+            // 
+            this.durumGüncelleToolStripMenuItem.Name = "durumGüncelleToolStripMenuItem";
+            this.durumGüncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.durumGüncelleToolStripMenuItem.Text = "Durum Güncelle";
+            this.durumGüncelleToolStripMenuItem.Click += new System.EventHandler(this.durumGüncelleToolStripMenuItem_Click);
+            // 
             // FrmArizaKayitlarics
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -199,5 +208,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip2;
         private System.Windows.Forms.ToolStripMenuItem düzenleToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem durumGüncelleToolStripMenuItem;
     }
 }

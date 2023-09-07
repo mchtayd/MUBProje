@@ -110,6 +110,17 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
+        public AbfMalzeme GetBulStokGirisCikisOlmayan(string stokNo, int benzersizId)
+        {
+            try
+            {
+                return abfMalzemeDal.GetBulStokGirisCikisOlmayan(stokNo, benzersizId);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<AbfMalzeme> GetList(int benzersizId, string teminDurumu="")
         {
@@ -122,11 +133,11 @@ namespace Business.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
-        public List<AbfMalzeme> GetListStok(string stokNo)
+        public List<AbfMalzeme> GetListStok(string stokNo,int benzersizId=0)
         {
             try
             {
-                return abfMalzemeDal.GetListStok(stokNo);
+                return abfMalzemeDal.GetListStok(stokNo, benzersizId);
             }
             catch (Exception)
             {
@@ -161,6 +172,17 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return abfMalzemeDal.MalzemeTeslimTuru();
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
+        public List<string> MalzemeTeslimTuruTakilan()
+        {
+            try
+            {
+                return abfMalzemeDal.MalzemeTeslimTuruTakilan();
             }
             catch (Exception)
             {
@@ -208,6 +230,17 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return abfMalzemeDal.MalzemeTeslimBilgisiUpdate(id, teslimDurum);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string TakilanMalzemeTeslimBilgisiUpdate(int id, string teslimDurum)
+        {
+            try
+            {
+                return abfMalzemeDal.TakilanMalzemeTeslimBilgisiUpdate(id, teslimDurum);
             }
             catch (Exception ex)
             {

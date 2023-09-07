@@ -535,7 +535,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.DtgArizaKayitlari.MultiSelect = false;
             this.DtgArizaKayitlari.Name = "DtgArizaKayitlari";
             this.DtgArizaKayitlari.ReadOnly = true;
-            this.DtgArizaKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgArizaKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DtgArizaKayitlari.Size = new System.Drawing.Size(1210, 292);
             this.DtgArizaKayitlari.TabIndex = 2;
             this.DtgArizaKayitlari.TimeFilter = false;

@@ -119,7 +119,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
-
+        string stokNo, seriNo, revizyon = "";
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -130,6 +130,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
             dosyaYolu = DtgList.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            stokNo = DtgList.CurrentRow.Cells["SokulenStokNo"].Value.ToString();
+            seriNo = DtgList.CurrentRow.Cells["SokulenSeriNo"].Value.ToString();
+            revizyon = DtgList.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
             DataGecmis();
             try
             {
@@ -143,13 +146,36 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         void DataGecmis()
         {
-            DtgGecmis.DataSource = abfMalzemeIslemKayitManager.GetList(id);
+            List<AbfMalzemeIslemKayit> abfMalzemeIslemKayitsSokulen = new List<AbfMalzemeIslemKayit>();
+            List<AbfMalzemeIslemKayit> abfMalzemeIslemKayitsTakilan = new List<AbfMalzemeIslemKayit>();
+            abfMalzemeIslemKayitsSokulen = abfMalzemeIslemKayitManager.GetList(id, "SÖKÜLEN");
+            abfMalzemeIslemKayitsTakilan = abfMalzemeIslemKayitManager.GetList(id, "TAKILAN");
+            if (abfMalzemeIslemKayitsSokulen.Count==0 && abfMalzemeIslemKayitsTakilan.Count==0)
+            {
+                DtgGecmis.DataSource = abfMalzemeIslemKayitsSokulen;
+            }
+            foreach (AbfMalzemeIslemKayit item in abfMalzemeIslemKayitsSokulen)
+            {
+                if (stokNo== item.StokNo && seriNo == item.SeriNo && revizyon==item.Revizyon)
+                {
+                    DtgGecmis.DataSource = abfMalzemeIslemKayitsSokulen;
+                }
+                else
+                {
+                    DtgGecmis.DataSource = abfMalzemeIslemKayitsTakilan;
+                }
+            }
+            
             DtgGecmis.Columns["Id"].Visible = false;
             DtgGecmis.Columns["BenzersizId"].Visible = false;
             DtgGecmis.Columns["Islem"].HeaderText = "İŞLEM";
             DtgGecmis.Columns["Tarih"].HeaderText = "TARİH";
             DtgGecmis.Columns["IslemYapan"].HeaderText = "İŞLEM YAPAN";
             DtgGecmis.Columns["GecenSure"].HeaderText = "GEÇEN SÜRE";
+            DtgGecmis.Columns["MalzemeDurumu"].Visible = false;
+            DtgGecmis.Columns["StokNo"].Visible = false;
+            DtgGecmis.Columns["SeriNo"].Visible = false;
+            DtgGecmis.Columns["Revizyon"].Visible = false;
 
             LblTop.Text = DtgGecmis.RowCount.ToString();
         }

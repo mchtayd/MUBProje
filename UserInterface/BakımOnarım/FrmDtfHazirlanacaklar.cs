@@ -300,7 +300,7 @@ namespace UserInterface.BakımOnarım
 
                 string anadosya = @"Z:\DTS\BAKIM ONARIM\DTF\";
                 dosyaYolu = anadosya + LblIsAkisNo.Text + "\\";
-                Dtf dtf = new Dtf(LblIsAkisNo.Text.ConInt(), TalepEden.Text, LblKayitTarihi.Value, donem, CmbButceKodu.Text, abfNo, LblBolgeAdi.Text, projeKodu, garantiDurumu, CmbIsKategorisi.Text, TxtIsinTanimi.Text.ToUpper(), stokNo, tanim, seriNo, CmbOnarimYeri.Text, CmbAltYukleniciFirma.Text, LblFirmaSorumlusu.Text, DtgIsinVerildigiTarih.Value, dosyaYolu);
+                Dtf dtf = new Dtf(LblIsAkisNo.Text.ConInt(), TalepEden.Text, LblKayitTarihi.Value, donem, CmbButceKodu.Text, abfNo, LblBolgeAdi.Text, projeKodu, garantiDurumu, CmbIsKategorisi.Text, TxtIsinTanimi.Text.ToUpper(), stokNo, tanim, seriNo, CmbOnarimYeri.Text, CmbAltYukleniciFirma.Text, LblFirmaSorumlusu.Text, DtgIsinVerildigiTarih.Value, dosyaYolu, revizyon);
 
                 string mesaj = dtfManager.Add(dtf);
                 if (mesaj != "OK")
@@ -474,10 +474,11 @@ namespace UserInterface.BakımOnarım
 
             abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId, "ALT YÜKLENİCİ FİRMADA");
 
-            AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(malzemeId, "ALT YÜKLENİCİ FİRMADA", DateTime.Now, infos[1].ToString(), 0);
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "250 - ALT YÜKLENİCİYE GİDECEK MALZEME", stokNo, seriNo, revizyon);
+
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(malzemeId, "ALT YÜKLENİCİ FİRMADA", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "250 - ALT YÜKLENİCİYE GİDECEK MALZEME");
             if (abfMalzemeIslemKayit1 != null)
             {
                 TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;

@@ -1174,7 +1174,7 @@ namespace UserInterface.BakımOnarım
                             Atolye atolye = atolyeManager.Get(siparisNo);
                             id = atolye.Id;
                             kayitId = item.Cells["Id"].Value.ConInt();
-                            AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
+                            AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME", stokNo, seriNo, revizyon);
                             if (abfMalzemeIslemKayit != null)
                             {
                                 talepTarihi = abfMalzemeIslemKayit.Tarih;
@@ -1190,11 +1190,12 @@ namespace UserInterface.BakımOnarım
                             atolyeMalzemeManager.Add(atolyeMalzeme);
                             GorevAtama();
 
+                            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME", stokNo, seriNo, revizyon);
                             abfMalzemeManager.MalzemeTeslimBilgisiUpdate(kayitId, "ATÖLYE BAKIM ONARIMDA");
-                            AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE BAKIM ONARIMDA", DateTime.Now, infos[1].ToString(), 0);
+                            AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE BAKIM ONARIMDA", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenRevizyon"].Value.ToString());
                             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
 
-                            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
+                            
                             if (abfMalzemeIslemKayit1 != null)
                             {
                                 TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
@@ -1429,6 +1430,17 @@ namespace UserInterface.BakımOnarım
             }
         }
 
+        private void DtgList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderOto.Filter = DtgList.FilterString;
+            LblToplam.Text = DtgList.RowCount.ToString();
+        }
+
+        private void DtgList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderOto.Sort = DtgList.SortString;
+        }
+
         string stokNo, tanim, seriNo, yapilacakIslem, revizyon; int miktar; DateTime talepTarihi;
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -1448,7 +1460,7 @@ namespace UserInterface.BakımOnarım
             revizyon = DtgList.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
             miktar = DtgList.CurrentRow.Cells["SokulenMiktar"].Value.ConInt();
 
-            AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME");
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME", stokNo, seriNo, revizyon);
             if (abfMalzemeIslemKayit != null)
             {
                 talepTarihi = abfMalzemeIslemKayit.Tarih;
