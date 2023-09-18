@@ -41,7 +41,14 @@ namespace Business.Concreate.BakimOnarim
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return abfMalzemeIslemKayitDal.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public AbfMalzemeIslemKayit Get(int benzersizId, string islem, string stokNo, string seriNo, string revizyon)

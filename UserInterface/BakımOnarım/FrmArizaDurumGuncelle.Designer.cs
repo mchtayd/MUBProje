@@ -29,7 +29,7 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaDurumGuncelle));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
@@ -81,13 +81,6 @@ namespace UserInterface.BakımOnarım
             this.BtnEkle = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DtgTakilan = new ADGV.AdvancedDataGridView();
-            this.TakilanStokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TakilanTanim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TakilanSeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TakilanMiktar = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TakilanBirim = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TakilanCalismaSaati = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TakilanRevizyon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label53 = new System.Windows.Forms.Label();
             this.TxtTakilanCalismaSaati = new System.Windows.Forms.TextBox();
             this.TxtTakilanRevizyon = new System.Windows.Forms.TextBox();
@@ -165,6 +158,21 @@ namespace UserInterface.BakımOnarım
             this.TxtBildirimNo = new System.Windows.Forms.TextBox();
             this.label26 = new System.Windows.Forms.Label();
             this.ChkKapat = new System.Windows.Forms.CheckBox();
+            this.GrbVeriGecmisi = new System.Windows.Forms.GroupBox();
+            this.DtgIslemKayitlari = new System.Windows.Forms.DataGridView();
+            this.label27 = new System.Windows.Forms.Label();
+            this.LblIslemAdimSureleri = new System.Windows.Forms.Label();
+            this.label28 = new System.Windows.Forms.Label();
+            this.LblGenelTop = new System.Windows.Forms.Label();
+            this.TakilanId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakilanStokNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakilanTanim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakilanSeriNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakilanMiktar = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakilanBirim = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakilanCalismaSaati = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakilanRevizyon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TakilanTeslimDurum = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -181,6 +189,8 @@ namespace UserInterface.BakımOnarım
             this.tabControl1.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.GrbMalzemeBilgileri.SuspendLayout();
+            this.GrbVeriGecmisi.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -636,12 +646,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle12;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -728,13 +738,15 @@ namespace UserInterface.BakımOnarım
             this.DtgTakilan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTakilan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgTakilan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.TakilanId,
             this.TakilanStokNo,
             this.TakilanTanim,
             this.TakilanSeriNo,
             this.TakilanMiktar,
             this.TakilanBirim,
             this.TakilanCalismaSaati,
-            this.TakilanRevizyon});
+            this.TakilanRevizyon,
+            this.TakilanTeslimDurum});
             this.DtgTakilan.DateWithTime = false;
             this.DtgTakilan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgTakilan.Location = new System.Drawing.Point(3, 17);
@@ -742,62 +754,6 @@ namespace UserInterface.BakımOnarım
             this.DtgTakilan.Size = new System.Drawing.Size(1414, 127);
             this.DtgTakilan.TabIndex = 333;
             this.DtgTakilan.TimeFilter = false;
-            // 
-            // TakilanStokNo
-            // 
-            this.TakilanStokNo.HeaderText = "TAKILAN STOK NO";
-            this.TakilanStokNo.MinimumWidth = 22;
-            this.TakilanStokNo.Name = "TakilanStokNo";
-            this.TakilanStokNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TakilanStokNo.Width = 108;
-            // 
-            // TakilanTanim
-            // 
-            this.TakilanTanim.HeaderText = "TANIM";
-            this.TakilanTanim.MinimumWidth = 22;
-            this.TakilanTanim.Name = "TakilanTanim";
-            this.TakilanTanim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TakilanTanim.Width = 69;
-            // 
-            // TakilanSeriNo
-            // 
-            this.TakilanSeriNo.HeaderText = "TAKILAN SERİ NO";
-            this.TakilanSeriNo.MinimumWidth = 22;
-            this.TakilanSeriNo.Name = "TakilanSeriNo";
-            this.TakilanSeriNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TakilanSeriNo.Width = 105;
-            // 
-            // TakilanMiktar
-            // 
-            this.TakilanMiktar.HeaderText = "MİKTAR";
-            this.TakilanMiktar.MinimumWidth = 22;
-            this.TakilanMiktar.Name = "TakilanMiktar";
-            this.TakilanMiktar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TakilanMiktar.Width = 77;
-            // 
-            // TakilanBirim
-            // 
-            this.TakilanBirim.HeaderText = "BİRİM";
-            this.TakilanBirim.MinimumWidth = 22;
-            this.TakilanBirim.Name = "TakilanBirim";
-            this.TakilanBirim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TakilanBirim.Width = 66;
-            // 
-            // TakilanCalismaSaati
-            // 
-            this.TakilanCalismaSaati.HeaderText = "TAKILAN ÇALIŞMA SAATİ";
-            this.TakilanCalismaSaati.MinimumWidth = 22;
-            this.TakilanCalismaSaati.Name = "TakilanCalismaSaati";
-            this.TakilanCalismaSaati.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TakilanCalismaSaati.Width = 125;
-            // 
-            // TakilanRevizyon
-            // 
-            this.TakilanRevizyon.HeaderText = "REVİZYON";
-            this.TakilanRevizyon.MinimumWidth = 22;
-            this.TakilanRevizyon.Name = "TakilanRevizyon";
-            this.TakilanRevizyon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.TakilanRevizyon.Width = 91;
             // 
             // label53
             // 
@@ -1604,12 +1560,154 @@ namespace UserInterface.BakımOnarım
             this.ChkKapat.UseVisualStyleBackColor = true;
             this.ChkKapat.Visible = false;
             // 
+            // GrbVeriGecmisi
+            // 
+            this.GrbVeriGecmisi.Controls.Add(this.label27);
+            this.GrbVeriGecmisi.Controls.Add(this.LblIslemAdimSureleri);
+            this.GrbVeriGecmisi.Controls.Add(this.DtgIslemKayitlari);
+            this.GrbVeriGecmisi.Controls.Add(this.label28);
+            this.GrbVeriGecmisi.Controls.Add(this.LblGenelTop);
+            this.GrbVeriGecmisi.Location = new System.Drawing.Point(18, 452);
+            this.GrbVeriGecmisi.Name = "GrbVeriGecmisi";
+            this.GrbVeriGecmisi.Size = new System.Drawing.Size(935, 422);
+            this.GrbVeriGecmisi.TabIndex = 498;
+            this.GrbVeriGecmisi.TabStop = false;
+            this.GrbVeriGecmisi.Text = "İŞLEM KAYITLARI";
+            // 
+            // DtgIslemKayitlari
+            // 
+            this.DtgIslemKayitlari.AllowUserToAddRows = false;
+            this.DtgIslemKayitlari.AllowUserToDeleteRows = false;
+            this.DtgIslemKayitlari.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgIslemKayitlari.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgIslemKayitlari.Location = new System.Drawing.Point(2, 14);
+            this.DtgIslemKayitlari.Name = "DtgIslemKayitlari";
+            this.DtgIslemKayitlari.ReadOnly = true;
+            this.DtgIslemKayitlari.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgIslemKayitlari.Size = new System.Drawing.Size(930, 376);
+            this.DtgIslemKayitlari.TabIndex = 4;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label27.Location = new System.Drawing.Point(6, 398);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(179, 15);
+            this.label27.TabIndex = 501;
+            this.label27.Text = "Toplam İşlem Adım Süresi:";
+            // 
+            // LblIslemAdimSureleri
+            // 
+            this.LblIslemAdimSureleri.AutoSize = true;
+            this.LblIslemAdimSureleri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblIslemAdimSureleri.Location = new System.Drawing.Point(191, 398);
+            this.LblIslemAdimSureleri.Name = "LblIslemAdimSureleri";
+            this.LblIslemAdimSureleri.Size = new System.Drawing.Size(21, 15);
+            this.LblIslemAdimSureleri.TabIndex = 502;
+            this.LblIslemAdimSureleri.Text = "00";
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label28.Location = new System.Drawing.Point(374, 398);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(166, 15);
+            this.label28.TabIndex = 499;
+            this.label28.Text = "Toplam Harcanan İşçilik:";
+            // 
+            // LblGenelTop
+            // 
+            this.LblGenelTop.AutoSize = true;
+            this.LblGenelTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblGenelTop.Location = new System.Drawing.Point(546, 398);
+            this.LblGenelTop.Name = "LblGenelTop";
+            this.LblGenelTop.Size = new System.Drawing.Size(21, 15);
+            this.LblGenelTop.TabIndex = 500;
+            this.LblGenelTop.Text = "00";
+            // 
+            // TakilanId
+            // 
+            this.TakilanId.HeaderText = "ID";
+            this.TakilanId.MinimumWidth = 22;
+            this.TakilanId.Name = "TakilanId";
+            this.TakilanId.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanId.Visible = false;
+            this.TakilanId.Width = 44;
+            // 
+            // TakilanStokNo
+            // 
+            this.TakilanStokNo.HeaderText = "TAKILAN STOK NO";
+            this.TakilanStokNo.MinimumWidth = 22;
+            this.TakilanStokNo.Name = "TakilanStokNo";
+            this.TakilanStokNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanStokNo.Width = 108;
+            // 
+            // TakilanTanim
+            // 
+            this.TakilanTanim.HeaderText = "TANIM";
+            this.TakilanTanim.MinimumWidth = 22;
+            this.TakilanTanim.Name = "TakilanTanim";
+            this.TakilanTanim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanTanim.Width = 69;
+            // 
+            // TakilanSeriNo
+            // 
+            this.TakilanSeriNo.HeaderText = "TAKILAN SERİ NO";
+            this.TakilanSeriNo.MinimumWidth = 22;
+            this.TakilanSeriNo.Name = "TakilanSeriNo";
+            this.TakilanSeriNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanSeriNo.Width = 105;
+            // 
+            // TakilanMiktar
+            // 
+            this.TakilanMiktar.HeaderText = "MİKTAR";
+            this.TakilanMiktar.MinimumWidth = 22;
+            this.TakilanMiktar.Name = "TakilanMiktar";
+            this.TakilanMiktar.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanMiktar.Width = 77;
+            // 
+            // TakilanBirim
+            // 
+            this.TakilanBirim.HeaderText = "BİRİM";
+            this.TakilanBirim.MinimumWidth = 22;
+            this.TakilanBirim.Name = "TakilanBirim";
+            this.TakilanBirim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanBirim.Width = 66;
+            // 
+            // TakilanCalismaSaati
+            // 
+            this.TakilanCalismaSaati.HeaderText = "TAKILAN ÇALIŞMA SAATİ";
+            this.TakilanCalismaSaati.MinimumWidth = 22;
+            this.TakilanCalismaSaati.Name = "TakilanCalismaSaati";
+            this.TakilanCalismaSaati.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanCalismaSaati.Width = 125;
+            // 
+            // TakilanRevizyon
+            // 
+            this.TakilanRevizyon.HeaderText = "REVİZYON";
+            this.TakilanRevizyon.MinimumWidth = 22;
+            this.TakilanRevizyon.Name = "TakilanRevizyon";
+            this.TakilanRevizyon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanRevizyon.Width = 91;
+            // 
+            // TakilanTeslimDurum
+            // 
+            this.TakilanTeslimDurum.HeaderText = "TAKILAN TESLİM DURUM";
+            this.TakilanTeslimDurum.MinimumWidth = 22;
+            this.TakilanTeslimDurum.Name = "TakilanTeslimDurum";
+            this.TakilanTeslimDurum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.TakilanTeslimDurum.Visible = false;
+            this.TakilanTeslimDurum.Width = 161;
+            // 
             // FrmArizaDurumGuncelle
             // 
             this.AcceptButton = this.BtnBul;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1527, 908);
+            this.Controls.Add(this.GrbVeriGecmisi);
             this.Controls.Add(this.ChkKapat);
             this.Controls.Add(this.BtnBulBildirim);
             this.Controls.Add(this.TxtBildirimNo);
@@ -1660,6 +1758,9 @@ namespace UserInterface.BakımOnarım
             this.groupBox5.PerformLayout();
             this.GrbMalzemeBilgileri.ResumeLayout(false);
             this.GrbMalzemeBilgileri.PerformLayout();
+            this.GrbVeriGecmisi.ResumeLayout(false);
+            this.GrbVeriGecmisi.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1748,13 +1849,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Button BtnEkle;
         private System.Windows.Forms.GroupBox groupBox2;
         private ADGV.AdvancedDataGridView DtgTakilan;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanStokNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanTanim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanSeriNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanMiktar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanBirim;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanCalismaSaati;
-        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanRevizyon;
         private System.Windows.Forms.Label label53;
         private System.Windows.Forms.TextBox TxtTakilanCalismaSaati;
         private System.Windows.Forms.TextBox TxtTakilanRevizyon;
@@ -1801,5 +1895,20 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn BolgeSorumlusu;
         private System.Windows.Forms.DataGridViewTextBoxColumn TespitEdilenAriza;
         private System.Windows.Forms.CheckBox ChkKapat;
+        private System.Windows.Forms.GroupBox GrbVeriGecmisi;
+        private System.Windows.Forms.DataGridView DtgIslemKayitlari;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Label LblIslemAdimSureleri;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label LblGenelTop;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanId;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanStokNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanTanim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanSeriNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanMiktar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanBirim;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanCalismaSaati;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanRevizyon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TakilanTeslimDurum;
     }
 }

@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>696</ApplicationRevision>
+    <ApplicationRevision>707</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -1121,6 +1121,18 @@
     <Compile Include="IdariIsler\FrmEvrekKayitIzleme.Designer.cs">
       <DependentUpon>FrmEvrekKayitIzleme.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmFazlaCalisma.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmFazlaCalisma.Designer.cs">
+      <DependentUpon>FrmFazlaCalisma.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmFazlaCalismaOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmFazlaCalismaOnay.Designer.cs">
+      <DependentUpon>FrmFazlaCalismaOnay.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmGecmisKayit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -2049,6 +2061,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmEvrekKayitIzleme.resx">
       <DependentUpon>FrmEvrekKayitIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmFazlaCalisma.resx">
+      <DependentUpon>FrmFazlaCalisma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmFazlaCalismaOnay.resx">
+      <DependentUpon>FrmFazlaCalismaOnay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmGecmisKayit.resx">
       <DependentUpon>FrmGecmisKayit.cs</DependentUpon>

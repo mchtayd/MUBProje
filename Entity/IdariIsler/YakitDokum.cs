@@ -32,7 +32,7 @@ namespace Entity.IdariIsler
         {
 
         }
-        public YakitDokum(int id, int isAkisNo, string firma, string donem, DateTime tarih, string defterNo, string siraNo, string fisNo, string personel, string plaka, string aracSiparisNo, double litreFiyati, double verilenLitre, double toplamTutar, string dosyaYolu, string siparisNo)
+        public YakitDokum(int id, int isAkisNo, string firma, string donem, DateTime tarih, string defterNo, string siraNo, string fisNo, string personel, string plaka, string aracSiparisNo, double litreFiyati, double verilenLitre, double toplamTutar, string dosyaYolu, string siparisNo, string alimTuru)
         {
             this.id = id;
             this.isAkisNo = isAkisNo;
@@ -50,6 +50,7 @@ namespace Entity.IdariIsler
             this.toplamTutar = toplamTutar;
             this.dosyaYolu = dosyaYolu;
             this.siparisNo = siparisNo;
+            this.alimTuru = alimTuru;
         }
 
         public YakitDokum(int isAkisNo, string firma, string donem, DateTime tarih, string defterNo, string siraNo, string fisNo, string personel, string plaka, string aracSiparisNo, double litreFiyati, double verilenLitre, double toplamTutar, string dosyaYolu, string siparisNo)
@@ -119,7 +120,7 @@ namespace Entity.IdariIsler
             this.alimTuru = alimTuru;
         }
 
-        public YakitDokum(int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu,string personel)
+        public YakitDokum(int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu,string personel, string alimTuru)
         {
             this.isAkisNo = isAkisNo;
             this.firma = firma;
@@ -131,6 +132,7 @@ namespace Entity.IdariIsler
             this.toplamTutar = toplamTutar;
             this.dosyaYolu = dosyaYolu;
             this.personel = personel;
+            this.alimTuru = alimTuru;
         }
         public YakitDokum(int id, int isAkisNo, string firma, string donem, DateTime tarih, string plaka, string aracSiparisNo, double verilenLitre, double toplamTutar, string dosyaYolu,string personelAd)
         {

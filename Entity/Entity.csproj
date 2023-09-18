@@ -134,6 +134,8 @@
     <Compile Include="Gecic Kabul Ambar\Malzeme.cs" />
     <Compile Include="Gecic Kabul Ambar\MalzemeKayit.cs" />
     <Compile Include="Gecic Kabul Ambar\MalzemeStok.cs" />
+    <Compile Include="Gecic Kabul Ambar\Sevkiyat.cs" />
+    <Compile Include="Gecic Kabul Ambar\SevkiyatMalzeme.cs" />
     <Compile Include="Gecic Kabul Ambar\StokGirisCıkıs.cs" />
     <Compile Include="Gecic Kabul Ambar\UstTakim.cs" />
     <Compile Include="GorevAtama.cs" />

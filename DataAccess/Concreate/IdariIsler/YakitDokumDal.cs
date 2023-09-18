@@ -118,6 +118,45 @@ namespace DataAccess.Concreate.IdariIsler
                 return ex.Message;
             }
         }
+        public List<int> Yillar()
+        {
+            try
+            {
+                List<int> yillar = new List<int>();
+                dataReader = sqlServices.StoreReader("YakitBeyanTarihleri");
+                while (dataReader.Read())
+                {
+                    yillar.Add(dataReader[0].ConInt());
+                }
+                dataReader.Close();
+                return yillar;
+
+            }
+            catch (Exception)
+            {
+                return new List<int>();
+            }
+        }
+        public List<int> YillarTT()
+        {
+            try
+            {
+                List<int> yillar = new List<int>();
+                dataReader = sqlServices.StoreReader("YakitBeyanTarihleriTT");
+                while (dataReader.Read())
+                {
+                    yillar.Add(dataReader[0].ConInt());
+                }
+                dataReader.Close();
+                return yillar;
+
+            }
+            catch (Exception)
+            {
+                return new List<int>();
+            }
+        }
+
         public string AnaAddTasit(YakitDokum entity)
         {
             try
@@ -178,7 +217,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["VERILEN_LITRE"].ConDouble(),
                         dataReader["TOPLAM_TUTAR"].ConDouble(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["SiparisNo"].ToString());
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["ALIM_TURU"].ToString());
                     
                 }
                 dataReader.Close();
@@ -242,7 +282,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["VERILEN_LITRE"].ConDouble(),
                         dataReader["TOPLAM_TUTAR"].ConDouble(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["SiparisNo"].ToString()));
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["ALIM_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return yakitDokums;
@@ -276,7 +317,8 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["VERILEN_LITRE"].ConDouble(),
                         dataReader["TOPLAM_TUTAR"].ConDouble(),
                         dataReader["DOSYA_YOLU"].ToString(),
-                        dataReader["SiparisNo"].ToString()));
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["ALIM_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return yakitDokums;
@@ -286,6 +328,51 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<YakitDokum>();
             }
         }
+        public List<YakitDokum> GetListTumu(string yil)
+        {
+            try
+            {
+                int yildanfalza;
+                if (yil == "1990")
+                {
+                    yildanfalza = 2022;
+                }
+                else
+                {
+                    yildanfalza = yil.ConInt() + 1;
+                }
+                List<YakitDokum> yakitDokums = new List<YakitDokum>();
+                dataReader = sqlServices.StoreReader("YakitDokumleriList", new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yildanfalza));
+                while (dataReader.Read())
+                {
+                    yakitDokums.Add(new YakitDokum(
+                        dataReader["ID"].ConInt(),
+                        dataReader["IS_AKIS_NO"].ConInt(),
+                        dataReader["FIRMA"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["DEFTER_NO"].ToString(),
+                        dataReader["SIRA_NO"].ToString(),
+                        dataReader["FIS_NO"].ToString(),
+                        dataReader["PERSONEL"].ToString(),
+                        dataReader["PLAKA"].ToString(),
+                        dataReader["ARAC_SPARIS_NO"].ToString(),
+                        dataReader["LITRE_FIYATI"].ConDouble(),
+                        dataReader["VERILEN_LITRE"].ConDouble(),
+                        dataReader["TOPLAM_TUTAR"].ConDouble(),
+                        dataReader["DOSYA_YOLU"].ToString(),
+                        dataReader["SiparisNo"].ToString(),
+                        dataReader["ALIM_TURU"].ToString()));
+                }
+                dataReader.Close();
+                return yakitDokums;
+            }
+            catch (Exception)
+            {
+                return new List<YakitDokum>();
+            }
+        }
+
         public List<YakitDokum> GetListAna(string alimTuru)
         {
             try
@@ -313,12 +400,21 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<YakitDokum>();
             }
         }
-        public List<YakitDokum> GetListTT()
+        public List<YakitDokum> GetListTT(string yil)
         {
             try
             {
+                int yildanfalza;
+                if (yil == "1990")
+                {
+                    yildanfalza = 2022;
+                }
+                else
+                {
+                    yildanfalza = yil.ConInt() + 1;
+                }
                 List<YakitDokum> yakitDokums = new List<YakitDokum>();
-                dataReader = sqlServices.StoreReader("YakitTasiTanimaListe");
+                dataReader = sqlServices.StoreReader("YakitTasiTanimaListe", new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yildanfalza));
                 while (dataReader.Read())
                 {
                     yakitDokums.Add(new YakitDokum(

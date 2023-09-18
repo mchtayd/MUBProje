@@ -37,12 +37,12 @@ namespace UserInterface.BakımOnarım
             this.DtgArizaKayitlari = new ADGV.AdvancedDataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.düzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.durumGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.durumGüncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgArizaKayitlari)).BeginInit();
@@ -116,14 +116,21 @@ namespace UserInterface.BakımOnarım
             this.düzenleToolStripMenuItem,
             this.durumGüncelleToolStripMenuItem});
             this.contextMenuStrip2.Name = "contextMenuStrip2";
-            this.contextMenuStrip2.Size = new System.Drawing.Size(181, 70);
+            this.contextMenuStrip2.Size = new System.Drawing.Size(161, 48);
             // 
             // düzenleToolStripMenuItem
             // 
             this.düzenleToolStripMenuItem.Name = "düzenleToolStripMenuItem";
-            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.düzenleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
             this.düzenleToolStripMenuItem.Text = "Güncelle";
             this.düzenleToolStripMenuItem.Click += new System.EventHandler(this.düzenleToolStripMenuItem_Click);
+            // 
+            // durumGüncelleToolStripMenuItem
+            // 
+            this.durumGüncelleToolStripMenuItem.Name = "durumGüncelleToolStripMenuItem";
+            this.durumGüncelleToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.durumGüncelleToolStripMenuItem.Text = "Durum Güncelle";
+            this.durumGüncelleToolStripMenuItem.Click += new System.EventHandler(this.durumGüncelleToolStripMenuItem_Click);
             // 
             // label31
             // 
@@ -163,13 +170,6 @@ namespace UserInterface.BakımOnarım
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.Size = new System.Drawing.Size(820, 164);
             this.webBrowser1.TabIndex = 5;
-            // 
-            // durumGüncelleToolStripMenuItem
-            // 
-            this.durumGüncelleToolStripMenuItem.Name = "durumGüncelleToolStripMenuItem";
-            this.durumGüncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.durumGüncelleToolStripMenuItem.Text = "Durum Güncelle";
-            this.durumGüncelleToolStripMenuItem.Click += new System.EventHandler(this.durumGüncelleToolStripMenuItem_Click);
             // 
             // FrmArizaKayitlarics
             // 

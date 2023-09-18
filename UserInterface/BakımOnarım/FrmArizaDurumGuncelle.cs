@@ -11,6 +11,7 @@ using Entity;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
 using Entity.IdariIsler;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.Drawing;
@@ -18,6 +19,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using UserInterface.STS;
+using Application = System.Windows.Forms.Application;
 
 namespace UserInterface.BakımOnarım
 {
@@ -35,6 +37,7 @@ namespace UserInterface.BakımOnarım
         UstTakimManager ustTakimManager;
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
 
+        List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
         List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
         List<Malzeme> malzemes = new List<Malzeme>();
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
@@ -61,6 +64,7 @@ namespace UserInterface.BakımOnarım
             malzemeManager = MalzemeManager.GetInstance();
             ustTakimManager = UstTakimManager.GetInstance();
             abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
+
         }
 
         private void FrmArizaDurumGuncelle_Load(object sender, EventArgs e)
@@ -80,11 +84,27 @@ namespace UserInterface.BakımOnarım
             {
                 if (LblMevcutIslemAdimi.Text != "1500_BAKIM ONARIM (SAHA)")
                 {
-                    GrbMalzemeBilgileri.Visible = false;
-                    BtnKaydet.Location = new System.Drawing.Point(161, 405);
-                    GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
-                    start = false;
+                    if (LblMevcutIslemAdimi.Text != "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+                    {
+                        GrbMalzemeBilgileri.Visible = false;
+                        BtnKaydet.Location = new System.Drawing.Point(161, 405);
+                        GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
+                        GrbVeriGecmisi.Visible = true;
+                        start = false;
+                    }
+                    else
+                    {
+                        GrbVeriGecmisi.Visible = false;
+                    }
                 }
+                else
+                {
+                    GrbVeriGecmisi.Visible = false;
+                }
+            }
+            else
+            {
+                GrbVeriGecmisi.Visible = false;
             }
             start = false;
         }
@@ -175,38 +195,54 @@ namespace UserInterface.BakımOnarım
 
             abfForm = arizaKayit.AbfFormNo;
             id = arizaKayit.Id;
-
+            GrbVeriGecmisi.Visible = true;
             if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new System.Drawing.Point(29, 831);
                 GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-
-                //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
+                GrbVeriGecmisi.Visible = false;
+                //tabControl1.TabPages[0].remo
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new System.Drawing.Point(29, 831);
                 GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-
+                GrbVeriGecmisi.Visible = false;
                 List<AbfMalzeme> abfMalzemes = abfMalzemeManager.GetList(id);
+                DtgTakilan.Rows.Clear();
                 foreach (AbfMalzeme item in abfMalzemes)
                 {
-                    DtgTakilan.Rows.Add();
-                    int sonSatirr = DtgTakilan.RowCount - 1;
-                    DtgTakilan.Rows[sonSatirr].Cells["TakilanStokNo"].Value = item.TakilanStokNo;
-                    DtgTakilan.Rows[sonSatirr].Cells["TakilanTanim"].Value = item.TakilanTanim;
-                    DtgTakilan.Rows[sonSatirr].Cells["TakilanSeriNo"].Value = item.TakilanSeriNo;
-                    DtgTakilan.Rows[sonSatirr].Cells["TakilanMiktar"].Value = item.TakilanMiktar;
-                    DtgTakilan.Rows[sonSatirr].Cells["TakilanBirim"].Value = item.TakilanBirim;
-                    DtgTakilan.Rows[sonSatirr].Cells["TakilanCalismaSaati"].Value = item.TakilanCalismaSaati;
-                    DtgTakilan.Rows[sonSatirr].Cells["TakilanRevizyon"].Value = item.TakilanRevizyon;
+                    if (item.TakilanStokNo != "")
+                    {
+                        DtgTakilan.Rows.Add();
+                        int sonSatirr = DtgTakilan.RowCount - 1;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanId"].Value = item.Id;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanTeslimDurum"].Value = item.TakilanTeslimDurum;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanStokNo"].Value = item.TakilanStokNo;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanTanim"].Value = item.TakilanTanim;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanSeriNo"].Value = item.TakilanSeriNo;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanMiktar"].Value = item.TakilanMiktar;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanBirim"].Value = item.TakilanBirim;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanCalismaSaati"].Value = item.TakilanCalismaSaati;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanRevizyon"].Value = item.TakilanRevizyon;
+                    }
+
 
                 }
             }
 
-            
+            if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+            {
+                GrbMalzemeBilgileri.Visible = true;
+                BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
+                GrbVeriGecmisi.Visible = false;
+                //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
+            }
+
+            IslemAdimlariSureleri();
 
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM");
 
@@ -246,6 +282,97 @@ namespace UserInterface.BakımOnarım
                 return;
             }
         }
+        void IslemAdimlariSureleri()
+        {
+            gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(id, "BAKIM ONARIM");
+            DtgIslemKayitlari.DataSource = gorevAtamaPersonels;
+
+            DtgIslemKayitlari.Columns["Id"].Visible = false;
+            DtgIslemKayitlari.Columns["BenzersizId"].Visible = false;
+            DtgIslemKayitlari.Columns["Departman"].Visible = false;
+            DtgIslemKayitlari.Columns["GorevAtanacakPersonel"].HeaderText = "GÖREV ATANAN PERSONEL";
+            DtgIslemKayitlari.Columns["IslemAdimi"].HeaderText = "İŞLEM ADIMI";
+            DtgIslemKayitlari.Columns["Tarih"].HeaderText = "TARİH";
+            DtgIslemKayitlari.Columns["Sure"].HeaderText = "İŞLEM ADIMI SÜRELERİ";
+            DtgIslemKayitlari.Columns["YapilanIslem"].HeaderText = "YAPILAN İŞLEM";
+            DtgIslemKayitlari.Columns["CalismaSuresi"].HeaderText = "ÇALIŞMA SÜRESİ";
+            DtgIslemKayitlari.Columns["AbfNo"].Visible = false;
+
+            DtgIslemKayitlari.Columns["CalismaSuresi"].DefaultCellStyle.Format = @"HH:mm:ss";
+
+            foreach (DataGridViewRow row in DtgIslemKayitlari.Rows)
+            {
+                string value = row.Cells["CalismaSuresi"].Value.ToString();
+                row.Cells["CalismaSuresi"].Value = value.Substring(value.IndexOf(' ') + 1);
+            }
+            Toplamlar();
+            ToplamlarIslemAdimSureleri();
+
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+        void ToplamlarIslemAdimSureleri()
+        {
+            int toplamDakika = 0;
+            int toplamSaat = 0;
+            int toplamGun = 0;
+
+            foreach (DataGridViewRow item in DtgIslemKayitlari.Rows)
+            {
+                string sure = item.Cells["Sure"].Value.ToString();
+                if (sure == "Devam Ediyor")
+                {
+                    LblIslemAdimSureleri.Text = toplamGun + " Gün " + toplamSaat + " Saat " + toplamDakika + " Dakika";
+                    return;
+                }
+
+                string[] array = sure.Split(' ');
+                int mevcutDakika = array[4].ConInt();
+                int mevcutSaat = array[2].ConInt();
+                int mevcutGun = array[0].ConInt();
+
+                toplamDakika = toplamDakika + mevcutDakika;
+
+                if (toplamDakika >= 60)
+                {
+                    toplamSaat = toplamSaat + (toplamDakika / 60);
+                    toplamDakika = toplamDakika % 60;
+                }
+
+                toplamSaat = toplamSaat + mevcutSaat;
+
+                if (toplamSaat >= 24)
+                {
+                    toplamGun = toplamGun + (toplamSaat / 24);
+                    toplamSaat = toplamSaat % 24;
+                }
+
+                toplamGun = toplamGun + mevcutGun;
+            }
+        }
+        void Toplamlar()
+        {
+            DateTime toplam = DateTime.Now.Date;
+            for (int i = 0; i < DtgIslemKayitlari.Rows.Count; ++i)
+            {
+                string value = DtgIslemKayitlari.Rows[i].Cells["CalismaSuresi"].Value.ToString();
+                if (DateTime.TryParse(value, out _))
+                {
+                    toplam = toplam.AddSeconds(value.ConDate().Minute * 60);
+                    toplam = toplam.AddSeconds(value.ConDate().Hour * 3660);
+                }
+                //toplam += Convert.ToDouble(DtgIslemKayitlari.Rows[i].Cells["IscilikSuresi"].Value);
+
+            }
+            LblGenelTop.Text = $"{toplam.Hour}:{toplam.Minute}:{toplam.Second}";
+        }
+
         void CmbStokNoSokulen()
         {
             malzemes = malzemeManager.GetList();
@@ -630,7 +757,7 @@ namespace UserInterface.BakımOnarım
 
             controlId = arizaKayit.Id;
             LblMevcutIslemAdimi.Text = arizaKayit.IslemAdimi;
-
+            GrbVeriGecmisi.Visible = true;
             //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage3"]);
             GrbMalzemeBilgileri.Visible = false;
             BtnKaydet.Location = new System.Drawing.Point(161, 405);
@@ -640,7 +767,9 @@ namespace UserInterface.BakımOnarım
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new System.Drawing.Point(29, 831);
                 GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-
+                GrbVeriGecmisi.Visible = false;
+                ChkKapat.Text = "SADECE AÇIKLAMA EKLE";
+                ChkKapat.Visible = true;
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
@@ -648,8 +777,21 @@ namespace UserInterface.BakımOnarım
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new System.Drawing.Point(29, 831);
                 GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-
+                GrbVeriGecmisi.Visible = false;
+                ChkKapat.Text = "SADECE AÇIKLAMA EKLE";
+                ChkKapat.Visible = true;
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
+            }
+
+            if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+            {
+                GrbMalzemeBilgileri.Visible = true;
+                BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
+                GrbVeriGecmisi.Visible = false;
+                ChkKapat.Text = "SADECE AÇIKLAMA EKLE";
+                ChkKapat.Visible = true;
+                //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
             }
 
             if (arizaKayit.IslemAdimi == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
@@ -660,10 +802,9 @@ namespace UserInterface.BakımOnarım
             {
                 ChkKapat.Visible = false;
             }
-
             abfForm = arizaKayit.AbfFormNo;
             id = arizaKayit.Id;
-
+            IslemAdimlariSureleri();
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM");
 
             //bulunduguIslemAdimi = gorevAtamaPersonel.IslemAdimi;
@@ -944,7 +1085,7 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
             }
-            
+
             if (LblMevcutIslemAdimi.Text != "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
             {
                 string kayitKontrol = KayitKontrol();
@@ -1058,6 +1199,36 @@ namespace UserInterface.BakımOnarım
 
             }
 
+            if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+            {
+                tekrarliIslemAdimi = false;
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(id, "BAKIM ONARIM");
+                foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+                {
+                    if (item.IslemAdimi == LblMevcutIslemAdimi.Text && item.Sure != "Devam Ediyor")
+                    {
+                        tekrarliIslemAdimi = true;
+                        break;
+                    }
+                }
+
+                if (tekrarliIslemAdimi != true)
+                {
+                    if (DtgSokulen.RowCount == 0)
+                    {
+                        MessageBox.Show("Lütfen sökülen malzeme bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                    if (CmbGarantiDurumu.Text == "")
+                    {
+                        MessageBox.Show("Lütfen Garanti Durumu Bilgisini Doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
+            }
+
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
                 List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
@@ -1073,9 +1244,9 @@ namespace UserInterface.BakımOnarım
 
                 string[] islemadimi = CmbIslemAdimi.Text.Split('_');
 
-                if (tekrarliIslemAdimi != true )
+                if (tekrarliIslemAdimi != true)
                 {
-                    if (islemadimi[0].ConInt() > 1500 && islemadimi[0].ConInt()!=300)
+                    if (islemadimi[0].ConInt() > 1500 && islemadimi[0].ConInt() != 300)
                     {
                         if (CmbIslemAdimi.Text != "1500_BAKIM ONARIM (SAHA)")
                         {
@@ -1102,12 +1273,21 @@ namespace UserInterface.BakımOnarım
                                     return;
                                 }
 
+
                             }
 
                         }
                     }
                 }
 
+            }
+            if (LblMevcutIslemAdimi.Text== "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+            {
+                if (DtgSokulen.RowCount == 0)
+                {
+                    MessageBox.Show("Lütfen sökülen malzeme bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
             }
 
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -1130,7 +1310,7 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
             }
-            
+
             if (LblMevcutIslemAdimi.Text == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
             {
                 if (ChkKapat.Checked == true)
@@ -1212,47 +1392,143 @@ namespace UserInterface.BakımOnarım
 
             }
 
+            if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+            {
+                foreach (DataGridViewRow item in DtgSokulen.Rows)
+                {
+                    AbfMalzeme abfMalzemeSokulen = new AbfMalzeme(id, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(),
+                        item.Cells["SokulenBirim"].Value.ToString(), item.Cells["CalismaSaatiSokulen"].Value.ConDouble(), item.Cells["RevizyonSokulen"].Value.ToString(), item.Cells["CalısmaDurumu"].Value.ToString(), item.Cells["FizikselDurumu"].Value.ToString(), item.Cells["MalzemeYapilacakIslem"].Value.ToString());
+
+                    abfMalzemeManager.AddSokulen(abfMalzemeSokulen);
+
+                    AbfMalzeme abfMalzeme = abfMalzemeManager.GetBul(id, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
+
+                    if (item.Cells["FizikselDurumu"].Value.ToString() == "SÖKÜLDÜ")
+                    {
+                        AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
+                        abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+                    }
+                }
+
+                SistemCihazBilgileriKayit();
+
+                DateTime lojTarih = new DateTime(DtLojistikTarih.Value.Year, DtLojistikTarih.Value.Month, DtLojistikTarih.Value.Day, DtLojistikSaat.Value.Hour, DtLojistikSaat.Value.Minute, DtLojistikSaat.Value.Second);
+
+                if (CmbGarantiDurumu.Text == "İÇİ")
+                {
+                    lojTarihi = "";
+                }
+                else
+                {
+                    lojTarihi = lojTarih.ToString();
+                }
+
+                ArizaKayit arizaKayit = new ArizaKayit(id, CmbGarantiDurumu.Text, TxtLojistikSorumlusu.Text, TxtLojistikSorRutbesi.Text, TxtLojistikSorGorevi.Text, lojTarihi, TxtYapilanIslemler.Text.ToUpper(), infos[1].ToString());
+
+                string mesaj2 = arizaKayitManager.ArizaSiparisOlustur(arizaKayit);
+            }
+
+
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
-                if (tekrarliIslemAdimi == false)
+                if (tekrarliIslemAdimi==false) // KONTROL EDİLECEK
                 {
                     if (CmbIslemAdimi.Text != "1500_BAKIM ONARIM (SAHA)")
                     {
                         if (CmbIslemAdimi.Text != "1000_DEPO STOK KONTROL")
                         {
-                            //abfMalzemes = abfMalzemeManager.GetList(id);
+                            abfMalzemes = abfMalzemeManager.GetList(id);
 
-                            //var addItems = new HashSet<AbfMalzeme>();
-                            //var updateItems = new HashSet<AbfMalzeme>();
+                            var addItems = new HashSet<AbfMalzeme>();
+                            var updateItems = new HashSet<AbfMalzeme>();
 
+                            foreach (DataGridViewRow takilan in DtgTakilan.Rows)
+                            {
+                                AbfMalzeme abfMalzeme = new AbfMalzeme(takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanTanim"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanMiktar"].Value.ConInt(), takilan.Cells["TakilanBirim"].Value.ToString(), takilan.Cells["TakilanCalismaSaati"].Value.ConDouble(), takilan.Cells["TakilanRevizyon"].Value.ToString());
 
-                            //foreach (DataGridViewRow takilan in DtgTakilan.Rows)
-                            //{
-                            //    AbfMalzeme abfMalzeme = new AbfMalzeme(takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanTanim"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanMiktar"].Value.ConInt(), takilan.Cells["TakilanBirim"].Value.ToString(), takilan.Cells["TakilanCalismaSaati"].Value.ConDouble(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(takilan.Cells["TakilanStokNo"].Value.ToString())))
+                                {
+                                    if (!abfMalzemes.Any(x => x.TakilanStokNo.Equals(takilan.Cells["TakilanStokNo"].Value.ToString())))
+                                    {
+                                        updateItems.Add(abfMalzeme);
+                                    }
 
-                            //    if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(takilan.Cells["TakilanStokNo"].Value.ToString())))
-                            //    {
-                            //        updateItems.Add(abfMalzeme);
-                            //    }
-                            //    else
-                            //    {
-                            //        addItems.Add(abfMalzeme);
-                            //    }
+                                    if (takilan.Cells["TakilanTeslimDurum"].Value.ToString() != "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI")
+                                    {
+                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
 
-                            //}
+                                        if (abfMalzemeIslemKayit1 == null)
+                                        {
+                                            AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "BÖLGEYE SEVKİYAT BEKLEYEN", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                            if (abfMalzemeIslemKayit2 == null)
+                                            {
+                                                AbfMalzemeIslemKayit abfMalzemeIslemKayit3 = new AbfMalzemeIslemKayit(takilan.Cells["TakilanId"].Value.ConInt(), "BÖLGEYE SEVKİYAT BEKLEYEN", DateTime.Now, infos[1].ToString(), 1, "TAKILAN", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit3);
+                                            }
 
-                            //int index = 0;
-                            //foreach (AbfMalzeme item in updateItems)
-                            //{
-                            //    int sokulenId = abfMalzemes[index].Id;
-                            //    abfMalzemeManager.UpdateTakilan(item, sokulenId);
-                            //    abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
-                            //    index++;
-                            //}
-                            //foreach (AbfMalzeme item in addItems)
-                            //{
-                            //    abfMalzemeManager.AddTakilan(item, id);
-                            //}
+                                            AbfMalzemeIslemKayit abfMalzemeIslemKayit4 = new AbfMalzemeIslemKayit(takilan.Cells["TakilanId"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)", DateTime.Now, infos[1].ToString(), 0, "TAKILAN", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                            abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit4);
+
+                                            abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                        }
+
+                                        if (abfMalzemeIslemKayit1.MalzemeDurumu == "SÖKÜLEN")
+                                        {
+                                            abfMalzemeManager.MalzemeTeslimBilgisiUpdate(takilan.Cells["TakilanId"].Value.ConInt(), "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI");
+                                        }
+                                        else
+                                        {
+                                            abfMalzemeManager.TakilanMalzemeTeslimBilgisiUpdate(takilan.Cells["TakilanId"].Value.ConInt(), "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI");
+                                        }
+
+                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(takilan.Cells["TakilanId"].Value.ConInt(), "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                        abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+
+                                        if (abfMalzemeIslemKayit1 != null)
+                                        {
+                                            TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
+                                            if (gecenSure.TotalMinutes.ConInt() > 0)
+                                            {
+                                                abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, gecenSure.TotalMinutes.ConInt());
+                                            }
+                                            else
+                                            {
+                                                abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
+                                            }
+                                        }
+                                    }
+
+                                }
+                                else
+                                {
+                                    addItems.Add(abfMalzeme);
+                                }
+
+                            }
+
+                            int index = 0;
+                            foreach (AbfMalzeme item in updateItems)
+                            {
+                                int sokulenId = abfMalzemes[index].Id;
+                                abfMalzemeManager.UpdateTakilan(item, sokulenId);
+                                abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
+
+                                
+                                index++;
+                            }
+                            foreach (AbfMalzeme item in addItems)
+                            {
+                                abfMalzemeManager.AddTakilan(item, id);
+
+                                AbfMalzemeIslemKayit abfMalzemeIslemKayit3 = new AbfMalzemeIslemKayit(item.Id, "BÖLGEYE SEVKİYAT BEKLEYEN", DateTime.Now, infos[1].ToString(), 1, "TAKILAN", item.TakilanStokNo, item.TakilanSeriNo, item.TakilanRevizyon);
+                                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit3);
+
+                                AbfMalzemeIslemKayit abfMalzemeIslemKayit4 = new AbfMalzemeIslemKayit(item.Id, "SEVKİYAT ARACI (VAN - ARA DEPO)", DateTime.Now, infos[1].ToString(), 1, "TAKILAN", item.TakilanStokNo, item.TakilanSeriNo, item.TakilanRevizyon);
+                                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit4);
+
+                                AbfMalzemeIslemKayit abfMalzemeIslemKayit5 = new AbfMalzemeIslemKayit(item.Id, "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI", DateTime.Now, infos[1].ToString(), 1, "TAKILAN", item.TakilanStokNo, item.TakilanSeriNo, item.TakilanRevizyon);
+                                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit5);
+                            }
                         }
                     }
                 }
@@ -1333,6 +1609,7 @@ namespace UserInterface.BakımOnarım
             GrbMalzemeBilgileri.Visible = false;
             BtnKaydet.Location = new System.Drawing.Point(161, 405);
             GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
+            DtgIslemKayitlari.DataSource = null;
         }
     }
 }

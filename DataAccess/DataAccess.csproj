@@ -164,6 +164,8 @@
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeStokDal.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\SevkiyatDal.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\SevkiyatMalzemeDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\UstTakimDal.cs" />
     <Compile Include="Concreate\GorevAtamaPersonelDal.cs" />

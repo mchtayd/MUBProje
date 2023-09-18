@@ -118,7 +118,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return item;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return null;
             }
@@ -241,7 +241,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return bolgeKayits;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<BolgeKayit>();
             }
@@ -260,7 +260,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader.Close();
                 return bolgeKayits;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<BolgeKayit>();
             }

@@ -6011,6 +6011,17 @@ namespace UserInterface.STS
 
         }
 
+        private void fazlaÇalışmaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFazlaCalisma Go = new FrmFazlaCalisma();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.infos = infos;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageFazlaCalisma", "FAZLA ÇALIŞMA/MESAİ", Go);
+            Go.Show();
+        }
+
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmEtiketYaz frmEtiketYaz = new FrmEtiketYaz();

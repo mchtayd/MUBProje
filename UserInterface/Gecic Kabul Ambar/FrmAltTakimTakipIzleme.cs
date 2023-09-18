@@ -86,6 +86,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
             DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
             DtgList.Columns["DosyaYolu"].Visible = false;
+            DtgList.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
+            DtgList.Columns["TakilanTeslimDurum"].Visible = false;
 
             DtgList.Columns["AbfNo"].DisplayIndex = 0;
             DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 3;

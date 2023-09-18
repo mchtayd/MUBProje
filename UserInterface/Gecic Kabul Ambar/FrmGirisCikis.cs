@@ -624,7 +624,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             abfMalzemesStoklar = abfMalzemeManager.GetList(rezerveId);
                             foreach (AbfMalzeme item in abfMalzemesStoklar)
                             {
-                                if (item.SokulenStokNo == CmbStokManuel.Text)
+                                if (item.SokulenStokNo == CmbStokManuel.Text && LblDepodanBildirimePersonel.Text!="OTS ARIZASI")
                                 {
                                     if (item.TeminDurumu != "REZERVE EDİLDİ")
                                     {
@@ -1476,16 +1476,27 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 {
                     addItems.Add(abfMalzeme2);
                 }
-
-
                 int index = 0;
+                foreach (AbfMalzeme item in abfMalzemes)
+                {
+                    if (item.TakilanStokNo=="")
+                    {
+                        if (abfMalzemes.Count > 1)
+                        {
+                            index++;
+                        }
+                        continue;
+                    }
+                }
+
                 foreach (AbfMalzeme item in updateItems)
                 {
-                    int sokulenId = abfMalzemes[index].Id;
+                    int sokulenId = 0;
+                    sokulenId = abfMalzemes[index].Id;
                     abfMalzemeManager.UpdateTakilan(item, sokulenId);
                     abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
-                    index++;
                 }
+
                 foreach (AbfMalzeme item in addItems)
                 {
                     abfMalzemeManager.AddTakilan(item, id);

@@ -53,7 +53,7 @@ namespace UserInterface.BakımOnarım
 
         private void FrmArizaDevamEden_Load(object sender, EventArgs e)
         {
-            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
             {
                 contextMenuStrip1.Items[1].Enabled = true;
                 contextMenuStrip2.Items[0].Enabled = true;
@@ -688,6 +688,7 @@ namespace UserInterface.BakımOnarım
             frmMalzemeVeriGecmisi.takilanRevizyon = takilanRevizyon;
             frmMalzemeVeriGecmisi.takilantanim = takilanTanim;
             frmMalzemeVeriGecmisi.takilanmiktar = takilanMiktar.ConInt();
+            frmMalzemeVeriGecmisi.infos = infos;
             frmMalzemeVeriGecmisi.ShowDialog();
             malzemeId = 0;
         }

@@ -501,9 +501,7 @@ namespace UserInterface.STS
             this.TxtMasYerNo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.TxtMasYerNo.FormattingEnabled = true;
             this.TxtMasYerNo.Items.AddRange(new object[] {
-            "",
             "2017007-1",
-            "2017008-1",
             "2017008-2",
             "2017000-1"});
             this.TxtMasYerNo.Location = new System.Drawing.Point(176, 184);
@@ -516,10 +514,8 @@ namespace UserInterface.STS
             this.TxtIlgiliKisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.Simple;
             this.TxtIlgiliKisi.FormattingEnabled = true;
             this.TxtIlgiliKisi.Items.AddRange(new object[] {
-            "",
             "ERKAN İPEK",
-            "UĞUR DURAN",
-            "GÜLİZ MARAŞ",
+            "YASEMİN YORGUN",
             "RESUL GÜNEŞ"});
             this.TxtIlgiliKisi.Location = new System.Drawing.Point(176, 154);
             this.TxtIlgiliKisi.Name = "TxtIlgiliKisi";
@@ -531,9 +527,7 @@ namespace UserInterface.STS
             this.CmbFaturaFirma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbFaturaFirma.FormattingEnabled = true;
             this.CmbFaturaFirma.Items.AddRange(new object[] {
-            "",
             "ASELSAN AŞ. UGES ÜRÜN DES.MDL.",
-            "ASELSAN AŞ. UGES İÇ GÜV.PROG.DİR.",
             "ASELSAN AŞ. UGES İÇ GÜV.PROG.MDL.",
             "BAŞARAN İLERİ TEKNOLOJİ"});
             this.CmbFaturaFirma.Location = new System.Drawing.Point(176, 122);

@@ -55,7 +55,15 @@ namespace DataAccess.Concreate.BakimOnarim
 
         public string Delete(int id)
         {
-            throw new NotImplementedException();
+            try
+            {
+                sqlServices.Stored("MalzemeIslemKayitlariDelete", new SqlParameter("@id", id));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public AbfMalzemeIslemKayit Get(int benzersizId,string islem, string stokNo,string seriNo,string revizyon)

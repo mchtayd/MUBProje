@@ -1,5 +1,7 @@
 ﻿using DataAccess.Abstract;
+using DataAccess.Concreate;
 using DataAccess.Concreate.IdariIsler;
+using Entity;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -46,6 +48,29 @@ namespace Business.Concreate.IdarıIsler
                 return ex.Message;
             }
         }
+        public List<int> Yillar()
+        {
+            try
+            {
+                return yakitDokumDal.Yillar();
+            }
+            catch
+            {
+                return new List<int>();
+            }
+        }
+        public List<int> YillarTT()
+        {
+            try
+            {
+                return yakitDokumDal.YillarTT();
+            }
+            catch
+            {
+                return new List<int>();
+            }
+        }
+
         public string AddTasitTanima(YakitDokum entity)
         {
             try
@@ -138,7 +163,22 @@ namespace Business.Concreate.IdarıIsler
                 return new List<YakitDokum>();
             }
         }
-        
+        public List<YakitDokum> GetListTumu(int yil)
+        {
+            try
+            {
+                if(yil == 0)
+                {
+                    return yakitDokumDal.GetListTumu("");
+                }
+                return yakitDokumDal.GetListTumu(yil.ToString());
+            }
+            catch (Exception)
+            {
+                return new List<YakitDokum>();
+            }
+        }
+
         public List<YakitDokum> GetListAna(string alimTuru)
         {
             try
@@ -150,11 +190,16 @@ namespace Business.Concreate.IdarıIsler
                 return new List<YakitDokum>();
             }
         }
-        public List<YakitDokum> GetListTT()
+        public List<YakitDokum> GetListTT(int yil)
         {
             try
             {
-                return yakitDokumDal.GetListTT();
+
+                if (yil == 0)
+                {
+                    return yakitDokumDal.GetListTT("");
+                }
+                return yakitDokumDal.GetListTT(yil.ToString());
             }
             catch (Exception)
             {

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DtgGecmisSokulen = new System.Windows.Forms.DataGridView();
             this.LblTop = new System.Windows.Forms.Label();
@@ -62,12 +63,15 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.silToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgGecmisSokulen)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgGecmisTakilan)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox2
@@ -87,6 +91,7 @@
             this.DtgGecmisSokulen.AllowUserToDeleteRows = false;
             this.DtgGecmisSokulen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgGecmisSokulen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgGecmisSokulen.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgGecmisSokulen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgGecmisSokulen.Location = new System.Drawing.Point(3, 16);
             this.DtgGecmisSokulen.Name = "DtgGecmisSokulen";
@@ -94,6 +99,7 @@
             this.DtgGecmisSokulen.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgGecmisSokulen.Size = new System.Drawing.Size(567, 425);
             this.DtgGecmisSokulen.TabIndex = 4;
+            this.DtgGecmisSokulen.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgGecmisSokulen_CellMouseClick);
             // 
             // LblTop
             // 
@@ -131,6 +137,7 @@
             this.DtgGecmisTakilan.AllowUserToDeleteRows = false;
             this.DtgGecmisTakilan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgGecmisTakilan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgGecmisTakilan.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgGecmisTakilan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgGecmisTakilan.Location = new System.Drawing.Point(3, 16);
             this.DtgGecmisTakilan.Name = "DtgGecmisTakilan";
@@ -138,6 +145,7 @@
             this.DtgGecmisTakilan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgGecmisTakilan.Size = new System.Drawing.Size(567, 425);
             this.DtgGecmisTakilan.TabIndex = 4;
+            this.DtgGecmisTakilan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgGecmisTakilan_CellMouseClick);
             // 
             // LblTakilanTop
             // 
@@ -418,6 +426,21 @@
             this.label20.TabIndex = 8;
             this.label20.Text = "Stok No:";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.silToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            // 
+            // silToolStripMenuItem
+            // 
+            this.silToolStripMenuItem.Enabled = false;
+            this.silToolStripMenuItem.Name = "silToolStripMenuItem";
+            this.silToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.silToolStripMenuItem.Text = "Sil";
+            this.silToolStripMenuItem.Click += new System.EventHandler(this.silToolStripMenuItem_Click);
+            // 
             // FrmMalzemeVeriGecmisi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +469,7 @@
             this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -486,5 +510,7 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem silToolStripMenuItem;
     }
 }

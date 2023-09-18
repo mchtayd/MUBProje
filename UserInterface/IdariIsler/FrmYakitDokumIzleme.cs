@@ -17,10 +17,12 @@ namespace UserInterface.IdariIsler
     public partial class FrmYakitDokumIzleme : Form
     {
         YakitDokumManager yakitDokumManager;
-        List<YakitDokum> yakitDokums;
-        List<YakitDokum> yakitDokumsMalzemeler;
-        List<YakitDokum> yakitDokumsTasit;
+        List<YakitDokum> yakitDokums= new List<YakitDokum>();
+        List<YakitDokum> yakitDokumsMalzemeler = new List<YakitDokum>();
+        List<YakitDokum> yakitDokumsTasit = new List<YakitDokum>();
+        List<YakitDokum> yakitTumus= new List<YakitDokum>();
         string siparisNo="", dosyaYolu="";
+        bool start = true;
         public FrmYakitDokumIzleme()
         {
             InitializeComponent();
@@ -29,9 +31,43 @@ namespace UserInterface.IdariIsler
 
         private void FrmYakitDokumIzleme_Load(object sender, EventArgs e)
         {
+            Yillar();
             DataDisplay();
             DataDisplayTasima();
+            DataTumu();
+            start = false;
         }
+        void Yillar()
+        {
+            List<int> yillarTasitTanima = new List<int>();
+            List<int> yillarAnlasmali = new List<int>();
+            List<int> yillar = new List<int>();
+            yillarTasitTanima = yakitDokumManager.YillarTT();
+            yillarAnlasmali = yakitDokumManager.Yillar();
+
+            yillarTasitTanima.Sort();
+            yillarAnlasmali.Sort();
+
+            if (yillarTasitTanima.Count >= yillarAnlasmali.Count)
+            {
+                for (int i = 0; i < yillarTasitTanima.Count; i++)
+                {
+                    yillar.Add(yillarTasitTanima[i]);
+                }
+
+            }
+            if (yillarTasitTanima.Count < yillarAnlasmali.Count)
+            {
+                for (int i = 0; i < yillarAnlasmali.Count; i++)
+                {
+                    yillar.Add(yillarAnlasmali[i]);
+                }
+            }
+            CmbYillar.DataSource = yillar;
+            int index = CmbYillar.Items.Count - 1;
+            CmbYillar.SelectedIndex = index;
+        }
+
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -50,9 +86,74 @@ namespace UserInterface.IdariIsler
         }
         public void YenilenecekVeri()
         {
+            start = true;
             DataDisplay();
             DataDisplayTasima();
+            DataTumu();
+            start = false;
         }
+
+        void DataTumu()
+        {
+            yakitDokumsMalzemeler = new List<YakitDokum>();
+            yakitDokumsTasit = new List<YakitDokum>();
+            yakitTumus = new List<YakitDokum>();
+            dataBinderTumu.DataSource = null;
+            DtgGenel.DataSource = null;
+
+            if (ChkTumunuGoster.Checked == true)
+            {
+                yakitDokumsMalzemeler = yakitDokumManager.GetListTumu(0);
+                yakitDokumsTasit = yakitDokumManager.GetListTT(0);
+            }
+
+            if (CmbYillar.Text == "2021")
+            {
+                yakitDokumsMalzemeler = yakitDokumManager.GetListTumu(1990);
+                yakitDokumsTasit = yakitDokumManager.GetListTT(1990);
+            }
+            else
+            {
+                yakitDokumsMalzemeler = yakitDokumManager.GetListTumu(CmbYillar.Text.ConInt());
+                yakitDokumsTasit = yakitDokumManager.GetListTT(CmbYillar.Text.ConInt());
+            }
+
+            foreach (YakitDokum item in yakitDokumsMalzemeler)
+            {
+                yakitTumus.Add(item);
+            }
+
+            foreach (YakitDokum item in yakitDokumsTasit)
+            {
+                yakitTumus.Add(item);
+            }
+
+            dataBinderTumu.DataSource = yakitTumus.ToDataTable();
+            DtgGenel.DataSource = dataBinderTumu;
+            LblGenelttop.Text = DtgGenel.RowCount.ToString();
+
+            DtgGenel.Columns["Id"].Visible = false;
+            DtgGenel.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
+            DtgGenel.Columns["Firma"].HeaderText = "FİRMA";
+            DtgGenel.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgGenel.Columns["Tarih"].HeaderText = "TARİH";
+            DtgGenel.Columns["DefterNo"].Visible = false;
+            DtgGenel.Columns["SiraNo"].Visible = false;
+            DtgGenel.Columns["FisNo"].Visible = false;
+            DtgGenel.Columns["Personel"].HeaderText = "ZİMMETLİ PERSONEL";
+            DtgGenel.Columns["Plaka"].HeaderText = "PLAKA";
+            DtgGenel.Columns["AracSiparisNo"].HeaderText = "ARAÇ SİPARİŞ NO";
+            DtgGenel.Columns["LitreFiyati"].Visible = false;
+            DtgGenel.Columns["VerilenLitre"].HeaderText = "VERİLEN LİTRE";
+            DtgGenel.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
+            DtgGenel.Columns["DosyaYolu"].Visible = false;
+            DtgGenel.Columns["SiparisNo"].Visible = false;
+            DtgGenel.Columns["AlimTuru"].Visible = false;
+
+            ToplamlarGenel();
+            ToplamlarGenelLitre();
+        }
+
         void DataDisplay()
         {
             yakitDokums = yakitDokumManager.GetListAna("ANLAŞMALI PETROL");
@@ -82,11 +183,12 @@ namespace UserInterface.IdariIsler
         }
         void DataDisplayTasima()
         {
-            yakitDokumsTasit = yakitDokumManager.GetListTT();
+            yakitDokumsTasit = yakitDokumManager.GetListTT(0);
             dataBinder3.DataSource = yakitDokumsTasit.ToDataTable();
             DtgListTasit.DataSource = dataBinder3;
             TxtTopTasit.Text = DtgListTasit.RowCount.ToString();
             ToplamlarTasit();
+            ToplamlarTasitTanimaLitre();
 
             DtgListTasit.Columns["Id"].Visible = false;
             DtgListTasit.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
@@ -105,6 +207,7 @@ namespace UserInterface.IdariIsler
             DtgListTasit.Columns["DosyaYolu"].Visible = false;
             DtgListTasit.Columns["SiparisNo"].Visible = false;
             DtgListTasit.Columns["AlimTuru"].Visible = false;
+
         }
 
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -186,6 +289,24 @@ namespace UserInterface.IdariIsler
             }
             ToplamLitre.Text = toplam.ToString();
         }
+        void ToplamlarGenel()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgGenel.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgGenel.Rows[i].Cells["ToplamTutar"].Value);
+            }
+            LblGenel.Text = toplam.ToString("C2");
+        }
+        void ToplamlarGenelLitre()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgGenel.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgGenel.Rows[i].Cells["VerilenLitre"].Value);
+            }
+            LblLitre.Text = toplam.ToString();
+        }
         void ToplamlarTasit()
         {
             double toplam = 0;
@@ -194,6 +315,15 @@ namespace UserInterface.IdariIsler
                 toplam += Convert.ToDouble(DtgListTasit.Rows[i].Cells[13].Value);
             }
             LblGenelTopTasima.Text = toplam.ToString("C2");
+        }
+        void ToplamlarTasitTanimaLitre()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgListTasit.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgListTasit.Rows[i].Cells["VerilenLitre"].Value);
+            }
+            LblLitreTasitT.Text = toplam.ToString();
         }
         void ToplamlarTasitKalemler()
         {
@@ -287,6 +417,7 @@ namespace UserInterface.IdariIsler
             dataBinder3.Filter = DtgListTasit.FilterString;
             TxtTopTasit.Text = DtgListTasit.RowCount.ToString();
             ToplamlarTasit();
+            ToplamlarTasitTanimaLitre();
         }
 
         private void DtgListTasit_SortStringChanged(object sender, EventArgs e)
@@ -303,6 +434,48 @@ namespace UserInterface.IdariIsler
             }
             LblAlinanLitre2.Text = toplam.ToString();
         }
+
+        private void CmbYillar_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start == true)
+            {
+                return;
+            }
+            if (CmbYillar.SelectedIndex == -1)
+            {
+                return;
+            }
+            ChkTumunuGoster.Checked = false;
+            DataTumu();
+        }
+
+        private void ChkTumunuGoster_CheckedChanged(object sender, EventArgs e)
+        {
+            if (ChkTumunuGoster.Checked == true)
+            {
+                CmbYillar.SelectedIndex = -1;
+                DataTumu();
+            }
+            else
+            {
+                Yillar();
+                DataTumu();
+            }
+        }
+
+        private void DtgGenel_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderTumu.Filter = DtgGenel.FilterString;
+            LblGenelttop.Text = DtgGenel.RowCount.ToString();
+            ToplamlarGenel();
+            ToplamlarGenelLitre();
+        }
+
+        private void DtgGenel_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderTumu.Sort = DtgGenel.SortString;
+        }
+
         void Toplamlar4Tasit()
         {
             double toplam = 0;

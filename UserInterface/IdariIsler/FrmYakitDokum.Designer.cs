@@ -29,13 +29,15 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYakitDokum));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.ChkAyrilanPersonel = new System.Windows.Forms.CheckBox();
+            this.ChkAyrilanArac = new System.Windows.Forms.CheckBox();
             this.label19 = new System.Windows.Forms.Label();
             this.ToplamLitre = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
@@ -149,9 +151,32 @@ namespace UserInterface.IdariIsler
             this.BtnDosyaSec = new System.Windows.Forms.Button();
             this.TxtDosyaYolu = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.BtnNakitKaydet = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.ChkNakitPersonel = new System.Windows.Forms.CheckBox();
+            this.ChkNakitArac = new System.Windows.Forms.CheckBox();
+            this.LblToplamNakit = new System.Windows.Forms.Label();
+            this.TxtAlinanFiyatiAkaryakit = new System.Windows.Forms.TextBox();
+            this.TxtLitreFiyatiAkaryakit = new System.Windows.Forms.TextBox();
+            this.TxtSiparisNoNakit = new System.Windows.Forms.TextBox();
+            this.CmbNakitPlaka = new System.Windows.Forms.ComboBox();
+            this.CmbNakitPersonel = new System.Windows.Forms.ComboBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.LblIsAkisNoNakit = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.label23 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label24 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
-            this.ChkAyrilanArac = new System.Windows.Forms.CheckBox();
-            this.ChkAyrilanPersonel = new System.Windows.Forms.CheckBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -167,6 +192,7 @@ namespace UserInterface.IdariIsler
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDeneme)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTTList)).BeginInit();
+            this.tabPage4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -198,6 +224,7 @@ namespace UserInterface.IdariIsler
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 33);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -251,6 +278,28 @@ namespace UserInterface.IdariIsler
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "AKARYAKIT ANLAŞMALI PETROL";
             this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // ChkAyrilanPersonel
+            // 
+            this.ChkAyrilanPersonel.AutoSize = true;
+            this.ChkAyrilanPersonel.Location = new System.Drawing.Point(393, 175);
+            this.ChkAyrilanPersonel.Name = "ChkAyrilanPersonel";
+            this.ChkAyrilanPersonel.Size = new System.Drawing.Size(133, 17);
+            this.ChkAyrilanPersonel.TabIndex = 472;
+            this.ChkAyrilanPersonel.Text = "AYRILAN PERSONEL";
+            this.ChkAyrilanPersonel.UseVisualStyleBackColor = true;
+            this.ChkAyrilanPersonel.CheckedChanged += new System.EventHandler(this.ChkAyrilanPersonel_CheckedChanged);
+            // 
+            // ChkAyrilanArac
+            // 
+            this.ChkAyrilanArac.AutoSize = true;
+            this.ChkAyrilanArac.Location = new System.Drawing.Point(307, 203);
+            this.ChkAyrilanArac.Name = "ChkAyrilanArac";
+            this.ChkAyrilanArac.Size = new System.Drawing.Size(104, 17);
+            this.ChkAyrilanArac.TabIndex = 471;
+            this.ChkAyrilanArac.Text = "AYRILAN ARAÇ";
+            this.ChkAyrilanArac.UseVisualStyleBackColor = true;
+            this.ChkAyrilanArac.CheckedChanged += new System.EventHandler(this.ChkAyrilanArac_CheckedChanged);
             // 
             // label19
             // 
@@ -480,11 +529,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle5;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -921,11 +970,11 @@ namespace UserInterface.IdariIsler
             // 
             // RemoveList
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Red;
-            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
+            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle6;
             this.RemoveList.HeaderText = "KALDIR";
             this.RemoveList.MinimumWidth = 22;
             this.RemoveList.Name = "RemoveList";
@@ -1409,31 +1458,274 @@ namespace UserInterface.IdariIsler
             this.label16.TabIndex = 485;
             this.label16.Text = "Dosya Yolu:";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.BtnNakitKaydet);
+            this.tabPage4.Controls.Add(this.button1);
+            this.tabPage4.Controls.Add(this.ChkNakitPersonel);
+            this.tabPage4.Controls.Add(this.ChkNakitArac);
+            this.tabPage4.Controls.Add(this.LblToplamNakit);
+            this.tabPage4.Controls.Add(this.TxtAlinanFiyatiAkaryakit);
+            this.tabPage4.Controls.Add(this.TxtLitreFiyatiAkaryakit);
+            this.tabPage4.Controls.Add(this.TxtSiparisNoNakit);
+            this.tabPage4.Controls.Add(this.CmbNakitPlaka);
+            this.tabPage4.Controls.Add(this.CmbNakitPersonel);
+            this.tabPage4.Controls.Add(this.textBox4);
+            this.tabPage4.Controls.Add(this.label33);
+            this.tabPage4.Controls.Add(this.label34);
+            this.tabPage4.Controls.Add(this.label35);
+            this.tabPage4.Controls.Add(this.label36);
+            this.tabPage4.Controls.Add(this.label37);
+            this.tabPage4.Controls.Add(this.label38);
+            this.tabPage4.Controls.Add(this.label39);
+            this.tabPage4.Controls.Add(this.LblIsAkisNoNakit);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.dateTimePicker1);
+            this.tabPage4.Controls.Add(this.label23);
+            this.tabPage4.Controls.Add(this.comboBox1);
+            this.tabPage4.Controls.Add(this.label24);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1457, 842);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "AKARYAKIT NAKİT";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // BtnNakitKaydet
+            // 
+            this.BtnNakitKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnNakitKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnNakitKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnNakitKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnNakitKaydet.Image")));
+            this.BtnNakitKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnNakitKaydet.Location = new System.Drawing.Point(129, 298);
+            this.BtnNakitKaydet.Name = "BtnNakitKaydet";
+            this.BtnNakitKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnNakitKaydet.TabIndex = 490;
+            this.BtnNakitKaydet.Text = "     KAYDET";
+            this.BtnNakitKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnNakitKaydet.UseVisualStyleBackColor = false;
+            this.BtnNakitKaydet.Click += new System.EventHandler(this.BtnNakitKaydet_Click);
+            // 
+            // button1
+            // 
+            this.button1.AccessibleDescription = "";
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(378, 47);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(34, 29);
+            this.button1.TabIndex = 489;
+            this.button1.Tag = "admin";
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // ChkNakitPersonel
+            // 
+            this.ChkNakitPersonel.AutoSize = true;
+            this.ChkNakitPersonel.Location = new System.Drawing.Point(381, 132);
+            this.ChkNakitPersonel.Name = "ChkNakitPersonel";
+            this.ChkNakitPersonel.Size = new System.Drawing.Size(133, 17);
+            this.ChkNakitPersonel.TabIndex = 488;
+            this.ChkNakitPersonel.Text = "AYRILAN PERSONEL";
+            this.ChkNakitPersonel.UseVisualStyleBackColor = true;
+            this.ChkNakitPersonel.CheckedChanged += new System.EventHandler(this.ChkNakitPersonel_CheckedChanged);
+            // 
+            // ChkNakitArac
+            // 
+            this.ChkNakitArac.AutoSize = true;
+            this.ChkNakitArac.Location = new System.Drawing.Point(295, 161);
+            this.ChkNakitArac.Name = "ChkNakitArac";
+            this.ChkNakitArac.Size = new System.Drawing.Size(104, 17);
+            this.ChkNakitArac.TabIndex = 487;
+            this.ChkNakitArac.Text = "AYRILAN ARAÇ";
+            this.ChkNakitArac.UseVisualStyleBackColor = true;
+            this.ChkNakitArac.CheckedChanged += new System.EventHandler(this.ChkNakitArac_CheckedChanged);
+            // 
+            // LblToplamNakit
+            // 
+            this.LblToplamNakit.AutoSize = true;
+            this.LblToplamNakit.Location = new System.Drawing.Point(126, 266);
+            this.LblToplamNakit.Name = "LblToplamNakit";
+            this.LblToplamNakit.Size = new System.Drawing.Size(13, 13);
+            this.LblToplamNakit.TabIndex = 486;
+            this.LblToplamNakit.Text = "0";
+            // 
+            // TxtAlinanFiyatiAkaryakit
+            // 
+            this.TxtAlinanFiyatiAkaryakit.Location = new System.Drawing.Point(129, 236);
+            this.TxtAlinanFiyatiAkaryakit.Name = "TxtAlinanFiyatiAkaryakit";
+            this.TxtAlinanFiyatiAkaryakit.Size = new System.Drawing.Size(160, 20);
+            this.TxtAlinanFiyatiAkaryakit.TabIndex = 485;
+            this.TxtAlinanFiyatiAkaryakit.TextChanged += new System.EventHandler(this.TxtAlinanFiyatiAkaryakit_TextChanged);
+            this.TxtAlinanFiyatiAkaryakit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtAlinanFiyatiAkaryakit_KeyPress);
+            // 
+            // TxtLitreFiyatiAkaryakit
+            // 
+            this.TxtLitreFiyatiAkaryakit.Location = new System.Drawing.Point(129, 210);
+            this.TxtLitreFiyatiAkaryakit.Name = "TxtLitreFiyatiAkaryakit";
+            this.TxtLitreFiyatiAkaryakit.Size = new System.Drawing.Size(160, 20);
+            this.TxtLitreFiyatiAkaryakit.TabIndex = 484;
+            this.TxtLitreFiyatiAkaryakit.TextChanged += new System.EventHandler(this.TxtLitreFiyatiAkaryakit_TextChanged);
+            this.TxtLitreFiyatiAkaryakit.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox2_KeyPress);
+            // 
+            // TxtSiparisNoNakit
+            // 
+            this.TxtSiparisNoNakit.Location = new System.Drawing.Point(129, 184);
+            this.TxtSiparisNoNakit.Name = "TxtSiparisNoNakit";
+            this.TxtSiparisNoNakit.Size = new System.Drawing.Size(160, 20);
+            this.TxtSiparisNoNakit.TabIndex = 483;
+            // 
+            // CmbNakitPlaka
+            // 
+            this.CmbNakitPlaka.FormattingEnabled = true;
+            this.CmbNakitPlaka.Items.AddRange(new object[] {
+            "ALKANLAR PETROL (ÇUKURCA)",
+            "GÜLYAZI PETROL (ŞIRNAK)",
+            "KOÇYİĞİT PETROL (DERECİK)"});
+            this.CmbNakitPlaka.Location = new System.Drawing.Point(129, 157);
+            this.CmbNakitPlaka.Name = "CmbNakitPlaka";
+            this.CmbNakitPlaka.Size = new System.Drawing.Size(160, 21);
+            this.CmbNakitPlaka.TabIndex = 482;
+            this.CmbNakitPlaka.SelectedIndexChanged += new System.EventHandler(this.CmbAnlasmaliPlaka_SelectedIndexChanged);
+            // 
+            // CmbNakitPersonel
+            // 
+            this.CmbNakitPersonel.FormattingEnabled = true;
+            this.CmbNakitPersonel.Location = new System.Drawing.Point(129, 130);
+            this.CmbNakitPersonel.Name = "CmbNakitPersonel";
+            this.CmbNakitPersonel.Size = new System.Drawing.Size(246, 21);
+            this.CmbNakitPersonel.TabIndex = 481;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(129, 104);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(160, 20);
+            this.textBox4.TabIndex = 480;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(47, 266);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(73, 13);
+            this.label33.TabIndex = 479;
+            this.label33.Text = "Toplam Tutar:";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(58, 240);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(62, 13);
+            this.label34.TabIndex = 478;
+            this.label34.Text = "Alınan Litre:";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(63, 214);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(57, 13);
+            this.label35.TabIndex = 477;
+            this.label35.Text = "Litre Fiyatı:";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(37, 188);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(83, 13);
+            this.label36.TabIndex = 476;
+            this.label36.Text = "Araç Sipariş No:";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(51, 161);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(69, 13);
+            this.label37.TabIndex = 475;
+            this.label37.Text = "Araç Plakası:";
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(18, 134);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(102, 13);
+            this.label38.TabIndex = 474;
+            this.label38.Text = "Yakıt Alan Personel:";
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Location = new System.Drawing.Point(80, 108);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(40, 13);
+            this.label39.TabIndex = 473;
+            this.label39.Text = "Fiş No:";
+            // 
+            // LblIsAkisNoNakit
+            // 
+            this.LblIsAkisNoNakit.AutoSize = true;
+            this.LblIsAkisNoNakit.Location = new System.Drawing.Point(126, 22);
+            this.LblIsAkisNoNakit.Name = "LblIsAkisNoNakit";
+            this.LblIsAkisNoNakit.Size = new System.Drawing.Size(19, 13);
+            this.LblIsAkisNoNakit.TabIndex = 464;
+            this.LblIsAkisNoNakit.Text = "00";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(62, 22);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(58, 13);
+            this.label17.TabIndex = 463;
+            this.label17.Text = "İş Akış No:";
+            // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateTimePicker1.Location = new System.Drawing.Point(129, 78);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(160, 20);
+            this.dateTimePicker1.TabIndex = 462;
+            // 
+            // label23
+            // 
+            this.label23.AutoSize = true;
+            this.label23.Location = new System.Drawing.Point(86, 82);
+            this.label23.Name = "label23";
+            this.label23.Size = new System.Drawing.Size(34, 13);
+            this.label23.TabIndex = 461;
+            this.label23.Text = "Tarih:";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(129, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(246, 21);
+            this.comboBox1.TabIndex = 460;
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(85, 55);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(35, 13);
+            this.label24.TabIndex = 459;
+            this.label24.Text = "Firma:";
+            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // ChkAyrilanArac
-            // 
-            this.ChkAyrilanArac.AutoSize = true;
-            this.ChkAyrilanArac.Location = new System.Drawing.Point(307, 203);
-            this.ChkAyrilanArac.Name = "ChkAyrilanArac";
-            this.ChkAyrilanArac.Size = new System.Drawing.Size(104, 17);
-            this.ChkAyrilanArac.TabIndex = 471;
-            this.ChkAyrilanArac.Text = "AYRILAN ARAÇ";
-            this.ChkAyrilanArac.UseVisualStyleBackColor = true;
-            this.ChkAyrilanArac.CheckedChanged += new System.EventHandler(this.ChkAyrilanArac_CheckedChanged);
-            // 
-            // ChkAyrilanPersonel
-            // 
-            this.ChkAyrilanPersonel.AutoSize = true;
-            this.ChkAyrilanPersonel.Location = new System.Drawing.Point(393, 175);
-            this.ChkAyrilanPersonel.Name = "ChkAyrilanPersonel";
-            this.ChkAyrilanPersonel.Size = new System.Drawing.Size(133, 17);
-            this.ChkAyrilanPersonel.TabIndex = 472;
-            this.ChkAyrilanPersonel.Text = "AYRILAN PERSONEL";
-            this.ChkAyrilanPersonel.UseVisualStyleBackColor = true;
-            this.ChkAyrilanPersonel.CheckedChanged += new System.EventHandler(this.ChkAyrilanPersonel_CheckedChanged);
             // 
             // FrmYakitDokum
             // 
@@ -1463,6 +1755,8 @@ namespace UserInterface.IdariIsler
             this.groupBox5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgDeneme)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTTList)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1589,5 +1883,30 @@ namespace UserInterface.IdariIsler
         private ADGV.AdvancedDataGridView DtgDeneme;
         private System.Windows.Forms.CheckBox ChkAyrilanArac;
         private System.Windows.Forms.CheckBox ChkAyrilanPersonel;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label LblIsAkisNoNakit;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.Label label23;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label24;
+        private System.Windows.Forms.CheckBox ChkNakitPersonel;
+        private System.Windows.Forms.CheckBox ChkNakitArac;
+        private System.Windows.Forms.Label LblToplamNakit;
+        private System.Windows.Forms.TextBox TxtAlinanFiyatiAkaryakit;
+        private System.Windows.Forms.TextBox TxtLitreFiyatiAkaryakit;
+        private System.Windows.Forms.TextBox TxtSiparisNoNakit;
+        private System.Windows.Forms.ComboBox CmbNakitPlaka;
+        private System.Windows.Forms.ComboBox CmbNakitPersonel;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button BtnNakitKaydet;
     }
 }

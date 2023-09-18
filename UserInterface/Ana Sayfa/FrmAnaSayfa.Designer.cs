@@ -147,6 +147,8 @@ namespace UserInterface.STS
             this.TimerFileRead = new System.Windows.Forms.Timer(this.components);
             this.timerIzlemeChc = new System.Windows.Forms.Timer(this.components);
             this.TmMesajControl = new System.Windows.Forms.Timer(this.components);
+            this.fazlaÇalışmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fazlaÇalışmaOnayToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel4.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -683,7 +685,8 @@ namespace UserInterface.STS
             this.toolStripMenuItem3,
             this.konaklamaToolStripMenuItem,
             this.uçakOtobüsToolStripMenuItem,
-            this.izinOnayToolStripMenuItem});
+            this.izinOnayToolStripMenuItem,
+            this.fazlaÇalışmaOnayToolStripMenuItem});
             this.onayEkranlarıToolStripMenuItem.Name = "onayEkranlarıToolStripMenuItem";
             this.onayEkranlarıToolStripMenuItem.Size = new System.Drawing.Size(241, 26);
             this.onayEkranlarıToolStripMenuItem.Text = "Onay Ekranları";
@@ -996,7 +999,8 @@ namespace UserInterface.STS
             this.uçakVeOtobüsBiletiToolStripMenuItem,
             this.harcamaBeyannamesiToolStripMenuItem,
             this.malzemeİstekFormuToolStripMenuItem,
-            this.envanterArızaKayıtToolStripMenuItem});
+            this.envanterArızaKayıtToolStripMenuItem,
+            this.fazlaÇalışmaToolStripMenuItem});
             this.toolStripDropDownButton6.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton6.Image")));
             this.toolStripDropDownButton6.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripDropDownButton6.Name = "toolStripDropDownButton6";
@@ -1227,6 +1231,19 @@ namespace UserInterface.STS
             this.TmMesajControl.Interval = 6000;
             this.TmMesajControl.Tick += new System.EventHandler(this.TmMesajControl_Tick);
             // 
+            // fazlaÇalışmaToolStripMenuItem
+            // 
+            this.fazlaÇalışmaToolStripMenuItem.Name = "fazlaÇalışmaToolStripMenuItem";
+            this.fazlaÇalışmaToolStripMenuItem.Size = new System.Drawing.Size(238, 26);
+            this.fazlaÇalışmaToolStripMenuItem.Text = "Fazla Çalışma/Mesai";
+            this.fazlaÇalışmaToolStripMenuItem.Click += new System.EventHandler(this.fazlaÇalışmaToolStripMenuItem_Click);
+            // 
+            // fazlaÇalışmaOnayToolStripMenuItem
+            // 
+            this.fazlaÇalışmaOnayToolStripMenuItem.Name = "fazlaÇalışmaOnayToolStripMenuItem";
+            this.fazlaÇalışmaOnayToolStripMenuItem.Size = new System.Drawing.Size(214, 26);
+            this.fazlaÇalışmaOnayToolStripMenuItem.Text = "Fazla Çalışma Onay";
+            // 
             // FrmAnaSayfa
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1390,5 +1407,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.ToolStripMenuItem slaytGörünümToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem slaytGörünümToolStripMenuItem2;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem fazlaÇalışmaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fazlaÇalışmaOnayToolStripMenuItem;
     }
 }

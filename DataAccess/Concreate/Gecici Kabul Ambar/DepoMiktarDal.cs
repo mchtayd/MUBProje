@@ -154,6 +154,60 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public DepoMiktar GetBarkodLokasyonBul2500(string stokNo, string seriNo, string revizyon, string takipDurum, int miktar)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BarkodLokasyonBul2500",
+                    new SqlParameter("@stokNo", stokNo),
+                    new SqlParameter("@seriNo", seriNo),
+                    new SqlParameter("@revizyon", revizyon),
+                    new SqlParameter("@takipDurum", takipDurum),
+                    new SqlParameter("miktar", miktar));
+                DepoMiktar item = null;
+                while (dataReader.Read())
+                {
+                    item = new DepoMiktar(
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+        public DepoMiktar GetBarkodLokasyonBul3000(string stokNo, string seriNo, string revizyon, string takipDurum, int miktar)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BarkodLokasyonBul3000",
+                    new SqlParameter("@stokNo", stokNo),
+                    new SqlParameter("@seriNo", seriNo),
+                    new SqlParameter("@revizyon", revizyon),
+                    new SqlParameter("@takipDurum", takipDurum),
+                    new SqlParameter("miktar", miktar));
+                DepoMiktar item = null;
+                while (dataReader.Read())
+                {
+                    item = new DepoMiktar(
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
         public DepoMiktar StokSeriLotKontrol(string stokNo, string depoNo, string seriNo, string lotNo, string revizyon)
         {
             try

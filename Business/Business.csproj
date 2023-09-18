@@ -133,6 +133,8 @@
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeKayitManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeStokManager.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\SevkiyatMalzemeManager.cs" />
+    <Compile Include="Concreate\Gecici Kabul Ambar\SevkiyatManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\StokGirisCikisManager.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\UstTakimManager.cs" />
     <Compile Include="Concreate\GorevAtamaManager.cs" />
