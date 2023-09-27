@@ -47,7 +47,8 @@ namespace DataAccess.Concreate
                     new SqlParameter("@proje", entity.Proje),
                     new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma),
                     new SqlParameter("@butceTanimi", entity.ButceTanimi),
-                    new SqlParameter("@maliyetTuru", entity.MaliyetTuru));
+                    new SqlParameter("@maliyetTuru", entity.MaliyetTuru),
+                    new SqlParameter("@butceGiderTuru", entity.ButceGiderTuru));
 
                 dataReader.Close();
                 return "OK";
@@ -362,7 +363,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString());
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -446,7 +448,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString());
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -512,7 +515,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString());
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -558,7 +562,8 @@ namespace DataAccess.Concreate
                         dataReader["TEKLIF_DURUM"].ToString(),
                         dataReader["UC_TEKLIF"].ConInt(),
                         dataReader["PROJE"].ToString(),
-                        dataReader["SATIN_ALINAN_FIRMA"].ToString()));
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -604,7 +609,8 @@ namespace DataAccess.Concreate
                         dataReader["TEKLIF_DURUM"].ToString(),
                         dataReader["UC_TEKLIF"].ConInt(),
                         dataReader["PROJE"].ToString(),
-                        dataReader["SATIN_ALINAN_FIRMA"].ToString()));
+                        dataReader["SATIN_ALINAN_FIRMA"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -757,7 +763,8 @@ namespace DataAccess.Concreate
                     new SqlParameter("@belgeTuru", entity.BelgeTuru),
                     new SqlParameter("@belgeNumarasi", entity.BelgeNumarasi),
                     new SqlParameter("@belgeTarihi", entity.BelgeTarihi),
-                    new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma));
+                    new SqlParameter("@satinAlinanFirma", entity.SatinAlinanFirma),
+                    new SqlParameter("@butceGiderTuru", entity.ButceGiderTuru));
 
                 dataReader.Close();
                 return "OK";
@@ -1026,7 +1033,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -1092,7 +1100,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1159,7 +1168,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1226,7 +1236,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1293,7 +1304,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return satDatas;
@@ -1359,7 +1371,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1426,7 +1439,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1493,7 +1507,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1560,7 +1575,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1627,7 +1643,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1694,7 +1711,8 @@ namespace DataAccess.Concreate
                         dataReader["DEPO_TESLIM_TARIHI"].ConDate(),
                         dataReader["DEPO_TESLIM_DURUMU"].ToString(),
                         dataReader["BUTCE_TANIMI"].ToString(),
-                        dataReader["MALIYET_TURU"].ToString()));
+                        dataReader["MALIYET_TURU"].ToString(),
+                        dataReader["BUTCE_GIDER_TURU"].ToString()));
 
                 }
                 dataReader.Close();
@@ -1705,6 +1723,25 @@ namespace DataAccess.Concreate
                 return new List<SatDataGridview1>();
             }
         }
-        
+
+        public List<string> ButceGiderTuruList()
+        {
+            try
+            {
+                List<string> satDatas = new List<string>();
+                dataReader = sqlServices.StoreReader("ButceGiderTuruList");
+                while (dataReader.Read())
+                {
+                    satDatas.Add(dataReader["BUTCE_GIDER_TURU"].ToString());
+                }
+                dataReader.Close();
+                return satDatas;
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
+
     }
 }

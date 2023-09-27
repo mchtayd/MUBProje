@@ -33,6 +33,7 @@ namespace UserInterface.Yerleskeler
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnGiderTuruEkle = new System.Windows.Forms.Button();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.label64 = new System.Windows.Forms.Label();
@@ -80,6 +81,8 @@ namespace UserInterface.Yerleskeler
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.BtnDosya = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
+            this.CmbButceGiderTuru = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -112,6 +115,9 @@ namespace UserInterface.Yerleskeler
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.CmbButceGiderTuru);
+            this.groupBox1.Controls.Add(this.label13);
+            this.groupBox1.Controls.Add(this.BtnGiderTuruEkle);
             this.groupBox1.Controls.Add(this.TxtAciklama);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Controls.Add(this.label64);
@@ -146,10 +152,26 @@ namespace UserInterface.Yerleskeler
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Location = new System.Drawing.Point(25, 70);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(717, 610);
+            this.groupBox1.Size = new System.Drawing.Size(717, 637);
             this.groupBox1.TabIndex = 408;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "YERLEŞKE GİDERLERİ";
+            // 
+            // BtnGiderTuruEkle
+            // 
+            this.BtnGiderTuruEkle.AccessibleDescription = "";
+            this.BtnGiderTuruEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnGiderTuruEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnGiderTuruEkle.BackgroundImage")));
+            this.BtnGiderTuruEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnGiderTuruEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGiderTuruEkle.Location = new System.Drawing.Point(401, 48);
+            this.BtnGiderTuruEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnGiderTuruEkle.Name = "BtnGiderTuruEkle";
+            this.BtnGiderTuruEkle.Size = new System.Drawing.Size(34, 29);
+            this.BtnGiderTuruEkle.TabIndex = 552;
+            this.BtnGiderTuruEkle.Tag = "admin";
+            this.BtnGiderTuruEkle.UseVisualStyleBackColor = false;
+            this.BtnGiderTuruEkle.Click += new System.EventHandler(this.BtnGiderTuruEkle_Click);
             // 
             // TxtAciklama
             // 
@@ -191,6 +213,7 @@ namespace UserInterface.Yerleskeler
             this.BtnMaliyetEkle.TabIndex = 552;
             this.BtnMaliyetEkle.Tag = "admin";
             this.BtnMaliyetEkle.UseVisualStyleBackColor = false;
+            this.BtnMaliyetEkle.Click += new System.EventHandler(this.BtnMaliyetEkle_Click);
             // 
             // CmbIlgiliKisi
             // 
@@ -219,6 +242,7 @@ namespace UserInterface.Yerleskeler
             this.BtnButceTanimEkle.TabIndex = 551;
             this.BtnButceTanimEkle.Tag = "admin";
             this.BtnButceTanimEkle.UseVisualStyleBackColor = false;
+            this.BtnButceTanimEkle.Click += new System.EventHandler(this.BtnButceTanimEkle_Click);
             // 
             // CmbMasYeri
             // 
@@ -561,16 +585,6 @@ namespace UserInterface.Yerleskeler
             // 
             this.CmbGiderTuru.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGiderTuru.FormattingEnabled = true;
-            this.CmbGiderTuru.Items.AddRange(new object[] {
-            "ELEKTRİK",
-            "SU",
-            "DOĞAL GAZ",
-            "İNTERNET ",
-            "TELEFON",
-            "AİDAT",
-            "KİRA",
-            "TADİLAT",
-            "JENARATÖR YAKIT"});
             this.CmbGiderTuru.Location = new System.Drawing.Point(182, 53);
             this.CmbGiderTuru.Name = "CmbGiderTuru";
             this.CmbGiderTuru.Size = new System.Drawing.Size(216, 21);
@@ -610,7 +624,7 @@ namespace UserInterface.Yerleskeler
             // groupBox12
             // 
             this.groupBox12.Controls.Add(this.webBrowser1);
-            this.groupBox12.Location = new System.Drawing.Point(25, 686);
+            this.groupBox12.Location = new System.Drawing.Point(25, 710);
             this.groupBox12.Name = "groupBox12";
             this.groupBox12.Size = new System.Drawing.Size(574, 108);
             this.groupBox12.TabIndex = 413;
@@ -637,7 +651,7 @@ namespace UserInterface.Yerleskeler
             this.BtnDosya.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnDosya.Image = ((System.Drawing.Image)(resources.GetObject("BtnDosya.Image")));
             this.BtnDosya.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDosya.Location = new System.Drawing.Point(605, 686);
+            this.BtnDosya.Location = new System.Drawing.Point(605, 710);
             this.BtnDosya.Name = "BtnDosya";
             this.BtnDosya.Size = new System.Drawing.Size(130, 51);
             this.BtnDosya.TabIndex = 529;
@@ -653,7 +667,7 @@ namespace UserInterface.Yerleskeler
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(605, 743);
+            this.BtnKaydet.Location = new System.Drawing.Point(605, 767);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 528;
@@ -662,11 +676,29 @@ namespace UserInterface.Yerleskeler
             this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
+            // CmbButceGiderTuru
+            // 
+            this.CmbButceGiderTuru.FormattingEnabled = true;
+            this.CmbButceGiderTuru.Location = new System.Drawing.Point(182, 599);
+            this.CmbButceGiderTuru.Name = "CmbButceGiderTuru";
+            this.CmbButceGiderTuru.Size = new System.Drawing.Size(278, 21);
+            this.CmbButceGiderTuru.TabIndex = 556;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.Location = new System.Drawing.Point(72, 600);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 15);
+            this.label13.TabIndex = 555;
+            this.label13.Text = "Bütçe Gider Türü:";
+            // 
             // FrmYerleskeGideriKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1456, 817);
+            this.ClientSize = new System.Drawing.Size(1456, 830);
             this.Controls.Add(this.BtnDosya);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.groupBox12);
@@ -740,5 +772,8 @@ namespace UserInterface.Yerleskeler
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.RichTextBox TxtAciklama;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button BtnGiderTuruEkle;
+        private System.Windows.Forms.ComboBox CmbButceGiderTuru;
+        private System.Windows.Forms.Label label13;
     }
 }

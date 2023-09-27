@@ -5,6 +5,8 @@ using Business.Concreate.Gecici_Kabul_Ambar;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Drawing;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Vml.Spreadsheet;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Entity;
@@ -23,6 +25,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Media;
 using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 using Application = System.Windows.Forms.Application;
@@ -47,7 +50,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         bool start = true;
         string stokNo, tanim, seriNo, lotNo, revizyon, depoLokasyon, cekilenDepoAdi, dusulenYer, birim, dosyaYolu, dosyaAdi = "";
         string takipTuru, tedarikTuru = "";
-        int mevcutMiktar, miktar, dusulenMiktar, cekilenMiktar;
+        int mevcutMiktar, miktar, dusulenMiktar, cekilenMiktar, benzersizId;
 
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
         public FrmAltTakimTakip()
@@ -225,7 +228,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             dataBinder.Sort = DtgList.SortString;
         }
         string tiklananStok, tiklananTanim, tiklananSeriNo, tiklananRevizyon;
-
+        int id;
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -233,7 +236,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            
             tiklananStok = DtgList.CurrentRow.Cells["SokulenStokNo"].Value.ToString();
+            Malzeme malzeme = malzemeManager.Get(tiklananStok);
+            id = malzeme.Id;
             tiklananTanim = DtgList.CurrentRow.Cells["SokulenTanim"].Value.ToString();
             tiklananSeriNo = DtgList.CurrentRow.Cells["SokulenSeriNo"].Value.ToString();
             tiklananRevizyon = DtgList.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
@@ -320,7 +326,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         }
                     }
                     
-
                 }
             }
             MessageBox.Show("Bilgiler başarıyla kaydedildi!");
@@ -336,43 +341,76 @@ namespace UserInterface.Gecic_Kabul_Ambar
             DialogResult dr = MessageBox.Show("Sevkiyat Listesini kaydetmek istiyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
-                string root = @"Z:\DTS";
-                string subdir = @"Z:\DTS\GEÇİCİ KABUL VE AMBAR\SEVKİYATLAR\";
-
-                dosyaAdi = DateTime.Now.ToString("yyyy") + DateTime.Now.ToString("MM") + DateTime.Now.ToString("dd") + DateTime.Now.ToString("ss") + DateTime.Now.ToString("f");
-                string[] dizi = dosyaAdi.Split(' ');
-                dosyaAdi = dizi[0];
-                if (!Directory.Exists(root))
+                Sevkiyat sevkiyat = new Sevkiyat(CmbTeslimTuru.Text, DateTime.Now, DateTime.Now.ConPeriod(), "");
+                string mesaj = sevkiyatManager.Add(sevkiyat);
+                if (mesaj!="OK")
                 {
-                    Directory.CreateDirectory(root);
-                }
-                if (!Directory.Exists(subdir))
-                {
-                    Directory.CreateDirectory(subdir);
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
                 }
 
-                dosyaYolu = subdir + dosyaAdi;
-                Directory.CreateDirectory(subdir + dosyaAdi);
+                Sevkiyat sevkiyatGet = sevkiyatManager.GetSonKayit();
+                benzersizId = sevkiyatGet.Id;
+
+                foreach (DataGridViewRow item in DtgList.Rows)
+                {
+                    SevkiyatMalzeme sevkiyatMalzeme = new SevkiyatMalzeme(benzersizId, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenRevizyon"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), item.Cells["AbfNo"].Value.ToString(), DateTime.Now);
+
+                    sevkiyatMalzemeManager.Add(sevkiyatMalzeme);
+
+                }
 
                 ExcelExportIrsaliye();
+                ExcelExportSevkiyat();
 
+                Sevkiyat sevkiyatUpdate = new Sevkiyat(CmbTeslimTuru.Text, DateTime.Now, DateTime.Now.ConPeriod(), dosyaYolu);
+                sevkiyatManager.Update(sevkiyatUpdate, benzersizId);
+
+                MessageBox.Show("Bilgileri başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
 
             }
         }
         void ExcelExportIrsaliye()
         {
+            string root = @"Z:\DTS";
+            string subdir = @"Z:\DTS\GEÇİCİ KABUL VE AMBAR\SEVKİYATLAR\";
+
+            dosyaAdi = benzersizId.ToString();
+            string[] dizi = dosyaAdi.Split(' ');
+            dosyaAdi = dizi[0];
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(subdir))
+            {
+                Directory.CreateDirectory(subdir);
+            }
+
+            dosyaYolu = subdir + dosyaAdi;
+            Directory.CreateDirectory(subdir + dosyaAdi);
+
             IXLWorkbook workBook = new XLWorkbook();
-            IXLWorksheet workSheet = workBook.Worksheet("IRSALIYE_SATIR_BILGILERI");
+            IXLWorksheet workSheet = workBook.AddWorksheet("IRSALIYE_SATIR_BILGILERI");
             IXLRow row = workSheet.Row(1);
+            row.Height = row.Height * 1.5;
+            row.Cells().Style.Font.Bold = true;
+
+            row.Cell(1).Value = "Stok Kodu";
+            row.Cell(2).Value = "Mal/Hizmet*";
+            row.Cell(3).Value = "Miktar*";
+            row.Cell(4).Value = "Birim*";
+            row.Cell(5).Value = "Birim Fiyat";
 
             row = row.RowBelow();
 
             foreach (DataGridViewRow item in DtgList.Rows)
             {
-                row.Cell("A").Value = item.Cells["StokNo"].Value;
-                row.Cell("B").Value = item.Cells["Tanim"].Value + " " + item.Cells["SeriNo"].Value;
-                row.Cell("C").Value = item.Cells["Miktar"].Value;
-                row.Cell("D").Value = item.Cells["Birim"].Value;
+                row.Cell("A").Value = item.Cells["SokulenStokNo"].Value.ToString().Trim();
+                row.Cell("B").Value = item.Cells["SokulenTanim"].Value.ToString().Trim() + " SN: " + item.Cells["SokulenSeriNo"].Value.ToString().Trim();
+                row.Cell("C").Value = item.Cells["SokulenMiktar"].Value;
+                row.Cell("D").Value = "C62";
                 row.Cell("E").Value = 0;
 
                 row = row.RowBelow();
@@ -381,9 +419,79 @@ namespace UserInterface.Gecic_Kabul_Ambar
             workSheet.RangeUsed().Style.Border.SetInsideBorder(XLBorderStyleValues.Thin);
             workSheet.RangeUsed().Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
 
-            dosyaYolu = dosyaYolu + "_IRSALIYE" + ".xlsx";
+            dosyaYolu = dosyaYolu + "\\" + dosyaAdi + "_IRSALIYE" + ".xlsx";
 
             workBook.SaveAs(dosyaYolu);
+        }
+
+        void ExcelExportSevkiyat()
+        {
+            IXLWorkbook workBook = new XLWorkbook();
+            IXLWorksheet workSheet = workBook.AddWorksheet("SEVKİYAT LİSTESİ");
+            IXLRow row = workSheet.Row(1);
+            row.Height = row.Height * 1.5;
+            row.Cells().Style.Font.Bold = true;
+
+            row.Cell(1).Value = "SIRA NO";
+            row.Cell(2).Value = "ARIZA BİLDİRİM TARİHİ";
+            row.Cell(3).Value = "BİLDİRİM NO";
+            row.Cell(4).Value = "OKF BİLDİRİM NUMARASI";
+            row.Cell(5).Value = "SİSTEM/CİHAZ/ALT BÜTÜN/PARÇA ÜRÜN ADI";
+            row.Cell(6).Value = "STOK NUMARASI";
+            row.Cell(7).Value = "SERİ NUMARASI";
+            row.Cell(8).Value = "KONTROL";
+            row.Cell(9).Value = "ARIZA TANIMI";
+            row.Cell(10).Value = "KULLANILDIĞI ÜS BÖLGESİ";
+            row.Cell(11).Value = "YERİNE TAKILAN PARÇA SERİ NO";
+            row.Cell(12).Value = "KOLİ NO";
+            row.Cell(13).Value = "Sektör/Firma";
+            row.Cell(14).Value = "Malzeme Durumu";
+            row.Cell(15).Value = "Teslim tarihi";
+            row.Cell(16).Value = "VAN AÇIKLAMA";
+            row.Height = row.Height * 1.5;
+            row.Cells().Style.Font.Bold = true;
+            row.RowUsed().SetAutoFilter(true);
+
+            row = row.RowBelow();
+            int sayac = 1;
+
+            foreach (DataGridViewRow item in DtgList.Rows)
+            {
+                ArizaKayit arizaKayit = arizaKayitManager.Get(item.Cells["AbfNo"].Value.ConInt());
+                if (arizaKayit!=null)
+                {
+                    row.Cell("A").Value = sayac.ToString();
+                    row.Cell("B").Value = arizaKayit.AbTarihSaat.ToString("d");
+                    row.Cell("C").Value = arizaKayit.BildirimNo.ToString().Trim();
+                    row.Cell("D").Value = arizaKayit.OkfBildirimNo;
+                    row.Cell("E").Value = item.Cells["SokulenTanim"].Value.ToString().Trim();
+                    row.Cell("F").Value = item.Cells["SokulenStokNo"].Value.ToString().Trim();
+                    row.Cell("G").Value = item.Cells["SokulenSeriNo"].Value.ToString().Trim();
+                    row.Cell("H").Value = "";
+                    row.Cell("I").Value = arizaKayit.TespitEdilenAriza;
+                    row.Cell("J").Value = item.Cells["BolgeAdi"].Value.ToString().Trim();
+                    row.Cell("K").Value = "";
+                    row.Cell("L").Value = "";
+                    row.Cell("M").Value = "";
+                    row.Cell("N").Value = "";
+                    row.Cell("O").Value = "";
+                    row.Cell("P").Value = "";
+
+                    row = row.RowBelow();
+
+                    sayac++;
+                }
+            }
+
+            workSheet.RangeUsed().Style.Border.SetInsideBorder(XLBorderStyleValues.Thin);
+            workSheet.RangeUsed().Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
+
+            string subdir = @"Z:\DTS\GEÇİCİ KABUL VE AMBAR\SEVKİYATLAR\" + dosyaAdi;
+
+            dosyaYolu = subdir + "\\" + dosyaAdi + "_SEVKIYAT" + ".xlsx";
+            workBook.SaveAs(dosyaYolu);
+
+            dosyaYolu = subdir;
         }
 
         string Control()
@@ -430,6 +538,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
             return "OK";
         }
         string teslimYeri = "";
+
+        private void malzemeBilgisiniDüzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMalzemeGuncelle frmMalzemeGuncelle = new FrmMalzemeGuncelle();
+            //frmMalzemeGuncelle.id = id;
+            frmMalzemeGuncelle.infos = infos;
+            frmMalzemeGuncelle.ShowDialog();
+        }
+
         string TeslimAlmaDurum(string teslimTuru)
         {
             if (teslimTuru == "ARA DEPO (İADE)")
@@ -487,6 +604,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 if(atolyeMalzeme.TeslimDurumu == "FABRİKA ONARIM")
                 {
                     teslimYeri = "200 - FABRİKA BAKIM ONARIMA GİDECEK MALZEME";
+                    return teslimYeri;
+                }
+                if (atolyeMalzeme.TeslimDurumu == "HURDA EDİLECEK")
+                {
+                    teslimYeri = "900 - HURDA DEPO";
                     return teslimYeri;
                 }
             }
@@ -995,6 +1117,30 @@ namespace UserInterface.Gecic_Kabul_Ambar
             cekilenDepoAdi = depoBilgileri.DepoAdresi;
             return depoBilgileri.DepoNo;
         }
+        string LokasyonBul2600(string stokNo, string seriLotNo, string revizyon, string takipDurumu, int miktar)
+        {
+            DepoMiktar depoBilgileri = null;
+            depoBilgileri = depoMiktarManager.GetBarkodLokasyonBul2600(stokNo, seriLotNo, revizyon, takipDurumu, miktar);
+            if (depoBilgileri == null)
+            {
+                Malzeme malzeme = malzemeManager.Get(stokNo);
+
+                DepoMiktar depoMiktar = new DepoMiktar(stokNo, malzeme.Tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), "2600", "GEÇİCİ KABUL", "100", miktar, "MALZEMENİN MEVCUT ARIZADAN DEPOYA DÜŞÜMÜ YAPILMIŞTIR.");
+
+                depoMiktarManager.Add(depoMiktar);
+
+
+                StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("201-BİLDİRİMDEN DEPOYA İADE", stokNo, tanim, birim, DtgTeslimTarihi.Value, abfNo, "", "", "2600", "GEÇİCİ KABUL", "100", miktar, infos[1].ToString(), "MALZEMENİN MEVCUT ARIZADAN DEPOYA DÜŞÜMÜ YAPILMIŞTIR.", seriNo, lotNo, revizyon);
+
+                stokGirisCikisManager.Add(stokGirisCıkıs);
+            }
+
+            depoBilgileri = depoMiktarManager.GetBarkodLokasyonBul2600(stokNo, seriLotNo, revizyon, takipDurumu, miktar);
+            depoLokasyon = depoBilgileri.DepoLokasyon;
+            cekilenDepoAdi = depoBilgileri.DepoAdresi;
+            return depoBilgileri.DepoNo;
+        }
+
         string LokasyonBul3000(string stokNo, string seriLotNo, string revizyon, string takipDurumu, int miktar)
         {
             DepoMiktar depoBilgileri = null;
@@ -1197,7 +1343,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             lotNo = "N/A";
                         }
 
-                        string lokasyon = LokasyonBul2500(stokNo, item.Cells["SeriNo"].Value.ToString(), revizyon, malzeme.TakipDurumu, miktar);
+                        string lokasyon = LokasyonBul2600(stokNo, item.Cells["SeriNo"].Value.ToString(), revizyon, malzeme.TakipDurumu, miktar);
 
                         if (lokasyon == "Bu malzemenin lokasyonu bulunamadı!")
                         {
@@ -2018,7 +2164,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                 if (CmbTeslimTuru.Text == "BÖLGEYE SEVKİYAT BEKLEYEN")
                 {
-                    
 
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
 
@@ -2049,6 +2194,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                         }
                     }
+
+
                     continue;
                 }
 

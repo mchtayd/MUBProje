@@ -400,7 +400,7 @@ namespace UserInterface.BakımOnarım
             frmMalzemeVeriGecmisi.takilanRevizyon = takilanRevizyon;
             frmMalzemeVeriGecmisi.takilantanim = takilanTanim;
             frmMalzemeVeriGecmisi.takilanmiktar = takilanMiktar.ConInt();
-
+            frmMalzemeVeriGecmisi.infos = infos;
             frmMalzemeVeriGecmisi.ShowDialog();
             malzemeId = 0;
         }

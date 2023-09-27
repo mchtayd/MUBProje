@@ -1651,7 +1651,7 @@ namespace UserInterface.STS
                 LblMalzemeTalebi.BackColor = Color.Red;
             }
         }
-        DateTime odemeMailGondermeTarihi, odemeMailTarihi, aselsanMailGondermeTarihi, aselsanMailTarihi; string butceTanimi, maliyetTuru;
+        DateTime odemeMailGondermeTarihi, odemeMailTarihi, aselsanMailGondermeTarihi, aselsanMailTarihi; string butceTanimi, maliyetTuru, butceGiderTuru;
         private void DtgSatTamamla_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgSatTamamla.CurrentRow == null)
@@ -1696,6 +1696,7 @@ namespace UserInterface.STS
             depoTeslimTarihi = DtgSatTamamla.CurrentRow.Cells["DepoTeslimTarihi"].Value.ConDate();
             butceTanimi = DtgSatTamamla.CurrentRow.Cells["ButceTanimi"].Value.ToString();
             maliyetTuru = DtgSatTamamla.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
+            butceGiderTuru = DtgSatTamamla.CurrentRow.Cells["ButceGiderTuru"].Value.ToString();
 
             fiyatTeklifiAls = new List<FiyatTeklifiAl>();
             FillMalzemeList4();
@@ -2392,7 +2393,7 @@ namespace UserInterface.STS
                 //donem = DateTime.Now.ConPeriod();
 
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satBirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
-                    faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyaYolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamayapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi, odemeMailGondermeTarihi, odemeMailTarihi, aselsanMailGondermeTarihi, aselsanMailTarihi, depoTeslimTarihi, butceTanimi, maliyetTuru, "", "", "");
+                    faturafirma, ilgilikisi, masrafyerino, toplamlar, dosyaYolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamayapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi, odemeMailGondermeTarihi, odemeMailTarihi, aselsanMailGondermeTarihi, aselsanMailTarihi, depoTeslimTarihi, butceTanimi, maliyetTuru, "", "", butceGiderTuru);
                 string control = tamamlananManager.Add(tamamlanan);
                 if (control != "OK")
                 {

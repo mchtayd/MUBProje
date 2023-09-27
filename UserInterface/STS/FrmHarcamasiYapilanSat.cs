@@ -75,9 +75,17 @@ namespace UserInterface.STS
             Personeller();
             ButceTanim();
             MaliyetTuru();
+            ButceGiderTuru();
             LblSatTarihi.Text = DateTime.Now.ToString("d");
             start = true;
         }
+
+        public void ButceGiderTuru()
+        {
+            CmbButceGiderTuru.DataSource = satDataGridview1Manager.ButceGiderTuruList();
+            CmbButceGiderTuru.Text = "";
+        }
+
         public void ButceKoduKalemi()
         {
             Entity.IdariIsler.ButceKodu butceKodu = butceKoduKalemiManager.ButceKoduComboBilgiList("HARCAMASI YAPILAN SAT");
@@ -326,7 +334,7 @@ namespace UserInterface.STS
             string donem = CmbDonemBasaran.Text + " " + CmbDonemBasaranYil.Text;
             satNo = satNoManager.Add(new SatNo(siparisNo));
             SatDataGridview1 sat = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), LblMasrafYeriNo.Text, CmbAdSoyad.Text, LblMasrafYeri.Text, "YOK", "0", LblSatTarihi.Text.ConDate(), TxtAciklama.Text, siparisNo, CmbAdSoyad.Text, LblSiparisNo.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, donem, "HARCAMASI YAPILAN", LblProje.Text, TxtSatinAlinanFirma.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text);
+                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, donem, "HARCAMASI YAPILAN", LblProje.Text, TxtSatinAlinanFirma.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text, CmbButceGiderTuru.Text);
             string mesaj = satDataGridview1Manager.Add(sat);
             if (mesaj != "OK")
             {

@@ -28,23 +28,26 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.DtgGecmis = new System.Windows.Forms.DataGridView();
+            this.DtgMalzemeList = new System.Windows.Forms.DataGridView();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
+            this.LblMalzemeSayisi = new System.Windows.Forms.Label();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgGecmis)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -75,8 +78,8 @@
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -89,6 +92,9 @@
             this.DtgList.Size = new System.Drawing.Size(1331, 356);
             this.DtgList.TabIndex = 343;
             this.DtgList.TimeFilter = false;
+            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
+            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // groupBox3
             // 
@@ -113,7 +119,7 @@
             // groupBox2
             // 
             this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.groupBox2.Controls.Add(this.DtgGecmis);
+            this.groupBox2.Controls.Add(this.DtgMalzemeList);
             this.groupBox2.Location = new System.Drawing.Point(12, 423);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(762, 274);
@@ -121,19 +127,19 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "SEVKİYATTA GÖNDERİLEN MALZEMELER";
             // 
-            // DtgGecmis
+            // DtgMalzemeList
             // 
-            this.DtgGecmis.AllowUserToAddRows = false;
-            this.DtgGecmis.AllowUserToDeleteRows = false;
-            this.DtgGecmis.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgGecmis.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgGecmis.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgGecmis.Location = new System.Drawing.Point(3, 16);
-            this.DtgGecmis.Name = "DtgGecmis";
-            this.DtgGecmis.ReadOnly = true;
-            this.DtgGecmis.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgGecmis.Size = new System.Drawing.Size(756, 255);
-            this.DtgGecmis.TabIndex = 4;
+            this.DtgMalzemeList.AllowUserToAddRows = false;
+            this.DtgMalzemeList.AllowUserToDeleteRows = false;
+            this.DtgMalzemeList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgMalzemeList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzemeList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgMalzemeList.Location = new System.Drawing.Point(3, 16);
+            this.DtgMalzemeList.Name = "DtgMalzemeList";
+            this.DtgMalzemeList.ReadOnly = true;
+            this.DtgMalzemeList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgMalzemeList.Size = new System.Drawing.Size(756, 255);
+            this.DtgMalzemeList.TabIndex = 4;
             // 
             // label31
             // 
@@ -165,15 +171,15 @@
             this.label1.TabIndex = 408;
             this.label1.Text = "Toplam Malzeme Sayısı:";
             // 
-            // label2
+            // LblMalzemeSayisi
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(182, 708);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 15);
-            this.label2.TabIndex = 409;
-            this.label2.Text = "00";
+            this.LblMalzemeSayisi.AutoSize = true;
+            this.LblMalzemeSayisi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblMalzemeSayisi.Location = new System.Drawing.Point(182, 708);
+            this.LblMalzemeSayisi.Name = "LblMalzemeSayisi";
+            this.LblMalzemeSayisi.Size = new System.Drawing.Size(21, 15);
+            this.LblMalzemeSayisi.TabIndex = 409;
+            this.LblMalzemeSayisi.Text = "00";
             // 
             // FrmSevkiyatlar
             // 
@@ -181,7 +187,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1355, 731);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.label2);
+            this.Controls.Add(this.LblMalzemeSayisi);
             this.Controls.Add(this.label31);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.groupBox3);
@@ -195,7 +201,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgGecmis)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -209,10 +216,11 @@
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.DataGridView DtgGecmis;
+        private System.Windows.Forms.DataGridView DtgMalzemeList;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblMalzemeSayisi;
+        private System.Windows.Forms.BindingSource dataBinder;
     }
 }

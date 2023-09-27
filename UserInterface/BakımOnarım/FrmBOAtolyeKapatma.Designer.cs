@@ -46,7 +46,7 @@ namespace UserInterface.BakımOnarım
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.TxtProje = new System.Windows.Forms.TextBox();
-            this.TxtScrmNo = new System.Windows.Forms.TextBox();
+            this.TxtAbfNo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.TxtBolgeAdi = new System.Windows.Forms.TextBox();
@@ -82,6 +82,7 @@ namespace UserInterface.BakımOnarım
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.RdbDepo = new System.Windows.Forms.RadioButton();
             this.RdbFabrika = new System.Windows.Forms.RadioButton();
+            this.RdbHurda = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
@@ -203,7 +204,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.Controls.Add(this.label7);
             this.groupBox2.Controls.Add(this.label8);
             this.groupBox2.Controls.Add(this.TxtProje);
-            this.groupBox2.Controls.Add(this.TxtScrmNo);
+            this.groupBox2.Controls.Add(this.TxtAbfNo);
             this.groupBox2.Controls.Add(this.label9);
             this.groupBox2.Controls.Add(this.label10);
             this.groupBox2.Controls.Add(this.TxtBolgeAdi);
@@ -226,7 +227,7 @@ namespace UserInterface.BakımOnarım
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(44, 150);
+            this.label7.Location = new System.Drawing.Point(37, 150);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(34, 13);
             this.label7.TabIndex = 58;
@@ -248,17 +249,17 @@ namespace UserInterface.BakımOnarım
             this.TxtProje.Size = new System.Drawing.Size(223, 20);
             this.TxtProje.TabIndex = 57;
             // 
-            // TxtScrmNo
+            // TxtAbfNo
             // 
-            this.TxtScrmNo.Location = new System.Drawing.Point(89, 66);
-            this.TxtScrmNo.Name = "TxtScrmNo";
-            this.TxtScrmNo.Size = new System.Drawing.Size(223, 20);
-            this.TxtScrmNo.TabIndex = 51;
+            this.TxtAbfNo.Location = new System.Drawing.Point(89, 66);
+            this.TxtAbfNo.Name = "TxtAbfNo";
+            this.TxtAbfNo.Size = new System.Drawing.Size(223, 20);
+            this.TxtAbfNo.TabIndex = 51;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(21, 123);
+            this.label9.Location = new System.Drawing.Point(16, 123);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(55, 13);
             this.label9.TabIndex = 56;
@@ -267,11 +268,11 @@ namespace UserInterface.BakımOnarım
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(31, 69);
+            this.label10.Location = new System.Drawing.Point(24, 69);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(45, 13);
+            this.label10.Size = new System.Drawing.Size(47, 13);
             this.label10.TabIndex = 52;
-            this.label10.Text = "Crm No:";
+            this.label10.Text = "ABF No:";
             // 
             // TxtBolgeAdi
             // 
@@ -290,7 +291,7 @@ namespace UserInterface.BakımOnarım
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(27, 96);
+            this.label11.Location = new System.Drawing.Point(22, 96);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(49, 13);
             this.label11.TabIndex = 54;
@@ -586,7 +587,7 @@ namespace UserInterface.BakımOnarım
             this.RdbDepo.AutoSize = true;
             this.RdbDepo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.RdbDepo.ForeColor = System.Drawing.Color.Green;
-            this.RdbDepo.Location = new System.Drawing.Point(18, 674);
+            this.RdbDepo.Location = new System.Drawing.Point(18, 670);
             this.RdbDepo.Name = "RdbDepo";
             this.RdbDepo.Size = new System.Drawing.Size(200, 19);
             this.RdbDepo.TabIndex = 443;
@@ -598,8 +599,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.RdbFabrika.AutoSize = true;
             this.RdbFabrika.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.RdbFabrika.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.RdbFabrika.Location = new System.Drawing.Point(18, 699);
+            this.RdbFabrika.ForeColor = System.Drawing.Color.DarkBlue;
+            this.RdbFabrika.Location = new System.Drawing.Point(18, 695);
             this.RdbFabrika.Name = "RdbFabrika";
             this.RdbFabrika.Size = new System.Drawing.Size(139, 19);
             this.RdbFabrika.TabIndex = 444;
@@ -607,12 +608,26 @@ namespace UserInterface.BakımOnarım
             this.RdbFabrika.Text = "FABRİKA ONARIM";
             this.RdbFabrika.UseVisualStyleBackColor = true;
             // 
+            // RdbHurda
+            // 
+            this.RdbHurda.AutoSize = true;
+            this.RdbHurda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.RdbHurda.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.RdbHurda.Location = new System.Drawing.Point(19, 720);
+            this.RdbHurda.Name = "RdbHurda";
+            this.RdbHurda.Size = new System.Drawing.Size(144, 19);
+            this.RdbHurda.TabIndex = 445;
+            this.RdbHurda.TabStop = true;
+            this.RdbHurda.Text = "HURDA EDİLECEK";
+            this.RdbHurda.UseVisualStyleBackColor = true;
+            // 
             // FrmBOAtolyeKapatma
             // 
             this.AcceptButton = this.BtnBul;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1451, 745);
+            this.Controls.Add(this.RdbHurda);
             this.Controls.Add(this.RdbFabrika);
             this.Controls.Add(this.RdbDepo);
             this.Controls.Add(this.BtnDosyaEkle);
@@ -667,7 +682,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox TxtProje;
-        private System.Windows.Forms.TextBox TxtScrmNo;
+        private System.Windows.Forms.TextBox TxtAbfNo;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox TxtBolgeAdi;
@@ -703,5 +718,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.RadioButton RdbDepo;
         private System.Windows.Forms.RadioButton RdbFabrika;
+        private System.Windows.Forms.RadioButton RdbHurda;
     }
 }

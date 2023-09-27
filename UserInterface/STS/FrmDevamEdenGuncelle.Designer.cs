@@ -94,6 +94,8 @@ namespace UserInterface.STS
             this.label2 = new System.Windows.Forms.Label();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.BtnSil = new System.Windows.Forms.Button();
+            this.CmbButceGiderTuru = new System.Windows.Forms.ComboBox();
+            this.label15 = new System.Windows.Forms.Label();
             this.groupBox16.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox17.SuspendLayout();
@@ -572,6 +574,7 @@ namespace UserInterface.STS
             this.BtnGoz.Size = new System.Drawing.Size(24, 21);
             this.BtnGoz.TabIndex = 20;
             this.BtnGoz.UseVisualStyleBackColor = false;
+            this.BtnGoz.Visible = false;
             // 
             // label127
             // 
@@ -658,9 +661,9 @@ namespace UserInterface.STS
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(15, 527);
+            this.groupBox1.Location = new System.Drawing.Point(15, 549);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1412, 251);
+            this.groupBox1.Size = new System.Drawing.Size(1412, 229);
             this.groupBox1.TabIndex = 352;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MALZEME BİLGİLERİ";
@@ -674,7 +677,7 @@ namespace UserInterface.STS
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
-            this.DtgList.Size = new System.Drawing.Size(1406, 232);
+            this.DtgList.Size = new System.Drawing.Size(1406, 210);
             this.DtgList.TabIndex = 0;
             // 
             // DtBelgeTarihi
@@ -789,11 +792,31 @@ namespace UserInterface.STS
             this.BtnSil.UseVisualStyleBackColor = false;
             this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
             // 
+            // CmbButceGiderTuru
+            // 
+            this.CmbButceGiderTuru.FormattingEnabled = true;
+            this.CmbButceGiderTuru.Location = new System.Drawing.Point(928, 522);
+            this.CmbButceGiderTuru.Name = "CmbButceGiderTuru";
+            this.CmbButceGiderTuru.Size = new System.Drawing.Size(281, 21);
+            this.CmbButceGiderTuru.TabIndex = 562;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Location = new System.Drawing.Point(794, 523);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(128, 15);
+            this.label15.TabIndex = 561;
+            this.label15.Text = "BÜTÇE GİDER TÜRÜ:";
+            // 
             // FrmDevamEdenGuncelle
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1434, 835);
+            this.Controls.Add(this.CmbButceGiderTuru);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.TxtSatinAlinanFirma);
@@ -902,5 +925,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Button BtnGuncelle;
         public System.Windows.Forms.Button BtnSil;
+        private System.Windows.Forms.ComboBox CmbButceGiderTuru;
+        private System.Windows.Forms.Label label15;
     }
 }

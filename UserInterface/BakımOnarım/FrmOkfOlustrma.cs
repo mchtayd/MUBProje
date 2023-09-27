@@ -105,70 +105,54 @@ namespace UserInterface.BakımOnarım
             if (TxtAbfNo.Text.Length >= 6)
             {
                 Okf okfDTS = okfManager.OkfArizaBilgileriDTS(TxtAbfNo.Text.ConInt());
-                if (okfDTS == null)
+                if (okfDTS!=null)
                 {
-                    MessageBox.Show("Bu Abf Numarasına ait kayıt bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    Temizle();
-                    return;
+                    CmbBolgeAdi.Text = okfDTS.UsBolgesi;
+                    CmbProjeKodu.Text = okfDTS.ProjeKodu;
+                    TxtStokNo.Text = okfDTS.UstStok;
+                    CmbTanim.Text = okfDTS.UstTanim;
+                    TxtSeriNo.Text = okfDTS.UstSeriNo;
+                    TxtBildirilenAriza.Text = okfDTS.BildirilenAriza.ToUpper();
+                    bildirimNo = okfDTS.BildirimNo;
+                    if (bildirimNo == null || bildirimNo == "")
+                    {
+                        bildirimNo = okfDTS.OkfBildirimNo;
+                    }
+                    TxtABTelefon.Text = okfDTS.KomutanTel;
+                    TxtUsBolgesiKomutani.Text = okfDTS.UbKomutani;
+                    DtgArizaTarihi.Value = okfDTS.ArizaTarihi;
+                    il = okfDTS.Il;
+                    ilce = okfDTS.Ilce;
+                    birlikAdresi = okfDTS.BirlikAdresi;
                 }
-                CmbBolgeAdi.Text = okfDTS.UsBolgesi;
-                CmbProjeKodu.Text = okfDTS.ProjeKodu;
-                TxtStokNo.Text = okfDTS.UstStok;
-                CmbTanim.Text = okfDTS.UstTanim;
-                TxtSeriNo.Text = okfDTS.UstSeriNo;
-                TxtBildirilenAriza.Text = okfDTS.BildirilenAriza.ToUpper();
-                bildirimNo = okfDTS.BildirimNo;
-                if (bildirimNo == null || bildirimNo == "")
+                
+                else
                 {
-                    bildirimNo = okfDTS.OkfBildirimNo;
+                    Okf okf = okfManager.OkfArizaBilgileri(TxtAbfNo.Text.ConInt());
+                    if (okf != null)
+                    {
+                        CmbBolgeAdi.Text = okf.UsBolgesi;
+                        CmbProjeKodu.Text = okf.ProjeKodu;
+                        TxtStokNo.Text = okf.UstStok;
+                        CmbTanim.Text = okf.UstTanim;
+                        TxtSeriNo.Text = okf.UstSeriNo;
+                        TxtBildirilenAriza.Text = okf.BildirilenAriza.ToUpper();
+                        bildirimNo = okf.BildirimNo;
+                        TxtABTelefon.Text = okf.KomutanTel;
+                        TxtUsBolgesiKomutani.Text = okf.UbKomutani;
+                        DtgArizaTarihi.Value = okf.ArizaTarihi;
+                        il = okf.Il;
+                        ilce = okf.Ilce;
+                        birlikAdresi = okf.BirlikAdresi;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Arıza Kaydına Ulaşılamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
-                TxtABTelefon.Text = okfDTS.KomutanTel;
-                TxtUsBolgesiKomutani.Text = okfDTS.UbKomutani;
-                DtgArizaTarihi.Value = okfDTS.ArizaTarihi;
-                il = okfDTS.Il;
-                ilce = okfDTS.Ilce;
-                birlikAdresi = okfDTS.BirlikAdresi;
 
-                //if (okfDTS!=null)
-                //{
-                //    CmbBolgeAdi.Text = okfDTS.UsBolgesi;
-                //    CmbProjeKodu.Text = okfDTS.ProjeKodu;
-                //    TxtStokNo.Text = okfDTS.UstStok;
-                //    CmbTanim.Text = okfDTS.UstTanim;
-                //    TxtSeriNo.Text = okfDTS.UstSeriNo;
-                //    TxtBildirilenAriza.Text = okfDTS.BildirilenAriza.ToUpper();
-                //    bildirimNo = okfDTS.BildirimNo;
-                //    if (bildirimNo==null || bildirimNo== "")
-                //    {
-                //        bildirimNo = okfDTS.OkfBildirimNo;
-                //    }
-                //    TxtABTelefon.Text = okfDTS.KomutanTel;
-                //    TxtUsBolgesiKomutani.Text = okfDTS.UbKomutani;
-                //    DtgArizaTarihi.Value = okfDTS.ArizaTarihi;
-                //    il = okfDTS.Il;
-                //    ilce = okfDTS.Ilce;
-                //    birlikAdresi = okfDTS.BirlikAdresi;
-                //}
-                //else
-                //{
-                //    Okf okf = okfManager.OkfArizaBilgileri(TxtAbfNo.Text.ConInt());
-                //    if (okf != null)
-                //    {
-                //        CmbBolgeAdi.Text = okf.UsBolgesi;
-                //        CmbProjeKodu.Text = okf.ProjeKodu;
-                //        TxtStokNo.Text = okf.UstStok;
-                //        CmbTanim.Text = okf.UstTanim;
-                //        TxtSeriNo.Text = okf.UstSeriNo;
-                //        TxtBildirilenAriza.Text = okf.BildirilenAriza.ToUpper();
-                //        bildirimNo = okf.BildirimNo;
-                //        TxtABTelefon.Text = okf.KomutanTel;
-                //        TxtUsBolgesiKomutani.Text = okf.UbKomutani;
-                //        DtgArizaTarihi.Value = okf.ArizaTarihi;
-                //        il = okf.Il;
-                //        ilce = okf.Ilce;
-                //        birlikAdresi = okf.BirlikAdresi;
-                //    }
-                //}
+               
 
             }
         }

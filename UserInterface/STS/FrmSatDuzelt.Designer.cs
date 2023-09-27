@@ -45,6 +45,8 @@ namespace UserInterface.STS
             this.LblMasrafYeriNo = new System.Windows.Forms.Label();
             this.LblMasrafYeri = new System.Windows.Forms.Label();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.label11 = new System.Windows.Forms.Label();
+            this.CmbBasaranProje = new System.Windows.Forms.ComboBox();
             this.CmbDonemYil = new System.Windows.Forms.ComboBox();
             this.CmbDonem = new System.Windows.Forms.ComboBox();
             this.label52 = new System.Windows.Forms.Label();
@@ -96,8 +98,6 @@ namespace UserInterface.STS
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.TxtKesilenFaturaTarihi = new System.Windows.Forms.MaskedTextBox();
-            this.TxtButceGiderTuru = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
             this.PnlMalzeme = new System.Windows.Forms.Panel();
             this.LblTopStokList = new System.Windows.Forms.Label();
             this.LblGunelStokAdeti = new System.Windows.Forms.Label();
@@ -206,8 +206,8 @@ namespace UserInterface.STS
             this.label150 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.CmbBasaranProje = new System.Windows.Forms.ComboBox();
+            this.CmbButceGiderTuru = new System.Windows.Forms.ComboBox();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox16.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -354,6 +354,23 @@ namespace UserInterface.STS
             this.groupBox18.TabIndex = 350;
             this.groupBox18.TabStop = false;
             this.groupBox18.Text = "TALEP EDİLEN YER";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(18, 171);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 13);
+            this.label11.TabIndex = 417;
+            this.label11.Text = "BSR.PROJE NO:";
+            // 
+            // CmbBasaranProje
+            // 
+            this.CmbBasaranProje.FormattingEnabled = true;
+            this.CmbBasaranProje.Location = new System.Drawing.Point(116, 167);
+            this.CmbBasaranProje.Name = "CmbBasaranProje";
+            this.CmbBasaranProje.Size = new System.Drawing.Size(275, 21);
+            this.CmbBasaranProje.TabIndex = 418;
             // 
             // CmbDonemYil
             // 
@@ -891,22 +908,6 @@ namespace UserInterface.STS
             this.TxtKesilenFaturaTarihi.Size = new System.Drawing.Size(281, 20);
             this.TxtKesilenFaturaTarihi.TabIndex = 552;
             this.TxtKesilenFaturaTarihi.ValidatingType = typeof(System.DateTime);
-            // 
-            // TxtButceGiderTuru
-            // 
-            this.TxtButceGiderTuru.Location = new System.Drawing.Point(961, 489);
-            this.TxtButceGiderTuru.Name = "TxtButceGiderTuru";
-            this.TxtButceGiderTuru.Size = new System.Drawing.Size(281, 20);
-            this.TxtButceGiderTuru.TabIndex = 554;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(839, 492);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(117, 13);
-            this.label19.TabIndex = 553;
-            this.label19.Text = "BÜTÇE GİDER TÜRÜ:";
             // 
             // PnlMalzeme
             // 
@@ -2089,31 +2090,32 @@ namespace UserInterface.STS
             this.comboBox9.Size = new System.Drawing.Size(278, 21);
             this.comboBox9.TabIndex = 8;
             // 
-            // label11
+            // CmbButceGiderTuru
             // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(18, 171);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(89, 13);
-            this.label11.TabIndex = 417;
-            this.label11.Text = "BSR.PROJE NO:";
+            this.CmbButceGiderTuru.FormattingEnabled = true;
+            this.CmbButceGiderTuru.Location = new System.Drawing.Point(961, 488);
+            this.CmbButceGiderTuru.Name = "CmbButceGiderTuru";
+            this.CmbButceGiderTuru.Size = new System.Drawing.Size(281, 21);
+            this.CmbButceGiderTuru.TabIndex = 564;
             // 
-            // CmbBasaranProje
+            // label19
             // 
-            this.CmbBasaranProje.FormattingEnabled = true;
-            this.CmbBasaranProje.Location = new System.Drawing.Point(116, 167);
-            this.CmbBasaranProje.Name = "CmbBasaranProje";
-            this.CmbBasaranProje.Size = new System.Drawing.Size(275, 21);
-            this.CmbBasaranProje.TabIndex = 418;
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label19.Location = new System.Drawing.Point(827, 489);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(128, 15);
+            this.label19.TabIndex = 563;
+            this.label19.Text = "BÜTÇE GİDER TÜRÜ:";
             // 
             // FrmSatDuzelt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1298, 801);
-            this.Controls.Add(this.TxtButceGiderTuru);
-            this.Controls.Add(this.PnlMalzeme);
+            this.Controls.Add(this.CmbButceGiderTuru);
             this.Controls.Add(this.label19);
+            this.Controls.Add(this.PnlMalzeme);
             this.Controls.Add(this.TxtKesilenFaturaTarihi);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.TxtFirmayaKesilenFatura);
@@ -2237,8 +2239,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.MaskedTextBox TxtKesilenFaturaTarihi;
-        private System.Windows.Forms.TextBox TxtButceGiderTuru;
-        private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Panel PnlMalzeme;
         private System.Windows.Forms.Label LblTopStokList;
         private System.Windows.Forms.Label LblGunelStokAdeti;
@@ -2349,5 +2349,7 @@ namespace UserInterface.STS
         private System.Windows.Forms.ComboBox comboBox9;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox CmbBasaranProje;
+        private System.Windows.Forms.ComboBox CmbButceGiderTuru;
+        private System.Windows.Forms.Label label19;
     }
 }

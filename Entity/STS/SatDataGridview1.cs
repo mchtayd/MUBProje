@@ -8,7 +8,7 @@ namespace Entity
 {
     public class SatDataGridview1
     {
-        int id, personelId; int formno, satno; string masrafyeri, talepeden, bolum, usbolgesi, abfformno, burcekodu, satbirim, harcamaturu, faturafirma, ilgilikisi, masyerino; DateTime tarih; string gerekce, siparisNo, dosyaYolu; int uctekilf; string firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasYerNo, personelMasYeri, belgeTuru, belgeNumarasi; DateTime belgeTarihi; string islemAdimi, donem, satOlusturmaTuru, redNedeni, durum, teklifDurumu, proje, satinAlinanFirma, mailSiniri, mailDurumu; DateTime mlzTeslimAldTarih; string harcamaYapan; DateTime aselsanMailGondermeDate, aselsanMailAlmaDate, odemeMailGondermeDate, odemeMailAlmaDate, depoTeslimTarihi; string depoTeslimBilgisi, butceTanimi, maliyetTuru;
+        int id, personelId; int formno, satno; string masrafyeri, talepeden, bolum, usbolgesi, abfformno, burcekodu, satbirim, harcamaturu, faturafirma, ilgilikisi, masyerino; DateTime tarih; string gerekce, siparisNo, dosyaYolu; int uctekilf; string firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasYerNo, personelMasYeri, belgeTuru, belgeNumarasi; DateTime belgeTarihi; string islemAdimi, donem, satOlusturmaTuru, redNedeni, durum, teklifDurumu, proje, satinAlinanFirma, mailSiniri, mailDurumu; DateTime mlzTeslimAldTarih; string harcamaYapan; DateTime aselsanMailGondermeDate, aselsanMailAlmaDate, odemeMailGondermeDate, odemeMailAlmaDate, depoTeslimTarihi; string depoTeslimBilgisi, butceTanimi, maliyetTuru, butceGiderTuru;
 
         public int Id { get => id; set => id = value; }
         public int Formno { get => formno; set => formno = value; }
@@ -59,10 +59,11 @@ namespace Entity
         public string DepoTeslimBilgisi { get => depoTeslimBilgisi; set => depoTeslimBilgisi = value; }
         public string ButceTanimi { get => butceTanimi; set => butceTanimi = value; }
         public string MaliyetTuru { get => maliyetTuru; set => maliyetTuru = value; }
+        public string ButceGiderTuru { get => butceGiderTuru; set => butceGiderTuru = value; }
 
         public SatDataGridview1(int id, int formno, int satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, 
             DateTime tarih, string gerekce, string siparisNo, string dosyaYolu, int personelId,string talepEdenPersonel,string personelSiparis, string unvani, 
-            string personelMasYerNo,string personelMasYeri, string islemAdimi,string donem, string satOlusturmaTuru, string redNedeni, string durum, string teklifDurumu,int uctekilf,string proje, string satinAlinanFirma)
+            string personelMasYerNo,string personelMasYeri, string islemAdimi,string donem, string satOlusturmaTuru, string redNedeni, string durum, string teklifDurumu,int uctekilf,string proje, string satinAlinanFirma, string butceGiderTuru)
         {
             this.Id = id;
             this.Formno = formno;
@@ -91,9 +92,10 @@ namespace Entity
             this.uctekilf = uctekilf;
             this.proje = proje;
             this.satinAlinanFirma = satinAlinanFirma;
+            this.butceGiderTuru = butceGiderTuru;
         }
 
-        public SatDataGridview1(int satno,int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string talepEdenPersonel,string personeSiparis,string unvani,string personelMasYerNo, string personelMasYeri, string dosyaYolu, int personelId,string islemAdimi,string donem, string satOlusturmaTuru,string proje, string satinAlinanFirma, string butceTanimi, string maliyetTuru)
+        public SatDataGridview1(int satno,int formno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string talepEdenPersonel,string personeSiparis,string unvani,string personelMasYerNo, string personelMasYeri, string dosyaYolu, int personelId,string islemAdimi,string donem, string satOlusturmaTuru,string proje, string satinAlinanFirma, string butceTanimi, string maliyetTuru, string butceGiderTuru)
         {
             this.formno = formno;
             this.masrafyeri = masrafyeri;
@@ -119,6 +121,7 @@ namespace Entity
             this.satinAlinanFirma = satinAlinanFirma;
             this.butceTanimi = butceTanimi;
             this.maliyetTuru = maliyetTuru;
+            this.butceGiderTuru = butceGiderTuru;
         }
 
         public SatDataGridview1(int satno, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi,
@@ -137,7 +140,7 @@ namespace Entity
             this.islemAdimi = islemAdimi;
         }
 
-        public SatDataGridview1(int id, int formno, int satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string dosyaYolu, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, int uctekilf,string firmaBilgisi,string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string belgeTuru, string belgeNumarasi, DateTime belgeTarihi, string islemAdimi,string donem, string satOlusturmaTuru, string redNedeni, string durum,string teklifDurumu,string proje, string satinAlinanFirma,string mailSiniri,string mailDurumu, DateTime mlzTeslimAldTarih,string harcamaYapan, DateTime aselsanMailGondermeDate, DateTime aselsanMailAlmaDate, DateTime odemeMailGondermeDate, DateTime odemeMailAlmaDate, DateTime depoTeslimTarihi, string depoTeslimBilgisi, string butceTanimi, string maliyetTuru)
+        public SatDataGridview1(int id, int formno, int satno, string masrafyeri, string talepeden, string bolum, string usbolgesi, string abfformno, DateTime tarih, string gerekce, string siparisNo, string dosyaYolu, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, int uctekilf,string firmaBilgisi,string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string belgeTuru, string belgeNumarasi, DateTime belgeTarihi, string islemAdimi,string donem, string satOlusturmaTuru, string redNedeni, string durum,string teklifDurumu,string proje, string satinAlinanFirma,string mailSiniri,string mailDurumu, DateTime mlzTeslimAldTarih,string harcamaYapan, DateTime aselsanMailGondermeDate, DateTime aselsanMailAlmaDate, DateTime odemeMailGondermeDate, DateTime odemeMailAlmaDate, DateTime depoTeslimTarihi, string depoTeslimBilgisi, string butceTanimi, string maliyetTuru, string butceGiderTuru)
         {
             this.Id = id;
             this.Formno = formno;
@@ -187,6 +190,7 @@ namespace Entity
             this.depoTeslimBilgisi = depoTeslimBilgisi;
             this.butceTanimi = butceTanimi;
             this.maliyetTuru = maliyetTuru;
+            this.butceGiderTuru = butceGiderTuru;
         }
 
         public SatDataGridview1(string usbolgesi, string abfformno, string gerekce)
@@ -221,7 +225,7 @@ namespace Entity
             this.donem = donem;
         }
 
-        public SatDataGridview1(int id, string usbolgesi, string abfformno, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, DateTime tarih, string gerekce, string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string donem,string belgeTuru, string belgeNumarasi, DateTime belgeTarihi, string satinAlinanFirma)
+        public SatDataGridview1(int id, string usbolgesi, string abfformno, string burcekodu, string satbirim, string harcamaturu, string faturafirma, string ilgilikisi, string masyerino, DateTime tarih, string gerekce, string talepEdenPersonel, string personelSiparis, string unvani, string personelMasYerNo, string personelMasYeri, string donem,string belgeTuru, string belgeNumarasi, DateTime belgeTarihi, string satinAlinanFirma, string butceGiderTuru)
         {
             this.id = id;
             this.usbolgesi = usbolgesi;
@@ -244,6 +248,7 @@ namespace Entity
             this.belgeNumarasi = belgeNumarasi;
             this.belgeTarihi = belgeTarihi;
             this.satinAlinanFirma = satinAlinanFirma;
+            this.butceGiderTuru = butceGiderTuru;
 
         }
     }

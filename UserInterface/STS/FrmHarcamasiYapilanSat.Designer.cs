@@ -47,6 +47,8 @@ namespace UserInterface.STS
             this.CmbBelgeTuru = new System.Windows.Forms.ComboBox();
             this.TxtBelgeNumarasi = new System.Windows.Forms.TextBox();
             this.CmbButceKodu = new System.Windows.Forms.ComboBox();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.detayGörToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.label62 = new System.Windows.Forms.Label();
             this.CmbMasYeri = new System.Windows.Forms.ComboBox();
             this.label51 = new System.Windows.Forms.Label();
@@ -91,12 +93,12 @@ namespace UserInterface.STS
             this.BtnButceTanimEkle = new System.Windows.Forms.Button();
             this.BtnMaliyetEkle = new System.Windows.Forms.Button();
             this.BtnButceDuzenle = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.detayGörToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CmbButceGiderTuru = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.GrnBasaran.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
+            this.GrnBasaran.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -126,7 +128,7 @@ namespace UserInterface.STS
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.webBrowser2);
-            this.groupBox1.Location = new System.Drawing.Point(171, 490);
+            this.groupBox1.Location = new System.Drawing.Point(171, 518);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(615, 137);
             this.groupBox1.TabIndex = 525;
@@ -270,6 +272,20 @@ namespace UserInterface.STS
             this.CmbButceKodu.TabIndex = 500;
             this.CmbButceKodu.SelectedIndexChanged += new System.EventHandler(this.CmbButceKodu_SelectedIndexChanged);
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.detayGörToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(127, 26);
+            // 
+            // detayGörToolStripMenuItem
+            // 
+            this.detayGörToolStripMenuItem.Name = "detayGörToolStripMenuItem";
+            this.detayGörToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.detayGörToolStripMenuItem.Text = "Detay Gör";
+            this.detayGörToolStripMenuItem.Click += new System.EventHandler(this.detayGörToolStripMenuItem_Click);
+            // 
             // label62
             // 
             this.label62.AutoSize = true;
@@ -400,7 +416,7 @@ namespace UserInterface.STS
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnDosyaEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnDosyaEkle.Image")));
             this.BtnDosyaEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(174, 633);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(174, 661);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(130, 51);
             this.BtnDosyaEkle.TabIndex = 527;
@@ -416,7 +432,7 @@ namespace UserInterface.STS
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(310, 633);
+            this.BtnKaydet.Location = new System.Drawing.Point(310, 661);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 526;
@@ -656,7 +672,7 @@ namespace UserInterface.STS
             // 
             // TxtAciklama
             // 
-            this.TxtAciklama.Location = new System.Drawing.Point(171, 416);
+            this.TxtAciklama.Location = new System.Drawing.Point(171, 444);
             this.TxtAciklama.Name = "TxtAciklama";
             this.TxtAciklama.Size = new System.Drawing.Size(373, 68);
             this.TxtAciklama.TabIndex = 532;
@@ -665,7 +681,7 @@ namespace UserInterface.STS
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(102, 427);
+            this.label1.Location = new System.Drawing.Point(102, 455);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 531;
@@ -756,25 +772,31 @@ namespace UserInterface.STS
             this.BtnButceDuzenle.UseVisualStyleBackColor = false;
             this.BtnButceDuzenle.Click += new System.EventHandler(this.BtnButceDuzenle_Click);
             // 
-            // contextMenuStrip1
+            // CmbButceGiderTuru
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.detayGörToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 48);
+            this.CmbButceGiderTuru.FormattingEnabled = true;
+            this.CmbButceGiderTuru.Location = new System.Drawing.Point(171, 416);
+            this.CmbButceGiderTuru.Name = "CmbButceGiderTuru";
+            this.CmbButceGiderTuru.Size = new System.Drawing.Size(278, 21);
+            this.CmbButceGiderTuru.TabIndex = 558;
             // 
-            // detayGörToolStripMenuItem
+            // label13
             // 
-            this.detayGörToolStripMenuItem.Name = "detayGörToolStripMenuItem";
-            this.detayGörToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.detayGörToolStripMenuItem.Text = "Detay Gör";
-            this.detayGörToolStripMenuItem.Click += new System.EventHandler(this.detayGörToolStripMenuItem_Click);
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.Location = new System.Drawing.Point(61, 417);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 15);
+            this.label13.TabIndex = 557;
+            this.label13.Text = "Bütçe Gider Türü:";
             // 
             // FrmHarcamasiYapilanSat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1434, 724);
+            this.Controls.Add(this.CmbButceGiderTuru);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.BtnButceDuzenle);
             this.Controls.Add(this.BtnMaliyetEkle);
             this.Controls.Add(this.BtnButceTanimEkle);
@@ -820,9 +842,9 @@ namespace UserInterface.STS
             this.Load += new System.EventHandler(this.FrmHarcamasiYapilanSat_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
+            this.contextMenuStrip1.ResumeLayout(false);
             this.GrnBasaran.ResumeLayout(false);
             this.GrnBasaran.PerformLayout();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -892,5 +914,7 @@ namespace UserInterface.STS
         public System.Windows.Forms.Button button5;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem detayGörToolStripMenuItem;
+        private System.Windows.Forms.ComboBox CmbButceGiderTuru;
+        private System.Windows.Forms.Label label13;
     }
 }

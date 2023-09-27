@@ -64,7 +64,13 @@ namespace UserInterface.STS
             Personeller();
             ButceKoduKalemi();
             SatBilgileri();
+            ButceGiderTuru();
             start = true;
+        }
+        public void ButceGiderTuru()
+        {
+            CmbButceGiderTuru.DataSource = satDataGridview1Manager.ButceGiderTuruList();
+            CmbButceGiderTuru.Text = "";
         }
         void UsBolgeleri()
         {
@@ -162,7 +168,7 @@ namespace UserInterface.STS
             TxtBelgeNumarasi.Text = satDataGridview1.BelgeNumarasi;
             DtBelgeTarihi.Value = satDataGridview1.BelgeTarihi;
             TxtSatinAlinanFirma.Text = satDataGridview1.SatinAlinanFirma;
-
+            CmbButceGiderTuru.Text = satDataGridview1.ButceGiderTuru;
             teklifsizSats = null;
             satinAlinacakMalzemelers = null;
             fiyatTeklifiAls = null;
@@ -266,7 +272,7 @@ namespace UserInterface.STS
             if (dr == DialogResult.Yes)
             {
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
-                SatDataGridview1 satDataGridview1 = new SatDataGridview1(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, donem, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value, TxtSatinAlinanFirma.Text);
+                SatDataGridview1 satDataGridview1 = new SatDataGridview1(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text, donem, CmbBelgeTuru.Text, TxtBelgeNumarasi.Text, DtBelgeTarihi.Value, TxtSatinAlinanFirma.Text, CmbButceGiderTuru.Text);
 
                 string mesaj = satDataGridview1Manager.DevamEdenSatGuncelle(satDataGridview1);
                 if (mesaj != "OK")

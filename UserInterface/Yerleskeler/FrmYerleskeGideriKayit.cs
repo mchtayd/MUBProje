@@ -2,6 +2,7 @@
 using Business.Concreate;
 using Business.Concreate.STS;
 using Business.Concreate.Yerleskeler;
+using DataAccess;
 using DataAccess.Concreate;
 using DataAccess.Concreate.STS;
 using DocumentFormat.OpenXml.Drawing;
@@ -12,6 +13,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.Yerleskeler
@@ -56,6 +58,8 @@ namespace UserInterface.Yerleskeler
             ComboProje();
             ButceTanim();
             MaliyetTuru();
+            ComboGiderTuru();
+            ButceGiderTuru();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -80,6 +84,13 @@ namespace UserInterface.Yerleskeler
             CmbButceTanimi.DisplayMember = "Baslik";
             CmbButceTanimi.SelectedValue = 0;
         }
+
+        public void ButceGiderTuru()
+        {
+            CmbButceGiderTuru.DataSource = satDataGridview1Manager.ButceGiderTuruList();
+            CmbButceGiderTuru.Text = "";
+        }
+
         public void MaliyetTuru()
         {
             CmbMaliyetTuru.DataSource = comboManager.GetList("MALİYET_TURU");
@@ -94,6 +105,14 @@ namespace UserInterface.Yerleskeler
             CmbProjeKodu.ValueMember = "Id";
             CmbProjeKodu.DisplayMember = "Baslik";
             CmbProjeKodu.SelectedValue = 0;
+        }
+
+        public void ComboGiderTuru()
+        {
+            CmbGiderTuru.DataSource = comboManager.GetList("GIDER_TURU");
+            CmbGiderTuru.ValueMember = "Id";
+            CmbGiderTuru.DisplayMember = "Baslik";
+            CmbGiderTuru.SelectedValue = 0;
         }
 
         private void TxtTutar_KeyPress(object sender, KeyPressEventArgs e)
@@ -126,6 +145,23 @@ namespace UserInterface.Yerleskeler
             {
                 CmbMaliyetTuru.Text = "";
             }
+        }
+
+        private void BtnButceTanimEkle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnMaliyetEkle_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnGiderTuruEkle_Click(object sender, EventArgs e)
+        {
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = "GIDER_TURU";
+            frmCombo.ShowDialog();
         }
 
         private void CmbFaturaFirma_SelectedIndexChanged(object sender, EventArgs e)
@@ -174,7 +210,7 @@ namespace UserInterface.Yerleskeler
             string aciklama = TxtAciklama.Text;
             SatDataGridview1 sat = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(),
                         infos[2].ToString(), "YOK", "0", DtgTarih.Text.ConDate(), aciklama, siparisNo, "", "", "", "", "",
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "YERLEŞKE GİDERİ", CmbProjeKodu.Text, TxtHizmetAlinanKurum.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text);
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "YERLEŞKE GİDERİ", CmbProjeKodu.Text, TxtHizmetAlinanKurum.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text, CmbButceGiderTuru.Text);
             string mesaj = satDataGridview1Manager.Add(sat);
             if (mesaj != "OK")
             {
@@ -294,12 +330,10 @@ namespace UserInterface.Yerleskeler
             CmbYerleskeAdi.SelectedValue = 0;
         }
 
-
         private void CmbGiderTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CmbYerleskeAdi.Text=="")
             {
-                MessageBox.Show("Lütfen Öncelikle Yerleşke Adı Bilgisini Seçiniz!","Hata",MessageBoxButtons.OK,MessageBoxIcon.Error);
                 return;
             }
 

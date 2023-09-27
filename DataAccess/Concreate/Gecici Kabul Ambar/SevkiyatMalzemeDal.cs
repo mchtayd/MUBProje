@@ -33,7 +33,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
         {
             try
             {
-                dataReader = sqlServices.StoreReader("SevkiyatMalzemeDal",
+                dataReader = sqlServices.StoreReader("SevkiyatMalzemeAdd",
                     new SqlParameter("@benzersizId", entity.BenzersizId),
                     new SqlParameter("@stokNo", entity.StokNo),
                     new SqlParameter("@tanim", entity.Tanim),
@@ -100,7 +100,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             try
             {
                 List<SevkiyatMalzeme> sevkiyatMalzemes = new List<SevkiyatMalzeme>();
-                sqlServices.StoreReader("SevkiyatMalzemeList", new SqlParameter("@benzersizId", benzersizId));
+                dataReader = sqlServices.StoreReader("SevkiyatMalzemeList", new SqlParameter("@benzersizId", benzersizId));
                 while (dataReader.Read())
                 {
                     sevkiyatMalzemes.Add(new SevkiyatMalzeme(

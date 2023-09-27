@@ -428,6 +428,14 @@ namespace UserInterface.Ana_Sayfa
                     form.CmbProj();
                 }
             }
+            if (comboAd == "GIDER_TURU")
+            {
+                var form = (FrmYerleskeGideriKayit)Application.OpenForms["FrmYerleskeGideriKayit"];
+                if (form != null)
+                {
+                    form.ComboGiderTuru();
+                }
+            }
 
         }
     }

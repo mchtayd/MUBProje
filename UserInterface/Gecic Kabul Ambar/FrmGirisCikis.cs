@@ -1476,7 +1476,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 {
                     addItems.Add(abfMalzeme2);
                 }
+
                 int index = 0;
+
                 foreach (AbfMalzeme item in abfMalzemes)
                 {
                     if (item.TakilanStokNo=="")
@@ -1709,15 +1711,17 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         {
                             DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
                             depoMiktarManager.Add(depoMiktar2);
+
+                            depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, CmbBildirimdenDepoyaDepoNo.Text, seriNo, lotNo, revizyon);
                         }
 
                         mevcutMiktar = +miktar;
                         string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen depo
                         string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
 
+                        
                         DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen, depoMiktar.RezerveDurumu);
-
 
                         StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs(islemTuru, stokNo, tanim, item.Cells["Column5"].Value.ToString(), item.Cells["Column6"].Value.ConDate(), item.Cells["Column7"].Value.ToString(), "", "", item.Cells["Column15"].Value.ToString(), item.Cells["Column16"].Value.ToString(), item.Cells["Column17"].Value.ToString(), miktar, item.Cells["Column19"].Value.ToString(), item.Cells["Column14"].Value.ToString(), item.Cells["Column10"].Value.ToString(), item.Cells["Column12"].Value.ToString(), item.Cells["Column11"].Value.ToString());
 

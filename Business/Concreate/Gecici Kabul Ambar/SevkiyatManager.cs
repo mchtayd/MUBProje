@@ -64,6 +64,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public Sevkiyat GetSonKayit()
+        {
+            try
+            {
+                return sevkiyatDal.GetSonKayit();
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<Sevkiyat> GetList()
         {
@@ -77,11 +88,11 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string Update(Sevkiyat entity)
+        public string Update(Sevkiyat entity,int id)
         {
             try
             {
-                return sevkiyatDal.Update(entity);
+                return sevkiyatDal.Update(entity, id);
             }
             catch (Exception ex)
             {

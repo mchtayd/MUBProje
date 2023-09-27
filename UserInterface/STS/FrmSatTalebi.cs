@@ -85,9 +85,14 @@ namespace UserInterface.STS
             MifMalzemeFill();
             ButceTanim();
             MaliyetTuru();
+            ButceGiderTuru();
             start = true;
         }
-
+        public void ButceGiderTuru()
+        {
+            CmbButceGiderTuru.DataSource = satDataGridview1Manager.ButceGiderTuruList();
+            CmbButceGiderTuru.Text = "";
+        }
 
         private void BtnCancel_Click(object sender, EventArgs e)
         {
@@ -679,7 +684,7 @@ namespace UserInterface.STS
 
                     SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(),
                         infos[2].ToString(), bolgeAdi, abfNo.ToString(), LblSatOlusturmaTarihi.Text.ConDate(), aciklama, siparisNo, "", "", "", "", "",
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "ASELSAN", bolgeProje, "-", CmbButceTanimi.Text, CmbMaliyetTuru.Text);
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "ASELSAN", bolgeProje, "-", CmbButceTanimi.Text, CmbMaliyetTuru.Text, CmbButceGiderTuru.Text);
 
                     mesaj = satDataGridview1Manager.Add(satDataGridview1);
                     if (mesaj != "OK")
@@ -946,6 +951,11 @@ namespace UserInterface.STS
             return "OK";
         }
 
+        private void BtnMaliyetEkle_Click(object sender, EventArgs e)
+        {
+
+        }
+
         SatDataGridview1 satDataGridview11 = null;
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -976,7 +986,7 @@ namespace UserInterface.STS
                     string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                     SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(),
                         infos[2].ToString(), CmbBolgeAdi.Text, BildirimFromNo.Text, LblSatOlusturmaTarihi.Text.ConDate(), TxtAciklama.Text, siparisNo, CmbAdSoyad.Text, LblSiparisNo.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "ASELSAN", LblBolgeProje.Text, "-", CmbButceTanimi.Text, CmbMaliyetTuru.Text);
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "ASELSAN", LblBolgeProje.Text, "-", CmbButceTanimi.Text, CmbMaliyetTuru.Text, CmbButceGiderTuru.Text);
 
                     mesaj = satDataGridview1Manager.Add(satDataGridview1);
                     if (mesaj!="OK")
@@ -998,7 +1008,7 @@ namespace UserInterface.STS
                     string donem = CmbDonemT.Text + " " + CmbDonemYilT.Text;
                     SatDataGridview1 satDataGridview1 = new SatDataGridview1(satNo, LblIsAkisNo.Text.ConInt(), infos[4].ToString(), infos[1].ToString(),
                         infos[2].ToString(), "YOK", "0", LblSatTarihi.Text.ConDate(), TxtAciklama.Text, siparisNo, CmbAdSoyad.Text, LblSiparisNo.Text, LblUnvani.Text, LblMasrafYeriNo.Text, LblMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "BAŞARAN", "ASL-001/MUB", "-", CmbButceTanimi.Text, CmbMaliyetTuru.Text);
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "BAŞARAN", "ASL-001/MUB", "-", CmbButceTanimi.Text, CmbMaliyetTuru.Text, CmbButceGiderTuru.Text);
 
                     mesaj = satDataGridview1Manager.Add(satDataGridview1);
                     if (mesaj != "OK")

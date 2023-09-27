@@ -788,7 +788,7 @@ namespace UserInterface.STS
 
                 isleAdimi = "SAT BAŞLATMA ONAYI";
                 SatDataGridview1 satDataGridview1 = new SatDataGridview1(0, LblIsAkisNo.Text.ConInt(), MasYeriNo.Text, TalepEden.Text, Bolum.Text, Usbolgesi.Text, BildirimFromNo.Text, istenenTarih.Value, Gerekce.Text, siparisNo, "", "", "", "", "",
-                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "ASELSAN", TxtProje.Text, "-", "", "");
+                  string.IsNullOrEmpty(dosyaYolu) ? "" : dosyaYolu, infos[0].ConInt(), isleAdimi, donem, "ASELSAN", TxtProje.Text, "-", "", "", "");
 
                 string mesaj = satDataGridview1Manager.Add(satDataGridview1);
 
@@ -2005,7 +2005,7 @@ namespace UserInterface.STS
                 isleAdimi = "SAT BAŞLATMA ONAYI";
                 string donem = CmbDonemBasaran.Text + " " + CmbDonemBasaranYil.Text;
                 SatDataGridview1 sat = new SatDataGridview1(0, LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "", "", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYoluGun) ? "" : dosyaYoluGun, infos[0].ConInt(), isleAdimi, donem, "BAŞARAN", TxtProjeKodu.Text, "-", "", "");
+                  string.IsNullOrEmpty(dosyaYoluGun) ? "" : dosyaYoluGun, infos[0].ConInt(), isleAdimi, donem, "BAŞARAN", TxtProjeKodu.Text, "-", "", "", "");
 
                 string mesaj = satDataGridview1Manager.Add(sat);
                 if (mesaj!="OK")
@@ -2295,7 +2295,7 @@ namespace UserInterface.STS
 
                 string donem = CmbDonemBasaran.Text + " " + CmbDonemBasaranYil.Text;
                 SatDataGridview1 sat = new SatDataGridview1(0, LblIsAkisNo2.Text.ConInt(), LblMasrafYeriNo.Text, LblAdSoyad.Text, LblMasrafYeri.Text, "YOK", "YOK", DtgIstenenTarihBasaran.Value, TxtGerekceBasaran.Text, siparisNo, CmbAdSoyad.Text, CmbSiparisNo.Text, TxtGorevi.Text, TxtMasrafyeriNo.Text, TxtMasrafYeri.Text,
-                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, donem, "HARCAMASI YAPILAN", TxtProjeKodu.Text, TxtSatinAlinanFirma.Text, "", "");
+                  string.IsNullOrEmpty(dosyaYoluTemsili) ? "" : dosyaYoluTemsili, infos[0].ConInt(), isleAdimi, donem, "HARCAMASI YAPILAN", TxtProjeKodu.Text, TxtSatinAlinanFirma.Text, "", "", "");
                 string mesaj = satDataGridview1Manager.Add(sat);
                 if (mesaj != "OK")
                 {

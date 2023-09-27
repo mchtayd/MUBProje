@@ -75,6 +75,7 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
             this.BtnDisaAktar = new System.Windows.Forms.Button();
+            this.malzemeBilgisiniDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -179,14 +180,15 @@
             // contextMenuStrip1
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.barkodOluşturToolStripMenuItem});
+            this.barkodOluşturToolStripMenuItem,
+            this.malzemeBilgisiniDüzenleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(154, 26);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 70);
             // 
             // barkodOluşturToolStripMenuItem
             // 
             this.barkodOluşturToolStripMenuItem.Name = "barkodOluşturToolStripMenuItem";
-            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(153, 22);
+            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
             this.barkodOluşturToolStripMenuItem.Text = "Barkod Oluştur";
             this.barkodOluşturToolStripMenuItem.Click += new System.EventHandler(this.barkodOluşturToolStripMenuItem_Click);
             // 
@@ -552,6 +554,13 @@
             this.BtnDisaAktar.Visible = false;
             this.BtnDisaAktar.Click += new System.EventHandler(this.BtnDisaAktar_Click);
             // 
+            // malzemeBilgisiniDüzenleToolStripMenuItem
+            // 
+            this.malzemeBilgisiniDüzenleToolStripMenuItem.Name = "malzemeBilgisiniDüzenleToolStripMenuItem";
+            this.malzemeBilgisiniDüzenleToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.malzemeBilgisiniDüzenleToolStripMenuItem.Text = "Malzeme Bilgisini Düzenle";
+            this.malzemeBilgisiniDüzenleToolStripMenuItem.Click += new System.EventHandler(this.malzemeBilgisiniDüzenleToolStripMenuItem_Click);
+            // 
             // FrmAltTakimTakip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -641,5 +650,6 @@
         private System.Windows.Forms.ToolStripMenuItem barkodOluşturToolStripMenuItem;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnDisaAktar;
+        private System.Windows.Forms.ToolStripMenuItem malzemeBilgisiniDüzenleToolStripMenuItem;
     }
 }

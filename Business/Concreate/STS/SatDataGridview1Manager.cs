@@ -747,5 +747,16 @@ namespace Business.Concreate
                 return new List<SatDataGridview1>();
             }
         }
+        public List<string> ButceGiderTuruList()
+        {
+            try
+            {
+                return satDataGridview1Dal.ButceGiderTuruList();
+            }
+            catch
+            {
+                return new List<string>();
+            }
+        }
     }
 }

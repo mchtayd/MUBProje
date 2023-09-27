@@ -2249,6 +2249,15 @@ namespace UserInterface.STS
                     }
                 }
 
+                if (baslik == "SEVKİYATLAR")
+                {
+                    var form = (FrmSevkiyatlar)Application.OpenForms["FrmSevkiyatlar"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
+
             }
 
         }

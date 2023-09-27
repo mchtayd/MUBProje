@@ -46,6 +46,8 @@ namespace UserInterface.BakımOnarım
             this.DtgIslemKayitlari = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.DtgMalzemeListesi = new ADGV.AdvancedDataGridView();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.DtgDepoHareketleri = new System.Windows.Forms.DataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -66,8 +68,6 @@ namespace UserInterface.BakımOnarım
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
             this.ChkTumunuGor = new System.Windows.Forms.CheckBox();
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -78,6 +78,7 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeListesi)).BeginInit();
+            this.contextMenuStrip3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoHareketleri)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
@@ -86,7 +87,6 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolyeIslemler)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
-            this.contextMenuStrip3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
@@ -185,7 +185,7 @@ namespace UserInterface.BakımOnarım
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage5);
-            this.tabControl1.Location = new System.Drawing.Point(12, 503);
+            this.tabControl1.Location = new System.Drawing.Point(12, 506);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1528, 367);
@@ -256,6 +256,20 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeListesi.TabIndex = 3;
             this.DtgMalzemeListesi.TimeFilter = false;
             this.DtgMalzemeListesi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgMalzemeListesi_CellMouseClick);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip3.Name = "contextMenuStrip2";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(190, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
+            this.toolStripMenuItem1.Text = "Malzeme Veri Geçmişi";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // tabPage3
             // 
@@ -469,20 +483,6 @@ namespace UserInterface.BakımOnarım
             this.ChkTumunuGor.UseVisualStyleBackColor = true;
             this.ChkTumunuGor.CheckedChanged += new System.EventHandler(this.ChkTumunuGor_CheckedChanged);
             // 
-            // contextMenuStrip3
-            // 
-            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip3.Name = "contextMenuStrip2";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(190, 26);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
-            this.toolStripMenuItem1.Text = "Malzeme Veri Geçmişi";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
-            // 
             // FrmArizaDevamEden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -510,6 +510,7 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeListesi)).EndInit();
+            this.contextMenuStrip3.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoHareketleri)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
@@ -519,7 +520,6 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolyeIslemler)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).EndInit();
-            this.contextMenuStrip3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

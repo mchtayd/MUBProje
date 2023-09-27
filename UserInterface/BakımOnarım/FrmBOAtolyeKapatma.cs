@@ -34,6 +34,7 @@ namespace UserInterface.BakımOnarım
         BildirimYetkiManager bildirimYetkiManager;
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
         AbfMalzemeManager abfMalzemeManager;
+        ArizaKayitManager arizaKayitManager;
 
         List<Atolye> atolyes;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
@@ -84,6 +85,87 @@ namespace UserInterface.BakımOnarım
 
             AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon);
 
+            if (abfMalzemeIslemKayit1==null)
+            {
+                if (abfNo!=0)
+                {
+                    ArizaKayit arizaKayit = arizaKayitManager.Get(abfNo);
+                    List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                    abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+                    foreach (AbfMalzeme item in abfMalzemes)
+                    {
+                        if (item.SokulenStokNo == stokNo)
+                        {
+                            if (item.SokulenSeriNo == seriNo && item.SokulenRevizyon == revizyon)
+                            {
+                                AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "ATÖLYE BAKIM ONARIMDA", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                if (abfMalzemeIslemKayit2 == null)
+                                {
+                                    abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "300 - ATÖLYEYE GİDECEK MALZEME", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+
+                                    if (abfMalzemeIslemKayit2 == null)
+                                    {
+                                        abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "100 - GEÇİCİ KABUL/KONTROL", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+
+                                        if (abfMalzemeIslemKayit2 == null)
+                                        {
+                                            abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "SEVKİYAT ARACI (ARA DEPO - VAN)", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+
+                                            if (abfMalzemeIslemKayit2 == null)
+                                            {
+                                                abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "ARA DEPO (İADE)", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+
+                                                if (abfMalzemeIslemKayit2 == null)
+                                                {
+                                                    abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(item.Id, "ARA DEPO (İADE)", arizaKayit.AbTarihSaat, "EBUBEKİR KELEŞ", 1, "SÖKÜLEN", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                                    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
+
+                                                }
+
+                                                abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(item.Id, "SEVKİYAT ARACI (ARA DEPO - VAN)", arizaKayit.AbTarihSaat, "EBUBEKİR KELEŞ", 1, "SÖKÜLEN", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                                abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
+
+                                            }
+
+                                            abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(item.Id, "100 - GEÇİCİ KABUL/KONTROL", arizaKayit.AbTarihSaat, "EBUBEKİR KELEŞ", 1, "SÖKÜLEN", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                            abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
+                                        }
+
+                                        abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(item.Id, "300 - ATÖLYEYE GİDECEK MALZEME", arizaKayit.AbTarihSaat, "EBUBEKİR KELEŞ", 1, "SÖKÜLEN", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                        abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
+                                    }
+
+                                    abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(item.Id, "ATÖLYE BAKIM ONARIMDA", arizaKayit.AbTarihSaat, infos[1].ToString(), 1, "SÖKÜLEN", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
+
+                                }
+                                malzemeId = item.Id;
+                            }
+                            
+                            else
+                            {
+                                MessageBox.Show("Malzemenin Seri No veya Revizyon bilgisi arızaya kayıtlı olan malzemenin Seri No veya Revizyon bilgisiyle uyuşmamaktadır!\nLütfen gerekli düzeltme işlemlerini yaptırınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+
+                        }
+                    }
+                    
+                }
+                else
+                {
+                    MessageBox.Show("Malzeme Atölyeye manuel olarak kaydedilmiştir, manuel kayıtlı malzeme için malzemeyi tutanak veya malzeme hareket formu ile teslim ediniz!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+            }
+
+            abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon);
+            if (abfMalzemeIslemKayit1 == null)
+            {
+                MessageBox.Show(abfNo + " Form numaralı arızaya kayıtlı böyle bir malzeme bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             if (abfMalzemeIslemKayit1.MalzemeDurumu == "SÖKÜLEN")
             {
                 abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
@@ -110,13 +192,17 @@ namespace UserInterface.BakımOnarım
                     abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                 }
             }
-            if (RdbDepo.Checked==true)
+            if (RdbDepo.Checked == true)
             {
                 atolyeMalzemeManager.Update(kayitId, "DEPO STOĞUNA ALINACAK");
             }
-            if (RdbFabrika.Checked==true)
+            if (RdbFabrika.Checked == true)
             {
                 atolyeMalzemeManager.Update(kayitId, "FABRİKA ONARIM");
+            }
+            if (RdbHurda.Checked == true)
+            {
+                atolyeMalzemeManager.Update(kayitId, "HURDA EDİLECEK");
             }
 
             int guncellenecekId = 0;
@@ -141,6 +227,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show(kontrol2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             Temizle();
             dosyaKontrol = false;
 
@@ -186,7 +273,7 @@ namespace UserInterface.BakımOnarım
         void Temizle()
         {
             TxtIcSiparisNo.Clear(); TxtStokNoUst.Clear(); TxtTanimUst.Clear(); TxtSeriNoUst.Clear(); TxtGarantiDurumuUst.Clear(); LblDurumKapali.Visible = false;
-            LblDurumAcik.Visible = false; LblIslemAdimiAcik.Visible = false; LblIslemAdimiKapali.Visible = false; TxtBildirimNo.Clear(); TxtScrmNo.Clear(); TxtKategori.Clear(); TxtBolgeAdi.Clear(); TxtProje.Clear(); DtgAtolye.DataSource = null; DtgIslemKayitlari.DataSource = null; DtgMalzemeler.DataSource = null; webBrowser1.Navigate("");
+            LblDurumAcik.Visible = false; LblIslemAdimiAcik.Visible = false; LblIslemAdimiKapali.Visible = false; TxtBildirimNo.Clear(); TxtAbfNo.Clear(); TxtKategori.Clear(); TxtBolgeAdi.Clear(); TxtProje.Clear(); DtgAtolye.DataSource = null; DtgIslemKayitlari.DataSource = null; DtgMalzemeler.DataSource = null; webBrowser1.Navigate("");
         }
 
         public FrmBOAtolyeKapatma()
@@ -200,6 +287,7 @@ namespace UserInterface.BakımOnarım
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
             abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
+            arizaKayitManager = ArizaKayitManager.GetInstance();
         }
 
         private void BtnDosyaEkle_Click(object sender, EventArgs e)
@@ -292,7 +380,7 @@ namespace UserInterface.BakımOnarım
             TxtSeriNoUst.Text = atolye.SeriNoUst;
             TxtGarantiDurumuUst.Text = atolye.GarantiDurumu;
             TxtBildirimNo.Text = atolye.BildirimNo;
-            TxtScrmNo.Text = atolye.CrmNo;
+            TxtAbfNo.Text = atolye.AbfNo.ToString();
             TxtKategori.Text = atolye.Kategori;
             TxtBolgeAdi.Text = atolye.BolgeAdi;
             TxtProje.Text = atolye.Proje;

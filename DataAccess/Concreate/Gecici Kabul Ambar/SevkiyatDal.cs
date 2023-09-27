@@ -86,12 +86,36 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
+        public Sevkiyat GetSonKayit()
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SevkiyatSonKayitGet");
+                Sevkiyat sevkiyat = null;
+                while (dataReader.Read())
+                {
+                    sevkiyat = new Sevkiyat(
+                        dataReader["ID"].ConInt(),
+                        dataReader["SEVKIYAT_TURU"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["DOSYA_YOLU"].ToString());
+                }
+                dataReader.Close();
+                return sevkiyat;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public List<Sevkiyat> GetList()
         {
             try
             {
                 List<Sevkiyat> sevkiyats = new List<Sevkiyat>();
-                sqlServices.StoreReader("SevkiyatList");
+                dataReader = sqlServices.StoreReader("SevkiyatList");
                 while (dataReader.Read())
                 {
                     sevkiyats.Add(new Sevkiyat(
@@ -110,14 +134,16 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
-        public string Update(Sevkiyat entity)
+        public string Update(Sevkiyat entity, int id)
         {
             try
             {
-                sqlServices.StoreReader("SevkiyatUpdate", 
+                dataReader = sqlServices.StoreReader("SevkiyatUpdate",
+                    new SqlParameter("@id", id),
                     new SqlParameter("@sevkiyat_Turu", entity.SevkiyatTuru),
                     new SqlParameter("@tarih", entity.Tarih),
-                    new SqlParameter("@donem", entity.Donem));
+                    new SqlParameter("@donem", entity.Donem),
+                    new SqlParameter("@dosyaYolu", entity.DosyaYolu));
 
                 dataReader.Close();
                 return "OK";
