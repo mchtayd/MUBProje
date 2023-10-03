@@ -24,6 +24,8 @@ namespace UserInterface.IdariIsler
         IdariIslerLogManager logManager;
         string dosyayolu, sayfa;
         int id;
+
+        public object[] infos;
         public FrmAracTahsisBilgileri()
         {
             InitializeComponent();
@@ -34,7 +36,16 @@ namespace UserInterface.IdariIsler
         private void FrmAracTahsisBilgileri_Load(object sender, EventArgs e)
         {
             DataDisplay();
-            DataDisplayProjeDisi();
+            if (infos[11].ToString()!="MİSAFİR")
+            {
+                DataDisplayProjeDisi();
+                tabControl2.Enabled = true;
+            }
+            else
+            {
+                tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
+                tabControl2.Enabled = false;
+            }
         }
         public void YenilenecekVeri()
         {

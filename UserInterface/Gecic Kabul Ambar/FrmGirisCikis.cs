@@ -572,6 +572,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         ArizaKayit arizaKayit = arizaKayitManager.GetId(rezerveId);
                         string abf = arizaKayit.AbfFormNo.ToString();
                         DialogResult dr = MessageBox.Show("Bu malzeme " + abf + " form numaralı arıza için Rezerve edilmiştir!\nİsterseniz Rezerve işlemini iptal ederek işleminize devam edebilirsiniz!\nRezerve İşlemini iptal etmek istiyor musunuz?", "Hata", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                        TmrBarcode.Stop();
                         if (dr != DialogResult.Yes)
                         {
                             return "İşlem iptal edildi!";
@@ -1460,8 +1461,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     return;
                 }
                 abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
-                
 
+                int guncelId = 0;
                 var addItems = new HashSet<AbfMalzeme>();
                 var updateItems = new HashSet<AbfMalzeme>();
 
@@ -1477,24 +1478,24 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     addItems.Add(abfMalzeme2);
                 }
 
-                int index = 0;
+                
 
                 foreach (AbfMalzeme item in abfMalzemes)
                 {
-                    if (item.TakilanStokNo=="")
+                    if (item.TakilanStokNo=="" && item.SokulenStokNo == stokNo)
                     {
                         if (abfMalzemes.Count > 1)
                         {
-                            index++;
+                            guncelId = item.Id;
                         }
-                        continue;
+                        break;
                     }
                 }
 
                 foreach (AbfMalzeme item in updateItems)
                 {
                     int sokulenId = 0;
-                    sokulenId = abfMalzemes[index].Id;
+                    sokulenId = guncelId;
                     abfMalzemeManager.UpdateTakilan(item, sokulenId);
                     abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
                 }
@@ -1582,7 +1583,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     if (islemTuru == "100-YENİ DEPO GİRİŞİ")
                     {
                         DepoGirisBekleyenKontrol();
-
 
                         mevcutMiktar = +miktar;
 

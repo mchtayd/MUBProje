@@ -1,6 +1,7 @@
 ﻿using Business;
 using Business.Concreate.AnaSayfa;
 using Business.Concreate.IdarıIsler;
+using Business.Concreate.STS;
 using DataAccess.Concreate;
 using Entity.AnaSayfa;
 using Entity.IdariIsler;
@@ -11,6 +12,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -32,6 +34,7 @@ namespace UserInterface.Ana_Sayfa
 
         bool start = false;
         bool kayitliPersonel = false;
+        string dosyaYolu = "";
         public FrmHesapOlustur()
         {
             InitializeComponent();
@@ -140,7 +143,21 @@ namespace UserInterface.Ana_Sayfa
                     sifre = "123456";
                 }
                 //int index = 0;
-                
+
+                PersonelKayit personelKayit = kayitManager.Get(0, CmbPersonel.Text);
+                if (personelKayit == null)
+                {
+
+                    PersonelKayit personelKayit2 = new PersonelKayit(CmbPersonel.Text, "", "", "", "", "", "", "", DateTime.Now, "", "", "", "", "", "", "", "", "", "", "", TxtSicilNo.Text, "", "", "", "", "", "", "", "", "", "", DateTime.Now, "", "", "", "", "", "", "", "", "", "","", "", "", "", "", DateTime.Now, CmbYetkiModu.Text);
+
+                    string message = kayitManager.Add(personelKayit2, "OTO");
+                    if (message != "OK")
+                    {
+                        MessageBox.Show(message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+
                 string izinIdleri = "";
                 foreach (string item in ChcListBoxYetkiler.CheckedItems)
                 {
@@ -148,7 +165,7 @@ namespace UserInterface.Ana_Sayfa
 
                     foreach (MenuBaslik item2 in menuBasliks)
                     {
-                        if (item2.Baslik==header)
+                        if (item2.Baslik == header)
                         {
                             idler.Add(item2.Id.ToString());
                             break;
@@ -165,16 +182,58 @@ namespace UserInterface.Ana_Sayfa
             }
             else
             {
-                if (CmbPersonel.Text=="")
+                if (CmbPersonel.Text == "")
                 {
                     MessageBox.Show("Lütfen öncelikle kayıtlı bir personel seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
                 else
                 {
-                    DialogResult dr = MessageBox.Show("Personel için DTS hesabı oluşturulacak onaylıyor musunuz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
-                    if (dr==DialogResult.Yes)
+                    DialogResult dr = MessageBox.Show("Personel için DTS hesabı oluşturulacak onaylıyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (dr == DialogResult.Yes)
                     {
+                        PersonelKayit personelKayit = kayitManager.Get(0, CmbPersonel.Text);
+                        if (personelKayit == null)
+                        {
+                            string root = @"Z:\DTS";
+                            string subdir = @"Z:\DTS\İDARİ İŞLER\PERSONELLER\";
+                            //root = @"C:\STS";
+                            //subdir = @"C:\STS\Personel Dosyaları\";
+                            if (!Directory.Exists(root))
+                            {
+                                Directory.CreateDirectory(root);
+                            }
+                            if (!Directory.Exists(subdir))
+                            {
+                                Directory.CreateDirectory(subdir);
+                            }
+                            if (!Directory.Exists(subdir + CmbPersonel.Text))
+                            {
+                                Directory.CreateDirectory(subdir + CmbPersonel.Text);
+                            }
+
+                            dosyaYolu = subdir + CmbPersonel.Text;
+
+                            string yeniad = CmbPersonel.Text + ".jpg";
+                            if (!Directory.Exists(dosyaYolu + "\\" + yeniad))
+                            {
+                                string silinecek = dosyaYolu + "\\" + yeniad;
+                                File.Delete(silinecek);
+                            }
+
+                            File.Copy("Z:\\DTS\\İDARİ İŞLER\\PERSONELLER\\Guest.png", dosyaYolu + "\\" + yeniad);
+
+
+                            PersonelKayit personelKayit2 = new PersonelKayit(CmbPersonel.Text, "", "", "", "", "", "", "", DateTime.Now, "", "", "", "", "", "", "", "", "", "", "", TxtSicilNo.Text, "", "", "", "", "", "", "", "", "", "", DateTime.Now, "", "", "", "", "", "", "", "", "", "", "", dosyaYolu, dosyaYolu, "", "", DateTime.Now, CmbYetkiModu.Text);
+
+                            string message = kayitManager.Add(personelKayit2, "OTO");
+                            if (message != "OK")
+                            {
+                                MessageBox.Show(message, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                return;
+                            }
+                        }
+
                         string izinIdleri = "";
                         foreach (string item in ChcListBoxYetkiler.CheckedItems)
                         {
@@ -193,7 +252,7 @@ namespace UserInterface.Ana_Sayfa
                         Yetki yetki = new Yetki(0, CmbPersonel.Text, izinIdleri);
                         string mesaj = yetkilerManager.Add(yetki);
 
-                        if (mesaj!="OK")
+                        if (mesaj != "OK")
                         {
                             MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
@@ -202,9 +261,12 @@ namespace UserInterface.Ana_Sayfa
 
                         yetkiId = yetki.Id;
 
+                        PersonelKayit personelKayit3 = kayitManager.Get(0, CmbPersonel.Text);
+                        personelId = personelKayit3.Id;
                         Personel personel = new Personel(personelId, TxtSicilNo.Text, CmbPersonel.Text, yetkiId);
+
                         mesaj = personelManager.Add(personel);
-                        if (mesaj!="OK")
+                        if (mesaj != "OK")
                         {
                             MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
@@ -213,20 +275,20 @@ namespace UserInterface.Ana_Sayfa
                         Entity.Login login = new Entity.Login(personelId, TxtSicilNo.Text, TxtSifre.Text);
                         mesaj = loginManager.Add(login);
 
-                        if (mesaj!="OK")
+                        if (mesaj != "OK")
                         {
                             MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
                         MessageBox.Show(CmbPersonel.Text + " adlı personel için DTS hesabı başarıyla oluşturulmuştur.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
+
                         Temizle();
 
                     }
                 }
-                
+
             }
-            
+
 
         }
         void Temizle()
@@ -297,7 +359,7 @@ namespace UserInterface.Ana_Sayfa
 
         private void BtnTumetki_Click(object sender, EventArgs e)
         {
-            if (btnTumYetki==false)
+            if (btnTumYetki == false)
             {
                 for (int i = 0; i < menuBasliks.Count; i++)
                 {
@@ -313,8 +375,8 @@ namespace UserInterface.Ana_Sayfa
                 }
                 btnTumYetki = false;
             }
-            
-            
+
+
         }
 
         private void CmbYetkiModu_SelectedIndexChanged(object sender, EventArgs e)

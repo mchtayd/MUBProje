@@ -3,6 +3,7 @@ using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.Presentation;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
@@ -367,7 +368,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 if (!Directory.Exists(dosyayolu + "\\" + yeniad))
                 {
                     string silinecek = dosyayolu + "\\" + yeniad;
-                    File.Delete(silinecek);
+                    try
+                    {
+                        File.Delete(silinecek);
+                    }
+                    catch (Exception)
+                    {
+                        Directory.Delete(dosyayolu);
+                    }
                 }
                 File.Copy(fotoyolu, dosyayolu + "\\" + yeniad);
             }

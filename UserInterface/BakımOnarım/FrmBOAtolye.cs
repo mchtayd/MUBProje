@@ -51,6 +51,7 @@ namespace UserInterface.BakımOnarım
 
         List<AtolyeMalzeme> atolyeMalzemes;
         List<AbfMalzeme> abfMalzemes;
+        List<AbfMalzeme> abfMalzemesFiltired;
 
         List<string> IcSiparisler = new List<string>();
         List<string> SiparisNos = new List<string>();
@@ -145,7 +146,7 @@ namespace UserInterface.BakımOnarım
             dataBinderOto.DataSource = null;
 
             abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("300 - ATÖLYEYE GİDECEK MALZEME");
-
+            abfMalzemesFiltired = abfMalzemes;
             dataBinderOto.DataSource = abfMalzemes.ToDataTable();
             DtgList.DataSource = dataBinderOto;
 
@@ -1291,7 +1292,7 @@ namespace UserInterface.BakımOnarım
                 #endregion
 
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
+                Don();
                 BtnKaydet.Enabled = true;
                 BtnTemizle.Enabled = true;
                 BtnCancel.Enabled = true;
@@ -1439,6 +1440,28 @@ namespace UserInterface.BakımOnarım
         private void DtgList_SortStringChanged(object sender, EventArgs e)
         {
             dataBinderOto.Sort = DtgList.SortString;
+        }
+
+        private void TxtSeri_TextChanged(object sender, EventArgs e)
+        {
+            string isim = TxtSeri.Text;
+            if (string.IsNullOrEmpty(isim))
+            {
+                abfMalzemesFiltired = abfMalzemes;
+                dataBinderOto.DataSource = abfMalzemes.ToDataTable();
+                DtgList.DataSource = dataBinderOto;
+                LblToplam.Text = DtgList.RowCount.ToString();
+                return;
+            }
+            if (TxtSeri.Text.Length < 3)
+            {
+                return;
+            }
+
+            dataBinderOto.DataSource = abfMalzemesFiltired.Where(x => x.SokulenSeriNo.ToLower().Contains(isim.ToLower())).ToList().ToDataTable();
+            DtgList.DataSource = dataBinderOto;
+            abfMalzemesFiltired = abfMalzemes;
+            LblToplam.Text = DtgList.RowCount.ToString();
         }
 
         string stokNo, tanim, seriNo, yapilacakIslem, revizyon; int miktar; DateTime talepTarihi;

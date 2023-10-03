@@ -163,6 +163,9 @@ namespace UserInterface.BakımOnarım
             this.label34 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderOto = new System.Windows.Forms.BindingSource(this.components);
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.TxtSeri = new System.Windows.Forms.TextBox();
+            this.label39 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -182,6 +185,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderOto)).BeginInit();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -610,7 +614,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox4.Controls.Add(this.DtgCekilmeTarihi);
             this.groupBox4.Controls.Add(this.LblIcSiparisNo);
             this.groupBox4.Controls.Add(this.label25);
-            this.groupBox4.Location = new System.Drawing.Point(12, 369);
+            this.groupBox4.Location = new System.Drawing.Point(12, 404);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(733, 377);
             this.groupBox4.TabIndex = 67;
@@ -801,7 +805,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label26.AutoSize = true;
             this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label26.Location = new System.Drawing.Point(5, 345);
+            this.label26.Location = new System.Drawing.Point(5, 380);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(112, 15);
             this.label26.TabIndex = 71;
@@ -810,7 +814,7 @@ namespace UserInterface.BakımOnarım
             // LblToplam
             // 
             this.LblToplam.AutoSize = true;
-            this.LblToplam.Location = new System.Drawing.Point(123, 345);
+            this.LblToplam.Location = new System.Drawing.Point(123, 380);
             this.LblToplam.Name = "LblToplam";
             this.LblToplam.Size = new System.Drawing.Size(21, 15);
             this.LblToplam.TabIndex = 58;
@@ -852,6 +856,7 @@ namespace UserInterface.BakımOnarım
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.panel4);
             this.tabPage1.Controls.Add(this.groupBox7);
             this.tabPage1.Controls.Add(this.BtnTemizle);
             this.tabPage1.Controls.Add(this.BtnKaydet);
@@ -880,7 +885,7 @@ namespace UserInterface.BakımOnarım
             // groupBox7
             // 
             this.groupBox7.Controls.Add(this.DtgList);
-            this.groupBox7.Location = new System.Drawing.Point(8, 6);
+            this.groupBox7.Location = new System.Drawing.Point(8, 41);
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.Size = new System.Drawing.Size(1545, 336);
             this.groupBox7.TabIndex = 329;
@@ -928,7 +933,7 @@ namespace UserInterface.BakımOnarım
             this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnTemizle.ImageKey = "broom.png";
             this.BtnTemizle.ImageList = this.ımageList1;
-            this.BtnTemizle.Location = new System.Drawing.Point(144, 752);
+            this.BtnTemizle.Location = new System.Drawing.Point(144, 787);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
             this.BtnTemizle.TabIndex = 328;
@@ -950,7 +955,7 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(8, 752);
+            this.BtnKaydet.Location = new System.Drawing.Point(8, 787);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 327;
@@ -1497,6 +1502,33 @@ namespace UserInterface.BakımOnarım
             this.label34.TabIndex = 54;
             this.label34.Text = "Seri No:";
             // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.TxtSeri);
+            this.panel4.Controls.Add(this.label39);
+            this.panel4.Location = new System.Drawing.Point(12, 6);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(890, 29);
+            this.panel4.TabIndex = 330;
+            // 
+            // TxtSeri
+            // 
+            this.TxtSeri.Location = new System.Drawing.Point(77, 4);
+            this.TxtSeri.Name = "TxtSeri";
+            this.TxtSeri.Size = new System.Drawing.Size(264, 21);
+            this.TxtSeri.TabIndex = 454;
+            this.TxtSeri.TextChanged += new System.EventHandler(this.TxtSeri_TextChanged);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label39.Location = new System.Drawing.Point(12, 5);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(59, 15);
+            this.label39.TabIndex = 453;
+            this.label39.Text = "Seri No:";
+            // 
             // FrmBOAtolye
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -1535,6 +1567,8 @@ namespace UserInterface.BakımOnarım
             this.groupBox5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderOto)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panel4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1672,5 +1706,8 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.DataGridViewTextBoxColumn ManuelMiktar;
         private System.Windows.Forms.DataGridViewTextBoxColumn ManuelTalepTarihi;
         private System.Windows.Forms.DataGridViewButtonColumn Remove;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox TxtSeri;
+        private System.Windows.Forms.Label label39;
     }
 }

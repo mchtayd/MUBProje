@@ -86,6 +86,32 @@ namespace UserInterface.BakımOnarım
             DtgBolgeler.Columns["TepeSorumlusu"].HeaderText = "ÜS BÖLGESİ SORUMLUSU";
             DtgBolgeler.Columns["ProjeSistem"].HeaderText = "PROJE SİSTEM";
             DtgBolgeler.Columns["Musteri"].HeaderText = "MÜŞTERİ";
+
+            DtgBolgeler.Columns["Id"].Visible = false;
+            DtgBolgeler.Columns["BolgeAdi"].DisplayIndex = 0;
+            DtgBolgeler.Columns["KodAdi"].DisplayIndex = 1;
+            DtgBolgeler.Columns["UsBolgesiStok"].DisplayIndex = 2;
+            DtgBolgeler.Columns["KabulTarihi"].DisplayIndex = 3;
+            DtgBolgeler.Columns["GuvenlikYazilimi"].DisplayIndex = 4;
+
+            DtgBolgeler.Columns["KesifGozetlemeTuru"].DisplayIndex = 5;
+            DtgBolgeler.Columns["YasamAlani"].DisplayIndex = 6;
+            
+            DtgBolgeler.Columns["GarantiBaslama"].DisplayIndex = 7;
+            DtgBolgeler.Columns["GarantiBitis"].DisplayIndex = 8;
+            DtgBolgeler.Columns["BolgeSorumlusu"].DisplayIndex = 9;
+            DtgBolgeler.Columns["Depo"].DisplayIndex = 10;
+            DtgBolgeler.Columns["PypNo"].DisplayIndex = 11;
+            DtgBolgeler.Columns["Proje"].DisplayIndex = 12;
+            DtgBolgeler.Columns["TepeSorumlusu"].DisplayIndex = 13;
+            DtgBolgeler.Columns["ProjeSistem"].DisplayIndex = 14;
+            DtgBolgeler.Columns["Musteri"].DisplayIndex = 15;
+
+            DtgBolgeler.Columns["Tabur"].DisplayIndex = 16;
+            DtgBolgeler.Columns["Tugay"].DisplayIndex = 17;
+            DtgBolgeler.Columns["Il"].DisplayIndex = 18;
+            DtgBolgeler.Columns["Ilce"].DisplayIndex = 19;
+            DtgBolgeler.Columns["BirlikAdresi"].DisplayIndex = 20;
         }
 
         private void DtgBolgeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -76,6 +76,7 @@
     <Compile Include="Concreate\AnaSayfa\ArizaAyManager.cs" />
     <Compile Include="Concreate\AnaSayfa\ArizaBildirimTuruManager.cs" />
     <Compile Include="Concreate\AnaSayfa\BildirimYetkiManager.cs" />
+    <Compile Include="Concreate\AnaSayfa\DtsLogManager.cs" />
     <Compile Include="Concreate\AnaSayfa\DuyuruManager.cs" />
     <Compile Include="Concreate\AnaSayfa\LogManager.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuManager.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Concreate\IdarıIsler\DVKayitManager.cs" />
     <Compile Include="Concreate\IdarıIsler\DvNoManager.cs" />
     <Compile Include="Concreate\IdarıIsler\EvrakKayitManager.cs" />
+    <Compile Include="Concreate\IdarıIsler\FazlaCalismaManager.cs" />
     <Compile Include="Concreate\IdarıIsler\GorevlendirmeManager.cs" />
     <Compile Include="Concreate\IdarıIsler\IdariIslerManager.cs" />
     <Compile Include="Concreate\IdarıIsler\Irepository.cs" />

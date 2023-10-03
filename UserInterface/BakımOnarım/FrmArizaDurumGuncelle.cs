@@ -5,18 +5,13 @@ using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
-using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.Presentation;
-using DocumentFormat.OpenXml.Wordprocessing;
 using Entity;
 using Entity.BakimOnarim;
 using Entity.BakimOnarimAtolye;
 using Entity.Gecic_Kabul_Ambar;
 using Entity.IdariIsler;
-using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -240,6 +235,7 @@ namespace UserInterface.BakımOnarım
                         DtgTakilan.Rows[sonSatirr].Cells["TakilanBirim"].Value = item.TakilanBirim;
                         DtgTakilan.Rows[sonSatirr].Cells["TakilanCalismaSaati"].Value = item.TakilanCalismaSaati;
                         DtgTakilan.Rows[sonSatirr].Cells["TakilanRevizyon"].Value = item.TakilanRevizyon;
+                        DtgTakilan.Rows[sonSatirr].Cells["TakilanTeslimDurum"].Value = item.TakilanTeslimDurum;
 
                         DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgTakilan.Columns["Delete"];
                         c.FlatStyle = FlatStyle.Popup;
@@ -247,7 +243,6 @@ namespace UserInterface.BakımOnarım
                         c.DefaultCellStyle.BackColor = Color.Gainsboro;
 
                     }
-
 
                 }
             }
@@ -1205,7 +1200,7 @@ namespace UserInterface.BakımOnarım
             DtgTakilan.Rows[sonSatir].Cells["TakilanBirim"].Value = CmbTakilanBirim.Text;
             DtgTakilan.Rows[sonSatir].Cells["TakilanCalismaSaati"].Value = TxtTakilanCalismaSaati.Text;
             DtgTakilan.Rows[sonSatir].Cells["TakilanRevizyon"].Value = TxtTakilanRevizyon.Text;
-
+            DtgTakilan.Rows[sonSatir].Cells["TakilanTeslimDurum"].Value = "";
             TakilanTemizle();
         }
         string KayitKontrol()
@@ -1571,7 +1566,6 @@ namespace UserInterface.BakımOnarım
                                     return;
                                 }
 
-
                             }
 
                         }
@@ -1669,6 +1663,12 @@ namespace UserInterface.BakımOnarım
                             AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
                             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
                         }
+
+                        //if (item.Cells["MalzemeYapilacakIslem"].Value.ToString() == "BAKIM")
+                        //{
+                        //    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
+                        //    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+                        //}
 
                     }
 

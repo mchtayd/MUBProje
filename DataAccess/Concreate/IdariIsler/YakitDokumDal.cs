@@ -218,7 +218,7 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_TUTAR"].ConDouble(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SiparisNo"].ToString(),
-                        dataReader["ALIM_TURU"].ToString());
+                        "");
                     
                 }
                 dataReader.Close();
@@ -283,7 +283,7 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_TUTAR"].ConDouble(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SiparisNo"].ToString(),
-                        dataReader["ALIM_TURU"].ToString()));
+                        ""));
                 }
                 dataReader.Close();
                 return yakitDokums;
@@ -318,12 +318,12 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_TUTAR"].ConDouble(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SiparisNo"].ToString(),
-                        dataReader["ALIM_TURU"].ToString()));
+                        ""));
                 }
                 dataReader.Close();
                 return yakitDokums;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<YakitDokum>();
             }
@@ -362,12 +362,12 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_TUTAR"].ConDouble(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SiparisNo"].ToString(),
-                        dataReader["ALIM_TURU"].ToString()));
+                        ""));
                 }
                 dataReader.Close();
                 return yakitDokums;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
                 return new List<YakitDokum>();
             }
@@ -390,7 +390,7 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["YAKIT_TUTARI"].ConDouble(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["SiparisNo"].ToString(),
-                        dataReader["ALIM_TURU"].ToString()));
+                        ""));
                 }
                 dataReader.Close();
                 return yakitDokums;

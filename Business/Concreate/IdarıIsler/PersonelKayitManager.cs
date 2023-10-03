@@ -19,10 +19,14 @@ namespace Business.Concreate.IdarıIsler
             personelKayitDal = PersonelKayitDal.GetInstance();
         }
 
-        public string Add(PersonelKayit entity)
+        public string Add(PersonelKayit entity,string kayitTuru="")
         {
             try
             {
+                if (kayitTuru!="")
+                {
+                    return personelKayitDal.Add(entity);
+                }
                 controlText = IsPersonelKayitComplete(entity);
                 if (controlText!="")
                 {

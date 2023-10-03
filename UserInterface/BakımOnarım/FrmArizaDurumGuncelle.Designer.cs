@@ -1684,7 +1684,7 @@ namespace UserInterface.BakımOnarım
             this.GrbVeriGecmisi.Controls.Add(this.tabPage4);
             this.GrbVeriGecmisi.Controls.Add(this.tabPage5);
             this.GrbVeriGecmisi.Controls.Add(this.tabPage6);
-            this.GrbVeriGecmisi.Location = new System.Drawing.Point(14, 452);
+            this.GrbVeriGecmisi.Location = new System.Drawing.Point(11, 452);
             this.GrbVeriGecmisi.Name = "GrbVeriGecmisi";
             this.GrbVeriGecmisi.SelectedIndex = 0;
             this.GrbVeriGecmisi.Size = new System.Drawing.Size(1501, 453);

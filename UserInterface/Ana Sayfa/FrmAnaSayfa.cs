@@ -132,9 +132,25 @@ namespace UserInterface.STS
             button1.Image = imageList.Images["kucultme.png"];
             LblVersionNo.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             VersionBul();
-            if (yetkiModu == "KULLANICI")
+            if (yetkiModu != "YÖNETİCİ")
             {
-                sayfalar.Visible = false;
+                if (yetkiModu != "ADMİN")
+                {
+                    sayfalar.Visible = false;
+                    içeAktarToolStripMenuItem.Enabled = false;
+                    dışaAktarToolStripMenuItem.Enabled = false;
+                    serverToolStripMenuItem.Enabled = false;
+                    duyuruToolStripMenuItem1.Enabled = false;
+                    yazdırToolStripMenuItem.Enabled = false;
+                    YurtIci.Enabled = false;
+                    SehirIcı.Enabled = false;
+                    Izin.Enabled = false;
+                    harcamaBeyannamesiToolStripMenuItem.Enabled = false;
+                    malzemeİstekFormuToolStripMenuItem.Enabled = false;
+                    envanterArızaKayıtToolStripMenuItem.Enabled = false;
+                    fazlaÇalışmaToolStripMenuItem.Enabled = false;
+                }
+                
             }
             string deneme, foto = "";
             PersonelKayit personelKayit = personelKayitManager.Get(personId);
@@ -2419,7 +2435,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Firma Servis Formu Kayıt İzleme")
             {
                 FrmServisTalepleriIzleme Go = new FrmServisTalepleriIzleme();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2482,7 +2498,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "DTF İzleme")
             {
                 FrmDtfIzleme Go = new FrmDtfIzleme();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2955,7 +2971,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Araç Tahsis Bilgileri")
             {
                 FrmAracTahsisBilgileri Go = new FrmAracTahsisBilgileri();
-
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3321,7 +3337,7 @@ namespace UserInterface.STS
                 Go.infos = infos;
                 Go.Show();
             }
-            if (e.Node.Text == "Depo Stok Görüntüle İzleme")
+            if (e.Node.Text == "Depo Stok Görüntüle")
             {
                 FrmStokGoruntule Go = new FrmStokGoruntule();
                 Go.FormBorderStyle = FormBorderStyle.None;
@@ -3800,7 +3816,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Firma Servis Formu")
             {
                 FrmServisTalepleriIzleme Go = new FrmServisTalepleriIzleme();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3841,7 +3857,8 @@ namespace UserInterface.STS
             if (e.Node.Name == "DTF Izleme")
             {
                 FrmDtfIzleme Go = new FrmDtfIzleme();
-                //Go.infos = infos;
+                Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -6027,7 +6044,18 @@ namespace UserInterface.STS
             Go.infos = infos;
             Go.TopLevel = false;
             Go.AutoScroll = true;
-            OpenTabPage("PageFazlaCalisma", "FAZLA ÇALIŞMA/MESAİ", Go);
+            OpenTabPage("PageFazlaCalisma", "FAZLA ÇALIŞMA", Go);
+            Go.Show();
+        }
+
+        private void dtsRaporToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmDtsRapor Go = new FrmDtsRapor();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            //Go.infos = infos;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageDtsRapor", "DTS RAPOR", Go);
             Go.Show();
         }
 

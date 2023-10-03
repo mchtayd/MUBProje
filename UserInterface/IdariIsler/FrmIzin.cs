@@ -976,13 +976,10 @@ namespace UserInterface.IdariIsler
 
             }
 
-            
-
             IsAkisNo();
             TaslakKopyala();
             CreateDirectory();
             CreateWordFile();
-
 
             if (CmbIzınTuru.Text == "HAFTALIK İZİN")
             {

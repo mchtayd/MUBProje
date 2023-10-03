@@ -261,6 +261,7 @@ namespace UserInterface.IdariIsler
                 return;
             }
             CreateLogReddet();
+            GorevAtamaRed();
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             id = 0;
             DataDisplay();

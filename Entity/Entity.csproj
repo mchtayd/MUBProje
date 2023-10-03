@@ -75,6 +75,7 @@
     <Compile Include="AnaSayfa\ArizaAy.cs" />
     <Compile Include="AnaSayfa\ArizaBildirimTuru.cs" />
     <Compile Include="AnaSayfa\BildirimYetki.cs" />
+    <Compile Include="AnaSayfa\DtsLog.cs" />
     <Compile Include="AnaSayfa\Duyuru.cs" />
     <Compile Include="AnaSayfa\Log.cs" />
     <Compile Include="AnaSayfa\Menu.cs" />
@@ -153,6 +154,7 @@
     <Compile Include="IdariIsler\DuranVarlikSonuc.cs" />
     <Compile Include="IdariIsler\DvNo.cs" />
     <Compile Include="IdariIsler\EvrakKayit.cs" />
+    <Compile Include="IdariIsler\FazlaCalisma.cs" />
     <Compile Include="IdariIsler\Gorevlendirme.cs" />
     <Compile Include="IdariIsler\IdariIslerLog.cs" />
     <Compile Include="IdariIsler\Izin.cs" />

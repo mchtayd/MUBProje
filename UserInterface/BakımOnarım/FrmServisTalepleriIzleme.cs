@@ -24,6 +24,7 @@ namespace UserInterface.BakımOnarım
 
         int id;
         string siparisNo, dosyaYolu = "";
+        public object[] infos;
         public FrmServisTalepleriIzleme()
         {
             InitializeComponent();
@@ -34,6 +35,11 @@ namespace UserInterface.BakımOnarım
 
         private void FrmServisTalepleriIzleme_Load(object sender, EventArgs e)
         {
+            if (infos[1].ToString()!="ADMİN")
+            {
+                contextMenuStrip1.Enabled = false;
+            }
+            
             DataDisplay();
         }
 

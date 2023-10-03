@@ -26,6 +26,7 @@ namespace UserInterface.BakımOnarım
 
         string dosyaYolu;
         int id, kayitId;
+        public object[] infos;
         public FrmDtfIzleme()
         {
             InitializeComponent();
@@ -35,9 +36,12 @@ namespace UserInterface.BakımOnarım
 
         private void FrmDtfIzleme_Load(object sender, EventArgs e)
         {
+            if (infos[11].ToString()=="MİSAFİR")
+            {
+                contextMenuStrip1.Items[0].Enabled = false;
+            }
             DataDisplayDevamEden();
             DataDisplayTamamlanan();
-
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)

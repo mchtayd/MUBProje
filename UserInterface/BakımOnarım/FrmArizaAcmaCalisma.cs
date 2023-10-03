@@ -1445,13 +1445,13 @@ namespace UserInterface.BakımOnarım
             //{
             //    return "Lütfen Garanti Durumu Bilgisini Seçiniz!";
             //}
-            if (CmbGarantiDurumu.Text == "DIŞI")
-            {
-                if (TxtLojistikSorumlusu.Text == "")
-                {
-                    return "Lütfen Lojistik Sorumlusu Bilgisini Doldurunuz!";
-                }
-            }
+            //if (CmbGarantiDurumu.Text == "DIŞI")
+            //{
+            //    if (TxtLojistikSorumlusu.Text == "")
+            //    {
+            //        return "Lütfen Lojistik Sorumlusu Bilgisini Doldurunuz!";
+            //    }
+            //}
 
             //if (AdvPersonel.RowCount == 0)
             //{

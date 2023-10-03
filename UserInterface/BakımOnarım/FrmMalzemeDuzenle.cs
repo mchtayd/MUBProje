@@ -204,6 +204,7 @@ namespace UserInterface.BakımOnarım
                     }
 
                 }
+
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmArizaAcmaCalisma frmArizaAcmaCalisma = new FrmArizaAcmaCalisma();
                 frmArizaAcmaCalisma.FillTools();

@@ -16,5 +16,10 @@ namespace UserInterface.IdariIsler
         {
             InitializeComponent();
         }
+
+        private void BtnAmirOnay_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -38,6 +38,14 @@ namespace UserInterface.BakımOnarım
 
         private void FrmOkfIzleme_Load(object sender, EventArgs e)
         {
+            if (infos[11].ToString() == "MİSAFİR")
+            {
+                contextMenuStrip1.Items[0].Enabled = false;
+                contextMenuStrip1.Items[1].Enabled = false;
+                contextMenuStrip1.Items[2].Enabled = false;
+                contextMenuStrip1.Items[3].Enabled = false;
+                contextMenuStrip1.Items[4].Enabled = false;
+            }
             Tamamlanan();
             MusteriOnayi();
             SSBSunulan();

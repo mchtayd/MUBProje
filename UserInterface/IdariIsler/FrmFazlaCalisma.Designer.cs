@@ -41,19 +41,20 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.BtnSureHesapla = new System.Windows.Forms.Button();
+            this.LblToplamIzin = new System.Windows.Forms.Label();
+            this.LblToplamMesai = new System.Windows.Forms.Label();
+            this.DtSaatBit = new System.Windows.Forms.DateTimePicker();
+            this.DtSaatBas = new System.Windows.Forms.DateTimePicker();
+            this.TxtMesaiNedeni = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.DtTeslimSaati = new System.Windows.Forms.DateTimePicker();
-            this.DtTeslimTarihiKapat = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
+            this.LblTarihBas = new System.Windows.Forms.DateTimePicker();
+            this.LblTarihBit = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -186,13 +187,14 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Controls.Add(this.dateTimePicker1);
-            this.groupBox1.Controls.Add(this.dateTimePicker2);
-            this.groupBox1.Controls.Add(this.DtTeslimSaati);
-            this.groupBox1.Controls.Add(this.DtTeslimTarihiKapat);
-            this.groupBox1.Controls.Add(this.textBox1);
+            this.groupBox1.Controls.Add(this.LblTarihBit);
+            this.groupBox1.Controls.Add(this.LblTarihBas);
+            this.groupBox1.Controls.Add(this.BtnSureHesapla);
+            this.groupBox1.Controls.Add(this.LblToplamIzin);
+            this.groupBox1.Controls.Add(this.LblToplamMesai);
+            this.groupBox1.Controls.Add(this.DtSaatBit);
+            this.groupBox1.Controls.Add(this.DtSaatBas);
+            this.groupBox1.Controls.Add(this.TxtMesaiNedeni);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.label5);
             this.groupBox1.Controls.Add(this.label6);
@@ -207,6 +209,78 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fazla Çalışma / Mesai Bilgileri";
             // 
+            // BtnSureHesapla
+            // 
+            this.BtnSureHesapla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSureHesapla.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSureHesapla.Location = new System.Drawing.Point(441, 63);
+            this.BtnSureHesapla.Name = "BtnSureHesapla";
+            this.BtnSureHesapla.Size = new System.Drawing.Size(89, 54);
+            this.BtnSureHesapla.TabIndex = 539;
+            this.BtnSureHesapla.Text = "Süre Hesapla";
+            this.BtnSureHesapla.UseVisualStyleBackColor = true;
+            this.BtnSureHesapla.Click += new System.EventHandler(this.BtnSureHesapla_Click);
+            // 
+            // LblToplamIzin
+            // 
+            this.LblToplamIzin.AutoSize = true;
+            this.LblToplamIzin.Location = new System.Drawing.Point(227, 162);
+            this.LblToplamIzin.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblToplamIzin.Name = "LblToplamIzin";
+            this.LblToplamIzin.Size = new System.Drawing.Size(21, 15);
+            this.LblToplamIzin.TabIndex = 538;
+            this.LblToplamIzin.Text = "00";
+            // 
+            // LblToplamMesai
+            // 
+            this.LblToplamMesai.AutoSize = true;
+            this.LblToplamMesai.Location = new System.Drawing.Point(227, 128);
+            this.LblToplamMesai.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblToplamMesai.Name = "LblToplamMesai";
+            this.LblToplamMesai.Size = new System.Drawing.Size(21, 15);
+            this.LblToplamMesai.TabIndex = 537;
+            this.LblToplamMesai.Text = "00";
+            // 
+            // DtSaatBit
+            // 
+            this.DtSaatBit.CustomFormat = "HH:mm";
+            this.DtSaatBit.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtSaatBit.Location = new System.Drawing.Point(351, 95);
+            this.DtSaatBit.Name = "DtSaatBit";
+            this.DtSaatBit.ShowUpDown = true;
+            this.DtSaatBit.Size = new System.Drawing.Size(84, 21);
+            this.DtSaatBit.TabIndex = 536;
+            this.DtSaatBit.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
+            // 
+            // DtSaatBas
+            // 
+            this.DtSaatBas.CustomFormat = "HH:mm";
+            this.DtSaatBas.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtSaatBas.Location = new System.Drawing.Point(351, 64);
+            this.DtSaatBas.Name = "DtSaatBas";
+            this.DtSaatBas.ShowUpDown = true;
+            this.DtSaatBas.Size = new System.Drawing.Size(84, 21);
+            this.DtSaatBas.TabIndex = 534;
+            this.DtSaatBas.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
+            // 
+            // TxtMesaiNedeni
+            // 
+            this.TxtMesaiNedeni.Location = new System.Drawing.Point(230, 34);
+            this.TxtMesaiNedeni.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.TxtMesaiNedeni.Name = "TxtMesaiNedeni";
+            this.TxtMesaiNedeni.Size = new System.Drawing.Size(594, 21);
+            this.TxtMesaiNedeni.TabIndex = 26;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(8, 162);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(206, 15);
+            this.label9.TabIndex = 25;
+            this.label9.Text = "TOPLAM HAK EDİLEN İZİN SÜRESİ:";
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -220,12 +294,12 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(126, 35);
+            this.label6.Location = new System.Drawing.Point(72, 37);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(96, 15);
+            this.label6.Size = new System.Drawing.Size(148, 15);
             this.label6.TabIndex = 9;
-            this.label6.Text = "MESAİ NEDENİ:";
+            this.label6.Text = "FAZLA ÇALIŞMA NEDENİ:";
             // 
             // label7
             // 
@@ -247,84 +321,6 @@
             this.label8.TabIndex = 1;
             this.label8.Text = "MESAİ BİTİŞ:";
             // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 162);
-            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(206, 15);
-            this.label9.TabIndex = 25;
-            this.label9.Text = "TOPLAM HAK EDİLEN İZİN SÜRESİ:";
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(230, 34);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(594, 21);
-            this.textBox1.TabIndex = 26;
-            // 
-            // DtTeslimSaati
-            // 
-            this.DtTeslimSaati.CustomFormat = "HH:mm";
-            this.DtTeslimSaati.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtTeslimSaati.Location = new System.Drawing.Point(371, 61);
-            this.DtTeslimSaati.Name = "DtTeslimSaati";
-            this.DtTeslimSaati.ShowUpDown = true;
-            this.DtTeslimSaati.Size = new System.Drawing.Size(84, 21);
-            this.DtTeslimSaati.TabIndex = 534;
-            this.DtTeslimSaati.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
-            // 
-            // DtTeslimTarihiKapat
-            // 
-            this.DtTeslimTarihiKapat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.DtTeslimTarihiKapat.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtTeslimTarihiKapat.Location = new System.Drawing.Point(230, 64);
-            this.DtTeslimTarihiKapat.Name = "DtTeslimTarihiKapat";
-            this.DtTeslimTarihiKapat.Size = new System.Drawing.Size(132, 21);
-            this.DtTeslimTarihiKapat.TabIndex = 533;
-            // 
-            // dateTimePicker1
-            // 
-            this.dateTimePicker1.CustomFormat = "HH:mm";
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dateTimePicker1.Location = new System.Drawing.Point(371, 91);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.ShowUpDown = true;
-            this.dateTimePicker1.Size = new System.Drawing.Size(84, 21);
-            this.dateTimePicker1.TabIndex = 536;
-            this.dateTimePicker1.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
-            // 
-            // dateTimePicker2
-            // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(230, 94);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(132, 21);
-            this.dateTimePicker2.TabIndex = 535;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(227, 128);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(21, 15);
-            this.label1.TabIndex = 537;
-            this.label1.Text = "00";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(227, 162);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(21, 15);
-            this.label2.TabIndex = 538;
-            this.label2.Text = "00";
-            // 
             // BtnKaydet
             // 
             this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
@@ -339,6 +335,23 @@
             this.BtnKaydet.Text = "     KAYDET";
             this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
+            // 
+            // LblTarihBas
+            // 
+            this.LblTarihBas.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.LblTarihBas.Location = new System.Drawing.Point(230, 63);
+            this.LblTarihBas.Name = "LblTarihBas";
+            this.LblTarihBas.Size = new System.Drawing.Size(116, 21);
+            this.LblTarihBas.TabIndex = 542;
+            // 
+            // LblTarihBit
+            // 
+            this.LblTarihBit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.LblTarihBit.Location = new System.Drawing.Point(230, 95);
+            this.LblTarihBit.Name = "LblTarihBit";
+            this.LblTarihBit.Size = new System.Drawing.Size(116, 21);
+            this.LblTarihBit.TabIndex = 543;
             // 
             // FrmFazlaCalisma
             // 
@@ -381,14 +394,15 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox TxtMesaiNedeni;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker DtTeslimSaati;
-        private System.Windows.Forms.DateTimePicker DtTeslimTarihiKapat;
+        private System.Windows.Forms.Label LblToplamIzin;
+        private System.Windows.Forms.Label LblToplamMesai;
+        private System.Windows.Forms.DateTimePicker DtSaatBit;
+        private System.Windows.Forms.DateTimePicker DtSaatBas;
         private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.Button BtnSureHesapla;
+        private System.Windows.Forms.DateTimePicker LblTarihBas;
+        private System.Windows.Forms.DateTimePicker LblTarihBit;
     }
 }

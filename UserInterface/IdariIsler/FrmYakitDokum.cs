@@ -291,6 +291,11 @@ namespace UserInterface.IdariIsler
         }
         private void BtnListeyeEkle_Click(object sender, EventArgs e)
         {
+            //DataTable table = FrmHelper.GetDataTableFromExcel("C:\\Users\\MAYıldırım\\Desktop\\Yakit.xlsx", "Sayfa1");
+
+            //dataGridView1.DataSource = null;
+            //dataGridView1.DataSource = table;
+
             string mesaj = Kontrol();
             if (mesaj != "OK")
             {
@@ -825,6 +830,30 @@ namespace UserInterface.IdariIsler
 
         void KalemleriKaydet()
         {
+            //if (dataGridView1.RowCount != 0)
+            //{
+            //    foreach (DataGridViewRow item in dataGridView1.Rows)
+            //    {
+            //        YakitDokum yakitDokum = new YakitDokum(
+            //            item.Cells[0].Value.ConInt(),
+            //            item.Cells[1].Value.ToString(),
+            //            item.Cells[2].Value.ToString(),
+            //            item.Cells[3].Value.ConDate(),
+            //            item.Cells[4].Value.ToString(),
+            //            item.Cells[5].Value.ToString(),
+            //            item.Cells[6].Value.ToString(),
+            //            item.Cells[7].Value.ToString(),
+            //            item.Cells[8].Value.ToString(),
+            //            item.Cells[9].Value.ToString(),
+            //            item.Cells[10].Value.ConDouble(),
+            //            item.Cells[11].Value.ConDouble(),
+            //            item.Cells[12].Value.ConDouble(),
+            //            dosyaYolu,
+            //            siparisNo);
+            //        yakitDokumManager.Add(yakitDokum);
+            //    }
+            //}
+
             if (AdvList.RowCount != 0)
             {
                 foreach (DataGridViewRow item in AdvList.Rows)
@@ -935,11 +964,11 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Lütfen Öncelikle Dosya Ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (AdvList.RowCount == 0)
-            {
-                MessageBox.Show("Lütfen Öncelikle Listeye Bir Kayıt Ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (AdvList.RowCount == 0)
+            //{
+            //    MessageBox.Show("Lütfen Öncelikle Listeye Bir Kayıt Ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstedğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {

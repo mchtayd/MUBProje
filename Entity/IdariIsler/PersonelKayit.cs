@@ -12,7 +12,7 @@ namespace Entity.IdariIsler
         int id; string adsoyad, heskodu, sigortasicilno, ikametgah, kangrubu, esad, estelefon, medenidurumu, esisdurumu, dogumyeri, okul,
             bolum, siparis, sat, butcekodu, butcekalemi, sicil, masyerino, masrafyeri, masrafYeriSorumlusu, sirketmail, oficemail, sirketcep, sirketkisakod, dahilino, isunvani, askerlikdurumu, askerliksinifi, rubesi,
             gorevi, gorevyeri, tecilsebebi, muafnedeni, sirketbolum, tc, cocuksayisi, maas, iase, kirayardimi, diplomanotu, siparisno, dosyayolu, fotoyolu, projeKodu, kgbNo;
-        DateTime dogumtarihi, isegiristarihi, kgbTarih; string askerlikbastarihi, askerlikbittarihi, tecilbittarihi;
+        DateTime dogumtarihi, isegiristarihi, kgbTarih; string askerlikbastarihi, askerlikbittarihi, tecilbittarihi, yetkiModu;
 
         public int Id { get => id; set => id = value; }
         public string Tc { get => tc; set => tc = value; }
@@ -66,6 +66,7 @@ namespace Entity.IdariIsler
         public string ProjeKodu { get => projeKodu; set => projeKodu = value; }
         public string KgbNo { get => kgbNo; set => kgbNo = value; }
         public DateTime KgbTarih { get => kgbTarih; set => kgbTarih = value; }
+        public string YetkiModu { get => yetkiModu; set => yetkiModu = value; }
 
         public PersonelKayit(int id, string adsoyad, string tc, string heskodu, string sigortasicilno, string ikametgah, string kangrubu, string esad,
             string estelefon, DateTime dogumtarihi, string medenidurumu, string esisdurumu, string cocuksayisi, string dogumyeri,
@@ -132,7 +133,7 @@ namespace Entity.IdariIsler
             string sicil, string masyerino, string masrafyeri, string masrafYeriSorumlusu, string sirketbolum, string sirketmail, string oficemail, string sirketcep, string sirketkisakod,
             string dahilino, string isunvani, DateTime isegiristarihi, string askerlikdurumu, string askerliksinifi, string rubesi, string gorevi, string askerlikbastarihi,
             string askerlikbittarihi, string gorevyeri, string tecilbittarihi, string tecilsebebi, string muafnedeni,
-            string siparisno, string dosyayolu, string fotoyolu,string projeKodu,string kgbNo,DateTime kgbTarih)
+            string siparisno, string dosyayolu, string fotoyolu,string projeKodu,string kgbNo,DateTime kgbTarih, string yetkiModu)
         {
             this.tc = tc;
             this.cocuksayisi = cocuksayisi;
@@ -182,6 +183,7 @@ namespace Entity.IdariIsler
             this.projeKodu = projeKodu;
             this.kgbNo = kgbNo;
             this.kgbTarih = kgbTarih;
+            this.YetkiModu = yetkiModu;
         }
 
         public PersonelKayit(int id, string adsoyad, string tc, string heskodu, string sigortasicilno, string ikametgah, string kangrubu, string esad,

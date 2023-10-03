@@ -1461,7 +1461,7 @@ namespace UserInterface.IdariIşler
                 DtDogumTarihi.Value, CmbMedeniDurum.Text, CmbEsIsDurumu.Text, CmbCocukSayisi.Text, TxtDogumYeri.Text, TxtOkul.Text, TxtBolum.Text, TxtDipNotu.Text, CmbSiparis.Text, CmbSat.Text,
                 CmbButceKodu.Text, CmbButceKalemi.Text, TxtSicil.Text, CmbMasYeriNo.Text, TxtMasrafYeri.Text, CmbMasrafYeriSorumlusu.Text, BOLUM, TxtSirketMail.Text, TxtOfficeMail.Text, MsdSırketCepNo.Text, MsdKisaKod.Text, MsdDahiliNo.Text,
                 CmbIsUnvani.Text, DtIseGirisTarihi.Value, askerlikdurumu, TxtSinif.Text, TxtRutbesi.Text, TxtGorevi.Text, DtAsBasTarihi.Text.ToString(), DtAsBitTarihi.Text.ToString(), TxtGorevYeri.Text, DtTecilBitTarihi.Text.ToString(), TxtTecilSebebi.Text, TxtMuafNedeni.Text,
-                siparisNo, dosyaYolu, dosyaYolu, CmbProjeKodu.Text, TxtKgbNo.Text, DtKgb.Value);
+                siparisNo, dosyaYolu, dosyaYolu, CmbProjeKodu.Text, TxtKgbNo.Text, DtKgb.Value, "KULLANICI");
 
                 string message = personelKayitManager.Add(personelKayit);
                 if (message!="OK")
