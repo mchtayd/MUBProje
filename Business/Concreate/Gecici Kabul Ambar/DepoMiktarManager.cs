@@ -99,6 +99,18 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
 
             }
         }
+        public DepoMiktar GetBarkodLokasyonBul2700(string stokNo, string seriNo, string revizyon, string takipDurum, int miktar)
+        {
+            try
+            {
+                return depoMiktarDal.GetBarkodLokasyonBul2700(stokNo, seriNo, revizyon, takipDurum, miktar);
+            }
+            catch (Exception)
+            {
+                return null;
+
+            }
+        }
         public DepoMiktar GetBarkodLokasyonBul3000(string stokNo, string seriNo, string revizyon, string takipDurum, int miktar)
         {
             try

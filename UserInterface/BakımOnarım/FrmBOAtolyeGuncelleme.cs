@@ -739,7 +739,7 @@ namespace UserInterface.BakımOnarım
 
             if (CmbIslemAdimi.Text == "1100-TESLİMAT")
             {
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon);
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon, "SÖKÜLEN");
                 abfMalzemeManager.MalzemeTeslimBilgisiUpdate(kayitId, "ATÖLYE İŞLEMLERİ TAMAMLANDI");
                 AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
                 abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);

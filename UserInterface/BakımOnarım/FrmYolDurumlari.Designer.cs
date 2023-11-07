@@ -29,8 +29,8 @@ namespace UserInterface.BakımOnarım
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYolDurumlari));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.LblDonem = new System.Windows.Forms.Label();
@@ -44,19 +44,31 @@ namespace UserInterface.BakımOnarım
             this.TxtBolgeAdi = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.LblTarih = new System.Windows.Forms.Label();
-            this.BtnKaydet = new System.Windows.Forms.Button();
-            this.BtnEkle = new System.Windows.Forms.Button();
             this.DtgList = new System.Windows.Forms.DataGridView();
+            this.Idd = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.BolgeAdi = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Tarih = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Donem = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.YolDurumu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Aciklama = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.BtnEkle = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DtgBolgeler = new System.Windows.Forms.DataGridView();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Bolge = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Secim = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.LblTop = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblTop2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.DtTarih = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -86,7 +98,7 @@ namespace UserInterface.BakımOnarım
             // LblDonem
             // 
             this.LblDonem.AutoSize = true;
-            this.LblDonem.Location = new System.Drawing.Point(103, 118);
+            this.LblDonem.Location = new System.Drawing.Point(900, 100);
             this.LblDonem.Name = "LblDonem";
             this.LblDonem.Size = new System.Drawing.Size(19, 13);
             this.LblDonem.TabIndex = 157;
@@ -95,7 +107,7 @@ namespace UserInterface.BakımOnarım
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(47, 118);
+            this.label30.Location = new System.Drawing.Point(844, 100);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(50, 13);
             this.label30.TabIndex = 156;
@@ -103,7 +115,7 @@ namespace UserInterface.BakımOnarım
             // 
             // TxtAciklama
             // 
-            this.TxtAciklama.Location = new System.Drawing.Point(103, 179);
+            this.TxtAciklama.Location = new System.Drawing.Point(900, 161);
             this.TxtAciklama.Name = "TxtAciklama";
             this.TxtAciklama.Size = new System.Drawing.Size(457, 77);
             this.TxtAciklama.TabIndex = 154;
@@ -112,7 +124,7 @@ namespace UserInterface.BakımOnarım
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(34, 182);
+            this.label29.Location = new System.Drawing.Point(831, 164);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(63, 13);
             this.label29.TabIndex = 153;
@@ -126,7 +138,7 @@ namespace UserInterface.BakımOnarım
             "AÇIK",
             "KAPALI",
             "KISMİ"});
-            this.CmbYolDurumu.Location = new System.Drawing.Point(103, 145);
+            this.CmbYolDurumu.Location = new System.Drawing.Point(900, 127);
             this.CmbYolDurumu.Name = "CmbYolDurumu";
             this.CmbYolDurumu.Size = new System.Drawing.Size(139, 21);
             this.CmbYolDurumu.TabIndex = 152;
@@ -134,7 +146,7 @@ namespace UserInterface.BakımOnarım
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(14, 149);
+            this.label28.Location = new System.Drawing.Point(811, 131);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(83, 13);
             this.label28.TabIndex = 151;
@@ -143,7 +155,7 @@ namespace UserInterface.BakımOnarım
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(54, 87);
+            this.label26.Location = new System.Drawing.Point(851, 69);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(43, 13);
             this.label26.TabIndex = 148;
@@ -153,76 +165,38 @@ namespace UserInterface.BakımOnarım
             // 
             this.CmbBolgeAdi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbBolgeAdi.FormattingEnabled = true;
-            this.CmbBolgeAdi.Location = new System.Drawing.Point(103, 52);
+            this.CmbBolgeAdi.Location = new System.Drawing.Point(1101, 769);
             this.CmbBolgeAdi.Name = "CmbBolgeAdi";
             this.CmbBolgeAdi.Size = new System.Drawing.Size(296, 21);
             this.CmbBolgeAdi.TabIndex = 325;
+            this.CmbBolgeAdi.Visible = false;
             // 
             // TxtBolgeAdi
             // 
-            this.TxtBolgeAdi.Location = new System.Drawing.Point(103, 52);
+            this.TxtBolgeAdi.Location = new System.Drawing.Point(1101, 769);
             this.TxtBolgeAdi.Name = "TxtBolgeAdi";
             this.TxtBolgeAdi.Size = new System.Drawing.Size(296, 20);
             this.TxtBolgeAdi.TabIndex = 324;
+            this.TxtBolgeAdi.Visible = false;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 56);
+            this.label1.Location = new System.Drawing.Point(1010, 773);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(85, 13);
             this.label1.TabIndex = 323;
             this.label1.Text = "ÜS BÖLGE ADI:";
+            this.label1.Visible = false;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(103, 295);
+            this.groupBox1.Location = new System.Drawing.Point(17, 365);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1056, 380);
+            this.groupBox1.Size = new System.Drawing.Size(787, 358);
             this.groupBox1.TabIndex = 335;
             this.groupBox1.TabStop = false;
-            // 
-            // LblTarih
-            // 
-            this.LblTarih.AutoSize = true;
-            this.LblTarih.Location = new System.Drawing.Point(103, 87);
-            this.LblTarih.Name = "LblTarih";
-            this.LblTarih.Size = new System.Drawing.Size(19, 13);
-            this.LblTarih.TabIndex = 338;
-            this.LblTarih.Text = "00";
-            // 
-            // BtnKaydet
-            // 
-            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
-            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(103, 681);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
-            this.BtnKaydet.TabIndex = 339;
-            this.BtnKaydet.Text = "     KAYDET";
-            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnKaydet.UseVisualStyleBackColor = false;
-            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
-            // BtnEkle
-            // 
-            this.BtnEkle.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnEkle.Image")));
-            this.BtnEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnEkle.Location = new System.Drawing.Point(103, 263);
-            this.BtnEkle.Name = "BtnEkle";
-            this.BtnEkle.Size = new System.Drawing.Size(76, 33);
-            this.BtnEkle.TabIndex = 340;
-            this.BtnEkle.Text = " EKLE";
-            this.BtnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEkle.UseVisualStyleBackColor = false;
-            this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
             // 
             // DtgList
             // 
@@ -231,6 +205,7 @@ namespace UserInterface.BakımOnarım
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.DtgList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Idd,
             this.BolgeAdi,
             this.Tarih,
             this.Donem,
@@ -241,16 +216,25 @@ namespace UserInterface.BakımOnarım
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.Size = new System.Drawing.Size(1050, 361);
+            this.DtgList.Size = new System.Drawing.Size(781, 339);
             this.DtgList.TabIndex = 1;
             this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
+            // 
+            // Idd
+            // 
+            this.Idd.HeaderText = "Id";
+            this.Idd.Name = "Idd";
+            this.Idd.ReadOnly = true;
+            this.Idd.Visible = false;
+            this.Idd.Width = 41;
             // 
             // BolgeAdi
             // 
             this.BolgeAdi.HeaderText = "BÖLGE ADI";
             this.BolgeAdi.Name = "BolgeAdi";
             this.BolgeAdi.ReadOnly = true;
-            this.BolgeAdi.Width = 89;
+            this.BolgeAdi.Width = 82;
             // 
             // Tarih
             // 
@@ -282,11 +266,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.Name = "Remove";
             this.Remove.ReadOnly = true;
@@ -295,14 +279,146 @@ namespace UserInterface.BakımOnarım
             this.Remove.UseColumnTextForButtonValue = true;
             this.Remove.Width = 52;
             // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(17, 753);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 339;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
+            // 
+            // BtnEkle
+            // 
+            this.BtnEkle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnEkle.Image")));
+            this.BtnEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEkle.Location = new System.Drawing.Point(900, 245);
+            this.BtnEkle.Name = "BtnEkle";
+            this.BtnEkle.Size = new System.Drawing.Size(76, 33);
+            this.BtnEkle.TabIndex = 340;
+            this.BtnEkle.Text = " EKLE";
+            this.BtnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEkle.UseVisualStyleBackColor = false;
+            this.BtnEkle.Click += new System.EventHandler(this.BtnEkle_Click);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.DtgBolgeler);
+            this.groupBox2.Location = new System.Drawing.Point(14, 37);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(790, 299);
+            this.groupBox2.TabIndex = 341;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "BÖLGE BİLGİLERİ";
+            // 
+            // DtgBolgeler
+            // 
+            this.DtgBolgeler.AllowUserToAddRows = false;
+            this.DtgBolgeler.AllowUserToOrderColumns = true;
+            this.DtgBolgeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgBolgeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgBolgeler.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Id,
+            this.Bolge,
+            this.Secim});
+            this.DtgBolgeler.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgBolgeler.Location = new System.Drawing.Point(3, 16);
+            this.DtgBolgeler.Name = "DtgBolgeler";
+            this.DtgBolgeler.Size = new System.Drawing.Size(784, 280);
+            this.DtgBolgeler.TabIndex = 1;
+            // 
+            // Id
+            // 
+            this.Id.HeaderText = "Id";
+            this.Id.Name = "Id";
+            this.Id.Visible = false;
+            this.Id.Width = 41;
+            // 
+            // Bolge
+            // 
+            this.Bolge.HeaderText = "BÖLGE ADI";
+            this.Bolge.Name = "Bolge";
+            this.Bolge.Width = 89;
+            // 
+            // Secim
+            // 
+            this.Secim.HeaderText = "SEÇİM";
+            this.Secim.Name = "Secim";
+            this.Secim.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.Secim.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.Secim.Width = 65;
+            // 
+            // LblTop
+            // 
+            this.LblTop.AutoSize = true;
+            this.LblTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTop.Location = new System.Drawing.Point(117, 341);
+            this.LblTop.Name = "LblTop";
+            this.LblTop.Size = new System.Drawing.Size(21, 15);
+            this.LblTop.TabIndex = 343;
+            this.LblTop.Text = "00";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(17, 341);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 15);
+            this.label3.TabIndex = 342;
+            this.label3.Text = "Toplam Kayıt:";
+            // 
+            // LblTop2
+            // 
+            this.LblTop2.AutoSize = true;
+            this.LblTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTop2.Location = new System.Drawing.Point(117, 730);
+            this.LblTop2.Name = "LblTop2";
+            this.LblTop2.Size = new System.Drawing.Size(21, 15);
+            this.LblTop2.TabIndex = 347;
+            this.LblTop2.Text = "00";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label7.Location = new System.Drawing.Point(17, 730);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(94, 15);
+            this.label7.TabIndex = 346;
+            this.label7.Text = "Toplam Kayıt:";
+            // 
+            // DtTarih
+            // 
+            this.DtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtTarih.Location = new System.Drawing.Point(900, 63);
+            this.DtTarih.Name = "DtTarih";
+            this.DtTarih.Size = new System.Drawing.Size(139, 20);
+            this.DtTarih.TabIndex = 348;
+            // 
             // FrmYolDurumlari
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1453, 820);
+            this.Controls.Add(this.DtTarih);
+            this.Controls.Add(this.LblTop2);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.LblTop);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BtnEkle);
             this.Controls.Add(this.BtnKaydet);
-            this.Controls.Add(this.LblTarih);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.CmbBolgeAdi);
             this.Controls.Add(this.TxtBolgeAdi);
@@ -321,6 +437,8 @@ namespace UserInterface.BakımOnarım
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -341,10 +459,20 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TextBox TxtBolgeAdi;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label LblTarih;
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Button BtnEkle;
         private System.Windows.Forms.DataGridView DtgList;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView DtgBolgeler;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Bolge;
+        private System.Windows.Forms.DataGridViewCheckBoxColumn Secim;
+        private System.Windows.Forms.Label LblTop;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblTop2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DateTimePicker DtTarih;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Idd;
         private System.Windows.Forms.DataGridViewTextBoxColumn BolgeAdi;
         private System.Windows.Forms.DataGridViewTextBoxColumn Tarih;
         private System.Windows.Forms.DataGridViewTextBoxColumn Donem;

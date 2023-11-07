@@ -142,11 +142,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public string UpdateBolgeAdi(string eskiBolgeAdi, string yeniBolgeAdi)
+        public string UpdateBolgeAdi(string eskiBolgeAdi, string yeniBolgeAdi, string birlikAdresi)
         {
             try
             {
-                return bolgeKayitDal.UpdateBolgeAdi(eskiBolgeAdi, yeniBolgeAdi);
+                return bolgeKayitDal.UpdateBolgeAdi(eskiBolgeAdi, yeniBolgeAdi, birlikAdresi);
             }
             catch (Exception ex)
             {

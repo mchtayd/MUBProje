@@ -51,11 +51,11 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
-        public AbfMalzemeIslemKayit Get(int benzersizId, string islem, string stokNo, string seriNo, string revizyon)
+        public AbfMalzemeIslemKayit Get(int benzersizId, string islem, string stokNo, string seriNo, string revizyon, string malzemeDurumu)
         {
             try
             {
-                return abfMalzemeIslemKayitDal.Get(benzersizId, islem, stokNo, seriNo, revizyon);
+                return abfMalzemeIslemKayitDal.Get(benzersizId, islem, stokNo, seriNo, revizyon, malzemeDurumu);
             }
             catch (Exception)
             {

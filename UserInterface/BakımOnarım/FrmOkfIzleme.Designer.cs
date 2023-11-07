@@ -39,6 +39,10 @@
             this.LblTop = new System.Windows.Forms.Label();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aselsanaGönderilenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sSBOnayınaSunulanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.müşteriOnayıGelenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tamamlananToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -61,20 +65,17 @@
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.aselsanaGönderilenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sSBOnayınaSunulanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.müşteriOnayıGelenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tamamlananToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.DtgList = new ADGV.AdvancedDataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
             this.DtgListSSB = new ADGV.AdvancedDataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.DtgListMusteriOnayi = new ADGV.AdvancedDataGridView();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
             this.DtgListTamamlanan = new ADGV.AdvancedDataGridView();
             this.dataBinderSSB = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderMusteriOnayi = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderTamamlanan = new System.Windows.Forms.BindingSource(this.components);
+            this.excelOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -86,12 +87,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListSSB)).BeginInit();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListMusteriOnayi)).BeginInit();
+            this.tabPage6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListTamamlanan)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSSB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderMusteriOnayi)).BeginInit();
@@ -149,9 +150,10 @@
             this.aselsanaGönderilenToolStripMenuItem,
             this.sSBOnayınaSunulanToolStripMenuItem,
             this.müşteriOnayıGelenToolStripMenuItem,
-            this.tamamlananToolStripMenuItem});
+            this.tamamlananToolStripMenuItem,
+            this.excelOluşturToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 158);
             // 
             // güncelleToolStripMenuItem
             // 
@@ -159,6 +161,34 @@
             this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.güncelleToolStripMenuItem.Text = "Güncelle";
             this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
+            // 
+            // aselsanaGönderilenToolStripMenuItem
+            // 
+            this.aselsanaGönderilenToolStripMenuItem.Name = "aselsanaGönderilenToolStripMenuItem";
+            this.aselsanaGönderilenToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.aselsanaGönderilenToolStripMenuItem.Text = "Aselsana Gönderilen";
+            this.aselsanaGönderilenToolStripMenuItem.Click += new System.EventHandler(this.aselsanaGönderilenToolStripMenuItem_Click);
+            // 
+            // sSBOnayınaSunulanToolStripMenuItem
+            // 
+            this.sSBOnayınaSunulanToolStripMenuItem.Name = "sSBOnayınaSunulanToolStripMenuItem";
+            this.sSBOnayınaSunulanToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.sSBOnayınaSunulanToolStripMenuItem.Text = "SSB Onayına Sunulan";
+            this.sSBOnayınaSunulanToolStripMenuItem.Click += new System.EventHandler(this.sSBOnayınaSunulanToolStripMenuItem_Click);
+            // 
+            // müşteriOnayıGelenToolStripMenuItem
+            // 
+            this.müşteriOnayıGelenToolStripMenuItem.Name = "müşteriOnayıGelenToolStripMenuItem";
+            this.müşteriOnayıGelenToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.müşteriOnayıGelenToolStripMenuItem.Text = "Müşteri Onayı Gelen";
+            this.müşteriOnayıGelenToolStripMenuItem.Click += new System.EventHandler(this.müşteriOnayıGelenToolStripMenuItem_Click);
+            // 
+            // tamamlananToolStripMenuItem
+            // 
+            this.tamamlananToolStripMenuItem.Name = "tamamlananToolStripMenuItem";
+            this.tamamlananToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.tamamlananToolStripMenuItem.Text = "Tamamlanan";
+            this.tamamlananToolStripMenuItem.Click += new System.EventHandler(this.tamamlananToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -367,67 +397,6 @@
             this.tabPage3.Text = "ASELSANA GÖNDERİLEN";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.DtgListMusteriOnayi);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1523, 459);
-            this.tabPage4.TabIndex = 1;
-            this.tabPage4.Text = "MÜŞTERİ ONAYI GELEN";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.DtgListSSB);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1523, 459);
-            this.tabPage5.TabIndex = 2;
-            this.tabPage5.Text = "SSB ONAYINA SUNULAN";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.DtgListTamamlanan);
-            this.tabPage6.Location = new System.Drawing.Point(4, 22);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1523, 459);
-            this.tabPage6.TabIndex = 3;
-            this.tabPage6.Text = "TAMAMLANAN";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // aselsanaGönderilenToolStripMenuItem
-            // 
-            this.aselsanaGönderilenToolStripMenuItem.Name = "aselsanaGönderilenToolStripMenuItem";
-            this.aselsanaGönderilenToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.aselsanaGönderilenToolStripMenuItem.Text = "Aselsana Gönderilen";
-            this.aselsanaGönderilenToolStripMenuItem.Click += new System.EventHandler(this.aselsanaGönderilenToolStripMenuItem_Click);
-            // 
-            // sSBOnayınaSunulanToolStripMenuItem
-            // 
-            this.sSBOnayınaSunulanToolStripMenuItem.Name = "sSBOnayınaSunulanToolStripMenuItem";
-            this.sSBOnayınaSunulanToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.sSBOnayınaSunulanToolStripMenuItem.Text = "SSB Onayına Sunulan";
-            this.sSBOnayınaSunulanToolStripMenuItem.Click += new System.EventHandler(this.sSBOnayınaSunulanToolStripMenuItem_Click);
-            // 
-            // müşteriOnayıGelenToolStripMenuItem
-            // 
-            this.müşteriOnayıGelenToolStripMenuItem.Name = "müşteriOnayıGelenToolStripMenuItem";
-            this.müşteriOnayıGelenToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.müşteriOnayıGelenToolStripMenuItem.Text = "Müşteri Onayı Gelen";
-            this.müşteriOnayıGelenToolStripMenuItem.Click += new System.EventHandler(this.müşteriOnayıGelenToolStripMenuItem_Click);
-            // 
-            // tamamlananToolStripMenuItem
-            // 
-            this.tamamlananToolStripMenuItem.Name = "tamamlananToolStripMenuItem";
-            this.tamamlananToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.tamamlananToolStripMenuItem.Text = "Tamamlanan";
-            this.tamamlananToolStripMenuItem.Click += new System.EventHandler(this.tamamlananToolStripMenuItem_Click);
-            // 
             // DtgList
             // 
             this.DtgList.AllowUserToAddRows = false;
@@ -452,6 +421,17 @@
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.DtgListSSB);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1523, 459);
+            this.tabPage5.TabIndex = 2;
+            this.tabPage5.Text = "SSB ONAYINA SUNULAN";
+            this.tabPage5.UseVisualStyleBackColor = true;
             // 
             // DtgListSSB
             // 
@@ -478,6 +458,17 @@
             this.DtgListSSB.FilterStringChanged += new System.EventHandler(this.DtgListSSB_FilterStringChanged);
             this.DtgListSSB.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListSSB_CellMouseClick);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.DtgListMusteriOnayi);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1523, 459);
+            this.tabPage4.TabIndex = 1;
+            this.tabPage4.Text = "MÜŞTERİ ONAYI GELEN";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // DtgListMusteriOnayi
             // 
             this.DtgListMusteriOnayi.AllowUserToAddRows = false;
@@ -503,6 +494,17 @@
             this.DtgListMusteriOnayi.FilterStringChanged += new System.EventHandler(this.DtgListMusteriOnayi_FilterStringChanged);
             this.DtgListMusteriOnayi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListMusteriOnayi_CellMouseClick);
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.DtgListTamamlanan);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1523, 459);
+            this.tabPage6.TabIndex = 3;
+            this.tabPage6.Text = "TAMAMLANAN";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
             // DtgListTamamlanan
             // 
             this.DtgListTamamlanan.AllowUserToAddRows = false;
@@ -527,6 +529,13 @@
             this.DtgListTamamlanan.SortStringChanged += new System.EventHandler(this.DtgListTamamlanan_SortStringChanged);
             this.DtgListTamamlanan.FilterStringChanged += new System.EventHandler(this.DtgListTamamlanan_FilterStringChanged);
             this.DtgListTamamlanan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListTamamlanan_CellMouseClick);
+            // 
+            // excelOluşturToolStripMenuItem
+            // 
+            this.excelOluşturToolStripMenuItem.Name = "excelOluşturToolStripMenuItem";
+            this.excelOluşturToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.excelOluşturToolStripMenuItem.Text = "Excel Oluştur";
+            this.excelOluşturToolStripMenuItem.Click += new System.EventHandler(this.excelOluşturToolStripMenuItem_Click);
             // 
             // FrmOkfIzleme
             // 
@@ -557,12 +566,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
+            this.tabPage5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgListSSB)).EndInit();
+            this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgListMusteriOnayi)).EndInit();
+            this.tabPage6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgListTamamlanan)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSSB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderMusteriOnayi)).EndInit();
@@ -616,5 +625,6 @@
         private System.Windows.Forms.BindingSource dataBinderSSB;
         private System.Windows.Forms.BindingSource dataBinderMusteriOnayi;
         private System.Windows.Forms.BindingSource dataBinderTamamlanan;
+        private System.Windows.Forms.ToolStripMenuItem excelOluşturToolStripMenuItem;
     }
 }

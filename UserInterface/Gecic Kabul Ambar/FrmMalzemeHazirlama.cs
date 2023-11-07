@@ -332,6 +332,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             MalzemeList.Columns["SokulenTeslimDurum"].Visible = false;
             MalzemeList.Columns["BolgeAdi"].Visible = false;
             MalzemeList.Columns["BolgeSorumlusu"].Visible = false;
+            MalzemeList.Columns["YerineMalzemeTakilma"].Visible = false;
+            MalzemeList.Columns["DosyaYolu"].Visible = false;
+            MalzemeList.Columns["AltYukleniciKayit"].Visible = false;
+            MalzemeList.Columns["TakilanTeslimDurum"].Visible = false;
 
 
             TxtTop.Text = MalzemeList.RowCount.ToString();

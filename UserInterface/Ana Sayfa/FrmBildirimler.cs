@@ -43,6 +43,14 @@ namespace UserInterface.Ana_Sayfa
             gorevAtamaManager = GorevAtamaManager.GetInstance();
             duyuruManager = DuyuruManager.GetInstance();
             versionManager = VersionManager.GetInstance();
+
+            //StartPosition = FormStartPosition.Manual;
+            //Rectangle screen = Screen.FromPoint(Cursor.Position).WorkingArea;
+            //int w = Width >= screen.Width ? screen.Width : (screen.Width + Width) / 2;
+            //int h = Height >= screen.Height ? screen.Height : (screen.Height + Height) / 2;
+            //Location = new Point(screen.Left + (screen.Width - w) / 2, screen.Top + (screen.Height - h) / 2);
+            //Size = new Size(w, h);
+
         }
 
         private void FrmBildirimler_Load(object sender, EventArgs e)

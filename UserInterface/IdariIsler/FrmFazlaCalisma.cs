@@ -1,7 +1,9 @@
-﻿using Business.Concreate.IdarıIsler;
+﻿using Business.Concreate;
+using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using Entity;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -19,11 +21,14 @@ namespace UserInterface.IdariIsler
     public partial class FrmFazlaCalisma : Form
     {
         FazlaCalismaManager fazlaCalismaManager;
+        GorevAtamaPersonelManager gorevAtamaPersonelManager;
         public object[] infos;
+        int kayitId;
         public FrmFazlaCalisma()
         {
             InitializeComponent();
             fazlaCalismaManager = FazlaCalismaManager.GetInstance();
+            gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
 
         private void FrmFazlaCalisma_Load(object sender, EventArgs e)
@@ -73,9 +78,22 @@ namespace UserInterface.IdariIsler
             double dakika = toplamSure.Minutes;
             double toplamIzinSaat = 0;
             double toplamIzinDakika = 0;
+            string haftaninGunu = LblTarihBas.Value.ToString("dddd");
+            if (haftaninGunu != "Cumartesi")
+            {
+                if (haftaninGunu != "Pazar")
+                {
+                    string[] saattt = DtSaatBas.Text.ToString().Split(':');
+                    if (saattt[1].ConInt() == 0 && saattt[0].ConInt()==18)
+                    {
+                        MessageBox.Show("Hafta içi mesai saatleri 18.00 'a kadar devam etmektedir.\nFazla çalışmanızı 18.00 dan sonra yapabilirsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+            }
             if (((saat * 60) + dakika) > 150)
             {
-                string haftaninGunu = LblTarihBas.Value.ToString("dddd");
+                
                 if (haftaninGunu == "Cumartesi" || haftaninGunu == "Pazar")
                 {
                     if (((saat * 60) + dakika) > 420)
@@ -83,6 +101,11 @@ namespace UserInterface.IdariIsler
                         MessageBox.Show("Hafta sonu mesainiz 7 saatten fazla olamaz!\nBu sebepten en fazla çalışabileceğiniz fazla çalışmanız\n7 Saattir.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
+                    //if (DtSaatBas.Text.ConInt()<9)
+                    //{
+                    //    MessageBox.Show("Hafta sonu mesainiz sabah 09:00 da başlamak zorundadır!\nBu sebepten lütfen haftasonu mesainizin başlangıç saatini 09:00 dan erken bir saat yapmayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    //    return;
+                    //}
                 }
                 else
                 {
@@ -171,7 +194,7 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Lütfen fazla çalışmanızın hesaplanması için mesai sürenizi belirttikten sonra Süre Hesapla butonuna tıklayınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Error);
+            DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 DateTime basTarihi = new DateTime(LblTarihBas.Value.Year, LblTarihBas.Value.Month, LblTarihBas.Value.Day, DtSaatBas.Value.Hour, DtSaatBas.Value.Minute, 00);
@@ -185,6 +208,13 @@ namespace UserInterface.IdariIsler
                     return;
                 }
 
+                FazlaCalisma fazlaCalisma1 = fazlaCalismaManager.GetSon(infos[1].ToString());
+                kayitId = fazlaCalisma1.Id;
+                if (fazlaCalisma1 != null)
+                {
+                    GorevAtama();
+                }
+
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TxtMesaiNedeni.Clear();
 
@@ -195,7 +225,18 @@ namespace UserInterface.IdariIsler
                 LblToplamMesai.Text = "00";
                 LblToplamIzin.Text = "00";
             }
+        }
 
+        string GorevAtama()
+        {
+            GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(kayitId, "FAZLA ÇALIŞMA", "RESUL GÜNEŞ", "FAZLA ÇALIŞMA ONAYI", DateTime.Now, "", DateTime.Now.Date);
+            string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel);
+
+            if (kontrol != "OK")
+            {
+                return kontrol;
+            }
+            return "OK";
         }
     }
 }

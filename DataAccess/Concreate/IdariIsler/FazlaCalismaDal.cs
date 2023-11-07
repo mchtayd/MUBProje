@@ -92,6 +92,34 @@ namespace DataAccess.Concreate.IdariIsler
                 return null;
             }
         }
+        public FazlaCalisma GetSon(string personelAdi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("FazlaCalismaSonKayit", new SqlParameter("@personelAdi", personelAdi));
+                FazlaCalisma fazlaCalisma = null;
+                while (dataReader.Read())
+                {
+                    fazlaCalisma = new FazlaCalisma(
+                        dataReader["ID"].ConInt(),
+                        dataReader["PERSONEL_AD"].ToString(),
+                        dataReader["PERSONEL_BOLUM"].ToString(),
+                        dataReader["FAZLA_CALISMA_NEDENI"].ToString(),
+                        dataReader["MESAI_BASLANGIC_TARIHI"].ConDate(),
+                        dataReader["MESAI_BITIS_TARIHI"].ConDate(),
+                        dataReader["TOPLAM_MESAI_SAATI"].ToString(),
+                        dataReader["TOPLAM_HAK_EDILEN_IZIN"].ToString(),
+                        dataReader["ONAY_DURUMU"].ToString(),
+                        dataReader["ONAY_VEREN"].ToString());
+                }
+                dataReader.Close();
+                return fazlaCalisma;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<FazlaCalisma> GetList()
         {

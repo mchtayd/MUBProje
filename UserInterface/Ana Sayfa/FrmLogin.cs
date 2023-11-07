@@ -1,10 +1,12 @@
 ﻿using Business.Concreate;
+using DataAccess.Concreate;
 using System;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface
@@ -27,7 +29,7 @@ namespace UserInterface
         {
            // MessageBox.Show(Application.ExecutablePath);
         }
-        private void btnLogin_Click(object sender, EventArgs e)
+        private async void btnLogin_Click(object sender, EventArgs e)
         {
             //KİTLEME
             /*string folderPath = "C:\\Users\\MAYıldırım\\Desktop\\C# Notes\\Secret\\Locker";
@@ -70,12 +72,31 @@ namespace UserInterface
             MessageBox.Show("Sayın " + infos[1] + " Hoşgeldiniz.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            // string version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
-
             FrmAnaSayfa anaSayfa = new FrmAnaSayfa();
             anaSayfa.infos = infos;
             anaSayfa.Show();
             this.Hide();
+
+            // string version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
+
+            //FrmAwait frmAwait = new FrmAwait();
+
+            //Task task = new Task(Deneme);
+            //task.Start();
+
+            //this.Hide();
+            //FrmAnaSayfa anaSayfa = new FrmAnaSayfa();
+            //anaSayfa.WindowState = FormWindowState.Minimized;
+            //frmAwait.WindowState = FormWindowState.Maximized;
+            //anaSayfa.infos = infos;
+            //anaSayfa.Show();
+            //await task;
+            //anaSayfa.WindowState = FormWindowState.Maximized;
+        }
+        void Deneme()
+        {
+            FrmAwait frmAwait = new FrmAwait();
+            frmAwait.Show();
         }
 
         private void MskSicil_TextChanged(object sender, EventArgs e)
@@ -86,6 +107,5 @@ namespace UserInterface
             }
             textPassword.Focus();
         }
-
     }
 }

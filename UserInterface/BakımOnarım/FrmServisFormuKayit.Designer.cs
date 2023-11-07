@@ -145,7 +145,7 @@ namespace UserInterface.BakımOnarım
             this.CmbBolgeAdi.FormattingEnabled = true;
             this.CmbBolgeAdi.Location = new System.Drawing.Point(181, 102);
             this.CmbBolgeAdi.Name = "CmbBolgeAdi";
-            this.CmbBolgeAdi.Size = new System.Drawing.Size(204, 21);
+            this.CmbBolgeAdi.Size = new System.Drawing.Size(252, 21);
             this.CmbBolgeAdi.TabIndex = 3;
             // 
             // label3

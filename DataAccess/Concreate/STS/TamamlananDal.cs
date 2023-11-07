@@ -249,6 +249,25 @@ namespace DataAccess.Concreate.STS
                 return new List<string>();
             }
         }
+        public string AbfOgren(string gerekce)
+        {
+            try
+            {
+                string abfNo = "";
+                dataReader = sqlServices.StoreReader("SatAbfOgren", new SqlParameter("@gerekce", gerekce));
+                while (dataReader.Read())
+                {
+                    abfNo = dataReader["ABF_FORM_NO"].ToString();
+                }
+                dataReader.Close();
+                return abfNo;
+
+            }
+            catch (Exception)
+            {
+                return "";
+            }
+        }
         public List<Tamamlanan> GetListDirektorluk()
         {
             try
@@ -547,6 +566,22 @@ namespace DataAccess.Concreate.STS
                 dataReader = sqlServices.StoreReader("TamamlananSatDonemDuzelt",
                     new SqlParameter("@donem", donem),
                     new SqlParameter("@id", id));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string AbfNoDuzelt(int isAkisNo, string abfNo)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("SatAbfNoDuzelt",
+                    new SqlParameter("@isAkisNo", isAkisNo),
+                    new SqlParameter("@abfNo", abfNo));
 
                 dataReader.Close();
                 return "OK";

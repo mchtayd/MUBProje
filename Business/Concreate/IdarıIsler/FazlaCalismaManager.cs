@@ -63,6 +63,17 @@ namespace Business.Concreate.IdarıIsler
                 return null;
             }
         }
+        public FazlaCalisma GetSon(string personelAdi)
+        {
+            try
+            {
+                return fazlaCalismaDal.GetSon(personelAdi);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
 
         public List<FazlaCalisma> GetList()
         {

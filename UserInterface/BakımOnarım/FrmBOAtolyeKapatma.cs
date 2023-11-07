@@ -83,7 +83,7 @@ namespace UserInterface.BakımOnarım
                 }
             }
 
-            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon);
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon, "SÖKÜLEN");
 
             if (abfMalzemeIslemKayit1==null)
             {
@@ -98,22 +98,22 @@ namespace UserInterface.BakımOnarım
                         {
                             if (item.SokulenSeriNo == seriNo && item.SokulenRevizyon == revizyon)
                             {
-                                AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "ATÖLYE BAKIM ONARIMDA", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "ATÖLYE BAKIM ONARIMDA", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon, "SÖKÜLEN");
                                 if (abfMalzemeIslemKayit2 == null)
                                 {
-                                    abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "300 - ATÖLYEYE GİDECEK MALZEME", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                    abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "300 - ATÖLYEYE GİDECEK MALZEME", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon, "SÖKÜLEN");
 
                                     if (abfMalzemeIslemKayit2 == null)
                                     {
-                                        abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "100 - GEÇİCİ KABUL/KONTROL", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                        abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "100 - GEÇİCİ KABUL/KONTROL", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon, "SÖKÜLEN");
 
                                         if (abfMalzemeIslemKayit2 == null)
                                         {
-                                            abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "SEVKİYAT ARACI (ARA DEPO - VAN)", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                            abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "SEVKİYAT ARACI (ARA DEPO - VAN)", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon, "SÖKÜLEN");
 
                                             if (abfMalzemeIslemKayit2 == null)
                                             {
-                                                abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "ARA DEPO (İADE)", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
+                                                abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(item.Id, "ARA DEPO (İADE)", item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon, "SÖKÜLEN");
 
                                                 if (abfMalzemeIslemKayit2 == null)
                                                 {
@@ -159,7 +159,7 @@ namespace UserInterface.BakımOnarım
 
             }
 
-            abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon);
+            abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon, "SÖKÜLEN");
             if (abfMalzemeIslemKayit1 == null)
             {
                 MessageBox.Show(abfNo + " Form numaralı arızaya kayıtlı böyle bir malzeme bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);

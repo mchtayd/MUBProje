@@ -1277,6 +1277,23 @@ namespace UserInterface.STS
             
         }
 
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in DtgTamamlananSatlar.Rows)
+            {
+                if (item.Cells["Abfform"].Value.ToString()== "" && item.Cells["Butcekodukalemi"].Value.ToString() == "BM02/ACİL ONARIM MALZEME ALIMI")
+                {
+                    string abfNo = tamamlananManager.AbfOgren(item.Cells["Gerekce"].Value.ToString());
+                    if (abfNo!="")
+                    {
+                        tamamlananManager.AbfNoDuzelt(item.Cells["Formno"].Value.ConInt(), abfNo);
+                    }
+                    
+                }
+            }
+            MessageBox.Show("İşlemler başarıyla gerçekleşmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             //if (TxtGerekce.Text=="")

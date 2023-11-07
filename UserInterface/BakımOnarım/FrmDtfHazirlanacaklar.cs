@@ -400,17 +400,41 @@ namespace UserInterface.BakımOnarım
             return depoBilgileri.DepoNo;
         }
 
+        string LokasyonBul2500(string stokNo, string seriLotNo, string revizyon, string takipDurumu, int miktar)
+        {
+            DepoMiktar depoBilgileri = null;
+            depoBilgileri = depoMiktarManager.GetBarkodLokasyonBul2500(stokNo, seriLotNo, revizyon, takipDurumu, miktar);
+            if (depoBilgileri == null)
+            {
+                Malzeme malzeme = malzemeManager.Get(stokNo);
+
+                DepoMiktar depoMiktar = new DepoMiktar(stokNo, malzeme.Tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), "2500", "BAKIM ONARIM (GİDEN)", "100", miktar, "MALZEMENİN MEVCUT ARIZADAN DEPOYA DÜŞÜMÜ YAPILMIŞTIR.");
+
+                depoMiktarManager.Add(depoMiktar);
+
+
+                StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("101-DEPODAN DEPOYA İADE", stokNo, tanim, birim, DateTime.Now, abfNo, "", "", "2500", "ASELSAN UGES", "100", miktar, infos[1].ToString(), "MALZEMENİN MEVCUT ARIZADAN DEPOYA DÜŞÜMÜ YAPILMIŞTIR.", seriNo, lotNo, revizyon);
+
+                stokGirisCikisManager.Add(stokGirisCıkıs);
+            }
+
+            depoBilgileri = depoMiktarManager.GetBarkodLokasyonBul2500(stokNo, seriLotNo, revizyon, takipDurumu, miktar);
+            depoLokasyon = depoBilgileri.DepoLokasyon;
+            cekilenDepoAdi = depoBilgileri.DepoAdresi;
+            return depoBilgileri.DepoNo;
+        }
+
         void DepodanAltYukleniciyeDusum()
         {
             MalzemeHazirlamaControl2();
             string lokasyon = "";
             if (seriNo == "N/A")
             {
-                lokasyon = LokasyonBul(stokNo, lotNo, revizyon, takipTuru);
+                lokasyon = LokasyonBul2500(stokNo, lotNo, revizyon, takipTuru, miktar);
             }
             else
             {
-                lokasyon = LokasyonBul(stokNo, seriNo, revizyon, takipTuru);
+                lokasyon = LokasyonBul2500(stokNo, seriNo, revizyon, takipTuru, miktar);
             }
 
             DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, LblDepoNo.Text, seriNo, lotNo, revizyon);
@@ -474,7 +498,7 @@ namespace UserInterface.BakımOnarım
 
             abfMalzemeManager.MalzemeTeslimBilgisiUpdate(malzemeId, "ALT YÜKLENİCİ FİRMADA");
 
-            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "250 - ALT YÜKLENİCİYE GİDECEK MALZEME", stokNo, seriNo, revizyon);
+            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "250 - ALT YÜKLENİCİYE GİDECEK MALZEME", stokNo, seriNo, revizyon, "SÖKÜLEN");
 
             AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(malzemeId, "ALT YÜKLENİCİ FİRMADA", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);

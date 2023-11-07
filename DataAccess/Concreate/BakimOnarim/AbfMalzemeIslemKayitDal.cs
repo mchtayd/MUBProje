@@ -66,12 +66,12 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public AbfMalzemeIslemKayit Get(int benzersizId,string islem, string stokNo,string seriNo,string revizyon)
+        public AbfMalzemeIslemKayit Get(int benzersizId,string islem, string stokNo,string seriNo,string revizyon, string malzemeDurumu)
         {
             try
             {
                 AbfMalzemeIslemKayit item = null;
-                dataReader = sqlServices.StoreReader("MalzemeIslemKayitlariGet", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@islem", islem), new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@revizyon", revizyon));
+                dataReader = sqlServices.StoreReader("MalzemeIslemKayitlariGet", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@islem", islem), new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@revizyon", revizyon), new SqlParameter("@malzemeDurumu", malzemeDurumu));
                 while (dataReader.Read())
                 {
                     item = new AbfMalzemeIslemKayit(

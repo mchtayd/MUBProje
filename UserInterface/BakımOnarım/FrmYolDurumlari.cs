@@ -1,17 +1,23 @@
 ﻿using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Drawing.Charts;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
+using Microsoft.Office.Interop.Word;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.STS;
+using Application = System.Windows.Forms.Application;
+using Color = System.Drawing.Color;
 
 namespace UserInterface.BakımOnarım
 {
@@ -22,6 +28,7 @@ namespace UserInterface.BakımOnarım
         public object[] infos;
         List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
         List<BolgeKayit> bolgeKayitsEklenen = new List<BolgeKayit>();
+        int index = 0;
         public FrmYolDurumlari()
         {
             InitializeComponent();
@@ -33,8 +40,8 @@ namespace UserInterface.BakımOnarım
         private void FrmYolDurumlari_Load(object sender, EventArgs e)
         {
             UsBolgeleri();
-            LblTarih.Text = DateTime.Now.ToString("d");
-            LblDonem.Text = DateTime.Now.ConPeriod();
+            DtTarih.Text = DateTime.Now.ToString("d");
+            LblDonem.Text = DtTarih.Value.ConPeriod();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -59,16 +66,33 @@ namespace UserInterface.BakımOnarım
             {
                 bolgeKayits = bolgeKayitManager.GetList();
                 CmbBolgeAdi.DataSource = bolgeKayits;
+                foreach (BolgeKayit item in bolgeKayits)
+                {
+                    DtgBolgeler.Rows.Add();
+                    int sonSatir = DtgBolgeler.RowCount - 1;
+                    DtgBolgeler.Rows[sonSatir].Cells["Bolge"].Value = item.BolgeAdi;
+                    DtgBolgeler.Rows[sonSatir].Cells["Id"].Value = index;
+                    index++;
+                }
             }
             else
             {
                 bolgeKayits = bolgeKayitManager.GetList(infos[1].ToString());
                 CmbBolgeAdi.DataSource = bolgeKayits;
+                foreach (BolgeKayit item in bolgeKayits)
+                {
+                    DtgBolgeler.Rows.Add();
+                    int sonSatir = DtgBolgeler.RowCount - 1;
+                    DtgBolgeler.Rows[sonSatir].Cells["Bolge"].Value = item.BolgeAdi;
+                    DtgBolgeler.Rows[sonSatir].Cells["Id"].Value = index;
+                    index++;
+                }
             }
 
             CmbBolgeAdi.ValueMember = "Id";
             CmbBolgeAdi.DisplayMember = "BolgeAdi";
             CmbBolgeAdi.SelectedValue = "";
+            LblTop.Text = DtgBolgeler.RowCount.ToString();
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -115,6 +139,9 @@ namespace UserInterface.BakımOnarım
         void Temizle()
         {
             CmbBolgeAdi.SelectedIndex = -1; CmbYolDurumu.SelectedIndex= -1; TxtAciklama.Clear(); DtgList.Rows.Clear();
+            UsBolgeleri();
+            DtTarih.Text = DateTime.Now.ToString("d");
+            LblDonem.Text = DtTarih.Value.ConPeriod();
         }
         
         private void BtnEkle_Click(object sender, EventArgs e)
@@ -129,47 +156,70 @@ namespace UserInterface.BakımOnarım
                 }
             }
 
-            string kontrol = Control();
-            if (kontrol != "OK")
+            if (CmbYolDurumu.Text == "")
             {
-                MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Lütfen öncelikle Yol Durumu bilgisini seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            bool secim = false;
+            foreach (DataGridViewRow item in DtgBolgeler.Rows)
+            {
+                if (item.Cells["Secim"].Value.ConBool()==true)
+                {
+                    secim = true;
+                    DtgList.Rows.Add();
+                    int sonSatir = DtgList.RowCount - 1;
+                    LblDonem.Text = DtTarih.Value.ConPeriod();
+                    DtgList.Rows[sonSatir].Cells["BolgeAdi"].Value = item.Cells["Bolge"].Value;
+                    DtgList.Rows[sonSatir].Cells["Donem"].Value = LblDonem.Text;
+                    DtgList.Rows[sonSatir].Cells["Tarih"].Value = DtTarih.Value.ToString("d");
+                    DtgList.Rows[sonSatir].Cells["YolDurumu"].Value = CmbYolDurumu.Text;
+                    DtgList.Rows[sonSatir].Cells["Aciklama"].Value = TxtAciklama.Text;
+                    DtgList.Rows[sonSatir].Cells["Idd"].Value = item.Cells["Id"].Value;
+
+
+                    DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Remove"];
+                    c.FlatStyle = FlatStyle.Popup;
+                    c.DefaultCellStyle.ForeColor = Color.Red;
+                    c.DefaultCellStyle.BackColor = Color.Gainsboro;
+
+                    BolgeKayit bolgeKayit = new BolgeKayit(index, item.Cells["Bolge"].Value.ToString(), true);
+                    bolgeKayitsEklenen.Add(bolgeKayit);
+                    index++;
+                }
+            }
+            if (secim == false)
+            {
+                MessageBox.Show("Lütfen eklemek istediğiniz üs bölgesi bilgilerini tablodan işaretleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            DtgList.Rows.Add();
-            int sonSatir = DtgList.RowCount - 1;
-
-            DtgList.Rows[sonSatir].Cells["BolgeAdi"].Value = CmbBolgeAdi.Text;
-            DtgList.Rows[sonSatir].Cells["Donem"].Value = LblDonem.Text;
-            DtgList.Rows[sonSatir].Cells["Tarih"].Value = LblTarih.Text;
-            DtgList.Rows[sonSatir].Cells["YolDurumu"].Value = CmbYolDurumu.Text;
-            DtgList.Rows[sonSatir].Cells["Aciklama"].Value = TxtAciklama.Text;
-
-            DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgList.Columns["Remove"];
-            c.FlatStyle = FlatStyle.Popup;
-            c.DefaultCellStyle.ForeColor = Color.Red;
-            c.DefaultCellStyle.BackColor = Color.Gainsboro;
-
-            BolgeKayit bolgeKayit = new BolgeKayit(CmbBolgeAdi.ValueMember.ConInt(), CmbBolgeAdi.Text);
-            bolgeKayitsEklenen.Add(bolgeKayit);
-
-            CmbBolgeAdi.SelectedIndex = -1;
-            CmbYolDurumu.SelectedIndex= -1;
-
-            
-
-        }
-        string Control()
-        {
-            if (CmbBolgeAdi.Text == "")
+            foreach (BolgeKayit item in bolgeKayitsEklenen)
             {
-                return "Lütfen öncelikle Bölge Adı bilgisini seçiniz!";
+                index = 0;
+                foreach (BolgeKayit item2 in bolgeKayits)
+                {
+                    if (item.BolgeAdi== item2.BolgeAdi)
+                    {
+                        bolgeKayits.RemoveAt(index);
+                        break;
+                    }
+                    index++;
+                }
             }
-            if (CmbYolDurumu.Text == "")
+
+            bolgeKayitsEklenen.Clear();
+
+            DtgBolgeler.Rows.Clear();
+            foreach (BolgeKayit item in bolgeKayits)
             {
-                return "Lütfen öncelikle Yol Durumu bilgisini seçiniz!";
+                DtgBolgeler.Rows.Add();
+                int sonSatir = DtgBolgeler.RowCount - 1;
+                DtgBolgeler.Rows[sonSatir].Cells["Bolge"].Value = item.BolgeAdi;
+                DtgBolgeler.Rows[sonSatir].Cells["Id"].Value = item.Id;
             }
-            return "OK";
+            LblTop2.Text = DtgList.RowCount.ToString();
+            LblTop.Text = DtgBolgeler.RowCount.ToString();
         }
 
         private void DtgList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -179,8 +229,45 @@ namespace UserInterface.BakımOnarım
             if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
             {
                 DtgList.Rows.RemoveAt(e.RowIndex);
-                bolgeKayitsEklenen.RemoveAt(e.RowIndex);
+
+                if (bolge=="")
+                {
+                    idd = DtgBolgeler.RowCount + 1;
+                    bolge = DtgList.CurrentRow.Cells["BolgeAdi"].Value.ToString();
+                }
+                
+
+                BolgeKayit bolgeKayit = new BolgeKayit(idd, bolge, false);
+                bolgeKayits.Add(bolgeKayit);
+
+                DtgBolgeler.Rows.Clear();
+                foreach (BolgeKayit item in bolgeKayits)
+                {
+                    DtgBolgeler.Rows.Add();
+                    int sonSatir = DtgBolgeler.RowCount - 1;
+                    DtgBolgeler.Rows[sonSatir].Cells["Bolge"].Value = item.BolgeAdi;
+                    DtgBolgeler.Rows[sonSatir].Cells["Id"].Value = item.Id;
+                }
+
+                LblTop2.Text = DtgList.RowCount.ToString();
+                LblTop.Text = DtgBolgeler.RowCount.ToString();
+                bolge = "";
+
             }
+        }
+        int idd;
+        string bolge = "";
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgList.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            idd = DtgBolgeler.RowCount + 1;
+            bolge = DtgList.CurrentRow.Cells["BolgeAdi"].Value.ToString();
+
         }
     }
 }

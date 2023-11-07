@@ -30,6 +30,7 @@ namespace UserInterface.BakımOnarım
         ServisFormuManager servisFormuManager;
         SFYedekParcaManager sFYedekParcaManager;
         BildirimYetkiManager bildirimYetkiManager;
+        BolgeKayitManager bolgeKayitManager;
 
         public object[] infos;
 
@@ -45,6 +46,7 @@ namespace UserInterface.BakımOnarım
             servisFormuManager = ServisFormuManager.GetInstance();
             sFYedekParcaManager = SFYedekParcaManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
         }
 
         private void FrmServisFormuKayit_Load(object sender, EventArgs e)
@@ -86,9 +88,9 @@ namespace UserInterface.BakımOnarım
         }
         void UsBolgeleri()
         {
-            CmbBolgeAdi.DataSource = satTalebiDoldurManager.GetList();
+            CmbBolgeAdi.DataSource = bolgeKayitManager.GetList();
             CmbBolgeAdi.ValueMember = "Id";
-            CmbBolgeAdi.DisplayMember = "Usbolgesi";
+            CmbBolgeAdi.DisplayMember = "BolgeAdi";
             CmbBolgeAdi.SelectedValue = "";
         }
 

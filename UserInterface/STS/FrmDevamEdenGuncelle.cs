@@ -167,7 +167,8 @@ namespace UserInterface.STS
             CmbBelgeTuru.Text = satDataGridview1.BelgeTuru;
             TxtBelgeNumarasi.Text = satDataGridview1.BelgeNumarasi;
             DtBelgeTarihi.Value = satDataGridview1.BelgeTarihi;
-            TxtSatinAlinanFirma.Text = satDataGridview1.SatinAlinanFirma;
+            
+
             CmbButceGiderTuru.Text = satDataGridview1.ButceGiderTuru;
             teklifsizSats = null;
             satinAlinacakMalzemelers = null;
@@ -187,6 +188,7 @@ namespace UserInterface.STS
                 else
                 {
                     DtgList.DataSource = fiyatTeklifiAls;
+                    TxtSatinAlinanFirma.Text = fiyatTeklifiAls[0].Firma1.ToString();
                     TeklifliSatEdit();
                 }
             }

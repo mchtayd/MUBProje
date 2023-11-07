@@ -1,28 +1,24 @@
 ﻿using Business;
 using Business.Concreate;
 using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using DataAccess.Concreate.IdariIsler;
 using Entity;
 using Entity.AnaSayfa;
+using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Deployment.Application;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Reflection;
-using System.Runtime.InteropServices;
 using System.Security.AccessControl;
 using System.Text;
-using System.Threading.Tasks;
-using System.Timers;
 using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
 using UserInterface.BakımOnarım;
@@ -36,13 +32,8 @@ using UserInterface.IdariIşler;
 using UserInterface.IdariIsler;
 using UserInterface.RAPORLAMALAR;
 using UserInterface.Yerleskeler;
-using System.Diagnostics;
-using DocumentFormat.OpenXml.Drawing.Charts;
-using Size = System.Drawing.Size;
-using Entity.BakimOnarim;
-using Business.Concreate.BakimOnarim;
-using DocumentFormat.OpenXml.Office2010.Excel;
 using Color = System.Drawing.Color;
+using Size = System.Drawing.Size;
 
 namespace UserInterface.STS
 {
@@ -104,9 +95,6 @@ namespace UserInterface.STS
 
         private void AnaSayfa_Load(object sender, EventArgs e)
         {
-            /*treeView1.Nodes[0].EnsureVisible();
-            treeView1.ImageList = ımageList1;*/
-
             tabAnasayfa.Visible = false;
             FillInfos();
             //LblTarih.Text = DateTime.Now;
@@ -132,26 +120,20 @@ namespace UserInterface.STS
             button1.Image = imageList.Images["kucultme.png"];
             LblVersionNo.Text = Assembly.GetExecutingAssembly().GetName().Version.ToString();
             VersionBul();
-            if (yetkiModu != "YÖNETİCİ")
+            if (yetkiModu == "MİSAFİR")
             {
-                if (yetkiModu != "ADMİN")
-                {
-                    sayfalar.Visible = false;
-                    içeAktarToolStripMenuItem.Enabled = false;
-                    dışaAktarToolStripMenuItem.Enabled = false;
-                    serverToolStripMenuItem.Enabled = false;
-                    duyuruToolStripMenuItem1.Enabled = false;
-                    yazdırToolStripMenuItem.Enabled = false;
-                    YurtIci.Enabled = false;
-                    SehirIcı.Enabled = false;
-                    Izin.Enabled = false;
-                    harcamaBeyannamesiToolStripMenuItem.Enabled = false;
-                    malzemeİstekFormuToolStripMenuItem.Enabled = false;
-                    envanterArızaKayıtToolStripMenuItem.Enabled = false;
-                    fazlaÇalışmaToolStripMenuItem.Enabled = false;
-                }
-                
+                Dosya.Enabled = false;
+                serverToolStripMenuItem.Enabled = false;
+                toolStripDropDownButton3.Enabled = false;
+                toolStripDropDownButton5.Enabled = false;
+                toolStripDropDownButton6.Enabled = false;
+
             }
+            if (yetkiModu == "KULLANICI" || yetkiModu == "MİSAFİR")
+            {
+                sayfalar.Visible = false;
+            }
+
             string deneme, foto = "";
             PersonelKayit personelKayit = personelKayitManager.Get(personId);
             deneme = "\\" + infos[1].ToString() + ".jpg";
@@ -2274,6 +2256,15 @@ namespace UserInterface.STS
                     }
                 }
 
+                if (baslik == "FAZLA ÇALIŞMA İZLEME")
+                {
+                    var form = (FrmFazlaCalismaIzleme)Application.OpenForms["FrmFazlaCalismaIzleme"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
+
             }
 
         }
@@ -2311,6 +2302,24 @@ namespace UserInterface.STS
             //tabPage.Width = 500;
             tabPage.Controls.Add(winForm);
             tabAnasayfa.SelectedTab = tabAnasayfa.TabPages[pageName];
+
+
+            //if (tabAnasayfa.TabPages[pageName] != null)
+            //{
+            //    tabAnasayfa.SelectedTab = tabAnasayfa.TabPages[pageName];
+            //    return;
+            //}
+            //tabAnasayfa.Visible = true;
+            //TabPage tabPage = new TabPage(pageText);
+            //tabPage.SetBounds(tabPage.Bounds.X, tabPage.Bounds.Y, 500, tabPage.Bounds.Height);
+            //tabPage.Size = new Size(500, 75);
+            //tabAnasayfa.TabPages.Add(tabPage);
+            //tabPage.Name = pageName;
+            //tabPage.Width = 500;
+            //winForm.Size = new Size(1000, 620);
+            //tabPage.Controls.Add(winForm);
+            //tabAnasayfa.SelectedTab = tabAnasayfa.TabPages[pageName];
+
         }
 
 
@@ -3250,6 +3259,16 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageDepoKontrol", "DESTEK DEPO KONTROL", Go);
+                Go.Show();
+            }
+            if (e.Node.Text == "Fazla Çalışma İzleme")
+            {
+                FrmFazlaCalismaIzleme Go = new FrmFazlaCalismaIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                //Go.infos = infos;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageFazlaCalismaIzleme", "FAZLA ÇALIŞMA İZLEME", Go);
                 Go.Show();
             }
 
@@ -6057,6 +6076,31 @@ namespace UserInterface.STS
             Go.AutoScroll = true;
             OpenTabPage("PageDtsRapor", "DTS RAPOR", Go);
             Go.Show();
+        }
+
+        private void fazlaÇalışmaOnayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFazlaCalismaOnay Go = new FrmFazlaCalismaOnay();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.infos = infos;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageFazlaCalismaOnay", "FAZLA ÇALIŞMA ONAY", Go);
+            Go.Show();
+        }
+
+        private void fazlaÇaşıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmFazlaCalismalarim frmFazlaCalismalarim = new FrmFazlaCalismalarim();
+            frmFazlaCalismalarim.infos = infos;
+            frmFazlaCalismalarim.ShowDialog();
+        }
+
+        private void ekranAyarlarıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmEkranAyarlari frmEkranAyarlari = new FrmEkranAyarlari();
+            frmEkranAyarlari.infos = infos;
+            frmEkranAyarlari.ShowDialog();
         }
 
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)

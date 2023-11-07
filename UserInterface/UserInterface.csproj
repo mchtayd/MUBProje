@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>728</ApplicationRevision>
+    <ApplicationRevision>751</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -173,6 +173,12 @@
     <Compile Include="Ana Sayfa\FrmAtolyeVeri.Designer.cs">
       <DependentUpon>FrmAtolyeVeri.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmAwait.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmAwait.Designer.cs">
+      <DependentUpon>FrmAwait.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmBildirimler.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -232,6 +238,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmDuyuru.Designer.cs">
       <DependentUpon>FrmDuyuru.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmEkranAyarlari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmEkranAyarlari.Designer.cs">
+      <DependentUpon>FrmEkranAyarlari.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmEtiketYaz.cs">
       <SubType>Form</SubType>
@@ -388,6 +400,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmSlayGorunum.Designer.cs">
       <DependentUpon>FrmSlayGorunum.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSmallScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmSmallScreen.Designer.cs">
+      <DependentUpon>FrmSmallScreen.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmSohbet.cs">
       <SubType>Form</SubType>
@@ -1133,6 +1151,18 @@
     <Compile Include="IdariIsler\FrmFazlaCalisma.Designer.cs">
       <DependentUpon>FrmFazlaCalisma.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmFazlaCalismaIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmFazlaCalismaIzleme.Designer.cs">
+      <DependentUpon>FrmFazlaCalismaIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmFazlaCalismalarim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmFazlaCalismalarim.Designer.cs">
+      <DependentUpon>FrmFazlaCalismalarim.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmFazlaCalismaOnay.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1594,6 +1624,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmAtolyeVeri.resx">
       <DependentUpon>FrmAtolyeVeri.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmAwait.resx">
+      <DependentUpon>FrmAwait.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmBildirimler.resx">
       <DependentUpon>FrmBildirimler.cs</DependentUpon>
     </EmbeddedResource>
@@ -1623,6 +1656,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmDuyuru.resx">
       <DependentUpon>FrmDuyuru.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmEkranAyarlari.resx">
+      <DependentUpon>FrmEkranAyarlari.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmEtiketYaz.resx">
       <DependentUpon>FrmEtiketYaz.cs</DependentUpon>
@@ -1701,6 +1737,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmSlayGorunum.resx">
       <DependentUpon>FrmSlayGorunum.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmSmallScreen.resx">
+      <DependentUpon>FrmSmallScreen.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmSohbet.resx">
       <DependentUpon>FrmSohbet.cs</DependentUpon>
@@ -2073,6 +2112,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmFazlaCalisma.resx">
       <DependentUpon>FrmFazlaCalisma.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmFazlaCalismaIzleme.resx">
+      <DependentUpon>FrmFazlaCalismaIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmFazlaCalismalarim.resx">
+      <DependentUpon>FrmFazlaCalismalarim.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmFazlaCalismaOnay.resx">
       <DependentUpon>FrmFazlaCalismaOnay.cs</DependentUpon>

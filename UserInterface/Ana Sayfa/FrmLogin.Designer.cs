@@ -29,6 +29,7 @@ namespace UserInterface
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Login));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.MskSicil = new System.Windows.Forms.MaskedTextBox();
@@ -41,6 +42,7 @@ namespace UserInterface
             this.label1 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -170,6 +172,7 @@ namespace UserInterface
             this.label2.TabIndex = 38;
             this.label2.Text = "Devoloper and Designer R.GÜNEŞ - M.AYDEMİR";
             // 
+            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;
@@ -213,5 +216,6 @@ namespace UserInterface
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Timer timer1;
     }
 }

@@ -1,5 +1,7 @@
 ﻿using Business.Concreate.BakimOnarim;
+using ClosedXML.Excel;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
 using Entity;
 using Entity.BakimOnarim;
 using System;
@@ -7,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -26,9 +29,11 @@ namespace UserInterface.BakımOnarım
         List<DtfMaliyet> dtfMaliyets;
         List<Okf> yapilacakIslemler;
         public object[] infos;
-        string dosyaYolu;
+        string dosyaYolu, taslakYolu;
         int id, isAkisNo;
         double toplam;
+        string yol = @"C:\DTS\Taslak\";
+        string kaynak = @"Z:\DTS\BAKIM ONARIM\TASLAKLAR\";
         public FrmOkfIzleme()
         {
             InitializeComponent();
@@ -195,7 +200,8 @@ namespace UserInterface.BakımOnarım
             SSBSunulan();
             AselsanaGonderilen();
         }
-
+        DateTime arizaTarihi;
+        string tanim,bildirilenAriza,bolgeAdi = "";
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -206,6 +212,10 @@ namespace UserInterface.BakımOnarım
             dosyaYolu = DtgList.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
             isAkisNo = DtgList.CurrentRow.Cells["IsAkisNo"].Value.ConInt();
+            arizaTarihi = DtgList.CurrentRow.Cells["ArizaTarihi"].Value.ConDate();
+            tanim = DtgList.CurrentRow.Cells["UstTanim"].Value.ToString();
+            bildirilenAriza = DtgList.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
+            bolgeAdi = DtgList.CurrentRow.Cells["UsBolgesi"].Value.ToString();
             MalzemeList(id);
             YapilacakIslemlerList(id);
             try
@@ -358,8 +368,14 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Öncelikle bir kayıt seçiniz.");
                 return;
             }
+
             dosyaYolu = DtgListSSB.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             id = DtgListSSB.CurrentRow.Cells["Id"].Value.ConInt();
+            isAkisNo = DtgListSSB.CurrentRow.Cells["IsAkisNo"].Value.ConInt();
+            arizaTarihi = DtgListSSB.CurrentRow.Cells["ArizaTarihi"].Value.ConDate();
+            tanim = DtgListSSB.CurrentRow.Cells["UstTanim"].Value.ToString();
+            bildirilenAriza = DtgListSSB.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
+            bolgeAdi = DtgListSSB.CurrentRow.Cells["UsBolgesi"].Value.ToString();
 
             MalzemeList(id);
             YapilacakIslemlerList(id);
@@ -382,6 +398,11 @@ namespace UserInterface.BakımOnarım
             }
             dosyaYolu = DtgListMusteriOnayi.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             id = DtgListMusteriOnayi.CurrentRow.Cells["Id"].Value.ConInt();
+            isAkisNo = DtgListMusteriOnayi.CurrentRow.Cells["IsAkisNo"].Value.ConInt();
+            arizaTarihi = DtgListMusteriOnayi.CurrentRow.Cells["ArizaTarihi"].Value.ConDate();
+            tanim = DtgListMusteriOnayi.CurrentRow.Cells["UstTanim"].Value.ToString();
+            bildirilenAriza = DtgListMusteriOnayi.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
+            bolgeAdi = DtgListMusteriOnayi.CurrentRow.Cells["UsBolgesi"].Value.ToString();
 
             MalzemeList(id);
             YapilacakIslemlerList(id);
@@ -404,6 +425,11 @@ namespace UserInterface.BakımOnarım
             }
             dosyaYolu = DtgListTamamlanan.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             id = DtgListTamamlanan.CurrentRow.Cells["Id"].Value.ConInt();
+            isAkisNo = DtgListTamamlanan.CurrentRow.Cells["IsAkisNo"].Value.ConInt();
+            arizaTarihi = DtgListTamamlanan.CurrentRow.Cells["ArizaTarihi"].Value.ConDate();
+            tanim = DtgListTamamlanan.CurrentRow.Cells["UstTanim"].Value.ToString();
+            bildirilenAriza = DtgListTamamlanan.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
+            bolgeAdi = DtgListTamamlanan.CurrentRow.Cells["UsBolgesi"].Value.ToString();
 
             MalzemeList(id);
             YapilacakIslemlerList(id);
@@ -517,6 +543,69 @@ namespace UserInterface.BakımOnarım
         private void DtgListTamamlanan_SortStringChanged(object sender, EventArgs e)
         {
             dataBinderTamamlanan.Sort = DtgListTamamlanan.SortString;
+        }
+        void TaslakKopyalaExcel()
+        {
+            string root = @"C:\DTS";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(yol))
+            {
+                Directory.CreateDirectory(yol);
+            }
+
+            File.Copy(kaynak + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx", yol + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx");
+
+            taslakYolu = yol + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx";
+        }
+
+        private void excelOluşturToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Excel dosyası oluşturmak istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr!=DialogResult.Yes)
+            {
+                return;
+            }
+            TaslakKopyalaExcel();
+
+            string excelFilePath = Path.Combine(yol, "Ek-1 OKF_üs bölge adı_iş akış no.xlsx");
+            bool exists = File.Exists(excelFilePath);
+            IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
+            IXLWorksheet worksheet = xLWorkbook.Worksheet("Sheet2");
+
+            var range = worksheet.RangeUsed();
+            DateTime date = new DateTime(arizaTarihi.Year, arizaTarihi.Month, arizaTarihi.Day + 2, arizaTarihi.Hour, arizaTarihi.Minute, arizaTarihi.Second);
+            if (date.Day.ToString("dddd") == "Pazar")
+            {
+                date = new DateTime(arizaTarihi.Year, arizaTarihi.Month, arizaTarihi.Day + 3, arizaTarihi.Hour, arizaTarihi.Minute, arizaTarihi.Second);
+            }
+            if (date.Day.ToString("dddd") == "Cumartesi")
+            {
+                date = new DateTime(arizaTarihi.Year, arizaTarihi.Month, arizaTarihi.Day + 4, arizaTarihi.Hour, arizaTarihi.Minute, arizaTarihi.Second);
+            }
+            worksheet.Cell("I4").Value = date.ToString("d");
+            worksheet.Cell("J4").Value = DateTime.Now.ToString("d");
+            worksheet.Cell("F7").Value = tanim;
+            string messege = "MÜB Projesi kapsamında yapılan kontrollerde " + bildirilenAriza.ToLower() + "\n\nÜS bölgesinde keşif işlemleri tamamlanmış olup,yapılacak faaliyet aşağıda detaylandırılmıştır.";
+            foreach (DataGridViewRow item in DtgYapilacakIslemler.Rows)
+            {
+                string[] message = item.Cells["YapilacakIslemler"].Value.ToString().Split(')');
+                messege += "\n           -" + message[1];
+            }
+            worksheet.Cell("A12").Value = messege;
+            worksheet.Cell("D22").Value = bolgeAdi;
+            worksheet.Cell("A11").Value = bolgeAdi;
+
+            xLWorkbook.SaveAs(dosyaYolu + "\\" + "Ek-1 OKF_" + bolgeAdi + "_" + isAkisNo + ".xlsx");
+            xLWorkbook.Dispose(); // workbook nesnesini temizler
+
+            Directory.Delete(yol, true);
+
+            webBrowser1.Navigate(dosyaYolu);
+
         }
 
         private void aselsanaGönderilenToolStripMenuItem_Click(object sender, EventArgs e)

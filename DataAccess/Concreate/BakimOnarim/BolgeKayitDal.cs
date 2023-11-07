@@ -304,13 +304,14 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
-        public string UpdateBolgeAdi(string eskiBolgeAdi, string yeniBolgeAdi)
+        public string UpdateBolgeAdi(string eskiBolgeAdi, string yeniBolgeAdi, string bolgeAdresi)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("BolgeAdiUpdate",
                     new SqlParameter("@eskiBolgeAdi", eskiBolgeAdi),
-                    new SqlParameter("@yeniBolgeAdi", yeniBolgeAdi));
+                    new SqlParameter("@yeniBolgeAdi", yeniBolgeAdi),
+                    new SqlParameter("@yeniBolgeAdi", bolgeAdresi));
 
                 dataReader.Close();
                 return "OK";

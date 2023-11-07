@@ -8,7 +8,7 @@ namespace Entity.BakimOnarim
 {
     public class BolgeKayit
     {
-        int id; string bolgeAdi, kodAdi, usBolgesiStok, proje; DateTime kabulTarihi; string guvenlikYazilimi, kesifGozetlemeTuru, yasamAlani, tabur, tugay, il, ilce, birlikAdresi; DateTime garantiBaslama, garantiBitis; string bolgeSorumlusu, depo, pypNo, siparisNo, dosyaYolu, tepeSorumlusu, projeSistem, musteri;
+        int id; string bolgeAdi, kodAdi, usBolgesiStok, proje; DateTime kabulTarihi; string guvenlikYazilimi, kesifGozetlemeTuru, yasamAlani, tabur, tugay, il, ilce, birlikAdresi; DateTime garantiBaslama, garantiBitis; string bolgeSorumlusu, depo, pypNo, siparisNo, dosyaYolu, tepeSorumlusu, projeSistem, musteri; bool secim;
 
         public int Id { get => id; set => id = value; }
         public string BolgeAdi { get => bolgeAdi; set => bolgeAdi = value; }
@@ -34,6 +34,7 @@ namespace Entity.BakimOnarim
         public string TepeSorumlusu { get => tepeSorumlusu; set => tepeSorumlusu = value; }
         public string ProjeSistem { get => projeSistem; set => projeSistem = value; }
         public string Musteri { get => musteri; set => musteri = value; }
+        public bool Secim { get => secim; set => secim = value; }
 
         public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu, string tepeSorumlusu, string projeSistem, string musteri)
         {
@@ -122,10 +123,11 @@ namespace Entity.BakimOnarim
             this.tugay = tugay;
         }
 
-        public BolgeKayit(int id, string bolgeAdi)
+        public BolgeKayit(int id, string bolgeAdi, bool secim)
         {
             this.id = id;
             this.bolgeAdi = bolgeAdi;
+            this.secim = secim;
         }
     }
 }

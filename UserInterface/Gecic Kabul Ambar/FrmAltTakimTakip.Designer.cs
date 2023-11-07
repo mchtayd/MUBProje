@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmAltTakimTakip));
             this.panel1 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
@@ -79,6 +79,7 @@
             this.BtnDisaAktar = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.TxtSeriNo = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -96,7 +97,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1503, 27);
+            this.panel1.Size = new System.Drawing.Size(1290, 27);
             this.panel1.TabIndex = 308;
             // 
             // button5
@@ -124,10 +125,9 @@
             // 
             // TxtTop
             // 
-            this.TxtTop.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(112, 375);
+            this.TxtTop.Location = new System.Drawing.Point(115, 312);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 382;
@@ -135,10 +135,9 @@
             // 
             // label5
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(12, 375);
+            this.label5.Location = new System.Drawing.Point(15, 312);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 381;
@@ -146,11 +145,10 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox1.Controls.Add(this.DtgList);
             this.groupBox1.Location = new System.Drawing.Point(15, 106);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1479, 266);
+            this.groupBox1.Size = new System.Drawing.Size(1263, 203);
             this.groupBox1.TabIndex = 380;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MALZEME TAKİP LİSTESİ";
@@ -159,8 +157,8 @@
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -172,11 +170,12 @@
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgList.Size = new System.Drawing.Size(1473, 247);
+            this.DtgList.Size = new System.Drawing.Size(1257, 184);
             this.DtgList.TabIndex = 4;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgList_CellContentClick);
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             this.DtgList.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseDoubleClick);
             // 
@@ -220,10 +219,9 @@
             // 
             // LblTop2
             // 
-            this.LblTop2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblTop2.AutoSize = true;
             this.LblTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTop2.Location = new System.Drawing.Point(115, 637);
+            this.LblTop2.Location = new System.Drawing.Point(262, 550);
             this.LblTop2.Name = "LblTop2";
             this.LblTop2.Size = new System.Drawing.Size(21, 15);
             this.LblTop2.TabIndex = 401;
@@ -231,10 +229,9 @@
             // 
             // label3
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(15, 637);
+            this.label3.Location = new System.Drawing.Point(162, 550);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 15);
             this.label3.TabIndex = 400;
@@ -242,11 +239,10 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.groupBox2.Controls.Add(this.DtgIslem);
-            this.groupBox2.Location = new System.Drawing.Point(15, 402);
+            this.groupBox2.Location = new System.Drawing.Point(21, 330);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(1479, 231);
+            this.groupBox2.Size = new System.Drawing.Size(1254, 216);
             this.groupBox2.TabIndex = 399;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "İŞLEM YAPILACAK MALZEME LİSTESİ";
@@ -276,7 +272,7 @@
             this.DtgIslem.Name = "DtgIslem";
             this.DtgIslem.ReadOnly = true;
             this.DtgIslem.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgIslem.Size = new System.Drawing.Size(1473, 212);
+            this.DtgIslem.Size = new System.Drawing.Size(1248, 197);
             this.DtgIslem.TabIndex = 4;
             this.DtgIslem.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgIslem_CellContentClick);
             // 
@@ -382,7 +378,7 @@
             this.BtnTeslimAlSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnTeslimAlSat.Image = ((System.Drawing.Image)(resources.GetObject("BtnTeslimAlSat.Image")));
             this.BtnTeslimAlSat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTeslimAlSat.Location = new System.Drawing.Point(18, 663);
+            this.BtnTeslimAlSat.Location = new System.Drawing.Point(23, 546);
             this.BtnTeslimAlSat.Name = "BtnTeslimAlSat";
             this.BtnTeslimAlSat.Size = new System.Drawing.Size(122, 51);
             this.BtnTeslimAlSat.TabIndex = 398;
@@ -420,7 +416,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(199, 637);
+            this.label6.Location = new System.Drawing.Point(346, 550);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 447;
@@ -429,7 +425,7 @@
             // DtgTeslimTarihi
             // 
             this.DtgTeslimTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtgTeslimTarihi.Location = new System.Drawing.Point(240, 634);
+            this.DtgTeslimTarihi.Location = new System.Drawing.Point(387, 547);
             this.DtgTeslimTarihi.Name = "DtgTeslimTarihi";
             this.DtgTeslimTarihi.Size = new System.Drawing.Size(122, 20);
             this.DtgTeslimTarihi.TabIndex = 448;
@@ -438,15 +434,15 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(146, 669);
+            this.label7.Location = new System.Drawing.Point(602, 603);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(603, 45);
             this.label7.TabIndex = 449;
             this.label7.Text = resources.GetString("label7.Text");
+            this.label7.Visible = false;
             // 
             // label1
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label1.Location = new System.Drawing.Point(20, 44);
@@ -477,7 +473,6 @@
             // 
             // LblIadeYeri
             // 
-            this.LblIadeYeri.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.LblIadeYeri.AutoSize = true;
             this.LblIadeYeri.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblIadeYeri.Location = new System.Drawing.Point(487, 44);
@@ -508,7 +503,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(368, 637);
+            this.label8.Location = new System.Drawing.Point(515, 550);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 15);
             this.label8.TabIndex = 456;
@@ -519,7 +514,7 @@
             this.DtgSaat.CustomFormat = "HH:mm";
             this.DtgSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DtgSaat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtgSaat.Location = new System.Drawing.Point(409, 634);
+            this.DtgSaat.Location = new System.Drawing.Point(556, 547);
             this.DtgSaat.Name = "DtgSaat";
             this.DtgSaat.ShowUpDown = true;
             this.DtgSaat.Size = new System.Drawing.Size(101, 21);
@@ -545,7 +540,7 @@
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.Location = new System.Drawing.Point(766, 652);
+            this.button1.Location = new System.Drawing.Point(774, 549);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(122, 51);
             this.button1.TabIndex = 458;
@@ -574,7 +569,6 @@
             // 
             // label9
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label9.Location = new System.Drawing.Point(19, 76);
@@ -591,11 +585,29 @@
             this.TxtSeriNo.TabIndex = 543;
             this.TxtSeriNo.TextChanged += new System.EventHandler(this.TxtSeriNo_TextChanged);
             // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.Color.CadetBlue;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button2.Location = new System.Drawing.Point(639, 65);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(130, 51);
+            this.button2.TabIndex = 544;
+            this.button2.Text = "DATA DÜZELT";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // FrmAltTakimTakip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1503, 797);
+            this.ClientSize = new System.Drawing.Size(1290, 652);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.TxtSeriNo);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.BtnDisaAktar);
@@ -686,5 +698,6 @@
         private System.Windows.Forms.ToolStripMenuItem malzemeKaydınıDüzenleToolStripMenuItem;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TxtSeriNo;
+        private System.Windows.Forms.Button button2;
     }
 }

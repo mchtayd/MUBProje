@@ -430,6 +430,7 @@ namespace UserInterface.STS
             DtgMalzemeList.Columns["DepoDurum"].Visible = false;
             DtgMalzemeList.Columns["Secim"].HeaderText = "SEÇİM";
 
+
             TxtTop.Text = DtgMalzemeList.RowCount.ToString();
 
             CmbBolgeAdi.SelectedIndex = -1;
@@ -476,6 +477,10 @@ namespace UserInterface.STS
             DtgMalzemeList.Columns["SokulenTeslimDurum"].Visible = false;
             DtgMalzemeList.Columns["BolgeAdi"].Visible = false;
             DtgMalzemeList.Columns["BolgeSorumlusu"].Visible = false;
+            DtgMalzemeList.Columns["YerineMalzemeTakilma"].Visible = false;
+            DtgMalzemeList.Columns["DosyaYolu"].Visible = false;
+            DtgMalzemeList.Columns["AltYukleniciKayit"].Visible = false;
+            DtgMalzemeList.Columns["TakilanTeslimDurum"].Visible = false;
 
             TxtTop.Text = DtgMalzemeList.RowCount.ToString();
         }

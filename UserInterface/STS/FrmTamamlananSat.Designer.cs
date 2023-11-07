@@ -47,6 +47,7 @@ namespace UserInterface.STS
             this.ChkTumunuGoster = new System.Windows.Forms.CheckBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.BtnDonemDuzelt = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.LblGenelTopp = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
@@ -166,7 +167,6 @@ namespace UserInterface.STS
             this.LblGenelTop = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.BtnDonemDuzelt = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
@@ -341,6 +341,18 @@ namespace UserInterface.STS
             this.tabPage4.Text = "SAT";
             this.tabPage4.UseVisualStyleBackColor = true;
             // 
+            // BtnDonemDuzelt
+            // 
+            this.BtnDonemDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnDonemDuzelt.Location = new System.Drawing.Point(980, 362);
+            this.BtnDonemDuzelt.Name = "BtnDonemDuzelt";
+            this.BtnDonemDuzelt.Size = new System.Drawing.Size(99, 23);
+            this.BtnDonemDuzelt.TabIndex = 543;
+            this.BtnDonemDuzelt.Text = "Donem Duzelt";
+            this.BtnDonemDuzelt.UseVisualStyleBackColor = true;
+            this.BtnDonemDuzelt.Visible = false;
+            this.BtnDonemDuzelt.Click += new System.EventHandler(this.BtnDonemDuzelt_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -417,7 +429,7 @@ namespace UserInterface.STS
             this.BtnGuncelle.TabIndex = 537;
             this.BtnGuncelle.Text = "GÜNCELLE";
             this.BtnGuncelle.UseVisualStyleBackColor = true;
-            this.BtnGuncelle.Visible = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // PnlTemsili
             // 
@@ -1497,18 +1509,6 @@ namespace UserInterface.STS
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 354;
             this.label5.Text = "Toplam Kayıt:";
-            // 
-            // BtnDonemDuzelt
-            // 
-            this.BtnDonemDuzelt.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnDonemDuzelt.Location = new System.Drawing.Point(980, 362);
-            this.BtnDonemDuzelt.Name = "BtnDonemDuzelt";
-            this.BtnDonemDuzelt.Size = new System.Drawing.Size(99, 23);
-            this.BtnDonemDuzelt.TabIndex = 543;
-            this.BtnDonemDuzelt.Text = "Donem Duzelt";
-            this.BtnDonemDuzelt.UseVisualStyleBackColor = true;
-            this.BtnDonemDuzelt.Visible = false;
-            this.BtnDonemDuzelt.Click += new System.EventHandler(this.BtnDonemDuzelt_Click);
             // 
             // FrmTamamlananSat
             // 

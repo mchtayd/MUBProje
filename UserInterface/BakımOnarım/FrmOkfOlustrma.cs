@@ -1,6 +1,7 @@
 ﻿using Business;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.Gecici_Kabul_Ambar;
+using ClosedXML.Excel;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Presentation;
@@ -16,11 +17,13 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.STS;
 using Application = Microsoft.Office.Interop.Word.Application;
+using Path = System.IO.Path;
 
 namespace UserInterface.BakımOnarım
 {
@@ -348,6 +351,44 @@ namespace UserInterface.BakımOnarım
         {
             TTutar1.Text = TopFiyatHesapla(BTutar1.Text, m1.Text);
         }
+        void CreateExcel()
+        {
+            TaslakKopyalaExcel();
+
+            string excelFilePath = Path.Combine(yol, "Ek-1 OKF_üs bölge adı_iş akış no.xlsx");
+            bool exists = File.Exists(excelFilePath);
+            IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
+            IXLWorksheet worksheet = xLWorkbook.Worksheet("Sheet2");
+
+            var range = worksheet.RangeUsed();
+            DateTime date = new DateTime(DtgArizaTarihi.Value.Year, DtgArizaTarihi.Value.Month, DtgArizaTarihi.Value.Day+2, DtgArizaTarihi.Value.Hour, DtgArizaTarihi.Value.Minute, DtgArizaTarihi.Value.Second);
+            if (date.Day.ToString("dddd")== "Pazar")
+            {
+                date = new DateTime(DtgArizaTarihi.Value.Year, DtgArizaTarihi.Value.Month, DtgArizaTarihi.Value.Day + 3, DtgArizaTarihi.Value.Hour, DtgArizaTarihi.Value.Minute, DtgArizaTarihi.Value.Second);
+            }
+            if (date.Day.ToString("dddd") == "Cumartesi")
+            {
+                date = new DateTime(DtgArizaTarihi.Value.Year, DtgArizaTarihi.Value.Month, DtgArizaTarihi.Value.Day + 4, DtgArizaTarihi.Value.Hour, DtgArizaTarihi.Value.Minute, DtgArizaTarihi.Value.Second);
+            }
+            worksheet.Cell("I4").Value = date.ToString("d");
+            worksheet.Cell("J4").Value = DateTime.Now.ToString("d");
+            worksheet.Cell("F7").Value = CmbTanim.Text;
+            string messege = "MÜB Projesi kapsamında yapılan kontrollerde " + TxtBildirilenAriza.Text.ToLower()+ "\n\nÜS bölgesinde keşif işlemleri tamamlanmış olup,yapılacak faaliyet aşağıda detaylandırılmıştır.";
+            foreach (DataGridViewRow item in DtgList.Rows)
+            {
+                string[] message = item.Cells["YapilacakIslemler"].Value.ToString().Split(')');
+                messege += "\n           -" + message[1];
+            }
+            worksheet.Cell("A12").Value = messege;
+            worksheet.Cell("D22").Value = CmbBolgeAdi.Text;
+            worksheet.Cell("A11").Value = CmbBolgeAdi.Text;
+
+            xLWorkbook.SaveAs(dosyaYolu + "\\" + "Ek-1 OKF_" + CmbBolgeAdi.Text + "_" + LblIsAkisNo.Text + ".xlsx");
+            xLWorkbook.Dispose(); // workbook nesnesini temizler
+
+            Directory.Delete(yol, true);
+
+        }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
@@ -412,12 +453,30 @@ namespace UserInterface.BakımOnarım
                 }
 
                 CreateWord();
+                CreateExcel();
                 IsAkisNo();
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 sayac = 0;
                 sayac2 = 0;
                 Temizle();
             }
+        }
+        void TaslakKopyalaExcel()
+        {
+            string root = @"C:\DTS";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(yol))
+            {
+                Directory.CreateDirectory(yol);
+            }
+
+            File.Copy(kaynak + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx", yol + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx");
+
+            taslakYolu = yol + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx";
         }
 
         void Temizle()

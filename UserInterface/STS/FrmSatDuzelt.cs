@@ -31,6 +31,7 @@ namespace UserInterface.STS
         List<TamamlananMalzeme> tamamlananMalzemes;
         public int id;
         bool start = false;
+        string abfFormNo = "";
         public FrmSatDuzelt()
         {
             InitializeComponent();
@@ -72,7 +73,8 @@ namespace UserInterface.STS
             LblMasrafYeri.Text = tamamlanan.Bolum;
             LblAdSoyad.Text = tamamlanan.Talepeden;
             CmbUsBolgesi.Text = tamamlanan.Usbolgesi;
-            CmbAbfFormno.Text = tamamlanan.Abfform;
+            abfFormNo = tamamlanan.Abfform;
+            CmbAbfFormno.Text = abfFormNo;
             istenenTarih.Value=tamamlanan.Istenentarih;
             string[] donemArray = tamamlanan.Donem.Split(' ');
             CmbDonem.Text= donemArray[0];
@@ -216,13 +218,20 @@ namespace UserInterface.STS
             CmbAbfFormno.ValueMember = "Id";
             CmbAbfFormno.DisplayMember = "AbfNo";
             CmbAbfFormno.SelectedValue = "";
+            CmbAbfFormno.Text = abfFormNo;
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
+            //if (TxtSatinAlinanFirma.Text == "-" || TxtSatinAlinanFirma.Text=="")
+            //{
+            //    MessageBox.Show("Satın alınan firma bilgisini bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             DialogResult dr = MessageBox.Show("Bilgileri güncellemek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
+
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 Tamamlanan tamamlanan = new Tamamlanan(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, CmbFBelgeTur.Text, TxtBelgeNo.Text, DtgBelgeTarih.Value, donem, CmbBasaranProje.Text, TxtSatinAlinanFirma.Text, CmbHarcamaYapan.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text, TxtFirmayaKesilenFatura.Text, TxtKesilenFaturaTarihi.Text, CmbButceGiderTuru.Text);
 

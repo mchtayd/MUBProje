@@ -1483,7 +1483,8 @@ namespace UserInterface.BakımOnarım
             }
             YaklasikMaliyetKayit();
             CreateWordKO();
-            MalzemeHareket();
+            //MalzemeHareket();
+
             //mesaj = BildirimKayitOnay();
             //if (mesaj!="OK")
             //{
@@ -1506,7 +1507,7 @@ namespace UserInterface.BakımOnarım
                 if (item.SokulenTeslimDurum== "ALT YÜKLENİCİ FİRMADA" && item.AltYukleniciKayit != "")
                 {
                     abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item.Id, "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI");
-                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Id, "ALT YÜKLENİCİ FİRMADA", LblStokNoKO.Text, LblSeriNoKO.Text, revizyon);
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Id, "ALT YÜKLENİCİ FİRMADA", LblStokNoKO.Text, LblSeriNoKO.Text, revizyon, "SÖKÜLEN");
 
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(item.Id, "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, LblStokNoKO.Text, LblSeriNoKO.Text, revizyon);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
@@ -1526,7 +1527,6 @@ namespace UserInterface.BakımOnarım
                     }
                 }
             }
-
             
         }
 

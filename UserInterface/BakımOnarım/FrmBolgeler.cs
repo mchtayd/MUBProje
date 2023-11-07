@@ -710,7 +710,7 @@ namespace UserInterface.BakımOnarım
 
                 if (bolgeAdi != CmbBolgeAdi.Text)
                 {
-                    bolgeKayitManager.UpdateBolgeAdi(bolgeAdi, CmbBolgeAdi.Text);
+                    bolgeKayitManager.UpdateBolgeAdi(bolgeAdi, CmbBolgeAdi.Text, TxtBirlikAdresi.Text);
                 }
 
                 BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text, CmbMusteri.Text);

@@ -55,14 +55,14 @@ namespace UserInterface.Ana_Sayfa
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.LblVersion = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.label41 = new System.Windows.Forms.Label();
             this.panel7 = new System.Windows.Forms.Panel();
             this.panel8 = new System.Windows.Forms.Panel();
             this.LblDuyuru = new System.Windows.Forms.Label();
             this.panel9 = new System.Windows.Forms.Panel();
             this.timer2 = new System.Windows.Forms.Timer(this.components);
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblVersion = new System.Windows.Forms.Label();
             this.timer3 = new System.Windows.Forms.Timer(this.components);
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -305,6 +305,27 @@ namespace UserInterface.Ana_Sayfa
             this.panel6.Size = new System.Drawing.Size(200, 100);
             this.panel6.TabIndex = 6;
             // 
+            // LblVersion
+            // 
+            this.LblVersion.AutoSize = true;
+            this.LblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblVersion.ForeColor = System.Drawing.Color.Red;
+            this.LblVersion.Location = new System.Drawing.Point(61, 55);
+            this.LblVersion.Name = "LblVersion";
+            this.LblVersion.Size = new System.Drawing.Size(77, 24);
+            this.LblVersion.TabIndex = 4;
+            this.LblVersion.Text = "Güncel";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(62, 9);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(73, 18);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Versiyon";
+            // 
             // label41
             // 
             this.label41.AutoSize = true;
@@ -356,27 +377,6 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.timer2.Interval = 1000;
             this.timer2.Tick += new System.EventHandler(this.timer2_Tick);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(62, 9);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(73, 18);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Versiyon";
-            // 
-            // LblVersion
-            // 
-            this.LblVersion.AutoSize = true;
-            this.LblVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblVersion.ForeColor = System.Drawing.Color.Red;
-            this.LblVersion.Location = new System.Drawing.Point(61, 55);
-            this.LblVersion.Name = "LblVersion";
-            this.LblVersion.Size = new System.Drawing.Size(77, 24);
-            this.LblVersion.TabIndex = 4;
-            this.LblVersion.Text = "Güncel";
             // 
             // timer3
             // 

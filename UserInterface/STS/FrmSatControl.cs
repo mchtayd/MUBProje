@@ -1685,7 +1685,12 @@ namespace UserInterface.STS
             donem = DtgSatTamamla.CurrentRow.Cells["Donem"].Value.ToString();
             satOlusturmaTuru = DtgSatTamamla.CurrentRow.Cells["SatOlusturmaTuru"].Value.ToString();
             proje = DtgSatTamamla.CurrentRow.Cells["Proje"].Value.ToString();
-            satinAlinanFirma = DtgSatTamamla.CurrentRow.Cells["SatinAlinanFirma"].Value.ToString();
+
+            fiyatTeklifiAls = new List<FiyatTeklifiAl>();
+            FillMalzemeList4();
+
+            satinAlinanFirma = fiyatTeklifiAls[0].Firma1.ToString();
+
             mlzTeslimTarihi = DtgSatTamamla.CurrentRow.Cells["MlzTeslimAldTarih"].Value.ToString();
             harcamayapan = DtgSatTamamla.CurrentRow.Cells["HarcamaYapan"].Value.ToString();
             depoTeslimBilgisi = DtgSatTamamla.CurrentRow.Cells["DepoTeslimBilgisi"].Value.ToString();
@@ -1698,8 +1703,7 @@ namespace UserInterface.STS
             maliyetTuru = DtgSatTamamla.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
             butceGiderTuru = DtgSatTamamla.CurrentRow.Cells["ButceGiderTuru"].Value.ToString();
 
-            fiyatTeklifiAls = new List<FiyatTeklifiAl>();
-            FillMalzemeList4();
+            
             foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
             {
                 toplamlar = +item.Btf;
@@ -2390,6 +2394,11 @@ namespace UserInterface.STS
                 string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
                 string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
 
+                if (satinAlinanFirma=="-")
+                {
+                    MessageBox.Show("Satın alınan firma bilgisini bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 //donem = DateTime.Now.ConPeriod();
 
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satBirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,

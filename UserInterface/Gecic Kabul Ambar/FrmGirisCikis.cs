@@ -625,7 +625,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             abfMalzemesStoklar = abfMalzemeManager.GetList(rezerveId);
                             foreach (AbfMalzeme item in abfMalzemesStoklar)
                             {
-                                if (item.SokulenStokNo == CmbStokManuel.Text && LblDepodanBildirimePersonel.Text!="OTS ARIZASI")
+                                if (item.SokulenStokNo == CmbStokManuel.Text && LblDepodanBildirimePersonel.Text != "OTS ARIZASI")
                                 {
                                     if (item.TeminDurumu != "REZERVE EDİLDİ")
                                     {
@@ -1405,12 +1405,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 abfMalzemeManager.MalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "MALZEME DEPO STOĞUNA ALINDI.");
 
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, "150 - STOĞA ALINACAK MALZEME", stokNo, seriNo, revizyon);
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, "150 - STOĞA ALINACAK MALZEME", stokNo, seriNo, revizyon, "SÖKÜLEN");
 
                 AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "MALZEME DEPO STOĞUNA ALINDI.", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
                 abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                
+
                 if (abfMalzemeIslemKayit1 != null)
                 {
                     TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
@@ -1434,12 +1434,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 abfMalzemeManager.MalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "MALZEMENİN " + abfNo + " FORM NUMARALI FARKLI BİR ARIZAYA DÜŞÜMÜ YAPILMIŞTIR.");
 
-                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, "150 - STOĞA ALINACAK MALZEME", stokNo, seriNo, revizyon);
+                AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, "150 - STOĞA ALINACAK MALZEME", stokNo, seriNo, revizyon, "SÖKÜLEN");
 
                 AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "MALZEMENİN " + abfNo + " FORM NUMARALI FARKLI BİR ARIZAYA DÜŞÜMÜ YAPILMIŞTIR.", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, stokNo, seriNo, revizyon);
                 abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-                
+
                 if (abfMalzemeIslemKayit1 != null)
                 {
                     TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
@@ -1456,7 +1456,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             else
             {
                 ArizaKayit arizaKayit = arizaKayitManager.Get(abfNo.ConInt());
-                if (arizaKayit==null)
+                if (arizaKayit == null)
                 {
                     return;
                 }
@@ -1478,18 +1478,23 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     addItems.Add(abfMalzeme2);
                 }
 
-                
+
 
                 foreach (AbfMalzeme item in abfMalzemes)
                 {
-                    if (item.TakilanStokNo=="" && item.SokulenStokNo == stokNo)
+                    if (item.TakilanStokNo == "" && item.SokulenStokNo == stokNo)
                     {
-                        if (abfMalzemes.Count > 1)
+                        if (abfMalzemes.Count >= 1)
                         {
                             guncelId = item.Id;
                         }
                         break;
                     }
+                }
+
+                if (addItems.Count==0 && updateItems.Count==0)
+                {
+                    addItems.Add(abfMalzeme2);
                 }
 
                 foreach (AbfMalzeme item in updateItems)
@@ -1502,7 +1507,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                 foreach (AbfMalzeme item in addItems)
                 {
-                    abfMalzemeManager.AddTakilan(item, id);
+                    abfMalzemeManager.AddTakilan(item, arizaKayit.Id);
                 }
 
 
@@ -1518,25 +1523,83 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN", DateTime.Now, infos[1].ToString(), 0, "TAKILAN", stokNo, seriNo, revizyon);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
-
-                    //foreach (AbfMalzeme item in abfMalzemes)
-                    //{
-                    //    AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, item.SokulenTeslimDurum, item.SokulenStokNo, item.SokulenSeriNo, item.SokulenRevizyon);
-                    //    if (abfMalzemeIslemKayit2 != null)
-                    //    {
-                    //        TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit2.Tarih;
-                    //        if (gecenSure.TotalMinutes.ConInt() > 0)
-                    //        {
-                    //            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit2.Id, gecenSure.TotalMinutes.ConInt());
-                    //        }
-                    //        else
-                    //        {
-                    //            abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit2.Id, 1);
-                    //        }
-                    //    }
-                    //}
                 }
             }
+        }
+        void ArizaMalzemeTakipDepodanDepoya()
+        {
+
+            //AbfMalzeme abfMalzemeSokulen = new AbfMalzeme(id, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(),
+            //                item.Cells["SokulenBirim"].Value.ToString(), item.Cells["CalismaSaatiSokulen"].Value.ConDouble(), item.Cells["RevizyonSokulen"].Value.ToString(), item.Cells["CalısmaDurumu"].Value.ToString(), item.Cells["FizikselDurumu"].Value.ToString(), item.Cells["MalzemeYapilacakIslem"].Value.ToString());
+
+            //abfMalzemeManager.AddSokulen(abfMalzemeSokulen);
+
+            //AbfMalzeme abfMalzeme = abfMalzemeManager.GetBul(id, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
+
+            //ArizaKayit arizaKayit = arizaKayitManager.Get(abfNo.ConInt());
+            //if (arizaKayit == null)
+            //{
+            //    return;
+            //}
+            //abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+
+            //int guncelId = 0;
+            //var addItems = new HashSet<AbfMalzeme>();
+            //var updateItems = new HashSet<AbfMalzeme>();
+
+
+            //AbfMalzeme abfMalzeme2 = new AbfMalzeme(stokNo, tanim, seriNo, miktar, birim, 0, revizyon);
+
+            //if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(stokNo)))
+            //{
+            //    updateItems.Add(abfMalzeme2);
+            //}
+            //else
+            //{
+            //    addItems.Add(abfMalzeme2);
+            //}
+
+
+
+            //foreach (AbfMalzeme item in abfMalzemes)
+            //{
+            //    if (item.TakilanStokNo == "" && item.SokulenStokNo == stokNo)
+            //    {
+            //        if (abfMalzemes.Count >= 1)
+            //        {
+            //            guncelId = item.Id;
+            //        }
+            //        break;
+            //    }
+            //}
+
+            //foreach (AbfMalzeme item in updateItems)
+            //{
+            //    int sokulenId = 0;
+            //    sokulenId = guncelId;
+            //    abfMalzemeManager.UpdateTakilan(item, sokulenId);
+            //    abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
+            //}
+
+            //foreach (AbfMalzeme item in addItems)
+            //{
+            //    abfMalzemeManager.AddTakilan(item, id);
+            //}
+
+
+            //abfMalzeme = abfMalzemeManager.GetBulStokGirisCikisOlmayan(stokNo, arizaKayit.Id);
+
+            //if (abfMalzeme != null)
+            //{
+            //    abfMalzemeManager.TakilanMalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN");
+
+            //    //AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, abfMalzeme.SokulenTeslimDurum, stokNo, seriNo, revizyon);
+
+
+            //    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN", DateTime.Now, infos[1].ToString(), 0, "TAKILAN", stokNo, seriNo, revizyon);
+            //    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
+
+            //}
         }
 
         private void BtnKaydet_Click_1(object sender, EventArgs e)
@@ -1660,6 +1723,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                         stokGirisCikisManager.Add(stokGirisCıkıs);
 
+                        ArizaMalzemeTakipDepodanDepoya();
+
                     }
 
                     if (islemTuru == "102-DEPODAN BİLDİRİME ÇEKİM")
@@ -1680,6 +1745,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             MessageBox.Show("Malzeme kaydı bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             return;
                         }
+
+                        stokNo = item.Cells["Column2"].Value.ToString();
+                        tanim = item.Cells["Column3"].Value.ToString();
+                        seriNo = item.Cells["Column10"].Value.ToString();
+                        lotNo = item.Cells["Column12"].Value.ToString();
+                        revizyon = item.Cells["Column11"].Value.ToString();
+                        birim = item.Cells["Column5"].Value.ToString();
+
                         ArizaMalzemeTakipDepodanbildirime(depoNoDusulen2);
                         if (malzeme.TakipDurumu == "LOT NO")
                         {
@@ -1719,7 +1792,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen depo
                         string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
 
-                        
+
                         DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen, depoMiktar.RezerveDurumu);
 
@@ -1745,7 +1818,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                                         abfMalzemeManager.MalzemeTeslimBilgisiUpdate(item2.Id, "MALZEME 1150 DEPO STOKLARINA ALINDI");
                                         abfMalzemeManager.TeslimTesellumDurumUpdate(item2.Id, "GÖSTERME");
 
-                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL", item2.SokulenStokNo, item2.SokulenSeriNo, item2.SokulenRevizyon);
+                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(item.Cells["Id"].Value.ConInt(), "100 - GEÇİCİ KABUL/KONTROL", item2.SokulenStokNo, item2.SokulenSeriNo, item2.SokulenRevizyon, "SÖKÜLEN");
                                         if (abfMalzemeIslemKayit1 != null)
                                         {
                                             TimeSpan gecenSure = DateTime.Now - abfMalzemeIslemKayit1.Tarih;
@@ -1758,7 +1831,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                                                 abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 0);
                                             }
                                         }
-
                                     }
 
                                 }

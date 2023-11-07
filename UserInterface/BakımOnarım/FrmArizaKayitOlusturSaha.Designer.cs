@@ -94,7 +94,7 @@ namespace UserInterface.BakımOnarım
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1421, 31);
+            this.panel1.Size = new System.Drawing.Size(1370, 31);
             this.panel1.TabIndex = 46;
             // 
             // BtnCancel
@@ -116,7 +116,7 @@ namespace UserInterface.BakımOnarım
             this.label53.AutoSize = true;
             this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label53.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label53.Location = new System.Drawing.Point(778, 621);
+            this.label53.Location = new System.Drawing.Point(778, 558);
             this.label53.Name = "label53";
             this.label53.Size = new System.Drawing.Size(280, 30);
             this.label53.TabIndex = 443;
@@ -128,7 +128,7 @@ namespace UserInterface.BakımOnarım
             this.label52.AutoSize = true;
             this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.label52.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label52.Location = new System.Drawing.Point(778, 535);
+            this.label52.Location = new System.Drawing.Point(778, 483);
             this.label52.Name = "label52";
             this.label52.Size = new System.Drawing.Size(240, 30);
             this.label52.TabIndex = 442;
@@ -139,7 +139,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.LblIslemAdimi.AutoSize = true;
             this.LblIslemAdimi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblIslemAdimi.Location = new System.Drawing.Point(173, 732);
+            this.LblIslemAdimi.Location = new System.Drawing.Point(173, 656);
             this.LblIslemAdimi.Name = "LblIslemAdimi";
             this.LblIslemAdimi.Size = new System.Drawing.Size(197, 15);
             this.LblIslemAdimi.TabIndex = 441;
@@ -149,7 +149,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.LblArizaBildirimiAlan.AutoSize = true;
             this.LblArizaBildirimiAlan.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblArizaBildirimiAlan.Location = new System.Drawing.Point(179, 448);
+            this.LblArizaBildirimiAlan.Location = new System.Drawing.Point(179, 396);
             this.LblArizaBildirimiAlan.Name = "LblArizaBildirimiAlan";
             this.LblArizaBildirimiAlan.Size = new System.Drawing.Size(21, 15);
             this.LblArizaBildirimiAlan.TabIndex = 428;
@@ -160,7 +160,7 @@ namespace UserInterface.BakımOnarım
             this.CmbGorevAtanacakPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbGorevAtanacakPersonel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbGorevAtanacakPersonel.FormattingEnabled = true;
-            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(176, 699);
+            this.CmbGorevAtanacakPersonel.Location = new System.Drawing.Point(176, 623);
             this.CmbGorevAtanacakPersonel.Name = "CmbGorevAtanacakPersonel";
             this.CmbGorevAtanacakPersonel.Size = new System.Drawing.Size(241, 23);
             this.CmbGorevAtanacakPersonel.TabIndex = 440;
@@ -169,7 +169,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(23, 703);
+            this.label10.Location = new System.Drawing.Point(23, 627);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(147, 15);
             this.label10.TabIndex = 439;
@@ -179,7 +179,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(33, 732);
+            this.label7.Location = new System.Drawing.Point(33, 656);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(137, 15);
             this.label7.TabIndex = 438;
@@ -188,9 +188,9 @@ namespace UserInterface.BakımOnarım
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.webBrowser1);
-            this.groupBox3.Location = new System.Drawing.Point(176, 573);
+            this.groupBox3.Location = new System.Drawing.Point(176, 521);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(596, 120);
+            this.groupBox3.Size = new System.Drawing.Size(596, 96);
             this.groupBox3.TabIndex = 436;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "EKLER:";
@@ -201,13 +201,13 @@ namespace UserInterface.BakımOnarım
             this.webBrowser1.Location = new System.Drawing.Point(3, 16);
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(590, 101);
+            this.webBrowser1.Size = new System.Drawing.Size(590, 77);
             this.webBrowser1.TabIndex = 0;
             // 
             // TxtArizaAciklama
             // 
             this.TxtArizaAciklama.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtArizaAciklama.Location = new System.Drawing.Point(176, 517);
+            this.TxtArizaAciklama.Location = new System.Drawing.Point(176, 465);
             this.TxtArizaAciklama.Name = "TxtArizaAciklama";
             this.TxtArizaAciklama.Size = new System.Drawing.Size(593, 50);
             this.TxtArizaAciklama.TabIndex = 432;
@@ -217,7 +217,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(39, 520);
+            this.label4.Location = new System.Drawing.Point(39, 468);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 15);
             this.label4.TabIndex = 430;
@@ -231,7 +231,7 @@ namespace UserInterface.BakımOnarım
             "GSM MESAJ",
             "GSM TELEFON GÖRÜŞMESİ",
             "MAİL"});
-            this.CmbBildirimKanali.Location = new System.Drawing.Point(176, 478);
+            this.CmbBildirimKanali.Location = new System.Drawing.Point(176, 426);
             this.CmbBildirimKanali.Name = "CmbBildirimKanali";
             this.CmbBildirimKanali.Size = new System.Drawing.Size(241, 23);
             this.CmbBildirimKanali.TabIndex = 434;
@@ -240,7 +240,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(50, 481);
+            this.label2.Location = new System.Drawing.Point(50, 429);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(120, 15);
             this.label2.TabIndex = 431;
@@ -250,7 +250,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(72, 440);
+            this.label3.Location = new System.Drawing.Point(72, 388);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(98, 30);
             this.label3.TabIndex = 433;
@@ -283,9 +283,9 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.Controls.Add(this.TxtBirlikPersoneli);
             this.groupBox1.Controls.Add(this.label24);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.groupBox1.Location = new System.Drawing.Point(24, 50);
+            this.groupBox1.Location = new System.Drawing.Point(26, 37);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(748, 387);
+            this.groupBox1.Size = new System.Drawing.Size(748, 352);
             this.groupBox1.TabIndex = 429;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ÜS BÖLGESİ VE BİLDİRİLEN ARIZA BİLGİLERİ";
@@ -353,7 +353,7 @@ namespace UserInterface.BakımOnarım
             // TxtABTelefon
             // 
             this.TxtABTelefon.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtABTelefon.Location = new System.Drawing.Point(501, 286);
+            this.TxtABTelefon.Location = new System.Drawing.Point(501, 272);
             this.TxtABTelefon.Mask = "(999) 000-0000";
             this.TxtABTelefon.Name = "TxtABTelefon";
             this.TxtABTelefon.Size = new System.Drawing.Size(241, 21);
@@ -363,7 +363,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label98.AutoSize = true;
             this.label98.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label98.Location = new System.Drawing.Point(444, 289);
+            this.label98.Location = new System.Drawing.Point(444, 275);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(51, 15);
             this.label98.TabIndex = 399;
@@ -374,7 +374,7 @@ namespace UserInterface.BakımOnarım
             this.TxtBildirilenAriza.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.TxtBildirilenAriza.Location = new System.Drawing.Point(155, 224);
             this.TxtBildirilenAriza.Name = "TxtBildirilenAriza";
-            this.TxtBildirilenAriza.Size = new System.Drawing.Size(587, 56);
+            this.TxtBildirilenAriza.Size = new System.Drawing.Size(587, 42);
             this.TxtBildirilenAriza.TabIndex = 395;
             this.TxtBildirilenAriza.Text = "";
             // 
@@ -472,7 +472,7 @@ namespace UserInterface.BakımOnarım
             // TxtBirlikPerGorevi
             // 
             this.TxtBirlikPerGorevi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBirlikPerGorevi.Location = new System.Drawing.Point(155, 340);
+            this.TxtBirlikPerGorevi.Location = new System.Drawing.Point(155, 326);
             this.TxtBirlikPerGorevi.Name = "TxtBirlikPerGorevi";
             this.TxtBirlikPerGorevi.Size = new System.Drawing.Size(241, 21);
             this.TxtBirlikPerGorevi.TabIndex = 45;
@@ -481,7 +481,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label22.Location = new System.Drawing.Point(101, 343);
+            this.label22.Location = new System.Drawing.Point(101, 329);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(45, 15);
             this.label22.TabIndex = 44;
@@ -490,7 +490,7 @@ namespace UserInterface.BakımOnarım
             // TxtBirlikPerRutbesi
             // 
             this.TxtBirlikPerRutbesi.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBirlikPerRutbesi.Location = new System.Drawing.Point(155, 313);
+            this.TxtBirlikPerRutbesi.Location = new System.Drawing.Point(155, 299);
             this.TxtBirlikPerRutbesi.Name = "TxtBirlikPerRutbesi";
             this.TxtBirlikPerRutbesi.Size = new System.Drawing.Size(241, 21);
             this.TxtBirlikPerRutbesi.TabIndex = 43;
@@ -499,7 +499,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label23.Location = new System.Drawing.Point(94, 316);
+            this.label23.Location = new System.Drawing.Point(94, 302);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(52, 15);
             this.label23.TabIndex = 42;
@@ -508,7 +508,7 @@ namespace UserInterface.BakımOnarım
             // TxtBirlikPersoneli
             // 
             this.TxtBirlikPersoneli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBirlikPersoneli.Location = new System.Drawing.Point(155, 286);
+            this.TxtBirlikPersoneli.Location = new System.Drawing.Point(155, 272);
             this.TxtBirlikPersoneli.Name = "TxtBirlikPersoneli";
             this.TxtBirlikPersoneli.Size = new System.Drawing.Size(241, 21);
             this.TxtBirlikPersoneli.TabIndex = 41;
@@ -517,7 +517,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label24.Location = new System.Drawing.Point(5, 281);
+            this.label24.Location = new System.Drawing.Point(5, 267);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(141, 30);
             this.label24.TabIndex = 40;
@@ -573,7 +573,7 @@ namespace UserInterface.BakımOnarım
             this.BtnTemizle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnTemizle.ImageKey = "broom.png";
             this.BtnTemizle.ImageList = this.ımageList1;
-            this.BtnTemizle.Location = new System.Drawing.Point(176, 764);
+            this.BtnTemizle.Location = new System.Drawing.Point(441, 620);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(130, 51);
             this.BtnTemizle.TabIndex = 446;
@@ -595,7 +595,7 @@ namespace UserInterface.BakımOnarım
             this.BtnDosyaEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnDosyaEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnDosyaEkle.Image")));
             this.BtnDosyaEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDosyaEkle.Location = new System.Drawing.Point(40, 589);
+            this.BtnDosyaEkle.Location = new System.Drawing.Point(40, 537);
             this.BtnDosyaEkle.Name = "BtnDosyaEkle";
             this.BtnDosyaEkle.Size = new System.Drawing.Size(130, 51);
             this.BtnDosyaEkle.TabIndex = 445;
@@ -611,7 +611,7 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(312, 764);
+            this.BtnKaydet.Location = new System.Drawing.Point(577, 620);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 444;
@@ -624,7 +624,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1421, 827);
+            this.ClientSize = new System.Drawing.Size(1370, 678);
             this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnDosyaEkle);
             this.Controls.Add(this.BtnKaydet);

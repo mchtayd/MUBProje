@@ -75,6 +75,17 @@ namespace Business.Concreate.STS
                 return new List<string>();
             }
         }
+        public string AbfOgren(string gerekce)
+        {
+            try
+            {
+                return tamamlananDal.AbfOgren(gerekce);
+            }
+            catch
+            {
+                return "";
+            }
+        }
         public List<Tamamlanan> GetListDirektorluk()
         {
             try
@@ -171,6 +182,17 @@ namespace Business.Concreate.STS
             try
             {
                 return tamamlananDal.DonemEdit(donem, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string AbfNoDuzelt(int isAkisNo, string abfNo)
+        {
+            try
+            {
+                return tamamlananDal.AbfNoDuzelt(isAkisNo, abfNo);
             }
             catch (Exception ex)
             {

@@ -12,6 +12,7 @@ using Entity.Gecic_Kabul_Ambar;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -73,6 +74,9 @@ namespace UserInterface.BakımOnarım
 
         private void FrmArizaDurumGuncelle_Load(object sender, EventArgs e)
         {
+            this.Location = new Point(0, 0);
+            this.Size = Screen.PrimaryScreen.WorkingArea.Size;
+
             IslemAdimlari();
             Personeller();
             CmbStokNoSokulen();
@@ -83,7 +87,6 @@ namespace UserInterface.BakımOnarım
             {
                 BulClick();
             }
-
             if (LblMevcutIslemAdimi.Text != "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
                 if (LblMevcutIslemAdimi.Text != "1500_BAKIM ONARIM (SAHA)")
@@ -1663,13 +1666,6 @@ namespace UserInterface.BakımOnarım
                             AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
                             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
                         }
-
-                        //if (item.Cells["MalzemeYapilacakIslem"].Value.ToString() == "BAKIM")
-                        //{
-                        //    AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["RevizyonSokulen"].Value.ToString());
-                        //    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
-                        //}
-
                     }
 
                     SistemCihazBilgileriKayit();
@@ -1756,11 +1752,11 @@ namespace UserInterface.BakımOnarım
 
                                     if (takilan.Cells["TakilanTeslimDurum"].Value.ToString() != "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI")
                                     {
-                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                        AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString(), "TAKILAN");
 
                                         if (abfMalzemeIslemKayit1 == null)
                                         {
-                                            AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "BÖLGEYE SEVKİYAT BEKLEYEN", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                            AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "BÖLGEYE SEVKİYAT BEKLEYEN", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString(), "TAKILAN");
                                             if (abfMalzemeIslemKayit2 == null)
                                             {
                                                 AbfMalzemeIslemKayit abfMalzemeIslemKayit3 = new AbfMalzemeIslemKayit(takilan.Cells["TakilanId"].Value.ConInt(), "BÖLGEYE SEVKİYAT BEKLEYEN", DateTime.Now, infos[1].ToString(), 1, "TAKILAN", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
@@ -1770,7 +1766,7 @@ namespace UserInterface.BakımOnarım
                                             AbfMalzemeIslemKayit abfMalzemeIslemKayit4 = new AbfMalzemeIslemKayit(takilan.Cells["TakilanId"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)", DateTime.Now, infos[1].ToString(), 0, "TAKILAN", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
                                             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit4);
 
-                                            abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString());
+                                            abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(takilan.Cells["TakilanId"].Value.ConInt(), "SEVKİYAT ARACI (VAN - ARA DEPO)", takilan.Cells["TakilanStokNo"].Value.ToString(), takilan.Cells["TakilanSeriNo"].Value.ToString(), takilan.Cells["TakilanRevizyon"].Value.ToString(), "TAKILAN");
                                         }
 
                                         if (abfMalzemeIslemKayit1.MalzemeDurumu == "SÖKÜLEN")
@@ -1911,6 +1907,10 @@ namespace UserInterface.BakımOnarım
             BtnKaydet.Location = new System.Drawing.Point(161, 405);
             GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
             DtgIslemKayitlari.DataSource = null;
+            DtgMalzemeListesi.DataSource = null;
+            DtgDepoHareketleri.DataSource = null;
+            DtgAtolye.DataSource = null;
+            DtgAtolyeIslemler.DataSource = null;
         }
     }
 }
