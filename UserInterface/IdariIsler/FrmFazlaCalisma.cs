@@ -22,20 +22,24 @@ namespace UserInterface.IdariIsler
     {
         FazlaCalismaManager fazlaCalismaManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        PersonelKayitManager personelKayitManager;
         public object[] infos;
         int kayitId;
+        bool start = false;
         public FrmFazlaCalisma()
         {
             InitializeComponent();
             fazlaCalismaManager = FazlaCalismaManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
+            personelKayitManager = PersonelKayitManager.GetInstance();
         }
 
         private void FrmFazlaCalisma_Load(object sender, EventArgs e)
         {
-            Personel();
+            Personeller();
             LblTarihBas.Text = DateTime.Now.ToString("d");
             LblTarihBit.Text = DateTime.Now.ToString("d");
+            start = true;
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -49,13 +53,24 @@ namespace UserInterface.IdariIsler
                 frmAnaSayfa.tabAnasayfa.Visible = false;
             }
         }
-        void Personel()
+        void Personeller()
         {
-            LblAdSoyad.Text = infos[1].ToString();
-            LblUnvani.Text = infos[10].ToString();
-            LblMasrafYeriNo.Text = infos[4].ToString();
-            LblMasrafYeri.Text = infos[2].ToString();
+            List<PersonelKayit> personelKayits = new List<PersonelKayit>();
+            personelKayits = personelKayitManager.GetMasrafYeriSorumlusuPer(infos[1].ToString());
+            PersonelKayit personelKayit = new PersonelKayit(infos[0].ConInt(), infos[1].ToString(), infos[9].ToString(), infos[4].ToString(), infos[8].ToString(), infos[7].ToString(), infos[10].ToString(), infos[2].ToString(), infos[3].ToString());
+            personelKayits.Add(personelKayit);
+
+            CmbTalepEdenPersonel.DataSource = personelKayits;
+            CmbTalepEdenPersonel.ValueMember = "Id";
+            CmbTalepEdenPersonel.DisplayMember = "Adsoyad";
+            CmbTalepEdenPersonel.SelectedValue = -1;
+
+            //CmbTalepEdenPersonel.DataSource = personelKayitManager.GetMasrafYeriSorumlusuPer(LblAdSoyad.Text);
+            //CmbTalepEdenPersonel.ValueMember = "Id";
+            //CmbTalepEdenPersonel.DisplayMember = "Adsoyad";
+            //CmbTalepEdenPersonel.SelectedValue = -1;
         }
+
 
         private void BtnSureHesapla_Click(object sender, EventArgs e)
         {
@@ -84,9 +99,9 @@ namespace UserInterface.IdariIsler
                 if (haftaninGunu != "Pazar")
                 {
                     string[] saattt = DtSaatBas.Text.ToString().Split(':');
-                    if (saattt[1].ConInt() == 0 && saattt[0].ConInt()==18)
+                    if (saattt[1].ConInt() < 30 && saattt[0].ConInt()==16)
                     {
-                        MessageBox.Show("Hafta içi mesai saatleri 18.00 'a kadar devam etmektedir.\nFazla çalışmanızı 18.00 dan sonra yapabilirsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show("Hafta içi mesai saatleri 16.30 'a kadar devam etmektedir.\nFazla çalışmanızı 16:30 dan sonra yapabilirsiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
                 }
@@ -200,7 +215,7 @@ namespace UserInterface.IdariIsler
                 DateTime basTarihi = new DateTime(LblTarihBas.Value.Year, LblTarihBas.Value.Month, LblTarihBas.Value.Day, DtSaatBas.Value.Hour, DtSaatBas.Value.Minute, 00);
                 DateTime bitTarihi = new DateTime(LblTarihBit.Value.Year, LblTarihBit.Value.Month, LblTarihBit.Value.Day, DtSaatBit.Value.Hour, DtSaatBit.Value.Minute, 00);
 
-                FazlaCalisma fazlaCalisma = new FazlaCalisma(LblAdSoyad.Text, LblMasrafYeri.Text, TxtMesaiNedeni.Text, basTarihi, bitTarihi, LblToplamMesai.Text, LblToplamIzin.Text);
+                FazlaCalisma fazlaCalisma = new FazlaCalisma(CmbTalepEdenPersonel.Text, LblMasrafYeri.Text, TxtMesaiNedeni.Text, basTarihi, bitTarihi, LblToplamMesai.Text, LblToplamIzin.Text);
                 string mesaj = fazlaCalismaManager.Add(fazlaCalisma);
                 if (mesaj!="OK")
                 {
@@ -237,6 +252,41 @@ namespace UserInterface.IdariIsler
                 return kontrol;
             }
             return "OK";
+        }
+
+        private void CmbTalepEdenPersonel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (start==false)
+            {
+                LblUnvani.Text = "00";
+                LblMasrafYeriNo.Text = "00";
+                LblMasrafYeri.Text = "00";
+                return;
+            }
+            if (CmbTalepEdenPersonel.Text=="")
+            {
+                LblUnvani.Text = "00";
+                LblMasrafYeriNo.Text = "00";
+                LblMasrafYeri.Text = "00";
+                return;
+            }
+            if (CmbTalepEdenPersonel.SelectedIndex==-1)
+            {
+                LblUnvani.Text = "00";
+                LblMasrafYeriNo.Text = "00";
+                LblMasrafYeri.Text = "00";
+                return;
+            }
+            PersonelKayit personelKayit = personelKayitManager.Get(0, CmbTalepEdenPersonel.Text);
+            if (personelKayit==null)
+            {
+                MessageBox.Show("Personel bilgilerine ulaşılamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            LblUnvani.Text = personelKayit.Isunvani;
+            LblMasrafYeriNo.Text = personelKayit.Masyerino;
+            LblMasrafYeri.Text = personelKayit.Sirketbolum;
+
         }
     }
 }

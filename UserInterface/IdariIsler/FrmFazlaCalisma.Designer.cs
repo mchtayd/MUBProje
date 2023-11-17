@@ -35,12 +35,13 @@
             this.LblMasrafYeri = new System.Windows.Forms.Label();
             this.LblMasrafYeriNo = new System.Windows.Forms.Label();
             this.LblUnvani = new System.Windows.Forms.Label();
-            this.LblAdSoyad = new System.Windows.Forms.Label();
             this.label52 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LblTarihBit = new System.Windows.Forms.DateTimePicker();
+            this.LblTarihBas = new System.Windows.Forms.DateTimePicker();
             this.BtnSureHesapla = new System.Windows.Forms.Button();
             this.LblToplamIzin = new System.Windows.Forms.Label();
             this.LblToplamMesai = new System.Windows.Forms.Label();
@@ -53,8 +54,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.LblTarihBas = new System.Windows.Forms.DateTimePicker();
-            this.LblTarihBit = new System.Windows.Forms.DateTimePicker();
+            this.CmbTalepEdenPersonel = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -88,10 +88,10 @@
             // 
             // groupBox8
             // 
+            this.groupBox8.Controls.Add(this.CmbTalepEdenPersonel);
             this.groupBox8.Controls.Add(this.LblMasrafYeri);
             this.groupBox8.Controls.Add(this.LblMasrafYeriNo);
             this.groupBox8.Controls.Add(this.LblUnvani);
-            this.groupBox8.Controls.Add(this.LblAdSoyad);
             this.groupBox8.Controls.Add(this.label52);
             this.groupBox8.Controls.Add(this.label56);
             this.groupBox8.Controls.Add(this.label58);
@@ -134,16 +134,6 @@
             this.LblUnvani.Size = new System.Drawing.Size(21, 15);
             this.LblUnvani.TabIndex = 22;
             this.LblUnvani.Text = "00";
-            // 
-            // LblAdSoyad
-            // 
-            this.LblAdSoyad.AutoSize = true;
-            this.LblAdSoyad.Location = new System.Drawing.Point(230, 33);
-            this.LblAdSoyad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblAdSoyad.Name = "LblAdSoyad";
-            this.LblAdSoyad.Size = new System.Drawing.Size(21, 15);
-            this.LblAdSoyad.TabIndex = 16;
-            this.LblAdSoyad.Text = "00";
             // 
             // label52
             // 
@@ -208,6 +198,22 @@
             this.groupBox1.TabIndex = 322;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fazla Çalışma / Mesai Bilgileri";
+            // 
+            // LblTarihBit
+            // 
+            this.LblTarihBit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.LblTarihBit.Location = new System.Drawing.Point(230, 95);
+            this.LblTarihBit.Name = "LblTarihBit";
+            this.LblTarihBit.Size = new System.Drawing.Size(116, 21);
+            this.LblTarihBit.TabIndex = 543;
+            // 
+            // LblTarihBas
+            // 
+            this.LblTarihBas.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.LblTarihBas.Location = new System.Drawing.Point(230, 63);
+            this.LblTarihBas.Name = "LblTarihBas";
+            this.LblTarihBas.Size = new System.Drawing.Size(116, 21);
+            this.LblTarihBas.TabIndex = 542;
             // 
             // BtnSureHesapla
             // 
@@ -337,21 +343,15 @@
             this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // LblTarihBas
+            // CmbTalepEdenPersonel
             // 
-            this.LblTarihBas.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.LblTarihBas.Location = new System.Drawing.Point(230, 63);
-            this.LblTarihBas.Name = "LblTarihBas";
-            this.LblTarihBas.Size = new System.Drawing.Size(116, 21);
-            this.LblTarihBas.TabIndex = 542;
-            // 
-            // LblTarihBit
-            // 
-            this.LblTarihBit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.LblTarihBit.Location = new System.Drawing.Point(230, 95);
-            this.LblTarihBit.Name = "LblTarihBit";
-            this.LblTarihBit.Size = new System.Drawing.Size(116, 21);
-            this.LblTarihBit.TabIndex = 543;
+            this.CmbTalepEdenPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbTalepEdenPersonel.FormattingEnabled = true;
+            this.CmbTalepEdenPersonel.Location = new System.Drawing.Point(229, 30);
+            this.CmbTalepEdenPersonel.Name = "CmbTalepEdenPersonel";
+            this.CmbTalepEdenPersonel.Size = new System.Drawing.Size(254, 23);
+            this.CmbTalepEdenPersonel.TabIndex = 25;
+            this.CmbTalepEdenPersonel.SelectedIndexChanged += new System.EventHandler(this.CmbTalepEdenPersonel_SelectedIndexChanged);
             // 
             // FrmFazlaCalisma
             // 
@@ -384,7 +384,6 @@
         private System.Windows.Forms.Label LblMasrafYeri;
         private System.Windows.Forms.Label LblMasrafYeriNo;
         private System.Windows.Forms.Label LblUnvani;
-        private System.Windows.Forms.Label LblAdSoyad;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label58;
@@ -404,5 +403,6 @@
         private System.Windows.Forms.Button BtnSureHesapla;
         private System.Windows.Forms.DateTimePicker LblTarihBas;
         private System.Windows.Forms.DateTimePicker LblTarihBit;
+        private System.Windows.Forms.ComboBox CmbTalepEdenPersonel;
     }
 }

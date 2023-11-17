@@ -32,6 +32,7 @@ namespace UserInterface.Ana_Sayfa
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label31 = new System.Windows.Forms.Label();
@@ -56,6 +57,11 @@ namespace UserInterface.Ana_Sayfa
             this.TxtTop3 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.DtgIsAkisGorev = new ADGV.AdvancedDataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label3 = new System.Windows.Forms.Label();
+            this.LblBolumGorevleriTop = new System.Windows.Forms.Label();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.DtgBolumGorevleri = new ADGV.AdvancedDataGridView();
             this.contextMenuStrip2 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.görevAtaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.göreveGitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -78,6 +84,9 @@ namespace UserInterface.Ana_Sayfa
             this.tabPage3.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgIsAkisGorev)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgBolumGorevleri)).BeginInit();
             this.contextMenuStrip2.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
@@ -90,6 +99,7 @@ namespace UserInterface.Ana_Sayfa
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
+            this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
@@ -376,6 +386,70 @@ namespace UserInterface.Ana_Sayfa
             this.DtgIsAkisGorev.FilterStringChanged += new System.EventHandler(this.DtgIsAkisGorev_FilterStringChanged_1);
             this.DtgIsAkisGorev.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgIsAkisGorev_CellMouseDoubleClick);
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.label3);
+            this.tabPage4.Controls.Add(this.LblBolumGorevleriTop);
+            this.tabPage4.Controls.Add(this.groupBox5);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1379, 754);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "BÖLÜM GÖREVLERİM";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(6, 704);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(94, 15);
+            this.label3.TabIndex = 346;
+            this.label3.Text = "Toplam Kayıt:";
+            // 
+            // LblBolumGorevleriTop
+            // 
+            this.LblBolumGorevleriTop.AutoSize = true;
+            this.LblBolumGorevleriTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBolumGorevleriTop.Location = new System.Drawing.Point(106, 704);
+            this.LblBolumGorevleriTop.Name = "LblBolumGorevleriTop";
+            this.LblBolumGorevleriTop.Size = new System.Drawing.Size(21, 15);
+            this.LblBolumGorevleriTop.TabIndex = 347;
+            this.LblBolumGorevleriTop.Text = "00";
+            // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.DtgBolumGorevleri);
+            this.groupBox5.Location = new System.Drawing.Point(6, 6);
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.Size = new System.Drawing.Size(1097, 682);
+            this.groupBox5.TabIndex = 2;
+            this.groupBox5.TabStop = false;
+            this.groupBox5.Text = "GÖREV LİSTESİ";
+            // 
+            // DtgBolumGorevleri
+            // 
+            this.DtgBolumGorevleri.AllowUserToAddRows = false;
+            this.DtgBolumGorevleri.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgBolumGorevleri.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DtgBolumGorevleri.AutoGenerateContextFilters = true;
+            this.DtgBolumGorevleri.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgBolumGorevleri.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgBolumGorevleri.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgBolumGorevleri.DateWithTime = false;
+            this.DtgBolumGorevleri.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgBolumGorevleri.Location = new System.Drawing.Point(3, 16);
+            this.DtgBolumGorevleri.MultiSelect = false;
+            this.DtgBolumGorevleri.Name = "DtgBolumGorevleri";
+            this.DtgBolumGorevleri.ReadOnly = true;
+            this.DtgBolumGorevleri.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgBolumGorevleri.Size = new System.Drawing.Size(1091, 663);
+            this.DtgBolumGorevleri.TabIndex = 3;
+            this.DtgBolumGorevleri.TimeFilter = false;
+            // 
             // contextMenuStrip2
             // 
             this.contextMenuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -454,6 +528,10 @@ namespace UserInterface.Ana_Sayfa
             this.tabPage3.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgIsAkisGorev)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgBolumGorevleri)).EndInit();
             this.contextMenuStrip2.ResumeLayout(false);
             this.contextMenuStrip1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
@@ -499,5 +577,10 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.BindingSource dataBinderAtolye;
         private System.Windows.Forms.BindingSource dataBinderAriza;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label LblBolumGorevleriTop;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private ADGV.AdvancedDataGridView DtgBolumGorevleri;
     }
 }

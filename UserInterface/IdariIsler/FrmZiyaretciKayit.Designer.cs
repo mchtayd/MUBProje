@@ -29,10 +29,12 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmZiyaretciKayit));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.TxtZiyaretciTc = new System.Windows.Forms.MaskedTextBox();
             this.DtgGeldigiSaat = new System.Windows.Forms.DateTimePicker();
             this.TxtZiyaretNedeni = new System.Windows.Forms.RichTextBox();
             this.DtgGeldigiTarih = new System.Windows.Forms.DateTimePicker();
@@ -61,15 +63,14 @@ namespace UserInterface.IdariIsler
             this.label12 = new System.Windows.Forms.Label();
             this.TxtRefakatciUnvani = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.BtnKaydet = new System.Windows.Forms.Button();
-            this.TxtZiyaretciTc = new System.Windows.Forms.MaskedTextBox();
-            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.LblIsAkisNo = new System.Windows.Forms.Label();
             this.label61 = new System.Windows.Forms.Label();
             this.CmbIslemTuruUcak = new System.Windows.Forms.ComboBox();
             this.label54 = new System.Windows.Forms.Label();
             this.TxtIsAkisNo = new System.Windows.Forms.TextBox();
             this.BtnBul = new System.Windows.Forms.Button();
+            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -130,6 +131,14 @@ namespace UserInterface.IdariIsler
             this.groupBox1.TabIndex = 325;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ZİYARETÇİ BİLGİLERİ";
+            // 
+            // TxtZiyaretciTc
+            // 
+            this.TxtZiyaretciTc.Location = new System.Drawing.Point(163, 53);
+            this.TxtZiyaretciTc.Mask = "00000000000";
+            this.TxtZiyaretciTc.Name = "TxtZiyaretciTc";
+            this.TxtZiyaretciTc.Size = new System.Drawing.Size(126, 21);
+            this.TxtZiyaretciTc.TabIndex = 335;
             // 
             // DtgGeldigiSaat
             // 
@@ -384,39 +393,6 @@ namespace UserInterface.IdariIsler
             this.label13.TabIndex = 29;
             this.label13.Text = "ÜNVANI:";
             // 
-            // BtnKaydet
-            // 
-            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(12, 514);
-            this.BtnKaydet.Name = "BtnKaydet";
-            this.BtnKaydet.Size = new System.Drawing.Size(178, 50);
-            this.BtnKaydet.TabIndex = 329;
-            this.BtnKaydet.Text = "KAYDET";
-            this.BtnKaydet.UseVisualStyleBackColor = true;
-            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
-            // TxtZiyaretciTc
-            // 
-            this.TxtZiyaretciTc.Location = new System.Drawing.Point(163, 53);
-            this.TxtZiyaretciTc.Mask = "00000000000";
-            this.TxtZiyaretciTc.Name = "TxtZiyaretciTc";
-            this.TxtZiyaretciTc.Size = new System.Drawing.Size(126, 21);
-            this.TxtZiyaretciTc.TabIndex = 335;
-            // 
-            // BtnGuncelle
-            // 
-            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(12, 514);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(178, 50);
-            this.BtnGuncelle.TabIndex = 330;
-            this.BtnGuncelle.Text = "GÜNCELLE";
-            this.BtnGuncelle.UseVisualStyleBackColor = true;
-            this.BtnGuncelle.Visible = false;
-            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
-            // 
             // LblIsAkisNo
             // 
             this.LblIsAkisNo.AutoSize = true;
@@ -477,19 +453,51 @@ namespace UserInterface.IdariIsler
             this.BtnBul.Visible = false;
             this.BtnBul.Click += new System.EventHandler(this.BtnBul_Click);
             // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 514);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 426;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click_1);
+            // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
+            this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGuncelle.Location = new System.Drawing.Point(12, 514);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
+            this.BtnGuncelle.TabIndex = 427;
+            this.BtnGuncelle.Text = "  GÜNCELLE";
+            this.BtnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGuncelle.UseVisualStyleBackColor = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
+            // 
             // FrmZiyaretciKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.Controls.Add(this.BtnGuncelle);
+            this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.BtnBul);
             this.Controls.Add(this.TxtIsAkisNo);
             this.Controls.Add(this.CmbIslemTuruUcak);
             this.Controls.Add(this.label54);
             this.Controls.Add(this.LblIsAkisNo);
             this.Controls.Add(this.label61);
-            this.Controls.Add(this.BtnGuncelle);
-            this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
@@ -543,14 +551,14 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.DateTimePicker DtgGeldigiSaat;
         private System.Windows.Forms.RichTextBox TxtZiyaretNedeni;
         private System.Windows.Forms.DateTimePicker DtgGeldigiTarih;
-        private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.MaskedTextBox TxtZiyaretciTc;
-        private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Label LblIsAkisNo;
         private System.Windows.Forms.Label label61;
         private System.Windows.Forms.ComboBox CmbIslemTuruUcak;
         private System.Windows.Forms.Label label54;
         private System.Windows.Forms.TextBox TxtIsAkisNo;
         private System.Windows.Forms.Button BtnBul;
+        private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.Button BtnGuncelle;
     }
 }

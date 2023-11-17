@@ -154,6 +154,32 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public List<DepoMiktar> GetListBarkodLokasyonBul(string stokNo, string seriNo, string revizyon, string takipDurum)
+        {
+            try
+            {
+                List<DepoMiktar> depoMiktars = new List<DepoMiktar>();
+                dataReader = sqlServices.StoreReader("BarkodLokasyonBul",
+                    new SqlParameter("@stokNo", stokNo),
+                    new SqlParameter("@seriNo", seriNo),
+                    new SqlParameter("@revizyon", revizyon),
+                    new SqlParameter("@takipDurum", takipDurum));
+                DepoMiktar item = null;
+                while (dataReader.Read())
+                {
+                    depoMiktars.Add(new DepoMiktar(
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString()));
+                }
+                dataReader.Close();
+                return depoMiktars;
+            }
+            catch (Exception)
+            {
+                return new List<DepoMiktar>();
+            }
+        }
         public DepoMiktar GetBarkodLokasyonBul2500(string stokNo, string seriNo, string revizyon, string takipDurum, int miktar)
         {
             try
@@ -497,6 +523,22 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@islemYapan", entity.SonIslemYapan),
                     new SqlParameter("@aciklama", entity.Aciklama),
                     new SqlParameter("@rezerveId", entity.RezerveId));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DepoRezerveIptal(int id,string islemYapan)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("DepoRezerveIptal",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@islemYapan", islemYapan));
 
                 dataReader.Close();
                 return "OK";

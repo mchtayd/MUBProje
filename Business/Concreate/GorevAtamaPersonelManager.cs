@@ -133,6 +133,17 @@ namespace Business.Concreate
                 return new List<GorevAtamaPersonel>();
             }
         }
+        public List<string> BolumeBagliPersoneller(string bolum)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.BolumeBagliPersoneller(bolum);
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
 
 
         public string Update(GorevAtamaPersonel entity,string yapilanIslmeler="")

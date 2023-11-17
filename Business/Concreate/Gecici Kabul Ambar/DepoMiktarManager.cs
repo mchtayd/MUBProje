@@ -75,6 +75,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return null;
             }
         }
+        public List<DepoMiktar> GetListBarkodLokasyonBul(string stokNo, string seriNo, string revizyon, string takipDurum)
+        {
+            try
+            {
+                return depoMiktarDal.GetListBarkodLokasyonBul(stokNo, seriNo, revizyon, takipDurum);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
         public DepoMiktar GetBarkodLokasyonBul2500(string stokNo, string seriNo, string revizyon, string takipDurum, int miktar)
         {
             try
@@ -207,6 +218,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             try
             {
                 return depoMiktarDal.DepoRezerve(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string DepoRezerveIptal(int id, string islemYapan)
+        {
+            try
+            {
+                return depoMiktarDal.DepoRezerveIptal(id, islemYapan);
             }
             catch (Exception ex)
             {

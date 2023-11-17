@@ -359,6 +359,25 @@ namespace DataAccess.Concreate
             }
         }
 
+        public List<string> BolumeBagliPersoneller(string bolum)
+        {
+            try
+            {
+                List<string> personeller = new List<string>();
+                dataReader = sqlServices.StoreReader("BolumeBagliPersoneller", new SqlParameter("@sirketBolum", bolum));
+                while (dataReader.Read())
+                {
+                    personeller.Add(dataReader["AD_SOYAD"].ToString());
+                }
+                dataReader.Close(); 
+                return personeller;
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
+
         public string Update(GorevAtamaPersonel entity, string yapilanIslemler)
         {
             try

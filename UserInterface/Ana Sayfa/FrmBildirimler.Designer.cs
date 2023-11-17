@@ -54,6 +54,8 @@ namespace UserInterface.Ana_Sayfa
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.LblBolumGorev = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel6 = new System.Windows.Forms.Panel();
             this.LblVersion = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -72,6 +74,7 @@ namespace UserInterface.Ana_Sayfa
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel8.SuspendLayout();
             this.SuspendLayout();
@@ -91,7 +94,7 @@ namespace UserInterface.Ana_Sayfa
             this.LblAcikArizaGorevleri.AutoSize = true;
             this.LblAcikArizaGorevleri.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblAcikArizaGorevleri.ForeColor = System.Drawing.Color.White;
-            this.LblAcikArizaGorevleri.Location = new System.Drawing.Point(70, 45);
+            this.LblAcikArizaGorevleri.Location = new System.Drawing.Point(13, 45);
             this.LblAcikArizaGorevleri.Name = "LblAcikArizaGorevleri";
             this.LblAcikArizaGorevleri.Size = new System.Drawing.Size(36, 37);
             this.LblAcikArizaGorevleri.TabIndex = 3;
@@ -122,7 +125,7 @@ namespace UserInterface.Ana_Sayfa
             this.LblIsAkisGorevleri.AutoSize = true;
             this.LblIsAkisGorevleri.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LblIsAkisGorevleri.ForeColor = System.Drawing.Color.White;
-            this.LblIsAkisGorevleri.Location = new System.Drawing.Point(73, 45);
+            this.LblIsAkisGorevleri.Location = new System.Drawing.Point(28, 42);
             this.LblIsAkisGorevleri.Name = "LblIsAkisGorevleri";
             this.LblIsAkisGorevleri.Size = new System.Drawing.Size(36, 37);
             this.LblIsAkisGorevleri.TabIndex = 5;
@@ -153,7 +156,7 @@ namespace UserInterface.Ana_Sayfa
             this.LbYoneticiGorevleri.AutoSize = true;
             this.LbYoneticiGorevleri.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.LbYoneticiGorevleri.ForeColor = System.Drawing.Color.White;
-            this.LbYoneticiGorevleri.Location = new System.Drawing.Point(69, 45);
+            this.LbYoneticiGorevleri.Location = new System.Drawing.Point(25, 45);
             this.LbYoneticiGorevleri.Name = "LbYoneticiGorevleri";
             this.LbYoneticiGorevleri.Size = new System.Drawing.Size(36, 37);
             this.LbYoneticiGorevleri.TabIndex = 3;
@@ -289,11 +292,34 @@ namespace UserInterface.Ana_Sayfa
             // 
             // panel5
             // 
-            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.panel5.BackColor = System.Drawing.Color.LimeGreen;
+            this.panel5.Controls.Add(this.LblBolumGorev);
+            this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(1064, 122);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 100);
             this.panel5.TabIndex = 6;
+            // 
+            // LblBolumGorev
+            // 
+            this.LblBolumGorev.AutoSize = true;
+            this.LblBolumGorev.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBolumGorev.ForeColor = System.Drawing.Color.White;
+            this.LblBolumGorev.Location = new System.Drawing.Point(28, 45);
+            this.LblBolumGorev.Name = "LblBolumGorev";
+            this.LblBolumGorev.Size = new System.Drawing.Size(36, 37);
+            this.LblBolumGorev.TabIndex = 5;
+            this.LblBolumGorev.Text = "0";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label5.Location = new System.Drawing.Point(28, 9);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(144, 18);
+            this.label5.TabIndex = 4;
+            this.label5.Text = "Bölüm Görevlerim";
             // 
             // panel6
             // 
@@ -420,6 +446,8 @@ namespace UserInterface.Ana_Sayfa
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            this.panel5.ResumeLayout(false);
+            this.panel5.PerformLayout();
             this.panel6.ResumeLayout(false);
             this.panel6.PerformLayout();
             this.panel8.ResumeLayout(false);
@@ -464,5 +492,7 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.Label LblVersion;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Timer timer3;
+        private System.Windows.Forms.Label LblBolumGorev;
+        private System.Windows.Forms.Label label5;
     }
 }

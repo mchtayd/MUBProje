@@ -1951,7 +1951,15 @@ namespace UserInterface.IdariIşler
         private void WebBrowser2()
         {
             //webBrowserr.Navigate(guncellenecekdosya);
-            webBrowserG.Navigate(guncellenecekdosya);
+            try
+            {
+                webBrowserG.Navigate(guncellenecekdosya);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
 
 
         }

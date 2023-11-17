@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using UserInterface.STS;
@@ -93,7 +94,70 @@ namespace UserInterface.Ana_Sayfa
             LblAcikArizaGorevleri.Text = arizaGorevAtamaPersonels.Count.ToString();
             LbYoneticiGorevleri.Text = gorevAtamaListYonetici.Count.ToString();
             LblIsAkisGorevleri.Text = gorevAtamaPersonels.Count.ToString();
+            BolumGorevlerim();
+
         }
+        void BolumGorevlerim()
+        {
+            List<string> personeller = new List<string>();
+            List<GorevAtamaPersonel> genelList = new List<GorevAtamaPersonel>();
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            List<GorevAtamaPersonel> IsAkisgorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            List<GorevAtamaPersonel> IsAkisgorevAtamaSatinAlma = new List<GorevAtamaPersonel>();
+            List<GorevAtama> yoneticiGorevleri = new List<GorevAtama>();
+            List<GorevAtamaPersonel> mifPersonels = new List<GorevAtamaPersonel>();
+            List<GorevAtamaPersonel> arizaGorevAtamaAtolyePersonels = new List<GorevAtamaPersonel>();
+            //MUB Prj.Dir./Loj.Dest.ve Pln./Veri Kayıt
+
+            string[] bolum = infos[2].ToString().Split('/');
+            if (bolum.Count() >= 2)
+            {
+                personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[1].ToString());
+            }
+            else
+            {
+                personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[0].ToString());
+            }
+
+            foreach (string item in personeller)
+            {
+                gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "BAKIM ONARIM");
+                arizaGorevAtamaAtolyePersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "BAKIM ONARIM ATÖLYE");
+                foreach (GorevAtamaPersonel gorevAtamaPersonel in arizaGorevAtamaAtolyePersonels)
+                {
+                    gorevAtamaPersonels.Add(gorevAtamaPersonel);
+                }
+
+
+                IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "İZİN");
+                IsAkisgorevAtamaSatinAlma = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "SATIN ALMA");
+                mifPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "MİF");
+
+                foreach (GorevAtamaPersonel item2 in IsAkisgorevAtamaSatinAlma)
+                {
+                    IsAkisgorevAtamaPersonels.Add(item2);
+                }
+
+                foreach (GorevAtamaPersonel item3 in mifPersonels)
+                {
+                    IsAkisgorevAtamaPersonels.Add(item3);
+                }
+
+                foreach (GorevAtamaPersonel item4 in IsAkisgorevAtamaPersonels)
+                {
+                    gorevAtamaPersonels.Add(item4);
+                }
+
+                foreach (GorevAtamaPersonel item5 in gorevAtamaPersonels)
+                {
+                    genelList.Add(item5);
+                }
+            }
+
+            LblBolumGorev.Text = genelList.Count.ToString();
+
+        }
+
 
         public void DuyuruEditList()
         {

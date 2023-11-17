@@ -27,10 +27,12 @@ namespace UserInterface.Ana_Sayfa
         List<GorevAtamaPersonel> IsAkisgorevAtamaSatinAlma;
         List<GorevAtamaPersonel> arizaGorevAtamaAtolyePersonels;
         List<GorevAtamaPersonel> mifPersonels;
+        List<SirketBolum> sirketBolums;
         GorevAtamaManager gorevAtamaManager;
         IsAkisNoManager isAkisNoManager;
+        SirketBolumManager sirketBolumManager;
 
-        string pageText1 = "", pageText3 = "", pageText2 = "", mail = "", dosyaYolu = "", kaynakdosyaismi = "", alinandosya = "", tamyol = "", isAkisNo = "", departman;
+        string pageText1 = "", pageText3 = "", pageText2 = "", pageText4 = "", mail = "", dosyaYolu = "", kaynakdosyaismi = "", alinandosya = "", tamyol = "", isAkisNo = "", departman;
         int id;
         public object[] infos;
         int benzersizId;
@@ -41,6 +43,7 @@ namespace UserInterface.Ana_Sayfa
             gorevAtamaManager = GorevAtamaManager.GetInstance();
             kayitManager = PersonelKayitManager.GetInstance();
             isAkisNoManager = IsAkisNoManager.GetInstance();
+            sirketBolumManager = SirketBolumManager.GetInstance();
         }
 
         private void advancedDataGridView1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -77,15 +80,18 @@ namespace UserInterface.Ana_Sayfa
             DataDisplayAriza();
             DataDisplayYoneticiGorevlerim();
             DataDisplayIsAkis();
+            BolumGorevlerim();
 
             pageText1 = "AÇIK ARIZA GÖREVLERİM " + "( " + TxtTop.Text + " )";
             pageText2 = "YÖNETİCİ GÖREVLERİM" + "(" + TxtGenelTop.Text + " )";
             pageText3 = "İŞ AKIŞI GÖREVLERİM " + "( " + TxtTop3.Text + " )";
+            pageText4 = "BÖLÜM GÖREVLERİM " + "( " + LblBolumGorevleriTop.Text + " )";
 
 
             tabPage1.Text = pageText1;
             tabPage2.Text = pageText2;
             tabPage3.Text = pageText3;
+            tabPage4.Text = pageText4;
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -352,7 +358,6 @@ namespace UserInterface.Ana_Sayfa
         }
         void DataDisplayYoneticiGorevlerim()
         {
-
             dataBinder.DataSource = gorevAtamaManager.GetListGorevlerim(infos[1].ToString());
             DtgYoneticiGorevlerim.DataSource = dataBinder;
 
@@ -378,6 +383,83 @@ namespace UserInterface.Ana_Sayfa
             TxtGenelTop.Text = DtgYoneticiGorevlerim.RowCount.ToString();
             pageText2 = "YÖNETİCİ GÖREVLERİM" + "(" + TxtGenelTop.Text + " )";
             tabPage2.Text = pageText2;
+        }
+        void BolumGorevlerim()
+        {
+            List<string> personeller = new List<string>();
+            List<GorevAtamaPersonel> genelList = new List<GorevAtamaPersonel>();
+            List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            List<GorevAtamaPersonel> IsAkisgorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            List<GorevAtamaPersonel> IsAkisgorevAtamaSatinAlma = new List<GorevAtamaPersonel>();
+            List<GorevAtama> yoneticiGorevleri = new List<GorevAtama>();
+            List<GorevAtamaPersonel> mifPersonels = new List<GorevAtamaPersonel>();
+            List<GorevAtamaPersonel> arizaGorevAtamaAtolyePersonels = new List<GorevAtamaPersonel>();
+            //MUB Prj.Dir./Loj.Dest.ve Pln./Veri Kayıt
+
+            string[] bolum = infos[2].ToString().Split('/');
+            if (bolum.Count()>=2)
+            {
+                personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[1].ToString());
+            }
+            else
+            {
+                personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[0].ToString());
+            }
+
+            foreach (string item in personeller)
+            {
+                gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "BAKIM ONARIM");
+                arizaGorevAtamaAtolyePersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "BAKIM ONARIM ATÖLYE");
+                foreach (GorevAtamaPersonel gorevAtamaPersonel in arizaGorevAtamaAtolyePersonels)
+                {
+                    gorevAtamaPersonels.Add(gorevAtamaPersonel);
+                }
+
+
+                IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "İZİN");
+                IsAkisgorevAtamaSatinAlma = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "SATIN ALMA");
+                mifPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "MİF");
+
+                foreach (GorevAtamaPersonel item2 in IsAkisgorevAtamaSatinAlma)
+                {
+                    IsAkisgorevAtamaPersonels.Add(item2);
+                }
+
+                foreach (GorevAtamaPersonel item3 in mifPersonels)
+                {
+                    IsAkisgorevAtamaPersonels.Add(item3);
+                }
+
+                foreach (GorevAtamaPersonel item4 in IsAkisgorevAtamaPersonels)
+                {
+                    gorevAtamaPersonels.Add(item4);
+                }
+
+                foreach (GorevAtamaPersonel item5 in gorevAtamaPersonels)
+                {
+                    genelList.Add(item5);
+                }
+            }
+
+            dataBinderAtolye.DataSource = genelList.ToDataTable();
+            DtgBolumGorevleri.DataSource = dataBinderAtolye;
+
+            DtgBolumGorevleri.Columns["Id"].Visible = false;
+            DtgBolumGorevleri.Columns["BenzersizId"].Visible = false;
+            DtgBolumGorevleri.Columns["Departman"].HeaderText = "DEPARTMAN";
+            DtgBolumGorevleri.Columns["GorevAtanacakPersonel"].HeaderText = "GÖREV ATANAN PERSONEL";
+            DtgBolumGorevleri.Columns["IslemAdimi"].HeaderText = "İŞLEM ADIMI";
+            DtgBolumGorevleri.Columns["Tarih"].HeaderText = "TARİH";
+            DtgBolumGorevleri.Columns["Sure"].HeaderText = "DURUM";
+            DtgBolumGorevleri.Columns["YapilanIslem"].Visible = false;
+            DtgBolumGorevleri.Columns["CalismaSuresi"].Visible = false;
+            DtgBolumGorevleri.Columns["AbfNo"].HeaderText = "İŞ AKIŞ NO / ID";
+            //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
+            //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
+
+            LblBolumGorevleriTop.Text = DtgBolumGorevleri.RowCount.ToString();
+
+
         }
         void MailSendMetot()
         {

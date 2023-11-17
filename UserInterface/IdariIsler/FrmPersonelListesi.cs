@@ -58,7 +58,7 @@ namespace UserInterface.IdariIşler
         void DataDisplay()
         {
             DtgPersoneller.Columns["Id"].Visible = false;
-            DtgPersoneller.Columns["Tc"].Visible = false;
+            DtgPersoneller.Columns["Tc"].HeaderText = "TC";
             DtgPersoneller.Columns["Cocuksayisi"].Visible = false;
             DtgPersoneller.Columns["Maas"].Visible = false;
             DtgPersoneller.Columns["Iase"].Visible = false;
