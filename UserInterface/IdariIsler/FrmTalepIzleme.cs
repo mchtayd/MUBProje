@@ -1,5 +1,7 @@
 ﻿using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Office2010.Excel;
+using Entity.Gecic_Kabul_Ambar;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
@@ -18,6 +20,7 @@ namespace UserInterface.IdariIsler
     {
         MalzemeTalepManager malzemeTalepManager;
         List<MalzemeTalep> malzemeTaleps;
+        int id;
         public FrmTalepIzleme()
         {
             InitializeComponent();
@@ -122,6 +125,125 @@ namespace UserInterface.IdariIsler
 
 
 
+        }
+
+        private void onayAşamasındaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id==0)
+            {
+                MessageBox.Show("Lütfen öncekikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string mesaj = malzemeTalepManager.DurumUpdate(id, "ONAY AŞAMASINDA");
+            if (mesaj!="OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            id = 0;
+            DataDisplay();
+            MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgList.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+
+        }
+
+        private void onaylandıStokKontrolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncekikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string mesaj = malzemeTalepManager.DurumUpdate(id, "ONAYLANDI, STOK KONTROL");
+            if (mesaj != "OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            id = 0;
+            DataDisplay();
+            MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void reddedildiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncekikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string mesaj = malzemeTalepManager.DurumUpdate(id, "REDDEDİLDİ");
+            if (mesaj != "OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            id = 0;
+            DataDisplay();
+            MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void satOluşturulduTeadrikAşamasındaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncekikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string mesaj = malzemeTalepManager.DurumUpdate(id, "SAT OLUŞTURULDU, TEDARİK AŞAMASINDA");
+            if (mesaj != "OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            id = 0;
+            DataDisplay();
+            MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void tedarikEdildiToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncekikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string mesaj = malzemeTalepManager.DurumUpdate(id, "TEDARİK EDİLDİ");
+            if (mesaj != "OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            id = 0;
+            DataDisplay();
+            MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void teslimAlındıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncekikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            string mesaj = malzemeTalepManager.DurumUpdate(id, "TESLIM ALINDI");
+            if (mesaj != "OK")
+            {
+                MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            id = 0;
+            DataDisplay();
+            MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }

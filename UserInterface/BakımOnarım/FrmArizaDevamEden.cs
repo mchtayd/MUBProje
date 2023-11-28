@@ -217,6 +217,9 @@ namespace UserInterface.BakımOnarım
             DtgIslemKayitlari.Columns["YapilanIslem"].HeaderText = "YAPILAN İŞLEM";
             DtgIslemKayitlari.Columns["CalismaSuresi"].HeaderText = "ÇALIŞMA SÜRESİ";
             DtgIslemKayitlari.Columns["AbfNo"].Visible = false;
+            DtgIslemKayitlari.Columns["DevamEdenGorev"].Visible = false;
+            DtgIslemKayitlari.Columns["TamamlananGorev"].Visible = false;
+            DtgIslemKayitlari.Columns["BeklemeSuresi"].Visible = false;
 
             DtgIslemKayitlari.Columns["CalismaSuresi"].DefaultCellStyle.Format = @"HH:mm:ss";
 

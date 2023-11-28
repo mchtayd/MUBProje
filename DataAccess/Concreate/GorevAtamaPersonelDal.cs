@@ -3,6 +3,7 @@ using DataAccess.Database;
 using Entity;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -74,7 +75,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        "");
+                        "",
+                        0);
                 }
                 dataReader.Close();
                 return item;
@@ -95,6 +97,7 @@ namespace DataAccess.Concreate
                     new SqlParameter("@benzersiz", benzersiz), new SqlParameter("@depoartman", departman));
                 while (dataReader.Read())
                 {
+                    TimeSpan toplamSure = DateTime.Now - dataReader["TARIH"].ConDate();
                     gorevAtamaPersonels.Add(new GorevAtamaPersonel(
                         dataReader["ID"].ConInt(),
                         dataReader["BENZERSIZ_ID"].ConInt(),
@@ -105,7 +108,29 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        ""));
+                        "",
+                        0));
+                }
+                dataReader.Close();
+                return gorevAtamaPersonels;
+
+            }
+            catch (Exception)
+            {
+                dataReader.Close();
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> GetListPersonelBazli(string personel)
+        {
+            try
+            {
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                dataReader = sqlServices.StoreReader("PersonelGorevleri",
+                    new SqlParameter("@personelAdi", personel));
+                while (dataReader.Read())
+                {
+                    gorevAtamaPersonels.Add(new GorevAtamaPersonel(dataReader["BENZERSIZ_ID"].ConInt()));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
@@ -137,7 +162,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        ""));
+                        "",
+                        0));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
@@ -168,7 +194,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        ""));
+                        "",
+                        0));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
@@ -180,6 +207,138 @@ namespace DataAccess.Concreate
                 return new List<GorevAtamaPersonel>();
             }
         }
+        public List<GorevAtamaPersonel> GorevliPersoneller()
+        {
+            try
+            {
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                List<GorevAtamaPersonel> gorevAtamasMiktar = new List<GorevAtamaPersonel>();
+                dataReader = sqlServices.StoreReader("GorevliPersoneller");
+                while (dataReader.Read())
+                {
+                    gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        ""));
+                }
+                dataReader.Close();
+                int index = 0;
+                foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+                {
+                    gorevAtamasMiktar.Clear(); 
+                    dataReader = sqlServices.StoreReader("GorevliPersonellerMiktar", new SqlParameter("@personelAdi", item.GorevAtanacakPersonel));
+                    while (dataReader.Read())
+                    {
+                        gorevAtamasMiktar.Add(new GorevAtamaPersonel(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["DEPARTMAN"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["SURE"].ToString(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        "",
+                        0));
+                    }
+                    gorevAtamaPersonels[index].Sure = gorevAtamasMiktar.Count().ToString();
+                    index++;
+                    dataReader.Close();
+                }
+
+
+                return gorevAtamaPersonels;
+
+            }
+            catch (Exception)
+            {
+                dataReader.Close();
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public GorevAtamaPersonel GorevSayilari(string personel)
+        {
+            try
+            {
+                GorevAtamaPersonel gorevAtamaPersonel = null;
+                dataReader = sqlServices.StoreReader("PersonelGorevSayisi", new SqlParameter("@personelAdi", personel));
+                while (dataReader.Read()) 
+                {
+                    gorevAtamaPersonel = new GorevAtamaPersonel(personel, dataReader["DEVAM_EDEN_GOREV_SAYISI"].ConInt(), dataReader["TAMAMLANAN_GOREV_AYISI"].ConInt());
+                }
+                dataReader.Close();
+                return gorevAtamaPersonel;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+            
+        }
+        public List<GorevAtamaPersonel> PersonelGorevleri(string personel)
+        {
+            try
+            {
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                dataReader = sqlServices.StoreReader("GorevliPersonellerMiktar", new SqlParameter("@personelAdi", personel));
+                while (dataReader.Read())
+                {
+                    TimeSpan toplamSure = DateTime.Now - dataReader["TARIH"].ConDate();
+                    gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["DEPARTMAN"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["SURE"].ToString(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        "",
+                        0));
+                }
+                dataReader.Close();
+                return gorevAtamaPersonels;
+
+            }
+            catch (Exception)
+            {
+                dataReader.Close();
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> PersonelAtananArizaKayitlari(int benzersizId)
+        {
+            try
+            {
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                dataReader = sqlServices.StoreReader("PersonelAtananAriza", new SqlParameter("@benzersizId", benzersizId));
+                while (dataReader.Read())
+                {
+                    gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["DEPARTMAN"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["SURE"].ToString(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        "",
+                        0));
+                }
+                dataReader.Close();
+                return gorevAtamaPersonels;
+
+            }
+            catch (Exception)
+            {
+                dataReader.Close();
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+
         public string IslemAdimiSorumlusuUpdate(int id, string islemAdimiSorumlusu)
         {
             try
@@ -211,7 +370,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        ""));
+                        "",
+                        0));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
@@ -242,7 +402,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        dataReader["ABF_FORM_NO"].ToString()));
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        0));
                 }
                 dataReader.Close();
                 return gorevAtamaPersonels;
@@ -257,12 +418,14 @@ namespace DataAccess.Concreate
         {
             try
             {
+                
                 List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
                 dataReader = sqlServices.StoreReader("AtolyeGorevlerimiGor",
                     new SqlParameter("@adSoyad", adSoyad),
                     new SqlParameter("@departman", departman));
                 while (dataReader.Read())
                 {
+                    TimeSpan toplamSure = DateTime.Now - dataReader["TARIH"].ConDate();
                     if (departman == "BAKIM ONARIM")
                     {
                         gorevAtamaPersonels.Add(new GorevAtamaPersonel(
@@ -275,7 +438,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        dataReader["ABF_FORM_NO"].ToString()));
+                        dataReader["ABF_FORM_NO"].ToString(),
+                        (toplamSure.Days).ConInt()));
                     }
                     if (departman == "İZİN")
                     {
@@ -289,7 +453,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        dataReader["IS_AKIS_NO"].ToString()));
+                        dataReader["IS_AKIS_NO"].ToString(),
+                        (toplamSure.Days).ConInt()));
                     }
                     if (departman == "SATIN ALMA")
                     {
@@ -303,7 +468,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        dataReader["SAT_FORM_NO"].ToString()));
+                        dataReader["SAT_FORM_NO"].ToString(),
+                        (toplamSure.Days).ConInt()));
                     }
                     if (departman == "BAKIM ONARIM ATOLYE")
                     {
@@ -317,7 +483,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        dataReader["ID"].ToString()));
+                        dataReader["ID"].ToString(),
+                        (toplamSure.Days).ConInt()));
                     }
 
                     if (departman == "MİF")
@@ -332,7 +499,8 @@ namespace DataAccess.Concreate
                         dataReader["SURE"].ToString(),
                         dataReader["YAPILAN_ISLEMLER"].ToString(),
                         dataReader["CALISMA_SURESI"].ConOnlyTime(),
-                        dataReader["ID"].ToString()));
+                        dataReader["ID"].ToString(),
+                        (toplamSure.Days).ConInt()));
                     }
                     //else
                     //{
@@ -369,7 +537,7 @@ namespace DataAccess.Concreate
                 {
                     personeller.Add(dataReader["AD_SOYAD"].ToString());
                 }
-                dataReader.Close(); 
+                dataReader.Close();
                 return personeller;
             }
             catch (Exception)
@@ -383,8 +551,8 @@ namespace DataAccess.Concreate
             try
             {
                 dataReader = sqlServices.StoreReader("GorevAtananPersonelSureGuncelle",
-                    new SqlParameter("@id",entity.Id),
-                    new SqlParameter("@personel",entity.GorevAtanacakPersonel),
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@personel", entity.GorevAtanacakPersonel),
                     new SqlParameter("@benzersiz", entity.BenzersizId),
                     new SqlParameter("@departman", entity.Departman),
                     new SqlParameter("@islemAdimi", entity.IslemAdimi),

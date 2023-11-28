@@ -2647,6 +2647,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 if (CmbTeslimTuru.Text == "BÖLGEYE SEVKİYAT BEKLEYEN")
                 {
                     ArizaKayit arizaKayit = arizaKayitManager.Get(item.Cells["AbfNo"].Value.ConInt());
+                    if (arizaKayit==null)
+                    {
+                        MessageBox.Show("Arıza bilgilerine ulaşılamıştır.\nLütfen arızanın bölge bilgilerini kontrol ediniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                     DateTime tarihSaat = new DateTime(DtgTeslimTarihi.Value.Year, DtgTeslimTarihi.Value.Month, DtgTeslimTarihi.Value.Day, DtgSaat.Value.Hour, DtgSaat.Value.Minute, DtgSaat.Value.Second);
                     AbfMalzeme abfMalzeme = abfMalzemeManager.GetBul(arizaKayit.Id, item.Cells["StokNo"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Revizyon"].Value.ToString());
                     if (abfMalzeme==null)

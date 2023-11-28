@@ -267,6 +267,11 @@ namespace UserInterface.BakımOnarım
             AtolyeKayitlari();
             MalzemeListesi();
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM");
+            if (gorevAtamaPersonel==null)
+            {
+                MessageBox.Show("Malzeme Veri Geçmişine ulaşılamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             //bulunduguIslemAdimi = gorevAtamaPersonel.IslemAdimi;
             birOncekiTarih = gorevAtamaPersonel.Tarih;
@@ -1374,10 +1379,13 @@ namespace UserInterface.BakımOnarım
         {
             if (infos[1].ToString() != "RESUL GÜNEŞ")
             {
-                if (AdvPersonel.RowCount == 0)
+                if (infos[11].ToString() != "MİSAFİR")
                 {
-                    MessageBox.Show("Lütfen işlem adımı için geçerli olan işçilik bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    if (AdvPersonel.RowCount == 0)
+                    {
+                        MessageBox.Show("Lütfen işlem adımı için geçerli olan işçilik bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
             }
 
@@ -1600,12 +1608,20 @@ namespace UserInterface.BakımOnarım
             }
             if (infos[1].ToString() != "RESUL GÜNEŞ")
             {
-                string kontrol = PersonelIscilikleriEkle();
-                if (kontrol != "OK")
+                if (infos[11].ToString() != "MİSAFİR")
                 {
-                    MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
+                    string kontrol = PersonelIscilikleriEkle();
+                    if (kontrol != "OK")
+                    {
+                        MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
                 }
+                
+            }
+            if (LblMevcutIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
+            {
+                arizaKayitManager.ArizaDurumUpdate(id, 0);
             }
 
             if (LblMevcutIslemAdimi.Text == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")

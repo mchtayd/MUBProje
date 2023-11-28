@@ -8,7 +8,8 @@ namespace Entity.IdariIsler
 {
     public class FazlaCalisma
     {
-        int id; string personelAd, personelBolum, fazlaCalismaNedeni; DateTime mesaiBasTarihi, mesaiBitTarihi; string toplamMesaiSaati, toplamHakEdilenIzin, onayDurumu, onayVeren;
+        int id; string personelAd, personelBolum, fazlaCalismaNedeni; DateTime mesaiBasTarihi, mesaiBitTarihi; string toplamMesaiSaati, toplamHakEdilenIzin, onayDurumu, onayVeren, donem, fazlaCalismaTuru;
+
 
         public int Id { get => id; set => id = value; }
         public string PersonelAd { get => personelAd; set => personelAd = value; }
@@ -20,8 +21,10 @@ namespace Entity.IdariIsler
         public string ToplamHakEdilenIzin { get => toplamHakEdilenIzin; set => toplamHakEdilenIzin = value; }
         public string OnayDurumu { get => onayDurumu; set => onayDurumu = value; }
         public string OnayVeren { get => onayVeren; set => onayVeren = value; }
+        public string Donem { get => donem; set => donem = value; }
+        public string FazlaCalismaTuru { get => fazlaCalismaTuru; set => fazlaCalismaTuru = value; }
 
-        public FazlaCalisma(int id, string personelAd, string personelBolum, string fazlaCalismaNedeni, DateTime mesaiBasTarihi, DateTime mesaiBitTarihi, string toplamMesaiSaati, string toplamHakEdilenIzin, string onayDurumu, string onayVeren)
+        public FazlaCalisma(int id, string personelAd, string personelBolum, string fazlaCalismaNedeni, DateTime mesaiBasTarihi, DateTime mesaiBitTarihi, string toplamMesaiSaati, string toplamHakEdilenIzin, string onayDurumu, string onayVeren,string donem, string fazlaCalismaTuru)
         {
             this.id = id;
             this.personelAd = personelAd;
@@ -33,9 +36,11 @@ namespace Entity.IdariIsler
             this.toplamHakEdilenIzin = toplamHakEdilenIzin;
             this.onayDurumu = onayDurumu;
             this.onayVeren = onayVeren;
+            this.donem = donem;
+            this.fazlaCalismaTuru = fazlaCalismaTuru;
         }
 
-        public FazlaCalisma(string personelAd, string personelBolum, string fazlaCalismaNedeni, DateTime mesaiBasTarihi, DateTime mesaiBitTarihi, string toplamMesaiSaati, string toplamHakEdilenIzin)
+        public FazlaCalisma(string personelAd, string personelBolum, string fazlaCalismaNedeni, DateTime mesaiBasTarihi, DateTime mesaiBitTarihi, string toplamMesaiSaati, string toplamHakEdilenIzin, string donem, string fazlaCalismaTuru)
         {
             this.personelAd = personelAd;
             this.personelBolum = personelBolum;
@@ -44,6 +49,8 @@ namespace Entity.IdariIsler
             this.mesaiBitTarihi = mesaiBitTarihi;
             this.toplamMesaiSaati = toplamMesaiSaati;
             this.toplamHakEdilenIzin = toplamHakEdilenIzin;
+            this.donem = donem;
+            this.fazlaCalismaTuru = fazlaCalismaTuru;
         }
     }
 }

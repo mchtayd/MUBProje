@@ -64,31 +64,59 @@ namespace UserInterface.BakımOnarım
 
             LblTop.Text = DtgList.RowCount.ToString();
 
-            DtgList.Columns["Id"].Visible = false;
-            DtgList.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
+            DtgList.Columns["KayitYapan"].DisplayIndex = 0;
+            DtgList.Columns["IsAkisNo"].DisplayIndex = 1;
+            DtgList.Columns["AbfNo"].DisplayIndex = 25;
+            DtgList.Columns["Il"].DisplayIndex = 30;
+            DtgList.Columns["Ilce"].DisplayIndex = 30;
+            DtgList.Columns["UsBolgesi"].DisplayIndex = 25;
+            DtgList.Columns["ProjeKodu"].DisplayIndex = 25;
+            DtgList.Columns["UstTanim"].DisplayIndex = 25;
+            DtgList.Columns["GarantiDurumu"].DisplayIndex = 25;
+            DtgList.Columns["ArizaTarihi"].DisplayIndex = 25;
+            DtgList.Columns["BildirilenAriza"].DisplayIndex = 25;
+            DtgList.Columns["ToplamTutar"].DisplayIndex = 25;
+            DtgList.Columns["UstStok"].DisplayIndex = 25;
+            DtgList.Columns["UstSeriNo"].DisplayIndex = 25;
+            DtgList.Columns["ArizaNedeni"].DisplayIndex = 25;
+            DtgList.Columns["GenelOneriler"].DisplayIndex = 25;
+            DtgList.Columns["BildirimNo"].DisplayIndex = 25;
+            DtgList.Columns["KayitTarihi"].DisplayIndex = 25;
+            DtgList.Columns["Id"].DisplayIndex = 25;
+            DtgList.Columns["ArizaDurum"].DisplayIndex = 25;
+            DtgList.Columns["DosyaYolu"].DisplayIndex = 25;
+            DtgList.Columns["YapilacakIslemler"].DisplayIndex = 25;
+            DtgList.Columns["UbKomutani"].DisplayIndex = 25;
+            DtgList.Columns["KomutanTel"].DisplayIndex = 25;
+            DtgList.Columns["BirlikAdresi"].DisplayIndex = 25;
+            DtgList.Columns["OkfBildirimNo"].DisplayIndex = 25;
+
             DtgList.Columns["KayitYapan"].HeaderText = "KAYIT YAPAN";
-            DtgList.Columns["KayitTarihi"].HeaderText = "KAYIT TARİHİ";
+            DtgList.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
             DtgList.Columns["AbfNo"].HeaderText = "ABF NO";
-            DtgList.Columns["ArizaTarihi"].HeaderText = "ARIZA TARİHİ";
-            DtgList.Columns["UsBolgesi"].HeaderText = "ÜS BÖLGESİ";
-            DtgList.Columns["ProjeKodu"].HeaderText = "PROJE KODU";
-            DtgList.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
-            DtgList.Columns["UbKomutani"].HeaderText = "ÜS BÖLGESİ KOMUTANI";
-            DtgList.Columns["KomutanTel"].HeaderText = "ÜS BÖLGESİ TELEFON";
-            DtgList.Columns["BirlikAdresi"].HeaderText = "BİRLİK ADRESİ";
             DtgList.Columns["Il"].HeaderText = "İL";
             DtgList.Columns["Ilce"].HeaderText = "İLÇE";
-            DtgList.Columns["UstStok"].HeaderText = "STOK NO";
+            DtgList.Columns["UsBolgesi"].HeaderText = "ÜS BÖLGESİ";
+            DtgList.Columns["ProjeKodu"].HeaderText = "PROJE KODU";
             DtgList.Columns["UstTanim"].HeaderText = "TANIM";
-            DtgList.Columns["UstSeriNo"].HeaderText = "SERİ NO";
+            DtgList.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
+            DtgList.Columns["ArizaTarihi"].HeaderText = "ARIZA TARİHİ";
             DtgList.Columns["BildirilenAriza"].HeaderText = "BİLDİRİLEN ARIZA";
-            DtgList.Columns["ArizaDurum"].Visible = false;
+            DtgList.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
+            DtgList.Columns["UstStok"].HeaderText = "STOK NO";
+            DtgList.Columns["UstSeriNo"].HeaderText = "SERİ NO";
             DtgList.Columns["ArizaNedeni"].HeaderText = "ARIZA NEDENİ";
             DtgList.Columns["GenelOneriler"].HeaderText = "GENEL ÖNERİLER";
-            DtgList.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
+            DtgList.Columns["BildirimNo"].HeaderText = "BİLDİRİM NO";
+            DtgList.Columns["KayitTarihi"].Visible = false;
+            DtgList.Columns["Id"].Visible = false;
+            DtgList.Columns["ArizaDurum"].Visible = false;
             DtgList.Columns["DosyaYolu"].Visible = false;
             DtgList.Columns["YapilacakIslemler"].Visible = false;
-            DtgList.Columns["BildirimNo"].HeaderText = "BİLDİRİM NO";
+            DtgList.Columns["UbKomutani"].Visible = false;
+            DtgList.Columns["KomutanTel"].Visible = false;
+            DtgList.Columns["BirlikAdresi"].Visible = false;
+            DtgList.Columns["OkfBildirimNo"].Visible = false;
 
             ToplamlarGenel(DtgList);
 
@@ -108,9 +136,9 @@ namespace UserInterface.BakımOnarım
             DtgListSSB.Columns["UsBolgesi"].HeaderText = "ÜS BÖLGESİ";
             DtgListSSB.Columns["ProjeKodu"].HeaderText = "PROJE KODU";
             DtgListSSB.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
-            DtgListSSB.Columns["UbKomutani"].HeaderText = "ÜS BÖLGESİ KOMUTANI";
-            DtgListSSB.Columns["KomutanTel"].HeaderText = "ÜS BÖLGESİ TELEFON";
-            DtgListSSB.Columns["BirlikAdresi"].HeaderText = "BİRLİK ADRESİ";
+            DtgListSSB.Columns["UbKomutani"].Visible = false;
+            DtgListSSB.Columns["KomutanTel"].Visible = false;
+            DtgListSSB.Columns["BirlikAdresi"].Visible = false;
             DtgListSSB.Columns["Il"].HeaderText = "İL";
             DtgListSSB.Columns["Ilce"].HeaderText = "İLÇE";
             DtgListSSB.Columns["UstStok"].HeaderText = "STOK NO";
@@ -124,6 +152,32 @@ namespace UserInterface.BakımOnarım
             DtgListSSB.Columns["DosyaYolu"].Visible = false;
             DtgListSSB.Columns["YapilacakIslemler"].Visible = false;
             DtgListSSB.Columns["BildirimNo"].HeaderText = "BİLDİRİM NO";
+
+            DtgListSSB.Columns["IsAkisNo"].DisplayIndex = 0;
+            DtgListSSB.Columns["AbfNo"].DisplayIndex = 1;
+            DtgListSSB.Columns["Il"].DisplayIndex = 2;
+            DtgListSSB.Columns["Ilce"].DisplayIndex = 3;
+            DtgListSSB.Columns["UsBolgesi"].DisplayIndex = 4;
+            DtgListSSB.Columns["ProjeKodu"].DisplayIndex = 5;
+            DtgListSSB.Columns["UstTanim"].DisplayIndex = 6;
+            DtgListSSB.Columns["GarantiDurumu"].DisplayIndex = 7;
+            DtgListSSB.Columns["ArizaTarihi"].DisplayIndex = 8;
+            DtgListSSB.Columns["BildirilenAriza"].DisplayIndex = 9;
+            DtgListSSB.Columns["ToplamTutar"].DisplayIndex = 10;
+            DtgListSSB.Columns["UstStok"].DisplayIndex = 11;
+            DtgListSSB.Columns["UstSeriNo"].DisplayIndex = 12;
+            DtgListSSB.Columns["ArizaNedeni"].DisplayIndex = 13;
+            DtgListSSB.Columns["GenelOneriler"].DisplayIndex = 14;
+            DtgListSSB.Columns["KayitTarihi"].DisplayIndex = 15;
+            DtgListSSB.Columns["BildirimNo"].DisplayIndex = 17;
+            DtgListSSB.Columns["Id"].DisplayIndex = 18;
+            DtgListSSB.Columns["ArizaDurum"].DisplayIndex = 19;
+            DtgListSSB.Columns["DosyaYolu"].DisplayIndex = 20;
+            DtgListSSB.Columns["YapilacakIslemler"].DisplayIndex = 21;
+            DtgListSSB.Columns["UbKomutani"].DisplayIndex = 22;
+            DtgListSSB.Columns["KomutanTel"].DisplayIndex = 23;
+            DtgListSSB.Columns["BirlikAdresi"].DisplayIndex = 24;
+            DtgListSSB.Columns["KayitYapan"].DisplayIndex = 25;
 
         }
         public void MusteriOnayi()
@@ -141,9 +195,9 @@ namespace UserInterface.BakımOnarım
             DtgListMusteriOnayi.Columns["UsBolgesi"].HeaderText = "ÜS BÖLGESİ";
             DtgListMusteriOnayi.Columns["ProjeKodu"].HeaderText = "PROJE KODU";
             DtgListMusteriOnayi.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
-            DtgListMusteriOnayi.Columns["UbKomutani"].HeaderText = "ÜS BÖLGESİ KOMUTANI";
-            DtgListMusteriOnayi.Columns["KomutanTel"].HeaderText = "ÜS BÖLGESİ TELEFON";
-            DtgListMusteriOnayi.Columns["BirlikAdresi"].HeaderText = "BİRLİK ADRESİ";
+            DtgListMusteriOnayi.Columns["UbKomutani"].Visible = false;
+            DtgListMusteriOnayi.Columns["KomutanTel"].Visible = false;
+            DtgListMusteriOnayi.Columns["BirlikAdresi"].Visible = false;
             DtgListMusteriOnayi.Columns["Il"].HeaderText = "İL";
             DtgListMusteriOnayi.Columns["Ilce"].HeaderText = "İLÇE";
             DtgListMusteriOnayi.Columns["UstStok"].HeaderText = "STOK NO";
@@ -157,6 +211,32 @@ namespace UserInterface.BakımOnarım
             DtgListMusteriOnayi.Columns["DosyaYolu"].Visible = false;
             DtgListMusteriOnayi.Columns["YapilacakIslemler"].Visible = false;
             DtgListMusteriOnayi.Columns["BildirimNo"].HeaderText = "BİLDİRİM NO";
+
+            DtgListMusteriOnayi.Columns["IsAkisNo"].DisplayIndex = 0;
+            DtgListMusteriOnayi.Columns["AbfNo"].DisplayIndex = 1;
+            DtgListMusteriOnayi.Columns["Il"].DisplayIndex = 2;
+            DtgListMusteriOnayi.Columns["Ilce"].DisplayIndex = 3;
+            DtgListMusteriOnayi.Columns["UsBolgesi"].DisplayIndex = 4;
+            DtgListMusteriOnayi.Columns["ProjeKodu"].DisplayIndex = 5;
+            DtgListMusteriOnayi.Columns["UstTanim"].DisplayIndex = 6;
+            DtgListMusteriOnayi.Columns["GarantiDurumu"].DisplayIndex = 7;
+            DtgListMusteriOnayi.Columns["ArizaTarihi"].DisplayIndex = 8;
+            DtgListMusteriOnayi.Columns["BildirilenAriza"].DisplayIndex = 9;
+            DtgListMusteriOnayi.Columns["ToplamTutar"].DisplayIndex = 10;
+            DtgListMusteriOnayi.Columns["UstStok"].DisplayIndex = 11;
+            DtgListMusteriOnayi.Columns["UstSeriNo"].DisplayIndex = 12;
+            DtgListMusteriOnayi.Columns["ArizaNedeni"].DisplayIndex = 13;
+            DtgListMusteriOnayi.Columns["GenelOneriler"].DisplayIndex = 14;
+            DtgListMusteriOnayi.Columns["KayitTarihi"].DisplayIndex = 15;
+            DtgListMusteriOnayi.Columns["BildirimNo"].DisplayIndex = 17;
+            DtgListMusteriOnayi.Columns["Id"].DisplayIndex = 18;
+            DtgListMusteriOnayi.Columns["ArizaDurum"].DisplayIndex = 19;
+            DtgListMusteriOnayi.Columns["DosyaYolu"].DisplayIndex = 20;
+            DtgListMusteriOnayi.Columns["YapilacakIslemler"].DisplayIndex = 21;
+            DtgListMusteriOnayi.Columns["UbKomutani"].DisplayIndex = 22;
+            DtgListMusteriOnayi.Columns["KomutanTel"].DisplayIndex = 23;
+            DtgListMusteriOnayi.Columns["BirlikAdresi"].DisplayIndex = 24;
+            DtgListMusteriOnayi.Columns["KayitYapan"].DisplayIndex = 25;
 
         }
 
@@ -175,9 +255,9 @@ namespace UserInterface.BakımOnarım
             DtgListTamamlanan.Columns["UsBolgesi"].HeaderText = "ÜS BÖLGESİ";
             DtgListTamamlanan.Columns["ProjeKodu"].HeaderText = "PROJE KODU";
             DtgListTamamlanan.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
-            DtgListTamamlanan.Columns["UbKomutani"].HeaderText = "ÜS BÖLGESİ KOMUTANI";
-            DtgListTamamlanan.Columns["KomutanTel"].HeaderText = "ÜS BÖLGESİ TELEFON";
-            DtgListTamamlanan.Columns["BirlikAdresi"].HeaderText = "BİRLİK ADRESİ";
+            DtgListTamamlanan.Columns["UbKomutani"].Visible = false;
+            DtgListTamamlanan.Columns["KomutanTel"].Visible = false;
+            DtgListTamamlanan.Columns["BirlikAdresi"].Visible = false;
             DtgListTamamlanan.Columns["Il"].HeaderText = "İL";
             DtgListTamamlanan.Columns["Ilce"].HeaderText = "İLÇE";
             DtgListTamamlanan.Columns["UstStok"].HeaderText = "STOK NO";
@@ -191,6 +271,33 @@ namespace UserInterface.BakımOnarım
             DtgListTamamlanan.Columns["DosyaYolu"].Visible = false;
             DtgListTamamlanan.Columns["YapilacakIslemler"].Visible = false;
             DtgListTamamlanan.Columns["BildirimNo"].HeaderText = "BİLDİRİM NO";
+
+            DtgListTamamlanan.Columns["IsAkisNo"].DisplayIndex = 0;
+            DtgListTamamlanan.Columns["AbfNo"].DisplayIndex = 1;
+            DtgListTamamlanan.Columns["Il"].DisplayIndex = 2;
+            DtgListTamamlanan.Columns["Ilce"].DisplayIndex = 3;
+            DtgListTamamlanan.Columns["UsBolgesi"].DisplayIndex = 4;
+            DtgListTamamlanan.Columns["ProjeKodu"].DisplayIndex = 5;
+            DtgListTamamlanan.Columns["UstTanim"].DisplayIndex = 6;
+            DtgListTamamlanan.Columns["GarantiDurumu"].DisplayIndex = 7;
+            DtgListTamamlanan.Columns["ArizaTarihi"].DisplayIndex = 8;
+            DtgListTamamlanan.Columns["BildirilenAriza"].DisplayIndex = 9;
+            DtgListTamamlanan.Columns["ToplamTutar"].DisplayIndex = 10;
+            DtgListTamamlanan.Columns["UstStok"].DisplayIndex = 11;
+            DtgListTamamlanan.Columns["UstSeriNo"].DisplayIndex = 12;
+            DtgListTamamlanan.Columns["ArizaNedeni"].DisplayIndex = 13;
+            DtgListTamamlanan.Columns["GenelOneriler"].DisplayIndex = 14;
+            DtgListTamamlanan.Columns["KayitTarihi"].DisplayIndex = 15;
+            DtgListTamamlanan.Columns["BildirimNo"].DisplayIndex = 17;
+            DtgListTamamlanan.Columns["Id"].DisplayIndex = 18;
+            DtgListTamamlanan.Columns["ArizaDurum"].DisplayIndex = 19;
+            DtgListTamamlanan.Columns["DosyaYolu"].DisplayIndex = 20;
+            DtgListTamamlanan.Columns["YapilacakIslemler"].DisplayIndex = 21;
+            DtgListTamamlanan.Columns["UbKomutani"].DisplayIndex = 22;
+            DtgListTamamlanan.Columns["KomutanTel"].DisplayIndex = 23;
+            DtgListTamamlanan.Columns["BirlikAdresi"].DisplayIndex = 24;
+            DtgListTamamlanan.Columns["KayitYapan"].DisplayIndex = 25;
+
 
         }
         public void Yenilenecekler()

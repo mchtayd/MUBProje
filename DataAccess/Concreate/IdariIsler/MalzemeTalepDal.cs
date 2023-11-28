@@ -356,6 +356,22 @@ namespace DataAccess.Concreate.IdariIsler
                 return 0;
             }
         }
+        public string DurumUpdate(int id, string islemDurumu)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeTalepIslemDurumuUpdate", 
+                    new SqlParameter("@islemDurumu", islemDurumu),
+                    new SqlParameter("@id", id));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Update(int id, string islemDurumu, string redGerekcesi, int satId)
         {

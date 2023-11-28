@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>759</ApplicationRevision>
+    <ApplicationRevision>766</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -251,11 +251,35 @@
     <Compile Include="Ana Sayfa\FrmEtiketYaz.Designer.cs">
       <DependentUpon>FrmEtiketYaz.cs</DependentUpon>
     </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevAciklamaTalebi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevAciklamaTalebi.Designer.cs">
+      <DependentUpon>FrmGorevAciklamaTalebi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevAciklamaTalebiCevap.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevAciklamaTalebiCevap.Designer.cs">
+      <DependentUpon>FrmGorevAciklamaTalebiCevap.cs</DependentUpon>
+    </Compile>
     <Compile Include="Ana Sayfa\FrmGorevGor.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Ana Sayfa\FrmGorevGor.Designer.cs">
       <DependentUpon>FrmGorevGor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevliPersoneller.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevliPersoneller.Designer.cs">
+      <DependentUpon>FrmGorevliPersoneller.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevUyarilari.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevUyarilari.Designer.cs">
+      <DependentUpon>FrmGorevUyarilari.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmHesapOlustur.cs">
       <SubType>Form</SubType>
@@ -484,6 +508,12 @@
     </Compile>
     <Compile Include="BakımOnarım\FrmGarantiSureleri.Designer.cs">
       <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmGorevBilgileri.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BakımOnarım\FrmGorevBilgileri.Designer.cs">
+      <DependentUpon>FrmGorevBilgileri.cs</DependentUpon>
     </Compile>
     <Compile Include="BakımOnarım\FrmHaftalikControl.cs">
       <SubType>Form</SubType>
@@ -1663,8 +1693,20 @@
     <EmbeddedResource Include="Ana Sayfa\FrmEtiketYaz.resx">
       <DependentUpon>FrmEtiketYaz.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmGorevAciklamaTalebi.resx">
+      <DependentUpon>FrmGorevAciklamaTalebi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmGorevAciklamaTalebiCevap.resx">
+      <DependentUpon>FrmGorevAciklamaTalebiCevap.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmGorevGor.resx">
       <DependentUpon>FrmGorevGor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmGorevliPersoneller.resx">
+      <DependentUpon>FrmGorevliPersoneller.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmGorevUyarilari.resx">
+      <DependentUpon>FrmGorevUyarilari.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmHesapOlustur.resx">
       <DependentUpon>FrmHesapOlustur.cs</DependentUpon>
@@ -1779,6 +1821,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmGarantiSureleri.resx">
       <DependentUpon>FrmGarantiSureleri.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BakımOnarım\FrmGorevBilgileri.resx">
+      <DependentUpon>FrmGorevBilgileri.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="BakımOnarım\FrmHaftalikControl.resx">
       <DependentUpon>FrmHaftalikControl.cs</DependentUpon>

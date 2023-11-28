@@ -108,6 +108,7 @@
     <Compile Include="Concreate\AnaSayfa\DuyuruDal.cs" />
     <Compile Include="Concreate\AnaSayfa\LogDal.cs" />
     <Compile Include="Concreate\AnaSayfa\MenuDal.cs" />
+    <Compile Include="Concreate\AnaSayfa\PersonelUyariDal.cs" />
     <Compile Include="Concreate\AnaSayfa\RjButton.cs">
       <SubType>Component</SubType>
     </Compile>

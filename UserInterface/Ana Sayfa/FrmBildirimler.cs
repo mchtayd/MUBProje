@@ -116,7 +116,11 @@ namespace UserInterface.Ana_Sayfa
             }
             else
             {
-                personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[0].ToString());
+                if (infos[11].ToString()!="MİSAFİR")
+                {
+                    personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[0].ToString());
+                }
+                
             }
 
             foreach (string item in personeller)

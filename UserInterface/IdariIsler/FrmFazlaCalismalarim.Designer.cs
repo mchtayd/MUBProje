@@ -38,9 +38,12 @@
             this.LblIzin = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -59,6 +62,7 @@
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgList.DateWithTime = false;
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
@@ -69,6 +73,7 @@
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // TxtTop
             // 
@@ -130,6 +135,20 @@
             this.label4.TabIndex = 340;
             this.label4.Text = "Toplam Hak Edilen İzin:";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.güncelleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(121, 26);
+            // 
+            // güncelleToolStripMenuItem
+            // 
+            this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
+            this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.güncelleToolStripMenuItem.Text = "Güncelle";
+            this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
+            // 
             // FrmFazlaCalismalarim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -150,6 +169,7 @@
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -166,5 +186,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label LblIzin;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem güncelleToolStripMenuItem;
     }
 }

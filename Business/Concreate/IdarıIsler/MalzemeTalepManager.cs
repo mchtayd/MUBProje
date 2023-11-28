@@ -48,6 +48,18 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
+        public string DurumUpdate(int id, string islemDurumu)
+        {
+            try
+            {
+                return malzemeTalepDal.DurumUpdate(id, islemDurumu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public List<MalzemeTalep> GetList()
         {
             try

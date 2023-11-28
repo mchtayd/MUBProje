@@ -311,6 +311,9 @@ namespace UserInterface.Ana_Sayfa
             DtgGorevlerim.Columns["YapilanIslem"].Visible = false;
             DtgGorevlerim.Columns["CalismaSuresi"].Visible = false;
             DtgGorevlerim.Columns["AbfNo"].HeaderText = "ABF NO / KİMLİK";
+            DtgGorevlerim.Columns["DevamEdenGorev"].Visible = false;
+            DtgGorevlerim.Columns["TamamlananGorev"].Visible = false;
+            DtgGorevlerim.Columns["BeklemeSuresi"].Visible = false;
 
             //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
             //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
@@ -349,6 +352,10 @@ namespace UserInterface.Ana_Sayfa
             DtgIsAkisGorev.Columns["YapilanIslem"].Visible = false;
             DtgIsAkisGorev.Columns["CalismaSuresi"].Visible = false;
             DtgIsAkisGorev.Columns["AbfNo"].HeaderText = "İŞ AKIŞ NO / ID";
+            DtgIsAkisGorev.Columns["DevamEdenGorev"].Visible = false;
+            DtgIsAkisGorev.Columns["TamamlananGorev"].Visible = false;
+            DtgIsAkisGorev.Columns["BeklemeSuresi"].Visible = false;
+
             //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
             //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
             TxtTop3.Text = DtgIsAkisGorev.RowCount.ToString();
@@ -397,7 +404,7 @@ namespace UserInterface.Ana_Sayfa
             //MUB Prj.Dir./Loj.Dest.ve Pln./Veri Kayıt
 
             string[] bolum = infos[2].ToString().Split('/');
-            if (bolum.Count()>=2)
+            if (bolum.Count() >= 2)
             {
                 personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[1].ToString());
             }
@@ -454,8 +461,9 @@ namespace UserInterface.Ana_Sayfa
             DtgBolumGorevleri.Columns["YapilanIslem"].Visible = false;
             DtgBolumGorevleri.Columns["CalismaSuresi"].Visible = false;
             DtgBolumGorevleri.Columns["AbfNo"].HeaderText = "İŞ AKIŞ NO / ID";
-            //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
-            //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
+            DtgBolumGorevleri.Columns["DevamEdenGorev"].Visible = false;
+            DtgBolumGorevleri.Columns["TamamlananGorev"].Visible = false;
+            DtgBolumGorevleri.Columns["BeklemeSuresi"].Visible = false;
 
             LblBolumGorevleriTop.Text = DtgBolumGorevleri.RowCount.ToString();
 

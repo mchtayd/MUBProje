@@ -3265,7 +3265,7 @@ namespace UserInterface.STS
             {
                 FrmFazlaCalismaIzleme Go = new FrmFazlaCalismaIzleme();
                 Go.FormBorderStyle = FormBorderStyle.None;
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageFazlaCalismaIzleme", "FAZLA ÇALIŞMA İZLEME", Go);
@@ -5882,10 +5882,6 @@ namespace UserInterface.STS
             }
         }
 
-        private void görevliPersonellerToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void DtgSohbet_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -6101,6 +6097,27 @@ namespace UserInterface.STS
             FrmEkranAyarlari frmEkranAyarlari = new FrmEkranAyarlari();
             frmEkranAyarlari.infos = infos;
             frmEkranAyarlari.ShowDialog();
+        }
+
+        private void görevUyarularıToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGorevUyarilari frmGorevUyarilari = new FrmGorevUyarilari();
+            frmGorevUyarilari.infos = infos;
+            frmGorevUyarilari.ShowDialog();
+        }
+
+        private void görevliPersonellerToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmGorevliPersoneller frmGorevliPersoneller = new FrmGorevliPersoneller();
+            frmGorevliPersoneller.infos = infos;
+            frmGorevliPersoneller.Show();
+        }
+
+        private void görevAçıklamaTalepleriToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGorevAciklamaTalebiCevap frmGorevAciklamaTalebiCevap = new FrmGorevAciklamaTalebiCevap();
+            frmGorevAciklamaTalebiCevap.infos = infos;
+            frmGorevAciklamaTalebiCevap.Show();
         }
 
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)

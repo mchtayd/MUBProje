@@ -40,7 +40,9 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@basTarihi", entity.MesaiBasTarihi),
                     new SqlParameter("@bitTarihi", entity.MesaiBitTarihi),
                     new SqlParameter("@toplamMesaiSaati", entity.ToplamMesaiSaati),
-                    new SqlParameter("@toplamHakEdilenIzin", entity.ToplamHakEdilenIzin));
+                    new SqlParameter("@toplamHakEdilenIzin", entity.ToplamHakEdilenIzin),
+                    new SqlParameter("@donem", entity.Donem),
+                    new SqlParameter("@fazlaCalismaTuru", entity.FazlaCalismaTuru));
 
                 dataReader.Close();
                 return "OK";
@@ -82,7 +84,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_MESAI_SAATI"].ToString(),
                         dataReader["TOPLAM_HAK_EDILEN_IZIN"].ToString(),
                         dataReader["ONAY_DURUMU"].ToString(),
-                        dataReader["ONAY_VEREN"].ToString());
+                        dataReader["ONAY_VEREN"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["FAZLA_CALISMA_TURU"].ToString());
                 }
                 dataReader.Close();
                 return fazlaCalisma;
@@ -110,7 +114,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_MESAI_SAATI"].ToString(),
                         dataReader["TOPLAM_HAK_EDILEN_IZIN"].ToString(),
                         dataReader["ONAY_DURUMU"].ToString(),
-                        dataReader["ONAY_VEREN"].ToString());
+                        dataReader["ONAY_VEREN"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["FAZLA_CALISMA_TURU"].ToString());
                 }
                 dataReader.Close();
                 return fazlaCalisma;
@@ -139,7 +145,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_MESAI_SAATI"].ToString(),
                         dataReader["TOPLAM_HAK_EDILEN_IZIN"].ToString(),
                         dataReader["ONAY_DURUMU"].ToString(),
-                        dataReader["ONAY_VEREN"].ToString()));
+                        dataReader["ONAY_VEREN"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["FAZLA_CALISMA_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return fazlaCalismas;
@@ -169,7 +177,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_MESAI_SAATI"].ToString(),
                         dataReader["TOPLAM_HAK_EDILEN_IZIN"].ToString(),
                         dataReader["ONAY_DURUMU"].ToString(),
-                        dataReader["ONAY_VEREN"].ToString()));
+                        dataReader["ONAY_VEREN"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["FAZLA_CALISMA_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return fazlaCalismas;
@@ -199,7 +209,9 @@ namespace DataAccess.Concreate.IdariIsler
                         dataReader["TOPLAM_MESAI_SAATI"].ToString(),
                         dataReader["TOPLAM_HAK_EDILEN_IZIN"].ToString(),
                         dataReader["ONAY_DURUMU"].ToString(),
-                        dataReader["ONAY_VEREN"].ToString()));
+                        dataReader["ONAY_VEREN"].ToString(),
+                        dataReader["DONEM"].ToString(),
+                        dataReader["FAZLA_CALISMA_TURU"].ToString()));
                 }
                 dataReader.Close();
                 return fazlaCalismas;
@@ -226,7 +238,9 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@toplamMesaiSaati", entity.ToplamMesaiSaati),
                     new SqlParameter("@toplamHakEdilenIzin", entity.ToplamHakEdilenIzin),
                     new SqlParameter("@onayDurum", entity.OnayDurumu),
-                    new SqlParameter("@onayVeren", entity.OnayVeren));
+                    new SqlParameter("@onayVeren", entity.OnayVeren),
+                    new SqlParameter("@donem", entity.Donem),
+                    new SqlParameter("@fazlaCalismaTuru", entity.FazlaCalismaTuru));
 
                 dataReader.Close();
                 return "OK";

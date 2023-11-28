@@ -32,6 +32,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.CmbTalepEdenPersonel = new System.Windows.Forms.ComboBox();
             this.LblMasrafYeri = new System.Windows.Forms.Label();
             this.LblMasrafYeriNo = new System.Windows.Forms.Label();
             this.LblUnvani = new System.Windows.Forms.Label();
@@ -40,6 +41,10 @@
             this.label58 = new System.Windows.Forms.Label();
             this.label59 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.LblFazlaCalismaTuru = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.LblDonem = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.LblTarihBit = new System.Windows.Forms.DateTimePicker();
             this.LblTarihBas = new System.Windows.Forms.DateTimePicker();
             this.BtnSureHesapla = new System.Windows.Forms.Button();
@@ -54,7 +59,6 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.CmbTalepEdenPersonel = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.groupBox8.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -104,6 +108,15 @@
             this.groupBox8.TabIndex = 321;
             this.groupBox8.TabStop = false;
             this.groupBox8.Text = "Personel Bilgileri";
+            // 
+            // CmbTalepEdenPersonel
+            // 
+            this.CmbTalepEdenPersonel.FormattingEnabled = true;
+            this.CmbTalepEdenPersonel.Location = new System.Drawing.Point(229, 30);
+            this.CmbTalepEdenPersonel.Name = "CmbTalepEdenPersonel";
+            this.CmbTalepEdenPersonel.Size = new System.Drawing.Size(254, 23);
+            this.CmbTalepEdenPersonel.TabIndex = 25;
+            this.CmbTalepEdenPersonel.SelectedIndexChanged += new System.EventHandler(this.CmbTalepEdenPersonel_SelectedIndexChanged);
             // 
             // LblMasrafYeri
             // 
@@ -177,6 +190,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.LblFazlaCalismaTuru);
+            this.groupBox1.Controls.Add(this.label4);
+            this.groupBox1.Controls.Add(this.LblDonem);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.LblTarihBit);
             this.groupBox1.Controls.Add(this.LblTarihBas);
             this.groupBox1.Controls.Add(this.BtnSureHesapla);
@@ -194,10 +211,50 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.groupBox1.Size = new System.Drawing.Size(866, 206);
+            this.groupBox1.Size = new System.Drawing.Size(866, 250);
             this.groupBox1.TabIndex = 322;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Fazla Çalışma / Mesai Bilgileri";
+            // 
+            // LblFazlaCalismaTuru
+            // 
+            this.LblFazlaCalismaTuru.AutoSize = true;
+            this.LblFazlaCalismaTuru.Location = new System.Drawing.Point(227, 221);
+            this.LblFazlaCalismaTuru.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblFazlaCalismaTuru.Name = "LblFazlaCalismaTuru";
+            this.LblFazlaCalismaTuru.Size = new System.Drawing.Size(21, 15);
+            this.LblFazlaCalismaTuru.TabIndex = 547;
+            this.LblFazlaCalismaTuru.Text = "00";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(84, 221);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(136, 15);
+            this.label4.TabIndex = 546;
+            this.label4.Text = "FAZLA ÇALIŞMA TÜRÜ:";
+            // 
+            // LblDonem
+            // 
+            this.LblDonem.AutoSize = true;
+            this.LblDonem.Location = new System.Drawing.Point(227, 192);
+            this.LblDonem.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.LblDonem.Name = "LblDonem";
+            this.LblDonem.Size = new System.Drawing.Size(21, 15);
+            this.LblDonem.TabIndex = 545;
+            this.LblDonem.Text = "00";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(164, 192);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(56, 15);
+            this.label2.TabIndex = 544;
+            this.label2.Text = "DÖNEM:";
             // 
             // LblTarihBit
             // 
@@ -280,7 +337,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(8, 162);
+            this.label9.Location = new System.Drawing.Point(14, 162);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(206, 15);
@@ -310,7 +367,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(83, 128);
+            this.label7.Location = new System.Drawing.Point(86, 128);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(134, 15);
@@ -320,7 +377,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(142, 97);
+            this.label8.Location = new System.Drawing.Point(141, 97);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(79, 15);
@@ -334,7 +391,7 @@
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
             this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnKaydet.Location = new System.Drawing.Point(13, 425);
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 469);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnKaydet.TabIndex = 448;
@@ -343,29 +400,23 @@
             this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
             // 
-            // CmbTalepEdenPersonel
-            // 
-            this.CmbTalepEdenPersonel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CmbTalepEdenPersonel.FormattingEnabled = true;
-            this.CmbTalepEdenPersonel.Location = new System.Drawing.Point(229, 30);
-            this.CmbTalepEdenPersonel.Name = "CmbTalepEdenPersonel";
-            this.CmbTalepEdenPersonel.Size = new System.Drawing.Size(254, 23);
-            this.CmbTalepEdenPersonel.TabIndex = 25;
-            this.CmbTalepEdenPersonel.SelectedIndexChanged += new System.EventHandler(this.CmbTalepEdenPersonel_SelectedIndexChanged);
-            // 
             // FrmFazlaCalisma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 493);
+            this.ClientSize = new System.Drawing.Size(904, 532);
             this.Controls.Add(this.BtnKaydet);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox8);
             this.Controls.Add(this.panel1);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmFazlaCalisma";
-            this.Text = "FrmFazlaCalisma";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Fazla Çalışma Güncelle";
             this.Load += new System.EventHandler(this.FrmFazlaCalisma_Load);
             this.panel1.ResumeLayout(false);
             this.groupBox8.ResumeLayout(false);
@@ -397,12 +448,16 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label LblToplamIzin;
         private System.Windows.Forms.Label LblToplamMesai;
-        private System.Windows.Forms.DateTimePicker DtSaatBit;
-        private System.Windows.Forms.DateTimePicker DtSaatBas;
         private System.Windows.Forms.Button BtnKaydet;
         private System.Windows.Forms.Button BtnSureHesapla;
-        private System.Windows.Forms.DateTimePicker LblTarihBas;
-        private System.Windows.Forms.DateTimePicker LblTarihBit;
-        private System.Windows.Forms.ComboBox CmbTalepEdenPersonel;
+        private System.Windows.Forms.Label LblDonem;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label LblFazlaCalismaTuru;
+        private System.Windows.Forms.Label label4;
+        public System.Windows.Forms.DateTimePicker DtSaatBit;
+        public System.Windows.Forms.DateTimePicker DtSaatBas;
+        public System.Windows.Forms.DateTimePicker LblTarihBas;
+        public System.Windows.Forms.DateTimePicker LblTarihBit;
+        public System.Windows.Forms.ComboBox CmbTalepEdenPersonel;
     }
 }

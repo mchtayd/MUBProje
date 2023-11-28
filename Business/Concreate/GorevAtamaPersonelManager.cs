@@ -77,6 +77,17 @@ namespace Business.Concreate
                 return new List<GorevAtamaPersonel>();
             }
         }
+        public List<GorevAtamaPersonel> GetListPersonelBazli(string personelAdi)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.GetListPersonelBazli(personelAdi);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
 
         public List<GorevAtamaPersonel> GetDevamEdenler(int benzersiz, string departman)
         {
@@ -94,6 +105,50 @@ namespace Business.Concreate
             try
             {
                 return gorevAtamaPersonelDal.GorevAtamaGetList(benzersizId);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> GorevliPersoneller()
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.GorevliPersoneller();
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public GorevAtamaPersonel GorevSayilari(string personel)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.GorevSayilari(personel);
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+        public List<GorevAtamaPersonel> PersonelGorevleri(string personel)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.PersonelGorevleri(personel);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> PersonelAtananArizaKayitlari(int benzersizId)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.PersonelAtananArizaKayitlari(benzersizId);
             }
             catch (Exception)
             {
