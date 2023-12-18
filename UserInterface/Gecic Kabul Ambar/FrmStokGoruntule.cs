@@ -221,6 +221,13 @@ namespace UserInterface.Depo
 
             DtgMalzemeBilgisi.DataSource = malzemeManager.MalzemeGetList(TxtStokNo.Text);
 
+            if (DtgMalzemeBilgisi.RowCount==0)
+            {
+                DtgMalzemeBilgisi.DataSource = null;
+                MessageBox.Show("' " + TxtStokNo.Text + " '" + " stok numarası MÜB Van Depo stok kayıtlarında bulunmamaktadır!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
             DtgMalzemeBilgisi.Columns["Id"].Visible = false;
             DtgMalzemeBilgisi.Columns["StokNo"].HeaderText = "STOK NO";
             DtgMalzemeBilgisi.Columns["Tanim"].HeaderText = "TANIM";
@@ -276,6 +283,11 @@ namespace UserInterface.Depo
 
             stokNo = DtgMalzemeBilgisi.CurrentRow.Cells["Stokno"].Value.ToString();
             depoMiktars = depoMiktarManager.GetList(stokNo, "TÜM");
+
+            if (depoMiktars.Count<=0)
+            {
+                MessageBox.Show("' " + TxtStokNo.Text + " '" + " stok numaralı malzeme depo stoklarında bulunmamaktadır!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
 
             dataBinder.DataSource = depoMiktars.ToDataTable();
             DtgDepoBilgileri.DataSource = dataBinder;

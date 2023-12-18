@@ -204,6 +204,7 @@ namespace DataAccess
         {
             try
             {
+                SqlDataReader dataReader;
                 List<GorevAtama> gorevAtamas = new List<GorevAtama>();
                 dataReader = sqlServices.StoreReader("YoneticiGorevlerimiGor", new SqlParameter("@adSoyad", adSoyad));
                 while (dataReader.Read())
@@ -232,6 +233,7 @@ namespace DataAccess
             }
             catch (Exception ex)
             {
+                dataReader.Close();
                 return new List<GorevAtama>();
             }
         }

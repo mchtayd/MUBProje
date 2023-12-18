@@ -42,6 +42,10 @@ namespace UserInterface.Ana_Sayfa
         
         private void FrmGorevliPersoneller_Load(object sender, EventArgs e)
         {
+            if (infos[1].ToString()=="MÜCAHİT AYDEMİR")
+            {
+                button1.Visible = true;
+            }
             DataDisplay();
         }
         void DataDisplay()
@@ -268,6 +272,45 @@ namespace UserInterface.Ana_Sayfa
                     return;
                 }
                 MessageBox.Show("Personel başarıyla uyarılmıştır!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bütün fazla görevler temizlenecek onaylıyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                List<int> idLer = new List<int>();
+                int sayi = 0;
+
+                idLer = gorevAtamaPersonelManager.HataliGorevler();
+                sayi = idLer.Count;
+                foreach (int item in idLer)
+                {
+                    int id = gorevAtamaPersonelManager.HataliGorevlerId(item);
+                    gorevAtamaPersonelManager.HataliGorevSil(id);
+                }
+
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                gorevAtamaPersonels = gorevAtamaPersonelManager.TamamlananGorevler();
+
+                foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+                {
+                    List<GorevAtamaPersonel> gorevAtamaPersonels1 = new List<GorevAtamaPersonel>();
+                    List<GorevAtamaPersonel> gorevAtamaPersonels2 = new List<GorevAtamaPersonel>();
+                    gorevAtamaPersonels1 = gorevAtamaPersonelManager.TamamlananHataliGorevler(item.BenzersizId);
+                    gorevAtamaPersonels2 = gorevAtamaPersonelManager.GetList(item.BenzersizId, "BAKIM ONARIM");
+                    if (gorevAtamaPersonels1.Count>0 && gorevAtamaPersonels2[gorevAtamaPersonels2.Count-1].IslemAdimi == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
+                    {
+                        sayi += gorevAtamaPersonels1.Count;
+                        foreach (GorevAtamaPersonel item2 in gorevAtamaPersonels1)
+                        {
+                            gorevAtamaPersonelManager.HataliGorevSil(item2.Id);
+                        }
+                    }
+                }
+
+                MessageBox.Show(sayi.ToString() + " adet hatalı görev silindi", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
     }

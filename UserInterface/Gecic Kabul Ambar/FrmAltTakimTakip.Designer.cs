@@ -42,6 +42,7 @@
             this.barkodOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.malzemeBilgisiniDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.malzemeKaydınıDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hurdayaAyrılacaklarıBelirleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.LblTop2 = new System.Windows.Forms.Label();
@@ -184,30 +185,38 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.barkodOluşturToolStripMenuItem,
             this.malzemeBilgisiniDüzenleToolStripMenuItem,
-            this.malzemeKaydınıDüzenleToolStripMenuItem});
+            this.malzemeKaydınıDüzenleToolStripMenuItem,
+            this.hurdayaAyrılacaklarıBelirleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(212, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(222, 92);
             // 
             // barkodOluşturToolStripMenuItem
             // 
             this.barkodOluşturToolStripMenuItem.Name = "barkodOluşturToolStripMenuItem";
-            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.barkodOluşturToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.barkodOluşturToolStripMenuItem.Text = "Barkod Oluştur";
             this.barkodOluşturToolStripMenuItem.Click += new System.EventHandler(this.barkodOluşturToolStripMenuItem_Click);
             // 
             // malzemeBilgisiniDüzenleToolStripMenuItem
             // 
             this.malzemeBilgisiniDüzenleToolStripMenuItem.Name = "malzemeBilgisiniDüzenleToolStripMenuItem";
-            this.malzemeBilgisiniDüzenleToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.malzemeBilgisiniDüzenleToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.malzemeBilgisiniDüzenleToolStripMenuItem.Text = "Malzeme Bilgisini Düzenle";
             this.malzemeBilgisiniDüzenleToolStripMenuItem.Click += new System.EventHandler(this.malzemeBilgisiniDüzenleToolStripMenuItem_Click);
             // 
             // malzemeKaydınıDüzenleToolStripMenuItem
             // 
             this.malzemeKaydınıDüzenleToolStripMenuItem.Name = "malzemeKaydınıDüzenleToolStripMenuItem";
-            this.malzemeKaydınıDüzenleToolStripMenuItem.Size = new System.Drawing.Size(211, 22);
+            this.malzemeKaydınıDüzenleToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
             this.malzemeKaydınıDüzenleToolStripMenuItem.Text = "Malzeme Kaydını Düzenle";
             this.malzemeKaydınıDüzenleToolStripMenuItem.Click += new System.EventHandler(this.malzemeKaydınıDüzenleToolStripMenuItem_Click);
+            // 
+            // hurdayaAyrılacaklarıBelirleToolStripMenuItem
+            // 
+            this.hurdayaAyrılacaklarıBelirleToolStripMenuItem.Name = "hurdayaAyrılacaklarıBelirleToolStripMenuItem";
+            this.hurdayaAyrılacaklarıBelirleToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.hurdayaAyrılacaklarıBelirleToolStripMenuItem.Text = "Hurdaya Ayrılacakları Belirle";
+            this.hurdayaAyrılacaklarıBelirleToolStripMenuItem.Click += new System.EventHandler(this.hurdayaAyrılacaklarıBelirleToolStripMenuItem_Click);
             // 
             // TxtAciklama
             // 
@@ -699,5 +708,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox TxtSeriNo;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ToolStripMenuItem hurdayaAyrılacaklarıBelirleToolStripMenuItem;
     }
 }

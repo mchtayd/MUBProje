@@ -22,6 +22,7 @@ namespace UserInterface.BakımOnarım
         BolgeKayitManager bolgeKayitManager;
         BolgeGarantiManager bolgeGarantiManager;
         BolgeNotManager bolgeNotManager;
+        BolgeEnvanterManager bolgeEnvanterManager;
 
         int id;
         string siparisNo, dosyaYolu;
@@ -32,6 +33,7 @@ namespace UserInterface.BakımOnarım
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
             bolgeNotManager = BolgeNotManager.GetInstance();
+            bolgeEnvanterManager = BolgeEnvanterManager.GetInstance();
         }
 
         private void FrmBolgeKayitIzleme_Load(object sender, EventArgs e)
@@ -137,7 +139,7 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["Not"].HeaderText = "NOT";
 
             GarantiPaketleriDisplay(siparisNo);
-
+            FillData();
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -146,6 +148,31 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
+
+        }
+
+        void FillData()
+        {
+            DtgEnvanterList.DataSource = null;
+            List<BolgeEnvanter> bolgeEnvanters = new List<BolgeEnvanter>();
+            bolgeEnvanters = bolgeEnvanterManager.GetList(id);
+            dataBinderEkipman.DataSource = bolgeEnvanters.ToDataTable();
+            DtgEnvanterList.DataSource = dataBinderEkipman;
+            LblEkipman.Text = DtgEnvanterList.RowCount.ToString();
+
+            DtgEnvanterList.Columns["Id"].Visible = false;
+            DtgEnvanterList.Columns["BolgeId"].Visible = false;
+            DtgEnvanterList.Columns["Kategori"].HeaderText = "KATEGORİ";
+            DtgEnvanterList.Columns["Donanim"].HeaderText = "DONANIM";
+            DtgEnvanterList.Columns["StokNo"].HeaderText = "STOK NO";
+            DtgEnvanterList.Columns["Tanim"].HeaderText = "TANIM";
+            DtgEnvanterList.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgEnvanterList.Columns["Birim"].HeaderText = "BİRİM";
+            DtgEnvanterList.Columns["SeriNo"].HeaderText = "SERİ NO";
+            DtgEnvanterList.Columns["Revizyon"].HeaderText = "REVİZYON";
+            DtgEnvanterList.Columns["Nsn"].HeaderText = "NATO STOK NO";
+            DtgEnvanterList.Columns["GuncellemeTarihi"].HeaderText = "SON GÜNCELLEME TARİHİ";
+            DtgEnvanterList.Columns["MubBilgisi"].Visible = false;
 
         }
 
@@ -163,6 +190,18 @@ namespace UserInterface.BakımOnarım
         private void tabPage4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void DtgEnvanterList_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderEkipman.Filter = DtgEnvanterList.FilterString;
+            LblEkipman.Text = DtgEnvanterList.RowCount.ToString();
+
+        }
+
+        private void DtgEnvanterList_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderEkipman.Sort = DtgEnvanterList.SortString;
         }
 
         void GarantiPaketleriDisplay(string siparisNo)

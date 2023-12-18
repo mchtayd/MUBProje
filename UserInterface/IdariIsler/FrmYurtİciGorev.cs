@@ -408,7 +408,7 @@ namespace UserInterface.IdariIsler
             wBookmarks["AdSoyad2"].Range.Text = CmbAdSoyad.Text;
             wBookmarks["Tarih"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
             wBookmarks["Tarih2"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            wBookmarks["Tarih3"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            
             if (usamirisim == "RESUL GÜNEŞ")
             {
                 wBookmarks["UstAmir"].Range.Text = "";
@@ -419,6 +419,7 @@ namespace UserInterface.IdariIsler
                 return;
             }
             wBookmarks["UstAmir"].Range.Text = usamirisim;
+            wBookmarks["Tarih3"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
             //wDoc.SaveAs2(yol + "\\" + TxtIsAkisNoTamamla.Text + ".docx"); // farklı kaydet
 
             wDoc.SaveAs2(dosya + LblIsAkisNo.Text + ".docx");
@@ -478,13 +479,11 @@ namespace UserInterface.IdariIsler
             wBookmarks["AdSoyad2"].Range.Text = CmbAdSoyadGun.Text;
             wBookmarks["Tarih"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
             wBookmarks["Tarih2"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
-            wBookmarks["Tarih3"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
             yeniad = TxtIsAkisNoTamamla.Text + "_" + TxtGorevEmriNoGun.Text;
             string tamyol = dosyaGun + yeniad + ".docx";
             if (usamirisim == "RESUL GÜNEŞ")
             {
                 wBookmarks["UstAmir"].Range.Text = "";
-
                 wDoc.SaveAs2(tamyol);
                 wDoc.Close();
                 wApp.Quit(false);
@@ -493,6 +492,7 @@ namespace UserInterface.IdariIsler
                 return;
             }
             wBookmarks["UstAmir"].Range.Text = usamirisim;
+            wBookmarks["Tarih3"].Range.Text = DateTime.Now.ToString("dd/MM/yyyy");
             //wDoc.SaveAs2(yol + "\\" + TxtIsAkisNoTamamla.Text + ".docx"); // farklı kaydet
             wDoc.SaveAs2(tamyol);
             wDoc.Close();
@@ -644,7 +644,7 @@ namespace UserInterface.IdariIsler
                 CreateLog();
                 CreateWord();
                 //Task.Factory.StartNew(() => MailSendMetot());
-                System.Threading.Tasks.Task.Factory.StartNew(() => MailSendMetot());
+                //System.Threading.Tasks.Task.Factory.StartNew(() => MailSendMetot());
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 try
                 {

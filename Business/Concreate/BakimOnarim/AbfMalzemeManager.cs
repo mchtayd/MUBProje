@@ -88,11 +88,11 @@ namespace Business.Concreate.BakimOnarim
                 return null;
             }
         }
-        public AbfMalzeme GetBul(int benzersizId, string stokNo, string seriNo, string revizyon)
+        public AbfMalzeme GetBul(int benzersizId, string stokNo, string seriNo, string revizyon, int miktar=0)
         {
             try
             {
-                return abfMalzemeDal.GetBul(benzersizId, stokNo, seriNo, revizyon);
+                return abfMalzemeDal.GetBul(benzersizId, stokNo, seriNo, revizyon, miktar);
             }
             catch (Exception)
             {
@@ -252,6 +252,17 @@ namespace Business.Concreate.BakimOnarim
             try
             {
                 return abfMalzemeDal.TakilanMalzemeTeslimBilgisiUpdate(id, teslimDurum);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string HurdaSaglamMiktarUpdate(int id, int saglamMiktar)
+        {
+            try
+            {
+                return abfMalzemeDal.HurdaSaglamMiktarUpdate(id, saglamMiktar);
             }
             catch (Exception ex)
             {

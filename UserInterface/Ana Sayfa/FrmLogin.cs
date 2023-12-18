@@ -27,7 +27,7 @@ namespace UserInterface
         }
         private void Login_Shown(object sender, EventArgs e)
         {
-           // MessageBox.Show(Application.ExecutablePath);
+            // MessageBox.Show(Application.ExecutablePath);
         }
         private async void btnLogin_Click(object sender, EventArgs e)
         {
@@ -46,7 +46,7 @@ namespace UserInterface
             FileSystemAccessRule fsa = new FileSystemAccessRule(adminUserName, FileSystemRights.FullControl, AccessControlType.Deny);
             ds.RemoveAccessRule(fsa);
             Directory.SetAccessControl(folderPath, ds);*/
-            
+
             if (MskSicil.Text.Trim() == "" || textPassword.Text.Trim() == "")
             {
                 MessageBox.Show("Lütfen Sicil Numarası ve Şifreyi giriniz.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -72,9 +72,20 @@ namespace UserInterface
             MessageBox.Show("Sayın " + infos[1] + " Hoşgeldiniz.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
-            FrmAnaSayfa anaSayfa = new FrmAnaSayfa();
-            anaSayfa.infos = infos;
+            FrmAnaSayfa anaSayfa = new FrmAnaSayfa
+            {
+                infos = infos
+            };
+
+            //Task task = Task.Factory.StartNew(() => anaSayfa.Show());
+            //Invoke((Action)(() => { anaSayfa.Show(); }));
+            //Task task = new Task(anaSayfa.Show);
+            //task.Start();
+            //await task;
+
             anaSayfa.Show();
+
+
             this.Hide();
 
             // string version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);
@@ -106,6 +117,12 @@ namespace UserInterface
                 return;
             }
             textPassword.Focus();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            FrmDeneme frmDeneme = new FrmDeneme();
+            frmDeneme.Show();
         }
     }
 }

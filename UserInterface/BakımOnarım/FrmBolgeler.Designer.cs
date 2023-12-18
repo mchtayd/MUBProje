@@ -30,9 +30,9 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmBolgeler));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgBolgeler = new ADGV.AdvancedDataGridView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -112,6 +112,7 @@ namespace UserInterface.BakımOnarım
             this.label3 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.BtnEkipmanKaydet = new System.Windows.Forms.Button();
             this.BtnExcelAl = new System.Windows.Forms.Button();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.DtgEnvanterList = new System.Windows.Forms.DataGridView();
@@ -271,7 +272,6 @@ namespace UserInterface.BakımOnarım
             this.BtnCancel = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.BtnEkipmanKaydet = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
             this.tabControl1.SuspendLayout();
@@ -331,8 +331,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgBolgeler.AllowUserToAddRows = false;
             this.DtgBolgeler.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgBolgeler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgBolgeler.AutoGenerateContextFilters = true;
             this.DtgBolgeler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgBolgeler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -477,11 +477,11 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle2;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.Name = "Remove";
             this.Remove.ReadOnly = true;
@@ -1239,6 +1239,22 @@ namespace UserInterface.BakımOnarım
             this.tabPage3.Text = "EKİPMAN KAYIT/DÜZENLE";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
+            // BtnEkipmanKaydet
+            // 
+            this.BtnEkipmanKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnEkipmanKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEkipmanKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnEkipmanKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnEkipmanKaydet.Image")));
+            this.BtnEkipmanKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEkipmanKaydet.Location = new System.Drawing.Point(10, 616);
+            this.BtnEkipmanKaydet.Name = "BtnEkipmanKaydet";
+            this.BtnEkipmanKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnEkipmanKaydet.TabIndex = 318;
+            this.BtnEkipmanKaydet.Text = "     KAYDET";
+            this.BtnEkipmanKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEkipmanKaydet.UseVisualStyleBackColor = false;
+            this.BtnEkipmanKaydet.Click += new System.EventHandler(this.BtnEkipmanKaydet_Click);
+            // 
             // BtnExcelAl
             // 
             this.BtnExcelAl.Location = new System.Drawing.Point(1231, 672);
@@ -1247,7 +1263,6 @@ namespace UserInterface.BakımOnarım
             this.BtnExcelAl.TabIndex = 150;
             this.BtnExcelAl.Text = "Excel Çek";
             this.BtnExcelAl.UseVisualStyleBackColor = true;
-            this.BtnExcelAl.Visible = false;
             this.BtnExcelAl.Click += new System.EventHandler(this.BtnExcelAl_Click);
             // 
             // groupBox6
@@ -2370,22 +2385,6 @@ namespace UserInterface.BakımOnarım
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            // 
-            // BtnEkipmanKaydet
-            // 
-            this.BtnEkipmanKaydet.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnEkipmanKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEkipmanKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnEkipmanKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnEkipmanKaydet.Image")));
-            this.BtnEkipmanKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnEkipmanKaydet.Location = new System.Drawing.Point(10, 616);
-            this.BtnEkipmanKaydet.Name = "BtnEkipmanKaydet";
-            this.BtnEkipmanKaydet.Size = new System.Drawing.Size(130, 51);
-            this.BtnEkipmanKaydet.TabIndex = 318;
-            this.BtnEkipmanKaydet.Text = "     KAYDET";
-            this.BtnEkipmanKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnEkipmanKaydet.UseVisualStyleBackColor = false;
-            this.BtnEkipmanKaydet.Click += new System.EventHandler(this.BtnEkipmanKaydet_Click);
             // 
             // FrmBolgeler
             // 

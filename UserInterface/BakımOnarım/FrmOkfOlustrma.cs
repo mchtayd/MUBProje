@@ -359,10 +359,16 @@ namespace UserInterface.BakımOnarım
             bool exists = File.Exists(excelFilePath);
             IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
             IXLWorksheet worksheet = xLWorkbook.Worksheet("Sheet2");
-
+            DateTime date = DateTime.Now;
             var range = worksheet.RangeUsed();
-            DateTime date = new DateTime(DtgArizaTarihi.Value.Year, DtgArizaTarihi.Value.Month, DtgArizaTarihi.Value.Day+2, DtgArizaTarihi.Value.Hour, DtgArizaTarihi.Value.Minute, DtgArizaTarihi.Value.Second);
-            if (date.Day.ToString("dddd")== "Pazar")
+            if (DtgArizaTarihi.Value.Day.ConInt() > 25)
+            {
+                MessageBox.Show("Düzenlenme tarihinin doğru olması için lütfen tarihi gün olarak 25 den önceki bir tarihe ayarlayınız!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            date = new DateTime(DtgArizaTarihi.Value.Year, DtgArizaTarihi.Value.Month, DtgArizaTarihi.Value.Day + 2, DtgArizaTarihi.Value.Hour, DtgArizaTarihi.Value.Minute, DtgArizaTarihi.Value.Second);
+            if (date.Day.ToString("dddd") == "Pazar")
             {
                 date = new DateTime(DtgArizaTarihi.Value.Year, DtgArizaTarihi.Value.Month, DtgArizaTarihi.Value.Day + 3, DtgArizaTarihi.Value.Hour, DtgArizaTarihi.Value.Minute, DtgArizaTarihi.Value.Second);
             }
@@ -370,6 +376,7 @@ namespace UserInterface.BakımOnarım
             {
                 date = new DateTime(DtgArizaTarihi.Value.Year, DtgArizaTarihi.Value.Month, DtgArizaTarihi.Value.Day + 4, DtgArizaTarihi.Value.Hour, DtgArizaTarihi.Value.Minute, DtgArizaTarihi.Value.Second);
             }
+
             worksheet.Cell("I4").Value = date.ToString("d");
             worksheet.Cell("J4").Value = DateTime.Now.ToString("d");
             worksheet.Cell("F7").Value = CmbTanim.Text;
@@ -403,6 +410,11 @@ namespace UserInterface.BakımOnarım
                 if (DtgMalzemeList.Rows.Count == 0)
                 {
                     MessageBox.Show("Lütfen Kullanılacak Malzemeler tablosuna veri ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (DtgArizaTarihi.Value.Day.ConInt() > 25)
+                {
+                    MessageBox.Show("Düzenlenme tarihinin doğru olması için lütfen tarihi gün olarak 25 veya 25 den önceki bir tarihe ayarlayınız!", "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
                 }
                 IsAkisNo();

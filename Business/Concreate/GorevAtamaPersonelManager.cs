@@ -188,6 +188,106 @@ namespace Business.Concreate
                 return new List<GorevAtamaPersonel>();
             }
         }
+        public List<GorevAtamaPersonel> IsAkisGorevlerimBakimOnarim(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.IsAkisGorevlerimBakimOnarim(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> TamamlananGorevler()
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.TamamlananGorevler();
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> TamamlananHataliGorevler(int benzersizId)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.TamamlananHataliGorevler(benzersizId);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<int> HataliGorevler()
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.HataliGorevler();
+            }
+            catch (Exception)
+            {
+                return new List<int>();
+            }
+        }
+        public int HataliGorevlerId(int id)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.HataliGorevlerId(id);
+            }
+            catch (Exception)
+            {
+                return 0;
+            }
+        }
+
+        public List<GorevAtamaPersonel> IsAkisGorevlerimSatinAlma(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.IsAkisGorevlerimSatinAlma(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> IsAkisGorevlerimIzin(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.IsAkisGorevlerimIzin(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> IsAkisGorevlerimAtolye(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.IsAkisGorevlerimAtolye(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> IsAkisGorevlerimMif(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.IsAkisGorevlerimMif(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
         public List<string> BolumeBagliPersoneller(string bolum)
         {
             try
@@ -217,6 +317,17 @@ namespace Business.Concreate
             try
             {
                 return gorevAtamaPersonelDal.SureDuzelt(id, sure);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string HataliGorevSil(int id)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.HataliGorevSil(id);
             }
             catch (Exception ex)
             {

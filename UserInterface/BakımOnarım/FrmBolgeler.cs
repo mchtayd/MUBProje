@@ -47,6 +47,7 @@ namespace UserInterface.BakımOnarım
         bool start = true;
         bool dosyaControl = false;
         int bolgeId = 0;
+        bool excelControl = false;
 
         public object[] infos;
         public FrmBolgeler()
@@ -448,6 +449,9 @@ namespace UserInterface.BakımOnarım
             List<PersonelKayit> personelKayits = new List<PersonelKayit>();
             personelKayits = personelKayitManager.GetMasrafYeriSorumlusuPer(CmbBolgeSorumlusu.Text);
 
+            PersonelKayit personelKayit = new PersonelKayit(CmbBolgeSorumlusu.SelectedIndex, CmbBolgeSorumlusu.Text);
+            personelKayits.Add(personelKayit);
+
             CmbBolgePersonel.DataSource = personelKayits;
             CmbBolgePersonel.ValueMember = "Id";
             CmbBolgePersonel.DisplayMember = "Adsoyad";
@@ -512,6 +516,7 @@ namespace UserInterface.BakımOnarım
 
             DtgEnvanterList.DataSource = null;
             DtgEnvanterList.DataSource = table;
+            excelControl = true;
         }
 
         private void CmbBolgeAdiEkipman_SelectedIndexChanged(object sender, EventArgs e)
@@ -566,6 +571,11 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Envanter listesinde veri bulunmamaktadır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (bolgeId==0)
+            {
+                MessageBox.Show("Lütfen bölge seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr!=DialogResult.Yes)
@@ -574,14 +584,38 @@ namespace UserInterface.BakımOnarım
             }
 
             bolgeEnvanterManager.Delete(bolgeId);
-
-            foreach (DataGridViewRow item in DtgEnvanterList.Rows)
+            if (excelControl==true)
             {
-                BolgeEnvanter bolgeEnvanter = new BolgeEnvanter(bolgeId, item.Cells[0].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
-                            item.Cells[3].Value.ToString(), item.Cells[4].Value.ConInt(), item.Cells[5].Value.ToString(), item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), item.Cells[8].Value.ToString(), DateTime.Now, LblBolgeKonfig.Text);
+                foreach (DataGridViewRow item in DtgEnvanterList.Rows)
+                {
+                    BolgeEnvanter bolgeEnvanter;
 
-                bolgeEnvanterManager.Add(bolgeEnvanter);
+                    string[] miktar = item.Cells[4].Value.ToString().Split(' ');
+                    if (miktar[0] == "")
+                    {
+                        bolgeEnvanter = new BolgeEnvanter(bolgeId, item.Cells[0].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
+                                item.Cells[3].Value.ToString(), 1, "SET", item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), item.Cells[8].Value.ToString(), DateTime.Now, LblBolgeKonfig.Text);
+                        bolgeEnvanterManager.Add(bolgeEnvanter);
+                        continue;
+                    }
+
+                    bolgeEnvanter = new BolgeEnvanter(bolgeId, item.Cells["BolgeId"].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
+                                item.Cells[3].Value.ToString(), miktar[0].ConInt(), miktar[1].ToString().ToUpper(), item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), item.Cells[8].Value.ToString(), DateTime.Now, LblBolgeKonfig.Text);
+                    bolgeEnvanterManager.Add(bolgeEnvanter);
+                }
             }
+
+            else
+            {
+                foreach (DataGridViewRow item in DtgEnvanterList.Rows)
+                {
+                    BolgeEnvanter bolgeEnvanter = new BolgeEnvanter(item.Cells["BolgeId"].Value.ConInt(), item.Cells["Kategori"].Value.ToString().ToUpper(), item.Cells["Donanim"].Value.ToString().ToUpper(), item.Cells["StokNo"].Value.ToString().ToUpper(),
+                                item.Cells["Tanim"].Value.ToString().ToUpper(), item.Cells["Miktar"].Value.ConInt(), item.Cells["Birim"].Value.ToString().ToUpper(), item.Cells["SeriNo"].Value.ToString().ToUpper(), item.Cells["Revizyon"].Value.ToString().ToUpper(), item.Cells["Nsn"].Value.ToString().ToUpper(), DateTime.Now, LblBolgeKonfig.Text);
+                    bolgeEnvanterManager.Add(bolgeEnvanter);
+                }
+            }
+
+            excelControl = false;
 
 
             #region EXCEL KAYIT

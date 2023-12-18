@@ -115,11 +115,11 @@ namespace DataAccess.Concreate.BakimOnarim
                 return null;
             }
         }
-        public AbfMalzeme GetBul(int benzersizId, string stokNo, string seriNo, string revizyon)
+        public AbfMalzeme GetBul(int benzersizId, string stokNo, string seriNo, string revizyon, int miktar)
         {
             try
             {
-                dataReader = sqlServices.StoreReader("AbfMalzemeGetBul", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@revizyon", revizyon));
+                dataReader = sqlServices.StoreReader("AbfMalzemeGetBul", new SqlParameter("@benzersizId", benzersizId), new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@revizyon", revizyon), new SqlParameter("@miktar", miktar));
                 AbfMalzeme abfMalzeme = null;
                 while (dataReader.Read())
                 {
@@ -611,6 +611,25 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+
+        public string HurdaSaglamMiktarUpdate(int id, int miktar)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AbfMalzemeHurdaSaglamMalzemeMiktarUpp",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@miktar", miktar));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+
         public string YerineMalzemeTakilma(int id)
         {
             try

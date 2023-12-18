@@ -44,11 +44,14 @@ namespace UserInterface.BakımOnarım
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.DtgGarantiPaketi = new ADGV.AdvancedDataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.DtgEkipman = new ADGV.AdvancedDataGridView();
+            this.DtgEnvanterList = new ADGV.AdvancedDataGridView();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.DtgList = new System.Windows.Forms.DataGridView();
+            this.dataBinderEkipman = new System.Windows.Forms.BindingSource(this.components);
+            this.LblEkipman = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgBolgeler)).BeginInit();
@@ -57,10 +60,11 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgGarantiPaketi)).BeginInit();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgEkipman)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgEnvanterList)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderEkipman)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -92,7 +96,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.Controls.Add(this.DtgBolgeler);
             this.groupBox1.Location = new System.Drawing.Point(12, 33);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1452, 446);
+            this.groupBox1.Size = new System.Drawing.Size(1452, 288);
             this.groupBox1.TabIndex = 311;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "BÖLGELER";
@@ -113,7 +117,7 @@ namespace UserInterface.BakımOnarım
             this.DtgBolgeler.Name = "DtgBolgeler";
             this.DtgBolgeler.ReadOnly = true;
             this.DtgBolgeler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgBolgeler.Size = new System.Drawing.Size(1446, 427);
+            this.DtgBolgeler.Size = new System.Drawing.Size(1446, 269);
             this.DtgBolgeler.TabIndex = 2;
             this.DtgBolgeler.TimeFilter = false;
             this.DtgBolgeler.SortStringChanged += new System.EventHandler(this.DtgBolgeler_SortStringChanged);
@@ -124,7 +128,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(121, 493);
+            this.TxtTop.Location = new System.Drawing.Point(118, 328);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 313;
@@ -134,7 +138,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(21, 493);
+            this.label5.Location = new System.Drawing.Point(18, 328);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 312;
@@ -146,10 +150,10 @@ namespace UserInterface.BakımOnarım
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage4);
-            this.tabControl1.Location = new System.Drawing.Point(15, 526);
+            this.tabControl1.Location = new System.Drawing.Point(12, 349);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1439, 324);
+            this.tabControl1.Size = new System.Drawing.Size(1449, 520);
             this.tabControl1.TabIndex = 316;
             // 
             // tabPage1
@@ -158,7 +162,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1431, 298);
+            this.tabPage1.Size = new System.Drawing.Size(1431, 494);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "GARANTİ PAKETİ BİLGİLERİ";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -180,41 +184,44 @@ namespace UserInterface.BakımOnarım
             this.DtgGarantiPaketi.Name = "DtgGarantiPaketi";
             this.DtgGarantiPaketi.ReadOnly = true;
             this.DtgGarantiPaketi.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgGarantiPaketi.Size = new System.Drawing.Size(1425, 292);
+            this.DtgGarantiPaketi.Size = new System.Drawing.Size(1425, 488);
             this.DtgGarantiPaketi.TabIndex = 6;
             this.DtgGarantiPaketi.TimeFilter = false;
             // 
             // tabPage2
             // 
-            this.tabPage2.Controls.Add(this.DtgEkipman);
+            this.tabPage2.Controls.Add(this.LblEkipman);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.DtgEnvanterList);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1431, 298);
+            this.tabPage2.Size = new System.Drawing.Size(1441, 494);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "EKİPMAN BİLGİLERİ";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
-            // DtgEkipman
+            // DtgEnvanterList
             // 
-            this.DtgEkipman.AllowUserToAddRows = false;
-            this.DtgEkipman.AllowUserToDeleteRows = false;
+            this.DtgEnvanterList.AllowUserToAddRows = false;
+            this.DtgEnvanterList.AllowUserToDeleteRows = false;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgEkipman.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
-            this.DtgEkipman.AutoGenerateContextFilters = true;
-            this.DtgEkipman.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgEkipman.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgEkipman.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgEkipman.DateWithTime = false;
-            this.DtgEkipman.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgEkipman.Location = new System.Drawing.Point(3, 3);
-            this.DtgEkipman.MultiSelect = false;
-            this.DtgEkipman.Name = "DtgEkipman";
-            this.DtgEkipman.ReadOnly = true;
-            this.DtgEkipman.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgEkipman.Size = new System.Drawing.Size(1425, 292);
-            this.DtgEkipman.TabIndex = 7;
-            this.DtgEkipman.TimeFilter = false;
+            this.DtgEnvanterList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            this.DtgEnvanterList.AutoGenerateContextFilters = true;
+            this.DtgEnvanterList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgEnvanterList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgEnvanterList.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgEnvanterList.DateWithTime = false;
+            this.DtgEnvanterList.Location = new System.Drawing.Point(3, 3);
+            this.DtgEnvanterList.MultiSelect = false;
+            this.DtgEnvanterList.Name = "DtgEnvanterList";
+            this.DtgEnvanterList.ReadOnly = true;
+            this.DtgEnvanterList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.DtgEnvanterList.Size = new System.Drawing.Size(1432, 453);
+            this.DtgEnvanterList.TabIndex = 7;
+            this.DtgEnvanterList.TimeFilter = false;
+            this.DtgEnvanterList.SortStringChanged += new System.EventHandler(this.DtgEnvanterList_SortStringChanged);
+            this.DtgEnvanterList.FilterStringChanged += new System.EventHandler(this.DtgEnvanterList_FilterStringChanged);
             // 
             // tabPage3
             // 
@@ -261,6 +268,26 @@ namespace UserInterface.BakımOnarım
             this.DtgList.Size = new System.Drawing.Size(1425, 292);
             this.DtgList.TabIndex = 2;
             // 
+            // LblEkipman
+            // 
+            this.LblEkipman.AutoSize = true;
+            this.LblEkipman.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblEkipman.Location = new System.Drawing.Point(106, 465);
+            this.LblEkipman.Name = "LblEkipman";
+            this.LblEkipman.Size = new System.Drawing.Size(21, 15);
+            this.LblEkipman.TabIndex = 315;
+            this.LblEkipman.Text = "00";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(6, 465);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(94, 15);
+            this.label2.TabIndex = 314;
+            this.label2.Text = "Toplam Kayıt:";
+            // 
             // FrmBolgeKayitIzleme
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -282,10 +309,12 @@ namespace UserInterface.BakımOnarım
             this.tabPage1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgGarantiPaketi)).EndInit();
             this.tabPage2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgEkipman)).EndInit();
+            this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgEnvanterList)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderEkipman)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -304,10 +333,13 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.TabPage tabPage1;
         private ADGV.AdvancedDataGridView DtgGarantiPaketi;
         private System.Windows.Forms.TabPage tabPage2;
-        private ADGV.AdvancedDataGridView DtgEkipman;
+        private ADGV.AdvancedDataGridView DtgEnvanterList;
         private System.Windows.Forms.TabPage tabPage3;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.DataGridView DtgList;
+        private System.Windows.Forms.BindingSource dataBinderEkipman;
+        private System.Windows.Forms.Label LblEkipman;
+        private System.Windows.Forms.Label label2;
     }
 }

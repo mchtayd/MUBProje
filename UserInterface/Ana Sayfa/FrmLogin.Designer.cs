@@ -172,7 +172,6 @@ namespace UserInterface
             this.label2.TabIndex = 38;
             this.label2.Text = "Devoloper and Designer R.GÜNEŞ - M.AYDEMİR";
             // 
-            // 
             // Login
             // 
             this.AcceptButton = this.btnLogin;

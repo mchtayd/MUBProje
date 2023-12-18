@@ -767,7 +767,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 while (dataReader.Read())
                 {
                     DateTime startDate = dataReader["AB_TARIH_SAAT"].ConDate();
-                    string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();
+                    string gecenSure = (DateTime.Now.Subtract(startDate)).ToString();//
                     gecenSure = gecenSure.Substring(0, gecenSure.LastIndexOf('.')); //17:44:08
 
                     string[] array = gecenSure.Split('.');

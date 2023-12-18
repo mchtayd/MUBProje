@@ -1,14 +1,19 @@
 ﻿using Business;
 using Business.Concreate;
 using Business.Concreate.AnaSayfa;
+using Business.Concreate.IdarıIsler;
+using DocumentFormat.OpenXml.Presentation;
 using Entity;
 using Entity.AnaSayfa;
+using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.STS;
 using Path = System.IO.Path;
@@ -24,6 +29,7 @@ namespace UserInterface.Ana_Sayfa
         GorevAtamaManager gorevAtamaManager;
         DuyuruManager duyuruManager;
         VersionManager versionManager;
+        PersonelKayitManager personelKayitManager;
         
         List<GorevAtama> gorevAtamaListYonetici;
         List<GorevAtamaPersonel> arizaGorevAtamaPersonels;
@@ -44,6 +50,7 @@ namespace UserInterface.Ana_Sayfa
             gorevAtamaManager = GorevAtamaManager.GetInstance();
             duyuruManager = DuyuruManager.GetInstance();
             versionManager = VersionManager.GetInstance();
+            personelKayitManager = PersonelKayitManager.GetInstance();
 
             //StartPosition = FormStartPosition.Manual;
             //Rectangle screen = Screen.FromPoint(Cursor.Position).WorkingArea;
@@ -56,8 +63,15 @@ namespace UserInterface.Ana_Sayfa
 
         private void FrmBildirimler_Load(object sender, EventArgs e)
         {
+            //await Task.Run(() => Gorevler());
+            //await Task.Run(() => DuyuruEditList());
+            //await Task.Run(() => BolumGorevlerim());
+
             Gorevler();
             DuyuruEditList();
+            BolumGorevlerim();
+
+            //DuyuruEditList();
             timer2.Start();
             timer1.Start();
             //BildirimDosyasiCreate();
@@ -67,22 +81,22 @@ namespace UserInterface.Ana_Sayfa
         }
         public void Gorevler()
         {
-            arizaGorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "BAKIM ONARIM");
-            arizaGorevAtamaAtolyePersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "BAKIM ONARIM ATÖLYE");
+            arizaGorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimBakimOnarim(infos[1].ToString());
+            arizaGorevAtamaAtolyePersonels = gorevAtamaPersonelManager.IsAkisGorevlerimAtolye(infos[1].ToString());
             foreach (GorevAtamaPersonel item in arizaGorevAtamaAtolyePersonels)
             {
                 arizaGorevAtamaPersonels.Add(item);
             }
 
-            gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "İZİN");
-            satinAlmaGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "SATIN ALMA");
+            gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimIzin(infos[1].ToString());
+            satinAlmaGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimSatinAlma(infos[1].ToString());
 
             foreach (GorevAtamaPersonel item in satinAlmaGorevs)
             {
                 gorevAtamaPersonels.Add(item);
             }
 
-            mifGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "MİF");
+            mifGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimMif(infos[1].ToString());
 
             foreach (GorevAtamaPersonel item in mifGorevs)
             {
@@ -91,15 +105,22 @@ namespace UserInterface.Ana_Sayfa
 
             gorevAtamaListYonetici = gorevAtamaManager.GetListGorevlerim(infos[1].ToString());
 
+
+            //LblAcikArizaGorevleri.Invoke((MethodInvoker)(() => LblAcikArizaGorevleri.Text = arizaGorevAtamaPersonels.Count.ToString()));
+            //LbYoneticiGorevleri.Invoke((MethodInvoker)(() => LbYoneticiGorevleri.Text = gorevAtamaListYonetici.Count.ToString()));
+            //LbYoneticiGorevleri.Invoke((MethodInvoker)(() => LblIsAkisGorevleri.Text = gorevAtamaPersonels.Count.ToString()));
+
             LblAcikArizaGorevleri.Text = arizaGorevAtamaPersonels.Count.ToString();
             LbYoneticiGorevleri.Text = gorevAtamaListYonetici.Count.ToString();
             LblIsAkisGorevleri.Text = gorevAtamaPersonels.Count.ToString();
-            BolumGorevlerim();
+
+            //await Task.Run(() => BolumGorevlerim());
 
         }
         void BolumGorevlerim()
         {
             List<string> personeller = new List<string>();
+            List<PersonelKayit> personelKayits = new List<PersonelKayit>();
             List<GorevAtamaPersonel> genelList = new List<GorevAtamaPersonel>();
             List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
             List<GorevAtamaPersonel> IsAkisgorevAtamaPersonels = new List<GorevAtamaPersonel>();
@@ -112,7 +133,16 @@ namespace UserInterface.Ana_Sayfa
             string[] bolum = infos[2].ToString().Split('/');
             if (bolum.Count() >= 2)
             {
-                personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[1].ToString());
+                if (bolum[1].ToString()== "MÜB Proje Direktörlüğü")
+                {
+                    //personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller("MUB Prj.Dir.");
+                    personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller("MÜB Proje Direktörlüğü");
+                }
+                else
+                {
+                    personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[1].ToString());
+                }
+                
             }
             else
             {
@@ -120,22 +150,20 @@ namespace UserInterface.Ana_Sayfa
                 {
                     personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[0].ToString());
                 }
-                
             }
 
             foreach (string item in personeller)
             {
-                gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "BAKIM ONARIM");
-                arizaGorevAtamaAtolyePersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "BAKIM ONARIM ATÖLYE");
+                gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimBakimOnarim(item);
+                arizaGorevAtamaAtolyePersonels = gorevAtamaPersonelManager.IsAkisGorevlerimAtolye(item);
                 foreach (GorevAtamaPersonel gorevAtamaPersonel in arizaGorevAtamaAtolyePersonels)
                 {
                     gorevAtamaPersonels.Add(gorevAtamaPersonel);
                 }
 
-
-                IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "İZİN");
-                IsAkisgorevAtamaSatinAlma = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "SATIN ALMA");
-                mifPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(item, "MİF");
+                IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimIzin(item);
+                IsAkisgorevAtamaSatinAlma = gorevAtamaPersonelManager.IsAkisGorevlerimSatinAlma(item);
+                mifPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimMif(item);
 
                 foreach (GorevAtamaPersonel item2 in IsAkisgorevAtamaSatinAlma)
                 {
@@ -158,6 +186,7 @@ namespace UserInterface.Ana_Sayfa
                 }
             }
 
+            //LbYoneticiGorevleri.Invoke((MethodInvoker)(() => LblBolumGorev.Text = genelList.Count.ToString()));
             LblBolumGorev.Text = genelList.Count.ToString();
 
         }
@@ -166,6 +195,7 @@ namespace UserInterface.Ana_Sayfa
         public void DuyuruEditList()
         {
             Gorevler();
+            BolumGorevlerim();
             duyurus = duyuruManager.GetList();
 
             if (duyurus.Count==0)

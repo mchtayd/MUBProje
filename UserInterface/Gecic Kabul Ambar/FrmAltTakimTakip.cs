@@ -108,6 +108,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 contextMenuStrip1.Items[1].Enabled = false;
             }
+            if (infos[11].ToString() == "MİSAFİR")
+            {
+                contextMenuStrip1.Items[3].Enabled = false;
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -245,8 +249,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             dataBinder.Sort = DtgList.SortString;
         }
-        string tiklananStok, tiklananTanim, tiklananSeriNo, tiklananRevizyon;
-        int id, abf = 0;
+        string tiklananStok, tiklananTanim, tiklananSeriNo, tiklananRevizyon, tiklananAdim, tiklananBirim, sokulenSeriLotNo;
+        int id, abf, malzemeId = 0;
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -262,11 +266,15 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 MessageBox.Show(tiklananStok + " stok numaralı malzemenin kaydı bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             id = malzeme.Id;
             tiklananTanim = DtgList.CurrentRow.Cells["SokulenTanim"].Value.ToString();
             tiklananSeriNo = DtgList.CurrentRow.Cells["SokulenSeriNo"].Value.ToString();
             tiklananRevizyon = DtgList.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
             tiklananMiktar = DtgList.CurrentRow.Cells["SokulenMiktar"].Value.ConInt();
+            tiklananAdim = DtgList.CurrentRow.Cells["SokulenTeslimDurum"].Value.ToString();
+            malzemeId = DtgList.CurrentRow.Cells["BenzersizId"].Value.ConInt();
+            tiklananBirim = DtgList.CurrentRow.Cells["SokulenBirim"].Value.ToString();
         }
 
         private void barkodOluşturToolStripMenuItem_Click(object sender, EventArgs e)
@@ -888,6 +896,36 @@ namespace UserInterface.Gecic_Kabul_Ambar
         private void DtgList_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void hurdayaAyrılacaklarıBelirleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tiklananAdim != "100 - GEÇİCİ KABUL/KONTROL")
+            {
+                MessageBox.Show("Bu işlem sadece 100 - GEÇİCİ KABUL/KONTROL adımında gerçekleştirilir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            Malzeme malzeme = malzemeManager.Get(tiklananStok);
+            if (malzeme==null)
+            {
+                MessageBox.Show(tiklananStok + " Stok numaralı malzeme depoya kayıtlı bir malzeme değildir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            if(malzeme.TakipDurumu == "SERİ NO")
+            {
+                MessageBox.Show(tiklananStok + " Stok numaralı malzemenin takip durumu 'Seri No' olarak görülmektedir\nBu işlem sadece Lot Numaralı malzemelerde gerçekleştirilir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmHurdayaAyir frmHurdayaAyir = new FrmHurdayaAyir();
+            frmHurdayaAyir.benzersizId = malzemeId;
+            frmHurdayaAyir.sokulenstok = tiklananStok;
+            frmHurdayaAyir.sokulentanim = tiklananTanim;
+            frmHurdayaAyir.takilanmiktar = tiklananMiktar;
+            frmHurdayaAyir.sokulenbirim = tiklananBirim;
+            frmHurdayaAyir.sokulenSeriNo = tiklananSeriNo;
+            frmHurdayaAyir.sokulenRevizyon = tiklananRevizyon;
+            frmHurdayaAyir.infos = infos;
+            frmHurdayaAyir.ShowDialog();
         }
 
         private void DtgIslem_CellContentClick(object sender, DataGridViewCellEventArgs e)

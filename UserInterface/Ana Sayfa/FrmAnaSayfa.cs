@@ -6,6 +6,7 @@ using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
 using DataAccess.Concreate.IdariIsler;
+using DocumentFormat.OpenXml.Presentation;
 using Entity;
 using Entity.AnaSayfa;
 using Entity.BakimOnarim;
@@ -19,6 +20,7 @@ using System.Linq;
 using System.Reflection;
 using System.Security.AccessControl;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
 using UserInterface.BakımOnarım;
@@ -87,7 +89,7 @@ namespace UserInterface.STS
             arizaKayitManager = ArizaKayitManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
         }
-        
+
         private void PowerModeChanged(object sender, PowerModeChangedEventArgs e)
         {
             // GÜÇ DEĞİŞİKLİĞİ
@@ -96,25 +98,38 @@ namespace UserInterface.STS
         private void AnaSayfa_Load(object sender, EventArgs e)
         {
             tabAnasayfa.Visible = false;
-            FillInfos();
+            authId = infos[5].ConInt();
+            LblKullanici.Text = infos[1].ToString();
+            izinIdleri = infos[6].ToString();
+            yetkiModu = infos[11].ToString();
+            personId = infos[0].ConInt();
+            LblYetki.Text = yetkiModu;
+
+            //await Task.Run(() => Basliklar(authId));
+
+            Basliklar(authId);
+
             //LblTarih.Text = DateTime.Now;
             LblTarih.Text = DateTime.Now.ToLongDateString();
             TimerSaat.Start();
-            personId = infos[0].ConInt();
-            authId = infos[5].ConInt();
-            izinIdleri = infos[6].ToString();
-            yetkiModu = infos[11].ToString();
-            LblYetki.Text = yetkiModu;
+
             if (personId == 25)
             {
                 VersionEkle.Visible = true;
                 button3.Visible = false;
                 BtnDosyaKitle.Visible = false;
             }
+
             PersonelDurumAktif();
             timerOnline.Start();
             PersonelAktif();
-            Basliklar(authId);
+
+            //FrmAwait frmAwait = new FrmAwait();
+            //frmAwait.Show();
+            //pictureBox1.Visible = true;
+
+            //Basliklar(authId);
+
             Admin();
             ControlNodes(authId);
             button1.Image = imageList.Images["kucultme.png"];
@@ -145,13 +160,17 @@ namespace UserInterface.STS
             //PnlBildirim.Size = new Size(0,0);
             //tabAnasayfa.Size = new Size(1600, 955);
 
-            FrmBildirimler Go = new FrmBildirimler();
-            Go.infos = infos;
-            Go.version = LblVersionNo.Text;
-            Go.FormBorderStyle = FormBorderStyle.None;
-            Go.TopLevel = false;
-            Go.AutoScroll = true;
+            FrmBildirimler Go = new FrmBildirimler
+            {
+                infos = infos,
+                version = LblVersionNo.Text,
+                FormBorderStyle = FormBorderStyle.None,
+                TopLevel = false,
+                AutoScroll = true
+            };
+           
             OpenTabPage("PageBildirimler", "KONTROL", Go);
+            
             Go.Show();
 
             BildirimControl(infos[0].ConInt());
@@ -160,8 +179,8 @@ namespace UserInterface.STS
             //MesajControl();
             //TmMesajControl.Start();
 
-
-
+            //pictureBox1.Visible = false;
+            //frmAwait.Close();
         }
         void ServerAyarlar()
         {
@@ -174,16 +193,16 @@ namespace UserInterface.STS
         public void PersonelDurumAktif()
         {
             string mesaj = personelHesapManager.Update(personId, "ÇEVRİM İÇİ", giris);
-            if (mesaj!="OK")
+            if (mesaj != "OK")
             {
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
         }
-        
+
         public void PersonelDurumPasif()
         {
-            DateTime cikis= DateTime.Now;
+            DateTime cikis = DateTime.Now;
             TimeSpan toplamSure = cikis - giris;
             string mesaj = personelHesapManager.UpdatePasif(personId, "ÇEVRİM DIŞI", cikis, toplamSure.Minutes.ConInt());
             if (mesaj != "OK")
@@ -191,7 +210,7 @@ namespace UserInterface.STS
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
         }
         List<PersonelHesap> personelHesapsGenel = new List<PersonelHesap>();
         public void PersonelAktif()
@@ -201,7 +220,7 @@ namespace UserInterface.STS
             DateTime cikis = DateTime.Now;
             TimeSpan toplamSure = cikis - giris;
             string mesaj = personelHesapManager.UpdateSonGorulme(personId, DateTime.Now, toplamSure.Minutes.ConInt());
-            if (mesaj!="OK")
+            if (mesaj != "OK")
             {
                 kapatBilgisi = false;
                 Application.Exit();
@@ -211,20 +230,17 @@ namespace UserInterface.STS
             personelHesapsGenel = personelHesaps;
             foreach (PersonelHesap item in personelHesaps)
             {
-                if (item.AdSoyad != "MEHMET ŞENOL")
-                {
-                    DtgPersonelList.Rows.Add();
-                    int sonSatir = DtgPersonelList.RowCount - 1;
+                DtgPersonelList.Rows.Add();
+                int sonSatir = DtgPersonelList.RowCount - 1;
 
-                    DtgPersonelList.Rows[sonSatir].Cells["PersonelAd"].Value = item.AdSoyad;
-                    if (item.Durum == "ÇEVRİM İÇİ")
-                    {
-                        DtgPersonelList.Rows[sonSatir].Cells["Durum"].Value = ImagesLogin.Images[0]; // YEŞİL
-                    }
-                    else
-                    {
-                        DtgPersonelList.Rows[sonSatir].Cells["Durum"].Value = ImagesLogin.Images[1]; // KIRMIZI
-                    }
+                DtgPersonelList.Rows[sonSatir].Cells["PersonelAd"].Value = item.AdSoyad;
+                if (item.Durum == "ÇEVRİM İÇİ")
+                {
+                    DtgPersonelList.Rows[sonSatir].Cells["Durum"].Value = ImagesLogin.Images[0]; // YEŞİL
+                }
+                else
+                {
+                    DtgPersonelList.Rows[sonSatir].Cells["Durum"].Value = ImagesLogin.Images[1]; // KIRMIZI
                 }
 
             }
@@ -272,7 +288,8 @@ namespace UserInterface.STS
             {
                 if (item.BaslikId == 0)
                 {
-                    TreeMenu.Nodes.Add(item.Baslik);
+                    TreeMenu.Invoke((MethodInvoker)(() => TreeMenu.Nodes.Add(item.Baslik)));
+                    //TreeMenu.Nodes.Add(item.Baslik);
                     id = item.Id;
                 }
                 else
@@ -298,7 +315,8 @@ namespace UserInterface.STS
 
             foreach (MenuBaslik item in menuBasliksVeriGiris)
             {
-                TreeMenu.Nodes[0].Nodes.Add(item.Baslik);
+                //TreeMenu.Nodes[0].Nodes.Add(item.Baslik);
+                TreeMenu.Invoke((MethodInvoker)(() => TreeMenu.Nodes[0].Nodes.Add(item.Baslik)));
                 TreeMenu.Nodes[0].BackColor = Color.CadetBlue;
                 menuBasliks2 = menuManager.GetListAlt(item.Id);
                 List<MenuBaslik> menuBasliks = new List<MenuBaslik>();
@@ -327,7 +345,8 @@ namespace UserInterface.STS
 
                 foreach (MenuBaslik item2 in menuBasliks2)
                 {
-                    TreeMenu.Nodes[0].Nodes[index].Nodes.Add(item2.Baslik);
+                    //TreeMenu.Nodes[0].Nodes[index].Nodes.Add(item2.Baslik);
+                    TreeMenu.Invoke((MethodInvoker)(() => TreeMenu.Nodes[0].Nodes[index].Nodes.Add(item2.Baslik)));
                     menuBasliks4 = menuManager.GetListAlt(item2.Id);
                     int dongu = menuBasliks4.Count();
                     if (menuBasliks4.Count != 0)
@@ -354,7 +373,8 @@ namespace UserInterface.STS
                         int ind = TreeMenu.Nodes[0].Nodes[index].Nodes.Count.ConInt() - 1;
                         foreach (MenuBaslik item3 in menuBasliks)
                         {
-                            TreeMenu.Nodes[0].Nodes[index].Nodes[ind].Nodes.Add(item3.Baslik);
+                            //TreeMenu.Nodes[0].Nodes[index].Nodes[ind].Nodes.Add(item3.Baslik);
+                            TreeMenu.Invoke((MethodInvoker)(() => TreeMenu.Nodes[0].Nodes[index].Nodes[ind].Nodes.Add(item3.Baslik)));
                         }
                         menuBasliks.Clear();
                     }
@@ -370,7 +390,8 @@ namespace UserInterface.STS
 
             foreach (MenuBaslik item in menuBasliksVeriIzleme)
             {
-                TreeMenu.Nodes[1].Nodes.Add(item.Baslik);
+                //TreeMenu.Nodes[1].Nodes.Add(item.Baslik);
+                TreeMenu.Invoke((MethodInvoker)(() => TreeMenu.Nodes[1].Nodes.Add(item.Baslik)));
                 TreeMenu.Nodes[1].BackColor = Color.CadetBlue;
                 menuBasliks3 = menuManager.GetListAlt(item.Id);
 
@@ -401,7 +422,8 @@ namespace UserInterface.STS
 
                 foreach (MenuBaslik item2 in menuBasliks3)
                 {
-                    TreeMenu.Nodes[1].Nodes[index].Nodes.Add(item2.Baslik);
+                    //TreeMenu.Nodes[1].Nodes[index].Nodes.Add(item2.Baslik);
+                    TreeMenu.Invoke((MethodInvoker)(() => TreeMenu.Nodes[1].Nodes[index].Nodes.Add(item2.Baslik)));
                     menuBasliks4 = menuManager.GetListAlt(item2.Id);
                     int dongu = menuBasliks4.Count();
 
@@ -427,7 +449,8 @@ namespace UserInterface.STS
                         int ind = TreeMenu.Nodes[1].Nodes[index].Nodes.Count.ConInt() - 1;
                         foreach (MenuBaslik item3 in menuBasliks)
                         {
-                            TreeMenu.Nodes[1].Nodes[index].Nodes[ind].Nodes.Add(item3.Baslik);
+                            //TreeMenu.Nodes[1].Nodes[index].Nodes[ind].Nodes.Add(item3.Baslik);
+                            TreeMenu.Invoke((MethodInvoker)(() => TreeMenu.Nodes[1].Nodes[index].Nodes[ind].Nodes.Add(item3.Baslik)));
                         }
                         menuBasliks.Clear();
                     }
@@ -1389,7 +1412,7 @@ namespace UserInterface.STS
 
         void FillInfos()
         {
-            LblKullanici.Text = infos[1].ToString();
+            
         }
 
         // dallar
@@ -1462,7 +1485,7 @@ namespace UserInterface.STS
             {
                 timer2.Start();
                 panel5.Visible = false;
-                
+
                 TreeMenu.Visible = false;
                 //treeView2.Visible = false;
                 TabControlGenislet();
@@ -2286,7 +2309,7 @@ namespace UserInterface.STS
             Go.Show();
         }
 
-        public void OpenTabPage(string pageName, string pageText, Control winForm)
+        public void OpenTabPage(string pageName, string pageText, System.Windows.Forms.Control winForm)
         {
             if (tabAnasayfa.TabPages[pageName] != null)
             {
@@ -5161,7 +5184,7 @@ namespace UserInterface.STS
             PnlBildirim.Size = new Size(0, 0);
             tabAnasayfa.Size = new Size(1600, 955);
         }
-        
+
         private void webContent_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
         {
             for (int i = 0; i < webContent.Document.Links.Count; i++)
@@ -5169,7 +5192,7 @@ namespace UserInterface.STS
 
                 webContent.Document.Links[i].Click -= new HtmlElementEventHandler(this.LinkClick);
                 webContent.Document.Links[i].Click += new HtmlElementEventHandler(this.LinkClick);
-                
+
             }
 
             //for (int i = 0; i < webContent.Document.All.Count; i++)
@@ -5196,7 +5219,7 @@ namespace UserInterface.STS
             string href = element.GetAttribute("href");
             string metin = element.InnerText;
 
-            if (metin==null)
+            if (metin == null)
             {
                 return;
             }
@@ -5308,7 +5331,7 @@ namespace UserInterface.STS
                     {
                         continue;
                     }
-                    bildirimMetin += arrayIcerik[k]+ " ";
+                    bildirimMetin += arrayIcerik[k] + " ";
                 }
 
                 if (tiklananMetin == bildirimMetin)
@@ -5368,12 +5391,12 @@ namespace UserInterface.STS
 
                 webContent.DocumentText = strB.ToString();
             }
-            
+
             foreach (Log item in controlLogs)
             {
                 foreach (Log item2 in logs)
                 {
-                    if (item.Icerik!=item2.Icerik)
+                    if (item.Icerik != item2.Icerik)
                     {
                         return;
                     }
@@ -5486,14 +5509,14 @@ namespace UserInterface.STS
         {
             PersonelAktif();
             FrmBildirimler frmBildirimler = (FrmBildirimler)Application.OpenForms["FrmBildirimler"];
-            if (frmBildirimler!=null)
+            if (frmBildirimler != null)
             {
                 frmBildirimler.DuyuruEditList();
             }
         }
 
         private void TimerFileRead_Tick(object sender, EventArgs e)
-        {    
+        {
             BildirimControl(infos[0].ConInt());
         }
 
@@ -5559,7 +5582,7 @@ namespace UserInterface.STS
 
         private void DtgPersonelList_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            
+
             if (DtgPersonelList.CurrentRow == null)
             {
                 MessageBox.Show("Listede bir personel kaydı bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -5568,7 +5591,7 @@ namespace UserInterface.STS
 
             string isim = DtgPersonelList.CurrentRow.Cells["PersonelAd"].Value.ToString();
 
-            if (personelHesapsControl.Count==0)
+            if (personelHesapsControl.Count == 0)
             {
                 PersonelHesap personelHesap1 = new PersonelHesap(isim);
                 personelHesapsControl.Add(personelHesap1);
@@ -5605,7 +5628,7 @@ namespace UserInterface.STS
                     if (item.AdSoyad == isim)
                     {
                         FrmSohbet frmSohbet = (FrmSohbet)Application.OpenForms["FrmSohbet"];
-                        if (frmSohbet==null)
+                        if (frmSohbet == null)
                         {
                             return;
                         }
@@ -5621,7 +5644,7 @@ namespace UserInterface.STS
                     }
                 }
 
-                if (control==true)
+                if (control == true)
                 {
                     return;
                 }
@@ -5696,7 +5719,7 @@ namespace UserInterface.STS
             string isim = DtgSohbet.CurrentRow.Cells["Ad"].Value.ToString();
 
             FrmSohbet frmSohbet = (FrmSohbet)Application.OpenForms["FrmSohbet"];
-            if (frmSohbet!=null)
+            if (frmSohbet != null)
             {
                 frmSohbet.WindowState = FormWindowState.Minimized;
                 frmSohbet.Show();
@@ -6010,7 +6033,7 @@ namespace UserInterface.STS
 
 
         }
-        
+
 
         private void button2_Click_1(object sender, EventArgs e)
         {
@@ -6040,12 +6063,12 @@ namespace UserInterface.STS
                     {
                         arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)");
                     }
-                    if (item.GorevAtanacakPersonel=="")
+                    if (item.GorevAtanacakPersonel == "")
                     {
                         arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, "ONARIMI TAMAMLANDI");
                     }
                 }
-                
+
             }
 
             MessageBox.Show("Bitti");
@@ -6120,6 +6143,11 @@ namespace UserInterface.STS
             frmGorevAciklamaTalebiCevap.Show();
         }
 
+        private void duyurularımToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmEtiketYaz frmEtiketYaz = new FrmEtiketYaz();
@@ -6130,7 +6158,7 @@ namespace UserInterface.STS
         bool controlKapatma = false;
         private void FrmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
         {
-            
+
             if (controlKapatma == false)
             {
                 if (kapatBilgisi == false)
@@ -6140,7 +6168,7 @@ namespace UserInterface.STS
                     PersonelDurumPasif();
                     Application.Exit();
                 }
-                
+
                 DialogResult sonuc = MessageBox.Show("DTS Uygulamanızı kapatmak istiyor musunuz?", "SORU", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                 if (sonuc == DialogResult.No)
                 {

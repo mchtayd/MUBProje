@@ -50,7 +50,7 @@ namespace DataAccess.Concreate.AnaSayfa
                 dataReader.Close();
                 return menuBasliks;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return new List<MenuBaslik>();
@@ -70,7 +70,7 @@ namespace DataAccess.Concreate.AnaSayfa
                 dataReader.Close();
                 return menuBasliks;
             }
-            catch (Exception)
+            catch (Exception ex)
             {
 
                 return new List<MenuBaslik>();

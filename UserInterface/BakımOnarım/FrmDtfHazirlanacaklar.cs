@@ -225,7 +225,7 @@ namespace UserInterface.BakımOnarım
             frmBolgeler.button5.Visible = false;
             frmBolgeler.ShowDialog();
         }
-
+        string malzeme = "";
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -244,11 +244,14 @@ namespace UserInterface.BakımOnarım
             revizyon = DtgList.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
             birim = DtgList.CurrentRow.Cells["SokulenBirim"].Value.ToString();
             ArizaKayit arizaKayit = arizaKayitManager.GetId(arizaId);
-            TxtIsinTanimi.Text = arizaKayit.BildirilenAriza;
+            TxtIsinTanimi.Text = arizaKayit.TespitEdilenAriza;
             projeKodu = arizaKayit.Proje;
             garantiDurumu = arizaKayit.GarantiDurumu;
             malzemeId = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+            malzeme =  stokNo + " | " + tanim.Trim() + " | " + seriNo + " | " + miktar + " | " + birim;
+            TxtIsinTanimi.Text += "\n\n"+ malzeme;
         }
+
         string Control()
         {
             if (CmbDonemAy.Text=="")
@@ -564,7 +567,9 @@ namespace UserInterface.BakımOnarım
             {
                 wBookmarks["FirmadaOnarim"].Range.Text = "X";
             }
+
             wBookmarks["IsinTanimi"].Range.Text = TxtIsinTanimi.Text;
+            //wBookmarks["Malzeme"].Range.Text = malzeme;
             wBookmarks["TalebiOlusturan"].Range.Text = TalepEden.Text;
             wBookmarks["IsinVerildigiTarih"].Range.Text = DtgIsinVerildigiTarih.Value.ToString("dd/MM/yyyy");
             wBookmarks["Tarih"].Range.Text = DtgIsinVerildigiTarih.Value.ToString("dd/MM/yyyy");

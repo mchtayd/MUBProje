@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
@@ -54,6 +54,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder2 = new System.Windows.Forms.BindingSource(this.components);
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgGorevler)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
@@ -67,8 +68,8 @@
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
             this.DtgList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -130,8 +131,8 @@
             this.DtgGorevler.AllowUserToAddRows = false;
             this.DtgGorevler.AllowUserToDeleteRows = false;
             this.DtgGorevler.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgGorevler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgGorevler.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtgGorevler.AutoGenerateContextFilters = true;
             this.DtgGorevler.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgGorevler.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -156,26 +157,26 @@
             this.açıklamaTalepEtToolStripMenuItem,
             this.açıklamaTalepEtToolStripMenuItem1});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(167, 70);
             // 
             // göreviGörüntüleToolStripMenuItem
             // 
             this.göreviGörüntüleToolStripMenuItem.Name = "göreviGörüntüleToolStripMenuItem";
-            this.göreviGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.göreviGörüntüleToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.göreviGörüntüleToolStripMenuItem.Text = "Görevi Görüntüle";
             this.göreviGörüntüleToolStripMenuItem.Click += new System.EventHandler(this.göreviGörüntüleToolStripMenuItem_Click);
             // 
             // açıklamaTalepEtToolStripMenuItem
             // 
             this.açıklamaTalepEtToolStripMenuItem.Name = "açıklamaTalepEtToolStripMenuItem";
-            this.açıklamaTalepEtToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.açıklamaTalepEtToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
             this.açıklamaTalepEtToolStripMenuItem.Text = "Personeli Uyar";
             this.açıklamaTalepEtToolStripMenuItem.Click += new System.EventHandler(this.açıklamaTalepEtToolStripMenuItem_Click);
             // 
             // açıklamaTalepEtToolStripMenuItem1
             // 
             this.açıklamaTalepEtToolStripMenuItem1.Name = "açıklamaTalepEtToolStripMenuItem1";
-            this.açıklamaTalepEtToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.açıklamaTalepEtToolStripMenuItem1.Size = new System.Drawing.Size(166, 22);
             this.açıklamaTalepEtToolStripMenuItem1.Text = "Açıklama Talep Et";
             this.açıklamaTalepEtToolStripMenuItem1.Click += new System.EventHandler(this.açıklamaTalepEtToolStripMenuItem1_Click);
             // 
@@ -289,11 +290,24 @@
             this.label12.TabIndex = 122;
             this.label12.Text = "Performans Puanı:";
             // 
+            // button1
+            // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(1023, 695);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(139, 27);
+            this.button1.TabIndex = 124;
+            this.button1.Text = "Fazla Görev Temizle";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmGorevliPersoneller
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1501, 724);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label9);
@@ -353,5 +367,6 @@
         private System.Windows.Forms.ToolStripMenuItem göreviGörüntüleToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem açıklamaTalepEtToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem açıklamaTalepEtToolStripMenuItem1;
+        private System.Windows.Forms.Button button1;
     }
 }
