@@ -30,7 +30,7 @@ namespace UserInterface.Ana_Sayfa
         DuyuruManager duyuruManager;
         VersionManager versionManager;
         PersonelKayitManager personelKayitManager;
-        
+
         List<GorevAtama> gorevAtamaListYonetici;
         List<GorevAtamaPersonel> arizaGorevAtamaPersonels;
         List<GorevAtamaPersonel> gorevAtamaPersonels;
@@ -133,7 +133,7 @@ namespace UserInterface.Ana_Sayfa
             string[] bolum = infos[2].ToString().Split('/');
             if (bolum.Count() >= 2)
             {
-                if (bolum[1].ToString()== "MÜB Proje Direktörlüğü")
+                if (bolum[1].ToString() == "MÜB Proje Direktörlüğü")
                 {
                     //personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller("MUB Prj.Dir.");
                     personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller("MÜB Proje Direktörlüğü");
@@ -142,11 +142,11 @@ namespace UserInterface.Ana_Sayfa
                 {
                     personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[1].ToString());
                 }
-                
+
             }
             else
             {
-                if (infos[11].ToString()!="MİSAFİR")
+                if (infos[11].ToString() != "MİSAFİR")
                 {
                     personeller = gorevAtamaPersonelManager.BolumeBagliPersoneller(bolum[0].ToString());
                 }
@@ -198,7 +198,7 @@ namespace UserInterface.Ana_Sayfa
             BolumGorevlerim();
             duyurus = duyuruManager.GetList();
 
-            if (duyurus.Count==0)
+            if (duyurus.Count == 0)
             {
                 return;
             }
@@ -210,7 +210,7 @@ namespace UserInterface.Ana_Sayfa
                 strB.Append("<center><table border='2'  style='background-color:azure;color:black;'>");
                 strB.Append("<td width='1300px'><h4 style='color:darkred;height:15px;'>" + item.Konu + "</h4>");
 
-                strB.Append(item.DuyuruMesaj + "<br><br><span style='font-size=11px;'>" + item.DuyuruYapan.ToString() + "<br>" + 
+                strB.Append(item.DuyuruMesaj + "<br><br><span style='font-size=11px;'>" + item.DuyuruYapan.ToString() + "<br>" +
                     "(" + item.BaslangicTarih.ToString("g") + ")" + "</span></td>");
                 strB.Append("</table></center><br/>");
 
@@ -482,7 +482,7 @@ namespace UserInterface.Ana_Sayfa
             {
                 LblDuyuru.Visible = false;
             }
-            
+
         }
 
         private void timer3_Tick(object sender, EventArgs e)
@@ -495,6 +495,146 @@ namespace UserInterface.Ana_Sayfa
             {
                 LblVersion.Visible = false;
             }
+
+        }
+
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 0;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void panel2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 2;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void panel3_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 1;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void panel1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 0;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void panel5_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 3;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void label6_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 2;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void LblIsAkisGorevleri_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 2;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void LbYoneticiGorevleri_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 1;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void label4_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 1;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void label1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 0;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void LblAcikArizaGorevleri_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 0;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void label5_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 3;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void LblBolumGorev_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            FrmGorevlerim frmGorevlerim = new FrmGorevlerim();
+            frmGorevlerim.infos = infos;
+            frmGorevlerim.seciliTabId = 3;
+            frmGorevlerim.ShowDialog();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void LblVersion_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void panel6_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            List<VersionBilgi> versionBilgis = new List<VersionBilgi>();
+            versionBilgis = versionManager.GetList();
+            if (versionBilgis.Count == 0)
+            {
+                return;
+            }
+            string yeniversion = versionBilgis[0].VersionNo;
+            string path = versionBilgis[0].Dosyayolu;
+
+            DialogResult dr = MessageBox.Show("DTS Versionunuz güncellenecek devam etmek istiyor musunuz?",
+                "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                System.Diagnostics.Process.Start(path);
+                Application.Exit();
+            }
+        }
+
+        private void label2_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
 
         }
     }

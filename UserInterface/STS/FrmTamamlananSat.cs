@@ -1281,17 +1281,58 @@ namespace UserInterface.STS
         {
             foreach (DataGridViewRow item in DtgTamamlananSatlar.Rows)
             {
-                if (item.Cells["Abfform"].Value.ToString()== "" && item.Cells["Butcekodukalemi"].Value.ToString() == "BM02/ACİL ONARIM MALZEME ALIMI")
+                harcananTutar = item.Cells["Harcanantutar"].Value.ConDouble();
+                siparisNo = item.Cells["SiparisNo"].Value.ToString();
+                id = item.Cells["Id"].Value.ConInt();
+                string satNo = item.Cells["Formno"].Value.ToString();
+                string donem = item.Cells["Donem"].Value.ToString();
+                tamamlananMalzemes = new List<TamamlananMalzeme>();
+                List<TeklifsizSat> teklifsizSats = new List<TeklifsizSat>();
+                tamamlananMalzemes = tamamlananMalzemeManager.GetList(siparisNo);
+                double toplamTutar = 0;
+                if (tamamlananMalzemes.Count==0)
                 {
-                    string abfNo = tamamlananManager.AbfOgren(item.Cells["Gerekce"].Value.ToString());
-                    if (abfNo!="")
+                    teklifsizSats = teklifsizSatManager.GetList(siparisNo);
+                    foreach (TeklifsizSat item3 in teklifsizSats)
                     {
-                        tamamlananManager.AbfNoDuzelt(item.Cells["Formno"].Value.ConInt(), abfNo);
+                        toplamTutar = Math.Round(item3.Tutar, 2);
+                        if (harcananTutar != toplamTutar)
+                        {
+                            tamamlananManager.UpdateTutar(toplamTutar, siparisNo);
+                        }
                     }
-                    
                 }
+                else
+                {
+                    foreach (TamamlananMalzeme item2 in tamamlananMalzemes)
+                    {
+
+                        toplamTutar += item2.Toplamfiyat;
+
+                    }
+                    toplamTutar = Math.Round(toplamTutar, 2);
+                    if (harcananTutar != toplamTutar)
+                    {
+                        tamamlananManager.UpdateTutar(toplamTutar, siparisNo);
+                    }
+                }
+                
             }
-            MessageBox.Show("İşlemler başarıyla gerçekleşmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+
+            //foreach (DataGridViewRow item in DtgTamamlananSatlar.Rows)
+            //{
+            //    if (item.Cells["Abfform"].Value.ToString()== "" && item.Cells["Butcekodukalemi"].Value.ToString() == "BM02/ACİL ONARIM MALZEME ALIMI")
+            //    {
+            //        string abfNo = tamamlananManager.AbfOgren(item.Cells["Gerekce"].Value.ToString());
+            //        if (abfNo!="")
+            //        {
+            //            tamamlananManager.AbfNoDuzelt(item.Cells["Formno"].Value.ConInt(), abfNo);
+            //        }
+                    
+            //    }
+            //}
+            //MessageBox.Show("İşlemler başarıyla gerçekleşmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void button1_Click_1(object sender, EventArgs e)

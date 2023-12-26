@@ -45,6 +45,8 @@ namespace UserInterface.BakımOnarım
             this.DtgIslemKayitlari = new System.Windows.Forms.DataGridView();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.DtgMalzemeListesi = new ADGV.AdvancedDataGridView();
+            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.DtgDepoHareketleri = new System.Windows.Forms.DataGridView();
             this.tabPage5 = new System.Windows.Forms.TabPage();
@@ -58,13 +60,12 @@ namespace UserInterface.BakımOnarım
             this.DtgAtolye = new System.Windows.Forms.DataGridView();
             this.label31 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
-            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
             this.LblIslemAdimSureleri = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.LblGenelTop = new System.Windows.Forms.Label();
-            this.contextMenuStrip3 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.açıklamaNotEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -74,6 +75,7 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).BeginInit();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeListesi)).BeginInit();
+            this.contextMenuStrip3.SuspendLayout();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoHareketleri)).BeginInit();
             this.tabPage5.SuspendLayout();
@@ -82,7 +84,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
-            this.contextMenuStrip3.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -148,15 +149,16 @@ namespace UserInterface.BakımOnarım
             // 
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.güncelleToolStripMenuItem,
-            this.sökülenMalzemeBilgisiToolStripMenuItem});
+            this.sökülenMalzemeBilgisiToolStripMenuItem,
+            this.açıklamaNotEkleToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 48);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 70);
             // 
             // güncelleToolStripMenuItem
             // 
             this.güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
             this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.güncelleToolStripMenuItem.Text = "Güncelle";
+            this.güncelleToolStripMenuItem.Text = "Bildirim Güncelle";
             this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
             // 
             // sökülenMalzemeBilgisiToolStripMenuItem
@@ -244,6 +246,20 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeListesi.TabIndex = 3;
             this.DtgMalzemeListesi.TimeFilter = false;
             this.DtgMalzemeListesi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgMalzemeListesi_CellMouseClick);
+            // 
+            // contextMenuStrip3
+            // 
+            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.contextMenuStrip3.Name = "contextMenuStrip2";
+            this.contextMenuStrip3.Size = new System.Drawing.Size(190, 26);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
+            this.toolStripMenuItem1.Text = "Malzeme Veri Geçmişi";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // tabPage3
             // 
@@ -429,19 +445,12 @@ namespace UserInterface.BakımOnarım
             this.LblGenelTop.TabIndex = 455;
             this.LblGenelTop.Text = "00";
             // 
-            // contextMenuStrip3
+            // açıklamaNotEkleToolStripMenuItem
             // 
-            this.contextMenuStrip3.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1});
-            this.contextMenuStrip3.Name = "contextMenuStrip2";
-            this.contextMenuStrip3.Size = new System.Drawing.Size(190, 48);
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(189, 22);
-            this.toolStripMenuItem1.Text = "Malzeme Veri Geçmişi";
-            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
+            this.açıklamaNotEkleToolStripMenuItem.Name = "açıklamaNotEkleToolStripMenuItem";
+            this.açıklamaNotEkleToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.açıklamaNotEkleToolStripMenuItem.Text = "Açıklama/Not Ekle";
+            this.açıklamaNotEkleToolStripMenuItem.Click += new System.EventHandler(this.açıklamaNotEkleToolStripMenuItem_Click);
             // 
             // FrmArizaKayitlariKapatilan
             // 
@@ -469,6 +478,7 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgIslemKayitlari)).EndInit();
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeListesi)).EndInit();
+            this.contextMenuStrip3.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoHareketleri)).EndInit();
             this.tabPage5.ResumeLayout(false);
@@ -478,7 +488,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
-            this.contextMenuStrip3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -519,5 +528,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.ToolStripMenuItem sökülenMalzemeBilgisiToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem açıklamaNotEkleToolStripMenuItem;
     }
 }

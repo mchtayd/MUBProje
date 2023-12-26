@@ -45,6 +45,14 @@ namespace Entity.STS
             this.siparisno = siparisno;
         }
 
+        public TamamlananMalzeme(int id, double birimfiyat, double toplamfiyat)
+        {
+            this.id = id;
+            this.birimfiyat = birimfiyat;
+            this.toplamfiyat = toplamfiyat;
+        }
+
+
         /*public TamamlananMalzeme(string stokno, double birimfiyat, double toplamfiyat, string siparisno)
         {
             this.stokno = stokno;

@@ -50,6 +50,17 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string UpdateAbfMalzeme(int id)
+        {
+            try
+            {
+                return abfMalzemeIslemKayitDal.UpdateAbfMalzeme(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public AbfMalzemeIslemKayit Get(int benzersizId, string islem, string stokNo, string seriNo, string revizyon, string malzemeDurumu)
         {
@@ -72,6 +83,17 @@ namespace Business.Concreate.BakimOnarim
             catch (Exception)
             {
                 return new List<AbfMalzemeIslemKayit>();
+            }
+        }
+        public List<int> GetListId()
+        {
+            try
+            {
+                return abfMalzemeIslemKayitDal.GetListId();
+            }
+            catch (Exception)
+            {
+                return new List<int>();
             }
         }
 

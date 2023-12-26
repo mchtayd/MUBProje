@@ -66,6 +66,19 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
+        public string UpdateAbfMalzeme(int id)
+        {
+            try
+            {
+                sqlServices.Stored("AbfMalzemeDurum", new SqlParameter("@id", id));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public AbfMalzemeIslemKayit Get(int benzersizId,string islem, string stokNo,string seriNo,string revizyon, string malzemeDurumu)
         {
             try
@@ -92,6 +105,26 @@ namespace DataAccess.Concreate.BakimOnarim
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public List<int> GetListId()
+        {
+            try
+            {
+                List<int> abfMalzemeIslemKayits = new List<int>();
+                dataReader = sqlServices.StoreReader("GorunmeyenMalzemeTeslimTesellum");
+                while (dataReader.Read())
+                {
+                    abfMalzemeIslemKayits.Add(dataReader["BENZERSIZ_ID"].ConInt());
+                }
+                dataReader.Close();
+                return abfMalzemeIslemKayits;
+            }
+
+            catch (Exception)
+            {
+                return new List<int>();
             }
         }
 

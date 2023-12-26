@@ -36,6 +36,7 @@ namespace UserInterface.Ana_Sayfa
         int id;
         public object[] infos;
         int benzersizId;
+        public int seciliTabId = -1;
         public FrmGorevlerim()
         {
             InitializeComponent();
@@ -59,6 +60,7 @@ namespace UserInterface.Ana_Sayfa
             goreviAtayan = DtgYoneticiGorevlerim.CurrentRow.Cells["GoreviAtayanPersonel"].Value.ToString();
             isAkisNo = DtgYoneticiGorevlerim.CurrentRow.Cells["IsAkisNo"].Value.ToString();
             bitisTarihi = DtgYoneticiGorevlerim.CurrentRow.Cells["BitisTarihi"].Value.ConDate();
+            
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -92,6 +94,28 @@ namespace UserInterface.Ana_Sayfa
             tabPage2.Text = pageText2;
             tabPage3.Text = pageText3;
             tabPage4.Text = pageText4;
+
+            if (seciliTabId > -1)
+            {
+                if (seciliTabId == 0)
+                {
+                    tabControl1.SelectedTab = tabControl1.TabPages["tabPage1"];
+                }
+                if (seciliTabId == 1)
+                {
+                    tabControl1.SelectedTab = tabControl1.TabPages["tabPage2"];
+                }
+                if (seciliTabId == 2)
+                {
+                    tabControl1.SelectedTab = tabControl1.TabPages["tabPage3"];
+                }
+                if (seciliTabId == 3)
+                {
+                    tabControl1.SelectedTab = tabControl1.TabPages["tabPage4"];
+                }
+
+            }
+
         }
 
         private void BtnKaydet_Click(object sender, EventArgs e)
@@ -173,13 +197,13 @@ namespace UserInterface.Ana_Sayfa
 
         private void DtgIsAkisGorev_FilterStringChanged_1(object sender, EventArgs e)
         {
-            dataBinderAtolye.Filter = DtgIsAkisGorev.FilterString;
+            dataBinderIsAkis.Filter = DtgIsAkisGorev.FilterString;
             TxtTop3.Text = DtgIsAkisGorev.RowCount.ToString();
         }
 
         private void DtgIsAkisGorev_SortStringChanged_1(object sender, EventArgs e)
         {
-            dataBinderAtolye.Sort = DtgIsAkisGorev.SortString;
+            dataBinderIsAkis.Sort = DtgIsAkisGorev.SortString;
         }
 
         private void DtgIsAkisGorev_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -315,6 +339,11 @@ namespace UserInterface.Ana_Sayfa
             DtgGorevlerim.Columns["TamamlananGorev"].Visible = false;
             DtgGorevlerim.Columns["BeklemeSuresi"].Visible = false;
 
+            DtgGorevlerim.Columns["SirketBolum"].Visible = false;
+            DtgGorevlerim.Columns["ToplamGorevSayisi"].Visible = false;
+            DtgGorevlerim.Columns["DevamEdenSureOrtGun"].Visible = false;
+            DtgGorevlerim.Columns["TamamlananGorevOrtSure"].Visible = false;
+
             //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
             //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
 
@@ -339,8 +368,8 @@ namespace UserInterface.Ana_Sayfa
                 IsAkisgorevAtamaPersonels.Add(item);
             }
 
-            dataBinderAtolye.DataSource = IsAkisgorevAtamaPersonels.ToDataTable();
-            DtgIsAkisGorev.DataSource = dataBinderAtolye;
+            dataBinderIsAkis.DataSource = IsAkisgorevAtamaPersonels.ToDataTable();
+            DtgIsAkisGorev.DataSource = dataBinderIsAkis;
 
             DtgIsAkisGorev.Columns["Id"].Visible = false;
             DtgIsAkisGorev.Columns["BenzersizId"].Visible = false;
@@ -355,6 +384,11 @@ namespace UserInterface.Ana_Sayfa
             DtgIsAkisGorev.Columns["DevamEdenGorev"].Visible = false;
             DtgIsAkisGorev.Columns["TamamlananGorev"].Visible = false;
             DtgIsAkisGorev.Columns["BeklemeSuresi"].Visible = false;
+
+            DtgIsAkisGorev.Columns["SirketBolum"].Visible = false;
+            DtgIsAkisGorev.Columns["ToplamGorevSayisi"].Visible = false;
+            DtgIsAkisGorev.Columns["DevamEdenSureOrtGun"].Visible = false;
+            DtgIsAkisGorev.Columns["TamamlananGorevOrtSure"].Visible = false;
 
             //DtgGorevlerim.Columns["DosyaYolu"].Visible = false;
             //DtgGorevlerim.Columns["IscilikSuresi"].HeaderText = "İŞÇİLİK SÜRESİ";
@@ -464,6 +498,11 @@ namespace UserInterface.Ana_Sayfa
             DtgBolumGorevleri.Columns["DevamEdenGorev"].Visible = false;
             DtgBolumGorevleri.Columns["TamamlananGorev"].Visible = false;
             DtgBolumGorevleri.Columns["BeklemeSuresi"].Visible = false;
+
+            DtgBolumGorevleri.Columns["SirketBolum"].Visible = false;
+            DtgBolumGorevleri.Columns["ToplamGorevSayisi"].Visible = false;
+            DtgBolumGorevleri.Columns["DevamEdenSureOrtGun"].Visible = false;
+            DtgBolumGorevleri.Columns["TamamlananGorevOrtSure"].Visible = false;
 
             LblBolumGorevleriTop.Text = DtgBolumGorevleri.RowCount.ToString();
 

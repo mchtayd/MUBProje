@@ -63,13 +63,25 @@ namespace UserInterface.Ana_Sayfa
             DtgList.Columns["GorevAtanacakPersonel"].HeaderText = "PERSONEL";
             DtgList.Columns["IslemAdimi"].Visible = false;
             DtgList.Columns["Tarih"].Visible = false;
-            DtgList.Columns["Sure"].HeaderText = "BEKLEYEN GÖREV SAYISI";
+            DtgList.Columns["Sure"].Visible = false;
             DtgList.Columns["YapilanIslem"].Visible = false;
             DtgList.Columns["CalismaSuresi"].Visible = false;
             DtgList.Columns["AbfNo"].Visible = false;
-            DtgList.Columns["DevamEdenGorev"].Visible = false;
-            DtgList.Columns["TamamlananGorev"].Visible = false;
+            DtgList.Columns["DevamEdenGorev"].HeaderText = "DEVAM EDEN\nBİLDİRİM GÖREV\nSAYISI";
+            DtgList.Columns["TamamlananGorev"].HeaderText = "TOPLAM TAMAMLADIĞI\nBİLDİRİM GÖREV\nSAYISI";
+            DtgList.Columns["ToplamGorevSayisi"].HeaderText = "TOPLAM ATANAN\nBİLDİRİM GÖREV\nSAYISI";
             DtgList.Columns["BeklemeSuresi"].Visible = false;
+            DtgList.Columns["SirketBolum"].HeaderText = "BÖLÜM";
+            DtgList.Columns["DevamEdenSureOrtGun"].HeaderText = "DEVAM EDEN\nBİLDİRİM SÜRE\nORTALAMASI";
+            DtgList.Columns["TamamlananGorevOrtSure"].HeaderText = "TAMAMLANAN\nBİLDİRİM SÜRE\nORTALAMASI";
+
+            DtgList.Columns["GorevAtanacakPersonel"].DisplayIndex = 0;
+            DtgList.Columns["SirketBolum"].DisplayIndex = 1;
+            DtgList.Columns["ToplamGorevSayisi"].DisplayIndex = 2;
+            DtgList.Columns["TamamlananGorev"].DisplayIndex = 3;
+            DtgList.Columns["TamamlananGorevOrtSure"].DisplayIndex = 4;
+            DtgList.Columns["DevamEdenGorev"].DisplayIndex = 6;
+            DtgList.Columns["DevamEdenSureOrtGun"].DisplayIndex = 8;
             Toplamlar();
         }
 
@@ -109,95 +121,34 @@ namespace UserInterface.Ana_Sayfa
             DtgGorevler.Columns["DevamEdenGorev"].Visible = false;
             DtgGorevler.Columns["TamamlananGorev"].Visible = false;
             DtgGorevler.Columns["BeklemeSuresi"].HeaderText = "BEKLEME SÜRESİ (GÜN)";
+            DtgGorevler.Columns["SirketBolum"].Visible = false;
+            DtgGorevler.Columns["DevamEdenSureOrtGun"].Visible = false;
+            DtgGorevler.Columns["TamamlananGorevOrtSure"].Visible = false;
+            DtgGorevler.Columns["ToplamGorevSayisi"].Visible = false;
             PersonelBilgi();
         }
 
         void PersonelBilgi()
         {
-            PersonelKayit personelKayit = personelKayitManager.Get(0, personel);
-            if (personelKayit==null)
-            {
-                PcFoto.ImageLocation = "";
-            }
-            else
-            {
-                string deneme = "\\" + personel + ".jpg";
-                string foto = personelKayit.Fotoyolu;
-                PcFoto.ImageLocation = foto + deneme;
-            }
+            //PersonelKayit personelKayit = personelKayitManager.Get(0, personel);
+            //if (personelKayit==null)
+            //{
+            //    PcFoto.ImageLocation = "";
+            //}
+            //else
+            //{
+            //    string deneme = "\\" + personel + ".jpg";
+            //    string foto = personelKayit.Fotoyolu;
+            //    PcFoto.ImageLocation = foto + deneme;
+            //}
             
 
-            GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.GorevSayilari(personel);
-            LblTamamlananGorev.Text = gorevAtamaPersonel.TamamlananGorev.ToString();
-            LblDevamEdenGorev.Text = gorevAtamaPersonel.DevamEdenGorev.ToString();
-            LblToplamGorevSayisi.Text = (LblTamamlananGorev.Text.ConInt() + LblDevamEdenGorev.Text.ConInt()).ToString();
+            //GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.GorevSayilari(personel);
+            //LblTamamlananGorev.Text = gorevAtamaPersonel.TamamlananGorev.ToString();
+            //LblDevamEdenGorev.Text = gorevAtamaPersonel.DevamEdenGorev.ToString();
+            //LblToplamGorevSayisi.Text = (LblTamamlananGorev.Text.ConInt() + LblDevamEdenGorev.Text.ConInt()).ToString();
+
             //MudehaleSuresi();
-        }
-
-        void MudehaleSuresi()
-        {
-            double toplamOrtalamaGun = 0;
-            double toplamYil = 0;
-            double toplamDakika = 0;
-            double toplamSaniye = 0;
-            List<GorevAtamaPersonel> gorevAtamaPersonels1 = new List<GorevAtamaPersonel>();
-            gorevAtamaPersonels1 = gorevAtamaPersonelManager.GetListPersonelBazli(personel);
-            foreach (GorevAtamaPersonel item in gorevAtamaPersonels1)
-            {
-                TimeSpan sureFark;
-                DateTime tarih = DateTime.Now;
-                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
-                gorevAtamaPersonels = gorevAtamaPersonelManager.PersonelAtananArizaKayitlari(item.BenzersizId);
-                for (int i = 0; i < gorevAtamaPersonels.Count; i++)
-                {
-                    if (gorevAtamaPersonels[i].GorevAtanacakPersonel == personel)
-                    {
-                        if (i + 1 < gorevAtamaPersonels.Count)
-                        {
-                            if (gorevAtamaPersonels[i + 1].GorevAtanacakPersonel != personel)
-                            {
-                                sureFark = gorevAtamaPersonels[i + 1].Tarih - tarih;
-
-                                toplamOrtalamaGun = (sureFark.TotalDays.ConDouble() / LblToplamGorevSayisi.Text.ConDouble()) + toplamOrtalamaGun;
-
-                                //if (sureFark.TotalHours > 24)
-                                //{
-                                //    toplamGun += (sureFark.TotalHours / 24).ConDouble();
-                                //    toplamSaat += (sureFark.TotalHours % 24).ConDouble();
-                                //}
-                                //else
-                                //{
-                                //    toplamSaat += sureFark.TotalHours.ConDouble();
-                                //}
-                                //if (sureFark.TotalMinutes > 60)
-                                //{
-                                //    toplamSaat += (sureFark.TotalHours / 60).ConDouble();
-                                //    toplamSaniye += (sureFark.TotalHours % 60).ConDouble();
-                                //}
-                                //else
-                                //{
-                                //    toplamDakika += sureFark.TotalMinutes.ConDouble();
-                                //}
-                                //if (sureFark.TotalSeconds>60)
-                                //{
-                                //    toplamDakika += (sureFark.TotalSeconds / 60).ConDouble();
-                                //    toplamSaniye += (sureFark.TotalSeconds % 60).ConDouble();
-                                //}
-                                //else
-                                //{
-                                //    toplamSaniye += sureFark.TotalSeconds.ConDouble();
-                                //}
-                                
-                            }
-                        }
-
-                    }
-                    else
-                    {
-                        tarih = gorevAtamaPersonels[i].Tarih;
-                    }
-                }
-            }
         }
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)

@@ -63,8 +63,8 @@ namespace UserInterface.STS
             UsBolgeleri();
             Personeller();
             ButceKoduKalemi();
-            SatBilgileri();
             ButceGiderTuru();
+            SatBilgileri();
             start = true;
         }
         public void ButceGiderTuru()
@@ -167,7 +167,7 @@ namespace UserInterface.STS
             CmbBelgeTuru.Text = satDataGridview1.BelgeTuru;
             TxtBelgeNumarasi.Text = satDataGridview1.BelgeNumarasi;
             DtBelgeTarihi.Value = satDataGridview1.BelgeTarihi;
-            
+            TxtSatinAlinanFirma.Text = satDataGridview1.SatinAlinanFirma;
 
             CmbButceGiderTuru.Text = satDataGridview1.ButceGiderTuru;
             teklifsizSats = null;

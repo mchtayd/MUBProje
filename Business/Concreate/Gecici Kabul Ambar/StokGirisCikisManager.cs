@@ -161,6 +161,19 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
+
+        public List<StokGirisCıkıs> DusumBilgi(string abfNo)
+        {
+            try
+            {
+                return stokGirisCikisDal.DusumBilgi(abfNo);
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
+
         public List<StokGirisCıkıs> GetListEdit(string stokNo, string seriNo, string lotNo)
         {
             try

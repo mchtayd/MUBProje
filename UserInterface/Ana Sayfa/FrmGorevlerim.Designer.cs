@@ -73,6 +73,7 @@ namespace UserInterface.Ana_Sayfa
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinderAtolye = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderAriza = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinderIsAkis = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -92,6 +93,7 @@ namespace UserInterface.Ana_Sayfa
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderAtolye)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderAriza)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderIsAkis)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -537,6 +539,7 @@ namespace UserInterface.Ana_Sayfa
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderAtolye)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderAriza)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderIsAkis)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -582,5 +585,6 @@ namespace UserInterface.Ana_Sayfa
         private System.Windows.Forms.Label LblBolumGorevleriTop;
         private System.Windows.Forms.GroupBox groupBox5;
         private ADGV.AdvancedDataGridView DtgBolumGorevleri;
+        private System.Windows.Forms.BindingSource dataBinderIsAkis;
     }
 }

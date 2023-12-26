@@ -309,6 +309,43 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
+        public List<StokGirisCıkıs> DusumBilgi(string abfNo)
+        {
+            try
+            {
+                List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
+                dataReader = sqlServices.StoreReader("DepoDusumBilgi", new SqlParameter("@abfNo", abfNo));
+                while (dataReader.Read())
+                {
+                    stokGirisCıkıs.Add(new StokGirisCıkıs(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ISLEM_TURU"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["ISLEM_TARIH"].ConDate(),
+                        dataReader["CEKILEN_DEPO"].ToString(),
+                        dataReader["CEKILEN_DEPO_ADRESI"].ToString(),
+                        dataReader["CEKILEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_DEPO"].ToString(),
+                        dataReader["DUSULEN_DEPO_ADRESI"].ToString(),
+                        dataReader["DUSULEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_MIKTAR"].ConInt(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString()));
+                }
+                dataReader.Close();
+                return stokGirisCıkıs;
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
+
         public List<StokGirisCıkıs> GetListEdit(string stokNo, string seriNo, string lotNo)
         {
             try

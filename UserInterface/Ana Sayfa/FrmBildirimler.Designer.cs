@@ -84,10 +84,13 @@ namespace UserInterface.Ana_Sayfa
             this.panel1.BackColor = System.Drawing.Color.Tomato;
             this.panel1.Controls.Add(this.LblAcikArizaGorevleri);
             this.panel1.Controls.Add(this.label1);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel1.Location = new System.Drawing.Point(858, 122);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(200, 100);
             this.panel1.TabIndex = 0;
+            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            this.panel1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDoubleClick);
             // 
             // LblAcikArizaGorevleri
             // 
@@ -99,6 +102,7 @@ namespace UserInterface.Ana_Sayfa
             this.LblAcikArizaGorevleri.Size = new System.Drawing.Size(36, 37);
             this.LblAcikArizaGorevleri.TabIndex = 3;
             this.LblAcikArizaGorevleri.Text = "0";
+            this.LblAcikArizaGorevleri.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LblAcikArizaGorevleri_MouseDoubleClick);
             // 
             // label1
             // 
@@ -109,16 +113,19 @@ namespace UserInterface.Ana_Sayfa
             this.label1.Size = new System.Drawing.Size(171, 18);
             this.label1.TabIndex = 2;
             this.label1.Text = "Açık Arıza Görevlerim";
+            this.label1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label1_MouseDoubleClick);
             // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel2.Controls.Add(this.LblIsAkisGorevleri);
             this.panel2.Controls.Add(this.label6);
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel2.Location = new System.Drawing.Point(446, 122);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(200, 100);
             this.panel2.TabIndex = 1;
+            this.panel2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDoubleClick);
             // 
             // LblIsAkisGorevleri
             // 
@@ -130,6 +137,7 @@ namespace UserInterface.Ana_Sayfa
             this.LblIsAkisGorevleri.Size = new System.Drawing.Size(36, 37);
             this.LblIsAkisGorevleri.TabIndex = 5;
             this.LblIsAkisGorevleri.Text = "0";
+            this.LblIsAkisGorevleri.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LblIsAkisGorevleri_MouseDoubleClick);
             // 
             // label6
             // 
@@ -140,16 +148,20 @@ namespace UserInterface.Ana_Sayfa
             this.label6.Size = new System.Drawing.Size(150, 18);
             this.label6.TabIndex = 4;
             this.label6.Text = "İş Akışı Görevlerim";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            this.label6.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label6_MouseDoubleClick);
             // 
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.DarkGray;
             this.panel3.Controls.Add(this.LbYoneticiGorevleri);
             this.panel3.Controls.Add(this.label4);
+            this.panel3.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel3.Location = new System.Drawing.Point(652, 122);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 100);
             this.panel3.TabIndex = 2;
+            this.panel3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDoubleClick);
             // 
             // LbYoneticiGorevleri
             // 
@@ -161,6 +173,7 @@ namespace UserInterface.Ana_Sayfa
             this.LbYoneticiGorevleri.Size = new System.Drawing.Size(36, 37);
             this.LbYoneticiGorevleri.TabIndex = 3;
             this.LbYoneticiGorevleri.Text = "0";
+            this.LbYoneticiGorevleri.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LbYoneticiGorevleri_MouseDoubleClick);
             // 
             // label4
             // 
@@ -171,6 +184,7 @@ namespace UserInterface.Ana_Sayfa
             this.label4.Size = new System.Drawing.Size(156, 18);
             this.label4.TabIndex = 2;
             this.label4.Text = "Yönetici Görevlerim";
+            this.label4.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label4_MouseDoubleClick);
             // 
             // groupBox1
             // 
@@ -295,10 +309,12 @@ namespace UserInterface.Ana_Sayfa
             this.panel5.BackColor = System.Drawing.Color.LimeGreen;
             this.panel5.Controls.Add(this.LblBolumGorev);
             this.panel5.Controls.Add(this.label5);
+            this.panel5.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel5.Location = new System.Drawing.Point(1064, 122);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(200, 100);
             this.panel5.TabIndex = 6;
+            this.panel5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel5_MouseDoubleClick);
             // 
             // LblBolumGorev
             // 
@@ -310,6 +326,7 @@ namespace UserInterface.Ana_Sayfa
             this.LblBolumGorev.Size = new System.Drawing.Size(36, 37);
             this.LblBolumGorev.TabIndex = 5;
             this.LblBolumGorev.Text = "0";
+            this.LblBolumGorev.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LblBolumGorev_MouseDoubleClick);
             // 
             // label5
             // 
@@ -320,16 +337,19 @@ namespace UserInterface.Ana_Sayfa
             this.label5.Size = new System.Drawing.Size(144, 18);
             this.label5.TabIndex = 4;
             this.label5.Text = "Bölüm Görevlerim";
+            this.label5.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label5_MouseDoubleClick);
             // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(192)))));
             this.panel6.Controls.Add(this.LblVersion);
             this.panel6.Controls.Add(this.label2);
+            this.panel6.Cursor = System.Windows.Forms.Cursors.Hand;
             this.panel6.Location = new System.Drawing.Point(1270, 122);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(200, 100);
             this.panel6.TabIndex = 6;
+            this.panel6.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel6_MouseDoubleClick);
             // 
             // LblVersion
             // 
@@ -341,6 +361,7 @@ namespace UserInterface.Ana_Sayfa
             this.LblVersion.Size = new System.Drawing.Size(77, 24);
             this.LblVersion.TabIndex = 4;
             this.LblVersion.Text = "Güncel";
+            this.LblVersion.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LblVersion_MouseDoubleClick);
             // 
             // label2
             // 
@@ -351,6 +372,7 @@ namespace UserInterface.Ana_Sayfa
             this.label2.Size = new System.Drawing.Size(73, 18);
             this.label2.TabIndex = 3;
             this.label2.Text = "Versiyon";
+            this.label2.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.label2_MouseDoubleClick);
             // 
             // label41
             // 

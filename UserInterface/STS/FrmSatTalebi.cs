@@ -12,6 +12,7 @@ using Entity.IdariIsler;
 using Entity.STS;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
@@ -346,7 +347,9 @@ namespace UserInterface.STS
             LblGarantiDurumu.Text = arizaKayit.GarantiDurumu;
             TxtAciklama.Text = arizaKayit.TespitEdilenAriza;
 
-            abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id, "SAT BEKLİYOR");
+            //abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id, "SAT BEKLİYOR");
+
+            abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
             AbfMalzemeFill();
             #endregion
         }
@@ -481,6 +484,7 @@ namespace UserInterface.STS
             DtgMalzemeList.Columns["DosyaYolu"].Visible = false;
             DtgMalzemeList.Columns["AltYukleniciKayit"].Visible = false;
             DtgMalzemeList.Columns["TakilanTeslimDurum"].Visible = false;
+            DtgMalzemeList.Columns["Secim"].HeaderText = "SEÇİM";
 
             TxtTop.Text = DtgMalzemeList.RowCount.ToString();
         }
@@ -978,10 +982,28 @@ namespace UserInterface.STS
                 MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            bool malzemeKontrol = false;
+            if (CmbAdSoyad.Text == "")
+            {
+                foreach (DataGridViewRow item in DtgMalzemeList.Rows)
+                {
+                    if (item.Cells["Secim"].Value.ConBool() == true)
+                    {
+                        malzemeKontrol = true;
+                    }
+                }
+                if (malzemeKontrol==false)
+                {
+                    MessageBox.Show("Lütfen öncelikle tablodan bir malzeme seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+                
 
             DialogResult dr = MessageBox.Show("Bilgileri Kaydetmek İstiyor Musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                
                 siparisNo = Guid.NewGuid().ToString();
                 isleAdimi = "TEKLİF";
                 satNo = satNoManager.Add(new SatNo(siparisNo));
@@ -1112,16 +1134,20 @@ namespace UserInterface.STS
         string AselsanSatMalzemeKayit()
         {
             string mesaj = "";
+
             foreach (DataGridViewRow item in DtgMalzemeList.Rows)
             {
-                SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), siparisNo);
-
-                 mesaj = satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
-
-
-                if (mesaj!="OK")
+                if (item.Cells["Secim"].Value.ConBool()==true)
                 {
-                    return mesaj;
+                    SatinAlinacakMalzemeler satinAlinacakMalzeme = new SatinAlinacakMalzemeler(item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(), item.Cells["SokulenBirim"].Value.ToString(), siparisNo);
+
+                    mesaj = satinAlinacakMalManager.Add(satinAlinacakMalzeme, siparisNo);
+
+
+                    if (mesaj != "OK")
+                    {
+                        return mesaj;
+                    }
                 }
             }
 

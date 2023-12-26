@@ -29,10 +29,11 @@ namespace UserInterface.STS
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatDuzelt));
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatDuzelt));
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
             this.LblSatNo = new System.Windows.Forms.Label();
@@ -85,7 +86,6 @@ namespace UserInterface.STS
             this.label112 = new System.Windows.Forms.Label();
             this.LblToplam = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
-            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.label13 = new System.Windows.Forms.Label();
             this.CmbHarcamaYapan = new System.Windows.Forms.ComboBox();
             this.TxtSatinAlinanFirma = new System.Windows.Forms.TextBox();
@@ -192,7 +192,6 @@ namespace UserInterface.STS
             this.groupBox20 = new System.Windows.Forms.GroupBox();
             this.webBrowser7 = new System.Windows.Forms.WebBrowser();
             this.label142 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.CmbBelgeTuru = new System.Windows.Forms.ComboBox();
             this.comboBox6 = new System.Windows.Forms.ComboBox();
             this.label143 = new System.Windows.Forms.Label();
@@ -208,6 +207,14 @@ namespace UserInterface.STS
             this.comboBox9 = new System.Windows.Forms.ComboBox();
             this.CmbButceGiderTuru = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
+            this.LblToplamFiyat = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.TxtBirim = new System.Windows.Forms.TextBox();
+            this.label40 = new System.Windows.Forms.Label();
+            this.BtnOnayla = new System.Windows.Forms.Button();
+            this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
             this.groupBox16.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -563,7 +570,7 @@ namespace UserInterface.STS
             this.groupBox1.Controls.Add(this.DtgList);
             this.groupBox1.Location = new System.Drawing.Point(19, 527);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1225, 200);
+            this.groupBox1.Size = new System.Drawing.Size(937, 200);
             this.groupBox1.TabIndex = 365;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "MALZEME BİLGİLERİ";
@@ -577,8 +584,10 @@ namespace UserInterface.STS
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
-            this.DtgList.Size = new System.Drawing.Size(1219, 181);
+            this.DtgList.ReadOnly = true;
+            this.DtgList.Size = new System.Drawing.Size(931, 181);
             this.DtgList.TabIndex = 0;
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // groupBox2
             // 
@@ -769,7 +778,7 @@ namespace UserInterface.STS
             // 
             this.LblToplam.AutoSize = true;
             this.LblToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblToplam.Location = new System.Drawing.Point(382, 736);
+            this.LblToplam.Location = new System.Drawing.Point(289, 741);
             this.LblToplam.Name = "LblToplam";
             this.LblToplam.Size = new System.Drawing.Size(23, 15);
             this.LblToplam.TabIndex = 373;
@@ -779,27 +788,11 @@ namespace UserInterface.STS
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(269, 736);
+            this.label12.Location = new System.Drawing.Point(176, 741);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(107, 13);
             this.label12.TabIndex = 372;
             this.label12.Text = "TOPLAM TUTAR:";
-            // 
-            // BtnGuncelle
-            // 
-            this.BtnGuncelle.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
-            this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnGuncelle.Location = new System.Drawing.Point(19, 733);
-            this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
-            this.BtnGuncelle.TabIndex = 375;
-            this.BtnGuncelle.Text = "  GÜNCELLE";
-            this.BtnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnGuncelle.UseVisualStyleBackColor = false;
-            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // label13
             // 
@@ -1791,7 +1784,6 @@ namespace UserInterface.STS
             this.tabPage14.Controls.Add(this.BtnDosyaEkleT);
             this.tabPage14.Controls.Add(this.groupBox20);
             this.tabPage14.Controls.Add(this.label142);
-            this.tabPage14.Controls.Add(this.button1);
             this.tabPage14.Controls.Add(this.CmbBelgeTuru);
             this.tabPage14.Controls.Add(this.comboBox6);
             this.tabPage14.Controls.Add(this.label143);
@@ -1805,6 +1797,7 @@ namespace UserInterface.STS
             this.tabPage14.Controls.Add(this.label150);
             this.tabPage14.Controls.Add(this.comboBox8);
             this.tabPage14.Controls.Add(this.comboBox9);
+            this.tabPage14.Controls.Add(this.button1);
             this.tabPage14.Location = new System.Drawing.Point(4, 22);
             this.tabPage14.Name = "tabPage14";
             this.tabPage14.Padding = new System.Windows.Forms.Padding(3);
@@ -1934,17 +1927,6 @@ namespace UserInterface.STS
             this.label142.Size = new System.Drawing.Size(101, 13);
             this.label142.TabIndex = 336;
             this.label142.Text = "MASRAF YERİ NO:";
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(457, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 21);
-            this.button1.TabIndex = 7;
-            this.button1.UseVisualStyleBackColor = false;
             // 
             // CmbBelgeTuru
             // 
@@ -2108,11 +2090,104 @@ namespace UserInterface.STS
             this.label19.TabIndex = 563;
             this.label19.Text = "BÜTÇE GİDER TÜRÜ:";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(457, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 21);
+            this.button1.TabIndex = 7;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
+            this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnGuncelle.Location = new System.Drawing.Point(19, 733);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(130, 56);
+            this.BtnGuncelle.TabIndex = 375;
+            this.BtnGuncelle.Text = "  GÜNCELLE";
+            this.BtnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnGuncelle.UseVisualStyleBackColor = false;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
+            // 
+            // LblToplamFiyat
+            // 
+            this.LblToplamFiyat.AutoSize = true;
+            this.LblToplamFiyat.Location = new System.Drawing.Point(1066, 599);
+            this.LblToplamFiyat.Name = "LblToplamFiyat";
+            this.LblToplamFiyat.Size = new System.Drawing.Size(19, 13);
+            this.LblToplamFiyat.TabIndex = 569;
+            this.LblToplamFiyat.Text = "00";
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(973, 599);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(87, 13);
+            this.label29.TabIndex = 568;
+            this.label29.Text = "TOPLAM FİYAT:";
+            // 
+            // TxtBirim
+            // 
+            this.TxtBirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBirim.Location = new System.Drawing.Point(1066, 563);
+            this.TxtBirim.Name = "TxtBirim";
+            this.TxtBirim.Size = new System.Drawing.Size(119, 21);
+            this.TxtBirim.TabIndex = 567;
+            this.TxtBirim.TextChanged += new System.EventHandler(this.TxtBirim_TextChanged);
+            this.TxtBirim.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBirim_KeyPress);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Location = new System.Drawing.Point(984, 568);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(76, 13);
+            this.label40.TabIndex = 566;
+            this.label40.Text = "BİRİM FİYATI:";
+            // 
+            // BtnOnayla
+            // 
+            this.BtnOnayla.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnOnayla.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnOnayla.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnOnayla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnOnayla.ImageKey = "ok.png";
+            this.BtnOnayla.ImageList = this.ımageList2;
+            this.BtnOnayla.Location = new System.Drawing.Point(976, 628);
+            this.BtnOnayla.Name = "BtnOnayla";
+            this.BtnOnayla.Size = new System.Drawing.Size(123, 51);
+            this.BtnOnayla.TabIndex = 570;
+            this.BtnOnayla.Text = "  UYGULA";
+            this.BtnOnayla.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnOnayla.UseVisualStyleBackColor = false;
+            this.BtnOnayla.Click += new System.EventHandler(this.BtnOnayla_Click);
+            // 
+            // ımageList2
+            // 
+            this.ımageList2.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("ımageList2.ImageStream")));
+            this.ımageList2.TransparentColor = System.Drawing.Color.Transparent;
+            this.ımageList2.Images.SetKeyName(0, "okey.png");
+            this.ımageList2.Images.SetKeyName(1, "ok.png");
+            // 
             // FrmSatDuzelt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1298, 801);
+            this.Controls.Add(this.BtnOnayla);
+            this.Controls.Add(this.LblToplamFiyat);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.TxtBirim);
+            this.Controls.Add(this.label40);
             this.Controls.Add(this.CmbButceGiderTuru);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.PnlMalzeme);
@@ -2226,7 +2301,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label112;
         private System.Windows.Forms.Label LblToplam;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Button BtnGuncelle;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox CmbHarcamaYapan;
         private System.Windows.Forms.TextBox TxtSatinAlinanFirma;
@@ -2351,5 +2425,12 @@ namespace UserInterface.STS
         private System.Windows.Forms.ComboBox CmbBasaranProje;
         private System.Windows.Forms.ComboBox CmbButceGiderTuru;
         private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Button BtnGuncelle;
+        private System.Windows.Forms.Label LblToplamFiyat;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox TxtBirim;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Button BtnOnayla;
+        private System.Windows.Forms.ImageList ımageList2;
     }
 }

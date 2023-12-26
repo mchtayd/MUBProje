@@ -99,6 +99,23 @@ namespace DataAccess.Concreate.STS
                 return ex.Message;
             }
         }
+
+        public string Update(TamamlananMalzeme entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("TamamlananSatFiyatUpdate",
+                    new SqlParameter("@id", entity.Siparisno),
+                    new SqlParameter("@birimFiyat", entity.Birimfiyat),
+                    new SqlParameter("@toplamFiyat", entity.Toplamfiyat));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static TamamlananMalzemeDal GetInstance()
         {
             if (tamamlananMalzemeDal == null)

@@ -616,6 +616,7 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeList.Columns["AbTarihSaat"].Visible = false;
             DtgMalzemeList.Columns["AbfNo"].Visible = false;
             DtgMalzemeList.Columns["TeminDurumu"].Visible = false;
+            DtgMalzemeList.Columns["Secim"].Visible = false;
             #region FilTools
 
             /*

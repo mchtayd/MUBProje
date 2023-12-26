@@ -883,11 +883,13 @@ namespace UserInterface.IdariIsler
             {
                 return;
             }
+
             //if (DtgList.RowCount==0)
             //{
             //    MessageBox.Show("Lütfen öncelikle tabloya veri ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    return;
             //}
+
             if (CmbIzınTuru.Text=="RAPOR")
             {
                 if (dosyaControl == false)

@@ -4,6 +4,7 @@ using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Drawing;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using Entity.STS;
@@ -32,6 +33,7 @@ namespace UserInterface.STS
         public int id;
         bool start = false;
         string abfFormNo = "";
+        int miktar, malzemeId;
         public FrmSatDuzelt()
         {
             InitializeComponent();
@@ -241,12 +243,68 @@ namespace UserInterface.STS
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                foreach (DataGridViewRow item in DtgList.Rows)
+                {
+                    TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item.Cells["Id"].Value.ConInt(), item.Cells["Birimfiyat"].Value.ConDouble(), item.Cells["Toplamfiyat"].Value.ConDouble());
+                    tamamlananMalzemeManager.Update(tamamlananMalzeme);
+
+                }
+
                 FrmTamamlananSat frmTamamlananSat = (FrmTamamlananSat)Application.OpenForms["FrmTamamlananSat"];
                 frmTamamlananSat.TamamlananSatlar();
 
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
+
+        }
+
+
+        private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            TxtBirim.Text = DtgList.CurrentRow.Cells["Birimfiyat"].Value.ToString();
+            miktar = DtgList.CurrentRow.Cells["Miktar"].Value.ConInt();
+            malzemeId = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+            if (miktar==0)
+            {
+                miktar = 1;
+            }
+        }
+
+        private void BtnOnayla_Click(object sender, EventArgs e)
+        {
+            if (malzemeId==0)
+            {
+                MessageBox.Show("Lütfen bir malzeme seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            foreach (DataGridViewRow item in DtgList.Rows)
+            {
+                if (malzemeId == item.Cells["Id"].Value.ConInt())
+                {
+                    item.Cells["BirimFiyat"].Value = TxtBirim.Text;
+                    item.Cells["ToplamFiyat"].Value = LblToplamFiyat.Text;
+                }
+                
+            }
+            malzemeId = 0;
+        }
+
+        private void TxtBirim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar) && e.KeyChar != ',';
+        }
+
+        private void TxtBirim_TextChanged(object sender, EventArgs e)
+        {
+            LblToplamFiyat.Text = ToplamHesapla(miktar, TxtBirim.Text.ConDouble());
+        }
+        string ToplamHesapla(int miktar, double birimFiyat)
+        {
+            double toplam;
+            toplam = miktar * birimFiyat;
+            return toplam.ToString();
         }
     }
 }

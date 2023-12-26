@@ -203,15 +203,21 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeListesi.Columns["TakilanBirim"].HeaderText = "TAKILAN BİRİM";
             DtgMalzemeListesi.Columns["TakilanCalismaSaati"].HeaderText = "TAKILAN ÇALIŞMA SAATİ";
             DtgMalzemeListesi.Columns["TakilanRevizyon"].HeaderText = "TAKILAN REVİZYON";
-            DtgMalzemeListesi.Columns["TeminDurumu"].Visible = false;
+            DtgMalzemeListesi.Columns["TeminDurumu"].HeaderText = "MALZEME DURUMU";
             DtgMalzemeListesi.Columns["AbfNo"].Visible = false;
             DtgMalzemeListesi.Columns["AbTarihSaat"].Visible = false;
             DtgMalzemeListesi.Columns["TemineAtilamTarihi"].Visible = false;
             DtgMalzemeListesi.Columns["MalzemeDurumu"].Visible = false;
-            DtgMalzemeListesi.Columns["MalzemeIslemAdimi"].Visible = false;
+            DtgMalzemeListesi.Columns["MalzemeIslemAdimi"].HeaderText = "İŞLEM DURUMU";
             DtgMalzemeListesi.Columns["SokulenTeslimDurum"].HeaderText = "SÖKÜLEN MALZEME TESLİMİ";
             DtgMalzemeListesi.Columns["BolgeAdi"].Visible = false;
             DtgMalzemeListesi.Columns["BolgeSorumlusu"].Visible = false;
+            DtgMalzemeListesi.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
+            DtgMalzemeListesi.Columns["DosyaYolu"].Visible = false;
+            DtgMalzemeListesi.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
+            DtgMalzemeListesi.Columns["TakilanTeslimDurum"].HeaderText = "TAKILAN MALZEME TESLİMİ";
+            DtgMalzemeListesi.Columns["Secim"].Visible = false;
+            DtgMalzemeListesi.Columns["TakilanTeslimDurum"].DisplayIndex = 26;
 
         }
         void IslemAdimlariSureleri()
@@ -231,6 +237,11 @@ namespace UserInterface.BakımOnarım
             DtgIslemKayitlari.Columns["DevamEdenGorev"].Visible = false;
             DtgIslemKayitlari.Columns["TamamlananGorev"].Visible = false;
             DtgIslemKayitlari.Columns["BeklemeSuresi"].Visible = false;
+
+            DtgIslemKayitlari.Columns["SirketBolum"].Visible = false;
+            DtgIslemKayitlari.Columns["ToplamGorevSayisi"].Visible = false;
+            DtgIslemKayitlari.Columns["DevamEdenSureOrtGun"].Visible = false;
+            DtgIslemKayitlari.Columns["TamamlananGorevOrtSure"].Visible = false;
 
             DtgIslemKayitlari.Columns["CalismaSuresi"].DefaultCellStyle.Format = @"HH:mm:ss";
 
@@ -460,6 +471,22 @@ namespace UserInterface.BakımOnarım
             frmArizaGuncelle.id = id;
             frmArizaGuncelle.ShowDialog();
         }
+
+        private void açıklamaNotEkleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen açıklama yazacağınız arızanın üzerine bir kez sol tık yapıp seçtikten sonra sağ tık yapıp Açıklama/Not Ekle penceresini seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            FrmArizaAciklama frmArizaAciklama = new FrmArizaAciklama();
+            frmArizaAciklama.infos = infos;
+            frmArizaAciklama.arizaId = id;
+            frmArizaAciklama.ShowDialog();
+            id = 0;
+        }
+
+
         string sokulenSeriLotNo, sokulenRevizyon, takilanStokNo, takilanTanim, takilanBirim, takilanSeriNo, takilanRevizyon;
         int takilanMiktar;
         private void DtgMalzemeListesi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

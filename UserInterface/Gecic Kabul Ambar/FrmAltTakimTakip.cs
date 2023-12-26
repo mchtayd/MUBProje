@@ -340,26 +340,47 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<ArizaKayit> arizaKayits = arizaKayitManager.GetListTumu();
-            foreach (ArizaKayit arizaKayit in arizaKayits)
+            List<int> abfMalzemeIslemKayits = new List<int>();
+            List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
+            AbfMalzeme abfMalzeme = null;
+            ArizaKayit arizaKayit = null;
+            abfMalzemeIslemKayits = abfMalzemeIslemKayitManager.GetListId();
+            foreach (var item in abfMalzemeIslemKayits)
             {
-                List<AbfMalzeme> abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
-                foreach (AbfMalzeme abfMalzeme in abfMalzemes)
+                abfMalzeme = abfMalzemeManager.Get(item);
+                if (abfMalzeme!=null)
                 {
-                    if (abfMalzeme.SokulenStokNo != "")
+                    arizaKayit = arizaKayitManager.GetId(abfMalzeme.BenzersizId);
+                    stokGirisCıkıs = stokGirisCikisManager.DusumBilgi(arizaKayit.AbfFormNo.ToString());
+                    if (stokGirisCıkıs.Count > 0)
                     {
-                        List<AbfMalzemeIslemKayit> abfMalzemeIslemKayits = abfMalzemeIslemKayitManager.GetList(abfMalzeme.Id, "SÖKÜLEN");
-                        foreach (AbfMalzemeIslemKayit abfMalzemeIslemKayit in abfMalzemeIslemKayits)
-                        {
-                            if (abfMalzemeIslemKayit.StokNo == "")
-                            {
-                                abfMalzemeIslemKayitManager.MalzemeIslemKayitUpdate(abfMalzemeIslemKayit.Id, abfMalzeme.SokulenStokNo, abfMalzeme.SokulenSeriNo, abfMalzeme.SokulenRevizyon);
-                            }
-                        }
+                        abfMalzemeIslemKayitManager.UpdateAbfMalzeme(item);
                     }
-
                 }
+                
+                
             }
+
+            //List<ArizaKayit> arizaKayits = arizaKayitManager.GetListTumu();
+            //foreach (ArizaKayit arizaKayit in arizaKayits)
+            //{
+            //    List<AbfMalzeme> abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+            //    foreach (AbfMalzeme abfMalzeme in abfMalzemes)
+            //    {
+            //        if (abfMalzeme.SokulenStokNo != "")
+            //        {
+            //            List<AbfMalzemeIslemKayit> abfMalzemeIslemKayits = abfMalzemeIslemKayitManager.GetList(abfMalzeme.Id, "SÖKÜLEN");
+            //            foreach (AbfMalzemeIslemKayit abfMalzemeIslemKayit in abfMalzemeIslemKayits)
+            //            {
+            //                if (abfMalzemeIslemKayit.MalzemeDurumu == "")
+            //                {
+            //                    abfMalzemeIslemKayitManager.MalzemeIslemKayitUpdate(abfMalzemeIslemKayit.Id, abfMalzeme.SokulenStokNo, abfMalzeme.SokulenSeriNo, abfMalzeme.SokulenRevizyon);
+            //                }
+            //            }
+            //        }
+
+            //    }
+            //}
             MessageBox.Show("Bilgiler başarıyla kaydedildi!");
         }
 

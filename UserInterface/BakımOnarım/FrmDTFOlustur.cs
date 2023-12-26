@@ -1388,6 +1388,24 @@ namespace UserInterface.BakımOnarım
                 Dtf dtfDTS = dtfManager.DtfArizaBilgileriDTS(TxtAbfNo.Text.ConInt());
                 if (dtfDTS != null)
                 {
+                    //arizaId = DtgList.CurrentRow.Cells["BenzersizId"].Value.ConInt();
+                    //LblBolgeAdi.Text = DtgList.CurrentRow.Cells["BolgeAdi"].Value.ToString();
+                    //stokNo = DtgList.CurrentRow.Cells["SokulenStokNo"].Value.ToString();
+                    //tanim = DtgList.CurrentRow.Cells["SokulenTanim"].Value.ToString();
+                    //seriNo = DtgList.CurrentRow.Cells["SokulenSeriNo"].Value.ToString();
+                    //abfNo = DtgList.CurrentRow.Cells["AbfNo"].Value.ToString();
+                    //miktar = DtgList.CurrentRow.Cells["SokulenMiktar"].Value.ConInt();
+                    //revizyon = DtgList.CurrentRow.Cells["SokulenRevizyon"].Value.ToString();
+                    //birim = DtgList.CurrentRow.Cells["SokulenBirim"].Value.ToString();
+
+                    //ArizaKayit arizaKayit = arizaKayitManager.GetId(arizaId);
+                    //TxtIsinTanimi.Text = arizaKayit.TespitEdilenAriza;
+                    //projeKodu = arizaKayit.Proje;
+                    //garantiDurumu = arizaKayit.GarantiDurumu;
+                    //malzemeId = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+                    //malzeme = stokNo + " | " + tanim.Trim() + " | " + seriNo + " | " + miktar + " | " + birim;
+                    //TxtIsinTanimi.Text += "\n\n" + malzeme;
+
                     CmbBolgeAdi.Text = dtfDTS.UsBolgesi;
                     CmbProjeKodu.Text = dtfDTS.ProjeKodu;
                     CmbGarantiDurumu.Text = dtfDTS.GarantiDurumu;
@@ -1411,6 +1429,7 @@ namespace UserInterface.BakımOnarım
                     }
                 }
                 
+
             }
         }
 

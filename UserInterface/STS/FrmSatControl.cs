@@ -971,6 +971,7 @@ namespace UserInterface.STS
             satno = DtgFaturaBekleyenSatProje.CurrentRow.Cells["Satno"].Value.ConInt();
             FillMalzemeList5();
             TxtFirma.Text = fiyatTeklifiAls[0].Firma1;
+            toplamlar = 0;
 
             foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
             {
@@ -1114,11 +1115,11 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (dosyaKontrol == false)
-            {
-                MessageBox.Show("Lütfen öncelikle faturayı ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (dosyaKontrol == false)
+            //{
+            //    MessageBox.Show("Lütfen öncelikle faturayı ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             if (CmbBelgeTuru2.Text == "")
             {
                 MessageBox.Show("Lütfen öncelikle Belge Türünü seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1217,11 +1218,11 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (dosyaKontrol == false)
-            {
-                MessageBox.Show("Lütfen öncelikle faturayı ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (dosyaKontrol == false)
+            //{
+            //    MessageBox.Show("Lütfen öncelikle faturayı ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             if (CmbBelgeTuru.Text == "")
             {
                 MessageBox.Show("Lütfen öncelikle Belge Türünü seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -1706,7 +1707,7 @@ namespace UserInterface.STS
             
             foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
             {
-                toplamlar = +item.Btf;
+                toplamlar += item.Btf;
             }
 
             try
@@ -1770,11 +1771,11 @@ namespace UserInterface.STS
                 MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (dosyaKontrol == false)
-            {
-                MessageBox.Show("Lütfen öncelikle ödeme mailini ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (dosyaKontrol == false)
+            //{
+            //    MessageBox.Show("Lütfen öncelikle ödeme mailini ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT işlemini Kaydetmek istediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
@@ -2095,11 +2096,11 @@ namespace UserInterface.STS
                 }
             }
 
-            if (dosyaKontrol == false)
-            {
-                MessageBox.Show("Lütfen öncelikle gelen maili ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (dosyaKontrol == false)
+            //{
+            //    MessageBox.Show("Lütfen öncelikle gelen maili ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
 
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT işlemini Kaydetmek istediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
@@ -2391,6 +2392,7 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show(satno + " Nolu SAT işlemini Kaydetmek istediğinize Emin Misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                
                 string usBolgesiProje = bolgeKayitManager.BolgeProjeList(usbolgesi);
                 string garantiDurumu = bolgeKayitManager.BolgeGarantiDurumList(usbolgesi);
 
@@ -2399,6 +2401,7 @@ namespace UserInterface.STS
                     MessageBox.Show("Satın alınan firma bilgisini bulunamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
                 //donem = DateTime.Now.ConPeriod();
 
                 Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satBirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entity.IdariIsler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,7 +9,7 @@ namespace Entity
 {
     public class GorevAtamaPersonel
     {
-        int id, benzersizId; string departman, gorevAtanacakPersonel, islemAdimi; DateTime tarih; string sure, yapilanIslem, abfNo; int devamEdenGorev, tamamlananGorev, beklemeSuresi;
+        int id, benzersizId; string departman, gorevAtanacakPersonel, islemAdimi; DateTime tarih; string sure, yapilanIslem, abfNo; int devamEdenGorev, tamamlananGorev; double beklemeSuresi, devamEdenSureOrtGun, tamamlananGorevOrtSure; int toplamGorevSayisi; string sirketBolum;
 
         public int Id { get => id; set => id = value; }
         public int BenzersizId { get => benzersizId; set => benzersizId = value; }
@@ -22,9 +23,13 @@ namespace Entity
         public string AbfNo { get => abfNo; set => abfNo = value; }
         public int DevamEdenGorev { get => devamEdenGorev; set => devamEdenGorev = value; }
         public int TamamlananGorev { get => tamamlananGorev; set => tamamlananGorev = value; }
-        public int BeklemeSuresi { get => beklemeSuresi; set => beklemeSuresi = value; }
+        public double BeklemeSuresi { get => beklemeSuresi; set => beklemeSuresi = value; }
+        public string SirketBolum { get => sirketBolum; set => sirketBolum = value; }
+        public int ToplamGorevSayisi { get => toplamGorevSayisi; set => toplamGorevSayisi = value; }
+        public double DevamEdenSureOrtGun { get => devamEdenSureOrtGun; set => devamEdenSureOrtGun = value; }
+        public double TamamlananGorevOrtSure { get => tamamlananGorevOrtSure; set => tamamlananGorevOrtSure = value; }
 
-        public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure, string yapilanIslem, DateTime calismaSuresi, string abfNo, int beklemeSuresi)
+        public GorevAtamaPersonel(int id, int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string sure, string yapilanIslem, DateTime calismaSuresi, string abfNo, double beklemeSuresi)
         {
             this.id = id;
             this.benzersizId = benzersizId;
@@ -62,17 +67,20 @@ namespace Entity
             this.gorevAtanacakPersonel = personel;
         }
 
-        public GorevAtamaPersonel(string gorevAtanacakPersonel, string sure)
+        public GorevAtamaPersonel(string gorevAtanacakPersonel, string sirketBolum)
         {
             this.gorevAtanacakPersonel = gorevAtanacakPersonel;
-            this.sure = sure;
+            this.sirketBolum = sirketBolum;
         }
 
-        public GorevAtamaPersonel(string gorevAtanacakPersonel, int devamEdenGorev, int tamamlananGorev)
+        public GorevAtamaPersonel(string gorevAtanacakPersonel, int devamEdenGorev, int tamamlananGorev, int toplamGorevSayisi, double devamEdenSureOrtGun, double tamamlananGorevOrtSure)
         {
             this.gorevAtanacakPersonel = gorevAtanacakPersonel;
             this.devamEdenGorev = devamEdenGorev;
             this.tamamlananGorev = tamamlananGorev;
+            ToplamGorevSayisi = toplamGorevSayisi;
+            this.devamEdenSureOrtGun = devamEdenSureOrtGun;
+            this.tamamlananGorevOrtSure = tamamlananGorevOrtSure;
         }
 
         public GorevAtamaPersonel(int benzersizId)

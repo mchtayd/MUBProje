@@ -405,6 +405,11 @@ namespace UserInterface.BakımOnarım
             DtgIslemKayitlari.Columns["CalismaSuresi"].HeaderText = "ÇALIŞMA SÜRESİ";
             DtgIslemKayitlari.Columns["AbfNo"].Visible = false;
 
+            DtgIslemKayitlari.Columns["SirketBolum"].Visible = false;
+            DtgIslemKayitlari.Columns["ToplamGorevSayisi"].Visible = false;
+            DtgIslemKayitlari.Columns["DevamEdenSureOrtGun"].Visible = false;
+            DtgIslemKayitlari.Columns["TamamlananGorevOrtSure"].Visible = false;
+
             DtgIslemKayitlari.Columns["CalismaSuresi"].DefaultCellStyle.Format = @"HH:mm:ss";
 
             foreach (DataGridViewRow row in DtgIslemKayitlari.Rows)

@@ -62,6 +62,17 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
+        public string Update(TamamlananMalzeme entity)
+        {
+            try
+            {
+                return tamamlananMalzemeDal.Update(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static TamamlananMalzemeManager GetInstance()
         {
             if (tamamlananMalzemeManager == null)
