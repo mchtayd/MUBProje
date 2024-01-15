@@ -34,15 +34,16 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@cekilenDepo", entity.CekilenDepoNo),
                     new SqlParameter("@cekilenDepoAdresi", entity.CekilenDepoAdresi),
                     new SqlParameter("@cekilenMalzemeYeri", entity.CekilenMalzemeYeri),
-                    new SqlParameter("@dusulenDepo",entity.DusulenDepoNo),
-                    new SqlParameter("@dusulenDepoAdresi",entity.DusulenDepoAdresi),
-                    new SqlParameter("@dusulenMalzemeYeri",entity.DusulenMalzemeYeri),
-                    new SqlParameter("@dusulenMiktar",entity.DusulenMiktar),
-                    new SqlParameter("@talepEdenPersonel",entity.TalepEdenPersonel),
-                    new SqlParameter("@aciklama",entity.Aciklama),
-                    new SqlParameter("@serino",entity.Serino),
-                    new SqlParameter("@lotno",entity.Lotno),
-                    new SqlParameter("@revizyon",entity.Revizyon));
+                    new SqlParameter("@dusulenDepo", entity.DusulenDepoNo),
+                    new SqlParameter("@dusulenDepoAdresi", entity.DusulenDepoAdresi),
+                    new SqlParameter("@dusulenMalzemeYeri", entity.DusulenMalzemeYeri),
+                    new SqlParameter("@dusulenMiktar", entity.DusulenMiktar),
+                    new SqlParameter("@talepEdenPersonel", entity.TalepEdenPersonel),
+                    new SqlParameter("@aciklama", entity.Aciklama),
+                    new SqlParameter("@serino", entity.Serino),
+                    new SqlParameter("@lotno", entity.Lotno),
+                    new SqlParameter("@revizyon", entity.Revizyon),
+                    new SqlParameter("@sayimYili", entity.SayimYili));
                 dataReader.Close();
                 return "OK";
             }
@@ -309,6 +310,44 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
+        public List<StokGirisCıkıs> GetListSayim(string sayimYili, string stokNo, string seriNo)
+        {
+            try
+            {
+                List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
+                dataReader = sqlServices.StoreReader("DepoStokSayimGirisCikis", new SqlParameter("@sayimYili", sayimYili), new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo));
+                while (dataReader.Read())
+                {
+                    stokGirisCıkıs.Add(new StokGirisCıkıs(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ISLEM_TURU"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["ISLEM_TARIH"].ConDate(),
+                        dataReader["CEKILEN_DEPO"].ToString(),
+                        dataReader["CEKILEN_DEPO_ADRESI"].ToString(),
+                        dataReader["CEKILEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_DEPO"].ToString(),
+                        dataReader["DUSULEN_DEPO_ADRESI"].ToString(),
+                        dataReader["DUSULEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_MIKTAR"].ConInt(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString()));
+                }
+                dataReader.Close();
+                return stokGirisCıkıs;
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
+
         public List<StokGirisCıkıs> DusumBilgi(string abfNo)
         {
             try

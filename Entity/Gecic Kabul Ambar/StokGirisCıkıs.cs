@@ -8,7 +8,7 @@ namespace Entity.Gecic_Kabul_Ambar
 {
     public class StokGirisCıkıs
     {
-        int id; string islemturu, stokno, tanim; string birim; DateTime islemTarihi; string cekilenDepoNo, cekilenDepoAdresi, cekilenMalzemeYeri, dusulenDepoNo, dusulenDepoAdresi, dusulenMalzemeYeri; int dusulenMiktar; string talepEdenPersonel, aciklama, serino, lotno, revizyon;
+        int id; string islemturu, stokno, tanim; string birim; DateTime islemTarihi; string cekilenDepoNo, cekilenDepoAdresi, cekilenMalzemeYeri, dusulenDepoNo, dusulenDepoAdresi, dusulenMalzemeYeri; int dusulenMiktar; string talepEdenPersonel, aciklama, serino, lotno, revizyon, sayimYili;
 
         public int Id { get => id; set => id = value; }
         public string Islemturu { get => islemturu; set => islemturu = value; }
@@ -28,8 +28,9 @@ namespace Entity.Gecic_Kabul_Ambar
         public string Lotno { get => lotno; set => lotno = value; }
         public string Revizyon { get => revizyon; set => revizyon = value; }
         public string TalepEdenPersonel { get => talepEdenPersonel; set => talepEdenPersonel = value; }
+        public string SayimYili { get => sayimYili; set => sayimYili = value; }
 
-        public StokGirisCıkıs(int id, string islemturu, string stokno, string tanim, string birim, DateTime islemTarihi, string cekilenDepoNo, string cekilenDepoAdresi, string cekilenMalzemeYeri, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string talepEdenPersonel, string aciklama, string serino, string lotno, string revizyon)
+        public StokGirisCıkıs(int id, string islemturu, string stokno, string tanim, string birim, DateTime islemTarihi, string cekilenDepoNo, string cekilenDepoAdresi, string cekilenMalzemeYeri, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string talepEdenPersonel, string aciklama, string serino, string lotno, string revizyon,string sayimYili="")
         {
             this.id = id;
             this.islemturu = islemturu;
@@ -50,9 +51,10 @@ namespace Entity.Gecic_Kabul_Ambar
             this.lotno = lotno;
             this.talepEdenPersonel = talepEdenPersonel;
             this.revizyon = revizyon;
+            this.sayimYili=sayimYili;
         }
 
-        public StokGirisCıkıs(string islemturu, string stokno, string tanim, string birim, DateTime islemTarihi, string cekilenDepoNo, string cekilenDepoAdresi, string cekilenMalzemeYeri, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string talepEdenPersonel, string aciklama, string serino, string lotno, string revizyon)
+        public StokGirisCıkıs(string islemturu, string stokno, string tanim, string birim, DateTime islemTarihi, string cekilenDepoNo, string cekilenDepoAdresi, string cekilenMalzemeYeri, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string talepEdenPersonel, string aciklama, string serino, string lotno, string revizyon, string sayimYili="")
         {
             this.islemturu = islemturu;
             this.stokno = stokno;
@@ -72,6 +74,7 @@ namespace Entity.Gecic_Kabul_Ambar
             this.lotno = lotno;
             this.revizyon = revizyon;
             this.talepEdenPersonel = talepEdenPersonel;
+            this.sayimYili = sayimYili;
         }
 
         public StokGirisCıkıs(string stokno, string dusulenDepoNo, string serino, string lotno, string revizyon)

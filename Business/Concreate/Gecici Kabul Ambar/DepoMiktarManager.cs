@@ -157,6 +157,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<DepoMiktar>();
             }
         }
+        public List<DepoMiktar> GetListSayim(string sayimYili, string depoNo)
+        {
+            try
+            {
+                return depoMiktarDal.GetListSayim(sayimYili, depoNo);
+            }
+            catch (Exception)
+            {
+                return new List<DepoMiktar>();
+            }
+        }
         public List<DepoMiktar> GetListTumu()
         {
             try
@@ -166,6 +177,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             catch (Exception)
             {
                 return new List<DepoMiktar>();
+            }
+        }
+        public List<string> SayimYillari()
+        {
+            try
+            {
+                return depoMiktarDal.SayimYillari();
+            }
+            catch (Exception)
+            {
+                return new List<string>();
             }
         }
         public List<DepoMiktar> StokKontrol(string stokNo)

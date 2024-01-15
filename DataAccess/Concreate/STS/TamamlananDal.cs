@@ -78,9 +78,18 @@ namespace DataAccess.Concreate.STS
             }
         }
 
-        public string Delete(int id)
+        public string Delete(int id,string silenKisi)
         {
-            throw new NotImplementedException();
+            try
+            {
+                dataReader = sqlServices.StoreReader("TamamlananSatSil", new SqlParameter("@silenKisi", silenKisi), new SqlParameter("@id", id));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
         }
 
         public Tamamlanan Get(int id)

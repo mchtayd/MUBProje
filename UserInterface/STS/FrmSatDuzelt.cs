@@ -4,6 +4,7 @@ using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using DataAccess.Concreate.STS;
 using DocumentFormat.OpenXml.Drawing;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
@@ -30,10 +31,15 @@ namespace UserInterface.STS
         BolgeGarantiManager bolgeGarantiManager;
         SatTalebiDoldurManager satTalebiDoldurManager;
         List<TamamlananMalzeme> tamamlananMalzemes;
+        SatIslemAdimlariManager satIslemAdimlariManager;
+        TeklifsizSatManager teklifsizSatManager;
         public int id;
         bool start = false;
         string abfFormNo = "";
         int miktar, malzemeId;
+        string siparisNo;
+        public object[] infos;
+        bool teklisiz= false;
         public FrmSatDuzelt()
         {
             InitializeComponent();
@@ -44,6 +50,8 @@ namespace UserInterface.STS
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
             satTalebiDoldurManager = SatTalebiDoldurManager.GetInstance();
+            satIslemAdimlariManager = SatIslemAdimlariManager.GetInstance();
+            teklifsizSatManager = TeklifsizSatManager.GetInstance();
         }
 
         private void FrmSatDuzelt_Load(object sender, EventArgs e)
@@ -97,7 +105,7 @@ namespace UserInterface.STS
             CmbButceGiderTuru.Text = tamamlanan.ButceGiderTuru;
             TxtProje.Text = tamamlanan.UsProjeNo;
             CmbBasaranProje.Text = tamamlanan.Proje;
-            string siparisNo = tamamlanan.Siparisno;
+            siparisNo = tamamlanan.Siparisno;
             MalzemeFill(siparisNo);
             string dosyaYolu = tamamlanan.Dosyayolu;
             try
@@ -152,18 +160,36 @@ namespace UserInterface.STS
         }
         void MalzemeFill(string siparisNo)
         {
+            List<TeklifsizSat> teklifsizSats = new List<TeklifsizSat>();
             tamamlananMalzemes = tamamlananMalzemeManager.GetList(siparisNo);
-            DtgList.DataSource = tamamlananMalzemes;
-            DtgList.Columns["Id"].Visible = false;
-            DtgList.Columns["Stokno"].HeaderText = "STOK NO";
-            DtgList.Columns["Tanim"].HeaderText = "TANIM";
-            DtgList.Columns["Miktar"].HeaderText = "MİKTAR";
-            DtgList.Columns["Birim"].HeaderText = "BİRİM";
-            DtgList.Columns["Firma"].HeaderText = "FİRMA";
-            DtgList.Columns["Birimfiyat"].HeaderText = "BİRİM FİYAT";
-            DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
-            DtgList.Columns["Siparisno"].Visible = false;
-            Toplamlar();
+            if (tamamlananMalzemes.Count==0)
+            {
+                teklifsizSats = teklifsizSatManager.GetList(siparisNo);
+                DtgList.DataSource = teklifsizSats;
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["Stokno"].Visible = false;
+                DtgList.Columns["Tanim"].Visible = false;
+                DtgList.Columns["Miktar"].Visible = false;
+                DtgList.Columns["Birim"].Visible = false;
+                DtgList.Columns["Siparisno"].Visible = false;
+                DtgList.Columns["Tutar"].HeaderText = "TOPLAM FİYAT";
+                teklisiz = true;
+                ToplamlarTeklifsiz();
+            }
+            else
+            {
+                DtgList.DataSource = tamamlananMalzemes;
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["Stokno"].HeaderText = "STOK NO";
+                DtgList.Columns["Tanim"].HeaderText = "TANIM";
+                DtgList.Columns["Miktar"].HeaderText = "MİKTAR";
+                DtgList.Columns["Birim"].HeaderText = "BİRİM";
+                DtgList.Columns["Firma"].HeaderText = "FİRMA";
+                DtgList.Columns["Birimfiyat"].HeaderText = "BİRİM FİYAT";
+                DtgList.Columns["Toplamfiyat"].HeaderText = "TOPLAM FİYAT";
+                DtgList.Columns["Siparisno"].Visible = false;
+                Toplamlar();
+            }
         }
 
         void Toplamlar()
@@ -172,6 +198,16 @@ namespace UserInterface.STS
             for (int i = 0; i < DtgList.Rows.Count; ++i)
             {
                 toplam += Convert.ToDouble(DtgList.Rows[i].Cells["Toplamfiyat"].Value);
+            }
+            LblToplam.Text = toplam.ToString("C2");
+        }
+
+        void ToplamlarTeklifsiz()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgList.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgList.Rows[i].Cells["Tutar"].Value);
             }
             LblToplam.Text = toplam.ToString("C2");
         }
@@ -233,11 +269,14 @@ namespace UserInterface.STS
             DialogResult dr = MessageBox.Show("Bilgileri güncellemek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
-
+                GuncelTutarTopla();
                 string donem = CmbDonem.Text + " " + CmbDonemYil.Text;
                 Tamamlanan tamamlanan = new Tamamlanan(id, CmbUsBolgesi.Text, CmbAbfFormno.Text, istenenTarih.Value, TxtGerekceBasaran.Text, CmbButceKodu.Text, CmbSatBirim.Text, CmbHarcamaTuru.Text, CmbFaturaFirma.Text, TxtIlgiliKisi.Text, TxtMasYerNo.Text, CmbFBelgeTur.Text, TxtBelgeNo.Text, DtgBelgeTarih.Value, donem, CmbBasaranProje.Text, TxtSatinAlinanFirma.Text, CmbHarcamaYapan.Text, CmbButceTanimi.Text, CmbMaliyetTuru.Text, TxtFirmayaKesilenFatura.Text, TxtKesilenFaturaTarihi.Text, CmbButceGiderTuru.Text);
 
                 string mesaj = tamamlananManager.Update(tamamlanan);
+
+                tamamlananManager.UpdateTutar(genelToplam, siparisNo);
+
                 if (mesaj!="OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -246,10 +285,22 @@ namespace UserInterface.STS
 
                 foreach (DataGridViewRow item in DtgList.Rows)
                 {
-                    TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item.Cells["Id"].Value.ConInt(), item.Cells["Birimfiyat"].Value.ConDouble(), item.Cells["Toplamfiyat"].Value.ConDouble());
-                    tamamlananMalzemeManager.Update(tamamlananMalzeme);
-
+                    if (teklisiz==true)
+                    {
+                        teklifsizSatManager.UpdateTutar(genelToplam, item.Cells["Id"].Value.ConInt());
+                    }
+                    else
+                    {
+                        TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item.Cells["Id"].Value.ConInt(), item.Cells["Birimfiyat"].Value.ConDouble(), item.Cells["Toplamfiyat"].Value.ConDouble());
+                        tamamlananMalzemeManager.Update(tamamlananMalzeme);
+                    }
+                    
                 }
+
+                string yapilanIslem = "SAT BİLGİLERİ GÜNCELLENMİŞTİR.";
+
+                SatIslemAdimlari satIslem = new SatIslemAdimlari(siparisNo, yapilanIslem, infos[1].ToString(), DateTime.Now);
+                satIslemAdimlariManager.Add(satIslem);
 
                 FrmTamamlananSat frmTamamlananSat = (FrmTamamlananSat)Application.OpenForms["FrmTamamlananSat"];
                 frmTamamlananSat.TamamlananSatlar();
@@ -257,19 +308,46 @@ namespace UserInterface.STS
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
-
         }
 
+        void GuncelTutarTopla()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgList.Rows.Count; ++i)
+            {
+                if (teklisiz==true)
+                {
+                    toplam += Convert.ToDouble(DtgList.Rows[i].Cells["Tutar"].Value);
+                }
+                else
+                {
+                    toplam += Convert.ToDouble(DtgList.Rows[i].Cells["Toplamfiyat"].Value);
+                }
+            }
+
+            genelToplam = toplam;
+        }
+        double genelToplam = 0;
 
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
-            TxtBirim.Text = DtgList.CurrentRow.Cells["Birimfiyat"].Value.ToString();
-            miktar = DtgList.CurrentRow.Cells["Miktar"].Value.ConInt();
-            malzemeId = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
-            if (miktar==0)
+            if (teklisiz == true)
             {
+                malzemeId = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
                 miktar = 1;
+                TxtBirim.Text = DtgList.CurrentRow.Cells["Tutar"].Value.ToString();
             }
+            else
+            {
+                TxtBirim.Text = DtgList.CurrentRow.Cells["Birimfiyat"].Value.ToString();
+                miktar = DtgList.CurrentRow.Cells["Miktar"].Value.ConInt();
+                malzemeId = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
+                if (miktar == 0)
+                {
+                    miktar = 1;
+                }
+            }
+            
         }
 
         private void BtnOnayla_Click(object sender, EventArgs e)
@@ -283,8 +361,16 @@ namespace UserInterface.STS
             {
                 if (malzemeId == item.Cells["Id"].Value.ConInt())
                 {
-                    item.Cells["BirimFiyat"].Value = TxtBirim.Text;
-                    item.Cells["ToplamFiyat"].Value = LblToplamFiyat.Text;
+                    if (teklisiz==true)
+                    {
+                        item.Cells["Tutar"].Value = LblToplamFiyat.Text;
+                    }
+                    else
+                    {
+                        item.Cells["BirimFiyat"].Value = TxtBirim.Text;
+                        item.Cells["ToplamFiyat"].Value = LblToplamFiyat.Text;
+                    }
+                    
                 }
                 
             }
@@ -300,6 +386,27 @@ namespace UserInterface.STS
         {
             LblToplamFiyat.Text = ToplamHesapla(miktar, TxtBirim.Text.ConDouble());
         }
+
+        private void BtnSil_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Sat bilgilerini silmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                string mesaj = tamamlananManager.Delete(id, infos[1].ToString());
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                FrmTamamlananSat frmTamamlananSat = (FrmTamamlananSat)Application.OpenForms["FrmTamamlananSat"];
+                frmTamamlananSat.TamamlananSatlar();
+
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                this.Close();
+            }
+        }
+
         string ToplamHesapla(int miktar, double birimFiyat)
         {
             double toplam;

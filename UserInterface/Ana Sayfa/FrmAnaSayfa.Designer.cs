@@ -95,6 +95,7 @@ namespace UserInterface.STS
             this.işlemAdımlarıDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dtsRaporToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.görevliPersonellerToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.bölgeYolDurumuKayitKontrolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton2 = new System.Windows.Forms.ToolStripDropDownButton();
             this.şifremiDeğitirToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.serverToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -670,7 +671,8 @@ namespace UserInterface.STS
             this.bildirimYetkiDüzenleToolStripMenuItem,
             this.işlemAdımlarıDüzenleToolStripMenuItem,
             this.dtsRaporToolStripMenuItem,
-            this.görevliPersonellerToolStripMenuItem1});
+            this.görevliPersonellerToolStripMenuItem1,
+            this.bölgeYolDurumuKayitKontrolToolStripMenuItem});
             this.sayfalar.Image = ((System.Drawing.Image)(resources.GetObject("sayfalar.Image")));
             this.sayfalar.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.sayfalar.Name = "sayfalar";
@@ -680,7 +682,7 @@ namespace UserInterface.STS
             // hesapOluşturToolStripMenuItem
             // 
             this.hesapOluşturToolStripMenuItem.Name = "hesapOluşturToolStripMenuItem";
-            this.hesapOluşturToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
+            this.hesapOluşturToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.hesapOluşturToolStripMenuItem.Text = "Hesap Oluştur/Düzenle";
             this.hesapOluşturToolStripMenuItem.Click += new System.EventHandler(this.hesapOluşturToolStripMenuItem_Click);
             // 
@@ -694,7 +696,7 @@ namespace UserInterface.STS
             this.izinOnayToolStripMenuItem,
             this.fazlaÇalışmaOnayToolStripMenuItem});
             this.onayEkranlarıToolStripMenuItem.Name = "onayEkranlarıToolStripMenuItem";
-            this.onayEkranlarıToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
+            this.onayEkranlarıToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.onayEkranlarıToolStripMenuItem.Text = "Onay Ekranları";
             this.onayEkranlarıToolStripMenuItem.Click += new System.EventHandler(this.onayEkranlarıToolStripMenuItem_Click);
             // 
@@ -743,51 +745,58 @@ namespace UserInterface.STS
             // devamDevamsızlıkToolStripMenuItem
             // 
             this.devamDevamsızlıkToolStripMenuItem.Name = "devamDevamsızlıkToolStripMenuItem";
-            this.devamDevamsızlıkToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
+            this.devamDevamsızlıkToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.devamDevamsızlıkToolStripMenuItem.Text = "Devam/Devamsızlık";
             this.devamDevamsızlıkToolStripMenuItem.Click += new System.EventHandler(this.devamDevamsızlıkToolStripMenuItem_Click);
             // 
             // organizasyonToolStripMenuItem
             // 
             this.organizasyonToolStripMenuItem.Name = "organizasyonToolStripMenuItem";
-            this.organizasyonToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
+            this.organizasyonToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.organizasyonToolStripMenuItem.Text = "Organizasyon";
             this.organizasyonToolStripMenuItem.Click += new System.EventHandler(this.organizasyonToolStripMenuItem_Click);
             // 
             // duyuruToolStripMenuItem
             // 
             this.duyuruToolStripMenuItem.Name = "duyuruToolStripMenuItem";
-            this.duyuruToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
+            this.duyuruToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.duyuruToolStripMenuItem.Text = "Duyuru";
             this.duyuruToolStripMenuItem.Click += new System.EventHandler(this.duyuruToolStripMenuItem_Click);
             // 
             // bildirimYetkiDüzenleToolStripMenuItem
             // 
             this.bildirimYetkiDüzenleToolStripMenuItem.Name = "bildirimYetkiDüzenleToolStripMenuItem";
-            this.bildirimYetkiDüzenleToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
+            this.bildirimYetkiDüzenleToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.bildirimYetkiDüzenleToolStripMenuItem.Text = "Bildirim Yetki Düzenle";
             this.bildirimYetkiDüzenleToolStripMenuItem.Click += new System.EventHandler(this.bildirimYetkiDüzenleToolStripMenuItem_Click);
             // 
             // işlemAdımlarıDüzenleToolStripMenuItem
             // 
             this.işlemAdımlarıDüzenleToolStripMenuItem.Name = "işlemAdımlarıDüzenleToolStripMenuItem";
-            this.işlemAdımlarıDüzenleToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
+            this.işlemAdımlarıDüzenleToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.işlemAdımlarıDüzenleToolStripMenuItem.Text = "İşlem Adımları Düzenle";
             this.işlemAdımlarıDüzenleToolStripMenuItem.Click += new System.EventHandler(this.işlemAdımlarıDüzenleToolStripMenuItem_Click);
             // 
             // dtsRaporToolStripMenuItem
             // 
             this.dtsRaporToolStripMenuItem.Name = "dtsRaporToolStripMenuItem";
-            this.dtsRaporToolStripMenuItem.Size = new System.Drawing.Size(285, 26);
+            this.dtsRaporToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
             this.dtsRaporToolStripMenuItem.Text = "Dts Raporu";
             this.dtsRaporToolStripMenuItem.Click += new System.EventHandler(this.dtsRaporToolStripMenuItem_Click);
             // 
             // görevliPersonellerToolStripMenuItem1
             // 
             this.görevliPersonellerToolStripMenuItem1.Name = "görevliPersonellerToolStripMenuItem1";
-            this.görevliPersonellerToolStripMenuItem1.Size = new System.Drawing.Size(285, 26);
+            this.görevliPersonellerToolStripMenuItem1.Size = new System.Drawing.Size(299, 26);
             this.görevliPersonellerToolStripMenuItem1.Text = "Personel Bildirim Performansı";
             this.görevliPersonellerToolStripMenuItem1.Click += new System.EventHandler(this.görevliPersonellerToolStripMenuItem1_Click);
+            // 
+            // bölgeYolDurumuKayitKontrolToolStripMenuItem
+            // 
+            this.bölgeYolDurumuKayitKontrolToolStripMenuItem.Name = "bölgeYolDurumuKayitKontrolToolStripMenuItem";
+            this.bölgeYolDurumuKayitKontrolToolStripMenuItem.Size = new System.Drawing.Size(299, 26);
+            this.bölgeYolDurumuKayitKontrolToolStripMenuItem.Text = "Bölge Yol Durumu Kayıt Kontrol";
+            this.bölgeYolDurumuKayitKontrolToolStripMenuItem.Click += new System.EventHandler(this.bölgeYolDurumuKayitKontrolToolStripMenuItem_Click);
             // 
             // toolStripDropDownButton2
             // 
@@ -1367,8 +1376,6 @@ namespace UserInterface.STS
         public System.Windows.Forms.ImageList ımageList1;
         private System.Windows.Forms.Button BtnDosyaDuzelt;
         private System.Windows.Forms.Button BtnDonemDuzelt;
-        private System.Windows.Forms.TreeView TreeMenu;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton Dosya;
         private System.Windows.Forms.ToolStripMenuItem içeAktarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
@@ -1461,5 +1468,8 @@ namespace UserInterface.STS
         private System.Windows.Forms.ToolStripMenuItem görevUyarularıToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem görevAçıklamaTalepleriToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem görevliPersonellerToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem bölgeYolDurumuKayitKontrolToolStripMenuItem;
+        public System.Windows.Forms.TreeView TreeMenu;
+        public System.Windows.Forms.ToolStrip toolStrip1;
     }
 }

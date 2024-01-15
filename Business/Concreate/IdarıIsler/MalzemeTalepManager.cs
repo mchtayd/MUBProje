@@ -60,11 +60,11 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<MalzemeTalep> GetList()
+        public List<MalzemeTalep> GetList(string islemDurumu)
         {
             try
             {
-                return malzemeTalepDal.GetList();
+                return malzemeTalepDal.GetList(islemDurumu);
             }
             catch (Exception)
             {

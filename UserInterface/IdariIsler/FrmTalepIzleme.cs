@@ -29,7 +29,10 @@ namespace UserInterface.IdariIsler
 
         private void FrmTalepIzleme_Load(object sender, EventArgs e)
         {
-            DataDisplay();
+            DataDisplayOnayAsamasi();
+            DataDisplayOnaylandı();
+            DataDisplayReddedildi();
+            DataDisplaySat();
         }
 
         private void BtnCancel_Click(object sender, EventArgs e)
@@ -57,9 +60,38 @@ namespace UserInterface.IdariIsler
             TxtMiktar.Text = toplam.ToString();
         }
 
-        public void DataDisplay()
+        void ToplamlarOnaylandı()
         {
-            malzemeTaleps = malzemeTalepManager.GetList();
+            double toplam = 0;
+            for (int i = 0; i < DtgListOnaylandı.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgListOnaylandı.Rows[i].Cells["Miktar"].Value);
+            }
+            TxtMiktarOnaylandi.Text = toplam.ToString();
+        }
+        void ToplamlarReddedildi()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgListReddedildi.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgListReddedildi.Rows[i].Cells["Miktar"].Value);
+            }
+            TxtMiktarReddedildi.Text = toplam.ToString();
+        }
+
+        void ToplamlarSat()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgListSat.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgListSat.Rows[i].Cells["Miktar"].Value);
+            }
+            TxtMiktarSat.Text = toplam.ToString();
+        }
+
+        public void DataDisplayOnayAsamasi()
+        {
+            malzemeTaleps = malzemeTalepManager.GetList("ONAY AŞAMASINDA");
             dataBinder.DataSource = malzemeTaleps.ToDataTable();
             DtgList.DataSource = dataBinder;
 
@@ -97,6 +129,160 @@ namespace UserInterface.IdariIsler
 
         }
 
+        public void DataDisplayOnaylandı()
+        {
+            malzemeTaleps = malzemeTalepManager.GetList("ONAYLANDI, STOK KONTROL");
+            dataBinderOnaylandı.DataSource = malzemeTaleps.ToDataTable();
+            DtgListOnaylandı.DataSource = dataBinderOnaylandı;
+
+            DtgListOnaylandı.Columns["Id"].Visible = false;
+            DtgListOnaylandı.Columns["MalzemeKategorisi"].HeaderText = "MALZEME KATEGORİSİ";
+            DtgListOnaylandı.Columns["TalepEdenPersonel"].HeaderText = "TALEP EDİLEN PERSONEL";
+            DtgListOnaylandı.Columns["Tanim"].HeaderText = "TANIM";
+            DtgListOnaylandı.Columns["StokNo"].HeaderText = "STOK NO";
+            DtgListOnaylandı.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgListOnaylandı.Columns["Birim"].HeaderText = "BİRİM";
+            DtgListOnaylandı.Columns["TalebiOlusturan"].HeaderText = "MASRAF YERİ SORUMLUSU";
+            DtgListOnaylandı.Columns["Bolum"].HeaderText = "BÖLÜM";
+            DtgListOnaylandı.Columns["SatBilgisi"].Visible = false;
+            DtgListOnaylandı.Columns["MasrafYeri"].HeaderText = "MASRAF YERİ NO";
+            DtgListOnaylandı.Columns["IslemDurumu"].HeaderText = "İŞLEM DURUMU";
+            DtgListOnaylandı.Columns["RedGerekcesi"].Visible = false;
+            DtgListOnaylandı.Columns["Secim"].Visible = false;
+            DtgListOnaylandı.Columns["ToplamMiktar"].Visible = false;
+            DtgListOnaylandı.Columns["DepoDurum"].Visible = false;
+
+            DtgListOnaylandı.Columns["Bolum"].DisplayIndex = 0;
+            DtgListOnaylandı.Columns["MasrafYeri"].DisplayIndex = 1;
+            DtgListOnaylandı.Columns["TalebiOlusturan"].DisplayIndex = 2;
+            DtgListOnaylandı.Columns["MalzemeKategorisi"].DisplayIndex = 3;
+            DtgListOnaylandı.Columns["StokNo"].DisplayIndex = 4;
+            DtgListOnaylandı.Columns["Tanim"].DisplayIndex = 5;
+            DtgListOnaylandı.Columns["TalepEdenPersonel"].DisplayIndex = 6;
+            DtgListOnaylandı.Columns["Miktar"].DisplayIndex = 7;
+            DtgListOnaylandı.Columns["Birim"].DisplayIndex = 8;
+            DtgListOnaylandı.Columns["SatBilgisi"].DisplayIndex = 9;
+            DtgListOnaylandı.Columns["Id"].DisplayIndex = 10;
+
+            TxtTopOnaylandı.Text = DtgListOnaylandı.RowCount.ToString();
+            ToplamlarOnaylandı();
+        }
+
+        public void DataDisplayReddedildi()
+        {
+            malzemeTaleps = malzemeTalepManager.GetList("REDDEDİLDİ");
+            dataBinderReddedildi.DataSource = malzemeTaleps.ToDataTable();
+            DtgListReddedildi.DataSource = dataBinderReddedildi;
+
+            DtgListReddedildi.Columns["Id"].Visible = false;
+            DtgListReddedildi.Columns["MalzemeKategorisi"].HeaderText = "MALZEME KATEGORİSİ";
+            DtgListReddedildi.Columns["TalepEdenPersonel"].HeaderText = "TALEP EDİLEN PERSONEL";
+            DtgListReddedildi.Columns["Tanim"].HeaderText = "TANIM";
+            DtgListReddedildi.Columns["StokNo"].HeaderText = "STOK NO";
+            DtgListReddedildi.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgListReddedildi.Columns["Birim"].HeaderText = "BİRİM";
+            DtgListReddedildi.Columns["TalebiOlusturan"].HeaderText = "MASRAF YERİ SORUMLUSU";
+            DtgListReddedildi.Columns["Bolum"].HeaderText = "BÖLÜM";
+            DtgListReddedildi.Columns["SatBilgisi"].Visible = false;
+            DtgListReddedildi.Columns["MasrafYeri"].HeaderText = "MASRAF YERİ NO";
+            DtgListReddedildi.Columns["IslemDurumu"].HeaderText = "İŞLEM DURUMU";
+            DtgListReddedildi.Columns["RedGerekcesi"].Visible = false;
+            DtgListReddedildi.Columns["Secim"].Visible = false;
+            DtgListReddedildi.Columns["ToplamMiktar"].Visible = false;
+            DtgListReddedildi.Columns["DepoDurum"].Visible = false;
+
+            DtgListReddedildi.Columns["Bolum"].DisplayIndex = 0;
+            DtgListReddedildi.Columns["MasrafYeri"].DisplayIndex = 1;
+            DtgListReddedildi.Columns["TalebiOlusturan"].DisplayIndex = 2;
+            DtgListReddedildi.Columns["MalzemeKategorisi"].DisplayIndex = 3;
+            DtgListReddedildi.Columns["StokNo"].DisplayIndex = 4;
+            DtgListReddedildi.Columns["Tanim"].DisplayIndex = 5;
+            DtgListReddedildi.Columns["TalepEdenPersonel"].DisplayIndex = 6;
+            DtgListReddedildi.Columns["Miktar"].DisplayIndex = 7;
+            DtgListReddedildi.Columns["Birim"].DisplayIndex = 8;
+            DtgListReddedildi.Columns["SatBilgisi"].DisplayIndex = 9;
+            DtgListReddedildi.Columns["Id"].DisplayIndex = 10;
+
+            TxtTopReddedildi.Text = DtgListReddedildi.RowCount.ToString();
+            ToplamlarReddedildi();
+        }
+        public void DataDisplaySat()
+        {
+            malzemeTaleps = malzemeTalepManager.GetList("SAT OLUŞTURULDU, TEDARİK AŞAMASINDA");
+            dataBinderSat.DataSource = malzemeTaleps.ToDataTable();
+            DtgListSat.DataSource = dataBinderSat;
+
+            DtgListSat.Columns["Id"].Visible = false;
+            DtgListSat.Columns["MalzemeKategorisi"].HeaderText = "MALZEME KATEGORİSİ";
+            DtgListSat.Columns["TalepEdenPersonel"].HeaderText = "TALEP EDİLEN PERSONEL";
+            DtgListSat.Columns["Tanim"].HeaderText = "TANIM";
+            DtgListSat.Columns["StokNo"].HeaderText = "STOK NO";
+            DtgListSat.Columns["Miktar"].HeaderText = "MİKTAR";
+            DtgListSat.Columns["Birim"].HeaderText = "BİRİM";
+            DtgListSat.Columns["TalebiOlusturan"].HeaderText = "MASRAF YERİ SORUMLUSU";
+            DtgListSat.Columns["Bolum"].HeaderText = "BÖLÜM";
+            DtgListSat.Columns["SatBilgisi"].Visible = false;
+            DtgListSat.Columns["MasrafYeri"].HeaderText = "MASRAF YERİ NO";
+            DtgListSat.Columns["IslemDurumu"].HeaderText = "İŞLEM DURUMU";
+            DtgListSat.Columns["RedGerekcesi"].Visible = false;
+            DtgListSat.Columns["Secim"].Visible = false;
+            DtgListSat.Columns["ToplamMiktar"].Visible = false;
+            DtgListSat.Columns["DepoDurum"].Visible = false;
+
+            DtgListSat.Columns["Bolum"].DisplayIndex = 0;
+            DtgListSat.Columns["MasrafYeri"].DisplayIndex = 1;
+            DtgListSat.Columns["TalebiOlusturan"].DisplayIndex = 2;
+            DtgListSat.Columns["MalzemeKategorisi"].DisplayIndex = 3;
+            DtgListSat.Columns["StokNo"].DisplayIndex = 4;
+            DtgListSat.Columns["Tanim"].DisplayIndex = 5;
+            DtgListSat.Columns["TalepEdenPersonel"].DisplayIndex = 6;
+            DtgListSat.Columns["Miktar"].DisplayIndex = 7;
+            DtgListSat.Columns["Birim"].DisplayIndex = 8;
+            DtgListSat.Columns["SatBilgisi"].DisplayIndex = 9;
+            DtgListSat.Columns["Id"].DisplayIndex = 10;
+
+            TxtTopSat.Text = DtgListSat.RowCount.ToString();
+            ToplamlarSat();
+        }
+        //public void DataDisplaySat()
+        //{
+        //    malzemeTaleps = malzemeTalepManager.GetList("SAT OLUŞTURULDU, TEDARİK AŞAMASINDA");
+        //    dataBinderSat.DataSource = malzemeTaleps.ToDataTable();
+        //    DtgListSat.DataSource = dataBinderSat;
+
+        //    DtgListSat.Columns["Id"].Visible = false;
+        //    DtgListSat.Columns["MalzemeKategorisi"].HeaderText = "MALZEME KATEGORİSİ";
+        //    DtgListSat.Columns["TalepEdenPersonel"].HeaderText = "TALEP EDİLEN PERSONEL";
+        //    DtgListSat.Columns["Tanim"].HeaderText = "TANIM";
+        //    DtgListSat.Columns["StokNo"].HeaderText = "STOK NO";
+        //    DtgListSat.Columns["Miktar"].HeaderText = "MİKTAR";
+        //    DtgListSat.Columns["Birim"].HeaderText = "BİRİM";
+        //    DtgListSat.Columns["TalebiOlusturan"].HeaderText = "MASRAF YERİ SORUMLUSU";
+        //    DtgListSat.Columns["Bolum"].HeaderText = "BÖLÜM";
+        //    DtgListSat.Columns["SatBilgisi"].Visible = false;
+        //    DtgListSat.Columns["MasrafYeri"].HeaderText = "MASRAF YERİ NO";
+        //    DtgListSat.Columns["IslemDurumu"].HeaderText = "İŞLEM DURUMU";
+        //    DtgListSat.Columns["RedGerekcesi"].Visible = false;
+        //    DtgListSat.Columns["Secim"].Visible = false;
+        //    DtgListSat.Columns["ToplamMiktar"].Visible = false;
+        //    DtgListSat.Columns["DepoDurum"].Visible = false;
+
+        //    DtgListSat.Columns["Bolum"].DisplayIndex = 0;
+        //    DtgListSat.Columns["MasrafYeri"].DisplayIndex = 1;
+        //    DtgListSat.Columns["TalebiOlusturan"].DisplayIndex = 2;
+        //    DtgListSat.Columns["MalzemeKategorisi"].DisplayIndex = 3;
+        //    DtgListSat.Columns["StokNo"].DisplayIndex = 4;
+        //    DtgListSat.Columns["Tanim"].DisplayIndex = 5;
+        //    DtgListSat.Columns["TalepEdenPersonel"].DisplayIndex = 6;
+        //    DtgListSat.Columns["Miktar"].DisplayIndex = 7;
+        //    DtgListSat.Columns["Birim"].DisplayIndex = 8;
+        //    DtgListSat.Columns["SatBilgisi"].DisplayIndex = 9;
+        //    DtgListSat.Columns["Id"].DisplayIndex = 10;
+
+        //    TxtTopSat.Text = DtgListSat.RowCount.ToString();
+        //    ToplamlarSat();
+        //}
+
         private void DtgList_FilterStringChanged(object sender, EventArgs e)
         {
             dataBinder.Filter = DtgList.FilterString;
@@ -123,8 +309,6 @@ namespace UserInterface.IdariIsler
 
             //webContent.DocumentText = strB.ToString();
 
-
-
         }
 
         private void onayAşamasındaToolStripMenuItem_Click(object sender, EventArgs e)
@@ -141,7 +325,10 @@ namespace UserInterface.IdariIsler
                 return;
             }
             id = 0;
-            DataDisplay();
+            DataDisplayOnayAsamasi();
+            DataDisplayOnaylandı();
+            DataDisplayReddedildi();
+            DataDisplaySat();
             MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -170,7 +357,10 @@ namespace UserInterface.IdariIsler
                 return;
             }
             id = 0;
-            DataDisplay();
+            DataDisplayOnayAsamasi();
+            DataDisplayOnaylandı();
+            DataDisplayReddedildi();
+            DataDisplaySat();
             MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -188,7 +378,10 @@ namespace UserInterface.IdariIsler
                 return;
             }
             id = 0;
-            DataDisplay();
+            DataDisplayOnayAsamasi();
+            DataDisplayOnaylandı();
+            DataDisplayReddedildi();
+            DataDisplaySat();
             MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -206,7 +399,10 @@ namespace UserInterface.IdariIsler
                 return;
             }
             id = 0;
-            DataDisplay();
+            DataDisplayOnayAsamasi();
+            DataDisplayOnaylandı();
+            DataDisplayReddedildi();
+            DataDisplaySat();
             MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -224,7 +420,10 @@ namespace UserInterface.IdariIsler
                 return;
             }
             id = 0;
-            DataDisplay();
+            DataDisplayOnayAsamasi();
+            DataDisplayOnaylandı();
+            DataDisplayReddedildi();
+            DataDisplaySat();
             MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -242,8 +441,47 @@ namespace UserInterface.IdariIsler
                 return;
             }
             id = 0;
-            DataDisplay();
+            DataDisplayOnayAsamasi();
+            DataDisplayOnaylandı();
+            DataDisplayReddedildi();
+            DataDisplaySat();
             MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        private void DtgListOnaylandı_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderOnaylandı.Filter = DtgListOnaylandı.FilterString;
+            TxtTopOnaylandı.Text = DtgListOnaylandı.RowCount.ToString();
+            ToplamlarOnaylandı();
+        }
+
+        private void DtgListOnaylandı_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderOnaylandı.Sort = DtgListOnaylandı.SortString;
+        }
+
+        private void DtgListReddedildi_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderReddedildi.Filter = DtgListReddedildi.FilterString;
+            TxtTopReddedildi.Text = DtgListReddedildi.RowCount.ToString();
+            ToplamlarReddedildi();
+        }
+
+        private void DtgListReddedildi_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderReddedildi.Sort = DtgListReddedildi.SortString;
+        }
+
+        private void DtgListSat_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderSat.Filter = DtgListSat.FilterString;
+            TxtTopSat.Text = DtgListSat.RowCount.ToString();
+            ToplamlarSat();
+        }
+
+        private void DtgListSat_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderSat.Sort = DtgListSat.SortString;
         }
     }
 }

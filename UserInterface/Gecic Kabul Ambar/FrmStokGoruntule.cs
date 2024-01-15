@@ -120,6 +120,7 @@ namespace UserInterface.Depo
             DtgDepoBilgileri.Columns["Aciklama"].HeaderText = "AÇIKLAMA";
             DtgDepoBilgileri.Columns["RezerveDurumu"].HeaderText = "REZERVE DURUMU";
             DtgDepoBilgileri.Columns["RezerveId"].HeaderText = "REZERVE EDİLEN KİMLİK";
+            DtgDepoBilgileri.Columns["SayimYili"].Visible = false;
 
             DtgDepoBilgileri.Columns["DepoLokasyon"].DisplayIndex = 8;
             TxtTop.Text = DtgDepoBilgileri.RowCount.ToString();

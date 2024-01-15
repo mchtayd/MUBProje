@@ -112,6 +112,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 contextMenuStrip1.Items[3].Enabled = false;
             }
+            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39 || infos[0].ConInt() == 1148 || infos[0].ConInt() == 1140 || infos[0].ConInt() == 104 || infos[0].ConInt() == 33)
+            {
+                contextMenuStrip1.Items[3].Enabled = true;
+            }
+            else
+            {
+                contextMenuStrip1.Items[3].Enabled = false;
+            }
         }
 
         private void button5_Click(object sender, EventArgs e)
@@ -840,10 +848,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return "100 - GEÇİCİ KABUL/KONTROL";
             }
-            //if (teslimTuru == "250 - ALT YÜKLENİCİYE GİDECEK MALZEME")
-            //{
-            //    return "ALT YÜKLENİCİ FİRMADA";
-            //}
+            if (teslimTuru == "250 - ALT YÜKLENİCİYE GİDECEK MALZEME")
+            {
+                return "ALT YÜKLENİCİ FİRMADA";
+            }
             if (teslimTuru == "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI")
             {
                 return "100 - GEÇİCİ KABUL/KONTROL";
@@ -907,10 +915,10 @@ namespace UserInterface.Gecic_Kabul_Ambar
             {
                 return "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI";
             }
-            if (teslimTuru == "250 - ALT YÜKLENİCİYE GİDECEK MALZEME")
-            {
-                return "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI";
-            }
+            //if (teslimTuru == "250 - ALT YÜKLENİCİYE GİDECEK MALZEME")
+            //{
+            //    return "ALT YÜKLENİCİ FİRMA İŞLEMLERİ TAMAMLANDI";
+            //}
             return teslimTuru;
         }
 
@@ -921,11 +929,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void hurdayaAyrılacaklarıBelirleToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (tiklananAdim != "100 - GEÇİCİ KABUL/KONTROL")
-            {
-                MessageBox.Show("Bu işlem sadece 100 - GEÇİCİ KABUL/KONTROL adımında gerçekleştirilir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            //if (tiklananAdim != "100 - GEÇİCİ KABUL/KONTROL")
+            //{
+            //    MessageBox.Show("Bu işlem sadece 100 - GEÇİCİ KABUL/KONTROL adımında gerçekleştirilir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
             Malzeme malzeme = malzemeManager.Get(tiklananStok);
             if (malzeme==null)
             {

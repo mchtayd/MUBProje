@@ -114,6 +114,7 @@
     </Compile>
     <Compile Include="Concreate\AnaSayfa\ServerAyarlarDal.cs" />
     <Compile Include="Concreate\AnaSayfa\SohbetDal.cs" />
+    <Compile Include="Concreate\AnaSayfa\YolDurumuGirmeyenDall.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeDal.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeDal.cs" />

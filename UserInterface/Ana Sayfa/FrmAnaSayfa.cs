@@ -53,6 +53,8 @@ namespace UserInterface.STS
         PersonelKayitManager personelKayitManager;
         ArizaKayitManager arizaKayitManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        BolgeKayitManager bolgeKayitManager;
+        YolDurumuGirmeyenManager yolDurumuGirmeyenManager;
 
         FrmWait frmWait = new FrmWait();
         List<MenuBaslik> menuBasliks;
@@ -68,6 +70,7 @@ namespace UserInterface.STS
         int control = 0;
         int atla = 0, atladal = 0, personId, authId;
         string izinIdleri, yetkiModu;
+        public bool anaSayfaYonlendirme = false;
 
         int index = 0;
         int indexAlt = 0;
@@ -88,6 +91,8 @@ namespace UserInterface.STS
             SystemEvents.PowerModeChanged += PowerModeChanged;
             arizaKayitManager = ArizaKayitManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
+            bolgeKayitManager = BolgeKayitManager.GetInstance();
+            yolDurumuGirmeyenManager = YolDurumuGirmeyenManager.GetInstance();
         }
 
         private void PowerModeChanged(object sender, PowerModeChangedEventArgs e)
@@ -176,11 +181,8 @@ namespace UserInterface.STS
             BildirimControl(infos[0].ConInt());
             TimerFileRead.Start();
             ServerAyarlar();
-            //MesajControl();
-            //TmMesajControl.Start();
+            YolDurumuControl();
 
-            //pictureBox1.Visible = false;
-            //frmAwait.Close();
         }
         void ServerAyarlar()
         {
@@ -198,6 +200,38 @@ namespace UserInterface.STS
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+        }
+
+        void YolDurumuControl()
+        {
+            List<string> bolgeSorumlulari = new List<string>();
+            bolgeSorumlulari = bolgeKayitManager.BolgeSorumlulari();
+            int deger = -1;
+            foreach (string item in bolgeSorumlulari)
+            {
+                if (item == infos[1].ToString())
+                {
+                    deger = bolgeKayitManager.BolgeYolDurumuControl(infos[1].ToString(), DateTime.Now);
+                    break;
+                }
+            }
+
+            if (deger == 1)
+            {
+                MessageBox.Show("Günlük bölge yol durumu kaydınızı tamamlamadınız! Tamamlayana kadar DTS arayüzünü kullanamazsınız!\nLütfen Bölge Yol Durumlarını giriniz.", "Uyari", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                anaSayfaYonlendirme = true;
+                TreeMenu.Enabled = false;
+                toolStrip1.Enabled = false;
+                PnlBildirim.Enabled = false;
+                FrmYolDurumlari Go = new FrmYolDurumlari();
+                Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageYolDurumlari", "YOL DURUMLARI", Go);
+                Go.Show();
+            }
+
         }
 
         public void PersonelDurumPasif()
@@ -2181,7 +2215,7 @@ namespace UserInterface.STS
                     var form = (FrmTalepIzleme)Application.OpenForms["FrmTalepIzleme"];
                     if (form != null)
                     {
-                        form.DataDisplay();
+                        form.DataDisplayOnayAsamasi();
                     }
                 }
 
@@ -2736,7 +2770,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Tamamlanan SAT")
             {
                 FrmTamamlananSat Go = new FrmTamamlananSat();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -3502,6 +3536,28 @@ namespace UserInterface.STS
                 Go.ShowDialog();
             }
 
+            if (e.Node.Text == "Sayım")
+            {
+                FrmSayim Go = new FrmSayim();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageSayim", "SAYIM", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Sayım İzleme")
+            {
+                FrmSayimIzleme Go = new FrmSayimIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageSayimIzleme", "SAYIM İZLEME", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+
             /////////////////////////////////////////////////DESTEK DEPO///////////////////////////////////////////////////////////////////
 
             if (e.Node.Text == "Malzeme Kayıt Destek Depo")
@@ -4067,7 +4123,7 @@ namespace UserInterface.STS
             if (e.Node.Name == "Tamamlanan Sat")
             {
                 FrmTamamlananSat Go = new FrmTamamlananSat();
-                //Go.infos = infos;
+                Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -6148,6 +6204,12 @@ namespace UserInterface.STS
 
         }
 
+        private void bölgeYolDurumuKayitKontrolToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmBolgeYolDurumuKontrol frmBolgeYolDurumuKontrol = new FrmBolgeYolDurumuKontrol();
+            frmBolgeYolDurumuKontrol.ShowDialog();
+        }
+
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmEtiketYaz frmEtiketYaz = new FrmEtiketYaz();
@@ -6158,7 +6220,6 @@ namespace UserInterface.STS
         bool controlKapatma = false;
         private void FrmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)
         {
-
             if (controlKapatma == false)
             {
                 if (kapatBilgisi == false)
@@ -6175,9 +6236,20 @@ namespace UserInterface.STS
                     e.Cancel = true;
                     return;
                 }
+
                 IslemleriSil();
                 controlKapatma = true;
                 PersonelDurumPasif();
+                if (anaSayfaYonlendirme == true)
+                {
+                    YolDurumuGirmeyen yolDurumuGirmeyen = new YolDurumuGirmeyen(infos[1].ToString());
+                    string mesaj = yolDurumuGirmeyenManager.Add(yolDurumuGirmeyen);
+                    if (mesaj != "OK")
+                    {
+                        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
                 Application.Exit();
             }
 

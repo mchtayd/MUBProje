@@ -82,16 +82,16 @@ namespace UserInterface.BakımOnarım
 
             dakika = sonuc.Seconds.ConInt() % 60;
 
-            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+            sure = 0 + " Gün " + 0 + " Saat " + 0 + " Dakika";
+            //sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
 
-            GorevAtamaPersonel gorevAtama2 = new GorevAtamaPersonel(guncellenecekId, arizaId, "BAKIM ONARIM", islemAimi, sure, "00:02:00".ConOnlyTime(), infos[1].ToString());
+            GorevAtamaPersonel gorevAtama2 = new GorevAtamaPersonel(guncellenecekId, arizaId, "BAKIM ONARIM", islemAimi, sure, "00:00:00".ConOnlyTime(), infos[1].ToString());
             string kontrol2 = gorevAtamaPersonelManager.Update(gorevAtama2, TxtAciklama.Text.ToUpper());
             if (kontrol2 != "OK")
             {
                 MessageBox.Show(kontrol2, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
             GorevAtamaPersonel gorevAtamaPersonel2 = new GorevAtamaPersonel(arizaId, "BAKIM ONARIM", gorevAtanacakPersonel, islemAimi, DateTime.Now, "", DateTime.Now.Date);
             string kontrol = gorevAtamaPersonelManager.Add(gorevAtamaPersonel2);
 

@@ -266,6 +266,45 @@ namespace DataAccess.Concreate.BakimOnarim
             }
         }
 
+        public List<string> BolgeSorumlulari()
+        {
+            try
+            {
+                List<string> bolgeSorumlulari = new List<string>();
+                dataReader = sqlServices.StoreReader("BolgeSorumlusuList");
+                while (dataReader.Read())
+                {
+                    bolgeSorumlulari.Add(dataReader["BOLGE_SORUMLUSU"].ToString());
+                }
+                dataReader.Close();
+                return bolgeSorumlulari;
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
+
+        public int BolgeYolDurumuControl(string personel, DateTime tarih)
+        {
+            try
+            {
+                List<int> bolgeSorumlulari = new List<int>();
+                int deger = -1;
+                dataReader = sqlServices.StoreReader("YolDurumuControl", new SqlParameter("@personel", personel), new SqlParameter("@tarih", tarih));
+                while (dataReader.Read())
+                {
+                    deger = dataReader["DEGER"].ConInt();
+                }
+                dataReader.Close();
+                return deger;
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         public string Update(BolgeKayit entity)
         {
             try

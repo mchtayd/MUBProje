@@ -767,7 +767,7 @@ namespace UserInterface.STS
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
             this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnGuncelle.Location = new System.Drawing.Point(18, 782);
+            this.BtnGuncelle.Location = new System.Drawing.Point(1215, 439);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
             this.BtnGuncelle.TabIndex = 376;
@@ -783,7 +783,7 @@ namespace UserInterface.STS
             this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnSil.Image = ((System.Drawing.Image)(resources.GetObject("BtnSil.Image")));
             this.BtnSil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSil.Location = new System.Drawing.Point(154, 784);
+            this.BtnSil.Location = new System.Drawing.Point(1215, 492);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(130, 51);
             this.BtnSil.TabIndex = 556;
@@ -814,7 +814,7 @@ namespace UserInterface.STS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1434, 835);
+            this.ClientSize = new System.Drawing.Size(1434, 786);
             this.Controls.Add(this.CmbButceGiderTuru);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.BtnSil);

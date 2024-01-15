@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>786</ApplicationRevision>
+    <ApplicationRevision>796</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -196,6 +196,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmBildirimYetki.Designer.cs">
       <DependentUpon>FrmBildirimYetki.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBolgeYolDurumuKontrol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmBolgeYolDurumuKontrol.Designer.cs">
+      <DependentUpon>FrmBolgeYolDurumuKontrol.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmButceler.cs">
       <SubType>Form</SubType>
@@ -947,6 +953,18 @@
     <Compile Include="Gecic Kabul Ambar\FrmRezerveEt.Designer.cs">
       <DependentUpon>FrmRezerveEt.cs</DependentUpon>
     </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmSayim.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmSayim.Designer.cs">
+      <DependentUpon>FrmSayim.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmSayimIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Gecic Kabul Ambar\FrmSayimIzleme.Designer.cs">
+      <DependentUpon>FrmSayimIzleme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Gecic Kabul Ambar\FrmSevkiyatlar.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1684,6 +1702,9 @@
     <EmbeddedResource Include="Ana Sayfa\FrmBildirimYetki.resx">
       <DependentUpon>FrmBildirimYetki.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmBolgeYolDurumuKontrol.resx">
+      <DependentUpon>FrmBolgeYolDurumuKontrol.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmButceler.resx">
       <DependentUpon>FrmButceler.cs</DependentUpon>
     </EmbeddedResource>
@@ -2058,6 +2079,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmRezerveEt.resx">
       <DependentUpon>FrmRezerveEt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmSayim.resx">
+      <DependentUpon>FrmSayim.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Gecic Kabul Ambar\FrmSayimIzleme.resx">
+      <DependentUpon>FrmSayimIzleme.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Gecic Kabul Ambar\FrmSevkiyatlar.resx">
       <DependentUpon>FrmSevkiyatlar.cs</DependentUpon>

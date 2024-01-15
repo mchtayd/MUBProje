@@ -504,7 +504,7 @@ namespace UserInterface.BakımOnarım
             CmbGarantiDurumu.Text = arizaKayit.GarantiDurumu;
             CmbPersoneller.Text = arizaKayit.ABAlanPersonel;
             DtgMailGeldigiTarih.Value = arizaKayit.AbTarihSaat;
-
+            dosyaYolu = arizaKayit.DosyaYolu;
             if (CmbGarantiDurumu.Text == "DIŞI")
             {
                 TxtLojistikSorumlusu.Text = arizaKayit.LojistikSorumluPersonel;
@@ -579,6 +579,14 @@ namespace UserInterface.BakımOnarım
             }
             SureBul();
             FillTools();
+            try
+            {
+                webBrowser5.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
 
         }
         string sorumluPersonel, bolgeBirlikAdresi, bolgeIl, bolgeIlce, faturaAdresi, bolgeTelefon, abfNo;
@@ -1129,6 +1137,14 @@ namespace UserInterface.BakımOnarım
             CmbCrmGorevAtanacakPer.Text = "ŞERİFE NUR GÜNEŞ";
 
             CrmSureBul();
+            try
+            {
+                webBrowser6.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
 

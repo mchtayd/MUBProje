@@ -72,7 +72,7 @@ namespace DataAccess.Concreate.AnaSayfa
             }
             catch (Exception ex)
             {
-
+                dataReader.Close();
                 return new List<MenuBaslik>();
             }
         }

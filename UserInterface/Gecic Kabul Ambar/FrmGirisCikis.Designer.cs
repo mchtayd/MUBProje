@@ -31,7 +31,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmGirisCikis));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.CmbIslemTuru = new System.Windows.Forms.ComboBox();
@@ -67,6 +67,14 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label22 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.label27 = new System.Windows.Forms.Label();
+            this.CmbDepodanBildirimeMalzemeYeri = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.CmbDepodanBildirimeDepoNo = new System.Windows.Forms.ComboBox();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label24 = new System.Windows.Forms.Label();
+            this.TxtDepodanBildirimeDepoAdresi = new System.Windows.Forms.TextBox();
             this.GrbDepodanDepoya = new System.Windows.Forms.GroupBox();
             this.CmbMalzemeYeriDusulen = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -76,34 +84,20 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label23 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label36 = new System.Windows.Forms.Label();
-            this.CmbMalzemeYeriCekilen = new System.Windows.Forms.ComboBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.TxtDepoAdresiCekilen = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.CmbDepoNoCekilen = new System.Windows.Forms.ComboBox();
-            this.label35 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.label37 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label26 = new System.Windows.Forms.Label();
+            this.CmbMalzemeYeriCekilen = new System.Windows.Forms.ComboBox();
+            this.CmbDepoNoCekilen = new System.Windows.Forms.ComboBox();
+            this.label35 = new System.Windows.Forms.Label();
             this.GrbBarkod = new System.Windows.Forms.GroupBox();
             this.BtnBul = new System.Windows.Forms.Button();
             this.LblRevizyon = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.TxtBirimFiyat = new System.Windows.Forms.TextBox();
             this.LblBirimFiyat = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.DtTarih = new System.Windows.Forms.DateTimePicker();
-            this.LblBirim = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.TxtMiktar = new System.Windows.Forms.TextBox();
-            this.LblSeriLotNo = new System.Windows.Forms.Label();
-            this.LblTanim = new System.Windows.Forms.Label();
-            this.CmbStokNo = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtBarkod = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.GrbManuelStok = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.AdvMalzemeOnizleme = new ADGV.AdvancedDataGridView();
@@ -126,6 +120,20 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label42 = new System.Windows.Forms.Label();
             this.CmbStokManuel = new System.Windows.Forms.ComboBox();
             this.label43 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.DtTarih = new System.Windows.Forms.DateTimePicker();
+            this.LblBirim = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxtMiktar = new System.Windows.Forms.TextBox();
+            this.LblSeriLotNo = new System.Windows.Forms.Label();
+            this.LblTanim = new System.Windows.Forms.Label();
+            this.CmbStokNo = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtBarkod = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -161,14 +169,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.ımageList1 = new System.Windows.Forms.ImageList(this.components);
             this.BtnTemizle = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.label25 = new System.Windows.Forms.Label();
-            this.CmbDepodanBildirimeDepoNo = new System.Windows.Forms.ComboBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.TxtDepodanBildirimeDepoAdresi = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.CmbDepodanBildirimeMalzemeYeri = new System.Windows.Forms.ComboBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.GrbIslemYapılacakDepo.SuspendLayout();
             this.GrbBildirimdenDepoya.SuspendLayout();
@@ -176,6 +176,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.panel7.SuspendLayout();
             this.GrbDepodanBildirime.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.GrbDepodanDepoya.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -187,7 +188,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -565,6 +565,76 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label19.TabIndex = 0;
             this.label19.Text = "Düşülen Bildirim";
             // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.panel6.Controls.Add(this.label27);
+            this.panel6.Location = new System.Drawing.Point(388, 32);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(353, 27);
+            this.panel6.TabIndex = 0;
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label27.Location = new System.Drawing.Point(112, 6);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(134, 15);
+            this.label27.TabIndex = 0;
+            this.label27.Text = "Çekilen Yer Bilgileri";
+            // 
+            // CmbDepodanBildirimeMalzemeYeri
+            // 
+            this.CmbDepodanBildirimeMalzemeYeri.FormattingEnabled = true;
+            this.CmbDepodanBildirimeMalzemeYeri.Location = new System.Drawing.Point(483, 130);
+            this.CmbDepodanBildirimeMalzemeYeri.Name = "CmbDepodanBildirimeMalzemeYeri";
+            this.CmbDepodanBildirimeMalzemeYeri.Size = new System.Drawing.Size(224, 23);
+            this.CmbDepodanBildirimeMalzemeYeri.TabIndex = 150;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(416, 80);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(59, 15);
+            this.label25.TabIndex = 140;
+            this.label25.Text = "Depo No:";
+            // 
+            // CmbDepodanBildirimeDepoNo
+            // 
+            this.CmbDepodanBildirimeDepoNo.FormattingEnabled = true;
+            this.CmbDepodanBildirimeDepoNo.Location = new System.Drawing.Point(483, 77);
+            this.CmbDepodanBildirimeDepoNo.Name = "CmbDepodanBildirimeDepoNo";
+            this.CmbDepodanBildirimeDepoNo.Size = new System.Drawing.Size(224, 23);
+            this.CmbDepodanBildirimeDepoNo.TabIndex = 141;
+            this.CmbDepodanBildirimeDepoNo.SelectedIndexChanged += new System.EventHandler(this.CmbDepodanBildirimeDepoNo_SelectedIndexChanged);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(385, 133);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(86, 15);
+            this.label21.TabIndex = 149;
+            this.label21.Text = "Malzeme Yeri:";
+            // 
+            // label24
+            // 
+            this.label24.AutoSize = true;
+            this.label24.Location = new System.Drawing.Point(392, 107);
+            this.label24.Name = "label24";
+            this.label24.Size = new System.Drawing.Size(77, 15);
+            this.label24.TabIndex = 143;
+            this.label24.Text = "Depo Adresi:";
+            // 
+            // TxtDepodanBildirimeDepoAdresi
+            // 
+            this.TxtDepodanBildirimeDepoAdresi.Location = new System.Drawing.Point(483, 104);
+            this.TxtDepodanBildirimeDepoAdresi.Name = "TxtDepodanBildirimeDepoAdresi";
+            this.TxtDepodanBildirimeDepoAdresi.Size = new System.Drawing.Size(224, 21);
+            this.TxtDepodanBildirimeDepoAdresi.TabIndex = 144;
+            // 
             // GrbDepodanDepoya
             // 
             this.GrbDepodanDepoya.Controls.Add(this.CmbMalzemeYeriDusulen);
@@ -659,56 +729,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label36.TabIndex = 0;
             this.label36.Text = "Düşülen Yer Bilgileri";
             // 
-            // CmbMalzemeYeriCekilen
-            // 
-            this.CmbMalzemeYeriCekilen.FormattingEnabled = true;
-            this.CmbMalzemeYeriCekilen.Location = new System.Drawing.Point(463, 121);
-            this.CmbMalzemeYeriCekilen.Name = "CmbMalzemeYeriCekilen";
-            this.CmbMalzemeYeriCekilen.Size = new System.Drawing.Size(224, 21);
-            this.CmbMalzemeYeriCekilen.TabIndex = 150;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(365, 125);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(90, 13);
-            this.label17.TabIndex = 149;
-            this.label17.Text = "MALZEME YERİ:";
-            // 
             // TxtDepoAdresiCekilen
             // 
             this.TxtDepoAdresiCekilen.Location = new System.Drawing.Point(463, 95);
             this.TxtDepoAdresiCekilen.Name = "TxtDepoAdresiCekilen";
             this.TxtDepoAdresiCekilen.Size = new System.Drawing.Size(224, 20);
             this.TxtDepoAdresiCekilen.TabIndex = 144;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(372, 99);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(83, 13);
-            this.label26.TabIndex = 143;
-            this.label26.Text = "DEPO ADRESİ:";
-            // 
-            // CmbDepoNoCekilen
-            // 
-            this.CmbDepoNoCekilen.FormattingEnabled = true;
-            this.CmbDepoNoCekilen.Location = new System.Drawing.Point(463, 68);
-            this.CmbDepoNoCekilen.Name = "CmbDepoNoCekilen";
-            this.CmbDepoNoCekilen.Size = new System.Drawing.Size(224, 21);
-            this.CmbDepoNoCekilen.TabIndex = 141;
-            this.CmbDepoNoCekilen.SelectedIndexChanged += new System.EventHandler(this.CmbDepoNoCekilen_SelectedIndexChanged);
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(396, 72);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(59, 13);
-            this.label35.TabIndex = 140;
-            this.label35.Text = "DEPO NO:";
             // 
             // panel2
             // 
@@ -728,6 +754,50 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label37.Size = new System.Drawing.Size(134, 15);
             this.label37.TabIndex = 0;
             this.label37.Text = "Çekilen Yer Bilgileri";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(365, 125);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(90, 13);
+            this.label17.TabIndex = 149;
+            this.label17.Text = "MALZEME YERİ:";
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Location = new System.Drawing.Point(372, 99);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(83, 13);
+            this.label26.TabIndex = 143;
+            this.label26.Text = "DEPO ADRESİ:";
+            // 
+            // CmbMalzemeYeriCekilen
+            // 
+            this.CmbMalzemeYeriCekilen.FormattingEnabled = true;
+            this.CmbMalzemeYeriCekilen.Location = new System.Drawing.Point(463, 121);
+            this.CmbMalzemeYeriCekilen.Name = "CmbMalzemeYeriCekilen";
+            this.CmbMalzemeYeriCekilen.Size = new System.Drawing.Size(224, 21);
+            this.CmbMalzemeYeriCekilen.TabIndex = 150;
+            // 
+            // CmbDepoNoCekilen
+            // 
+            this.CmbDepoNoCekilen.FormattingEnabled = true;
+            this.CmbDepoNoCekilen.Location = new System.Drawing.Point(463, 68);
+            this.CmbDepoNoCekilen.Name = "CmbDepoNoCekilen";
+            this.CmbDepoNoCekilen.Size = new System.Drawing.Size(224, 21);
+            this.CmbDepoNoCekilen.TabIndex = 141;
+            this.CmbDepoNoCekilen.SelectedIndexChanged += new System.EventHandler(this.CmbDepoNoCekilen_SelectedIndexChanged);
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(396, 72);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(59, 13);
+            this.label35.TabIndex = 140;
+            this.label35.Text = "DEPO NO:";
             // 
             // GrbBarkod
             // 
@@ -813,149 +883,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.LblBirimFiyat.Text = "Malzeme Birim Fiyatı:";
             this.LblBirimFiyat.Visible = false;
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(23, 58);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 15);
-            this.label16.TabIndex = 347;
-            this.label16.Text = "İşlem Tarihi:";
-            // 
-            // DtTarih
-            // 
-            this.DtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtTarih.Location = new System.Drawing.Point(103, 55);
-            this.DtTarih.Name = "DtTarih";
-            this.DtTarih.Size = new System.Drawing.Size(113, 20);
-            this.DtTarih.TabIndex = 346;
-            // 
-            // LblBirim
-            // 
-            this.LblBirim.AutoSize = true;
-            this.LblBirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblBirim.Location = new System.Drawing.Point(715, 44);
-            this.LblBirim.Name = "LblBirim";
-            this.LblBirim.Size = new System.Drawing.Size(21, 15);
-            this.LblBirim.TabIndex = 345;
-            this.LblBirim.Text = "00";
-            this.LblBirim.Visible = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(670, 44);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 15);
-            this.label15.TabIndex = 344;
-            this.label15.Text = "Birim:";
-            this.label15.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(53, 82);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 15);
-            this.label14.TabIndex = 343;
-            this.label14.Text = "Miktar:";
-            // 
-            // TxtMiktar
-            // 
-            this.TxtMiktar.Location = new System.Drawing.Point(103, 81);
-            this.TxtMiktar.Name = "TxtMiktar";
-            this.TxtMiktar.Size = new System.Drawing.Size(113, 20);
-            this.TxtMiktar.TabIndex = 342;
-            this.TxtMiktar.Text = "1";
-            // 
-            // LblSeriLotNo
-            // 
-            this.LblSeriLotNo.AutoSize = true;
-            this.LblSeriLotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblSeriLotNo.Location = new System.Drawing.Point(747, 66);
-            this.LblSeriLotNo.Name = "LblSeriLotNo";
-            this.LblSeriLotNo.Size = new System.Drawing.Size(21, 15);
-            this.LblSeriLotNo.TabIndex = 341;
-            this.LblSeriLotNo.Text = "00";
-            this.LblSeriLotNo.Visible = false;
-            // 
-            // LblTanim
-            // 
-            this.LblTanim.AutoSize = true;
-            this.LblTanim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTanim.Location = new System.Drawing.Point(936, 22);
-            this.LblTanim.Name = "LblTanim";
-            this.LblTanim.Size = new System.Drawing.Size(21, 15);
-            this.LblTanim.TabIndex = 340;
-            this.LblTanim.Text = "00";
-            this.LblTanim.Visible = false;
-            // 
-            // CmbStokNo
-            // 
-            this.CmbStokNo.AutoSize = true;
-            this.CmbStokNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CmbStokNo.Location = new System.Drawing.Point(711, 20);
-            this.CmbStokNo.Name = "CmbStokNo";
-            this.CmbStokNo.Size = new System.Drawing.Size(21, 15);
-            this.CmbStokNo.TabIndex = 339;
-            this.CmbStokNo.Text = "00";
-            this.CmbStokNo.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(670, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 15);
-            this.label4.TabIndex = 338;
-            this.label4.Text = "Seri/Lot No:";
-            this.label4.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(885, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 15);
-            this.label3.TabIndex = 337;
-            this.label3.Text = "Tanım:";
-            this.label3.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(652, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 15);
-            this.label2.TabIndex = 336;
-            this.label2.Text = "Stok No:";
-            this.label2.Visible = false;
-            // 
-            // TxtBarkod
-            // 
-            this.TxtBarkod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBarkod.Location = new System.Drawing.Point(104, 19);
-            this.TxtBarkod.Name = "TxtBarkod";
-            this.TxtBarkod.Size = new System.Drawing.Size(359, 21);
-            this.TxtBarkod.TabIndex = 335;
-            this.TxtBarkod.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBarkod_KeyUp);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(49, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 15);
-            this.label1.TabIndex = 334;
-            this.label1.Text = "Barkod:";
-            // 
             // GrbManuelStok
             // 
             this.GrbManuelStok.Controls.Add(this.groupBox4);
@@ -973,7 +900,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbManuelStok.Controls.Add(this.label42);
             this.GrbManuelStok.Controls.Add(this.CmbStokManuel);
             this.GrbManuelStok.Controls.Add(this.label43);
-            this.GrbManuelStok.Location = new System.Drawing.Point(9, 336);
+            this.GrbManuelStok.Location = new System.Drawing.Point(12, 336);
             this.GrbManuelStok.Name = "GrbManuelStok";
             this.GrbManuelStok.Size = new System.Drawing.Size(1428, 155);
             this.GrbManuelStok.TabIndex = 349;
@@ -1037,11 +964,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             // 
             // Remove
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1202,6 +1129,149 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label43.Size = new System.Drawing.Size(58, 13);
             this.label43.TabIndex = 47;
             this.label43.Text = "STOK NO:";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label16.Location = new System.Drawing.Point(23, 58);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 15);
+            this.label16.TabIndex = 347;
+            this.label16.Text = "İşlem Tarihi:";
+            // 
+            // DtTarih
+            // 
+            this.DtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtTarih.Location = new System.Drawing.Point(103, 55);
+            this.DtTarih.Name = "DtTarih";
+            this.DtTarih.Size = new System.Drawing.Size(113, 20);
+            this.DtTarih.TabIndex = 346;
+            // 
+            // LblBirim
+            // 
+            this.LblBirim.AutoSize = true;
+            this.LblBirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBirim.Location = new System.Drawing.Point(715, 44);
+            this.LblBirim.Name = "LblBirim";
+            this.LblBirim.Size = new System.Drawing.Size(21, 15);
+            this.LblBirim.TabIndex = 345;
+            this.LblBirim.Text = "00";
+            this.LblBirim.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Location = new System.Drawing.Point(670, 44);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(39, 15);
+            this.label15.TabIndex = 344;
+            this.label15.Text = "Birim:";
+            this.label15.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.Location = new System.Drawing.Point(53, 82);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(44, 15);
+            this.label14.TabIndex = 343;
+            this.label14.Text = "Miktar:";
+            // 
+            // TxtMiktar
+            // 
+            this.TxtMiktar.Location = new System.Drawing.Point(103, 81);
+            this.TxtMiktar.Name = "TxtMiktar";
+            this.TxtMiktar.Size = new System.Drawing.Size(113, 20);
+            this.TxtMiktar.TabIndex = 342;
+            this.TxtMiktar.Text = "1";
+            // 
+            // LblSeriLotNo
+            // 
+            this.LblSeriLotNo.AutoSize = true;
+            this.LblSeriLotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblSeriLotNo.Location = new System.Drawing.Point(747, 66);
+            this.LblSeriLotNo.Name = "LblSeriLotNo";
+            this.LblSeriLotNo.Size = new System.Drawing.Size(21, 15);
+            this.LblSeriLotNo.TabIndex = 341;
+            this.LblSeriLotNo.Text = "00";
+            this.LblSeriLotNo.Visible = false;
+            // 
+            // LblTanim
+            // 
+            this.LblTanim.AutoSize = true;
+            this.LblTanim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTanim.Location = new System.Drawing.Point(936, 22);
+            this.LblTanim.Name = "LblTanim";
+            this.LblTanim.Size = new System.Drawing.Size(21, 15);
+            this.LblTanim.TabIndex = 340;
+            this.LblTanim.Text = "00";
+            this.LblTanim.Visible = false;
+            // 
+            // CmbStokNo
+            // 
+            this.CmbStokNo.AutoSize = true;
+            this.CmbStokNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbStokNo.Location = new System.Drawing.Point(711, 20);
+            this.CmbStokNo.Name = "CmbStokNo";
+            this.CmbStokNo.Size = new System.Drawing.Size(21, 15);
+            this.CmbStokNo.TabIndex = 339;
+            this.CmbStokNo.Text = "00";
+            this.CmbStokNo.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(670, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 15);
+            this.label4.TabIndex = 338;
+            this.label4.Text = "Seri/Lot No:";
+            this.label4.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(885, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 15);
+            this.label3.TabIndex = 337;
+            this.label3.Text = "Tanım:";
+            this.label3.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(652, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 15);
+            this.label2.TabIndex = 336;
+            this.label2.Text = "Stok No:";
+            this.label2.Visible = false;
+            // 
+            // TxtBarkod
+            // 
+            this.TxtBarkod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBarkod.Location = new System.Drawing.Point(104, 19);
+            this.TxtBarkod.Name = "TxtBarkod";
+            this.TxtBarkod.Size = new System.Drawing.Size(359, 21);
+            this.TxtBarkod.TabIndex = 335;
+            this.TxtBarkod.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBarkod_KeyUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(49, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 15);
+            this.label1.TabIndex = 334;
+            this.label1.Text = "Barkod:";
             // 
             // TxtAciklama
             // 
@@ -1520,76 +1590,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click_1);
             // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.panel6.Controls.Add(this.label27);
-            this.panel6.Location = new System.Drawing.Point(388, 32);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(353, 27);
-            this.panel6.TabIndex = 0;
-            // 
-            // label25
-            // 
-            this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(416, 80);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(59, 15);
-            this.label25.TabIndex = 140;
-            this.label25.Text = "Depo No:";
-            // 
-            // CmbDepodanBildirimeDepoNo
-            // 
-            this.CmbDepodanBildirimeDepoNo.FormattingEnabled = true;
-            this.CmbDepodanBildirimeDepoNo.Location = new System.Drawing.Point(483, 77);
-            this.CmbDepodanBildirimeDepoNo.Name = "CmbDepodanBildirimeDepoNo";
-            this.CmbDepodanBildirimeDepoNo.Size = new System.Drawing.Size(224, 23);
-            this.CmbDepodanBildirimeDepoNo.TabIndex = 141;
-            this.CmbDepodanBildirimeDepoNo.SelectedIndexChanged += new System.EventHandler(this.CmbDepodanBildirimeDepoNo_SelectedIndexChanged);
-            // 
-            // label24
-            // 
-            this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(392, 107);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(77, 15);
-            this.label24.TabIndex = 143;
-            this.label24.Text = "Depo Adresi:";
-            // 
-            // TxtDepodanBildirimeDepoAdresi
-            // 
-            this.TxtDepodanBildirimeDepoAdresi.Location = new System.Drawing.Point(483, 104);
-            this.TxtDepodanBildirimeDepoAdresi.Name = "TxtDepodanBildirimeDepoAdresi";
-            this.TxtDepodanBildirimeDepoAdresi.Size = new System.Drawing.Size(224, 21);
-            this.TxtDepodanBildirimeDepoAdresi.TabIndex = 144;
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(385, 133);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(86, 15);
-            this.label21.TabIndex = 149;
-            this.label21.Text = "Malzeme Yeri:";
-            // 
-            // CmbDepodanBildirimeMalzemeYeri
-            // 
-            this.CmbDepodanBildirimeMalzemeYeri.FormattingEnabled = true;
-            this.CmbDepodanBildirimeMalzemeYeri.Location = new System.Drawing.Point(483, 130);
-            this.CmbDepodanBildirimeMalzemeYeri.Name = "CmbDepodanBildirimeMalzemeYeri";
-            this.CmbDepodanBildirimeMalzemeYeri.Size = new System.Drawing.Size(224, 23);
-            this.CmbDepodanBildirimeMalzemeYeri.TabIndex = 150;
-            // 
-            // label27
-            // 
-            this.label27.AutoSize = true;
-            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label27.Location = new System.Drawing.Point(112, 6);
-            this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(134, 15);
-            this.label27.TabIndex = 0;
-            this.label27.Text = "Çekilen Yer Bilgileri";
-            // 
             // FrmGirisCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1630,6 +1630,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbDepodanBildirime.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
+            this.panel6.ResumeLayout(false);
+            this.panel6.PerformLayout();
             this.GrbDepodanDepoya.ResumeLayout(false);
             this.GrbDepodanDepoya.PerformLayout();
             this.panel3.ResumeLayout(false);
@@ -1646,8 +1648,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.contextMenuStrip1.ResumeLayout(false);
-            this.panel6.ResumeLayout(false);
-            this.panel6.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 

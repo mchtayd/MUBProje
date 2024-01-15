@@ -82,6 +82,7 @@
     <Compile Include="AnaSayfa\PersonelUyari.cs" />
     <Compile Include="AnaSayfa\Sohbet.cs" />
     <Compile Include="AnaSayfa\ServerAyarlar.cs" />
+    <Compile Include="AnaSayfa\YolDurumuGirmeyen.cs" />
     <Compile Include="ArizaIslemAdimi.cs" />
     <Compile Include="AtolyeRapor.cs" />
     <Compile Include="BakimOnarimAtolye\Atolye.cs" />

@@ -161,6 +161,17 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return new List<StokGirisCıkıs>();
             }
         }
+        public List<StokGirisCıkıs> GetListSayim(string sayimYili, string stokNo = "", string seriNo = "")
+        {
+            try
+            {
+                return stokGirisCikisDal.GetListSayim(sayimYili, stokNo, seriNo);
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
 
         public List<StokGirisCıkıs> DusumBilgi(string abfNo)
         {

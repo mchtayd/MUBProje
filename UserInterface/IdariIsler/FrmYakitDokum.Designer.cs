@@ -29,9 +29,9 @@ namespace UserInterface.IdariIsler
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmYakitDokum));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -162,21 +162,19 @@ namespace UserInterface.IdariIsler
             this.TxtSiparisNoNakit = new System.Windows.Forms.TextBox();
             this.CmbNakitPlaka = new System.Windows.Forms.ComboBox();
             this.CmbNakitPersonel = new System.Windows.Forms.ComboBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
             this.LblIsAkisNoNakit = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.DtgTarihNakit = new System.Windows.Forms.DateTimePicker();
             this.label23 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.CmbFirmaNakit = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -529,11 +527,11 @@ namespace UserInterface.IdariIsler
             // 
             // Remove
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle5;
             this.Remove.HeaderText = "KALDIR";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -970,11 +968,11 @@ namespace UserInterface.IdariIsler
             // 
             // RemoveList
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.Red;
-            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Red;
+            this.RemoveList.DefaultCellStyle = dataGridViewCellStyle6;
             this.RemoveList.HeaderText = "KALDIR";
             this.RemoveList.MinimumWidth = 22;
             this.RemoveList.Name = "RemoveList";
@@ -1460,6 +1458,7 @@ namespace UserInterface.IdariIsler
             // 
             // tabPage4
             // 
+            this.tabPage4.Controls.Add(this.CmbFirmaNakit);
             this.tabPage4.Controls.Add(this.BtnNakitKaydet);
             this.tabPage4.Controls.Add(this.button1);
             this.tabPage4.Controls.Add(this.ChkNakitPersonel);
@@ -1470,19 +1469,16 @@ namespace UserInterface.IdariIsler
             this.tabPage4.Controls.Add(this.TxtSiparisNoNakit);
             this.tabPage4.Controls.Add(this.CmbNakitPlaka);
             this.tabPage4.Controls.Add(this.CmbNakitPersonel);
-            this.tabPage4.Controls.Add(this.textBox4);
             this.tabPage4.Controls.Add(this.label33);
             this.tabPage4.Controls.Add(this.label34);
             this.tabPage4.Controls.Add(this.label35);
             this.tabPage4.Controls.Add(this.label36);
             this.tabPage4.Controls.Add(this.label37);
             this.tabPage4.Controls.Add(this.label38);
-            this.tabPage4.Controls.Add(this.label39);
             this.tabPage4.Controls.Add(this.LblIsAkisNoNakit);
             this.tabPage4.Controls.Add(this.label17);
-            this.tabPage4.Controls.Add(this.dateTimePicker1);
+            this.tabPage4.Controls.Add(this.DtgTarihNakit);
             this.tabPage4.Controls.Add(this.label23);
-            this.tabPage4.Controls.Add(this.comboBox1);
             this.tabPage4.Controls.Add(this.label24);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
@@ -1499,7 +1495,7 @@ namespace UserInterface.IdariIsler
             this.BtnNakitKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnNakitKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnNakitKaydet.Image")));
             this.BtnNakitKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnNakitKaydet.Location = new System.Drawing.Point(129, 298);
+            this.BtnNakitKaydet.Location = new System.Drawing.Point(129, 268);
             this.BtnNakitKaydet.Name = "BtnNakitKaydet";
             this.BtnNakitKaydet.Size = new System.Drawing.Size(130, 51);
             this.BtnNakitKaydet.TabIndex = 490;
@@ -1522,11 +1518,12 @@ namespace UserInterface.IdariIsler
             this.button1.TabIndex = 489;
             this.button1.Tag = "admin";
             this.button1.UseVisualStyleBackColor = false;
+            this.button1.Visible = false;
             // 
             // ChkNakitPersonel
             // 
             this.ChkNakitPersonel.AutoSize = true;
-            this.ChkNakitPersonel.Location = new System.Drawing.Point(381, 132);
+            this.ChkNakitPersonel.Location = new System.Drawing.Point(381, 106);
             this.ChkNakitPersonel.Name = "ChkNakitPersonel";
             this.ChkNakitPersonel.Size = new System.Drawing.Size(133, 17);
             this.ChkNakitPersonel.TabIndex = 488;
@@ -1537,7 +1534,7 @@ namespace UserInterface.IdariIsler
             // ChkNakitArac
             // 
             this.ChkNakitArac.AutoSize = true;
-            this.ChkNakitArac.Location = new System.Drawing.Point(295, 161);
+            this.ChkNakitArac.Location = new System.Drawing.Point(295, 135);
             this.ChkNakitArac.Name = "ChkNakitArac";
             this.ChkNakitArac.Size = new System.Drawing.Size(104, 17);
             this.ChkNakitArac.TabIndex = 487;
@@ -1548,7 +1545,7 @@ namespace UserInterface.IdariIsler
             // LblToplamNakit
             // 
             this.LblToplamNakit.AutoSize = true;
-            this.LblToplamNakit.Location = new System.Drawing.Point(126, 266);
+            this.LblToplamNakit.Location = new System.Drawing.Point(126, 240);
             this.LblToplamNakit.Name = "LblToplamNakit";
             this.LblToplamNakit.Size = new System.Drawing.Size(13, 13);
             this.LblToplamNakit.TabIndex = 486;
@@ -1556,7 +1553,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtAlinanFiyatiAkaryakit
             // 
-            this.TxtAlinanFiyatiAkaryakit.Location = new System.Drawing.Point(129, 236);
+            this.TxtAlinanFiyatiAkaryakit.Location = new System.Drawing.Point(129, 210);
             this.TxtAlinanFiyatiAkaryakit.Name = "TxtAlinanFiyatiAkaryakit";
             this.TxtAlinanFiyatiAkaryakit.Size = new System.Drawing.Size(160, 20);
             this.TxtAlinanFiyatiAkaryakit.TabIndex = 485;
@@ -1565,7 +1562,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtLitreFiyatiAkaryakit
             // 
-            this.TxtLitreFiyatiAkaryakit.Location = new System.Drawing.Point(129, 210);
+            this.TxtLitreFiyatiAkaryakit.Location = new System.Drawing.Point(129, 184);
             this.TxtLitreFiyatiAkaryakit.Name = "TxtLitreFiyatiAkaryakit";
             this.TxtLitreFiyatiAkaryakit.Size = new System.Drawing.Size(160, 20);
             this.TxtLitreFiyatiAkaryakit.TabIndex = 484;
@@ -1574,7 +1571,7 @@ namespace UserInterface.IdariIsler
             // 
             // TxtSiparisNoNakit
             // 
-            this.TxtSiparisNoNakit.Location = new System.Drawing.Point(129, 184);
+            this.TxtSiparisNoNakit.Location = new System.Drawing.Point(129, 158);
             this.TxtSiparisNoNakit.Name = "TxtSiparisNoNakit";
             this.TxtSiparisNoNakit.Size = new System.Drawing.Size(160, 20);
             this.TxtSiparisNoNakit.TabIndex = 483;
@@ -1586,7 +1583,7 @@ namespace UserInterface.IdariIsler
             "ALKANLAR PETROL (ÇUKURCA)",
             "GÜLYAZI PETROL (ŞIRNAK)",
             "KOÇYİĞİT PETROL (DERECİK)"});
-            this.CmbNakitPlaka.Location = new System.Drawing.Point(129, 157);
+            this.CmbNakitPlaka.Location = new System.Drawing.Point(129, 131);
             this.CmbNakitPlaka.Name = "CmbNakitPlaka";
             this.CmbNakitPlaka.Size = new System.Drawing.Size(160, 21);
             this.CmbNakitPlaka.TabIndex = 482;
@@ -1595,22 +1592,15 @@ namespace UserInterface.IdariIsler
             // CmbNakitPersonel
             // 
             this.CmbNakitPersonel.FormattingEnabled = true;
-            this.CmbNakitPersonel.Location = new System.Drawing.Point(129, 130);
+            this.CmbNakitPersonel.Location = new System.Drawing.Point(129, 104);
             this.CmbNakitPersonel.Name = "CmbNakitPersonel";
             this.CmbNakitPersonel.Size = new System.Drawing.Size(246, 21);
             this.CmbNakitPersonel.TabIndex = 481;
             // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(129, 104);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(160, 20);
-            this.textBox4.TabIndex = 480;
-            // 
             // label33
             // 
             this.label33.AutoSize = true;
-            this.label33.Location = new System.Drawing.Point(47, 266);
+            this.label33.Location = new System.Drawing.Point(47, 240);
             this.label33.Name = "label33";
             this.label33.Size = new System.Drawing.Size(73, 13);
             this.label33.TabIndex = 479;
@@ -1619,7 +1609,7 @@ namespace UserInterface.IdariIsler
             // label34
             // 
             this.label34.AutoSize = true;
-            this.label34.Location = new System.Drawing.Point(58, 240);
+            this.label34.Location = new System.Drawing.Point(58, 214);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(62, 13);
             this.label34.TabIndex = 478;
@@ -1628,7 +1618,7 @@ namespace UserInterface.IdariIsler
             // label35
             // 
             this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(63, 214);
+            this.label35.Location = new System.Drawing.Point(63, 188);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(57, 13);
             this.label35.TabIndex = 477;
@@ -1637,7 +1627,7 @@ namespace UserInterface.IdariIsler
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(37, 188);
+            this.label36.Location = new System.Drawing.Point(37, 162);
             this.label36.Name = "label36";
             this.label36.Size = new System.Drawing.Size(83, 13);
             this.label36.TabIndex = 476;
@@ -1646,7 +1636,7 @@ namespace UserInterface.IdariIsler
             // label37
             // 
             this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(51, 161);
+            this.label37.Location = new System.Drawing.Point(51, 135);
             this.label37.Name = "label37";
             this.label37.Size = new System.Drawing.Size(69, 13);
             this.label37.TabIndex = 475;
@@ -1655,20 +1645,11 @@ namespace UserInterface.IdariIsler
             // label38
             // 
             this.label38.AutoSize = true;
-            this.label38.Location = new System.Drawing.Point(18, 134);
+            this.label38.Location = new System.Drawing.Point(18, 108);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(102, 13);
             this.label38.TabIndex = 474;
             this.label38.Text = "Yakıt Alan Personel:";
-            // 
-            // label39
-            // 
-            this.label39.AutoSize = true;
-            this.label39.Location = new System.Drawing.Point(80, 108);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(40, 13);
-            this.label39.TabIndex = 473;
-            this.label39.Text = "Fiş No:";
             // 
             // LblIsAkisNoNakit
             // 
@@ -1688,13 +1669,13 @@ namespace UserInterface.IdariIsler
             this.label17.TabIndex = 463;
             this.label17.Text = "İş Akış No:";
             // 
-            // dateTimePicker1
+            // DtgTarihNakit
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(129, 78);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(160, 20);
-            this.dateTimePicker1.TabIndex = 462;
+            this.DtgTarihNakit.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtgTarihNakit.Location = new System.Drawing.Point(129, 78);
+            this.DtgTarihNakit.Name = "DtgTarihNakit";
+            this.DtgTarihNakit.Size = new System.Drawing.Size(160, 20);
+            this.DtgTarihNakit.TabIndex = 462;
             // 
             // label23
             // 
@@ -1704,15 +1685,6 @@ namespace UserInterface.IdariIsler
             this.label23.Size = new System.Drawing.Size(34, 13);
             this.label23.TabIndex = 461;
             this.label23.Text = "Tarih:";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(129, 51);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(246, 21);
-            this.comboBox1.TabIndex = 460;
             // 
             // label24
             // 
@@ -1726,6 +1698,13 @@ namespace UserInterface.IdariIsler
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
+            // 
+            // CmbFirmaNakit
+            // 
+            this.CmbFirmaNakit.Location = new System.Drawing.Point(129, 52);
+            this.CmbFirmaNakit.Name = "CmbFirmaNakit";
+            this.CmbFirmaNakit.Size = new System.Drawing.Size(246, 20);
+            this.CmbFirmaNakit.TabIndex = 491;
             // 
             // FrmYakitDokum
             // 
@@ -1886,9 +1865,8 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label LblIsAkisNoNakit;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker DtgTarihNakit;
         private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.ComboBox comboBox1;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.CheckBox ChkNakitPersonel;
         private System.Windows.Forms.CheckBox ChkNakitArac;
@@ -1898,15 +1876,14 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.TextBox TxtSiparisNoNakit;
         private System.Windows.Forms.ComboBox CmbNakitPlaka;
         private System.Windows.Forms.ComboBox CmbNakitPersonel;
-        private System.Windows.Forms.TextBox textBox4;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button BtnNakitKaydet;
+        private System.Windows.Forms.TextBox CmbFirmaNakit;
     }
 }

@@ -116,6 +116,17 @@ namespace Business.Concreate.STS
                 return ex.Message;
             }
         }
+        public string UpdateTutar(double tutar, int id)
+        {
+            try
+            {
+                return teklifsizSatDal.UpdateTutar(tutar, id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string DevamEdenSatHYGuncelle(int id, double tutar)
         {
             try

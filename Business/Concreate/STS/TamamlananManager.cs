@@ -32,9 +32,17 @@ namespace Business.Concreate.STS
             }
         }
 
-        public string Delete(int id)
+        public string Delete(int id, string silenKisi)
         {
-            throw new NotImplementedException();
+            try
+            {
+                return tamamlananDal.Delete(id, silenKisi);
+            }
+            catch (Exception)
+            {
+
+                throw;
+            }
         }
 
         public Tamamlanan Get(int id)

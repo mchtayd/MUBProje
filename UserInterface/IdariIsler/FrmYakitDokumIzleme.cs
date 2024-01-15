@@ -20,6 +20,7 @@ namespace UserInterface.IdariIsler
         List<YakitDokum> yakitDokums= new List<YakitDokum>();
         List<YakitDokum> yakitDokumsMalzemeler = new List<YakitDokum>();
         List<YakitDokum> yakitDokumsTasit = new List<YakitDokum>();
+        List<YakitDokum> yakitDokumsNakit = new List<YakitDokum>();
         List<YakitDokum> yakitTumus= new List<YakitDokum>();
         string siparisNo="", dosyaYolu="";
         bool start = true;
@@ -35,6 +36,7 @@ namespace UserInterface.IdariIsler
             DataDisplay();
             DataDisplayTasima();
             DataTumu();
+            DataDisplayNakit();
             start = false;
         }
         void Yillar()
@@ -90,6 +92,7 @@ namespace UserInterface.IdariIsler
             DataDisplay();
             DataDisplayTasima();
             DataTumu();
+            DataDisplayNakit();
             start = false;
         }
 
@@ -104,18 +107,18 @@ namespace UserInterface.IdariIsler
             if (ChkTumunuGoster.Checked == true)
             {
                 yakitDokumsMalzemeler = yakitDokumManager.GetListTumu(0);
-                yakitDokumsTasit = yakitDokumManager.GetListTT(0);
+                yakitDokumsTasit = yakitDokumManager.GetListTT(0,"TÜMÜ");
             }
 
             if (CmbYillar.Text == "2021")
             {
                 yakitDokumsMalzemeler = yakitDokumManager.GetListTumu(1990);
-                yakitDokumsTasit = yakitDokumManager.GetListTT(1990);
+                yakitDokumsTasit = yakitDokumManager.GetListTT(1990, "TÜMÜ");
             }
             else
             {
                 yakitDokumsMalzemeler = yakitDokumManager.GetListTumu(CmbYillar.Text.ConInt());
-                yakitDokumsTasit = yakitDokumManager.GetListTT(CmbYillar.Text.ConInt());
+                yakitDokumsTasit = yakitDokumManager.GetListTT(CmbYillar.Text.ConInt(), "TÜMÜ");
             }
 
             foreach (YakitDokum item in yakitDokumsMalzemeler)
@@ -183,7 +186,7 @@ namespace UserInterface.IdariIsler
         }
         void DataDisplayTasima()
         {
-            yakitDokumsTasit = yakitDokumManager.GetListTT(0);
+            yakitDokumsTasit = yakitDokumManager.GetListTT(0, "TAŞIT TANIMA");
             dataBinder3.DataSource = yakitDokumsTasit.ToDataTable();
             DtgListTasit.DataSource = dataBinder3;
             TxtTopTasit.Text = DtgListTasit.RowCount.ToString();
@@ -207,6 +210,34 @@ namespace UserInterface.IdariIsler
             DtgListTasit.Columns["DosyaYolu"].Visible = false;
             DtgListTasit.Columns["SiparisNo"].Visible = false;
             DtgListTasit.Columns["AlimTuru"].Visible = false;
+
+        }
+        void DataDisplayNakit()
+        {
+            yakitDokumsNakit = yakitDokumManager.GetListTT(0, "NAKİT");
+            dataBinderNakit.DataSource = yakitDokumsNakit.ToDataTable();
+            DtgListNakit.DataSource = dataBinderNakit;
+            LblTopNakit.Text = DtgListNakit.RowCount.ToString();
+            ToplamlarNakit();
+            ToplamlarNakitLitre();
+
+            DtgListNakit.Columns["Id"].Visible = false;
+            DtgListNakit.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
+            DtgListNakit.Columns["Firma"].HeaderText = "FİRMA";
+            DtgListNakit.Columns["Donem"].HeaderText = "DÖNEM";
+            DtgListNakit.Columns["Tarih"].HeaderText = "TARİH";
+            DtgListNakit.Columns["DefterNo"].Visible = false;
+            DtgListNakit.Columns["SiraNo"].Visible = false;
+            DtgListNakit.Columns["FisNo"].Visible = false;
+            DtgListNakit.Columns["Personel"].HeaderText = "ZİMMETLİ PERSONEL";
+            DtgListNakit.Columns["Plaka"].HeaderText = "PLAKA";
+            DtgListNakit.Columns["AracSiparisNo"].HeaderText = "ARAÇ SİPARİŞ NO";
+            DtgListNakit.Columns["LitreFiyati"].Visible = false;
+            DtgListNakit.Columns["VerilenLitre"].HeaderText = "VERİLEN LİTRE";
+            DtgListNakit.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
+            DtgListNakit.Columns["DosyaYolu"].Visible = false;
+            DtgListNakit.Columns["SiparisNo"].Visible = false;
+            DtgListNakit.Columns["AlimTuru"].Visible = false;
 
         }
 
@@ -316,6 +347,15 @@ namespace UserInterface.IdariIsler
             }
             LblGenelTopTasima.Text = toplam.ToString("C2");
         }
+        void ToplamlarNakit()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgListNakit.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgListNakit.Rows[i].Cells[13].Value);
+            }
+            LblTopTutarNakit.Text = toplam.ToString("C2");
+        }
         void ToplamlarTasitTanimaLitre()
         {
             double toplam = 0;
@@ -324,6 +364,15 @@ namespace UserInterface.IdariIsler
                 toplam += Convert.ToDouble(DtgListTasit.Rows[i].Cells["VerilenLitre"].Value);
             }
             LblLitreTasitT.Text = toplam.ToString();
+        }
+        void ToplamlarNakitLitre()
+        {
+            double toplam = 0;
+            for (int i = 0; i < DtgListNakit.Rows.Count; ++i)
+            {
+                toplam += Convert.ToDouble(DtgListNakit.Rows[i].Cells["VerilenLitre"].Value);
+            }
+            LblTopLitre.Text = toplam.ToString();
         }
         void ToplamlarTasitKalemler()
         {

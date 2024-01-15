@@ -150,13 +150,13 @@ namespace DataAccess.Concreate.IdariIsler
             }
         }
 
-        public List<MalzemeTalep> GetList()
+        public List<MalzemeTalep> GetList(string islemDurumu)
         {
             try
             {
                 bool secim = false;
                 List<MalzemeTalep> malzemeTaleps = new List<MalzemeTalep>();
-                dataReader = sqlServices.StoreReader("MalzemeTalepList");
+                dataReader = sqlServices.StoreReader("MalzemeTalepList", new SqlParameter("@islemDurumu", islemDurumu));
                 while (dataReader.Read())
                 {
                     malzemeTaleps.Add(new MalzemeTalep(

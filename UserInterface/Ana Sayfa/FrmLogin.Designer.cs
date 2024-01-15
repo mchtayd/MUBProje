@@ -159,7 +159,7 @@ namespace UserInterface
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(156, 17);
             this.label5.TabIndex = 37;
-            this.label5.Text = "Copyrights @ 2021-2023";
+            this.label5.Text = "Copyrights @ 2021-2024";
             // 
             // label2
             // 

@@ -190,16 +190,16 @@ namespace Business.Concreate.IdarıIsler
                 return new List<YakitDokum>();
             }
         }
-        public List<YakitDokum> GetListTT(int yil)
+        public List<YakitDokum> GetListTT(int yil, string alimTuru)
         {
             try
             {
 
                 if (yil == 0)
                 {
-                    return yakitDokumDal.GetListTT("");
+                    return yakitDokumDal.GetListTT("", alimTuru);
                 }
-                return yakitDokumDal.GetListTT(yil.ToString());
+                return yakitDokumDal.GetListTT(yil.ToString(), alimTuru);
             }
             catch (Exception)
             {

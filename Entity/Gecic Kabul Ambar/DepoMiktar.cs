@@ -8,7 +8,7 @@ namespace Entity.Gecic_Kabul_Ambar
 {
     public class DepoMiktar
     {
-        bool secim; int id; string stokNo, tanim, seriNo, lotNo, revizyon; DateTime sonIslemTarihi; string sonIslemYapan, depoNo, depoAdresi, depoLokasyon; int miktar; string aciklama, rezerveDurumu; int rezerveId;
+        bool secim; int id; string stokNo, tanim, seriNo, lotNo, revizyon; DateTime sonIslemTarihi; string sonIslemYapan, depoNo, depoAdresi, depoLokasyon; int miktar; string aciklama, rezerveDurumu; int rezerveId; string sayimYili;
 
         public int Id { get => id; set => id = value; }
         public string StokNo { get => stokNo; set => stokNo = value; }
@@ -26,6 +26,7 @@ namespace Entity.Gecic_Kabul_Ambar
         public bool Secim { get => secim; set => secim = value; }
         public string RezerveDurumu { get => rezerveDurumu; set => rezerveDurumu = value; }
         public int RezerveId { get => rezerveId; set => rezerveId = value; }
+        public string SayimYili { get => sayimYili; set => sayimYili = value; }
 
         public DepoMiktar(int id, string stokNo, string tanim, string seriNo, string lotNo, string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, string depoNo, string depoAdresi, string depoLokasyon, int miktar, string aciklama,string rezerveDurumu, int rezerveId)
         {
@@ -66,7 +67,7 @@ namespace Entity.Gecic_Kabul_Ambar
             this.rezerveId = rezerveId;
         }
 
-        public DepoMiktar(string stokNo, string tanim, string seriNo, string lotNo, string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, string depoNo,string depoAdresi, string depoLokasyon, int miktar,string aciklama)
+        public DepoMiktar(string stokNo, string tanim, string seriNo, string lotNo, string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, string depoNo,string depoAdresi, string depoLokasyon, int miktar,string aciklama,string sayimYili = "")
         {
             this.stokNo = stokNo;
             this.seriNo = seriNo;
@@ -80,6 +81,7 @@ namespace Entity.Gecic_Kabul_Ambar
             this.depoAdresi = depoAdresi;
             this.aciklama = aciklama;
             this.depoLokasyon = depoLokasyon;
+            this.sayimYili = sayimYili;
         }
 
         public DepoMiktar(string stokNo, string depoNo, string depoLokasyon ,string seriNo, string lotNo, string revizyon, DateTime sonIslemTarihi, string sonIslemYapan, int miktar)

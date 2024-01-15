@@ -63,7 +63,8 @@ namespace DataAccess.Concreate.IdariIsler
                     new SqlParameter("@tuketimLT", entity.VerilenLitre),
                     new SqlParameter("@tutar", entity.ToplamTutar),
                     new SqlParameter("@dosyaYolu", entity.DosyaYolu),
-                    new SqlParameter("@personelAd",entity.Personel));
+                    new SqlParameter("@personelAd", entity.Personel),
+                    new SqlParameter("@alimTuru", entity.AlimTuru));
 
                 dataReader.Close();
                 return "OK";
@@ -400,7 +401,7 @@ namespace DataAccess.Concreate.IdariIsler
                 return new List<YakitDokum>();
             }
         }
-        public List<YakitDokum> GetListTT(string yil)
+        public List<YakitDokum> GetListTT(string yil, string alimTuru)
         {
             try
             {
@@ -414,7 +415,7 @@ namespace DataAccess.Concreate.IdariIsler
                     yildanfalza = yil.ConInt() + 1;
                 }
                 List<YakitDokum> yakitDokums = new List<YakitDokum>();
-                dataReader = sqlServices.StoreReader("YakitTasiTanimaListe", new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yildanfalza));
+                dataReader = sqlServices.StoreReader("YakitTasiTanimaListe", new SqlParameter("@yil", yil), new SqlParameter("@yildanFalza", yildanfalza), new SqlParameter("@alimTuru", alimTuru));
                 while (dataReader.Read())
                 {
                     yakitDokums.Add(new YakitDokum(

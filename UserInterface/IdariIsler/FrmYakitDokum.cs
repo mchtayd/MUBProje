@@ -118,6 +118,14 @@ namespace UserInterface.IdariIsler
             CmbPersoneller.SelectedValue = -1;
         }
 
+        void PersonellerNakit()
+        {
+            CmbNakitPersonel.DataSource = kayitManager.PersonelAdSoyad();
+            CmbNakitPersonel.ValueMember = "Id";
+            CmbNakitPersonel.DisplayMember = "Adsoyad";
+            CmbNakitPersonel.SelectedValue = -1;
+        }
+
         void Plakalar()
         {
             aracs = aracManager.GetList();
@@ -127,14 +135,6 @@ namespace UserInterface.IdariIsler
             CmbPlaka.DisplayMember = "Plaka";
             CmbPlaka.SelectedValue = -1;
 
-        }
-
-        void PersonellerNakit()
-        {
-            CmbNakitPersonel.DataSource = kayitManager.PersonelAdSoyad();
-            CmbNakitPersonel.ValueMember = "Id";
-            CmbNakitPersonel.DisplayMember = "Adsoyad";
-            CmbNakitPersonel.SelectedValue = -1;
         }
 
         void PlakalarNakit()
@@ -243,6 +243,7 @@ namespace UserInterface.IdariIsler
         {
             IsAkisNo();
             IsAkisNoTasitTanima();
+            IsAkisNoNakit();
             isAkisNo = LblIsAkisNo.Text;
             string root = @"Z:\DTS";
             string subdir = @"Z:\DTS\SATIN ALMA\";
@@ -362,6 +363,7 @@ namespace UserInterface.IdariIsler
         {
             IsAkisNo();
             IsAkisNoTasitTanima();
+            IsAkisNoNakit();
             isAkisNo = LblIsAkisNoTasit.Text;
             string root = @"Z:\DTS";
             string subdir = @"Z:\DTS\SATIN ALMA\";
@@ -443,6 +445,7 @@ namespace UserInterface.IdariIsler
         {
             CmbFirma.SelectedValue = ""; TxtDefterNo.Clear(); TxtSiraNo.Clear(); TxtFisNo.Clear(); CmbPersoneller.Text = ""; CmbPlaka.Text = ""; TxtAracSiparisNo.Clear(); TxtLitreFiyati.Clear(); TxtAlinanLitre.Clear();
             webBrowser1.Navigate(""); AdvList.Rows.Clear();
+            CmbFirmaNakit.Clear(); DtgTarihNakit.Value = DateTime.Now; CmbNakitPersonel.Text=""; CmbNakitPlaka.Text = ""; TxtSiparisNoNakit.Clear(); TxtLitreFiyatiAkaryakit.Text = "0"; TxtAlinanFiyatiAkaryakit.Text = "0";
         }
         void TemizleTasit()
         {
@@ -589,6 +592,7 @@ namespace UserInterface.IdariIsler
 
             IsAkisNo();
             IsAkisNoTasitTanima();
+            IsAkisNoNakit();
             isAkisNo = LblIsAkisNoTasit.Text;
             string root = @"Z:\DTS";
             string subdir = @"Z:\DTS\SATIN ALMA\";
@@ -685,6 +689,7 @@ namespace UserInterface.IdariIsler
                 IsAkisKontrolsuzGuncelle();
                 IsAkisNo();
                 IsAkisNoTasitTanima();
+                IsAkisNoNakit();
             }
         }
 
@@ -733,19 +738,21 @@ namespace UserInterface.IdariIsler
 
         private void BtnNakitKaydet_Click(object sender, EventArgs e)
         {
-
+            string donem = FrmHelper.DonemControl(DtgTarihNakit.Value);
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr==DialogResult.Yes)
             {
-                //YakitDokum yakitDokum = new YakitDokum(LblIsAkisNoTasit.Text.ConInt(), item.Cells[8].Value.ToString().ToUpper(), donem, item.Cells[1].Value.ConDate(), item.Cells[2].Value.ToString().Trim(), aracSiparisNo,
-                //        item.Cells[9].Value.ConDouble(), item.Cells[10].Value.ConDouble(), dosyaYolu, zimetliPersonel.ToUpper(), "TAŞIT TANIMA");
+                YakitDokum yakitDokum = new YakitDokum(LblIsAkisNoTasit.Text.ConInt(), CmbFirmaNakit.Text.ToString().ToUpper(), donem, DtgTarihNakit.Value, CmbNakitPlaka.Text.Trim(), TxtSiparisNoNakit.Text,
+                        TxtAlinanFiyatiAkaryakit.Text.ConDouble(), LblToplamNakit.Text.ConDouble(), "", CmbNakitPersonel.Text.ToUpper(), "NAKİT");
 
-                //string mesaj = yakitDokumManager.AddTasitTanima(yakitDokum);
-                //if (mesaj != "OK")
-                //{
-                //    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                //    return;
-                //}
+                string mesaj = yakitDokumManager.AddTasitTanima(yakitDokum);
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                Temizle();
             }
         }
 
@@ -767,7 +774,7 @@ namespace UserInterface.IdariIsler
 
         private void ChkNakitPersonel_CheckedChanged(object sender, EventArgs e)
         {
-            if (ChkAyrilanPersonel.Checked == true)
+            if (ChkNakitPersonel.Checked == true)
             {
                 PersonellerAyrilanNakit();
             }
@@ -779,7 +786,7 @@ namespace UserInterface.IdariIsler
 
         private void ChkNakitArac_CheckedChanged(object sender, EventArgs e)
         {
-            if (ChkAyrilanArac.Checked == true)
+            if (ChkNakitArac.Checked == true)
             {
                 CmbNakitPlaka.DataSource = aracManager.ProjeDisiList();
                 CmbNakitPlaka.ValueMember = "Id";
@@ -820,11 +827,11 @@ namespace UserInterface.IdariIsler
         {
             if (TxtAlinanFiyatiAkaryakit.Text == "")
             {
-                litreFiyati = 0;
+                alinanLitre = 0;
                 ToplamNakit();
                 return;
             }
-            litreFiyati = TxtAlinanFiyatiAkaryakit.Text.ConDouble();
+            alinanLitre = TxtAlinanFiyatiAkaryakit.Text.ConDouble();
             ToplamNakit();
         }
 
@@ -988,6 +995,7 @@ namespace UserInterface.IdariIsler
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 IsAkisNoTasitTanima();
+                IsAkisNoNakit();
                 Temizle();
             }
         }

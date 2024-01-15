@@ -125,6 +125,30 @@ namespace Business.Concreate.BakimOnarim
                 return new List<BolgeKayit>();
             }
         }
+        public List<string> BolgeSorumlulari()
+        {
+            try
+            {
+                return bolgeKayitDal.BolgeSorumlulari();
+            }
+            catch (Exception)
+            {
+                return new List<string>();
+            }
+        }
+
+        public int BolgeYolDurumuControl(string personel, DateTime tarih)
+        {
+            try
+            {
+                return bolgeKayitDal.BolgeYolDurumuControl(personel, tarih);
+            }
+            catch (Exception)
+            {
+                return -1;
+            }
+        }
+
         public string Update(BolgeKayit entity)
         {
             try

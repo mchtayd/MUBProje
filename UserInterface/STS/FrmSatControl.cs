@@ -972,6 +972,7 @@ namespace UserInterface.STS
             FillMalzemeList5();
             TxtFirma.Text = fiyatTeklifiAls[0].Firma1;
             toplamlar = 0;
+            TxtFaturaTutar.Clear();
 
             foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
             {
@@ -1006,6 +1007,9 @@ namespace UserInterface.STS
             satno = DtgFaturaBekleyenSatMdl.CurrentRow.Cells["Satno"].Value.ConInt();
             FillMalzemeList7();
             TxtFirma2.Text = fiyatTeklifiAls[0].Firma1;
+
+            toplamlar = 0;
+            TxtFaturaTutar.Clear();
 
             foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
             {

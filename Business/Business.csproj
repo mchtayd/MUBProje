@@ -82,6 +82,7 @@
     <Compile Include="Concreate\AnaSayfa\MenuManager.cs" />
     <Compile Include="Concreate\AnaSayfa\PersonelUyariManager.cs" />
     <Compile Include="Concreate\AnaSayfa\ServerAyarlarManager.cs" />
+    <Compile Include="Concreate\AnaSayfa\YolDurumuGirmeyenManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeMalzemeManager.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeManager.cs" />

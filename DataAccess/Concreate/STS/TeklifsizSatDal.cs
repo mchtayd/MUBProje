@@ -131,6 +131,23 @@ namespace DataAccess.Concreate.STS
                 return ex.Message;
             }
         }
+        public string UpdateTutar(double tutar, int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("TeklifsizSatTutarUpdate",
+                    new SqlParameter("@tutar", tutar),
+                    new SqlParameter("@id", id));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string DevamEdenSatHYGuncelle(int id, double tutar)
         {
             try

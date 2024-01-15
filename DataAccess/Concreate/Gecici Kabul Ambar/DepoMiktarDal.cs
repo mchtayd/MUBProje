@@ -26,19 +26,20 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
         {
             try
             {
-                dataReader = sqlServices.StoreReader("DepoMiktarKayit", 
-                    new SqlParameter("@stokNo",entity.StokNo),
-                    new SqlParameter("@tanim",entity.Tanim),
+                dataReader = sqlServices.StoreReader("DepoMiktarKayit",
+                    new SqlParameter("@stokNo", entity.StokNo),
+                    new SqlParameter("@tanim", entity.Tanim),
                     new SqlParameter("@seriNo", entity.SeriNo),
-                    new SqlParameter("@lotNo",entity.LotNo),
-                    new SqlParameter("@revizyon",entity.Revizyon),
-                    new SqlParameter("@sonIslemTarihi",entity.SonIslemTarihi),
-                    new SqlParameter("@sonIslemYapan",entity.SonIslemYapan),
-                    new SqlParameter("@miktar",entity.Miktar),
-                    new SqlParameter("@depoNo",entity.DepoNo),
-                    new SqlParameter("@depoAdresi",entity.DepoAdresi),
-                    new SqlParameter("@depoLokasyon",entity.DepoLokasyon),
-                    new SqlParameter("@aciklama",entity.Aciklama));
+                    new SqlParameter("@lotNo", entity.LotNo),
+                    new SqlParameter("@revizyon", entity.Revizyon),
+                    new SqlParameter("@sonIslemTarihi", entity.SonIslemTarihi),
+                    new SqlParameter("@sonIslemYapan", entity.SonIslemYapan),
+                    new SqlParameter("@miktar", entity.Miktar),
+                    new SqlParameter("@depoNo", entity.DepoNo),
+                    new SqlParameter("@depoAdresi", entity.DepoAdresi),
+                    new SqlParameter("@depoLokasyon", entity.DepoLokasyon),
+                    new SqlParameter("@aciklama", entity.Aciklama),
+                    new SqlParameter("@sayimYili", entity.SayimYili));
 
                 dataReader.Close();
                 return "OK";
@@ -359,6 +360,40 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
+        public List<DepoMiktar> GetListSayim(string sayimYili, string depoNo)
+        {
+            try
+            {
+                List<DepoMiktar> depoMiktars = new List<DepoMiktar>();
+                dataReader = sqlServices.StoreReader("DepoStokSayim", new SqlParameter("@sayimYili", sayimYili), new SqlParameter("@depoNo", depoNo));
+                while (dataReader.Read())
+                {
+                    depoMiktars.Add(new DepoMiktar(
+                        dataReader["ID"].ConInt(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SON_ISLEM_TARIHI"].ConDate(),
+                        dataReader["SON_ISLEM_YAPAN"].ToString(),
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString(),
+                        dataReader["MIKTAR"].ConInt(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["REZERVE_DURUMU"].ToString(),
+                         dataReader["REZERVE_ID"].ConInt()));
+                }
+                dataReader.Close();
+                return depoMiktars;
+            }
+            catch (Exception)
+            {
+                return new List<DepoMiktar>();
+            }
+        }
+
         public List<DepoMiktar> GetListTumu()
         {
             try
@@ -390,6 +425,25 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             catch (Exception)
             {
                 return new List<DepoMiktar>();
+            }
+        }
+
+        public List<string> SayimYillari()
+        {
+            try
+            {
+                List<string> depoMiktars = new List<string>();
+                dataReader = sqlServices.StoreReader("DepoStokSayimYiliList");
+                while (dataReader.Read())
+                {
+                    depoMiktars.Add(dataReader["SAYIM_YILI"].ToString());
+                }
+                dataReader.Close();
+                return depoMiktars;
+            }
+            catch (Exception)
+            {
+                return new List<string>();
             }
         }
 

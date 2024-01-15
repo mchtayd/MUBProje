@@ -208,7 +208,25 @@ namespace UserInterface.BakımOnarım
         void IslemAdimlariSureleri()
         {
             gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(id, "BAKIM ONARIM");
-            DtgIslemKayitlari.DataSource = gorevAtamaPersonels;
+            List<GorevAtamaPersonel> gorevAtamaPersonels2 = new List<GorevAtamaPersonel>();
+            string oncekiAdim = "";
+            foreach (GorevAtamaPersonel item in gorevAtamaPersonels)
+            {
+                if (oncekiAdim != item.IslemAdimi)
+                {
+                    gorevAtamaPersonels2.Add(item);
+                }
+                else
+                {
+                    if (item.Sure == "Devam Ediyor")
+                    {
+                        gorevAtamaPersonels2.Add(item);
+                    }
+                }
+                oncekiAdim = item.IslemAdimi;
+            }
+
+            DtgIslemKayitlari.DataSource = gorevAtamaPersonels2;
 
             DtgIslemKayitlari.Columns["Id"].Visible = false;
             DtgIslemKayitlari.Columns["BenzersizId"].Visible = false;
@@ -217,7 +235,7 @@ namespace UserInterface.BakımOnarım
             DtgIslemKayitlari.Columns["IslemAdimi"].HeaderText = "İŞLEM ADIMI";
             DtgIslemKayitlari.Columns["Tarih"].HeaderText = "TARİH";
             DtgIslemKayitlari.Columns["Sure"].HeaderText = "İŞLEM ADIMI SÜRELERİ";
-            DtgIslemKayitlari.Columns["YapilanIslem"].HeaderText = "YAPILAN İŞLEMLER/AÇIKLAMALAR/NOTLAR";
+            DtgIslemKayitlari.Columns["YapilanIslem"].Visible = false;
             DtgIslemKayitlari.Columns["CalismaSuresi"].HeaderText = "ÇALIŞMA SÜRESİ";
             DtgIslemKayitlari.Columns["AbfNo"].Visible = false;
             DtgIslemKayitlari.Columns["DevamEdenGorev"].Visible = false;
@@ -1238,6 +1256,9 @@ namespace UserInterface.BakımOnarım
                         }
                         else
                         {
+                            strB.Append("<br><br><font style='color:White;font-size:12px;background-color:DarkGoldenrod;font-family: Arial;'><b>AÇIKLAMA:</b>" + " ");
+                            strB.Append("<font style='color:DimGray;font-size:12px;background-color:white;font-family: Arial'>" + gorevAtamaPersonels[i].Tarih.ToString() + " " + gorevAtamaPersonels[i].GorevAtanacakPersonel.ToString());
+                            strB.Append("<br><font style='color:Black;font-size:12px;font-family: Arial;'>" + gorevAtamaPersonels[i].YapilanIslem.ToString());
 
                             strB.Append("<br><br><font style='color:Black;font-size:12px;font-family: Arial;background-color:white;'><u>" + "<b>TAKILAN MALZEMELER</b>" + "</u>" + " ");
 
@@ -1315,22 +1336,18 @@ namespace UserInterface.BakımOnarım
                         strB.Append("<font style='color:DimGray;font-size:12px;background-color:white;font-family: Arial'>" + gorevAtamaPersonels[i].Tarih.ToString() + " " + gorevAtamaPersonels[i].GorevAtanacakPersonel.ToString());
                         strB.Append("<br><font style='color:Black;font-size:12px;font-family: Arial;'>" + gorevAtamaPersonels[i].YapilanIslem.ToString());
 
-                        strB.Append("<br><br><font style='color:DimGray;font-size:12px;background-color:yellow;font-family: Arial'>" + gorevAtamaPersonels[i].Tarih.ToString() + " " + gorevAtamaPersonels[i].GorevAtanacakPersonel.ToString());
-                        strB.Append("<font style='color:Black;font-size:12px;font-family: Arial;background-color:white;'>" + "<b> İŞLEM ADIMI</b>" + " ");
-                        strB.Append("<font style='color:DodgerBlue;font-size:12px;font-family:'><u>" + gorevAtamaPersonels[i].IslemAdimi.ToString() + "</u>" + " ");
-                        strB.Append("<font style='color:Black;font-size:12px;font-family: Arial;'>" + "ADIMINDAN" + " ");
-                        strB.Append("<font style='color:DodgerBlue;font-size:12px;font-family: Arial;'><u>" + gorevAtamaPersonels[i + 1].IslemAdimi.ToString() + "</u>" + " ");
-                        strB.Append("<font style='color:Black;font-size:12px;font-family: Arial;'>" + "<b>ADIMINA GÜNCELLEMİŞTİR.</b>");
+                        if (gorevAtamaPersonels[i].IslemAdimi.ToString() != gorevAtamaPersonels[i + 1].IslemAdimi.ToString())
+                        {
+                            strB.Append("<br><br><font style='color:DimGray;font-size:12px;background-color:yellow;font-family: Arial'>" + gorevAtamaPersonels[i].Tarih.ToString() + " " + gorevAtamaPersonels[i].GorevAtanacakPersonel.ToString());
+                            strB.Append("<font style='color:Black;font-size:12px;font-family: Arial;background-color:white;'>" + "<b> İŞLEM ADIMI</b>" + " ");
+                            strB.Append("<font style='color:DodgerBlue;font-size:12px;font-family:'><u>" + gorevAtamaPersonels[i].IslemAdimi.ToString() + "</u>" + " ");
+                            strB.Append("<font style='color:Black;font-size:12px;font-family: Arial;'>" + "ADIMINDAN" + " ");
+                            strB.Append("<font style='color:DodgerBlue;font-size:12px;font-family: Arial;'><u>" + gorevAtamaPersonels[i + 1].IslemAdimi.ToString() + "</u>" + " ");
+                            strB.Append("<font style='color:Black;font-size:12px;font-family: Arial;'>" + "<b>ADIMINA GÜNCELLEMİŞTİR.</b>");
+                        }
                     }
                 }
-
-
-
-
             }
-
-            
-
             BrowserVeriGecmis.DocumentText = strB.ToString();
 
         }

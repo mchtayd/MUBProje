@@ -105,7 +105,7 @@ namespace DataAccess.Concreate.STS
             try
             {
                 dataReader = sqlServices.StoreReader("TamamlananSatFiyatUpdate",
-                    new SqlParameter("@id", entity.Siparisno),
+                    new SqlParameter("@id", entity.Id),
                     new SqlParameter("@birimFiyat", entity.Birimfiyat),
                     new SqlParameter("@toplamFiyat", entity.Toplamfiyat));
                 dataReader.Close();

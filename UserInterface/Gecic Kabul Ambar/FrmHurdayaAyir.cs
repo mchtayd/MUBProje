@@ -75,12 +75,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 AbfMalzeme abfMalzemeSokulen = new AbfMalzeme(benzersizId, LblStokSokulen.Text, LblTanimSokulen.Text, LblSeriLotNoSokulen.Text, TxtHurdaMiktar.Text.ConInt(), LblBirimSokulen.Text, 0, LblRevizyonSokulen.Text, "GAYRİ FAAL", "SÖKÜLDÜ", "DEĞİTİRİLECEK (HURDA EDİLECEK)");
 
                 abfMalzemeManager.AddSokulen(abfMalzemeSokulen);
+
                 AbfMalzeme abfMalzeme = abfMalzemeManager.GetBul(benzersizId, LblStokSokulen.Text, LblSeriLotNoSokulen.Text, LblRevizyonSokulen.Text, TxtHurdaMiktar.Text.ConInt());
 
                 AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "900 - HURDA DEPO", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", LblStokSokulen.Text, LblSeriLotNoSokulen.Text, LblRevizyonSokulen.Text);
                 abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit);
 
+                abfMalzemeManager.MalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "900 - HURDA DEPO");
+
+                abfMalzeme = abfMalzemeManager.GetBul(benzersizId, LblStokSokulen.Text, LblSeriLotNoSokulen.Text, LblRevizyonSokulen.Text, LblMiktarSokulen.Text.ConInt());
+
                 abfMalzemeManager.HurdaSaglamMiktarUpdate(abfMalzeme.Id, LblSaglamMiktar.Text.ConInt());
+
 
                 FrmAltTakimTakip frmAltTakimTakip = (FrmAltTakimTakip)Application.OpenForms["FrmAltTakimTakip"];
                 if (frmAltTakimTakip != null)

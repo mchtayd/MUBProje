@@ -29,6 +29,7 @@ namespace UserInterface.BakımOnarım
         List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
         List<BolgeKayit> bolgeKayitsEklenen = new List<BolgeKayit>();
         int index = 0;
+        public bool anaSayfaYonlendirme = false;
         public FrmYolDurumlari()
         {
             InitializeComponent();
@@ -102,6 +103,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Lütfen listeye veri ekleyiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+
             string bolgeKontrol = BolgeKontrol();
             if (bolgeKontrol!="OK")
             {
@@ -121,6 +123,11 @@ namespace UserInterface.BakımOnarım
                 }
             }
 
+            FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
+            frmAnaSayfa.anaSayfaYonlendirme = true;
+            frmAnaSayfa.TreeMenu.Enabled = true;
+            frmAnaSayfa.toolStrip1.Enabled = true;
+            frmAnaSayfa.PnlBildirim.Enabled = true;
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
         }

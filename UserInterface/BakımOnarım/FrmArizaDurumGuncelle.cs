@@ -1624,7 +1624,7 @@ namespace UserInterface.BakımOnarım
                 }
                 
             }
-            if (LblMevcutIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
+            if (CmbIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
             {
                 arizaKayitManager.ArizaDurumUpdate(id, 0);
             }
@@ -1877,6 +1877,11 @@ namespace UserInterface.BakımOnarım
                 {
                     guncellenecekId = item.Id;
                 }
+            }
+
+            if (LblMevcutIslemAdimi.Text == CmbIslemAdimi.Text)
+            {
+                sure = 0 + " Gün " + 0 + " Saat " + 0 + " Dakika";
             }
 
             if (LblMevcutIslemAdimi.Text == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)" && ChkKapat.Checked == true)

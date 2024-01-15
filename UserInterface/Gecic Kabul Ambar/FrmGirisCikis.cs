@@ -1340,12 +1340,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbBirim.Text = malzeme.Birim;
             takipdurumu = malzeme.TakipDurumu;
             teminTuru = malzeme.TedarikTuru;
-            /*if (stokGirisCıkıs == null)
-            {
-                mevcutMiktar = 0;
-                return;
-            }
-            mevcutMiktar = stokGirisCıkıs.MevcutMiktar;*/
+            
 
         }
         private void CmbDusumTuru_SelectedIndexChanged(object sender, EventArgs e)
@@ -2279,7 +2274,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 return;
             }
             DtgList.Rows.RemoveAt(index);
-
+            Hesapla();
         }
 
 

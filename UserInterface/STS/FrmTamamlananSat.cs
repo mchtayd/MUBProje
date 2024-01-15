@@ -43,6 +43,7 @@ namespace UserInterface.STS
         int ucteklif;
         double geneltoplam, harcananTutar;
         bool start = true;
+        public object[] infos;
         public FrmTamamlananSat()
         {
             InitializeComponent();
@@ -1213,6 +1214,7 @@ namespace UserInterface.STS
         private void güncelleToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmSatDuzelt frmSatDuzelt = new FrmSatDuzelt();
+            frmSatDuzelt.infos = infos;
             frmSatDuzelt.id = id;
             frmSatDuzelt.ShowDialog();
         }

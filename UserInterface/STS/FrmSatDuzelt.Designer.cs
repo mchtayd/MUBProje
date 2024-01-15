@@ -30,9 +30,9 @@ namespace UserInterface.STS
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSatDuzelt));
             this.groupBox16 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -205,9 +205,9 @@ namespace UserInterface.STS
             this.label150 = new System.Windows.Forms.Label();
             this.comboBox8 = new System.Windows.Forms.ComboBox();
             this.comboBox9 = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.CmbButceGiderTuru = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.BtnGuncelle = new System.Windows.Forms.Button();
             this.LblToplamFiyat = new System.Windows.Forms.Label();
             this.label29 = new System.Windows.Forms.Label();
@@ -215,6 +215,7 @@ namespace UserInterface.STS
             this.label40 = new System.Windows.Forms.Label();
             this.BtnOnayla = new System.Windows.Forms.Button();
             this.ımageList2 = new System.Windows.Forms.ImageList(this.components);
+            this.BtnSil = new System.Windows.Forms.Button();
             this.groupBox16.SuspendLayout();
             this.groupBox18.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -778,7 +779,7 @@ namespace UserInterface.STS
             // 
             this.LblToplam.AutoSize = true;
             this.LblToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblToplam.Location = new System.Drawing.Point(289, 741);
+            this.LblToplam.Location = new System.Drawing.Point(1096, 702);
             this.LblToplam.Name = "LblToplam";
             this.LblToplam.Size = new System.Drawing.Size(23, 15);
             this.LblToplam.TabIndex = 373;
@@ -788,7 +789,7 @@ namespace UserInterface.STS
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label12.Location = new System.Drawing.Point(176, 741);
+            this.label12.Location = new System.Drawing.Point(983, 703);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(107, 13);
             this.label12.TabIndex = 372;
@@ -914,7 +915,7 @@ namespace UserInterface.STS
             this.PnlMalzeme.Controls.Add(this.comboBox3);
             this.PnlMalzeme.Controls.Add(this.LblMalzemeTuru);
             this.PnlMalzeme.Controls.Add(this.tabControl6);
-            this.PnlMalzeme.Location = new System.Drawing.Point(1080, 741);
+            this.PnlMalzeme.Location = new System.Drawing.Point(477, 748);
             this.PnlMalzeme.Name = "PnlMalzeme";
             this.PnlMalzeme.Size = new System.Drawing.Size(115, 43);
             this.PnlMalzeme.TabIndex = 348;
@@ -956,18 +957,18 @@ namespace UserInterface.STS
             this.advancedDataGridView1.AllowUserToDeleteRows = false;
             this.advancedDataGridView1.AllowUserToResizeColumns = false;
             this.advancedDataGridView1.AllowUserToResizeRows = false;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.White;
+            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.advancedDataGridView1.AutoGenerateContextFilters = true;
             this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.advancedDataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.advancedDataGridView1.DateWithTime = false;
             this.advancedDataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -976,8 +977,8 @@ namespace UserInterface.STS
             this.advancedDataGridView1.Name = "advancedDataGridView1";
             this.advancedDataGridView1.ReadOnly = true;
             this.advancedDataGridView1.RowHeadersVisible = false;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.advancedDataGridView1.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.advancedDataGridView1.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.advancedDataGridView1.RowTemplate.Height = 150;
             this.advancedDataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -2072,6 +2073,17 @@ namespace UserInterface.STS
             this.comboBox9.Size = new System.Drawing.Size(278, 21);
             this.comboBox9.TabIndex = 8;
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.Location = new System.Drawing.Point(457, 155);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(24, 21);
+            this.button1.TabIndex = 7;
+            this.button1.UseVisualStyleBackColor = false;
+            // 
             // CmbButceGiderTuru
             // 
             this.CmbButceGiderTuru.FormattingEnabled = true;
@@ -2090,17 +2102,6 @@ namespace UserInterface.STS
             this.label19.TabIndex = 563;
             this.label19.Text = "BÜTÇE GİDER TÜRÜ:";
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
-            this.button1.Location = new System.Drawing.Point(457, 155);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(24, 21);
-            this.button1.TabIndex = 7;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // BtnGuncelle
             // 
             this.BtnGuncelle.BackColor = System.Drawing.Color.CadetBlue;
@@ -2108,9 +2109,9 @@ namespace UserInterface.STS
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnGuncelle.Image = ((System.Drawing.Image)(resources.GetObject("BtnGuncelle.Image")));
             this.BtnGuncelle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnGuncelle.Location = new System.Drawing.Point(19, 733);
+            this.BtnGuncelle.Location = new System.Drawing.Point(986, 643);
             this.BtnGuncelle.Name = "BtnGuncelle";
-            this.BtnGuncelle.Size = new System.Drawing.Size(130, 56);
+            this.BtnGuncelle.Size = new System.Drawing.Size(130, 51);
             this.BtnGuncelle.TabIndex = 375;
             this.BtnGuncelle.Text = "  GÜNCELLE";
             this.BtnGuncelle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -2120,7 +2121,7 @@ namespace UserInterface.STS
             // LblToplamFiyat
             // 
             this.LblToplamFiyat.AutoSize = true;
-            this.LblToplamFiyat.Location = new System.Drawing.Point(1066, 599);
+            this.LblToplamFiyat.Location = new System.Drawing.Point(1076, 569);
             this.LblToplamFiyat.Name = "LblToplamFiyat";
             this.LblToplamFiyat.Size = new System.Drawing.Size(19, 13);
             this.LblToplamFiyat.TabIndex = 569;
@@ -2129,7 +2130,7 @@ namespace UserInterface.STS
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(973, 599);
+            this.label29.Location = new System.Drawing.Point(983, 569);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(87, 13);
             this.label29.TabIndex = 568;
@@ -2138,7 +2139,7 @@ namespace UserInterface.STS
             // TxtBirim
             // 
             this.TxtBirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBirim.Location = new System.Drawing.Point(1066, 563);
+            this.TxtBirim.Location = new System.Drawing.Point(1076, 533);
             this.TxtBirim.Name = "TxtBirim";
             this.TxtBirim.Size = new System.Drawing.Size(119, 21);
             this.TxtBirim.TabIndex = 567;
@@ -2148,7 +2149,7 @@ namespace UserInterface.STS
             // label40
             // 
             this.label40.AutoSize = true;
-            this.label40.Location = new System.Drawing.Point(984, 568);
+            this.label40.Location = new System.Drawing.Point(994, 538);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(76, 13);
             this.label40.TabIndex = 566;
@@ -2162,7 +2163,7 @@ namespace UserInterface.STS
             this.BtnOnayla.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnOnayla.ImageKey = "ok.png";
             this.BtnOnayla.ImageList = this.ımageList2;
-            this.BtnOnayla.Location = new System.Drawing.Point(976, 628);
+            this.BtnOnayla.Location = new System.Drawing.Point(986, 591);
             this.BtnOnayla.Name = "BtnOnayla";
             this.BtnOnayla.Size = new System.Drawing.Size(123, 51);
             this.BtnOnayla.TabIndex = 570;
@@ -2178,11 +2179,28 @@ namespace UserInterface.STS
             this.ımageList2.Images.SetKeyName(0, "okey.png");
             this.ımageList2.Images.SetKeyName(1, "ok.png");
             // 
+            // BtnSil
+            // 
+            this.BtnSil.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnSil.Image = ((System.Drawing.Image)(resources.GetObject("BtnSil.Image")));
+            this.BtnSil.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnSil.Location = new System.Drawing.Point(1122, 643);
+            this.BtnSil.Name = "BtnSil";
+            this.BtnSil.Size = new System.Drawing.Size(130, 51);
+            this.BtnSil.TabIndex = 571;
+            this.BtnSil.Text = "          SİL";
+            this.BtnSil.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnSil.UseVisualStyleBackColor = false;
+            this.BtnSil.Click += new System.EventHandler(this.BtnSil_Click);
+            // 
             // FrmSatDuzelt
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1298, 801);
+            this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.BtnOnayla);
             this.Controls.Add(this.LblToplamFiyat);
             this.Controls.Add(this.label29);
@@ -2432,5 +2450,6 @@ namespace UserInterface.STS
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Button BtnOnayla;
         private System.Windows.Forms.ImageList ımageList2;
+        public System.Windows.Forms.Button BtnSil;
     }
 }

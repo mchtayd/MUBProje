@@ -34,6 +34,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
         bool start = false;
         public object[] infos;
         string rezerveDurum = "";
+        public bool sayimSayfasi = false;
+        public string sayimYili = "";
 
         public FrmStokMiktarEdit()
         {
@@ -53,7 +55,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbStokNoSokulen();
             start = true;
             DatDisplay();
-            //StokGirisCikis();
         }
         void DatDisplay()
         {
@@ -121,11 +122,26 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 DepoMiktar depoCekilen = new DepoMiktar(malzemeId, CmbStokNo.Text, TxtSokulenTanim.Text, TxtSeriNo.Text, TxtLotNo.Text, TxtRev.Text, DtgTarih.Value, infos[1].ToString(), CmbDepoNo.Text, CmbAdres.Text, TxtMalzemeYeri.Text, TxtMiktar.Text.ConInt(), TxtAciklama.Text, CmbRezerveDurum.Text, TxtAbf.Text.ConInt());
                 string mesaj = depoMiktarManager.UpdateDepoStok(depoCekilen);
 
-                if (mesaj!="OK")
+                if (mesaj != "OK")
                 {
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+
+                if (sayimSayfasi == true)
+                {
+                    stoks = new List<StokGirisCıkıs>();
+                    stoks = stokGirisCikisManager.GetListSayim(sayimYili, CmbStokNo.Text, TxtSeriNo.Text);
+                    if (stoks.Count!=0)
+                    {
+                        foreach (StokGirisCıkıs item in stoks)
+                        {
+                            StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs(item.Islemturu, CmbStokNo.Text, TxtSokulenTanim.Text, item.Birim, item.IslemTarihi, item.CekilenDepoNo, item.CekilenDepoAdresi, item.CekilenMalzemeYeri, CmbDepoNo.Text, CmbAdres.Text, TxtMalzemeYeri.Text, TxtMiktar.Text.ConInt(), infos[1].ToString(), TxtAciklama.Text, TxtSeriNo.Text, TxtLotNo.Text, TxtRev.Text);
+                            stokGirisCikisManager.Update(stokGirisCıkıs, item.Id);
+                        }
+                    }
+                }
+
                 MessageBox.Show("Bilgiler başarıyla güncellenmiştir.\nBilgilerin yenilenmesi için sayfayı yenileyiniz.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
             }
