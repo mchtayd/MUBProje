@@ -61,11 +61,22 @@ namespace Business.Concreate.AnaSayfa
                 return new List<DtsLog>();
             }
         }
-        public List<DtsLog> GetListTumu()
+        public List<DtsLog> GetListIslem(string personelAdi, DateTime basTarihi, DateTime bitTarihi, string islem)
         {
             try
             {
-                return dtsLogDal.GetListTumu();
+                return dtsLogDal.GetListIslem(personelAdi, basTarihi, bitTarihi, islem);
+            }
+            catch (Exception)
+            {
+                return new List<DtsLog>();
+            }
+        }
+        public List<DtsLog> GetListTumu(DateTime basTarihi, DateTime bitTarihi)
+        {
+            try
+            {
+                return dtsLogDal.GetListTumu(basTarihi, bitTarihi);
             }
             catch (Exception)
             {

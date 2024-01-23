@@ -1,4 +1,5 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.Depo;
 using Business.Concreate.IdarıIsler;
@@ -6,6 +7,7 @@ using Business.Concreate.STS;
 using DataAccess.Concreate;
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.EMMA;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using System;
@@ -43,6 +45,7 @@ namespace UserInterface.BakımOnarım
         PersonelKayitManager personelKayitManager;
         BolgeNotManager bolgeNotManager;
         BolgeEnvanterManager bolgeEnvanterManager;
+        DtsLogManager dtsLogManager;
 
         bool start = true;
         bool dosyaControl = false;
@@ -63,6 +66,7 @@ namespace UserInterface.BakımOnarım
             personelKayitManager = PersonelKayitManager.GetInstance();
             bolgeNotManager = BolgeNotManager.GetInstance();
             bolgeEnvanterManager = BolgeEnvanterManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void BtnCancel_Click_1(object sender, EventArgs e)
@@ -431,6 +435,7 @@ namespace UserInterface.BakımOnarım
             FrmGarantiSureleri frmGarantiSureleri = new FrmGarantiSureleri();
             frmGarantiSureleri.siparisNo = siparisNo;
             frmGarantiSureleri.id = id;
+            frmGarantiSureleri.infos = infos;
             frmGarantiSureleri.ShowDialog();
         }
 
@@ -729,6 +734,7 @@ namespace UserInterface.BakımOnarım
                 }
                 
                 dosyaControl = false;
+                DtsLogKayit();
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 BolgeBilgileri();
                 BolgeBilgileriEkipman();
@@ -736,6 +742,13 @@ namespace UserInterface.BakımOnarım
                 CmbProjeSistem.SelectedIndex = -1;
             }
         }
+        void DtsLogKayit()
+        {
+            string islem = CmbBolgeAdi.Text + " bölgesinin bilgileri kaydedilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BÖLGE BİLGİLERİ KAYIT", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         private void BtnGuncelle_Click_1(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bilgileri güncellemek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -764,13 +777,19 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                
 
+                DtsLogKayitGuncelle();
                 BolgeBilgileri();
                 MessageBox.Show("Bilgiler başarıyla güncellenmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
                 CmbProjeSistem.SelectedIndex = -1;
             }
+        }
+        void DtsLogKayitGuncelle()
+        {
+            string islem = CmbBolgeAdi.Text + " bölgesinin bilgileri güncellenmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BÖLGE BİLGİLERİ KAYIT", islem);
+            dtsLogManager.Add(dtsLog);
         }
     }
 }

@@ -57,7 +57,7 @@ namespace UserInterface.STS
         string dosyayolu, rednedeni = "", onaydurum, talepeden, bolum, usbolgesi, abfno, gerekce, butceTanimi, maliyetTuru;
         DateTime istenentarih, belgeTarihi;
         string masrafyerino, yapilanislem, islmeyapan, butcekodukalemi, satbirim, harcamaturu, belgeNumarasi, faturafirma, ilgilikisi;
-        string siparisNo, masrafyeri, abfformno, kaynakdosya, hedefdosya, islemAdimi, durum, teklifDurumu, firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasrafYerNo, satinAlinanFirma, mlzTeslimTarihi;
+        string siparisNo, masrafyeri, abfformno, kaynakdosya, hedefdosya, islemAdimi, durum, teklifDurumu, firmaBilgisi, talepEdenPersonel, personelSiparis, unvani, personelMasrafYerNo, satinAlinanFirma, mlzTeslimTarihi, butceGiderTuru;
         int id, ucteklif, formno, satno, satNo, personelId;
         double toplam, toplam1, toplam2, toplam3, x1, x2, x3, x4, x5, x6, x7, x8, x9, x10, a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, y1, y2, y3, y4, y5, y6, y7, y8, y9, y10, z1, z2, z3, z4, z5, z6, z7, z8, z9, z10 = 0, outValue = 0, toplamlar;
         DateTime tamamlanantarih;
@@ -734,6 +734,7 @@ namespace UserInterface.STS
             mlzTeslimTarihi = DtgOnay.CurrentRow.Cells["Tarih"].Value.ToString();
             butceTanimi = DtgOnay.CurrentRow.Cells["ButceTanimi"].Value.ToString();
             maliyetTuru = DtgOnay.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
+            butceGiderTuru= DtgOnay.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
 
             string pageText3;
             TxtRetNedeni.Text = retNedeni;
@@ -2552,7 +2553,7 @@ namespace UserInterface.STS
                     //donem = DateTime.Now.ConPeriod();
 
                     Tamamlanan tamamlanan = new Tamamlanan(satno.ToString(), formno, masrafyeri, talepeden, bolum, usbolgesi, abfformno, istenentarih, DateTime.Now, gerekce, butcekodukalemi, satbirim, harcamaturu, belgeTuru, belgeNumarasi, belgeTarihi,
-                        faturafirma, ilgilikisi, masrafyerino, hyTop, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, butceTanimi, maliyetTuru,"","", "");
+                        faturafirma, ilgilikisi, masrafyerino, hyTop, dosyayolu, siparisNo, 0, "TAMAMLANAN SATLAR", donem, satOlusturmaTuru, proje, satinAlinanFirma, harcamaYapan, usBolgesiProje, garantiDurumu, mlzTeslimTarihi, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, DateTime.Now, butceTanimi, maliyetTuru,"","", butceGiderTuru);
                     string control = tamamlananManager.Add(tamamlanan);
                     if (control != "OK")
                     {

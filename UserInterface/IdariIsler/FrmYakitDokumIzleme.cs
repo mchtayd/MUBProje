@@ -86,6 +86,7 @@ namespace UserInterface.IdariIsler
                 frmAnaSayfa.tabAnasayfa.SelectedTab = frmAnaSayfa.tabAnasayfa.TabPages[frmAnaSayfa.tabAnasayfa.TabPages.Count - 1];
             }
         }
+
         public void YenilenecekVeri()
         {
             start = true;
@@ -151,7 +152,7 @@ namespace UserInterface.IdariIsler
             DtgGenel.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
             DtgGenel.Columns["DosyaYolu"].Visible = false;
             DtgGenel.Columns["SiparisNo"].Visible = false;
-            DtgGenel.Columns["AlimTuru"].Visible = false;
+            DtgGenel.Columns["AlimTuru"].HeaderText = "ALIM TÜRÜ";
 
             ToplamlarGenel();
             ToplamlarGenelLitre();

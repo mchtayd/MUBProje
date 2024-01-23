@@ -576,6 +576,7 @@ namespace UserInterface.BakımOnarım
             FrmArizaGuncelle frmArizaGuncelle = new FrmArizaGuncelle();
             frmArizaGuncelle.abfNo = abfNo;
             frmArizaGuncelle.id = id;
+            frmArizaGuncelle.infos = infos;
             frmArizaGuncelle.ShowDialog();
         }
 

@@ -1,7 +1,10 @@
-﻿using Business.Concreate.BakimOnarim;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.Office2010.Excel;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using Microsoft.Office.Interop.Word;
@@ -25,6 +28,7 @@ namespace UserInterface.BakımOnarım
     {
         BolgeKayitManager bolgeKayitManager;
         YolDurumManager yolDurumManager;
+        DtsLogManager dtsLogManager;
         public object[] infos;
         List<BolgeKayit> bolgeKayits = new List<BolgeKayit>();
         List<BolgeKayit> bolgeKayitsEklenen = new List<BolgeKayit>();
@@ -35,6 +39,7 @@ namespace UserInterface.BakımOnarım
             InitializeComponent();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             yolDurumManager = YolDurumManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
 
@@ -122,7 +127,7 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
             }
-
+            DtsLogKayit();
             FrmAnaSayfa frmAnaSayfa = (FrmAnaSayfa)Application.OpenForms["FrmAnasayfa"];
             frmAnaSayfa.anaSayfaYonlendirme = true;
             frmAnaSayfa.TreeMenu.Enabled = true;
@@ -131,6 +136,13 @@ namespace UserInterface.BakımOnarım
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
         }
+        void DtsLogKayit()
+        {
+            string islem = "Bölge yol durumları kaydedilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BÖLGE YOL DURUMLARI", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         string BolgeKontrol()
         {
             List<BolgeKayit> bolgeEksikler = new List<BolgeKayit>();

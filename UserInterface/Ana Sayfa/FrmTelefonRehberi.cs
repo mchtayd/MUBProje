@@ -1,4 +1,5 @@
 ﻿using Business.Concreate.IdarıIsler;
+using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Drawing.Charts;
 using DocumentFormat.OpenXml.Presentation;
 using Entity.IdariIsler;
@@ -113,8 +114,23 @@ namespace UserInterface.Ana_Sayfa
             }
             CmbAdSoyad.SelectedIndex = -1;
 
-            
-            personelKayitList = personelKayitManager.PersonelBilgiList(CmbBolum.Text);
+            string[] bolum = CmbBolum.Text.Split('/');
+            if (bolum.Length<2)
+            {
+                personelKayitList = personelKayitManager.PersonelBilgiList(bolum[0].ToString());
+            }
+            else
+            {
+                if (bolum.Length > 2)
+                {
+                    personelKayitList = personelKayitManager.PersonelBilgiList(bolum[0].ToString() + "/" + bolum[1].ToString()+ "/" + bolum[2].ToString());
+                }
+                else
+                {
+                    personelKayitList = personelKayitManager.PersonelBilgiList(bolum[0].ToString() + "/" + bolum[1].ToString());
+                }
+                
+            }
             DtgList.Rows.Clear();
 
             foreach (PersonelKayit item in personelKayitList)

@@ -166,7 +166,7 @@
   <data name="BtnTumunuGor.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DQAACw0B7QfALAAABB1JREFUWEftlU1sG1UQx5dKFU1BApVKSByQOHFESJV6Bgkq8XGouAIKFRIgoV6Q
+        DAAACwwBP0AiyAAABB1JREFUWEftlU1sG1UQx5dKFU1BApVKSByQOHFESJV6Bgkq8XGouAIKFRIgoV6Q
         KJRDABWpoqW224bgArIi2yH4M3XkhBDFaRI7JaljbxrT3fWu7cR2HSf1Z+34c+3HPPt57aVOqNpy80+a
         g/3ezH9m3ry3VI8ePR6EywbDkxeGjUcUetMxldbyumrE+PIPBkMfWf5/OK+3HVboLZ8odeZ5pc5SA0Od
         ptBaRIXOPKXQWfvPGgxPEbeHB1er0JtPgUDu36K7Gd6r0Jq/fuiuKLXm4xBsuzP4Rb0VDdum0mMOV9jx
@@ -187,4 +187,7 @@
         RU5ErkJggg==
 </value>
   </data>
+  <metadata name="dataBinder.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

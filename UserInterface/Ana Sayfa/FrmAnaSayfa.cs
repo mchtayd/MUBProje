@@ -5,6 +5,7 @@ using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
 using DataAccess.Concreate.IdariIsler;
 using DocumentFormat.OpenXml.Presentation;
 using Entity;
@@ -55,6 +56,7 @@ namespace UserInterface.STS
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
         BolgeKayitManager bolgeKayitManager;
         YolDurumuGirmeyenManager yolDurumuGirmeyenManager;
+        DtsLogManager dtsLogManager;
 
         FrmWait frmWait = new FrmWait();
         List<MenuBaslik> menuBasliks;
@@ -93,6 +95,7 @@ namespace UserInterface.STS
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             yolDurumuGirmeyenManager = YolDurumuGirmeyenManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void PowerModeChanged(object sender, PowerModeChangedEventArgs e)
@@ -182,8 +185,16 @@ namespace UserInterface.STS
             TimerFileRead.Start();
             ServerAyarlar();
             YolDurumuControl();
+            DtsLogKayit();
 
         }
+        void DtsLogKayit()
+        {
+            string islem = "DTS hesabına giriş yapılmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "ANA SAYFA", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         void ServerAyarlar()
         {
             FrmServer frmServer = new FrmServer();
@@ -6093,41 +6104,45 @@ namespace UserInterface.STS
 
         private void button2_Click_1(object sender, EventArgs e)
         {
-            List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
-            arizaKayits = arizaKayitManager.GetListTumu();
+            string islem = "deneme 1 2 3 dnesa";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "SAYFA ADI", islem);
+            dtsLogManager.Add(dtsLog);
 
-            foreach (ArizaKayit item in arizaKayits)
-            {
-                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
-                gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(item.Id, "BAKIM ONARIM");
+            //List<ArizaKayit> arizaKayits = new List<ArizaKayit>();
+            //arizaKayits = arizaKayitManager.GetListTumu();
 
-                if (item.Durum == 1)
-                {
-                    foreach (GorevAtamaPersonel item2 in gorevAtamaPersonels)
-                    {
-                        if (item2.Sure == "Devam Ediyor")
-                        {
-                            arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, item2.IslemAdimi);
-                        }
+            //foreach (ArizaKayit item in arizaKayits)
+            //{
+            //    List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+            //    gorevAtamaPersonels = gorevAtamaPersonelManager.GetList(item.Id, "BAKIM ONARIM");
 
-                    }
-                }
+            //    if (item.Durum == 1)
+            //    {
+            //        foreach (GorevAtamaPersonel item2 in gorevAtamaPersonels)
+            //        {
+            //            if (item2.Sure == "Devam Ediyor")
+            //            {
+            //                arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, item2.IslemAdimi);
+            //            }
 
-                else
-                {
-                    if (item.GorevAtanacakPersonel == "ŞERİFE NUR GÜNEŞ")
-                    {
-                        arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)");
-                    }
-                    if (item.GorevAtanacakPersonel == "")
-                    {
-                        arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, "ONARIMI TAMAMLANDI");
-                    }
-                }
+            //        }
+            //    }
 
-            }
+            //    else
+            //    {
+            //        if (item.GorevAtanacakPersonel == "ŞERİFE NUR GÜNEŞ")
+            //        {
+            //            arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)");
+            //        }
+            //        if (item.GorevAtanacakPersonel == "")
+            //        {
+            //            arizaKayitManager.ArizaIslemAdimiUpdate(item.Id, "ONARIMI TAMAMLANDI");
+            //        }
+            //    }
 
-            MessageBox.Show("Bitti");
+            //}
+
+            //MessageBox.Show("Bitti");
 
         }
 
@@ -6250,10 +6265,19 @@ namespace UserInterface.STS
                         return;
                     }
                 }
+
+                DtsLogKayitCikis();
                 Application.Exit();
             }
 
         }
+        void DtsLogKayitCikis()
+        {
+            string islem = "DTS hesabı kapatılmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "ANA SAYFA", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         public void IslemleriSil()
         {
             var form = (DuranVarlik)Application.OpenForms["DuranVarlik"];

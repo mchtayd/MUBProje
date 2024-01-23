@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDtsRapor));
             this.panel1 = new System.Windows.Forms.Panel();
@@ -47,9 +48,13 @@
             this.BtnTumunuGor = new System.Windows.Forms.Button();
             this.TxtIslem = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.DtBasSaat = new System.Windows.Forms.DateTimePicker();
+            this.DtBitSaat = new System.Windows.Forms.DateTimePicker();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -133,7 +138,7 @@
             this.BtnSorgula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnSorgula.Image = ((System.Drawing.Image)(resources.GetObject("BtnSorgula.Image")));
             this.BtnSorgula.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSorgula.Location = new System.Drawing.Point(650, 35);
+            this.BtnSorgula.Location = new System.Drawing.Point(708, 35);
             this.BtnSorgula.Name = "BtnSorgula";
             this.BtnSorgula.Size = new System.Drawing.Size(127, 51);
             this.BtnSorgula.TabIndex = 353;
@@ -147,7 +152,7 @@
             this.DtBitTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtBitTarihi.Location = new System.Drawing.Point(479, 65);
             this.DtBitTarihi.Name = "DtBitTarihi";
-            this.DtBitTarihi.Size = new System.Drawing.Size(165, 20);
+            this.DtBitTarihi.Size = new System.Drawing.Size(123, 20);
             this.DtBitTarihi.TabIndex = 352;
             // 
             // DtBasTarihi
@@ -155,7 +160,7 @@
             this.DtBasTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtBasTarihi.Location = new System.Drawing.Point(479, 39);
             this.DtBasTarihi.Name = "DtBasTarihi";
-            this.DtBasTarihi.Size = new System.Drawing.Size(165, 20);
+            this.DtBasTarihi.Size = new System.Drawing.Size(123, 20);
             this.DtBasTarihi.TabIndex = 351;
             // 
             // label3
@@ -203,13 +208,14 @@
             this.BtnDisaAktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnDisaAktar.Image = ((System.Drawing.Image)(resources.GetObject("BtnDisaAktar.Image")));
             this.BtnDisaAktar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDisaAktar.Location = new System.Drawing.Point(916, 35);
+            this.BtnDisaAktar.Location = new System.Drawing.Point(974, 35);
             this.BtnDisaAktar.Name = "BtnDisaAktar";
             this.BtnDisaAktar.Size = new System.Drawing.Size(130, 51);
             this.BtnDisaAktar.TabIndex = 542;
             this.BtnDisaAktar.Text = " DIŞA AKTAR";
             this.BtnDisaAktar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnDisaAktar.UseVisualStyleBackColor = false;
+            this.BtnDisaAktar.Click += new System.EventHandler(this.BtnDisaAktar_Click);
             // 
             // BtnTumunuGor
             // 
@@ -218,18 +224,19 @@
             this.BtnTumunuGor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnTumunuGor.Image = ((System.Drawing.Image)(resources.GetObject("BtnTumunuGor.Image")));
             this.BtnTumunuGor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTumunuGor.Location = new System.Drawing.Point(783, 35);
+            this.BtnTumunuGor.Location = new System.Drawing.Point(841, 35);
             this.BtnTumunuGor.Name = "BtnTumunuGor";
             this.BtnTumunuGor.Size = new System.Drawing.Size(127, 51);
             this.BtnTumunuGor.TabIndex = 543;
             this.BtnTumunuGor.Text = "   TÜMÜNÜ \r\n       GÖR";
             this.BtnTumunuGor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnTumunuGor.UseVisualStyleBackColor = false;
+            this.BtnTumunuGor.Click += new System.EventHandler(this.BtnTumunuGor_Click);
             // 
             // TxtIslem
             // 
             this.TxtIslem.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtIslem.Location = new System.Drawing.Point(1085, 61);
+            this.TxtIslem.Location = new System.Drawing.Point(1143, 61);
             this.TxtIslem.Name = "TxtIslem";
             this.TxtIslem.Size = new System.Drawing.Size(291, 21);
             this.TxtIslem.TabIndex = 544;
@@ -238,17 +245,43 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(1082, 39);
+            this.label2.Location = new System.Drawing.Point(1140, 39);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(149, 15);
             this.label2.TabIndex = 545;
             this.label2.Text = "Anahtar Kelime ile Arama:";
+            // 
+            // DtBasSaat
+            // 
+            this.DtBasSaat.CustomFormat = "HH:mm";
+            this.DtBasSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtBasSaat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtBasSaat.Location = new System.Drawing.Point(608, 38);
+            this.DtBasSaat.Name = "DtBasSaat";
+            this.DtBasSaat.ShowUpDown = true;
+            this.DtBasSaat.Size = new System.Drawing.Size(78, 21);
+            this.DtBasSaat.TabIndex = 546;
+            this.DtBasSaat.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
+            // 
+            // DtBitSaat
+            // 
+            this.DtBitSaat.CustomFormat = "HH:mm";
+            this.DtBitSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.DtBitSaat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.DtBitSaat.Location = new System.Drawing.Point(608, 65);
+            this.DtBitSaat.Name = "DtBitSaat";
+            this.DtBitSaat.ShowUpDown = true;
+            this.DtBitSaat.Size = new System.Drawing.Size(78, 21);
+            this.DtBitSaat.TabIndex = 547;
+            this.DtBitSaat.Value = new System.DateTime(2018, 1, 12, 0, 0, 0, 0);
             // 
             // FrmDtsRapor
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1555, 909);
+            this.Controls.Add(this.DtBitSaat);
+            this.Controls.Add(this.DtBasSaat);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.TxtIslem);
             this.Controls.Add(this.BtnTumunuGor);
@@ -270,6 +303,7 @@
             this.panel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -294,5 +328,8 @@
         private System.Windows.Forms.Button BtnTumunuGor;
         private System.Windows.Forms.TextBox TxtIslem;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.BindingSource dataBinder;
+        private System.Windows.Forms.DateTimePicker DtBasSaat;
+        private System.Windows.Forms.DateTimePicker DtBitSaat;
     }
 }

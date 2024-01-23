@@ -31,9 +31,9 @@ namespace UserInterface.BakımOnarım
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaAcmaCalisma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -85,6 +85,8 @@ namespace UserInterface.BakımOnarım
             this.TxtBirlikPersoneli = new System.Windows.Forms.TextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.webBrowser5 = new System.Windows.Forms.WebBrowser();
             this.BtnMalzemeDuzenle = new System.Windows.Forms.Button();
             this.BtnBul = new System.Windows.Forms.Button();
             this.BtnSiparisKaydet = new System.Windows.Forms.Button();
@@ -187,6 +189,8 @@ namespace UserInterface.BakımOnarım
             this.TxtAbfFormNo = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.webBrowser6 = new System.Windows.Forms.WebBrowser();
             this.TxtCsSiparisNo = new System.Windows.Forms.TextBox();
             this.label57 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -527,16 +531,13 @@ namespace UserInterface.BakımOnarım
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.webBrowser5 = new System.Windows.Forms.WebBrowser();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.webBrowser6 = new System.Windows.Forms.WebBrowser();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.tabPage2.SuspendLayout();
+            this.groupBox16.SuspendLayout();
             this.tabControl2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -548,6 +549,7 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.AdvPersonel)).BeginInit();
             this.groupBox6.SuspendLayout();
             this.tabPage3.SuspendLayout();
+            this.groupBox22.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgFormBilgileri)).BeginInit();
@@ -591,8 +593,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
-            this.groupBox16.SuspendLayout();
-            this.groupBox22.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1174,6 +1174,25 @@ namespace UserInterface.BakımOnarım
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "SİPARİŞ OLUŞTUR";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.webBrowser5);
+            this.groupBox16.Location = new System.Drawing.Point(801, 56);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(692, 304);
+            this.groupBox16.TabIndex = 425;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Ekler";
+            // 
+            // webBrowser5
+            // 
+            this.webBrowser5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser5.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser5.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser5.Name = "webBrowser5";
+            this.webBrowser5.Size = new System.Drawing.Size(686, 285);
+            this.webBrowser5.TabIndex = 425;
             // 
             // BtnMalzemeDuzenle
             // 
@@ -1948,12 +1967,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle4;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -2086,7 +2105,8 @@ namespace UserInterface.BakımOnarım
             "İÇİ",
             "DIŞI",
             "PDL-5",
-            "PDL-5 OPSİYONEL"});
+            "PDL-5 OPSİYONEL",
+            "PDL-5 2.PAKET"});
             this.CmbGarantiDurumu.Location = new System.Drawing.Point(128, 118);
             this.CmbGarantiDurumu.Name = "CmbGarantiDurumu";
             this.CmbGarantiDurumu.Size = new System.Drawing.Size(158, 23);
@@ -2348,6 +2368,25 @@ namespace UserInterface.BakımOnarım
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "BİLDİRİM NO TANIMLA";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.webBrowser6);
+            this.groupBox22.Location = new System.Drawing.Point(958, 220);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(430, 146);
+            this.groupBox22.TabIndex = 466;
+            this.groupBox22.TabStop = false;
+            this.groupBox22.Text = "Ekler";
+            // 
+            // webBrowser6
+            // 
+            this.webBrowser6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser6.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser6.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser6.Name = "webBrowser6";
+            this.webBrowser6.Size = new System.Drawing.Size(424, 127);
+            this.webBrowser6.TabIndex = 425;
             // 
             // TxtCsSiparisNo
             // 
@@ -5031,12 +5070,12 @@ namespace UserInterface.BakımOnarım
             // 
             // RemoveAK
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.RemoveAK.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.RemoveAK.DefaultCellStyle = dataGridViewCellStyle5;
             this.RemoveAK.HeaderText = "Kaldır";
             this.RemoveAK.MinimumWidth = 22;
             this.RemoveAK.Name = "RemoveAK";
@@ -5656,10 +5695,13 @@ namespace UserInterface.BakımOnarım
             this.CmbGarantiDurumuAK.FormattingEnabled = true;
             this.CmbGarantiDurumuAK.Items.AddRange(new object[] {
             "İÇİ",
-            "DIŞI"});
+            "DIŞI",
+            "PDL-5",
+            "PDL-5 OPSİYONEL",
+            "PDL-5 2.PAKET"});
             this.CmbGarantiDurumuAK.Location = new System.Drawing.Point(883, 71);
             this.CmbGarantiDurumuAK.Name = "CmbGarantiDurumuAK";
-            this.CmbGarantiDurumuAK.Size = new System.Drawing.Size(62, 23);
+            this.CmbGarantiDurumuAK.Size = new System.Drawing.Size(135, 23);
             this.CmbGarantiDurumuAK.TabIndex = 431;
             this.CmbGarantiDurumuAK.SelectedIndexChanged += new System.EventHandler(this.CmbGarantiDurumuAK_SelectedIndexChanged);
             // 
@@ -6006,8 +6048,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
             this.DtgList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -6030,44 +6072,6 @@ namespace UserInterface.BakımOnarım
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.webBrowser5);
-            this.groupBox16.Location = new System.Drawing.Point(801, 56);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(692, 304);
-            this.groupBox16.TabIndex = 425;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Ekler";
-            // 
-            // webBrowser5
-            // 
-            this.webBrowser5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser5.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser5.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser5.Name = "webBrowser5";
-            this.webBrowser5.Size = new System.Drawing.Size(686, 285);
-            this.webBrowser5.TabIndex = 425;
-            // 
-            // groupBox22
-            // 
-            this.groupBox22.Controls.Add(this.webBrowser6);
-            this.groupBox22.Location = new System.Drawing.Point(958, 220);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(430, 146);
-            this.groupBox22.TabIndex = 466;
-            this.groupBox22.TabStop = false;
-            this.groupBox22.Text = "Ekler";
-            // 
-            // webBrowser6
-            // 
-            this.webBrowser6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser6.Location = new System.Drawing.Point(3, 16);
-            this.webBrowser6.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser6.Name = "webBrowser6";
-            this.webBrowser6.Size = new System.Drawing.Size(424, 127);
-            this.webBrowser6.TabIndex = 425;
-            // 
             // FrmArizaAcmaCalisma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6087,6 +6091,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            this.groupBox16.ResumeLayout(false);
             this.tabControl2.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
             this.tabPage4.PerformLayout();
@@ -6104,6 +6109,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox6.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
+            this.groupBox22.ResumeLayout(false);
             this.groupBox12.ResumeLayout(false);
             this.groupBox12.PerformLayout();
             this.groupBox8.ResumeLayout(false);
@@ -6161,8 +6167,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox22.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

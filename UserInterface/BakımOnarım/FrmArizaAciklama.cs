@@ -1,8 +1,11 @@
 ﻿using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using System;
 using System.Collections.Generic;
@@ -20,10 +23,11 @@ namespace UserInterface.BakımOnarım
     {
         ArizaKayitManager arizaKayitManager;
         GorevAtamaPersonelManager gorevAtamaPersonelManager;
+        DtsLogManager dtsLogManager;
         public object[] infos;
         public int arizaId;
         int guncellenecekId, gun, saat, dakika = 0;
-        string islemAimi,gorevAtanacakPersonel, sure = "";
+        string islemAimi, gorevAtanacakPersonel, sure, bolgeAdi, abfNo = "";
         DateTime birOncekiTarih;
 
         public FrmArizaAciklama()
@@ -31,11 +35,14 @@ namespace UserInterface.BakımOnarım
             InitializeComponent();
             arizaKayitManager = ArizaKayitManager.GetInstance();
             gorevAtamaPersonelManager = GorevAtamaPersonelManager.GetInstance();
-
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmArizaAciklama_Load(object sender, EventArgs e)
         {
+            ArizaKayit arizaKayit = arizaKayitManager.GetId(arizaId);
+            bolgeAdi = arizaKayit.BolgeAdi;
+            abfNo = arizaKayit.AbfFormNo.ToString();
             IslemAdimlari();
         }
         void IslemAdimlari()
@@ -100,9 +107,15 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show(kontrol, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
+            DtsLogKayit();
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
+        }
+        void DtsLogKayit()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " ABF Numaralı arızaya açıklama eklenmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM AÇIKLAMA EKLE", islem);
+            dtsLogManager.Add(dtsLog);
         }
     }
 }

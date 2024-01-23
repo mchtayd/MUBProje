@@ -86,13 +86,41 @@ namespace DataAccess.Concreate.AnaSayfa
                 return new List<DtsLog>();
             }
         }
-
-        public List<DtsLog> GetListTumu()
+        public List<DtsLog> GetListIslem(string personelAdi, DateTime basTarihi, DateTime bitTarihi, string islem)
         {
             try
             {
                 List<DtsLog> list = new List<DtsLog>();
-                dataReader = sqlServices.StoreReader("DTSLogKayitListTumu");
+                dataReader = sqlServices.StoreReader("DTSLogKayitListIslem",
+                    new SqlParameter("@personelAdi", personelAdi),
+                    new SqlParameter("@basTarihi", basTarihi),
+                    new SqlParameter("@bitTarihi", bitTarihi),
+                    new SqlParameter("@islem", islem));
+
+                while (dataReader.Read())
+                {
+                    list.Add(new DtsLog(
+                        dataReader["ID"].ConInt(),
+                        dataReader["PERSONEL_ADI"].ToString(),
+                        dataReader["ISLEM_TARIHI"].ConDate(),
+                        dataReader["SAYFA"].ToString(),
+                        dataReader["ISLEM"].ToString()));
+                }
+                dataReader.Close();
+                return list;
+            }
+            catch (Exception)
+            {
+                return new List<DtsLog>();
+            }
+        }
+
+        public List<DtsLog> GetListTumu(DateTime basTarihi, DateTime bitTarihi)
+        {
+            try
+            {
+                List<DtsLog> list = new List<DtsLog>();
+                dataReader = sqlServices.StoreReader("DTSLogKayitListTumu", new SqlParameter("@basTarihi", basTarihi), new SqlParameter("@bitTarihi", bitTarihi));
 
                 while (dataReader.Read())
                 {

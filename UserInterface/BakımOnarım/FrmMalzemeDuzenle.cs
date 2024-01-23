@@ -1,6 +1,9 @@
-﻿using Business.Concreate.BakimOnarim;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
 using System;
@@ -20,8 +23,12 @@ namespace UserInterface.BakımOnarım
         MalzemeKayitManager malzemeKayitManager;
         MalzemeManager malzemeManager;
         AbfMalzemeManager abfMalzemeManager;
+        ArizaKayitManager arizaKayitManager;
+        DtsLogManager dtsLogManager;
         public int benzersizId;
         int deleteId;
+        public object[] infos;
+
 
         //List<MalzemeKayit> malzemeKayits;
         List<Malzeme> malzemes;
@@ -29,17 +36,27 @@ namespace UserInterface.BakımOnarım
         //List<MalzemeKayit> malzemeKayitsFiltired;
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
         int ilkSayi = 0;
-
+        string bolgeAdi, abf = "";
         public FrmMalzemeDuzenle()
         {
             InitializeComponent();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
+            arizaKayitManager = ArizaKayitManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void BtnMalzemeDuzenle_Load(object sender, EventArgs e)
         {
+            ArizaKayit arizaKayit = arizaKayitManager.GetId(benzersizId);
+            if (arizaKayit==null)
+            {
+                MessageBox.Show("Arıza kaydına ulaşılamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            bolgeAdi = arizaKayit.BolgeAdi;
+            abf = arizaKayit.AbfFormNo.ToString();
             MalzemeList();
             AbfMalzemeDisplay();
         }
@@ -204,7 +221,7 @@ namespace UserInterface.BakımOnarım
                     }
 
                 }
-
+                DtsLogKayit();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmArizaAcmaCalisma frmArizaAcmaCalisma = new FrmArizaAcmaCalisma();
                 frmArizaAcmaCalisma.FillTools();
@@ -213,6 +230,7 @@ namespace UserInterface.BakımOnarım
 
             }
         }
+
 
         private void silToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -231,11 +249,24 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show("Lütfen Geçerli Bir Malzeme Seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                MessageBox.Show("Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DtsLogKayitSil();
                 AbfMalzemeDisplay();
-
+                MessageBox.Show("Kayıt Başarıyla Silinmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
+        }
+
+        void DtsLogKayit()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abf + " ABF Numaralı arızanın malzeme bilgileri güncellenmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM MALZEME DÜZENLE", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+        void DtsLogKayitSil()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abf + " ABF Numaralı arızanın malzeme bilgisi silinmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM MALZEME DÜZENLE", islem);
+            dtsLogManager.Add(dtsLog);
         }
 
 

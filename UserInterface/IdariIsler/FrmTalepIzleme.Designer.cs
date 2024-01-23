@@ -48,60 +48,64 @@ namespace UserInterface.IdariIsler
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.webContent = new System.Windows.Forms.WebBrowser();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage6 = new System.Windows.Forms.TabPage();
-            this.tabPage5 = new System.Windows.Forms.TabPage();
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.DtgList = new ADGV.AdvancedDataGridView();
-            this.dataBinderOnaylandı = new System.Windows.Forms.BindingSource(this.components);
+            this.tabPage2 = new System.Windows.Forms.TabPage();
             this.DtgListOnaylandı = new ADGV.AdvancedDataGridView();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtTopOnaylandı = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.TxtMiktarOnaylandi = new System.Windows.Forms.Label();
+            this.tabPage3 = new System.Windows.Forms.TabPage();
             this.DtgListReddedildi = new ADGV.AdvancedDataGridView();
             this.label7 = new System.Windows.Forms.Label();
             this.TxtTopReddedildi = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.TxtMiktarReddedildi = new System.Windows.Forms.Label();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
             this.DtgListSat = new ADGV.AdvancedDataGridView();
             this.label11 = new System.Windows.Forms.Label();
             this.TxtTopSat = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.TxtMiktarSat = new System.Windows.Forms.Label();
-            this.advancedDataGridView4 = new ADGV.AdvancedDataGridView();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.DtgTdarikEdildi = new ADGV.AdvancedDataGridView();
             this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
+            this.LblTedarikEdildi = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.advancedDataGridView5 = new ADGV.AdvancedDataGridView();
+            this.LblTedarikTop = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.DtgTeslimAlindi = new ADGV.AdvancedDataGridView();
             this.label19 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
+            this.LblTeslimAlindi = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
+            this.LblTeslimAlindiTop = new System.Windows.Forms.Label();
+            this.dataBinderOnaylandı = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderReddedildi = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderSat = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinderTedarikEdildi = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinderTeslimAlindi = new System.Windows.Forms.BindingSource(this.components);
             this.contextMenuStrip1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.tabControl1.SuspendLayout();
-            this.tabPage6.SuspendLayout();
-            this.tabPage5.SuspendLayout();
-            this.tabPage4.SuspendLayout();
-            this.tabPage3.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinderOnaylandı)).BeginInit();
+            this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListOnaylandı)).BeginInit();
+            this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListReddedildi)).BeginInit();
+            this.tabPage4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListSat)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView5)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgTdarikEdildi)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgTeslimAlindi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderOnaylandı)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderReddedildi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSat)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderTedarikEdildi)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderTeslimAlindi)).BeginInit();
             this.SuspendLayout();
             // 
             // contextMenuStrip1
@@ -265,81 +269,6 @@ namespace UserInterface.IdariIsler
             this.tabControl1.Size = new System.Drawing.Size(1497, 691);
             this.tabControl1.TabIndex = 322;
             // 
-            // tabPage6
-            // 
-            this.tabPage6.Controls.Add(this.advancedDataGridView5);
-            this.tabPage6.Controls.Add(this.label19);
-            this.tabPage6.Controls.Add(this.label20);
-            this.tabPage6.Controls.Add(this.label21);
-            this.tabPage6.Controls.Add(this.label22);
-            this.tabPage6.Location = new System.Drawing.Point(4, 24);
-            this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage6.Size = new System.Drawing.Size(1489, 663);
-            this.tabPage6.TabIndex = 5;
-            this.tabPage6.Text = "Teslim Alındı";
-            this.tabPage6.UseVisualStyleBackColor = true;
-            // 
-            // tabPage5
-            // 
-            this.tabPage5.Controls.Add(this.advancedDataGridView4);
-            this.tabPage5.Controls.Add(this.label15);
-            this.tabPage5.Controls.Add(this.label16);
-            this.tabPage5.Controls.Add(this.label17);
-            this.tabPage5.Controls.Add(this.label18);
-            this.tabPage5.Location = new System.Drawing.Point(4, 24);
-            this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(1489, 663);
-            this.tabPage5.TabIndex = 4;
-            this.tabPage5.Text = "Tedarik Edildi";
-            this.tabPage5.UseVisualStyleBackColor = true;
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.DtgListSat);
-            this.tabPage4.Controls.Add(this.label11);
-            this.tabPage4.Controls.Add(this.TxtTopSat);
-            this.tabPage4.Controls.Add(this.label13);
-            this.tabPage4.Controls.Add(this.TxtMiktarSat);
-            this.tabPage4.Location = new System.Drawing.Point(4, 24);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1489, 663);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "Sat Oluşturuldu, Teadrik Aşamasında";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // tabPage3
-            // 
-            this.tabPage3.Controls.Add(this.DtgListReddedildi);
-            this.tabPage3.Controls.Add(this.label7);
-            this.tabPage3.Controls.Add(this.TxtTopReddedildi);
-            this.tabPage3.Controls.Add(this.label9);
-            this.tabPage3.Controls.Add(this.TxtMiktarReddedildi);
-            this.tabPage3.Location = new System.Drawing.Point(4, 24);
-            this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(1489, 663);
-            this.tabPage3.TabIndex = 2;
-            this.tabPage3.Text = "Reddedildi";
-            this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // tabPage2
-            // 
-            this.tabPage2.Controls.Add(this.DtgListOnaylandı);
-            this.tabPage2.Controls.Add(this.label2);
-            this.tabPage2.Controls.Add(this.TxtTopOnaylandı);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.TxtMiktarOnaylandi);
-            this.tabPage2.Location = new System.Drawing.Point(4, 24);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1489, 663);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Onaylandı, Stok Kontrol";
-            this.tabPage2.UseVisualStyleBackColor = true;
-            // 
             // tabPage1
             // 
             this.tabPage1.Controls.Add(this.DtgList);
@@ -374,6 +303,21 @@ namespace UserInterface.IdariIsler
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.DtgListOnaylandı);
+            this.tabPage2.Controls.Add(this.label2);
+            this.tabPage2.Controls.Add(this.TxtTopOnaylandı);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.TxtMiktarOnaylandi);
+            this.tabPage2.Location = new System.Drawing.Point(4, 24);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(1489, 663);
+            this.tabPage2.TabIndex = 1;
+            this.tabPage2.Text = "Onaylandı, Stok Kontrol";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
             // DtgListOnaylandı
             // 
             this.DtgListOnaylandı.AllowUserToAddRows = false;
@@ -391,6 +335,7 @@ namespace UserInterface.IdariIsler
             this.DtgListOnaylandı.TimeFilter = false;
             this.DtgListOnaylandı.SortStringChanged += new System.EventHandler(this.DtgListOnaylandı_SortStringChanged);
             this.DtgListOnaylandı.FilterStringChanged += new System.EventHandler(this.DtgListOnaylandı_FilterStringChanged);
+            this.DtgListOnaylandı.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListOnaylandı_CellMouseClick);
             // 
             // label2
             // 
@@ -430,6 +375,21 @@ namespace UserInterface.IdariIsler
             this.TxtMiktarOnaylandi.TabIndex = 9;
             this.TxtMiktarOnaylandi.Text = "00";
             // 
+            // tabPage3
+            // 
+            this.tabPage3.Controls.Add(this.DtgListReddedildi);
+            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.TxtTopReddedildi);
+            this.tabPage3.Controls.Add(this.label9);
+            this.tabPage3.Controls.Add(this.TxtMiktarReddedildi);
+            this.tabPage3.Location = new System.Drawing.Point(4, 24);
+            this.tabPage3.Name = "tabPage3";
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage3.Size = new System.Drawing.Size(1489, 663);
+            this.tabPage3.TabIndex = 2;
+            this.tabPage3.Text = "Reddedildi";
+            this.tabPage3.UseVisualStyleBackColor = true;
+            // 
             // DtgListReddedildi
             // 
             this.DtgListReddedildi.AllowUserToAddRows = false;
@@ -447,6 +407,7 @@ namespace UserInterface.IdariIsler
             this.DtgListReddedildi.TimeFilter = false;
             this.DtgListReddedildi.SortStringChanged += new System.EventHandler(this.DtgListReddedildi_SortStringChanged);
             this.DtgListReddedildi.FilterStringChanged += new System.EventHandler(this.DtgListReddedildi_FilterStringChanged);
+            this.DtgListReddedildi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListReddedildi_CellMouseClick);
             // 
             // label7
             // 
@@ -486,6 +447,21 @@ namespace UserInterface.IdariIsler
             this.TxtMiktarReddedildi.TabIndex = 9;
             this.TxtMiktarReddedildi.Text = "00";
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.DtgListSat);
+            this.tabPage4.Controls.Add(this.label11);
+            this.tabPage4.Controls.Add(this.TxtTopSat);
+            this.tabPage4.Controls.Add(this.label13);
+            this.tabPage4.Controls.Add(this.TxtMiktarSat);
+            this.tabPage4.Location = new System.Drawing.Point(4, 24);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1489, 663);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "Sat Oluşturuldu, Teadrik Aşamasında";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
             // DtgListSat
             // 
             this.DtgListSat.AllowUserToAddRows = false;
@@ -503,6 +479,7 @@ namespace UserInterface.IdariIsler
             this.DtgListSat.TimeFilter = false;
             this.DtgListSat.SortStringChanged += new System.EventHandler(this.DtgListSat_SortStringChanged);
             this.DtgListSat.FilterStringChanged += new System.EventHandler(this.DtgListSat_FilterStringChanged);
+            this.DtgListSat.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListSat_CellMouseClick);
             // 
             // label11
             // 
@@ -542,21 +519,39 @@ namespace UserInterface.IdariIsler
             this.TxtMiktarSat.TabIndex = 9;
             this.TxtMiktarSat.Text = "00";
             // 
-            // advancedDataGridView4
+            // tabPage5
             // 
-            this.advancedDataGridView4.AllowUserToAddRows = false;
-            this.advancedDataGridView4.AllowUserToDeleteRows = false;
-            this.advancedDataGridView4.AutoGenerateContextFilters = true;
-            this.advancedDataGridView4.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.advancedDataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView4.ContextMenuStrip = this.contextMenuStrip1;
-            this.advancedDataGridView4.DateWithTime = false;
-            this.advancedDataGridView4.Location = new System.Drawing.Point(6, 8);
-            this.advancedDataGridView4.Name = "advancedDataGridView4";
-            this.advancedDataGridView4.ReadOnly = true;
-            this.advancedDataGridView4.Size = new System.Drawing.Size(1480, 615);
-            this.advancedDataGridView4.TabIndex = 5;
-            this.advancedDataGridView4.TimeFilter = false;
+            this.tabPage5.Controls.Add(this.DtgTdarikEdildi);
+            this.tabPage5.Controls.Add(this.label15);
+            this.tabPage5.Controls.Add(this.LblTedarikEdildi);
+            this.tabPage5.Controls.Add(this.label17);
+            this.tabPage5.Controls.Add(this.LblTedarikTop);
+            this.tabPage5.Location = new System.Drawing.Point(4, 24);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(1489, 663);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Tedarik Edildi";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // DtgTdarikEdildi
+            // 
+            this.DtgTdarikEdildi.AllowUserToAddRows = false;
+            this.DtgTdarikEdildi.AllowUserToDeleteRows = false;
+            this.DtgTdarikEdildi.AutoGenerateContextFilters = true;
+            this.DtgTdarikEdildi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgTdarikEdildi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgTdarikEdildi.ContextMenuStrip = this.contextMenuStrip1;
+            this.DtgTdarikEdildi.DateWithTime = false;
+            this.DtgTdarikEdildi.Location = new System.Drawing.Point(6, 8);
+            this.DtgTdarikEdildi.Name = "DtgTdarikEdildi";
+            this.DtgTdarikEdildi.ReadOnly = true;
+            this.DtgTdarikEdildi.Size = new System.Drawing.Size(1480, 615);
+            this.DtgTdarikEdildi.TabIndex = 5;
+            this.DtgTdarikEdildi.TimeFilter = false;
+            this.DtgTdarikEdildi.SortStringChanged += new System.EventHandler(this.DtgTdarikEdildi_SortStringChanged);
+            this.DtgTdarikEdildi.FilterStringChanged += new System.EventHandler(this.DtgTdarikEdildi_FilterStringChanged);
+            this.DtgTdarikEdildi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgTdarikEdildi_CellMouseClick);
             // 
             // label15
             // 
@@ -568,14 +563,14 @@ namespace UserInterface.IdariIsler
             this.label15.TabIndex = 6;
             this.label15.Text = "Genel Kayıt Toplamı:";
             // 
-            // label16
+            // LblTedarikEdildi
             // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(149, 640);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(21, 15);
-            this.label16.TabIndex = 7;
-            this.label16.Text = "00";
+            this.LblTedarikEdildi.AutoSize = true;
+            this.LblTedarikEdildi.Location = new System.Drawing.Point(149, 640);
+            this.LblTedarikEdildi.Name = "LblTedarikEdildi";
+            this.LblTedarikEdildi.Size = new System.Drawing.Size(21, 15);
+            this.LblTedarikEdildi.TabIndex = 7;
+            this.LblTedarikEdildi.Text = "00";
             // 
             // label17
             // 
@@ -587,30 +582,48 @@ namespace UserInterface.IdariIsler
             this.label17.TabIndex = 8;
             this.label17.Text = "Toplam Miktar:";
             // 
-            // label18
+            // LblTedarikTop
             // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(354, 640);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(21, 15);
-            this.label18.TabIndex = 9;
-            this.label18.Text = "00";
+            this.LblTedarikTop.AutoSize = true;
+            this.LblTedarikTop.Location = new System.Drawing.Point(354, 640);
+            this.LblTedarikTop.Name = "LblTedarikTop";
+            this.LblTedarikTop.Size = new System.Drawing.Size(21, 15);
+            this.LblTedarikTop.TabIndex = 9;
+            this.LblTedarikTop.Text = "00";
             // 
-            // advancedDataGridView5
+            // tabPage6
             // 
-            this.advancedDataGridView5.AllowUserToAddRows = false;
-            this.advancedDataGridView5.AllowUserToDeleteRows = false;
-            this.advancedDataGridView5.AutoGenerateContextFilters = true;
-            this.advancedDataGridView5.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.advancedDataGridView5.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.advancedDataGridView5.ContextMenuStrip = this.contextMenuStrip1;
-            this.advancedDataGridView5.DateWithTime = false;
-            this.advancedDataGridView5.Location = new System.Drawing.Point(6, 8);
-            this.advancedDataGridView5.Name = "advancedDataGridView5";
-            this.advancedDataGridView5.ReadOnly = true;
-            this.advancedDataGridView5.Size = new System.Drawing.Size(1480, 615);
-            this.advancedDataGridView5.TabIndex = 5;
-            this.advancedDataGridView5.TimeFilter = false;
+            this.tabPage6.Controls.Add(this.DtgTeslimAlindi);
+            this.tabPage6.Controls.Add(this.label19);
+            this.tabPage6.Controls.Add(this.LblTeslimAlindi);
+            this.tabPage6.Controls.Add(this.label21);
+            this.tabPage6.Controls.Add(this.LblTeslimAlindiTop);
+            this.tabPage6.Location = new System.Drawing.Point(4, 24);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(1489, 663);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Teslim Alındı";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // DtgTeslimAlindi
+            // 
+            this.DtgTeslimAlindi.AllowUserToAddRows = false;
+            this.DtgTeslimAlindi.AllowUserToDeleteRows = false;
+            this.DtgTeslimAlindi.AutoGenerateContextFilters = true;
+            this.DtgTeslimAlindi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgTeslimAlindi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgTeslimAlindi.ContextMenuStrip = this.contextMenuStrip1;
+            this.DtgTeslimAlindi.DateWithTime = false;
+            this.DtgTeslimAlindi.Location = new System.Drawing.Point(6, 8);
+            this.DtgTeslimAlindi.Name = "DtgTeslimAlindi";
+            this.DtgTeslimAlindi.ReadOnly = true;
+            this.DtgTeslimAlindi.Size = new System.Drawing.Size(1480, 615);
+            this.DtgTeslimAlindi.TabIndex = 5;
+            this.DtgTeslimAlindi.TimeFilter = false;
+            this.DtgTeslimAlindi.SortStringChanged += new System.EventHandler(this.DtgTeslimAlindi_SortStringChanged);
+            this.DtgTeslimAlindi.FilterStringChanged += new System.EventHandler(this.DtgTeslimAlindi_FilterStringChanged);
+            this.DtgTeslimAlindi.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgTeslimAlindi_CellMouseClick);
             // 
             // label19
             // 
@@ -622,14 +635,14 @@ namespace UserInterface.IdariIsler
             this.label19.TabIndex = 6;
             this.label19.Text = "Genel Kayıt Toplamı:";
             // 
-            // label20
+            // LblTeslimAlindi
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(149, 640);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(21, 15);
-            this.label20.TabIndex = 7;
-            this.label20.Text = "00";
+            this.LblTeslimAlindi.AutoSize = true;
+            this.LblTeslimAlindi.Location = new System.Drawing.Point(149, 640);
+            this.LblTeslimAlindi.Name = "LblTeslimAlindi";
+            this.LblTeslimAlindi.Size = new System.Drawing.Size(21, 15);
+            this.LblTeslimAlindi.TabIndex = 7;
+            this.LblTeslimAlindi.Text = "00";
             // 
             // label21
             // 
@@ -641,14 +654,14 @@ namespace UserInterface.IdariIsler
             this.label21.TabIndex = 8;
             this.label21.Text = "Toplam Miktar:";
             // 
-            // label22
+            // LblTeslimAlindiTop
             // 
-            this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(354, 640);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(21, 15);
-            this.label22.TabIndex = 9;
-            this.label22.Text = "00";
+            this.LblTeslimAlindiTop.AutoSize = true;
+            this.LblTeslimAlindiTop.Location = new System.Drawing.Point(354, 640);
+            this.LblTeslimAlindiTop.Name = "LblTeslimAlindiTop";
+            this.LblTeslimAlindiTop.Size = new System.Drawing.Size(21, 15);
+            this.LblTeslimAlindiTop.TabIndex = 9;
+            this.LblTeslimAlindiTop.Text = "00";
             // 
             // FrmTalepIzleme
             // 
@@ -666,27 +679,29 @@ namespace UserInterface.IdariIsler
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage6.ResumeLayout(false);
-            this.tabPage6.PerformLayout();
-            this.tabPage5.ResumeLayout(false);
-            this.tabPage5.PerformLayout();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            this.tabPage3.ResumeLayout(false);
-            this.tabPage3.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinderOnaylandı)).EndInit();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListOnaylandı)).EndInit();
+            this.tabPage3.ResumeLayout(false);
+            this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListReddedildi)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgListSat)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.advancedDataGridView5)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgTdarikEdildi)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgTeslimAlindi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderOnaylandı)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderReddedildi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSat)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderTedarikEdildi)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderTeslimAlindi)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -733,17 +748,19 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.Label TxtTopSat;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label TxtMiktarSat;
-        private ADGV.AdvancedDataGridView advancedDataGridView4;
+        private ADGV.AdvancedDataGridView DtgTdarikEdildi;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label LblTedarikEdildi;
         private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
-        private ADGV.AdvancedDataGridView advancedDataGridView5;
+        private System.Windows.Forms.Label LblTedarikTop;
+        private ADGV.AdvancedDataGridView DtgTeslimAlindi;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label LblTeslimAlindi;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label label22;
+        private System.Windows.Forms.Label LblTeslimAlindiTop;
         private System.Windows.Forms.BindingSource dataBinderReddedildi;
         private System.Windows.Forms.BindingSource dataBinderSat;
+        private System.Windows.Forms.BindingSource dataBinderTedarikEdildi;
+        private System.Windows.Forms.BindingSource dataBinderTeslimAlindi;
     }
 }

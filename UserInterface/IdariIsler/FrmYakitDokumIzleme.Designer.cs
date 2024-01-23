@@ -34,8 +34,8 @@ namespace UserInterface.IdariIsler
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -77,6 +77,15 @@ namespace UserInterface.IdariIsler
             this.label16 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.DtgKalemlerTasit = new ADGV.AdvancedDataGridView();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.LblTopLitre = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.DtgListNakit = new ADGV.AdvancedDataGridView();
+            this.label17 = new System.Windows.Forms.Label();
+            this.LblTopTutarNakit = new System.Windows.Forms.Label();
+            this.LblTopNakit = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.LblLitre = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -92,15 +101,6 @@ namespace UserInterface.IdariIsler
             this.dataBinder3 = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinder4 = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderTumu = new System.Windows.Forms.BindingSource(this.components);
-            this.tabPage4 = new System.Windows.Forms.TabPage();
-            this.LblTopLitre = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.DtgListNakit = new ADGV.AdvancedDataGridView();
-            this.label17 = new System.Windows.Forms.Label();
-            this.LblTopTutarNakit = new System.Windows.Forms.Label();
-            this.LblTopNakit = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
             this.dataBinderNakit = new System.Windows.Forms.BindingSource(this.components);
             this.panel1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -118,15 +118,15 @@ namespace UserInterface.IdariIsler
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgKalemlerTasit)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgListNakit)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.groupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgGenel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderTumu)).BeginInit();
-            this.tabPage4.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgListNakit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderNakit)).BeginInit();
             this.SuspendLayout();
             // 
@@ -176,7 +176,6 @@ namespace UserInterface.IdariIsler
             this.DtgList.DateWithTime = false;
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
-            this.DtgList.MultiSelect = false;
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -209,7 +208,6 @@ namespace UserInterface.IdariIsler
             this.DtgKalemler.DateWithTime = false;
             this.DtgKalemler.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgKalemler.Location = new System.Drawing.Point(3, 16);
-            this.DtgKalemler.MultiSelect = false;
             this.DtgKalemler.Name = "DtgKalemler";
             this.DtgKalemler.ReadOnly = true;
             this.DtgKalemler.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -460,7 +458,6 @@ namespace UserInterface.IdariIsler
             this.DtgListTasit.DateWithTime = false;
             this.DtgListTasit.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgListTasit.Location = new System.Drawing.Point(3, 16);
-            this.DtgListTasit.MultiSelect = false;
             this.DtgListTasit.Name = "DtgListTasit";
             this.DtgListTasit.ReadOnly = true;
             this.DtgListTasit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -605,6 +602,112 @@ namespace UserInterface.IdariIsler
             this.DtgKalemlerTasit.TabIndex = 321;
             this.DtgKalemlerTasit.TimeFilter = false;
             // 
+            // tabPage4
+            // 
+            this.tabPage4.Controls.Add(this.LblTopLitre);
+            this.tabPage4.Controls.Add(this.label15);
+            this.tabPage4.Controls.Add(this.groupBox8);
+            this.tabPage4.Controls.Add(this.label17);
+            this.tabPage4.Controls.Add(this.LblTopTutarNakit);
+            this.tabPage4.Controls.Add(this.LblTopNakit);
+            this.tabPage4.Controls.Add(this.label21);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(1482, 844);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "AKARYAKIT NAKİT";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // LblTopLitre
+            // 
+            this.LblTopLitre.AutoSize = true;
+            this.LblTopLitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTopLitre.Location = new System.Drawing.Point(634, 688);
+            this.LblTopLitre.Name = "LblTopLitre";
+            this.LblTopLitre.Size = new System.Drawing.Size(14, 15);
+            this.LblTopLitre.TabIndex = 553;
+            this.LblTopLitre.Text = "0";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Location = new System.Drawing.Point(492, 688);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(136, 15);
+            this.label15.TabIndex = 552;
+            this.label15.Text = "Alınan Toplam Litre:";
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.DtgListNakit);
+            this.groupBox8.Location = new System.Drawing.Point(8, 6);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(1468, 675);
+            this.groupBox8.TabIndex = 547;
+            this.groupBox8.TabStop = false;
+            // 
+            // DtgListNakit
+            // 
+            this.DtgListNakit.AllowUserToAddRows = false;
+            this.DtgListNakit.AllowUserToDeleteRows = false;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgListNakit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DtgListNakit.AutoGenerateContextFilters = true;
+            this.DtgListNakit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgListNakit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgListNakit.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgListNakit.DateWithTime = false;
+            this.DtgListNakit.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgListNakit.Location = new System.Drawing.Point(3, 16);
+            this.DtgListNakit.Name = "DtgListNakit";
+            this.DtgListNakit.ReadOnly = true;
+            this.DtgListNakit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DtgListNakit.Size = new System.Drawing.Size(1462, 656);
+            this.DtgListNakit.TabIndex = 321;
+            this.DtgListNakit.TimeFilter = false;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label17.Location = new System.Drawing.Point(205, 688);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(96, 15);
+            this.label17.TabIndex = 551;
+            this.label17.Text = "Toplam Tutar:";
+            // 
+            // LblTopTutarNakit
+            // 
+            this.LblTopTutarNakit.AutoSize = true;
+            this.LblTopTutarNakit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTopTutarNakit.Location = new System.Drawing.Point(307, 688);
+            this.LblTopTutarNakit.Name = "LblTopTutarNakit";
+            this.LblTopTutarNakit.Size = new System.Drawing.Size(14, 15);
+            this.LblTopTutarNakit.TabIndex = 550;
+            this.LblTopTutarNakit.Text = "0";
+            // 
+            // LblTopNakit
+            // 
+            this.LblTopNakit.AutoSize = true;
+            this.LblTopNakit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTopNakit.Location = new System.Drawing.Point(111, 688);
+            this.LblTopNakit.Name = "LblTopNakit";
+            this.LblTopNakit.Size = new System.Drawing.Size(21, 15);
+            this.LblTopNakit.TabIndex = 549;
+            this.LblTopNakit.Text = "00";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label21.Location = new System.Drawing.Point(11, 688);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(94, 15);
+            this.label21.TabIndex = 548;
+            this.label21.Text = "Toplam Kayıt:";
+            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.LblLitre);
@@ -741,7 +844,6 @@ namespace UserInterface.IdariIsler
             this.DtgGenel.DateWithTime = false;
             this.DtgGenel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgGenel.Location = new System.Drawing.Point(3, 16);
-            this.DtgGenel.MultiSelect = false;
             this.DtgGenel.Name = "DtgGenel";
             this.DtgGenel.ReadOnly = true;
             this.DtgGenel.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
@@ -750,113 +852,6 @@ namespace UserInterface.IdariIsler
             this.DtgGenel.TimeFilter = false;
             this.DtgGenel.SortStringChanged += new System.EventHandler(this.DtgGenel_SortStringChanged);
             this.DtgGenel.FilterStringChanged += new System.EventHandler(this.DtgGenel_FilterStringChanged);
-            // 
-            // tabPage4
-            // 
-            this.tabPage4.Controls.Add(this.LblTopLitre);
-            this.tabPage4.Controls.Add(this.label15);
-            this.tabPage4.Controls.Add(this.groupBox8);
-            this.tabPage4.Controls.Add(this.label17);
-            this.tabPage4.Controls.Add(this.LblTopTutarNakit);
-            this.tabPage4.Controls.Add(this.LblTopNakit);
-            this.tabPage4.Controls.Add(this.label21);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
-            this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(1482, 844);
-            this.tabPage4.TabIndex = 3;
-            this.tabPage4.Text = "AKARYAKIT NAKİT";
-            this.tabPage4.UseVisualStyleBackColor = true;
-            // 
-            // LblTopLitre
-            // 
-            this.LblTopLitre.AutoSize = true;
-            this.LblTopLitre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTopLitre.Location = new System.Drawing.Point(634, 688);
-            this.LblTopLitre.Name = "LblTopLitre";
-            this.LblTopLitre.Size = new System.Drawing.Size(14, 15);
-            this.LblTopLitre.TabIndex = 553;
-            this.LblTopLitre.Text = "0";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(492, 688);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(136, 15);
-            this.label15.TabIndex = 552;
-            this.label15.Text = "Alınan Toplam Litre:";
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.DtgListNakit);
-            this.groupBox8.Location = new System.Drawing.Point(8, 6);
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Size = new System.Drawing.Size(1468, 675);
-            this.groupBox8.TabIndex = 547;
-            this.groupBox8.TabStop = false;
-            // 
-            // DtgListNakit
-            // 
-            this.DtgListNakit.AllowUserToAddRows = false;
-            this.DtgListNakit.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgListNakit.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
-            this.DtgListNakit.AutoGenerateContextFilters = true;
-            this.DtgListNakit.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            this.DtgListNakit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.DtgListNakit.Cursor = System.Windows.Forms.Cursors.Default;
-            this.DtgListNakit.DateWithTime = false;
-            this.DtgListNakit.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.DtgListNakit.Location = new System.Drawing.Point(3, 16);
-            this.DtgListNakit.MultiSelect = false;
-            this.DtgListNakit.Name = "DtgListNakit";
-            this.DtgListNakit.ReadOnly = true;
-            this.DtgListNakit.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.DtgListNakit.Size = new System.Drawing.Size(1462, 656);
-            this.DtgListNakit.TabIndex = 321;
-            this.DtgListNakit.TimeFilter = false;
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label17.Location = new System.Drawing.Point(205, 688);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(96, 15);
-            this.label17.TabIndex = 551;
-            this.label17.Text = "Toplam Tutar:";
-            // 
-            // LblTopTutarNakit
-            // 
-            this.LblTopTutarNakit.AutoSize = true;
-            this.LblTopTutarNakit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTopTutarNakit.Location = new System.Drawing.Point(307, 688);
-            this.LblTopTutarNakit.Name = "LblTopTutarNakit";
-            this.LblTopTutarNakit.Size = new System.Drawing.Size(14, 15);
-            this.LblTopTutarNakit.TabIndex = 550;
-            this.LblTopTutarNakit.Text = "0";
-            // 
-            // LblTopNakit
-            // 
-            this.LblTopNakit.AutoSize = true;
-            this.LblTopNakit.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTopNakit.Location = new System.Drawing.Point(111, 688);
-            this.LblTopNakit.Name = "LblTopNakit";
-            this.LblTopNakit.Size = new System.Drawing.Size(21, 15);
-            this.LblTopNakit.TabIndex = 549;
-            this.LblTopNakit.Text = "00";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label21.Location = new System.Drawing.Point(11, 688);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(94, 15);
-            this.label21.TabIndex = 548;
-            this.label21.Text = "Toplam Kayıt:";
             // 
             // FrmYakitDokumIzleme
             // 
@@ -886,6 +881,10 @@ namespace UserInterface.IdariIsler
             this.groupBox5.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgKalemlerTasit)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            this.groupBox8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgListNakit)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.groupBox7.ResumeLayout(false);
@@ -893,10 +892,6 @@ namespace UserInterface.IdariIsler
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderTumu)).EndInit();
-            this.tabPage4.ResumeLayout(false);
-            this.tabPage4.PerformLayout();
-            this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.DtgListNakit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderNakit)).EndInit();
             this.ResumeLayout(false);
 

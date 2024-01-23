@@ -1,7 +1,10 @@
-﻿using Business.Concreate.BakimOnarim;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Presentation;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using System;
 using System.Collections.Generic;
@@ -19,17 +22,22 @@ namespace UserInterface.BakımOnarım
     {
         AbfMalzemeManager abfMalzemeManager;
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
+        DtsLogManager dtsLogManager;
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+        ArizaKayitManager arizaKayitManager;
         public int benzersizId = 0;
         int id = 0;
         public object[] infos;
         string stokNo, seriNo, revizyon = "";
+        string bolgeAdi, abfNo;
 
         public FrmSokulenMalzeme()
         {
             InitializeComponent();
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
             abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
+            arizaKayitManager = ArizaKayitManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmSokulenMalzeme_Load(object sender, EventArgs e)
@@ -39,6 +47,9 @@ namespace UserInterface.BakımOnarım
         void AbfMalzemeDisplay()
         {
             abfMalzemes = abfMalzemeManager.GetList(benzersizId);
+            ArizaKayit arizaKayit = arizaKayitManager.GetId(benzersizId);
+            bolgeAdi = arizaKayit.BolgeAdi;
+            abfNo = arizaKayit.AbfFormNo.ToString();
             if (abfMalzemes.Count == 0)
             {
                 return;
@@ -121,7 +132,7 @@ namespace UserInterface.BakımOnarım
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(id, "ARA DEPO (İADE)", DateTime.Now, infos[1].ToString(), 0, "SÖKÜLEN", stokNo, seriNo, revizyon);
                     abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
                 }
-
+                DtsLogKayit();
                 MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 id = 0;
                 CmbCalismaDurumu.SelectedIndex = -1;
@@ -130,5 +141,13 @@ namespace UserInterface.BakımOnarım
                 AbfMalzemeDisplay();
             }
         }
+
+        void DtsLogKayit()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " ABF Numaralı arızanın sökülen malzeme bilgisi durumu değiştirilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM SÖKÜLEN MALZEME DÜZENLE", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
     }
 }

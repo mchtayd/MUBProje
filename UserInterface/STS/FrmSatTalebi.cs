@@ -976,12 +976,14 @@ namespace UserInterface.STS
                 MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            control = DataControl();
-            if (control != "OK")
-            {
-                MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+
+            //control = DataControl();
+            //if (control != "OK")
+            //{
+            //    MessageBox.Show(control, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //    return;
+            //}
+
             bool malzemeKontrol = false;
             if (CmbAdSoyad.Text == "")
             {

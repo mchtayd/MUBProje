@@ -753,6 +753,7 @@ namespace UserInterface.BakımOnarım
             {
                 frmArizaGuncelle.abfNo = abfNo;
                 frmArizaGuncelle.id = id;
+                frmArizaGuncelle.infos = infos;
                 frmArizaGuncelle.Show();
             }
         }

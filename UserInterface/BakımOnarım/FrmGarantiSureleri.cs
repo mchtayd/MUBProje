@@ -1,6 +1,8 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using System;
 using System.Collections.Generic;
@@ -21,12 +23,14 @@ namespace UserInterface.BakımOnarım
         BolgeGarantiManager bolgeGarantiManager;
         BolgeKayitManager bolgeKayitManager;
         ComboManager comboManager;
+        DtsLogManager dtsLogManager;
 
         List<BolgeGaranti> bolgeGarantis;
         string comboAd;
         string toplamYilAy;
-        public string siparisNo = "";
+        public string siparisNo,bolgeAdi = "";
         public int id;
+        public object[] infos;
 
         public FrmGarantiSureleri()
         {
@@ -34,12 +38,15 @@ namespace UserInterface.BakımOnarım
             comboManager = ComboManager.GetInstance();
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmGarantiSureleri_Load(object sender, EventArgs e)
         {
             ComboYasamAlani();
             DataDisplay();
+            BolgeKayit bolge = bolgeKayitManager.Get(id);
+            bolgeAdi = bolge.BolgeAdi;
         }
         void DataDisplay()
         {
@@ -164,10 +171,17 @@ namespace UserInterface.BakımOnarım
 
                     bolgeGarantiManager.Add(bolgeGaranti);
                 }
+                DtsLogKayit();
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 this.Close();
                 
             }
+        }
+        void DtsLogKayit()
+        {
+            string islem = bolgeAdi + " bölgesinin garanti paket bilgileri güncellenmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BÖLGE BİLGİLERİ KAYIT", islem);
+            dtsLogManager.Add(dtsLog);
         }
 
         private void kToolStripMenuItem_Click(object sender, EventArgs e)

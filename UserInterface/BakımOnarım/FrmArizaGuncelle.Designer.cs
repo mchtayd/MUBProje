@@ -495,7 +495,8 @@
             "İÇİ",
             "DIŞI",
             "PDL-5",
-            "PDL-5 OPSİYONEL"});
+            "PDL-5 OPSİYONEL",
+            "PDL-5 2.PAKET"});
             this.CmbGarantiDurumu.Location = new System.Drawing.Point(130, 655);
             this.CmbGarantiDurumu.Name = "CmbGarantiDurumu";
             this.CmbGarantiDurumu.Size = new System.Drawing.Size(186, 23);

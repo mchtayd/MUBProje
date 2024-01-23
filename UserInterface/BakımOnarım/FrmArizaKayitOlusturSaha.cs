@@ -1,9 +1,11 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using System;
@@ -33,6 +35,7 @@ namespace UserInterface.BakımOnarım
         PersonelKayitManager kayitManager;
         BolgeKayitManager bolgeKayitManager;
         BolgeGarantiManager bolgeGarantiManager;
+        DtsLogManager dtsLogManager;
 
         List<string> fileNames = new List<string>();
         List<PersonelKayit> personelKayits;
@@ -55,6 +58,7 @@ namespace UserInterface.BakımOnarım
             kayitManager = PersonelKayitManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
 
         }
 
@@ -123,12 +127,19 @@ namespace UserInterface.BakımOnarım
                 }
 
                 GorevAtama();
-
+                DtsLogKayit();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 Temizle();
                 kayitKontrol = true;
             }
+        }
+
+        void DtsLogKayit()
+        {
+            string islem = "ARIZA KAYIT" + CmbBolgeAdi.Text + " bölgesi için " + abfForm + " ABF Numaralı arıza kaydı oluşturulmuştur.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "ARIZA KAYIT", islem);
+            dtsLogManager.Add(dtsLog);
         }
 
         void MailGonder()

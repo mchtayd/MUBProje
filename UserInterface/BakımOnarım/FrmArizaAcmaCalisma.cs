@@ -20,6 +20,8 @@ using UserInterface.STS;
 using Entity.BakimOnarimAtolye;
 using ClosedXML.Excel;
 using UserInterface.Gecic_Kabul_Ambar;
+using Business.Concreate.AnaSayfa;
+using Entity.AnaSayfa;
 
 namespace UserInterface.BakımOnarım
 {
@@ -45,6 +47,7 @@ namespace UserInterface.BakımOnarım
         UstTakimManager ustTakimManager;
         BolgeGarantiManager bolgeGarantiManager;
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
+        DtsLogManager dtsLogManager;
 
         bool start = true, dosyaKontrol = false, kayitKontrol = false;
         public object[] infos;
@@ -87,6 +90,7 @@ namespace UserInterface.BakımOnarım
             ustTakimManager = UstTakimManager.GetInstance();
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
             abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmArizaAcmaCalisma_Load(object sender, EventArgs e)
@@ -1010,11 +1014,19 @@ namespace UserInterface.BakımOnarım
                 //    IsAkisNo();
                 //    return;
                 //}
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DtsLogKayitBilgidirm();
                 IsAkisNo();
                 IsAkisNoAK();
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 CrmTemizle();
             }
+        }
+
+        void DtsLogKayitBilgidirm()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfForm + " ABF Numaralı arızanın bildirim numarası tanımlanmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM NO TANIMLA", islem);
+            dtsLogManager.Add(dtsLog);
         }
 
         private string ExcelDoldurCrmNo()
@@ -1167,6 +1179,7 @@ namespace UserInterface.BakımOnarım
             }
             FrmMalzemeDuzenle frmMalzemeDuzenle = new FrmMalzemeDuzenle();
             frmMalzemeDuzenle.benzersizId = id;
+            frmMalzemeDuzenle.infos = infos;
             frmMalzemeDuzenle.ShowDialog();
         }
 
@@ -1235,13 +1248,21 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
                 personel = "";
-                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 IsAkisNoAK();
-                TemizleSiparisOlustur();
+                DtsLogKayitSiparis();
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SiparisTemizle();
+                TemizleSiparisOlustur();
             }
         }
+        void DtsLogKayitSiparis()
+        {
+            string islem = LblBolgeAdi.Text + " bölgesine ait " + abfNo + " ABF Numaralı arıza kaydının sipariş oluşturma adımları yapılmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM SİPARİŞ OLUŞTUR", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         void TaslakKopyala()
         {
             string root = @"C:\DTS";
@@ -1624,14 +1645,22 @@ namespace UserInterface.BakımOnarım
                 //    IsAkisNo();
                 //    return;
                 //}
-                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DtsLogKayitKapat();
                 IsAkisNo();
                 IsAkisNoAK();
                 EksikEvrakList();
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleKapat();
             }
 
         }
+        void DtsLogKayitKapat()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abf + " ABF Numaralı arızanın kaydı kapatılmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM KAPAT", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         private string ExcelDolduArizaKapat()
         {
             string excelFilePath = Path.Combine(dosyaYolu + "\\" + isAkisNo + " " + bolgeAdi + " " + abf + ".xlsx");

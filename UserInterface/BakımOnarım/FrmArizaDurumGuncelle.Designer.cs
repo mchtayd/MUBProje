@@ -30,9 +30,9 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaDurumGuncelle));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label23 = new System.Windows.Forms.Label();
@@ -163,7 +163,6 @@ namespace UserInterface.BakımOnarım
             this.TxtLojistikSorGorevi = new System.Windows.Forms.TextBox();
             this.TxtLojistikSorRutbesi = new System.Windows.Forms.TextBox();
             this.TxtLojistikSorumlusu = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.label67 = new System.Windows.Forms.Label();
             this.CmbGarantiDurumu = new System.Windows.Forms.ComboBox();
             this.BtnBulBildirim = new System.Windows.Forms.Button();
@@ -192,6 +191,7 @@ namespace UserInterface.BakımOnarım
             this.DtgAtolyeIslemler = new System.Windows.Forms.DataGridView();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.DtgAtolye = new System.Windows.Forms.DataGridView();
+            this.label5 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox8.SuspendLayout();
@@ -676,12 +676,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -1601,17 +1601,6 @@ namespace UserInterface.BakımOnarım
             this.TxtLojistikSorumlusu.TabIndex = 497;
             this.TxtLojistikSorumlusu.Visible = false;
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
-            this.label5.Location = new System.Drawing.Point(237, 32);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(301, 15);
-            this.label5.TabIndex = 496;
-            this.label5.Text = "Kullanıcı kaynaklı arızalarda GARANİ DIŞI seçilmelidir!";
-            // 
             // label67
             // 
             this.label67.AutoSize = true;
@@ -1631,7 +1620,8 @@ namespace UserInterface.BakımOnarım
             "İÇİ",
             "DIŞI",
             "PDL-5",
-            "PDL-5 OPSİYONEL"});
+            "PDL-5 OPSİYONEL",
+            "PDL-5 2.PAKET"});
             this.CmbGarantiDurumu.Location = new System.Drawing.Point(117, 29);
             this.CmbGarantiDurumu.Name = "CmbGarantiDurumu";
             this.CmbGarantiDurumu.Size = new System.Drawing.Size(114, 23);
@@ -1684,7 +1674,7 @@ namespace UserInterface.BakımOnarım
             this.GrbVeriGecmisi.Controls.Add(this.tabPage4);
             this.GrbVeriGecmisi.Controls.Add(this.tabPage5);
             this.GrbVeriGecmisi.Controls.Add(this.tabPage6);
-            this.GrbVeriGecmisi.Location = new System.Drawing.Point(11, 452);
+            this.GrbVeriGecmisi.Location = new System.Drawing.Point(14, 452);
             this.GrbVeriGecmisi.Name = "GrbVeriGecmisi";
             this.GrbVeriGecmisi.SelectedIndex = 0;
             this.GrbVeriGecmisi.Size = new System.Drawing.Size(1501, 453);
@@ -1773,8 +1763,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeListesi.AllowUserToAddRows = false;
             this.DtgMalzemeListesi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeListesi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeListesi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgMalzemeListesi.AutoGenerateContextFilters = true;
             this.DtgMalzemeListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -1928,6 +1918,17 @@ namespace UserInterface.BakımOnarım
             this.DtgAtolye.Size = new System.Drawing.Size(678, 396);
             this.DtgAtolye.TabIndex = 346;
             this.DtgAtolye.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgAtolye_CellMouseClick);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(192)))));
+            this.label5.Location = new System.Drawing.Point(237, 32);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(301, 15);
+            this.label5.TabIndex = 496;
+            this.label5.Text = "Kullanıcı kaynaklı arızalarda GARANİ DIŞI seçilmelidir!";
             // 
             // FrmArizaDurumGuncelle
             // 
@@ -2108,7 +2109,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.GroupBox GrbMalzemeBilgileri;
         private System.Windows.Forms.Label label67;
         private System.Windows.Forms.ComboBox CmbGarantiDurumu;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DateTimePicker DtLojistikSaat;
         private System.Windows.Forms.DateTimePicker DtLojistikTarih;
         private System.Windows.Forms.Label LblLojistik;
@@ -2167,5 +2167,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label LblGenelTop;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.Label label5;
     }
 }

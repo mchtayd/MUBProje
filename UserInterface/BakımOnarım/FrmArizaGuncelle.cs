@@ -1,10 +1,13 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
 using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Vml.Office;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
 using Entity.IdariIsler;
@@ -30,6 +33,7 @@ namespace UserInterface.BakımOnarım
         BolgeGarantiManager bolgeGarantiManager;
         ArizaKayitManager arizaKayitManager;
         UstTakimManager ustTakimManager;
+        DtsLogManager dtsLogManager;
 
         public int id;
         int arizaId;
@@ -37,6 +41,7 @@ namespace UserInterface.BakımOnarım
         bool start = true;
         string islemAdimiSorumlusu,dosyaYolu, siparisNo,ekipmanNo, malzemeDurum, musteri = "";
         int durum, eksikEvrak;
+        public object[] infos;
         public FrmArizaGuncelle()
         {
             InitializeComponent();
@@ -47,6 +52,7 @@ namespace UserInterface.BakımOnarım
             bolgeGarantiManager = BolgeGarantiManager.GetInstance();
             arizaKayitManager = ArizaKayitManager.GetInstance();
             ustTakimManager = UstTakimManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmArizaGuncelle_Load(object sender, EventArgs e)
@@ -182,12 +188,14 @@ namespace UserInterface.BakımOnarım
                 LblPdl.Text = bolge.Proje;
             }
         }
+        string bolgeAdi = "";
         void DataFill()
         {
             ArizaKayit arizaKayit = arizaKayitManager.Get(abfNo.ConInt());
             LblIsAkisNo.Text = arizaKayit.IsAkisNo.ToString();
             LblAbfNo.Text = arizaKayit.AbfFormNo.ToString();
             CmbUsBolgesi.Text = arizaKayit.BolgeAdi;
+            bolgeAdi = arizaKayit.BolgeAdi;
             TxtBildirilenAriza.Text = arizaKayit.BildirilenAriza;
             TxtBirlikPersoneli.Text = arizaKayit.ArizaiBildirenPersonel;
             TxtBirlikPerRutbesi.Text = arizaKayit.AbRutbesi;
@@ -293,7 +301,7 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-
+                DtsLogKayitSil();
                 MessageBox.Show("Bilgiler başarıyla silinmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 FrmArizaDevamEden frmAnaSayfa = (FrmArizaDevamEden)System.Windows.Forms.Application.OpenForms["FrmArizaDevamEden"];
                 if (frmAnaSayfa!=null)
@@ -315,6 +323,7 @@ namespace UserInterface.BakımOnarım
         {
             FrmMalzemeDuzenle frmMalzemeDuzenle = new FrmMalzemeDuzenle();
             frmMalzemeDuzenle.benzersizId = arizaId;
+            frmMalzemeDuzenle.infos = infos;
             frmMalzemeDuzenle.Show();
         }
 
@@ -356,7 +365,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             }
-
+            DtsLogKayit();
             MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             FrmArizaDevamEden frmAnaSayfa = (FrmArizaDevamEden)Application.OpenForms["FrmArizaDevamEden"];
             if (frmAnaSayfa!=null)
@@ -365,6 +374,19 @@ namespace UserInterface.BakımOnarım
             }
             this.Close();
 
+        }
+
+        void DtsLogKayit()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + LblAbfNo.Text + " ABF Numaralı arızanın bilgileri güncellenmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM GÜNCELLE", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+        void DtsLogKayitSil()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + LblAbfNo.Text + " ABF Numaralı arızanın kaydı silinmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM GÜNCELLE", islem);
+            dtsLogManager.Add(dtsLog);
         }
     }
 }

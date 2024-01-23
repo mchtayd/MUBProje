@@ -1,11 +1,14 @@
 ﻿using Business;
 using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.IdarıIsler;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.BakimOnarimAtolye;
 using Entity.Gecic_Kabul_Ambar;
@@ -38,6 +41,7 @@ namespace UserInterface.BakımOnarım
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
         StokGirisCikisManager stokGirisCikisManager;
         AtolyeManager atolyeManager;
+        DtsLogManager dtsLogManager;
 
         List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
         List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
@@ -70,6 +74,7 @@ namespace UserInterface.BakımOnarım
             abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
             atolyeManager = AtolyeManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmArizaDurumGuncelle_Load(object sender, EventArgs e)
@@ -164,6 +169,7 @@ namespace UserInterface.BakımOnarım
         {
             BulClick();
         }
+        string bolgeAdi,abf = "";
         void BulClick()
         {
             if (TxtAbfNo.Text == "")
@@ -180,8 +186,9 @@ namespace UserInterface.BakımOnarım
             }
             DtgFormBilgileri.Rows.Add();
             int sonSatir = DtgFormBilgileri.RowCount - 1;
-
-            DtgFormBilgileri.Rows[sonSatir].Cells["FormNo"].Value = arizaKayit.AbfFormNo.ToString();
+            abf = arizaKayit.AbfFormNo.ToString();
+            DtgFormBilgileri.Rows[sonSatir].Cells["FormNo"].Value = abf;
+            bolgeAdi = arizaKayit.BolgeAdi;
             DtgFormBilgileri.Rows[sonSatir].Cells["BolgeAdi"].Value = arizaKayit.BolgeAdi;
             DtgFormBilgileri.Rows[sonSatir].Cells["BildirimTarihi"].Value = arizaKayit.AbTarihSaat.ToString();
             DtgFormBilgileri.Rows[sonSatir].Cells["BolgeSorumlusu"].Value = arizaKayit.AcmaOnayiVeren;
@@ -915,6 +922,8 @@ namespace UserInterface.BakımOnarım
             }
             abfForm = arizaKayit.AbfFormNo;
             id = arizaKayit.Id;
+            bolgeAdi = arizaKayit.BolgeAdi;
+            abf = abfForm.ToString();
             IslemAdimlariSureleri();
             DepoHareketleri();
             AtolyeKayitlari();
@@ -1860,11 +1869,20 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show(messege, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            DtsLogKayit();
             MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
             ChkKapat.Checked = false;
             tekrarliIslemAdimi = false;
         }
+
+        void DtsLogKayit()
+        {
+            string islem = bolgeAdi + " bölgesinin " + abf + " ABF Numaralı arıza kaydı " + LblMevcutIslemAdimi.Text + " adımından " + CmbIslemAdimi.Text + " adımına, " + CmbGorevAtanacakPersonel.Text + " kişisine görev atanarak güncellenmiştir."; 
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM DURUM GÜNCELLE", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         string GorevAtama()
         {
             int guncellenecekId = 0;
