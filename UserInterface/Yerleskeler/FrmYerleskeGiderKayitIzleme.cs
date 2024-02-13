@@ -78,6 +78,7 @@ namespace UserInterface.Yerleskeler
                 return;
             }
             yerleskeSats = new List<YerleskeSat>();
+            DtgYerleskeSat.Rows.Clear();
             siparisNo = DtgYerkeskeler.CurrentRow.Cells["SiparisNo"].Value.ToString();
             yerleskeAdi = DtgYerkeskeler.CurrentRow.Cells["YerleskeAdi"].Value.ToString();
 

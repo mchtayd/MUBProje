@@ -8,6 +8,7 @@ using DataAccess.Concreate;
 using DataAccess.Concreate.BakimOnarim;
 using DataAccess.Concreate.IdariIsler;
 using DocumentFormat.OpenXml.Presentation;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Entity;
 using Entity.AnaSayfa;
 using Entity.BakimOnarim;
@@ -42,6 +43,7 @@ namespace UserInterface.STS
 {
     public partial class FrmAnaSayfa : Form
     {
+        
         SatinAlinacakMalManager satinAlinacakMalManager;
         SatDataGridview1Manager satDataGridview1Manager;
         DvNoManager dvNoManager;
@@ -2371,7 +2373,6 @@ namespace UserInterface.STS
             tabPage.Controls.Add(winForm);
             tabAnasayfa.SelectedTab = tabAnasayfa.TabPages[pageName];
 
-
             //if (tabAnasayfa.TabPages[pageName] != null)
             //{
             //    tabAnasayfa.SelectedTab = tabAnasayfa.TabPages[pageName];
@@ -2390,7 +2391,7 @@ namespace UserInterface.STS
 
         }
 
-
+        Form pencereAdi;
         private void TreeMenu_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             ////////////////////////////////////////////////BAKIM ONARIM/////////////////////////////////////////////////////////////////////
@@ -2402,6 +2403,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Bildirim Aç/Kapat")
             {
                 FrmArizaAcmaCalisma Go = new FrmArizaAcmaCalisma();
+                pencereAdi = Go;
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
@@ -2413,6 +2415,7 @@ namespace UserInterface.STS
             if (e.Node.Text == "Firma Servis Formu Kayıt")
             {
                 FrmServisFormuKayit Go = new FrmServisFormuKayit();
+                pencereAdi = Go;
                 Go.infos = infos;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
@@ -2458,6 +2461,7 @@ namespace UserInterface.STS
             {
                 FrmArizaDevamEden Go = new FrmArizaDevamEden();
                 Go.infos = infos;
+                pencereAdi = Go;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2469,6 +2473,7 @@ namespace UserInterface.STS
             {
                 FrmArizaKayitlarics Go = new FrmArizaKayitlarics();
                 Go.infos = infos;
+                pencereAdi = Go;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -2480,6 +2485,7 @@ namespace UserInterface.STS
             {
                 FrmArizaKayitlariKapatilan Go = new FrmArizaKayitlariKapatilan();
                 Go.infos = infos;
+                pencereAdi = Go;
                 Go.FormBorderStyle = FormBorderStyle.None;
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
@@ -5630,6 +5636,7 @@ namespace UserInterface.STS
         private void excelToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             FrmDisaAktarExcel frmDisaAktarExcel = new FrmDisaAktarExcel();
+            frmDisaAktarExcel.winform = pencereAdi;
             frmDisaAktarExcel.ShowDialog();
         }
 
@@ -6231,6 +6238,11 @@ namespace UserInterface.STS
             frmEtiketYaz.ShowDialog();
         }
 
+        private void toolStripDropDownButton1_Click(object sender, EventArgs e)
+        {
+            FrmYemekListesi frmYemekListesi = new FrmYemekListesi();
+            frmYemekListesi.ShowDialog();
+        }
 
         bool controlKapatma = false;
         private void FrmAnaSayfa_FormClosing(object sender, FormClosingEventArgs e)

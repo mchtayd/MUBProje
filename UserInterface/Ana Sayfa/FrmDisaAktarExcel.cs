@@ -1,7 +1,9 @@
-﻿using Business.Concreate.Gecici_Kabul_Ambar;
+﻿using ADGV;
+using Business.Concreate.Gecici_Kabul_Ambar;
 using Business.Concreate.STS;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Spreadsheet;
 using Entity.Gecic_Kabul_Ambar;
 using Entity.STS;
 using System;
@@ -13,7 +15,9 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls.Primitives;
 using System.Windows.Forms;
+using UserInterface.STS;
 
 namespace UserInterface.Ana_Sayfa
 {
@@ -24,11 +28,12 @@ namespace UserInterface.Ana_Sayfa
         MalzemeManager malzemeManager;
         List<DepoMiktar> depoMiktars= new List<DepoMiktar>();
         List<Malzeme> malzemes = new List<Malzeme>();
-
         List<Tamamlanan> tamamlanans;
-
+        
+        public Form winform;
         bool start = true;
         string dosyaYolu = "";
+
         public FrmDisaAktarExcel()
         {
             InitializeComponent();
@@ -36,9 +41,48 @@ namespace UserInterface.Ana_Sayfa
             depoMiktarManager = DepoMiktarManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
         }
+
         private void FrmDisaAktarExcel_Load(object sender, EventArgs e)
         {
-            
+            if (winform==null)
+            {
+                MessageBox.Show("Açık bir form sayfası algılanamadı!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Close();
+                return;
+            }
+
+            TabPage tabPage = new TabPage("DENEME");
+            //tabPage.SetBounds(tabPage.Bounds.X, tabPage.Bounds.Y, 500, tabPage.Bounds.Height);
+            tabPage.Size = new Size(500, 75);
+            tabControl1.TabPages.Add(tabPage);
+            tabPage.Name = "DENEME";
+            //tabPage.Width = 500;
+            tabPage.Controls.Add(winform);
+            tabControl1.SelectedTab = tabControl1.TabPages["DENEME"];
+
+            //var controlCollection = this.Controls.OfType<AdvancedDataGridView>();
+            //AdvancedDataGridView data = (AdvancedDataGridView)controlCollection;
+
+            //var controlCollection = ADGV.AdvancedDataGridView;
+            //foreach (var item in controlCollection)
+            //{
+            //    if (item is DataGridView)
+            //    {
+            //        DataGridView data = (DataGridView)item;
+            //        string name = data.Name;
+            //    }
+            //}
+
+            //
+
+            //
+
+            //string name = dtg.Name;
+
+
+
+
+            // frmAnaSayfa.tabAnasayfa.Controls
         }
 
         private void CmbTablo_SelectedIndexChanged(object sender, EventArgs e)

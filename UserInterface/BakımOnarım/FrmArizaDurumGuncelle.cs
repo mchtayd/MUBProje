@@ -1633,6 +1633,7 @@ namespace UserInterface.BakımOnarım
                 }
                 
             }
+
             if (CmbIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
             {
                 arizaKayitManager.ArizaDurumUpdate(id, 0);
@@ -1859,7 +1860,11 @@ namespace UserInterface.BakımOnarım
                         }
                     }
                 }
+            }
 
+            if (CmbIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
+            {
+                arizaKayitManager.ArizaDurumUpdate(id, 0);
             }
 
             string messege = GorevAtama();

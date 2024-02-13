@@ -98,6 +98,20 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label40 = new System.Windows.Forms.Label();
             this.TxtBirimFiyat = new System.Windows.Forms.TextBox();
             this.LblBirimFiyat = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.DtTarih = new System.Windows.Forms.DateTimePicker();
+            this.LblBirim = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.TxtMiktar = new System.Windows.Forms.TextBox();
+            this.LblSeriLotNo = new System.Windows.Forms.Label();
+            this.LblTanim = new System.Windows.Forms.Label();
+            this.CmbStokNo = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtBarkod = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.GrbManuelStok = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.AdvMalzemeOnizleme = new ADGV.AdvancedDataGridView();
@@ -120,20 +134,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label42 = new System.Windows.Forms.Label();
             this.CmbStokManuel = new System.Windows.Forms.ComboBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.DtTarih = new System.Windows.Forms.DateTimePicker();
-            this.LblBirim = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.TxtMiktar = new System.Windows.Forms.TextBox();
-            this.LblSeriLotNo = new System.Windows.Forms.Label();
-            this.LblTanim = new System.Windows.Forms.Label();
-            this.CmbStokNo = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtBarkod = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
@@ -883,6 +883,149 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.LblBirimFiyat.Text = "Malzeme Birim Fiyatı:";
             this.LblBirimFiyat.Visible = false;
             // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label16.Location = new System.Drawing.Point(23, 58);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(74, 15);
+            this.label16.TabIndex = 347;
+            this.label16.Text = "İşlem Tarihi:";
+            // 
+            // DtTarih
+            // 
+            this.DtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.DtTarih.Location = new System.Drawing.Point(103, 55);
+            this.DtTarih.Name = "DtTarih";
+            this.DtTarih.Size = new System.Drawing.Size(113, 20);
+            this.DtTarih.TabIndex = 346;
+            // 
+            // LblBirim
+            // 
+            this.LblBirim.AutoSize = true;
+            this.LblBirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblBirim.Location = new System.Drawing.Point(715, 44);
+            this.LblBirim.Name = "LblBirim";
+            this.LblBirim.Size = new System.Drawing.Size(21, 15);
+            this.LblBirim.TabIndex = 345;
+            this.LblBirim.Text = "00";
+            this.LblBirim.Visible = false;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label15.Location = new System.Drawing.Point(670, 44);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(39, 15);
+            this.label15.TabIndex = 344;
+            this.label15.Text = "Birim:";
+            this.label15.Visible = false;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label14.Location = new System.Drawing.Point(53, 82);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(44, 15);
+            this.label14.TabIndex = 343;
+            this.label14.Text = "Miktar:";
+            // 
+            // TxtMiktar
+            // 
+            this.TxtMiktar.Location = new System.Drawing.Point(103, 81);
+            this.TxtMiktar.Name = "TxtMiktar";
+            this.TxtMiktar.Size = new System.Drawing.Size(113, 20);
+            this.TxtMiktar.TabIndex = 342;
+            this.TxtMiktar.Text = "1";
+            // 
+            // LblSeriLotNo
+            // 
+            this.LblSeriLotNo.AutoSize = true;
+            this.LblSeriLotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblSeriLotNo.Location = new System.Drawing.Point(747, 66);
+            this.LblSeriLotNo.Name = "LblSeriLotNo";
+            this.LblSeriLotNo.Size = new System.Drawing.Size(21, 15);
+            this.LblSeriLotNo.TabIndex = 341;
+            this.LblSeriLotNo.Text = "00";
+            this.LblSeriLotNo.Visible = false;
+            // 
+            // LblTanim
+            // 
+            this.LblTanim.AutoSize = true;
+            this.LblTanim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblTanim.Location = new System.Drawing.Point(936, 22);
+            this.LblTanim.Name = "LblTanim";
+            this.LblTanim.Size = new System.Drawing.Size(21, 15);
+            this.LblTanim.TabIndex = 340;
+            this.LblTanim.Text = "00";
+            this.LblTanim.Visible = false;
+            // 
+            // CmbStokNo
+            // 
+            this.CmbStokNo.AutoSize = true;
+            this.CmbStokNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbStokNo.Location = new System.Drawing.Point(711, 20);
+            this.CmbStokNo.Name = "CmbStokNo";
+            this.CmbStokNo.Size = new System.Drawing.Size(21, 15);
+            this.CmbStokNo.TabIndex = 339;
+            this.CmbStokNo.Text = "00";
+            this.CmbStokNo.Visible = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label4.Location = new System.Drawing.Point(670, 66);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(71, 15);
+            this.label4.TabIndex = 338;
+            this.label4.Text = "Seri/Lot No:";
+            this.label4.Visible = false;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(885, 22);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(45, 15);
+            this.label3.TabIndex = 337;
+            this.label3.Text = "Tanım:";
+            this.label3.Visible = false;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label2.Location = new System.Drawing.Point(652, 20);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 15);
+            this.label2.TabIndex = 336;
+            this.label2.Text = "Stok No:";
+            this.label2.Visible = false;
+            // 
+            // TxtBarkod
+            // 
+            this.TxtBarkod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.TxtBarkod.Location = new System.Drawing.Point(104, 19);
+            this.TxtBarkod.Name = "TxtBarkod";
+            this.TxtBarkod.Size = new System.Drawing.Size(359, 21);
+            this.TxtBarkod.TabIndex = 335;
+            this.TxtBarkod.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBarkod_KeyUp);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label1.Location = new System.Drawing.Point(49, 22);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(49, 15);
+            this.label1.TabIndex = 334;
+            this.label1.Text = "Barkod:";
+            // 
             // GrbManuelStok
             // 
             this.GrbManuelStok.Controls.Add(this.groupBox4);
@@ -900,7 +1043,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.GrbManuelStok.Controls.Add(this.label42);
             this.GrbManuelStok.Controls.Add(this.CmbStokManuel);
             this.GrbManuelStok.Controls.Add(this.label43);
-            this.GrbManuelStok.Location = new System.Drawing.Point(12, 336);
+            this.GrbManuelStok.Location = new System.Drawing.Point(816, 264);
             this.GrbManuelStok.Name = "GrbManuelStok";
             this.GrbManuelStok.Size = new System.Drawing.Size(1428, 155);
             this.GrbManuelStok.TabIndex = 349;
@@ -1129,149 +1272,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             this.label43.Size = new System.Drawing.Size(58, 13);
             this.label43.TabIndex = 47;
             this.label43.Text = "STOK NO:";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label16.Location = new System.Drawing.Point(23, 58);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(74, 15);
-            this.label16.TabIndex = 347;
-            this.label16.Text = "İşlem Tarihi:";
-            // 
-            // DtTarih
-            // 
-            this.DtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtTarih.Location = new System.Drawing.Point(103, 55);
-            this.DtTarih.Name = "DtTarih";
-            this.DtTarih.Size = new System.Drawing.Size(113, 20);
-            this.DtTarih.TabIndex = 346;
-            // 
-            // LblBirim
-            // 
-            this.LblBirim.AutoSize = true;
-            this.LblBirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblBirim.Location = new System.Drawing.Point(715, 44);
-            this.LblBirim.Name = "LblBirim";
-            this.LblBirim.Size = new System.Drawing.Size(21, 15);
-            this.LblBirim.TabIndex = 345;
-            this.LblBirim.Text = "00";
-            this.LblBirim.Visible = false;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label15.Location = new System.Drawing.Point(670, 44);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(39, 15);
-            this.label15.TabIndex = 344;
-            this.label15.Text = "Birim:";
-            this.label15.Visible = false;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label14.Location = new System.Drawing.Point(53, 82);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(44, 15);
-            this.label14.TabIndex = 343;
-            this.label14.Text = "Miktar:";
-            // 
-            // TxtMiktar
-            // 
-            this.TxtMiktar.Location = new System.Drawing.Point(103, 81);
-            this.TxtMiktar.Name = "TxtMiktar";
-            this.TxtMiktar.Size = new System.Drawing.Size(113, 20);
-            this.TxtMiktar.TabIndex = 342;
-            this.TxtMiktar.Text = "1";
-            // 
-            // LblSeriLotNo
-            // 
-            this.LblSeriLotNo.AutoSize = true;
-            this.LblSeriLotNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblSeriLotNo.Location = new System.Drawing.Point(747, 66);
-            this.LblSeriLotNo.Name = "LblSeriLotNo";
-            this.LblSeriLotNo.Size = new System.Drawing.Size(21, 15);
-            this.LblSeriLotNo.TabIndex = 341;
-            this.LblSeriLotNo.Text = "00";
-            this.LblSeriLotNo.Visible = false;
-            // 
-            // LblTanim
-            // 
-            this.LblTanim.AutoSize = true;
-            this.LblTanim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTanim.Location = new System.Drawing.Point(936, 22);
-            this.LblTanim.Name = "LblTanim";
-            this.LblTanim.Size = new System.Drawing.Size(21, 15);
-            this.LblTanim.TabIndex = 340;
-            this.LblTanim.Text = "00";
-            this.LblTanim.Visible = false;
-            // 
-            // CmbStokNo
-            // 
-            this.CmbStokNo.AutoSize = true;
-            this.CmbStokNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.CmbStokNo.Location = new System.Drawing.Point(711, 20);
-            this.CmbStokNo.Name = "CmbStokNo";
-            this.CmbStokNo.Size = new System.Drawing.Size(21, 15);
-            this.CmbStokNo.TabIndex = 339;
-            this.CmbStokNo.Text = "00";
-            this.CmbStokNo.Visible = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label4.Location = new System.Drawing.Point(670, 66);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(71, 15);
-            this.label4.TabIndex = 338;
-            this.label4.Text = "Seri/Lot No:";
-            this.label4.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(885, 22);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(45, 15);
-            this.label3.TabIndex = 337;
-            this.label3.Text = "Tanım:";
-            this.label3.Visible = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label2.Location = new System.Drawing.Point(652, 20);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 15);
-            this.label2.TabIndex = 336;
-            this.label2.Text = "Stok No:";
-            this.label2.Visible = false;
-            // 
-            // TxtBarkod
-            // 
-            this.TxtBarkod.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBarkod.Location = new System.Drawing.Point(104, 19);
-            this.TxtBarkod.Name = "TxtBarkod";
-            this.TxtBarkod.Size = new System.Drawing.Size(359, 21);
-            this.TxtBarkod.TabIndex = 335;
-            this.TxtBarkod.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBarkod_KeyUp);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label1.Location = new System.Drawing.Point(49, 22);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(49, 15);
-            this.label1.TabIndex = 334;
-            this.label1.Text = "Barkod:";
             // 
             // TxtAciklama
             // 
