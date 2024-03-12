@@ -44,6 +44,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                     new SqlParameter("@lotno", entity.Lotno),
                     new SqlParameter("@revizyon", entity.Revizyon),
                     new SqlParameter("@sayimYili", entity.SayimYili));
+
                 dataReader.Close();
                 return "OK";
             }
@@ -141,7 +142,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["LOT_NO"].ToString(),
-                        dataReader["REVIZYON"].ToString());
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -178,7 +180,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["LOT_NO"].ToString(),
-                        dataReader["REVIZYON"].ToString());
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -215,7 +218,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["LOT_NO"].ToString(),
-                        dataReader["REVIZYON"].ToString());
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -300,7 +304,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["LOT_NO"].ToString(),
-                        dataReader["REVIZYON"].ToString()));
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString()));
                 }
                 dataReader.Close();
                 return stokGirisCıkıs;
@@ -374,7 +379,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["LOT_NO"].ToString(),
-                        dataReader["REVIZYON"].ToString()));
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString()));
                 }
                 dataReader.Close();
                 return stokGirisCıkıs;
@@ -411,7 +417,8 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["LOT_NO"].ToString(),
-                        dataReader["REVIZYON"].ToString()));
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString()));
                 }
                 dataReader.Close();
                 return stokGirisCıkıs;
@@ -448,7 +455,46 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                         dataReader["ACIKLAMA"].ToString(),
                         dataReader["SERI_NO"].ToString(),
                         dataReader["LOT_NO"].ToString(),
-                        dataReader["REVIZYON"].ToString()));
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString()));
+                }
+                dataReader.Close();
+                return stokGirisCıkıs;
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
+
+        public List<StokGirisCıkıs> ArizaIadeControlList(string abfNo,string stokNo, string seriNo, string lotNo, string revizyon)
+        {
+            try
+            {
+                List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
+                dataReader = sqlServices.StoreReader("ArizaMalzemeIadeControl", new SqlParameter("@abfNo", abfNo), new SqlParameter("@stokNo", stokNo), new SqlParameter("@seriNo", seriNo), new SqlParameter("@lotNo", lotNo), new SqlParameter("@revizyon", revizyon));
+                while (dataReader.Read())
+                {
+                    stokGirisCıkıs.Add(new StokGirisCıkıs(
+                        dataReader["ID"].ConInt(),
+                        dataReader["ISLEM_TURU"].ToString(),
+                        dataReader["STOK_NO"].ToString(),
+                        dataReader["TANIM"].ToString(),
+                        dataReader["BIRIM"].ToString(),
+                        dataReader["ISLEM_TARIH"].ConDate(),
+                        dataReader["CEKILEN_DEPO"].ToString(),
+                        dataReader["CEKILEN_DEPO_ADRESI"].ToString(),
+                        dataReader["CEKILEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_DEPO"].ToString(),
+                        dataReader["DUSULEN_DEPO_ADRESI"].ToString(),
+                        dataReader["DUSULEN_MALZEME_YERI"].ToString(),
+                        dataReader["DUSULEN_MIKTAR"].ConInt(),
+                        dataReader["TALEP_EDEN_PERSONEL"].ToString(),
+                        dataReader["ACIKLAMA"].ToString(),
+                        dataReader["SERI_NO"].ToString(),
+                        dataReader["LOT_NO"].ToString(),
+                        dataReader["REVIZYON"].ToString(),
+                        dataReader["SAYIM_YILI"].ToString()));
                 }
                 dataReader.Close();
                 return stokGirisCıkıs;

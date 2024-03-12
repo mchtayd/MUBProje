@@ -294,7 +294,6 @@ namespace UserInterface.STS
                         TamamlananMalzeme tamamlananMalzeme = new TamamlananMalzeme(item.Cells["Id"].Value.ConInt(), item.Cells["Birimfiyat"].Value.ConDouble(), item.Cells["Toplamfiyat"].Value.ConDouble());
                         tamamlananMalzemeManager.Update(tamamlananMalzeme);
                     }
-                    
                 }
 
                 string yapilanIslem = "SAT BİLGİLERİ GÜNCELLENMİŞTİR.";

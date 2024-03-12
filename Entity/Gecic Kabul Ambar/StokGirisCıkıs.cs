@@ -30,7 +30,7 @@ namespace Entity.Gecic_Kabul_Ambar
         public string TalepEdenPersonel { get => talepEdenPersonel; set => talepEdenPersonel = value; }
         public string SayimYili { get => sayimYili; set => sayimYili = value; }
 
-        public StokGirisCıkıs(int id, string islemturu, string stokno, string tanim, string birim, DateTime islemTarihi, string cekilenDepoNo, string cekilenDepoAdresi, string cekilenMalzemeYeri, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string talepEdenPersonel, string aciklama, string serino, string lotno, string revizyon,string sayimYili="")
+        public StokGirisCıkıs(int id, string islemturu, string stokno, string tanim, string birim, DateTime islemTarihi, string cekilenDepoNo, string cekilenDepoAdresi, string cekilenMalzemeYeri, string dusulenDepoNo, string dusulenDepoAdresi, string dusulenMalzemeYeri, int dusulenMiktar, string talepEdenPersonel, string aciklama, string serino, string lotno, string revizyon,string sayimYili)
         {
             this.id = id;
             this.islemturu = islemturu;

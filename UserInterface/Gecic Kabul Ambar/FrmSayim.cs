@@ -23,6 +23,7 @@ using System.Windows.Forms;
 using UserInterface.STS;
 using Application = System.Windows.Forms.Application;
 using Color = System.Drawing.Color;
+using UserInterface.BakımOnarım;
 
 namespace UserInterface.Gecic_Kabul_Ambar
 {
@@ -238,6 +239,12 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
         }
 
+        private void BtnMalzemeYeri_Click(object sender, EventArgs e)
+        {
+            FrmDepoLokasyonKayit frmDepoLokasyonKayit = new FrmDepoLokasyonKayit();
+            frmDepoLokasyonKayit.ShowDialog();
+        }
+
         private void FrmSayim_Load(object sender, EventArgs e)
         {
             CmbDepo();
@@ -279,6 +286,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
         }
 
         private void CmbDepoNo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            MalzemeYeri();
+        }
+
+        public void MalzemeYeri()
         {
             if (start == true)
             {
@@ -402,7 +414,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
             }
             readedBarcode = TxtBarkod.Text;
             string[] array = readedBarcode.Split(' ');
-
 
 
             int id = array[0].ConInt();

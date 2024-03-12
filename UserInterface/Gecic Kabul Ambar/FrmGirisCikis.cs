@@ -1639,8 +1639,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     DepoMiktar depo = depoMiktarManager.Get(stokNo, depoNoDusulen, seriNo, lotNo, revizyon);
                     if (depo == null)
                     {
-
-                        mevcutMiktar = item.Cells["Column4"].Value.ConInt();
+                        mevcutMiktar = item.Cells["Column4"].Value.ConInt(); // HATA 
                         miktarKontrol = true;
                     }
                     else
@@ -1860,7 +1859,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 start = false;
             }
         }
-
 
         private void BtnStokDuzelt_Click_1(object sender, EventArgs e)
         {

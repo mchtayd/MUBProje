@@ -140,6 +140,18 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
+        public List<ArizaKayit> KapatilacaklarGetList()
+        {
+            try
+            {
+                return arizaKayitDal.KapatilacaklarGetList();
+            }
+            catch (Exception)
+            {
+                return new List<ArizaKayit>();
+            }
+        }
+
         public List<ArizaKayit> BOTamamlananGetList()
         {
             try

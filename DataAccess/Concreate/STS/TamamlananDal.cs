@@ -653,7 +653,19 @@ namespace DataAccess.Concreate.STS
                 return ex.Message;
             }
         }
-
+        public string FaturaDurumUpdate(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("TamamlananSatFirmaDurumUpdate",new SqlParameter("@id",id));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static TamamlananDal GetInstance()
         {
             if (tamamlananDal == null)

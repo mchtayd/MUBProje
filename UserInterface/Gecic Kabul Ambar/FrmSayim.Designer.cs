@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmSayim));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
@@ -98,8 +98,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.LblSayimYili = new System.Windows.Forms.Label();
             this.GrbManuelStok = new System.Windows.Forms.GroupBox();
+            this.CmbSokulenStokNo = new System.Windows.Forms.ComboBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.AdvMalzemeOnizleme = new ADGV.AdvancedDataGridView();
+            this.SiraNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SeriLotNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Rev = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
             this.BtnListEkle = new System.Windows.Forms.Button();
             this.TxtBirimFiyatManuel = new System.Windows.Forms.TextBox();
@@ -116,11 +121,6 @@
             this.label43 = new System.Windows.Forms.Label();
             this.CmbDusumTuru = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.CmbSokulenStokNo = new System.Windows.Forms.ComboBox();
-            this.SiraNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SeriLotNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Rev = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Remove = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             this.GrbBarkod.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -753,7 +753,7 @@
             this.BtnMalzemeYeri.TabIndex = 342;
             this.BtnMalzemeYeri.Tag = "admin";
             this.BtnMalzemeYeri.UseVisualStyleBackColor = false;
-            this.BtnMalzemeYeri.Visible = false;
+            this.BtnMalzemeYeri.Click += new System.EventHandler(this.BtnMalzemeYeri_Click);
             // 
             // BtnDepoEkle
             // 
@@ -808,13 +808,25 @@
             this.GrbManuelStok.Controls.Add(this.TxtMiktarManuel);
             this.GrbManuelStok.Controls.Add(this.label42);
             this.GrbManuelStok.Controls.Add(this.label43);
-            this.GrbManuelStok.Location = new System.Drawing.Point(12, 250);
+            this.GrbManuelStok.Location = new System.Drawing.Point(9, 250);
             this.GrbManuelStok.Name = "GrbManuelStok";
             this.GrbManuelStok.Size = new System.Drawing.Size(1428, 155);
             this.GrbManuelStok.TabIndex = 433;
             this.GrbManuelStok.TabStop = false;
             this.GrbManuelStok.Text = "İŞLEM YAPILACAK MALZEME BİLGİSİ";
             this.GrbManuelStok.Visible = false;
+            // 
+            // CmbSokulenStokNo
+            // 
+            this.CmbSokulenStokNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.CmbSokulenStokNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.CmbSokulenStokNo.FormattingEnabled = true;
+            this.CmbSokulenStokNo.Location = new System.Drawing.Point(118, 30);
+            this.CmbSokulenStokNo.Name = "CmbSokulenStokNo";
+            this.CmbSokulenStokNo.Size = new System.Drawing.Size(226, 21);
+            this.CmbSokulenStokNo.TabIndex = 501;
+            this.CmbSokulenStokNo.SelectedIndexChanged += new System.EventHandler(this.CmbSokulenStokNo_SelectedIndexChanged);
+            this.CmbSokulenStokNo.TextChanged += new System.EventHandler(this.CmbSokulenStokNo_TextChanged);
             // 
             // groupBox4
             // 
@@ -847,6 +859,43 @@
             this.AdvMalzemeOnizleme.TabIndex = 1;
             this.AdvMalzemeOnizleme.TimeFilter = false;
             this.AdvMalzemeOnizleme.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.AdvMalzemeOnizleme_CellContentClick);
+            // 
+            // SiraNo
+            // 
+            this.SiraNo.HeaderText = "SIRA NO";
+            this.SiraNo.MinimumWidth = 22;
+            this.SiraNo.Name = "SiraNo";
+            this.SiraNo.ReadOnly = true;
+            this.SiraNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // SeriLotNo
+            // 
+            this.SeriLotNo.HeaderText = "SERİ NO/LOT";
+            this.SeriLotNo.MinimumWidth = 22;
+            this.SeriLotNo.Name = "SeriLotNo";
+            this.SeriLotNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Rev
+            // 
+            this.Rev.HeaderText = "REVİZYON";
+            this.Rev.MinimumWidth = 22;
+            this.Rev.Name = "Rev";
+            this.Rev.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            // 
+            // Remove
+            // 
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Red;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Red;
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
+            this.Remove.HeaderText = "KALDIR";
+            this.Remove.MinimumWidth = 22;
+            this.Remove.Name = "Remove";
+            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Remove.Text = "X";
+            this.Remove.ToolTipText = "X";
+            this.Remove.UseColumnTextForButtonValue = true;
             // 
             // advancedDataGridView1
             // 
@@ -1012,55 +1061,6 @@
             this.label7.Size = new System.Drawing.Size(117, 13);
             this.label7.TabIndex = 434;
             this.label7.Text = "DEPO DÜŞÜM TÜRÜ:";
-            // 
-            // CmbSokulenStokNo
-            // 
-            this.CmbSokulenStokNo.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
-            this.CmbSokulenStokNo.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.CmbSokulenStokNo.FormattingEnabled = true;
-            this.CmbSokulenStokNo.Location = new System.Drawing.Point(118, 30);
-            this.CmbSokulenStokNo.Name = "CmbSokulenStokNo";
-            this.CmbSokulenStokNo.Size = new System.Drawing.Size(226, 21);
-            this.CmbSokulenStokNo.TabIndex = 501;
-            this.CmbSokulenStokNo.SelectedIndexChanged += new System.EventHandler(this.CmbSokulenStokNo_SelectedIndexChanged);
-            this.CmbSokulenStokNo.TextChanged += new System.EventHandler(this.CmbSokulenStokNo_TextChanged);
-            // 
-            // SiraNo
-            // 
-            this.SiraNo.HeaderText = "SIRA NO";
-            this.SiraNo.MinimumWidth = 22;
-            this.SiraNo.Name = "SiraNo";
-            this.SiraNo.ReadOnly = true;
-            this.SiraNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // SeriLotNo
-            // 
-            this.SeriLotNo.HeaderText = "SERİ NO/LOT";
-            this.SeriLotNo.MinimumWidth = 22;
-            this.SeriLotNo.Name = "SeriLotNo";
-            this.SeriLotNo.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Rev
-            // 
-            this.Rev.HeaderText = "REVİZYON";
-            this.Rev.MinimumWidth = 22;
-            this.Rev.Name = "Rev";
-            this.Rev.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            // 
-            // Remove
-            // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Red;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.Red;
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle5;
-            this.Remove.HeaderText = "KALDIR";
-            this.Remove.MinimumWidth = 22;
-            this.Remove.Name = "Remove";
-            this.Remove.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Remove.Text = "X";
-            this.Remove.ToolTipText = "X";
-            this.Remove.UseColumnTextForButtonValue = true;
             // 
             // FrmSayim
             // 

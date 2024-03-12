@@ -76,6 +76,7 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
         }
 
 
+
         public Barkod BarkodKontrolList(string stokNo, string seriNo, string revizyon)
         {
             try

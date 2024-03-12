@@ -161,6 +161,7 @@ namespace UserInterface.Ana_Sayfa
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(200, 100);
             this.panel3.TabIndex = 2;
+            this.panel3.Paint += new System.Windows.Forms.PaintEventHandler(this.panel3_Paint);
             this.panel3.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.panel3_MouseDoubleClick);
             // 
             // LbYoneticiGorevleri
@@ -384,7 +385,7 @@ namespace UserInterface.Ana_Sayfa
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(1030, 45);
             this.label41.TabIndex = 373;
-            this.label41.Text = "****MÜB Proje Direktörlüğü/Veri Takip Sistemi 2021-2023****";
+            this.label41.Text = "****MÜB Proje Direktörlüğü/Veri Takip Sistemi 2021-2024****";
             // 
             // panel7
             // 

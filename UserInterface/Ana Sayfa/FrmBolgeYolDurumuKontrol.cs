@@ -17,6 +17,7 @@ namespace UserInterface.Ana_Sayfa
     {
         YolDurumuGirmeyenManager yolDurumuGirmeyenManager;
         List<YolDurumuGirmeyen> yolDurumuGirmeyens;
+        List<YolDurumuGirmeyen> loginOlmayan;
         public FrmBolgeYolDurumuKontrol()
         {
             InitializeComponent();
@@ -26,6 +27,7 @@ namespace UserInterface.Ana_Sayfa
         private void FrmBolgeYolDurumuKontrol_Load(object sender, EventArgs e)
         {
             DataDisplay();
+            DataDisplay2();
         }
         void DataDisplay()
         {
@@ -40,6 +42,22 @@ namespace UserInterface.Ana_Sayfa
             DtgList.Columns["GorulmeDurumu"].Visible = false;
 
             LblTop.Text = DtgList.RowCount.ToString();
+
+        }
+
+        void DataDisplay2()
+        {
+            loginOlmayan = new List<YolDurumuGirmeyen>();
+            loginOlmayan = yolDurumuGirmeyenManager.GetListLoginOlmayan();
+            dataBinder2.DataSource = loginOlmayan.ToDataTable();
+            DtgList2.DataSource = dataBinder2;
+
+            DtgList2.Columns["Id"].Visible = false;
+            DtgList2.Columns["Personel"].HeaderText = "PERSONEL";
+            DtgList2.Columns["Tarih"].HeaderText = "TARİH";
+            DtgList2.Columns["GorulmeDurumu"].Visible = false;
+
+            LblTop2.Text = DtgList2.RowCount.ToString();
 
         }
 

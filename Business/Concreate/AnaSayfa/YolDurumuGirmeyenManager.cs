@@ -61,7 +61,17 @@ namespace Business.Concreate.AnaSayfa
                 return new List<YolDurumuGirmeyen>();
             }
         }
-
+        public List<YolDurumuGirmeyen> GetListLoginOlmayan()
+        {
+            try
+            {
+                return yolDurumuGirmeyenDall.GetListLoginOlmayan();
+            }
+            catch (Exception)
+            {
+                return new List<YolDurumuGirmeyen>();
+            }
+        }
         public string Update(YolDurumuGirmeyen entity)
         {
             throw new NotImplementedException();

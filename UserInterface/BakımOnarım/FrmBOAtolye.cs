@@ -1191,7 +1191,7 @@ namespace UserInterface.BakımOnarım
                             atolyeMalzemeManager.Add(atolyeMalzeme);
                             GorevAtama();
 
-                            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME", stokNo, seriNo, revizyon, "SÖKÜLEN");
+                            AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(kayitId, "300 - ATÖLYEYE GİDECEK MALZEME", item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenRevizyon"].Value.ToString(), "SÖKÜLEN");
                             abfMalzemeManager.MalzemeTeslimBilgisiUpdate(kayitId, "ATÖLYE BAKIM ONARIMDA");
                             AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(kayitId, "ATÖLYE BAKIM ONARIMDA", DateTime.Now, infos[1].ToString(), 0, abfMalzemeIslemKayit1.MalzemeDurumu, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenRevizyon"].Value.ToString());
                             abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);

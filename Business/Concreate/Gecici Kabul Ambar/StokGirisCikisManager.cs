@@ -208,6 +208,18 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
             }
         }
 
+        public List<StokGirisCıkıs> ArizaIadeControlList(string abfNo, string stokNo, string seriNo="", string lotNo="", string revizyon="")
+        {
+            try
+            {
+                return stokGirisCikisDal.ArizaIadeControlList(abfNo, stokNo, seriNo, lotNo, revizyon);
+            }
+            catch (Exception)
+            {
+                return new List<StokGirisCıkıs>();
+            }
+        }
+
         public string Update(StokGirisCıkıs entity,int id)
         {
             try

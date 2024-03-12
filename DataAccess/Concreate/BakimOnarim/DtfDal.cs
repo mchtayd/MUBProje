@@ -292,7 +292,7 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["Kimlik"].ConInt(), 
                         dataReader["BOLGE_ADI"].ToString(), 
                         dataReader["GARANTI"].ToString(), 
-                        dataReader["PROJE"].ToString(), 
+                        "",
                         dataReader["KATEGORI"].ToString(), 
                         dataReader["TANIM"].ToString(), 
                         dataReader["SERI_NO"].ToString(),

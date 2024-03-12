@@ -982,6 +982,7 @@ namespace UserInterface.BakımOnarım
             {
                 return kontrol2;
             }
+
             birSonrakiIslemAdimi = CmbIslemAdimi.Text;
             string gorevAtanacakPersonel = CmbGorevAtanacakPersonel.Text;
             GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", gorevAtanacakPersonel, birSonrakiIslemAdimi, DateTime.Now, "", DateTime.Now.Date);

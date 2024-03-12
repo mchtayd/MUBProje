@@ -49,6 +49,8 @@ namespace UserInterface.BakımOnarım
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
         DtsLogManager dtsLogManager;
 
+        public int seciliTabId=-1;
+        public int abfBul = 0;
         bool start = true, dosyaKontrol = false, kayitKontrol = false;
         public object[] infos;
         string isAkisNo, dosyaYolu = "", kaynakdosyaismi, alinandosya, proje, siparisNo, comboAd, personelGorevi, personelBolumu, sure;
@@ -138,6 +140,14 @@ namespace UserInterface.BakımOnarım
             yetkiModu = infos[11].ToString();
             tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
             tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage13"]);
+
+            if (seciliTabId > -1)
+            {
+                tabControl1.SelectedTab = tabControl1.TabPages["tabPage6"];
+                TxtAbfKapat.Text = abfBul.ToString();
+                BulKapat();
+            }
+
         }
         public void Yenilenecekler()
         {
@@ -1320,7 +1330,7 @@ namespace UserInterface.BakımOnarım
         }
         string arizaStok;
         int arizaId = 0;
-        private void BtnBulKapat_Click(object sender, EventArgs e)
+        void BulKapat()
         {
             if (TxtAbfKapat.Text == "")
             {
@@ -1335,7 +1345,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Girmiş Olduğunuz ABF No Ya Ait Bir Kayıt Bulunamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (arizaKayit.IslemAdimi!= "2000_ARIZA KAPATMA (DTS)")
+            if (arizaKayit.IslemAdimi != "2000_ARIZA KAPATMA (DTS)")
             {
                 MessageBox.Show("Bu arıza " + arizaKayit.IslemAdimi + " işlem adımındadır. Bu ekrandan işlem yapabilmek için arıza 2000_ARIZA KAPATMA (DTS) adımında olmalıdır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1360,10 +1370,10 @@ namespace UserInterface.BakımOnarım
             CmbIlgiliFirmaK.Text = arizaKayit.IlgiliFirma;
             CmbPyp.Text = arizaKayit.PypNo;
 
-            if (CmbPyp.Text=="")
+            if (CmbPyp.Text == "")
             {
                 BolgeKayit bolgeKayit = bolgeKayitManager.Get(0, arizaKayit.BolgeAdi);
-                if (bolgeKayit==null)
+                if (bolgeKayit == null)
                 {
                     CmbPyp.Text = "";
                 }
@@ -1397,7 +1407,7 @@ namespace UserInterface.BakımOnarım
             {
                 siparisNo = bolge.SiparisNo;
                 BolgeGaranti bolgeGaranti = bolgeGarantiManager.Get(siparisNo);
-                if (bolgeGaranti==null)
+                if (bolgeGaranti == null)
                 {
                     BolgeKayit bolgeKayit = bolgeKayitManager.Get(0, arizaKayit.BolgeAdi);
                     LblGarantiPaketi.Text = bolgeKayit.Proje;
@@ -1410,7 +1420,7 @@ namespace UserInterface.BakımOnarım
                     LblGarantiBas.Text = bolgeGaranti.GarantiBaslama.ToString("d");
                     LblGarantiBit.Text = bolgeGaranti.GarantiBitis.ToString("d");
                 }
-                
+
             }
             string dosya = arizaKayit.DosyaYolu;
             dosyaYolu = dosya;
@@ -1427,7 +1437,10 @@ namespace UserInterface.BakımOnarım
             {
                 return;
             }
-
+        }
+        private void BtnBulKapat_Click(object sender, EventArgs e)
+        {
+            BulKapat();
         }
 
         private void BtnNesneKoduEkle_Click(object sender, EventArgs e)

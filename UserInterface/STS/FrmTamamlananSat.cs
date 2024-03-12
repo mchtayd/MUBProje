@@ -1337,6 +1337,28 @@ namespace UserInterface.STS
             //MessageBox.Show("İşlemler başarıyla gerçekleşmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        private void kesilenFaturaOnaylaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id==0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Firmaya Kesilen Fatura bilgisini 'ONAYLANDI' olarak değiştirmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                string mesaj = tamamlananManager.FaturaDurumUpdate(id);
+                if (mesaj!="OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                TamamlananSatlar();
+                id = 0;
+                MessageBox.Show("Bilgiler başarıyla güncellenmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
         private void button1_Click_1(object sender, EventArgs e)
         {
             //if (TxtGerekce.Text=="")

@@ -234,6 +234,18 @@ namespace Business.Concreate.STS
             }
         }
 
+        public string FaturaDurumUpdate(int id)
+        {
+            try
+            {
+                return tamamlananDal.FaturaDurumUpdate(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
 
         public static TamamlananManager GetInstance()
         {

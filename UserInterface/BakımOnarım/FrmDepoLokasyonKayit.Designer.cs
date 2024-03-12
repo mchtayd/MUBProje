@@ -49,6 +49,7 @@ namespace UserInterface.BakımOnarım
             this.TxtTop2 = new System.Windows.Forms.Label();
             this.BtnDepoSil = new System.Windows.Forms.Button();
             this.BtnLokasyonSil = new System.Windows.Forms.Button();
+            this.BtnGuncelle = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepolar)).BeginInit();
             this.groupBox2.SuspendLayout();
@@ -172,7 +173,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnLokasyonEkle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLokasyonEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnLokasyonEkle.Location = new System.Drawing.Point(514, 676);
+            this.BtnLokasyonEkle.Location = new System.Drawing.Point(606, 671);
             this.BtnLokasyonEkle.Name = "BtnLokasyonEkle";
             this.BtnLokasyonEkle.Size = new System.Drawing.Size(74, 27);
             this.BtnLokasyonEkle.TabIndex = 9;
@@ -255,7 +256,7 @@ namespace UserInterface.BakımOnarım
             // 
             this.BtnLokasyonSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLokasyonSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnLokasyonSil.Location = new System.Drawing.Point(594, 676);
+            this.BtnLokasyonSil.Location = new System.Drawing.Point(686, 671);
             this.BtnLokasyonSil.Name = "BtnLokasyonSil";
             this.BtnLokasyonSil.Size = new System.Drawing.Size(74, 27);
             this.BtnLokasyonSil.TabIndex = 347;
@@ -263,11 +264,24 @@ namespace UserInterface.BakımOnarım
             this.BtnLokasyonSil.UseVisualStyleBackColor = true;
             this.BtnLokasyonSil.Click += new System.EventHandler(this.BtnLokasyonSil_Click);
             // 
+            // BtnGuncelle
+            // 
+            this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnGuncelle.Location = new System.Drawing.Point(514, 671);
+            this.BtnGuncelle.Name = "BtnGuncelle";
+            this.BtnGuncelle.Size = new System.Drawing.Size(86, 27);
+            this.BtnGuncelle.TabIndex = 348;
+            this.BtnGuncelle.Text = "GÜNCELLE";
+            this.BtnGuncelle.UseVisualStyleBackColor = true;
+            this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
+            // 
             // FrmDepoLokasyonKayit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(864, 718);
+            this.Controls.Add(this.BtnGuncelle);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.BtnLokasyonSil);
             this.Controls.Add(this.BtnDepoSil);
@@ -324,5 +338,6 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Label TxtTop2;
         private System.Windows.Forms.Button BtnDepoSil;
         private System.Windows.Forms.Button BtnLokasyonSil;
+        private System.Windows.Forms.Button BtnGuncelle;
     }
 }

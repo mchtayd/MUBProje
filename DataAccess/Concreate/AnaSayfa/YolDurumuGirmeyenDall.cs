@@ -71,6 +71,32 @@ namespace DataAccess.Concreate.AnaSayfa
                 return new List<YolDurumuGirmeyen>();
             }
         }
+        public List<YolDurumuGirmeyen> GetListLoginOlmayan()
+        {
+            try
+            {
+                DateTime basSaat = "00:01:00".ConOnlyTime();
+                DateTime bitSaat = "23:59:59".ConOnlyTime();
+                DateTime dateTime = new DateTime(DateTime.Now.Year, DateTime.Now.Month, DateTime.Now.Day, basSaat.Hour, basSaat.Minute, basSaat.Second);
+
+                List<YolDurumuGirmeyen> yolDurumuGirmeyens = new List<YolDurumuGirmeyen>();
+                dataReader = sqlServices.StoreReader("LoginOlmayan", new SqlParameter("@date", dateTime));
+                while (dataReader.Read())
+                {
+                    yolDurumuGirmeyens.Add(new YolDurumuGirmeyen(
+                        dataReader["ID"].ConInt(), 
+                        dataReader["AD_SOYAD"].ToString(), 
+                        dataReader["DURUM"].ToString(), 
+                        dataReader["SON_GORULME"].ConDate()));
+                }
+                dataReader.Close();
+                return yolDurumuGirmeyens;
+            }
+            catch (Exception)
+            {
+                return new List<YolDurumuGirmeyen>();
+            }
+        }
 
         public string Update(YolDurumuGirmeyen entity)
         {

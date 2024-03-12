@@ -2504,6 +2504,17 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
+            if (e.Node.Text == "Kapatılacak Arızalar")
+            {
+                FrmArizaKapatilacaklar Go = new FrmArizaKapatilacaklar();
+                Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageKapatilacakArizalar", "KAPATILACAK ARIZALAR", Go);
+                Go.Show();
+            }
+
             /*if (e.Node.Text == "Servis Talepleri")
             {
                 FrmServisTalepleri Go = new FrmServisTalepleri();
@@ -6235,7 +6246,7 @@ namespace UserInterface.STS
         private void etiketYazdırToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FrmEtiketYaz frmEtiketYaz = new FrmEtiketYaz();
-            frmEtiketYaz.ShowDialog();
+            frmEtiketYaz.Show();
         }
 
         private void toolStripDropDownButton1_Click(object sender, EventArgs e)

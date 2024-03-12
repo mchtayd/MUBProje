@@ -91,7 +91,7 @@
             this.TxtYaziBoyut.Name = "TxtYaziBoyut";
             this.TxtYaziBoyut.Size = new System.Drawing.Size(73, 20);
             this.TxtYaziBoyut.TabIndex = 429;
-            this.TxtYaziBoyut.Text = "30";
+            this.TxtYaziBoyut.Text = "15";
             // 
             // label2
             // 

@@ -95,6 +95,7 @@ namespace UserInterface.BakımOnarım
         }
         double genelToplma;
         List<DtfMaliyet> dtfMaliyets2;
+
         void ToplamMaliyet()
         {
             

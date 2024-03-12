@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Forms;
 using UserInterface.Depo;
+using UserInterface.Gecic_Kabul_Ambar;
+using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
 {
@@ -161,6 +163,12 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
 
+                FrmSayim frmSayim = (FrmSayim)Application.OpenForms["FrmSayim"];
+                if (frmSayim!=null)
+                {
+                    frmSayim.MalzemeYeri();
+                }
+
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 DataDisplayDepolar();
                 DtgLokasyonlar.DataSource = null;
@@ -216,6 +224,39 @@ namespace UserInterface.BakımOnarım
             }
         }
 
+        private void BtnGuncelle_Click(object sender, EventArgs e)
+        {
+            if (lokasyonId==0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir lokasyon seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Bilgileri güncellemek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                DepoKayitLokasyon depoKayitLokasyon = new DepoKayitLokasyon(lokasyonId, depoId, TxtLokasyon.Text, TxtLokasyonAcıklama.Text);
+                string mesaj = depoKayitLokasyonManager.Update(depoKayitLokasyon);
+
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                FrmSayim frmSayim = (FrmSayim)Application.OpenForms["FrmSayim"];
+                if (frmSayim != null)
+                {
+                    frmSayim.MalzemeYeri();
+                }
+
+                MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                DataDisplayDepolar();
+                DtgLokasyonlar.DataSource = null;
+                Temizle();
+                lokasyonId = 0;
+            }
+        }
+
         private void DtgLokasyonlar_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgLokasyonlar.CurrentRow == null)
@@ -225,7 +266,7 @@ namespace UserInterface.BakımOnarım
             }
             lokasyonId = DtgLokasyonlar.CurrentRow.Cells["Id"].Value.ConInt();
             TxtLokasyon.Text = DtgLokasyonlar.CurrentRow.Cells["Lokasyon"].Value.ToString();
-            TxtLokasyonAcıklama.Text = DtgDepolar.CurrentRow.Cells["Aciklama"].Value.ToString();
+            TxtLokasyonAcıklama.Text = DtgLokasyonlar.CurrentRow.Cells["Aciklama"].Value.ToString();
         }
     }
 }
