@@ -2,7 +2,9 @@
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
+using ClosedXML.Excel;
 using DataAccess.Concreate;
+using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Presentation;
 using Entity;
 using Entity.BakimOnarim;
@@ -12,10 +14,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Text;
 using System.Windows.Forms;
 using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.STS;
+using Color = System.Drawing.Color;
 
 namespace UserInterface.BakımOnarım
 {
@@ -38,6 +42,9 @@ namespace UserInterface.BakımOnarım
         int id, atolyeId, depoId, malzemeId;
         bool isComplete = false;
 
+        string yol = @"C:\DTS\Taslak\";
+        string kaynak = @"Z:\DTS\BAKIM ONARIM\TASLAKLAR\";
+
         public FrmArizaDevamEden()
         {
             InitializeComponent();
@@ -54,11 +61,18 @@ namespace UserInterface.BakımOnarım
             {
                 contextMenuStrip1.Items[1].Enabled = true;
                 contextMenuStrip2.Items[0].Enabled = true;
+                contextMenuStrip1.Items[4].Enabled = true;
+
             }
             else
             {
                 contextMenuStrip1.Items[1].Enabled = false;
                 contextMenuStrip2.Items[0].Enabled = false;
+                contextMenuStrip1.Items[4].Enabled = false;
+            }
+            if (infos[0].ConInt() == 1148)
+            {
+                contextMenuStrip1.Items[4].Enabled = true;
             }
             DataDisplay();
         }
@@ -775,7 +789,7 @@ namespace UserInterface.BakımOnarım
                 BtnTumunuGor.BackColor = Color.IndianRed;
                 BtnTumunuGor.Text = " GÖREVLERİM";
 
-                if (infos[0].ConInt() == 25 || infos[0].ConInt() == 30 || infos[0].ConInt() == 33 || infos[0].ConInt() == 84 || infos[0].ConInt() == 39 || infos[0].ConInt() == 1140 || infos[0].ConInt() == 1139 || infos[0].ConInt() == 54 || infos[0].ConInt() == 47 || infos[0].ConInt() == 57 || infos[0].ConInt() == 65 || infos[0].ConInt() == 1121 || infos[0].ConInt() == 1148 || infos[11].ToString() == "MİSAFİR")
+                if (infos[0].ConInt() == 25 || infos[0].ConInt() == 30 || infos[0].ConInt() == 33 || infos[0].ConInt() == 84 || infos[0].ConInt() == 39 || infos[0].ConInt() == 1140 || infos[0].ConInt() == 1139 || infos[0].ConInt() == 54 || infos[0].ConInt() == 47 || infos[0].ConInt() == 57 || infos[0].ConInt() == 65 || infos[0].ConInt() == 1121 || infos[0].ConInt() == 1148 || infos[11].ToString() == "MİSAFİR" || infos[0].ConInt() == 105 || infos[0].ConInt() == 104 || infos[0].ConInt() == 51 || infos[0].ConInt() == 1120)
                 {
                     arizaKayits = arizaKayitManager.DevamEdenlerGetList("", "");
                 }
@@ -958,7 +972,91 @@ namespace UserInterface.BakımOnarım
             frmMalzemeVeriGecmisi.ShowDialog();
             malzemeId = 0;
         }
-        string sokulenSeriLotNo, sokulenRevizyon, takilanStokNo, takilanSeriNo, takilanRevizyon, takilanTanim, takilanBirim; int takilanMiktar;
+        string sokulenSeriLotNo, sokulenRevizyon, takilanStokNo, takilanSeriNo, takilanRevizyon, takilanTanim, takilanBirim, taslakYolu;
+
+        void TaslakKopyalaExcel()
+        {
+            string root = @"C:\DTS";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(yol))
+            {
+                Directory.CreateDirectory(yol);
+            }
+
+            File.Copy(kaynak + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx", yol + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx");
+
+            taslakYolu = yol + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx";
+        }
+
+        private void sektörCihazlarıOKFExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Sektör cihazları için OKF Excel dosyasını oluşturmak istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+            TaslakKopyalaExcel();
+
+            string excelFilePath = Path.Combine(yol, "Ek-1 OKF_üs bölge adı_iş akış no.xlsx");
+            bool exists = File.Exists(excelFilePath);
+            IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
+            IXLWorksheet worksheet = xLWorkbook.Worksheet("Sheet2");
+
+            var range = worksheet.RangeUsed();
+            DateTime date = new DateTime(arizaTarihi.Year, arizaTarihi.Month, arizaTarihi.Day, arizaTarihi.Hour, arizaTarihi.Minute, arizaTarihi.Second);
+            
+            worksheet.Cell("I4").Value = date.ToString("d");
+            worksheet.Cell("J4").Value = DateTime.Now.ToString("d");
+            worksheet.Cell("L4").Value = DateTime.Now.ToString("d");
+            worksheet.Cell("C7").Value = ustStok;
+            worksheet.Cell("F7").Value = ustTanim;
+            worksheet.Cell("J7").Value = ustSeri;
+            int sayac = 0;
+            int satir = 2;
+            string messege = "MÜB Projesi kapsamında yapılan kontrollerde " + bildirilenAriza.ToLower() + "\n\n    ÜS bölgesinde keşif işlemleri tamamlanmış olup,yapılacak faaliyet aşağıda detaylandırılmıştır.";
+            foreach (DataGridViewRow item in DtgMalzemeListesi.Rows)
+            {
+                string message = item.Cells["SokulenStokNo"].Value.ToString() + " - " + "SN: " + item.Cells["SokulenSeriNo"].Value.ToString() + " " + item.Cells["SokulenTanim"].Value.ToString();
+                messege += "\n    -" + message;
+
+                if (sayac==0)
+                {
+                    worksheet.Cell("D18").Value = item.Cells["SokulenStokNo"].Value.ToString();
+                    worksheet.Cell("G18").Value = item.Cells["SokulenTanim"].Value.ToString();
+                    worksheet.Cell("J18").Value = item.Cells["SokulenSeriNo"].Value.ToString();
+                }
+                sayac++;
+                worksheet.Cell("A2" + satir.ToString()).Value = sayac;
+                worksheet.Cell("B2" + satir.ToString()).Value = item.Cells["SokulenStokNo"].Value.ToString();
+                worksheet.Cell("D2" + satir.ToString()).Value = item.Cells["SokulenTanim"].Value.ToString();
+                worksheet.Cell("I2" + satir.ToString()).Value = item.Cells["SokulenMiktar"].Value.ToString();
+                worksheet.Cell("J2" + satir.ToString()).Value = item.Cells["SokulenBirim"].Value.ToString();
+                satir++;
+            }
+
+            worksheet.Cell("A12").Value = messege;
+            worksheet.Cell("A11").Value = bolgeAdi;
+
+            xLWorkbook.SaveAs(dosyaYolu + "\\" + "Ek-1 OKF_" + bolgeAdi + "_" + abfNo + ".xlsx");
+            xLWorkbook.Dispose(); // workbook nesnesini temizler
+
+            Directory.Delete(yol, true);
+
+            webBrowser1.Navigate(dosyaYolu);
+            id = 0;
+            MessageBox.Show("İşlem başarıyla gerçekleşmiştir.Excel dosyası arızanın ekindedir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+
+        int takilanMiktar;
         private void DtgMalzemeListesi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if(DtgMalzemeListesi.CurrentRow == null)
@@ -1017,6 +1115,8 @@ namespace UserInterface.BakımOnarım
         }
         string bolgeAdi = "";
         string arizaBildirimTarih, arizayiBildiren, bildirilenAriza, tespitEdilenAriza, garantiDurumu, kategori, bildirimTuru, bildirimNo, okfBildirimNo;
+        DateTime arizaTarihi;
+        string ustStok, ustTanim, ustSeri;
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -1031,6 +1131,7 @@ namespace UserInterface.BakımOnarım
             bolgeSorumlusu = DtgList.CurrentRow.Cells["AcmaOnayiVeren"].Value.ToString();
             bolgeAdi = DtgList.CurrentRow.Cells["BolgeAdi"].Value.ToString();
             arizaBildirimTarih = DtgList.CurrentRow.Cells["AbTarihSaat"].Value.ToString();
+            arizaTarihi = arizaBildirimTarih.ConDate();
             arizayiBildiren = DtgList.CurrentRow.Cells["AbRutbesi"].Value.ToString() + " " + DtgList.CurrentRow.Cells["ArizaiBildirenPersonel"].Value.ToString();
             bildirilenAriza = DtgList.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
             tespitEdilenAriza = DtgList.CurrentRow.Cells["TespitEdilenAriza"].Value.ToString();
@@ -1039,6 +1140,10 @@ namespace UserInterface.BakımOnarım
             bildirimTuru = DtgList.CurrentRow.Cells["BildirimTuru"].Value.ToString();
             bildirimNo = DtgList.CurrentRow.Cells["BildirimNo"].Value.ToString();
             okfBildirimNo = DtgList.CurrentRow.Cells["OkfBildirimNo"].Value.ToString();
+            ustStok = DtgList.CurrentRow.Cells["StokNo"].Value.ToString();
+            ustTanim = DtgList.CurrentRow.Cells["Tanim"].Value.ToString();
+            ustSeri = DtgList.CurrentRow.Cells["SeriNo"].Value.ToString();
+
             LblSeciliAbf.Text = abfNo;
             IslemAdimlariSureleri();
             MalzemeListesi();

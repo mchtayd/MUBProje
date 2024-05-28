@@ -318,7 +318,7 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ID"].ConInt(),
                         dataReader["BOLGE_ADI"].ToString(),
                         dataReader["GARANTI_DURUMU"].ToString(),
-                        dataReader["GARANTI_PAKETI"].ToString(),
+                        "",
                         dataReader["KATEGORI"].ToString(),
                         dataReader["TANIM"].ToString(),
                         dataReader["SERI_NO"].ToString(),

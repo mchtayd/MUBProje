@@ -144,7 +144,18 @@ namespace Business.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
-
+        public string UpdateDirectoryPath(int id, string filePath)
+        {
+            try
+            {
+                
+                return malzemeKayitDal.UpdateDirectoryPath(id, filePath);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string StokDuzelt(string stokNo, int id)
         {
             try

@@ -169,7 +169,7 @@ namespace UserInterface.BakımOnarım
         {
             BulClick();
         }
-        string bolgeAdi,abf = "";
+        string bolgeAdi, abf = "";
         void BulClick()
         {
             if (TxtAbfNo.Text == "")
@@ -266,6 +266,7 @@ namespace UserInterface.BakımOnarım
                 GrbVeriGecmisi.Visible = false;
                 BtnSokulenEkle.Enabled = true;
                 BtnEkle.Enabled = false;
+
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
             }
 
@@ -274,7 +275,7 @@ namespace UserInterface.BakımOnarım
             AtolyeKayitlari();
             MalzemeListesi();
             GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM");
-            if (gorevAtamaPersonel==null)
+            if (gorevAtamaPersonel == null)
             {
                 MessageBox.Show("Malzeme Veri Geçmişine ulaşılamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -1151,7 +1152,7 @@ namespace UserInterface.BakımOnarım
             frmMalzemeVeriGecmisi.ShowDialog();
             malzemeId = 0;
         }
-        string stok,tanim, sokulenSeriLotNo, sokulenRevizyon, takilanStokNo, takilanSeriNo, takilanRevizyon, takilanTanim, takilanBirim, miktar, birim; int takilanMiktar, malzemeId;
+        string stok, tanim, sokulenSeriLotNo, sokulenRevizyon, takilanStokNo, takilanSeriNo, takilanRevizyon, takilanTanim, takilanBirim, miktar, birim; int takilanMiktar, malzemeId;
         private void DtgMalzemeListesi_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgMalzemeListesi.CurrentRow == null)
@@ -1598,7 +1599,7 @@ namespace UserInterface.BakımOnarım
                 }
 
             }
-            if (LblMevcutIslemAdimi.Text== "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+            if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
             {
                 if (DtgSokulen.RowCount == 0)
                 {
@@ -1607,7 +1608,7 @@ namespace UserInterface.BakımOnarım
                 }
             }
 
-            
+
 
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr != DialogResult.Yes)
@@ -1631,7 +1632,7 @@ namespace UserInterface.BakımOnarım
                         return;
                     }
                 }
-                
+
             }
 
             if (CmbIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
@@ -1721,6 +1722,28 @@ namespace UserInterface.BakımOnarım
 
             if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
             {
+                bool control = false;
+                abfMalzemes = abfMalzemeManager.GetList(id);
+                int index = 0;
+
+                if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(x.TakilanStokNo)))
+                {
+                    if (abfMalzemes[index].TakilanTeslimDurum == "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI")
+                    {
+                        control = true;
+                    }
+                    else
+                    {
+                        control = false;
+                        index++;
+                    }
+                }
+                if (control == false)
+                {
+                    MessageBox.Show("Lütfen öncelikle sökülen olarak gireceğiniz malzemeyi teslim/tesellüm üzerinden teslim alınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 foreach (DataGridViewRow item in DtgSokulen.Rows)
                 {
                     AbfMalzeme abfMalzemeSokulen = new AbfMalzeme(id, item.Cells["SokulenStokNo"].Value.ToString(), item.Cells["SokulenTanim"].Value.ToString(), item.Cells["SokulenSeriNo"].Value.ToString(), item.Cells["SokulenMiktar"].Value.ConInt(),
@@ -1759,11 +1782,11 @@ namespace UserInterface.BakımOnarım
 
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
-                if (tekrarliIslemAdimi==false) // KONTROL EDİLECEK
+                if (tekrarliIslemAdimi == false) // KONTROL EDİLECEK
                 {
                     if (CmbIslemAdimi.Text != "1500_BAKIM ONARIM (SAHA)")
                     {
-                        if (CmbIslemAdimi.Text != "1000_DEPO STOK KONTROL")
+                        if (CmbIslemAdimi.Text != "1000_STOK KONTROL (DEPO)")
                         {
                             abfMalzemes = abfMalzemeManager.GetList(id);
 
@@ -1841,7 +1864,7 @@ namespace UserInterface.BakımOnarım
                                 abfMalzemeManager.UpdateTakilan(item, sokulenId);
                                 abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
 
-                                
+
                                 index++;
                             }
                             foreach (AbfMalzeme item in addItems)
@@ -1883,7 +1906,7 @@ namespace UserInterface.BakımOnarım
 
         void DtsLogKayit()
         {
-            string islem = bolgeAdi + " bölgesinin " + abf + " ABF Numaralı arıza kaydı " + LblMevcutIslemAdimi.Text + " adımından " + CmbIslemAdimi.Text + " adımına, " + CmbGorevAtanacakPersonel.Text + " kişisine görev atanarak güncellenmiştir."; 
+            string islem = bolgeAdi + " bölgesinin " + abf + " ABF Numaralı arıza kaydı " + LblMevcutIslemAdimi.Text + " adımından " + CmbIslemAdimi.Text + " adımına, " + CmbGorevAtanacakPersonel.Text + " kişisine görev atanarak güncellenmiştir.";
             DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "BİLDİRİM DURUM GÜNCELLE", islem);
             dtsLogManager.Add(dtsLog);
         }

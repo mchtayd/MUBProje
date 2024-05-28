@@ -72,5 +72,16 @@ namespace Business.Concreate.AnaSayfa
                 return ex.Message;
             }
         }
+        public string Control()
+        {
+            try
+            {
+                return logDal.Control();
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

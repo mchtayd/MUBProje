@@ -1167,8 +1167,8 @@ namespace UserInterface.BakımOnarım
                                 icSiparisNo = "221BO" + DateTime.Now.ToString("MM") + item.Cells["AbfNo"].Value.ToString();
                             }
 
-
-                            Atolye atolye2 = new Atolye(abfNo.ConInt(), arizaKayit.StokNo, arizaKayit.Tanim, arizaKayit.SeriNo, arizaKayit.GarantiDurumu, arizaKayit.BildirimNo, "", arizaKayit.Kategori, arizaKayit.BolgeAdi, arizaKayit.Proje, arizaKayit.BildirilenAriza, icSiparisNo, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo, "", CmbAtolyeKategoriOto.Text, kayitId);
+                            kayitId = item.Cells["Id"].Value.ConInt();
+                            Atolye atolye2 = new Atolye(item.Cells["AbfNo"].Value.ConInt(), arizaKayit.StokNo, arizaKayit.Tanim, arizaKayit.SeriNo, arizaKayit.GarantiDurumu, arizaKayit.BildirimNo, "", arizaKayit.Kategori, arizaKayit.BolgeAdi, arizaKayit.Proje, arizaKayit.BildirilenAriza, icSiparisNo, DtgCekilmeTarihi.Value, DtgSiparisTarihi.Value, TxtModifikasyonlar.Text, TxtNotlar.Text, CmbIslemAdimi.Text, siparisNo, "", CmbAtolyeKategoriOto.Text, kayitId);
 
                             atolyeManager.Add(atolye2);
 

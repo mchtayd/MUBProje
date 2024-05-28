@@ -1,16 +1,9 @@
 ﻿using Business;
 using Business.Concreate.BakimOnarimAtolye;
-using DataAccess.Concreate;
 using Entity;
 using Entity.BakimOnarimAtolye;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace UserInterface.Ana_Sayfa
@@ -36,6 +29,8 @@ namespace UserInterface.Ana_Sayfa
             KategoriGetir();
             AtolyeIslemAdimlari();
             timer1.Start();
+            timer2.Start();
+            TimerSaat.Start();
         }
         void KategoriGetir()
         {
@@ -231,6 +226,17 @@ namespace UserInterface.Ana_Sayfa
         private void FrmAtolyeVeri_FormClosing(object sender, FormClosingEventArgs e)
         {
             timer1.Stop();
+        }
+
+        private void timer2_Tick(object sender, EventArgs e)
+        {
+            label3.Text = label3.Text.Substring(1) + label3.Text.Substring(0, 1);
+        }
+
+        private void TimerSaat_Tick(object sender, EventArgs e)
+        {
+            LblSaat.Text = DateTime.Now.ToString("HH:mm:ss");
+            LblTarih.Text = DateTime.Now.ToLongDateString();
         }
     }
 }

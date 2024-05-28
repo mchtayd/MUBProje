@@ -119,6 +119,7 @@ namespace UserInterface.STS
             this.toolStripDropDownButton4 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripDropDownButton5 = new System.Windows.Forms.ToolStripDropDownButton();
             this.ambarVeriİzlemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.geçiciKabulVeriİzlemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atölyeVeriİzlemeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sahaBakımOnarımToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altYükKontKoordToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -138,6 +139,7 @@ namespace UserInterface.STS
             this.envanterArızaKayıtToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fazlaÇalışmaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
+            this.toolStripDropDownButton7 = new System.Windows.Forms.ToolStripDropDownButton();
             this.webContent = new System.Windows.Forms.WebBrowser();
             this.PnlBildirim = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -584,7 +586,8 @@ namespace UserInterface.STS
             this.toolStripDropDownButton4,
             this.toolStripDropDownButton5,
             this.toolStripDropDownButton6,
-            this.toolStripDropDownButton1});
+            this.toolStripDropDownButton1,
+            this.toolStripDropDownButton7});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
             this.toolStrip1.Size = new System.Drawing.Size(1222, 28);
@@ -609,7 +612,7 @@ namespace UserInterface.STS
             this.içeAktarToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem1});
             this.içeAktarToolStripMenuItem.Name = "içeAktarToolStripMenuItem";
-            this.içeAktarToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.içeAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.içeAktarToolStripMenuItem.Text = "Paylaş";
             // 
             // toolStripMenuItem1
@@ -625,7 +628,7 @@ namespace UserInterface.STS
             this.pDFToolStripMenuItem1,
             this.wORDToolStripMenuItem});
             this.dışaAktarToolStripMenuItem.Name = "dışaAktarToolStripMenuItem";
-            this.dışaAktarToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.dışaAktarToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.dışaAktarToolStripMenuItem.Text = "Dışa Aktar";
             // 
             // excelToolStripMenuItem1
@@ -652,13 +655,13 @@ namespace UserInterface.STS
             this.yazdırToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.etiketYazdırToolStripMenuItem});
             this.yazdırToolStripMenuItem.Name = "yazdırToolStripMenuItem";
-            this.yazdırToolStripMenuItem.Size = new System.Drawing.Size(151, 26);
+            this.yazdırToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.yazdırToolStripMenuItem.Text = "Yazdır";
             // 
             // etiketYazdırToolStripMenuItem
             // 
             this.etiketYazdırToolStripMenuItem.Name = "etiketYazdırToolStripMenuItem";
-            this.etiketYazdırToolStripMenuItem.Size = new System.Drawing.Size(164, 26);
+            this.etiketYazdırToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.etiketYazdırToolStripMenuItem.Text = "Etiket Yazdır";
             this.etiketYazdırToolStripMenuItem.Click += new System.EventHandler(this.etiketYazdırToolStripMenuItem_Click);
             // 
@@ -975,6 +978,7 @@ namespace UserInterface.STS
             // 
             this.toolStripDropDownButton5.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ambarVeriİzlemeToolStripMenuItem,
+            this.geçiciKabulVeriİzlemeToolStripMenuItem,
             this.atölyeVeriİzlemeToolStripMenuItem,
             this.sahaBakımOnarımToolStripMenuItem,
             this.altYükKontKoordToolStripMenuItem,
@@ -995,6 +999,13 @@ namespace UserInterface.STS
             this.ambarVeriİzlemeToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
             this.ambarVeriİzlemeToolStripMenuItem.Text = "Ambar Veri İzle";
             this.ambarVeriİzlemeToolStripMenuItem.Click += new System.EventHandler(this.ambarVeriİzlemeToolStripMenuItem_Click);
+            // 
+            // geçiciKabulVeriİzlemeToolStripMenuItem
+            // 
+            this.geçiciKabulVeriİzlemeToolStripMenuItem.Name = "geçiciKabulVeriİzlemeToolStripMenuItem";
+            this.geçiciKabulVeriİzlemeToolStripMenuItem.Size = new System.Drawing.Size(301, 26);
+            this.geçiciKabulVeriİzlemeToolStripMenuItem.Text = "Geçici Kabul Veri İzleme";
+            this.geçiciKabulVeriİzlemeToolStripMenuItem.Click += new System.EventHandler(this.geçiciKabulVeriİzlemeToolStripMenuItem_Click);
             // 
             // atölyeVeriİzlemeToolStripMenuItem
             // 
@@ -1141,6 +1152,16 @@ namespace UserInterface.STS
             this.toolStripDropDownButton1.Text = "Yemek Listesi";
             this.toolStripDropDownButton1.ToolTipText = "Yemek Listesi";
             this.toolStripDropDownButton1.Click += new System.EventHandler(this.toolStripDropDownButton1_Click);
+            // 
+            // toolStripDropDownButton7
+            // 
+            this.toolStripDropDownButton7.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton7.Image")));
+            this.toolStripDropDownButton7.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton7.Name = "toolStripDropDownButton7";
+            this.toolStripDropDownButton7.Size = new System.Drawing.Size(146, 25);
+            this.toolStripDropDownButton7.Text = "Telefon Rehberi";
+            this.toolStripDropDownButton7.ToolTipText = "Telefon Rehberi";
+            this.toolStripDropDownButton7.Click += new System.EventHandler(this.toolStripDropDownButton7_Click);
             // 
             // webContent
             // 
@@ -1484,5 +1505,7 @@ namespace UserInterface.STS
         public System.Windows.Forms.TreeView TreeMenu;
         public System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton7;
+        private System.Windows.Forms.ToolStripMenuItem geçiciKabulVeriİzlemeToolStripMenuItem;
     }
 }

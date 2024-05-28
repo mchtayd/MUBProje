@@ -40,6 +40,7 @@ namespace UserInterface.STS
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.yenileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.kesilenFaturaOnaylaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label1 = new System.Windows.Forms.Label();
@@ -167,7 +168,6 @@ namespace UserInterface.STS
             this.LblGenelTop = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.kesilenFaturaOnaylaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTamamlananSatlar)).BeginInit();
@@ -254,7 +254,7 @@ namespace UserInterface.STS
             this.güncelleToolStripMenuItem,
             this.kesilenFaturaOnaylaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(188, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(188, 70);
             // 
             // yenileToolStripMenuItem
             // 
@@ -269,6 +269,13 @@ namespace UserInterface.STS
             this.güncelleToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
             this.güncelleToolStripMenuItem.Text = "Güncelle";
             this.güncelleToolStripMenuItem.Click += new System.EventHandler(this.güncelleToolStripMenuItem_Click);
+            // 
+            // kesilenFaturaOnaylaToolStripMenuItem
+            // 
+            this.kesilenFaturaOnaylaToolStripMenuItem.Name = "kesilenFaturaOnaylaToolStripMenuItem";
+            this.kesilenFaturaOnaylaToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
+            this.kesilenFaturaOnaylaToolStripMenuItem.Text = "Kesilen Fatura Onayla";
+            this.kesilenFaturaOnaylaToolStripMenuItem.Click += new System.EventHandler(this.kesilenFaturaOnaylaToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -429,9 +436,8 @@ namespace UserInterface.STS
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(106, 27);
             this.BtnGuncelle.TabIndex = 537;
-            this.BtnGuncelle.Text = "GÜNCELLE";
+            this.BtnGuncelle.Text = "Tutarları Düzelt";
             this.BtnGuncelle.UseVisualStyleBackColor = true;
-            this.BtnGuncelle.Visible = false;
             this.BtnGuncelle.Click += new System.EventHandler(this.BtnGuncelle_Click);
             // 
             // PnlTemsili
@@ -1512,13 +1518,6 @@ namespace UserInterface.STS
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 354;
             this.label5.Text = "Toplam Kayıt:";
-            // 
-            // kesilenFaturaOnaylaToolStripMenuItem
-            // 
-            this.kesilenFaturaOnaylaToolStripMenuItem.Name = "kesilenFaturaOnaylaToolStripMenuItem";
-            this.kesilenFaturaOnaylaToolStripMenuItem.Size = new System.Drawing.Size(187, 22);
-            this.kesilenFaturaOnaylaToolStripMenuItem.Text = "Kesilen Fatura Onayla";
-            this.kesilenFaturaOnaylaToolStripMenuItem.Click += new System.EventHandler(this.kesilenFaturaOnaylaToolStripMenuItem_Click);
             // 
             // FrmTamamlananSat
             // 

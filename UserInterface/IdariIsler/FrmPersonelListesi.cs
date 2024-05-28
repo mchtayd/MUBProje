@@ -188,6 +188,7 @@ namespace UserInterface.IdariIşler
                 MsdIseGiris.Text = item.Isegiristarihi.ToString();
                 TxtSirketMail.Text = item.Sirketmail;
                 TxtOfficeMail.Text = item.Oficemail;
+                TxtKgbNo.Text = item.KgbNo;
             }
 
             WebBrowser();

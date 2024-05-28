@@ -33,6 +33,8 @@ namespace UserInterface.Yerleskeler
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CmbButceGiderTuru = new System.Windows.Forms.ComboBox();
+            this.label13 = new System.Windows.Forms.Label();
             this.BtnGiderTuruEkle = new System.Windows.Forms.Button();
             this.TxtAciklama = new System.Windows.Forms.RichTextBox();
             this.label12 = new System.Windows.Forms.Label();
@@ -81,8 +83,6 @@ namespace UserInterface.Yerleskeler
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.BtnDosya = new System.Windows.Forms.Button();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.CmbButceGiderTuru = new System.Windows.Forms.ComboBox();
-            this.label13 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -156,6 +156,24 @@ namespace UserInterface.Yerleskeler
             this.groupBox1.TabIndex = 408;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "YERLEŞKE GİDERLERİ";
+            // 
+            // CmbButceGiderTuru
+            // 
+            this.CmbButceGiderTuru.FormattingEnabled = true;
+            this.CmbButceGiderTuru.Location = new System.Drawing.Point(182, 599);
+            this.CmbButceGiderTuru.Name = "CmbButceGiderTuru";
+            this.CmbButceGiderTuru.Size = new System.Drawing.Size(278, 21);
+            this.CmbButceGiderTuru.TabIndex = 556;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label13.Location = new System.Drawing.Point(72, 600);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(102, 15);
+            this.label13.TabIndex = 555;
+            this.label13.Text = "Bütçe Gider Türü:";
             // 
             // BtnGiderTuruEkle
             // 
@@ -409,12 +427,6 @@ namespace UserInterface.Yerleskeler
             this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDonemYil.FormattingEnabled = true;
             this.CmbDonemYil.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
             "2024",
             "2025",
             "2026",
@@ -675,24 +687,6 @@ namespace UserInterface.Yerleskeler
             this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
-            // CmbButceGiderTuru
-            // 
-            this.CmbButceGiderTuru.FormattingEnabled = true;
-            this.CmbButceGiderTuru.Location = new System.Drawing.Point(182, 599);
-            this.CmbButceGiderTuru.Name = "CmbButceGiderTuru";
-            this.CmbButceGiderTuru.Size = new System.Drawing.Size(278, 21);
-            this.CmbButceGiderTuru.TabIndex = 556;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label13.Location = new System.Drawing.Point(72, 600);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(102, 15);
-            this.label13.TabIndex = 555;
-            this.label13.Text = "Bütçe Gider Türü:";
             // 
             // FrmYerleskeGideriKayit
             // 

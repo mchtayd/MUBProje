@@ -319,6 +319,21 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
                 return ex.Message;
             }
         }
+        public string UpdateDirectoryPath(int id, string filePath)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("MalzemeKayitDosyaYoluUpdate",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@dosyaYolu", filePath));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string StokDuzelt(string stokNo,int id)
         {

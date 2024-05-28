@@ -517,7 +517,9 @@ namespace UserInterface.BakımOnarım
 
         private void BtnExcelAl_Click(object sender, EventArgs e)
         {
-            DataTable table = FrmHelper.GetDataTableFromExcel("C:\\Users\\MAYıldırım\\Desktop\\MÜB-4 MUHTEVİYAT LİSTESİ.xlsx", "KARLISIRT Ü.B.");
+            DataTable table = FrmHelper.GetDataTableFromExcel("C:\\Users\\MAYıldırım\\Desktop\\MÜB ŞİKEFTE  YERLEŞİM KAYITLARI.xlsx", "MÜB-4-5-6-7");
+
+            //DataTable table = FrmHelper.GetDataTableFromExcel("C:\\Users\\MAYıldırım\\Desktop\\MÜB-4 MUHTEVİYAT LİSTESİ.xlsx", "KARLISIRT Ü.B.");
 
             DtgEnvanterList.DataSource = null;
             DtgEnvanterList.DataSource = table;
@@ -598,14 +600,14 @@ namespace UserInterface.BakımOnarım
                     string[] miktar = item.Cells[4].Value.ToString().Split(' ');
                     if (miktar[0] == "")
                     {
-                        bolgeEnvanter = new BolgeEnvanter(bolgeId, item.Cells[0].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
-                                item.Cells[3].Value.ToString(), 1, "SET", item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), item.Cells[8].Value.ToString(), DateTime.Now, LblBolgeKonfig.Text);
-                        bolgeEnvanterManager.Add(bolgeEnvanter);
-                        continue;
+                        //bolgeEnvanter = new BolgeEnvanter(bolgeId, item.Cells[0].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
+                        //        item.Cells[3].Value.ToString(), 1, "SET", item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), item.Cells[8].Value.ToString(), DateTime.Now, LblBolgeKonfig.Text);
+                        //bolgeEnvanterManager.Add(bolgeEnvanter);
+                        //continue;
                     }
 
-                    bolgeEnvanter = new BolgeEnvanter(bolgeId, item.Cells["BolgeId"].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
-                                item.Cells[3].Value.ToString(), miktar[0].ConInt(), miktar[1].ToString().ToUpper(), item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), item.Cells[8].Value.ToString(), DateTime.Now, LblBolgeKonfig.Text);
+                    bolgeEnvanter = new BolgeEnvanter(bolgeId, item.Cells[0].Value.ToString(), item.Cells[1].Value.ToString(), item.Cells[2].Value.ToString(),
+                                item.Cells[3].Value.ToString(), miktar[0].ConInt(), miktar[1].ToString().ToUpper(), item.Cells[5].Value.ToString(), item.Cells[6].Value.ToString(), item.Cells[7].Value.ToString(), DateTime.Now, LblBolgeKonfig.Text);
                     bolgeEnvanterManager.Add(bolgeEnvanter);
                 }
             }

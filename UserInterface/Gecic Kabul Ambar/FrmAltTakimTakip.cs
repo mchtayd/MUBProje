@@ -77,7 +77,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbProj();
             DataDisplay();
             DtgSaat.Value = DateTime.Now;
-            start = false;
+            
             List<string> adimlarSokulen = new List<string>();
             List<string> adimlarTakilan = new List<string>();
             List<string> adimlarList = new List<string>();
@@ -99,6 +99,8 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbTeslimTuru.DataSource = adimlarList;
             CmbTeslimTuru.SelectedIndex = -1;
             BtnDisaAktar.Visible = false;
+
+            start = false;
 
             if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39 || infos[0].ConInt() == 1148)
             {
@@ -147,8 +149,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
         public void Yenilenecekler()
         {
             start = true;
+            string secili = CmbTeslimTuru.Text;
             CmbProj();
-            DataDisplay();
+            //DataDisplay();
             DtgSaat.Value = DateTime.Now;
             start = false;
             List<string> adimlarSokulen = new List<string>();
@@ -173,78 +176,144 @@ namespace UserInterface.Gecic_Kabul_Ambar
             CmbTeslimTuru.DataSource = adimlarList;
             CmbTeslimTuru.SelectedIndex = -1;
             BtnDisaAktar.Visible = false;
+            start = false;
+            CmbTeslimTuru.Text = secili;
         }
 
         void DataDisplay()
         {
-            abfMalzemes = new List<AbfMalzeme>();
-            dataBinder.DataSource = null;
-
-            if (start == false)
+            if (ChkAllData.Checked==true)
             {
-                abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList(CmbTeslimTuru.Text);
+                abfMalzemes = new List<AbfMalzeme>();
+                dataBinder.DataSource = null;
+
+                CmbTeslimTuru.SelectedIndex = -1;
+
+                abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ");
+
+                abfMalzemesFiltired = abfMalzemes;
+                dataBinder.DataSource = abfMalzemes.ToDataTable();
+                DtgList.DataSource = dataBinder;
+                TxtTop.Text = DtgList.RowCount.ToString();
+
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["BenzersizId"].Visible = false;
+                DtgList.Columns["SokulenStokNo"].HeaderText = "STOK NO";
+                DtgList.Columns["SokulenTanim"].HeaderText = "TANIM";
+                DtgList.Columns["SokulenSeriNo"].HeaderText = "SERİ NO";
+                DtgList.Columns["SokulenMiktar"].HeaderText = "MİKTAR";
+                DtgList.Columns["SokulenBirim"].HeaderText = "BİRİM";
+                DtgList.Columns["SokulenCalismaSaati"].Visible = false;
+                DtgList.Columns["SokulenRevizyon"].HeaderText = "REVİZYON";
+                DtgList.Columns["CalismaDurumu"].Visible = false;
+                DtgList.Columns["FizikselDurum"].Visible = false;
+                DtgList.Columns["TakilanStokNo"].Visible = false;
+                DtgList.Columns["TakilanTanim"].Visible = false;
+                DtgList.Columns["TakilanSeriNo"].Visible = false;
+                DtgList.Columns["TakilanMiktar"].Visible = false;
+                DtgList.Columns["TakilanBirim"].Visible = false;
+                DtgList.Columns["TakilanCalismaSaati"].Visible = false;
+                DtgList.Columns["TakilanRevizyon"].Visible = false;
+                DtgList.Columns["TeminDurumu"].Visible = false;
+                DtgList.Columns["AbfNo"].HeaderText = "ABF NO";
+                DtgList.Columns["AbTarihSaat"].Visible = false;
+                DtgList.Columns["TemineAtilamTarihi"].Visible = false;
+                DtgList.Columns["MalzemeDurumu"].Visible = false;
+                DtgList.Columns["MalzemeIslemAdimi"].Visible = false;
+                DtgList.Columns["SokulenTeslimDurum"].HeaderText = "MALZEME TESLİM DURUMU";
+                DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
+                DtgList.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
+                DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
+                DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
+                DtgList.Columns["YerineMalzemeTakilma"].Visible = false;
+                DtgList.Columns["DosyaYolu"].Visible = false;
+                DtgList.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
+                DtgList.Columns["TakilanTeslimDurum"].Visible = false;
+                DtgList.Columns["Secim"].Visible = false;
+
+                DtgList.Columns["SokulenStokNo"].DisplayIndex = 1;
+                DtgList.Columns["SokulenTanim"].DisplayIndex = 2;
+                DtgList.Columns["SokulenSeriNo"].DisplayIndex = 3;
+                DtgList.Columns["SokulenRevizyon"].DisplayIndex = 4;
+                DtgList.Columns["SokulenMiktar"].DisplayIndex = 5;
+                DtgList.Columns["SokulenBirim"].DisplayIndex = 6;
+                DtgList.Columns["BolgeAdi"].DisplayIndex = 7;
+                DtgList.Columns["AbfNo"].DisplayIndex = 8;
+                DtgList.Columns["YapilacakIslem"].DisplayIndex = 9;
+                DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 10;
+                DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 15;
+
+                TxtTop.Text = DtgList.RowCount.ToString();
             }
             else
             {
-                abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ");
+                abfMalzemes = new List<AbfMalzeme>();
+                dataBinder.DataSource = null;
+
+
+                if (CmbTeslimTuru.Text=="")
+                {
+                    return;
+                }
+
+                abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList(CmbTeslimTuru.Text);
+
+                abfMalzemesFiltired = abfMalzemes;
+                dataBinder.DataSource = abfMalzemes.ToDataTable();
+                DtgList.DataSource = dataBinder;
+                TxtTop.Text = DtgList.RowCount.ToString();
+
+                DtgList.Columns["Id"].Visible = false;
+                DtgList.Columns["BenzersizId"].Visible = false;
+                DtgList.Columns["SokulenStokNo"].HeaderText = "STOK NO";
+                DtgList.Columns["SokulenTanim"].HeaderText = "TANIM";
+                DtgList.Columns["SokulenSeriNo"].HeaderText = "SERİ NO";
+                DtgList.Columns["SokulenMiktar"].HeaderText = "MİKTAR";
+                DtgList.Columns["SokulenBirim"].HeaderText = "BİRİM";
+                DtgList.Columns["SokulenCalismaSaati"].Visible = false;
+                DtgList.Columns["SokulenRevizyon"].HeaderText = "REVİZYON";
+                DtgList.Columns["CalismaDurumu"].Visible = false;
+                DtgList.Columns["FizikselDurum"].Visible = false;
+                DtgList.Columns["TakilanStokNo"].Visible = false;
+                DtgList.Columns["TakilanTanim"].Visible = false;
+                DtgList.Columns["TakilanSeriNo"].Visible = false;
+                DtgList.Columns["TakilanMiktar"].Visible = false;
+                DtgList.Columns["TakilanBirim"].Visible = false;
+                DtgList.Columns["TakilanCalismaSaati"].Visible = false;
+                DtgList.Columns["TakilanRevizyon"].Visible = false;
+                DtgList.Columns["TeminDurumu"].Visible = false;
+                DtgList.Columns["AbfNo"].HeaderText = "ABF NO";
+                DtgList.Columns["AbTarihSaat"].Visible = false;
+                DtgList.Columns["TemineAtilamTarihi"].Visible = false;
+                DtgList.Columns["MalzemeDurumu"].Visible = false;
+                DtgList.Columns["MalzemeIslemAdimi"].Visible = false;
+                DtgList.Columns["SokulenTeslimDurum"].HeaderText = "MALZEME TESLİM DURUMU";
+                DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
+                DtgList.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
+                DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
+                DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
+                DtgList.Columns["YerineMalzemeTakilma"].Visible = false;
+                DtgList.Columns["DosyaYolu"].Visible = false;
+                DtgList.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
+                DtgList.Columns["TakilanTeslimDurum"].Visible = false;
+                DtgList.Columns["Secim"].Visible = false;
+
+                DtgList.Columns["SokulenStokNo"].DisplayIndex = 1;
+                DtgList.Columns["SokulenTanim"].DisplayIndex = 2;
+                DtgList.Columns["SokulenSeriNo"].DisplayIndex = 3;
+                DtgList.Columns["SokulenRevizyon"].DisplayIndex = 4;
+                DtgList.Columns["SokulenMiktar"].DisplayIndex = 5;
+                DtgList.Columns["SokulenBirim"].DisplayIndex = 6;
+                DtgList.Columns["BolgeAdi"].DisplayIndex = 7;
+                DtgList.Columns["AbfNo"].DisplayIndex = 8;
+                DtgList.Columns["YapilacakIslem"].DisplayIndex = 9;
+                DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 10;
+                DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 15;
+
+                TxtTop.Text = DtgList.RowCount.ToString();
             }
-            if (CmbTeslimTuru.Text == "")
-            {
-                abfMalzemes = abfMalzemeManager.DepoyaTeslimEdilecekMalzemeList("TÜMÜ");
-            }
 
-            abfMalzemesFiltired = abfMalzemes;
-            dataBinder.DataSource = abfMalzemes.ToDataTable();
-            DtgList.DataSource = dataBinder;
-            TxtTop.Text = DtgList.RowCount.ToString();
-
-            DtgList.Columns["Id"].Visible = false;
-            DtgList.Columns["BenzersizId"].Visible = false;
-            DtgList.Columns["SokulenStokNo"].HeaderText = "STOK NO";
-            DtgList.Columns["SokulenTanim"].HeaderText = "TANIM";
-            DtgList.Columns["SokulenSeriNo"].HeaderText = "SERİ NO";
-            DtgList.Columns["SokulenMiktar"].HeaderText = "MİKTAR";
-            DtgList.Columns["SokulenBirim"].HeaderText = "BİRİM";
-            DtgList.Columns["SokulenCalismaSaati"].Visible = false;
-            DtgList.Columns["SokulenRevizyon"].HeaderText = "REVİZYON";
-            DtgList.Columns["CalismaDurumu"].Visible = false;
-            DtgList.Columns["FizikselDurum"].Visible = false;
-            DtgList.Columns["TakilanStokNo"].Visible = false;
-            DtgList.Columns["TakilanTanim"].Visible = false;
-            DtgList.Columns["TakilanSeriNo"].Visible = false;
-            DtgList.Columns["TakilanMiktar"].Visible = false;
-            DtgList.Columns["TakilanBirim"].Visible = false;
-            DtgList.Columns["TakilanCalismaSaati"].Visible = false;
-            DtgList.Columns["TakilanRevizyon"].Visible = false;
-            DtgList.Columns["TeminDurumu"].Visible = false;
-            DtgList.Columns["AbfNo"].HeaderText = "ABF NO";
-            DtgList.Columns["AbTarihSaat"].Visible = false;
-            DtgList.Columns["TemineAtilamTarihi"].Visible = false;
-            DtgList.Columns["MalzemeDurumu"].Visible = false;
-            DtgList.Columns["MalzemeIslemAdimi"].Visible = false;
-            DtgList.Columns["SokulenTeslimDurum"].HeaderText = "MALZEME TESLİM DURUMU";
-            DtgList.Columns["BolgeAdi"].HeaderText = "BÖLGE ADI";
-            DtgList.Columns["BolgeSorumlusu"].HeaderText = "BÖLGE SORUMLUSU";
-            DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
-            DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
-            DtgList.Columns["YerineMalzemeTakilma"].Visible = false;
-            DtgList.Columns["DosyaYolu"].Visible = false;
-            DtgList.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
-            DtgList.Columns["TakilanTeslimDurum"].Visible = false;
-
-            DtgList.Columns["SokulenStokNo"].DisplayIndex = 1;
-            DtgList.Columns["SokulenTanim"].DisplayIndex = 2;
-            DtgList.Columns["SokulenSeriNo"].DisplayIndex = 3;
-            DtgList.Columns["SokulenRevizyon"].DisplayIndex = 4;
-            DtgList.Columns["SokulenMiktar"].DisplayIndex = 5;
-            DtgList.Columns["SokulenBirim"].DisplayIndex = 6;
-            DtgList.Columns["BolgeAdi"].DisplayIndex = 7;
-            DtgList.Columns["AbfNo"].DisplayIndex = 8;
-            DtgList.Columns["YapilacakIslem"].DisplayIndex = 9;
-            DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 10;
-            DtgList.Columns["BolgeSorumlusu"].DisplayIndex = 15;
-
-            TxtTop.Text = DtgList.RowCount.ToString();
+            
         }
 
         private void DtgList_FilterStringChanged(object sender, EventArgs e)
@@ -813,6 +882,33 @@ namespace UserInterface.Gecic_Kabul_Ambar
         {
             MessageBox.Show("Bu işlem henüz aktif değildir!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             return;
+        }
+
+        private void ChkAllData_CheckedChanged(object sender, EventArgs e)
+        {
+            DataDisplay();
+        }
+
+        private void TxtAbfNo_TextChanged(object sender, EventArgs e)
+        {
+            string abfNo = TxtAbfNo.Text;
+            if (string.IsNullOrEmpty(abfNo))
+            {
+                abfMalzemesFiltired = abfMalzemes;
+                dataBinder.DataSource = abfMalzemes.ToDataTable();
+                DtgList.DataSource = dataBinder;
+                TxtTop.Text = DtgList.RowCount.ToString();
+                return;
+            }
+            if (TxtAbfNo.Text.Length < 5)
+            {
+                return;
+            }
+
+            dataBinder.DataSource = abfMalzemesFiltired.Where(x => x.AbfNo.ToString().Contains(abfNo.ToLower())).ToList().ToDataTable();
+            DtgList.DataSource = dataBinder;
+            abfMalzemesFiltired = abfMalzemes;
+            TxtTop.Text = DtgList.RowCount.ToString();
         }
 
         string TeslimAlmaDurum(string teslimTuru)
@@ -3005,6 +3101,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void CmbTeslimTuru_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (CmbTeslimTuru.SelectedIndex==-1 || start == true)
+            {
+                return;
+            }
+            ChkAllData.Checked = false;
             DataDisplay();
             DtgIslem.Rows.Clear();
             if (CmbTeslimTuru.Text == "100 - GEÇİCİ KABUL/KONTROL")

@@ -1650,11 +1650,22 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     if (islemTuru == "100-YENİ DEPO GİRİŞİ")
                     {
                         DepoGirisBekleyenKontrol();
+                        if (miktarKontrol==false)
+                        {
+                            mevcutMiktar += miktar;
+                        }
 
-                        mevcutMiktar = +miktar;
-
-                        DepoMiktar depoMiktar = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
-                        depoMiktarManager.Add(depoMiktar);
+                        if (mevcutMiktar!=miktar)
+                        {
+                            DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen, item.Cells["Column17"].Value.ToString(), seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
+                            depoMiktarManager.Update(depoDusulen, depo.RezerveDurumu);
+                        }
+                        else
+                        {
+                            DepoMiktar depoMiktar = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
+                            depoMiktarManager.Add(depoMiktar);
+                        }
+                        
 
                         if (miktarKontrol == true)
                         {
@@ -1678,6 +1689,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                     if (islemTuru == "101-DEPODAN DEPOYA İADE")
                     {
+                        miktarKontrol = false;
                         MalzemeHazirlamaControl();
                         DepoGirisBekleyenKontrol();
                         ArizaMalzemeTakip(); // ARIZADAN GELEN MALZEME DEPO STOĞUNA ALINDI BİLGİSİ TUTULDU.
@@ -1686,6 +1698,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         {
                             DepoMiktar depoMiktardepo = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
                             depoMiktarManager.Add(depoMiktardepo);
+                            miktarKontrol = true;
                         }
 
                         dusulenMiktar = miktar;
@@ -1697,18 +1710,18 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                         DepoMiktar depo2 = depoMiktarManager.Get(stokNo, depoNoCekilen2, seriNo, lotNo, revizyon);
                         cekilenMiktar = depo2.Miktar - miktar;
-
-                        mevcutMiktar = +miktar;
+                        mevcutMiktar += miktar;
 
                         //DepoMiktar depoMiktar2 = new DepoMiktar(stokNo, tanim, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), depoNoDusulen, depoAdresi, item.Cells["Column17"].Value.ToString(), mevcutMiktar, item.Cells["Column14"].Value.ToString());
                         //depoMiktarManager.Add(depoMiktar2);
-
-                        DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), dusulenMiktar);
-                        depoMiktarManager.Update(depoDusulen, depo2.RezerveDurumu);
+                        if (miktarKontrol==false)
+                        {
+                            DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
+                            depoMiktarManager.Update(depoDusulen, depo2.RezerveDurumu);
+                        }
 
                         DepoMiktar depoCekilen = new DepoMiktar(stokNo, depoNoCekilen2, cekilenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), cekilenMiktar);
                         depoMiktarManager.Update(depoCekilen, depo2.RezerveDurumu);
-
 
                         if (cekilenMiktar == 0)
                         {
@@ -1736,7 +1749,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         MalzemeHazirlamaControl();
                         DepoMiktar depo2 = depoMiktarManager.Get(stokNo, item.Cells["Column7"].Value.ToString(), seriNo, lotNo, revizyon);
                         mevcutMiktar = depo2.Miktar;
-                        mevcutMiktar = mevcutMiktar - miktar;
+                        mevcutMiktar -= miktar;
                         int silineceId = depo2.Id;
                         string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen
                         string depoNoCekilen2 = item.Cells["Column7"].Value.ToString(); // çekilen
@@ -1792,10 +1805,9 @@ namespace UserInterface.Gecic_Kabul_Ambar
                             depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, CmbBildirimdenDepoyaDepoNo.Text, seriNo, lotNo, revizyon);
                         }
 
-                        mevcutMiktar = +miktar;
+                        mevcutMiktar += miktar;
                         string depoNoDusulen2 = item.Cells["Column15"].Value.ToString(); // düşülen depo
                         string dusulenDepoLokasyon = item.Cells["Column17"].Value.ToString(); // düşülen depo lokasyon
-
 
                         DepoMiktar depoDusulen = new DepoMiktar(stokNo, depoNoDusulen2, dusulenDepoLokasyon, seriNo, lotNo, revizyon, DateTime.Now, infos[1].ToString(), mevcutMiktar);
                         depoMiktarManager.Update(depoDusulen, depoMiktar.RezerveDurumu);

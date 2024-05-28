@@ -364,20 +364,51 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 Properties.Settings.Default.FotoYolu = fotoyolu;
                 Properties.Settings.Default.Save();
 
+                PctBox.Image = null;
+
                 yeniad = TxtStn.Text + ".jpg";
                 if (!Directory.Exists(dosyayolu + "\\" + yeniad))
                 {
-                    string silinecek = dosyayolu + "\\" + yeniad;
+                    string silinecek = dosyayolu + "\\" + "-" + DateTime.Now.ToString("ff");
                     try
                     {
-                        File.Delete(silinecek);
+                        
+                        File.Move(dosyayolu + "\\" + yeniad, silinecek);
                     }
                     catch (Exception)
                     {
-                        Directory.Delete(dosyayolu);
+                        //Directory.Delete(dosyayolu);
                     }
                 }
                 File.Copy(fotoyolu, dosyayolu + "\\" + yeniad);
+
+                malzemeKayitManager.UpdateDirectoryPath(id, dosyayolu);
+
+                string fileName = "";
+
+                DirectoryInfo di = new DirectoryInfo(dosyayolu);
+
+                foreach (FileInfo fi in di.GetFiles())
+                {
+                    if (fi.Name != "." && fi.Name != ".." && fi.Name != "Thumbs.db")
+                    {
+                        fileName = fi.Name;
+                    }
+                }
+                string foto = dosyayolu + "\\" + fileName;
+
+                Image image;
+                image = Image.FromFile(foto);
+                PctBox.Image = image;
+
+                try
+                {
+                    webBrowser1.Navigate(dosyayolu);
+                }
+                catch (Exception)
+                {
+                    return;
+                }
             }
             else
             {

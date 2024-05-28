@@ -494,12 +494,6 @@ namespace UserInterface.STS
             this.CmbDonemBasaranYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDonemBasaranYil.FormattingEnabled = true;
             this.CmbDonemBasaranYil.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
             "2024",
             "2025",
             "2026",

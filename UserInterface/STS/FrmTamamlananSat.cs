@@ -70,7 +70,11 @@ namespace UserInterface.STS
         }
         void Yillar()
         {
-            CmbYillar.DataSource = tamamlananManager.Yillar();
+            List<string> yillar = new List<string>();
+            yillar = tamamlananManager.Yillar();
+            yillar.Sort();
+            yillar.Reverse();
+            CmbYillar.DataSource = yillar;
             int index = 0;
             CmbYillar.SelectedIndex = index;
         }
@@ -1334,7 +1338,7 @@ namespace UserInterface.STS
                     
             //    }
             //}
-            //MessageBox.Show("İşlemler başarıyla gerçekleşmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("İşlemler başarıyla gerçekleşmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void kesilenFaturaOnaylaToolStripMenuItem_Click(object sender, EventArgs e)

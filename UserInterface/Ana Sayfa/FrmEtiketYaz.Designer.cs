@@ -38,6 +38,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtMiktar = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.TxtAbf = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // TxtEtiket
@@ -121,11 +123,31 @@
             this.label1.TabIndex = 430;
             this.label1.Text = "Miktar:";
             // 
+            // TxtAbf
+            // 
+            this.TxtAbf.Location = new System.Drawing.Point(455, 24);
+            this.TxtAbf.Name = "TxtAbf";
+            this.TxtAbf.Size = new System.Drawing.Size(119, 20);
+            this.TxtAbf.TabIndex = 433;
+            this.TxtAbf.TextChanged += new System.EventHandler(this.TxtAbf_TextChanged);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label3.Location = new System.Drawing.Point(396, 25);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 15);
+            this.label3.TabIndex = 432;
+            this.label3.Text = "Abf No:";
+            // 
             // FrmEtiketYaz
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(658, 286);
+            this.Controls.Add(this.TxtAbf);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.TxtMiktar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.TxtYaziBoyut);
@@ -155,5 +177,7 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox TxtMiktar;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox TxtAbf;
+        private System.Windows.Forms.Label label3;
     }
 }

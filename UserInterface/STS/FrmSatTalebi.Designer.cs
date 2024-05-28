@@ -332,12 +332,6 @@ namespace UserInterface.STS
             this.CmbDonemYilT.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDonemYilT.FormattingEnabled = true;
             this.CmbDonemYilT.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
             "2024",
             "2025",
             "2026",
@@ -537,12 +531,6 @@ namespace UserInterface.STS
             this.CmbDonemYil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbDonemYil.FormattingEnabled = true;
             this.CmbDonemYil.Items.AddRange(new object[] {
-            "2018",
-            "2019",
-            "2020",
-            "2021",
-            "2022",
-            "2023",
             "2024",
             "2025",
             "2026",

@@ -179,109 +179,109 @@ namespace UserInterface.STS
 
         private void CmbButceKodu_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CmbButceKodu.Text== "BM25/PERSONEL MAAŞ GİDERLERİ")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM45/PERSONEL MAAŞ YANSIMASI")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "PERSONEL SAHA TAZMİNAT GİDERLERİ")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM47/PERSONEL KIDEM GİDERLERİ")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM21/PERSONEL İAŞE GİDERLERİ")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM24/PERSONEL İLETİŞİM GİDERLERİ")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM23/PERSONEL ÖZEL SİGRT. GİDERLERİ")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM26/ARAÇ TAHSİS GİDERLERİ")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM30/AKARYAKIT, ANLAŞMALI PETROL")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM13/AKARYAKIT, TAŞIT TANIMA")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
-            if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
-            {
-                CmbButceTanimi.Text = "SABİT GİDER";
-            }
+            //if (CmbButceKodu.Text== "BM25/PERSONEL MAAŞ GİDERLERİ")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM45/PERSONEL MAAŞ YANSIMASI")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "PERSONEL SAHA TAZMİNAT GİDERLERİ")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM47/PERSONEL KIDEM GİDERLERİ")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM21/PERSONEL İAŞE GİDERLERİ")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM24/PERSONEL İLETİŞİM GİDERLERİ")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM23/PERSONEL ÖZEL SİGRT. GİDERLERİ")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM26/ARAÇ TAHSİS GİDERLERİ")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM30/AKARYAKIT, ANLAŞMALI PETROL")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM13/AKARYAKIT, TAŞIT TANIMA")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
+            //if (CmbButceKodu.Text == "BM32/AKARYAKIT, NAKİT")
+            //{
+            //    CmbButceTanimi.Text = "SABİT GİDER";
+            //}
 
-            if (CmbButceKodu.Text == "BM08/KONAKLAMA")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM09/TEMSİL AĞIRLAMA (ASL)")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM10/ARAÇ, VİNÇ VB. KİRALAMA")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM11/YAKIT, DİĞER")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM15/YURT İÇİ SEYAHAT")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM19/KARGO TAŞIMACILIK")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM28/İŞ AVANSLARI")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM39/YURT DIŞI SEYEHAT")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM40/PROJE DIŞI DESTEK ÇALIŞMALARI")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
-            if (CmbButceKodu.Text == "BM40/PROJE DIŞI DESTEK ÇALIŞMALARI")
-            {
-                CmbButceTanimi.Text = "HAKEDİŞ";
-            }
+            //if (CmbButceKodu.Text == "BM08/KONAKLAMA")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM09/TEMSİL AĞIRLAMA (ASL)")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM10/ARAÇ, VİNÇ VB. KİRALAMA")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM11/YAKIT, DİĞER")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM15/YURT İÇİ SEYAHAT")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM19/KARGO TAŞIMACILIK")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM28/İŞ AVANSLARI")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM39/YURT DIŞI SEYEHAT")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM40/PROJE DIŞI DESTEK ÇALIŞMALARI")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
+            //if (CmbButceKodu.Text == "BM40/PROJE DIŞI DESTEK ÇALIŞMALARI")
+            //{
+            //    CmbButceTanimi.Text = "HAKEDİŞ";
+            //}
 
-            if (CmbButceKodu.Text == "BM16/TEMSİL AĞIRLAMA (BSRN)")
-            {
-                CmbButceTanimi.Text = "DEĞİŞKEN GİDER";
-            }
+            //if (CmbButceKodu.Text == "BM16/TEMSİL AĞIRLAMA (BSRN)")
+            //{
+            //    CmbButceTanimi.Text = "DEĞİŞKEN GİDER";
+            //}
 
-            if (CmbButceKodu.Text == "")
-            {
-                CmbButceTanimi.Text = "";
-            }
+            //if (CmbButceKodu.Text == "")
+            //{
+            //    CmbButceTanimi.Text = "";
+            //}
         }
 
         private void detayGörToolStripMenuItem_Click(object sender, EventArgs e)

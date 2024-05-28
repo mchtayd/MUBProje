@@ -24,7 +24,6 @@ namespace UserInterface.Ana_Sayfa
         }
 
 
-
         private void LoadExcel()
         {
             // some work takes 5 sec

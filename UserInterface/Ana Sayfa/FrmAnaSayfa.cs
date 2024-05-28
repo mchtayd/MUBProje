@@ -152,6 +152,10 @@ namespace UserInterface.STS
                 toolStripDropDownButton3.Enabled = false;
                 toolStripDropDownButton5.Enabled = false;
                 toolStripDropDownButton6.Enabled = false;
+                if (LblKullanici.Text=="NİZAMİYE")
+                {
+                    toolStripDropDownButton6.Enabled = true;
+                }
 
             }
             if (yetkiModu == "KULLANICI" || yetkiModu == "MİSAFİR")
@@ -2620,6 +2624,50 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageArizaKaydiOlusturSaha", "ARIZA KAYDI OLUŞTUR", Go);
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Bölge Veri Dosyası Yükle")
+            {
+                FrmBolgeDataAdd Go = new FrmBolgeDataAdd();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageVeriDosyasiYukle", "BÖLGE VERİ DOSYASI YÜKLE", Go);
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Bölge Veri Dosyası İndir")
+            {
+                FrmBolgeDataIndirme Go = new FrmBolgeDataIndirme();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageVeriDosyasiIndir", "BÖLGE VERİ DOSYASI İNDİR", Go);
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Bölge Veri Dosyası İndirme Talebi")
+            {
+                FrmBolgeDataList Go = new FrmBolgeDataList();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageVeriDosyasiTalep", "BÖLGE VERİ DOSYASI TALEP", Go);
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Bölge Veri Dosyası Onay")
+            {
+                FrmBolgeDataOnay Go = new FrmBolgeDataOnay();
+                //Go.infos = infos;
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageVeriDosyasiOnay", "BÖLGE VERİ DOSYASI ONAY", Go);
                 Go.Show();
             }
 
@@ -6253,6 +6301,18 @@ namespace UserInterface.STS
         {
             FrmYemekListesi frmYemekListesi = new FrmYemekListesi();
             frmYemekListesi.ShowDialog();
+        }
+
+        private void toolStripDropDownButton7_Click(object sender, EventArgs e)
+        {
+            FrmPhone frmPhone = new FrmPhone();
+            frmPhone.ShowDialog();
+        }
+
+        private void geçiciKabulVeriİzlemeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            IzlemeGeciciKabul frmIzlemeAmbar = new IzlemeGeciciKabul();
+            frmIzlemeAmbar.Show();
         }
 
         bool controlKapatma = false;

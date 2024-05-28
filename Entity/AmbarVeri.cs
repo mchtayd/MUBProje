@@ -8,7 +8,7 @@ namespace Entity
 {
     public class AmbarVeri
     {
-        int fabrikaBO, malzemeTeminAselsan, malzemeTeminSat, malzemeHazirlama, depoStokControl, bolgeSevkiyat, genelTop, uges, mgeo, sst, rehis, bakimOnarim, geciciKabul, kaliteTest, hurda, imes, tekjen, tescom, inform, mgm, bd, dBolgesi, atolye, bd2, sarp, bd3, geciciKullanim, ankaraSevkiyat;
+        int fabrikaBO, malzemeTeminAselsan, malzemeTeminSat, malzemeHazirlama, depoStokControl, bolgeSevkiyat, genelTop, uges, mgeo, sst, rehis, bakimOnarim, geciciKabul, kaliteTest, hurda, imes, tekjen, tescom, inform, mgm, bd, dBolgesi, atolye, bd2, sarp, bd3, geciciKullanim, ankaraSevkiyat, sevkiyat1, sevkiyat2;
 
         public int FabrikaBO { get => fabrikaBO; set => fabrikaBO = value; }
         public int MalzemeTeminAselsan { get => malzemeTeminAselsan; set => malzemeTeminAselsan = value; }
@@ -38,8 +38,10 @@ namespace Entity
         public int Bd3 { get => bd3; set => bd3 = value; }
         public int GeciciKullanim { get => geciciKullanim; set => geciciKullanim = value; }
         public int AnkaraSevkiyat { get => ankaraSevkiyat; set => ankaraSevkiyat = value; }
+        public int Sevkiyat1 { get => sevkiyat1; set => sevkiyat1 = value; }
+        public int Sevkiyat2 { get => sevkiyat2; set => sevkiyat2 = value; }
 
-        public AmbarVeri(int fabrikaBO, int malzemeTeminAselsan, int malzemeTeminSat, int malzemeHazirlama, int depoStokControl, int bolgeSevkiyat, int ankaraSevkiyat, int genelTop)
+        public AmbarVeri(int fabrikaBO, int malzemeTeminAselsan, int malzemeTeminSat, int malzemeHazirlama, int depoStokControl, int bolgeSevkiyat, int ankaraSevkiyat, int genelTop, int sevkiyat1, int sevkiyat2)
         {
             this.fabrikaBO = fabrikaBO;
             this.malzemeTeminAselsan = malzemeTeminAselsan;
@@ -49,6 +51,8 @@ namespace Entity
             this.bolgeSevkiyat = bolgeSevkiyat;
             this.ankaraSevkiyat=ankaraSevkiyat;
             this.genelTop = genelTop;
+            this.sevkiyat1 = sevkiyat1;
+            this.sevkiyat2 = sevkiyat2;
         }
 
         public AmbarVeri(int uges, int mgeo, int sst, int rehis, int bakimOnarim, int geciciKabul, int kaliteTest, int hurda, int imes, int tekjen, int tescom, int inform, int mgm, int bd, int dBolgesi, int atolye, int bd2, int sarp, int bd3, int geciciKullanim)

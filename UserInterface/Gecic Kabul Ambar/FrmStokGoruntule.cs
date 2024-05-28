@@ -69,7 +69,7 @@ namespace UserInterface.Depo
 
         private void FrmStokGoruntule_Load(object sender, EventArgs e)
         {
-            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39 || infos[0].ConInt() == 1148)
+            if (infos[1].ToString() == "RESUL GÜNEŞ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39 || infos[0].ConInt() == 1148 || infos[0].ConInt() == 33)
             {
                 contextMenuStrip1.Items[0].Enabled = true;
             }

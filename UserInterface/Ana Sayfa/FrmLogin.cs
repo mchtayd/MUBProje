@@ -1,4 +1,5 @@
 ﻿using Business.Concreate;
+using Business.Concreate.AnaSayfa;
 using DataAccess.Concreate;
 using System;
 using System.Drawing;
@@ -14,10 +15,12 @@ namespace UserInterface
     public partial class Login : Form
     {
         PersonelManager personelManager;
+        LogManager logManager;
         public Login()
         {
             InitializeComponent();
             personelManager = PersonelManager.GetInstance();
+            logManager = LogManager.GetInstance();
             //Task.Factory.StartNew(() => personelManager = PersonelManager.GetInstance());
         }
 
@@ -84,8 +87,7 @@ namespace UserInterface
             //await task;
 
             anaSayfa.Show();
-
-
+            logManager.Control();
             this.Hide();
 
             // string version = ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString(4);

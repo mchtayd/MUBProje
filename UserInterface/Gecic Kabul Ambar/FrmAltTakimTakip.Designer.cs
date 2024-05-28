@@ -81,6 +81,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.TxtSeriNo = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.ChkAllData = new System.Windows.Forms.CheckBox();
+            this.TxtAbfNo = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -128,7 +131,7 @@
             // 
             this.TxtTop.AutoSize = true;
             this.TxtTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTop.Location = new System.Drawing.Point(115, 312);
+            this.TxtTop.Location = new System.Drawing.Point(115, 323);
             this.TxtTop.Name = "TxtTop";
             this.TxtTop.Size = new System.Drawing.Size(21, 15);
             this.TxtTop.TabIndex = 382;
@@ -138,7 +141,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label5.Location = new System.Drawing.Point(15, 312);
+            this.label5.Location = new System.Drawing.Point(15, 323);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(94, 15);
             this.label5.TabIndex = 381;
@@ -147,7 +150,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.DtgList);
-            this.groupBox1.Location = new System.Drawing.Point(15, 106);
+            this.groupBox1.Location = new System.Drawing.Point(15, 117);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(1263, 203);
             this.groupBox1.TabIndex = 380;
@@ -230,7 +233,7 @@
             // 
             this.LblTop2.AutoSize = true;
             this.LblTop2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblTop2.Location = new System.Drawing.Point(262, 550);
+            this.LblTop2.Location = new System.Drawing.Point(262, 564);
             this.LblTop2.Name = "LblTop2";
             this.LblTop2.Size = new System.Drawing.Size(21, 15);
             this.LblTop2.TabIndex = 401;
@@ -240,7 +243,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label3.Location = new System.Drawing.Point(162, 550);
+            this.label3.Location = new System.Drawing.Point(162, 564);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(94, 15);
             this.label3.TabIndex = 400;
@@ -249,7 +252,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.DtgIslem);
-            this.groupBox2.Location = new System.Drawing.Point(21, 330);
+            this.groupBox2.Location = new System.Drawing.Point(21, 344);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(1254, 216);
             this.groupBox2.TabIndex = 399;
@@ -387,7 +390,7 @@
             this.BtnTeslimAlSat.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnTeslimAlSat.Image = ((System.Drawing.Image)(resources.GetObject("BtnTeslimAlSat.Image")));
             this.BtnTeslimAlSat.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTeslimAlSat.Location = new System.Drawing.Point(23, 546);
+            this.BtnTeslimAlSat.Location = new System.Drawing.Point(23, 560);
             this.BtnTeslimAlSat.Name = "BtnTeslimAlSat";
             this.BtnTeslimAlSat.Size = new System.Drawing.Size(122, 51);
             this.BtnTeslimAlSat.TabIndex = 398;
@@ -425,7 +428,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label6.Location = new System.Drawing.Point(346, 550);
+            this.label6.Location = new System.Drawing.Point(346, 564);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(38, 15);
             this.label6.TabIndex = 447;
@@ -434,7 +437,7 @@
             // DtgTeslimTarihi
             // 
             this.DtgTeslimTarihi.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtgTeslimTarihi.Location = new System.Drawing.Point(387, 547);
+            this.DtgTeslimTarihi.Location = new System.Drawing.Point(387, 561);
             this.DtgTeslimTarihi.Name = "DtgTeslimTarihi";
             this.DtgTeslimTarihi.Size = new System.Drawing.Size(122, 20);
             this.DtgTeslimTarihi.TabIndex = 448;
@@ -443,7 +446,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label7.Location = new System.Drawing.Point(602, 603);
+            this.label7.Location = new System.Drawing.Point(945, 598);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(603, 45);
             this.label7.TabIndex = 449;
@@ -512,7 +515,7 @@
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label8.Location = new System.Drawing.Point(515, 550);
+            this.label8.Location = new System.Drawing.Point(515, 564);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 15);
             this.label8.TabIndex = 456;
@@ -523,7 +526,7 @@
             this.DtgSaat.CustomFormat = "HH:mm";
             this.DtgSaat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.DtgSaat.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtgSaat.Location = new System.Drawing.Point(556, 547);
+            this.DtgSaat.Location = new System.Drawing.Point(556, 561);
             this.DtgSaat.Name = "DtgSaat";
             this.DtgSaat.ShowUpDown = true;
             this.DtgSaat.Size = new System.Drawing.Size(101, 21);
@@ -566,7 +569,7 @@
             this.BtnDisaAktar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.BtnDisaAktar.Image = ((System.Drawing.Image)(resources.GetObject("BtnDisaAktar.Image")));
             this.BtnDisaAktar.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnDisaAktar.Location = new System.Drawing.Point(477, 26);
+            this.BtnDisaAktar.Location = new System.Drawing.Point(477, 28);
             this.BtnDisaAktar.Name = "BtnDisaAktar";
             this.BtnDisaAktar.Size = new System.Drawing.Size(130, 51);
             this.BtnDisaAktar.TabIndex = 541;
@@ -580,7 +583,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label9.Location = new System.Drawing.Point(19, 76);
+            this.label9.Location = new System.Drawing.Point(468, 88);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(124, 15);
             this.label9.TabIndex = 542;
@@ -588,7 +591,7 @@
             // 
             // TxtSeriNo
             // 
-            this.TxtSeriNo.Location = new System.Drawing.Point(149, 75);
+            this.TxtSeriNo.Location = new System.Drawing.Point(598, 85);
             this.TxtSeriNo.Name = "TxtSeriNo";
             this.TxtSeriNo.Size = new System.Drawing.Size(157, 20);
             this.TxtSeriNo.TabIndex = 543;
@@ -601,7 +604,7 @@
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button2.Location = new System.Drawing.Point(639, 65);
+            this.button2.Location = new System.Drawing.Point(1120, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(130, 51);
             this.button2.TabIndex = 544;
@@ -611,11 +614,44 @@
             this.button2.Visible = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // ChkAllData
+            // 
+            this.ChkAllData.AutoSize = true;
+            this.ChkAllData.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.ChkAllData.Location = new System.Drawing.Point(24, 86);
+            this.ChkAllData.Name = "ChkAllData";
+            this.ChkAllData.Size = new System.Drawing.Size(109, 20);
+            this.ChkAllData.TabIndex = 545;
+            this.ChkAllData.Text = "Tümünü Gör";
+            this.ChkAllData.UseVisualStyleBackColor = true;
+            this.ChkAllData.CheckedChanged += new System.EventHandler(this.ChkAllData_CheckedChanged);
+            // 
+            // TxtAbfNo
+            // 
+            this.TxtAbfNo.Location = new System.Drawing.Point(292, 85);
+            this.TxtAbfNo.Name = "TxtAbfNo";
+            this.TxtAbfNo.Size = new System.Drawing.Size(157, 20);
+            this.TxtAbfNo.TabIndex = 547;
+            this.TxtAbfNo.TextChanged += new System.EventHandler(this.TxtAbfNo_TextChanged);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label10.Location = new System.Drawing.Point(168, 88);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(118, 15);
+            this.label10.TabIndex = 546;
+            this.label10.Text = "Abf No ile Arama:";
+            // 
             // FrmAltTakimTakip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1290, 652);
+            this.Controls.Add(this.TxtAbfNo);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.ChkAllData);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.TxtSeriNo);
             this.Controls.Add(this.label9);
@@ -709,5 +745,8 @@
         private System.Windows.Forms.TextBox TxtSeriNo;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.ToolStripMenuItem hurdayaAyrılacaklarıBelirleToolStripMenuItem;
+        private System.Windows.Forms.CheckBox ChkAllData;
+        private System.Windows.Forms.TextBox TxtAbfNo;
+        private System.Windows.Forms.Label label10;
     }
 }

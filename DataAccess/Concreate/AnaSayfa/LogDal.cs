@@ -99,5 +99,17 @@ namespace DataAccess.Concreate.AnaSayfa
                 return ex.Message;
             }
         }
+        public string Control()
+        {
+            try
+            {
+                sqlServices.Stored("Control");
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
     }
 }

@@ -213,6 +213,40 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
+        public List<AbfMalzeme> DepoTeminDurumu(string teminDurumu)
+        {
+            try
+            {
+                return abfMalzemeDal.DepoTeminDurumu(teminDurumu);
+            }
+            catch (Exception)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
+
+        public List<AbfMalzeme> TeminGetList2()
+        {
+            try
+            {
+                return abfMalzemeDal.TeminGetList2();
+            }
+            catch (Exception)
+            {
+                return new List<AbfMalzeme>();
+            }
+        }
+        public string AbfTeminListUpdate(int id)
+        {
+            try
+            {
+                return abfMalzemeDal.AbfTeminListUpdate(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string AddTakilan(AbfMalzeme entity,int benzersizId)
         {
             try

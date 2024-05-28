@@ -69,9 +69,40 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["DEPARTMAN"].ToString()));
                 }
                 dataReader.Close();
-                return ıslemAdimlaris;
+
+                List<int> sayilar = new List<int>();
+                for (int i = 0; i < ıslemAdimlaris.Count; i++)
+                {
+                    string[] sayi = ıslemAdimlaris[i].IslemaAdimi.Split('_');
+                    sayilar.Add(sayi[0].ConInt());
+                }
+
+                sayilar.Sort();
+                List<IslemAdimlari> ıslemAdimlaris2 = new List<IslemAdimlari>();
+
+                int sayac = ıslemAdimlaris.Count;
+                for (int i = 0; i < sayilar.Count; i++)
+                {
+                    int j = 0;
+                    while (j >=0 && j < sayac)
+                    {
+                        string[] sayi = ıslemAdimlaris[j].IslemaAdimi.Split('_');
+                        if (sayi[0].ConInt() == sayilar[i])
+                        {
+                            ıslemAdimlaris2.Add(ıslemAdimlaris[j]);
+                            ıslemAdimlaris.RemoveAt(j);
+                            break;
+                        }
+                        else
+                        {
+                            j++;
+                        }
+                    }
+                }
+
+                return ıslemAdimlaris2;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return new List<IslemAdimlari>();
             }

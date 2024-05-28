@@ -52,7 +52,9 @@ namespace DataAccess
                         dataReader["DEPO_STOK_KONTROL"].ConInt(),
                         dataReader["BOLGE_SEVKIYAT"].ConInt(),
                         dataReader["ANKARA_SEVKIYAT"].ConInt(),
-                        dataReader["GENEL_TOPLAM"].ConInt()));
+                        dataReader["GENEL_TOPLAM"].ConInt(),
+                        dataReader["SEVKIYAT1"].ConInt(),
+                        dataReader["SEVKIYAT2"].ConInt()));
                 }
                 dataReader.Close();
                 return ambarVeris;

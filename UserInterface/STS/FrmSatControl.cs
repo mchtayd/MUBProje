@@ -1708,7 +1708,7 @@ namespace UserInterface.STS
             maliyetTuru = DtgSatTamamla.CurrentRow.Cells["MaliyetTuru"].Value.ToString();
             butceGiderTuru = DtgSatTamamla.CurrentRow.Cells["ButceGiderTuru"].Value.ToString();
 
-            
+            toplamlar = 0;
             foreach (FiyatTeklifiAl item in fiyatTeklifiAls)
             {
                 toplamlar += item.Btf;

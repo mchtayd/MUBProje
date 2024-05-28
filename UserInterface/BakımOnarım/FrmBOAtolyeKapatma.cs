@@ -143,11 +143,10 @@ namespace UserInterface.BakımOnarım
                             }
                             
                             else
-                            {
+                            {   
                                 MessageBox.Show("Malzemenin Seri No veya Revizyon bilgisi arızaya kayıtlı olan malzemenin Seri No veya Revizyon bilgisiyle uyuşmamaktadır!\nLütfen gerekli düzeltme işlemlerini yaptırınız.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                                 return;
                             }
-
                         }
                     }
                     
@@ -156,7 +155,6 @@ namespace UserInterface.BakımOnarım
                 {
                     MessageBox.Show("Malzeme Atölyeye manuel olarak kaydedilmiştir, manuel kayıtlı malzeme için malzemeyi tutanak veya malzeme hareket formu ile teslim ediniz!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-
             }
 
             abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(malzemeId, "ATÖLYE BAKIM ONARIMDA", stokNo, seriNo, revizyon, "SÖKÜLEN");

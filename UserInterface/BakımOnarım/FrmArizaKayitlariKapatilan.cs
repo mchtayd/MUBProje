@@ -2,6 +2,7 @@
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.BakimOnarimAtolye;
 using Business.Concreate.Gecici_Kabul_Ambar;
+using ClosedXML.Excel;
 using DataAccess.Concreate;
 using DataAccess.Concreate.BakimOnarim;
 using DocumentFormat.OpenXml.Drawing;
@@ -16,12 +17,14 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.STS;
+using Path = System.IO.Path;
 
 namespace UserInterface.BakımOnarım
 {
@@ -46,6 +49,8 @@ namespace UserInterface.BakımOnarım
         string stok, tanim, miktar, birim;
         int rowIndex;
         bool isComplete = false;
+        string yol = @"C:\DTS\Taslak\";
+        string kaynak = @"Z:\DTS\BAKIM ONARIM\TASLAKLAR\", taslakYolu, ustStok, ustTanim, ustSeri;
 
         public FrmArizaKayitlariKapatilan()
         {
@@ -73,6 +78,7 @@ namespace UserInterface.BakımOnarım
             }
         }
         string bolgeAdi, arizaBildirimTarih, arizayiBildiren, bildirilenAriza, tespitEdilenAriza, garantiDurumu, kategori, bildirimTuru, bildirimNo, okfBildirimNo;
+        DateTime arizaTarihi;
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -87,6 +93,7 @@ namespace UserInterface.BakımOnarım
             bolgeSorumlusu = DtgList.CurrentRow.Cells["AcmaOnayiVeren"].Value.ToString();
             bolgeAdi = DtgList.CurrentRow.Cells["BolgeAdi"].Value.ToString();
             arizaBildirimTarih = DtgList.CurrentRow.Cells["AbTarihSaat"].Value.ToString();
+            arizaTarihi = arizaBildirimTarih.ConDate();
             arizayiBildiren = DtgList.CurrentRow.Cells["AbRutbesi"].Value.ToString() + " " + DtgList.CurrentRow.Cells["ArizaiBildirenPersonel"].Value.ToString();
             bildirilenAriza = DtgList.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
             tespitEdilenAriza = DtgList.CurrentRow.Cells["TespitEdilenAriza"].Value.ToString();
@@ -433,6 +440,86 @@ namespace UserInterface.BakımOnarım
         private void DtgList_SortStringChanged(object sender, EventArgs e)
         {
             dataBinder.Sort = DtgList.SortString;
+        }
+        void TaslakKopyalaExcel()
+        {
+            string root = @"C:\DTS";
+
+            if (!Directory.Exists(root))
+            {
+                Directory.CreateDirectory(root);
+            }
+            if (!Directory.Exists(yol))
+            {
+                Directory.CreateDirectory(yol);
+            }
+
+            File.Copy(kaynak + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx", yol + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx");
+
+            taslakYolu = yol + "Ek-1 OKF_üs bölge adı_iş akış no.xlsx";
+        }
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show("Sektör cihazları için OKF Excel dosyasını oluşturmak istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr != DialogResult.Yes)
+            {
+                return;
+            }
+            TaslakKopyalaExcel();
+
+            string excelFilePath = Path.Combine(yol, "Ek-1 OKF_üs bölge adı_iş akış no.xlsx");
+            bool exists = File.Exists(excelFilePath);
+            IXLWorkbook xLWorkbook = new XLWorkbook(excelFilePath, XLEventTracking.Disabled);
+            IXLWorksheet worksheet = xLWorkbook.Worksheet("Sheet2");
+
+            var range = worksheet.RangeUsed();
+            DateTime date = new DateTime(arizaTarihi.Year, arizaTarihi.Month, arizaTarihi.Day, arizaTarihi.Hour, arizaTarihi.Minute, arizaTarihi.Second);
+
+            worksheet.Cell("I4").Value = date.ToString("d");
+            worksheet.Cell("J4").Value = DateTime.Now.ToString("d");
+            worksheet.Cell("L4").Value = DateTime.Now.ToString("d");
+            worksheet.Cell("C7").Value = ustStok;
+            worksheet.Cell("F7").Value = ustTanim;
+            worksheet.Cell("J7").Value = ustSeri;
+            int sayac = 0;
+            int satir = 2;
+            string messege = "MÜB Projesi kapsamında yapılan kontrollerde " + bildirilenAriza.ToLower() + "\n\n    ÜS bölgesinde keşif işlemleri tamamlanmış olup,yapılacak faaliyet aşağıda detaylandırılmıştır.";
+            foreach (DataGridViewRow item in DtgMalzemeListesi.Rows)
+            {
+                string message = item.Cells["SokulenStokNo"].Value.ToString() + " - " + "SN: " + item.Cells["SokulenSeriNo"].Value.ToString() + " " + item.Cells["SokulenTanim"].Value.ToString();
+                messege += "\n    -" + message;
+
+                if (sayac == 0)
+                {
+                    worksheet.Cell("D18").Value = item.Cells["SokulenStokNo"].Value.ToString();
+                    worksheet.Cell("G18").Value = item.Cells["SokulenTanim"].Value.ToString();
+                    worksheet.Cell("J18").Value = item.Cells["SokulenSeriNo"].Value.ToString();
+                }
+                sayac++;
+                worksheet.Cell("A2" + satir.ToString()).Value = sayac;
+                worksheet.Cell("B2" + satir.ToString()).Value = item.Cells["SokulenStokNo"].Value.ToString();
+                worksheet.Cell("D2" + satir.ToString()).Value = item.Cells["SokulenTanim"].Value.ToString();
+                worksheet.Cell("I2" + satir.ToString()).Value = item.Cells["SokulenMiktar"].Value.ToString();
+                worksheet.Cell("J2" + satir.ToString()).Value = item.Cells["SokulenBirim"].Value.ToString();
+                satir++;
+            }
+
+            worksheet.Cell("A12").Value = messege;
+            worksheet.Cell("A11").Value = bolgeAdi;
+
+            xLWorkbook.SaveAs(dosyaYolu + "\\" + "Ek-1 OKF_" + bolgeAdi + "_" + abfNo + ".xlsx");
+            xLWorkbook.Dispose(); // workbook nesnesini temizler
+
+            Directory.Delete(yol, true);
+
+            webBrowser1.Navigate(dosyaYolu);
+            id = 0;
+            MessageBox.Show("İşlem başarıyla gerçekleşmiştir.Excel dosyası arızanın ekindedir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         private void FrmArizaKayitlariKapatilan_Load(object sender, EventArgs e)

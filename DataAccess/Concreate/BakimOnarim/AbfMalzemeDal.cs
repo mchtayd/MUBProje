@@ -556,7 +556,88 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<AbfMalzeme>();
             }
         }
+        public List<AbfMalzeme> DepoTeminDurumu(string teminDurumu)
+        {
+            try
+            {
+                List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                dataReader = sqlServices.StoreReader("DepoTeminGor2", new SqlParameter("@teminDurumu", teminDurumu));
+                while (dataReader.Read())
+                {
+                    abfMalzemes.Add(new AbfMalzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConInt(),
+                        dataReader["SOKULEN_BIRIM"].ToString(),
+                        dataReader["SOKULEN_REVIZYON_NO"].ToString(),
+                        dataReader["YAPILACAK_ISLEM"].ToString(),
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["AB_TARIH_SAAT"].ConDate(),
+                        dataReader["TEMINE_ATILMA_TARIHI"].ConDate(),
+                        dataReader["TEMIN_DURUMU"].ToString(),
+                        dataReader["MALZEME_ISLEM_ADIMI"].ToString()));
+                }
+                dataReader.Close();
+                return abfMalzemes;
+            }
+            catch (Exception ex)
+            {
+                dataReader.Close();
+                return new List<AbfMalzeme>();
+            }
+        }
 
+        public List<AbfMalzeme> TeminGetList2()
+        {
+            try
+            {
+                List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                dataReader = sqlServices.StoreReader("AbfTeminList");
+                while (dataReader.Read())
+                {
+                    abfMalzemes.Add(new AbfMalzeme(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["SOKULEN_STOK_NO"].ToString(),
+                        dataReader["SOKULEN_TANIM"].ToString(),
+                        dataReader["SOKULEN_SERI_NO"].ToString(),
+                        dataReader["SOKULEN_MIKTAR"].ConInt(),
+                        dataReader["SOKULEN_BIRIM"].ToString(),
+                        dataReader["SOKULEN_REVIZYON_NO"].ToString(),
+                        dataReader["YAPILACAK_ISLEM"].ToString(),
+                        dataReader["ABF_FORM_NO"].ConInt(),
+                        dataReader["AB_TARIH_SAAT"].ConDate(),
+                        dataReader["TEMINE_ATILMA_TARIHI"].ConDate(),
+                        dataReader["TEMIN_DURUMU"].ToString(),
+                        dataReader["MALZEME_ISLEM_ADIMI"].ToString()));
+                }
+                dataReader.Close();
+                return abfMalzemes;
+            }
+            catch (Exception ex)
+            {
+                dataReader.Close();
+                return new List<AbfMalzeme>();
+            }
+        }
+        public string AbfTeminListUpdate(int id)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AbfTeminListUpdate",
+                    new SqlParameter("@id", id));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string UpdateTakilan(AbfMalzeme entity,int id)
         {
             try
