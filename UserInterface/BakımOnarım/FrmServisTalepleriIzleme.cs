@@ -35,11 +35,6 @@ namespace UserInterface.BakımOnarım
 
         private void FrmServisTalepleriIzleme_Load(object sender, EventArgs e)
         {
-            if (infos[1].ToString()!="ADMİN")
-            {
-                contextMenuStrip1.Enabled = false;
-            }
-            
             DataDisplay();
         }
 
@@ -113,10 +108,6 @@ namespace UserInterface.BakımOnarım
             dataBinder.Sort = DtgList.SortString;
         }
 
-        private void işAkışNoDüzenleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
 
         void MalzemeList()
         {

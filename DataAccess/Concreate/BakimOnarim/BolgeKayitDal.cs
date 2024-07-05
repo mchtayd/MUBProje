@@ -123,6 +123,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 return null;
             }
         }
+
         public string BolgeProjeList(string bolgeAdi)
         {
             try

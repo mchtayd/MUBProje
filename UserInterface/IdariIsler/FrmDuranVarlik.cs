@@ -8,6 +8,7 @@ using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 using UserInterface.IdariIsler;
 using UserInterface.STS;
@@ -19,6 +20,7 @@ namespace UserInterface.EgitimDok
         IsAkisNoManager isAkisNoManager;
         DVKayitManager kayitManager;
         IdariIslerLogManager logManager;
+        ComboManager comboManager;
         DvNoManager dvNoManager;
         List<string> fileNames = new List<string>();
         List<string> dvEtiketNos = new List<string>();
@@ -35,6 +37,7 @@ namespace UserInterface.EgitimDok
             kayitManager = DVKayitManager.GetInstance();
             logManager = IdariIslerLogManager.GetInstance();
             dvNoManager = DvNoManager.GetInstance();
+            comboManager = ComboManager.GetInstance();
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
@@ -272,8 +275,6 @@ namespace UserInterface.EgitimDok
                 sira++;
             }
 
-
-
             #region EskiKod
             /*
             if (CmbDvSahibi.Text=="")
@@ -396,7 +397,7 @@ namespace UserInterface.EgitimDok
             if (dr == DialogResult.Yes)
             {
                 int isakisno = LblIsAkisNo.Text.ConInt();
-                DuranVarlikKayit duranVarlik = new DuranVarlikKayit(isakisno, CmbDvSahibi.Text, CmbButceKodu.Text, TxtDvEtiketNo.Text, CmbDvGrubu.Text, TxtTanim.Text, TxtMiktar.Text, TxtMarka.Text, TxtModel.Text, TxtSeriNo.Text, CmbKalGerek.Text, TxtSatNo.Text, CmbSaticiFirma.Text, DtFaturaTarihi.Text, TxtFaturaNo.Text, TxtFiyat.Text.ConDouble(), TxtAciklama.Text, CmbDurumu.Text, dosyaYolu, fotoyolu);
+                DuranVarlikKayit duranVarlik = new DuranVarlikKayit(isakisno, CmbDvSahibi.Text, CmbButceKodu.Text, TxtDvEtiketNo.Text, CmbDvGrubu.Text, TxtTanim.Text, TxtMiktar.Text + " " + CmbBirim.Text, TxtMarka.Text, TxtModel.Text, TxtSeriNo.Text, CmbKalGerek.Text, TxtSatNo.Text, CmbSaticiFirma.Text, DtFaturaTarihi.Text, TxtFaturaNo.Text, TxtFiyat.Text.ConDouble(), TxtAciklama.Text, CmbDurumu.Text, dosyaYolu, fotoyolu);
                 string mesaj = kayitManager.Add(duranVarlik);
                 if (mesaj != "OK")
                 {
@@ -468,7 +469,7 @@ namespace UserInterface.EgitimDok
             CmbDvSahibi.Text = ""; CmbButceKodu.Text = ""; CmbDvGrubu.Text = ""; TxtDvEtiketNo.Clear();
             TxtTanim.Clear(); TxtMiktar.Clear(); TxtMarka.Clear(); TxtModel.Clear(); TxtSeriNo.Clear(); CmbKalGerek.Text = ""; TxtSatNo.Clear();
             CmbSaticiFirma.Text = ""; TxtFaturaNo.Clear(); TxtFiyat.Clear(); TxtAciklama.Clear(); webBrowser1.Navigate(""); PctBox.ImageLocation = "";
-            CmbDurumu.Text = ""; kaydet = false;
+            CmbDurumu.Text = ""; kaydet = false; CmbBirim.SelectedIndex = -1;
         }
 
         private void BtnDosyaEkleGun_Click(object sender, EventArgs e)
@@ -612,7 +613,17 @@ namespace UserInterface.EgitimDok
                     Properties.Settings.Default.FotoYolu = fotoyolu;
                     Properties.Settings.Default.Save();
 
-                    yeniad = TxtDvEtiketNo.Text + ".jpg";
+                    string[] etiketEdit = TxtDvEtiketNo.Text.Split('/');
+                    string etiket = "";
+                    if (etiketEdit.Count()>1)
+                    {
+                        etiket = etiketEdit[0] + "-" + etiketEdit[1];
+                    }
+                    else
+                    {
+                        etiket = TxtDvEtiketNo.Text;
+                    }
+                    yeniad = etiket + ".jpg";
                     if (!Directory.Exists(dosyaYolu + "\\" + yeniad))
                     {
                         string silinecek = dosyaYolu + "\\" + yeniad;
@@ -655,8 +666,17 @@ namespace UserInterface.EgitimDok
 
         private void DuranVarlik_Load(object sender, EventArgs e)
         {
-            //IsAkisNo();
+            Birim();
         }
+
+        public void Birim()
+        {
+            CmbBirim.DataSource = comboManager.GetList("BİRİM");
+            CmbBirim.ValueMember = "Id";
+            CmbBirim.DisplayMember = "Baslik";
+            CmbBirim.SelectedValue = 0;
+        }
+
         public void IsAkisNo()
         {
             /*isAkisNoManager.Update();

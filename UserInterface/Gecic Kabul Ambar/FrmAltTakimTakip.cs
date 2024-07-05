@@ -417,26 +417,34 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
         private void button1_Click(object sender, EventArgs e)
         {
-            List<int> abfMalzemeIslemKayits = new List<int>();
-            List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
-            AbfMalzeme abfMalzeme = null;
-            ArizaKayit arizaKayit = null;
-            abfMalzemeIslemKayits = abfMalzemeIslemKayitManager.GetListId();
-            foreach (var item in abfMalzemeIslemKayits)
+
+            foreach (DataGridViewRow item in DtgList.Rows)
             {
-                abfMalzeme = abfMalzemeManager.Get(item);
-                if (abfMalzeme!=null)
-                {
-                    arizaKayit = arizaKayitManager.GetId(abfMalzeme.BenzersizId);
-                    stokGirisCıkıs = stokGirisCikisManager.DusumBilgi(arizaKayit.AbfFormNo.ToString());
-                    if (stokGirisCıkıs.Count > 0)
-                    {
-                        abfMalzemeIslemKayitManager.UpdateAbfMalzeme(item);
-                    }
-                }
-                
                 
             }
+
+
+
+            //List<int> abfMalzemeIslemKayits = new List<int>();
+            //List<StokGirisCıkıs> stokGirisCıkıs = new List<StokGirisCıkıs>();
+            //AbfMalzeme abfMalzeme = null;
+            //ArizaKayit arizaKayit = null;
+            //abfMalzemeIslemKayits = abfMalzemeIslemKayitManager.GetListId();
+            //foreach (var item in abfMalzemeIslemKayits)
+            //{
+            //    abfMalzeme = abfMalzemeManager.Get(item);
+            //    if (abfMalzeme!=null)
+            //    {
+            //        arizaKayit = arizaKayitManager.GetId(abfMalzeme.BenzersizId);
+            //        stokGirisCıkıs = stokGirisCikisManager.DusumBilgi(arizaKayit.AbfFormNo.ToString());
+            //        if (stokGirisCıkıs.Count > 0)
+            //        {
+            //            abfMalzemeIslemKayitManager.UpdateAbfMalzeme(item);
+            //        }
+            //    }
+                
+                
+            //}
 
             //List<ArizaKayit> arizaKayits = arizaKayitManager.GetListTumu();
             //foreach (ArizaKayit arizaKayit in arizaKayits)
@@ -960,6 +968,11 @@ namespace UserInterface.Gecic_Kabul_Ambar
             if (teslimTuru == "ATÖLYE İŞLEMLERİ TAMAMLANDI")
             {
                 AtolyeMalzeme atolyeMalzeme = atolyeMalzemeManager.Get(tiklananStok, tiklananSeriNo, tiklananRevizyon);
+                if (atolyeMalzeme==null)
+                {
+                    teslimYeri = "100 - GEÇİCİ KABUL/KONTROL";
+                    return teslimYeri;
+                }
                 if (atolyeMalzeme.TeslimDurumu == "DEPO STOĞUNA ALINACAK" || atolyeMalzeme.TeslimDurumu == "")
                 {
                     teslimYeri = "100 - GEÇİCİ KABUL/KONTROL";
@@ -1631,6 +1644,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
 
                 depoMiktarManager.Add(depoMiktar);
 
+                depoBilgileri = depoMiktarManager.GetBarkodLokasyonBul2700(stokNo, seriLotNo, revizyon, takipDurumu, miktar);
 
                 StokGirisCıkıs stokGirisCıkıs = new StokGirisCıkıs("101-DEPODAN DEPOYA İADE", stokNo, tanim, birim, DtgTeslimTarihi.Value, abfNo, depoBilgileri.DepoNo, depoBilgileri.DepoAdresi, "2700", "ATÖLYE BO", "100", miktar, infos[1].ToString(), "MALZEME BAKIM ONARIM MAKSATLI ATÖLYEYE GÖNDERİLMİŞTİR.", seriNo, lotNo, revizyon);
 

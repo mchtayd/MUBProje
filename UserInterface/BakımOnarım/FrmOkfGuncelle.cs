@@ -1,6 +1,10 @@
-﻿using Business.Concreate.BakimOnarim;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using Business.Concreate.Gecici_Kabul_Ambar;
 using DataAccess.Concreate;
+using DataAccess.Concreate.BakimOnarim;
+using Entity.AnaSayfa;
+using Entity;
 using Entity.BakimOnarim;
 using Entity.Gecic_Kabul_Ambar;
 using System;
@@ -25,12 +29,14 @@ namespace UserInterface.BakımOnarım
         MalzemeKayitManager malzemeKayitManager;
         List<MalzemeKayit> malzemeKayits;
         List<MalzemeKayit> malzemeKayits2;
+        DtsLogManager dtsLogManager;
         public int id = 0;
         double toplam, sonuc, outValue = 0;
         bool start = false;
         int sayac, sayac2 = 0;
         string topfiyat, dosyaYolu = "";
 
+        public object[] infos;
 
         public FrmOkfGuncelle()
         {
@@ -39,6 +45,7 @@ namespace UserInterface.BakımOnarım
             dtfMaliyetManager= DtfMaliyetManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             malzemeKayitManager = MalzemeKayitManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmOkfGuncelle_Load(object sender, EventArgs e)
@@ -360,12 +367,18 @@ namespace UserInterface.BakımOnarım
                     Temizle();
                     return;
                 }
-
+                DtsLogKayit();
                 FrmOkfIzleme frmOkfIzleme = (FrmOkfIzleme)System.Windows.Forms.Application.OpenForms["FrmOkfIzleme"];
                 frmOkfIzleme.Yenilenecekler();
                 MessageBox.Show("Bilgiler başarıyla silinmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 Temizle();
             }
+        }
+        void DtsLogKayit()
+        {
+            string islem = CmbBolgeAdi.Text + " bölgesine ait " + TxtAbfNo.Text + " form numaralı arızanın " + LblIsAkisNo.Text + " İş Akış Numaralı OKF kaydı silinmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "OKF KAYIT SİLME", islem);
+            dtsLogManager.Add(dtsLog);
         }
 
         private void BtnGuncelle_Click(object sender, EventArgs e)

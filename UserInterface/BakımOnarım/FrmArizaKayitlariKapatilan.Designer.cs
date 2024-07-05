@@ -75,6 +75,7 @@ namespace UserInterface.BakımOnarım
             this.LblSeciliAbf = new System.Windows.Forms.Label();
             this.DtgTakilan = new ADGV.AdvancedDataGridView();
             this.DtgSokulen = new ADGV.AdvancedDataGridView();
+            this.raporOluşturExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -163,9 +164,10 @@ namespace UserInterface.BakımOnarım
             this.güncelleToolStripMenuItem,
             this.sökülenMalzemeBilgisiToolStripMenuItem,
             this.açıklamaNotEkleToolStripMenuItem,
-            this.toolStripMenuItem2});
+            this.toolStripMenuItem2,
+            this.raporOluşturExcelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 136);
             // 
             // güncelleToolStripMenuItem
             // 
@@ -555,6 +557,13 @@ namespace UserInterface.BakımOnarım
             this.DtgSokulen.TimeFilter = false;
             this.DtgSokulen.Visible = false;
             // 
+            // raporOluşturExcelToolStripMenuItem
+            // 
+            this.raporOluşturExcelToolStripMenuItem.Name = "raporOluşturExcelToolStripMenuItem";
+            this.raporOluşturExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.raporOluşturExcelToolStripMenuItem.Text = "Rapor Oluştur (Excel)";
+            this.raporOluşturExcelToolStripMenuItem.Click += new System.EventHandler(this.raporOluşturExcelToolStripMenuItem_Click);
+            // 
             // FrmArizaKayitlariKapatilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -646,5 +655,6 @@ namespace UserInterface.BakımOnarım
         private ADGV.AdvancedDataGridView DtgTakilan;
         private ADGV.AdvancedDataGridView DtgSokulen;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem raporOluşturExcelToolStripMenuItem;
     }
 }

@@ -32,7 +32,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
@@ -43,6 +45,7 @@
             this.sSBOnayınaSunulanToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.müşteriOnayıGelenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tamamlananToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.excelOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -75,7 +78,14 @@
             this.dataBinderSSB = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderMusteriOnayi = new System.Windows.Forms.BindingSource(this.components);
             this.dataBinderTamamlanan = new System.Windows.Forms.BindingSource(this.components);
-            this.excelOluşturToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tabPage7 = new System.Windows.Forms.TabPage();
+            this.tabPage8 = new System.Windows.Forms.TabPage();
+            this.DtgRed = new ADGV.AdvancedDataGridView();
+            this.DtgIptal = new ADGV.AdvancedDataGridView();
+            this.dataBinderRed = new System.Windows.Forms.BindingSource(this.components);
+            this.dataBinderIptal = new System.Windows.Forms.BindingSource(this.components);
+            this.reddedilenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.iptalEdilenToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.contextMenuStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -97,6 +107,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSSB)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderMusteriOnayi)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderTamamlanan)).BeginInit();
+            this.tabPage7.SuspendLayout();
+            this.tabPage8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgRed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIptal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderRed)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderIptal)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -150,10 +166,12 @@
             this.aselsanaGönderilenToolStripMenuItem,
             this.sSBOnayınaSunulanToolStripMenuItem,
             this.müşteriOnayıGelenToolStripMenuItem,
+            this.reddedilenToolStripMenuItem,
+            this.iptalEdilenToolStripMenuItem,
             this.tamamlananToolStripMenuItem,
             this.excelOluşturToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(187, 180);
             // 
             // güncelleToolStripMenuItem
             // 
@@ -189,6 +207,13 @@
             this.tamamlananToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
             this.tamamlananToolStripMenuItem.Text = "Tamamlanan";
             this.tamamlananToolStripMenuItem.Click += new System.EventHandler(this.tamamlananToolStripMenuItem_Click);
+            // 
+            // excelOluşturToolStripMenuItem
+            // 
+            this.excelOluşturToolStripMenuItem.Name = "excelOluşturToolStripMenuItem";
+            this.excelOluşturToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.excelOluşturToolStripMenuItem.Text = "Excel Oluştur";
+            this.excelOluşturToolStripMenuItem.Click += new System.EventHandler(this.excelOluşturToolStripMenuItem_Click);
             // 
             // groupBox2
             // 
@@ -378,6 +403,8 @@
             this.tabControl2.Controls.Add(this.tabPage3);
             this.tabControl2.Controls.Add(this.tabPage5);
             this.tabControl2.Controls.Add(this.tabPage4);
+            this.tabControl2.Controls.Add(this.tabPage7);
+            this.tabControl2.Controls.Add(this.tabPage8);
             this.tabControl2.Controls.Add(this.tabPage6);
             this.tabControl2.Location = new System.Drawing.Point(12, 37);
             this.tabControl2.Name = "tabControl2";
@@ -510,8 +537,8 @@
             this.DtgListTamamlanan.AllowUserToAddRows = false;
             this.DtgListTamamlanan.AllowUserToDeleteRows = false;
             this.DtgListTamamlanan.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgListTamamlanan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgListTamamlanan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
             this.DtgListTamamlanan.AutoGenerateContextFilters = true;
             this.DtgListTamamlanan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgListTamamlanan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -530,12 +557,89 @@
             this.DtgListTamamlanan.FilterStringChanged += new System.EventHandler(this.DtgListTamamlanan_FilterStringChanged);
             this.DtgListTamamlanan.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgListTamamlanan_CellMouseClick);
             // 
-            // excelOluşturToolStripMenuItem
+            // tabPage7
             // 
-            this.excelOluşturToolStripMenuItem.Name = "excelOluşturToolStripMenuItem";
-            this.excelOluşturToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
-            this.excelOluşturToolStripMenuItem.Text = "Excel Oluştur";
-            this.excelOluşturToolStripMenuItem.Click += new System.EventHandler(this.excelOluşturToolStripMenuItem_Click);
+            this.tabPage7.Controls.Add(this.DtgRed);
+            this.tabPage7.Location = new System.Drawing.Point(4, 22);
+            this.tabPage7.Name = "tabPage7";
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage7.Size = new System.Drawing.Size(1523, 459);
+            this.tabPage7.TabIndex = 4;
+            this.tabPage7.Text = "REDDEDİLENLER";
+            this.tabPage7.UseVisualStyleBackColor = true;
+            // 
+            // tabPage8
+            // 
+            this.tabPage8.Controls.Add(this.DtgIptal);
+            this.tabPage8.Location = new System.Drawing.Point(4, 22);
+            this.tabPage8.Name = "tabPage8";
+            this.tabPage8.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage8.Size = new System.Drawing.Size(1523, 459);
+            this.tabPage8.TabIndex = 5;
+            this.tabPage8.Text = "İPTAL EDİLENLER";
+            this.tabPage8.UseVisualStyleBackColor = true;
+            // 
+            // DtgRed
+            // 
+            this.DtgRed.AllowUserToAddRows = false;
+            this.DtgRed.AllowUserToDeleteRows = false;
+            this.DtgRed.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgRed.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.DtgRed.AutoGenerateContextFilters = true;
+            this.DtgRed.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgRed.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgRed.ContextMenuStrip = this.contextMenuStrip1;
+            this.DtgRed.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgRed.DateWithTime = false;
+            this.DtgRed.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgRed.Location = new System.Drawing.Point(3, 3);
+            this.DtgRed.Name = "DtgRed";
+            this.DtgRed.ReadOnly = true;
+            this.DtgRed.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DtgRed.Size = new System.Drawing.Size(1517, 453);
+            this.DtgRed.TabIndex = 4;
+            this.DtgRed.TimeFilter = false;
+            this.DtgRed.SortStringChanged += new System.EventHandler(this.DtgRed_SortStringChanged);
+            this.DtgRed.FilterStringChanged += new System.EventHandler(this.DtgRed_FilterStringChanged);
+            this.DtgRed.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgRed_CellMouseClick);
+            // 
+            // DtgIptal
+            // 
+            this.DtgIptal.AllowUserToAddRows = false;
+            this.DtgIptal.AllowUserToDeleteRows = false;
+            this.DtgIptal.AllowUserToOrderColumns = true;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgIptal.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
+            this.DtgIptal.AutoGenerateContextFilters = true;
+            this.DtgIptal.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgIptal.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgIptal.ContextMenuStrip = this.contextMenuStrip1;
+            this.DtgIptal.Cursor = System.Windows.Forms.Cursors.Default;
+            this.DtgIptal.DateWithTime = false;
+            this.DtgIptal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgIptal.Location = new System.Drawing.Point(3, 3);
+            this.DtgIptal.Name = "DtgIptal";
+            this.DtgIptal.ReadOnly = true;
+            this.DtgIptal.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.DtgIptal.Size = new System.Drawing.Size(1517, 453);
+            this.DtgIptal.TabIndex = 4;
+            this.DtgIptal.TimeFilter = false;
+            this.DtgIptal.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgIptal_CellMouseClick);
+            // 
+            // reddedilenToolStripMenuItem
+            // 
+            this.reddedilenToolStripMenuItem.Name = "reddedilenToolStripMenuItem";
+            this.reddedilenToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.reddedilenToolStripMenuItem.Text = "Reddedilen";
+            this.reddedilenToolStripMenuItem.Click += new System.EventHandler(this.reddedilenToolStripMenuItem_Click);
+            // 
+            // iptalEdilenToolStripMenuItem
+            // 
+            this.iptalEdilenToolStripMenuItem.Name = "iptalEdilenToolStripMenuItem";
+            this.iptalEdilenToolStripMenuItem.Size = new System.Drawing.Size(186, 22);
+            this.iptalEdilenToolStripMenuItem.Text = "İptal Edilen";
+            this.iptalEdilenToolStripMenuItem.Click += new System.EventHandler(this.iptalEdilenToolStripMenuItem_Click);
             // 
             // FrmOkfIzleme
             // 
@@ -576,6 +680,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderSSB)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderMusteriOnayi)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinderTamamlanan)).EndInit();
+            this.tabPage7.ResumeLayout(false);
+            this.tabPage8.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgRed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgIptal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderRed)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinderIptal)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -626,5 +736,13 @@
         private System.Windows.Forms.BindingSource dataBinderMusteriOnayi;
         private System.Windows.Forms.BindingSource dataBinderTamamlanan;
         private System.Windows.Forms.ToolStripMenuItem excelOluşturToolStripMenuItem;
+        private System.Windows.Forms.TabPage tabPage7;
+        private ADGV.AdvancedDataGridView DtgRed;
+        private System.Windows.Forms.TabPage tabPage8;
+        private ADGV.AdvancedDataGridView DtgIptal;
+        private System.Windows.Forms.BindingSource dataBinderRed;
+        private System.Windows.Forms.BindingSource dataBinderIptal;
+        private System.Windows.Forms.ToolStripMenuItem reddedilenToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem iptalEdilenToolStripMenuItem;
     }
 }

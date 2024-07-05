@@ -1,5 +1,7 @@
-﻿using Business.Concreate.BakimOnarim;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using DataAccess.Concreate;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using System;
 using System.Collections.Generic;
@@ -19,6 +21,7 @@ namespace UserInterface.BakımOnarım
     {
         DtfManager dtfManager;
         DtfMaliyetManager dtfMaliyetManager;
+        DtsLogManager dtsLogManager;
 
         List<Dtf> dtfsDevamEden;
         List<Dtf> dtfsTamamlanan;
@@ -32,6 +35,7 @@ namespace UserInterface.BakımOnarım
             InitializeComponent();
             dtfManager = DtfManager.GetInstance();
             dtfMaliyetManager = DtfMaliyetManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmDtfIzleme_Load(object sender, EventArgs e)
@@ -155,7 +159,7 @@ namespace UserInterface.BakımOnarım
             ToplamlarGenel();
 
         }
-
+        string bolgeAdi, isAkisNo, abfNo = "";
 
         private void DtgDevamEden_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -166,6 +170,9 @@ namespace UserInterface.BakımOnarım
             }
             dosyaYolu = DtgDevamEden.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             kayitId = DtgDevamEden.CurrentRow.Cells["Id"].Value.ConInt();
+            abfNo = DtgDevamEden.CurrentRow.Cells["AbfNo"].Value.ToString();
+            isAkisNo = DtgDevamEden.CurrentRow.Cells["IsAkisNo"].Value.ToString();
+            bolgeAdi = DtgDevamEden.CurrentRow.Cells["UsBolgesi"].Value.ToString();
             try
             {
                 webBrowser1.Navigate(dosyaYolu);
@@ -197,6 +204,9 @@ namespace UserInterface.BakımOnarım
             id = DtgTamamlanan.CurrentRow.Cells["Id"].Value.ConInt();
             dosyaYolu = DtgTamamlanan.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             kayitId = id;
+            abfNo = DtgDevamEden.CurrentRow.Cells["AbfNo"].Value.ToString();
+            isAkisNo = DtgDevamEden.CurrentRow.Cells["IsAkisNo"].Value.ToString();
+            bolgeAdi = DtgDevamEden.CurrentRow.Cells["UsBolgesi"].Value.ToString();
             FillTools();
 
             try
@@ -317,8 +327,16 @@ namespace UserInterface.BakımOnarım
                 DataDisplayDevamEden();
                 DataDisplayTamamlanan();
                 kayitId = 0;
+                DtsLogKayit();
                 MessageBox.Show("Bilgiler başarıyla silinmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+        void DtsLogKayit()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " form numaralı arızanın " + isAkisNo + " İş Akış Numaralı DTF kaydı silinmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "DTF KAYIT SİLME", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
     }
 }

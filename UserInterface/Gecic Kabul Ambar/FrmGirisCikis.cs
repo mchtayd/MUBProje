@@ -1429,7 +1429,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     }
                 }
             }
-
         }
 
         void ArizaMalzemeTakipDepodanbildirime(string abfNo)

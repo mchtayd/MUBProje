@@ -531,6 +531,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.malzemeBilgisiDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -593,6 +595,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -3417,6 +3420,7 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeBilgileriSokulenTakilan.AllowUserToAddRows = false;
             this.DtgMalzemeBilgileriSokulenTakilan.AllowUserToDeleteRows = false;
             this.DtgMalzemeBilgileriSokulenTakilan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgMalzemeBilgileriSokulenTakilan.ContextMenuStrip = this.contextMenuStrip1;
             this.DtgMalzemeBilgileriSokulenTakilan.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgMalzemeBilgileriSokulenTakilan.Location = new System.Drawing.Point(3, 3);
             this.DtgMalzemeBilgileriSokulenTakilan.Name = "DtgMalzemeBilgileriSokulenTakilan";
@@ -6072,6 +6076,20 @@ namespace UserInterface.BakımOnarım
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.malzemeBilgisiDüzenleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 26);
+            // 
+            // malzemeBilgisiDüzenleToolStripMenuItem
+            // 
+            this.malzemeBilgisiDüzenleToolStripMenuItem.Name = "malzemeBilgisiDüzenleToolStripMenuItem";
+            this.malzemeBilgisiDüzenleToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.malzemeBilgisiDüzenleToolStripMenuItem.Text = "Malzeme Bilgisi Düzenle";
+            this.malzemeBilgisiDüzenleToolStripMenuItem.Click += new System.EventHandler(this.malzemeBilgisiDüzenleToolStripMenuItem_Click);
+            // 
             // FrmArizaAcmaCalisma
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6167,6 +6185,7 @@ namespace UserInterface.BakımOnarım
             this.groupBox13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -6670,5 +6689,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.WebBrowser webBrowser5;
         private System.Windows.Forms.GroupBox groupBox22;
         private System.Windows.Forms.WebBrowser webBrowser6;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem malzemeBilgisiDüzenleToolStripMenuItem;
     }
 }

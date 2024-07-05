@@ -77,6 +77,8 @@
             this.DtgSokulen = new ADGV.AdvancedDataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.raporOluşturExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -464,6 +466,8 @@
             this.DtgList.Size = new System.Drawing.Size(1522, 369);
             this.DtgList.TabIndex = 2;
             this.DtgList.TimeFilter = false;
+            this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
+            this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
             this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // contextMenuStrip1
@@ -473,9 +477,10 @@
             this.güncelleToolStripMenuItem,
             this.sökülenMalzemeBilgisiToolStripMenuItem,
             this.açıklamaEkleToolStripMenuItem,
-            this.arızayıKapatToolStripMenuItem});
+            this.arızayıKapatToolStripMenuItem,
+            this.raporOluşturExcelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 158);
             // 
             // durumGüncelleToolStripMenuItem
             // 
@@ -578,11 +583,30 @@
             this.BtnCancel.UseVisualStyleBackColor = false;
             this.BtnCancel.Click += new System.EventHandler(this.BtnCancel_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(971, 436);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 31);
+            this.button1.TabIndex = 476;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // raporOluşturExcelToolStripMenuItem
+            // 
+            this.raporOluşturExcelToolStripMenuItem.Name = "raporOluşturExcelToolStripMenuItem";
+            this.raporOluşturExcelToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.raporOluşturExcelToolStripMenuItem.Text = "Rapor Oluştur (Excel)";
+            this.raporOluşturExcelToolStripMenuItem.Click += new System.EventHandler(this.raporOluşturExcelToolStripMenuItem_Click);
+            // 
             // FrmArizaKapatilacaklar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1555, 855);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.DtgTakilan);
             this.Controls.Add(this.DtgSokulen);
@@ -673,5 +697,7 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.ToolStripMenuItem arızayıKapatToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem raporOluşturExcelToolStripMenuItem;
     }
 }

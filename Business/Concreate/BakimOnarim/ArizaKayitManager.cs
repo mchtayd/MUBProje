@@ -297,6 +297,18 @@ namespace Business.Concreate.BakimOnarim
             }
         }
 
+        public string BakimOnarimKapatmaDurumu(int id, string kapatmaDurumu)
+        {
+            try
+            {
+                return arizaKayitDal.BakimOnarimKapatmaDurumu(id, kapatmaDurumu);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string IslemAdimiGuncelle(int id, string islemAdimi, string gorevAtanacakPersonel)
         {
             try

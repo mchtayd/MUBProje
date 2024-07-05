@@ -1722,27 +1722,27 @@ namespace UserInterface.BakımOnarım
 
             if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
             {
-                bool control = false;
-                abfMalzemes = abfMalzemeManager.GetList(id);
-                int index = 0;
+                //bool control = false;
+                //abfMalzemes = abfMalzemeManager.GetList(id);
+                //int index = 0;
 
-                if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(x.TakilanStokNo)))
-                {
-                    if (abfMalzemes[index].TakilanTeslimDurum == "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI")
-                    {
-                        control = true;
-                    }
-                    else
-                    {
-                        control = false;
-                        index++;
-                    }
-                }
-                if (control == false)
-                {
-                    MessageBox.Show("Lütfen öncelikle sökülen olarak gireceğiniz malzemeyi teslim/tesellüm üzerinden teslim alınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                //if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(x.TakilanStokNo)))
+                //{
+                //    if (abfMalzemes[index].TakilanTeslimDurum == "BÖLGE SORUMLUSU TARAFINDAN TESLİM ALINDI")
+                //    {
+                //        control = true;
+                //    }
+                //    else
+                //    {
+                //        control = false;
+                //        index++;
+                //    }
+                //}
+                //if (control == false)
+                //{
+                //    MessageBox.Show("Lütfen öncelikle sökülen olarak gireceğiniz malzemeyi teslim/tesellüm üzerinden teslim alınız!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                //    return;
+                //}
 
                 foreach (DataGridViewRow item in DtgSokulen.Rows)
                 {
@@ -1888,6 +1888,7 @@ namespace UserInterface.BakımOnarım
             if (CmbIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
             {
                 arizaKayitManager.ArizaDurumUpdate(id, 0);
+                KapatmaKontrol();
             }
 
             string messege = GorevAtama();
@@ -1903,6 +1904,82 @@ namespace UserInterface.BakımOnarım
             ChkKapat.Checked = false;
             tekrarliIslemAdimi = false;
         }
+
+        void KapatmaKontrol()
+        {
+            List<AbfMalzeme> abfMalzemes1 = new List<AbfMalzeme>();
+            abfMalzemes1 = abfMalzemeManager.GetList(id);
+            bool[] dusumControls = new bool[abfMalzemes1.Count];
+            bool[] iadeControls = new bool[abfMalzemes1.Count];
+
+            // SÖKÜLEN VE TAKILAN GİRİLMİŞMİ KONTROLÜ
+            for (int i = 0; i < abfMalzemes1.Count; i++)
+            {
+                if ((abfMalzemes1[i].SokulenStokNo == abfMalzemes1[i].TakilanStokNo) || (abfMalzemes1[i].SokulenTanim == abfMalzemes1[i].TakilanTanim))
+                {
+                    dusumControls[i] = true;
+                }
+                else
+                {
+                    if (i + 1 < abfMalzemes1.Count)
+                    {
+                        if (abfMalzemes1[i].SokulenTanim == abfMalzemes1[i + 1].TakilanTanim)
+                        {
+                            dusumControls[i] = true;
+                        }
+                        else
+                        {
+                            dusumControls[i] = false;
+                        }
+                    }
+                    else
+                    {
+                        dusumControls[i] = false;
+                    }
+                }
+
+                List<StokGirisCıkıs> stokGirisCıkıs2 = new List<StokGirisCıkıs>();
+                List<MalzemeKayit> malzemeKayits = new List<MalzemeKayit>();
+                Malzeme malzeme = malzemeManager.MalzemeBul(abfMalzemes1[i].SokulenStokNo);
+                if (malzeme.TakipDurumu=="SERİ NO")
+                {
+                    if (abfMalzemes1[i].SokulenSeriNo != "N/A")
+                    {
+                        stokGirisCıkıs2 = stokGirisCikisManager.ArizaIadeControlList(abf, abfMalzemes1[i].SokulenStokNo, abfMalzemes1[i].SokulenSeriNo, "N/A", abfMalzemes1[i].SokulenRevizyon);
+                    }
+                }
+                else
+                {
+                    stokGirisCıkıs2 = stokGirisCikisManager.ArizaIadeControlList(abf, abfMalzemes1[i].SokulenStokNo, "", "", "");
+                }
+                if (stokGirisCıkıs2.Count > 0)
+                {
+                    iadeControls[i] = true;
+                }
+                else
+                {
+                    iadeControls[i] = false;
+                }
+
+            }
+            bool control = true;
+            for (int i = 0; i < dusumControls.Length; i++)
+            {
+                if (dusumControls[i] == false || iadeControls[i] == false)
+                {
+                    control = false;
+                    break;
+                }
+            }
+
+            if (control == true)
+            {
+                arizaKayitManager.BakimOnarimKapatmaDurumu(id, "HAZIR");
+            }
+
+            //201-BİLDİRİMDEN DEPOYA İADE
+        }
+
 
         void DtsLogKayit()
         {

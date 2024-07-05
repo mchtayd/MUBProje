@@ -176,6 +176,7 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["ProjeTanimi"].HeaderText = "PROJE TANIMI";
             DtgList.Columns["Musteri"].HeaderText = "MÜŞTERİ";
             DtgList.Columns["GorevBeklemeSuresi"].HeaderText = "GÖREV BEKLEME SÜRESİ";
+            DtgList.Columns["ArizayıKapatmaDurumu"].HeaderText = "ARIZAYI KAPATMA DURUMU";
 
 
             DtgList.Columns["BildirimTuru"].DisplayIndex = 0;
@@ -789,7 +790,7 @@ namespace UserInterface.BakımOnarım
                 BtnTumunuGor.BackColor = Color.IndianRed;
                 BtnTumunuGor.Text = " GÖREVLERİM";
 
-                if (infos[0].ConInt() == 25 || infos[0].ConInt() == 30 || infos[0].ConInt() == 33 || infos[0].ConInt() == 84 || infos[0].ConInt() == 39 || infos[0].ConInt() == 1140 || infos[0].ConInt() == 1139 || infos[0].ConInt() == 54 || infos[0].ConInt() == 47 || infos[0].ConInt() == 57 || infos[0].ConInt() == 65 || infos[0].ConInt() == 1121 || infos[0].ConInt() == 1148 || infos[11].ToString() == "MİSAFİR" || infos[0].ConInt() == 105 || infos[0].ConInt() == 104 || infos[0].ConInt() == 51 || infos[0].ConInt() == 1120)
+                if (infos[0].ConInt() == 25 || infos[0].ConInt() == 30 || infos[0].ConInt() == 33 || infos[0].ConInt() == 84 || infos[0].ConInt() == 39 || infos[0].ConInt() == 1140 || infos[0].ConInt() == 1139 || infos[0].ConInt() == 54 || infos[0].ConInt() == 47 || infos[0].ConInt() == 57 || infos[0].ConInt() == 65 || infos[0].ConInt() == 1121 || infos[0].ConInt() == 1148 || infos[11].ToString() == "MİSAFİR" || infos[0].ConInt() == 105 || infos[0].ConInt() == 104 || infos[0].ConInt() == 51 || infos[0].ConInt() == 1120 || infos[0].ConInt() == 2174)
                 {
                     arizaKayits = arizaKayitManager.DevamEdenlerGetList("", "");
                 }
@@ -973,6 +974,119 @@ namespace UserInterface.BakımOnarım
             malzemeId = 0;
         }
         string sokulenSeriLotNo, sokulenRevizyon, takilanStokNo, takilanSeriNo, takilanRevizyon, takilanTanim, takilanBirim, taslakYolu;
+        string stokM, tanimM, seriNoM;
+
+        private void raporOluşturExcelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Tabloda bulunan verileri excele aktarmak istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                IXLWorkbook workBook = new XLWorkbook();
+                IXLWorksheet workSheet = workBook.AddWorksheet("RAPOR");
+                IXLRow row = workSheet.Row(1);
+                row.Height = row.Height * 1.5;
+                row.Cells().Style.Font.Bold = true;
+
+                row.Cell(1).Value = "SIRA NO";
+                row.Cell(2).Value = "BİLDİRİM TÜRÜ";
+                row.Cell(3).Value = "ABF NO";
+                row.Cell(4).Value = "BİLDİRİM NO";
+                row.Cell(5).Value = "OKF BİLDİRİM NO";
+                row.Cell(6).Value = "KATEGORİ";
+                row.Cell(7).Value = "PROJE TANIMI";
+                row.Cell(8).Value = "BÖLGE ADI";
+                row.Cell(9).Value = "İL";
+                row.Cell(10).Value = "İLÇE";
+                row.Cell(11).Value = "PROJE";
+                row.Cell(12).Value = "ÜS TAKIM STOK";
+                row.Cell(13).Value = "ÜST TAKIM TANIM";
+                row.Cell(14).Value = "ÜST TAKIM SERİ NO";
+                row.Cell(15).Value = "ARIZA BİLDİRİM TARİHİ";
+                row.Cell(16).Value = "ARIZALI MALZEMELER STOK";
+                row.Cell(17).Value = "ARIZALI MALZEMELER TANIM";
+                row.Cell(18).Value = "ARIZALI MALZEMELER SERİ NO";
+                row.Cell(19).Value = "TESPİT EDİLEN ARIZA";
+
+                row.Height = row.Height * 1.5;
+                row.Cells().Style.Font.Bold = true;
+                row.RowUsed().SetAutoFilter(true);
+
+                row = row.RowBelow();
+                int sayac = 1;
+
+                foreach (DataGridViewRow item in DtgList.Rows)
+                {
+                    ArizaKayit arizaKayit = arizaKayitManager.Get(item.Cells["AbfFormNo"].Value.ConInt());
+                    if (arizaKayit != null)
+                    {
+                        row.Cell("A").Value = sayac.ToString();
+                        row.Cell("B").Value = arizaKayit.BildirimTuru;
+                        row.Cell("C").Value = arizaKayit.AbfFormNo.ToString();
+                        row.Cell("D").Value = arizaKayit.BildirimNo;
+                        row.Cell("E").Value = arizaKayit.OkfBildirimNo;
+                        row.Cell("F").Value = arizaKayit.Kategori;
+                        row.Cell("G").Value = arizaKayit.ProjeTanimi;
+                        row.Cell("H").Value = arizaKayit.BolgeAdi;
+                        row.Cell("I").Value = arizaKayit.Il;
+                        row.Cell("J").Value = arizaKayit.Ilce;
+                        row.Cell("K").Value = arizaKayit.Proje;
+                        row.Cell("L").Value = arizaKayit.StokNo;
+                        row.Cell("M").Value = arizaKayit.Tanim;
+                        row.Cell("N").Value = arizaKayit.SeriNo;
+                        row.Cell("O").Value = arizaKayit.AbTarihSaat.ToString("d");
+                        List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+                        abfMalzemes = abfMalzemeManager.GetList(item.Cells["Id"].Value.ConInt());
+                        int sayac2 = 0;
+                        stokM = ""; tanimM = ""; seriNoM = "";
+                        foreach (AbfMalzeme item2 in abfMalzemes)
+                        {
+                            if (abfMalzemes.Count>1)
+                            {
+                                if (sayac2 == abfMalzemes.Count-1)
+                                {
+                                    stokM += item2.SokulenStokNo;
+                                    tanimM += item2.SokulenTanim;
+                                    seriNoM += item2.SokulenSeriNo;
+                                }
+                                else
+                                {
+                                    stokM += item2.SokulenStokNo + "\n";
+                                    tanimM += item2.SokulenTanim + "\n";
+                                    seriNoM += item2.SokulenSeriNo + "\n";
+                                }
+                                sayac2++;
+                            }
+                            else
+                            {
+                                stokM = item2.SokulenStokNo;
+                                tanimM = item2.SokulenTanim;
+                                seriNoM = item2.SokulenSeriNo;
+                            }
+                        }
+
+                        row.Cell("P").Value = stokM;
+                        row.Cell("Q").Value = tanimM;
+                        row.Cell("R").Value = seriNoM;
+                        row.Cell("S").Value = arizaKayit.TespitEdilenAriza;
+
+                        row = row.RowBelow();
+
+                        sayac++;
+                    }
+                }
+
+                workSheet.RangeUsed().Style.Border.SetInsideBorder(XLBorderStyleValues.Thin);
+                workSheet.RangeUsed().Style.Border.SetOutsideBorder(XLBorderStyleValues.Thin);
+
+                string file = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+
+                file = file + "\\" + "RAPOR" + DateTime.Now.ToString("dd_MM_yyyy") + "_" + DateTime.Now.ToString("mm_ss") + ".xlsx";
+                workBook.SaveAs(file);
+                workBook.Dispose();
+
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!\nDosya Yolu: " + file, "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
 
         void TaslakKopyalaExcel()
         {

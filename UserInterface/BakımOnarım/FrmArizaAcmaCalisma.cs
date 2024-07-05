@@ -1662,6 +1662,7 @@ namespace UserInterface.BakımOnarım
                 IsAkisNo();
                 IsAkisNoAK();
                 EksikEvrakList();
+                arizaKayitManager.BakimOnarimKapatmaDurumu(arizaId, "KAPATILDI");
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 TemizleKapat();
             }
@@ -2246,6 +2247,14 @@ namespace UserInterface.BakımOnarım
             FrmCombo frmCombo = new FrmCombo();
             frmCombo.comboAd = comboAd;
             frmCombo.ShowDialog();
+        }
+
+        private void malzemeBilgisiDüzenleToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmMalzemeDuzenle frmMalzemeDuzenle = new FrmMalzemeDuzenle();
+            frmMalzemeDuzenle.benzersizId = arizaId;
+            frmMalzemeDuzenle.infos = infos;
+            frmMalzemeDuzenle.Show();
         }
 
         string KontrolAK()

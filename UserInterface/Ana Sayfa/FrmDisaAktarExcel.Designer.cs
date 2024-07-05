@@ -30,13 +30,15 @@ namespace UserInterface.Ana_Sayfa
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmDisaAktarExcel));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label1 = new System.Windows.Forms.Label();
             this.CmbTablo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.DtgList = new ADGV.AdvancedDataGridView();
+            this.BAŞLIK = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Durum = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.label2 = new System.Windows.Forms.Label();
             this.TxtTop = new System.Windows.Forms.Label();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
@@ -48,8 +50,6 @@ namespace UserInterface.Ana_Sayfa
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.advancedDataGridView1 = new ADGV.AdvancedDataGridView();
-            this.BAŞLIK = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Durum = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -93,8 +93,8 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -111,6 +111,24 @@ namespace UserInterface.Ana_Sayfa
             this.DtgList.Size = new System.Drawing.Size(395, 574);
             this.DtgList.TabIndex = 1;
             this.DtgList.TimeFilter = false;
+            // 
+            // BAŞLIK
+            // 
+            this.BAŞLIK.HeaderText = "Baslik";
+            this.BAŞLIK.MinimumWidth = 22;
+            this.BAŞLIK.Name = "BAŞLIK";
+            this.BAŞLIK.ReadOnly = true;
+            this.BAŞLIK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.BAŞLIK.Width = 65;
+            // 
+            // Durum
+            // 
+            this.Durum.HeaderText = "Durum";
+            this.Durum.MinimumWidth = 22;
+            this.Durum.Name = "Durum";
+            this.Durum.ReadOnly = true;
+            this.Durum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
+            this.Durum.Width = 70;
             // 
             // label2
             // 
@@ -190,6 +208,7 @@ namespace UserInterface.Ana_Sayfa
             // 
             // groupBox2
             // 
+            this.groupBox2.Controls.Add(this.tabControl1);
             this.groupBox2.Controls.Add(this.advancedDataGridView1);
             this.groupBox2.Location = new System.Drawing.Point(419, 73);
             this.groupBox2.Name = "groupBox2";
@@ -202,8 +221,8 @@ namespace UserInterface.Ana_Sayfa
             // 
             this.advancedDataGridView1.AllowUserToAddRows = false;
             this.advancedDataGridView1.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.advancedDataGridView1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.advancedDataGridView1.AutoGenerateContextFilters = true;
             this.advancedDataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.advancedDataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -218,27 +237,9 @@ namespace UserInterface.Ana_Sayfa
             this.advancedDataGridView1.TabIndex = 1;
             this.advancedDataGridView1.TimeFilter = false;
             // 
-            // BAŞLIK
-            // 
-            this.BAŞLIK.HeaderText = "Baslik";
-            this.BAŞLIK.MinimumWidth = 22;
-            this.BAŞLIK.Name = "BAŞLIK";
-            this.BAŞLIK.ReadOnly = true;
-            this.BAŞLIK.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.BAŞLIK.Width = 65;
-            // 
-            // Durum
-            // 
-            this.Durum.HeaderText = "Durum";
-            this.Durum.MinimumWidth = 22;
-            this.Durum.Name = "Durum";
-            this.Durum.ReadOnly = true;
-            this.Durum.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Programmatic;
-            this.Durum.Width = 70;
-            // 
             // tabControl1
             // 
-            this.tabControl1.Location = new System.Drawing.Point(920, 12);
+            this.tabControl1.Location = new System.Drawing.Point(515, 19);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(485, 463);
@@ -249,7 +250,6 @@ namespace UserInterface.Ana_Sayfa
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1431, 735);
-            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.BtnDisaAktar);
             this.Controls.Add(this.CmbYillar);

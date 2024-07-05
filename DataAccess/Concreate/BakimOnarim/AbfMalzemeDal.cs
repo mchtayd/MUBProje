@@ -414,7 +414,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader = sqlServices.StoreReader("DepoIadeEdilecekMalzemeTakilan", new SqlParameter("@teslimDurum", teslimDurum), new SqlParameter("@fizikselDurum", fizikselDurum));
                 while (dataReader.Read())
                 {
-                    abfMalzemes.Add(new AbfMalzeme(
+                    abfMalzemes2.Add(new AbfMalzeme(
                         dataReader["ID"].ConInt(),
                         dataReader["BENZERSIZ_ID"].ConInt(),
                         dataReader["TAKILAN_STOK_NO"].ToString(),

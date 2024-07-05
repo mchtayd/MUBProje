@@ -1,4 +1,5 @@
 ﻿using Business;
+using Business.Concreate.AnaSayfa;
 using Business.Concreate.BakimOnarim;
 using Business.Concreate.Depo;
 using Business.Concreate.Gecici_Kabul_Ambar;
@@ -9,6 +10,7 @@ using DocumentFormat.OpenXml.Drawing;
 using DocumentFormat.OpenXml.Office2010.Excel;
 using DocumentFormat.OpenXml.Wordprocessing;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.Depo;
 using Entity.Gecic_Kabul_Ambar;
@@ -46,6 +48,7 @@ namespace UserInterface.BakımOnarım
         DepoMiktarManager depoMiktarManager;
         DepoKayitManagercs depoKayitManagercs;
         StokGirisCikisManager stokGirisCikisManager;
+        DtsLogManager dtsLogManager;
 
         List<AbfMalzeme> abfMalzemes;
         bool start = false;
@@ -69,6 +72,7 @@ namespace UserInterface.BakımOnarım
             depoKayitManagercs = DepoKayitManagercs.GetInstance();
             stokGirisCikisManager = StokGirisCikisManager.GetInstance();
             malzemeManager = MalzemeManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void CmbDepoAdresi_SelectedIndexChanged(object sender, EventArgs e)
@@ -330,6 +334,7 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
 
+                DtsLogKayit();
                 MalzemeTeslimTesellumUpdate();
                 IsAkisNo();
                 Temizle();
@@ -337,6 +342,14 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        void DtsLogKayit()
+        {
+            string islem = LblBolgeAdi.Text + " bölgesine ait " + abfNo + " form numaralı arızanın " + LblIsAkisNo.Text + " İş Akış Numaralı DTF kaydı yapılmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "DTF KAYIT", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         void MalzemeHazirlamaControl2()
         {
             DepoMiktar depoMiktar = depoMiktarManager.StokSeriLotKontrol(stokNo, "2600", seriNo, lotNo, revizyon);

@@ -5,24 +5,16 @@ using Business.Concreate.Depo;
 using Business.Concreate.IdarıIsler;
 using Business.Concreate.STS;
 using DataAccess.Concreate;
-using DocumentFormat.OpenXml.Drawing;
-using DocumentFormat.OpenXml.EMMA;
 using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using Entity.IdariIsler;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
 using System.Globalization;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.Ana_Sayfa;
-using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.STS;
 
 namespace UserInterface.BakımOnarım
@@ -518,6 +510,8 @@ namespace UserInterface.BakımOnarım
         private void BtnExcelAl_Click(object sender, EventArgs e)
         {
             DataTable table = FrmHelper.GetDataTableFromExcel("C:\\Users\\MAYıldırım\\Desktop\\MÜB ŞİKEFTE  YERLEŞİM KAYITLARI.xlsx", "MÜB-4-5-6-7");
+
+            
 
             //DataTable table = FrmHelper.GetDataTableFromExcel("C:\\Users\\MAYıldırım\\Desktop\\MÜB-4 MUHTEVİYAT LİSTESİ.xlsx", "KARLISIRT Ü.B.");
 

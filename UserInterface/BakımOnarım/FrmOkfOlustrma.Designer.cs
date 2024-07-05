@@ -42,6 +42,8 @@ namespace UserInterface.BakımOnarım
             this.label5 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.CmbMusteriAdi = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.TxtABTelefon = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.TxtUsBolgesiKomutani = new System.Windows.Forms.TextBox();
@@ -110,8 +112,6 @@ namespace UserInterface.BakımOnarım
             this.TxtArizaNedeni = new System.Windows.Forms.RichTextBox();
             this.label24 = new System.Windows.Forms.Label();
             this.BtnKaydet = new System.Windows.Forms.Button();
-            this.CmbMusteriAdi = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -246,6 +246,27 @@ namespace UserInterface.BakımOnarım
             this.groupBox1.TabIndex = 417;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "ARIZA BİLGİLERİ";
+            // 
+            // CmbMusteriAdi
+            // 
+            this.CmbMusteriAdi.FormattingEnabled = true;
+            this.CmbMusteriAdi.Items.AddRange(new object[] {
+            "K.K.K.",
+            "J.G.K.",
+            "S.G.K."});
+            this.CmbMusteriAdi.Location = new System.Drawing.Point(352, 108);
+            this.CmbMusteriAdi.Name = "CmbMusteriAdi";
+            this.CmbMusteriAdi.Size = new System.Drawing.Size(101, 21);
+            this.CmbMusteriAdi.TabIndex = 445;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(287, 112);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(59, 13);
+            this.label9.TabIndex = 444;
+            this.label9.Text = "MÜŞTERİ:";
             // 
             // TxtABTelefon
             // 
@@ -969,27 +990,6 @@ namespace UserInterface.BakımOnarım
             this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnKaydet.UseVisualStyleBackColor = false;
             this.BtnKaydet.Click += new System.EventHandler(this.BtnKaydet_Click);
-            // 
-            // CmbMusteriAdi
-            // 
-            this.CmbMusteriAdi.FormattingEnabled = true;
-            this.CmbMusteriAdi.Items.AddRange(new object[] {
-            "K.K.K.",
-            "J.G.K.",
-            "S.G.K."});
-            this.CmbMusteriAdi.Location = new System.Drawing.Point(352, 108);
-            this.CmbMusteriAdi.Name = "CmbMusteriAdi";
-            this.CmbMusteriAdi.Size = new System.Drawing.Size(101, 21);
-            this.CmbMusteriAdi.TabIndex = 445;
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(287, 112);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(59, 13);
-            this.label9.TabIndex = 444;
-            this.label9.Text = "MÜŞTERİ:";
             // 
             // FrmOkfOlustrma
             // 

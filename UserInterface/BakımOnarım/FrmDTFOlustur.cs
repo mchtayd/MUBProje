@@ -41,6 +41,7 @@ namespace UserInterface.BakımOnarım
         AbfMalzemeManager abfMalzemeManager;
         AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
         ArizaKayitManager arizaKayitManager;
+        DtsLogManager dtsLogManager;
 
         List<MalzemeKayit> malzemeKayits;
         List<DtfMaliyet> dtfMaliyets;
@@ -68,6 +69,7 @@ namespace UserInterface.BakımOnarım
             abfMalzemeManager = AbfMalzemeManager.GetInstance();
             abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
             arizaKayitManager = ArizaKayitManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmDTFOlustur_Load(object sender, EventArgs e)
@@ -384,11 +386,20 @@ namespace UserInterface.BakımOnarım
                         MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                DtsLogKayit();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 IsAkisNo();
                 Temizle();
             }
         }
+
+        void DtsLogKayit()
+        {
+            string islem = CmbBolgeAdi.Text + " bölgesine ait " + TxtAbfNo.Text + " form numaralı arızanın " + LblIsAkisNo.Text + " İş Akış Numaralı DTF kaydı yapılmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "DTF KAYIT", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         string BildirimKayit()
         {
             string[] array = new string[8];
@@ -1512,9 +1523,18 @@ namespace UserInterface.BakımOnarım
             //        MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
             //    }
             //}
+            DtsLogKayitKontrol();
             MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             TemizleKO();
         }
+
+        void DtsLogKayitKontrol()
+        {
+            string islem = LblUsBolgesiKO.Text + " bölgesine ait " + LblAbfNoKO.Text + " form numaralı arızanın " + TxtIsAkisNo.Text + " İş Akış Numaralı DTF kaydının kontrol ve onay işlemleri yapılmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "DTF KONTROL/ONAY", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         void MalzemeHareket()
         {
             ArizaKayit arizaKayit = arizaKayitManager.Get(LblAbfNoKO.Text.ConInt());

@@ -2339,6 +2339,23 @@ namespace UserInterface.STS
                     }
                 }
 
+                if (baslik == "DEMİRBAŞ İZLEME")
+                {
+                    var form = (FrmDuranVarlikTakip)Application.OpenForms["FrmDuranVarlikTakip"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
+
+                if (baslik == "KAPATILACAK ARIZALAR")
+                {
+                    var form = (FrmArizaKapatilacaklar)Application.OpenForms["FrmArizaKapatilacaklar"];
+                    if (form != null)
+                    {
+                        form.DataDisplay();
+                    }
+                }
             }
 
         }
@@ -3708,6 +3725,17 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageBOPerformans", "OTS B/O PERFORMANS", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Bildirim Raporu")
+            {
+                FrmBildirimRaporu Go = new FrmBildirimRaporu();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageBildirimRaporu", "BİLDİRİM RAPORU", Go);
                 //Go.infos = infos;
                 Go.Show();
             }

@@ -44,6 +44,7 @@ namespace UserInterface.BakımOnarım
             this.güncelleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sökülenMalzemeBilgisiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.açıklamaEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sektörCihazlarıOKFExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -83,7 +84,7 @@ namespace UserInterface.BakımOnarım
             this.DtgSokulen = new ADGV.AdvancedDataGridView();
             this.DtgTakilan = new ADGV.AdvancedDataGridView();
             this.button1 = new System.Windows.Forms.Button();
-            this.sektörCihazlarıOKFExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raporOluşturExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -174,9 +175,10 @@ namespace UserInterface.BakımOnarım
             this.güncelleToolStripMenuItem,
             this.sökülenMalzemeBilgisiToolStripMenuItem,
             this.açıklamaEkleToolStripMenuItem,
-            this.sektörCihazlarıOKFExcelToolStripMenuItem});
+            this.sektörCihazlarıOKFExcelToolStripMenuItem,
+            this.raporOluşturExcelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 136);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 158);
             // 
             // durumGüncelleToolStripMenuItem
             // 
@@ -205,6 +207,13 @@ namespace UserInterface.BakımOnarım
             this.açıklamaEkleToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.açıklamaEkleToolStripMenuItem.Text = "Açıklama/Not Ekle";
             this.açıklamaEkleToolStripMenuItem.Click += new System.EventHandler(this.açıklamaEkleToolStripMenuItem_Click);
+            // 
+            // sektörCihazlarıOKFExcelToolStripMenuItem
+            // 
+            this.sektörCihazlarıOKFExcelToolStripMenuItem.Name = "sektörCihazlarıOKFExcelToolStripMenuItem";
+            this.sektörCihazlarıOKFExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.sektörCihazlarıOKFExcelToolStripMenuItem.Text = "Sektör Cihazları (OKF Excel)";
+            this.sektörCihazlarıOKFExcelToolStripMenuItem.Click += new System.EventHandler(this.sektörCihazlarıOKFExcelToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -646,12 +655,12 @@ namespace UserInterface.BakımOnarım
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
             // 
-            // sektörCihazlarıOKFExcelToolStripMenuItem
+            // raporOluşturExcelToolStripMenuItem
             // 
-            this.sektörCihazlarıOKFExcelToolStripMenuItem.Name = "sektörCihazlarıOKFExcelToolStripMenuItem";
-            this.sektörCihazlarıOKFExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.sektörCihazlarıOKFExcelToolStripMenuItem.Text = "Sektör Cihazları (OKF Excel)";
-            this.sektörCihazlarıOKFExcelToolStripMenuItem.Click += new System.EventHandler(this.sektörCihazlarıOKFExcelToolStripMenuItem_Click);
+            this.raporOluşturExcelToolStripMenuItem.Name = "raporOluşturExcelToolStripMenuItem";
+            this.raporOluşturExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.raporOluşturExcelToolStripMenuItem.Text = "Rapor Oluştur (Excel)";
+            this.raporOluşturExcelToolStripMenuItem.Click += new System.EventHandler(this.raporOluşturExcelToolStripMenuItem_Click);
             // 
             // FrmArizaDevamEden
             // 
@@ -758,5 +767,6 @@ namespace UserInterface.BakımOnarım
         private ADGV.AdvancedDataGridView DtgTakilan;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem sektörCihazlarıOKFExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem raporOluşturExcelToolStripMenuItem;
     }
 }

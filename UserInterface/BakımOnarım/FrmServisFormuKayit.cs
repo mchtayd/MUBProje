@@ -31,6 +31,7 @@ namespace UserInterface.BakımOnarım
         SFYedekParcaManager sFYedekParcaManager;
         BildirimYetkiManager bildirimYetkiManager;
         BolgeKayitManager bolgeKayitManager;
+        DtsLogManager dtsLogManager;
 
         public object[] infos;
 
@@ -47,6 +48,7 @@ namespace UserInterface.BakımOnarım
             sFYedekParcaManager = SFYedekParcaManager.GetInstance();
             bildirimYetkiManager = BildirimYetkiManager.GetInstance();
             bolgeKayitManager = BolgeKayitManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmServisFormuKayit_Load(object sender, EventArgs e)
@@ -114,7 +116,7 @@ namespace UserInterface.BakımOnarım
                 MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            
+
             /*sFYedekParcaManager.Delete(siparisNo);
             int sonSayi = DtgKullanilanMalzemeler.RowCount - 1;
             int sayac = 0;
@@ -128,6 +130,7 @@ namespace UserInterface.BakımOnarım
 
                 sFYedekParcaManager.Add(sFYedekPaca);
             }*/
+            DtsLogKayitGuncelleme();
             IsAkisNo();
             MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             Temizle();
@@ -306,12 +309,28 @@ namespace UserInterface.BakımOnarım
                         MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
+                DtsLogKayit();
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.","Bilgi",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 dosyaEkle = false;
                 Temizle();
 
             }
         }
+
+        void DtsLogKayit()
+        {
+            string islem = CmbBolgeAdi.Text + " bölgesine ait " + CmbFirma.Text + " firması tarafından tutulan " + LblIsAkisNo.Text + " İş Akış Numaralı Servis Formu kaydı yapılmıştır.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "SERVİS FORMU KAYIT", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
+        void DtsLogKayitGuncelleme()
+        {
+            string islem = CmbBolgeAdi.Text + " bölgesine ait " + CmbFirma.Text + " firması tarafından tutulan " + TxtIsAkisNo.Text + " İş Akış Numaralı Servis Formu kaydı güncellenmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "SERVİS FORMU GÜNCELLEME", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
         void Temizle()
         {
             CmbFirma.SelectedValue = ""; CmbBolgeAdi.SelectedIndex = -1; TxtServisFormNo.Clear(); CmbMudehaleTuru.SelectedIndex = -1; DtBaslamaTarihiSaati.Text = "00:00"; DtBitisTarihiSaati.Text = "00:00"; TxtJenaratorCalismaSaati.Clear(); TxtMarka.Clear(); TxtModel.Clear(); TxtSeriNo.Clear(); TxtGuc.Clear();

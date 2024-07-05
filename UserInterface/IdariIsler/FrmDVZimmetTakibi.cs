@@ -190,8 +190,16 @@ namespace UserInterface.IdariIsler
             dosyayolu = DtgList.CurrentRow.Cells["Dosyayolu"].Value.ToString();
             sayfa = DtgList.CurrentRow.Cells["Sayfa"].Value.ToString();
             id = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
-            webBrowser1.Navigate(dosyayolu);
+            
             IslemAdimlariDisplay();
+            try
+            {
+                webBrowser1.Navigate(dosyayolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
         }
 
         private void yenileToolStripMenuItem_Click(object sender, EventArgs e)

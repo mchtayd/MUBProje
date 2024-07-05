@@ -296,7 +296,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        "");
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -384,7 +385,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        "");
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -472,7 +474,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        "");
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -559,7 +562,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        ""));
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -647,7 +651,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        ""));
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -751,7 +756,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        ""));
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -842,7 +848,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        gorevGecenSure));
+                        gorevGecenSure,
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -928,7 +935,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        ""));
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1017,7 +1025,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        ""));
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1027,6 +1036,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 return new List<ArizaKayit>();
             }
         }
+
 
         public List<ArizaKayit> TamamlananGetList()
         {
@@ -1105,7 +1115,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        ""));
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1192,7 +1203,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        ""));
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1279,7 +1291,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["OKF_BILDIRIM_NO"].ToString(),
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
-                        ""));
+                        "",
+                        dataReader["KAPATMA_DURUMU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1416,6 +1429,19 @@ namespace DataAccess.Concreate.BakimOnarim
             try
             {
                 sqlServices.Stored("IslemAdimiUpdate", new SqlParameter("@id", id), new SqlParameter("@islemAdimi", islemAdimi));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
+        public string BakimOnarimKapatmaDurumu(int id, string kapatmaDurumu)
+        {
+            try
+            {
+                sqlServices.Stored("BakimOnarimKapatmaDurumu", new SqlParameter("@id", id), new SqlParameter("@kapatmaDurumu", kapatmaDurumu));
                 return "OK";
             }
             catch (Exception ex)

@@ -1,8 +1,10 @@
-﻿using Business.Concreate.BakimOnarim;
+﻿using Business.Concreate.AnaSayfa;
+using Business.Concreate.BakimOnarim;
 using ClosedXML.Excel;
 using DataAccess.Concreate;
 using DataAccess.Concreate.BakimOnarim;
 using Entity;
+using Entity.AnaSayfa;
 using Entity.BakimOnarim;
 using System;
 using System.Collections.Generic;
@@ -22,6 +24,7 @@ namespace UserInterface.BakımOnarım
     {
         OkfManager okfManager;
         DtfMaliyetManager dtfMaliyetManager;
+        DtsLogManager dtsLogManager;
         List<Okf> okfs;
         List<Okf> okfsSSB;
         List<Okf> okfsMusteriOnayi;
@@ -39,6 +42,7 @@ namespace UserInterface.BakımOnarım
             InitializeComponent();
             okfManager = OkfManager.GetInstance();
             dtfMaliyetManager = DtfMaliyetManager.GetInstance();
+            dtsLogManager = DtsLogManager.GetInstance();
         }
 
         private void FrmOkfIzleme_Load(object sender, EventArgs e)
@@ -55,6 +59,8 @@ namespace UserInterface.BakımOnarım
             MusteriOnayi();
             SSBSunulan();
             AselsanaGonderilen();
+            Reddedilen();
+            IpdtalEdilen();
         }
         public void AselsanaGonderilen()
         {
@@ -302,15 +308,136 @@ namespace UserInterface.BakımOnarım
 
 
         }
+
+        public void Reddedilen()
+        {
+            tamamlanan = okfManager.GetList("REDDEDİLEN");
+            dataBinderRed.DataSource = tamamlanan.ToDataTable();
+            DtgRed.DataSource = dataBinderRed;
+
+            DtgRed.Columns["Id"].Visible = false;
+            DtgRed.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
+            DtgRed.Columns["KayitYapan"].HeaderText = "KAYIT YAPAN";
+            DtgRed.Columns["KayitTarihi"].HeaderText = "KAYIT TARİHİ";
+            DtgRed.Columns["AbfNo"].HeaderText = "ABF NO";
+            DtgRed.Columns["ArizaTarihi"].HeaderText = "ARIZA TARİHİ";
+            DtgRed.Columns["UsBolgesi"].HeaderText = "ÜS BÖLGESİ";
+            DtgRed.Columns["ProjeKodu"].HeaderText = "PROJE KODU";
+            DtgRed.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
+            DtgRed.Columns["UbKomutani"].Visible = false;
+            DtgRed.Columns["KomutanTel"].Visible = false;
+            DtgRed.Columns["BirlikAdresi"].Visible = false;
+            DtgRed.Columns["Il"].HeaderText = "İL";
+            DtgRed.Columns["Ilce"].HeaderText = "İLÇE";
+            DtgRed.Columns["UstStok"].HeaderText = "STOK NO";
+            DtgRed.Columns["UstTanim"].HeaderText = "TANIM";
+            DtgRed.Columns["UstSeriNo"].HeaderText = "SERİ NO";
+            DtgRed.Columns["BildirilenAriza"].HeaderText = "BİLDİRİLEN ARIZA";
+            DtgRed.Columns["ArizaDurum"].Visible = false;
+            DtgRed.Columns["ArizaNedeni"].HeaderText = "ARIZA NEDENİ";
+            DtgRed.Columns["GenelOneriler"].HeaderText = "GENEL ÖNERİLER";
+            DtgRed.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
+            DtgRed.Columns["DosyaYolu"].Visible = false;
+            DtgRed.Columns["YapilacakIslemler"].Visible = false;
+            DtgRed.Columns["BildirimNo"].HeaderText = "BİLDİRİM NO";
+
+            DtgRed.Columns["IsAkisNo"].DisplayIndex = 0;
+            DtgRed.Columns["AbfNo"].DisplayIndex = 1;
+            DtgRed.Columns["Il"].DisplayIndex = 2;
+            DtgRed.Columns["Ilce"].DisplayIndex = 3;
+            DtgRed.Columns["UsBolgesi"].DisplayIndex = 4;
+            DtgRed.Columns["ProjeKodu"].DisplayIndex = 5;
+            DtgRed.Columns["UstTanim"].DisplayIndex = 6;
+            DtgRed.Columns["GarantiDurumu"].DisplayIndex = 7;
+            DtgRed.Columns["ArizaTarihi"].DisplayIndex = 8;
+            DtgRed.Columns["BildirilenAriza"].DisplayIndex = 9;
+            DtgRed.Columns["ToplamTutar"].DisplayIndex = 10;
+            DtgRed.Columns["UstStok"].DisplayIndex = 11;
+            DtgRed.Columns["UstSeriNo"].DisplayIndex = 12;
+            DtgRed.Columns["ArizaNedeni"].DisplayIndex = 13;
+            DtgRed.Columns["GenelOneriler"].DisplayIndex = 14;
+            DtgRed.Columns["KayitTarihi"].DisplayIndex = 15;
+            DtgRed.Columns["BildirimNo"].DisplayIndex = 17;
+            DtgRed.Columns["Id"].DisplayIndex = 18;
+            DtgRed.Columns["ArizaDurum"].DisplayIndex = 19;
+            DtgRed.Columns["DosyaYolu"].DisplayIndex = 20;
+            DtgRed.Columns["YapilacakIslemler"].DisplayIndex = 21;
+            DtgRed.Columns["UbKomutani"].DisplayIndex = 22;
+            DtgRed.Columns["KomutanTel"].DisplayIndex = 23;
+            DtgRed.Columns["BirlikAdresi"].DisplayIndex = 24;
+            DtgRed.Columns["KayitYapan"].DisplayIndex = 25;
+        }
+
+        public void IpdtalEdilen()
+        {
+            tamamlanan = okfManager.GetList("İPTAL EDİLEN");
+            dataBinderIptal.DataSource = tamamlanan.ToDataTable();
+            DtgIptal.DataSource = dataBinderIptal;
+
+            DtgIptal.Columns["Id"].Visible = false;
+            DtgIptal.Columns["IsAkisNo"].HeaderText = "İŞ AKIŞ NO";
+            DtgIptal.Columns["KayitYapan"].HeaderText = "KAYIT YAPAN";
+            DtgIptal.Columns["KayitTarihi"].HeaderText = "KAYIT TARİHİ";
+            DtgIptal.Columns["AbfNo"].HeaderText = "ABF NO";
+            DtgIptal.Columns["ArizaTarihi"].HeaderText = "ARIZA TARİHİ";
+            DtgIptal.Columns["UsBolgesi"].HeaderText = "ÜS BÖLGESİ";
+            DtgIptal.Columns["ProjeKodu"].HeaderText = "PROJE KODU";
+            DtgIptal.Columns["GarantiDurumu"].HeaderText = "GARANTİ DURUMU";
+            DtgIptal.Columns["UbKomutani"].Visible = false;
+            DtgIptal.Columns["KomutanTel"].Visible = false;
+            DtgIptal.Columns["BirlikAdresi"].Visible = false;
+            DtgIptal.Columns["Il"].HeaderText = "İL";
+            DtgIptal.Columns["Ilce"].HeaderText = "İLÇE";
+            DtgIptal.Columns["UstStok"].HeaderText = "STOK NO";
+            DtgIptal.Columns["UstTanim"].HeaderText = "TANIM";
+            DtgIptal.Columns["UstSeriNo"].HeaderText = "SERİ NO";
+            DtgIptal.Columns["BildirilenAriza"].HeaderText = "BİLDİRİLEN ARIZA";
+            DtgIptal.Columns["ArizaDurum"].Visible = false;
+            DtgIptal.Columns["ArizaNedeni"].HeaderText = "ARIZA NEDENİ";
+            DtgIptal.Columns["GenelOneriler"].HeaderText = "GENEL ÖNERİLER";
+            DtgIptal.Columns["ToplamTutar"].HeaderText = "TOPLAM TUTAR";
+            DtgIptal.Columns["DosyaYolu"].Visible = false;
+            DtgIptal.Columns["YapilacakIslemler"].Visible = false;
+            DtgIptal.Columns["BildirimNo"].HeaderText = "BİLDİRİM NO";
+
+            DtgIptal.Columns["IsAkisNo"].DisplayIndex = 0;
+            DtgIptal.Columns["AbfNo"].DisplayIndex = 1;
+            DtgIptal.Columns["Il"].DisplayIndex = 2;
+            DtgIptal.Columns["Ilce"].DisplayIndex = 3;
+            DtgIptal.Columns["UsBolgesi"].DisplayIndex = 4;
+            DtgIptal.Columns["ProjeKodu"].DisplayIndex = 5;
+            DtgIptal.Columns["UstTanim"].DisplayIndex = 6;
+            DtgIptal.Columns["GarantiDurumu"].DisplayIndex = 7;
+            DtgIptal.Columns["ArizaTarihi"].DisplayIndex = 8;
+            DtgIptal.Columns["BildirilenAriza"].DisplayIndex = 9;
+            DtgIptal.Columns["ToplamTutar"].DisplayIndex = 10;
+            DtgIptal.Columns["UstStok"].DisplayIndex = 11;
+            DtgIptal.Columns["UstSeriNo"].DisplayIndex = 12;
+            DtgIptal.Columns["ArizaNedeni"].DisplayIndex = 13;
+            DtgIptal.Columns["GenelOneriler"].DisplayIndex = 14;
+            DtgIptal.Columns["KayitTarihi"].DisplayIndex = 15;
+            DtgIptal.Columns["BildirimNo"].DisplayIndex = 17;
+            DtgIptal.Columns["Id"].DisplayIndex = 18;
+            DtgIptal.Columns["ArizaDurum"].DisplayIndex = 19;
+            DtgIptal.Columns["DosyaYolu"].DisplayIndex = 20;
+            DtgIptal.Columns["YapilacakIslemler"].DisplayIndex = 21;
+            DtgIptal.Columns["UbKomutani"].DisplayIndex = 22;
+            DtgIptal.Columns["KomutanTel"].DisplayIndex = 23;
+            DtgIptal.Columns["BirlikAdresi"].DisplayIndex = 24;
+            DtgIptal.Columns["KayitYapan"].DisplayIndex = 25;
+        }
+
         public void Yenilenecekler()
         {
             Tamamlanan();
             MusteriOnayi();
             SSBSunulan();
             AselsanaGonderilen();
+            Reddedilen();
+            IpdtalEdilen();
         }
         DateTime arizaTarihi;
-        string tanim,bildirilenAriza,bolgeAdi = "";
+        string tanim, bildirilenAriza, bolgeAdi, abfNo = "";
         private void DtgList_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             if (DtgList.CurrentRow == null)
@@ -325,6 +452,7 @@ namespace UserInterface.BakımOnarım
             tanim = DtgList.CurrentRow.Cells["UstTanim"].Value.ToString();
             bildirilenAriza = DtgList.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
             bolgeAdi = DtgList.CurrentRow.Cells["UsBolgesi"].Value.ToString();
+            abfNo = DtgList.CurrentRow.Cells["AbfNo"].Value.ToString();
             MalzemeList(id);
             YapilacakIslemlerList(id);
             try
@@ -424,6 +552,7 @@ namespace UserInterface.BakımOnarım
         {
             FrmOkfGuncelle frmOkfGuncelle = new FrmOkfGuncelle();
             frmOkfGuncelle.id = id;
+            frmOkfGuncelle.infos = infos;
             frmOkfGuncelle.ShowDialog();
         }
 
@@ -462,6 +591,16 @@ namespace UserInterface.BakımOnarım
             }
             if (tabControl2.SelectedIndex == 3)
             {
+                LblTop.Text = DtgRed.RowCount.ToString();
+                ToplamlarGenel(DtgRed);
+            }
+            if (tabControl2.SelectedIndex == 4)
+            {
+                LblTop.Text = DtgIptal.RowCount.ToString();
+                ToplamlarGenel(DtgIptal);
+            }
+            if (tabControl2.SelectedIndex == 5)
+            {
                 LblTop.Text = DtgListTamamlanan.RowCount.ToString();
                 ToplamlarGenel(DtgListTamamlanan);
             }
@@ -485,7 +624,7 @@ namespace UserInterface.BakımOnarım
             tanim = DtgListSSB.CurrentRow.Cells["UstTanim"].Value.ToString();
             bildirilenAriza = DtgListSSB.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
             bolgeAdi = DtgListSSB.CurrentRow.Cells["UsBolgesi"].Value.ToString();
-
+            abfNo = DtgList.CurrentRow.Cells["AbfNo"].Value.ToString();
             MalzemeList(id);
             YapilacakIslemlerList(id);
             try
@@ -512,7 +651,7 @@ namespace UserInterface.BakımOnarım
             tanim = DtgListMusteriOnayi.CurrentRow.Cells["UstTanim"].Value.ToString();
             bildirilenAriza = DtgListMusteriOnayi.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
             bolgeAdi = DtgListMusteriOnayi.CurrentRow.Cells["UsBolgesi"].Value.ToString();
-
+            abfNo = DtgList.CurrentRow.Cells["AbfNo"].Value.ToString();
             MalzemeList(id);
             YapilacakIslemlerList(id);
             try
@@ -539,7 +678,7 @@ namespace UserInterface.BakımOnarım
             tanim = DtgListTamamlanan.CurrentRow.Cells["UstTanim"].Value.ToString();
             bildirilenAriza = DtgListTamamlanan.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
             bolgeAdi = DtgListTamamlanan.CurrentRow.Cells["UsBolgesi"].Value.ToString();
-
+            abfNo = DtgList.CurrentRow.Cells["AbfNo"].Value.ToString();
             MalzemeList(id);
             YapilacakIslemlerList(id);
             try
@@ -568,6 +707,7 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                DtsLogKayitssb();
                 Yenilenecekler();
                 id = 0;
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -590,6 +730,7 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                DtsLogKayiMusteriOnayi();
                 Yenilenecekler();
                 id = 0;
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -612,6 +753,7 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                DtsLogKayitTamamlanan();
                 Yenilenecekler();
                 id = 0;
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -647,6 +789,118 @@ namespace UserInterface.BakımOnarım
             dataBinderTamamlanan.Filter = DtgListTamamlanan.FilterString;
             LblTop.Text = DtgListTamamlanan.RowCount.ToString();
             ToplamlarGenel(DtgListTamamlanan);
+        }
+
+        private void reddedilenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show(isAkisNo.ToString() + " İş Akış Numaralı kaydın durumunu TAMAMLANAN olarak değiştirmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string mesaj = okfManager.OkfDurumUpdate(id, "REDDEDİLEN");
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                DtsLogKayitReddedilen();
+                Yenilenecekler();
+                id = 0;
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void iptalEdilenToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (id == 0)
+            {
+                MessageBox.Show("Lütfen öncelikle bir kayıt seçiniz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            DialogResult dr = MessageBox.Show(isAkisNo.ToString() + " İş Akış Numaralı kaydın durumunu TAMAMLANAN olarak değiştirmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr == DialogResult.Yes)
+            {
+                string mesaj = okfManager.OkfDurumUpdate(id, "İPTAL EDİLEN");
+                if (mesaj != "OK")
+                {
+                    MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                DtsLogKayitIptal();
+                Yenilenecekler();
+                id = 0;
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+
+        private void DtgRed_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgRed.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+            dosyaYolu = DtgRed.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            id = DtgRed.CurrentRow.Cells["Id"].Value.ConInt();
+            isAkisNo = DtgRed.CurrentRow.Cells["IsAkisNo"].Value.ConInt();
+            arizaTarihi = DtgRed.CurrentRow.Cells["ArizaTarihi"].Value.ConDate();
+            tanim = DtgRed.CurrentRow.Cells["UstTanim"].Value.ToString();
+            bildirilenAriza = DtgRed.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
+            bolgeAdi = DtgRed.CurrentRow.Cells["UsBolgesi"].Value.ToString();
+            abfNo = DtgList.CurrentRow.Cells["AbfNo"].Value.ToString();
+            MalzemeList(id);
+            YapilacakIslemlerList(id);
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void DtgIptal_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if (DtgIptal.CurrentRow == null)
+            {
+                MessageBox.Show("Öncelikle bir kayıt seçiniz.");
+                return;
+            }
+            dosyaYolu = DtgIptal.CurrentRow.Cells["DosyaYolu"].Value.ToString();
+            id = DtgIptal.CurrentRow.Cells["Id"].Value.ConInt();
+            isAkisNo = DtgIptal.CurrentRow.Cells["IsAkisNo"].Value.ConInt();
+            arizaTarihi = DtgIptal.CurrentRow.Cells["ArizaTarihi"].Value.ConDate();
+            tanim = DtgIptal.CurrentRow.Cells["UstTanim"].Value.ToString();
+            bildirilenAriza = DtgIptal.CurrentRow.Cells["BildirilenAriza"].Value.ToString();
+            bolgeAdi = DtgIptal.CurrentRow.Cells["UsBolgesi"].Value.ToString();
+            abfNo = DtgList.CurrentRow.Cells["AbfNo"].Value.ToString();
+            MalzemeList(id);
+            YapilacakIslemlerList(id);
+            try
+            {
+                webBrowser1.Navigate(dosyaYolu);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+        }
+
+        private void DtgRed_FilterStringChanged(object sender, EventArgs e)
+        {
+            dataBinderRed.Filter = DtgRed.FilterString;
+            LblTop.Text = DtgRed.RowCount.ToString();
+            ToplamlarGenel(DtgRed);
+        }
+
+        private void DtgRed_SortStringChanged(object sender, EventArgs e)
+        {
+            dataBinderRed.Sort = DtgRed.SortString;
         }
 
         private void DtgListTamamlanan_SortStringChanged(object sender, EventArgs e)
@@ -712,9 +966,16 @@ namespace UserInterface.BakımOnarım
             xLWorkbook.Dispose(); // workbook nesnesini temizler
 
             Directory.Delete(yol, true);
-
+            DtsLogKayitExcel();
             webBrowser1.Navigate(dosyaYolu);
 
+        }
+
+        void DtsLogKayitExcel()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " form numaralı arızanın " + isAkisNo + " İş Akış Numaralı OKF kaydının excel formu oluşturulmuştur.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "OKF KAYIT EXCEL", islem);
+            dtsLogManager.Add(dtsLog);
         }
 
         private void aselsanaGönderilenToolStripMenuItem_Click(object sender, EventArgs e)
@@ -733,11 +994,56 @@ namespace UserInterface.BakımOnarım
                     MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
+                DtsLogKayitAselsan();
                 Yenilenecekler();
                 id = 0;
                 MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
 
         }
+        void DtsLogKayitAselsan()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " form numaralı arızanın " + isAkisNo + " İş Akış Numaralı OKF kaydı Aselsana Gönderilen olarak değiştirilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "OKF KAYIT GÜNCELLEME", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
+        void DtsLogKayitssb()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " form numaralı arızanın " + isAkisNo + " İş Akış Numaralı OKF kaydı SSB Onayına Sunulan olarak değiştirilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "OKF KAYIT GÜNCELLEME", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
+        void DtsLogKayiMusteriOnayi()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " form numaralı arızanın " + isAkisNo + " İş Akış Numaralı OKF kaydı Müşteri Onayı Gelen olarak değiştirilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "OKF KAYIT GÜNCELLEME", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
+        void DtsLogKayitReddedilen()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " form numaralı arızanın " + isAkisNo + " İş Akış Numaralı OKF kaydı Reddedilen olarak değiştirilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "OKF KAYIT GÜNCELLEME", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
+        void DtsLogKayitIptal()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " form numaralı arızanın " + isAkisNo + " İş Akış Numaralı OKF kaydı İptal Edilen olarak değiştirilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "OKF KAYIT GÜNCELLEME", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
+        void DtsLogKayitTamamlanan()
+        {
+            string islem = bolgeAdi + " bölgesine ait " + abfNo + " form numaralı arızanın " + isAkisNo + " İş Akış Numaralı OKF kaydı Tamamlanan olarak değiştirilmiştir.";
+            DtsLog dtsLog = new DtsLog(infos[1].ToString(), DateTime.Now, "OKF KAYIT GÜNCELLEME", islem);
+            dtsLogManager.Add(dtsLog);
+        }
+
+
+
     }
 }
