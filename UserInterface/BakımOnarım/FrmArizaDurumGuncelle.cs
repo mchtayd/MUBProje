@@ -212,54 +212,73 @@ namespace UserInterface.BakımOnarım
             GrbVeriGecmisi.Visible = true;
             if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
-                GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new System.Drawing.Point(29, 831);
-                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-                GrbVeriGecmisi.Visible = false;
-                BtnSokulenEkle.Enabled = true;
-                BtnEkle.Enabled = false;
+                if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
+                {
+                    
+                }
+                else
+                {
+                    GrbMalzemeBilgileri.Visible = true;
+                    BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                    GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
+                    GrbVeriGecmisi.Visible = false;
+                    BtnSokulenEkle.Enabled = true;
+                    BtnEkle.Enabled = false;
+                }
+                
                 //tabControl1.TabPages[0].remo
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
-                GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new System.Drawing.Point(29, 831);
-                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-                GrbVeriGecmisi.Visible = false;
-                BtnSokulenEkle.Enabled = false;
-                BtnEkle.Enabled = true;
-                List<AbfMalzeme> abfMalzemes = abfMalzemeManager.GetList(id);
-                DtgTakilan.Rows.Clear();
-                foreach (AbfMalzeme item in abfMalzemes)
+                if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
                 {
-                    if (item.TakilanStokNo != "")
+                    
+                }
+                else
+                {
+                    GrbMalzemeBilgileri.Visible = true;
+                    BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                    GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
+                    GrbVeriGecmisi.Visible = false;
+                    BtnSokulenEkle.Enabled = false;
+                    BtnEkle.Enabled = true;
+                    List<AbfMalzeme> abfMalzemes = abfMalzemeManager.GetList(id);
+                    DtgTakilan.Rows.Clear();
+                    foreach (AbfMalzeme item in abfMalzemes)
                     {
-                        DtgTakilan.Rows.Add();
-                        int sonSatirr = DtgTakilan.RowCount - 1;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanId"].Value = item.Id;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanTeslimDurum"].Value = item.TakilanTeslimDurum;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanStokNo"].Value = item.TakilanStokNo;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanTanim"].Value = item.TakilanTanim;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanSeriNo"].Value = item.TakilanSeriNo;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanMiktar"].Value = item.TakilanMiktar;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanBirim"].Value = item.TakilanBirim;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanCalismaSaati"].Value = item.TakilanCalismaSaati;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanRevizyon"].Value = item.TakilanRevizyon;
-                        DtgTakilan.Rows[sonSatirr].Cells["TakilanTeslimDurum"].Value = item.TakilanTeslimDurum;
+                        if (item.TakilanStokNo != "")
+                        {
+                            DtgTakilan.Rows.Add();
+                            int sonSatirr = DtgTakilan.RowCount - 1;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanId"].Value = item.Id;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanTeslimDurum"].Value = item.TakilanTeslimDurum;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanStokNo"].Value = item.TakilanStokNo;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanTanim"].Value = item.TakilanTanim;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanSeriNo"].Value = item.TakilanSeriNo;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanMiktar"].Value = item.TakilanMiktar;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanBirim"].Value = item.TakilanBirim;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanCalismaSaati"].Value = item.TakilanCalismaSaati;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanRevizyon"].Value = item.TakilanRevizyon;
+                            DtgTakilan.Rows[sonSatirr].Cells["TakilanTeslimDurum"].Value = item.TakilanTeslimDurum;
 
-                        DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgTakilan.Columns["Delete"];
-                        c.FlatStyle = FlatStyle.Popup;
-                        c.DefaultCellStyle.ForeColor = Color.Red;
-                        c.DefaultCellStyle.BackColor = Color.Gainsboro;
+                            DataGridViewButtonColumn c = (DataGridViewButtonColumn)DtgTakilan.Columns["Delete"];
+                            c.FlatStyle = FlatStyle.Popup;
+                            c.DefaultCellStyle.ForeColor = Color.Red;
+                            c.DefaultCellStyle.BackColor = Color.Gainsboro;
+
+                        }
 
                     }
-
                 }
             }
 
 
             if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
             {
+                if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
+                {
+                    return;
+                }
                 GrbMalzemeBilgileri.Visible = true;
                 BtnKaydet.Location = new System.Drawing.Point(29, 831);
                 GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);

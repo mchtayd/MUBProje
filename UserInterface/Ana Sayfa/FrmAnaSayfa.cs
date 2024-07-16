@@ -3687,6 +3687,17 @@ namespace UserInterface.STS
                 Go.Show();
             }
 
+            if (e.Node.Text == "Eğitim Talebi")
+            {
+                FrmEgitimTalebi Go = new FrmEgitimTalebi();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageEgitimTalebi", "EĞİTİM TALEBİ", Go);
+                //Go.infos = infos;
+                Go.Show();
+            }
+
             /////////////////////////////////////////////////RAPORLAMALAR/////////////////////////////////////////////////////////////
             if (e.Node.Text == "SAT Raporlama")
             {

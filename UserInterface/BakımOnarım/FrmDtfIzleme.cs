@@ -204,9 +204,9 @@ namespace UserInterface.BakımOnarım
             id = DtgTamamlanan.CurrentRow.Cells["Id"].Value.ConInt();
             dosyaYolu = DtgTamamlanan.CurrentRow.Cells["DosyaYolu"].Value.ToString();
             kayitId = id;
-            abfNo = DtgDevamEden.CurrentRow.Cells["AbfNo"].Value.ToString();
-            isAkisNo = DtgDevamEden.CurrentRow.Cells["IsAkisNo"].Value.ToString();
-            bolgeAdi = DtgDevamEden.CurrentRow.Cells["UsBolgesi"].Value.ToString();
+            abfNo = DtgTamamlanan.CurrentRow.Cells["AbfNo"].Value.ToString();
+            isAkisNo = DtgTamamlanan.CurrentRow.Cells["IsAkisNo"].Value.ToString();
+            bolgeAdi = DtgTamamlanan.CurrentRow.Cells["UsBolgesi"].Value.ToString();
             FillTools();
 
             try

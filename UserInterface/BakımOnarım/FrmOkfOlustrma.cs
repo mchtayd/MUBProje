@@ -317,7 +317,10 @@ namespace UserInterface.BakımOnarım
             {
                 toplam += Convert.ToDouble(DtgMalzemeList.Rows[i].Cells["ToplamTutar"].Value);
             }
-
+            if (DtgMalzemeList.RowCount<0)
+            {
+                return;
+            }
             if (DtgMalzemeList.Rows[DtgMalzemeList.RowCount-1].Cells["PBirim"].Value.ToString() == "TL")
             {
                 TxtGenelTop.Text = toplam.ToString("C2");
@@ -334,10 +337,7 @@ namespace UserInterface.BakımOnarım
                 TxtGenelTop.Text = toplam.ToString("C2");
                 string[] deneme = TxtGenelTop.Text.Split('₺');
                 TxtGenelTop.Text = "€" + deneme[1];
-
             }
-
-            
         }
 
         private void DtgMalzemeList_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -498,6 +498,8 @@ namespace UserInterface.BakımOnarım
                 sayac = 0;
                 sayac2 = 0;
                 Temizle();
+                TxtGenelTop.Text = "0";
+                CmbMusteriAdi.Text = "";
             }
         }
 
@@ -533,7 +535,9 @@ namespace UserInterface.BakımOnarım
             TxtArizaNedeni.Clear(); TxtYapilacakIslemler.Clear(); ChkArizaBildirim.Checked=false; ChkArizaFoto.Checked=false; ChkFiyatTeklifi.Checked=false;
             ChkTutanak.Checked = false; DtgList.Rows.Clear(); TxtGenelOneriler.Clear(); CmbStokNo.Text = ""; CmbTanim.Text = ""; m1.Clear(); b1.Text = ""; 
             BTutar1.Clear(); TTutar1.Clear(); DtgMalzemeList.Rows.Clear(); CmbBolgeAdi.Text = ""; CmbProjeKodu.Text = "";
-            Toplamlar();
+            //Toplamlar();
+            TxtGenelTop.Text = "0";
+            CmbMusteriAdi.Text = "";
         }
         
         void CreateWord()
@@ -638,17 +642,17 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["Miktar2"].Range.Text = DtgMalzemeList.Rows[1].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[1].Cells["Birim"].Value.ToString();
                 double toplam = DtgMalzemeList.Rows[1].Cells["ToplamTutar"].Value.ConDouble();
                 string ttutar = "";
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "TL")
+                if (DtgMalzemeList.Rows[1].Cells["PBirim"].Value.ToString() == "TL")
                 {
                     ttutar = toplam.ToString("C2");
                 }
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "USD")
+                if (DtgMalzemeList.Rows[1].Cells["PBirim"].Value.ToString() == "USD")
                 {
                     ttutar = toplam.ToString("C2");
                     string[] deneme = ttutar.Split('₺');
                     ttutar = "$" + deneme[1];
                 }
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "EURO")
+                if (DtgMalzemeList.Rows[1].Cells["PBirim"].Value.ToString() == "EURO")
                 {
                     ttutar = toplam.ToString("C2");
                     string[] deneme = ttutar.Split('₺');
@@ -663,17 +667,17 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["Miktar3"].Range.Text = DtgMalzemeList.Rows[2].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[2].Cells["Birim"].Value.ToString();
                 double toplam = DtgMalzemeList.Rows[2].Cells["ToplamTutar"].Value.ConDouble();
                 string ttutar = "";
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "TL")
+                if (DtgMalzemeList.Rows[2].Cells["PBirim"].Value.ToString() == "TL")
                 {
                     ttutar = toplam.ToString("C2");
                 }
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "USD")
+                if (DtgMalzemeList.Rows[2].Cells["PBirim"].Value.ToString() == "USD")
                 {
                     ttutar = toplam.ToString("C2");
                     string[] deneme = ttutar.Split('₺');
                     ttutar = "$" + deneme[1];
                 }
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "EURO")
+                if (DtgMalzemeList.Rows[2].Cells["PBirim"].Value.ToString() == "EURO")
                 {
                     ttutar = toplam.ToString("C2");
                     string[] deneme = ttutar.Split('₺');
@@ -688,17 +692,17 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["Miktar4"].Range.Text = DtgMalzemeList.Rows[3].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[3].Cells["Birim"].Value.ToString();
                 double toplam = DtgMalzemeList.Rows[3].Cells["ToplamTutar"].Value.ConDouble();
                 string ttutar = "";
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "TL")
+                if (DtgMalzemeList.Rows[3].Cells["PBirim"].Value.ToString() == "TL")
                 {
                     ttutar = toplam.ToString("C2");
                 }
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "USD")
+                if (DtgMalzemeList.Rows[3].Cells["PBirim"].Value.ToString() == "USD")
                 {
                     ttutar = toplam.ToString("C2");
                     string[] deneme = ttutar.Split('₺');
                     ttutar = "$" + deneme[1];
                 }
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "EURO")
+                if (DtgMalzemeList.Rows[3].Cells["PBirim"].Value.ToString() == "EURO")
                 {
                     ttutar = toplam.ToString("C2");
                     string[] deneme = ttutar.Split('₺');
@@ -713,17 +717,17 @@ namespace UserInterface.BakımOnarım
                 wBookmarks["Miktar5"].Range.Text = DtgMalzemeList.Rows[4].Cells["Miktar"].Value.ToString() + " " + DtgMalzemeList.Rows[4].Cells["Birim"].Value.ToString();
                 double toplam = DtgMalzemeList.Rows[4].Cells["ToplamTutar"].Value.ConDouble();
                 string ttutar = "";
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "TL")
+                if (DtgMalzemeList.Rows[4].Cells["PBirim"].Value.ToString() == "TL")
                 {
                     ttutar = toplam.ToString("C2");
                 }
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "USD")
+                if (DtgMalzemeList.Rows[4].Cells["PBirim"].Value.ToString() == "USD")
                 {
                     ttutar = toplam.ToString("C2");
                     string[] deneme = ttutar.Split('₺');
                     ttutar = "$" + deneme[1];
                 }
-                if (DtgMalzemeList.Rows[0].Cells["PBirim"].Value.ToString() == "EURO")
+                if (DtgMalzemeList.Rows[4].Cells["PBirim"].Value.ToString() == "EURO")
                 {
                     ttutar = toplam.ToString("C2");
                     string[] deneme = ttutar.Split('₺');

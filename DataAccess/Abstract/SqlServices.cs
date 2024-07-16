@@ -14,7 +14,7 @@ namespace DataAccess.Abstract
 
         //readonly string conString = "Data Source=192.168.5.222\\DESKTOP-769OUOV,1433;Database=DATABMUB;Persist Security Info=True; User ID=ots_user;Password=Os56b,A70";
 
-        readonly string conString = "Data Source=192.168.5.11\\DESKTOP-AGKJ14A\\SQLEXPRESS,1433;Database=DATABMUB;Persist Security Info=True; User ID=sa;Password=1";
+        readonly string conString = "";
         SqlConnection connection;
 
         public SqlServices()

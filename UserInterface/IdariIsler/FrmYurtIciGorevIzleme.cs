@@ -70,11 +70,13 @@ namespace UserInterface.IdariIsler
             Toplamlar();
             DataDisplayGorevlendirme();
             DataDisplayGorevlendirmeTamamlanan();
-
         }
         void Yillar()
         {
-            CmbYillar.DataSource = yurtIciGorevManager.Yillar();
+            List<string> list = new List<string>();
+            list = yurtIciGorevManager.Yillar();
+            list.Sort();
+            CmbYillar.DataSource = list;
             int index = CmbYillar.Items.Count.ConInt() - 1;
             CmbYillar.SelectedIndex = index;
         }
