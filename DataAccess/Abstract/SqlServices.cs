@@ -10,9 +10,6 @@ namespace DataAccess.Abstract
 {
     public class SqlServices
     {
-        //readonly string conString = "Data Source=.; Database=DATABMUB; Integrated Security=True"; // SERVER
-
-        //readonly string conString = "Data Source=192.168.5.222\\DESKTOP-769OUOV,1433;Database=DATABMUB;Persist Security Info=True; User ID=ots_user;Password=Os56b,A70";
 
         readonly string conString = "";
         SqlConnection connection;
