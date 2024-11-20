@@ -32,9 +32,9 @@ namespace UserInterface.BakımOnarım
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaDevamEden));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaDevamEden));
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -45,6 +45,7 @@ namespace UserInterface.BakımOnarım
             this.sökülenMalzemeBilgisiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.açıklamaEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sektörCihazlarıOKFExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.raporOluşturExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -77,14 +78,15 @@ namespace UserInterface.BakımOnarım
             this.ChkTumunuGor = new System.Windows.Forms.CheckBox();
             this.LblAcikBildirimler = new System.Windows.Forms.Label();
             this.LblGorevlerim = new System.Windows.Forms.Label();
-            this.BtnTumunuGor = new System.Windows.Forms.Button();
-            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.LblSeciliAbf = new System.Windows.Forms.Label();
             this.DtgSokulen = new ADGV.AdvancedDataGridView();
             this.DtgTakilan = new ADGV.AdvancedDataGridView();
+            this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.raporOluşturExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BtnTumunuGor = new System.Windows.Forms.Button();
+            this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
+            this.button3 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -104,9 +106,9 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolyeIslemler)).BeginInit();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSokulen)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTakilan)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -178,7 +180,7 @@ namespace UserInterface.BakımOnarım
             this.sektörCihazlarıOKFExcelToolStripMenuItem,
             this.raporOluşturExcelToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 158);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(219, 136);
             // 
             // durumGüncelleToolStripMenuItem
             // 
@@ -214,6 +216,13 @@ namespace UserInterface.BakımOnarım
             this.sektörCihazlarıOKFExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
             this.sektörCihazlarıOKFExcelToolStripMenuItem.Text = "Sektör Cihazları (OKF Excel)";
             this.sektörCihazlarıOKFExcelToolStripMenuItem.Click += new System.EventHandler(this.sektörCihazlarıOKFExcelToolStripMenuItem_Click);
+            // 
+            // raporOluşturExcelToolStripMenuItem
+            // 
+            this.raporOluşturExcelToolStripMenuItem.Name = "raporOluşturExcelToolStripMenuItem";
+            this.raporOluşturExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.raporOluşturExcelToolStripMenuItem.Text = "Rapor Oluştur (Excel)";
+            this.raporOluşturExcelToolStripMenuItem.Click += new System.EventHandler(this.raporOluşturExcelToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -561,22 +570,6 @@ namespace UserInterface.BakımOnarım
             this.LblGorevlerim.TabIndex = 457;
             this.LblGorevlerim.Text = "GÖREVLERİM";
             // 
-            // BtnTumunuGor
-            // 
-            this.BtnTumunuGor.BackColor = System.Drawing.Color.CadetBlue;
-            this.BtnTumunuGor.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnTumunuGor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTumunuGor.Image = ((System.Drawing.Image)(resources.GetObject("BtnTumunuGor.Image")));
-            this.BtnTumunuGor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnTumunuGor.Location = new System.Drawing.Point(15, 33);
-            this.BtnTumunuGor.Name = "BtnTumunuGor";
-            this.BtnTumunuGor.Size = new System.Drawing.Size(142, 46);
-            this.BtnTumunuGor.TabIndex = 455;
-            this.BtnTumunuGor.Text = "TÜM ARIZALAR";
-            this.BtnTumunuGor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnTumunuGor.UseVisualStyleBackColor = false;
-            this.BtnTumunuGor.Click += new System.EventHandler(this.BtnTumunuGor_Click);
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -639,6 +632,17 @@ namespace UserInterface.BakımOnarım
             this.DtgTakilan.TimeFilter = false;
             this.DtgTakilan.Visible = false;
             // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(934, 483);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 463;
+            this.button2.Text = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Visible = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // button1
             // 
             this.button1.BackColor = System.Drawing.Color.YellowGreen;
@@ -655,18 +659,40 @@ namespace UserInterface.BakımOnarım
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Visible = false;
             // 
-            // raporOluşturExcelToolStripMenuItem
+            // BtnTumunuGor
             // 
-            this.raporOluşturExcelToolStripMenuItem.Name = "raporOluşturExcelToolStripMenuItem";
-            this.raporOluşturExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.raporOluşturExcelToolStripMenuItem.Text = "Rapor Oluştur (Excel)";
-            this.raporOluşturExcelToolStripMenuItem.Click += new System.EventHandler(this.raporOluşturExcelToolStripMenuItem_Click);
+            this.BtnTumunuGor.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnTumunuGor.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnTumunuGor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnTumunuGor.Image = ((System.Drawing.Image)(resources.GetObject("BtnTumunuGor.Image")));
+            this.BtnTumunuGor.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnTumunuGor.Location = new System.Drawing.Point(15, 33);
+            this.BtnTumunuGor.Name = "BtnTumunuGor";
+            this.BtnTumunuGor.Size = new System.Drawing.Size(142, 46);
+            this.BtnTumunuGor.TabIndex = 455;
+            this.BtnTumunuGor.Text = "TÜM ARIZALAR";
+            this.BtnTumunuGor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnTumunuGor.UseVisualStyleBackColor = false;
+            this.BtnTumunuGor.Click += new System.EventHandler(this.BtnTumunuGor_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(1015, 483);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 464;
+            this.button3.Text = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Visible = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // FrmArizaDevamEden
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1555, 909);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.DtgTakilan);
             this.Controls.Add(this.DtgSokulen);
@@ -708,9 +734,9 @@ namespace UserInterface.BakımOnarım
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolyeIslemler)).EndInit();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgAtolye)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgSokulen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.DtgTakilan)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -768,5 +794,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem sektörCihazlarıOKFExcelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem raporOluşturExcelToolStripMenuItem;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

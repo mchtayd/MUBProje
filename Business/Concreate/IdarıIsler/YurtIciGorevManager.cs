@@ -36,11 +36,33 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public string Delete(int isakisno)
+        public string Delete(int id)
         {
             try
             {
-                return yurtIciGorevDal.Delete(isakisno);
+                return yurtIciGorevDal.Delete(id);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string GorevOnay(int isAkisNo, string durum)
+        {
+            try
+            {
+                return yurtIciGorevDal.GorevOnay(isAkisNo, durum);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string IslemAdimiUpdate(int id, string adim)
+        {
+            try
+            {
+                return yurtIciGorevDal.IslemAdimiUpdate(id, adim);
             }
             catch (Exception ex)
             {
@@ -104,6 +126,28 @@ namespace Business.Concreate.IdarıIsler
             try
             {
                 return yurtIciGorevDal.YurtIciGorevlerim(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<YurtIciGorev>();
+            }
+        }
+        public List<YurtIciGorev> YurtIcıGorevOnaylanacalar()
+        {
+            try
+            {
+                return yurtIciGorevDal.YurtIcıGorevOnaylanacalar();
+            }
+            catch (Exception)
+            {
+                return new List<YurtIciGorev>();
+            }
+        }
+        public List<YurtIciGorev> YurtIcıGorevPersonelOnay(string personelAdi)
+        {
+            try
+            {
+                return yurtIciGorevDal.YurtIcıGorevPersonelOnay(personelAdi);
             }
             catch (Exception)
             {

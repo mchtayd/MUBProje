@@ -55,6 +55,17 @@ namespace Entity
             this.yapilanIslem = yapilanIslem;
             this.CalismaSuresi = calismaSuresi;
         }
+        public GorevAtamaPersonel(int benzersizId, string departman, string gorevAtanacakPersonel, string islemAdimi, DateTime tarih, string yapilanIslem, DateTime calismaSuresi,string sure)
+        {
+            this.benzersizId = benzersizId;
+            this.departman = departman;
+            this.gorevAtanacakPersonel = gorevAtanacakPersonel;
+            this.islemAdimi = islemAdimi;
+            this.tarih = tarih;
+            this.yapilanIslem = yapilanIslem;
+            this.CalismaSuresi = calismaSuresi;
+            this.sure = sure;
+        }
 
         public GorevAtamaPersonel(int id, int benzersizId, string departman, string islemAdimi, string sure, DateTime calismaSuresi, string personel)
         {

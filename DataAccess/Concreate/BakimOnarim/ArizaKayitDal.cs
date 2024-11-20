@@ -141,6 +141,22 @@ namespace DataAccess.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+        public string ArizaBolgeBilgisiUpdate(int id, string bolgeAdi,string birlikAdresi)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("ArizaBolgeBilgisiUpdate",
+                    new SqlParameter("@id", id),
+                    new SqlParameter("@bolgeAdi", bolgeAdi),
+                    new SqlParameter("@birlikAdresi", birlikAdresi));
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string CrmNoTanimla(ArizaKayit entity)
         {
             try
@@ -297,7 +313,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString());
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -386,7 +404,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString());
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -475,7 +495,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString());
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString());
                 }
                 dataReader.Close();
                 return item;
@@ -563,7 +585,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -652,7 +676,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -757,7 +783,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -849,7 +877,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         gorevGecenSure,
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -936,7 +966,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1026,7 +1058,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1116,7 +1150,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1204,7 +1240,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        dataReader["TEPE_SORUMLUSU"].ToString()));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1292,7 +1330,9 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["PROJE_TANIM"].ToString(),
                         dataReader["MUSTERI"].ToString(),
                         "",
-                        dataReader["KAPATMA_DURUMU"].ToString()));
+                        dataReader["KAPATMA_DURUMU"].ToString(),
+                        false,
+                        ""));
                 }
                 dataReader.Close();
                 return arizaKayits;
@@ -1401,7 +1441,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@islemTuru", entity.IslemTuru),
                     new SqlParameter("@hesaplama", entity.Hesaplama),
                     new SqlParameter("@bildirimNo", entity.BildirimNo),
-                    new SqlParameter("@aselsanMailTarihi", entity.BildirimMailTarihi));
+                    new SqlParameter("@aselsanMailTarihi", entity.BildirimMailTarihi),
+                    new SqlParameter("@garantiDurumu", entity.GarantiDurumu));
 
                 dataReader.Close();
                 return "OK";

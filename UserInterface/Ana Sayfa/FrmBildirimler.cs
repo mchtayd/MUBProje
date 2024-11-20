@@ -37,6 +37,7 @@ namespace UserInterface.Ana_Sayfa
         List<GorevAtamaPersonel> arizaGorevAtamaAtolyePersonels;
         List<GorevAtamaPersonel> satinAlmaGorevs;
         List<GorevAtamaPersonel> mifGorevs;
+        List<GorevAtamaPersonel> yurtIcıGorevler;
         List<Duyuru> duyurus;
 
         string dosyaYolu = @"Z:\DTS\info\ou\notification.txt";
@@ -91,6 +92,8 @@ namespace UserInterface.Ana_Sayfa
             gorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimIzin(infos[1].ToString());
             satinAlmaGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimSatinAlma(infos[1].ToString());
 
+            yurtIcıGorevler = gorevAtamaPersonelManager.YurtIcıGorevler(infos[1].ToString());
+
             foreach (GorevAtamaPersonel item in satinAlmaGorevs)
             {
                 gorevAtamaPersonels.Add(item);
@@ -99,6 +102,11 @@ namespace UserInterface.Ana_Sayfa
             mifGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimMif(infos[1].ToString());
 
             foreach (GorevAtamaPersonel item in mifGorevs)
+            {
+                gorevAtamaPersonels.Add(item);
+            }
+
+            foreach (GorevAtamaPersonel item in yurtIcıGorevler)
             {
                 gorevAtamaPersonels.Add(item);
             }
@@ -164,6 +172,7 @@ namespace UserInterface.Ana_Sayfa
                 IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimIzin(item);
                 IsAkisgorevAtamaSatinAlma = gorevAtamaPersonelManager.IsAkisGorevlerimSatinAlma(item);
                 mifPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimMif(item);
+                //mifPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimMif(item);
 
                 foreach (GorevAtamaPersonel item2 in IsAkisgorevAtamaSatinAlma)
                 {
@@ -639,6 +648,11 @@ namespace UserInterface.Ana_Sayfa
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
         {
 
         }

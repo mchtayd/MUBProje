@@ -288,6 +288,34 @@ namespace DataAccess.Concreate.Gecici_Kabul_Ambar
             }
         }
 
+        public DepoMiktar GetBarkodLokasyonBul3150(string stokNo, string seriNo, string revizyon, string takipDurum, int miktar)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("BarkodLokasyonBul3150",
+                    new SqlParameter("@stokNo", stokNo),
+                    new SqlParameter("@seriNo", seriNo),
+                    new SqlParameter("@revizyon", revizyon),
+                    new SqlParameter("@takipDurum", takipDurum),
+                    new SqlParameter("miktar", miktar));
+                DepoMiktar item = null;
+                while (dataReader.Read())
+                {
+                    item = new DepoMiktar(
+                        dataReader["DEPO_NO"].ToString(),
+                        dataReader["DEPO_ADRESI"].ToString(),
+                        dataReader["DEPO_LOKASYON"].ToString());
+                }
+                dataReader.Close();
+                return item;
+            }
+            catch (Exception ex)
+            {
+                return null;
+            }
+        }
+
+
         public DepoMiktar GetBarkodLokasyonBul3000(string stokNo, string seriNo, string revizyon, string takipDurum, int miktar)
         {
             try

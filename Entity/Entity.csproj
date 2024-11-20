@@ -80,6 +80,7 @@
     <Compile Include="AnaSayfa\Log.cs" />
     <Compile Include="AnaSayfa\Menu.cs" />
     <Compile Include="AnaSayfa\PersonelUyari.cs" />
+    <Compile Include="AnaSayfa\SistemUyari.cs" />
     <Compile Include="AnaSayfa\Sohbet.cs" />
     <Compile Include="AnaSayfa\ServerAyarlar.cs" />
     <Compile Include="AnaSayfa\YolDurumuGirmeyen.cs" />
@@ -121,6 +122,7 @@
     <Compile Include="Depo\DepoKayit.cs" />
     <Compile Include="Depo\DepoKayitLokasyon.cs" />
     <Compile Include="Depo\DesteDepoMalzemeKayit.cs" />
+    <Compile Include="Depo\DestekDepo.cs" />
     <Compile Include="Depo\DestekDepoAmbar.cs" />
     <Compile Include="Depo\DestekDepoCayOcagi.cs" />
     <Compile Include="Depo\DestekDepoElAletleri.cs" />
@@ -132,6 +134,7 @@
     <Compile Include="Depo\DestekDepoTemizlikUrunleri.cs" />
     <Compile Include="DokumanYonetim\Dokuman.cs" />
     <Compile Include="DokumanYonetim\FormDocument.cs" />
+    <Compile Include="Egitim\EgitimTalebi.cs" />
     <Compile Include="Gecic Kabul Ambar\Barkod.cs" />
     <Compile Include="Gecic Kabul Ambar\DepoMiktar.cs" />
     <Compile Include="Gecic Kabul Ambar\Malzeme.cs" />
@@ -157,6 +160,7 @@
     <Compile Include="IdariIsler\DvNo.cs" />
     <Compile Include="IdariIsler\EvrakKayit.cs" />
     <Compile Include="IdariIsler\FazlaCalisma.cs" />
+    <Compile Include="IdariIsler\GorevEmriNo.cs" />
     <Compile Include="IdariIsler\Gorevlendirme.cs" />
     <Compile Include="IdariIsler\IdariIslerLog.cs" />
     <Compile Include="IdariIsler\Izin.cs" />

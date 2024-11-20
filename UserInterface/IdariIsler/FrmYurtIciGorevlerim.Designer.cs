@@ -35,9 +35,12 @@ namespace UserInterface.IdariIsler
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
             this.TxtTop = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -45,7 +48,7 @@ namespace UserInterface.IdariIsler
             this.groupBox1.Controls.Add(this.DtgList);
             this.groupBox1.Location = new System.Drawing.Point(26, 7);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1396, 621);
+            this.groupBox1.Size = new System.Drawing.Size(1396, 436);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
@@ -61,11 +64,12 @@ namespace UserInterface.IdariIsler
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
             this.DtgList.ReadOnly = true;
-            this.DtgList.Size = new System.Drawing.Size(1390, 602);
+            this.DtgList.Size = new System.Drawing.Size(1390, 417);
             this.DtgList.TabIndex = 0;
             this.DtgList.TimeFilter = false;
             this.DtgList.SortStringChanged += new System.EventHandler(this.DtgList_SortStringChanged);
             this.DtgList.FilterStringChanged += new System.EventHandler(this.DtgList_FilterStringChanged);
+            this.DtgList.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.DtgList_CellMouseClick);
             // 
             // TxtTop
             // 
@@ -87,11 +91,31 @@ namespace UserInterface.IdariIsler
             this.label8.TabIndex = 334;
             this.label8.Text = "Toplam Kayıt:";
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.webBrowser1);
+            this.groupBox2.Location = new System.Drawing.Point(26, 449);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(686, 170);
+            this.groupBox2.TabIndex = 350;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "GÖREV DOSYASI";
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(3, 16);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(680, 151);
+            this.webBrowser1.TabIndex = 0;
+            // 
             // FrmYurtIciGorevlerim
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1446, 671);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.TxtTop);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.groupBox1);
@@ -103,6 +127,7 @@ namespace UserInterface.IdariIsler
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -115,5 +140,7 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.BindingSource dataBinder;
         private System.Windows.Forms.Label TxtTop;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.WebBrowser webBrowser1;
     }
 }

@@ -14,6 +14,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using UserInterface.Ana_Sayfa;
 using UserInterface.STS;
 
 namespace UserInterface.Depo
@@ -42,7 +43,7 @@ namespace UserInterface.Depo
         int sayac;
         int yeniSayi;
         string[] array;
-        string sonKayitStok, dosyaYolu = "", fotoyolu, yeniad, root, subdir;
+        string sonKayitStok, dosyaYolu = "", fotoyolu, yeniad, root, subdir, comboAd;
         public FrmMalzemeKayitDestekDepo()
         {
             InitializeComponent();
@@ -61,12 +62,13 @@ namespace UserInterface.Depo
 
         private void FrmMalzemeKayitDestekDepo_Load(object sender, EventArgs e)
         {
-            MalzemeKtegorisi();
+            MalzemeTuru();
             start = false;
         }
-        public void MalzemeKtegorisi()
+
+        public void MalzemeTuru()
         {
-            CmbMalzemeKategorisi.DataSource = comboManager.GetList("MALZEME_KATEGORISI");
+            CmbMalzemeKategorisi.DataSource = comboManager.GetList("MALZEME TÜRÜ");
             CmbMalzemeKategorisi.ValueMember = "Id";
             CmbMalzemeKategorisi.DisplayMember = "Baslik";
             CmbMalzemeKategorisi.SelectedValue = 0;
@@ -93,7 +95,7 @@ namespace UserInterface.Depo
             PctBox.ImageLocation = "";
             CmbStokNo.SelectedIndex = -1;
             TxtTanim.Clear();
-            TxtBirim.Clear();
+            TxtBirim.SelectedIndex = -1;
         }
         private void BtnKaydet_Click(object sender, EventArgs e)
         {
@@ -302,7 +304,7 @@ namespace UserInterface.Depo
 
             }
             CmbStokNo.SelectedIndex = -1;
-            TxtBirim.Clear();
+            TxtBirim.SelectedIndex = -1;
             TxtTanim.Clear();
             start2 = true;
         }
@@ -425,6 +427,14 @@ namespace UserInterface.Depo
             FrmPhotoFullScreen frmPhotoFullScreen = new FrmPhotoFullScreen();
             frmPhotoFullScreen.imageLocation = PctBox.ImageLocation;
             frmPhotoFullScreen.ShowDialog();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            comboAd = "MALZEME TÜRÜ";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
         }
 
         private void BtnSil_Click(object sender, EventArgs e)

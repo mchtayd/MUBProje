@@ -105,7 +105,7 @@ namespace UserInterface.Ana_Sayfa
                     BolgeKayit bolgeKayit = bolgeKayitManager.Get(0, arizaKayit.BolgeAdi);
                     if (bolgeKayit!=null)
                     {
-                        bolgeSorumlusu = bolgeKayit.BolgeSorumlusu;
+                        bolgeSorumlusu = bolgeKayit.TepeSorumlusu;
                     }
                     abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
 

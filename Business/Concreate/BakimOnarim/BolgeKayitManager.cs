@@ -239,10 +239,10 @@ namespace Business.Concreate.BakimOnarim
             {
                 return "Lütfen BİRLİK ADRESİ Bilgisini doldurunuz.";
             }
-            if (string.IsNullOrEmpty(bolgeKayit.BolgeSorumlusu))
-            {
-                return "Lütfen BÖLGE SORUMLUSU Bilgisini doldurunuz.";
-            }
+            //if (string.IsNullOrEmpty(bolgeKayit.BolgeSorumlusu))
+            //{
+            //    return "Lütfen BÖLGE SORUMLUSU Bilgisini doldurunuz.";
+            //}
             if (string.IsNullOrEmpty(bolgeKayit.Depo))
             {
                 return "Lütfen DEPO Bilgisini doldurunuz.";

@@ -1214,10 +1214,6 @@ namespace UserInterface.BakımOnarım
                     }
                 }
 
-
-
-
-
                 #region EskiKod
                 //if (IcSiparisler.Count > 0)
                 //{

@@ -203,7 +203,8 @@ namespace UserInterface.IdariIşler
             }
             string siparisNo = DtgPersoneller.CurrentRow.Cells["SiparisNo"].Value.ToString();
             dosyayolu = DtgPersoneller.CurrentRow.Cells["Dosyayolu"].Value.ToString();
-            personelKayits = personelKayitManager.GetList(siparisNo);
+            int id = DtgPersoneller.CurrentRow.Cells["Id"].Value.ConInt();
+            personelKayits = personelKayitManager.GetList(id);
             DtgIslemAdimlari.DataSource = devamEdenIzlemeManager.GetList(siparisNo);
             Islemadimlari();
             FillTools();
@@ -383,7 +384,8 @@ namespace UserInterface.IdariIşler
             }
             string siparisNo = DtgPersoneller.CurrentRow.Cells["SiparisNo"].Value.ToString();
             dosyayolu = DtgPersoneller.CurrentRow.Cells["Dosyayolu"].Value.ToString();
-            personelKayits = personelKayitManager.GetList(siparisNo);
+            int id = DtgPersoneller.CurrentRow.Cells["Id"].Value.ConInt();
+            personelKayits = personelKayitManager.GetList(id);
             DtgIslemAdimlari.DataSource = devamEdenIzlemeManager.GetList(siparisNo);
             Islemadimlari();
             FillTools();

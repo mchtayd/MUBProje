@@ -60,8 +60,6 @@ namespace UserInterface.IdariIsler
             this.CmbProje = new System.Windows.Forms.ComboBox();
             this.TxtGidilecekYer = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
-            this.TxtGorevEmriNo = new System.Windows.Forms.TextBox();
-            this.label31 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
             this.TxtGorevinKonusu = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
@@ -436,8 +434,6 @@ namespace UserInterface.IdariIsler
             this.groupBox5.Controls.Add(this.CmbProje);
             this.groupBox5.Controls.Add(this.TxtGidilecekYer);
             this.groupBox5.Controls.Add(this.label30);
-            this.groupBox5.Controls.Add(this.TxtGorevEmriNo);
-            this.groupBox5.Controls.Add(this.label31);
             this.groupBox5.Controls.Add(this.label32);
             this.groupBox5.Controls.Add(this.TxtGorevinKonusu);
             this.groupBox5.Controls.Add(this.label33);
@@ -451,7 +447,7 @@ namespace UserInterface.IdariIsler
             // LblIsAkisNo
             // 
             this.LblIsAkisNo.AutoSize = true;
-            this.LblIsAkisNo.Location = new System.Drawing.Point(144, 24);
+            this.LblIsAkisNo.Location = new System.Drawing.Point(146, 28);
             this.LblIsAkisNo.Name = "LblIsAkisNo";
             this.LblIsAkisNo.Size = new System.Drawing.Size(19, 13);
             this.LblIsAkisNo.TabIndex = 33;
@@ -544,7 +540,7 @@ namespace UserInterface.IdariIsler
             // label61
             // 
             this.label61.AutoSize = true;
-            this.label61.Location = new System.Drawing.Point(73, 24);
+            this.label61.Location = new System.Drawing.Point(75, 28);
             this.label61.Name = "label61";
             this.label61.Size = new System.Drawing.Size(66, 13);
             this.label61.TabIndex = 11;
@@ -574,22 +570,6 @@ namespace UserInterface.IdariIsler
             this.label30.Size = new System.Drawing.Size(91, 13);
             this.label30.TabIndex = 8;
             this.label30.Text = "GİDİLECEK YER:";
-            // 
-            // TxtGorevEmriNo
-            // 
-            this.TxtGorevEmriNo.Location = new System.Drawing.Point(147, 47);
-            this.TxtGorevEmriNo.Name = "TxtGorevEmriNo";
-            this.TxtGorevEmriNo.Size = new System.Drawing.Size(171, 20);
-            this.TxtGorevEmriNo.TabIndex = 2;
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(42, 51);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(97, 13);
-            this.label31.TabIndex = 0;
-            this.label31.Text = "GÖREV EMRİ NO:";
             // 
             // label32
             // 
@@ -2551,8 +2531,6 @@ namespace UserInterface.IdariIsler
         private System.Windows.Forms.ComboBox CmbProje;
         private System.Windows.Forms.TextBox TxtGidilecekYer;
         private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.TextBox TxtGorevEmriNo;
-        private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label label32;
         private System.Windows.Forms.TextBox TxtGorevinKonusu;
         private System.Windows.Forms.Label label33;

@@ -416,7 +416,7 @@ namespace UserInterface.BakımOnarım
             worksheet.Cell("D22").Value = CmbBolgeAdi.Text;
             worksheet.Cell("A11").Value = CmbBolgeAdi.Text;
 
-            xLWorkbook.SaveAs(dosyaYolu + "\\" + "Ek-1 OKF_" + CmbBolgeAdi.Text + "_" + LblIsAkisNo.Text + ".xlsx");
+            xLWorkbook.SaveAs(dosyaYolu + "Ek-1 OKF_" + CmbBolgeAdi.Text + "_" + LblIsAkisNo.Text + ".xlsx");
             xLWorkbook.Dispose(); // workbook nesnesini temizler
 
             Directory.Delete(yol, true);

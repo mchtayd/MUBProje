@@ -1,5 +1,6 @@
 ﻿using DataAccess.Abstract;
 using DataAccess.Database;
+using Entity.BakimOnarim;
 using Entity.BakimOnarimAtolye;
 using System;
 using System.Collections.Generic;
@@ -198,6 +199,26 @@ namespace DataAccess.Concreate.BakimOnarimAtolye
             try
             {
                 sqlServices.Stored("AtolyeMalzemeTeslimiupdate", new SqlParameter("@id", id), new SqlParameter("@teslimDurumu", teslimDurumu));
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+        public string AtolyeMalzemeUpdate(AtolyeMalzeme entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("AtolyeMalzemeUpdate",
+                    new SqlParameter("@id", entity.Id),
+                    new SqlParameter("@stokNo", entity.StokNo),
+                    new SqlParameter("@tanim", entity.Tanim),
+                    new SqlParameter("@seriNo", entity.SeriNo),
+                    new SqlParameter("@revizyon", entity.Revizyon),
+                    new SqlParameter("@miktar", entity.Miktar));
+
+                dataReader.Close();
                 return "OK";
             }
             catch (Exception ex)

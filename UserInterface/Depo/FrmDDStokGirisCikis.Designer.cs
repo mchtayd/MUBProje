@@ -103,9 +103,10 @@ namespace UserInterface.Depo
             this.TxtTanim = new System.Windows.Forms.TextBox();
             this.DtTarih = new System.Windows.Forms.DateTimePicker();
             this.label10 = new System.Windows.Forms.Label();
-            this.LblBirimFiyat = new System.Windows.Forms.Label();
-            this.TxtBirimFiyat = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.BtnLotAl = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.CmbDepoNo = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -115,6 +116,14 @@ namespace UserInterface.Depo
             this.TxtMalzemeYeri = new System.Windows.Forms.ComboBox();
             this.BtnMalzemeYeri = new System.Windows.Forms.Button();
             this.GrbYeniDepoGiris = new System.Windows.Forms.GroupBox();
+            this.CmbMalzemeKategorisi = new System.Windows.Forms.ComboBox();
+            this.label25 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.DtgList = new System.Windows.Forms.DataGridView();
+            this.BtnKaydet = new System.Windows.Forms.Button();
+            this.LblToplam = new System.Windows.Forms.Label();
+            this.label27 = new System.Windows.Forms.Label();
+            this.BtnEkle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.GrbDepodanPersonele.SuspendLayout();
             this.panel5.SuspendLayout();
@@ -127,6 +136,8 @@ namespace UserInterface.Depo
             this.panel11.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.GrbYeniDepoGiris.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -174,13 +185,14 @@ namespace UserInterface.Depo
             this.GrbDepodanPersonele.Controls.Add(this.panel5);
             this.GrbDepodanPersonele.Controls.Add(this.panel7);
             this.GrbDepodanPersonele.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbDepodanPersonele.Location = new System.Drawing.Point(816, 272);
+            this.GrbDepodanPersonele.Location = new System.Drawing.Point(476, 44);
             this.GrbDepodanPersonele.Name = "GrbDepodanPersonele";
             this.GrbDepodanPersonele.Size = new System.Drawing.Size(867, 217);
             this.GrbDepodanPersonele.TabIndex = 322;
             this.GrbDepodanPersonele.TabStop = false;
             this.GrbDepodanPersonele.Text = "102-DEPODAN PERSONELE İADE";
             this.GrbDepodanPersonele.Visible = false;
+            this.GrbDepodanPersonele.Enter += new System.EventHandler(this.GrbDepodanPersonele_Enter);
             // 
             // CmbBildirimdenDepoyaMalzemeYeri
             // 
@@ -365,7 +377,7 @@ namespace UserInterface.Depo
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(66, 47);
+            this.label1.Location = new System.Drawing.Point(55, 48);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(76, 13);
             this.label1.TabIndex = 323;
@@ -392,7 +404,7 @@ namespace UserInterface.Depo
             this.GrbpersoneldenDepoya.Controls.Add(this.panel2);
             this.GrbpersoneldenDepoya.Controls.Add(this.panel3);
             this.GrbpersoneldenDepoya.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbpersoneldenDepoya.Location = new System.Drawing.Point(84, 523);
+            this.GrbpersoneldenDepoya.Location = new System.Drawing.Point(476, 44);
             this.GrbpersoneldenDepoya.Name = "GrbpersoneldenDepoya";
             this.GrbpersoneldenDepoya.Size = new System.Drawing.Size(855, 217);
             this.GrbpersoneldenDepoya.TabIndex = 325;
@@ -596,7 +608,7 @@ namespace UserInterface.Depo
             this.GrbDepodanDepoya.Controls.Add(this.label53);
             this.GrbDepodanDepoya.Controls.Add(this.panel10);
             this.GrbDepodanDepoya.Controls.Add(this.panel11);
-            this.GrbDepodanDepoya.Location = new System.Drawing.Point(9, 294);
+            this.GrbDepodanDepoya.Location = new System.Drawing.Point(498, 44);
             this.GrbDepodanDepoya.Name = "GrbDepodanDepoya";
             this.GrbDepodanDepoya.Size = new System.Drawing.Size(801, 167);
             this.GrbDepodanDepoya.TabIndex = 327;
@@ -751,7 +763,7 @@ namespace UserInterface.Depo
             "101-DEPODAN DEPOYA İADE",
             "102-DEPODAN PERSONELE İADE",
             "201-PERSONELDE DEPOYA İADE"});
-            this.CmbIslemTuru.Location = new System.Drawing.Point(148, 44);
+            this.CmbIslemTuru.Location = new System.Drawing.Point(137, 45);
             this.CmbIslemTuru.Name = "CmbIslemTuru";
             this.CmbIslemTuru.Size = new System.Drawing.Size(224, 21);
             this.CmbIslemTuru.TabIndex = 328;
@@ -835,7 +847,7 @@ namespace UserInterface.Depo
             // DtTarih
             // 
             this.DtTarih.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtTarih.Location = new System.Drawing.Point(136, 139);
+            this.DtTarih.Location = new System.Drawing.Point(136, 170);
             this.DtTarih.Name = "DtTarih";
             this.DtTarih.Size = new System.Drawing.Size(113, 20);
             this.DtTarih.TabIndex = 55;
@@ -844,36 +856,17 @@ namespace UserInterface.Depo
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.label10.Location = new System.Drawing.Point(56, 143);
+            this.label10.Location = new System.Drawing.Point(56, 174);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(74, 15);
             this.label10.TabIndex = 56;
             this.label10.Text = "İşlem Tarihi:";
             // 
-            // LblBirimFiyat
-            // 
-            this.LblBirimFiyat.AutoSize = true;
-            this.LblBirimFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.LblBirimFiyat.Location = new System.Drawing.Point(5, 169);
-            this.LblBirimFiyat.Name = "LblBirimFiyat";
-            this.LblBirimFiyat.Size = new System.Drawing.Size(125, 15);
-            this.LblBirimFiyat.TabIndex = 141;
-            this.LblBirimFiyat.Text = "Malzeme Birim Fiyatı:";
-            this.LblBirimFiyat.Visible = false;
-            // 
-            // TxtBirimFiyat
-            // 
-            this.TxtBirimFiyat.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBirimFiyat.Location = new System.Drawing.Point(136, 165);
-            this.TxtBirimFiyat.Name = "TxtBirimFiyat";
-            this.TxtBirimFiyat.Size = new System.Drawing.Size(113, 21);
-            this.TxtBirimFiyat.TabIndex = 142;
-            this.TxtBirimFiyat.Visible = false;
-            // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.TxtBirimFiyat);
-            this.groupBox1.Controls.Add(this.LblBirimFiyat);
+            this.groupBox1.Controls.Add(this.textBox2);
+            this.groupBox1.Controls.Add(this.label26);
+            this.groupBox1.Controls.Add(this.BtnLotAl);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.DtTarih);
             this.groupBox1.Controls.Add(this.TxtTanim);
@@ -884,12 +877,40 @@ namespace UserInterface.Depo
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.CmbStokNo);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(12, 86);
+            this.groupBox1.Location = new System.Drawing.Point(12, 116);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(449, 202);
+            this.groupBox1.Size = new System.Drawing.Size(449, 206);
             this.groupBox1.TabIndex = 318;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "İŞLEM YAPILACAK MALZEME BİLGİSİ";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(136, 140);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(154, 20);
+            this.textBox2.TabIndex = 334;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label26.Location = new System.Drawing.Point(84, 143);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(46, 15);
+            this.label26.TabIndex = 333;
+            this.label26.Text = "Lot No:";
+            // 
+            // BtnLotAl
+            // 
+            this.BtnLotAl.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnLotAl.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnLotAl.Location = new System.Drawing.Point(296, 140);
+            this.BtnLotAl.Name = "BtnLotAl";
+            this.BtnLotAl.Size = new System.Drawing.Size(64, 20);
+            this.BtnLotAl.TabIndex = 332;
+            this.BtnLotAl.Text = "Lot Al";
+            this.BtnLotAl.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -982,26 +1003,123 @@ namespace UserInterface.Depo
             this.GrbYeniDepoGiris.Controls.Add(this.CmbDepoNo);
             this.GrbYeniDepoGiris.Controls.Add(this.label7);
             this.GrbYeniDepoGiris.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.GrbYeniDepoGiris.Location = new System.Drawing.Point(732, 86);
+            this.GrbYeniDepoGiris.Location = new System.Drawing.Point(476, 45);
             this.GrbYeniDepoGiris.Name = "GrbYeniDepoGiris";
             this.GrbYeniDepoGiris.Size = new System.Drawing.Size(560, 139);
             this.GrbYeniDepoGiris.TabIndex = 319;
             this.GrbYeniDepoGiris.TabStop = false;
             this.GrbYeniDepoGiris.Text = "100-YENİ DEPO GİRİŞİ";
             // 
+            // CmbMalzemeKategorisi
+            // 
+            this.CmbMalzemeKategorisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbMalzemeKategorisi.FormattingEnabled = true;
+            this.CmbMalzemeKategorisi.Location = new System.Drawing.Point(137, 83);
+            this.CmbMalzemeKategorisi.Name = "CmbMalzemeKategorisi";
+            this.CmbMalzemeKategorisi.Size = new System.Drawing.Size(225, 21);
+            this.CmbMalzemeKategorisi.TabIndex = 336;
+            // 
+            // label25
+            // 
+            this.label25.AutoSize = true;
+            this.label25.Location = new System.Drawing.Point(11, 86);
+            this.label25.Name = "label25";
+            this.label25.Size = new System.Drawing.Size(120, 13);
+            this.label25.TabIndex = 335;
+            this.label25.Text = "MALZEME KATEGORİ:";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.DtgList);
+            this.groupBox2.Location = new System.Drawing.Point(12, 338);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(1412, 277);
+            this.groupBox2.TabIndex = 353;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "MALZEME BİLGİLERİ";
+            // 
+            // DtgList
+            // 
+            this.DtgList.AllowUserToAddRows = false;
+            this.DtgList.AllowUserToDeleteRows = false;
+            this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.DtgList.Location = new System.Drawing.Point(3, 16);
+            this.DtgList.Name = "DtgList";
+            this.DtgList.Size = new System.Drawing.Size(1406, 258);
+            this.DtgList.TabIndex = 0;
+            // 
+            // BtnKaydet
+            // 
+            this.BtnKaydet.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnKaydet.Image = ((System.Drawing.Image)(resources.GetObject("BtnKaydet.Image")));
+            this.BtnKaydet.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnKaydet.Location = new System.Drawing.Point(12, 629);
+            this.BtnKaydet.Name = "BtnKaydet";
+            this.BtnKaydet.Size = new System.Drawing.Size(130, 51);
+            this.BtnKaydet.TabIndex = 426;
+            this.BtnKaydet.Text = "     KAYDET";
+            this.BtnKaydet.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnKaydet.UseVisualStyleBackColor = false;
+            // 
+            // LblToplam
+            // 
+            this.LblToplam.AutoSize = true;
+            this.LblToplam.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.LblToplam.Location = new System.Drawing.Point(1315, 629);
+            this.LblToplam.Name = "LblToplam";
+            this.LblToplam.Size = new System.Drawing.Size(23, 15);
+            this.LblToplam.TabIndex = 428;
+            this.LblToplam.Text = "00";
+            // 
+            // label27
+            // 
+            this.label27.AutoSize = true;
+            this.label27.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label27.Location = new System.Drawing.Point(1206, 629);
+            this.label27.Name = "label27";
+            this.label27.Size = new System.Drawing.Size(103, 15);
+            this.label27.TabIndex = 427;
+            this.label27.Text = "Toplam Miktar:";
+            // 
+            // BtnEkle
+            // 
+            this.BtnEkle.BackColor = System.Drawing.Color.CadetBlue;
+            this.BtnEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnEkle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.BtnEkle.Image = ((System.Drawing.Image)(resources.GetObject("BtnEkle.Image")));
+            this.BtnEkle.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.BtnEkle.Location = new System.Drawing.Point(467, 290);
+            this.BtnEkle.Name = "BtnEkle";
+            this.BtnEkle.Size = new System.Drawing.Size(76, 33);
+            this.BtnEkle.TabIndex = 429;
+            this.BtnEkle.Text = " EKLE";
+            this.BtnEkle.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnEkle.UseVisualStyleBackColor = false;
+            // 
             // FrmDDStokGirisCikis
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1536, 735);
+            this.Controls.Add(this.BtnEkle);
+            this.Controls.Add(this.LblToplam);
+            this.Controls.Add(this.label27);
+            this.Controls.Add(this.BtnKaydet);
+            this.Controls.Add(this.groupBox2);
+            this.Controls.Add(this.CmbMalzemeKategorisi);
+            this.Controls.Add(this.label25);
             this.Controls.Add(this.GrbYeniDepoGiris);
             this.Controls.Add(this.GrbpersoneldenDepoya);
             this.Controls.Add(this.CmbIslemTuru);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.GrbDepodanPersonele);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.GrbDepodanDepoya);
+            this.Controls.Add(this.panel1);
             this.Name = "FrmDDStokGirisCikis";
             this.Text = "FrmDestekDepoMlzHazirlama";
             this.Load += new System.EventHandler(this.FrmDestekDepoMlzHazirlama_Load);
@@ -1028,6 +1146,8 @@ namespace UserInterface.Depo
             this.groupBox1.PerformLayout();
             this.GrbYeniDepoGiris.ResumeLayout(false);
             this.GrbYeniDepoGiris.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1108,8 +1228,6 @@ namespace UserInterface.Depo
         private System.Windows.Forms.TextBox TxtTanim;
         private System.Windows.Forms.DateTimePicker DtTarih;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label LblBirimFiyat;
-        private System.Windows.Forms.TextBox TxtBirimFiyat;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.ComboBox CmbDepoNo;
@@ -1120,5 +1238,16 @@ namespace UserInterface.Depo
         private System.Windows.Forms.ComboBox TxtMalzemeYeri;
         private System.Windows.Forms.Button BtnMalzemeYeri;
         private System.Windows.Forms.GroupBox GrbYeniDepoGiris;
+        private System.Windows.Forms.ComboBox CmbMalzemeKategorisi;
+        private System.Windows.Forms.Label label25;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.DataGridView DtgList;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label26;
+        private System.Windows.Forms.Button BtnLotAl;
+        private System.Windows.Forms.Button BtnKaydet;
+        private System.Windows.Forms.Label LblToplam;
+        private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.Button BtnEkle;
     }
 }

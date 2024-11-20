@@ -226,6 +226,19 @@ namespace Business.Concreate.BakimOnarim
                 return ex.Message;
             }
         }
+
+        public string ArizaBolgeBilgisiUpdate(int id, string bolgeAdi, string birlikAdresi)
+        {
+            try
+            {
+
+                return arizaKayitDal.ArizaBolgeBilgisiUpdate(id, bolgeAdi, birlikAdresi);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public string CrmNoTanimla(ArizaKayit entity)
         {
             try

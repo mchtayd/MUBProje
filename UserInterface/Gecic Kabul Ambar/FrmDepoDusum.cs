@@ -315,6 +315,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                     if (CmbStokNo.Text == item.StokNo)
                     {
                         CmbTanim.Text = item.Tanim;
+                        break;
                     }
                 }
             }

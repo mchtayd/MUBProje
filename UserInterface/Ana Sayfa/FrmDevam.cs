@@ -90,7 +90,7 @@ namespace UserInterface.Ana_Sayfa
         }
         void YurtIciGorevList()
         {
-            string islemadimi = "1.ADIM:GÖREV OLUŞTURULDU";
+            string islemadimi = "4.ADIM:GÖREV TAMAMLANMIŞTIR";
 
             dataBinder.DataSource = yurtIciGorevManager.DevamDevamsizlik(islemadimi);
             DtgYurtIciGorev.DataSource = dataBinder;

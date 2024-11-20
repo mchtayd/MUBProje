@@ -59,6 +59,7 @@ namespace UserInterface.STS
         BolgeKayitManager bolgeKayitManager;
         YolDurumuGirmeyenManager yolDurumuGirmeyenManager;
         DtsLogManager dtsLogManager;
+        SistemUyariManager sistemUyariManager;
 
         FrmWait frmWait = new FrmWait();
         List<MenuBaslik> menuBasliks;
@@ -98,6 +99,7 @@ namespace UserInterface.STS
             bolgeKayitManager = BolgeKayitManager.GetInstance();
             yolDurumuGirmeyenManager = YolDurumuGirmeyenManager.GetInstance();
             dtsLogManager = DtsLogManager.GetInstance();
+            sistemUyariManager = SistemUyariManager.GetInstance();
         }
 
         private void PowerModeChanged(object sender, PowerModeChangedEventArgs e)
@@ -192,7 +194,20 @@ namespace UserInterface.STS
             ServerAyarlar();
             YolDurumuControl();
             DtsLogKayit();
+            SistemUyariKontrol();
 
+        }
+        void SistemUyariKontrol()
+        {
+            List<SistemUyari> sistemUyaris = new List<SistemUyari>();
+            sistemUyaris = sistemUyariManager.GetList(infos[1].ToString());
+            if (sistemUyaris.Count > 0 )
+            {
+                foreach (SistemUyari item in sistemUyaris)
+                {
+                    MessageBox.Show(item.UyariMesaji, "Uyarı", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
         }
         void DtsLogKayit()
         {
@@ -3694,9 +3709,22 @@ namespace UserInterface.STS
                 Go.TopLevel = false;
                 Go.AutoScroll = true;
                 OpenTabPage("PageEgitimTalebi", "EĞİTİM TALEBİ", Go);
+                Go.infos = infos;
+                Go.Show();
+            }
+
+            if (e.Node.Text == "Eğitim Planı İzleme")
+            {
+                FrmEgitimTalepIzleme Go = new FrmEgitimTalepIzleme();
+                Go.FormBorderStyle = FormBorderStyle.None;
+                Go.TopLevel = false;
+                Go.AutoScroll = true;
+                OpenTabPage("PageEgitimTalebiIzleme", "EĞİTİM TALEBİ İZLEME", Go);
                 //Go.infos = infos;
                 Go.Show();
             }
+
+
 
             /////////////////////////////////////////////////RAPORLAMALAR/////////////////////////////////////////////////////////////
             if (e.Node.Text == "SAT Raporlama")
@@ -6352,6 +6380,34 @@ namespace UserInterface.STS
         {
             IzlemeGeciciKabul frmIzlemeAmbar = new IzlemeGeciciKabul();
             frmIzlemeAmbar.Show();
+        }
+
+        private void yurtİçiGörevOnayToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmYurtIciGorevOnay Go = new FrmYurtIciGorevOnay();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.infos = infos;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageYurtIciGorevOnay", "YURT İÇİ GÖREV ONAY", Go);
+            Go.Show();
+        }
+
+        private void görevEmriNoKaydetToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmGorevEmriNoKayit frmGorevEmriNoKayit = new FrmGorevEmriNoKayit();
+            frmGorevEmriNoKayit.ShowDialog();
+        }
+
+        private void yurtİçiGörevOnayToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            FrmYurtIciOnay Go = new FrmYurtIciOnay();
+            Go.FormBorderStyle = FormBorderStyle.None;
+            Go.infos = infos;
+            Go.TopLevel = false;
+            Go.AutoScroll = true;
+            OpenTabPage("PageYurtIciOnay", "YURT İÇİ GÖREV ONAY", Go);
+            Go.Show();
         }
 
         bool controlKapatma = false;

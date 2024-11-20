@@ -29,6 +29,17 @@ namespace Business.Concreate
                 return ex.Message;
             }
         }
+        public string AddFull(GorevAtamaPersonel entity)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.AddFull(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
 
         public string Delete(int id)
         {
@@ -53,11 +64,11 @@ namespace Business.Concreate
             }
         }
 
-        public GorevAtamaPersonel Get(int benzersiz, string departman)
+        public GorevAtamaPersonel Get(int benzersiz, string departman, string personelAdi="")
         {
             try
             {
-                return gorevAtamaPersonelDal.Get(benzersiz, departman);
+                return gorevAtamaPersonelDal.Get(benzersiz, departman, personelAdi);
             }
             catch (Exception)
             {
@@ -260,6 +271,17 @@ namespace Business.Concreate
             try
             {
                 return gorevAtamaPersonelDal.IsAkisGorevlerimIzin(adSoyad);
+            }
+            catch (Exception)
+            {
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> YurtIcıGorevler(string adSoyad)
+        {
+            try
+            {
+                return gorevAtamaPersonelDal.YurtIcıGorevler(adSoyad);
             }
             catch (Exception)
             {

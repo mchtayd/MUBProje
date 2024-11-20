@@ -12,6 +12,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using UserInterface.BakımOnarım;
 using UserInterface.Butce;
+using UserInterface.Depo;
 using UserInterface.Gecic_Kabul_Ambar;
 using UserInterface.IdariIşler;
 using UserInterface.IdariIsler;
@@ -434,6 +435,22 @@ namespace UserInterface.Ana_Sayfa
                 if (form != null)
                 {
                     form.ComboGiderTuru();
+                }
+            }
+            if (comboAd == "PROJE_TANIM")
+            {
+                var form = (FrmBolgeler)Application.OpenForms["FrmBolgeler"];
+                if (form != null)
+                {
+                    form.ComboProjeTanim();
+                }
+            }
+            if (comboAd == "MALZEME TÜRÜ")
+            {
+                var form = (FrmMalzemeKayitDestekDepo)Application.OpenForms["FrmMalzemeKayitDestekDepo"];
+                if (form != null)
+                {
+                    form.MalzemeTuru();
                 }
             }
 

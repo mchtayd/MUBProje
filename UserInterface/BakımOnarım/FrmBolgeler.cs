@@ -90,6 +90,8 @@ namespace UserInterface.BakımOnarım
             ComboKesifGozetleme();
             ComboYasamAlani();
             MasrafYeriSorumlusu();
+            BolgeSorumlusuList();
+            ComboProjeTanim();
             start = false;
             if (buton == true)
             {
@@ -143,6 +145,14 @@ namespace UserInterface.BakımOnarım
             CmbYazilimBilgisi.ValueMember = "Id";
             CmbYazilimBilgisi.DisplayMember = "Baslik";
             CmbYazilimBilgisi.SelectedValue = 0;
+        }
+
+        public void ComboProjeTanim()
+        {
+            CmbProjeSistem.DataSource = comboManager.GetList("PROJE_TANIM");
+            CmbProjeSistem.ValueMember = "Id";
+            CmbProjeSistem.DisplayMember = "Baslik";
+            CmbProjeSistem.SelectedValue = 0;
         }
         public void ComboKesifGozetleme()
         {
@@ -398,6 +408,7 @@ namespace UserInterface.BakımOnarım
             CmbBolgePersonel.Text = bolgeKayit.TepeSorumlusu;
             CmbProjeSistem.Text = bolgeKayit.ProjeSistem;
             CmbMusteri.Text = bolgeKayit.Musteri;
+            TxtRakim.Text = bolgeKayit.Rakim.ToString();
 
             List<BolgeNot> bolgeNots = new List<BolgeNot>();
             bolgeNots = bolgeNotManager.GetList(id);
@@ -436,23 +447,30 @@ namespace UserInterface.BakımOnarım
             Temizle();
             CmbProjeSistem.SelectedIndex = -1;
         }
-
-        private void CmbBolgeSorumlusu_SelectedIndexChanged(object sender, EventArgs e)
+        void BolgeSorumlusuList()
         {
-            if (start==true)
-            {
-                return;
-            }
             List<PersonelKayit> personelKayits = new List<PersonelKayit>();
-            personelKayits = personelKayitManager.GetMasrafYeriSorumlusuPer(CmbBolgeSorumlusu.Text);
-
-            PersonelKayit personelKayit = new PersonelKayit(CmbBolgeSorumlusu.SelectedIndex, CmbBolgeSorumlusu.Text);
-            personelKayits.Add(personelKayit);
+            personelKayits = personelKayitManager.GetList();
 
             CmbBolgePersonel.DataSource = personelKayits;
             CmbBolgePersonel.ValueMember = "Id";
             CmbBolgePersonel.DisplayMember = "Adsoyad";
             CmbBolgePersonel.SelectedValue = -1;
+        }
+        private void CmbBolgeSorumlusu_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+            //List<PersonelKayit> personelKayits = new List<PersonelKayit>();
+            //personelKayits = personelKayitManager.GetMasrafYeriSorumlusuPer(CmbBolgeSorumlusu.Text);
+
+            //PersonelKayit personelKayit = new PersonelKayit(CmbBolgeSorumlusu.SelectedIndex, CmbBolgeSorumlusu.Text);
+            //personelKayits.Add(personelKayit);
+
+            //CmbBolgePersonel.DataSource = personelKayits;
+            //CmbBolgePersonel.ValueMember = "Id";
+            //CmbBolgePersonel.DisplayMember = "Adsoyad";
+            //CmbBolgePersonel.SelectedValue = -1;
         }
 
         private void CmbProjeSistem_SelectedIndexChanged(object sender, EventArgs e)
@@ -702,6 +720,24 @@ namespace UserInterface.BakımOnarım
             dosyaControl = true;
         }
 
+        private void BtnProjeTanim_Click(object sender, EventArgs e)
+        {
+            comboAd = "PROJE_TANIM";
+            FrmCombo frmCombo = new FrmCombo();
+            frmCombo.comboAd = comboAd;
+            frmCombo.ShowDialog();
+        }
+
+        private void TxtRakim_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = !char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar);
+        }
+
+        private void BtnMusteri_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void BtnKaydet_Click_1(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek isteğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -714,7 +750,8 @@ namespace UserInterface.BakımOnarım
                 //}
 
                 siparisNo = Guid.NewGuid().ToString();
-                BolgeKayit bolgeKayit = new BolgeKayit(TxtBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, siparisNo, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text, CmbMusteri.Text);
+                BolgeKayit bolgeKayit = new BolgeKayit(TxtBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, "", CmbDepo.Text, CmbPypNo.Text, siparisNo, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text, CmbMusteri.Text,
+                    TxtRakim.Text.ConInt());
 
                 string mesaj = bolgeKayitManager.Add(bolgeKayit);
                 if (mesaj!="OK")
@@ -751,12 +788,9 @@ namespace UserInterface.BakımOnarım
             if (dr == DialogResult.Yes)
             {
 
-                if (bolgeAdi != CmbBolgeAdi.Text)
-                {
-                    bolgeKayitManager.UpdateBolgeAdi(bolgeAdi, CmbBolgeAdi.Text, TxtBirlikAdresi.Text);
-                }
+                bolgeKayitManager.UpdateBolgeAdi(bolgeAdi, CmbBolgeAdi.Text, TxtBirlikAdresi.Text);
 
-                BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, CmbBolgeSorumlusu.Text, CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text, CmbMusteri.Text);
+                BolgeKayit bolgeKayit = new BolgeKayit(id, CmbBolgeAdi.Text, TxtKodAdi.Text, CmbProje.Text, TxtBolgeStokNo.Text, DtgKabulTarihi.Value, CmbYazilimBilgisi.Text, CmbGozetlemeTuru.Text, CmbYasamAlani.Text, TxtTabur.Text, TxtTugay.Text, CmbIl.Text, CmbIlce.Text, TxtBirlikAdresi.Text, "", CmbDepo.Text, CmbPypNo.Text, DtGarantİBasTarihi.Value, DtGarantİBitTarihi.Value, dosyaYolu, CmbBolgePersonel.Text, CmbProjeSistem.Text, CmbMusteri.Text, TxtRakim.Text.ConInt());
 
                 string mesaj = bolgeKayitManager.Update(bolgeKayit);
 

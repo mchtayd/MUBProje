@@ -27,6 +27,7 @@ namespace UserInterface.Ana_Sayfa
         List<GorevAtamaPersonel> IsAkisgorevAtamaSatinAlma;
         List<GorevAtamaPersonel> arizaGorevAtamaAtolyePersonels;
         List<GorevAtamaPersonel> mifPersonels;
+        List<GorevAtamaPersonel> yurtIcıGorevs;
         List<SirketBolum> sirketBolums;
         GorevAtamaManager gorevAtamaManager;
         IsAkisNoManager isAkisNoManager;
@@ -352,18 +353,23 @@ namespace UserInterface.Ana_Sayfa
             /*Toplamlar();
             ToplamlarIslemAdimSureleri();*/
         }
+        
         void DataDisplayIsAkis()
         {
             IsAkisgorevAtamaPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "İZİN");
             IsAkisgorevAtamaSatinAlma = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "SATIN ALMA");
             mifPersonels = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "MİF");
-
+            yurtIcıGorevs = gorevAtamaPersonelManager.IsAkisGorevlerimiGor(infos[1].ToString(), "YURT İÇİ GÖREV");
             foreach (GorevAtamaPersonel item in IsAkisgorevAtamaSatinAlma)
             {
                 IsAkisgorevAtamaPersonels.Add(item);
             }
 
             foreach (GorevAtamaPersonel item in mifPersonels)
+            {
+                IsAkisgorevAtamaPersonels.Add(item);
+            }
+            foreach (GorevAtamaPersonel item in yurtIcıGorevs)
             {
                 IsAkisgorevAtamaPersonels.Add(item);
             }

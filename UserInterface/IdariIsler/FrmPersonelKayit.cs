@@ -1005,6 +1005,7 @@ namespace UserInterface.IdariIşler
             testEdilecekSiparis = personelKayit.Siparis;
             CmbMasrafYeriSorumlusuGun.Text = personelKayit.MasrafYeriSorumlusu;
             CmbProjeKoduGun.Text = personelKayit.ProjeKodu;
+
             if (askerlikdurum == "YAPTI")
             {
                 RdbYaptiG.Checked = true;

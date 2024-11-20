@@ -401,12 +401,15 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ABF_FORM_NO"].ConInt(),
                         dataReader["SOKULEN_TESLIM_DURUM"].ToString(),
                         dataReader["BOLGE_ADI"].ToString(),
-                        dataReader["BOLGE_SORUMLUSU"].ToString(),
+                        dataReader["TEPE_SORUMLUSU"].ToString(),
                         dataReader["YAPILACAK_ISLEM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["FIZIKSEL_DURUMU"].ToString(),
-                        dataReader["ALYUKLENICI_KAYIT"].ToString()));
+                        dataReader["ALYUKLENICI_KAYIT"].ToString(),
+                        dataReader["IL"].ToString(),
+                        dataReader["ILCE"].ToString(),
+                        dataReader["DEPO_ADI"].ToString()));
                 }
 
                 dataReader.Close();
@@ -426,12 +429,15 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ABF_FORM_NO"].ConInt(),
                         dataReader["TAKILAN_TESLIM_DURUM"].ToString(),
                         dataReader["BOLGE_ADI"].ToString(),
-                        dataReader["BOLGE_SORUMLUSU"].ToString(),
+                        dataReader["TEPE_SORUMLUSU"].ToString(),
                         dataReader["YAPILACAK_ISLEM"].ToString(),
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["FIZIKSEL_DURUMU"].ToString(),
-                        dataReader["ALYUKLENICI_KAYIT"].ToString()));
+                        dataReader["ALYUKLENICI_KAYIT"].ToString(),
+                        dataReader["IL"].ToString(),
+                        dataReader["ILCE"].ToString(),
+                        dataReader["DEPO_ADI"].ToString()));
                 }
                 dataReader.Close();
                 foreach (AbfMalzeme item in abfMalzemes)
@@ -475,7 +481,10 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["YERINE_MALZEME_TAKILMA"].ToString(),
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["FIZIKSEL_DURUMU"].ToString(),
-                        dataReader["ALYUKLENICI_KAYIT"].ToString()));
+                        dataReader["ALYUKLENICI_KAYIT"].ToString(),
+                        dataReader["IL"].ToString(),
+                        dataReader["ILCE"].ToString(),
+                        dataReader["DEPO_ADI"].ToString()));
                 }
                 dataReader.Close();
                 return abfMalzemes;
@@ -811,7 +820,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@temineGonderen", ""),
                     new SqlParameter("@malzemeIslemAdimi", entity.MalzemeIslemAdimi),
                     new SqlParameter("@sokulenTeslimDurum", entity.SokulenTeslimDurum),
-                    new SqlParameter("@yerineMalzeme", entity.YerineMalzemeTakilma));
+                    new SqlParameter("@yerineMalzeme", entity.YerineMalzemeTakilma),
+                    new SqlParameter("@takilanTeslimDurum", entity.TakilanTeslimDurum));
 
                 dataReader.Close();
                 return "OK";

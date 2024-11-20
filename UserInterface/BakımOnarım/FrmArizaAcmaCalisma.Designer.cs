@@ -31,9 +31,9 @@ namespace UserInterface.BakımOnarım
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmArizaAcmaCalisma));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
@@ -281,6 +281,8 @@ namespace UserInterface.BakımOnarım
             this.webBrowser2 = new System.Windows.Forms.WebBrowser();
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.DtgMalzemeBilgileriSokulenTakilan = new System.Windows.Forms.DataGridView();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.malzemeBilgisiDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.DtgDepoHareketleriSaha = new System.Windows.Forms.DataGridView();
             this.tabPage10 = new System.Windows.Forms.TabPage();
@@ -531,8 +533,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList = new ADGV.AdvancedDataGridView();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.dataBinder = new System.Windows.Forms.BindingSource(this.components);
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.malzemeBilgisiDüzenleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label102 = new System.Windows.Forms.Label();
+            this.CmbGarantiDurumuKapatma = new System.Windows.Forms.ComboBox();
             this.panel1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -563,6 +565,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage21.SuspendLayout();
             this.tabPage8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeBilgileriSokulenTakilan)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.tabPage9.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoHareketleriSaha)).BeginInit();
             this.tabPage10.SuspendLayout();
@@ -595,7 +598,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).BeginInit();
-            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -1970,12 +1972,12 @@ namespace UserInterface.BakımOnarım
             // 
             // Remove
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.Remove.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.Remove.DefaultCellStyle = dataGridViewCellStyle1;
             this.Remove.HeaderText = "Kaldır";
             this.Remove.MinimumWidth = 22;
             this.Remove.Name = "Remove";
@@ -2918,6 +2920,8 @@ namespace UserInterface.BakımOnarım
             // tabPage7
             // 
             this.tabPage7.BackColor = System.Drawing.SystemColors.Control;
+            this.tabPage7.Controls.Add(this.label102);
+            this.tabPage7.Controls.Add(this.CmbGarantiDurumuKapatma);
             this.tabPage7.Controls.Add(this.TxtBildirimNoK);
             this.tabPage7.Controls.Add(this.label184);
             this.tabPage7.Controls.Add(this.DtAselsanMail);
@@ -3427,6 +3431,20 @@ namespace UserInterface.BakımOnarım
             this.DtgMalzemeBilgileriSokulenTakilan.ReadOnly = true;
             this.DtgMalzemeBilgileriSokulenTakilan.Size = new System.Drawing.Size(1266, 296);
             this.DtgMalzemeBilgileriSokulenTakilan.TabIndex = 346;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.malzemeBilgisiDüzenleToolStripMenuItem});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 26);
+            // 
+            // malzemeBilgisiDüzenleToolStripMenuItem
+            // 
+            this.malzemeBilgisiDüzenleToolStripMenuItem.Name = "malzemeBilgisiDüzenleToolStripMenuItem";
+            this.malzemeBilgisiDüzenleToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.malzemeBilgisiDüzenleToolStripMenuItem.Text = "Malzeme Bilgisi Düzenle";
+            this.malzemeBilgisiDüzenleToolStripMenuItem.Click += new System.EventHandler(this.malzemeBilgisiDüzenleToolStripMenuItem_Click);
             // 
             // tabPage9
             // 
@@ -5074,12 +5092,12 @@ namespace UserInterface.BakımOnarım
             // 
             // RemoveAK
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.RemoveAK.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.RemoveAK.DefaultCellStyle = dataGridViewCellStyle2;
             this.RemoveAK.HeaderText = "Kaldır";
             this.RemoveAK.MinimumWidth = 22;
             this.RemoveAK.Name = "RemoveAK";
@@ -6052,8 +6070,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
             this.DtgList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -6076,19 +6094,31 @@ namespace UserInterface.BakımOnarım
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
-            // contextMenuStrip1
+            // label102
             // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.malzemeBilgisiDüzenleToolStripMenuItem});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(202, 26);
+            this.label102.AutoSize = true;
+            this.label102.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.label102.Location = new System.Drawing.Point(480, 260);
+            this.label102.Name = "label102";
+            this.label102.Size = new System.Drawing.Size(98, 15);
+            this.label102.TabIndex = 499;
+            this.label102.Text = "Garanti Durumu:";
             // 
-            // malzemeBilgisiDüzenleToolStripMenuItem
+            // CmbGarantiDurumuKapatma
             // 
-            this.malzemeBilgisiDüzenleToolStripMenuItem.Name = "malzemeBilgisiDüzenleToolStripMenuItem";
-            this.malzemeBilgisiDüzenleToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.malzemeBilgisiDüzenleToolStripMenuItem.Text = "Malzeme Bilgisi Düzenle";
-            this.malzemeBilgisiDüzenleToolStripMenuItem.Click += new System.EventHandler(this.malzemeBilgisiDüzenleToolStripMenuItem_Click);
+            this.CmbGarantiDurumuKapatma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CmbGarantiDurumuKapatma.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
+            this.CmbGarantiDurumuKapatma.FormattingEnabled = true;
+            this.CmbGarantiDurumuKapatma.Items.AddRange(new object[] {
+            "İÇİ",
+            "DIŞI",
+            "PDL-5",
+            "PDL-5 OPSİYONEL",
+            "PDL-5 2.PAKET"});
+            this.CmbGarantiDurumuKapatma.Location = new System.Drawing.Point(587, 257);
+            this.CmbGarantiDurumuKapatma.Name = "CmbGarantiDurumuKapatma";
+            this.CmbGarantiDurumuKapatma.Size = new System.Drawing.Size(158, 23);
+            this.CmbGarantiDurumuKapatma.TabIndex = 498;
             // 
             // FrmArizaAcmaCalisma
             // 
@@ -6144,6 +6174,7 @@ namespace UserInterface.BakımOnarım
             this.tabPage21.ResumeLayout(false);
             this.tabPage8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgMalzemeBilgileriSokulenTakilan)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgDepoHareketleriSaha)).EndInit();
             this.tabPage10.ResumeLayout(false);
@@ -6185,7 +6216,6 @@ namespace UserInterface.BakımOnarım
             this.groupBox13.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataBinder)).EndInit();
-            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -6691,5 +6721,7 @@ namespace UserInterface.BakımOnarım
         private System.Windows.Forms.WebBrowser webBrowser6;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
         private System.Windows.Forms.ToolStripMenuItem malzemeBilgisiDüzenleToolStripMenuItem;
+        private System.Windows.Forms.Label label102;
+        private System.Windows.Forms.ComboBox CmbGarantiDurumuKapatma;
     }
 }

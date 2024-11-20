@@ -57,7 +57,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@proje", entity.Proje),
                     new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu),
                     new SqlParameter("@projeSistem", entity.ProjeSistem),
-                    new SqlParameter("@musteri", entity.Musteri));
+                    new SqlParameter("@musteri", entity.Musteri),
+                    new SqlParameter("@rakim",entity.Rakim));
 
                 dataReader.Close();
                 return "OK";
@@ -113,7 +114,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["TEPE_SORUMLUSU"].ToString(),
                         dataReader["PROJE_SISTEM"].ToString(),
-                        dataReader["MUSTERI"].ToString());
+                        dataReader["MUSTERI"].ToString(),
+                        dataReader["RAKIM"].ConInt());
                 }
                 dataReader.Close();
                 return item;
@@ -195,7 +197,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["TEPE_SORUMLUSU"].ToString(),
                         dataReader["PROJE_SISTEM"].ToString(),
-                        dataReader["MUSTERI"].ToString()));
+                        dataReader["MUSTERI"].ToString(),
+                        dataReader["RAKIM"].ConInt()));
                 }
                 dataReader.Close();
                 return bolgeKayits;
@@ -237,7 +240,8 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["DOSYA_YOLU"].ToString(),
                         dataReader["TEPE_SORUMLUSU"].ToString(),
                         dataReader["PROJE_SISTEM"].ToString(),
-                        dataReader["MUSTERI"].ToString()));
+                        dataReader["MUSTERI"].ToString(),
+                        dataReader["RAKIM"].ConInt()));
                 }
                 dataReader.Close();
                 return bolgeKayits;
@@ -275,7 +279,7 @@ namespace DataAccess.Concreate.BakimOnarim
                 dataReader = sqlServices.StoreReader("BolgeSorumlusuList");
                 while (dataReader.Read())
                 {
-                    bolgeSorumlulari.Add(dataReader["BOLGE_SORUMLUSU"].ToString());
+                    bolgeSorumlulari.Add(dataReader["TEPE_SORUMLUSU"].ToString());
                 }
                 dataReader.Close();
                 return bolgeSorumlulari;
@@ -333,7 +337,8 @@ namespace DataAccess.Concreate.BakimOnarim
                     new SqlParameter("@dosyaYolu", entity.DosyaYolu),
                     new SqlParameter("@tepeSorumlusu", entity.TepeSorumlusu),
                     new SqlParameter("@projeSistem", entity.ProjeSistem),
-                    new SqlParameter("@musteri", entity.Musteri));
+                    new SqlParameter("@musteri", entity.Musteri),
+                    new SqlParameter("@rakim",entity.Rakim));
 
                 dataReader.Close();
                 return "OK";

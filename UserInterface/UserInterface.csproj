@@ -26,7 +26,7 @@
     <ProductName>DTS</ProductName>
     <PublisherName>Mücahit AYDEMİR</PublisherName>
     <AutorunEnabled>true</AutorunEnabled>
-    <ApplicationRevision>876</ApplicationRevision>
+    <ApplicationRevision>937</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <CreateDesktopShortcut>true</CreateDesktopShortcut>
@@ -274,6 +274,12 @@
     </Compile>
     <Compile Include="Ana Sayfa\FrmGorevAciklamaTalebiCevap.Designer.cs">
       <DependentUpon>FrmGorevAciklamaTalebiCevap.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevEmriNoKayit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Ana Sayfa\FrmGorevEmriNoKayit.Designer.cs">
+      <DependentUpon>FrmGorevEmriNoKayit.cs</DependentUpon>
     </Compile>
     <Compile Include="Ana Sayfa\FrmGorevGor.cs">
       <SubType>Form</SubType>
@@ -893,6 +899,18 @@
     <Compile Include="Egitim\FrmEgitimTalebi.Designer.cs">
       <DependentUpon>FrmEgitimTalebi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Egitim\FrmEgitimTalepIzleme.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Egitim\FrmEgitimTalepIzleme.Designer.cs">
+      <DependentUpon>FrmEgitimTalepIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Egitim\FrmEgitimTamamla.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Egitim\FrmEgitimTamamla.Designer.cs">
+      <DependentUpon>FrmEgitimTamamla.cs</DependentUpon>
+    </Compile>
     <Compile Include="Egitim\FrmEğitimEvrakKayit.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -1481,11 +1499,23 @@
     <Compile Include="IdariIsler\FrmYurtIciGorevlerim.Designer.cs">
       <DependentUpon>FrmYurtIciGorevlerim.cs</DependentUpon>
     </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciGorevOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciGorevOnay.Designer.cs">
+      <DependentUpon>FrmYurtIciGorevOnay.cs</DependentUpon>
+    </Compile>
     <Compile Include="IdariIsler\FrmYurtIciGorevSAT.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="IdariIsler\FrmYurtIciGorevSAT.Designer.cs">
       <DependentUpon>FrmYurtIciGorevSAT.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciOnay.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmYurtIciOnay.Designer.cs">
+      <DependentUpon>FrmYurtIciOnay.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmYurtİciGorev.cs">
       <SubType>Form</SubType>
@@ -1498,6 +1528,12 @@
     </Compile>
     <Compile Include="IdariIsler\FrmYurtIciGorevIzleme.Designer.cs">
       <DependentUpon>FrmYurtIciGorevIzleme.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IdariIsler\FrmZiyaretArac.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IdariIsler\FrmZiyaretArac.Designer.cs">
+      <DependentUpon>FrmZiyaretArac.cs</DependentUpon>
     </Compile>
     <Compile Include="IdariIsler\FrmZiyaretciKayit.cs">
       <SubType>Form</SubType>
@@ -1806,6 +1842,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmGorevAciklamaTalebiCevap.resx">
       <DependentUpon>FrmGorevAciklamaTalebiCevap.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Ana Sayfa\FrmGorevEmriNoKayit.resx">
+      <DependentUpon>FrmGorevEmriNoKayit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Ana Sayfa\FrmGorevGor.resx">
       <DependentUpon>FrmGorevGor.cs</DependentUpon>
@@ -2116,6 +2155,12 @@
     <EmbeddedResource Include="Egitim\FrmEgitimTalebi.resx">
       <DependentUpon>FrmEgitimTalebi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Egitim\FrmEgitimTalepIzleme.resx">
+      <DependentUpon>FrmEgitimTalepIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Egitim\FrmEgitimTamamla.resx">
+      <DependentUpon>FrmEgitimTamamla.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Egitim\FrmEğitimEvrakKayit.resx">
       <DependentUpon>FrmEğitimEvrakKayit.cs</DependentUpon>
     </EmbeddedResource>
@@ -2410,14 +2455,23 @@
     <EmbeddedResource Include="IdariIsler\FrmYurtIciGorevlerim.resx">
       <DependentUpon>FrmYurtIciGorevlerim.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYurtIciGorevOnay.resx">
+      <DependentUpon>FrmYurtIciGorevOnay.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmYurtIciGorevSAT.resx">
       <DependentUpon>FrmYurtIciGorevSAT.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmYurtIciOnay.resx">
+      <DependentUpon>FrmYurtIciOnay.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmYurtİciGorev.resx">
       <DependentUpon>FrmYurtİciGorev.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmYurtIciGorevIzleme.resx">
       <DependentUpon>FrmYurtIciGorevIzleme.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IdariIsler\FrmZiyaretArac.resx">
+      <DependentUpon>FrmZiyaretArac.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="IdariIsler\FrmZiyaretciKayit.resx">
       <DependentUpon>FrmZiyaretciKayit.cs</DependentUpon>

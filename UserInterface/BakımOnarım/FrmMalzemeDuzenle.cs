@@ -25,16 +25,17 @@ namespace UserInterface.BakımOnarım
         AbfMalzemeManager abfMalzemeManager;
         ArizaKayitManager arizaKayitManager;
         DtsLogManager dtsLogManager;
+        AbfMalzemeIslemKayitManager abfMalzemeIslemKayitManager;
         public int benzersizId;
         int deleteId;
         public object[] infos;
-
 
         //List<MalzemeKayit> malzemeKayits;
         List<Malzeme> malzemes;
         List<Malzeme> malzemesFiltired;
         //List<MalzemeKayit> malzemeKayitsFiltired;
         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
+        List<int> silinecekIds = new List<int>();
         int ilkSayi = 0;
         string bolgeAdi, abf = "";
         public FrmMalzemeDuzenle()
@@ -45,6 +46,7 @@ namespace UserInterface.BakımOnarım
             malzemeManager = MalzemeManager.GetInstance();
             arizaKayitManager = ArizaKayitManager.GetInstance();
             dtsLogManager = DtsLogManager.GetInstance();
+            abfMalzemeIslemKayitManager = AbfMalzemeIslemKayitManager.GetInstance();
         }
 
         private void BtnMalzemeDuzenle_Load(object sender, EventArgs e)
@@ -128,10 +130,16 @@ namespace UserInterface.BakımOnarım
             DtgEklenecekMalzemeler.Columns["TemineAtilamTarihi"].Visible = false;
             DtgEklenecekMalzemeler.Columns["MalzemeDurumu"].Visible = false;
             DtgEklenecekMalzemeler.Columns["MalzemeIslemAdimi"].Visible = false;
-            DtgEklenecekMalzemeler.Columns["SokulenTeslimDurum"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["SokulenTeslimDurum"].HeaderText = "SÖKÜLEN TESLİM DURUMU";
             DtgEklenecekMalzemeler.Columns["BolgeAdi"].Visible = false;
             DtgEklenecekMalzemeler.Columns["BolgeSorumlusu"].Visible = false;
             DtgEklenecekMalzemeler.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
+            DtgEklenecekMalzemeler.Columns["DosyaYolu"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["AltYukleniciKayit"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["Secim"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["Il"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["Ilce"].Visible = false;
+            DtgEklenecekMalzemeler.Columns["TakilanTeslimDurum"].HeaderText = "TAKILAN TESLİM DURUMU";
 
         }
         string stokNo, tanim, birim;
@@ -153,6 +161,13 @@ namespace UserInterface.BakımOnarım
             DialogResult dr = MessageBox.Show("Bilgileri kaydetmek istiyor musunuz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
+                List<AbfMalzeme> abfMalzemes2 = new List<AbfMalzeme>();
+                abfMalzemes2 = abfMalzemeManager.GetList(benzersizId);
+                foreach (AbfMalzeme item in abfMalzemes2)
+                {
+                    silinecekIds.Add(item.Id);
+                }
+                
                 string mesaj = abfMalzemeManager.Delete(benzersizId);
                 if (mesaj != "OK")
                 {
@@ -319,5 +334,6 @@ namespace UserInterface.BakımOnarım
             malzemesFiltired = malzemes;
             TxtTop.Text = DtgList.RowCount.ToString();
         }
+        
     }
 }

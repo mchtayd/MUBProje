@@ -208,8 +208,9 @@ namespace UserInterface.BakımOnarım
             {
                 Directory.CreateDirectory(subdir);
             }
-            dosyaYolu = subdir + isAkisNo;
-            Directory.CreateDirectory(subdir + isAkisNo);
+            string dosyaAdi = DateTime.Now.ToString("yyyy")+ DateTime.Now.ToString("MM")+DateTime.Now.ToString("dd")+DateTime.Now.ToString("HH")+DateTime.Now.ToString("mm") + DateTime.Now.ToString("FFFFFFF");
+            dosyaYolu = subdir + dosyaAdi;
+            Directory.CreateDirectory(subdir + dosyaAdi);
 
             //Directory.CreateDirectory(subdir + isAkisNo);
             if (openFileDialog1.ShowDialog() == DialogResult.OK)

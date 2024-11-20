@@ -683,7 +683,9 @@ namespace UserInterface.BakımOnarım
             DtgSokulen.Columns["AltYukleniciKayit"].Visible = false;
             DtgSokulen.Columns["TakilanTeslimDurum"].Visible = false;
             DtgSokulen.Columns["Secim"].Visible = false;
-
+            DtgSokulen.Columns["Il"].Visible = false;
+            DtgSokulen.Columns["Ilce"].Visible = false;
+            DtgSokulen.Columns["DepoAdi"].Visible = false;
             DtgTakilan.DataSource = null;
             DtgTakilan.DataSource = abfMalzemes;
 
@@ -720,6 +722,9 @@ namespace UserInterface.BakımOnarım
             DtgTakilan.Columns["AltYukleniciKayit"].Visible = false;
             DtgTakilan.Columns["TakilanTeslimDurum"].HeaderText = "MALZEMENİN YERİ";
             DtgTakilan.Columns["Secim"].Visible = false;
+            DtgTakilan.Columns["Il"].Visible = false;
+            DtgTakilan.Columns["Ilce"].Visible = false;
+            DtgTakilan.Columns["DepoAdi"].Visible = false;
 
         }
         void DepoHareketleri()

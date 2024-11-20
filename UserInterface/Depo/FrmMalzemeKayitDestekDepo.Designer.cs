@@ -33,7 +33,6 @@ namespace UserInterface.Depo
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.BtnStokAl = new System.Windows.Forms.Button();
-            this.TxtBirim = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.TxtTanim = new System.Windows.Forms.TextBox();
             this.CmbStokNo = new System.Windows.Forms.ComboBox();
@@ -48,6 +47,11 @@ namespace UserInterface.Depo
             this.PctBox = new System.Windows.Forms.PictureBox();
             this.BtnFotoDuzenle = new System.Windows.Forms.Button();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.BtnBirimEkle = new System.Windows.Forms.Button();
+            this.TxtBirim = new System.Windows.Forms.ComboBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PctBox)).BeginInit();
             this.SuspendLayout();
@@ -79,7 +83,7 @@ namespace UserInterface.Depo
             // BtnStokAl
             // 
             this.BtnStokAl.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnStokAl.Location = new System.Drawing.Point(352, 101);
+            this.BtnStokAl.Location = new System.Drawing.Point(368, 81);
             this.BtnStokAl.Name = "BtnStokAl";
             this.BtnStokAl.Size = new System.Drawing.Size(89, 26);
             this.BtnStokAl.TabIndex = 311;
@@ -87,18 +91,10 @@ namespace UserInterface.Depo
             this.BtnStokAl.UseVisualStyleBackColor = true;
             this.BtnStokAl.Click += new System.EventHandler(this.BtnStokAl_Click);
             // 
-            // TxtBirim
-            // 
-            this.TxtBirim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtBirim.Location = new System.Drawing.Point(141, 163);
-            this.TxtBirim.Name = "TxtBirim";
-            this.TxtBirim.Size = new System.Drawing.Size(205, 21);
-            this.TxtBirim.TabIndex = 309;
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(37, 167);
+            this.label4.Location = new System.Drawing.Point(53, 147);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(95, 13);
             this.label4.TabIndex = 310;
@@ -107,7 +103,7 @@ namespace UserInterface.Depo
             // TxtTanim
             // 
             this.TxtTanim.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.TxtTanim.Location = new System.Drawing.Point(141, 134);
+            this.TxtTanim.Location = new System.Drawing.Point(157, 114);
             this.TxtTanim.Name = "TxtTanim";
             this.TxtTanim.Size = new System.Drawing.Size(300, 21);
             this.TxtTanim.TabIndex = 308;
@@ -116,7 +112,7 @@ namespace UserInterface.Depo
             // 
             this.CmbStokNo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
             this.CmbStokNo.FormattingEnabled = true;
-            this.CmbStokNo.Location = new System.Drawing.Point(141, 103);
+            this.CmbStokNo.Location = new System.Drawing.Point(157, 83);
             this.CmbStokNo.Name = "CmbStokNo";
             this.CmbStokNo.Size = new System.Drawing.Size(205, 23);
             this.CmbStokNo.TabIndex = 306;
@@ -125,7 +121,7 @@ namespace UserInterface.Depo
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(33, 137);
+            this.label2.Location = new System.Drawing.Point(49, 117);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(99, 13);
             this.label2.TabIndex = 307;
@@ -134,7 +130,7 @@ namespace UserInterface.Depo
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 106);
+            this.label1.Location = new System.Drawing.Point(35, 86);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(113, 13);
             this.label1.TabIndex = 305;
@@ -144,7 +140,7 @@ namespace UserInterface.Depo
             // 
             this.BtnKaydet.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnKaydet.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnKaydet.Location = new System.Drawing.Point(46, 230);
+            this.BtnKaydet.Location = new System.Drawing.Point(35, 238);
             this.BtnKaydet.Name = "BtnKaydet";
             this.BtnKaydet.Size = new System.Drawing.Size(113, 53);
             this.BtnKaydet.TabIndex = 312;
@@ -156,7 +152,7 @@ namespace UserInterface.Depo
             // 
             this.BtnGuncelle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuncelle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnGuncelle.Location = new System.Drawing.Point(177, 230);
+            this.BtnGuncelle.Location = new System.Drawing.Point(166, 238);
             this.BtnGuncelle.Name = "BtnGuncelle";
             this.BtnGuncelle.Size = new System.Drawing.Size(113, 53);
             this.BtnGuncelle.TabIndex = 313;
@@ -168,7 +164,7 @@ namespace UserInterface.Depo
             // 
             this.BtnTemizle.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnTemizle.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnTemizle.Location = new System.Drawing.Point(439, 230);
+            this.BtnTemizle.Location = new System.Drawing.Point(428, 238);
             this.BtnTemizle.Name = "BtnTemizle";
             this.BtnTemizle.Size = new System.Drawing.Size(113, 53);
             this.BtnTemizle.TabIndex = 315;
@@ -180,7 +176,7 @@ namespace UserInterface.Depo
             // 
             this.BtnSil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnSil.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(162)));
-            this.BtnSil.Location = new System.Drawing.Point(308, 230);
+            this.BtnSil.Location = new System.Drawing.Point(297, 238);
             this.BtnSil.Name = "BtnSil";
             this.BtnSil.Size = new System.Drawing.Size(113, 53);
             this.BtnSil.TabIndex = 314;
@@ -191,7 +187,7 @@ namespace UserInterface.Depo
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 78);
+            this.label3.Location = new System.Drawing.Point(52, 58);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 13);
             this.label3.TabIndex = 316;
@@ -201,7 +197,7 @@ namespace UserInterface.Depo
             // 
             this.CmbMalzemeKategorisi.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CmbMalzemeKategorisi.FormattingEnabled = true;
-            this.CmbMalzemeKategorisi.Location = new System.Drawing.Point(141, 74);
+            this.CmbMalzemeKategorisi.Location = new System.Drawing.Point(157, 54);
             this.CmbMalzemeKategorisi.Name = "CmbMalzemeKategorisi";
             this.CmbMalzemeKategorisi.Size = new System.Drawing.Size(205, 21);
             this.CmbMalzemeKategorisi.TabIndex = 317;
@@ -210,7 +206,7 @@ namespace UserInterface.Depo
             // PctBox
             // 
             this.PctBox.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.PctBox.Location = new System.Drawing.Point(456, 58);
+            this.PctBox.Location = new System.Drawing.Point(472, 38);
             this.PctBox.Name = "PctBox";
             this.PctBox.Size = new System.Drawing.Size(117, 126);
             this.PctBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -225,7 +221,7 @@ namespace UserInterface.Depo
             this.BtnFotoDuzenle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnFotoDuzenle.BackgroundImage")));
             this.BtnFotoDuzenle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.BtnFotoDuzenle.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnFotoDuzenle.Location = new System.Drawing.Point(577, 155);
+            this.BtnFotoDuzenle.Location = new System.Drawing.Point(593, 135);
             this.BtnFotoDuzenle.Margin = new System.Windows.Forms.Padding(0);
             this.BtnFotoDuzenle.Name = "BtnFotoDuzenle";
             this.BtnFotoDuzenle.Size = new System.Drawing.Size(34, 29);
@@ -238,11 +234,77 @@ namespace UserInterface.Depo
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // comboBox1
+            // 
+            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "SERİ NO",
+            "LOT NO"});
+            this.comboBox1.Location = new System.Drawing.Point(157, 170);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(205, 21);
+            this.comboBox1.TabIndex = 400;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(18, 174);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(130, 13);
+            this.label5.TabIndex = 399;
+            this.label5.Text = "MALZEME TAKİP TÜRÜ:";
+            // 
+            // BtnBirimEkle
+            // 
+            this.BtnBirimEkle.AccessibleDescription = "";
+            this.BtnBirimEkle.BackColor = System.Drawing.SystemColors.Control;
+            this.BtnBirimEkle.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("BtnBirimEkle.BackgroundImage")));
+            this.BtnBirimEkle.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.BtnBirimEkle.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBirimEkle.Location = new System.Drawing.Point(365, 138);
+            this.BtnBirimEkle.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBirimEkle.Name = "BtnBirimEkle";
+            this.BtnBirimEkle.Size = new System.Drawing.Size(30, 25);
+            this.BtnBirimEkle.TabIndex = 403;
+            this.BtnBirimEkle.Tag = "admin";
+            this.BtnBirimEkle.UseVisualStyleBackColor = false;
+            // 
+            // TxtBirim
+            // 
+            this.TxtBirim.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.TxtBirim.FormattingEnabled = true;
+            this.TxtBirim.Location = new System.Drawing.Point(157, 141);
+            this.TxtBirim.Name = "TxtBirim";
+            this.TxtBirim.Size = new System.Drawing.Size(205, 21);
+            this.TxtBirim.TabIndex = 402;
+            // 
+            // button1
+            // 
+            this.button1.AccessibleDescription = "";
+            this.button1.BackColor = System.Drawing.SystemColors.Control;
+            this.button1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button1.BackgroundImage")));
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button1.Location = new System.Drawing.Point(365, 52);
+            this.button1.Margin = new System.Windows.Forms.Padding(0);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(30, 25);
+            this.button1.TabIndex = 404;
+            this.button1.Tag = "admin";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FrmMalzemeKayitDestekDepo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1557, 924);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.BtnBirimEkle);
+            this.Controls.Add(this.TxtBirim);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.BtnFotoDuzenle);
             this.Controls.Add(this.PctBox);
             this.Controls.Add(this.CmbMalzemeKategorisi);
@@ -252,7 +314,6 @@ namespace UserInterface.Depo
             this.Controls.Add(this.BtnTemizle);
             this.Controls.Add(this.BtnSil);
             this.Controls.Add(this.BtnStokAl);
-            this.Controls.Add(this.TxtBirim);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.TxtTanim);
             this.Controls.Add(this.CmbStokNo);
@@ -274,7 +335,6 @@ namespace UserInterface.Depo
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Button BtnCancel;
         private System.Windows.Forms.Button BtnStokAl;
-        private System.Windows.Forms.TextBox TxtBirim;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox TxtTanim;
         private System.Windows.Forms.ComboBox CmbStokNo;
@@ -289,5 +349,10 @@ namespace UserInterface.Depo
         private System.Windows.Forms.PictureBox PctBox;
         private System.Windows.Forms.Button BtnFotoDuzenle;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button BtnBirimEkle;
+        private System.Windows.Forms.ComboBox TxtBirim;
+        private System.Windows.Forms.Button button1;
     }
 }

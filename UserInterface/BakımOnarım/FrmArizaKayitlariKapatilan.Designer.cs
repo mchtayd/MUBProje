@@ -30,10 +30,10 @@ namespace UserInterface.BakımOnarım
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.BtnCancel = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
@@ -43,6 +43,8 @@ namespace UserInterface.BakımOnarım
             this.sökülenMalzemeBilgisiToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.açıklamaNotEkleToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.raporOluşturExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.seçiliOlanlarıTamamlaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
@@ -75,7 +77,7 @@ namespace UserInterface.BakımOnarım
             this.LblSeciliAbf = new System.Windows.Forms.Label();
             this.DtgTakilan = new ADGV.AdvancedDataGridView();
             this.DtgSokulen = new ADGV.AdvancedDataGridView();
-            this.raporOluşturExcelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -138,8 +140,8 @@ namespace UserInterface.BakımOnarım
             this.DtgList.AllowUserToAddRows = false;
             this.DtgList.AllowUserToDeleteRows = false;
             this.DtgList.AllowUserToOrderColumns = true;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgList.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle5;
             this.DtgList.AutoGenerateContextFilters = true;
             this.DtgList.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -149,7 +151,6 @@ namespace UserInterface.BakımOnarım
             this.DtgList.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgList.Location = new System.Drawing.Point(3, 16);
             this.DtgList.Name = "DtgList";
-            this.DtgList.ReadOnly = true;
             this.DtgList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.DtgList.Size = new System.Drawing.Size(1525, 426);
             this.DtgList.TabIndex = 2;
@@ -165,7 +166,8 @@ namespace UserInterface.BakımOnarım
             this.sökülenMalzemeBilgisiToolStripMenuItem,
             this.açıklamaNotEkleToolStripMenuItem,
             this.toolStripMenuItem2,
-            this.raporOluşturExcelToolStripMenuItem});
+            this.raporOluşturExcelToolStripMenuItem,
+            this.seçiliOlanlarıTamamlaToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
             this.contextMenuStrip1.Size = new System.Drawing.Size(219, 136);
             // 
@@ -196,6 +198,20 @@ namespace UserInterface.BakımOnarım
             this.toolStripMenuItem2.Size = new System.Drawing.Size(218, 22);
             this.toolStripMenuItem2.Text = "Sektör Cihazları (OKF Excel)";
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
+            // 
+            // raporOluşturExcelToolStripMenuItem
+            // 
+            this.raporOluşturExcelToolStripMenuItem.Name = "raporOluşturExcelToolStripMenuItem";
+            this.raporOluşturExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.raporOluşturExcelToolStripMenuItem.Text = "Rapor Oluştur (Excel)";
+            this.raporOluşturExcelToolStripMenuItem.Click += new System.EventHandler(this.raporOluşturExcelToolStripMenuItem_Click);
+            // 
+            // seçiliOlanlarıTamamlaToolStripMenuItem
+            // 
+            this.seçiliOlanlarıTamamlaToolStripMenuItem.Name = "seçiliOlanlarıTamamlaToolStripMenuItem";
+            this.seçiliOlanlarıTamamlaToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
+            this.seçiliOlanlarıTamamlaToolStripMenuItem.Text = "Seçili Olanları Tamamla";
+            this.seçiliOlanlarıTamamlaToolStripMenuItem.Click += new System.EventHandler(this.seçiliOlanlarıTamamlaToolStripMenuItem_Click);
             // 
             // tabControl1
             // 
@@ -232,7 +248,7 @@ namespace UserInterface.BakımOnarım
             // 
             // BrowserVeriGecmis
             // 
-            this.BrowserVeriGecmis.Location = new System.Drawing.Point(2, 5);
+            this.BrowserVeriGecmis.Location = new System.Drawing.Point(3, 5);
             this.BrowserVeriGecmis.MinimumSize = new System.Drawing.Size(20, 20);
             this.BrowserVeriGecmis.Name = "BrowserVeriGecmis";
             this.BrowserVeriGecmis.Size = new System.Drawing.Size(935, 331);
@@ -278,8 +294,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgMalzemeListesi.AllowUserToAddRows = false;
             this.DtgMalzemeListesi.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgMalzemeListesi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgMalzemeListesi.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgMalzemeListesi.AutoGenerateContextFilters = true;
             this.DtgMalzemeListesi.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgMalzemeListesi.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -519,8 +535,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgTakilan.AllowUserToAddRows = false;
             this.DtgTakilan.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgTakilan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgTakilan.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgTakilan.AutoGenerateContextFilters = true;
             this.DtgTakilan.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgTakilan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -540,8 +556,8 @@ namespace UserInterface.BakımOnarım
             // 
             this.DtgSokulen.AllowUserToAddRows = false;
             this.DtgSokulen.AllowUserToDeleteRows = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.DtgSokulen.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.DtgSokulen.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
             this.DtgSokulen.AutoGenerateContextFilters = true;
             this.DtgSokulen.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.DtgSokulen.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -557,18 +573,23 @@ namespace UserInterface.BakımOnarım
             this.DtgSokulen.TimeFilter = false;
             this.DtgSokulen.Visible = false;
             // 
-            // raporOluşturExcelToolStripMenuItem
+            // button1
             // 
-            this.raporOluşturExcelToolStripMenuItem.Name = "raporOluşturExcelToolStripMenuItem";
-            this.raporOluşturExcelToolStripMenuItem.Size = new System.Drawing.Size(218, 22);
-            this.raporOluşturExcelToolStripMenuItem.Text = "Rapor Oluştur (Excel)";
-            this.raporOluşturExcelToolStripMenuItem.Click += new System.EventHandler(this.raporOluşturExcelToolStripMenuItem_Click);
+            this.button1.Location = new System.Drawing.Point(1009, 488);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 464;
+            this.button1.Text = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Visible = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // FrmArizaKayitlariKapatilan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1555, 909);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.DtgTakilan);
             this.Controls.Add(this.DtgSokulen);
             this.Controls.Add(this.label4);
@@ -656,5 +677,7 @@ namespace UserInterface.BakımOnarım
         private ADGV.AdvancedDataGridView DtgSokulen;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem raporOluşturExcelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem seçiliOlanlarıTamamlaToolStripMenuItem;
+        private System.Windows.Forms.Button button1;
     }
 }

@@ -88,6 +88,7 @@ namespace UserInterface.BakımOnarım
             DtgBolgeler.Columns["TepeSorumlusu"].HeaderText = "ÜS BÖLGESİ SORUMLUSU";
             DtgBolgeler.Columns["ProjeSistem"].HeaderText = "PROJE SİSTEM";
             DtgBolgeler.Columns["Musteri"].HeaderText = "MÜŞTERİ";
+            DtgBolgeler.Columns["Rakim"].HeaderText = "RAKIM BİLGİSİ";
 
             DtgBolgeler.Columns["Id"].Visible = false;
             DtgBolgeler.Columns["BolgeAdi"].DisplayIndex = 0;
@@ -114,6 +115,8 @@ namespace UserInterface.BakımOnarım
             DtgBolgeler.Columns["Il"].DisplayIndex = 18;
             DtgBolgeler.Columns["Ilce"].DisplayIndex = 19;
             DtgBolgeler.Columns["BirlikAdresi"].DisplayIndex = 20;
+
+            DtgBolgeler.Columns["BolgeSorumlusu"].Visible = false;
         }
 
         private void DtgBolgeler_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

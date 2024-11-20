@@ -71,5 +71,10 @@ namespace UserInterface.Depo
                 GrbpersoneldenDepoya.Visible = true;
             }
         }
+
+        private void GrbDepodanPersonele_Enter(object sender, EventArgs e)
+        {
+
+        }
     }
 }

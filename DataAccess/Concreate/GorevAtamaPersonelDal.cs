@@ -44,6 +44,29 @@ namespace DataAccess.Concreate
             }
         }
 
+        public string AddFull(GorevAtamaPersonel entity)
+        {
+            try
+            {
+                dataReader = sqlServices.StoreReader("GorevAtananPersonelEkleFull",
+                    new SqlParameter("@benzersiz", entity.BenzersizId),
+                    new SqlParameter("@departman", entity.Departman),
+                    new SqlParameter("@gorevAtanacakPersonel", entity.GorevAtanacakPersonel),
+                    new SqlParameter("@islemAdimi", entity.IslemAdimi),
+                    new SqlParameter("@tarih", entity.Tarih),
+                    new SqlParameter("@yapilanIslemler", entity.YapilanIslem),
+                    new SqlParameter("@calismaSuresi", entity.CalismaSuresi),
+                    new SqlParameter("@sure",entity.Sure));
+
+                dataReader.Close();
+                return "OK";
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
+
         public string Delete(int id)
         {
             try
@@ -57,12 +80,12 @@ namespace DataAccess.Concreate
             }
         }
 
-        public GorevAtamaPersonel Get(int benzersiz, string departman)
+        public GorevAtamaPersonel Get(int benzersiz, string departman, string personelAd)
         {
             try
             {
                 dataReader = sqlServices.StoreReader("GorevAtananPersonelListele",
-                    new SqlParameter("@benzersiz", benzersiz), new SqlParameter("@departman", departman));
+                    new SqlParameter("@benzersiz", benzersiz), new SqlParameter("@departman", departman), new SqlParameter("@personelAdi", personelAd));
                 GorevAtamaPersonel item = null;
                 while (dataReader.Read())
                 {
@@ -84,7 +107,7 @@ namespace DataAccess.Concreate
             }
             catch (Exception)
             {
-
+                dataReader.Close();
                 throw;
             }
         }
@@ -576,6 +599,21 @@ namespace DataAccess.Concreate
                         dataReader["ID"].ToString(),
                         (toplamSure.Days).ConInt()));
                     }
+                    if (departman == "YURT İÇİ GÖREV")
+                    {
+                        gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["DEPARTMAN"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["SURE"].ToString(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        dataReader["IS_AKIS_NO"].ToString(),
+                        (toplamSure.Days).ConInt()));
+                    }
                     //else
                     //{
                     //    gorevAtamaPersonels.Add(new GorevAtamaPersonel(
@@ -824,6 +862,41 @@ namespace DataAccess.Concreate
                 dataReader = sqlServices.StoreReader("AtolyeGorevlerimiGor",
                     new SqlParameter("@adSoyad", adSoyad),
                     new SqlParameter("@departman", "İZİN"));
+                while (dataReader.Read())
+                {
+                    TimeSpan toplamSure = DateTime.Now - dataReader["TARIH"].ConDate();
+                    gorevAtamaPersonels.Add(new GorevAtamaPersonel(
+                        dataReader["ID"].ConInt(),
+                        dataReader["BENZERSIZ_ID"].ConInt(),
+                        dataReader["DEPARTMAN"].ToString(),
+                        dataReader["GOREV_ATANACAK_PERSONEL"].ToString(),
+                        dataReader["ISLEM_ADIMI"].ToString(),
+                        dataReader["TARIH"].ConDate(),
+                        dataReader["SURE"].ToString(),
+                        dataReader["YAPILAN_ISLEMLER"].ToString(),
+                        dataReader["CALISMA_SURESI"].ConOnlyTime(),
+                        dataReader["IS_AKIS_NO"].ToString(),
+                        (toplamSure.Days).ConInt()));
+                }
+                dataReader.Close();
+                return gorevAtamaPersonels;
+
+            }
+            catch (Exception ex)
+            {
+                dataReader.Close();
+                return new List<GorevAtamaPersonel>();
+            }
+        }
+        public List<GorevAtamaPersonel> YurtIcıGorevler(string adSoyad)
+        {
+            try
+            {
+                SqlDataReader dataReader;
+                List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                dataReader = sqlServices.StoreReader("AtolyeGorevlerimiGor",
+                    new SqlParameter("@adSoyad", adSoyad),
+                    new SqlParameter("@departman", "YURT İÇİ GÖREV"));
                 while (dataReader.Read())
                 {
                     TimeSpan toplamSure = DateTime.Now - dataReader["TARIH"].ConDate();

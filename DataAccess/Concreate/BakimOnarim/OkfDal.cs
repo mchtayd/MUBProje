@@ -292,7 +292,7 @@ namespace DataAccess.Concreate.BakimOnarim
                         dataReader["ID"].ConInt(),
                         dataReader["AB_TARIH_SAAT"].ConDate(),
                         dataReader["BOLGE_ADI"].ToString(),
-                        dataReader["GARANTI_PAKETI"].ToString(),
+                        dataReader[8].ToString(),
                         dataReader["ARIZAYI_BILDIREN_PERSONEL"].ToString(),
                         dataReader["AB_TELEFON"].ToString(),
                         dataReader["BIRLIK_ADRESI"].ToString(),

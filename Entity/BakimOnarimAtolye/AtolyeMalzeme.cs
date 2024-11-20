@@ -50,5 +50,15 @@ namespace Entity.BakimOnarimAtolye
             this.talepTarihi = talepTarihi;
             this.siparisNo = siparisNo;
         }
+
+        public AtolyeMalzeme(int id ,string stokNo, string tanim, string seriNo, string revizyon, double miktar)
+        {
+            this.id = id;
+            this.stokNo = stokNo;
+            this.tanim = tanim;
+            this.seriNo = seriNo;
+            this.revizyon = revizyon;
+            this.miktar = miktar;
+        }
     }
 }

@@ -84,6 +84,7 @@
             this.ChkAllData = new System.Windows.Forms.CheckBox();
             this.TxtAbfNo = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
+            this.listedenÇıkarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgList)).BeginInit();
@@ -189,9 +190,10 @@
             this.barkodOluşturToolStripMenuItem,
             this.malzemeBilgisiniDüzenleToolStripMenuItem,
             this.malzemeKaydınıDüzenleToolStripMenuItem,
-            this.hurdayaAyrılacaklarıBelirleToolStripMenuItem});
+            this.hurdayaAyrılacaklarıBelirleToolStripMenuItem,
+            this.listedenÇıkarToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(222, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(222, 136);
             // 
             // barkodOluşturToolStripMenuItem
             // 
@@ -644,6 +646,13 @@
             this.label10.TabIndex = 546;
             this.label10.Text = "Abf No ile Arama:";
             // 
+            // listedenÇıkarToolStripMenuItem
+            // 
+            this.listedenÇıkarToolStripMenuItem.Name = "listedenÇıkarToolStripMenuItem";
+            this.listedenÇıkarToolStripMenuItem.Size = new System.Drawing.Size(221, 22);
+            this.listedenÇıkarToolStripMenuItem.Text = "Listeden Çıkar";
+            this.listedenÇıkarToolStripMenuItem.Click += new System.EventHandler(this.listedenÇıkarToolStripMenuItem_Click);
+            // 
             // FrmAltTakimTakip
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -748,5 +757,6 @@
         private System.Windows.Forms.CheckBox ChkAllData;
         private System.Windows.Forms.TextBox TxtAbfNo;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.ToolStripMenuItem listedenÇıkarToolStripMenuItem;
     }
 }

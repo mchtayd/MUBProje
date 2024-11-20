@@ -113,6 +113,7 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Concreate\AnaSayfa\ServerAyarlarDal.cs" />
+    <Compile Include="Concreate\AnaSayfa\SistemUyariDal.cs" />
     <Compile Include="Concreate\AnaSayfa\SohbetDal.cs" />
     <Compile Include="Concreate\AnaSayfa\YolDurumuGirmeyenDall.cs" />
     <Compile Include="Concreate\BakimOnarimAtolye\AtolyeAltMalzemeDal.cs" />
@@ -152,6 +153,7 @@
     <Compile Include="Concreate\Depo\CayOcagiDal.cs" />
     <Compile Include="Concreate\Depo\DepoKayitDal.cs" />
     <Compile Include="Concreate\Depo\DepoKayitLokasyonDal.cs" />
+    <Compile Include="Concreate\Depo\DestekDepoDal.cs" />
     <Compile Include="Concreate\Depo\DestekDepoElekronikDal.cs" />
     <Compile Include="Concreate\Depo\DestekDepoMalzemeKayitDal.cs" />
     <Compile Include="Concreate\Depo\ElAletleriDal.cs" />
@@ -162,6 +164,7 @@
     <Compile Include="Concreate\Depo\TemizlikUrunleriDal.cs" />
     <Compile Include="Concreate\DokumanYonetim\DokumanDal.cs" />
     <Compile Include="Concreate\DokumanYonetim\FormDocumentDal.cs" />
+    <Compile Include="Concreate\Egitim\EgitimTalebiDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\BarkodDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\DepoMiktarDal.cs" />
     <Compile Include="Concreate\Gecici Kabul Ambar\MalzemeDal.cs" />
@@ -185,6 +188,7 @@
     <Compile Include="Concreate\IdariIsler\DVKayitDal.cs" />
     <Compile Include="Concreate\IdariIsler\EvrakKayitDal.cs" />
     <Compile Include="Concreate\IdariIsler\FazlaCalismaDal.cs" />
+    <Compile Include="Concreate\IdariIsler\GorevEmriNoDal.cs" />
     <Compile Include="Concreate\IdariIsler\GorevlendirmeDal.cs" />
     <Compile Include="Concreate\IdariIsler\IdariIslerLogDal.cs" />
     <Compile Include="Concreate\IdariIsler\IstenAyrilisDal.cs" />
@@ -274,5 +278,6 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

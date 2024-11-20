@@ -76,11 +76,11 @@ namespace Business.Concreate.IdarıIsler
             }
         }
 
-        public List<PersonelKayit> GetList(string siparisNo = "")
+        public List<PersonelKayit> GetList(int id=0)
         {
             try
             {
-                return personelKayitDal.GetList(siparisNo);
+                return personelKayitDal.GetList(id);
             }
             catch
             {

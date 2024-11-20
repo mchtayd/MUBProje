@@ -217,15 +217,15 @@ namespace UserInterface.IdariIsler
 
             if (ChkTumunuGoster.Checked == true)
             {
-                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", 0);
+                yurtIciGorevsT = yurtIciGorevManager.GetList("4.ADIM:GÖREV TAMAMLANMIŞTIR", 0);
             }
             if (CmbYillar.Text == "2021")
             {
-                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", 1990);
+                yurtIciGorevsT = yurtIciGorevManager.GetList("4.ADIM:GÖREV TAMAMLANMIŞTIR", 1990);
             }
             else
             {
-                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", CmbYillar.Text.ConInt());
+                yurtIciGorevsT = yurtIciGorevManager.GetList("4.ADIM:GÖREV TAMAMLANMIŞTIR", CmbYillar.Text.ConInt());
             }
 
             yurtIciGorevsFiltiredT = yurtIciGorevsT;
@@ -277,6 +277,14 @@ namespace UserInterface.IdariIsler
             DtgTamamlanan.Columns["Dosyayolu"].Visible = false;
             DtgTamamlanan.Columns["KalanSure"].Visible = false;
             DtgTamamlanan.Columns["Sayfa"].Visible = false;
+            DtgTamamlanan.Columns["KonaklamaTuru"].Visible = false;
+            DtgTamamlanan.Columns["HarcirahGun"].Visible = false;
+            DtgTamamlanan.Columns["HarcirahGunTl"].Visible = false;
+            DtgTamamlanan.Columns["HarcirahToplam"].Visible = false;
+            DtgTamamlanan.Columns["IaseGun"].Visible = false;
+            DtgTamamlanan.Columns["IaseGunTl"].Visible = false;
+            DtgTamamlanan.Columns["IaseToplam"].Visible = false;
+            DtgTamamlanan.Columns["OnayDurum"].HeaderText = "ONAY DURUM";
             Toplamlar();
         }
         void DataDisplayTamamlananGorevlendirme()
@@ -284,15 +292,15 @@ namespace UserInterface.IdariIsler
 
             if (ChkTumunuGoster.Checked == true)
             {
-                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", 0);
+                yurtIciGorevsT = yurtIciGorevManager.GetList("4.ADIM:GÖREV TAMAMLANMIŞTIR", 0);
             }
             if (CmbYillar.Text == "2021")
             {
-                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", 1990);
+                yurtIciGorevsT = yurtIciGorevManager.GetList("4.ADIM:GÖREV TAMAMLANMIŞTIR", 1990);
             }
             else
             {
-                yurtIciGorevsT = yurtIciGorevManager.GetList("2.ADIM:GÖREV TAMAMLANMIŞTIR", CmbYillar.Text.ConInt());
+                yurtIciGorevsT = yurtIciGorevManager.GetList("4.ADIM:GÖREV TAMAMLANMIŞTIR", CmbYillar.Text.ConInt());
             }
 
             yurtIciGorevsFiltiredT = yurtIciGorevsT;
@@ -344,6 +352,14 @@ namespace UserInterface.IdariIsler
             DtgTamamlanan.Columns["Dosyayolu"].Visible = false;
             DtgTamamlanan.Columns["KalanSure"].Visible = false;
             DtgTamamlanan.Columns["Sayfa"].Visible = false;
+            DtgTamamlanan.Columns["KonaklamaTuru"].Visible = false;
+            DtgTamamlanan.Columns["HarcirahGun"].Visible = false;
+            DtgTamamlanan.Columns["HarcirahGunTl"].Visible = false;
+            DtgTamamlanan.Columns["HarcirahToplam"].Visible = false;
+            DtgTamamlanan.Columns["IaseGun"].Visible = false;
+            DtgTamamlanan.Columns["IaseGunTl"].Visible = false;
+            DtgTamamlanan.Columns["IaseToplam"].Visible = false;
+            DtgTamamlanan.Columns["OnayDurum"].HeaderText = "ONAY DURUM";
             Toplamlar();
         }
 
@@ -619,8 +635,17 @@ namespace UserInterface.IdariIsler
             idtamamlanan = DtgTamamlanan.CurrentRow.Cells["Id"].Value.ConInt();
             konaklamaTuru = DtgTamamlanan.CurrentRow.Cells["KonaklamaTuru"].Value.ToString();
             isAkisNo = DtgTamamlanan.CurrentRow.Cells["Isakisno"].Value.ConInt();
-            webBrowser2.Navigate(dosyayolutamamlanan);
             IslemAdimlariDisplayTamamlanan();
+            try
+            {
+                webBrowser2.Navigate(dosyayolutamamlanan);
+            }
+            catch (Exception)
+            {
+                return;
+            }
+            
+            
         }
 
         void IslemAdimlariDisplay()

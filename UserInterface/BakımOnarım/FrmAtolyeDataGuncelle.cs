@@ -34,6 +34,7 @@ namespace UserInterface.BakımOnarım
         public string icSiparisNo = "";
         string siparisNo = "", bildirilenAriza, dosyaYolu = "";
         public int id, islemKayitlariId = 0;
+        public string abfNo = "";
 
 
         public FrmAtolyeDataGuncelle()
@@ -58,6 +59,7 @@ namespace UserInterface.BakımOnarım
             foreach (Atolye item in atolyes)
             {
                 siparisNo = item.SiparisNo.ToString();
+
             }
 
             Atolye atolye1 = atolyeManager.Get(siparisNo);
@@ -84,6 +86,7 @@ namespace UserInterface.BakımOnarım
             DtgAtolye.Columns["TalepTarihi"].HeaderText = "TALEP TARİHİ";
             DtgAtolye.Columns["SiparisNo"].Visible = false;
             DtgAtolye.Columns["Sec"].Visible = false;
+            DtgAtolye.Columns["TeslimDurumu"].Visible = false;
 
 
             DataDisplayAltMalzeme();
@@ -104,6 +107,14 @@ namespace UserInterface.BakımOnarım
             DtgIslemKayitlari.Columns["Sure"].HeaderText = "İŞLEM ADIMI SÜRELERİ";
             DtgIslemKayitlari.Columns["YapilanIslem"].HeaderText = "YAPILAN İŞLEM";
             DtgIslemKayitlari.Columns["CalismaSuresi"].HeaderText = "ÇALIŞMA SÜRESİ";
+            DtgIslemKayitlari.Columns["TamamlananGorev"].Visible = false;
+            DtgIslemKayitlari.Columns["BeklemeSuresi"].Visible = false;
+            DtgIslemKayitlari.Columns["SirketBolum"].Visible = false;
+            DtgIslemKayitlari.Columns["ToplamGorevSayisi"].Visible = false;
+            DtgIslemKayitlari.Columns["DevamEdenSureOrtGun"].Visible = false;
+            DtgIslemKayitlari.Columns["TamamlananGorevOrtSure"].Visible = false;
+            DtgIslemKayitlari.Columns["AbfNo"].Visible = false;
+            DtgIslemKayitlari.Columns["DevamEdenGorev"].Visible = false;
 
             DtgIslemKayitlari.Columns["CalismaSuresi"].DefaultCellStyle.Format = @"HH:mm:ss";
 
@@ -132,7 +143,39 @@ namespace UserInterface.BakımOnarım
 
         private void BtnGuncelle_Click(object sender, EventArgs e)
         {
+            DialogResult dr = MessageBox.Show("Tüm bilgileri güncellemek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                foreach (DataGridViewRow item in DtgAtolye.Rows)
+                {
+                    AtolyeMalzeme atolyeMalzeme = new AtolyeMalzeme(item.Cells["Id"].Value.ConInt(), item.Cells["StokNo"].Value.ToString(), item.Cells["Tanim"].Value.ToString(), item.Cells["SeriNo"].Value.ToString(), item.Cells["Revizyon"].Value.ToString(), item.Cells["Revizyon"].Value.ConDouble());
 
+                    atolyeMalzemeManager.AtolyeMalzemeUpdate(atolyeMalzeme);
+                }
+
+                //foreach (DataGridViewRow item in DtgIslemKayitlari.Rows)
+                //{
+                //    GorevAtamaPersonel gorevAtamaPersonel = new GorevAtamaPersonel(id, "BAKIM ONARIM ATOLYE", item.Cells["GorevAtanacakPersonel"].Value.ToString(), item.Cells["IslemAdimi"].Value.ToString(), item.Cells["Tarih"].Value.ConDate(), 
+                //        item.Cells["YapilanIslem"].Value.ToString()==null ?" ": item.Cells["YapilanIslem"].Value.ToString(),
+                //        item.Cells["CalismaSuresi"].Value.ConDate(), item.Cells["Sure"].Value.ToString());
+                //    gorevAtamaPersonelManager.AddFull(gorevAtamaPersonel);
+
+                //    gorevAtamaPersonelManager.Delete(item.Cells["Id"].Value.ConInt());
+                //}
+
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir!", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FrmBOAtolyeDevamEdenler frmBOAtolyeDevamEdenler = (FrmBOAtolyeDevamEdenler)Application.OpenForms["FrmBOAtolyeDevamEdenler"];
+                if (frmBOAtolyeDevamEdenler != null)
+                {
+                    frmBOAtolyeDevamEdenler.Yenilenecekler();
+                }
+                FrmBOAtolyeTamamlananlar frmBOAtolyeTamamlananlar = (FrmBOAtolyeTamamlananlar)Application.OpenForms["FrmBOAtolyeTamamlananlar"];
+                if (frmBOAtolyeTamamlananlar != null)
+                {
+                    frmBOAtolyeTamamlananlar.Yenilenecekler();
+                }
+                this.Close();
+            }
         }
 
         private void işlemAdımınıSilToolStripMenuItem_Click(object sender, EventArgs e)
@@ -164,7 +207,7 @@ namespace UserInterface.BakımOnarım
 
         private void BtnSil_Click(object sender, EventArgs e)
         {
-            DialogResult dr = MessageBox.Show("Kaydı Silmek İstediğinize Emin Misiniz?","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+            DialogResult dr = MessageBox.Show("Tüm kaydı silmek istediğinize emin misiniz?\nBu işlem geri alınamaz!","Soru",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
             if (dr == DialogResult.Yes)
             {
                 if (siparisNo == "")
@@ -188,7 +231,7 @@ namespace UserInterface.BakımOnarım
 
         void DepoHareketleri()
         {
-            stokGirisCikis = stokGirisCikisManager.AtolyeDepoHareketleri(icSiparisNo);
+            stokGirisCikis = stokGirisCikisManager.AtolyeDepoHareketleri(abfNo);
             DtgDepoHareketleri.DataSource = stokGirisCikis;
 
             DtgDepoHareketleri.Columns["Id"].Visible = false;

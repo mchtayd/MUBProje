@@ -1456,6 +1456,79 @@ namespace UserInterface.Gecic_Kabul_Ambar
                         abfMalzemeIslemKayitManager.Update(abfMalzemeIslemKayit1.Id, 1);
                     }
                 }
+
+
+                // yeni kod
+
+                ArizaKayit arizaKayit = arizaKayitManager.Get(abfNo.ConInt());
+                if (arizaKayit == null)
+                {
+                    return;
+                }
+
+                abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
+
+                int guncelId = 0;
+                var addItems = new HashSet<AbfMalzeme>();
+                var updateItems = new HashSet<AbfMalzeme>();
+
+
+                AbfMalzeme abfMalzeme2 = new AbfMalzeme(stokNo, tanim, seriNo, miktar, birim, 0, revizyon);
+
+                if (abfMalzemes.Any(x => x.SokulenStokNo.Equals(stokNo)))
+                {
+                    updateItems.Add(abfMalzeme2);
+                }
+                else
+                {
+                    addItems.Add(abfMalzeme2);
+                }
+
+
+
+                foreach (AbfMalzeme item in abfMalzemes)
+                {
+                    if (item.TakilanStokNo == "" && item.SokulenStokNo == stokNo)
+                    {
+                        if (abfMalzemes.Count >= 1)
+                        {
+                            guncelId = item.Id;
+                        }
+                        break;
+                    }
+                }
+
+                if (addItems.Count == 0 && updateItems.Count == 0)
+                {
+                    addItems.Add(abfMalzeme2);
+                }
+
+                foreach (AbfMalzeme item in updateItems)
+                {
+                    int sokulenId = 0;
+                    sokulenId = guncelId;
+                    abfMalzemeManager.UpdateTakilan(item, sokulenId);
+                    abfMalzemeManager.YerineMalzemeTakilma(sokulenId);
+                }
+
+                foreach (AbfMalzeme item in addItems)
+                {
+                    abfMalzemeManager.AddTakilan(item, arizaKayit.Id);
+                }
+
+
+                abfMalzeme = abfMalzemeManager.GetBulStokGirisCikisOlmayan(stokNo, arizaKayit.Id);
+
+                if (abfMalzeme != null)
+                {
+                    abfMalzemeManager.TakilanMalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN");
+
+
+                    AbfMalzemeIslemKayit abfMalzemeIslemKayit2 = new AbfMalzemeIslemKayit(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN", DateTime.Now, infos[1].ToString(), 0, "TAKILAN", stokNo, seriNo, revizyon);
+                    abfMalzemeIslemKayitManager.Add(abfMalzemeIslemKayit2);
+
+                }
+
             }
             else
             {
@@ -1464,6 +1537,7 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 {
                     return;
                 }
+
                 abfMalzemes = abfMalzemeManager.GetList(arizaKayit.Id);
 
                 int guncelId = 0;
@@ -1520,8 +1594,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                 if (abfMalzeme != null)
                 {
                     abfMalzemeManager.TakilanMalzemeTeslimBilgisiUpdate(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN");
-
-                    //AbfMalzemeIslemKayit abfMalzemeIslemKayit1 = abfMalzemeIslemKayitManager.Get(abfMalzeme.Id, abfMalzeme.SokulenTeslimDurum, stokNo, seriNo, revizyon);
 
 
                     AbfMalzemeIslemKayit abfMalzemeIslemKayit = new AbfMalzemeIslemKayit(abfMalzeme.Id, "BÖLGEYE SEVKİYAT BEKLEYEN", DateTime.Now, infos[1].ToString(), 0, "TAKILAN", stokNo, seriNo, revizyon);
@@ -1847,7 +1919,6 @@ namespace UserInterface.Gecic_Kabul_Ambar
                                             }
                                         }
                                     }
-
                                 }
                             }
                         }

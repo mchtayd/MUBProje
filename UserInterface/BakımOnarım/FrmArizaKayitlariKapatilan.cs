@@ -276,6 +276,9 @@ namespace UserInterface.BakımOnarım
             DtgSokulen.Columns["AltYukleniciKayit"].Visible = false;
             DtgSokulen.Columns["TakilanTeslimDurum"].Visible = false;
             DtgSokulen.Columns["Secim"].Visible = false;
+            DtgSokulen.Columns["Il"].Visible = false;
+            DtgSokulen.Columns["Ilce"].Visible = false;
+            DtgSokulen.Columns["DepoAdi"].Visible = false;
 
             DtgTakilan.DataSource = null;
             DtgTakilan.DataSource = abfMalzemes;
@@ -313,7 +316,9 @@ namespace UserInterface.BakımOnarım
             DtgTakilan.Columns["AltYukleniciKayit"].Visible = false;
             DtgTakilan.Columns["TakilanTeslimDurum"].HeaderText = "MALZEMENİN YERİ";
             DtgTakilan.Columns["Secim"].Visible = false;
-
+            DtgTakilan.Columns["Il"].Visible = false;
+            DtgTakilan.Columns["Ilce"].Visible = false;
+            DtgTakilan.Columns["DepoAdi"].Visible = false;
         }
         void IslemAdimlariSureleri()
         {
@@ -431,6 +436,104 @@ namespace UserInterface.BakımOnarım
             LblGenelTop.Text = $"{toplam.Hour}:{toplam.Minute}:{toplam.Second}";
         }
         string stokM, tanimM, seriNoM;
+        string sure = "";
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            foreach (DataGridViewRow item in DtgList.Rows)
+            {
+                if (item.Cells["IslemAdimi"].Value.ToString()=="ONARIMI TAMAMLANDI")
+                {
+                    List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                    gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(item.Cells["Id"].Value.ConInt(), "BAKIM ONARIM");
+
+                    foreach (GorevAtamaPersonel item2 in gorevAtamaPersonels)
+                    {
+                        if (item2.Sure=="Devam Ediyor")
+                        {
+                            DateTime birOncekiTarih = item2.Tarih;
+                            TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+                            int gun = sonuc.Days.ConInt();
+                            int saat = sonuc.Hours.ConInt();
+                            if (sonuc.Hours < 1)
+                            {
+                                saat = 0;
+                            }
+
+                            int dakika = sonuc.Seconds.ConInt() % 60;
+
+                            sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+
+                            GorevAtamaPersonel gorevAtama2 = new GorevAtamaPersonel(item2.Id, item.Cells["Id"].Value.ConInt(), "BAKIM ONARIM", "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)", sure, "00:01:00".ConOnlyTime(), infos[1].ToString());
+                            gorevAtamaPersonelManager.Update(gorevAtama2, "ARIZA SİSTEM ÜZERİNDEN KAPATILDI. (OTOMATİK)");
+                        }
+                    }
+                }
+            }
+        }
+
+        private void seçiliOlanlarıTamamlaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dr = MessageBox.Show("Bu işlem sadece 2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN) adımında olan arızalar için çalışacaktır. Seçili olan arızaların işlem adımını ONARIMI TAMAMLANDI olarak değiştirmek istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (dr==DialogResult.Yes)
+            {
+                foreach (DataGridViewRow item in DtgList.Rows)
+                {
+                    if (item.Cells["Secim"].Value.ConBool()==true && item.Cells["IslemAdimi"].Value.ToString() == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
+                    {
+                        int guncellenecekId = 0;
+                        List<GorevAtamaPersonel> gorevAtamaPersonels = new List<GorevAtamaPersonel>();
+                        gorevAtamaPersonels = gorevAtamaPersonelManager.GetDevamEdenler(id, "BAKIM ONARIM");
+
+                        foreach (GorevAtamaPersonel item2 in gorevAtamaPersonels)
+                        {
+                            if (item2.IslemAdimi == "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)")
+                            {
+                                guncellenecekId = item2.Id;
+                            }
+                        }
+
+                        string mesaj = arizaKayitManager.IslemAdimiGuncelle(item.Cells["Id"].Value.ConInt(), "ONARIMI TAMAMLANDI", "");
+                        if (mesaj != "OK")
+                        {
+                            MessageBox.Show(mesaj, "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        GorevAtamaPersonel gorevAtamaPersonel = gorevAtamaPersonelManager.Get(id, "BAKIM ONARIM");
+                        if (gorevAtamaPersonel == null)
+                        {
+                            MessageBox.Show("Malzeme Veri Geçmişine ulaşılamamıştır!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+
+                        //bulunduguIslemAdimi = gorevAtamaPersonel.IslemAdimi;
+                        DateTime birOncekiTarih = gorevAtamaPersonel.Tarih;
+                        TimeSpan sonuc = DateTime.Now - birOncekiTarih;
+
+                        int gun = sonuc.Days.ConInt();
+                        int saat = sonuc.Hours.ConInt();
+                        if (sonuc.Hours < 1)
+                        {
+                            saat = 0;
+                        }
+
+                        int dakika = sonuc.Seconds.ConInt() % 60;
+
+                        sure = gun.ToString() + " Gün " + saat.ToString() + " Saat " + dakika.ToString() + " Dakika";
+
+                        GorevAtamaPersonel gorevAtama2 = new GorevAtamaPersonel(guncellenecekId, item.Cells["Id"].Value.ConInt(), "BAKIM ONARIM", "2100_ARIZA KAPATMA BİLDİRİMİ (ASELSAN)", sure, "00:01:00".ConOnlyTime(), infos[1].ToString());
+                        gorevAtamaPersonelManager.Update(gorevAtama2, "ARIZA SİSTEM ÜZERİNDEN KAPATILDI. (OTOMATİK)");
+                    }
+                }
+                DataDisplay();
+                MessageBox.Show("Bilgiler başarıyla kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+
+        }
+
         private void raporOluşturExcelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DialogResult dr = MessageBox.Show("Tabloda bulunan verileri excele aktarmak istediğinize emin misiniz?", "Soru", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -444,23 +547,26 @@ namespace UserInterface.BakımOnarım
 
                 row.Cell(1).Value = "SIRA NO";
                 row.Cell(2).Value = "BİLDİRİM TÜRÜ";
-                row.Cell(3).Value = "ABF NO";
-                row.Cell(4).Value = "BİLDİRİM NO";
-                row.Cell(5).Value = "OKF BİLDİRİM NO";
-                row.Cell(6).Value = "KATEGORİ";
-                row.Cell(7).Value = "PROJE TANIMI";
-                row.Cell(8).Value = "BÖLGE ADI";
-                row.Cell(9).Value = "İL";
-                row.Cell(10).Value = "İLÇE";
-                row.Cell(11).Value = "PROJE";
-                row.Cell(12).Value = "ÜS TAKIM STOK";
-                row.Cell(13).Value = "ÜST TAKIM TANIM";
-                row.Cell(14).Value = "ÜST TAKIM SERİ NO";
-                row.Cell(15).Value = "ARIZA BİLDİRİM TARİHİ";
-                row.Cell(16).Value = "ARIZALI MALZEMELER STOK";
-                row.Cell(17).Value = "ARIZALI MALZEMELER TANIM";
-                row.Cell(18).Value = "ARIZALI MALZEMELER SERİ NO";
-                row.Cell(19).Value = "TESPİT EDİLEN ARIZA";
+                row.Cell(3).Value = "ARIZA BEKLEME SÜRESİ(GÜN)";
+                row.Cell(4).Value = "İŞLEM ADIMI SÜRESİ(GÜN)";
+                row.Cell(5).Value = "ABF NO";
+                row.Cell(6).Value = "BİLDİRİM NO";
+                row.Cell(7).Value = "OKF BİLDİRİM NO";
+                row.Cell(8).Value = "KATEGORİ";
+                row.Cell(9).Value = "PROJE TANIMI";
+                row.Cell(10).Value = "BÖLGE ADI";
+                row.Cell(11).Value = "BULUNDUĞU İŞLEM ADIMI";
+                row.Cell(12).Value = "İL";
+                row.Cell(13).Value = "İLÇE";
+                row.Cell(14).Value = "PROJE";
+                row.Cell(15).Value = "ÜS TAKIM STOK";
+                row.Cell(16).Value = "ÜST TAKIM TANIM";
+                row.Cell(17).Value = "ÜST TAKIM SERİ NO";
+                row.Cell(18).Value = "ARIZA BİLDİRİM TARİHİ";
+                row.Cell(19).Value = "ARIZALI MALZEMELER STOK";
+                row.Cell(20).Value = "ARIZALI MALZEMELER TANIM";
+                row.Cell(21).Value = "ARIZALI MALZEMELER SERİ NO";
+                row.Cell(22).Value = "TESPİT EDİLEN ARIZA";
 
                 row.Height = row.Height * 1.5;
                 row.Cells().Style.Font.Bold = true;
@@ -476,19 +582,22 @@ namespace UserInterface.BakımOnarım
                     {
                         row.Cell("A").Value = sayac.ToString();
                         row.Cell("B").Value = arizaKayit.BildirimTuru;
-                        row.Cell("C").Value = arizaKayit.AbfFormNo.ToString();
-                        row.Cell("D").Value = arizaKayit.BildirimNo;
-                        row.Cell("E").Value = arizaKayit.OkfBildirimNo;
-                        row.Cell("F").Value = arizaKayit.Kategori;
-                        row.Cell("G").Value = arizaKayit.ProjeTanimi;
-                        row.Cell("H").Value = arizaKayit.BolgeAdi;
-                        row.Cell("I").Value = arizaKayit.Il;
-                        row.Cell("J").Value = arizaKayit.Ilce;
-                        row.Cell("K").Value = arizaKayit.Proje;
-                        row.Cell("L").Value = arizaKayit.StokNo;
-                        row.Cell("M").Value = arizaKayit.Tanim;
-                        row.Cell("N").Value = arizaKayit.SeriNo;
-                        row.Cell("O").Value = arizaKayit.AbTarihSaat.ToString("d");
+                        row.Cell("C").Value = arizaKayit.GecenSure;
+                        row.Cell("D").Value = item.Cells["GorevBeklemeSuresi"].Value.ToString();
+                        row.Cell("E").Value = arizaKayit.AbfFormNo.ToString();
+                        row.Cell("F").Value = arizaKayit.BildirimNo;
+                        row.Cell("G").Value = arizaKayit.OkfBildirimNo;
+                        row.Cell("H").Value = arizaKayit.Kategori;
+                        row.Cell("I").Value = arizaKayit.ProjeTanimi;
+                        row.Cell("J").Value = arizaKayit.BolgeAdi;
+                        row.Cell("K").Value = arizaKayit.IslemAdimi;
+                        row.Cell("L").Value = arizaKayit.Il;
+                        row.Cell("M").Value = arizaKayit.Ilce;
+                        row.Cell("N").Value = arizaKayit.Proje;
+                        row.Cell("O").Value = arizaKayit.StokNo;
+                        row.Cell("P").Value = arizaKayit.Tanim;
+                        row.Cell("Q").Value = arizaKayit.SeriNo;
+                        row.Cell("R").Value = arizaKayit.AbTarihSaat.ToString("d");
                         List<AbfMalzeme> abfMalzemes = new List<AbfMalzeme>();
                         abfMalzemes = abfMalzemeManager.GetList(item.Cells["Id"].Value.ConInt());
                         int sayac2 = 0;
@@ -519,10 +628,10 @@ namespace UserInterface.BakımOnarım
                             }
                         }
 
-                        row.Cell("P").Value = stokM;
-                        row.Cell("Q").Value = tanimM;
-                        row.Cell("R").Value = seriNoM;
-                        row.Cell("S").Value = arizaKayit.TespitEdilenAriza;
+                        row.Cell("S").Value = stokM;
+                        row.Cell("T").Value = tanimM;
+                        row.Cell("U").Value = seriNoM;
+                        row.Cell("V").Value = arizaKayit.TespitEdilenAriza;
 
                         row = row.RowBelow();
 
@@ -636,13 +745,15 @@ namespace UserInterface.BakımOnarım
 
         private void FrmArizaKayitlariKapatilan_Load(object sender, EventArgs e)
         {
-            if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39)
+            if (infos[11].ToString() == "YÖNETİCİ" || infos[11].ToString() == "ADMİN" || infos[0].ConInt() == 39 || infos[0].ConInt() == 2174)
             {
                 contextMenuStrip1.Items[0].Enabled = true;
+                contextMenuStrip1.Items[5].Enabled = true;
             }
             else
             {
                 contextMenuStrip1.Items[0].Enabled = false;
+                contextMenuStrip1.Items[5].Enabled = false;
             }
             DataDisplay();
         }

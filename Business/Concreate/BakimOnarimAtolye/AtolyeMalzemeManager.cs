@@ -105,6 +105,17 @@ namespace Business.Concreate.BakimOnarimAtolye
                 return ex.Message;
             }
         }
+        public string AtolyeMalzemeUpdate(AtolyeMalzeme entity)
+        {
+            try
+            {
+                return atolyeMalzemeDal.AtolyeMalzemeUpdate(entity);
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+            }
+        }
         public static AtolyeMalzemeManager GetInstance()
         {
             if (atolyeMalzemeManager == null)

@@ -1251,16 +1251,19 @@ namespace UserInterface.BakımOnarım
                     return;
                 }
                 TaslakKopyala();
+                
+                personel = "";
+                IsAkisNo();
+                IsAkisNoAK();
+                DtsLogKayitSiparis();
+
                 bool kontrol = SetExcelInfoArizaKayitOlustur();
                 if (kontrol == false)
                 {
                     MessageBox.Show("Excel Oluşturulurken hata oluştu.", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                personel = "";
-                IsAkisNo();
-                IsAkisNoAK();
-                DtsLogKayitSiparis();
+
                 MessageBox.Show("Bilgiler Başarıyla Kaydedilmiştir.", "Bilgi", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SiparisTemizle();
                 TemizleSiparisOlustur();
@@ -1363,11 +1366,12 @@ namespace UserInterface.BakımOnarım
             DtgFormBilgileriKapat.Rows[sonSatir].Cells["SeriNoK"].Value = arizaKayit.SeriNo;
             DtgFormBilgileriKapat.Rows[sonSatir].Cells["ArizaBildirimTarihiK"].Value = arizaKayit.AbTarihSaat.ToString();
             DtgFormBilgileriKapat.Rows[sonSatir].Cells["BolgeSorumlusuK"].Value = arizaKayit.AcmaOnayiVeren;
-
+            CmbGarantiDurumuKapatma.Text = arizaKayit.GarantiDurumu;
             CmbParcaTanim.Text = arizaKayit.Tanim;
             TxtUstSeriNo.Text = arizaKayit.SeriNo;
             CmbKategoriK.Text = arizaKayit.Kategori;
             CmbIlgiliFirmaK.Text = arizaKayit.IlgiliFirma;
+
             CmbPyp.Text = arizaKayit.PypNo;
 
             if (CmbPyp.Text == "")
@@ -1395,6 +1399,7 @@ namespace UserInterface.BakımOnarım
             abfForm = arizaKayit.AbfFormNo;
             arizaId = arizaKayit.Id;
             bolgeAdi = arizaKayit.BolgeAdi;
+            isAkisNo = arizaKayit.IsAkisNo.ToString();
 
             BolgeKayit bolge = bolgeKayitManager.Get(0, bolgeAdi);
             if (bolge == null)
@@ -1642,7 +1647,7 @@ namespace UserInterface.BakımOnarım
                     eksikEvrak = 1;
                 }
 
-                ArizaKayit arizaKayit = new ArizaKayit(arizaId, TxtArizaOnarimNotu.Text, CmbTeslimEden.Text, LblTeslimAlanPersonel.Text, teslimTarihi, CmbNesneTanimi.Text, CmbHasarKodu.Text, CmbNedenKodu.Text, eksikEvrak, CmbParcaTanim.Text, LblUstStok.Text, TxtUstSeriNo.Text, CmbKategoriK.Text, CmbIlgiliFirmaK.Text, CmbBildirimTuruK.Text, CmbPyp.Text, CmbSorumluPersonel.Text, CmbSiparisTuru.Text, CmbIslemTuruKapatma.Text, CmbHesaplama.Text, TxtBildirimNoK.Text.Trim(), DtAselsanMail.Value.ToString("d"));
+                ArizaKayit arizaKayit = new ArizaKayit(arizaId, TxtArizaOnarimNotu.Text, CmbTeslimEden.Text, LblTeslimAlanPersonel.Text, teslimTarihi, CmbNesneTanimi.Text, CmbHasarKodu.Text, CmbNedenKodu.Text, eksikEvrak, CmbParcaTanim.Text, LblUstStok.Text, TxtUstSeriNo.Text, CmbKategoriK.Text, CmbIlgiliFirmaK.Text, CmbBildirimTuruK.Text, CmbPyp.Text, CmbSorumluPersonel.Text, CmbSiparisTuru.Text, CmbIslemTuruKapatma.Text, CmbHesaplama.Text, TxtBildirimNoK.Text.Trim(), DtAselsanMail.Value.ToString("d"), CmbGarantiDurumuKapatma.Text);
 
                 string message = arizaKayitManager.KapatKayit(arizaKayit);
                 if (message != "OK")
@@ -1699,9 +1704,21 @@ namespace UserInterface.BakımOnarım
             worksheet.Cell("Z99").Value = CmbNedenKodu.Text; // NEDEN KODU
             worksheet.Cell("AH99").Value = TxtArizaOnarimNotu.Text; // AÇIKLAMA
 
+            int hucreIndex = 1;
+            for(int i=0;i< abfMalzemes.Count(); i++)
+            {
+                worksheet.Cell("I5"+ hucreIndex.ToString()).Value = abfMalzemes[i].SokulenStokNo; // MALZEME STOK
+                worksheet.Cell("Q5" + hucreIndex.ToString()).Value = abfMalzemes[i].SokulenSeriNo; // MALZEME SERİ
+                worksheet.Cell("U5" + hucreIndex.ToString()).Value = abfMalzemes[i].SokulenMiktar; // MALZEME MİKTAR
+                worksheet.Cell("AO5" + hucreIndex.ToString()).Value = abfMalzemes[i].TakilanSeriNo; // MALZEME MİKTAR
+                hucreIndex++;
+            }
+
+            
+
             if (dosyaYolu != "")
             {
-                xLWorkbook.SaveAs(dosyaYolu + bolgeAdi + " " + abfForm + ".xlsx");
+                xLWorkbook.SaveAs(dosyaYolu + "\\" + isAkisNo + " " + bolgeAdi + " " + abf + ".xlsx");
             }
 
             return "OK";
@@ -1713,6 +1730,7 @@ namespace UserInterface.BakımOnarım
             DtgIslemKayitlari.DataSource = null; webBrowser2.Navigate(""); TxtArizaOnarimNotu.Clear(); CmbTeslimEden.SelectedIndex = -1; TxtSicil.Clear();
             CmbNesneTanimi.SelectedIndex = -1; CmbHasarKodu.SelectedIndex = -1; CmbNedenKodu.SelectedIndex = -1; CmbSonuc.Text = ""; ChkEksikEvrak.Checked = false;
             CmbKategoriK.SelectedIndex = -1; CmbParcaTanim.SelectedIndex = -1; LblUstStok.Text = "00"; TxtUstSeriNo.Clear(); CmbIlgiliFirmaK.SelectedIndex = -1; CmbBildirimTuruK.SelectedIndex = -1; CmbPyp.SelectedIndex = -1; DtAselsanMail.Value = DateTime.Now; LblIslemAdimSureleri.Text = "00"; LblGenelTop.Text = "00";
+            CmbGarantiDurumuKapatma.SelectedIndex = -1;
         }
         string KayitKapatKontrol()
         {

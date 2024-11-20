@@ -131,12 +131,12 @@ namespace DataAccess.Concreate.IdariIsler
             }
         }
 
-        public List<PersonelKayit> GetList(string siparisno)
+        public List<PersonelKayit> GetList(int id)
         {
             try
             {
                 List<PersonelKayit> sicilNos = new List<PersonelKayit>();
-                dataReader = sqlServices.StoreReader("PersonelleriGoster", new SqlParameter("@siparisNo", siparisno));
+                dataReader = sqlServices.StoreReader("PersonelleriGoster", new SqlParameter("@id", id));
                 while (dataReader.Read())
                 {
                     sicilNos.Add(new PersonelKayit(dataReader["ID"].ConInt(), dataReader["AD_SOYAD"].ToString(), dataReader["TC"].ToString(), dataReader["HES_KODU"].ToString(),

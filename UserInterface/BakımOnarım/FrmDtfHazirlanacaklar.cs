@@ -158,6 +158,9 @@ namespace UserInterface.BakımOnarım
             DtgList.Columns["YapilacakIslem"].HeaderText = "YAPILACAK İŞLEM";
             DtgList.Columns["YerineMalzemeTakilma"].HeaderText = "YERİNE MALZEME TAKILDI MI?";
             DtgList.Columns["DosyaYolu"].Visible = false;
+            DtgList.Columns["Il"].HeaderText = "İL";
+            DtgList.Columns["Ilce"].HeaderText = "İLÇE";
+            DtgList.Columns["DepoAdi"].HeaderText = "DEPO ADI";
 
             DtgList.Columns["SokulenTeslimDurum"].DisplayIndex = 1;
             DtgList.Columns["SokulenStokNo"].DisplayIndex = 2;
@@ -254,6 +257,16 @@ namespace UserInterface.BakımOnarım
             malzemeId = DtgList.CurrentRow.Cells["Id"].Value.ConInt();
             malzeme =  stokNo + " | " + tanim.Trim() + " | " + seriNo + " | " + miktar + " | " + birim;
             TxtIsinTanimi.Text += "\n\n"+ malzeme;
+
+            Malzeme malzeme2 = malzemeManager.Get(stokNo);
+            if (malzeme2 != null)
+            {
+                if (malzeme2.TakipDurumu=="LOT NO" && seriNo!="N/A")
+                {
+                    MessageBox.Show(abfNo + " Abf numaralı arızaya ait " + stokNo + " stok numaralı malzemenin, Malzeme Takip Durumu " + malzeme2.TakipDurumu + " ile yapılmaktadır. Fakat arıza kaydına seri no bilgisi yazılmıştır.\nLütfen bu malzemeye ait malzeme kaydını, malzeme takip durumu SERİ NO olacak şekilde düzeltiniz veya Admin ile görüşünüz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    Temizle();
+                }
+            }
         }
 
         string Control()

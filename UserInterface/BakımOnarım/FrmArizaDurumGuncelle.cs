@@ -92,17 +92,28 @@ namespace UserInterface.BakımOnarım
             {
                 BulClick();
             }
-            if (LblMevcutIslemAdimi.Text != "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
+            if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33" || infos[0].ToString() == "25")
             {
-                if (LblMevcutIslemAdimi.Text != "1500_BAKIM ONARIM (SAHA)")
+
+            }
+            else
+            {
+                if (LblMevcutIslemAdimi.Text != "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
                 {
-                    if (LblMevcutIslemAdimi.Text != "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+                    if (LblMevcutIslemAdimi.Text != "1500_BAKIM ONARIM (SAHA)")
                     {
-                        GrbMalzemeBilgileri.Visible = false;
-                        BtnKaydet.Location = new System.Drawing.Point(161, 405);
-                        GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
-                        GrbVeriGecmisi.Visible = true;
-                        start = false;
+                        if (LblMevcutIslemAdimi.Text != "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
+                        {
+                            GrbMalzemeBilgileri.Visible = false;
+                            BtnKaydet.Location = new System.Drawing.Point(161, 405);
+                            GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
+                            GrbVeriGecmisi.Visible = true;
+                            start = false;
+                        }
+                        else
+                        {
+                            GrbVeriGecmisi.Visible = false;
+                        }
                     }
                     else
                     {
@@ -114,10 +125,7 @@ namespace UserInterface.BakımOnarım
                     GrbVeriGecmisi.Visible = false;
                 }
             }
-            else
-            {
-                GrbVeriGecmisi.Visible = false;
-            }
+            
             start = false;
         }
 
@@ -214,7 +222,7 @@ namespace UserInterface.BakımOnarım
             {
                 if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
                 {
-                    
+
                 }
                 else
                 {
@@ -225,14 +233,14 @@ namespace UserInterface.BakımOnarım
                     BtnSokulenEkle.Enabled = true;
                     BtnEkle.Enabled = false;
                 }
-                
+
                 //tabControl1.TabPages[0].remo
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
                 if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
                 {
-                    
+
                 }
                 else
                 {
@@ -265,9 +273,7 @@ namespace UserInterface.BakımOnarım
                             c.FlatStyle = FlatStyle.Popup;
                             c.DefaultCellStyle.ForeColor = Color.Red;
                             c.DefaultCellStyle.BackColor = Color.Gainsboro;
-
                         }
-
                     }
                 }
             }
@@ -275,16 +281,21 @@ namespace UserInterface.BakımOnarım
 
             if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
             {
+
                 if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
                 {
-                    return;
+                    
                 }
-                GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new System.Drawing.Point(29, 831);
-                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-                GrbVeriGecmisi.Visible = false;
-                BtnSokulenEkle.Enabled = true;
-                BtnEkle.Enabled = false;
+                else
+                {
+                    GrbMalzemeBilgileri.Visible = true;
+                    BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                    GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
+                    GrbVeriGecmisi.Visible = false;
+                    BtnSokulenEkle.Enabled = true;
+                    BtnEkle.Enabled = false;
+                }
+                
 
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
             }
@@ -902,20 +913,35 @@ namespace UserInterface.BakımOnarım
             GrbMalzemeBilgileri.Location = new System.Drawing.Point(118, 460);
             if (LblMevcutIslemAdimi.Text == "200_ARIZA TESPİTİ (FI/FD) (SAHA)")
             {
-                GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new System.Drawing.Point(29, 831);
-                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-                GrbVeriGecmisi.Visible = false;
-                //ChkKapat.Text = "SADECE AÇIKLAMA EKLE";
-                //ChkKapat.Visible = true;
-                //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
+                if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
+                {
+
+                }
+                else
+                {
+                    GrbMalzemeBilgileri.Visible = true;
+                    BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                    GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
+                    GrbVeriGecmisi.Visible = false;
+                    BtnSokulenEkle.Enabled = true;
+                    BtnEkle.Enabled = false;
+                }
             }
             if (LblMevcutIslemAdimi.Text == "1500_BAKIM ONARIM (SAHA)")
             {
-                GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new System.Drawing.Point(29, 831);
-                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-                GrbVeriGecmisi.Visible = false;
+                if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
+                {
+
+                }
+                else
+                {
+                    GrbMalzemeBilgileri.Visible = true;
+                    BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                    GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
+                    GrbVeriGecmisi.Visible = false;
+                    BtnSokulenEkle.Enabled = true;
+                    BtnEkle.Enabled = false;
+                }
                 //ChkKapat.Text = "SADECE AÇIKLAMA EKLE";
                 //ChkKapat.Visible = true;
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage1"]);
@@ -923,10 +949,19 @@ namespace UserInterface.BakımOnarım
 
             if (LblMevcutIslemAdimi.Text == "300_ONARIM SONRASI ARIZA TESPİTİ (SAHA)")
             {
-                GrbMalzemeBilgileri.Visible = true;
-                BtnKaydet.Location = new System.Drawing.Point(29, 831);
-                GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
-                GrbVeriGecmisi.Visible = false;
+                if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33")
+                {
+
+                }
+                else
+                {
+                    GrbMalzemeBilgileri.Visible = true;
+                    BtnKaydet.Location = new System.Drawing.Point(29, 831);
+                    GrbMalzemeBilgileri.Location = new System.Drawing.Point(18, 415);
+                    GrbVeriGecmisi.Visible = false;
+                    BtnSokulenEkle.Enabled = true;
+                    BtnEkle.Enabled = false;
+                }
                 //ChkKapat.Text = "SADECE AÇIKLAMA EKLE";
                 //ChkKapat.Visible = true;
                 //tabControl1.TabPages.Remove(tabControl1.TabPages["tabPage2"]);
@@ -1014,6 +1049,9 @@ namespace UserInterface.BakımOnarım
             DtgMalzemeListesi.Columns["DosyaYolu"].Visible = false;
             DtgMalzemeListesi.Columns["AltYukleniciKayit"].HeaderText = "ALT YÜKLENİCİ FİRMA";
             DtgMalzemeListesi.Columns["TakilanTeslimDurum"].HeaderText = "TAKILAN MALZEME TESLİMİ";
+            DtgMalzemeListesi.Columns["Il"].Visible = false;
+            DtgMalzemeListesi.Columns["Ilce"].Visible = false;
+            DtgMalzemeListesi.Columns["DepoAdi"].Visible = false;
 
             DtgMalzemeListesi.Columns["TakilanTeslimDurum"].DisplayIndex = 26;
 
@@ -1027,7 +1065,7 @@ namespace UserInterface.BakımOnarım
             }
             if (CmbIslemAdimi.Text == "2000_ARIZA KAPATMA (DTS)")
             {
-                CmbGorevAtanacakPersonel.Text = "EMEL AYHAN";
+                CmbGorevAtanacakPersonel.Text = "EZGİ MESCİOĞLU";
             }
         }
 
@@ -1607,8 +1645,16 @@ namespace UserInterface.BakımOnarım
 
                                 if (DtgTakilan.RowCount == 0)
                                 {
-                                    MessageBox.Show("Lütfen takılan malzeme bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    return;
+                                    if (infos[0].ToString() == "2174" || infos[0].ToString() == "39" || infos[0].ToString() == "33" || infos[0].ToString() == "25")
+                                    {
+                                        
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("Lütfen takılan malzeme bilgilerini doldurunuz!", "Hata", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        return;
+                                    }
+                                    
                                 }
 
                             }

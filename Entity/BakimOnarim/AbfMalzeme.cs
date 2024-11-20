@@ -8,7 +8,7 @@ namespace Entity.BakimOnarim
 {
     public class AbfMalzeme
     {
-        int id, benzersizId; string sokulenStokNo, sokulenTanim, sokulenSeriNo; int sokulenMiktar; string sokulenBirim; double sokulenCalismaSaati; string sokulenRevizyon, calismaDurumu, fizikselDurum, yapilacakIslem, takilanStokNo, takilanTanim, takilanSeriNo; int takilanMiktar; string takilanBirim; double takilanCalismaSaati; string takilanRevizyon, teminDurumu; int abfNo; DateTime abTarihSaat, temineAtilamTarihi; string malzemeDurumu, malzemeIslemAdimi, sokulenTeslimDurum, bolgeAdi, bolgeSorumlusu, yerineMalzemeTakilma, dosyaYolu, altYukleniciKayit, takilanTeslimDurum; bool secim = false;
+        int id, benzersizId; string sokulenStokNo, sokulenTanim, sokulenSeriNo; int sokulenMiktar; string sokulenBirim; double sokulenCalismaSaati; string sokulenRevizyon, calismaDurumu, fizikselDurum, yapilacakIslem, takilanStokNo, takilanTanim, takilanSeriNo; int takilanMiktar; string takilanBirim; double takilanCalismaSaati; string takilanRevizyon, teminDurumu; int abfNo; DateTime abTarihSaat, temineAtilamTarihi; string malzemeDurumu, malzemeIslemAdimi, sokulenTeslimDurum, bolgeAdi, bolgeSorumlusu, yerineMalzemeTakilma, dosyaYolu, altYukleniciKayit, takilanTeslimDurum; bool secim = false;string il, ilce, depoAdi;
 
         public int Id { get => id; set => id = value; }
         public int BenzersizId { get => benzersizId; set => benzersizId = value; }
@@ -43,6 +43,9 @@ namespace Entity.BakimOnarim
         public string AltYukleniciKayit { get => altYukleniciKayit; set => altYukleniciKayit = value; }
         public string TakilanTeslimDurum { get => takilanTeslimDurum; set => takilanTeslimDurum = value; }
         public bool Secim { get => secim; set => secim = value; }
+        public string Il { get => il; set => il = value; }
+        public string Ilce { get => ilce; set => ilce = value; }
+        public string DepoAdi { get => depoAdi; set => depoAdi = value; }
 
         public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, double sokulenCalismaSaati, string sokulenRevizyon, string calismaDurumu, string fizikselDurum, string yapilacakIslem, string takilanStokNo, string takilanTanim, string takilanSeriNo, int takilanMiktar, string takilanBirim, double takilanCalismaSaati, string takilanRevizyon, string teminDurumu, string malzemeIslemAdimi, string sokulenTeslimDurum, string yerineMalzemeTakilma, string dosyaYolu, string altYukleniciKayit, string takilanTeslimDurum,bool secim=false)
         {
@@ -120,7 +123,7 @@ namespace Entity.BakimOnarim
             this.malzemeIslemAdimi = malzemeIslemAdimi;
         }
 
-        public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon, int abfNo, string sokulenTeslimDurum, string bolgeAdi,string bolgeSorumlusu, string yapilacakIslem, string yerineMalzemeTakilma, string dosyaYolu, string fizikselDurum, string altYukleniciKayit)
+        public AbfMalzeme(int id, int benzersizId, string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon, int abfNo, string sokulenTeslimDurum, string bolgeAdi,string bolgeSorumlusu, string yapilacakIslem, string yerineMalzemeTakilma, string dosyaYolu, string fizikselDurum, string altYukleniciKayit, string il, string ilce, string depoAdi)
         {
             this.id = id;
             this.benzersizId = benzersizId;
@@ -139,6 +142,9 @@ namespace Entity.BakimOnarim
             this.dosyaYolu = dosyaYolu;
             this.fizikselDurum = fizikselDurum;
             this.altYukleniciKayit = altYukleniciKayit;
+            this.il = il;
+            this.ilce = ilce;
+            this.depoAdi = depoAdi;
         }
 
         public AbfMalzeme(string sokulenStokNo, string sokulenTanim, string sokulenSeriNo, int sokulenMiktar, string sokulenBirim, string sokulenRevizyon)

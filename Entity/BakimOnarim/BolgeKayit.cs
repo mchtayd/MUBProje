@@ -8,7 +8,7 @@ namespace Entity.BakimOnarim
 {
     public class BolgeKayit
     {
-        int id; string bolgeAdi, kodAdi, usBolgesiStok, proje; DateTime kabulTarihi; string guvenlikYazilimi, kesifGozetlemeTuru, yasamAlani, tabur, tugay, il, ilce, birlikAdresi; DateTime garantiBaslama, garantiBitis; string bolgeSorumlusu, depo, pypNo, siparisNo, dosyaYolu, tepeSorumlusu, projeSistem, musteri; bool secim;
+        int id; string bolgeAdi, kodAdi, usBolgesiStok, proje; DateTime kabulTarihi; string guvenlikYazilimi, kesifGozetlemeTuru, yasamAlani, tabur, tugay, il, ilce, birlikAdresi; DateTime garantiBaslama, garantiBitis; string bolgeSorumlusu, depo, pypNo, siparisNo, dosyaYolu, tepeSorumlusu, projeSistem, musteri; bool secim; int rakim;
 
         public int Id { get => id; set => id = value; }
         public string BolgeAdi { get => bolgeAdi; set => bolgeAdi = value; }
@@ -35,8 +35,9 @@ namespace Entity.BakimOnarim
         public string ProjeSistem { get => projeSistem; set => projeSistem = value; }
         public string Musteri { get => musteri; set => musteri = value; }
         public bool Secim { get => secim; set => secim = value; }
+        public int Rakim { get => rakim; set => rakim = value; }
 
-        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu, string tepeSorumlusu, string projeSistem, string musteri)
+        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu, string tepeSorumlusu, string projeSistem, string musteri,int rakim)
         {
             this.id = id;
             this.bolgeAdi = bolgeAdi;
@@ -62,9 +63,10 @@ namespace Entity.BakimOnarim
             this.tepeSorumlusu = tepeSorumlusu;
             this.projeSistem = projeSistem;
             Musteri = musteri;
+            this.rakim = rakim;
          }
 
-        public BolgeKayit(string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu, string tepeSorumlusu, string projeSistem, string musteri)
+        public BolgeKayit(string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, DateTime garantiBaslama, DateTime garantiBitis, string bolgeSorumlusu, string depo, string pypNo, string siparisNo, string dosyaYolu, string tepeSorumlusu, string projeSistem, string musteri,int rakim)
         {
             this.bolgeAdi = bolgeAdi;
             this.kodAdi = kodAdi;
@@ -89,9 +91,10 @@ namespace Entity.BakimOnarim
             this.tepeSorumlusu = tepeSorumlusu;
             this.projeSistem = projeSistem;
             this.musteri = musteri;
+            this.rakim = rakim;
         }
 
-        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, string bolgeSorumlusu, string depo, string pypNo, DateTime garantiBaslama, DateTime garantiBitis, string dosyaYolu, string tepeSorumlusu, string projeSistem, string musteri)
+        public BolgeKayit(int id, string bolgeAdi, string kodAdi, string proje, string usBolgesiStok, DateTime kabulTarihi, string guvenlikYazilimi, string kesifGozetlemeTuru, string yasamAlani, string tabur, string tugay, string il, string ilce, string birlikAdresi, string bolgeSorumlusu, string depo, string pypNo, DateTime garantiBaslama, DateTime garantiBitis, string dosyaYolu, string tepeSorumlusu, string projeSistem, string musteri, int rakim)
         {
             this.id = id;
             this.bolgeAdi = bolgeAdi;
@@ -116,6 +119,7 @@ namespace Entity.BakimOnarim
             this.tepeSorumlusu = tepeSorumlusu;
             this.projeSistem = projeSistem;
             this.musteri = musteri;
+            this.rakim = rakim;
         }
 
         public BolgeKayit(string tugay)

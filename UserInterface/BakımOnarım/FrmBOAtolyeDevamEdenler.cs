@@ -428,6 +428,7 @@ namespace UserInterface.BakımOnarım
         {
             FrmAtolyeDataGuncelle frmAtolyeDataGuncelle = new FrmAtolyeDataGuncelle();
             frmAtolyeDataGuncelle.id = id;
+            frmAtolyeDataGuncelle.abfNo = abfNo.ToString();
             frmAtolyeDataGuncelle.ShowDialog();
         }
 
